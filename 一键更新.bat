@@ -8,11 +8,14 @@ echo.
 
 cd /d "%~dp0"
 
-:: 填入你的密钥（只改这两行）
-set DEEPSEEK_API_KEY=sk-2409323722314659b5130dfeda20b4c0
-set GITHUB_TOKEN=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
+:: 加载本地密钥
+if exist secrets.bat (
+    call secrets.bat
+) else (
+    echo [错误] 找不到 secrets.bat
+    pause
+    exit /b 1
+)
 
 python deploy.py
-
-echo.
 pause
