@@ -17,5 +17,13 @@ if exist secrets.bat (
     exit /b 1
 )
 
+:: 禁用 Git 弹窗
+set GIT_TERMINAL_PROMPT=0
+
+:: 确保 remote 包含 Token
+git remote set-url origin https://%GITHUB_TOKEN%@github.com/wx409/wx409.github.io.git
+
 python deploy.py
+
+echo.
 pause
