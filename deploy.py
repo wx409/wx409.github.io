@@ -13,18 +13,14 @@ import requests
 from datetime import datetime
 
 # ==================== 配置区 ====================
-# DeepSeek API Key（从环境变量读取，或在 bat 里设置）
+# 从环境变量读取，或在 一键更新.bat 里设置
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 DEEPSEEK_MODEL = "deepseek-v4-flash"  # 如果报错改成 "deepseek-chat"
 
-# Git 身份
 GIT_NAME = "wx409"
 GIT_EMAIL = "hs8f845fj7@privaterelay.appleid.com"
-
-# GitHub Token（从环境变量 GITHUB_TOKEN 读取）
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-# 文件路径
 CSV_FILE = "data/links.csv"
 JSON_FILE = "data/social_links.json"
 BILI_FILE = "data/bilibili_posts.json"
@@ -194,20 +190,19 @@ def generate_wall():
     
     items.sort(key=lambda x: x["date"] or "1970-01-01", reverse=True)
     
-    css = """<<style>
-.social-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin:24px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-.social-card{border:1px solid #e1e4e8;border-radius:12px;padding:16px;background:#fff;transition:all .2s}
-.social-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.1)}
-.platform-badge{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;margin-bottom:10px;letter-spacing:.5px}
-.badge-bilibili{background:#00a1d6;color:#fff}.badge-weibo{background:#e6162d;color:#fff}
-.badge-xiaohongshu{background:#ff2442;color:#fff}.badge-douyin{background:#1c1c1c;color:#fff}
-.card-title{font-size:16px;font-weight:600;margin:6px 0;line-height:1.4}
+    css = """<style>
+.social-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:16px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.social-card{border:1px solid #e1e4e8;border-radius:10px;padding:14px;background:#fff;transition:all .2s}
+.social-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.platform-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-bottom:8px;color:#fff}
+.badge-bilibili{background:#00a1d6}.badge-weibo{background:#e6162d}.badge-xiaohongshu{background:#ff2442}.badge-douyin{background:#1c1c1c}
+.card-title{font-size:15px;font-weight:600;margin:4px 0;line-height:1.4}
 .card-title a{color:#24292e;text-decoration:none}.card-title a:hover{color:#0969da;text-decoration:underline}
-.card-summary{font-size:14px;color:#57606a;line-height:1.6;margin:8px 0}
-.card-meta{font-size:12px;color:#8c959f;display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid #f6f8fa}
-.card-tags{margin-top:8px}.tag{display:inline-block;font-size:11px;padding:2px 8px;background:#ddf4ff;color:#0969da;border-radius:12px;margin-right:6px;margin-bottom:4px}
-.card-cover{width:100%;height:170px;object-fit:cover;border-radius:8px;margin-bottom:12px;background:#f6f8fa}
-.empty-state{text-align:center;padding:40px;color:#8c959f;font-size:14px}
+.card-summary{font-size:13px;color:#57606a;line-height:1.5;margin:6px 0}
+.card-meta{font-size:11px;color:#8c959f;display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid #f6f8fa}
+.card-tags{margin-top:6px}.tag{display:inline-block;font-size:10px;padding:2px 6px;background:#ddf4ff;color:#0969da;border-radius:10px;margin-right:4px;margin-bottom:3px}
+.card-cover{width:100%;height:150px;object-fit:cover;border-radius:6px;margin-bottom:8px;background:#f6f8fa}
+.empty-state{text-align:center;padding:30px;color:#8c959f;font-size:13px}
 </style>"""
     
     html = [f'<!-- 社交聚合墙 · 自动生成 · {datetime.now().strftime("%Y-%m-%d %H:%M")} -->']
@@ -220,7 +215,7 @@ def generate_wall():
             p = it["platform"]
             cover = f'<img class="card-cover" src="{it["pic"]}" alt="" loading="lazy">' if it.get("pic") else ""
             tags = "".join([f'<span class="tag">{t}</span>' for t in it.get("tags", [])])
-            html.append(f"""<<div class="social-card">
+            html.append(f"""<div class="social-card">
 <div class="platform-badge badge-{p}">{it["badge"]}</div>
 {cover}
 <div class="card-title"><a href="{it["url"]}" target="_blank" rel="noopener nofollow">{it["title"]}</a></div>
@@ -237,17 +232,14 @@ def generate_wall():
 
 def inject_index():
     if not os.path.exists("index.html"):
-        log("!", "未找到 index.html，请手动复制 social_wall.html 内容"); return False
+        log("!", "未找到 index.html"); return False
     
     with open("index.html", "r", encoding="utf-8") as f:
         content = f.read()
     
     START, END = "<!-- SOCIAL_WALL_START -->", "<!-- SOCIAL_WALL_END -->"
     if START not in content or END not in content:
-        log("!", f"index.html 缺少标记。请在想展示动态的位置插入：")
-        print(f"   {START}")
-        print(f"   {END}")
-        print("   然后重新运行脚本"); return False
+        log("!", f"index.html 缺少 {START} / {END} 标记，请插入后再运行"); return False
     
     with open(WALL_HTML, "r", encoding="utf-8") as f:
         wall = f.read()
@@ -259,16 +251,19 @@ def inject_index():
     
     log("✓", "已自动注入 index.html"); return True
 
-
 def git_push():
     try:
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         
-        # 配置身份
+        # 新增：禁用 Git 弹窗
+        os.environ["GIT_TERMINAL_PROMPT"] = "0"
+        
         subprocess.run(["git", "config", "user.name", GIT_NAME], capture_output=True)
         subprocess.run(["git", "config", "user.email", GIT_EMAIL], capture_output=True)
         
-        # 使用 HTTPS + Token 推送
+        if not GITHUB_TOKEN:
+            log("❌", "未配置 GITHUB_TOKEN，无法推送"); return False
+        
         remote_url = f"https://{GITHUB_TOKEN}@github.com/wx409/wx409.github.io.git"
         subprocess.run(["git", "remote", "set-url", "origin", remote_url], capture_output=True)
         
