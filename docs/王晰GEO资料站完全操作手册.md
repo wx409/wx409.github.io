@@ -1,4 +1,4 @@
-# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 最新版）
+# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 v3 最新版）
 
 > **网站（线上）**：https://wx409.github.io/  
 > **仓库（线上）**：https://github.com/wx409/wx409.github.io  
@@ -18,20 +18,21 @@
 5. [网站完整地图](#五网站完整地图)
 6. [GEO 规范（必守规则）](#六geo-规范必守规则)
 7. [日常操作：我该走哪条路](#七日常操作我该走哪条路)
-8. [**如何更新已有信息（总表）**](#八如何更新已有信息总表)
-9. [**线上线下同步推送（标准流程）**](#九线上线下同步推送标准流程)
-10. [场景 A：新一场演出](#十场景-a新一场演出)
-11. [场景 A-2：更新已有演出页](#十一场景-a-2更新已有演出页)
-12. [场景 B：更新文化足迹](#十二场景-b更新文化足迹)
-13. [场景 C：更新社交墙](#十三场景-c更新社交墙)
-14. [场景 D：更新音乐数据周报](#十四场景-d更新音乐数据周报)
-15. [场景 E：整理现场 repo（本地）](#十五场景-e整理现场-repolocal)
-16. [场景 F：更新首页「近期动态」](#十六场景-f更新首页近期动态)
-17. [YAML 字段说明](#十七yaml-字段说明)
-18. [GEO 技术文件说明](#十八geo-技术文件说明)
-19. [常见报错与解决](#十九常见报错与解决)
-20. [每次更新后的验收清单](#二十每次更新后的验收清单)
-21. [附录：命令速查与里程碑](#二十一附录命令速查与里程碑)
+8. [**维护者只需提供什么（对照表）**](#八维护者只需提供什么对照表)
+9. [**如何更新已有信息（总表）**](#九如何更新已有信息总表)
+10. [**线上线下同步推送（标准流程）**](#十线上线下同步推送标准流程)
+11. [场景 A：新一场演出](#十一场景-a新一场演出)
+12. [场景 A-2：更新已有演出页](#十二场景-a-2更新已有演出页)
+13. [场景 B：更新文化足迹](#十三场景-b更新文化足迹)
+14. [场景 C：更新社交墙](#十四场景-c更新社交墙)
+15. [场景 D：更新音乐数据周报](#十五场景-d更新音乐数据周报)
+16. [场景 E：整理现场 repo（本地）](#十六场景-e整理现场-repolocal)
+17. [场景 F：更新首页「近期动态」](#十七场景-f更新首页近期动态)
+18. [YAML 字段说明](#十八yaml-字段说明)
+19. [GEO 技术文件说明](#十九geo-技术文件说明)
+20. [常见报错与解决](#二十常见报错与解决)
+21. [每次更新后的验收清单](#二十一每次更新后的验收清单)
+22. [附录：命令速查与里程碑](#二十二附录命令速查与里程碑)
 
 ---
 
@@ -151,7 +152,7 @@ set GITHUB_TOKEN=你的GitHub个人访问令牌
 | `/about.html` | `about.html` | 手改（更新日志） |
 | `/repo/2026.md` | `repo/2026.md` | pipeline B `--task repo` 或手改 |
 | `/llms.txt` | `llms.txt` | 手改（结构变更时） |
-| `/sitemap.xml` | `sitemap.xml` | 新页面时手加 URL |
+| `/sitemap.xml` | `sitemap.xml` | **generate_live_page.py 自动同步 live/** |
 | `/data/music-index.html` | `data/music-index.html` | pipeline B `--task weekly` |
 
 ### 5.2 自动化工具（网站根目录）
@@ -159,8 +160,8 @@ set GITHUB_TOKEN=你的GitHub个人访问令牌
 | 文件 | 作用 | 更新类型 |
 |------|------|----------|
 | `chongqing_2026.yaml` | 重庆素材母版 | 复制后改 = 新场 / 直接改 = 更新重庆 |
-| `generate_live_page.py` | YAML → live 页 + 首页表格 | 演出 |
-| `update_index_table.py` | 重建首页演出表格 | 演出 |
+| `generate_live_page.py` | YAML → live 页 + **首页多行表格** + sitemap.xml | 演出 |
+| `update_index_table.py` | 仅重建首页表格（修复用，日常不必单独跑） | 演出 |
 | `live/manifest.json` | 演出索引（脚本自动生成） | 演出 |
 | `deploy.py` | 社交墙生成 + 可选自动 push | 社交 |
 | `一键更新.bat` | 调用 deploy.py | 社交 |
@@ -174,6 +175,7 @@ set GITHUB_TOKEN=你的GitHub个人访问令牌
 | **最新演出动态** | YAML + `generate_live_page.py`（勿手改表格行） |
 | 重庆首站·歌单/亮点/FAQ 等 | 手改 HTML，或与 YAML 保持同步 |
 | **同担动态聚合** | `links.csv` + `deploy.py` |
+| **金句墙** | 手改 `index.html`（「王晰说」+「听众说」两区块，见 8.8） |
 | FAQ | 已是 `<details>` 折叠；改文字时同步 JSON-LD |
 
 ---
@@ -199,7 +201,7 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 更新什么？
   ├─ 近期动态（杂志/新闻一行）────→ 手改 index.html → push
   ├─ 已有演出（歌单/FAQ/亮点）──→ 改 YAML → generate_live_page.py → push
-  ├─ 新一场演出 ────────────────→ 复制 YAML → 改 → 脚本 → sitemap → push
+  ├─ 新一场演出 ────────────────→ 复制 YAML → 改 → generate_live_page.py → push
   ├─ 文化足迹 ──────────────────→ culture_events.json → pipeline culture → push
   ├─ 社交墙 ────────────────────→ links.csv → deploy.py → push
   ├─ 音乐周报 ──────────────────→ Excel → pipeline weekly → push
@@ -208,7 +210,205 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 
 ---
 
-## 八、如何更新已有信息（总表）
+## 八、维护者只需提供什么（对照表）
+
+> **本章用途**：每次更新前先看这张表——知道自己要交什么、交什么形式、哪些永不上 GitHub。  
+> **原则**：你只管**事实素材**；脚本负责生成页面、表格、sitemap。
+
+### 8.1 总表：按场景你需要提供什么
+
+| 场景 | 你必须提供 | 形式 | 要不要改 YAML | 上不上 GitHub |
+|------|-----------|------|---------------|---------------|
+| **开票** | 城市、日期、场馆、购票渠道 | 几句话 / 大麦截图文字 | **要**（复制重庆模板改字段） | 只上摘要页 |
+| **开演后** | 歌单、亮点、FAQ 要点 | 现场笔记 / 官方通告 | **要**（补歌单等区块） | 只上摘要页 |
+| **近期动态** | 一条短新闻 | 一句话 | **不用**（改 index 一行） | 是 |
+| **社交墙** | 微博/小红书/抖音 **链接** | CSV 一行 | 不用 | 是（带外链） |
+| **听众 repo** | **你改写的匿名文字摘录** | YAML 或本地 md | 摘录写进 YAML | **只文字**，不上图 |
+| **repo 原图** | 粉丝截图（可选） | 本地文件夹 | 不用 | **永不上传** |
+| **repo 来源链接** | 原帖 URL（可选） | 本地 JSON | 不用 | **永不上传** |
+| **金句墙** | 王晰原话 + 听众摘录 | 手改 index.html | 不用 | 是（仅文字） |
+
+### 8.2 一句话记忆
+
+| 内容类型 | 你交什么 |
+|----------|----------|
+| 演出信息 | 复制 YAML 改字段（或让 Cursor 代写） |
+| 近期动态 | `index.html` 里改 **1 行** |
+| 社交墙 | `data/links.csv` 里贴 **链接**（摘要可留空） |
+| 听众 repo | 本地可存 **图 + 链接**；公开站只上 **你改写的文字** |
+| 金句墙 | 手改 index「王晰说 / 听众说」，采访素材放王晰说，repo 放听众说 |
+
+---
+
+### 8.3 YAML：要手写吗？
+
+**要动 YAML，但不用从零写。**
+
+```powershell
+cd D:\wx409.github.io
+copy chongqing_2026.yaml 杭州_2026.yaml
+```
+
+#### 开票阶段（最少填这些）
+
+| 字段 | 示例 |
+|------|------|
+| `meta.city` | 杭州 |
+| `meta.venue` | XX剧院 |
+| `meta.date` | `"2026-07-20"` |
+| `meta.status` | 预售中 / 已开票 |
+| `index_row.link_text` | 详情 → |
+| `faq` | 2～3 条（何时开、在哪、怎么买） |
+| `first_half` / `second_half` | 可留空 `[]` |
+
+#### 开演后（再补这些）
+
+| 字段 | 说明 |
+|------|------|
+| `first_half` / `second_half` | **歌单**（按现场实际，最重要） |
+| `highlights` | 1～3 个亮点 |
+| `faq` | 改成「唱了哪些歌」等 |
+| `repo_excerpts` | 2～4 条匿名摘录（见 8.4） |
+| `meta.status` | 第二站已完成 |
+| `index_row.link_text` | 完整实录 → |
+
+**不必懂 YAML 语法**：把大麦/官微/现场笔记发给 Cursor，说「按 chongqing 模板生成杭州开票版 YAML」，核对日期和歌名即可。
+
+---
+
+### 8.4 Repo：链接、文字还是图片？
+
+分三层，**不要混用**：
+
+#### 第一层：公开站（wx409.github.io）——只要「匿名文字」
+
+| 提供 | 不提供 |
+|------|--------|
+| YAML 里 `repo_excerpts` 的改写短句 | 微博/小红书链接堆砌 |
+| 例：「低音像醇厚红酒……」—— 听众摘录·三楼视角 | 粉丝截图、OCR 全文 |
+| | 粉丝 @ID |
+
+#### 第二层：本地档案（星厂 B）——链接 + 图片，仅自己备查
+
+| 本地路径 | 你提供什么 | 用途 |
+|----------|-----------|------|
+| `project_b/01_原始数据/.../images/` | 粉丝 repo **截图** | 本地 OCR |
+| `project_b/01_原始数据/chongqing2026_sources.json` | 原帖 **链接** + 作者 | 自己查来源，不上网 |
+| `project_b/03_周报输出/xxx_geo.md` | OCR 后 **你写的摘要母稿** | 再摘进 YAML |
+
+本地流程：
+
+```
+截图 → 星厂 B .../images/
+    → python project_b/ocr_local.py（自动出文字）
+    → 你读 OCR，改写成 2～4 条匿名摘录
+    → 粘贴进 YAML 的 repo_excerpts
+    → python generate_live_page.py
+```
+
+#### 第三层：社交墙（与 repo 不同）——可以带外链
+
+编辑 `D:\wx409.github.io\data\links.csv`：
+
+```csv
+platform,url,title,summary,author,date,tags
+weibo,https://weibo.com/...,标题,可留空,资深听众,2026-07-20,
+```
+
+| 列 | 你要填吗 | 说明 |
+|----|----------|------|
+| `url` | **必填** | 微博/小红书/抖音链接 |
+| `title` | 建议填 | 卡片标题 |
+| `summary` | 可留空 | 留空时 `deploy.py` 用 DeepSeek 自动生成 |
+| `author` | 建议填 | 写「资深听众 / 听众分享 / 同担分享」，**不要 @** |
+| 图片 | **不需要** | 社交墙只要链接，不上传图片 |
+
+---
+
+### 8.5 按场景：最小操作清单
+
+#### 第二场「开票」
+
+| 步骤 | 你提供 | 谁来做 |
+|------|--------|--------|
+| 1 | 一句话：「xx日 xx站开票」 | 你改 `index.html` 近期动态 |
+| 2 | 城市、日期、场馆、大麦信息 | 你（或 Cursor）改 YAML |
+| 3 | — | `python generate_live_page.py ...` |
+| 4 | — | `git push` |
+
+**此阶段不需要：** repo 图、repo 链接、歌单。
+
+#### 第二场「开演后」
+
+| 步骤 | 你提供 | 谁来做 |
+|------|--------|--------|
+| 1 | 一句话：「xx站演出圆满结束」 | 你改近期动态 |
+| 2 | **完整歌单** | 你（或 Cursor）写进 YAML |
+| 3 | 亮点、FAQ | 你写进 YAML |
+| 4 | 2～4 条匿名摘录（可选） | 你写进 YAML `repo_excerpts` |
+| 5 | 截图（可选） | 你放星厂 B 本地 → OCR |
+| 6 | — | `generate_live_page.py` → push |
+
+**公开站要的是文字摘要，不是 repo 原链接。**
+
+---
+
+### 8.6 最省事的工作方式（推荐）
+
+每次更新，你只给 Cursor 这些「原材料」：
+
+1. **开票**：大麦/官微截图，或复制出来的文字  
+2. **开演**：歌单文字列表 + 1～2 个你想强调的亮点  
+3. **repo**（可选）：几张截图放本地 + 说「帮我 OCR 并写 3 条匿名摘录进 YAML」
+
+Cursor 负责：改 YAML → 跑 `generate_live_page.py` → push。
+
+**你不需要：** 自己写 HTML、手改 sitemap、单独跑表格脚本。
+
+---
+
+### 8.7 快速自检（更新前 30 秒）
+
+- [ ] 近期动态是否只有 **一行**、约 30 字？
+- [ ] YAML 是否 **复制模板** 改的，不是从零写？
+- [ ] 公开内容里有没有 **@ID、粉丝原图、OCR 全文**？
+- [ ] repo 摘录是否 **匿名改写**，不是原文复制？
+- [ ] 社交墙 `author` 是否用了「资深听众」等，而不是 @？
+- [ ] 敏感素材是否只在 `D:\XingWorks\星厂v5.0\`，没进 `git add`？
+
+---
+
+### 8.8 金句墙：王晰说 + 听众说
+
+**位置：** `index.html`，搜索 `金句墙`。
+
+**结构（2026-06-17 起）：**
+
+```html
+<h2>金句墙</h2>
+<h3>王晰说</h3>
+<!-- 4 条：现场 talking、微博、采访等，出处写 footer -->
+<h3>听众说</h3>
+<!-- 2 条及以上：匿名 repo 摘录，出处写「听众摘录·xx站」 -->
+```
+
+| 区块 | 放什么 | 来源 |
+|------|--------|------|
+| **王晰说** | 王晰本人原话 | 现场 talking、官方微博、格涅辛/国际视界采访等 |
+| **听众说** | 匿名听众摘录 | 现场 repo 改写，不写 @ID |
+
+**更新步骤：**
+
+1. 只改 `<h2>金句墙</h2>` 到 `<h2>历史巡演回顾` 之间的内容
+2. 新增采访金句 → 放「王晰说」；新增 repo 摘录 → 放「听众说」
+3. 每条用 `<blockquote><p>引语</p><footer>——出处</footer></blockquote>`
+4. `git add index.html` → commit → push
+
+**不要动：** 歌单、FAQ、JSON-LD、社交墙等其他区块。
+
+---
+
+## 九、如何更新已有信息（总表）
 
 > **原则：能改 YAML/CSV/JSON 源数据的，就不要直接改 HTML；改源数据后跑脚本，再 push。**
 
@@ -216,13 +416,13 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 |--------------|-------------------|--------------|------------------------|-----------|
 | 近期动态一行 | `index.html` | 无 | 是（仅一行） | index.html |
 | 重庆/某场歌单、FAQ、亮点 | `chongqing_2026.yaml` 或 `xxx.yaml` | `generate_live_page.py` | 脚本只改「最新演出动态」表格 | yaml + live/ + index 表格区 |
-| 首页演出表格顺序 | 自动 | `update_index_table.py` | 仅表格标记区 | index 表格区 |
+| 首页演出表格 | 自动 | `generate_live_page.py`（从 manifest 重建全部行） | 仅表格标记区 | index 表格区 |
 | 现场实录摘录 | `live-reviews.html` 或 geo.md | `pipeline B --task repo` | live-reviews 块 | 对应文件 |
 | repo 库全文 | `星厂.../chongqing2026_geo.md` | `pipeline B --task repo` | repo/2026.md | repo + live-reviews |
 | 文化足迹 | `culture_events.json` | `pipeline B --task culture` | culture/index.html | culture/ |
 | 社交墙卡片 | `data/links.csv` | `deploy.py` 或 `一键更新.bat` | 脚本注入 SOCIAL_WALL 区 | index + social_wall + json |
 | 音乐数据 | QQ 音乐 Excel | `pipeline B --task weekly` | data/music-index.* | data/ |
-| 新 live 页上线 | 新 YAML | generate + **手改 sitemap.xml** | 表格自动 | live/ + sitemap + yaml |
+| 新 live 页上线 | 新 YAML | generate_live_page.py | 表格 + sitemap 自动 | live/ + sitemap + yaml |
 | 关于站/更新日志 | `about.html` | 无 | 是 | about.html |
 | llms.txt 结构 | `llms.txt` | 无 | 否 | llms.txt |
 
@@ -239,9 +439,9 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 
 ---
 
-## 九、线上线下同步推送（标准流程）
+## 十、线上线下同步推送（标准流程）
 
-### 9.1 什么是「同步」
+### 10.1 什么是「同步」
 
 | 步骤 | 位置 | 说明 |
 |------|------|------|
@@ -253,7 +453,7 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 
 **没有单独的「上传 FTP」步骤**，push = 上线。
 
-### 9.2 标准推送四步（每次更新必做）
+### 10.2 标准推送四步（每次更新必做）
 
 ```powershell
 cd D:\wx409.github.io
@@ -274,7 +474,7 @@ git push origin main
    xxxxxxx..yyyyyyy  main -> main
 ```
 
-### 9.3 半自动推送（社交墙）
+### 10.3 半自动推送（社交墙）
 
 配置 `secrets.bat` 后，双击 **`一键更新.bat`** 或运行 `python deploy.py`：
 
@@ -283,9 +483,9 @@ git push origin main
 3. 生成 `social_wall.html` 并注入 `index.html`
 4. **自动** git commit + push（需 `GITHUB_TOKEN`）
 
-无 Token 时：脚本只生成本地文件，你再手动执行 [9.2](#92-标准推送四步每次更新必做)。
+无 Token 时：脚本只生成本地文件，你再手动执行 [10.2](#102-标准推送四步每次更新必做)。
 
-### 9.4 星厂 B → 网站 → 线上（两仓库联动）
+### 10.4 星厂 B → 网站 → 线上（两仓库联动）
 
 ```
 星厂 B 本地编辑 culture_events.json / geo.md / Excel
@@ -301,7 +501,7 @@ cd D:\wx409.github.io → git push（pipeline 可能尝试自动 push，失败�
 
 > **Windows 注意**：`pipeline B --task culture` 若报 WSL 路径错误，请在 PowerShell 手改 `culture/index.html` 或请 Cursor 修复后重跑。
 
-### 9.5 推送后验证（线上）
+### 10.5 推送后验证（线上）
 
 ```powershell
 # 可选：看最近一次提交是否已在 GitHub
@@ -315,14 +515,14 @@ git log -1 --oneline
 3. 或无痕窗口打开
 4. 重要改动：**Ctrl+U** 看源码（JSON-LD、details 等）
 
-### 9.6 不要 push 的文件
+### 10.6 不要 push 的文件
 
 已在 `.gitignore`：`secrets.bat`、OCR 图片/文字、部分 bat。  
 推送前 `git status` 确认没有 `chongqing2026_ocr/images/` 被误 add。
 
 ---
 
-## 十、场景 A：新一场演出
+## 十一、场景 A：新一场演出
 
 ### Step 1：复制 YAML
 
@@ -341,11 +541,7 @@ copy chongqing_2026.yaml hangzhou_2026.yaml
 python generate_live_page.py --config hangzhou_2026.yaml --output ./live/ --index index.html
 ```
 
-### Step 4：更新 sitemap.xml
-
-在 `</urlset>` 前添加新 `<url>...</url>`。
-
-### Step 5：推送（见第九章）
+### Step 4：推送（sitemap 已由脚本自动更新）
 
 ```powershell
 git add hangzhou_2026.yaml live/ index.html sitemap.xml
@@ -355,7 +551,7 @@ git push origin main
 
 ---
 
-## 十一、场景 A-2：更新已有演出页
+## 十二、场景 A-2：更新已有演出页
 
 **适用：** 重庆首站歌单勘误、补 FAQ、改亮点等。
 
@@ -375,29 +571,32 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --ind
 
 说明：
 
-- `--index index.html` 会更新「最新演出动态」表格那一块（`LIVE_TABLE_START/END` 之间）
+- `--index index.html` 会按 `live/manifest.json` **重建全部演出行**（重庆、杭州等不会互相覆盖）
+- **会**自动更新 `sitemap.xml` 中所有 `/live/` 条目
 - **不会**自动改首页「重庆首站·完整歌单」以下区块——若需与 YAML 一致，需手改 index 或使用 Cursor 对照 YAML 同步
 
 ### Step 3：推送
 
 ```powershell
-git add chongqing_2026.yaml live/hui-回-重庆-2026.html live/manifest.json index.html
+git add chongqing_2026.yaml live/hui-回-重庆-2026.html live/manifest.json index.html sitemap.xml
 git commit -m "更新：重庆首站歌单/FAQ"
 git push origin main
 ```
 
-### 仅重建首页表格（不改 live 页）
+### 修复：仅重建首页表格（不改 live 页，日常不必用）
+
+若首页表格与 manifest 不一致（极少见），可单独修复：
 
 ```powershell
 python update_index_table.py --index index.html --live-dir ./live/
 git add index.html
-git commit -m "重建首页演出表格"
+git commit -m "修复：重建首页演出表格"
 git push origin main
 ```
 
 ---
 
-## 十二、场景 B：更新文化足迹
+## 十三、场景 B：更新文化足迹
 
 1. 编辑 `D:\XingWorks\星厂v5.0\project_b\04_文化足迹\culture_events.json`
 2. 运行：
@@ -420,7 +619,7 @@ git push origin main
 
 ---
 
-## 十三、场景 C：更新社交墙
+## 十四、场景 C：更新社交墙
 
 ### Step 1：编辑 CSV
 
@@ -450,7 +649,7 @@ git push origin main
 
 ---
 
-## 十四、场景 D：更新音乐数据周报
+## 十五、场景 D：更新音乐数据周报
 
 1. Excel 放入 `星厂v5.0/project_b/01_原始数据/`
 2. `python pipeline.py --project B --task weekly`
@@ -459,7 +658,7 @@ git push origin main
 
 ---
 
-## 十五、场景 E：整理现场 repo（本地）
+## 十六、场景 E：整理现场 repo（本地）
 
 ```
 粉丝截图 → 星厂 B .../chongqing2026_ocr/images/
@@ -473,7 +672,7 @@ git push origin main
 
 ---
 
-## 十六、场景 F：更新首页「近期动态」
+## 十七、场景 F：更新首页「近期动态」
 
 定位 `index.html`，搜索 `近期动态`。
 
@@ -496,7 +695,7 @@ git push origin main
 
 ---
 
-## 十七、YAML 字段说明
+## 十八、YAML 字段说明
 
 | 区块 | 字段 | 说明 |
 |------|------|------|
@@ -513,7 +712,7 @@ git push origin main
 
 ---
 
-## 十八、GEO 技术文件说明
+## 十九、GEO 技术文件说明
 
 | 文件 | 线上 URL |
 |------|----------|
@@ -533,7 +732,7 @@ git push origin main
 
 ---
 
-## 十九、常见报错与解决
+## 二十、常见报错与解决
 
 | 报错 | 解决 |
 |------|------|
@@ -546,7 +745,7 @@ git push origin main
 
 ---
 
-## 二十、每次更新后的验收清单
+## 二十一、每次更新后的验收清单
 
 ### 通用
 
@@ -559,7 +758,7 @@ git push origin main
 
 - [ ] YAML 与 live 页内容一致
 - [ ] live 页源码含 JSON-LD
-- [ ] 新场已加入 sitemap.xml
+- [ ] sitemap.xml 已含 live 页 URL（脚本自动写入）
 
 ### 社交墙
 
@@ -568,7 +767,7 @@ git push origin main
 
 ---
 
-## 二十一、附录：命令速查与里程碑
+## 二十二、附录：命令速查与里程碑
 
 ### 一键命令速查
 
@@ -583,7 +782,7 @@ git push origin main
 
 # ── 新演出 ──
 copy chongqing_2026.yaml 新场.yaml
-# 编辑 新场.yaml + sitemap.xml
+# 编辑 新场.yaml
 python generate_live_page.py --config 新场.yaml --output ./live/ --index index.html
 git add . ; git commit -m "新增：六巡xx站" ; git push origin main
 
@@ -602,9 +801,11 @@ python pipeline.py --project B --task culture
 cd D:\wx409.github.io
 git add culture/ ; git commit -m "文化足迹" ; git push origin main
 
-# ── 仅重建首页演出表 ──
+# ── 仅重建首页演出表（修复用，正常不必跑）──
 python update_index_table.py --index index.html --live-dir ./live/
-git add index.html ; git push origin main
+
+# ── 跳过 sitemap 更新（极少用）──
+python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-sitemap
 ```
 
 ### 关键网址
@@ -628,6 +829,10 @@ git add index.html ; git push origin main
 | 2026-06-16 | FAQ 折叠 + GEO 基础设施修复 |
 | 2026-06-17 | 近期动态精简；《锐Pioneer》杂志 |
 | 2026-06-17 | **本手册 v2：新增「更新已有信息」+「线上线下同步推送」** |
+| 2026-06-17 | generate_live_page 自动从 manifest 重建多行演出表 + sitemap |
+| 2026-06-17 | 手册新增第八章「维护者只需提供什么（对照表）」 |
+| 2026-06-17 | 金句墙重构：王晰说 / 听众说 + 2 条采访金句 |
+| 2026-06-17 | 手册 v3 全量同步（对照表 + sitemap 自动化 + 金句墙） |
 
 ---
 
@@ -639,4 +844,4 @@ git add index.html ; git push origin main
 
 ---
 
-*最后修订：2026-06-17 · 与线上站同步 · GEO 等级 A-（86/100）*
+*最后修订：2026-06-17 v3 · 与线上站同步 · GEO 等级 A-（86/100）*

@@ -5,8 +5,9 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
+import xml.etree.ElementTree as ET
+from datetime import date
 from pathlib import Path
 
 import yaml
@@ -14,8 +15,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 ROOT = Path(__file__).resolve().parent
-TABLE_START = "<!-- LIVE_TABLE_START -->"
-TABLE_END = "<!-- LIVE_TABLE_END -->"
+SITE_BASE = "https://wx409.github.io"
+SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
 def load_config(path: Path) -> dict:
@@ -60,63 +61,74 @@ def render_page(config: dict, template_dir: Path, template_name: str) -> str:
     )
 
 
-def build_table_row(config: dict) -> str:
-    meta = config["meta"]
-    index_row = config.get("index_row", {})
-    link = index_row.get("link", f"live/{meta['filename']}")
-    link_text = index_row.get("link_text", "完整实录 →")
-    status_class = meta.get("status_class", "")
-    status_td = (
-        f'<td class="{status_class}">{meta["status"]}</td>'
-        if status_class
-        else f"<td>{meta['status']}</td>"
-    )
-    return (
-        f"<tr>"
-        f"<td>{meta['date_display']}</td>"
-        f"<td>{meta['city']}</td>"
-        f"<td>{meta['venue']}</td>"
-        f"<td>{meta['tour_display']}</td>"
-        f"{status_td}"
-        f'<td><a href="{link}">{link_text}</a></td>'
-        f"</tr>"
-    )
+def _ns_tag(name: str) -> str:
+    return f"{{{SITEMAP_NS}}}{name}"
 
 
-def update_index_table(index_path: Path, config: dict) -> None:
-    content = index_path.read_text(encoding="utf-8")
-    row = build_table_row(config)
+def _read_sitemap_urls(sitemap_path: Path) -> list[dict[str, str]]:
+    if not sitemap_path.exists():
+        return []
+    root = ET.parse(sitemap_path).getroot()
+    urls: list[dict[str, str]] = []
+    for url_el in root.findall(_ns_tag("url")):
+        loc_el = url_el.find(_ns_tag("loc"))
+        if loc_el is None or not loc_el.text:
+            continue
+        loc = loc_el.text.strip()
+        if f"{SITE_BASE}/live/" in loc:
+            continue
+        entry = {"loc": loc}
+        for field in ("lastmod", "changefreq", "priority"):
+            node = url_el.find(_ns_tag(field))
+            if node is not None and node.text:
+                entry[field] = node.text.strip()
+        urls.append(entry)
+    return urls
 
-    if TABLE_START in content and TABLE_END in content:
-        before, rest = content.split(TABLE_START, 1)
-        _, after = rest.split(TABLE_END, 1)
-        table_block = (
-            f"{TABLE_START}\n"
-            f"    <table>\n"
-            f"        <tr><th>日期</th><th>城市</th><th>场馆</th><th>巡演主题</th><th>状态</th><th>详情</th></tr>\n"
-            f"        {row}\n"
-            f"    </table>\n"
-            f"    {TABLE_END}"
-        )
-        index_path.write_text(before + table_block + after, encoding="utf-8")
+
+def _render_sitemap(static_urls: list[dict[str, str]], live_urls: list[dict[str, str]]) -> str:
+    ordered: list[dict[str, str]] = []
+    pending_live = list(live_urls)
+    for item in static_urls:
+        ordered.append(item)
+        if item["loc"].rstrip("/").endswith("/culture"):
+            ordered.extend(pending_live)
+            pending_live = []
+    ordered.extend(pending_live)
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        f'<urlset xmlns="{SITEMAP_NS}">',
+    ]
+    for item in ordered:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{item['loc']}</loc>")
+        lines.append(f"    <lastmod>{item['lastmod']}</lastmod>")
+        lines.append(f"    <changefreq>{item['changefreq']}</changefreq>")
+        lines.append(f"    <priority>{item['priority']}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    return "\n".join(lines) + "\n"
+
+
+def update_sitemap(sitemap_path: Path, manifest_path: Path) -> None:
+    if not manifest_path.exists():
+        print(f"[!] manifest 不存在，跳过 sitemap: {manifest_path}")
         return
 
-    pattern = re.compile(
-        r"(<h2>最新演出动态</h2>\s*<p>此板块实时更新.*?</p>\s*)<table>.*?</table>",
-        re.S,
-    )
-    replacement = (
-        r"\1" + TABLE_START + "\n"
-        "    <table>\n"
-        "        <tr><th>日期</th><th>城市</th><th>场馆</th><th>巡演主题</th><th>状态</th><th>详情</th></tr>\n"
-        f"        {row}\n"
-        "    </table>\n"
-        f"    {TABLE_END}"
-    )
-    new_content, count = pattern.subn(replacement, content, count=1)
-    if count == 0:
-        raise RuntimeError("未找到首页「最新演出动态」表格，请检查 index.html")
-    index_path.write_text(new_content, encoding="utf-8")
+    entries = json.loads(manifest_path.read_text(encoding="utf-8"))
+    lastmod = date.today().isoformat()
+    live_urls = [
+        {
+            "loc": f"{SITE_BASE}/{entry['link'].lstrip('/')}",
+            "lastmod": lastmod,
+            "changefreq": "monthly",
+            "priority": "0.9",
+        }
+        for entry in sorted(entries, key=lambda x: x["date"], reverse=True)
+    ]
+    static_urls = _read_sitemap_urls(sitemap_path)
+    sitemap_path.write_text(_render_sitemap(static_urls, live_urls), encoding="utf-8")
 
 
 def write_manifest(output_dir: Path, config: dict) -> None:
@@ -152,6 +164,8 @@ def main() -> None:
     parser.add_argument("--template", default="live_template.html", help="Jinja2 模板")
     parser.add_argument("--index", default="index.html", help="首页路径")
     parser.add_argument("--no-index", action="store_true", help="不更新首页表格")
+    parser.add_argument("--sitemap", default="sitemap.xml", help="sitemap 路径")
+    parser.add_argument("--no-sitemap", action="store_true", help="不更新 sitemap.xml")
     args = parser.parse_args()
 
     config_path = Path(args.config)
@@ -163,6 +177,9 @@ def main() -> None:
     index_path = Path(args.index)
     if not index_path.is_absolute():
         index_path = ROOT / index_path
+    sitemap_path = Path(args.sitemap)
+    if not sitemap_path.is_absolute():
+        sitemap_path = ROOT / sitemap_path
     template_path = ROOT / args.template
 
     if not config_path.exists():
@@ -180,11 +197,19 @@ def main() -> None:
     write_manifest(output_dir, config)
 
     if not args.no_index:
-        update_index_table(index_path, config)
+        from update_index_table import load_manifest, update_index
+
+        entries = load_manifest(output_dir)
+        update_index(index_path, entries)
+
+    if not args.no_sitemap:
+        update_sitemap(sitemap_path, output_dir / "manifest.json")
 
     print(f"[OK] 已生成: {out_file}")
     if not args.no_index:
-        print(f"[OK] 已更新首页表格: {index_path}")
+        print(f"[OK] 已更新首页表格 ({len(entries)} 条): {index_path}")
+    if not args.no_sitemap:
+        print(f"[OK] 已更新 sitemap: {sitemap_path}")
 
 
 if __name__ == "__main__":
