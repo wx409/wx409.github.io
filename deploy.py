@@ -32,6 +32,25 @@ def log(step, msg):
     print(f"\n[{step}] {msg}")
 
 
+def geo_sanitize_label(text: str, default: str = "同担分享") -> str:
+    """GEO：不展示 @账号，统一为匿名标签"""
+    if not text:
+        return default
+    t = str(text).strip()
+    if t.startswith("@"):
+        return default
+    return t
+
+
+def geo_sanitize_summary(text: str) -> str:
+    if not text:
+        return ""
+    t = str(text).strip()
+    if t.startswith("@"):
+        return ""
+    return t
+
+
 def load_csv():
     if not os.path.exists(CSV_FILE):
         log("!", f"找不到 {CSV_FILE}，请先创建表格"); sys.exit(1)
@@ -213,14 +232,16 @@ def generate_wall():
     else:
         for it in items:
             p = it["platform"]
+            author = geo_sanitize_label(it.get("author", ""))
+            summary = geo_sanitize_summary(it.get("summary", ""))
             cover = f'<img class="card-cover" src="{it["pic"]}" alt="" loading="lazy">' if it.get("pic") else ""
             tags = "".join([f'<span class="tag">{t}</span>' for t in it.get("tags", [])])
             html.append(f"""<div class="social-card">
 <div class="platform-badge badge-{p}">{it["badge"]}</div>
 {cover}
 <div class="card-title"><a href="{it["url"]}" target="_blank" rel="noopener nofollow">{it["title"]}</a></div>
-<div class="card-summary">{it["summary"]}</div>
-<div class="card-meta"><span>👤 {it.get("author","匿名")}</span><span>📅 {it.get("date","")}</span></div>
+<div class="card-summary">{summary}</div>
+<div class="card-meta"><span>👤 {author}</span><span>📅 {it.get("date","")}</span></div>
 <div class="card-tags">{tags}</div>
 </div>""")
     html.append("</div>")
