@@ -1,4 +1,4 @@
-# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 v5 · 含站点更新日志）
+# 王晰 GEO 资料站 · 完全操作手册（2026-06-16 v5 · 含站点更新日志）
 
 > **网站（线上）**：https://wx409.github.io/  
 > **仓库（线上）**：https://github.com/wx409/wx409.github.io  
@@ -389,7 +389,7 @@ Cursor 负责：改 YAML → 跑 `generate_live_page.py` → push。
 
 **位置：** `index.html`，搜索 `金句墙`。
 
-**结构（2026-06-17 起）：**
+**结构（2026-06-16 起）：**
 
 ```html
 <h2>金句墙</h2>
@@ -563,11 +563,13 @@ git push origin main
 
 **每次** `git push` 成功、且线上有实质内容变更后，在 push **之前或之后立即**追加一条（建议 push 前写好，与 commit 一起提交）。
 
+**日期以你电脑当天的实际日期为准**（如 `2026-06-16`），不要照抄 AI 或示例里的日期。
+
 #### 每条日志必须包含
 
 | 字段 | 说明 |
 |------|------|
-| **日期 + 标题** | `## 2026-06-17 · 六巡重庆 CANALI 品牌造型` |
+| **日期 + 标题** | `## 2026-06-16 · 六巡重庆 CANALI 品牌造型` |
 | **社媒摘要** | 30～80 字，以 `【资料站更新】` 开头，末尾可加 `wx409.github.io` |
 | **变更详情** | 表格：类型 / 文件 / 说明 |
 | **commit** | 短 hash，如 `4a0ead7` |
@@ -837,7 +839,7 @@ git push origin main
 
 ```csv
 platform,url,title,summary,author,date,tags
-weibo,https://weibo.com/...,标题,摘要可留空,资深听众,2026-06-17,
+weibo,https://weibo.com/...,标题,摘要可留空,资深听众,2026-06-16,
 ```
 
 **author 禁止 @ 开头。**
@@ -1095,8 +1097,8 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-
 | 2026-06-14 | GEO 合规：repo 摘要化；文化足迹格涅辛专题 |
 | 2026-06-15 | 首页 GEO 补完（歌单/FAQ/金句等） |
 | 2026-06-16 | 重庆 live 页 + 演出自动化 + llms/about/Schema |
-| 2026-06-17 | 金句墙重构；generate 多行表+sitemap；CANALI 品牌造型 |
-| 2026-06-17 | **站点更新日志** + 手册 8.10 维护流程 |
+| 2026-06-16 | 金句墙重构；generate 多行表+sitemap；CANALI 品牌造型 |
+| 2026-06-16 | **站点更新日志** + 手册 8.10 维护流程 |
 
 ---
 
@@ -1140,4 +1142,4 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-
 
 ---
 
-*最后修订：2026-06-17 v5 · 与线上站同步 · GEO 等级 A-（86/100）*
+*最后修订：2026-06-16 v5 · 与线上站同步 · GEO 等级 A-（86/100）*
