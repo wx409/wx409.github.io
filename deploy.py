@@ -29,7 +29,11 @@ WALL_HTML = "social_wall.html"
 
 
 def log(step, msg):
-    print(f"\n[{step}] {msg}")
+    text = f"\n[{step}] {msg}"
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        print(text.encode("gbk", errors="replace").decode("gbk"))
 
 
 def geo_sanitize_label(text: str, default: str = "同担分享") -> str:
@@ -305,7 +309,7 @@ def git_push():
 
 
 def main():
-    print("=" * 55 + "\n🎵 王晰GEO站点 · 一键全自动部署\n" + "=" * 55)
+    print("=" * 55 + "\n王晰GEO站点 · 一键全自动部署\n" + "=" * 55)
     
     if not DEEPSEEK_API_KEY:
         log("⚠", "未检测到 DEEPSEEK_API_KEY，AI摘要将停用")

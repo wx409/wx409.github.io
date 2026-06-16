@@ -1,4 +1,4 @@
-# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 v3 最新版）
+# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 v4 · 含品牌造型流程）
 
 > **网站（线上）**：https://wx409.github.io/  
 > **仓库（线上）**：https://github.com/wx409/wx409.github.io  
@@ -28,11 +28,12 @@
 15. [场景 D：更新音乐数据周报](#十五场景-d更新音乐数据周报)
 16. [场景 E：整理现场 repo（本地）](#十六场景-e整理现场-repolocal)
 17. [场景 F：更新首页「近期动态」](#十七场景-f更新首页近期动态)
-18. [YAML 字段说明](#十八yaml-字段说明)
-19. [GEO 技术文件说明](#十九geo-技术文件说明)
-20. [常见报错与解决](#二十常见报错与解决)
-21. [每次更新后的验收清单](#二十一每次更新后的验收清单)
-22. [附录：命令速查与里程碑](#二十二附录命令速查与里程碑)
+18. [场景 G：品牌造型/穿搭（CANALI 范例）](#十八场景-g品牌造型穿搭canali-范例)
+19. [YAML 字段说明](#十九yaml-字段说明)
+20. [GEO 技术文件说明](#二十geo-技术文件说明)
+21. [常见报错与解决](#二十一常见报错与解决)
+22. [每次更新后的验收清单](#二十二每次更新后的验收清单)
+23. [附录：命令速查与里程碑](#二十三附录命令速查与里程碑)
 
 ---
 
@@ -175,7 +176,8 @@ set GITHUB_TOKEN=你的GitHub个人访问令牌
 | **最新演出动态** | YAML + `generate_live_page.py`（勿手改表格行） |
 | 重庆首站·歌单/亮点/FAQ 等 | 手改 HTML，或与 YAML 保持同步 |
 | **同担动态聚合** | `links.csv` + `deploy.py` |
-| **金句墙** | 手改 `index.html`（「王晰说」+「听众说」两区块，见 8.8） |
+| **金句墙** | 手改 `index.html`（「王晰说」+「听众说」，见 8.8） |
+| **品牌造型** | `gallery.html` + `links.csv` + `deploy.py`（见 8.9 / 场景 G） |
 | FAQ | 已是 `<details>` 折叠；改文字时同步 JSON-LD |
 
 ---
@@ -205,7 +207,7 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
   ├─ 文化足迹 ──────────────────→ culture_events.json → pipeline culture → push
   ├─ 社交墙 ────────────────────→ links.csv → deploy.py → push
   ├─ 音乐周报 ──────────────────→ Excel → pipeline weekly → push
-  └─ repo 摘要（合规）──────────→ 本地 OCR → geo.md → pipeline repo → push
+  └─ 品牌造型（品牌官博/小红书）→ gallery + links.csv + deploy → 可选 YAML highlights → push
 ```
 
 ---
@@ -227,6 +229,7 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 | **repo 原图** | 粉丝截图（可选） | 本地文件夹 | 不用 | **永不上传** |
 | **repo 来源链接** | 原帖 URL（可选） | 本地 JSON | 不用 | **永不上传** |
 | **金句墙** | 王晰原话 + 听众摘录 | 手改 index.html | 不用 | 是（仅文字） |
+| **品牌造型** | 品牌帖链接 + 造型文字摘要 | gallery + CSV + 可选 YAML | 可选 highlights | 是（文字+外链，不上图） |
 
 ### 8.2 一句话记忆
 
@@ -237,6 +240,7 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 | 社交墙 | `data/links.csv` 里贴 **链接**（摘要可留空） |
 | 听众 repo | 本地可存 **图 + 链接**；公开站只上 **你改写的文字** |
 | 金句墙 | 手改 index「王晰说 / 听众说」，采访素材放王晰说，repo 放听众说 |
+| 品牌造型 | **三处同步**：`gallery.html` 留档 + `links.csv` 上首页墙 + 可选 YAML 亮点（见 8.9） |
 
 ---
 
@@ -408,6 +412,144 @@ Cursor 负责：改 YAML → 跑 `generate_live_page.py` → push。
 
 ---
 
+### 8.9 品牌造型/穿搭：每场怎么推送（CANALI 重庆首站范例）
+
+> **适用**：品牌方（如 CANALI）在微博/小红书发布的官方造型帖。  
+> **与粉丝 repo 的区别**：品牌帖 **可以带外链**；公开站只写 **文字摘要 + 链到原帖**，**不上传图片**。
+
+#### 重庆首站 CANALI 已收录示例
+
+| 露出位置 | 线上地址 | 内容 |
+|----------|----------|------|
+| 视觉记录 | `/gallery.html#chongqing-20260613` | 系列、造型描述、官方话题、外链 |
+| 首页社交墙 | `/` 同担动态聚合 | CSV 卡片，作者「品牌官方 CANALI」 |
+| 重庆 live 页亮点 | `/live/hui-回-重庆-2026.html` | YAML `highlights` 一条 |
+
+**原帖链接**：http://xhslink.com/o/5jdqgVZMd18  
+**造型摘要**：CANALI 2026 春夏 · 丹宁蓝仿牛仔西装套装 + 棕褐色枪驳领西装套装
+
+---
+
+#### 你以后推送一条品牌造型：标准四步
+
+**你只需提供（复制给 Cursor 即可）：**
+
+1. 平台 + 链接（小红书 / 微博）
+2. 品牌名（如 CANALI）
+3. 场次（城市 + 日期，如重庆 2026.06.13）
+4. 正文或截图里的造型描述（系列名、单品、官方话题）
+
+---
+
+**Step 1：视觉记录留档（`gallery.html`）**
+
+在该场次 `<h2>` 下追加一块（重庆范例）：
+
+```html
+<div class="gallery-item">
+    <h3>品牌造型 · CANALI</h3>
+    <p class="desc"><strong>来源</strong>：CANALI 品牌官方（小红书）</p>
+    <p class="desc"><strong>系列</strong>：CANALI 2026 春夏系列</p>
+    <p class="desc"><strong>造型</strong>：丹宁蓝仿牛仔西装套装；棕褐色枪驳领西装套装。……</p>
+    <p class="desc"><strong>官方话题</strong>：#王晰回个人巡回音乐会 #CANALI2026春夏系列</p>
+    <a href="http://xhslink.com/o/5jdqgVZMd18" target="_blank" rel="noopener nofollow">查看 CANALI 官方小红书发布 →</a>
+</div>
+```
+
+| 字段 | 怎么写 |
+|------|--------|
+| 来源 | `XX品牌官方（小红书/微博）` |
+| 系列 | 通稿里的系列名 |
+| 造型 | 1～2 句中文描述，不用复制全文 hashtag 堆砌 |
+| 链接 | 原帖 URL，`rel="noopener nofollow"` |
+
+---
+
+**Step 2：首页社交墙（`data/links.csv` + `deploy.py`）**
+
+在 CSV **末尾加一行**：
+
+```csv
+xiaohongshu,http://xhslink.com/o/5jdqgVZMd18,六巡重庆首站 CANALI 造型,CANALI 2026春夏：丹宁蓝仿牛仔西装套装及棕褐色枪驳领西装套装,品牌官方 CANALI,2026-06-13,穿搭
+```
+
+| 列 | 品牌造型怎么填 |
+|----|----------------|
+| `platform` | `weibo` / `xiaohongshu` / `douyin` |
+| `url` | **必填**，原帖链接 |
+| `title` | 短标题，如「六巡xx站 XX品牌造型」 |
+| `summary` | **建议填**造型一句话；留空则 DeepSeek 生成（需 API Key） |
+| `author` | **`品牌官方 CANALI`** 或 **`品牌合作`**，禁止 `@` |
+| `date` | 演出日或发帖日 `YYYY-MM-DD` |
+| `tags` | 建议 `穿搭` 或 `品牌,穿搭` |
+
+运行：
+
+```powershell
+cd D:\wx409.github.io
+python deploy.py
+# 若 deploy 报 Git/编码错误，可只跑生成+注入：
+python -c "import deploy as d; rows=d.load_csv(); data,_,_,_=d.merge_data(rows); d.save_json(d.JSON_FILE,data); d.generate_wall(); d.inject_index()"
+git add index.html social_wall.html data/social_links.json data/links.csv gallery.html
+git commit -m "品牌造型：六巡重庆 CANALI"
+git push origin main
+```
+
+---
+
+**Step 3（可选）：live 页亮点（对应场次 YAML）**
+
+编辑该场 YAML 的 `highlights`，增加一条：
+
+```yaml
+  - { title: "CANALI 品牌造型", description: "CANALI 2026 春夏系列：丹宁蓝仿牛仔西装套装及棕褐色枪驳领西装套装。品牌官方于小红书发布。" }
+```
+
+然后：
+
+```powershell
+python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --index index.html
+```
+
+---
+
+**Step 4：推送与验证**
+
+```powershell
+git add gallery.html data/links.csv data/social_links.json social_wall.html index.html chongqing_2026.yaml live/
+git commit -m "品牌造型：六巡xx站 XX品牌"
+git push origin main
+```
+
+验证清单：
+
+- [ ] https://wx409.github.io/gallery.html 该场次有「品牌造型 · XX」
+- [ ] 首页社交墙卡片作者为「品牌官方 XX」，无 @
+- [ ] 点击链接能打开原帖
+- [ ] 站内**无品牌图片文件**被 push
+- [ ] `main -> main`
+
+---
+
+#### 品牌造型 vs 粉丝 repo（对照）
+
+| | 品牌造型 | 粉丝 repo |
+|--|----------|-----------|
+| 公开链接 | ✅ 可链品牌官帖 | ❌ 尽量不堆外链 |
+| 图片 | ❌ 不上 GitHub | ❌ 不上 GitHub |
+| author | 品牌官方 XX | 资深听众 / 听众分享 |
+| 主留档页 | `gallery.html` | live 页 `repo_excerpts` / repo 库 |
+| 社交墙 | ✅ 推荐 | 可选（同 CSV 流程） |
+
+#### 禁止事项
+
+- ❌ 下载品牌图进仓库  
+- ❌ 写粉丝 @ID  
+- ❌ 未官宣前写「代言人」等定性表述（只写「品牌发布 / 合作造型」）  
+- ❌ 复制品牌通稿全文 + 大量 hashtag（用 1～2 句摘要即可）
+
+---
+
 ## 九、如何更新已有信息（总表）
 
 > **原则：能改 YAML/CSV/JSON 源数据的，就不要直接改 HTML；改源数据后跑脚本，再 push。**
@@ -421,6 +563,7 @@ Cursor 负责：改 YAML → 跑 `generate_live_page.py` → push。
 | repo 库全文 | `星厂.../chongqing2026_geo.md` | `pipeline B --task repo` | repo/2026.md | repo + live-reviews |
 | 文化足迹 | `culture_events.json` | `pipeline B --task culture` | culture/index.html | culture/ |
 | 社交墙卡片 | `data/links.csv` | `deploy.py` 或 `一键更新.bat` | 脚本注入 SOCIAL_WALL 区 | index + social_wall + json |
+| 品牌造型 | `gallery.html` + `links.csv` + 可选 YAML | `deploy.py` + 可选 `generate_live_page.py` | gallery 手改；墙自动注入 | gallery + data/ + index + 可选 live/ |
 | 音乐数据 | QQ 音乐 Excel | `pipeline B --task weekly` | data/music-index.* | data/ |
 | 新 live 页上线 | 新 YAML | generate_live_page.py | 表格 + sitemap 自动 | live/ + sitemap + yaml |
 | 关于站/更新日志 | `about.html` | 无 | 是 | about.html |
@@ -695,7 +838,42 @@ git push origin main
 
 ---
 
-## 十八、YAML 字段说明
+## 十八、场景 G：品牌造型/穿搭（CANALI 范例）
+
+> 详细字段说明见 **8.9**。本节是「复制就能跑」的完整命令流。
+
+### 你已有什么（以 CANALI 重庆为例）
+
+- 链接：`http://xhslink.com/o/5jdqgVZMd18`
+- 品牌：CANALI
+- 正文：2026 春夏 · 丹宁蓝仿牛仔西装 + 棕褐色枪驳领西装 · #王晰回个人巡回音乐会
+
+### 一键流程（以后每场品牌帖都按这个来）
+
+```powershell
+cd D:\wx409.github.io
+
+# 1. 编辑 gallery.html — 在该场次下加「品牌造型 · XX」块（见 8.9 模板）
+# 2. 编辑 data/links.csv — 加一行（author 写「品牌官方 XX」）
+# 3. （可选）编辑 该场.yaml 的 highlights
+
+python -c "import deploy as d; rows=d.load_csv(); data,_,_,_=d.merge_data(rows); d.save_json(d.JSON_FILE,data); d.generate_wall(); d.inject_index()"
+
+# 若还改了 YAML：
+python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --index index.html
+
+git add gallery.html data/links.csv data/social_links.json social_wall.html index.html chongqing_2026.yaml live/
+git commit -m "品牌造型：六巡重庆 CANALI"
+git push origin main
+```
+
+### 只上社交墙、不改 gallery（最快）
+
+仅 CSV + deploy + push，适合临时官宣；**建议仍补 gallery 留档**。
+
+---
+
+## 十九、YAML 字段说明
 
 | 区块 | 字段 | 说明 |
 |------|------|------|
@@ -712,7 +890,7 @@ git push origin main
 
 ---
 
-## 十九、GEO 技术文件说明
+## 二十、GEO 技术文件说明
 
 | 文件 | 线上 URL |
 |------|----------|
@@ -732,7 +910,7 @@ git push origin main
 
 ---
 
-## 二十、常见报错与解决
+## 二十一、常见报错与解决
 
 | 报错 | 解决 |
 |------|------|
@@ -745,7 +923,7 @@ git push origin main
 
 ---
 
-## 二十一、每次更新后的验收清单
+## 二十二、每次更新后的验收清单
 
 ### 通用
 
@@ -765,9 +943,16 @@ git push origin main
 - [ ] 无粉丝 @ID
 - [ ] author 为「资深听众/听众分享/同担分享」
 
+### 品牌造型
+
+- [ ] gallery.html 该场次有品牌块 + 外链可开
+- [ ] 首页社交墙 author 为「品牌官方 XX」
+- [ ] 无品牌图片进 git
+- [ ] 无 @ID
+
 ---
 
-## 二十二、附录：命令速查与里程碑
+## 二十三、附录：命令速查与里程碑
 
 ### 一键命令速查
 
@@ -804,6 +989,13 @@ git add culture/ ; git commit -m "文化足迹" ; git push origin main
 # ── 仅重建首页演出表（修复用，正常不必跑）──
 python update_index_table.py --index index.html --live-dir ./live/
 
+# ── 品牌造型（CANALI 范例）──
+# 1. 编辑 gallery.html + data/links.csv（见手册 8.9）
+python -c "import deploy as d; rows=d.load_csv(); data,_,_,_=d.merge_data(rows); d.save_json(d.JSON_FILE,data); d.generate_wall(); d.inject_index()"
+# 2. 可选：python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --index index.html
+git add gallery.html data/ social_wall.html index.html live/ chongqing_2026.yaml
+git commit -m "品牌造型：六巡xx站 XX品牌" ; git push origin main
+
 # ── 跳过 sitemap 更新（极少用）──
 python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-sitemap
 ```
@@ -832,6 +1024,8 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-
 | 2026-06-17 | generate_live_page 自动从 manifest 重建多行演出表 + sitemap |
 | 2026-06-17 | 手册新增第八章「维护者只需提供什么（对照表）」 |
 | 2026-06-17 | 金句墙重构：王晰说 / 听众说 + 2 条采访金句 |
+| 2026-06-17 | 六巡重庆 CANALI 品牌造型：gallery + 社交墙 + live 亮点 |
+| 2026-06-17 | 手册 8.9 / 场景 G：品牌造型推送完整流程 |
 | 2026-06-17 | 手册 v3 全量同步（对照表 + sitemap 自动化 + 金句墙） |
 
 ---
@@ -844,4 +1038,4 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-
 
 ---
 
-*最后修订：2026-06-17 v3 · 与线上站同步 · GEO 等级 A-（86/100）*
+*最后修订：2026-06-17 v4 · 与线上站同步 · GEO 等级 A-（86/100）*
