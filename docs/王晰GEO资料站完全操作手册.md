@@ -1,4 +1,4 @@
-# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 v4 · 含品牌造型流程）
+# 王晰 GEO 资料站 · 完全操作手册（2026-06-17 v5 · 含站点更新日志）
 
 > **网站（线上）**：https://wx409.github.io/  
 > **仓库（线上）**：https://github.com/wx409/wx409.github.io  
@@ -34,6 +34,7 @@
 21. [常见报错与解决](#二十一常见报错与解决)
 22. [每次更新后的验收清单](#二十二每次更新后的验收清单)
 23. [附录：命令速查与里程碑](#二十三附录命令速查与里程碑)
+24. [站点更新日志（维护说明）](#二十四站点更新日志维护说明)
 
 ---
 
@@ -150,7 +151,8 @@ set GITHUB_TOKEN=你的GitHub个人访问令牌
 | `/live/hui-回-重庆-2026.html` | `live/hui-*.html` | **改 YAML + generate_live_page.py** |
 | `/live-reviews.html` | `live-reviews.html` | 手改 或 pipeline B `--task repo` |
 | `/culture/` | `culture/index.html` | pipeline B `--task culture` |
-| `/about.html` | `about.html` | 手改（更新日志） |
+| `/about.html` | `about.html` | 手改（更新日志摘要表） |
+| **站点更新日志** | `docs/站点更新日志.md` | **每次 push 后追加**（见 8.10） |
 | `/repo/2026.md` | `repo/2026.md` | pipeline B `--task repo` 或手改 |
 | `/llms.txt` | `llms.txt` | 手改（结构变更时） |
 | `/sitemap.xml` | `sitemap.xml` | **generate_live_page.py 自动同步 live/** |
@@ -241,6 +243,7 @@ CSV 里请直接写「资深听众 / 听众分享 / 同担分享」，不要写 
 | 听众 repo | 本地可存 **图 + 链接**；公开站只上 **你改写的文字** |
 | 金句墙 | 手改 index「王晰说 / 听众说」，采访素材放王晰说，repo 放听众说 |
 | 品牌造型 | **三处同步**：`gallery.html` 留档 + `links.csv` 上首页墙 + 可选 YAML 亮点（见 8.9） |
+| **站点更新** | 变更说明 + **社媒摘要一句** | `docs/站点更新日志.md` | 不用 | 是 |
 
 ---
 
@@ -550,6 +553,69 @@ git push origin main
 
 ---
 
+### 8.10 站点更新日志：每次 push 后必做
+
+> **主文件**：`D:\wx409.github.io\docs\站点更新日志.md`  
+> **about 页摘要**：`about.html` 更新日志表格（展示最近 5 条）  
+> **目的**：清晰记录每次变更 + 提供可发微博/小红书的「社媒摘要」
+
+#### 什么时候写
+
+**每次** `git push` 成功、且线上有实质内容变更后，在 push **之前或之后立即**追加一条（建议 push 前写好，与 commit 一起提交）。
+
+#### 每条日志必须包含
+
+| 字段 | 说明 |
+|------|------|
+| **日期 + 标题** | `## 2026-06-17 · 六巡重庆 CANALI 品牌造型` |
+| **社媒摘要** | 30～80 字，以 `【资料站更新】` 开头，末尾可加 `wx409.github.io` |
+| **变更详情** | 表格：类型 / 文件 / 说明 |
+| **commit** | 短 hash，如 `4a0ead7` |
+
+#### 社媒摘要写法（可直接复制）
+
+```
+【资料站更新】+ 做了什么（谁/哪场/什么内容）+ 价值一句 + wx409.github.io
+```
+
+**范例：**
+
+> 【资料站更新】王晰六巡「回」重庆首站 CANALI 2026 春夏造型已收录至 GEO 资料站，含丹宁蓝仿牛仔与枪驳领西装描述，附品牌官方索引。wx409.github.io
+
+**注意：**
+
+- 不写 @ID、不写争议词、不夸大「官方认证」
+- 品牌内容写「已收录 / 索引」，不写未官宣代言
+- 可整段复制到微博、小红书动态、群公告
+
+#### 操作步骤（4 步）
+
+```powershell
+cd D:\wx409.github.io
+
+# 1. 打开 docs/站点更新日志.md，在最上方（「---」分隔线下）粘贴新条目
+# 2. 打开 about.html，在更新日志表格最上方加一行（日期 / 更新内容 / 社媒摘要）
+# 3. 与本次改动一起提交
+git add docs/站点更新日志.md about.html 你改过的其他文件
+git commit -m "更新说明"
+git push origin main
+
+# 4. 复制「社媒摘要」发到社交媒体（可选）
+```
+
+#### 与 about.html 的分工
+
+| 文件 | 作用 |
+|------|------|
+| `docs/站点更新日志.md` | **完整档案**：每条含详情表 + commit，永久保留 |
+| `about.html` 表格 | **对外摘要**：最近 5 条 + 链到 GitHub 完整日志 |
+
+#### 模板（复制到日志最上方）
+
+见 `docs/站点更新日志.md` 文件末尾「日志条目模板」。
+
+---
+
 ## 九、如何更新已有信息（总表）
 
 > **原则：能改 YAML/CSV/JSON 源数据的，就不要直接改 HTML；改源数据后跑脚本，再 push。**
@@ -568,6 +634,7 @@ git push origin main
 | 新 live 页上线 | 新 YAML | generate_live_page.py | 表格 + sitemap 自动 | live/ + sitemap + yaml |
 | 关于站/更新日志 | `about.html` | 无 | 是 | about.html |
 | llms.txt 结构 | `llms.txt` | 无 | 否 | llms.txt |
+| **站点更新日志** | `docs/站点更新日志.md` | 无 | 可选 about 表一行 | 日志 + about |
 
 ### 双份内容说明（重要）
 
@@ -928,6 +995,8 @@ git push origin main
 ### 通用
 
 - [ ] `git push` 出现 `main -> main`
+- [ ] `docs/站点更新日志.md` 已追加条目 + 社媒摘要
+- [ ] `about.html` 更新日志表已加一行（如有对外更新）
 - [ ] 线上 URL Ctrl+F5 可见变更
 - [ ] 无禁用负面词
 - [ ] 无 OCR 原图被 push
@@ -989,6 +1058,13 @@ git add culture/ ; git commit -m "文化足迹" ; git push origin main
 # ── 仅重建首页演出表（修复用，正常不必跑）──
 python update_index_table.py --index index.html --live-dir ./live/
 
+# ── 站点更新日志（每次 push 后）──
+# 1. 编辑 docs/站点更新日志.md 最上方加条目 + 社媒摘要
+# 2. about.html 更新日志表加一行
+git add docs/站点更新日志.md about.html
+git commit -m "docs: 站点更新日志 YYYY-MM-DD" ; git push origin main
+# 3. 复制社媒摘要发微博/小红书
+
 # ── 品牌造型（CANALI 范例）──
 # 1. 编辑 gallery.html + data/links.csv（见手册 8.9）
 python -c "import deploy as d; rows=d.load_csv(); data,_,_,_=d.merge_data(rows); d.save_json(d.JSON_FILE,data); d.generate_wall(); d.inject_index()"
@@ -1011,22 +1087,48 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-
 
 ### 更新里程碑
 
+> **完整日志（含社媒摘要）**：[`docs/站点更新日志.md`](https://github.com/wx409/wx409.github.io/blob/main/docs/站点更新日志.md)  
+> 以下为重点里程碑索引；日常变更请写进站点更新日志，不必全部堆在此处。
+
 | 日期 | 内容 |
 |------|------|
-| 2026-06-14 | GEO 合规：repo 摘要化，移除粉丝原图 |
-| 2026-06-15 | 首页 GEO 补完 |
-| 2026-06-16 | llms.txt + about + Schema + 演出自动化 |
-| 2026-06-16 | robots + sitemap + llms 规范格式 |
-| 2026-06-16 | .nojekyll + 社交墙去 @ID |
-| 2026-06-16 | FAQ 折叠 + GEO 基础设施修复 |
-| 2026-06-17 | 近期动态精简；《锐Pioneer》杂志 |
-| 2026-06-17 | **本手册 v2：新增「更新已有信息」+「线上线下同步推送」** |
-| 2026-06-17 | generate_live_page 自动从 manifest 重建多行演出表 + sitemap |
-| 2026-06-17 | 手册新增第八章「维护者只需提供什么（对照表）」 |
-| 2026-06-17 | 金句墙重构：王晰说 / 听众说 + 2 条采访金句 |
-| 2026-06-17 | 六巡重庆 CANALI 品牌造型：gallery + 社交墙 + live 亮点 |
-| 2026-06-17 | 手册 8.9 / 场景 G：品牌造型推送完整流程 |
-| 2026-06-17 | 手册 v3 全量同步（对照表 + sitemap 自动化 + 金句墙） |
+| 2026-06-14 | GEO 合规：repo 摘要化；文化足迹格涅辛专题 |
+| 2026-06-15 | 首页 GEO 补完（歌单/FAQ/金句等） |
+| 2026-06-16 | 重庆 live 页 + 演出自动化 + llms/about/Schema |
+| 2026-06-17 | 金句墙重构；generate 多行表+sitemap；CANALI 品牌造型 |
+| 2026-06-17 | **站点更新日志** + 手册 8.10 维护流程 |
+
+---
+
+## 二十四、站点更新日志（维护说明）
+
+> 本节为速查；完整规则见 **§8.10**。
+
+### 文件位置
+
+| 文件 | 路径 |
+|------|------|
+| 主日志 | `docs/站点更新日志.md` |
+| about 摘要 | `about.html` →「更新日志」表格 |
+| 线上 about | https://wx409.github.io/about.html |
+
+### 每次 push 后 checklist
+
+- [ ] 在 `docs/站点更新日志.md` **最上方**追加一条
+- [ ] 写好 **社媒摘要**（`【资料站更新】…`）
+- [ ] `about.html` 表格加一行（保持最近约 5 条）
+- [ ] `git add` 包含日志文件
+- [ ] 可选：复制社媒摘要发微博/小红书
+
+### 社媒摘要公式
+
+```
+【资料站更新】+ 事件/内容 + 用户价值 + wx409.github.io
+```
+
+### 示例条目
+
+见 `docs/站点更新日志.md` 第一条（CANALI 品牌造型）。
 
 ---
 
@@ -1038,4 +1140,4 @@ python generate_live_page.py --config chongqing_2026.yaml --output ./live/ --no-
 
 ---
 
-*最后修订：2026-06-17 v4 · 与线上站同步 · GEO 等级 A-（86/100）*
+*最后修订：2026-06-17 v5 · 与线上站同步 · GEO 等级 A-（86/100）*
