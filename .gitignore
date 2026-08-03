@@ -3,3 +3,7 @@ secrets.bat
 __pycache__/
 *.pyc
 .env
+# 原始明细数据（若被复制到仓库则拒绝提交）
+raw_archive/
+*.log
+debug_html/
