@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 15:01",
+  "timestamp": "2026-08-04 16:08",
   "total": 196064,
   "success": 36190,
   "complete_rate": 18.5,
@@ -92745,7 +92745,7 @@
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-04 15:01",
+  "last_update": "2026-08-04 16:08",
   "today_batches": 890,
   "daily_new_records": 0,
   "recent_7days": [
@@ -92799,5 +92799,47 @@
     "weekend_premium": "听众时间偏好洞察：专辑类作品周末溢价 1.33，高于 OST/单曲的 1.04，反直觉发现表明专辑具有周末沉浸式聆听特质，而非通勤背景音属性。",
     "timeline": "月度竞争格局时间轴（2023-01 至 2026-08）：38 个月共 325 首作品的份额争夺与巡演发行事件叠加，自动播放展示每帧 Top15 竞争态势。",
     "waterfall": "排名战争瀑布图：展示 15 首作品全站排名变化的逐日累积效应，上升用绿色、下降用红色，直观呈现每首作品在竞争中的进退轨迹。"
+  },
+  "lineage": {
+    "excel_files": {
+      "total": 1576,
+      "success": 1573,
+      "failed": [
+        "2023.3.10.xlsx",
+        "2023.3.13.xlsx",
+        "2023.3.16.xlsx"
+      ]
+    },
+    "nonsong_filtered": {
+      "rows": 232772,
+      "pct": 35.2
+    },
+    "link_registry": 382,
+    "intraday_merged": {
+      "before": 428567,
+      "after": 196064
+    },
+    "index_calibration": {
+      "rows": 29448,
+      "total": 196064,
+      "pct": 15.0
+    },
+    "dataset": {
+      "records": 196064,
+      "date_range": "2023-01-01 ~ 2026-08-04",
+      "tracked_uids": 325
+    },
+    "lifecycle_dist": {
+      "经典沉淀期": 22,
+      "稳定期": 4,
+      "上升期": 3
+    },
+    "hist_cache_rows": 112673,
+    "hist_trend_songs": 384,
+    "reference_map": {
+      "mid2name": 244,
+      "name2mid_1to1": 232,
+      "nonsong_skipped": 131
+    }
   }
 }
