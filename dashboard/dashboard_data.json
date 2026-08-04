@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 08:37",
+  "timestamp": "2026-08-04 09:15",
   "total": 196063,
   "success": 36190,
   "complete_rate": 18.5,
@@ -106261,6 +106261,49 @@
       ],
       "events": [],
       "event_str": ""
+    }
+  ],
+  "daily_listen_overview": {
+    "active_count": 18,
+    "total_tracked": 325,
+    "concentration_top3": 67.4,
+    "as_of": "2026-08-03"
+  },
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 55.3,
+      "trend_pct": 20.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "再叙",
+      "share_pct": 6.9,
+      "trend_pct": -2.0,
+      "trend_label": "flat"
+    },
+    {
+      "rank": 3,
+      "song": "一生中最爱",
+      "share_pct": 5.2,
+      "trend_pct": 5.7,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "在路上",
+      "share_pct": 4.9,
+      "trend_pct": 34.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "山楂树",
+      "share_pct": 3.9,
+      "trend_pct": 12.0,
+      "trend_label": "up"
     }
   ]
 }
