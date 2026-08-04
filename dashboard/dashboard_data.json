@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 18:20",
+  "timestamp": "2026-08-04 18:40",
   "total": 196064,
   "success": 36190,
   "complete_rate": 18.5,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    4.1
+    4.3
   ],
   "listener_labels": [
     "2024-08",
@@ -85511,7 +85511,7 @@
         91.4,
         123.1,
         102.7,
-        172.6,
+        180.6,
         169.1,
         79.6,
         66.7,
@@ -86396,11 +86396,11 @@
       "晚风暖暖"
     ],
     "values": [
-      257.9,
-      122.5,
+      263.9,
+      122.0,
       119.3,
       116.2,
-      112.2
+      115.7
     ],
     "spring": [
       true,
@@ -92703,49 +92703,49 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 10,
+    "active_count": 12,
     "total_tracked": 325,
-    "concentration_top3": 67.3,
+    "concentration_top3": 67.7,
     "as_of": "2026-08-04"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 48.8,
-      "trend_pct": 28.7,
+      "share_pct": 53.1,
+      "trend_pct": 81.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "在路上",
-      "share_pct": 10.9,
-      "trend_pct": 222.9,
+      "share_pct": 8.1,
+      "trend_pct": 211.4,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "山楂树",
-      "share_pct": 7.6,
-      "trend_pct": 182.1,
+      "song": "一生中最爱",
+      "share_pct": 6.5,
+      "trend_pct": 137.8,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 6.5,
-      "trend_pct": 81.1,
+      "song": "再叙",
+      "share_pct": 6.0,
+      "trend_pct": 65.3,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "月弯弯",
-      "share_pct": 6.2,
-      "trend_pct": 204.8,
+      "song": "山楂树",
+      "share_pct": 6.0,
+      "trend_pct": 185.7,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-04 18:20",
+  "last_update": "2026-08-04 18:40",
   "today_batches": 890,
   "daily_new_records": 0,
   "recent_7days": [
@@ -92802,8 +92802,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1579,
-      "success": 1576,
+      "total": 1581,
+      "success": 1578,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -92811,12 +92811,12 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 232902,
+      "rows": 233032,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 428812,
+      "before": 429054,
       "after": 196064
     },
     "index_calibration": {
