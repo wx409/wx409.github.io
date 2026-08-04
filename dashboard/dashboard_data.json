@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 21:15",
+  "timestamp": "2026-08-04 21:45",
   "total": 196064,
   "success": 36190,
   "complete_rate": 18.5,
@@ -85511,7 +85511,7 @@
         91.4,
         123.1,
         102.7,
-        171.6,
+        181.2,
         169.1,
         79.6,
         66.7,
@@ -86391,16 +86391,16 @@
     "names": [
       "一生中最爱",
       "星空穹顶",
-      "爱于此生",
       "在路上",
+      "爱于此生",
       "晚风暖暖"
     ],
     "values": [
-      253.9,
+      254.8,
       119.3,
+      118.2,
       116.2,
-      115.8,
-      114.6
+      115.3
     ],
     "spring": [
       true,
@@ -92705,47 +92705,47 @@
   "daily_listen_overview": {
     "active_count": 18,
     "total_tracked": 325,
-    "concentration_top3": 62.6,
+    "concentration_top3": 59.7,
     "as_of": "2026-08-04"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 51.7,
-      "trend_pct": 47.2,
+      "share_pct": 45.7,
+      "trend_pct": 33.2,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "山楂树",
-      "share_pct": 5.5,
-      "trend_pct": 121.4,
+      "song": "再叙",
+      "share_pct": 7.2,
+      "trend_pct": 69.4,
       "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "在路上",
-      "share_pct": 5.4,
-      "trend_pct": 71.4,
+      "share_pct": 6.9,
+      "trend_pct": 125.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 4.7,
-      "trend_pct": 43.2,
+      "song": "山楂树",
+      "share_pct": 5.6,
+      "trend_pct": 128.6,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "再叙",
-      "share_pct": 4.6,
-      "trend_pct": 6.1,
+      "song": "一生中最爱",
+      "share_pct": 4.9,
+      "trend_pct": 51.4,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-04 21:15",
+  "last_update": "2026-08-04 21:45",
   "today_batches": 890,
   "daily_new_records": 0,
   "recent_7days": [
@@ -92802,8 +92802,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1589,
-      "success": 1586,
+      "total": 1591,
+      "success": 1588,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -92811,12 +92811,12 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 233545,
+      "rows": 233675,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 430007,
+      "before": 430247,
       "after": 196064
     },
     "index_calibration": {
