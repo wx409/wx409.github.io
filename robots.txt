@@ -18,4 +18,10 @@ Allow: /
 User-agent: BraveBot
 Allow: /
 
+# 百度系爬虫显式放行
+User-agent: Baiduspider
+Allow: /
+User-agent: Baiduspider-image
+Allow: /
+
 Sitemap: https://wx409.github.io/sitemap.xml
