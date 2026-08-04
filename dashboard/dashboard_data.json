@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-04 12:03",
-  "total": 196063,
+  "timestamp": "2026-08-04 12:07",
+  "total": 196064,
   "success": 36190,
   "complete_rate": 18.5,
   "index_rate": 18.5,
@@ -99952,15 +99952,15 @@
     "names": [
       "一生中最爱",
       "星空穹顶",
+      "在路上",
       "爱于此生",
-      "晚风暖暖",
-      "在路上"
+      "晚风暖暖"
     ],
     "values": [
-      247.7,
+      252.8,
       119.3,
+      119.0,
       116.2,
-      112.2,
       112.2
     ],
     "spring": [
@@ -106264,58 +106264,52 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 18,
+    "active_count": 5,
     "total_tracked": 325,
-    "concentration_top3": 67.4,
-    "as_of": "2026-08-03"
+    "concentration_top3": 86.5,
+    "as_of": "2026-08-04"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 55.3,
-      "trend_pct": 20.9,
+      "share_pct": 66.0,
+      "trend_pct": 36.8,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "再叙",
-      "share_pct": 6.9,
-      "trend_pct": -2.0,
-      "trend_label": "flat"
+      "song": "在路上",
+      "share_pct": 10.4,
+      "trend_pct": 142.9,
+      "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "一生中最爱",
-      "share_pct": 5.2,
-      "trend_pct": 5.7,
+      "song": "再叙",
+      "share_pct": 10.2,
+      "trend_pct": 69.4,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "在路上",
-      "share_pct": 4.9,
-      "trend_pct": 34.6,
+      "song": "山楂树",
+      "share_pct": 7.5,
+      "trend_pct": 117.9,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 3.9,
-      "trend_pct": 12.0,
+      "song": "一生中最爱",
+      "share_pct": 6.0,
+      "trend_pct": 32.4,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-04 12:03",
+  "last_update": "2026-08-04 12:07",
   "today_batches": 890,
   "daily_new_records": 0,
   "recent_7days": [
-    {
-      "date": "2026-07-28",
-      "avg_index": 598.2,
-      "total_songs": 252,
-      "complete": true
-    },
     {
       "date": "2026-07-29",
       "avg_index": 511.8,
@@ -106351,36 +106345,14 @@
       "avg_index": 525.3,
       "total_songs": 252,
       "complete": true
+    },
+    {
+      "date": "2026-08-04",
+      "avg_index": null,
+      "total_songs": 252,
+      "complete": true
     }
   ],
-  "latest_anomaly": {
-    "song": "Over the Rainbow",
-    "type": "🔥 指数突增",
-    "metric": "指数",
-    "change_pct": 0.659,
-    "desc": "指数较7日均值 +65.9%"
-  },
-  "daily_anomalies": [
-    {
-      "song": "Over the Rainbow",
-      "type": "🔥 指数突增",
-      "metric": "指数",
-      "change_pct": 0.659,
-      "desc": "指数较7日均值 +65.9%"
-    },
-    {
-      "song": "晚风暖暖",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 9,012 位"
-    },
-    {
-      "song": "月弯弯",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 3,797 位"
-    }
-  ]
+  "latest_anomaly": null,
+  "daily_anomalies": []
 }
