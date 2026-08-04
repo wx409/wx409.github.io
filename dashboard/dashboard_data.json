@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 09:58",
+  "timestamp": "2026-08-04 11:06",
   "total": 196063,
   "success": 36190,
   "complete_rate": 18.5,
@@ -106304,6 +106304,83 @@
       "share_pct": 3.9,
       "trend_pct": 12.0,
       "trend_label": "up"
+    }
+  ],
+  "last_update": "2026-08-04 11:06",
+  "today_batches": 890,
+  "daily_new_records": 0,
+  "recent_7days": [
+    {
+      "date": "2026-07-28",
+      "avg_index": 598.2,
+      "total_songs": 252,
+      "complete": true
+    },
+    {
+      "date": "2026-07-29",
+      "avg_index": 511.8,
+      "total_songs": 252,
+      "complete": true
+    },
+    {
+      "date": "2026-07-30",
+      "avg_index": 591.9,
+      "total_songs": 252,
+      "complete": true
+    },
+    {
+      "date": "2026-07-31",
+      "avg_index": 535.6,
+      "total_songs": 252,
+      "complete": true
+    },
+    {
+      "date": "2026-08-01",
+      "avg_index": 490.4,
+      "total_songs": 252,
+      "complete": true
+    },
+    {
+      "date": "2026-08-02",
+      "avg_index": 436.3,
+      "total_songs": 252,
+      "complete": true
+    },
+    {
+      "date": "2026-08-03",
+      "avg_index": 525.3,
+      "total_songs": 252,
+      "complete": true
+    }
+  ],
+  "latest_anomaly": {
+    "song": "Over the Rainbow",
+    "type": "🔥 指数突增",
+    "metric": "指数",
+    "change_pct": 0.659,
+    "desc": "指数较7日均值 +65.9%"
+  },
+  "daily_anomalies": [
+    {
+      "song": "Over the Rainbow",
+      "type": "🔥 指数突增",
+      "metric": "指数",
+      "change_pct": 0.659,
+      "desc": "指数较7日均值 +65.9%"
+    },
+    {
+      "song": "晚风暖暖",
+      "type": "📈 排名飙升",
+      "metric": "排名",
+      "change_pct": null,
+      "desc": "排名较昨日上升 9,012 位"
+    },
+    {
+      "song": "月弯弯",
+      "type": "📈 排名飙升",
+      "metric": "排名",
+      "change_pct": null,
+      "desc": "排名较昨日上升 3,797 位"
     }
   ]
 }
