@@ -1,0 +1,521 @@
+/* ============================================================================
+ * 数据知识库搜索引擎（DataSpeak）
+ * ----------------------------------------------------------------------------
+ * 纯前端实时计算：读取大屏页面已加载的 dashboardData（无需新接口/预生成索引），
+ * 让数据「开口说话」。能力：
+ *   ① 查歌检索   —— 歌名/别名模糊匹配，展开完整档案卡（指标+迷你趋势图）
+ *   ② 数据问答   —— 「涨幅最大的歌」「周末听什么」等意图实时从数据算出答案
+ *   ③ 洞察引用   —— 预计算结论句匹配（巡演/发行/周末溢价/老歌复活/异动…）
+ *   ④ 自然问句   —— 中文模板解析 + 关键词词典
+ *   ⑤ 图表联动   —— 每条结果可跳转高亮下方对应图表区块
+ *   ⑥ 可扩展     —— 歌曲档案动态字段（未来新增「来源:电台」等元数据自动透传显示）
+ * 依赖：无（可选 echarts，用于档案卡迷你趋势图；缺失时降级为文本）
+ * ========================================================================== */
+(function () {
+  'use strict';
+
+  var D = null;            // dashboardData（页面内联脚本注入，后续脚本可读）
+  var songs = [];          // 合并后的歌曲档案
+  var nameIndex = [];      // 歌名/别名索引
+  var insights = [];       // 预计算洞察句
+  var pendingSpark = [];   // 等待 echarts 就绪后绘制的迷你图队列
+
+  /* ---------------- 工具 ---------------- */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function fmt(n) {
+    if (n === null || n === undefined || n === '' || isNaN(n)) return '—';
+    return Math.round(Number(n)).toLocaleString('en-US');
+  }
+  function pct(x) {
+    if (x === null || x === undefined || isNaN(x)) return '—';
+    var v = Math.round(Number(x) * 10) / 10;
+    return (v >= 0 ? '+' : '') + v + '%';
+  }
+  function downSample(pts, maxN) {
+    if (!pts || !pts.length) return [];
+    if (pts.length <= maxN) return pts;
+    var out = [], step = pts.length / maxN;
+    for (var i = 0; i < maxN; i++) out.push(pts[Math.floor(i * step)]);
+    out.push(pts[pts.length - 1]);
+    return out;
+  }
+
+  /* ---------------- ① 构建歌曲档案（detail_songs + rank_groups 合并） ---------------- */
+  function buildSongs() {
+    var byName = {};
+    (D.detail_songs || []).forEach(function (s) {
+      var rec = {
+        uid: s.uid || '', name: s.name || '', attr: s.attr || '', release: s.release || '-',
+        latest: s.latest, mean30: s.mean30, peak: s.peak,
+        points: downSample(s.points, 120),
+        lifecycle: '', rank: '', score: '', avg: ''
+      };
+      byName[rec.name] = rec;
+      songs.push(rec);
+    });
+    // rank_groups: {类别: [uid, name, score, avg, rank, lifecycle, release, attr]}
+    Object.keys(D.rank_groups || {}).forEach(function (cat) {
+      (D.rank_groups[cat] || []).forEach(function (r) {
+        var rec = byName[r[1]];
+        if (rec) {
+          rec.score = r[2]; rec.avg = r[3]; rec.rank = r[4]; rec.lifecycle = r[5];
+          if (r[6] && r[6] !== '-' && (!rec.release || rec.release === '-')) rec.release = r[6];
+          if (!rec.attr) rec.attr = r[7] || cat;
+        } else {
+          rec = {
+            uid: r[0] || '', name: r[1] || '', attr: r[7] || cat, release: r[6] || '-',
+            latest: '', mean30: r[3], peak: '', points: [],
+            lifecycle: r[5] || '', rank: r[4], score: r[2], avg: r[3]
+          };
+          byName[rec.name] = rec;
+          songs.push(rec);
+        }
+      });
+    });
+    // 别名索引（历史 uid→名 映射）
+    Object.keys(D.hist_uid_names || {}).forEach(function (k) {
+      var n = D.hist_uid_names[k];
+      if (n && nameIndex.indexOf(n) < 0) nameIndex.push(n);
+    });
+    songs.forEach(function (s) { if (s.name) nameIndex.push(s.name); });
+  }
+
+  function findSong(q) {
+    if (q.length < 2) return null;
+    var exact = null;
+    for (var i = 0; i < songs.length; i++) {
+      if (songs[i].name === q) return songs[i];
+      if (!exact && songs[i].name.indexOf(q) >= 0) exact = songs[i];
+    }
+    if (exact) return exact;
+    for (var j = 0; j < nameIndex.length; j++) {
+      if (nameIndex[j].indexOf(q) >= 0) {
+        for (var k = 0; k < songs.length; k++) {
+          if (songs[k].name === nameIndex[j]) return songs[k];
+        }
+      }
+    }
+    return null;
+  }
+
+  /* ---------------- ③ 预计算洞察句（全部由真实数据生成，无编造） ---------------- */
+  function buildInsights() {
+    var cs = D.chart_summaries || {};
+    function add(text, anchor, keys) {
+      if (text) insights.push({ text: text, anchor: anchor || '', keys: keys || [] });
+    }
+    add(cs.sankey, 'sankeyChart', ['生命周期', '沉淀', '流转', '生态']);
+    add(cs.weekend_premium, 'albumPremiumChart', ['周末', '溢价', '专辑', '通勤']);
+    add(cs.timeline, 'timelineChart', ['时间轴', '竞争', '格局', '月度']);
+    add(cs.waterfall, 'waterfallChart', ['排名', '战争', '瀑布', '跃迁']);
+    var tf = (D.tour_fx || []).slice().sort(function (a, b) { return (b.uplift || 0) - (a.uplift || 0); });
+    if (tf.length) add('在可量化的 ' + tf.length + ' 个巡演节点中，带动最强的是 ' + tf[0].label + '（+' + tf[0].uplift + '%）。', 'tourFxChart', ['巡演', '演唱', '现场', '带动']);
+    var rf = (D.release_fx || []).slice().sort(function (a, b) { return (b.avg || 0) - (a.avg || 0); });
+    if (rf.length) add('新歌发行14日平均指数最高：' + rf[0].label + '（平均 ' + fmt(rf[0].avg) + '，峰值 ' + fmt(rf[0].peak) + '）。', 'tourFxChart', ['发行', '新歌', '上线', '新曲']);
+    var ap = D.weekend_premium || {};
+    if (ap.album !== undefined && ap.ost !== undefined) add('专辑类周末溢价 ' + ap.album + ' vs OST/单曲 ' + ap.ost + '——专辑更具周末沉浸式聆听特质。', 'albumPremiumChart', ['周末', '专辑', '听']);
+    var ss = D.second_spring || {};
+    if (ss.names && ss.names.length) add('近30日出现「第二春」的老歌：' + ss.names.slice(0, 3).join('、') + '（偏离度最高 +' + (ss.values && ss.values[0] || 0) + '%）。', 'sankeyChart', ['复活', '回春', '老歌', '第二春']);
+    var da = D.daily_anomalies || [];
+    if (da.length) add('今日监测到 ' + da.length + ' 条异动：' + da.map(function (x) { return x.song || x.name || x.label || ''; }).filter(Boolean).join('、') + '。', 'summary', ['异常', '异动', '今日']);
+    var tr = D.trend_raw || [], lb = D.time_labels || [];
+    if (tr.length >= 2 && tr[0]) add('全曲目月度平均指数：' + lb[0] + ' ' + fmt(tr[0]) + ' → ' + lb[lb.length - 1] + ' ' + fmt(tr[tr.length - 1]) + '。', 'trendChart', ['趋势', '走势', '平均', '指数']);
+  }
+
+  function matchInsights(q) {
+    var s = String(q || '').replace(/\s+/g, '');
+    if (!s) return [];
+    var scored = insights.map(function (it) {
+      var score = 0;
+      for (var i = 0; i < it.keys.length; i++) if (s.indexOf(it.keys[i]) >= 0) score++;
+      return { it: it, score: score };
+    }).filter(function (x) { return x.score > 0; })
+      .sort(function (a, b) { return b.score - a.score; })
+      .slice(0, 2);
+    return scored.map(function (x) { return x.it; });
+  }
+
+  /* ---------------- ② 意图解析（自然问句模板 + 关键词词典） ---------------- */
+  function parseIntent(q) {
+    var s = String(q || '').replace(/\s+/g, '');
+    if (!s) return { type: 'empty' };
+    var hit = findSong(s);
+    if (hit) return { type: 'song', song: hit.name };
+    var intents = [
+      { type: 'top_trend', re: /涨幅|飙升|涨得|上涨最多|涨最多|上升最多|最猛|涨最/ },
+      { type: 'top_index', re: /指数最高|最热|最火|最受欢迎|收听最多|最厉害|第一名|最强|平均最高|热度最高|排行/ },
+      { type: 'weekend', re: /周末|双休|通勤|休息日|工作日|什么时候听/ },
+      { type: 'tour', re: /巡演|演唱会|现场|带动|北京|广州|重庆|成都|深圳|西安|上海|南京|武汉|杭州|巡唱/ },
+      { type: 'release', re: /发行|新歌|新曲|新单|上线|发布|新专辑/ },
+      { type: 'anomaly', re: /异常|异动|警报|突然|爆/ },
+      { type: 'lifecycle', re: /沉淀|经典|上升期|稳定期|生命周期|复活|回春|第二春|老歌|长尾/ },
+      { type: 'compare', re: /对比|差距|差别|哪个.*(高|低|多|少)|比.*(高|低|多|少)|\bvs\b/ },
+      { type: 'recent', re: /最近|近7|近30|近90|今日|今天|昨日|昨天|新鲜/ }
+    ];
+    for (var i = 0; i < intents.length; i++) {
+      if (intents[i].re.test(s)) return { type: intents[i].type };
+    }
+    return { type: 'browse' };
+  }
+
+  /* ---------------- 各意图的实时计算 ---------------- */
+  function jumpBlock(anchor, label) {
+    return { type: 'jump', anchor: anchor, label: label };
+  }
+  function songBlocks(name) {
+    var r = null;
+    for (var i = 0; i < songs.length; i++) if (songs[i].name === name) { r = songs[i]; break; }
+    if (!r) return [{ type: 'answer', text: '未在数据集中找到《' + esc(name) + '》，试试「browse」或搜索歌名片段。' }];
+    return [
+      { type: 'list', title: '《' + esc(r.name) + '》档案', items: [r] },
+      jumpBlock('trendChart', '全景趋势')
+    ];
+  }
+  function topTrendBlocks() {
+    var tops = (D.top_songs || []).slice().sort(function (a, b) { return (b.trend || 0) - (a.trend || 0); }).slice(0, 5);
+    if (!tops.length) return [{ type: 'answer', text: '暂无近期异常活跃数据。' }];
+    return [
+      { type: 'answer', text: '按环比涨幅排序，近期最活跃的歌曲：' },
+      { type: 'rows', items: tops.map(function (t) {
+        return '<div class="sr-row"><span class="sr-rank">' + (tops.indexOf(t) + 1) + '</span>' +
+          '<span class="sr-song">' + esc(t.name) + '</span>' +
+          '<span class="sr-val up">' + pct(t.trend) + '</span>' +
+          '<span class="sr-tag">' + esc(t.tag || '') + '</span></div>';
+      }) },
+      jumpBlock('summary', '核心结论')
+    ];
+  }
+  function topIndexBlocks(q) {
+    var byPeak = /峰值|最高峰/.test(q);
+    var arr = songs.filter(function (s) { return byPeak ? (s.peak || 0) > 0 : (s.mean30 || 0) > 0; })
+      .sort(function (a, b) { return (byPeak ? (b.peak || 0) : (b.mean30 || 0)) - (byPeak ? (a.peak || 0) : (a.mean30 || 0)); })
+      .slice(0, 8);
+    if (!arr.length) return [{ type: 'answer', text: '暂无指数数据。' }];
+    return [
+      { type: 'answer', text: '按' + (byPeak ? '历史峰值' : '近30日均值') + '排序，榜单前列作品：' },
+      { type: 'list', title: 'Top ' + arr.length, items: arr },
+      jumpBlock('trendChart', '全景趋势')
+    ];
+  }
+  function weekendBlocks() {
+    var ap = D.weekend_premium || {};
+    var ww = D.weekend_workday || [];
+    var lines = [];
+    if (ap.attr_premium && ap.attr_premium.length) {
+      var parts = ap.attr_premium.map(function (x) { return x.attr + ' ' + x.ratio; }).join('，');
+      lines.push('周末/工作日溢价（按类别）：' + parts + '。');
+    }
+    if (ww.length >= 2) {
+      var diff = ww[1] ? ((ww[0] - ww[1]) / ww[1] * 100) : 0;
+      lines.push('全站周末平均指数 ' + fmt(ww[0]) + ' vs 工作日 ' + fmt(ww[1]) + '（' + (diff >= 0 ? '高' : '低') + Math.abs(Math.round(diff * 10) / 10) + '%）。');
+    }
+    var rec = (ap.album_songs || []).slice(0, 6);
+    var ost = (ap.ost_songs || []).slice(0, 6);
+    var blocks = [
+      { type: 'answer', text: lines.length ? lines.join(' ') : '暂无周末数据。' }
+    ];
+    if (rec.length) blocks.push({ type: 'list', title: '周末更适合沉浸聆听的专辑类（Top6）', items: rec.map(nameToRec).filter(Boolean) });
+    if (ost.length) blocks.push({ type: 'list', title: 'OST/单曲类（Top6）', items: ost.map(nameToRec).filter(Boolean) });
+    blocks.push(jumpBlock('albumPremiumChart', '时间偏好洞察图'));
+    return blocks;
+  }
+  function tourBlocks() {
+    var tf = (D.tour_fx || []).slice().sort(function (a, b) { return (b.uplift || 0) - (a.uplift || 0); }).slice(0, 5);
+    var ev = (D.tour_events || []).slice(-5).reverse();
+    if (!tf.length && !ev.length) return [{ type: 'answer', text: '暂无巡演数据。' }];
+    var blocks = [];
+    if (tf.length) {
+      blocks.push({ type: 'answer', text: '巡演后7日全站日均指数较基线涨幅 Top' + tf.length + '：' });
+      blocks.push({ type: 'rows', items: tf.map(function (t) {
+        return '<div class="sr-row"><span class="sr-rank">' + (tf.indexOf(t) + 1) + '</span>' +
+          '<span class="sr-song">' + esc(t.label) + '</span>' +
+          '<span class="sr-val up">+' + t.uplift + '%</span></div>';
+      }) });
+    }
+    if (ev.length) blocks.push({ type: 'answer', text: '最近巡演节点：' + ev.map(function (e) { return esc(e[1]); }).join('；') + '。' });
+    blocks.push(jumpBlock('tourFxChart', '巡演与发行事件图'));
+    return blocks;
+  }
+  function releaseBlocks() {
+    var rf = (D.release_fx || []).slice().sort(function (a, b) { return (b.avg || 0) - (a.avg || 0); }).slice(0, 5);
+    var ev = (D.release_events || []).slice(-5).reverse();
+    if (!rf.length && !ev.length) return [{ type: 'answer', text: '暂无发行数据。' }];
+    var blocks = [];
+    if (rf.length) {
+      blocks.push({ type: 'answer', text: '新歌发行14日表现 Top' + rf.length + '（平均指数 / 峰值）：' });
+      blocks.push({ type: 'rows', items: rf.map(function (t) {
+        return '<div class="sr-row"><span class="sr-rank">' + (rf.indexOf(t) + 1) + '</span>' +
+          '<span class="sr-song">' + esc(t.label) + '</span>' +
+          '<span class="sr-val">' + fmt(t.avg) + ' / ' + fmt(t.peak) + '</span></div>';
+      }) });
+    }
+    if (ev.length) blocks.push({ type: 'answer', text: '最近发行事件：' + ev.map(function (e) { return esc(e[1]); }).join('；') + '。' });
+    blocks.push(jumpBlock('tourFxChart', '巡演与发行事件图'));
+    return blocks;
+  }
+  function anomalyBlocks() {
+    var da = D.daily_anomalies || [];
+    var tops = (D.top_songs || []).filter(function (t) { return /飙升|暴涨|上涨/.test(t.tag || ''); }).slice(0, 5);
+    if (!da.length && !tops.length) return [{ type: 'answer', text: '当前监测平稳，暂无显著异动。' }];
+    var blocks = [];
+    if (da.length) blocks.push({ type: 'answer', text: '今日异动 ' + da.length + ' 条：' + da.map(function (x) { return esc(x.song || x.name || x.label || ''); }).join('、') + '。' });
+    if (tops.length) {
+      blocks.push({ type: 'answer', text: '近30日标记为异常活跃的歌曲：' });
+      blocks.push({ type: 'rows', items: tops.map(function (t) {
+        return '<div class="sr-row"><span class="sr-song">' + esc(t.name) + '</span>' +
+          '<span class="sr-val up">' + pct(t.trend) + '</span>' +
+          '<span class="sr-tag">' + esc(t.tag || '') + '</span></div>';
+      }) });
+    }
+    blocks.push(jumpBlock('summary', '核心结论'));
+    return blocks;
+  }
+  function lifecycleBlocks(q) {
+    var which = /沉淀|经典/.test(q) ? '经典沉淀期' : (/上升/.test(q) ? '上升期' : (/稳定/.test(q) ? '稳定期' : ''));
+    var arr = songs.filter(function (s) { return which ? s.lifecycle === which : s.lifecycle; })
+      .sort(function (a, b) { return (b.score || 0) - (a.score || 0); }).slice(0, 8);
+    var lm = D.lifecycle_migration || {};
+    var links = lm.links || [];
+    var blocks = [];
+    if (!which) {
+      var dist = {};
+      songs.forEach(function (s) { if (s.lifecycle) dist[s.lifecycle] = (dist[s.lifecycle] || 0) + 1; });
+      blocks.push({ type: 'answer', text: '当前生命周期分布：' + Object.keys(dist).map(function (k) { return k + ' ' + dist[k] + ' 首'; }).join('，') + '。' });
+    } else if (arr.length) {
+      blocks.push({ type: 'answer', text: '「' + which + '」作品（按综合得分）：' });
+      blocks.push({ type: 'list', title: which + ' Top' + arr.length, items: arr });
+    }
+    if (links.length) {
+      var s = links.filter(function (l) { return /经典/.test(l.target || ''); }).map(function (l) { return l.value; });
+      blocks.push({ type: 'answer', text: '近60日生命周期流转：' + links.length + ' 组流动关系，' + (s.length ? s[s.length - 1] : 0) + ' 首沉淀为经典。' });
+    }
+    blocks.push(jumpBlock('sankeyChart', '生命周期流转图'));
+    return blocks;
+  }
+  function compareBlocks() {
+    var ap = D.weekend_premium || {};
+    var ww = D.weekend_workday || [];
+    var lines = [];
+    if (ap.album !== undefined && ap.ost !== undefined) lines.push('专辑类周末溢价 ' + ap.album + '，OST/单曲 ' + ap.ost + '，前者高 ' + Math.round((ap.album - ap.ost) * 100) / 100 + '。');
+    if (ww.length >= 2) lines.push('周末 vs 工作日平均指数：' + fmt(ww[0]) + ' vs ' + fmt(ww[1]) + '。');
+    if (!lines.length) return [{ type: 'answer', text: '暂无可对比的数据。' }];
+    return [
+      { type: 'answer', text: lines.join(' ') },
+      jumpBlock('albumPremiumChart', '时间偏好洞察图')
+    ];
+  }
+  function recentBlocks() {
+    var r7 = D.recent_7days || [];
+    var lines = [];
+    if (r7.length) {
+      var vals = r7.map(function (x) { return typeof x === 'object' && x !== null ? x.value : x; }).filter(function (v) { return v !== null && v !== undefined; });
+      if (vals.length) lines.push('最近7日全站平均指数：' + vals.map(fmt).join('、') + '。');
+    }
+    if (D.daily_new_records !== undefined) lines.push('较昨日新增追踪歌曲 ' + D.daily_new_records + ' 首。');
+    if (D.batch_count) lines.push('数据覆盖 ' + D.batch_count + ' 个监测批次（' + (D.date_range || '') + '）。');
+    return [
+      { type: 'answer', text: lines.length ? lines.join(' ') : '暂无近期数据。' },
+      jumpBlock('microTrendChart', '最近7日微趋势')
+    ];
+  }
+  function browseBlocks() {
+    var arr = songs.filter(function (s) { return (s.mean30 || 0) > 0; })
+      .sort(function (a, b) { return (b.mean30 || 0) - (a.mean30 || 0); }).slice(0, 6);
+    var blocks = [
+      { type: 'answer', text: '没有匹配到具体问题或歌名。这里是最新「近30日均值」热门作品，也可以试试下面这些问法：' }
+    ];
+    if (arr.length) blocks.push({ type: 'list', title: '热门作品 Top' + arr.length, items: arr });
+    blocks.push({ type: 'plain', text: '💡 试试问：「涨幅最大的歌」 · 「周末听什么」 · 「巡演影响」 · 「最近异常」 · 「经典沉淀期」 · 「某首歌名」' });
+    return blocks;
+  }
+  function nameToRec(n) {
+    for (var i = 0; i < songs.length; i++) if (songs[i].name === n) return songs[i];
+    return null;
+  }
+
+  /* ---------------- ⑤ 图表联动 ---------------- */
+  function jumpTo(anchor) {
+    var el = document.getElementById(anchor);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    el.classList.remove('sr-flash');
+    void el.offsetWidth;
+    el.classList.add('sr-flash');
+    setTimeout(function () { el.classList.remove('sr-flash'); }, 1800);
+  }
+
+  /* ---------------- 渲染 ---------------- */
+  var KNOWN = { uid: 1, name: 1, attr: 1, release: 1, latest: 1, mean30: 1, peak: 1, points: 1, lifecycle: 1, rank: 1, score: 1, avg: 1 };
+  function extraFields(r) {
+    var parts = [];
+    Object.keys(r).forEach(function (k) {
+      if (KNOWN[k] || !r[k]) return;
+      var v = r[k];
+      if (typeof v === 'object') v = JSON.stringify(v);
+      parts.push('<span class="sc-extra-item"><b>' + esc(k) + '</b> ' + esc(v) + '</span>');
+    });
+    return parts.join('');
+  }
+  function songCardHTML(r) {
+    return '<div class="song-card" data-uid="' + esc(r.uid) + '" data-name="' + esc(r.name) + '">' +
+      '<div class="sc-top"><span class="sc-name">' + esc(r.name) + '</span>' +
+      (r.attr ? '<span class="sc-attr">' + esc(r.attr) + '</span>' : '') +
+      (r.lifecycle ? '<span class="sc-life">' + esc(r.lifecycle) + '</span>' : '') + '</div>' +
+      '<div class="sc-metrics">' +
+      '<div class="sc-m"><span>最新</span><b>' + fmt(r.latest) + '</b></div>' +
+      '<div class="sc-m"><span>近30日均值</span><b>' + fmt(r.mean30) + '</b></div>' +
+      '<div class="sc-m"><span>历史峰值</span><b>' + fmt(r.peak) + '</b></div>' +
+      '<div class="sc-m"><span>全站排名</span><b>' + fmt(r.rank) + '</b></div>' +
+      '</div>' +
+      (extraFields(r) ? '<div class="sc-extra">' + extraFields(r) + '</div>' : '') +
+      '<div class="sc-chart" style="height:56px"></div>' +
+      '<div class="sc-foot">' +
+      (r.release && r.release !== '-' ? '<span class="sc-rel">发行 ' + esc(r.release) + '</span>' : '') +
+      '<button type="button" class="sc-open" data-anchor="trendChart">趋势图表 ↗</button>' +
+      '</div></div>';
+  }
+
+  function render(blocks) {
+    var out = document.getElementById('searchResults');
+    if (!out) return;
+    out.innerHTML = '';
+    if (!blocks || !blocks.length) {
+      out.innerHTML = '<div class="sr-empty">没有找到相关内容，试试上面的推荐问题。</div>';
+      return;
+    }
+    blocks.forEach(function (b) {
+      var el = document.createElement('div');
+      el.className = 'sr-block';
+      if (b.type === 'answer') el.innerHTML = '<div class="sr-answer">' + b.text + '</div>';
+      else if (b.type === 'plain') el.innerHTML = '<div class="sr-answer sr-hint">' + b.text + '</div>';
+      else if (b.type === 'list') {
+        el.innerHTML = '<div class="sr-head">' + b.title + '</div><div class="sr-grid">' +
+          b.items.map(songCardHTML).join('') + '</div>';
+      } else if (b.type === 'rows') {
+        el.innerHTML = '<div class="sr-rows">' + b.items.join('') + '</div>';
+      } else if (b.type === 'insights') {
+        el.innerHTML = '<div class="sr-head">💡 相关洞察（实时从数据计算）</div>' +
+          b.items.map(function (it) {
+            return '<div class="sr-insight">' + it.text + (it.anchor ? ' <button type="button" class="sr-insight-jump" data-anchor="' + it.anchor + '">查看↗</button>' : '') + '</div>';
+          }).join('');
+      } else if (b.type === 'jump') {
+        el.innerHTML = '<button type="button" class="sr-jump" data-anchor="' + b.anchor + '">跳到相关图表：' + esc(b.label) + ' ↗</button>';
+      }
+      out.appendChild(el);
+    });
+    out.querySelectorAll('[data-anchor]').forEach(function (btn) {
+      btn.addEventListener('click', function () { jumpTo(btn.getAttribute('data-anchor')); });
+    });
+    // 迷你趋势图
+    out.querySelectorAll('.song-card').forEach(function (card) {
+      var uid = card.getAttribute('data-uid');
+      var rec = null;
+      for (var i = 0; i < songs.length; i++) if (songs[i].uid === uid) { rec = songs[i]; break; }
+      if (rec && rec.points && rec.points.length >= 2) drawSpark(card.querySelector('.sc-chart'), rec.points);
+      else if (rec && (rec.mean30 || rec.latest)) {
+        card.querySelector('.sc-chart').innerHTML = '<div class="sc-chart-text">近30日均值 ' + fmt(rec.mean30) + ' · 最新 ' + fmt(rec.latest) + '</div>';
+      }
+    });
+  }
+
+  /* ---------------- 迷你趋势图（echarts 就绪后绘制，缺失降级文本） ---------------- */
+  function drawSpark(container, pts) {
+    var draw = function () {
+      if (!container || !container.isConnected) return;
+      var labels = pts.map(function (p) { return p[0]; });
+      var values = pts.map(function (p) { return p[1]; });
+      container.innerHTML = '';
+      var chart = window.echarts.init(container);
+      chart.setOption({
+        animation: false,
+        grid: { left: 2, right: 2, top: 6, bottom: 2 },
+        xAxis: { type: 'category', show: false, data: labels },
+        yAxis: { type: 'value', show: false, scale: true },
+        series: [{
+          type: 'line', data: values, showSymbol: false, smooth: true,
+          lineStyle: { color: '#00d2ff', width: 1.4 },
+          areaStyle: { color: 'rgba(0,210,255,0.10)' },
+          emphasis: { disabled: true }
+        }]
+      });
+    };
+    if (window.echarts) draw();
+    else pendingSpark.push(draw);
+  }
+  function flushPendingSpark() {
+    var q = pendingSpark;
+    pendingSpark = [];
+    q.forEach(function (fn) { fn(); });
+  }
+
+  /* ---------------- 搜索入口 ---------------- */
+  function runSearch(q) {
+    if (!D) {
+      render([{ type: 'answer', text: '数据未就绪，请刷新页面。' }]);
+      return;
+    }
+    var intent = parseIntent(q);
+    var blocks = answerBlocks(q, intent);
+    render(blocks);
+  }
+  function answerBlocks(q, intent) {
+    var blocks = [];
+    switch (intent.type) {
+      case 'song': blocks = songBlocks(intent.song); break;
+      case 'top_trend': blocks = topTrendBlocks(); break;
+      case 'top_index': blocks = topIndexBlocks(q); break;
+      case 'weekend': blocks = weekendBlocks(); break;
+      case 'tour': blocks = tourBlocks(); break;
+      case 'release': blocks = releaseBlocks(); break;
+      case 'anomaly': blocks = anomalyBlocks(); break;
+      case 'lifecycle': blocks = lifecycleBlocks(q); break;
+      case 'compare': blocks = compareBlocks(); break;
+      case 'recent': blocks = recentBlocks(); break;
+      default: blocks = browseBlocks();
+    }
+    var matched = matchInsights(q);
+    if (matched.length && intent.type !== 'song') blocks.push({ type: 'insights', items: matched });
+    return blocks;
+  }
+
+  function init() {
+    if (typeof window.dashboardData !== 'undefined') D = window.dashboardData;
+    else {
+      document.getElementById('searchResults').innerHTML = '<div class="sr-empty">数据未就绪</div>';
+      return;
+    }
+    buildSongs();
+    buildInsights();
+
+    var input = document.getElementById('searchInput');
+    var btn = document.getElementById('searchBtn');
+    if (input) {
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter') runSearch(input.value); });
+    }
+    if (btn) btn.addEventListener('click', function () { runSearch(input ? input.value : ''); });
+    document.querySelectorAll('.chip').forEach(function (c) {
+      c.addEventListener('click', function () {
+        var q = c.getAttribute('data-q') || '';
+        if (input) input.value = q;
+        runSearch(q);
+      });
+    });
+    // 主站跳转：?q= 参数自动执行
+    var m = /[?&]q=([^&]+)/.exec(window.location.search || '');
+    if (m) {
+      var q = decodeURIComponent(m[1].replace(/\+/g, ' '));
+      if (q) {
+        if (input) input.value = q;
+        runSearch(q);
+        input.focus();
+      }
+    }
+    // echarts 就绪后补绘
+    document.addEventListener('echarts-ready', flushPendingSpark);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
