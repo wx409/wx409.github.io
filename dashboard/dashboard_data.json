@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 16:19",
+  "timestamp": "2026-08-05 18:21",
   "total": 196316,
   "success": 36207,
   "complete_rate": 18.4,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    5.2
+    5.4
   ],
   "listener_labels": [
     "2024-08",
@@ -116282,7 +116282,7 @@
       "晚风暖暖"
     ],
     "values": [
-      257.8,
+      258.1,
       119.3,
       117.9,
       115.3,
@@ -122589,49 +122589,49 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 7,
+    "active_count": 11,
     "total_tracked": 325,
-    "concentration_top3": 78.7,
+    "concentration_top3": 69.9,
     "as_of": "2026-08-05"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 61.6,
-      "trend_pct": 35.9,
+      "share_pct": 58.0,
+      "trend_pct": 92.8,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "再叙",
-      "share_pct": 9.4,
+      "share_pct": 6.2,
       "trend_pct": 59.2,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "在路上",
-      "share_pct": 7.7,
-      "trend_pct": 20.8,
+      "song": "山楂树",
+      "share_pct": 5.8,
+      "trend_pct": 56.5,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 7.5,
-      "trend_pct": 67.6,
+      "song": "月弯弯",
+      "share_pct": 5.3,
+      "trend_pct": 106.2,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 5.2,
-      "trend_pct": -6.5,
-      "trend_label": "down"
+      "song": "在路上",
+      "share_pct": 5.1,
+      "trend_pct": 20.8,
+      "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-05 16:19",
+  "last_update": "2026-08-05 18:21",
   "today_batches": 891,
   "daily_new_records": 0,
   "recent_7days": [
@@ -122688,8 +122688,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1604,
-      "success": 1601,
+      "total": 1606,
+      "success": 1603,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -122697,12 +122697,12 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 234297,
+      "rows": 234392,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 431385,
+      "before": 431574,
       "after": 196316
     },
     "index_calibration": {
