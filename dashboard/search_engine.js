@@ -42,38 +42,51 @@
     return out;
   }
 
-  /* ---------------- ① 构建歌曲档案（detail_songs + rank_groups 合并） ---------------- */
+  /* ---------------- ① 构建歌曲档案（优先 song_index，兼容旧 detail_songs+rank_groups） ---------------- */
   function buildSongs() {
-    var byName = {};
-    (D.detail_songs || []).forEach(function (s) {
-      var rec = {
-        uid: s.uid || '', name: s.name || '', attr: s.attr || '', release: s.release || '-',
-        latest: s.latest, mean30: s.mean30, peak: s.peak,
-        points: downSample(s.points, 120),
-        lifecycle: '', rank: '', score: '', avg: ''
-      };
-      byName[rec.name] = rec;
-      songs.push(rec);
-    });
-    // rank_groups: {类别: [uid, name, score, avg, rank, lifecycle, release, attr]}
-    Object.keys(D.rank_groups || {}).forEach(function (cat) {
-      (D.rank_groups[cat] || []).forEach(function (r) {
-        var rec = byName[r[1]];
-        if (rec) {
-          rec.score = r[2]; rec.avg = r[3]; rec.rank = r[4]; rec.lifecycle = r[5];
-          if (r[6] && r[6] !== '-' && (!rec.release || rec.release === '-')) rec.release = r[6];
-          if (!rec.attr) rec.attr = r[7] || cat;
-        } else {
-          rec = {
-            uid: r[0] || '', name: r[1] || '', attr: r[7] || cat, release: r[6] || '-',
-            latest: '', mean30: r[3], peak: '', points: [],
-            lifecycle: r[5] || '', rank: r[4], score: r[2], avg: r[3]
-          };
-          byName[rec.name] = rec;
-          songs.push(rec);
-        }
+    var src = (D.song_index && D.song_index.length) ? D.song_index : null;
+    if (src) {
+      songs = src.map(function (s) {
+        var rec = {
+          uid: s.uid || '', name: s.name || '', attr: s.attr || '', release: s.release || '-',
+          latest: s.latest, mean30: s.mean30, peak: s.peak,
+          lifecycle: s.lifecycle || '', score: s.score, streak: s.streak,
+          points: downSample(s.points || [], 120),
+          _src: s
+        };
+        return rec;
       });
-    });
+    } else {
+      var byName = {};
+      (D.detail_songs || []).forEach(function (s) {
+        var rec = {
+          uid: s.uid || '', name: s.name || '', attr: s.attr || '', release: s.release || '-',
+          latest: s.latest, mean30: s.mean30, peak: s.peak,
+          points: downSample(s.points, 120),
+          lifecycle: '', score: '', streak: '', _src: s
+        };
+        byName[rec.name] = rec;
+        songs.push(rec);
+      });
+      Object.keys(D.rank_groups || {}).forEach(function (cat) {
+        (D.rank_groups[cat] || []).forEach(function (r) {
+          var rec = byName[r[1]];
+          if (rec) {
+            rec.score = r[2]; rec.lifecycle = r[5]; rec.streak = r[4];
+            if (r[6] && r[6] !== '-' && (!rec.release || rec.release === '-')) rec.release = r[6];
+            if (!rec.attr) rec.attr = r[7] || cat;
+          } else {
+            rec = {
+              uid: r[0] || '', name: r[1] || '', attr: r[7] || cat, release: r[6] || '-',
+              latest: '', mean30: r[3], peak: '', points: [],
+              lifecycle: r[5] || '', score: r[2], streak: r[4], _src: null
+            };
+            byName[rec.name] = rec;
+            songs.push(rec);
+          }
+        });
+      });
+    }
     // 别名索引（历史 uid→名 映射）
     Object.keys(D.hist_uid_names || {}).forEach(function (k) {
       var n = D.hist_uid_names[k];
@@ -347,12 +360,14 @@
   }
 
   /* ---------------- 渲染 ---------------- */
-  var KNOWN = { uid: 1, name: 1, attr: 1, release: 1, latest: 1, mean30: 1, peak: 1, points: 1, lifecycle: 1, rank: 1, score: 1, avg: 1 };
+  var KNOWN = { uid: 1, name: 1, attr: 1, release: 1, latest: 1, mean30: 1, peak: 1, points: 1, lifecycle: 1, score: 1, streak: 1, _src: 1 };
   function extraFields(r) {
+    // 动态字段透传：未来 Python 侧新增元数据（如「来源:电台」）会自动展示
+    var o = r._src || r;
     var parts = [];
-    Object.keys(r).forEach(function (k) {
-      if (KNOWN[k] || !r[k]) return;
-      var v = r[k];
+    Object.keys(o).forEach(function (k) {
+      if (KNOWN[k] || o[k] === '' || o[k] === null || o[k] === undefined) return;
+      var v = o[k];
       if (typeof v === 'object') v = JSON.stringify(v);
       parts.push('<span class="sc-extra-item"><b>' + esc(k) + '</b> ' + esc(v) + '</span>');
     });
@@ -367,12 +382,15 @@
       '<div class="sc-m"><span>最新</span><b>' + fmt(r.latest) + '</b></div>' +
       '<div class="sc-m"><span>近30日均值</span><b>' + fmt(r.mean30) + '</b></div>' +
       '<div class="sc-m"><span>历史峰值</span><b>' + fmt(r.peak) + '</b></div>' +
-      '<div class="sc-m"><span>全站排名</span><b>' + fmt(r.rank) + '</b></div>' +
+      '<div class="sc-m"><span>综合得分</span><b>' + fmt(r.score) + '</b></div>' +
       '</div>' +
-      (extraFields(r) ? '<div class="sc-extra">' + extraFields(r) + '</div>' : '') +
+      '<div class="sc-extra">' +
+      (r.streak ? '<span class="sc-extra-item"><b>最长连涨</b> ' + esc(r.streak) + ' 次</span>' : '') +
+      (r.release && r.release !== '-' ? '<span class="sc-extra-item"><b>发行</b> ' + esc(r.release) + '</span>' : '') +
+      extraFields(r) +
+      '</div>' +
       '<div class="sc-chart" style="height:56px"></div>' +
       '<div class="sc-foot">' +
-      (r.release && r.release !== '-' ? '<span class="sc-rel">发行 ' + esc(r.release) + '</span>' : '') +
       '<button type="button" class="sc-open" data-anchor="trendChart">趋势图表 ↗</button>' +
       '</div></div>';
   }
@@ -518,4 +536,18 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+
+  // 调试/测试导出：window.DataSpeak.search(q) 可直接调用
+  if (typeof window !== 'undefined') {
+    window.DataSpeak = {
+      search: function (q) {
+        if (!D) D = window.dashboardData || {};
+        buildSongs();
+        buildInsights();
+        return answerBlocks(String(q || ''), parseIntent(String(q || '')));
+      },
+      songCount: function () { return songs.length; },
+      indexReady: function () { return !!(D && D.song_index && D.song_index.length); }
+    };
+  }
 })();
