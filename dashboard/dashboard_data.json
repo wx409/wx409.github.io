@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 20:47",
+  "timestamp": "2026-08-05 21:17",
   "total": 196316,
   "success": 36207,
   "complete_rate": 18.4,
@@ -116282,9 +116282,9 @@
       "晚风暖暖"
     ],
     "values": [
-      255.6,
+      254.5,
       119.3,
-      118.8,
+      117.1,
       115.3,
       111.2
     ],
@@ -122591,47 +122591,47 @@
   "daily_listen_overview": {
     "active_count": 15,
     "total_tracked": 325,
-    "concentration_top3": 65.9,
+    "concentration_top3": 65.0,
     "as_of": "2026-08-05"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 54.7,
-      "trend_pct": 92.0,
+      "share_pct": 51.9,
+      "trend_pct": 53.5,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "再叙",
-      "share_pct": 5.9,
+      "share_pct": 7.0,
       "trend_pct": 59.2,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "在路上",
-      "share_pct": 5.4,
-      "trend_pct": 34.0,
+      "song": "山楂树",
+      "share_pct": 6.1,
+      "trend_pct": 47.8,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "月弯弯",
-      "share_pct": 5.0,
-      "trend_pct": 106.2,
+      "song": "在路上",
+      "share_pct": 5.1,
+      "trend_pct": 7.5,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 4.8,
-      "trend_pct": 37.0,
+      "song": "一生中最爱",
+      "share_pct": 4.5,
+      "trend_pct": 35.1,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-05 20:47",
+  "last_update": "2026-08-05 21:17",
   "today_batches": 891,
   "daily_new_records": 0,
   "recent_7days": [
@@ -122688,8 +122688,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1614,
-      "success": 1611,
+      "total": 1616,
+      "success": 1613,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -122697,12 +122697,12 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 234721,
+      "rows": 234804,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 432130,
+      "before": 432266,
       "after": 196316
     },
     "index_calibration": {
