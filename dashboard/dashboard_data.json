@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 19:38",
+  "timestamp": "2026-08-05 20:47",
   "total": 196316,
   "success": 36207,
   "complete_rate": 18.4,
@@ -116282,7 +116282,7 @@
       "晚风暖暖"
     ],
     "values": [
-      257.3,
+      255.6,
       119.3,
       118.8,
       115.3,
@@ -122591,47 +122591,47 @@
   "daily_listen_overview": {
     "active_count": 15,
     "total_tracked": 325,
-    "concentration_top3": 64.5,
+    "concentration_top3": 65.9,
     "as_of": "2026-08-05"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 52.7,
+      "share_pct": 54.7,
       "trend_pct": 92.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "山楂树",
-      "share_pct": 6.1,
-      "trend_pct": 80.4,
-      "trend_label": "up"
-    },
-    {
-      "rank": 3,
       "song": "再叙",
-      "share_pct": 5.7,
+      "share_pct": 5.9,
       "trend_pct": 59.2,
       "trend_label": "up"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "song": "在路上",
-      "share_pct": 5.2,
+      "share_pct": 5.4,
       "trend_pct": 34.0,
       "trend_label": "up"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "song": "月弯弯",
-      "share_pct": 4.8,
+      "share_pct": 5.0,
       "trend_pct": 106.2,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "山楂树",
+      "share_pct": 4.8,
+      "trend_pct": 37.0,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-05 19:38",
+  "last_update": "2026-08-05 20:47",
   "today_batches": 891,
   "daily_new_records": 0,
   "recent_7days": [
@@ -122688,8 +122688,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1612,
-      "success": 1609,
+      "total": 1614,
+      "success": 1611,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -122697,12 +122697,12 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 234641,
+      "rows": 234721,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 431986,
+      "before": 432130,
       "after": 196316
     },
     "index_calibration": {
