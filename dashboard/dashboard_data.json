@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-05 12:08",
-  "total": 196315,
+  "timestamp": "2026-08-05 12:36",
+  "total": 196316,
   "success": 36207,
   "complete_rate": 18.4,
   "index_rate": 18.4,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    5.0
+    5.2
   ],
   "listener_labels": [
     "2024-08",
@@ -86454,15 +86454,15 @@
     "names": [
       "一生中最爱",
       "星空穹顶",
-      "爱于此生",
       "在路上",
+      "爱于此生",
       "晚风暖暖"
     ],
     "values": [
-      249.4,
+      257.8,
       119.3,
+      117.9,
       115.3,
-      114.1,
       111.2
     ],
     "spring": [
@@ -92766,58 +92766,52 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 18,
+    "active_count": 7,
     "total_tracked": 325,
-    "concentration_top3": 62.2,
-    "as_of": "2026-08-04"
+    "concentration_top3": 78.7,
+    "as_of": "2026-08-05"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 48.9,
-      "trend_pct": -4.6,
-      "trend_label": "flat"
+      "share_pct": 61.6,
+      "trend_pct": 35.9,
+      "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "在路上",
-      "share_pct": 6.9,
-      "trend_pct": 51.4,
+      "song": "再叙",
+      "share_pct": 9.4,
+      "trend_pct": 59.2,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "再叙",
-      "share_pct": 6.4,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
+      "song": "在路上",
+      "share_pct": 7.7,
+      "trend_pct": 20.8,
+      "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 6.0,
-      "trend_pct": 64.3,
+      "song": "一生中最爱",
+      "share_pct": 7.5,
+      "trend_pct": 67.6,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "一生中最爱",
-      "share_pct": 4.8,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
+      "song": "山楂树",
+      "share_pct": 5.2,
+      "trend_pct": -6.5,
+      "trend_label": "down"
     }
   ],
-  "last_update": "2026-08-05 12:08",
+  "last_update": "2026-08-05 12:36",
   "today_batches": 891,
   "daily_new_records": 0,
   "recent_7days": [
-    {
-      "date": "2026-07-29",
-      "avg_index": 511.8,
-      "total_songs": 252,
-      "complete": true
-    },
     {
       "date": "2026-07-30",
       "avg_index": 591.9,
@@ -92853,6 +92847,12 @@
       "avg_index": 548.4,
       "total_songs": 252,
       "complete": true
+    },
+    {
+      "date": "2026-08-05",
+      "avg_index": null,
+      "total_songs": 252,
+      "complete": true
     }
   ],
   "latest_anomaly": null,
@@ -92865,8 +92865,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1599,
-      "success": 1596,
+      "total": 1601,
+      "success": 1598,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -92874,21 +92874,21 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 234175,
+      "rows": 234297,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 431160,
-      "after": 196315
+      "before": 431385,
+      "after": 196316
     },
     "index_calibration": {
       "rows": 29464,
-      "total": 196315,
+      "total": 196316,
       "pct": 15.0
     },
     "dataset": {
-      "records": 196315,
+      "records": 196316,
       "date_range": "2023-01-01 ~ 2026-08-05",
       "tracked_uids": 325
     },
