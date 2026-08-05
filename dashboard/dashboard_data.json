@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-05 08:41",
-  "total": 196314,
+  "timestamp": "2026-08-05 12:08",
+  "total": 196315,
   "success": 36207,
   "complete_rate": 18.4,
   "index_rate": 18.4,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    4.9
+    5.0
   ],
   "listener_labels": [
     "2024-08",
@@ -92808,7 +92808,7 @@
       "trend_label": "flat"
     }
   ],
-  "last_update": "2026-08-05 08:41",
+  "last_update": "2026-08-05 12:08",
   "today_batches": 891,
   "daily_new_records": 0,
   "recent_7days": [
@@ -92865,8 +92865,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1597,
-      "success": 1594,
+      "total": 1599,
+      "success": 1596,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -92874,21 +92874,21 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 234065,
+      "rows": 234175,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 430988,
-      "after": 196314
+      "before": 431160,
+      "after": 196315
     },
     "index_calibration": {
       "rows": 29464,
-      "total": 196314,
+      "total": 196315,
       "pct": 15.0
     },
     "dataset": {
-      "records": 196314,
+      "records": 196315,
       "date_range": "2023-01-01 ~ 2026-08-05",
       "tracked_uids": 325
     },
