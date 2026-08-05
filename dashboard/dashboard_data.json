@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 18:41",
+  "timestamp": "2026-08-05 19:01",
   "total": 196316,
   "success": 36207,
   "complete_rate": 18.4,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    5.5
+    5.6
   ],
   "listener_labels": [
     "2024-08",
@@ -116282,8 +116282,8 @@
       "晚风暖暖"
     ],
     "values": [
-      256.7,
-      120.3,
+      257.3,
+      120.6,
       119.3,
       115.3,
       111.2
@@ -122589,24 +122589,24 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 14,
+    "active_count": 15,
     "total_tracked": 325,
-    "concentration_top3": 65.3,
+    "concentration_top3": 64.3,
     "as_of": "2026-08-05"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 53.2,
-      "trend_pct": 94.7,
+      "share_pct": 52.1,
+      "trend_pct": 92.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "在路上",
-      "share_pct": 6.1,
-      "trend_pct": 58.5,
+      "share_pct": 6.2,
+      "trend_pct": 62.3,
       "trend_label": "up"
     },
     {
@@ -122619,7 +122619,7 @@
     {
       "rank": 4,
       "song": "再叙",
-      "share_pct": 5.7,
+      "share_pct": 5.6,
       "trend_pct": 59.2,
       "trend_label": "up"
     },
@@ -122631,7 +122631,7 @@
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-05 18:41",
+  "last_update": "2026-08-05 19:01",
   "today_batches": 891,
   "daily_new_records": 0,
   "recent_7days": [
@@ -122688,8 +122688,8 @@
   },
   "lineage": {
     "excel_files": {
-      "total": 1608,
-      "success": 1605,
+      "total": 1610,
+      "success": 1607,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
@@ -122697,12 +122697,12 @@
       ]
     },
     "nonsong_filtered": {
-      "rows": 234485,
+      "rows": 234561,
       "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 431763,
+      "before": 431877,
       "after": 196316
     },
     "index_calibration": {
