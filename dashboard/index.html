@@ -630,7 +630,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       var s = document.createElement('span');
       s.className = 'anomaly-item';
       var isIdx2 = a.type.indexOf('指数') >= 0;
-      s.innerHTML = '<span class="anomaly-dot ' + (isIdx2 ? 'idx' : 'rank') + '"></span>' + a.desc.replace('指数','').replace('排名','').replace('较','');
+      s.innerHTML = '<span class="anomaly-dot ' + (isIdx2 ? 'idx' : 'rank') + '"></span>' + a.song + ' ' + a.desc;
       miniList.appendChild(s);
     });
   }
