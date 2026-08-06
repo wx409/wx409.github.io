@@ -114,6 +114,45 @@ def inject_song_uplift(config: dict, raw: dict | None) -> None:
             song["uplift"] = matched
 
 
+def check_setlist_gaps(config: dict, raw: dict | None) -> None:
+    """一致性校验：长表标记 on_setlist=True 但 YAML 歌单缺失的曲目 → 输出警告。
+
+    长表（王晰巡演歌单长表_单一事实源.xlsx）是歌单唯一事实源，YAML 为人工整理。
+    若长表认为某曲在该场歌单内（数据层按「歌单内」口径统计），而 YAML 未收录，
+    live 页「完整歌单」表将不显示该曲，与数据效应区块的归属口径不一致——打印警告
+    便于人工核对「唱了哪首」与「涨了多少」是否对齐。仅警告，不修改任何输出。
+    匹配规则与注入一致：全半角统一 + 去空白 + 组合曲目按 + 拆分；YAML 标题带
+    括号注解（如「再见我的爱人（Goodbye My Love）」）时按包含关系匹配。
+    """
+    if not raw:
+        return
+    yaml_norms = set()
+    for half in ("first_half", "second_half"):
+        for song in config.get(half, []):
+            for p in _norm_name(song.get("title", "")).split("+"):
+                if p:
+                    yaml_norms.add(p)
+    missing = []
+    for s in raw.get("songs") or []:
+        if not s.get("on_setlist"):
+            continue
+        n = _norm_name(s.get("name", ""))
+        if not n:
+            continue
+        parts = [p for p in n.split("+") if p]
+        matched = any(p in yaml_norms for p in parts)
+        if not matched:
+            matched = any(n in yn or yn in n for yn in yaml_norms)
+        if not matched:
+            missing.append(s.get("name"))
+    if missing:
+        print(
+            f"[!] 一致性警告：{config.get('meta', {}).get('date', '')} 场，"
+            f"以下歌曲在长表中标记为「歌单内」但 YAML 歌单未收录"
+            f"（数据层按歌单内统计，live 页歌单表将不显示）：{'、'.join(missing)}"
+        )
+
+
 def build_tour_effect(raw: dict | None) -> dict | None:
     """把数据层的场次后歌曲级效应转成模板可直接渲染的展示结构（动态数值，不写死）"""
     if not raw:
@@ -287,6 +326,8 @@ def main() -> None:
         config["tour_effect"] = effect
     # 逐曲场后涨幅：注入「完整歌单」表（仅歌单内且有数据的曲目显示，其余留白 —）
     inject_song_uplift(config, effect_raw)
+    # 一致性校验：长表标记歌单内但 YAML 缺失的曲目 → 警告（长表为单一事实源）
+    check_setlist_gaps(config, effect_raw)
     html = render_page(config, ROOT, args.template)
     output_dir.mkdir(parents=True, exist_ok=True)
     out_file = output_dir / config["meta"]["filename"]
