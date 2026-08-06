@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-06 09:03",
+  "timestamp": "2026-08-06 09:36",
   "total": 196453,
   "success": 36227,
   "complete_rate": 18.4,
@@ -122713,7 +122713,7 @@
       "trend_label": "down"
     }
   ],
-  "last_update": "2026-08-06 09:03",
+  "last_update": "2026-08-06 09:36",
   "today_batches": 892,
   "daily_new_records": 0,
   "recent_7days": [
@@ -122797,18 +122797,18 @@
     "waterfall": "排名战争瀑布图：展示 13 首作品全站排名变化的逐日累积效应，上升用绿色、下降用红色，直观呈现每首作品在竞争中的进退轨迹。"
   },
   "lineage": {
+    "nonsong_filtered": {
+      "rows": 235083,
+      "pct": 35.2
+    },
     "excel_files": {
-      "total": 1623,
-      "success": 1620,
+      "total": 1624,
+      "success": 1621,
       "failed": [
         "2023.3.10.xlsx",
         "2023.3.13.xlsx",
         "2023.3.16.xlsx"
       ]
-    },
-    "nonsong_filtered": {
-      "rows": 235083,
-      "pct": 35.2
     },
     "link_registry": 382,
     "intraday_merged": {
