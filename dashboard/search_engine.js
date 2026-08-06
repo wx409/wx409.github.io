@@ -51,6 +51,7 @@
           uid: s.uid || '', name: s.name || '', attr: s.attr || '', release: s.release || '-',
           latest: s.latest, mean30: s.mean30, peak: s.peak,
           lifecycle: s.lifecycle || '', score: s.score, streak: s.streak,
+          best_rank: s.best_rank, active_days: s.active_days, profile: s.profile || [],
           points: downSample(s.points || [], 120),
           _src: s
         };
