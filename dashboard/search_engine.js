@@ -156,6 +156,17 @@
     if (!s) return { type: 'empty' };
     var hit = findSong(s);
     if (hit) return { type: 'song', song: hit.name };
+    // 多歌曲对比检测：在原始输入上按空格/逗号/和/与/vs 分词，
+    // 命中 ≥2 首歌 → 对比意图（「A 和 B」「A vs B」「A 对比 B」等组合查询）
+    var raw = String(q || '');
+    var matchedSongs = [];
+    raw.split(/[\s,，、/;；+&|]+|和|与|\bvs\b/i).forEach(function (t) {
+      t = t.trim();
+      if (t.length < 2) return;
+      var h = findSong(t);
+      if (h && matchedSongs.indexOf(h.name) < 0) matchedSongs.push(h.name);
+    });
+    if (matchedSongs.length >= 2) return { type: 'compare_songs', songs: matchedSongs };
     var intents = [
       { type: 'top_trend', re: /涨幅|飙升|涨得|上涨最多|涨最多|上升最多|最猛|涨最/ },
       { type: 'top_index', re: /指数最高|最热|最火|最受欢迎|收听最多|最厉害|第一名|最强|平均最高|热度最高|排行/ },
@@ -306,6 +317,37 @@
     }
     blocks.push(jumpBlock('sankeyChart', '生命周期流转图'));
     return blocks;
+  }
+  function compareSongsBlocks(names) {
+    // 多歌曲对比：并排档案卡 + 核心指标差异小结（全部实时从 song_index 计算）
+    var recs = names.map(function (n) {
+      for (var i = 0; i < songs.length; i++) if (songs[i].name === n) return songs[i];
+      return null;
+    }).filter(Boolean);
+    if (recs.length < 2) return [{ type: 'answer', text: '无法对比这两首歌曲。' }];
+    var a = recs[0], b = recs[1];
+    var diffs = [];
+    function addDiff(label, x, y) {
+      if (x == null || y == null || x === '' || y === '' || isNaN(x) || isNaN(y)) return;
+      if (Number(x) === Number(y)) return;
+      var base = Math.min(Math.abs(Number(x)), Math.abs(Number(y)));
+      if (base <= 0) return;
+      var pct = Math.round(Math.abs(Number(x) - Number(y)) / base * 100);
+      var hi = Number(x) > Number(y) ? a : b;
+      var lo = Number(x) > Number(y) ? b : a;
+      diffs.push(label + '：《' + hi.name + '》高于《' + lo.name + '》' + pct + '%（' + fmt(x) + ' vs ' + fmt(y) + '）');
+    }
+    addDiff('近30日均值', a.mean30, b.mean30);
+    addDiff('历史峰值', a.peak, b.peak);
+    addDiff('最新指数', a.latest, b.latest);
+    addDiff('综合得分', a.score, b.score);
+    addDiff('最长连涨', a.streak, b.streak);
+    var summary = diffs.length ? diffs.slice(0, 4).join('；') + '。' : '各项核心指标接近。';
+    return [
+      { type: 'answer', text: '《' + a.name + '》 vs 《' + b.name + '》：' + summary },
+      { type: 'list', title: '档案并排对比', items: recs },
+      jumpBlock('trendChart', '全景趋势')
+    ];
   }
   function compareBlocks() {
     var ap = D.weekend_premium || {};
@@ -497,6 +539,7 @@
       case 'release': blocks = releaseBlocks(); break;
       case 'anomaly': blocks = anomalyBlocks(); break;
       case 'lifecycle': blocks = lifecycleBlocks(q); break;
+      case 'compare_songs': blocks = compareSongsBlocks(intent.songs); break;
       case 'compare': blocks = compareBlocks(); break;
       case 'recent': blocks = recentBlocks(); break;
       default: blocks = browseBlocks();
