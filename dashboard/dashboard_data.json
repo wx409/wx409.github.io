@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-06 12:37",
+  "timestamp": "2026-08-06 17:28",
   "total": 196566,
   "success": 36227,
   "complete_rate": 18.4,
@@ -103231,31 +103231,31 @@
     ],
     [
       "2023-11",
-      "2023-11-12 四巡·“肆益”个人巡回音乐会 北京站"
+      "2023-11-12 四巡·\"肆益\"个人巡回音乐会 北京（首场）站"
     ],
     [
       "2023-12",
-      "2023-12-10 四巡·“肆益”个人巡回音乐会 广州站"
+      "2023-12-10 四巡·\"肆益\"个人巡回音乐会 广州站"
     ],
     [
       "2023-12",
-      "2023-12-31 四巡·“肆益”个人巡回音乐会 上海站"
+      "2023-12-31 四巡·\"肆益\"个人巡回音乐会 上海（跨年）站"
     ],
     [
       "2024-08",
-      "2024-08-16 四巡·“肆益”个人巡回音乐会 北京站"
+      "2024-08-16 四巡·\"肆益\"个人巡回音乐会 北京（二场·五载纪念）站"
     ],
     [
       "2024-09",
-      "2024-09-16 四巡·“肆益”个人巡回音乐会 武汉站"
+      "2024-09-16 四巡·\"肆益\"个人巡回音乐会 武汉（收官·中秋前）站"
     ],
     [
       "2025-01",
-      "2025-01-01 五巡·王晰吾个人巡回音乐会 长沙站"
+      "2025-01-01 五巡·王晰吾个人巡回音乐会 长沙（元旦）站"
     ],
     [
       "2025-04",
-      "2025-04-05 五巡·王晰吾个人巡回音乐会 北京站"
+      "2025-04-05 五巡·王晰吾个人巡回音乐会 北京（生日场）站"
     ],
     [
       "2025-05",
@@ -103263,19 +103263,23 @@
     ],
     [
       "2025-11",
-      "2025-11-21 五巡·王晰吾个人巡回音乐会 上海站"
+      "2025-11-21 五巡·王晰吾个人巡回音乐会 上海（返场）站"
     ],
     [
       "2026-01",
-      "2026-01-31 五巡·王晰吾个人巡回音乐会 杭州站"
+      "2026-01-31 五巡·王晰吾个人巡回音乐会 杭州（返场·金沙湖）站"
     ],
     [
       "2026-04",
-      "2026-04-10 五巡·王晰吾个人巡回音乐会 北京站"
+      "2026-04-10 五巡·王晰吾个人巡回音乐会 北京（收官·生日特典）站"
     ],
     [
       "2026-06",
-      "2026-06-13 六巡·王晰回个人巡回音乐会 重庆站"
+      "2026-06-13 六巡·王晰回个人巡回音乐会 重庆（首站）站"
+    ],
+    [
+      "2026-08",
+      "2026-08-23 六巡·王晰回个人巡回音乐会 广州（官宣未举办）站"
     ]
   ],
   "release_events": [
@@ -103960,7 +103964,7 @@
   },
   "tour_fx": [
     {
-      "label": "11-12 北京",
+      "label": "11-12 北京（首场）",
       "uplift": 70.4
     },
     {
@@ -103968,15 +103972,15 @@
       "uplift": 20.0
     },
     {
-      "label": "09-16 武汉",
+      "label": "09-16 武汉（收官·中秋前）",
       "uplift": 3.5
     },
     {
-      "label": "06-13 重庆",
+      "label": "06-13 重庆（首站）",
       "uplift": 2.4
     },
     {
-      "label": "04-05 北京",
+      "label": "04-05 北京（生日场）",
       "uplift": -6.6
     },
     {
@@ -103984,15 +103988,15 @@
       "uplift": -7.6
     },
     {
-      "label": "01-31 杭州",
+      "label": "01-31 杭州（返场·金沙湖）",
       "uplift": -7.7
     },
     {
-      "label": "11-21 上海",
+      "label": "11-21 上海（返场）",
       "uplift": -8.0
     },
     {
-      "label": "04-10 北京",
+      "label": "04-10 北京（收官·生日特典）",
       "uplift": -8.1
     },
     {
@@ -104050,6 +104054,476 @@
       "label": "《猫模狗样》01-05",
       "avg": 4479.0,
       "peak": 35531.0
+    }
+  ],
+  "tour_song_effects": [
+    {
+      "date": "2023-05-01",
+      "scene": "郑州",
+      "city": "郑州",
+      "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
+      "total_uplift": -21.1,
+      "setlist_uplift": -15.3,
+      "radiance_uplift": -15.3,
+      "top_songs": [
+        {
+          "name": "云与海",
+          "uplift": 61.4,
+          "on_setlist": false
+        },
+        {
+          "name": "晚风",
+          "uplift": 40.0,
+          "on_setlist": false
+        },
+        {
+          "name": "花儿为什么这样红",
+          "uplift": 31.7,
+          "on_setlist": false
+        },
+        {
+          "name": "往前",
+          "uplift": 26.2,
+          "on_setlist": false
+        },
+        {
+          "name": "南屏晚钟",
+          "uplift": 12.4,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2023-05-03",
+      "scene": "昆明",
+      "city": "昆明",
+      "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
+      "total_uplift": -17.1,
+      "setlist_uplift": -35.6,
+      "radiance_uplift": -9.8,
+      "top_songs": [
+        {
+          "name": "我的心里只有你没有他",
+          "uplift": 56.9,
+          "on_setlist": false
+        },
+        {
+          "name": "云与海",
+          "uplift": 56.6,
+          "on_setlist": false
+        },
+        {
+          "name": "晚风",
+          "uplift": 36.3,
+          "on_setlist": false
+        },
+        {
+          "name": "往前",
+          "uplift": 29.6,
+          "on_setlist": false
+        },
+        {
+          "name": "花儿为什么这样红",
+          "uplift": 23.6,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2023-05-20",
+      "scene": "南宁",
+      "city": "南宁",
+      "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
+      "total_uplift": -14.3,
+      "setlist_uplift": 22.8,
+      "radiance_uplift": -8.6,
+      "top_songs": [
+        {
+          "name": "乌兰巴托的夜晚",
+          "uplift": 54.8,
+          "on_setlist": false
+        },
+        {
+          "name": "惑许",
+          "uplift": 22.8,
+          "on_setlist": true
+        },
+        {
+          "name": "凄美地",
+          "uplift": 18.0,
+          "on_setlist": false
+        },
+        {
+          "name": "是你",
+          "uplift": 16.2,
+          "on_setlist": false
+        },
+        {
+          "name": "微光之名",
+          "uplift": 15.1,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2023-06-23",
+      "scene": "深圳",
+      "city": "深圳",
+      "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
+      "total_uplift": -14.7,
+      "setlist_uplift": 4.1,
+      "radiance_uplift": -10.0,
+      "top_songs": [
+        {
+          "name": "微醺23点08分",
+          "uplift": 37.0,
+          "on_setlist": false
+        },
+        {
+          "name": "凄美地",
+          "uplift": 35.1,
+          "on_setlist": true
+        },
+        {
+          "name": "荒人之歌",
+          "uplift": 24.8,
+          "on_setlist": false
+        },
+        {
+          "name": "鸽子",
+          "uplift": 19.4,
+          "on_setlist": false
+        },
+        {
+          "name": "好好说再见",
+          "uplift": 17.4,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2023-11-12",
+      "scene": "北京（首场）",
+      "city": "北京",
+      "tour": "四巡·\"肆益\"个人巡回音乐会",
+      "total_uplift": -1.5,
+      "setlist_uplift": 59.7,
+      "radiance_uplift": -1.4,
+      "top_songs": [
+        {
+          "name": "多听有益",
+          "uplift": 82.0,
+          "on_setlist": true
+        },
+        {
+          "name": "小河",
+          "uplift": 37.4,
+          "on_setlist": true
+        },
+        {
+          "name": "云与海",
+          "uplift": 21.8,
+          "on_setlist": false
+        },
+        {
+          "name": "多年以后",
+          "uplift": 16.9,
+          "on_setlist": false
+        },
+        {
+          "name": "一生守候",
+          "uplift": 15.1,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2023-12-10",
+      "scene": "广州",
+      "city": "广州",
+      "tour": "四巡·\"肆益\"个人巡回音乐会",
+      "total_uplift": -37.2,
+      "setlist_uplift": -14.5,
+      "radiance_uplift": -8.4,
+      "top_songs": [
+        {
+          "name": "相思",
+          "uplift": 40.5,
+          "on_setlist": false
+        },
+        {
+          "name": "哭砂",
+          "uplift": 7.5,
+          "on_setlist": false
+        },
+        {
+          "name": "云与海",
+          "uplift": 6.2,
+          "on_setlist": false
+        },
+        {
+          "name": "Sound of Silence",
+          "uplift": 3.7,
+          "on_setlist": false
+        },
+        {
+          "name": "谁",
+          "uplift": 2.9,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2024-09-16",
+      "scene": "武汉（收官·中秋前）",
+      "city": "武汉",
+      "tour": "四巡·\"肆益\"个人巡回音乐会",
+      "total_uplift": -2.6,
+      "setlist_uplift": -15.0,
+      "radiance_uplift": -7.8,
+      "top_songs": [
+        {
+          "name": "乌兰巴托的夜晚",
+          "uplift": 44.7,
+          "on_setlist": false
+        },
+        {
+          "name": "多听有益",
+          "uplift": 22.2,
+          "on_setlist": false
+        },
+        {
+          "name": "相思",
+          "uplift": 10.0,
+          "on_setlist": false
+        },
+        {
+          "name": "小丈夫",
+          "uplift": 9.0,
+          "on_setlist": false
+        },
+        {
+          "name": "云与海",
+          "uplift": 6.8,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2025-04-05",
+      "scene": "北京（生日场）",
+      "city": "北京",
+      "tour": "五巡·王晰吾个人巡回音乐会",
+      "total_uplift": -8.3,
+      "setlist_uplift": -20.2,
+      "radiance_uplift": -2.6,
+      "top_songs": [
+        {
+          "name": "无荒",
+          "uplift": 57.0,
+          "on_setlist": false
+        },
+        {
+          "name": "猫模狗样",
+          "uplift": 27.9,
+          "on_setlist": false
+        },
+        {
+          "name": "多年以后",
+          "uplift": 22.8,
+          "on_setlist": false
+        },
+        {
+          "name": "祝我们随遇而安",
+          "uplift": 22.1,
+          "on_setlist": true
+        },
+        {
+          "name": "滚滚长江东逝水",
+          "uplift": 18.5,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2025-05-24",
+      "scene": "广州",
+      "city": "广州",
+      "tour": "五巡·王晰吾个人巡回音乐会",
+      "total_uplift": -3.2,
+      "setlist_uplift": -5.2,
+      "radiance_uplift": -4.0,
+      "top_songs": [
+        {
+          "name": "在路上",
+          "uplift": 43.9,
+          "on_setlist": true
+        },
+        {
+          "name": "友谊地久天长",
+          "uplift": 31.1,
+          "on_setlist": false
+        },
+        {
+          "name": "多听有益",
+          "uplift": 22.3,
+          "on_setlist": false
+        },
+        {
+          "name": "剑起山林",
+          "uplift": 21.2,
+          "on_setlist": false
+        },
+        {
+          "name": "千言万语",
+          "uplift": 14.3,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2025-11-21",
+      "scene": "上海（返场）",
+      "city": "上海",
+      "tour": "五巡·王晰吾个人巡回音乐会",
+      "total_uplift": -2.4,
+      "setlist_uplift": -11.6,
+      "radiance_uplift": -3.2,
+      "top_songs": [
+        {
+          "name": "重庆野玫瑰",
+          "uplift": 21.6,
+          "on_setlist": false
+        },
+        {
+          "name": "Over the Rainbow",
+          "uplift": 11.5,
+          "on_setlist": false
+        },
+        {
+          "name": "神魂颠倒",
+          "uplift": 10.7,
+          "on_setlist": false
+        },
+        {
+          "name": "爱于此生",
+          "uplift": 8.7,
+          "on_setlist": false
+        },
+        {
+          "name": "一生守候",
+          "uplift": 7.3,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2026-01-31",
+      "scene": "杭州（返场·金沙湖）",
+      "city": "杭州",
+      "tour": "五巡·王晰吾个人巡回音乐会",
+      "total_uplift": -6.7,
+      "setlist_uplift": -32.1,
+      "radiance_uplift": -6.6,
+      "top_songs": [
+        {
+          "name": "下沉",
+          "uplift": 41.8,
+          "on_setlist": false
+        },
+        {
+          "name": "多听有益",
+          "uplift": 39.0,
+          "on_setlist": false
+        },
+        {
+          "name": "月弯弯",
+          "uplift": 7.6,
+          "on_setlist": false
+        },
+        {
+          "name": "重庆野玫瑰",
+          "uplift": 6.9,
+          "on_setlist": false
+        },
+        {
+          "name": "Over the Rainbow",
+          "uplift": 6.2,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "scene": "北京（收官·生日特典）",
+      "city": "北京",
+      "tour": "五巡·王晰吾个人巡回音乐会",
+      "total_uplift": -5.0,
+      "setlist_uplift": 27.0,
+      "radiance_uplift": 10.5,
+      "top_songs": [
+        {
+          "name": "滚滚长江东逝水",
+          "uplift": 244.7,
+          "on_setlist": false
+        },
+        {
+          "name": "在路上",
+          "uplift": 54.0,
+          "on_setlist": true
+        },
+        {
+          "name": "相思",
+          "uplift": 20.9,
+          "on_setlist": false
+        },
+        {
+          "name": "月弯弯",
+          "uplift": 10.9,
+          "on_setlist": false
+        },
+        {
+          "name": "小河",
+          "uplift": 10.4,
+          "on_setlist": false
+        }
+      ]
+    },
+    {
+      "date": "2026-06-13",
+      "scene": "重庆（首站）",
+      "city": "重庆",
+      "tour": "六巡·王晰回个人巡回音乐会",
+      "total_uplift": 4.2,
+      "setlist_uplift": 12.3,
+      "radiance_uplift": 1.6,
+      "top_songs": [
+        {
+          "name": "谁",
+          "uplift": 47.3,
+          "on_setlist": false
+        },
+        {
+          "name": "重庆野玫瑰",
+          "uplift": 19.6,
+          "on_setlist": true
+        },
+        {
+          "name": "一生守候",
+          "uplift": 18.9,
+          "on_setlist": true
+        },
+        {
+          "name": "在路上",
+          "uplift": 17.2,
+          "on_setlist": false
+        },
+        {
+          "name": "亲密爱人",
+          "uplift": 11.2,
+          "on_setlist": false
+        }
+      ]
     }
   ],
   "batch_count": 892,
@@ -122325,14 +122799,14 @@
       "events": [
         {
           "type": "tour",
-          "name": "北京"
+          "name": "北京（首场）"
         },
         {
           "type": "release",
           "name": "玫瑰"
         }
       ],
-      "event_str": "🎤 北京站  🎵 《玫瑰》发行"
+      "event_str": "🎤 北京（首场）站  🎵 《玫瑰》发行"
     },
     {
       "month": "2023-12",
@@ -122495,10 +122969,10 @@
         },
         {
           "type": "tour",
-          "name": "上海"
+          "name": "上海（跨年）"
         }
       ],
-      "event_str": "🎤 广州站  🎤 上海站"
+      "event_str": "🎤 广州站  🎤 上海（跨年）站"
     },
     {
       "month": "2024-06",
@@ -122981,10 +123455,10 @@
       "events": [
         {
           "type": "tour",
-          "name": "北京"
+          "name": "北京（二场·五载纪念）"
         }
       ],
-      "event_str": "🎤 北京站"
+      "event_str": "🎤 北京（二场·五载纪念）站"
     },
     {
       "month": "2024-09",
@@ -123143,14 +123617,14 @@
       "events": [
         {
           "type": "tour",
-          "name": "武汉"
+          "name": "武汉（收官·中秋前）"
         },
         {
           "type": "release",
           "name": "剑心铸梦"
         }
       ],
-      "event_str": "🎤 武汉站  🎵 《剑心铸梦》发行"
+      "event_str": "🎤 武汉（收官·中秋前）站  🎵 《剑心铸梦》发行"
     },
     {
       "month": "2024-10",
@@ -123623,10 +124097,10 @@
       "events": [
         {
           "type": "tour",
-          "name": "长沙"
+          "name": "长沙（元旦）"
         }
       ],
-      "event_str": "🎤 长沙站"
+      "event_str": "🎤 长沙（元旦）站"
     },
     {
       "month": "2025-02",
@@ -124099,10 +124573,10 @@
       "events": [
         {
           "type": "tour",
-          "name": "北京"
+          "name": "北京（生日场）"
         }
       ],
-      "event_str": "🎤 北京站"
+      "event_str": "🎤 北京（生日场）站"
     },
     {
       "month": "2025-05",
@@ -125222,7 +125696,7 @@
       "events": [
         {
           "type": "tour",
-          "name": "上海"
+          "name": "上海（返场）"
         },
         {
           "type": "release",
@@ -125233,7 +125707,7 @@
           "name": "如龙"
         }
       ],
-      "event_str": "🎤 上海站  🎵 《欢迎来到我的世界》发行  🎵 《如龙》发行"
+      "event_str": "🎤 上海（返场）站  🎵 《欢迎来到我的世界》发行  🎵 《如龙》发行"
     },
     {
       "month": "2025-12",
@@ -125549,14 +126023,14 @@
       "events": [
         {
           "type": "tour",
-          "name": "杭州"
+          "name": "杭州（返场·金沙湖）"
         },
         {
           "type": "release",
           "name": "埋下记忆"
         }
       ],
-      "event_str": "🎤 杭州站  🎵 《埋下记忆》发行"
+      "event_str": "🎤 杭州（返场·金沙湖）站  🎵 《埋下记忆》发行"
     },
     {
       "month": "2026-02",
@@ -126038,10 +126512,10 @@
       "events": [
         {
           "type": "tour",
-          "name": "北京"
+          "name": "北京（收官·生日特典）"
         }
       ],
-      "event_str": "🎤 北京站"
+      "event_str": "🎤 北京（收官·生日特典）站"
     },
     {
       "month": "2026-05",
@@ -126357,10 +126831,10 @@
       "events": [
         {
           "type": "tour",
-          "name": "重庆"
+          "name": "重庆（首站）"
         }
       ],
-      "event_str": "🎤 重庆站"
+      "event_str": "🎤 重庆（首站）站"
     },
     {
       "month": "2026-07",
@@ -126678,8 +127152,13 @@
           "uid": "L:002omjTe1T8a1x"
         }
       ],
-      "events": [],
-      "event_str": ""
+      "events": [
+        {
+          "type": "tour",
+          "name": "广州（官宣未举办）"
+        }
+      ],
+      "event_str": "🎤 广州（官宣未举办）站"
     }
   ],
   "daily_listen_overview": {
@@ -126725,7 +127204,7 @@
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-06 12:37",
+  "last_update": "2026-08-06 17:28",
   "today_batches": 892,
   "daily_new_records": 0,
   "recent_7days": [
@@ -126786,8 +127265,8 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1555,
-      "success": 1555,
+      "total": 1556,
+      "success": 1556,
       "failed": []
     },
     "link_registry": 382,
