@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
+import unicodedata
 import xml.etree.ElementTree as ET
 from datetime import date
 from pathlib import Path
@@ -67,6 +69,49 @@ def _fmt_pct(v) -> str:
         return ""
     sign = "+" if v >= 0 else ""
     return f"{sign}{v:.1f}%"
+
+
+def _norm_name(name: str) -> str:
+    """名称规范化（与数据层一致）：全半角统一 + 去空白，仅用于匹配，不改变展示名"""
+    return re.sub(r"\s+", "", unicodedata.normalize("NFKC", str(name)).strip())
+
+
+def build_song_uplift(raw: dict | None) -> dict:
+    """从该场次 tour_song_effects["songs"] 构建 归一名 → 涨幅 映射。
+
+    仅收录歌单内（on_setlist=True）且有数据的曲目；歌单外辐射带动曲目
+    不注入歌单表，保持「完整歌单」表格纯净（无数据显示 —）。
+    """
+    if not raw:
+        return {}
+    out = {}
+    for s in raw.get("songs") or []:
+        if not s.get("on_setlist"):
+            continue
+        n = _norm_name(s.get("name", ""))
+        if n:
+            out[n] = _fmt_pct(s.get("uplift"))
+    return out
+
+
+def inject_song_uplift(config: dict, raw: dict | None) -> None:
+    """把该场逐曲涨幅写入 first_half/second_half 每首 song.uplift。
+
+    组合曲目（如「女人花 + 水中花」）按 + 拆分匹配；匹配到歌单内曲目才显示，
+    否则留空由模板渲染为 —。
+    """
+    uplift_map = build_song_uplift(raw)
+    if not uplift_map:
+        return
+    for half in ("first_half", "second_half"):
+        for song in config.get(half, []):
+            parts = [p for p in _norm_name(song.get("title", "")).split("+") if p]
+            matched = ""
+            for p in parts:
+                if p in uplift_map:
+                    matched = uplift_map[p]
+                    break
+            song["uplift"] = matched
 
 
 def build_tour_effect(raw: dict | None) -> dict | None:
@@ -236,9 +281,12 @@ def main() -> None:
     # 数据效应：从数据大屏 dashboard_data.json 匹配当前场次（按日期），无数据则留白不渲染
     from update_index_table import load_effects
 
-    effect = build_tour_effect(load_effects(ROOT / "dashboard").get(config["meta"]["date"]))
+    effect_raw = load_effects(ROOT / "dashboard").get(config["meta"]["date"])
+    effect = build_tour_effect(effect_raw)
     if effect:
         config["tour_effect"] = effect
+    # 逐曲场后涨幅：注入「完整歌单」表（仅歌单内且有数据的曲目显示，其余留白 —）
+    inject_song_uplift(config, effect_raw)
     html = render_page(config, ROOT, args.template)
     output_dir.mkdir(parents=True, exist_ok=True)
     out_file = output_dir / config["meta"]["filename"]

@@ -100,18 +100,19 @@
     <h2>完整歌单</h2>
     <h3>上半场</h3>
     <table>
-        <tr><th>#</th><th>曲目</th><th>说明</th></tr>
+        <tr><th>#</th><th>曲目</th><th>场后涨幅</th><th>说明</th></tr>
         {% for song in first_half %}
-        <tr><td>{{ song.num }}</td><td>{{ song.title }}</td><td>{{ song.note }}</td></tr>
+        <tr><td>{{ song.num }}</td><td>{{ song.title }}</td><td>{% if song.uplift %}{{ song.uplift }}{% else %}—{% endif %}</td><td>{{ song.note }}</td></tr>
         {% endfor %}
     </table>
     <h3>下半场</h3>
     <table>
-        <tr><th>#</th><th>曲目</th><th>说明</th></tr>
+        <tr><th>#</th><th>曲目</th><th>场后涨幅</th><th>说明</th></tr>
         {% for song in second_half %}
-        <tr><td>{{ song.num }}</td><td>{{ song.title }}</td><td>{{ song.note }}</td></tr>
+        <tr><td>{{ song.num }}</td><td>{{ song.title }}</td><td>{% if song.uplift %}{{ song.uplift }}{% else %}—{% endif %}</td><td>{{ song.note }}</td></tr>
         {% endfor %}
     </table>
+    <p style="color:#888;font-size:13px;">场后涨幅：该曲演出后 7 日平台指数相对演出前（21~7 日）基线的变化，仅标注歌单内且有监测数据的曲目；歌单外作品不计入此表，无数据显示「—」。</p>
 
     {% if tour_effect %}
     <h2>数据效应</h2>
