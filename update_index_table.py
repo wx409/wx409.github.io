@@ -14,6 +14,50 @@ TABLE_START = "<!-- LIVE_TABLE_START -->"
 TABLE_END = "<!-- LIVE_TABLE_END -->"
 
 
+def load_effects(dashboard_dir: Path) -> dict:
+    """读取数据大屏 dashboard_data.json 的场次后歌曲级效应（按日期索引）。
+    文件缺失/解析失败时返回空 dict（表格效应列显示 —，不阻塞更新）。"""
+    path = dashboard_dir / "dashboard_data.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    out = {}
+    for e in data.get("tour_song_effects", []):
+        d = e.get("date")
+        if d:
+            out[d] = e
+    return out
+
+
+def _fmt_pct(v) -> str:
+    if v is None:
+        return ""
+    sign = "+" if v >= 0 else ""
+    return f"{sign}{v:.1f}%"
+
+
+def build_effect_cell(effect: dict) -> str:
+    """数据效应单元格：全站 / 歌单内（直接） / 歌单外（辐射带动）三段式，无数据留白"""
+    if not effect:
+        return "<td>—</td>"
+    parts = [f"全站{_fmt_pct(effect.get('total_uplift'))}"]
+    setlist = effect.get("setlist_uplift")
+    radiance = effect.get("radiance_uplift")
+    if setlist is not None:
+        parts.append(f"歌单内{_fmt_pct(setlist)}")
+    if radiance is not None:
+        parts.append(f"辐射带动{_fmt_pct(radiance)}")
+    tops = effect.get("top_songs") or []
+    title = "；".join(
+        f"{t['name']}{_fmt_pct(t.get('uplift'))}{'（歌单内）' if t.get('on_setlist') else '（辐射）'}"
+        for t in tops
+    )
+    return f'<td title="带动歌曲：{title}">{" ｜ ".join(parts)}</td>' if title else f"<td>{' ｜ '.join(parts)}</td>"
+
+
 def load_manifest(live_dir: Path) -> list[dict]:
     manifest_path = live_dir / "manifest.json"
     if manifest_path.exists():
@@ -48,7 +92,7 @@ def _meta(html: str, name: str) -> str:
     return m.group(1) if m else ""
 
 
-def build_row(entry: dict) -> str:
+def build_row(entry: dict, effect: dict | None = None) -> str:
     status_class = entry.get("status_class", "")
     status_td = (
         f'<td class="{status_class}">{entry["status"]}</td>'
@@ -62,21 +106,25 @@ def build_row(entry: dict) -> str:
         f"<td>{entry['venue']}</td>"
         f"<td>{entry['tour_display']}</td>"
         f"{status_td}"
+        f"{build_effect_cell(effect)}"
         f'<td><a href="{entry["link"]}">{entry.get("link_text", "完整实录 →")}</a></td>'
         f"</tr>"
     )
 
 
-def update_index(index_path: Path, entries: list[dict]) -> None:
+def update_index(index_path: Path, entries: list[dict], effects: dict | None = None) -> None:
     if not entries:
         print("[!] live 目录无演出记录，跳过")
         return
 
-    rows = "\n        ".join(build_row(e) for e in entries)
+    effects = effects or {}
+    rows = "\n        ".join(
+        build_row(e, effects.get(e["date"])) for e in entries
+    )
     table_block = (
         f"{TABLE_START}\n"
         f"    <table>\n"
-        f"        <tr><th>日期</th><th>城市</th><th>场馆</th><th>巡演主题</th><th>状态</th><th>详情</th></tr>\n"
+        f"        <tr><th>日期</th><th>城市</th><th>场馆</th><th>巡演主题</th><th>状态</th><th>数据效应*</th><th>详情</th></tr>\n"
         f"        {rows}\n"
         f"    </table>\n"
         f"    {TABLE_END}"
@@ -121,8 +169,10 @@ def main() -> None:
         sys.exit(1)
 
     entries = load_manifest(live_dir)
-    update_index(index_path, entries)
-    print(f"[OK] 已更新 {len(entries)} 条演出记录 -> {index_path}")
+    effects = load_effects(ROOT / "dashboard")
+    update_index(index_path, entries, effects)
+    matched = len({e["date"] for e in entries} & set(effects.keys()))
+    print(f"[OK] 已更新 {len(entries)} 条演出记录 -> {index_path}（数据效应匹配 {matched} 场）")
 
 
 if __name__ == "__main__":

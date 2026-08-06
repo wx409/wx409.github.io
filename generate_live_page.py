@@ -58,7 +58,50 @@ def render_page(config: dict, template_dir: Path, template_name: str) -> str:
         faq=faq,
         quotes=config.get("quotes", []),
         faq_schema_json=build_faq_schema(faq),
+        tour_effect=config.get("tour_effect"),  # 数据效应区块（无数据为 None，模板留白）
     )
+
+
+def _fmt_pct(v) -> str:
+    if v is None:
+        return ""
+    sign = "+" if v >= 0 else ""
+    return f"{sign}{v:.1f}%"
+
+
+def build_tour_effect(raw: dict | None) -> dict | None:
+    """把数据层的场次后歌曲级效应转成模板可直接渲染的展示结构（动态数值，不写死）"""
+    if not raw:
+        return None
+    total = raw.get("total_uplift")
+    setlist = raw.get("setlist_uplift")
+    radiance = raw.get("radiance_uplift")
+    tops = [
+        {
+            "name": t["name"],
+            "uplift": _fmt_pct(t.get("uplift")),
+            "on_setlist": bool(t.get("on_setlist")),
+        }
+        for t in (raw.get("top_songs") or [])
+    ]
+    if total is None:
+        return None
+    note = f"演出后 7 日，全站指数较演出前（21~7 日）基线{_fmt_pct(total)}"
+    if setlist is not None:
+        note += f"；歌单内曲目平均{_fmt_pct(setlist)}"
+    if radiance is not None:
+        note += f"；歌单外作品平均{_fmt_pct(radiance)}，巡演的辐射带动同样带来积极影响"
+    return {
+        "date": raw.get("date"),
+        "scene": raw.get("scene"),
+        "city": raw.get("city"),
+        "tour": raw.get("tour"),
+        "total_text": _fmt_pct(total),
+        "setlist_text": _fmt_pct(setlist) if setlist is not None else None,
+        "radiance_text": _fmt_pct(radiance) if radiance is not None else None,
+        "top_songs": tops,
+        "note": note,
+    }
 
 
 def _ns_tag(name: str) -> str:
@@ -190,6 +233,12 @@ def main() -> None:
         sys.exit(1)
 
     config = load_config(config_path)
+    # 数据效应：从数据大屏 dashboard_data.json 匹配当前场次（按日期），无数据则留白不渲染
+    from update_index_table import load_effects
+
+    effect = build_tour_effect(load_effects(ROOT / "dashboard").get(config["meta"]["date"]))
+    if effect:
+        config["tour_effect"] = effect
     html = render_page(config, ROOT, args.template)
     output_dir.mkdir(parents=True, exist_ok=True)
     out_file = output_dir / config["meta"]["filename"]
@@ -197,10 +246,10 @@ def main() -> None:
     write_manifest(output_dir, config)
 
     if not args.no_index:
-        from update_index_table import load_manifest, update_index
+        from update_index_table import load_effects, load_manifest, update_index
 
         entries = load_manifest(output_dir)
-        update_index(index_path, entries)
+        update_index(index_path, entries, load_effects(ROOT / "dashboard"))
 
     if not args.no_sitemap:
         update_sitemap(sitemap_path, output_dir / "manifest.json")

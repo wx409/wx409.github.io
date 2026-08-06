@@ -113,6 +113,27 @@
         {% endfor %}
     </table>
 
+    {% if tour_effect %}
+    <h2>数据效应</h2>
+    <p>{{ tour_effect.note }}</p>
+    <table>
+        <tr><th>口径</th><th>变化</th></tr>
+        <tr><td>全站指数</td><td>{{ tour_effect.total_text }}</td></tr>
+        <tr><td>歌单内曲目（直接效应）</td><td>{{ tour_effect.setlist_text }}</td></tr>
+        <tr><td>歌单外作品（辐射带动）</td><td>{{ tour_effect.radiance_text }}</td></tr>
+    </table>
+    {% if tour_effect.top_songs %}
+    <h3>本轮带动最显著歌曲</h3>
+    <table>
+        <tr><th>曲目</th><th>变化</th><th>归属</th></tr>
+        {% for s in tour_effect.top_songs %}
+        <tr><td>{{ s.name }}</td><td>{{ s.uplift }}</td><td>{% if s.on_setlist %}歌单内{% else %}辐射带动（歌单外）{% endif %}</td></tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <p style="color:#888;font-size:13px;">口径：演出后 7 日平台指数，相对演出前 21~7 日基线的变化。数据来源：<a href="../dashboard/dashboard_data.json">数据大屏 dashboard_data.json</a>，随监测数据自动更新。</p>
+    {% endif %}
+
     <h2>现场亮点</h2>
     <table>
         <tr><th>亮点</th><th>描述</th></tr>
