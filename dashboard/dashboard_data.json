@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-06 09:36",
+  "timestamp": "2026-08-06 09:45",
   "total": 196453,
   "success": 36227,
   "complete_rate": 18.4,
@@ -122713,7 +122713,7 @@
       "trend_label": "down"
     }
   ],
-  "last_update": "2026-08-06 09:36",
+  "last_update": "2026-08-06 09:45",
   "today_batches": 892,
   "daily_new_records": 0,
   "recent_7days": [
@@ -122798,17 +122798,13 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 235083,
-      "pct": 35.2
+      "rows": 0,
+      "pct": 0.0
     },
     "excel_files": {
-      "total": 1624,
-      "success": 1621,
-      "failed": [
-        "2023.3.10.xlsx",
-        "2023.3.13.xlsx",
-        "2023.3.16.xlsx"
-      ]
+      "total": 1625,
+      "success": 1625,
+      "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
