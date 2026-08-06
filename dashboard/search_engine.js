@@ -360,7 +360,7 @@
   }
 
   /* ---------------- 渲染 ---------------- */
-  var KNOWN = { uid: 1, name: 1, attr: 1, release: 1, latest: 1, mean30: 1, peak: 1, points: 1, lifecycle: 1, score: 1, streak: 1, _src: 1 };
+  var KNOWN = { uid: 1, name: 1, attr: 1, release: 1, latest: 1, mean30: 1, peak: 1, points: 1, lifecycle: 1, score: 1, streak: 1, best_rank: 1, active_days: 1, profile: 1, _src: 1 };
   function extraFields(r) {
     // 动态字段透传：未来 Python 侧新增元数据（如「来源:电台」）会自动展示
     var o = r._src || r;
@@ -372,6 +372,13 @@
       parts.push('<span class="sc-extra-item"><b>' + esc(k) + '</b> ' + esc(v) + '</span>');
     });
     return parts.join('');
+  }
+  function profileHTML(r) {
+    // 「数据档案」区：Python 侧生成的 profile 键值对（中文标签，已格式化），直接展示
+    var p = (r.profile || []).map(function (x) {
+      return '<span class="sc-extra-item"><b>' + esc(x.k) + '</b> ' + esc(x.v) + '</span>';
+    }).join('');
+    return p;
   }
   function songCardHTML(r) {
     return '<div class="song-card" data-uid="' + esc(r.uid) + '" data-name="' + esc(r.name) + '">' +
@@ -387,6 +394,7 @@
       '<div class="sc-extra">' +
       (r.streak ? '<span class="sc-extra-item"><b>最长连涨</b> ' + esc(r.streak) + ' 次</span>' : '') +
       (r.release && r.release !== '-' ? '<span class="sc-extra-item"><b>发行</b> ' + esc(r.release) + '</span>' : '') +
+      profileHTML(r) +
       extraFields(r) +
       '</div>' +
       '<div class="sc-chart" style="height:56px"></div>' +
