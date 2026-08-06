@@ -498,10 +498,18 @@
     return blocks;
   }
 
+  /* 获取 dashboardData：兼容 window 属性与全局词法 const 声明（const/let 不挂 window） */
+  function getData() {
+    if (typeof window !== 'undefined' && window.dashboardData) return window.dashboardData;
+    if (typeof dashboardData !== 'undefined') return dashboardData;
+    return null;
+  }
+
   function init() {
-    if (typeof window.dashboardData !== 'undefined') D = window.dashboardData;
-    else {
-      document.getElementById('searchResults').innerHTML = '<div class="sr-empty">数据未就绪</div>';
+    D = getData();
+    if (!D) {
+      var box = document.getElementById('searchResults');
+      if (box) box.innerHTML = '<div class="sr-empty">数据未就绪</div>';
       return;
     }
     buildSongs();
@@ -541,7 +549,7 @@
   if (typeof window !== 'undefined') {
     window.DataSpeak = {
       search: function (q) {
-        if (!D) D = window.dashboardData || {};
+        if (!D) D = getData() || {};
         buildSongs();
         buildInsights();
         return answerBlocks(String(q || ''), parseIntent(String(q || '')));
