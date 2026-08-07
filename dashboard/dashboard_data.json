@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-07 20:30",
+  "timestamp": "2026-08-07 20:44",
   "total": 196820,
   "success": 36247,
   "complete_rate": 18.4,
@@ -129994,7 +129994,7 @@
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-07 20:30",
+  "last_update": "2026-08-07 20:44",
   "today_batches": 893,
   "daily_new_records": 0,
   "recent_7days": [
@@ -130052,8 +130052,8 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 2192,
-      "pct": 0.5
+      "rows": 130,
+      "pct": 0.0
     },
     "excel_files": {
       "total": 1584,
@@ -130062,7 +130062,7 @@
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 441691,
+      "before": 441930,
       "after": 196820
     },
     "index_calibration": {
