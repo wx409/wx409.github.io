@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-08 21:00",
+  "timestamp": "2026-08-08 21:30",
   "total": 197072,
   "success": 36265,
   "complete_rate": 18.4,
@@ -119645,7 +119645,7 @@
         170.1,
         90.3,
         77.1,
-        81.8,
+        95.2,
         46.6,
         56.2,
         63.1,
@@ -120521,15 +120521,18 @@
     "names": [
       "一生中最爱",
       "星空穹顶",
-      "在路上"
+      "在路上",
+      "晚风暖暖"
     ],
     "values": [
-      170.7,
+      173.7,
       125.0,
-      118.8
+      117.9,
+      110.3
     ],
     "spring": [
       true,
+      false,
       false,
       false
     ],
@@ -126840,47 +126843,47 @@
   "daily_listen_overview": {
     "active_count": 18,
     "total_tracked": 325,
-    "concentration_top3": 63.0,
+    "concentration_top3": 64.5,
     "as_of": "2026-08-08"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 50.7,
-      "trend_pct": 46.7,
+      "share_pct": 49.0,
+      "trend_pct": 37.6,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "再叙",
-      "share_pct": 6.2,
-      "trend_pct": 36.7,
+      "share_pct": 9.8,
+      "trend_pct": 110.2,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "在路上",
-      "share_pct": 6.1,
-      "trend_pct": 61.0,
+      "song": "一生中最爱",
+      "share_pct": 5.7,
+      "trend_pct": 33.3,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 5.7,
-      "trend_pct": 82.4,
+      "song": "在路上",
+      "share_pct": 5.5,
+      "trend_pct": 41.5,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "月弯弯",
+      "song": "Sound of Silence",
       "share_pct": 4.2,
-      "trend_pct": 27.8,
+      "trend_pct": 41.9,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-08 21:00",
+  "last_update": "2026-08-08 21:30",
   "today_batches": 894,
   "daily_new_records": 0,
   "recent_7days": [
@@ -126942,13 +126945,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1601,
-      "success": 1601,
+      "total": 1602,
+      "success": 1602,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 446718,
+      "before": 446970,
       "after": 197072
     },
     "index_calibration": {
