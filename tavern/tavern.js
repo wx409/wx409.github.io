@@ -157,10 +157,10 @@
           return { uid: s.uid, name: s.name, attr: s.attr, release: s.release,
                    latest: s.latest, mean30: s.mean30, peak: s.peak, lifecycle: s.lifecycle };
         });
-        return { source: 'dashboard_data.json', list: list };
+        return { source: 'dashboard_data.json', version: data.timestamp || '', list: list };
       });
     var fromCompact = fetchJSON(this.base + 'songs_compact.json', 8000)
-      .then(function (data) { return { source: 'songs_compact.json', list: data.songs || [] }; });
+      .then(function (data) { return { source: 'songs_compact.json', version: data.generated_at || '', list: data.songs || [] }; });
 
     this._songsPromise = fromDashboard
       .catch(function () { return fromCompact; })
@@ -216,7 +216,9 @@
       mean30: song.mean30,
       peak: song.peak,
       rank: rank,
-      poolSize: pool ? pool.length : null
+      poolSize: pool ? pool.length : null,
+      dataSource: this._songPool ? this._songPool.source : '',
+      dataVersion: this._songPool ? this._songPool.version : ''
     };
   };
 
@@ -240,7 +242,9 @@
   function collectByMood(obj, mood) {
     var pool = [];
     Object.keys(obj || {}).forEach(function (topic) {
-      (obj[topic] || []).forEach(function (item) {
+      var items = obj[topic];
+      if (!Array.isArray(items)) return; /* 跳过 _meta 等元数据字段 */
+      items.forEach(function (item) {
         if (matchMood(item, mood)) pool.push({ topic: topic, item: item });
       });
     });
@@ -300,7 +304,8 @@
       golden: gd ? { topic: gd.topic, text: gd.item.text } : null,
       insight: insight,
       goodnight: pick(GOODNIGHTS[moodKey] || GOODNIGHTS.healing),
-      songFound: !!song
+      songFound: !!song,
+      generatedAt: opts.generatedAt || new Date().toISOString()
     };
   };
 

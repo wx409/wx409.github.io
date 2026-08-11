@@ -8,6 +8,50 @@
 <meta property="og:title" content="深夜小酒馆 · 王晰">
 <meta property="og:description" content="选一个心情，挑一首歌，为你调一杯专属的酒。">
 <meta property="og:url" content="https://wx409.github.io/tavern/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["CreativeWork", "Game"],
+  "name": "深夜小酒馆 · 王晰粉丝互动体验",
+  "description": "受王晰「日木斤深夜小酒馆」哄睡音频节目（2022年，107期）启发的文字互动体验：选一个心情、挑一首歌，用王晰的歌词、采访、金句与数据大屏洞察，为你调一杯专属的酒。粉丝创作，非官方。",
+  "url": "https://wx409.github.io/tavern/",
+  "inLanguage": "zh-CN",
+  "genre": "粉丝创作互动体验",
+  "creator": {"@type": "Person", "name": "wx409", "url": "https://wx409.github.io/"},
+  "isBasedOn": {"@type": "CreativeWorkSeries", "name": "日木斤深夜小酒馆｜王晰哄你入睡", "creator": {"@type": "Person", "name": "王晰"}},
+  "audience": {"@type": "Audience", "audienceType": "王晰乐迷"},
+  "about": {"@type": "Person", "name": "王晰"},
+  "keywords": "王晰,深夜小酒馆,日木斤,哄睡,歌词,互动体验,粉丝创作"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "深夜小酒馆是什么？",
+      "acceptedAnswer": {"@type": "Answer", "text": "受王晰「日木斤深夜小酒馆」哄睡音频节目（2022年，107期）启发的文字互动体验。选一个心情、挑一首歌，页面会用王晰的歌词片段、采访语录、金句和小酒馆节目文案，为你调出一杯专属的“酒”。本体验为粉丝创作，非官方内容。"}
+    },
+    {
+      "@type": "Question",
+      "name": "歌曲和数据从何而来？",
+      "acceptedAnswer": {"@type": "Answer", "text": "歌曲列表与酒单中的“数据洞察”来自本站数据大屏的开放数据集 dashboard_data.json（王晰 QQ 音乐指数追踪数据集，2023-01 起每日多批次自动更新）。"}
+    },
+    {
+      "@type": "Question",
+      "name": "如何分享我调好的酒？",
+      "acceptedAnswer": {"@type": "Answer", "text": "调好酒后点击“分享这杯酒”，复制专属链接发给朋友；对方打开链接即可看到同样的心情与歌曲组合。"}
+    },
+    {
+      "@type": "Question",
+      "name": "素材内容是否真实？",
+      "acceptedAnswer": {"@type": "Answer", "text": "歌词、采访、金句均来自王晰的公开作品与访谈；小酒馆文案摘录自「日木斤深夜小酒馆」节目公开内容。每张酒单底部均标注各条素材的具体出处（歌曲名、采访出处、节目期数、数据批次）。"}
+    }
+  ]
+}
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:radial-gradient(ellipse at center,#0f1535 0%,#080c24 100%),radial-gradient(circle at 18% 28%,rgba(0,210,255,0.07) 0,transparent 32%),radial-gradient(circle at 82% 72%,rgba(255,215,0,0.05) 0,transparent 32%);color:#fff;overflow-x:hidden;min-height:100vh;}
@@ -102,8 +146,13 @@ a{color:#00d2ff;text-decoration:none}
 .drink-section .ds-text.q{color:#ffd700;}
 .drink-section .ds-src{font-size:11px;color:#5a6b8c;margin-top:8px;letter-spacing:1px;}
 .goodnight{text-align:center;margin-top:30px;padding:18px;border-radius:14px;border:1px dashed color-mix(in srgb,var(--dc) 40%,transparent);color:#dfe6f5;font-size:16px;letter-spacing:3px;position:relative;z-index:2;background:rgba(255,255,255,0.02);}
+.provenance{margin-top:22px;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.07);background:rgba(0,0,0,0.2);font-size:11px;line-height:2;color:#5a6b8c;letter-spacing:1px;position:relative;z-index:2;}
+.provenance b{color:#8896b3;font-weight:600}
+.provenance .pv-time{color:#4a5878;float:right;}
 .result-actions{display:flex;gap:14px;margin-top:26px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;}
 .result-actions .btn{font-size:13px;padding:11px 26px}
+.share-tip{text-align:center;color:#00d2ff;font-size:12px;margin-top:12px;letter-spacing:2px;opacity:0;transition:opacity .3s;position:relative;z-index:2;}
+.share-tip.show{opacity:1}
 
 /* 数据洞察 */
 .insight-box{margin-top:6px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;}
@@ -222,6 +271,7 @@ a{color:#00d2ff;text-decoration:none}
     var m = TavernKeeper.MOODS[key];
     var card = document.createElement('div');
     card.className = 'mood-card';
+    card.dataset.mood = key;
     card.style.setProperty('--mc', m.color);
     card.innerHTML = '<span class="mood-emoji">' + m.glass + '</span>' +
       '<div class="mood-label">' + m.label + '</div>' +
@@ -384,6 +434,22 @@ a{color:#00d2ff;text-decoration:none}
         '</div>' +
         '<div class="ds-src">' + escapeHtml(ins.attr || '') + (ins.release ? ' · 发行于 ' + ins.release : '') + ' · 来源 dashboard_data.json</div></div>';
     }
+    /* ---- 素材溯源脚注（条目级出处） ---- */
+    var pvItems = [];
+    pvItems.push('<b>歌词</b>：' + escapeHtml(d.lyric.source || '王晰公开作品'));
+    if (d.interview) pvItems.push('<b>采访</b>：' + escapeHtml(d.interview.context || '公开访谈'));
+    pvItems.push('<b>主理人开场</b>：' + escapeHtml('《日木斤深夜小酒馆》' + (d.tavern.episode || '') + (d.tavern.note ? ' · ' + d.tavern.note : '')));
+    if (d.insight && d.insight.name) {
+      pvItems.push('<b>数据洞察</b>：' + escapeHtml(d.insight.dataSource || 'dashboard_data.json') +
+        (d.insight.dataVersion ? '（批次 ' + escapeHtml(d.insight.dataVersion) + '）' : ''));
+    }
+    var pvTime = '';
+    if (d.generatedAt) {
+      try { pvTime = new Date(d.generatedAt).toLocaleString('zh-CN', { hour12: false }); } catch (e) { pvTime = ''; }
+    }
+    var provenanceHtml = '<div class="provenance">素材溯源：' + pvItems.join(' ｜ ') +
+      (pvTime ? '<span class="pv-time">' + escapeHtml(pvTime) + ' 调成</span>' : '') + '</div>';
+
     resultWrap.innerHTML =
       '<div class="drink-card" style="--dc:' + c + '">' +
         '<div class="drink-head">' +
@@ -403,15 +469,49 @@ a{color:#00d2ff;text-decoration:none}
           insightHtml +
         '</div>' +
         '<div class="goodnight">' + escapeHtml(d.goodnight) + '</div>' +
+        provenanceHtml +
       '</div>' +
       '<div class="result-actions">' +
         '<button class="btn primary" id="againBtn">🍸 再来一杯</button>' +
         '<button class="btn ghost" id="retuneBtn">🔄 换心情重调</button>' +
+        '<button class="btn" id="shareBtn">🔗 分享这杯酒</button>' +
         '<button class="btn" id="backBtn">← 返回点单</button>' +
-      '</div>';
+      '</div>' +
+      '<div class="share-tip" id="shareTip">链接已复制，快发给朋友共饮这杯吧～</div>';
     document.getElementById('againBtn').addEventListener('click', function () { mix(state.mood, state.song); });
     document.getElementById('retuneBtn').addEventListener('click', function () { go('order'); });
     document.getElementById('backBtn').addEventListener('click', function () { go('order'); });
+    document.getElementById('shareBtn').addEventListener('click', function () {
+      /* 分享深链：?mood=xxx&song=xxx，对方打开即可复现同一杯酒 */
+      var p = new URLSearchParams();
+      p.set('mood', d.mood);
+      var shareSong = '';
+      if (d.songFound && d.insight && d.insight.name) shareSong = d.insight.name;
+      else if (state.song) shareSong = state.song;
+      if (shareSong.trim()) p.set('song', shareSong.trim());
+      var url = location.origin + location.pathname + '?' + p.toString();
+      var tip = document.getElementById('shareTip');
+      var done = function () {
+        tip.classList.add('show');
+        setTimeout(function () { tip.classList.remove('show'); }, 2600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function () { fallbackCopy(url, done); });
+      } else {
+        fallbackCopy(url, done);
+      }
+    });
+  }
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    if (cb) cb();
   }
   function fmtNum(v) {
     if (v == null || isNaN(v)) return '—';
@@ -420,6 +520,33 @@ a{color:#00d2ff;text-decoration:none}
     if (n >= 1e4) return (n / 1e4).toFixed(1) + '万';
     return String(Math.round(n * 10) / 10);
   }
+
+  /* ---------- URL 深链解析：?mood=xxx&song=xxx ---------- */
+  function parseDeepLink() {
+    var mood = null, song = null;
+    try {
+      var params = new URLSearchParams(location.search);
+      mood = params.get('mood');
+      song = params.get('song');
+    } catch (e) { return; }
+    if (mood && TavernKeeper.MOODS[mood]) {
+      state.mood = mood;
+      document.querySelectorAll('.mood-card').forEach(function (card) {
+        card.classList.toggle('sel', card.dataset.mood === mood);
+      });
+    }
+    if (song) {
+      state.song = song;
+      songInput.value = song;
+    }
+    if (state.mood) {
+      /* 带深链进入：直接进点单并调酒 */
+      go('order');
+      ensureSongs();
+      mix();
+    }
+  }
+  parseDeepLink();
 })();
 </script>
 </body>
