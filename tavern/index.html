@@ -172,6 +172,11 @@ a{color:#00d2ff;text-decoration:none}
   .drink-name{font-size:20px}
   .mood-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* 全文查看按钮 */
+.transcript-toggle{display:inline-block;margin-top:10px;padding:6px 16px;border:1px solid rgba(0,210,255,0.25);border-radius:20px;background:rgba(0,210,255,0.05);color:#00d2ff;font-size:12px;letter-spacing:2px;cursor:pointer;transition:all .3s;}
+.transcript-toggle:hover{background:rgba(0,210,255,0.14);border-color:#00d2ff}
+.transcript-toggle.loading{opacity:.6;cursor:wait}
+.transcript-body.loading{color:#5a6b8c;font-style:italic}
 </style>
 </head>
 <body>
@@ -422,6 +427,8 @@ a{color:#00d2ff;text-decoration:none}
       ? '<div class="drink-section"><div class="ds-label">✨ 一句金句</div><div class="ds-text q">' + escapeHtml(d.golden.text) + '</div></div>'
       : '';
     var tavNote = d.tavern.note ? ('《日木斤深夜小酒馆》' + d.tavern.episode + ' · ' + d.tavern.note) : ('《日木斤深夜小酒馆》' + d.tavern.episode);
+    var tavEpisode = d.tavern.episode || '';
+    var tavHasTranscript = d.tavern.has_transcript !== false; /* 默认 true，只有明确标记无字幕才隐藏按钮 */
     var insightHtml = '';
     if (d.insight && d.insight.name) {
       var ins = d.insight;
@@ -458,9 +465,12 @@ a{color:#00d2ff;text-decoration:none}
           '<div class="drink-tag">' + escapeHtml(d.moodLabel) + ' · 今日特调</div></div>' +
         '</div>' +
         '<div class="drink-body">' +
-          '<div class="drink-section"><div class="ds-label">🏮 主理人开场</div>' +
+          '<div class="drink-section" id="tavernSection"><div class="ds-label">🏮 主理人开场</div>' +
             '<div class="ds-text q">' + escapeHtml(d.greeting) + '</div>' +
-            '<div class="ds-src">' + escapeHtml(tavNote) + '</div></div>' +
+            '<div class="ds-src">' + escapeHtml(tavNote) + '</div>' +
+            (tavHasTranscript ? '<button class="transcript-toggle" data-episode="' + escapeHtml(tavEpisode) + '" onclick="toggleTranscript(this)">📜 查看本期全文</button>' +
+              '<div class="transcript-body" style="display:none;margin-top:12px;padding:14px 16px;background:rgba(0,0,0,0.15);border-radius:10px;max-height:360px;overflow-y:auto;font-size:14px;line-height:2;color:#bcc8e8;letter-spacing:1px;white-space:pre-wrap;"></div>'
+            : '<div class="ds-src" style="margin-top:6px">（本期暂未取得字幕，仅音频 👂）</div>') + '</div>' +
           '<div class="drink-section"><div class="ds-label">🎵 歌词下酒</div>' +
             '<div class="ds-text">' + escapeHtml(lyricText) + '</div>' +
             (lyricSrc ? '<div class="ds-src">' + escapeHtml(lyricSrc) + '</div>' : '') + '</div>' +
@@ -520,6 +530,57 @@ a{color:#00d2ff;text-decoration:none}
     if (n >= 1e4) return (n / 1e4).toFixed(1) + '万';
     return String(Math.round(n * 10) / 10);
   }
+
+  /* ---------- 查看本期全文（懒加载转录稿） ---------- */
+  var _transcriptLoading = false;
+  function toggleTranscript(btn) {
+    var body = btn.nextElementSibling;
+    if (!body || !body.classList.contains('transcript-body')) return;
+    /* 已展开 → 收起 */
+    if (body.style.display === 'block') {
+      body.style.display = 'none';
+      btn.textContent = '📜 查看本期全文';
+      return;
+    }
+    /* 已加载过文本 → 直接展开 */
+    if (body.textContent && !body.classList.contains('loading')) {
+      body.style.display = 'block';
+      btn.textContent = '📜 收起全文';
+      return;
+    }
+    /* 首次加载 */
+    if (_transcriptLoading) return;
+    _transcriptLoading = true;
+    btn.classList.add('loading');
+    btn.textContent = '📜 加载中…';
+    body.style.display = 'block';
+    body.classList.add('loading');
+    body.textContent = '正在从素材库加载本期全文…';
+
+    var ep = btn.getAttribute('data-episode') || '';
+    keeper.loadTranscripts().then(function () {
+      var key = keeper.findTranscriptKey(ep);
+      var txt = '';
+      if (key) {
+        var t = keeper.getTranscript(key);
+        if (t && t.text) txt = t.text;
+      }
+      if (!txt) txt = '本期暂无逐字稿，后续补充后将自动更新。';
+      body.textContent = txt;
+      body.classList.remove('loading');
+      btn.classList.remove('loading');
+      btn.textContent = txt ? '📜 收起全文' : '📜 暂无全文';
+      _transcriptLoading = false;
+    }).catch(function () {
+      body.textContent = '素材库加载失败，请稍后重试。';
+      body.classList.remove('loading');
+      btn.classList.remove('loading');
+      btn.textContent = '📜 查看全文';
+      _transcriptLoading = false;
+    });
+  }
+  /* 暴露到全局，供动态生成的内联 onclick 调用 */
+  window.toggleTranscript = toggleTranscript;
 
   /* ---------- URL 深链解析：?mood=xxx&song=xxx ---------- */
   function parseDeepLink() {

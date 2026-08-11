@@ -109,6 +109,8 @@
     this._songCacheKey = '__tavern_songs_v1__';
     this._assetsPromise = null;
     this._songsPromise = null;
+    this._transcripts = null;   // 完整逐字稿 {EP01_P1: {text, theme, ...}, ...}
+    this._transcriptsPromise = null;
   }
 
   TavernKeeper.VERSION = VERSION;
@@ -255,7 +257,7 @@
     if (!pool.length) pool = tav.episodes || [];
     var hit = pick(pool);
     if (!hit) return null;
-    return { text: hit.text, episode: hit.episode || '', note: hit.note || '' };
+    return { text: hit.text, episode: hit.episode || '', note: hit.note || '', has_transcript: hit.has_transcript !== false };
   }
 
   /* ---------- 调酒 ---------- */
@@ -313,6 +315,43 @@
   TavernKeeper.prototype.randomDrink = function () {
     var keys = Object.keys(MOODS);
     return this.makeDrink(pick(keys), '');
+  };
+
+  /* 懒加载完整逐字稿 */
+  TavernKeeper.prototype.loadTranscripts = function () {
+    var self = this;
+    if (this._transcriptsPromise) return this._transcriptsPromise;
+    this._transcriptsPromise = fetchJSON(this.base + 'tavern_transcripts.json', 15000)
+      .then(function (data) {
+        self._transcripts = data.episodes || {};
+        return self._transcripts;
+      })
+      .catch(function () {
+        self._transcripts = {};
+        return self._transcripts;
+      });
+    return this._transcriptsPromise;
+  };
+
+  /* 按 episode 标识获取完整逐字稿 */
+  TavernKeeper.prototype.getTranscript = function (episodeId) {
+    if (!this._transcripts) return null;
+    return this._transcripts[episodeId] || null;
+  };
+
+  /* 查找某期节目的 transcript key（支持 EP03 → EP03_P1 / EP03_P2） */
+  TavernKeeper.prototype.findTranscriptKey = function (episode, part) {
+    if (!this._transcripts) return null;
+    if (part) {
+      var key = episode + '_P' + part;
+      if (this._transcripts[key]) return key;
+    }
+    // 尝试 P1 / P2
+    var k1 = episode + '_P1';
+    if (this._transcripts[k1]) return k1;
+    var k2 = episode + '_P2';
+    if (this._transcripts[k2]) return k2;
+    return null;
   };
 
   global.TavernKeeper = TavernKeeper;
