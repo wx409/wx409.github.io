@@ -91,12 +91,13 @@
         <a href="../city-guides.html">城市攻略</a>
         <a href="../data/music-index.html">音乐数据</a>
         <a href="../culture/index.html">文化足迹</a>
+        <a href="../tavern/">深夜小酒馆</a>
     </div>
 
     <h1>{{ meta.page_heading }}</h1>
     <p>{{ meta.date_display }} · {{ meta.venue }} · {{ meta.tour }} · 共{{ meta.song_count }}首</p>
     {% if meta.date %}
-    <p><a class="data-cta" href="../dashboard/#tour-scene-{{ meta.date }}">查看该场次数据表现 ↗</a></p>
+    <p><a class="data-cta" href="../dashboard/#tour-scene-{{ meta.date }}">查看该场次数据表现 ↗</a>　<a class="data-cta" href="../tavern/">在这首歌的氛围里，去小酒馆坐坐 →</a></p>
     {% endif %}
     {% if meta.official_keywords %}
     <p><strong>官方关键词</strong>：{{ meta.official_keywords }}</p>

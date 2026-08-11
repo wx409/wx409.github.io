@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深夜小酒馆 · 王晰</title>
+<meta name="description" content="深夜小酒馆：用王晰说过的话、唱过的歌、以及数据大屏的洞察，为你调一杯专属的酒。受「日木斤深夜小酒馆」节目启发，粉丝创作，非官方。">
+<meta property="og:title" content="深夜小酒馆 · 王晰">
+<meta property="og:description" content="选一个心情，挑一首歌，为你调一杯专属的酒。">
+<meta property="og:url" content="https://wx409.github.io/tavern/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:radial-gradient(ellipse at center,#0f1535 0%,#080c24 100%),radial-gradient(circle at 18% 28%,rgba(0,210,255,0.07) 0,transparent 32%),radial-gradient(circle at 82% 72%,rgba(255,215,0,0.05) 0,transparent 32%);color:#fff;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(0,210,255,0.10) 1px,transparent 1px);background-size:26px 26px;opacity:.14;animation:floatGrid 20s linear infinite;}
+@keyframes floatGrid{0%{background-position:0 0}100%{background-position:26px 26px}}
+a{color:#00d2ff;text-decoration:none}
+.container{width:100%;max-width:1080px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.header{text-align:center;padding:30px 0 10px;position:relative;}
+.header h1{font-size:34px;font-weight:700;letter-spacing:8px;background:linear-gradient(90deg,#00d2ff,#3a7bd5,#ffd700,#00d2ff);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite;}
+@keyframes shine{to{background-position:300% center}}
+.header .subtitle{color:#5a6b8c;font-size:13px;margin-top:10px;letter-spacing:3px}
+.header .back{position:absolute;left:0;top:34px;font-size:13px;color:#5a6b8c;letter-spacing:1px}
+.header .back:hover{color:#00d2ff}
+
+/* ===== 幕布 ===== */
+.scene{display:none;animation:fadeUp .5s ease;}
+.scene.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== 第一幕：进店 ===== */
+.door-wrap{text-align:center;padding:60px 0 40px;}
+.door{margin:0 auto 30px;width:190px;height:240px;position:relative;border-radius:16px 16px 8px 8px;
+  background:linear-gradient(180deg,#1b2450 0%,#141a3a 55%,#0d1228 100%);border:1px solid rgba(0,210,255,0.25);
+  box-shadow:0 0 60px rgba(0,210,255,0.12),inset 0 0 40px rgba(0,0,0,0.5);cursor:pointer;transition:all .4s;}
+.door:hover{border-color:rgba(0,210,255,0.6);box-shadow:0 0 90px rgba(0,210,255,0.25);transform:scale(1.02)}
+.door::before{content:'☾';position:absolute;top:26px;right:26px;font-size:26px;color:#ffd700;opacity:.9;animation:glow 3s ease-in-out infinite;}
+@keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}
+.door-frame{position:absolute;top:0;left:0;right:0;bottom:0;border-radius:inherit;border:4px solid rgba(0,210,255,0.18);}
+.door-panel{position:absolute;top:52px;left:22px;right:22px;bottom:14px;background:linear-gradient(160deg,#0e1430 0%,#090d20 100%);border:1px solid rgba(0,210,255,0.12);border-radius:6px 6px 0 0;}
+.door-sign{position:absolute;top:70px;left:0;right:0;text-align:center;font-size:15px;letter-spacing:4px;color:#00d2ff;text-shadow:0 0 18px rgba(0,210,255,0.6);}
+.door-sign small{display:block;font-size:11px;color:#ffd700;letter-spacing:6px;margin-top:10px;}
+.door-line{position:absolute;bottom:18px;left:50%;width:60px;height:3px;transform:translateX(-50%);border-radius:2px;background:linear-gradient(90deg,transparent,#00d2ff,transparent);animation:doorline 2.2s ease-in-out infinite;}
+@keyframes doorline{0%,100%{opacity:.25}50%{opacity:1}}
+.door-hint{color:#8896b3;font-size:14px;letter-spacing:2px;margin-top:6px;}
+.door-cta{display:inline-block;margin-top:22px;padding:13px 44px;border:1px solid rgba(0,210,255,0.45);border-radius:40px;color:#00d2ff;font-size:15px;letter-spacing:5px;cursor:pointer;background:rgba(0,210,255,0.06);transition:all .3s;}
+.door-cta:hover{background:rgba(0,210,255,0.16);box-shadow:0 0 34px rgba(0,210,255,0.25);transform:translateY(-2px)}
+.tavern-intro{max-width:640px;margin:36px auto 0;color:#8896b3;font-size:13px;line-height:2;letter-spacing:1px;border:1px solid rgba(0,210,255,0.1);border-radius:12px;padding:18px 22px;background:rgba(0,210,255,0.03);}
+.tavern-intro b{color:#00d2ff}
+
+/* ===== 第二幕：点单 ===== */
+.order-step{max-width:880px;margin:0 auto;}
+.step-title{color:#00d2ff;font-size:17px;font-weight:600;letter-spacing:3px;margin:34px 0 16px;display:flex;align-items:center;gap:10px;}
+.step-title::before{content:'';width:4px;height:18px;background:linear-gradient(180deg,#00d2ff,transparent);border-radius:2px;}
+.mood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:14px;}
+.mood-card{position:relative;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px 14px 16px;text-align:center;cursor:pointer;background:rgba(255,255,255,0.02);transition:all .3s;overflow:hidden;}
+.mood-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:.5;transition:opacity .3s;}
+.mood-card:hover{transform:translateY(-3px);border-color:rgba(0,210,255,0.35)}
+.mood-card.sel{border-color:var(--mc);box-shadow:0 0 26px color-mix(in srgb,var(--mc) 35%,transparent);transform:translateY(-3px);}
+.mood-card.sel::before{opacity:1}
+.mood-emoji{font-size:30px;display:block;margin-bottom:10px;}
+.mood-label{font-size:14px;color:#dfe6f5;letter-spacing:1px;}
+.mood-drink{font-size:11px;color:#5a6b8c;margin-top:6px;letter-spacing:1px;}
+.song-search{position:relative;max-width:560px;}
+.song-input{width:100%;padding:14px 18px;border-radius:12px;border:1px solid rgba(0,210,255,0.25);background:rgba(0,210,255,0.05);color:#fff;font-size:15px;letter-spacing:1px;outline:none;transition:all .3s;}
+.song-input:focus{border-color:#00d2ff;box-shadow:0 0 22px rgba(0,210,255,0.15);background:rgba(0,210,255,0.08)}
+.song-input::placeholder{color:#4a5878;letter-spacing:2px}
+.song-suggest{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#0d1430;border:1px solid rgba(0,210,255,0.2);border-radius:12px;max-height:280px;overflow-y:auto;display:none;z-index:30;box-shadow:0 14px 40px rgba(0,0,0,0.5);}
+.song-suggest.open{display:block}
+.song-suggest .ss-item{padding:11px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.04);}
+.song-suggest .ss-item:hover,.song-suggest .ss-item.cur{background:rgba(0,210,255,0.1)}
+.ss-name{color:#dfe6f5;font-size:14px}
+.ss-meta{color:#5a6b8c;font-size:11px;white-space:nowrap}
+.ss-empty{padding:14px 18px;color:#5a6b8c;font-size:13px;letter-spacing:1px}
+.order-actions{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap;}
+.btn{padding:13px 36px;border-radius:40px;font-size:14px;letter-spacing:3px;cursor:pointer;border:1px solid rgba(0,210,255,0.45);color:#00d2ff;background:rgba(0,210,255,0.06);transition:all .3s;}
+.btn:hover{background:rgba(0,210,255,0.16);box-shadow:0 0 30px rgba(0,210,255,0.22)}
+.btn.primary{background:linear-gradient(90deg,rgba(0,210,255,0.18),rgba(0,210,255,0.06));border-color:#00d2ff;}
+.btn.ghost{border-color:rgba(255,215,0,0.4);color:#ffd700;background:rgba(255,215,0,0.05);}
+.btn.ghost:hover{background:rgba(255,215,0,0.12);box-shadow:0 0 26px rgba(255,215,0,0.18)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;box-shadow:none;transform:none}
+.loading-line{color:#5a6b8c;font-size:13px;letter-spacing:2px;margin-top:18px;display:none;}
+.loading-line.show{display:block;animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* ===== 第三幕：上酒 ===== */
+.result-wrap{max-width:780px;margin:0 auto;}
+.drink-card{position:relative;border-radius:20px;padding:36px 34px 30px;overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--dc) 45%,transparent);
+  background:linear-gradient(160deg,rgba(13,20,48,0.92),rgba(8,12,36,0.95));
+  box-shadow:0 20px 70px rgba(0,0,0,0.5),0 0 60px color-mix(in srgb,var(--dc) 12%,transparent);}
+.drink-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--dc),transparent);}
+.drink-card::after{content:'';position:absolute;top:-70px;right:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--dc) 14%,transparent),transparent 70%);pointer-events:none;}
+.drink-head{display:flex;align-items:center;gap:22px;position:relative;z-index:2;}
+.drink-glass{font-size:56px;filter:drop-shadow(0 0 24px color-mix(in srgb,var(--dc) 55%,transparent));animation:floaty 3.5s ease-in-out infinite;}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.drink-name{font-size:26px;font-weight:700;letter-spacing:2px;color:var(--dc);text-shadow:0 0 24px color-mix(in srgb,var(--dc) 45%,transparent);}
+.drink-tag{font-size:12px;color:#8896b3;margin-top:8px;letter-spacing:2px;}
+.drink-body{margin-top:26px;position:relative;z-index:2;}
+.drink-section{position:relative;padding:14px 0 14px 20px;border-left:2px solid color-mix(in srgb,var(--dc) 35%,transparent);margin-top:4px;}
+.drink-section .ds-label{font-size:11px;color:#5a6b8c;letter-spacing:3px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.drink-section .ds-text{font-size:16px;line-height:1.9;color:#e8eefc;letter-spacing:1px;}
+.drink-section .ds-text.q{color:#ffd700;}
+.drink-section .ds-src{font-size:11px;color:#5a6b8c;margin-top:8px;letter-spacing:1px;}
+.goodnight{text-align:center;margin-top:30px;padding:18px;border-radius:14px;border:1px dashed color-mix(in srgb,var(--dc) 40%,transparent);color:#dfe6f5;font-size:16px;letter-spacing:3px;position:relative;z-index:2;background:rgba(255,255,255,0.02);}
+.result-actions{display:flex;gap:14px;margin-top:26px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;}
+.result-actions .btn{font-size:13px;padding:11px 26px}
+
+/* 数据洞察 */
+.insight-box{margin-top:6px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;}
+.insight-item{background:rgba(0,210,255,0.04);border:1px solid rgba(0,210,255,0.12);border-radius:10px;padding:12px;text-align:center;}
+.insight-item .k{font-size:11px;color:#5a6b8c;letter-spacing:1px;margin-bottom:6px;}
+.insight-item .v{font-size:18px;font-weight:600;color:#00d2ff;}
+.insight-item .v.gold{color:#ffd700}
+
+/* ===== 底部 ===== */
+.footer{margin-top:70px;padding:26px 0 40px;text-align:center;color:#4a5878;font-size:12px;line-height:2.1;letter-spacing:1px;border-top:1px solid rgba(255,255,255,0.05);}
+.footer b{color:#8896b3}
+.load-err{color:#ff8a80;font-size:12px;letter-spacing:1px;margin-top:10px;display:none;}
+
+@media (max-width:640px){
+  .header h1{font-size:26px;letter-spacing:5px}
+  .drink-card{padding:26px 18px 22px}
+  .drink-name{font-size:20px}
+  .mood-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a class="back" href="../index.html">← 回主站</a>
+    <h1>深 夜 小 酒 馆</h1>
+    <div class="subtitle">—— 用王晰说过的话、唱过的歌，为你调一杯专属的酒 ——</div>
+  </div>
+
+  <!-- 第一幕：进店 -->
+  <div class="scene active" id="scene-door">
+    <div class="door-wrap">
+      <div class="door" id="doorBtn" title="推门进店">
+        <div class="door-frame"></div>
+        <div class="door-panel">
+          <div class="door-sign">深夜小酒馆<small>Y·小酒馆</small></div>
+        </div>
+        <div class="door-line"></div>
+      </div>
+      <div class="door-hint">门缝里透出暖光，还有若有若无的低音哼唱……</div>
+      <div class="door-cta" id="enterBtn">推 门 进 店</div>
+      <div class="tavern-intro">
+        受王晰<b>「日木斤深夜小酒馆」</b>节目（2022 · 107 期 · 用故事下酒，一夜好梦到天明）启发而建的粉丝互动页。
+        选一个今晚的心情，挑一首王晰的歌，<b>主理人</b>会用歌词、采访与金句为你调一杯专属的酒——杯底还藏着来自<b>数据大屏</b>的小小洞察。
+      </div>
+    </div>
+  </div>
+
+  <!-- 第二幕：点单 -->
+  <div class="scene" id="scene-order">
+    <div class="order-step">
+      <div class="step-title">第一步 · 今晚的心情是？</div>
+      <div class="mood-grid" id="moodGrid"></div>
+
+      <div class="step-title">第二步 · 想配哪首歌？</div>
+      <div class="song-search">
+        <input class="song-input" id="songInput" type="text" autocomplete="off"
+               placeholder="输入歌名，如：晚风暖暖 / 在路上 / 一生守候…（留空 = 随机）">
+        <div class="song-suggest" id="songSuggest"></div>
+      </div>
+
+      <div class="order-actions">
+        <button class="btn primary" id="mixBtn">开 始 调 酒</button>
+        <button class="btn ghost" id="randomBtn">🍸 随机来一杯</button>
+        <button class="btn" id="backDoorBtn">← 回到门口</button>
+      </div>
+      <div class="loading-line" id="mixingLine">主理人正在调酒，稍等片刻……</div>
+      <div class="load-err" id="orderErr"></div>
+    </div>
+  </div>
+
+  <!-- 第三幕：上酒 -->
+  <div class="scene" id="scene-result">
+    <div class="result-wrap" id="resultWrap"></div>
+  </div>
+
+  <div class="footer">
+    <b>本体验受王晰「日木斤深夜小酒馆」节目启发，为粉丝创作，非官方内容。</b><br>
+    歌词/采访/金句素材来源：王晰公开作品与访谈；小酒馆文案摘录自节目公开内容；歌曲数据来源于
+    <a href="../dashboard/" target="_blank">数据大屏</a>（dashboard_data.json）。<br>
+    <a href="../index.html">← 返回王晰 GEO 主站</a>
+  </div>
+</div>
+
+<script src="tavern.js"></script>
+<script>
+(function () {
+  'use strict';
+  var keeper = new TavernKeeper({ base: './' });
+  var state = { mood: null, song: '' };
+  var songPoolReady = false;
+
+  /* ---------- 场景切换 ---------- */
+  var scenes = { door: document.getElementById('scene-door'),
+                 order: document.getElementById('scene-order'),
+                 result: document.getElementById('scene-result') };
+  function go(name) {
+    Object.keys(scenes).forEach(function (k) { scenes[k].classList.remove('active'); });
+    scenes[name].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.getElementById('enterBtn').addEventListener('click', function () {
+    go('order');
+    ensureSongs();
+  });
+  document.getElementById('doorBtn').addEventListener('click', function () {
+    go('order');
+    ensureSongs();
+  });
+  document.getElementById('backDoorBtn').addEventListener('click', function () { go('door'); });
+
+  /* ---------- 心情卡片 ---------- */
+  var moodGrid = document.getElementById('moodGrid');
+  Object.keys(TavernKeeper.MOODS).forEach(function (key) {
+    var m = TavernKeeper.MOODS[key];
+    var card = document.createElement('div');
+    card.className = 'mood-card';
+    card.style.setProperty('--mc', m.color);
+    card.innerHTML = '<span class="mood-emoji">' + m.glass + '</span>' +
+      '<div class="mood-label">' + m.label + '</div>' +
+      '<div class="mood-drink">' + m.drink + '</div>';
+    card.addEventListener('click', function () {
+      state.mood = key;
+      document.querySelectorAll('.mood-card').forEach(function (c) { c.classList.remove('sel'); });
+      card.classList.add('sel');
+    });
+    moodGrid.appendChild(card);
+  });
+
+  /* ---------- 歌曲搜索 ---------- */
+  function ensureSongs() {
+    if (songPoolReady) return;
+    keeper.loadSongs().then(function () { songPoolReady = true; }).catch(function () { songPoolReady = true; });
+  }
+  var suggestEl = document.getElementById('songSuggest');
+  var songInput = document.getElementById('songInput');
+  var curIndex = -1;
+
+  function renderSuggest(list) {
+    suggestEl.innerHTML = '';
+    if (!list.length) {
+      var d = document.createElement('div');
+      d.className = 'ss-empty';
+      d.textContent = '没有找到匹配的歌，留空也可以（随机选歌）。';
+      suggestEl.appendChild(d);
+    }
+    list.forEach(function (s, i) {
+      var item = document.createElement('div');
+      item.className = 'ss-item' + (i === curIndex ? ' cur' : '');
+      item.innerHTML = '<span class="ss-name">' + escapeHtml(s.name) + '</span>' +
+        '<span class="ss-meta">' + escapeHtml(s.attr || '') + '</span>';
+      item.addEventListener('click', function () {
+        songInput.value = s.name;
+        state.song = s.name;
+        suggestEl.classList.remove('open');
+      });
+      item.addEventListener('mouseenter', function () { curIndex = i; markCur(); });
+      suggestEl.appendChild(item);
+    });
+    suggestEl.classList.add('open');
+  }
+  function markCur() {
+    Array.prototype.forEach.call(suggestEl.children, function (c, i) {
+      c.classList.toggle('cur', i === curIndex);
+    });
+  }
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  songInput.addEventListener('input', function () {
+    curIndex = -1;
+    var q = this.value.trim();
+    if (!songPoolReady) { ensureSongs(); }
+    if (!songPoolReady) {
+      /* 歌曲池尚未就绪：先显示提示 */
+      renderSuggest([]);
+      return;
+    }
+    var list = keeper.searchSongs(q, 12);
+    renderSuggest(list);
+  });
+  songInput.addEventListener('focus', function () {
+    if (songPoolReady) renderSuggest(keeper.searchSongs(this.value.trim(), 12));
+  });
+  songInput.addEventListener('blur', function () {
+    setTimeout(function () { suggestEl.classList.remove('open'); }, 150);
+  });
+  songInput.addEventListener('keydown', function (e) {
+    if (!suggestEl.classList.contains('open')) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); curIndex = Math.min(curIndex + 1, suggestEl.children.length - 1); markCur(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); curIndex = Math.max(curIndex - 1, -1); markCur(); }
+    else if (e.key === 'Enter') {
+      var cur = suggestEl.children[curIndex];
+      if (cur && cur.querySelector('.ss-name')) {
+        songInput.value = cur.querySelector('.ss-name').textContent;
+        state.song = songInput.value;
+        suggestEl.classList.remove('open');
+      }
+    }
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.song-search')) suggestEl.classList.remove('open');
+  });
+
+  /* ---------- 调酒 ---------- */
+  var mixingLine = document.getElementById('mixingLine');
+  var orderErr = document.getElementById('orderErr');
+  var resultWrap = document.getElementById('resultWrap');
+
+  function mix(forceMood, forceSong) {
+    var mood = forceMood || state.mood;
+    if (!mood) {
+      orderErr.style.display = 'block';
+      orderErr.textContent = '先选一个今晚的心情吧～';
+      return;
+    }
+    orderErr.style.display = 'none';
+    mixingLine.classList.add('show');
+    document.getElementById('mixBtn').disabled = true;
+    document.getElementById('randomBtn').disabled = true;
+
+    Promise.all([keeper.loadAssets(), keeper.loadSongs()])
+      .then(function () {
+        var song = forceSong != null ? forceSong : state.song;
+        var drink = keeper.makeDrink(mood, song);
+        setTimeout(function () {
+          mixingLine.classList.remove('show');
+          document.getElementById('mixBtn').disabled = false;
+          document.getElementById('randomBtn').disabled = false;
+          renderDrink(drink);
+          go('result');
+        }, 900);
+      })
+      .catch(function () {
+        /* 素材加载失败也要能出酒（优雅降级） */
+        var drink = keeper.makeDrink(mood, forceSong != null ? forceSong : state.song);
+        mixingLine.classList.remove('show');
+        document.getElementById('mixBtn').disabled = false;
+        document.getElementById('randomBtn').disabled = false;
+        renderDrink(drink);
+        go('result');
+      });
+  }
+
+  document.getElementById('mixBtn').addEventListener('click', function () { mix(); });
+  document.getElementById('randomBtn').addEventListener('click', function () {
+    var keys = Object.keys(TavernKeeper.MOODS);
+    var mood = keys[Math.floor(Math.random() * keys.length)];
+    document.querySelectorAll('.mood-card').forEach(function (c) { c.classList.remove('sel'); });
+    state.mood = mood;
+    mix(mood, '');
+  });
+
+  function renderDrink(d) {
+    var c = d.color;
+    var lyricText = d.lyric.text;
+    var lyricSrc = d.lyric.source ? '—— ' + d.lyric.source : '';
+    var ivHtml = d.interview
+      ? '<div class="drink-section"><div class="ds-label">💬 他说过</div><div class="ds-text">' + escapeHtml(d.interview.text) + '</div><div class="ds-src">' + escapeHtml(d.interview.context || '') + '</div></div>'
+      : '';
+    var gdHtml = d.golden
+      ? '<div class="drink-section"><div class="ds-label">✨ 一句金句</div><div class="ds-text q">' + escapeHtml(d.golden.text) + '</div></div>'
+      : '';
+    var tavNote = d.tavern.note ? ('《日木斤深夜小酒馆》' + d.tavern.episode + ' · ' + d.tavern.note) : ('《日木斤深夜小酒馆》' + d.tavern.episode);
+    var insightHtml = '';
+    if (d.insight && d.insight.name) {
+      var ins = d.insight;
+      insightHtml = '<div class="drink-section"><div class="ds-label">📊 来自数据大屏的小洞察</div>' +
+        '<div class="insight-box">' +
+        '<div class="insight-item"><div class="k">最新指数</div><div class="v">' + fmtNum(ins.latest) + '</div></div>' +
+        '<div class="insight-item"><div class="k">近30日均值</div><div class="v">' + fmtNum(ins.mean30) + '</div></div>' +
+        '<div class="insight-item"><div class="k">历史峰值</div><div class="v gold">' + fmtNum(ins.peak) + '</div></div>' +
+        '<div class="insight-item"><div class="k">追踪池排名</div><div class="v">' + (ins.rank ? '第' + ins.rank + '名' : '—') + '</div></div>' +
+        '</div>' +
+        '<div class="ds-src">' + escapeHtml(ins.attr || '') + (ins.release ? ' · 发行于 ' + ins.release : '') + ' · 来源 dashboard_data.json</div></div>';
+    }
+    resultWrap.innerHTML =
+      '<div class="drink-card" style="--dc:' + c + '">' +
+        '<div class="drink-head">' +
+          '<div class="drink-glass">' + d.drinkGlass + '</div>' +
+          '<div><div class="drink-name">' + escapeHtml(d.drinkName) + '</div>' +
+          '<div class="drink-tag">' + escapeHtml(d.moodLabel) + ' · 今日特调</div></div>' +
+        '</div>' +
+        '<div class="drink-body">' +
+          '<div class="drink-section"><div class="ds-label">🏮 主理人开场</div>' +
+            '<div class="ds-text q">' + escapeHtml(d.greeting) + '</div>' +
+            '<div class="ds-src">' + escapeHtml(tavNote) + '</div></div>' +
+          '<div class="drink-section"><div class="ds-label">🎵 歌词下酒</div>' +
+            '<div class="ds-text">' + escapeHtml(lyricText) + '</div>' +
+            (lyricSrc ? '<div class="ds-src">' + escapeHtml(lyricSrc) + '</div>' : '') + '</div>' +
+          ivHtml +
+          gdHtml +
+          insightHtml +
+        '</div>' +
+        '<div class="goodnight">' + escapeHtml(d.goodnight) + '</div>' +
+      '</div>' +
+      '<div class="result-actions">' +
+        '<button class="btn primary" id="againBtn">🍸 再来一杯</button>' +
+        '<button class="btn ghost" id="retuneBtn">🔄 换心情重调</button>' +
+        '<button class="btn" id="backBtn">← 返回点单</button>' +
+      '</div>';
+    document.getElementById('againBtn').addEventListener('click', function () { mix(state.mood, state.song); });
+    document.getElementById('retuneBtn').addEventListener('click', function () { go('order'); });
+    document.getElementById('backBtn').addEventListener('click', function () { go('order'); });
+  }
+  function fmtNum(v) {
+    if (v == null || isNaN(v)) return '—';
+    var n = Number(v);
+    if (n >= 1e8) return (n / 1e8).toFixed(1) + '亿';
+    if (n >= 1e4) return (n / 1e4).toFixed(1) + '万';
+    return String(Math.round(n * 10) / 10);
+  }
+})();
+</script>
+</body>
+</html>
