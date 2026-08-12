@@ -587,9 +587,20 @@ a{color:#00d2ff;text-decoration:none}
     var songObj = null;
     if (d.songFound && d.insight && d.insight.name) {
       songObj = keeper.findSong(d.insight.name);
-      if (songObj && songObj.uid) {
-        radioSetSong({ mid: String(songObj.uid).replace(/^L:/, ''), title: songObj.name });
-      }
+    }
+    if (!songObj && d.lyric && d.lyric.source) {
+      /* 兜底1：从歌词出处提取歌名（如《把一切给明天》 → 把一切给明天） */
+      var m = String(d.lyric.source).match(/《([^》]+)》/);
+      if (m) songObj = keeper.findSong(m[1]);
+    }
+    if (!songObj) {
+      /* 兜底2：完全没关联上时，随机配一首歌单里的歌作为这杯酒的配乐 */
+      var pool = (keeper._songPool && keeper._songPool.list) || [];
+      var withUid = pool.filter(function (s) { return s.uid; });
+      if (withUid.length) songObj = withUid[Math.floor(Math.random() * withUid.length)];
+    }
+    if (songObj && songObj.uid) {
+      radioSetSong({ mid: String(songObj.uid).replace(/^L:/, ''), title: songObj.name });
     }
     if (d.tavern && d.tavern.episode) {
       /* 期次 songmid 在 transcripts 中，懒加载后填充。
