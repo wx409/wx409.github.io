@@ -18,19 +18,19 @@
   /* ---------- 工具 ---------- */
   function $(id) { return document.getElementById(id); }
 
-  /* ---------- JSONP 请求 vkey（script 标签会自动携带 y.qq.com 登录 Cookie） ---------- */
-  function fetchVkey(songmid, filename) {
+  /* ---------- JSONP 批量请求 vkey（script 标签携带登录 Cookie，返回每首的直链或 null） ---------- */
+  function fetchVkeys(songmids, filenames) {
     return new Promise(function (resolve, reject) {
       var cbName = '__tv_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
       var param = {
         guid: '10000' + Math.floor(Math.random() * 1e10),
-        songmid: [songmid],
-        songtype: [0],
+        songmid: songmids,
+        songtype: songmids.map(function () { return 0; }),
         uin: '0',
         loginflag: 1,
         platform: '20'
       };
-      if (filename) param.filename = filename;
+      if (filenames && filenames.length) param.filename = filenames;
       var data = JSON.stringify({ req_0: { module: 'vkey.GetVkeyServer', method: 'CgiGetVkey', param: param } });
       var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg?callback=' + cbName +
                 '&data=' + encodeURIComponent(data) + '&format=json';
@@ -45,13 +45,11 @@
         cleanup();
         try {
           var info = (resp.req_0 && resp.req_0.data && resp.req_0.data.midurlinfo) || [];
-          var purl = info[0] && info[0].purl;
-          if (!purl) {
-            reject(new Error('该资源暂未提供试听地址'));
-            return;
-          }
-          /* 优先 https 域名，避免混合内容 */
-          resolve('https://isure.stream.qqmusic.qq.com/' + purl);
+          var out = songmids.map(function (mid, i) {
+            var it = info[i] || {};
+            return it.purl ? 'https://isure.stream.qqmusic.qq.com/' + it.purl : null;
+          });
+          resolve(out);
         } catch (e) { reject(e); }
       };
       var s = document.createElement('script');
@@ -59,6 +57,14 @@
       s.src = url;
       s.onerror = function () { cleanup(); reject(new Error('网络请求失败')); };
       document.head.appendChild(s);
+    });
+  }
+
+  /* 单曲包装：返回直链或 reject */
+  function fetchVkey(songmid, filename) {
+    return fetchVkeys([songmid], filename ? [filename] : null).then(function (arr) {
+      if (!arr[0]) { var e = new Error('该资源暂未提供试听地址'); e.noPurl = true; throw e; }
+      return arr[0];
     });
   }
 
@@ -165,14 +171,13 @@
     attachAudio();
     audio.src = url;
     audio.load();
-    var p = audio.play();
-    if (p && p.catch) {
-      p.catch(function (e) { setStatus('播放失败：' + e.message, true); });
-    }
     currentTitle = title || '';
     currentKind = kind || '';
     audio.onended = function () { updateUI(); };
     updateUI();
+    /* 返回 play() 结果：被自动播放策略拦截时在此暴露（NotAllowedError） */
+    var p = audio.play();
+    return p || Promise.resolve();
   }
 
   function stop() {
@@ -235,10 +240,14 @@
       if (!songmid) return Promise.resolve(false);
       if (isMobile()) { this.jumpApp(songmid); return Promise.resolve(false); }
       setStatus('正在获取播放地址…');
+      var self = this;
       return fetchVkey(songmid).then(function (url) {
-        playUrl(url, title || '正在播放', 'song');
+        var p = playUrl(url, title || '正在播放', 'song');
         setStatus('正在播放 · ' + (title || ''));
-        return true;
+        return p.then(function () { return true; }).catch(function (e) {
+          self._blockedHint();
+          return false;
+        });
       }).catch(function (e) {
         setStatus(e.message + '（点击「🎵 播这首歌」前请先在 y.qq.com 登录）', true);
         return false;
@@ -250,14 +259,50 @@
       if (!songmid) return Promise.resolve(false);
       if (isMobile()) { this.jumpApp(songmid); return Promise.resolve(false); }
       setStatus('正在获取本期音频（需 QQ音乐 登录态）…');
+      var self = this;
       return fetchVkey(songmid).then(function (url) {
-        playUrl(url, title || '深夜小酒馆', 'episode');
+        var p = playUrl(url, title || '深夜小酒馆', 'episode');
         setStatus('正在播放 · ' + (title || '小酒馆本期'));
-        return true;
+        return p.then(function () { return true; }).catch(function (e) {
+          self._blockedHint();
+          return false;
+        });
       }).catch(function (e) {
         setStatus(e.message + '｜本期为节目音频，需登录 QQ音乐 后重试', true);
         return false;
       });
+    },
+
+    /* 候选列表按顺序播第一首能播的：
+     *   songs: [{mid, title}, ...]（已按优先级排序）
+     * 返回：true=已播放 | false=全部不可播 | {blocked:true}=内容可用但被自动播放策略拦截 */
+    playFirstAvailable: function (songs) {
+      var self = this;
+      if (!songs || !songs.length) return Promise.resolve(false);
+      var mids = songs.map(function (s) { return String(s.mid || '').replace(/^L:/, ''); });
+      if (isMobile()) { this.jumpApp(mids[0]); return Promise.resolve(false); }
+      setStatus('正在为你挑一首今晚最值得听的歌…');
+      return fetchVkeys(mids).then(function (urls) {
+        for (var i = 0; i < urls.length; i++) {
+          if (!urls[i]) continue;
+          setStatus('正在播放 · ' + (songs[i].title || ''));
+          var p = playUrl(urls[i], songs[i].title, 'song');
+          return p.then(function () { return true; }).catch(function () {
+            setStatus('浏览器拦了自动播放，点一下页面任意处就能听到', true);
+            return { blocked: true };
+          });
+        }
+        setStatus('这轮候选歌曲暂时都无法播放，试试「🎲 免费试听」', true);
+        return false;
+      }).catch(function (e) {
+        setStatus(e.message + '，稍后再试', true);
+        return false;
+      });
+    },
+
+    /* 自动播放被拦时的统一提示 */
+    _blockedHint: function () {
+      setStatus('浏览器拦了自动播放，点一下页面任意处就能听到', true);
     },
 
     /* 移动端跳转 QQ音乐 App（新标签打开，原页面保留，播完可切回） */

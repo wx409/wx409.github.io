@@ -266,7 +266,8 @@ a{color:#00d2ff;text-decoration:none}
       <span class="radio-title-mini" id="radioTitle">调好一杯酒后，点这里播放这首酒的主题曲</span>
     </div>
     <div class="radio-login" id="radioLogin">
-      说明：点「🎲 免费试听」会自动挑一首能免费播放的歌（无需登录），跟随音乐的光效同步亮起。
+      说明：打开页面会自动播放一首"数据最佳"的歌（按最新指数排序，自动跳过 VIP 锁曲）。
+      点「🎲 免费试听」会随机挑一首能免费播放的歌（无需登录），跟随音乐的光效同步亮起。
       VIP 锁曲与小酒馆期次音频，
       需在浏览器打开 <a href="https://y.qq.com" target="_blank" rel="noopener">y.qq.com</a>
       并登录 QQ音乐 后重试。<b>若已登录仍无法播放</b>，多为浏览器拦截第三方 Cookie 所致——
@@ -374,25 +375,40 @@ a{color:#00d2ff;text-decoration:none}
     if (!pool.length) { ensureSongs(); radioStateEl.textContent = '歌单还没就绪，稍等片刻再点'; radioStateEl.style.color = ''; return; }
     freeTrying = true;
     radioHideOpen();
-    var tried = 0, maxTry = 12;
-    var idx = Math.floor(Math.random() * pool.length);
-    (function next() {
-      if (tried >= maxTry) {
-        freeTrying = false;
-        radioStateEl.textContent = '这轮没碰上能免费播的，再点一次试试';
-        radioStateEl.style.color = '#ff8a80';
-        return;
-      }
-      tried++;
-      var s = pool[idx % pool.length]; idx++;
-      if (!s || !s.uid) { next(); return; }
-      radioStateEl.textContent = '正在找一首能免费听的歌（' + tried + '/' + maxTry + '）…';
-      radioStateEl.style.color = '';
-      TavernPlayer.playSong(s.uid, s.name).then(function (ok) {
-        if (!ok) next(); else freeTrying = false;
-      });
-    })();
+    var shuffled = pool.slice().sort(function () { return Math.random() - 0.5; });
+    var cands = shuffled.slice(0, 20).map(function (s) {
+      return { mid: s.uid, title: s.name };
+    });
+    TavernPlayer.playFirstAvailable(cands).then(function () { freeTrying = false; });
   });
+
+  /* ---------- 打开即播：按数据指数挑"当前最值得听"的歌自动播放 ---------- */
+  function autoPlayBest() {
+    if (TavernPlayer.isMobile()) return; /* 移动端保持跳转 App 逻辑，不自动弹窗 */
+    keeper.loadSongs().then(function (pool) {
+      var list = (pool.list || []).filter(function (s) {
+        return s.uid && (Number(s.latest) > 0 || Number(s.mean30) > 0);
+      });
+      /* 按最新指数降序，其次近30日均值 */
+      list.sort(function (a, b) {
+        var d = (Number(b.latest) || 0) - (Number(a.latest) || 0);
+        if (d) return d;
+        return (Number(b.mean30) || 0) - (Number(a.mean30) || 0);
+      });
+      var cands = list.slice(0, 20).map(function (s) { return { mid: s.uid, title: s.name }; });
+      if (!cands.length) return;
+      TavernPlayer.playFirstAvailable(cands).then(function (ok) {
+        if (ok && ok.blocked) {
+          /* 被浏览器自动播放策略拦截：等用户第一次点击页面后再播 */
+          document.addEventListener('click', function once() {
+            document.removeEventListener('click', once);
+            TavernPlayer.playFirstAvailable(cands);
+          });
+        }
+      });
+    }).catch(function () {});
+  }
+  autoPlayBest();
 
   /* ---------- 场景切换 ---------- */
   var scenes = { door: document.getElementById('scene-door'),
