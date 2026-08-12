@@ -18,8 +18,26 @@
   /* ---------- 工具 ---------- */
   function $(id) { return document.getElementById(id); }
 
+  /* ---------- 本地代理（VIP 全曲）：优先走本机 Python 服务，不可用则降级 JSONP ---------- */
+  var PROXY = 'http://127.0.0.1:8787';
+  var proxyState = 0; /* 0=未探测 1=可用 2=不可用（会话内只探测一次，刷新页面后重新探测） */
+  function proxyProbe() {
+    if (proxyState) return Promise.resolve(proxyState === 1);
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 1500);
+    return fetch(PROXY + '/health', { mode: 'cors', signal: ctrl.signal })
+      .then(function (r) { proxyState = r.ok ? 1 : 2; })
+      .catch(function () { proxyState = 2; })
+      .then(function () { clearTimeout(timer); return proxyState === 1; });
+  }
+  function proxyVkeys(songmids) {
+    var q = songmids.map(function (m) { return 'mid=' + encodeURIComponent(m); }).join('&');
+    return fetch(PROXY + '/vkey?' + q, { mode: 'cors' }).then(function (r) { return r.json(); })
+      .then(function (j) { return j.urls || null; });
+  }
+
   /* ---------- JSONP 批量请求 vkey（script 标签携带登录 Cookie，返回每首的直链或 null） ---------- */
-  function fetchVkeys(songmids, filenames) {
+  function jsonpVkeys(songmids, filenames) {
     return new Promise(function (resolve, reject) {
       var cbName = '__tv_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
       var param = {
@@ -57,6 +75,20 @@
       s.src = url;
       s.onerror = function () { cleanup(); reject(new Error('网络请求失败')); };
       document.head.appendChild(s);
+    });
+  }
+
+  /* 统一入口：本地代理可用则用它（解锁 VIP 全曲），否则走 JSONP（免费试听） */
+  function fetchVkeys(songmids, filenames) {
+    return proxyProbe().then(function (ok) {
+      if (ok) {
+        setStatus('正在通过本地电台代理获取播放地址…');
+        return proxyVkeys(songmids).then(function (urls) {
+          if (urls) return urls;
+          throw new Error('本地代理返回异常');
+        });
+      }
+      return jsonpVkeys(songmids, filenames);
     });
   }
 
