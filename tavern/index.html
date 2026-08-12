@@ -261,12 +261,15 @@ a{color:#00d2ff;text-decoration:none}
       <button class="radio-btn primary" id="radioPlayBtn">▶ 播放 / ⏸ 暂停</button>
       <button class="radio-btn" id="radioSongBtn" disabled>🎵 播这首歌</button>
       <button class="radio-btn ghost" id="radioEpBtn" disabled>🏮 播这期小酒馆</button>
+      <button class="radio-btn" id="radioOpenBtn" style="display:none">↗ 在新标签播放</button>
       <span class="radio-title-mini" id="radioTitle">调好一杯酒后，点这里播放这首酒的主题曲</span>
     </div>
     <div class="radio-login" id="radioLogin">
       说明：歌曲为 QQ音乐 试听直链（不登录也能播免费曲目）。VIP 锁曲与小酒馆期次音频，
       需在浏览器打开 <a href="https://y.qq.com" target="_blank" rel="noopener">y.qq.com</a>
-      并登录 QQ音乐 后重试——登录 Cookie 由浏览器自动携带，仅用于本次播放请求，本站不保存、不上传。
+      并登录 QQ音乐 后重试。<b>若已登录仍无法播放</b>，多为浏览器拦截第三方 Cookie 所致——
+      请在地址栏左侧点击站点锁图标 → 允许 <b>qq.com</b> 的 Cookie，刷新后再试；
+      或直接点「↗ 在新标签播放」在 QQ音乐 页内收听。Cookie 仅用于本次播放请求，本站不保存、不上传。
       移动端点击播放会跳转 QQ音乐 App，听完切回页面即可。
     </div>
   </div>
@@ -304,6 +307,24 @@ a{color:#00d2ff;text-decoration:none}
   var radioEp = null;     /* {mid, title} 当前酒单小酒馆期次 */
   var radioSongBtn = document.getElementById('radioSongBtn');
   var radioEpBtn = document.getElementById('radioEpBtn');
+  var radioOpenBtn = document.getElementById('radioOpenBtn');
+  var radioOpenMid = '';
+
+  function radioShowOpen(mid) {
+    radioOpenMid = mid;
+    radioOpenBtn.style.display = '';
+  }
+  function radioHideOpen() {
+    radioOpenMid = '';
+    radioOpenBtn.style.display = 'none';
+  }
+  radioOpenBtn.addEventListener('click', function () {
+    if (radioOpenMid) window.open('https://y.qq.com/n/ryqq/songDetail/' + radioOpenMid, '_blank');
+  });
+  /* 播放失败时：显示兜底跳转按钮 */
+  function radioFail(mid) {
+    if (mid) radioShowOpen(mid);
+  }
 
   function radioSetSong(song) {
     radioSong = song;
@@ -324,7 +345,10 @@ a{color:#00d2ff;text-decoration:none}
       TavernPlayer.jumpApp(radioSong.mid);
       return;
     }
-    TavernPlayer.playSong(radioSong.mid, radioSong.title);
+    radioHideOpen();
+    TavernPlayer.playSong(radioSong.mid, radioSong.title).then(function (ok) {
+      if (!ok) radioFail(radioSong.mid);
+    });
   });
   radioEpBtn.addEventListener('click', function () {
     if (!radioEp) return;
@@ -332,7 +356,10 @@ a{color:#00d2ff;text-decoration:none}
       TavernPlayer.jumpApp(radioEp.mid);
       return;
     }
-    TavernPlayer.playEpisode(radioEp.mid, radioEp.title);
+    radioHideOpen();
+    TavernPlayer.playEpisode(radioEp.mid, radioEp.title).then(function (ok) {
+      if (!ok) radioFail(radioEp.mid);
+    });
   });
 
   /* ---------- 场景切换 ---------- */
@@ -346,6 +373,7 @@ a{color:#00d2ff;text-decoration:none}
     /* 切换场景时清除播放器错误态（恢复默认提示色） */
     var st = document.getElementById('radioState');
     if (st && st.style.color) st.style.color = '';
+    radioHideOpen();
   }
 
   document.getElementById('enterBtn').addEventListener('click', function () {
