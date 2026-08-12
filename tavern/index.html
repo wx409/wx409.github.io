@@ -166,6 +166,22 @@ a{color:#00d2ff;text-decoration:none}
 .footer b{color:#8896b3}
 .load-err{color:#ff8a80;font-size:12px;letter-spacing:1px;margin-top:10px;display:none;}
 
+/* ===== 音乐播放器（深夜电台） ===== */
+#fxCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.tavern-radio{margin-top:26px;border-radius:16px;border:1px solid rgba(0,210,255,0.22);background:linear-gradient(160deg,rgba(0,210,255,0.06),rgba(0,0,0,0.2));padding:18px 20px;position:relative;z-index:2;}
+.radio-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+.radio-title{font-size:13px;letter-spacing:3px;color:#00d2ff;}
+.radio-state{font-size:12px;color:#8896b3;letter-spacing:1px;}
+.radio-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.radio-btn{padding:10px 20px;border-radius:40px;border:1px solid rgba(0,210,255,0.5);color:#00d2ff;background:rgba(0,210,255,0.08);cursor:pointer;font-size:13px;letter-spacing:2px;transition:all .3s;white-space:nowrap;}
+.radio-btn:hover{background:rgba(0,210,255,0.18);box-shadow:0 0 20px rgba(0,210,255,0.2)}
+.radio-btn.primary{background:linear-gradient(90deg,rgba(0,210,255,0.22),rgba(0,210,255,0.06));}
+.radio-btn.ghost{border-color:rgba(255,215,0,0.4);color:#ffd700;background:rgba(255,215,0,0.05);}
+.radio-btn[disabled]{opacity:.4;cursor:not-allowed;box-shadow:none;}
+.radio-title-mini{font-size:12px;color:#8896b3;letter-spacing:1px;min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.radio-login{font-size:11px;color:#4a5878;letter-spacing:1px;margin-top:10px;line-height:1.8;}
+.radio-login a{color:#5a8fe0}
+
 @media (max-width:640px){
   .header h1{font-size:26px;letter-spacing:5px}
   .drink-card{padding:26px 18px 22px}
@@ -180,6 +196,7 @@ a{color:#00d2ff;text-decoration:none}
 </style>
 </head>
 <body>
+<canvas id="fxCanvas"></canvas>
 <div class="container">
   <div class="header">
     <a class="back" href="../index.html">← 回主站</a>
@@ -234,6 +251,26 @@ a{color:#00d2ff;text-decoration:none}
     <div class="result-wrap" id="resultWrap"></div>
   </div>
 
+  <!-- 深夜电台：播放器（桌面端网页直播，移动端跳转App） -->
+  <div class="tavern-radio" id="tavernRadio">
+    <div class="radio-head">
+      <div class="radio-title">🎧 深夜电台</div>
+      <div class="radio-state" id="radioState">等待点单</div>
+    </div>
+    <div class="radio-row">
+      <button class="radio-btn primary" id="radioPlayBtn">▶ 播放 / ⏸ 暂停</button>
+      <button class="radio-btn" id="radioSongBtn" disabled>🎵 播这首歌</button>
+      <button class="radio-btn ghost" id="radioEpBtn" disabled>🏮 播这期小酒馆</button>
+      <span class="radio-title-mini" id="radioTitle">调好一杯酒后，点这里播放这首酒的主题曲</span>
+    </div>
+    <div class="radio-login" id="radioLogin">
+      说明：歌曲为 QQ音乐 试听直链（不登录也能播免费曲目）。VIP 锁曲与小酒馆期次音频，
+      需在浏览器打开 <a href="https://y.qq.com" target="_blank" rel="noopener">y.qq.com</a>
+      并登录 QQ音乐 后重试——登录 Cookie 由浏览器自动携带，仅用于本次播放请求，本站不保存、不上传。
+      移动端点击播放会跳转 QQ音乐 App，听完切回页面即可。
+    </div>
+  </div>
+
   <div class="footer">
     <b>本体验受王晰「日木斤深夜小酒馆」节目启发，为粉丝创作，非官方内容。</b><br>
     歌词/采访/金句素材来源：王晰公开作品与访谈；小酒馆文案摘录自节目公开内容；歌曲数据来源于
@@ -243,12 +280,60 @@ a{color:#00d2ff;text-decoration:none}
 </div>
 
 <script src="tavern.js"></script>
+<script src="tavern_player.js"></script>
 <script>
 (function () {
   'use strict';
   var keeper = new TavernKeeper({ base: './' });
   var state = { mood: null, song: '' };
   var songPoolReady = false;
+
+  /* ---------- 深夜电台：播放器初始化 ---------- */
+  var radio = TavernPlayer.init({
+    canvas: document.getElementById('fxCanvas'),
+    titleEl: document.getElementById('radioTitle'),
+    stateEl: document.getElementById('radioState'),
+    playBtn: document.getElementById('radioPlayBtn'),
+    statusFn: function (text, isErr) {
+      var el = document.getElementById('radioState');
+      el.textContent = text;
+      el.style.color = isErr ? '#ff8a80' : '';
+    }
+  });
+  var radioSong = null;   /* {mid, title} 当前酒单歌曲 */
+  var radioEp = null;     /* {mid, title} 当前酒单小酒馆期次 */
+  var radioSongBtn = document.getElementById('radioSongBtn');
+  var radioEpBtn = document.getElementById('radioEpBtn');
+
+  function radioSetSong(song) {
+    radioSong = song;
+    radioSongBtn.disabled = !song;
+    if (song) {
+      radioSongBtn.textContent = '🎵 播这首歌';
+    }
+  }
+  function radioSetEp(ep) {
+    radioEp = ep;
+    radioEpBtn.disabled = !ep;
+    if (ep) radioEpBtn.textContent = '🏮 播这期小酒馆';
+  }
+  radioSongBtn.addEventListener('click', function () {
+    if (!radioSong) return;
+    if (TavernPlayer.isMobile()) {
+      /* 移动端：直接跳转 App，不加载直链 */
+      TavernPlayer.jumpApp(radioSong.mid);
+      return;
+    }
+    TavernPlayer.playSong(radioSong.mid, radioSong.title);
+  });
+  radioEpBtn.addEventListener('click', function () {
+    if (!radioEp) return;
+    if (TavernPlayer.isMobile()) {
+      TavernPlayer.jumpApp(radioEp.mid);
+      return;
+    }
+    TavernPlayer.playEpisode(radioEp.mid, radioEp.title);
+  });
 
   /* ---------- 场景切换 ---------- */
   var scenes = { door: document.getElementById('scene-door'),
@@ -258,6 +343,9 @@ a{color:#00d2ff;text-decoration:none}
     Object.keys(scenes).forEach(function (k) { scenes[k].classList.remove('active'); });
     scenes[name].classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    /* 切换场景时清除播放器错误态（恢复默认提示色） */
+    var st = document.getElementById('radioState');
+    if (st && st.style.color) st.style.color = '';
   }
 
   document.getElementById('enterBtn').addEventListener('click', function () {
@@ -417,6 +505,30 @@ a{color:#00d2ff;text-decoration:none}
   });
 
   function renderDrink(d) {
+    /* ---- 关联深夜电台：当前酒单的歌曲与小酒馆期次 ---- */
+    radioSetSong(null);
+    radioSetEp(null);
+    var songObj = null;
+    if (d.songFound && d.insight && d.insight.name) {
+      songObj = keeper.findSong(d.insight.name);
+      if (songObj && songObj.uid) {
+        radioSetSong({ mid: String(songObj.uid).replace(/^L:/, ''), title: songObj.name });
+      }
+    }
+    if (d.tavern && d.tavern.episode) {
+      /* 期次 songmid 在 transcripts 中，懒加载后填充。
+         note 含「王晰」= 王晰请回答(P2)，否则 = 睡前故事与酒(P1) */
+      var epKey = d.tavern.episode;
+      var epPart = (d.tavern.note || '').indexOf('王晰') >= 0 ? 2 : 1;
+      keeper.loadTranscripts().then(function () {
+        var key = keeper.findTranscriptKey(epKey, epPart);
+        if (!key) return;
+        var t = keeper.getTranscript(key);
+        if (t && t.songmid) {
+          radioSetEp({ mid: String(t.songmid).replace(/^L:/, ''), title: '小酒馆 ' + key.replace(/_/g, ' ') });
+        }
+      }).catch(function () {});
+    }
     var c = d.color;
     var lyricText = d.lyric.text;
     var lyricSrc = d.lyric.source ? '—— ' + d.lyric.source : '';
