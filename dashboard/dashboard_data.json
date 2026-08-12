@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-12 21:00",
+  "timestamp": "2026-08-12 21:30",
   "total": 198080,
   "success": 36340,
   "complete_rate": 18.3,
@@ -119981,7 +119981,7 @@
         71.6,
         71.0,
         83.6,
-        71.7,
+        74.8,
         48.8,
         44.1,
         49.9,
@@ -120852,19 +120852,13 @@
   "second_spring": {
     "names": [
       "一生中最爱",
-      "在路上",
-      "晚风暖暖",
-      "爱于此生"
+      "在路上"
     ],
     "values": [
-      126.5,
-      120.4,
-      113.4,
-      111.7
+      126.2,
+      119.2
     ],
     "spring": [
-      false,
-      false,
       false,
       false
     ],
@@ -127178,47 +127172,47 @@
   "daily_listen_overview": {
     "active_count": 20,
     "total_tracked": 325,
-    "concentration_top3": 57.7,
+    "concentration_top3": 61.2,
     "as_of": "2026-08-12"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 46.2,
-      "trend_pct": 38.5,
+      "share_pct": 48.2,
+      "trend_pct": 35.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "再叙",
-      "share_pct": 6.6,
-      "trend_pct": -6.4,
-      "trend_label": "down"
+      "share_pct": 7.9,
+      "trend_pct": 5.1,
+      "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "在路上",
-      "share_pct": 4.9,
-      "trend_pct": 77.4,
+      "song": "一生中最爱",
+      "share_pct": 5.1,
+      "trend_pct": 76.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 4.9,
-      "trend_pct": 83.3,
+      "song": "山楂树",
+      "share_pct": 4.6,
+      "trend_pct": 50.0,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "月弯弯",
-      "share_pct": 4.9,
-      "trend_pct": 80.0,
+      "share_pct": 4.5,
+      "trend_pct": 56.7,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-12 21:00",
+  "last_update": "2026-08-12 21:30",
   "today_batches": 898,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127280,13 +127274,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1668,
-      "success": 1668,
+      "total": 1669,
+      "success": 1669,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 466122,
+      "before": 466374,
       "after": 198080
     },
     "index_calibration": {
