@@ -261,11 +261,13 @@ a{color:#00d2ff;text-decoration:none}
       <button class="radio-btn primary" id="radioPlayBtn">▶ 播放 / ⏸ 暂停</button>
       <button class="radio-btn" id="radioSongBtn" disabled>🎵 播这首歌</button>
       <button class="radio-btn ghost" id="radioEpBtn" disabled>🏮 播这期小酒馆</button>
+      <button class="radio-btn" id="radioFreeBtn">🎲 免费试听</button>
       <button class="radio-btn" id="radioOpenBtn" style="display:none">↗ 在新标签播放</button>
       <span class="radio-title-mini" id="radioTitle">调好一杯酒后，点这里播放这首酒的主题曲</span>
     </div>
     <div class="radio-login" id="radioLogin">
-      说明：歌曲为 QQ音乐 试听直链（不登录也能播免费曲目）。VIP 锁曲与小酒馆期次音频，
+      说明：点「🎲 免费试听」会自动挑一首能免费播放的歌（无需登录），跟随音乐的光效同步亮起。
+      VIP 锁曲与小酒馆期次音频，
       需在浏览器打开 <a href="https://y.qq.com" target="_blank" rel="noopener">y.qq.com</a>
       并登录 QQ音乐 后重试。<b>若已登录仍无法播放</b>，多为浏览器拦截第三方 Cookie 所致——
       请在地址栏左侧点击站点锁图标 → 允许 <b>qq.com</b> 的 Cookie，刷新后再试；
@@ -360,6 +362,36 @@ a{color:#00d2ff;text-decoration:none}
     TavernPlayer.playEpisode(radioEp.mid, radioEp.title).then(function (ok) {
       if (!ok) radioFail(radioEp.mid);
     });
+  });
+
+  /* 免费试听：随机挑歌，自动跳过 VIP 锁曲，直到播出一首能放的 */
+  var radioFreeBtn = document.getElementById('radioFreeBtn');
+  var radioStateEl = document.getElementById('radioState');
+  var freeTrying = false;
+  radioFreeBtn.addEventListener('click', function () {
+    if (freeTrying) return;
+    var pool = (keeper._songPool && keeper._songPool.list) ? keeper._songPool.list : [];
+    if (!pool.length) { ensureSongs(); radioStateEl.textContent = '歌单还没就绪，稍等片刻再点'; radioStateEl.style.color = ''; return; }
+    freeTrying = true;
+    radioHideOpen();
+    var tried = 0, maxTry = 12;
+    var idx = Math.floor(Math.random() * pool.length);
+    (function next() {
+      if (tried >= maxTry) {
+        freeTrying = false;
+        radioStateEl.textContent = '这轮没碰上能免费播的，再点一次试试';
+        radioStateEl.style.color = '#ff8a80';
+        return;
+      }
+      tried++;
+      var s = pool[idx % pool.length]; idx++;
+      if (!s || !s.uid) { next(); return; }
+      radioStateEl.textContent = '正在找一首能免费听的歌（' + tried + '/' + maxTry + '）…';
+      radioStateEl.style.color = '';
+      TavernPlayer.playSong(s.uid, s.name).then(function (ok) {
+        if (!ok) next(); else freeTrying = false;
+      });
+    })();
   });
 
   /* ---------- 场景切换 ---------- */
