@@ -640,7 +640,7 @@ a{color:#00d2ff;text-decoration:none}
           '<div class="drink-section" id="tavernSection"><div class="ds-label">🏮 主理人开场</div>' +
             '<div class="ds-text q">' + escapeHtml(d.greeting) + '</div>' +
             '<div class="ds-src">' + escapeHtml(tavNote) + '</div>' +
-            (tavHasTranscript ? '<button class="transcript-toggle" data-episode="' + escapeHtml(tavEpisode) + '" onclick="toggleTranscript(this)">📜 查看本期全文</button>' +
+            (tavHasTranscript ? '<button class="transcript-toggle" data-episode="' + escapeHtml(tavEpisode) + '" data-part="' + epPart + '" onclick="toggleTranscript(this)">📜 查看本期全文</button>' +
               '<div class="transcript-body" style="display:none;margin-top:12px;padding:14px 16px;background:rgba(0,0,0,0.15);border-radius:10px;max-height:360px;overflow-y:auto;font-size:14px;line-height:2;color:#bcc8e8;letter-spacing:1px;white-space:pre-wrap;"></div>'
             : '<div class="ds-src" style="margin-top:6px">（本期暂未取得字幕，仅音频 👂）</div>') + '</div>' +
           '<div class="drink-section"><div class="ds-label">🎵 歌词下酒</div>' +
@@ -730,8 +730,9 @@ a{color:#00d2ff;text-decoration:none}
     body.textContent = '正在从素材库加载本期全文…';
 
     var ep = btn.getAttribute('data-episode') || '';
+    var part = Number(btn.getAttribute('data-part')) || 0;
     keeper.loadTranscripts().then(function () {
-      var key = keeper.findTranscriptKey(ep);
+      var key = keeper.findTranscriptKey(ep, part || undefined);
       var txt = '';
       if (key) {
         var t = keeper.getTranscript(key);
