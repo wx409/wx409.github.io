@@ -1328,7 +1328,7 @@
         :root { --bg:#080c24; --panel:#101633; --text:#c8cce0; --muted:#8b92b9; --accent:#00d2ff; --line:rgba(255,255,255,.08); }
         * { box-sizing:border-box; }
         html, body { margin:0; height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; }
-        #map { position:fixed; inset:0; background:var(--bg); z-index:1; }
+        #map { position:fixed; inset:0; background:#e8e8e8; z-index:1; }
         .topbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:linear-gradient(180deg,rgba(8,12,36,.95),rgba(8,12,36,0)); pointer-events:none; }
         .topbar a { pointer-events:auto; color:var(--accent); text-decoration:none; font-size:14px; background:var(--panel); padding:8px 14px; border-radius:8px; border:1px solid var(--line); }
         .topbar .title { font-size:16px; font-weight:700; letter-spacing:1px; }
@@ -1337,8 +1337,10 @@
         .legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle; }
         .legend .dot.pulse { box-shadow:0 0 0 rgba(0,210,255,.6); animation:pulse 2s infinite; }
         @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(0,210,255,.7)} 70%{box-shadow:0 0 0 10px rgba(0,210,255,0)} 100%{box-shadow:0 0 0 0 rgba(0,210,255,0)} }
-        .marker { width:14px; height:14px; border-radius:50%; background:var(--c,#888); border:2px solid rgba(255,255,255,.85); box-shadow:0 1px 4px rgba(0,0,0,.5); }
+        .marker { width:14px; height:14px; border-radius:50%; background:var(--c,#888); border:2px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.2), 0 1px 3px rgba(0,0,0,.5); }
         .marker.has-data { animation:pulse 2s infinite; }
+        .city-marker { display:flex; flex-direction:column; align-items:center; }
+        .city-label { margin-top:3px; font-size:11px; line-height:1; font-weight:600; color:#1a1a1a; white-space:nowrap; text-shadow:0 0 2px #fff, 0 0 4px #fff, 0 1px 3px #fff; }
         .leaflet-popup-content-wrapper { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:10px; }
         .leaflet-popup-tip { background:var(--panel); }
         .leaflet-popup-content { margin:14px 16px; font-size:13px; }
@@ -1408,7 +1410,7 @@
     <script>
     var TOUR_COLORS = {1:"#e74c3c",2:"#e67e22",3:"#f1c40f",4:"#2ecc71",5:"#1abc9c",6:"#3498db"};
     var map = L.map('map', {zoomControl:true}).setView([34.5, 108.9], 4);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO',
         subdomains: 'abcd', maxZoom: 19
     }).addTo(map);
@@ -1427,15 +1429,18 @@
 
     fetch('../data/cities.json').then(function(r){ return r.json(); }).then(function(data){
         var cities = data.cities || {};
+        var bounds = [];
         Object.keys(cities).forEach(function(name){
             var c = cities[name];
             if (!c.coord) return;
+            bounds.push(c.coord);
             var latest = c.shows[c.shows.length - 1];
             var hasData = c.shows.some(function(s){ return s.has_data; });
             var color = TOUR_COLORS[latest.tour_num] || '#888';
-            var icon = L.divIcon({ className:'', html:'<div class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '"></div>', iconSize:[14,14], iconAnchor:[7,7] });
+            var icon = L.divIcon({ className:'city-marker', html:'<span class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '"></span><span class="city-label">' + esc(name) + '</span>', iconSize:[80,40], iconAnchor:[40,7] });
             L.marker(c.coord, {icon:icon}).addTo(map).bindPopup(showHtml(name, c));
         });
+        if (bounds.length) { map.fitBounds(L.latLngBounds(bounds).pad(0.18)); }
     }).catch(function(){});
     </script>
 </body>
