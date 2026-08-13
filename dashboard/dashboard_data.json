@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13 19:21",
+  "timestamp": "2026-08-13 20:30",
   "total": 198332,
   "success": 36361,
   "complete_rate": 18.3,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    14.8
+    14.9
   ],
   "listener_labels": [
     "2024-08",
@@ -120061,7 +120061,7 @@
         71.0,
         83.6,
         65.0,
-        74.6,
+        76.5,
         44.1,
         49.9,
         51.2,
@@ -120935,8 +120935,8 @@
       "晚风暖暖"
     ],
     "values": [
-      123.6,
-      122.4,
+      121.1,
+      120.9,
       110.5
     ],
     "spring": [
@@ -127252,49 +127252,49 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 16,
+    "active_count": 19,
     "total_tracked": 325,
-    "concentration_top3": 61.8,
+    "concentration_top3": 61.4,
     "as_of": "2026-08-13"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 48.9,
-      "trend_pct": 83.3,
+      "share_pct": 48.1,
+      "trend_pct": 65.7,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "山楂树",
-      "share_pct": 6.5,
-      "trend_pct": 180.0,
+      "song": "再叙",
+      "share_pct": 7.4,
+      "trend_pct": 66.0,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "再叙",
-      "share_pct": 6.4,
-      "trend_pct": 56.6,
+      "song": "山楂树",
+      "share_pct": 5.9,
+      "trend_pct": 136.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
       "song": "一生中最爱",
-      "share_pct": 5.8,
-      "trend_pct": 167.9,
+      "share_pct": 4.8,
+      "trend_pct": 103.6,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "在路上",
-      "share_pct": 5.0,
-      "trend_pct": 132.1,
+      "share_pct": 4.4,
+      "trend_pct": 89.3,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-13 19:21",
+  "last_update": "2026-08-13 20:30",
   "today_batches": 899,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127356,13 +127356,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1682,
-      "success": 1682,
+      "total": 1683,
+      "success": 1683,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 469650,
+      "before": 469902,
       "after": 198332
     },
     "index_calibration": {
