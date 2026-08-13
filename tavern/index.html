@@ -8,6 +8,12 @@
 <meta property="og:title" content="深夜小酒馆 · 王晰">
 <meta property="og:description" content="选一个心情，挑一首歌，为你调一杯专属的酒。">
 <meta property="og:url" content="https://wx409.github.io/tavern/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://wx409.github.io/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="深夜小酒馆 · 王晰">
+<meta name="twitter:description" content="选一个心情，挑一首歌，为你调一杯专属的酒。">
+<meta name="twitter:image" content="https://wx409.github.io/cover.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -283,6 +289,7 @@ a{color:#00d2ff;text-decoration:none}
       <button class="radio-btn" id="radioSongBtn" disabled>🎵 播这首歌</button>
       <button class="radio-btn ghost" id="radioEpBtn" disabled>🏮 播这期小酒馆</button>
       <button class="radio-btn" id="radioFreeBtn">🎲 免费试听</button>
+      <button class="radio-btn" id="radioListBtn">📻 整期歌单</button>
       <button class="radio-btn" id="radioOpenBtn" style="display:none">↗ 在新标签播放</button>
       <span class="radio-title-mini" id="radioTitle">调好一杯酒后，点这里播放这首酒的主题曲</span>
     </div>
@@ -423,6 +430,29 @@ a{color:#00d2ff;text-decoration:none}
       return { mid: s.uid, title: s.name };
     });
     TavernPlayer.playFirstAvailable(cands).then(function () { freeTrying = false; });
+  });
+
+  /* 整期歌单：嵌入 QQ音乐 官方歌单页（免 Cookie、不跳转，可连续听整张歌单） */
+  var RADIO_PLAYLIST_ID = '9762661066';
+  var radioListBtn = document.getElementById('radioListBtn');
+  if (radioListBtn) radioListBtn.addEventListener('click', function () {
+    var wrap = document.getElementById('radioFrameWrap');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    var tip = document.createElement('div');
+    tip.className = 'radio-login';
+    tip.style.color = '#8896b3';
+    tip.textContent = '已嵌入 QQ音乐 官方歌单《专辑单曲》：点播放键即可连续听（免 Cookie、不跳转；此方式无频谱光效）。';
+    var frame = document.createElement('iframe');
+    frame.src = 'https://y.qq.com/n/ryqq/playlist/' + RADIO_PLAYLIST_ID;
+    frame.setAttribute('loading', 'lazy');
+    frame.style.cssText = 'width:100%;height:620px;border:1px solid rgba(0,210,255,.15);border-radius:12px;background:#0d1430;margin-top:8px;';
+    wrap.appendChild(tip);
+    wrap.appendChild(frame);
+    wrap.style.display = '';
+    radioOpenMid = '';
+    radioOpenBtn.style.display = 'none';
+    radioStateEl.textContent = '已嵌入官方歌单播放器';
   });
 
   /* ---------- 打开即播：按数据指数挑"当前最值得听"的歌自动播放 ---------- */

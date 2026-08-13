@@ -1,0 +1,27 @@
+# 深夜小酒馆 · 王晰粉丝互动体验
+
+> 受王晰「日木斤深夜小酒馆」107期哄睡音频节目启发的文字互动体验。选心情、挑一首歌，页面用王晰的歌词、采访语录、金句与数据大屏洞察，为你调一杯专属的“酒”。粉丝创作，非官方。
+
+## 核心内容
+
+- [小酒馆主页](https://wx409.github.io/tavern/): 互动调酒 + 深夜电台（可播王晰歌曲 / 节目 / QQ音乐官方歌单）
+- 逐字稿存档: 107 期节目文字稿
+- 歌曲索引: 325 首王晰作品
+
+## 数据文件（可机读）
+
+- 逐字稿: /tavern/tavern_transcripts.json（每期 episode_num / part / theme / text / songmid / duration_sec）
+- 期数文案: /tavern/tavern_quotes.json（107 期 episode / note / songmid）
+- 歌曲索引: /tavern/songs_compact.json（325 首 uid / name 等）
+- 歌词片段: /tavern/lyrics_fragments.json
+- 采访语录: /tavern/interview_quotes.json
+- 金句: /tavern/golden_quotes.json
+
+## 关联
+
+- 数据大屏: https://wx409.github.io/dashboard/（dashboard_data.json 每日追踪王晰 QQ音乐指数）
+- 主站: https://wx409.github.io/
+
+## 说明
+
+- 本页为粉丝创作，非官方内容；素材均来自王晰公开作品与节目，每张酒单底部标注出处。
