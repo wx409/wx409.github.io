@@ -5,6 +5,8 @@ __pycache__/
 .env
 # 深夜电台本地代理：登录 Cookie（仅存本机，绝不入库）
 tavern/radio_cookie.json
+# 深夜电台本地代理：含 Cookie 处理逻辑，不公开（本地保留运行）
+tavern/radio_proxy.py
 # 原始明细数据（若被复制到仓库则拒绝提交）
 raw_archive/
 *.log
