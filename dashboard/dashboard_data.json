@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13 18:15",
+  "timestamp": "2026-08-13 18:25",
   "total": 198332,
   "success": 36361,
   "complete_rate": 18.3,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    14.7
+    14.8
   ],
   "listener_labels": [
     "2024-08",
@@ -120061,7 +120061,7 @@
         71.0,
         83.6,
         65.0,
-        77.6,
+        76.1,
         44.1,
         49.9,
         51.2,
@@ -120930,14 +120930,14 @@
   },
   "second_spring": {
     "names": [
-      "在路上",
       "一生中最爱",
+      "在路上",
       "晚风暖暖"
     ],
     "values": [
-      125.9,
+      125.5,
       125.0,
-      111.2
+      112.3
     ],
     "spring": [
       false,
@@ -127252,38 +127252,38 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 14,
+    "active_count": 15,
     "total_tracked": 325,
-    "concentration_top3": 64.6,
+    "concentration_top3": 62.8,
     "as_of": "2026-08-13"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 51.0,
-      "trend_pct": 100.0,
+      "share_pct": 50.0,
+      "trend_pct": 96.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "在路上",
-      "share_pct": 7.0,
-      "trend_pct": 239.3,
+      "song": "一生中最爱",
+      "share_pct": 6.5,
+      "trend_pct": 214.3,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "再叙",
-      "share_pct": 6.7,
-      "trend_pct": 71.7,
+      "song": "在路上",
+      "share_pct": 6.4,
+      "trend_pct": 210.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 6.2,
-      "trend_pct": 203.6,
+      "song": "再叙",
+      "share_pct": 6.4,
+      "trend_pct": 64.2,
       "trend_label": "up"
     },
     {
@@ -127294,7 +127294,7 @@
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-13 18:15",
+  "last_update": "2026-08-13 18:25",
   "today_batches": 899,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127356,13 +127356,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1677,
-      "success": 1677,
+      "total": 1678,
+      "success": 1678,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 468390,
+      "before": 468642,
       "after": 198332
     },
     "index_calibration": {
