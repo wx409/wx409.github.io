@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13 12:18",
+  "timestamp": "2026-08-13 18:05",
   "total": 198332,
   "success": 36361,
   "complete_rate": 18.3,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    14.3
+    14.7
   ],
   "listener_labels": [
     "2024-08",
@@ -120061,7 +120061,7 @@
         71.0,
         83.6,
         65.0,
-        67.6,
+        78.0,
         44.1,
         49.9,
         51.2,
@@ -120930,14 +120930,17 @@
   },
   "second_spring": {
     "names": [
+      "在路上",
       "一生中最爱",
-      "在路上"
+      "晚风暖暖"
     ],
     "values": [
-      121.3,
-      120.0
+      125.6,
+      123.6,
+      110.2
     ],
     "spring": [
+      false,
       false,
       false
     ],
@@ -127249,49 +127252,49 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 8,
+    "active_count": 14,
     "total_tracked": 325,
-    "concentration_top3": 78.1,
+    "concentration_top3": 65.8,
     "as_of": "2026-08-13"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 63.3,
-      "trend_pct": 50.7,
+      "share_pct": 52.0,
+      "trend_pct": 99.4,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "再叙",
-      "share_pct": 7.7,
-      "trend_pct": 20.8,
+      "song": "在路上",
+      "share_pct": 6.9,
+      "trend_pct": 228.6,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "一生中最爱",
-      "share_pct": 7.0,
-      "trend_pct": 107.1,
+      "song": "再叙",
+      "share_pct": 6.9,
+      "trend_pct": 73.6,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 5.8,
-      "trend_pct": 60.0,
+      "song": "一生中最爱",
+      "share_pct": 5.6,
+      "trend_pct": 167.9,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "在路上",
-      "share_pct": 5.4,
-      "trend_pct": 60.7,
+      "song": "月弯弯",
+      "share_pct": 4.7,
+      "trend_pct": 152.0,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-13 12:18",
+  "last_update": "2026-08-13 18:05",
   "today_batches": 899,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127353,13 +127356,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1675,
-      "success": 1675,
+      "total": 1676,
+      "success": 1676,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 467886,
+      "before": 468138,
       "after": 198332
     },
     "index_calibration": {
