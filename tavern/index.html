@@ -194,6 +194,28 @@ a{color:#00d2ff;text-decoration:none}
 .header .back{position:absolute;left:0;top:34px;font-size:13px;color:#5a6b8c;letter-spacing:1px}
 .header .back:hover{color:#00d2ff}
 
+/* ===== 站内搜索 ===== */
+.tavern-search{max-width:760px;margin:6px auto 0;}
+.search-bar{position:relative;display:flex;align-items:center;}
+.search-ico{position:absolute;left:16px;font-size:15px;opacity:.7;pointer-events:none;}
+.search-input{flex:1;width:100%;padding:13px 46px 13px 44px;border-radius:30px;border:1px solid rgba(0,210,255,0.25);background:rgba(0,210,255,0.05);color:#fff;font-size:14px;letter-spacing:1px;outline:none;transition:all .3s;}
+.search-input:focus{border-color:#00d2ff;box-shadow:0 0 24px rgba(0,210,255,0.15);background:rgba(0,210,255,0.08)}
+.search-input::placeholder{color:#4a5878;letter-spacing:1px}
+.search-clear{position:absolute;right:14px;border:none;background:none;color:#5a6b8c;font-size:14px;cursor:pointer;padding:4px;display:none;}
+.search-clear:hover{color:#fff}
+.search-results{margin-top:12px;display:none;text-align:left;}
+.search-results.open{display:block}
+.sr-group{margin-bottom:18px;}
+.sr-group-title{font-size:12px;color:#00d2ff;letter-spacing:3px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.sr-group-title::before{content:'';width:3px;height:14px;background:linear-gradient(180deg,#00d2ff,transparent);border-radius:2px;}
+.sr-item{display:block;padding:12px 16px;border:1px solid rgba(255,255,255,0.07);border-radius:12px;background:rgba(255,255,255,0.02);margin-bottom:8px;transition:all .25s;text-decoration:none;color:inherit;}
+.sr-item:hover{border-color:rgba(0,210,255,0.35);background:rgba(0,210,255,0.05);transform:translateX(3px);}
+.sr-title{font-size:14px;color:#dfe6f5;letter-spacing:1px;margin-bottom:5px;}
+.sr-text{font-size:13px;color:#8896b3;line-height:1.7;letter-spacing:.5px;}
+.sr-meta{font-size:11px;color:#5a6b8c;margin-top:6px;letter-spacing:1px;}
+.sr-item mark{background:rgba(255,215,0,0.28);color:#ffd700;border-radius:3px;padding:0 2px;}
+.sr-empty{padding:24px;text-align:center;color:#5a6b8c;font-size:13px;letter-spacing:2px;}
+
 /* ===== 幕布 ===== */
 .scene{display:none;animation:fadeUp .5s ease;}
 .scene.active{display:block}
@@ -330,6 +352,17 @@ a{color:#00d2ff;text-decoration:none}
     <a class="back" href="../index.html">← 回主站</a>
     <h1>深 夜 小 酒 馆</h1>
     <div class="subtitle">—— 用王晰说过的话、唱过的歌，为你调一杯专属的酒 ——</div>
+  </div>
+
+  <!-- 站内搜索：纯前端，搜逐字稿 / 文案 / 歌词 / 金句 / 采访 -->
+  <div class="tavern-search" id="tavernSearch">
+    <div class="search-bar">
+      <span class="search-ico">🔍</span>
+      <input class="search-input" id="searchInput" type="text" autocomplete="off"
+             placeholder="搜索小酒馆：期次 / 歌名 / 歌词 / 金句 / 采访 / 关键词…">
+      <button class="search-clear" id="searchClear" type="button" title="清空">✕</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
   </div>
 
   <!-- 第一幕：进店 -->
@@ -655,6 +688,203 @@ a{color:#00d2ff;text-decoration:none}
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+
+  /* ---------- 站内搜索（纯前端，复用 keeper 已加载数据） ---------- */
+  var searchInput = document.getElementById('searchInput');
+  var searchClear = document.getElementById('searchClear');
+  var searchResults = document.getElementById('searchResults');
+  var searchTimer = null;
+  var searchIndex = null;
+  var searchWarmPromise = null;
+
+  function snippet(text, q, radius) {
+    radius = radius || 34;
+    var t = String(text == null ? '' : text);
+    var i = t.toLowerCase().indexOf(q.toLowerCase());
+    if (i < 0) return t.slice(0, radius * 2);
+    var start = Math.max(0, i - radius);
+    var end = Math.min(t.length, i + q.length + radius);
+    return (start > 0 ? '…' : '') + t.slice(start, end) + (end < t.length ? '…' : '');
+  }
+
+  function highlight(text, q) {
+    var esc = escapeHtml(String(text == null ? '' : text));
+    var eq = escapeHtml(String(q || ''));
+    if (!eq) return esc;
+    var lower = esc.toLowerCase();
+    var lq = eq.toLowerCase();
+    var idx = lower.indexOf(lq);
+    if (idx < 0) return esc;
+    var out = '', last = 0;
+    while (idx >= 0) {
+      out += esc.slice(last, idx) + '<mark>' + esc.slice(idx, idx + eq.length) + '</mark>';
+      last = idx + eq.length;
+      idx = lower.indexOf(lq, last);
+    }
+    return out + esc.slice(last);
+  }
+
+  function transcriptUrlFor(episode) {
+    if (!episode) return null;
+    var key = keeper.findTranscriptKey(episode);
+    return key ? ('ep/' + key + '.html') : null;
+  }
+
+  function buildSearchIndex() {
+    if (searchIndex) return searchIndex;
+    var entries = [];
+    var assets = keeper._assets || {};
+
+    /* 逐字稿 */
+    var trans = keeper._transcripts || {};
+    Object.keys(trans).forEach(function (key) {
+      var t = trans[key] || {};
+      entries.push({
+        type: '逐字稿',
+        title: key + ' · ' + (t.category || '') + (t.theme ? '｜' + t.theme : ''),
+        text: t.text || '',
+        url: 'ep/' + key + '.html',
+        meta: (t.category || '') + (t.duration_sec ? ' · ' + Math.round(t.duration_sec / 60) + '分钟' : '')
+      });
+    });
+
+    /* 节目文案 */
+    var tav = assets.tavern || {};
+    (tav.episodes || []).forEach(function (e) {
+      entries.push({
+        type: '文案',
+        title: e.episode + (e.note ? ' · ' + e.note : ''),
+        text: e.text || '',
+        url: transcriptUrlFor(e.episode),
+        meta: '节目文案' + (e.has_transcript ? '' : '（暂无逐字稿）')
+      });
+    });
+
+    /* 歌词 */
+    var lyrics = assets.lyrics || {};
+    Object.keys(lyrics).forEach(function (songName) {
+      if (songName === '_meta') return;
+      var fg = (lyrics[songName] && lyrics[songName].fragments) || [];
+      fg.forEach(function (f) {
+        entries.push({ type: '歌词', title: songName, text: f.text || '', url: null, meta: f.source || '' });
+      });
+    });
+
+    /* 金句 */
+    var golden = assets.golden || {};
+    Object.keys(golden).forEach(function (topic) {
+      if (topic === '_meta') return;
+      var arr = golden[topic];
+      if (!Array.isArray(arr)) return;
+      arr.forEach(function (it) {
+        entries.push({ type: '金句', title: topic, text: it.text || '', url: null, meta: '金句 · ' + topic });
+      });
+    });
+
+    /* 采访 */
+    var interview = assets.interview || {};
+    Object.keys(interview).forEach(function (topic) {
+      if (topic === '_meta') return;
+      var arr = interview[topic];
+      if (!Array.isArray(arr)) return;
+      arr.forEach(function (it) {
+        entries.push({ type: '采访', title: topic, text: it.text || '', url: null, meta: it.context || '' });
+      });
+    });
+
+    searchIndex = entries;
+    return entries;
+  }
+
+  function doSearchNow(q) {
+    var entries = buildSearchIndex();
+    var lower = q.toLowerCase();
+    var hits = [];
+    entries.forEach(function (e) {
+      var hay = ((e.title || '') + '\n' + (e.text || '') + '\n' + (e.meta || '')).toLowerCase();
+      if (hay.indexOf(lower) >= 0) hits.push(e);
+    });
+    var groups = {};
+    var order = ['逐字稿', '文案', '歌词', '金句', '采访'];
+    hits.forEach(function (e) { (groups[e.type] = groups[e.type] || []).push(e); });
+    renderSearchResults(groups, order, q, hits.length);
+  }
+
+  function renderSearchResults(groups, order, q, total) {
+    searchResults.innerHTML = '';
+    if (!total) {
+      searchResults.innerHTML = '<div class="sr-empty">没有找到与「' + escapeHtml(q) + '」相关的内容，换个词试试～</div>';
+      searchResults.classList.add('open');
+      return;
+    }
+    order.forEach(function (type) {
+      var list = groups[type];
+      if (!list || !list.length) return;
+      var g = document.createElement('div');
+      g.className = 'sr-group';
+      var title = document.createElement('div');
+      title.className = 'sr-group-title';
+      title.textContent = type + '（' + list.length + '）';
+      g.appendChild(title);
+      list.slice(0, 8).forEach(function (e) {
+        var a = document.createElement(e.url ? 'a' : 'div');
+        a.className = 'sr-item';
+        if (e.url) { a.href = e.url; a.target = '_blank'; a.rel = 'noopener'; }
+        a.innerHTML =
+          '<div class="sr-title">' + highlight(e.title, q) + '</div>' +
+          '<div class="sr-text">' + highlight(snippet(e.text, q), q) + '</div>' +
+          '<div class="sr-meta">' + escapeHtml(e.meta || '') + '</div>';
+        g.appendChild(a);
+      });
+      if (list.length > 8) {
+        var more = document.createElement('div');
+        more.className = 'sr-meta';
+        more.style.padding = '4px 16px';
+        more.textContent = '……该分类还有 ' + (list.length - 8) + ' 条，输入更精确的关键词可缩小范围';
+        g.appendChild(more);
+      }
+      searchResults.appendChild(g);
+    });
+    searchResults.classList.add('open');
+  }
+
+  function clearSearchResults() {
+    searchResults.innerHTML = '';
+    searchResults.classList.remove('open');
+    searchClear.style.display = 'none';
+  }
+
+  function warmSearch() {
+    if (searchWarmPromise) return searchWarmPromise;
+    searchWarmPromise = Promise.all([keeper.loadAssets(), keeper.loadTranscripts()]);
+    return searchWarmPromise;
+  }
+
+  function runSearch() {
+    var q = searchInput.value.trim();
+    searchClear.style.display = q ? '' : 'none';
+    if (!q) { clearSearchResults(); return; }
+    warmSearch().then(function () {
+      if (searchInput.value.trim() !== q) return; /* 用户已改词，忽略过期结果 */
+      doSearchNow(q);
+    }).catch(function () {
+      searchResults.innerHTML = '<div class="sr-empty">内容加载失败，请刷新页面后重试。</div>';
+      searchResults.classList.add('open');
+    });
+  }
+
+  searchInput.addEventListener('input', function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(runSearch, 260);
+  });
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); clearTimeout(searchTimer); runSearch(); }
+  });
+  searchClear.addEventListener('click', function () {
+    searchInput.value = '';
+    clearSearchResults();
+    searchInput.focus();
+  });
 
   songInput.addEventListener('input', function () {
     curIndex = -1;
