@@ -710,7 +710,7 @@ a{color:#00d2ff;text-decoration:none}
 
     Promise.all([keeper.loadAssets(), keeper.loadSongs()])
       .then(function () {
-        var song = forceSong != null ? forceSong : state.song;
+        var song = forceSong != null ? forceSong : (state.song || (songInput && songInput.value.trim()) || '');
         var drink = keeper.makeDrink(mood, song);
         setTimeout(function () {
           mixingLine.classList.remove('show');
@@ -722,7 +722,7 @@ a{color:#00d2ff;text-decoration:none}
       })
       .catch(function () {
         /* 素材加载失败也要能出酒（优雅降级） */
-        var drink = keeper.makeDrink(mood, forceSong != null ? forceSong : state.song);
+        var drink = keeper.makeDrink(mood, forceSong != null ? forceSong : (state.song || (songInput && songInput.value.trim()) || ''));
         mixingLine.classList.remove('show');
         document.getElementById('mixBtn').disabled = false;
         document.getElementById('randomBtn').disabled = false;
