@@ -183,6 +183,7 @@ def build_page(setlists: list[dict], effects: dict, live_pages: dict) -> str:
         <a href="/academic.html">学术研究</a>
         <a href="/gallery.html">视觉记录</a>
         <a href="/dashboard/">数据大屏</a>
+        <a href="/map/">🗺️ 巡演地图</a>
     </div>
 
     <h1>演出详情目录</h1>
