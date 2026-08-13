@@ -216,6 +216,19 @@ a{color:#00d2ff;text-decoration:none}
 .sr-item mark{background:rgba(255,215,0,0.28);color:#ffd700;border-radius:3px;padding:0 2px;}
 .sr-empty{padding:24px;text-align:center;color:#5a6b8c;font-size:13px;letter-spacing:2px;}
 
+/* ===== 跨站实体聚合卡片 ===== */
+.entity-card{margin-bottom:18px;border:1px solid rgba(255,215,0,0.35);border-radius:14px;background:linear-gradient(160deg,rgba(255,215,0,0.06),rgba(0,0,0,0.2));padding:16px 18px;}
+.entity-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.entity-name{font-size:16px;color:#ffd700;letter-spacing:1px;font-weight:600;}
+.entity-name mark{background:rgba(255,215,0,0.28);color:#ffd700;border-radius:3px;padding:0 2px;}
+.entity-tag{font-size:10px;color:#ffd700;border:1px solid rgba(255,215,0,0.4);border-radius:10px;padding:2px 10px;letter-spacing:2px;}
+.entity-row{display:block;padding:9px 12px;border-radius:10px;background:rgba(255,255,255,0.03);margin-bottom:6px;text-decoration:none;color:inherit;transition:all .2s;}
+.entity-row:hover{background:rgba(0,210,255,0.08);transform:translateX(3px);}
+.er-label{font-size:11px;color:#00d2ff;letter-spacing:2px;margin-right:8px;}
+.er-text{font-size:13px;color:#dfe6f5;letter-spacing:.5px;}
+.er-text a{color:#00d2ff;}
+.er-link{font-size:11px;color:#5a8fe0;margin-left:8px;white-space:nowrap;}
+
 /* ===== 幕布 ===== */
 .scene{display:none;animation:fadeUp .5s ease;}
 .scene.active{display:block}
@@ -696,6 +709,8 @@ a{color:#00d2ff;text-decoration:none}
   var searchTimer = null;
   var searchIndex = null;
   var searchWarmPromise = null;
+  var entityIndexPromise = null;
+  var entitySongs = null;
 
   function snippet(text, q, radius) {
     radius = radius || 34;
@@ -796,6 +811,121 @@ a{color:#00d2ff;text-decoration:none}
     return entries;
   }
 
+  function loadEntityIndex() {
+    if (entityIndexPromise) return entityIndexPromise;
+    entityIndexPromise = fetch('../entity_index.json', { method: 'GET' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('entity index ' + r.status);
+        return r.json();
+      })
+      .then(function (j) {
+        entitySongs = (j && j.songs) || {};
+        return entitySongs;
+      })
+      .catch(function () {
+        entityIndexPromise = null;
+        entitySongs = null;
+        return null;
+      });
+    return entityIndexPromise;
+  }
+
+  function normSong(s) {
+    return String(s == null ? '' : s)
+      .replace(/[《》「」]/g, '')
+      .replace(/\s+/g, '')
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function findEntities(q) {
+    if (!entitySongs) return [];
+    var raw = String(q || '').replace(/[《》「」]/g, '').trim();
+    if (!raw) return [];
+    var nq = normSong(raw);
+    if (!nq) return [];
+    var exact = [], partial = [];
+    Object.keys(entitySongs).forEach(function (name) {
+      var nn = normSong(name);
+      if (nn === nq) {
+        exact.push({ name: name, data: entitySongs[name] });
+      } else if (nq.length >= 2 && (nn.indexOf(nq) >= 0 || nq.indexOf(nn) >= 0)) {
+        partial.push({ name: name, data: entitySongs[name] });
+      }
+    });
+    function byLen(a, b) { return a.name.length - b.name.length; }
+    exact.sort(byLen);
+    partial.sort(byLen);
+    var list = exact.length ? exact : partial;
+    return list.slice(0, 6);
+  }
+
+  function fmtNum(n) {
+    if (n == null) return '—';
+    var num = Number(n);
+    if (isNaN(num)) return String(n);
+    return (num % 1 === 0) ? String(num) : String(Math.round(num * 10) / 10);
+  }
+
+  function entityRow(label, text, url, linkLabel) {
+    var el = document.createElement(url ? 'a' : 'div');
+    el.className = 'entity-row';
+    if (url) { el.href = url; el.target = '_blank'; el.rel = 'noopener'; }
+    el.innerHTML = '<span class="er-label">[' + escapeHtml(label) + ']</span>' +
+      '<span class="er-text">' + escapeHtml(text) + '</span>' +
+      (url && linkLabel ? '<span class="er-link">' + escapeHtml(linkLabel) + ' ↗</span>' : '');
+    return el;
+  }
+
+  function buildEntityCard(en, q) {
+    var d = en.data || {};
+    var card = document.createElement('div');
+    card.className = 'entity-card';
+    var head = document.createElement('div');
+    head.className = 'entity-head';
+    head.innerHTML = '<span class="entity-name">' + highlight(en.name, q) + '</span>' +
+      '<span class="entity-tag">全站关联</span>';
+    card.appendChild(head);
+
+    var dash = d.dashboard;
+    if (dash) {
+      var parts = [];
+      if (dash.latest > 0) parts.push('最新 ' + fmtNum(dash.latest));
+      if (dash.mean30 > 0) parts.push('近30日均 ' + fmtNum(dash.mean30));
+      if (dash.peak > 0) parts.push('峰值 ' + fmtNum(dash.peak));
+      var txt;
+      if (parts.length) {
+        txt = parts.join(' · ');
+        if (dash.lifecycle) txt += ' · ' + dash.lifecycle;
+        if (dash.attr) txt += ' · ' + dash.attr;
+      } else {
+        txt = '已纳入数据大屏追踪，暂无近期指数';
+      }
+      card.appendChild(entityRow('数据', txt, '../dashboard/', '查看数据大屏'));
+    }
+
+    (d.live || []).forEach(function (lv) {
+      card.appendChild(entityRow('现场', lv.name, '../' + lv.url, '查看演出记录'));
+    });
+
+    (d.tavern || []).forEach(function (t) {
+      if (t === '歌词') {
+        card.appendChild(entityRow('小酒馆', '歌词片段收录', null, null));
+      } else {
+        card.appendChild(entityRow('小酒馆', t + ' · 逐字稿提及', 'ep/' + t + '.html', '查看逐字稿'));
+      }
+    });
+
+    if (d.discography) {
+      var alb = d.discography.album;
+      var rel = d.discography.release;
+      var txt2 = '收录于《' + alb + '》' + (rel ? ' · 发行 ' + rel : '');
+      card.appendChild(entityRow('专辑', txt2, '../discography.html', '查看作品百科'));
+    }
+
+    return card;
+  }
+
   function doSearchNow(q) {
     var entries = buildSearchIndex();
     var lower = q.toLowerCase();
@@ -807,16 +937,24 @@ a{color:#00d2ff;text-decoration:none}
     var groups = {};
     var order = ['逐字稿', '文案', '歌词', '金句', '采访'];
     hits.forEach(function (e) { (groups[e.type] = groups[e.type] || []).push(e); });
-    renderSearchResults(groups, order, q, hits.length);
+    var entities = findEntities(q);
+    renderSearchResults(groups, order, q, hits.length, entities);
   }
 
-  function renderSearchResults(groups, order, q, total) {
+  function renderSearchResults(groups, order, q, total, entities) {
     searchResults.innerHTML = '';
-    if (!total) {
+    var hasEntity = entities && entities.length > 0;
+    if (!total && !hasEntity) {
       searchResults.innerHTML = '<div class="sr-empty">没有找到与「' + escapeHtml(q) + '」相关的内容，换个词试试～</div>';
       searchResults.classList.add('open');
       return;
     }
+    if (hasEntity) {
+      entities.forEach(function (en) {
+        searchResults.appendChild(buildEntityCard(en, q));
+      });
+    }
+    if (total) {
     order.forEach(function (type) {
       var list = groups[type];
       if (!list || !list.length) return;
@@ -845,6 +983,7 @@ a{color:#00d2ff;text-decoration:none}
       }
       searchResults.appendChild(g);
     });
+    }
     searchResults.classList.add('open');
   }
 
@@ -856,7 +995,7 @@ a{color:#00d2ff;text-decoration:none}
 
   function warmSearch() {
     if (searchWarmPromise) return searchWarmPromise;
-    searchWarmPromise = Promise.all([keeper.loadAssets(), keeper.loadTranscripts()]);
+    searchWarmPromise = Promise.all([keeper.loadAssets(), keeper.loadTranscripts(), loadEntityIndex()]);
     return searchWarmPromise;
   }
 
