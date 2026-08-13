@@ -85,6 +85,32 @@
       "target": "https://wx409.github.io/dashboard/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "这个数据大屏追踪什么？",
+        "acceptedAnswer": {"@type": "Answer", "text": "追踪中国内地流行男低音歌手王晰在 QQ音乐 平台的公开音乐指数，数据周期自 2023-01-01 起，覆盖 325 首作品，含巡演带动效应、新歌发行表现、热度趋势与稳定性分析。"}
+      },
+      {
+        "@type": "Question",
+        "name": "数据从哪里来？",
+        "acceptedAnswer": {"@type": "Answer", "text": "基于 QQ音乐 公开页面信息的日粒度数据整理与口径校准，由 wx409 维护，聚合数据开放下载。"}
+      },
+      {
+        "@type": "Question",
+        "name": "数据多久更新一次？",
+        "acceptedAnswer": {"@type": "Answer", "text": "每日多批次自动监测更新，页面顶部展示数据快照时间与监测批次。"}
+      },
+      {
+        "@type": "Question",
+        "name": "如何下载或引用这些数据？",
+        "acceptedAnswer": {"@type": "Answer", "text": "开放数据文件为 dashboard_data.json（知识共享 CC BY-NC 4.0 许可）。引用请注明：王晰音乐指数追踪数据集，https://wx409.github.io/dashboard。"}
+      }
+    ]
   }
 ]
 </script>
@@ -501,6 +527,25 @@ h2.chart-title{font-size:15px;font-weight:600}
     <p><strong>更新频率：</strong>每日多批次自动监测更新，本页随每批监测自动重建；图表数据同步发布为 <a href="dashboard_data.json">dashboard_data.json</a>（JSON，每日更新）。</p>
     <p><strong>局限性：</strong>数据仅反映单一平台的公开指标，不构成对全网热度的完整度量；仅供个人研究使用，转载请注明来源。</p>
     <p><strong>维护者：</strong>wx409 · 托管于 GitHub Pages · https://wx409.github.io/dashboard</p>
+  </section>
+  <section class="faq-panel" style="max-width:100%;margin:0 0 20px;padding:16px 18px;border:1px solid rgba(0,210,255,0.12);border-radius:12px;background:rgba(0,210,255,0.03);">
+    <h2 style="color:#00d2ff;font-size:16px;letter-spacing:2px;margin:0 0 12px;">常见问题（FAQ）</h2>
+    <details open>
+      <summary style="cursor:pointer;color:#dfe6f5;font-size:14px;margin:6px 0;">这个数据大屏追踪什么？</summary>
+      <p style="color:#8896b3;font-size:13px;line-height:1.8;margin:4px 0 10px 14px;">追踪中国内地流行男低音歌手王晰在 QQ音乐 平台的公开音乐指数，数据周期自 2023-01-01 起，覆盖 325 首作品，含巡演带动效应、新歌发行表现、热度趋势与稳定性分析。</p>
+    </details>
+    <details>
+      <summary style="cursor:pointer;color:#dfe6f5;font-size:14px;margin:6px 0;">数据从哪里来？</summary>
+      <p style="color:#8896b3;font-size:13px;line-height:1.8;margin:4px 0 10px 14px;">基于 QQ音乐 公开页面信息的日粒度数据整理与口径校准，由 wx409 维护，聚合数据开放下载。</p>
+    </details>
+    <details>
+      <summary style="cursor:pointer;color:#dfe6f5;font-size:14px;margin:6px 0;">数据多久更新一次？</summary>
+      <p style="color:#8896b3;font-size:13px;line-height:1.8;margin:4px 0 10px 14px;">每日多批次自动监测更新，页面顶部展示数据快照时间与监测批次。</p>
+    </details>
+    <details>
+      <summary style="cursor:pointer;color:#dfe6f5;font-size:14px;margin:6px 0;">如何下载或引用这些数据？</summary>
+      <p style="color:#8896b3;font-size:13px;line-height:1.8;margin:4px 0 10px 14px;">开放数据文件为 dashboard_data.json（知识共享 CC BY-NC 4.0 许可）。引用请注明：王晰音乐指数追踪数据集，https://wx409.github.io/dashboard。</p>
+    </details>
   </section>
   <div class="footer">数据仅供个人研究使用 · 链接身份唯一识别 · 历史趋势分析面板 · 原始数据本地留存</div>
 </div>

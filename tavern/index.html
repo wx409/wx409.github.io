@@ -52,6 +52,27 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RadioSeries",
+  "name": "日木斤深夜小酒馆｜王晰哄你入睡",
+  "alternateName": "日木斤深夜小酒馆",
+  "description": "王晰 2022 年独立发行的哄睡音频节目（QQ音乐/酷狗），共 107 期。本页面提供全部期次的文字逐字稿存档，并可按心情调一杯专属的酒。粉丝创作，非官方。",
+  "url": "https://wx409.github.io/tavern/",
+  "inLanguage": "zh-CN",
+  "genre": "哄睡音频节目",
+  "creator": {"@type": "Person", "name": "王晰", "sameAs": "https://wx409.github.io/"},
+  "numberOfEpisodes": 107,
+  "episodes": [
+    {"@type": "RadioEpisode", "name": "营业预告｜欢迎光临日木斤小酒馆", "position": 0, "url": "https://wx409.github.io/tavern/"},
+    {"@type": "RadioEpisode", "name": "EP01 睡前故事与酒｜享受人间小确幸", "position": 1, "url": "https://wx409.github.io/tavern/"},
+    {"@type": "RadioEpisode", "name": "EP01 王晰，请回答｜平时喜欢下厨吗？", "position": 2, "url": "https://wx409.github.io/tavern/"},
+    {"@type": "RadioEpisode", "name": "EP29 睡前故事与酒｜迎接2023", "position": 57, "url": "https://wx409.github.io/tavern/"},
+    {"@type": "RadioEpisode", "name": "收官福利｜有人拜访【日木斤深夜小酒馆】", "position": 106, "url": "https://wx409.github.io/tavern/"}
+  ]
+}
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:radial-gradient(ellipse at center,#0f1535 0%,#080c24 100%),radial-gradient(circle at 18% 28%,rgba(0,210,255,0.07) 0,transparent 32%),radial-gradient(circle at 82% 72%,rgba(255,215,0,0.05) 0,transparent 32%);color:#fff;overflow-x:hidden;min-height:100vh;}
@@ -265,14 +286,14 @@ a{color:#00d2ff;text-decoration:none}
       <button class="radio-btn" id="radioOpenBtn" style="display:none">↗ 在新标签播放</button>
       <span class="radio-title-mini" id="radioTitle">调好一杯酒后，点这里播放这首酒的主题曲</span>
     </div>
+    <div id="radioFrameWrap" style="display:none;margin-top:12px;"></div>
     <div class="radio-login" id="radioLogin">
       说明：打开页面会自动播放一首"数据最佳"的歌（按最新指数排序，自动跳过 VIP 锁曲）。
       点「🎲 免费试听」会随机挑一首能免费播放的歌（无需登录），跟随音乐的光效同步亮起。
-      VIP 锁曲与小酒馆期次音频，
-      需在浏览器打开 <a href="https://y.qq.com" target="_blank" rel="noopener">y.qq.com</a>
-      并登录 QQ音乐 后重试。<b>若已登录仍无法播放</b>，多为浏览器拦截第三方 Cookie 所致——
-      请在地址栏左侧点击站点锁图标 → 允许 <b>qq.com</b> 的 Cookie，刷新后再试；
-      或直接点「↗ 在新标签播放」在 QQ音乐 页内收听。Cookie 仅用于本次播放请求，本站不保存、不上传。
+      VIP 锁曲与小酒馆期次音频：
+      页面会自动嵌入 <b>QQ音乐 官方播放器</b>（免 Cookie、不跳转，点播放键听全曲）；
+      若浏览器拦截第三方 Cookie 导致直链播放失败，可点「↗ 在新标签播放」。
+      Cookie 仅用于播放请求，本站不保存、不上传。
       移动端点击播放会跳转 QQ音乐 App，听完切回页面即可。
     </div>
   </div>
@@ -320,13 +341,35 @@ a{color:#00d2ff;text-decoration:none}
   function radioHideOpen() {
     radioOpenMid = '';
     radioOpenBtn.style.display = 'none';
+    var wrap = document.getElementById('radioFrameWrap');
+    if (wrap) wrap.style.display = 'none';
   }
   radioOpenBtn.addEventListener('click', function () {
     if (radioOpenMid) window.open('https://y.qq.com/n/ryqq/songDetail/' + radioOpenMid, '_blank');
   });
-  /* 播放失败时：显示兜底跳转按钮 */
-  function radioFail(mid) {
-    if (mid) radioShowOpen(mid);
+  /* VIP 锁曲页面内兜底：嵌入 QQ音乐 官方单曲页（免 Cookie、不跳转），需用户点一次播放键 */
+  function radioEmbed(mid, title) {
+    var wrap = document.getElementById('radioFrameWrap');
+    if (!wrap || !mid) return;
+    wrap.innerHTML = '';
+    var tip = document.createElement('div');
+    tip.className = 'radio-login';
+    tip.style.color = '#8896b3';
+    tip.textContent = (title ? '《' + title + '》' : '这首歌') +
+      '是 VIP 锁曲：已嵌入 QQ音乐 官方播放器，点一下播放键即可听全曲（免 Cookie、不跳转；此方式无频谱光效）。';
+    var frame = document.createElement('iframe');
+    frame.src = 'https://y.qq.com/n/ryqq/songDetail/' + mid;
+    frame.setAttribute('loading', 'lazy');
+    frame.style.cssText = 'width:100%;height:360px;border:1px solid rgba(0,210,255,.15);border-radius:12px;background:#0d1430;margin-top:8px;';
+    wrap.appendChild(tip);
+    wrap.appendChild(frame);
+    wrap.style.display = '';
+  }
+  /* 播放失败时：显示兜底（页面内嵌入 + 新标签按钮） */
+  function radioFail(mid, title) {
+    if (!mid) return;
+    radioShowOpen(mid);
+    radioEmbed(mid, title);
   }
 
   function radioSetSong(song) {
@@ -350,7 +393,7 @@ a{color:#00d2ff;text-decoration:none}
     }
     radioHideOpen();
     TavernPlayer.playSong(radioSong.mid, radioSong.title).then(function (ok) {
-      if (!ok) radioFail(radioSong.mid);
+      if (!ok) radioFail(radioSong.mid, radioSong.title);
     });
   });
   radioEpBtn.addEventListener('click', function () {
@@ -361,7 +404,7 @@ a{color:#00d2ff;text-decoration:none}
     }
     radioHideOpen();
     TavernPlayer.playEpisode(radioEp.mid, radioEp.title).then(function (ok) {
-      if (!ok) radioFail(radioEp.mid);
+      if (!ok) radioFail(radioEp.mid, radioEp.title);
     });
   });
 

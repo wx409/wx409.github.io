@@ -339,9 +339,11 @@
     return this._transcripts[episodeId] || null;
   };
 
-  /* 查找某期节目的 transcript key（支持 EP03 → EP03_P1 / EP03_P2） */
+  /* 查找某期节目的 transcript key（支持 EP03 → EP03_P1 / EP03_P2；无分期期次 → 裸 key） */
   TavernKeeper.prototype.findTranscriptKey = function (episode, part) {
     if (!this._transcripts) return null;
+    /* 无分期的期次（如营业预告/福利期）：直接匹配裸 key */
+    if (episode && this._transcripts[episode]) return episode;
     if (part) {
       var key = episode + '_P' + part;
       if (this._transcripts[key]) return key;
