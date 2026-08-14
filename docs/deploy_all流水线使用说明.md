@@ -71,7 +71,8 @@ python project_b\deploy_all.py --commit "地图：新增XX城市数据"
 | 9 | `tavern\_build_songs_compact.py` | `tavern/songs_compact.json` | 小酒馆歌曲索引（前端降级数据）；非关键 |
 | 10 | `project_b\build_music_index.py` | `data/music-index.md` + `.html` | 音乐数据周报；非关键 |
 | 11 | git commit | — | 自动 `git add -A` + commit（无变更时跳过） |
-| 12 | 提示 push | — | 沙箱无法 ssh，需手动执行 |
+| 12 | IndexNow 通知 | — | 部署后自动通知 Bing/Yandex 即时抓取 10 个核心 URL（失败仅警告，需本机能联网） |
+| 13 | 提示 push | — | 沙箱无法 ssh，需手动执行 |
 
 > **关键步骤**（critical）：失败立即中止，避免半成品上线。  
 > **非关键步骤**（非 critical）：失败只警告继续，如周报、歌曲索引等次要产物。

@@ -48,6 +48,43 @@ STEPS = [
 
 COMMIT_MSG = "自动部署: 数据更新 ({ts})"
 
+# IndexNow：部署后通知 Bing/Yandex 即时抓取（key 为公开验证文件，协议要求公开）
+INDEXNOW_KEY_FILE = ROOT / "e3f1a2b4c5d6e7f8a9b0c1d2e3f4a5b6.txt"
+INDEXNOW_URLS = [
+    "https://wx409.github.io/",
+    "https://wx409.github.io/story.html",
+    "https://wx409.github.io/sitemap.xml",
+    "https://wx409.github.io/feed.xml",
+    "https://wx409.github.io/entity_index.json",
+    "https://wx409.github.io/tavern/",
+    "https://wx409.github.io/map/",
+    "https://wx409.github.io/dashboard/",
+    "https://wx409.github.io/city-guides.html",
+    "https://wx409.github.io/live-reviews.html",
+]
+
+
+def notify_indexnow() -> bool:
+    """通过 IndexNow 通知搜索引擎即时抓取（成功返回 True，失败警告不阻塞）。"""
+    if not INDEXNOW_KEY_FILE.exists():
+        print("[IndexNow] key 文件缺失，跳过")
+        return False
+    key = INDEXNOW_KEY_FILE.read_text(encoding="utf-8").strip()
+    import urllib.request
+    ok = 0
+    for u in INDEXNOW_URLS:
+        try:
+            url = f"https://api.indexnow.org/indexnow?url={u}&key={key}"
+            with urllib.request.urlopen(url, timeout=20) as resp:
+                if resp.status == 200:
+                    ok += 1
+                else:
+                    print(f"[IndexNow] {u} -> HTTP {resp.status}")
+        except Exception as e:
+            print(f"[IndexNow] {u} -> 失败: {str(e)[:80]}")
+    print(f"[IndexNow] 已通知 {ok}/{len(INDEXNOW_URLS)} 个 URL")
+    return ok > 0
+
 
 def run(script, desc: str, critical: bool) -> bool:
     script = Path(script)
@@ -117,7 +154,11 @@ def main() -> None:
         print("\n[i] 无新变更或提交失败（未修改则属正常）")
         print("    ", r.stderr.strip()[:200])
 
-    # 4. 提醒手动 push（沙箱无法 ssh）
+    # 4. IndexNow 通知（部署后即时抓取，需本机能联网；失败不阻塞）
+    print("\n--- IndexNow 通知 ---")
+    notify_indexnow()
+
+    # 5. 提醒手动 push（沙箱无法 ssh）
     print("\n" + "=" * 60)
     print("流水线完成 ✅")
     print("下一步（手动，沙箱限制 ssh）:")
