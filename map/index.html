@@ -1349,6 +1349,18 @@
         .tag { display:inline-block; font-size:10px; padding:1px 6px; border-radius:8px; margin-left:4px; }
         .tag.data { background:#0e3a3f; color:#00d2ff; }
         .tag.cancel { background:#3a1020; color:#ff6b81; }
+        .tag.attend { background:#3a3410; color:#ffd700; }
+        /* 互动：我参加过 */
+        .marker.attended { border-color:#ffd700; box-shadow:0 0 0 2px rgba(255,215,0,.55), 0 0 8px rgba(255,215,0,.45); }
+        .attend-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; padding-top:8px; border-top:1px solid var(--line); }
+        .attend-btn { background:rgba(255,215,0,.10); border:1px solid rgba(255,215,0,.30); color:#ffd700; border-radius:14px; padding:2px 10px; font-size:11px; cursor:pointer; transition:all .25s; }
+        .attend-btn:hover { background:rgba(255,215,0,.22); }
+        .attend-btn.on { background:rgba(255,215,0,.85); color:#1a1a1a; font-weight:600; }
+        .attend-bar { position:fixed; top:64px; left:16px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 14px; font-size:12px; color:var(--muted); }
+        .attend-bar b { color:#ffd700; font-size:15px; margin:0 2px; }
+        .share-btn { pointer-events:auto; color:var(--accent); text-decoration:none; font-size:13px; background:var(--panel); padding:8px 14px; border-radius:8px; border:1px solid var(--line); margin-left:10px; cursor:pointer; }
+        .share-btn:hover { border-color:var(--accent); }
+        @media (max-width:760px) { .attend-bar { top:auto; bottom:12px; left:12px; } .legend { bottom:12px; left:12px; } }
         /* 静态城市清单：供爬虫读取，视觉上折叠 */
         .city-list { position:fixed; top:64px; right:16px; z-index:999; width:340px; max-height:calc(100vh - 120px); overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; font-size:13px; }
         .city-list h2 { margin:0 0 10px; font-size:14px; color:var(--muted); }
@@ -1366,8 +1378,12 @@
 <body>
     <div class="topbar">
         <span class="title">王晰全国巡演地图 · 2019-2026</span>
-        <a href="/">← 返回主站</a>
+        <span style="display:flex;align-items:center;gap:10px;">
+            <a href="/">← 返回主站</a>
+            <button type="button" class="share-btn" id="shareMapBtn" title="截图保存当前地图">📸 分享地图</button>
+        </span>
     </div>
+    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场（点击城市标记勾选）</div>
     <div id="map"></div>
     <div class="legend">
         <h4>图例（按该城最近一场巡次着色）</h4>
@@ -1438,12 +1454,51 @@
 
     function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
+    /* ============ 互动：我参加过（localStorage 持久化） ============ */
+    var ATTEND_KEY = 'wangxi_attended_v1';
+    function loadAttended(){
+        try { return JSON.parse(localStorage.getItem(ATTEND_KEY)) || {}; }
+        catch(e){ return {}; }
+    }
+    function saveAttended(a){ localStorage.setItem(ATTEND_KEY, JSON.stringify(a)); }
+    var attended = loadAttended();
+    var markerEls = {};   // date -> marker DOM（更新金边用）
+
+    function toggleAttend(date, btn){
+        if (attended[date]) { delete attended[date]; } else { attended[date] = true; }
+        saveAttended(attended);
+        refreshAttendUI(date);
+        var m = markerEls[date];
+        if (m) m.classList.toggle('attended', !!attended[date]);
+        updateAttendCount();
+    }
+    function refreshAttendUI(date){
+        // 更新弹窗内该场按钮状态（若弹窗开着）
+        var btn = document.querySelector('.attend-btn[data-date="' + date + '"]');
+        if (btn) {
+            var on = !!attended[date];
+            btn.textContent = on ? '✓ 我参加过' : '☆ 我参加过';
+            btn.classList.toggle('on', on);
+        }
+    }
+    function updateAttendCount(){
+        var n = Object.keys(attended).filter(function(d){ return attended[d]; }).length;
+        var el = document.getElementById('attendCount');
+        if (el) el.textContent = n;
+    }
+    function attendBtnHtml(date){
+        var on = !!attended[date];
+        return '<button type="button" class="attend-btn' + (on ? ' on' : '') + '" data-date="' + date + '">' +
+               (on ? '✓ 我参加过' : '☆ 我参加过') + '</button>';
+    }
+
     function showHtml(name, node){
         var rows = node.shows.map(function(s){
             var venue = s.venue || '场馆待补';
             var tags = (s.has_data ? '<span class="tag data">有数据</span>' : '') + (s.cancelled ? '<span class="tag cancel">未举办</span>' : '');
             var venueHtml = s.live_url ? '<a href="/' + s.live_url + '">' + esc(venue) + '</a>' : esc(venue);
-            return '<li>' + esc(s.date) + ' · ' + esc(s.tour) + '「' + esc(s.theme) + '」 · ' + venueHtml + tags + '</li>';
+            var att = attended[s.date] ? '<span class="tag attend">我参加过</span>' : '';
+            return '<li>' + esc(s.date) + ' · ' + esc(s.tour) + '「' + esc(s.theme) + '」 · ' + venueHtml + tags + att + '</li>';
         }).join('');
         return '<h3>' + esc(name) + '（' + node.shows.length + ' 场）</h3><ul>' + rows + '</ul>';
     }
@@ -1456,10 +1511,58 @@
             var latest = c.shows[c.shows.length - 1];
             var hasData = c.shows.some(function(s){ return s.has_data; });
             var color = TOUR_COLORS[latest.tour_num] || '#888';
+            // 弹窗内容：场次列表 + 每场「我参加过」按钮
+            var popupHtml = showHtml(name, c) + '<div class="attend-row">' +
+                c.shows.map(function(s){ return attendBtnHtml(s.date); }).join(' ') + '</div>';
             var icon = L.divIcon({ className:'', html:'<div class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '"></div>', iconSize:[14,14], iconAnchor:[7,7] });
-            L.marker(c.coord, {icon:icon}).addTo(map).bindPopup(showHtml(name, c));
+            var marker = L.marker(c.coord, {icon:icon}).addTo(map).bindPopup(popupHtml);
+            // 记录 marker DOM（同城多场共享 marker，取第一个）
+            c.shows.forEach(function(s){ if (!markerEls[s.date]) markerEls[s.date] = marker.getElement().querySelector('.marker'); });
         });
+        // 弹窗打开后绑定「我参加过」按钮
+        map.on('popupopen', function(){
+            document.querySelectorAll('.attend-btn').forEach(function(btn){
+                btn.onclick = function(e){
+                    e.stopPropagation();
+                    toggleAttend(btn.getAttribute('data-date'), btn);
+                };
+            });
+        });
+        updateAttendCount();
     }).catch(function(){});
+
+    /* ============ 截图分享（html2canvas，懒加载 CDN） ============ */
+    function shareMap(){
+        var btn = document.getElementById('shareMapBtn');
+        if (btn) btn.textContent = '⏳ 生成中…';
+        // 懒加载 html2canvas
+        function doCapture(){
+            var wrap = document.getElementById('map');
+            window.html2canvas(wrap, {
+                useCORS: true,
+                backgroundColor: '#0b0f2a',
+                scale: 2,
+                logging: false
+            }).then(function(canvas){
+                var a = document.createElement('a');
+                a.download = 'wangxi-tour-map-' + new Date().toISOString().slice(0, 10) + '.png';
+                a.href = canvas.toDataURL('image/png');
+                a.click();
+                if (btn) btn.textContent = '📸 分享地图';
+            }).catch(function(){
+                if (btn) btn.textContent = '📸 分享地图';
+                alert('截图失败：地图瓦片可能跨域受限，请直接截图或在新标签打开地图。');
+            });
+        }
+        if (window.html2canvas) { doCapture(); return; }
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js';
+        s.onload = doCapture;
+        s.onerror = function(){ if (btn) btn.textContent = '📸 分享地图'; alert('截图库加载失败（需联网），请直接截图。'); };
+        document.head.appendChild(s);
+    }
+    var shareBtn = document.getElementById('shareMapBtn');
+    if (shareBtn) shareBtn.addEventListener('click', shareMap);
     </script>
 </body>
 </html>
