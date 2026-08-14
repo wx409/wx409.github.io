@@ -110,6 +110,12 @@ def load_setlist_songs(path: str) -> list[dict]:
         date = str(r["日期"])[:10]
         scene = str(r["场次"]).strip()
         city = re.split(r"[（(]", scene)[0].strip()
+        # 剥掉无括注的词缀（北京收官/上海返场 等）
+        for suffix in ("收官", "返场", "加场", "首场"):
+            if city.endswith(suffix):
+                city = city[: -len(suffix)]
+                break
+        city = city.strip()
         lun = str(r["巡次"]).strip()
         m = re.match(r"^(一巡|二巡|三巡|四巡|五巡|六巡)", lun)
         rows.append(

@@ -130,7 +130,104 @@ def story_block(title, icon, intro, cards) -> str:
     return html
 
 
-def build_page(st: dict) -> str:
+def build_jsonld(st: dict, generated_at: str) -> str:
+    """生成 story.html 的结构化数据：Dataset（数据声明）+ Article（文章元数据）+ FAQPage（可引用结论）。
+
+    所有结论数字由 st（实时计算）注入，零写死——AI 可直接引用如
+    「王晰巡演中唱过最多城市的歌是《Besame Mucho》」这类结论。
+    """
+    site = "https://wx409.github.io"
+    url = f"{site}/story.html"
+
+    # ---- 结论（FAQPage：问题 → 答案，供 AI 直接引用） ----
+    faq = []
+    if st["top_city"]:
+        r = st["top_city"][0]
+        faq.append({
+            "q": "王晰巡演中唱过最多城市的歌是哪首？",
+            "a": f"《{r['name']}》在王晰 2019-2026 六轮巡演中于 {r['city_count']} 个城市演出 {r['show_count']} 场，"
+                 f"足迹覆盖{'、'.join(r['cities'][:5])}等城市，是跨城最多的歌曲。",
+        })
+    if st["top_show"]:
+        r = st["top_show"][0]
+        faq.append({
+            "q": "王晰巡演中累计演出场次最多的歌是哪首？",
+            "a": f"《{r['name']}》累计演出 {r['show_count']} 场，跨越 {r['city_count']} 个城市，是六轮巡演中的常青曲目。",
+        })
+    if st["top_tavern"]:
+        r = st["top_tavern"][0]
+        faq.append({
+            "q": "王晰在深夜小酒馆聊得最多的歌是哪首？",
+            "a": f"《{r['name']}》在深夜小酒馆逐字稿中被提及 {r['tavern_count']} 期，且该歌在巡演中演出 {r['show_count']} 场。",
+        })
+    if st["city_shows"]:
+        c = st["city_shows"][0]
+        faq.append({
+            "q": "王晰演出场次最多的城市是哪里？",
+            "a": f"{c['city']} 是王晰巡演场次最多的城市，共 {c['count']} 场（实际举办 {c['held']} 场）。",
+        })
+    if st["tour_stats"]:
+        total = sum(t["shows"] for t in st["tour_stats"])
+        faq.append({
+            "q": "王晰一共巡演了多少场？",
+            "a": f"王晰 2019-2026 年共完成 {len(st['tour_stats'])} 轮巡演、{total} 场，覆盖 {st['total_cities']} 个城市。",
+        })
+
+    main_entity = [
+        {
+            "@type": "Question",
+            "name": item["q"],
+            "acceptedAnswer": {"@type": "Answer", "text": item["a"]},
+        }
+        for item in faq
+    ]
+
+    # ---- hasPart：故事区块锚点 ----
+    has_part = [
+        {"@type": "WebPageElement", "name": "跨城之王", "url": f"{url}#cross-city-kings"},
+        {"@type": "WebPageElement", "name": "场次之王", "url": f"{url}#show-kings"},
+        {"@type": "WebPageElement", "name": "酒馆之声", "url": f"{url}#tavern-voices"},
+        {"@type": "WebPageElement", "name": "城市之最", "url": f"{url}#city-leaders"},
+        {"@type": "WebPageElement", "name": "巡演足迹", "url": f"{url}#tour-footprint"},
+    ]
+
+    return json.dumps(
+        [
+            {
+                "@context": "https://schema.org",
+                "@type": "Dataset",
+                "name": "王晰巡演数据故事",
+                "description": "基于 2019-2026 六轮巡演 59 场与深夜小酒馆 106 期逐字稿计算的数据故事，全部数字动态生成。",
+                "url": url,
+                "dateModified": generated_at,
+                "isPartOf": {"@type": "WebSite", "name": "王晰 GEO 资料站", "url": site},
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "数据故事｜王晰巡演足迹：跨城之王、场次之王、酒馆之声",
+                "description": "从巡演长表与深夜小酒馆逐字稿自动计算的数据故事，结论可引用、数字可追溯。",
+                "url": url,
+                "inLanguage": "zh-CN",
+                "datePublished": "2026-08-14",
+                "dateModified": generated_at,
+                "author": {"@type": "Organization", "name": "王晰 GEO 资料站", "url": site},
+                "publisher": {"@type": "Organization", "name": "王晰 GEO 资料站", "url": site},
+                "about": {"@type": "Person", "name": "王晰"},
+                "hasPart": has_part,
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": main_entity,
+            },
+        ],
+        ensure_ascii=False,
+        indent=2,
+    )
+
+
+def build_page(st: dict, jsonld: str) -> str:
     # ① 跨城之王
     c1 = []
     for r in st["top_city"]:
@@ -195,16 +292,9 @@ def build_page(st: dict) -> str:
 <meta property="og:url" content="https://wx409.github.io/story.html">
 <meta property="og:image" content="https://wx409.github.io/cover.png">
 <meta name="twitter:image" content="https://wx409.github.io/cover.png">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "Dataset",
-  "name": "王晰巡演数据故事",
-  "description": "基于 2019-2026 六轮巡演 59 场与深夜小酒馆 106 期逐字稿计算的数据故事，全部数字动态生成。",
-  "url": "https://wx409.github.io/story.html",
-  "isPartOf": {{"@type": "WebSite", "name": "王晰 GEO 资料站", "url": "https://wx409.github.io/"}}
-}}
+{jsonld}
 </script>
 <style>
 body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;line-height:1.8;max-width:960px;margin:0 auto;padding:20px;color:#333;}}
@@ -254,7 +344,8 @@ th{{background:#f5f5f5;}}
 def main() -> None:
     st = compute_stories()
     st["generated_at"] = __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M")
-    OUT.write_text(build_page(st), encoding="utf-8")
+    jsonld = build_jsonld(st, st["generated_at"])
+    OUT.write_text(build_page(st, jsonld), encoding="utf-8")
     print(f"[OK] 已生成 -> {OUT}")
     print(f"  跨城之王: " + ", ".join(f"{r['name']}({r['city_count']}城)" for r in st["top_city"]))
     print(f"  场次之王: " + ", ".join(f"{r['name']}({r['show_count']}场)" for r in st["top_show"]))
