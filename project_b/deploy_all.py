@@ -7,7 +7,7 @@
   2. generate_tour_index.py     -> live/index.html（巡演目录，读长表）
   3. update_index_table.py      -> 首页表格（读 dashboard 效应）
   4. build_entity_index.py      -> entity_index.json（跨站关系图谱）
-  5. build_city_guides.py       -> data/city_guides.json（22 城攻略）
+  5. build_city_guides.py       -> data/city_guides.json（22 城攻略，保留 web_tips）
   6. build_story.py             -> story.html（数据故事页）
   7. tavern/_build_episodes.py  -> tavern/ep/*.html（小酒馆逐字稿页）
   8. tavern/_build_songs_compact.py -> tavern/songs_compact.json
@@ -15,9 +15,11 @@
   10. git add/commit            -> 自动提交（推送需手动，沙箱限制）
 
 用法：
-  python project_b/deploy_all.py            # 全流程
-  python project_b/deploy_all.py --no-pull  # 跳过 git pull
+  python project_b/deploy_all.py            # 完整部署（推荐）
+  python project_b/deploy_all.py --no-git   # 只生成不提交（预览/调试）
   python project_b/deploy_all.py --commit "自定义提交信息"
+
+完整说明文档：docs/deploy_all流水线使用说明.md
 """
 from __future__ import annotations
 
