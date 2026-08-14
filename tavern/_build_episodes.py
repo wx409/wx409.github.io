@@ -65,6 +65,12 @@ h1{font-size:26px;font-weight:700;letter-spacing:2px;line-height:1.5;margin-bott
 .section-anchor:target{background:rgba(0,210,255,.32);border-radius:4px;box-shadow:0 0 0 3px rgba(0,210,255,.35)}
 .song-anchor{scroll-margin-top:24px}
 .song-anchor:target{background:rgba(255,215,0,.28);border-radius:4px}
+/* 主题标签区 */
+.topic-tags{margin-bottom:16px;display:flex;flex-wrap:wrap;gap:8px;}
+.topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:14px;border:1px solid rgba(0,210,255,.3);color:#00d2ff;background:rgba(0,210,255,.08);text-decoration:none;scroll-margin-top:24px;}
+.topic-tag.song{border-color:rgba(255,215,0,.35);color:#ffd700;background:rgba(255,215,0,.08);}
+.topic-tag:target{background:rgba(0,210,255,.25);box-shadow:0 0 0 2px rgba(0,210,255,.4);}
+.topic-tag.song:target{background:rgba(255,215,0,.3);box-shadow:0 0 0 2px rgba(255,215,0,.45);}
 """
 
 
@@ -101,6 +107,23 @@ def build_episode_page(key, ep):
             f'<span id="{song_anchor_id}" class="song-anchor"></span>'
         )
 
+    # ---- 主题切片：分类/歌曲标签区（#theme-{分类} 可直达） ----
+    category = (ep.get("category") or "").strip()
+    cat_slug = re.sub(r"[^0-9A-Za-z\u4e00-\u9fff]+", "-", category).strip("-") if category else ""
+    topic_tags_html = ""
+    if category:
+        topic_tags_html += (
+            f'<a class="topic-tag" id="theme-{cat_slug}" href="#theme-{cat_slug}">'
+            f'📂 {html.escape(category)}</a>'
+        )
+    if song_anchor_id and theme:
+        topic_tags_html += (
+            f'<a class="topic-tag song" id="song-tag-{song_anchor_id[5:]}" href="#{song_anchor_id}">'
+            f'🎵 {html.escape(theme)}</a>'
+        )
+    if topic_tags_html:
+        topic_tags_html = f'<div class="topic-tags">{topic_tags_html}</div>'
+
     # ---- hasPart JSON-LD：声明切片（每段一个 WebPageElement 片段） ----
     has_parts = []
     for i in range(1, len(sections) + 1):
@@ -119,6 +142,22 @@ def build_episode_page(key, ep):
                 "url": f"{url}#{song_anchor_id}",
             }
         )
+    if cat_slug and category:
+        has_parts.append(
+            {
+                "@type": "WebPageElement",
+                "name": f"{title} · 主题：{category}",
+                "url": f"{url}#theme-{cat_slug}",
+            }
+        )
+
+    # keywords：分类 + 主题（歌曲名）
+    keywords = []
+    if category:
+        keywords.append(category)
+    if theme:
+        keywords.append(theme)
+    keywords = list(dict.fromkeys(keywords))  # 去重保序
 
     ld = {
         "@context": "https://schema.org",
@@ -137,6 +176,7 @@ def build_episode_page(key, ep):
         "partNumber": ep.get("part", 0),
         "about": {"@type": "Person", "name": "王晰", "sameAs": SAME_AS},
         "author": {"@type": "Person", "name": "王晰", "sameAs": SAME_AS},
+        "keywords": keywords,
         "hasPart": has_parts,
     }
 
@@ -179,6 +219,7 @@ def build_episode_page(key, ep):
 <h1>{html.escape(title)}</h1>
 <p class="meta">深夜小酒馆 · 王晰 ｜ {html.escape(label)}{meta_suffix}</p>
 <p class="theme">{html.escape(theme)}</p>
+{topic_tags_html}
 {song_anchor_html}
 <div class="transcript">{transcript_html}</div>
 {song_html}
