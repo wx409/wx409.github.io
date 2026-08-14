@@ -30,6 +30,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD = ROOT / "dashboard" / "dashboard_data.json"
 CITIES = ROOT / "data" / "cities.json"
+MANIFEST = ROOT / "live" / "manifest.json"
 TRANSCRIPTS = ROOT / "tavern" / "tavern_transcripts.json"
 LYRICS = ROOT / "tavern" / "lyrics_fragments.json"
 OUT = ROOT / "entity_index.json"
@@ -132,6 +133,20 @@ def load_city_venues() -> dict:
     return venues
 
 
+def load_live_links() -> dict:
+    """读取 live/manifest.json → {date: link}（场次↔详情页，动态映射不写死）"""
+    links = {}
+    if MANIFEST.exists():
+        try:
+            m = json.loads(MANIFEST.read_text(encoding="utf-8"))
+            for x in m if isinstance(m, list) else []:
+                if x.get("date") and x.get("link"):
+                    links[x["date"]] = x["link"]
+        except Exception:
+            pass
+    return links
+
+
 def load_tavern_links() -> dict:
     """读取逐字稿 → 歌曲↔EP 关系（songmid 关联 + 主题匹配）+ 歌词片段"""
     links = {}
@@ -172,6 +187,7 @@ def build_index(setlist_path: str) -> dict:
     song_info = dash["songs"]
     releases = dash["releases"]
     venues = load_city_venues()
+    live_links = load_live_links()
     tavern = load_tavern_links()
 
     # 聚合歌曲×场次
@@ -220,7 +236,7 @@ def build_index(setlist_path: str) -> dict:
                         "venue": x["venue"],
                         "tour": x["tour"],
                         "name": x["scene"],
-                        "url": None,  # live 页 url 由 generate_live_page 维护，此处不写死
+                        "url": live_links.get(x["date"]),  # 动态读 manifest，无详情页则为 null
                     }
                 )
             entry["live"] = live_rows

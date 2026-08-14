@@ -905,7 +905,8 @@ a{color:#00d2ff;text-decoration:none}
     }
 
     (d.live || []).forEach(function (lv) {
-      card.appendChild(entityRow('现场', lv.name, '../' + lv.url, '查看演出记录'));
+      var liveUrl = lv.url ? ('../' + lv.url) : null;  // 无详情页时不渲染链接
+      card.appendChild(entityRow('现场', lv.name, liveUrl, '查看演出记录'));
     });
 
     (d.tavern || []).forEach(function (t) {
