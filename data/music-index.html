@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王晰音乐趋势周报 | QQ音乐趋势监测</title>
-    <meta name="description" content="王晰音乐趋势周报 · 2026.06.26。基于QQ音乐数据趋势分析，含监测歌曲总数、涨幅TOP10与专辑/歌曲类型趋势洞察。">
+    <title>王晰音乐数据趋势 | 数据大屏同步</title>
+    <meta name="description" content="王晰音乐数据趋势 · 更新至 2026-08-14 08:25。追踪 325 首歌曲、活跃 206 首，含热点TOP10与趋势洞察，与数据大屏一致。">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; line-height: 1.8; max-width: 820px; margin: 0 auto; padding: 20px; color: #333; }
         h1 { color: #1a1a1a; border-bottom: 3px solid #c41e3a; padding-bottom: 10px; }
         h2 { color: #2c2c2c; margin-top: 30px; border-left: 4px solid #c41e3a; padding-left: 12px; }
         .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
         .nav a { color: #c41e3a; margin-right: 20px; text-decoration: none; font-weight: 500; }
+        .stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
+        .stat { flex: 1 1 120px; background: #fafafa; border-top: 4px solid #c41e3a; border-radius: 8px; padding: 14px; text-align: center; }
+        .stat .num { font-size: 26px; font-weight: 700; color: #c41e3a; }
+        .stat .lbl { font-size: 13px; color: #666; }
         table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 14px; }
         th, td { border: 1px solid #e0e0e0; padding: 8px 10px; text-align: left; }
         th { background: #f8f9fa; }
@@ -19,7 +23,7 @@
         a:hover { text-decoration: underline; }
         .footer { color: #888; font-size: 13px; margin-top: 40px; border-top: 1px solid #eee; padding-top: 15px; }
     </style>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Report", "name": "王晰音乐趋势周报", "datePublished": "2026-06-26", "about": {"@type": "MusicGroup", "name": "王晰"}, "description": "基于QQ音乐数据趋势分析的王晰音乐周报，含监测歌曲数、涨幅TOP10与专辑/歌曲类型趋势洞察。", "publisher": {"@type": "Organization", "name": "王晰GEO资料站", "url": "https://wx409.github.io/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "王晰音乐数据趋势", "description": "王晰音乐数据趋势 · 更新至 2026-08-14 08:25。追踪 325 首歌曲、活跃 206 首，含热点TOP10与趋势洞察，与数据大屏一致。", "dateModified": "2026-08-14", "temporalCoverage": "2023-01-01 ~ 2026-08-14", "isBasedOn": "https://wx409.github.io/dashboard/dashboard_data.json", "publisher": {"@type": "Organization", "name": "王晰GEO资料站", "url": "https://wx409.github.io/"}}</script>
     <link rel="canonical" href="https://wx409.github.io/data/music-index.html">
 </head>
 <body>
@@ -34,55 +38,30 @@
         <a href="../culture/index.html">文化足迹</a>
     </div>
 
-    <h1>王晰音乐趋势周报</h1>
+    <h1>王晰音乐数据趋势</h1>
+    <blockquote>数据更新至 2026-08-14 08:25 · 数据范围 2023-01-01 ~ 2026-08-14 · 与<a href="../dashboard/">数据大屏</a>同步</blockquote>
 
-    <div id="content">
-        <blockquote>基于 QQ 音乐数据趋势分析 | 监测 379 首歌曲 | 星厂 B 项目自动生成</blockquote>
-        <h2>本周概览</h2>
-        <table><tr><th>指标</th><th>数值</th></tr>
-        <tr><td>监测歌曲总数</td><td>379 首</td></tr>
-        <tr><td>有活跃数据</td><td>19 首</td></tr>
-        <tr><td>趋势上涨</td><td>16 首</td></tr>
-        <tr><td>趋势下跌</td><td>0 首</td></tr>
-        <tr><td>趋势持平</td><td>3 首</td></tr>
-        </table>
-        <h2>专辑趋势（平均变化幅度）</h2>
-        <table><tr><th>专辑</th><th>活跃曲目数</th><th>平均变化幅度</th></tr>
-        <tr><td>七专《不说》</td><td>1</td><td>↑ +20.82%</td></tr>
-        <tr><td>六专《X自选集》</td><td>1</td><td>→ +0.00%</td></tr>
-        </table>
-        <h2>歌曲类型趋势（平均变化幅度）</h2>
-        <table><tr><th>类型</th><th>活跃曲目数</th><th>平均变化幅度</th></tr>
-        <tr><td>未分类</td><td>13</td><td>↑ +11.61%</td></tr>
-        <tr><td>专辑曲</td><td>2</td><td>↑ +10.41%</td></tr>
-        <tr><td>影视OST</td><td>2</td><td>↑ +8.75%</td></tr>
-        <tr><td>企划曲</td><td>1</td><td>↑ +6.76%</td></tr>
-        <tr><td>散曲</td><td>1</td><td>→ +0.00%</td></tr>
-        </table>
-        <h2>本周涨幅 TOP10</h2>
-        <table><tr><th>歌曲</th><th>演唱者</th><th>变化幅度</th><th>专辑/类型</th></tr>
-        <tr><td>南屏晚钟</td><td>王晰</td><td>+26.13%</td><td>未分类</td></tr>
-        <tr><td>神魂颠倒</td><td>王晰&刘也</td><td>+23.74%</td><td>未分类</td></tr>
-        <tr><td>荒人之歌</td><td>王晰</td><td>+22.55%</td><td>未分类</td></tr>
-        <tr><td>在路上</td><td>王晰</td><td>+20.82%</td><td>七专《不说》</td></tr>
-        <tr><td>谁</td><td>王晰</td><td>+16.97%</td><td>未分类</td></tr>
-        <tr><td>相思</td><td>王晰&弦子</td><td>+16.79%</td><td>影视OST</td></tr>
-        <tr><td>她真漂亮</td><td>王晰&高杨</td><td>+15.86%</td><td>未分类</td></tr>
-        <tr><td>晚风暖暖</td><td>王晰</td><td>+10.39%</td><td>未分类</td></tr>
-        <tr><td>Over the Rainbow</td><td>王晰&周深&蔡尧</td><td>+10.32%</td><td>未分类</td></tr>
-        <tr><td>月弯弯</td><td>王晰&周深</td><td>+9.95%</td><td>未分类</td></tr>
-        </table>
-        <h2>趋势洞察</h2>
-        <p><strong>七专《不说》</strong> 本周变化最活跃，平均变化幅度 +20.82%</p>
-        <p><strong>未分类</strong> 类型整体呈上涨趋势</p>
-        <p>本周共有 16 首歌曲趋势向上，0 首趋势向下</p>
-        <blockquote>生成时间: 2026-06-26 13:41</blockquote>
-        <blockquote>历史周报存档: [data/weekly/](data/weekly/)</blockquote>
-        <blockquote>注：本报告仅展示相对变化趋势，不含平台原始绝对数值</blockquote>
-    </div>
+    <div class="stats"><div class="stat"><div class="num">325</div><div class="lbl">追踪歌曲（首）</div></div><div class="stat"><div class="num">206</div><div class="lbl">活跃歌曲（首）</div></div><div class="stat"><div class="num">63.4%</div><div class="lbl">活跃率</div></div><div class="stat"><div class="num">18.3%</div><div class="lbl">数据完整率</div></div></div>
+
+    <h2>近 7 日平均指数</h2>
+    <table><tr><th>日期</th><th>平均指数</th><th>覆盖歌曲</th></tr><tr><td>2026-08-07</td><td>573.7</td><td>252</td></tr><tr><td>2026-08-08</td><td>613.2</td><td>252</td></tr><tr><td>2026-08-09</td><td>668.4</td><td>252</td></tr><tr><td>2026-08-10</td><td>604.3</td><td>252</td></tr><tr><td>2026-08-11</td><td>589.3</td><td>252</td></tr><tr><td>2026-08-12</td><td>564.9</td><td>252</td></tr><tr><td>2026-08-13</td><td>632.3</td><td>252</td></tr></table>
+
+    <h2>当前热点歌曲 TOP10</h2>
+    <table><tr><th>#</th><th>歌名</th><th>变化幅度</th><th>标签</th></tr><tr><td>1</td><td>一生中最爱</td><td>+23.5%</td><td>飙升</td></tr><tr><td>2</td><td>再叙</td><td>0.0%</td><td>飙升</td></tr><tr><td>3</td><td>荒人之歌</td><td>+14.3%</td><td>上涨</td></tr><tr><td>4</td><td>山楂树</td><td>+3.6%</td><td>上涨</td></tr><tr><td>5</td><td>小河</td><td>+2.2%</td><td>上涨</td></tr><tr><td>6</td><td>在路上</td><td>-7.2%</td><td>上涨</td></tr><tr><td>7</td><td>她真漂亮</td><td>-6.6%</td><td>上涨</td></tr><tr><td>8</td><td>月弯弯</td><td>-8.5%</td><td>上涨</td></tr><tr><td>9</td><td>Over the Rainbow</td><td>-13.4%</td><td>上涨</td></tr><tr><td>10</td><td>黎明前的黑暗</td><td>-11.5%</td><td>上涨</td></tr></table>
+
+    <h2>异常监测</h2>
+    <ul><li><strong>谁</strong>：🔥 指数突增（指数较7日均值 +32.3%）</li><li><strong>月弯弯</strong>：🔥 指数突增（指数较7日均值 +30.4%）</li><li><strong>爱于此生</strong>：📈 排名飙升（排名较昨日上升 3,284 位）</li></ul>
+
+    <h2>趋势洞察</h2>
+        <p><strong>作品成长生态</strong>：作品成长生态流转分析（近60日窗口）：20 首作品在上升期、稳定期、经典沉淀期之间健康流转，其中 6 首沉淀为经典，经典沉淀期占比最高，说明作品具有长尾生命力，无衰退迹象。</p>
+        <p><strong>听众时间偏好</strong>：听众时间偏好洞察：专辑类作品周末溢价 1.33，高于 OST/单曲的 1.04，表明专辑具有周末沉浸式聆听特质，而非通勤背景音属性。</p>
+        <p><strong>月度竞争格局</strong>：月度竞争格局时间轴（2023-01 至 2026-08）：38 个月共 325 首作品的份额争夺与巡演发行事件叠加，自动播放展示每帧 Top15 竞争态势。</p>
+        <p><strong>排名变化瀑布</strong>：排名战争瀑布图：展示 19 首作品全站排名变化的逐日累积效应，上升用绿色、下降用红色，直观呈现每首作品在竞争中的进退轨迹。</p>
+        <p><strong>巡演歌曲效应</strong>：巡演歌曲级效应：共 13 场演出有歌曲级监测数据，每场分全站/歌单内（直接效应）/辐射带动（歌单外）三口径统计演出后7日较前基线涨幅。郑州(2023-05-01)全站-21.1%歌单内-15.3%辐射带动-15.3%；昆明(2023-05-03)全站-17.1%歌单内-35.6%辐射带动-9.8%；南宁(2023-05-20)全站-14.3%歌单内+22.8%辐射带动-8.6%；深圳(2023-06-23)全站-14.7%歌单内+4.1%辐射带动-10.0%；北京(2023-11-12)全站-1.5%歌单内+59.7%辐射带动-1.4%；广州(2023-12-10)全站-37.2%歌单内-14.5%辐射带动-8.4%；武汉(2024-09-16)全站-2.6%歌单内-15.0%辐射带动-7.8%；北京(2025-04-05)全站-8.3%歌单内-20.2%辐射带动-2.6%；广州(2025-05-24)全站-3.2%歌单内-5.2%辐射带动-4.0%；上海(2025-11-21)全站-2.4%歌单内-11.6%辐射带动-3.2%；杭州(2026-01-31)全站-6.7%歌单内-32.1%辐射带动-6.6%；北京(2026-04-10)全站-5.0%歌单内+27.0%辐射带动+10.5%；重庆(2026-06-13)全站+4.2%歌单内+18.9%辐射带动+2.3%。</p>
+        
 
     <div class="footer">
-        最后更新：2026.06.26 · 历史周报存档：<a href="weekly/">data/weekly/</a> · 本报告仅展示相对变化趋势，不含平台原始绝对数值
+        最后更新：2026-08-14 · 数据来源：<a href="../dashboard/dashboard_data.json">dashboard_data.json</a> · 本页与数据大屏使用同一数据源
     </div>
 </body>
 </html>
