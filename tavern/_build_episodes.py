@@ -60,6 +60,11 @@ h1{font-size:26px;font-weight:700;letter-spacing:2px;line-height:1.5;margin-bott
 .transcript{font-size:15px;color:#bcc8e8;letter-spacing:1px;white-space:pre-wrap;line-height:2.05;background:rgba(0,0,0,.18);border:1px solid rgba(0,210,255,.1);border-radius:12px;padding:20px 22px;}
 .song{margin-top:20px;font-size:14px;color:#8896b3}
 .footer{margin-top:40px;font-size:12px;color:#4a5878;letter-spacing:1px;text-align:center}
+/* 切片锚点：跳转目标高亮 */
+.section-anchor{scroll-margin-top:24px;display:inline}
+.section-anchor:target{background:rgba(0,210,255,.14);border-radius:4px;box-shadow:0 0 0 4px rgba(0,210,255,.14)}
+.song-anchor{scroll-margin-top:24px}
+.song-anchor:target{background:rgba(255,215,0,.12);border-radius:4px}
 """
 
 
@@ -74,6 +79,46 @@ def build_episode_page(key, ep):
     url = f"{SITE}/tavern/ep/{quote(key)}.html"
 
     desc = f"「深夜小酒馆」{title}：{theme}。完整逐字稿存档。粉丝创作，非官方。" if theme else f"「深夜小酒馆」{title}：完整逐字稿存档。粉丝创作，非官方。"
+
+    # ---- 切片化：正文按自然段切分，每段一个锚点（#section-N），可被 AI 逐段引用 ----
+    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+    sections = []
+    for i, para in enumerate(paragraphs, 1):
+        anchor = f"section-{i}"
+        # 锚点内联在段落上：跳转到该段时高亮
+        sections.append(
+            f'<span id="{anchor}" class="section-anchor">{html.escape(para)}</span>'
+        )
+    transcript_html = "\n".join(sections)
+
+    # 歌曲锚点：有 songmid 时，正文起始处放一个 #song-{歌曲名} 定位锚
+    song_anchor_html = ""
+    song_anchor_id = ""
+    if songmid and theme:
+        song_slug = re.sub(r"[^0-9A-Za-z\u4e00-\u9fff]+", "-", theme).strip("-")
+        song_anchor_id = f"song-{song_slug}"
+        song_anchor_html = (
+            f'<span id="{song_anchor_id}" class="song-anchor"></span>'
+        )
+
+    # ---- hasPart JSON-LD：声明切片（每段一个 WebPageElement 片段） ----
+    has_parts = []
+    for i in range(1, len(sections) + 1):
+        has_parts.append(
+            {
+                "@type": "WebPageElement",
+                "name": f"{title} · 第{i}段",
+                "url": f"{url}#section-{i}",
+            }
+        )
+    if song_anchor_id and theme:
+        has_parts.append(
+            {
+                "@type": "WebPageElement",
+                "name": f"{title} · 歌曲《{theme}》",
+                "url": f"{url}#{song_anchor_id}",
+            }
+        )
 
     ld = {
         "@context": "https://schema.org",
@@ -92,6 +137,7 @@ def build_episode_page(key, ep):
         "partNumber": ep.get("part", 0),
         "about": {"@type": "Person", "name": "王晰", "sameAs": SAME_AS},
         "author": {"@type": "Person", "name": "王晰", "sameAs": SAME_AS},
+        "hasPart": has_parts,
     }
 
     song_html = ""
@@ -133,7 +179,8 @@ def build_episode_page(key, ep):
 <h1>{html.escape(title)}</h1>
 <p class="meta">深夜小酒馆 · 王晰 ｜ {html.escape(label)}{meta_suffix}</p>
 <p class="theme">{html.escape(theme)}</p>
-<div class="transcript">{html.escape(text)}</div>
+{song_anchor_html}
+<div class="transcript">{transcript_html}</div>
 {song_html}
 <p class="footer">本页为粉丝创作，非官方内容。素材来自王晰公开节目与作品。</p>
 </div>
