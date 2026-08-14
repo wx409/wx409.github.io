@@ -20,38 +20,6 @@
   var insights = [];       // 预计算洞察句
   var pendingSpark = [];   // 等待 echarts 就绪后绘制的迷你图队列
 
-  // ---- 跨站关系数据（entity_index.json + cities.json，异步加载）----
-  var entitySongs = null;  // entity_index.json 的 songs（歌曲 → live/tavern 关系）
-  var citiesData = null;   // cities.json（城市 → shows）
-  var extrasState = 'pending'; // pending | ready | failed
-  var extrasWaiters = [];  // 加载完成后待执行的回调
-
-  /* ---------------- 跨站数据加载（人-歌-城三位一体） ---------------- */
-  function loadExtras() {
-    if (extrasState !== 'pending') return;
-    extrasState = 'loading';
-    var remain = 2;
-    function done() { if (--remain <= 0) { extrasState = 'ready'; fireWaiters(); } }
-    function fail() { extrasState = 'failed'; fireWaiters(); }
-    fetch('../entity_index.json').then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (j) { entitySongs = (j && j.songs) || null; done(); })
-      .catch(fail);
-    fetch('../data/cities.json').then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (j) { citiesData = (j && j.cities) || null; done(); })
-      .catch(fail);
-  }
-  function whenExtras(fn) {
-    if (extrasState === 'ready') { fn(); return; }
-    if (extrasState === 'failed') return;
-    extrasWaiters.push(fn);
-    loadExtras();
-  }
-  function fireWaiters() {
-    var q = extrasWaiters;
-    extrasWaiters = [];
-    q.forEach(function (fn) { try { fn(); } catch (e) {} });
-  }
-
   /* ---------------- 工具 ---------------- */
   function esc(s) {
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -434,123 +402,6 @@
     setTimeout(function () { el.classList.remove('sr-flash'); }, 1800);
   }
 
-  /* ---------------- 跨站关系渲染（人-歌-城三位一体） ----------------
-   * 三类分组：
-   *   【歌曲档案】现有 dashboard 结果（render 内）
-   *   【现场记录】entity_index 的 live 关系（城市/场馆/日期，live_url 为 null 时纯文本）
-   *   【酒馆提及】entity_index 的 tavern 关系（EP 页锚点链接）
-   * 城市名命中时：演出历史（cities.json shows）+ 该城相关歌曲的酒馆提及
-   */
-  function normStr(s) {
-    return String(s == null ? '' : s).replace(/[《》「」]/g, '').replace(/\s+/g, '').toLowerCase();
-  }
-
-  function findEntityByName(q) {
-    if (!entitySongs) return null;
-    var nq = normStr(q);
-    if (!nq) return null;
-    var keys = Object.keys(entitySongs);
-    for (var i = 0; i < keys.length; i++) {
-      if (normStr(keys[i]) === nq) return { name: keys[i], data: entitySongs[keys[i]] };
-    }
-    for (var j = 0; j < keys.length; j++) {
-      if (nq.length >= 2 && normStr(keys[j]).indexOf(nq) >= 0) {
-        return { name: keys[j], data: entitySongs[keys[j]] };
-      }
-    }
-    return null;
-  }
-
-  function findCity(q) {
-    if (!citiesData) return null;
-    var nq = normStr(q);
-    if (!nq) return null;
-    var names = Object.keys(citiesData);
-    for (var i = 0; i < names.length; i++) {
-      if (normStr(names[i]) === nq) return names[i];
-      if (normStr(names[i]).indexOf(nq) >= 0) return names[i];
-    }
-    return null;
-  }
-
-  // 城市演出历史 + 该城歌曲的酒馆提及（来自 cities.json + entity_index，全部动态）
-  function cityBlocks(cityName) {
-    var node = citiesData[cityName];
-    var blocks = [];
-    var shows = (node && node.shows) || [];
-    if (!shows.length) return [];
-    var rows = shows.map(function (s) {
-      var venue = s.venue || '场馆待补';
-      var venueHtml = s.live_url ? '<a href="../' + s.live_url + '" target="_blank" rel="noopener">' + esc(venue) + '</a>' : esc(venue);
-      return '<div class="sr-row"><span class="sr-rank">' + esc(s.date) + '</span>' +
-        '<span class="sr-song">' + esc(s.tour) + '「' + esc(s.theme) + '」' + '</span>' +
-        '<span class="sr-val">' + venueHtml + '</span>' +
-        (s.has_data ? '<span class="sr-tag">有数据</span>' : '') +
-        (s.cancelled ? '<span class="sr-tag">未举办</span>' : '') + '</div>';
-    });
-    blocks.push({ type: 'head', title: '【城市演出】' + cityName + ' · ' + shows.length + ' 场' });
-    blocks.push({ type: 'rows', items: rows });
-
-    // 该城唱过的歌 → 酒馆提及（entity_index 反查）
-    if (entitySongs) {
-      var cityMentions = [];
-      Object.keys(entitySongs).forEach(function (songName) {
-        var en = entitySongs[songName];
-        var playedHere = (en.live || []).some(function (lv) { return lv.city === cityName; });
-        if (!playedHere) return;
-        var taverns = (en.tavern || []).filter(function (t) { return t !== '歌词'; });
-        if (!taverns.length) return;
-        cityMentions.push({ song: songName, eps: taverns });
-      });
-      if (cityMentions.length) {
-        var mRows = cityMentions.slice(0, 6).map(function (m) {
-          var epLinks = m.eps.slice(0, 3).map(function (ep) {
-            return '<a href="../tavern/ep/' + encodeURIComponent(ep) + '.html" target="_blank" rel="noopener">' + esc(ep) + '</a>';
-          }).join('、');
-          return '<div class="sr-row"><span class="sr-song">《' + esc(m.song) + '》</span>' +
-            '<span class="sr-val">' + epLinks + '</span></div>';
-        });
-        blocks.push({ type: 'head', title: '【酒馆提及】' + cityName + ' 相关歌曲的深夜小酒馆期次' });
-        blocks.push({ type: 'rows', items: mRows });
-      }
-    }
-    return blocks;
-  }
-
-  // 歌曲的跨站关系（现场记录 + 酒馆提及）
-  function songRelationBlocks(songName) {
-    if (!entitySongs) return [];
-    var en = entitySongs[songName];
-    if (!en) return [];
-    var blocks = [];
-    var live = en.live || [];
-    var tavern = (en.tavern || []).filter(function (t) { return t !== '歌词'; });
-    if (live.length) {
-      var liveRows = live.slice(0, 8).map(function (lv) {
-        var date = esc(lv.date || '');
-        var city = esc(lv.city || '');
-        var venue = esc(lv.venue || '场馆待补');
-        var tour = esc(lv.tour || '');
-        var link = lv.url ? '<a href="../' + esc(lv.url) + '" target="_blank" rel="noopener">' + venue + ' ↗</a>' : venue;
-        return '<div class="sr-row"><span class="sr-rank">' + date + '</span>' +
-          '<span class="sr-song">' + city + ' · ' + link + '</span>' +
-          '<span class="sr-tag">' + tour + '</span></div>';
-      });
-      blocks.push({ type: 'head', title: '【现场记录】《' + esc(songName) + '》' + live.length + ' 场巡演' });
-      blocks.push({ type: 'rows', items: liveRows });
-    }
-    if (tavern.length) {
-      var tRows = tavern.slice(0, 6).map(function (ep) {
-        var epName = esc(String(ep).replace(/_/g, ' '));
-        return '<div class="sr-row"><span class="sr-song">小酒馆 ' + epName + '</span>' +
-          '<span class="sr-val"><a href="../tavern/ep/' + encodeURIComponent(ep) + '.html" target="_blank" rel="noopener">查看逐字稿 ↗</a></span></div>';
-      });
-      blocks.push({ type: 'head', title: '【酒馆提及】《' + esc(songName) + '》· 深夜小酒馆 ' + tavern.length + ' 期' });
-      blocks.push({ type: 'rows', items: tRows });
-    }
-    return blocks;
-  }
-
   /* ---------------- 渲染 ---------------- */
   var KNOWN = { uid: 1, name: 1, attr: 1, release: 1, latest: 1, mean30: 1, peak: 1, points: 1, lifecycle: 1, score: 1, streak: 1, best_rank: 1, active_days: 1, profile: 1, _src: 1 };
   function extraFields(r) {
@@ -607,7 +458,6 @@
       var el = document.createElement('div');
       el.className = 'sr-block';
       if (b.type === 'answer') el.innerHTML = '<div class="sr-answer">' + b.text + '</div>';
-      else if (b.type === 'head') el.innerHTML = '<div class="sr-head">' + b.title + '</div>';
       else if (b.type === 'plain') el.innerHTML = '<div class="sr-answer sr-hint">' + b.text + '</div>';
       else if (b.type === 'list') {
         el.innerHTML = '<div class="sr-head">' + b.title + '</div><div class="sr-grid">' +
@@ -678,27 +528,6 @@
     var intent = parseIntent(q);
     var blocks = answerBlocks(q, intent);
     render(blocks);
-    // 跨站关系（人-歌-城）：就绪后立即追加渲染
-    whenExtras(function () {
-      var extra = [];
-      var cityName = findCity(q);
-      if (cityName) {
-        extra = extra.concat(cityBlocks(cityName));
-      } else if (intent.type === 'song' || intent.type === 'compare_songs') {
-        var names = intent.type === 'compare_songs' ? intent.songs : [intent.song];
-        names.forEach(function (nm) {
-          var hit = findEntityByName(nm);
-          if (hit) extra = extra.concat(songRelationBlocks(hit.name));
-        });
-      } else {
-        var hit2 = findEntityByName(q);
-        if (hit2) extra = extra.concat(songRelationBlocks(hit2.name));
-      }
-      if (extra.length) {
-        var all = answerBlocks(q, parseIntent(q)).concat(extra);
-        render(all);
-      }
-    });
   }
   function answerBlocks(q, intent) {
     var blocks = [];
@@ -737,7 +566,6 @@
     }
     buildSongs();
     buildInsights();
-    loadExtras(); // 预加载跨站关系（entity_index + cities）
 
     var input = document.getElementById('searchInput');
     var btn = document.getElementById('searchBtn');
