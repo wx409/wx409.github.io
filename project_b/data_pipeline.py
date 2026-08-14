@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import json
 import re
 import shutil
 import subprocess
@@ -7,11 +8,11 @@ from pathlib import Path
 
 import pandas as pd
 
-BASE_DIR = Path('/mnt/d/wx409.github.io/project_b')
+BASE_DIR = Path(__file__).resolve().parent
 RAW_DIR = BASE_DIR / '01_原始数据'
 CLEAN_DIR = BASE_DIR / '02_清洗数据'
 REPORT_DIR = BASE_DIR / '03_周报输出'
-WEBSITE_DIR = Path('/mnt/d/wx409.github.io')
+WEBSITE_DIR = BASE_DIR.parent
 for d in [RAW_DIR, CLEAN_DIR, REPORT_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
@@ -150,6 +151,10 @@ class WeeklyPipeline:
     def clean(self, input_file=None):
         f = input_file or self.find_latest_excel()
         if not f:
+            existing = CLEAN_DIR / 'wangxi_music_clean.csv'
+            if existing.exists():
+                print(f'[1/4] 无新QQ音乐Excel，复用已有清洗数据: {existing.name}')
+                return existing
             return False
         f = Path(f)
         print(f'[1/4] 清洗: {f.name}')
@@ -304,6 +309,10 @@ class WeeklyPipeline:
         print(f'   脱敏周报: {out}')
         return out
 
+    @staticmethod
+    def _inline(s):
+        return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
+
     def _md_to_html_body(self, md_text):
         lines = md_text.splitlines()
         html = []
@@ -315,14 +324,14 @@ class WeeklyPipeline:
                 if in_table:
                     html.append('</table>')
                     in_table = False
-                html.append(f'<h2>{line[3:]}</h2>')
+                html.append(f'<h2>{self._inline(line[3:])}</h2>')
             elif line.startswith('> '):
-                html.append(f'<blockquote>{line[2:]}</blockquote>')
+                html.append(f'<blockquote>{self._inline(line[2:])}</blockquote>')
             elif line.startswith('- '):
                 if in_table:
                     html.append('</table>')
                     in_table = False
-                html.append(f'<p>{line[2:]}</p>')
+                html.append(f'<p>{self._inline(line[2:])}</p>')
             elif line.startswith('|') and '---' not in line:
                 cells = [c.strip() for c in line.strip('|').split('|')]
                 if not in_table:
@@ -340,49 +349,69 @@ class WeeklyPipeline:
         return '\n        '.join(html)
 
     def _update_music_index_html(self, md_path):
-        html_path = WEBSITE_DIR / 'data' / 'music-index.html'
-        if not html_path.exists():
-            return
-        template = html_path.read_text(encoding='utf-8')
-        body = self._md_to_html_body(Path(md_path).read_text(encoding='utf-8'))
-        updated = re.sub(
-            r'<div class="placeholder" id="content">.*?</div>',
-            f'<div id="content">\n        {body}\n    </div>',
-            template,
-            count=1,
-            flags=re.DOTALL,
-        )
-        if updated == template:
-            updated = re.sub(
-                r'<div id="content">.*?</div>',
-                f'<div id="content">\n        {body}\n    </div>',
-                template,
-                count=1,
-                flags=re.DOTALL,
-            )
-        updated = re.sub(
-            r'最后更新：[^·]+·',
-            f'最后更新：{self.today_fmt} ·',
-            updated,
-        )
-        updated = re.sub(
-            r'<title>[^<]*</title>',
-            '<title>王晰音乐趋势周报 | QQ音乐趋势监测</title>',
-            updated,
-        )
-        updated = re.sub(
-            r'<h1>[^<]*</h1>',
-            '<h1>王晰音乐趋势周报</h1>',
-            updated,
-            count=1,
-        )
-        updated = re.sub(
-            r'基于 QQ 音乐[^<]*</blockquote>',
-            '基于 QQ 音乐数据趋势分析 · 由星厂 B 项目自动生成</blockquote>',
-            updated,
-            count=1,
-        )
-        html_path.write_text(updated, encoding='utf-8')
+        md_text = Path(md_path).read_text(encoding='utf-8')
+        body = self._md_to_html_body(md_text)
+        m = re.search(r'·\s*(\d{4}\.\d{2}\.\d{2})', md_text)
+        date_str = m.group(1) if m else self.today_fmt
+        iso_date = date_str.replace('.', '-')
+        jsonld = json.dumps({
+            '@context': 'https://schema.org',
+            '@type': 'Report',
+            'name': '王晰音乐趋势周报',
+            'datePublished': iso_date,
+            'about': {'@type': 'MusicGroup', 'name': '王晰'},
+            'description': '基于QQ音乐数据趋势分析的王晰音乐周报，含监测歌曲数、涨幅TOP10与专辑/歌曲类型趋势洞察。',
+            'publisher': {'@type': 'Organization', 'name': '王晰GEO资料站', 'url': 'https://wx409.github.io/'},
+        }, ensure_ascii=False)
+        html = f'''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王晰音乐趋势周报 | QQ音乐趋势监测</title>
+    <meta name="description" content="王晰音乐趋势周报 · {date_str}。基于QQ音乐数据趋势分析，含监测歌曲总数、涨幅TOP10与专辑/歌曲类型趋势洞察。">
+    <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }}
+        h1 {{ color: #1a1a1a; border-bottom: 3px solid #c41e3a; padding-bottom: 10px; }}
+        h2 {{ color: #2c2c2c; margin-top: 30px; border-left: 4px solid #c41e3a; padding-left: 12px; }}
+        .nav {{ background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }}
+        .nav a {{ color: #c41e3a; margin-right: 20px; text-decoration: none; font-weight: 500; }}
+        table {{ border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 14px; }}
+        th, td {{ border: 1px solid #e0e0e0; padding: 8px 10px; text-align: left; }}
+        th {{ background: #f8f9fa; }}
+        blockquote {{ color: #666; border-left: 4px solid #c41e3a; padding-left: 15px; margin: 20px 0; }}
+        a {{ color: #c41e3a; text-decoration: none; }}
+        a:hover {{ text-decoration: underline; }}
+        .footer {{ color: #888; font-size: 13px; margin-top: 40px; border-top: 1px solid #eee; padding-top: 15px; }}
+    </style>
+    <script type="application/ld+json">{jsonld}</script>
+    <link rel="canonical" href="https://wx409.github.io/data/music-index.html">
+</head>
+<body>
+    <div class="nav">
+        <a href="../index.html">首页</a>
+        <a href="../live-reviews.html">现场实录</a>
+        <a href="../discography.html">作品百科</a>
+        <a href="../academic.html">学术研究</a>
+        <a href="../gallery.html">视觉记录</a>
+        <a href="../city-guides.html">城市攻略</a>
+        <a href="music-index.html">音乐数据</a>
+        <a href="../culture/index.html">文化足迹</a>
+    </div>
+
+    <h1>王晰音乐趋势周报</h1>
+
+    <div id="content">
+        {body}
+    </div>
+
+    <div class="footer">
+        最后更新：{date_str} · 历史周报存档：<a href="weekly/">data/weekly/</a> · 本报告仅展示相对变化趋势，不含平台原始绝对数值
+    </div>
+</body>
+</html>'''
+        (WEBSITE_DIR / 'data' / 'music-index.html').write_text(html, encoding='utf-8')
+        print('   已生成 HTML')
 
     def deploy(self, report_file=None):
         f = report_file or (REPORT_DIR / f'{self.today}.md')

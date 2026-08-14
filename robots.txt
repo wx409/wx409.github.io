@@ -1,27 +1,11 @@
-# 欢迎所有搜索引擎与 AI 信息聚合器
+# 欢迎所有搜索引擎与 AI 信息聚合器（开发/工具目录除外）
 User-agent: *
 Allow: /
-
-# 主流 AI 引擎专用允许规则
-User-agent: GPTBot
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: PerplexityBot
-Allow: /
-User-agent: Google-Extended
-Allow: /
-User-agent: CCBot
-Allow: /
-User-agent: YouBot
-Allow: /
-User-agent: BraveBot
-Allow: /
-
-# 百度系爬虫显式放行
-User-agent: Baiduspider
-Allow: /
-User-agent: Baiduspider-image
-Allow: /
+Disallow: /live_template.html
+Disallow: /project_b/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /*.py
+Disallow: /*.yaml
 
 Sitemap: https://wx409.github.io/sitemap.xml
