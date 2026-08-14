@@ -4,13 +4,24 @@
 目标：让「音乐数据」页与数据大屏（dashboard）使用同一数据源，消除数字矛盾。
 运行：python project_b/build_music_index.py
 """
+import argparse
 import json
+import subprocess
+import time
+from datetime import datetime, timedelta
 from pathlib import Path
 
 WEBSITE = Path(__file__).resolve().parent.parent
 SRC = WEBSITE / 'dashboard' / 'dashboard_data.json'
 OUT_MD = WEBSITE / 'data' / 'music-index.md'
 OUT_HTML = WEBSITE / 'data' / 'music-index.html'
+
+# 23:55 是全量末批，其后写入的 dashboard_data.json 才算「当天最终数据」。
+# 用「当天 23:50 之后」作为就绪阈值，兼容末批在 23:55~00:00 间完成的情况；
+# 同时排除 23:15 全量批（其时间戳约 23:20）被误判为最终数据。
+READY_AFTER = '23:50'
+# 00:10 自动关机，须在此之前完成生成与推送（留出约 2 分钟余量）。
+DEADLINE = '00:08'
 
 SUMMARY_TITLES = {
     'sankey': '作品成长生态',
@@ -184,10 +195,36 @@ def build_html(d, md_text):
 </html>'''
 
 
-def main():
+def _data_ready():
+    """dashboard_data.json 是否已是「当天末批」数据。
+
+    优先看 JSON 内的 timestamp（由大屏生成器在 rebuild 后写入，粒度到分钟）；
+    末批在 23:50 之后写入则视为就绪。时间戳缺失/异常时，退回用文件修改时间判断。
+    """
     if not SRC.exists():
-        print(f'[!] 未找到数据源: {SRC}')
-        return
+        return False
+    try:
+        d = json.loads(SRC.read_text(encoding='utf-8'))
+        ts = str(d.get('timestamp', ''))
+    except Exception:
+        ts = ''
+    today = datetime.now().strftime('%Y-%m-%d')
+    if ts.startswith(today) and len(ts) >= 16 and ts[11:16] >= READY_AFTER:
+        return True
+    mtime = datetime.fromtimestamp(SRC.stat().st_mtime)
+    return mtime.strftime('%Y-%m-%d') == today and mtime.strftime('%H:%M') >= READY_AFTER
+
+
+def _next_occurrence(hhmm):
+    now = datetime.now()
+    h, m = map(int, hhmm.split(':'))
+    target = now.replace(hour=h, minute=m, second=0, microsecond=0)
+    if target <= now:
+        target += timedelta(days=1)
+    return target
+
+
+def _generate():
     d = json.loads(SRC.read_text(encoding='utf-8'))
     md_text = build_md(d)
     OUT_MD.write_text(md_text, encoding='utf-8')
@@ -196,5 +233,73 @@ def main():
     print(f'[OK] 已生成 {OUT_HTML.relative_to(WEBSITE)}')
 
 
+def _git_push():
+    # 大屏生成器 23:55 末批末尾也会 git push dashboard/，可能与本脚本的
+    # git 操作短暂并发（index.lock / push 竞争），失败后重试一次以自愈。
+    for attempt in (1, 2):
+        try:
+            subprocess.run(
+                ['git', 'add', 'data/music-index.md', 'data/music-index.html'],
+                cwd=WEBSITE, check=True, capture_output=True, timeout=30,
+            )
+            ts = datetime.now().strftime('%m-%d %H:%M')
+            r = subprocess.run(
+                ['git', 'commit', '-m', f'自动更新: music-index 同步 dashboard ({ts})'],
+                cwd=WEBSITE, capture_output=True, timeout=30,
+            )
+            if r.returncode != 0:
+                print('[i] 无新变更，跳过 commit')
+                return
+            subprocess.run(
+                ['git', 'push', 'origin', 'main'],
+                cwd=WEBSITE, check=True, capture_output=True, timeout=60,
+            )
+            print('[OK] 已推送到 GitHub')
+            return
+        except FileNotFoundError:
+            print('[!] git 命令不可用，跳过推送')
+            return
+        except Exception as e:
+            if attempt == 1:
+                print(f'[重试] git 操作失败，8 秒后重试: {e}')
+                time.sleep(8)
+            else:
+                print(f'[!] git 推送失败: {e}')
+
+
+def main(args):
+    if not SRC.exists():
+        print(f'[!] 未找到数据源: {SRC}')
+        return 1
+
+    if args.wait:
+        deadline = _next_occurrence(args.deadline or DEADLINE)
+        print(f'[等待] 等待 dashboard_data.json 更新至今日末批（>= {READY_AFTER}），截止 {deadline.strftime("%H:%M:%S")}')
+        while datetime.now() < deadline:
+            if _data_ready():
+                print('[就绪] 数据已更新至今日末批')
+                break
+            time.sleep(20)
+        else:
+            # 未等到末批数据：宁可跳过，也不发布与 dashboard 不一致的旧数据
+            print('[!] 到达截止时间仍未等到今日末批数据，跳过生成')
+            return 2
+
+    _generate()
+
+    if args.push:
+        _git_push()
+
+    return 0
+
+
+def parse_args():
+    p = argparse.ArgumentParser(description='从 dashboard_data.json 生成 music-index 页')
+    p.add_argument('--wait', action='store_true', help='等待 dashboard_data.json 更新到今日末批后再生成')
+    p.add_argument('--deadline', default=DEADLINE, help=f'等待截止时间 HH:MM（默认 {DEADLINE}）')
+    p.add_argument('--push', action='store_true', help='生成后 git add/commit/push')
+    return p.parse_args()
+
+
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main(parse_args()))

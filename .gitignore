@@ -11,3 +11,7 @@ tavern/radio_proxy.py
 raw_archive/
 *.log
 debug_html/
+# 本地临时目录（CSV 导出、调研中间产物、执行脚本）
+temp/
+# 本地 DSH 启动脚本（含本机路径）
+start-dsh.bat
