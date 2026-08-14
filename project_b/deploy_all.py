@@ -43,6 +43,7 @@ STEPS = [
     (ROOT / "tavern" / "_build_episodes.py", "小酒馆逐字稿页", True),
     (ROOT / "tavern" / "_build_songs_compact.py", "小酒馆歌曲索引", False),
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
+    (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),
 ]
 
 COMMIT_MSG = "自动部署: 数据更新 ({ts})"
