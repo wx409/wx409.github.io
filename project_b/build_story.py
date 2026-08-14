@@ -100,8 +100,19 @@ def compute_stories() -> dict:
     }
 
 
+def slugify(title: str) -> str:
+    """中文标题 → 拼音不可行，用固定英文 id 映射（中文 URL 锚点用 encodeURIComponent 亦可，但 id 用英文更稳）"""
+    mapping = {
+        "跨城之王": "cross-city-kings",
+        "场次之王": "show-kings",
+        "酒馆之声": "tavern-voices",
+        "城市之最": "city-leaders",
+    }
+    return mapping.get(title, "story-block")
+
+
 def story_block(title, icon, intro, cards) -> str:
-    html = f'<section class="story-block" id="{re.sub(r"[^a-z0-9]+", "-", title.lower())}">'
+    html = f'<section class="story-block" id="{slugify(title)}">'
     html += f'<h2>{icon} {esc(title)}</h2><p class="story-intro">{esc(intro)}</p>'
     html += '<div class="card-grid">'
     for i, card in enumerate(cards, 1):

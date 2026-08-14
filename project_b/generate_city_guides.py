@@ -109,6 +109,16 @@ def main() -> None:
     args = parser.parse_args()
 
     guides = build_guides()
+    # 保留已有 web_tips（搜索成果不因重新生成丢失）
+    if OUT.exists():
+        try:
+            old = json.loads(OUT.read_text(encoding="utf-8"))
+            for city, g in guides.items():
+                old_tips = old.get(city, {}).get("web_tips", [])
+                if old_tips:
+                    g["web_tips"] = old_tips
+        except Exception:
+            pass
     if args.tips:
         try:
             from city_tips_fetcher import fetch_tips_for_city  # noqa: F401
@@ -119,7 +129,7 @@ def main() -> None:
     out.write_text(json.dumps(guides, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[OK] 已生成 {len(guides)} 城攻略 -> {out}")
     for city, g in guides.items():
-        print(f"  {city}: {len(g['performances'])}场演出 / {len(g['top_songs'])}首常唱 / {len(g['tavern_quotes'])}条酒馆")
+        print(f"  {city}: {len(g['performances'])}场演出 / {len(g['top_songs'])}首常唱 / {len(g['tavern_quotes'])}条酒馆 / {len(g['web_tips'])}条贴士")
 
 
 if __name__ == "__main__":
