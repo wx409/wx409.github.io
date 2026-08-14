@@ -61,6 +61,7 @@ INDEXNOW_URLS = [
     "https://wx409.github.io/dashboard/",
     "https://wx409.github.io/city-guides.html",
     "https://wx409.github.io/live-reviews.html",
+    "https://wx409.github.io/culture/",
 ]
 
 
