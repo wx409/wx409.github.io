@@ -64,6 +64,7 @@ def load_dashboard() -> dict:
         if not name:
             continue
         info[norm(name)] = {
+            "_orig": name,
             "latest": s.get("latest", 0),
             "mean30": s.get("mean30", 0),
             "peak": s.get("peak", 0),
@@ -77,6 +78,7 @@ def load_dashboard() -> dict:
         if not name or norm(name) in info:
             continue
         info[norm(name)] = {
+            "_orig": name,
             "latest": s.get("trend", 0),
             "mean30": 0,
             "peak": 0,
@@ -198,7 +200,8 @@ def build_index(setlist_path: str) -> dict:
             n = norm(piece)
             if not n:
                 continue
-            node = per_song.setdefault(n, {"live": [], "cities": set(), "tours": set()})
+            node = per_song.setdefault(n, {"live": [], "cities": set(), "tours": set(), "orig_names": set()})
+            node["orig_names"].add(piece.strip())
             node["live"].append(
                 {
                     "date": r["date"],
@@ -217,8 +220,10 @@ def build_index(setlist_path: str) -> dict:
         n = norm(name)
         entry: dict = {}
         info = song_info.get(n)
+        # 展示名：优先原始名（_orig），其次当前名
+        display = (info.get("_orig") if info else None) or name
         if info:
-            entry["dashboard"] = info
+            entry["dashboard"] = {k: v for k, v in info.items() if k != "_orig"}
         lv = per_song.get(n)
         if lv:
             # 去重场次（同场组合曲目只留一次），按日期排序
@@ -258,11 +263,15 @@ def build_index(setlist_path: str) -> dict:
             entry["tavern"] = tavern_tags
         # discography：release_events 匹配（专辑名=歌曲名）
         if n in releases:
-            entry["discography"] = {"album": name, "release": releases[n]}
+            entry["discography"] = {"album": display, "release": releases[n]}
         elif info and info.get("attr") in ("专辑",) and info.get("release") and info["release"] != "-":
-            entry["discography"] = {"album": name, "release": info["release"]}
+            entry["discography"] = {"album": display, "release": info["release"]}
         if entry:
-            songs_out[name] = entry
+            # 最终展示名：dashboard _orig > 长表原始名 > 当前名
+            final_name = display
+            if not info and lv and lv.get("orig_names"):
+                final_name = sorted(lv["orig_names"], key=len)[0]
+            songs_out[final_name] = entry
 
     return {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
