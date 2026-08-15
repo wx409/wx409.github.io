@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-15 18:05",
+  "timestamp": "2026-08-15 18:15",
   "total": 198836,
   "success": 36400,
   "complete_rate": 18.3,
@@ -120236,7 +120236,7 @@
         65.0,
         63.2,
         58.3,
-        69.8,
+        68.6,
         51.2,
         43.4,
         38.0,
@@ -121103,15 +121103,12 @@
   },
   "second_spring": {
     "names": [
-      "在路上",
-      "一生中最爱"
+      "在路上"
     ],
     "values": [
-      121.8,
-      110.7
+      121.8
     ],
     "spring": [
-      false,
       false
     ],
     "max": 100
@@ -127418,22 +127415,22 @@
   "daily_listen_overview": {
     "active_count": 15,
     "total_tracked": 325,
-    "concentration_top3": 66.4,
+    "concentration_top3": 64.9,
     "as_of": "2026-08-15"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 53.7,
-      "trend_pct": 57.2,
+      "share_pct": 52.8,
+      "trend_pct": 56.6,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "再叙",
-      "share_pct": 7.1,
-      "trend_pct": 44.4,
+      "share_pct": 6.6,
+      "trend_pct": 37.0,
       "trend_label": "up"
     },
     {
@@ -127446,19 +127443,19 @@
     {
       "rank": 4,
       "song": "在路上",
-      "share_pct": 5.5,
+      "share_pct": 5.4,
       "trend_pct": 62.2,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "月弯弯",
-      "share_pct": 3.8,
-      "trend_pct": 23.5,
+      "share_pct": 4.9,
+      "trend_pct": 61.8,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-15 18:05",
+  "last_update": "2026-08-15 18:15",
   "today_batches": 901,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127520,13 +127517,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1707,
-      "success": 1707,
+      "total": 1708,
+      "success": 1708,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 476202,
+      "before": 476454,
       "after": 198836
     },
     "index_calibration": {
