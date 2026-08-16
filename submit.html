@@ -20,6 +20,7 @@
         .btn { flex: 1; min-width: 150px; padding: 11px 16px; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; text-align: center; text-decoration: none; }
         .btn-copy { background: #c41e3a; color: #fff; }
         .btn-issue { background: #f0f4ff; color: #1a56c4; border: 1px solid #c9d8f5; }
+        .btn-mail { background: #e6f7ee; color: #0a7a5a; border: 1px solid #bfe6d2; }
         .btn:hover { filter: brightness(1.05); }
         .tip { background: #fff8e6; border-left: 3px solid #c9a227; padding: 10px 14px; border-radius: 6px; margin: 16px 0; font-size: 13px; }
         #out { display: none; white-space: pre-wrap; background: #fff; border: 1px dashed #ccc; padding: 12px; border-radius: 6px; font-size: 13px; margin-top: 12px; }
@@ -63,9 +64,10 @@
         <div class="btn-row" id="act" style="display:none">
             <button type="button" class="btn btn-copy" onclick="copyIt()">② 一键复制</button>
             <a class="btn btn-issue" id="ghLink" target="_blank" rel="noopener">③ 打开 GitHub 提交</a>
+            <a class="btn btn-mail" id="mailLink" target="_blank" rel="noopener">✉️ 发邮件提交（直达管理员）</a>
         </div>
     </form>
-    <p class="tip" style="margin-top:20px;">复制后可以粘贴到<strong>任意渠道</strong>：微信粉丝群、微博私信、邮件……或者直接点「打开 GitHub 提交」。没有 GitHub 账号也没关系——把内容发到粉丝群，管理员会代为收录。</p>
+    <p class="tip" style="margin-top:20px;">复制后可以粘贴到<strong>任意渠道</strong>：微信粉丝群、微博私信、邮件……或者直接点「发邮件提交」——会打开你的邮箱并自动填好内容，发送到 <code>wangxi409@163.com</code>（管理员邮箱），无需 GitHub 账号。</p>
 
     <script>
     function build() {
@@ -85,6 +87,9 @@
         document.getElementById('ghLink').href = 'https://github.com/wx409/wx409.github.io/issues/new?title=' +
             encodeURIComponent('投稿：' + type + (city ? '（' + city + '）' : '')) +
             '&body=' + encodeURIComponent(t + '\n\n（由 submit.html 表单生成）');
+        document.getElementById('mailLink').href = 'mailto:wangxi409@163.com?subject=' +
+            encodeURIComponent('【王晰档案投稿】' + type + (city ? ' ' + city : '')) +
+            '&body=' + encodeURIComponent(t + '\n\n（由 wx409.github.io/submit.html 表单生成）');
     }
     function copyIt() {
         var txt = document.getElementById('out').textContent;
