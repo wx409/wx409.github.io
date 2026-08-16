@@ -25,6 +25,17 @@ def build_page(meta: dict) -> str:
     n_shows = sum(1 for v in songs.values() if v.get("show_count"))
     n_play = sum(1 for v in songs.values() if v.get("mid"))
     n_lyr = n_lyrics
+    # 可播清单（QQ 接口实测）
+    playable_path = ROOT / "data" / "playable_songs.json"
+    n_playable = 0
+    playable_list = []
+    if playable_path.exists():
+        try:
+            pj = json.loads(playable_path.read_text(encoding="utf-8"))
+            playable_list = sorted(pj.get("playable", {}).values(), key=lambda x: x["name"])
+            n_playable = len(playable_list)
+        except Exception:
+            pass
 
     ld = {
         "@context": "https://schema.org",
@@ -79,6 +90,16 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 .chip:hover{{border-color:#c41e3a;color:#c41e3a;}}
 .chip.on{{background:#c41e3a;color:#fff;border-color:#c41e3a;}}
 .playable-top{{background:#e6f7ee;border:1px solid #b7e0cc;border-radius:8px;padding:8px 14px;margin:8px 0;font-size:13px;color:#0a7a5a;}}
+/* 左右布局：左侧可播歌单侧栏 */
+.layout{{display:flex;gap:20px;align-items:flex-start;}}
+.sidebar{{flex:0 0 240px;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;background:#f8faf8;border:1px solid #dce8e0;border-radius:10px;padding:12px;}}
+.sidebar h3{{margin:0 0 8px;font-size:14px;color:#0a7a5a;}}
+.sidebar .side-item{{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px dashed #e5ece6;padding:6px 4px;font-size:13px;color:#333;cursor:pointer;}}
+.sidebar .side-item:hover{{color:#c41e3a;}}
+.sidebar .side-item.playing{{color:#0a7a5a;font-weight:700;}}
+.main{{flex:1;min-width:0;}}
+.side-note{{font-size:11px;color:#8aa;margin-top:8px;}}
+@media (max-width:760px){{.layout{{flex-direction:column;}}.sidebar{{flex:none;position:static;max-height:200px;width:100%;}}}}
 .footnote{{color:#888;font-size:12px;margin-top:30px;border-top:1px solid #eee;padding-top:12px;}}
 </style>
 </head>
@@ -94,6 +115,13 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 </div>
 <h1>🎵 王晰歌曲库</h1>
 <p style="color:#666;font-size:14px;">共 <strong>{len(songs)}</strong> 首：{n_lyrics} 首含歌词片段 · {n_album} 首有专辑关联 · {n_shows} 首有巡演演唱记录。数据来源 <code>data/songs_meta.json</code>。</p>
+<div class="layout">
+<div class="sidebar">
+<h3>🎧 可播歌单（{n_playable}）</h3>
+<div id="sideList"></div>
+<p class="side-note">经 QQ音乐接口实测可免费试听；点击即播，再次点击暂停。</p>
+</div>
+<div class="main">
 <div class="search-box" role="search">
 <input type="search" id="songSearch" placeholder="搜索歌曲 / 专辑 / 歌词…" autocomplete="off" aria-label="搜索歌曲库">
 </div>
@@ -104,7 +132,9 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 </div>
 <div id="playerStatus"></div>
 <div class="song-list" id="songList"></div>
-<p class="footnote">🎧 可试听 = 有 QQ 音乐歌曲 ID（可页面内试听，代理开启时 VIP 也能播）；无 ID 的为组合曲目/现场翻唱。试听为公开直链（不下载不托管）。生成时间 {meta["generated_at"]}。</p>
+</div>
+</div>
+<p class="footnote">🎧 可播 = 经 QQ音乐 vkey 接口实测可免费试听（{n_playable} 首）；VIP 锁曲需本地代理或登录。无 ID 的为组合曲目/现场翻唱。试听为公开直链（不下载不托管）。生成时间 {meta["generated_at"]}。</p>
 <script src="assets/player_embed.js"></script>
 <script>
 (function () {{
@@ -112,6 +142,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
   var songs = null;
   var statusEl = document.getElementById('playerStatus');
   var filter = 'all';
+  var PLAYABLE = {json.dumps(playable_list, ensure_ascii=False)};
   function esc(s) {{ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }}
   function norm(s) {{ return String(s == null ? '' : s).replace(/[《》「」]/g,'').replace(/\\s+/g,'').toLowerCase(); }}
   if (window.PlayerEmbed && window.PlayerEmbed.setStatusFn) {{
@@ -176,6 +207,29 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     }});
     render();
   }}
+  /* 左侧可播歌单 */
+  function renderSide() {{
+    var box = document.getElementById('sideList');
+    if (!box) return;
+    box.innerHTML = PLAYABLE.map(function (p) {{
+      return '<button type="button" class="side-item" data-mid="' + esc(p.mid) + '">▶ ' + esc(p.name) + '</button>';
+    }}).join('');
+    if (window.PlayerEmbed && window.PlayerEmbed.attach) {{
+      box.querySelectorAll('.side-item').forEach(function (b) {{
+        window.PlayerEmbed.attach(b, {{ mid: b.getAttribute('data-mid'), title: b.textContent.replace(/^▶ /, '') }});
+      }});
+    }}
+  }}
+  /* 播放高亮：当前播放的侧栏项/卡片标绿 */
+  function highlightPlaying() {{
+    var playingMid = window.PlayerEmbed && window.PlayerEmbed.currentMid ? window.PlayerEmbed.currentMid.replace(/^L:/, '') : '';
+    document.querySelectorAll('.side-item').forEach(function (b) {{
+      var mid = (b.getAttribute('data-mid') || '').replace(/^L:/, '');
+      b.classList.toggle('playing', !!playingMid && mid === playingMid);
+      b.textContent = (mid === playingMid ? '⏸ ' : '▶ ') + b.textContent.replace(/^[▶⏸] /, '');
+    }});
+  }}
+  setInterval(highlightPlaying, 800);
   document.getElementById('chipAll').addEventListener('click', function () {{ setFilter('all'); }});
   document.getElementById('chipPlayable').addEventListener('click', function () {{ setFilter('playable'); }});
   document.getElementById('chipLyric').addEventListener('click', function () {{ setFilter('lyric'); }});

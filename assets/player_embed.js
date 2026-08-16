@@ -166,7 +166,8 @@
     attach: attach,
     stop: function () { if (audio) { audio.pause(); audio.removeAttribute('src'); } currentMid = ''; },
     setStatusFn: function (fn) { statusFn = fn; },
-    isPlaying: function () { return !!(audio && !audio.paused); }
+    isPlaying: function () { return !!(audio && !audio.paused); },
+    get currentMid() { return currentMid; }
   };
 
   if (typeof module !== 'undefined' && module.exports) module.exports = PlayerEmbed;
