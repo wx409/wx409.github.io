@@ -270,7 +270,6 @@
     playSong: function (mid, title) {
       var songmid = String(mid || '').trim().replace(/^L:/, '');
       if (!songmid) return Promise.resolve(false);
-      if (isMobile()) { this.jumpApp(songmid); return Promise.resolve(false); }
       setStatus('正在获取播放地址…');
       var self = this;
       return fetchVkey(songmid).then(function (url) {
@@ -289,7 +288,6 @@
     /* 播放小酒馆期次（data_type 5，通常需浏览器已登录 y.qq.com） */
     playEpisode: function (songmid, title) {
       if (!songmid) return Promise.resolve(false);
-      if (isMobile()) { this.jumpApp(songmid); return Promise.resolve(false); }
       setStatus('正在获取本期音频（需 QQ音乐 登录态）…');
       var self = this;
       return fetchVkey(songmid).then(function (url) {
@@ -312,7 +310,6 @@
       var self = this;
       if (!songs || !songs.length) return Promise.resolve(false);
       var mids = songs.map(function (s) { return String(s.mid || '').replace(/^L:/, ''); });
-      if (isMobile()) { this.jumpApp(mids[0]); return Promise.resolve(false); }
       setStatus('正在为你挑一首今晚最值得听的歌…');
       return fetchVkeys(mids).then(function (urls) {
         for (var i = 0; i < urls.length; i++) {

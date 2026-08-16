@@ -492,6 +492,11 @@ a{color:#00d2ff;text-decoration:none}
   function radioShowOpen(mid) {
     radioOpenMid = mid;
     radioOpenBtn.style.display = '';
+    if (TavernPlayer.isMobile()) {
+      radioOpenBtn.textContent = '📋 复制链接';
+    } else {
+      radioOpenBtn.textContent = '↗ 在新标签播放';
+    }
   }
   function radioHideOpen() {
     radioOpenMid = '';
@@ -500,8 +505,30 @@ a{color:#00d2ff;text-decoration:none}
     if (wrap) wrap.style.display = 'none';
   }
   radioOpenBtn.addEventListener('click', function () {
-    if (radioOpenMid) window.open('https://y.qq.com/n/ryqq/songDetail/' + radioOpenMid, '_blank');
+    if (!radioOpenMid) return;
+    var url = 'https://y.qq.com/n/ryqq/songDetail/' + radioOpenMid;
+    if (TavernPlayer.isMobile()) {
+      /* 移动端：复制链接，不离开页面 */
+      function done() { radioStateEl.textContent = '✅ 链接已复制，去 QQ音乐 App 粘贴打开即可'; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, function () { fallbackCopy(url, done); });
+      } else {
+        fallbackCopy(url, done);
+      }
+    } else {
+      window.open(url, '_blank');
+    }
   });
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); cb(); } catch (e) { window.prompt('请复制链接：', text); }
+    document.body.removeChild(ta);
+  }
   /* 播放失败（VIP 锁曲 / 登录态不足）：
    * 不再自动嵌入 QQ音乐 iframe——第三方上下文下其内部登录会循环（Cookie 被浏览器限制），
    * 改为直接引导「在新标签播放」（第一方上下文，登录一次后即可正常听全曲） */
@@ -510,7 +537,10 @@ a{color:#00d2ff;text-decoration:none}
     var wrap = document.getElementById('radioFrameWrap');
     if (wrap) { wrap.innerHTML = ''; wrap.style.display = 'none'; }
     radioShowOpen(mid);
-    radioStateEl.textContent = '该曲需登录听全曲：请点「↗ 在新标签播放」（登录一次后即可正常播放，不会循环）';
+    var hint = '该曲需登录听全曲：' + (TavernPlayer.isMobile()
+      ? '点「📋 复制链接」到 QQ音乐 App 打开'
+      : '点「↗ 在新标签播放」（登录一次后即可正常播放，不会循环）');
+    radioStateEl.textContent = hint;
   }
 
   function radioSetSong(song) {
@@ -527,11 +557,6 @@ a{color:#00d2ff;text-decoration:none}
   }
   radioSongBtn.addEventListener('click', function () {
     if (!radioSong) return;
-    if (TavernPlayer.isMobile()) {
-      /* 移动端：直接跳转 App，不加载直链 */
-      TavernPlayer.jumpApp(radioSong.mid);
-      return;
-    }
     radioHideOpen();
     TavernPlayer.playSong(radioSong.mid, radioSong.title).then(function (ok) {
       if (!ok) radioFail(radioSong.mid, radioSong.title);
@@ -539,10 +564,6 @@ a{color:#00d2ff;text-decoration:none}
   });
   radioEpBtn.addEventListener('click', function () {
     if (!radioEp) return;
-    if (TavernPlayer.isMobile()) {
-      TavernPlayer.jumpApp(radioEp.mid);
-      return;
-    }
     radioHideOpen();
     TavernPlayer.playEpisode(radioEp.mid, radioEp.title).then(function (ok) {
       if (!ok) radioFail(radioEp.mid, radioEp.title);
