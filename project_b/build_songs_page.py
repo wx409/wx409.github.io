@@ -91,6 +91,8 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 .tag.tavern{{background:#f3e8ff;color:#7c3aed;}}
 .song-lyrics{{font-size:13px;color:#555;margin-top:8px;border-left:2px solid #ddd;padding-left:10px;}}
 .song-credits{{font-size:12px;color:#888;margin-top:6px;}}
+.lyr-toggle{{background:none;border:none;color:#c41e3a;font-size:12px;cursor:pointer;padding:0;margin-left:4px;text-decoration:underline;}}
+.lyr-full{{display:block;line-height:1.9;margin-top:4px;}}
 .pe-btn{{background:#c41e3a;color:#fff;border:none;border-radius:14px;padding:3px 14px;font-size:12px;cursor:pointer;}}
 .pe-btn:hover{{filter:brightness(1.1);}}
 .pe-btn.pe-playing{{background:#0a7a5a;}}
@@ -175,7 +177,14 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     if (s.show_count) tags += '<span class="tag live">巡演 ' + s.show_count + ' 场</span>';
     var lyrics = '';
     if (s.lyrics && s.lyrics.length) {{
-      lyrics = '<div class="song-lyrics">“' + esc(s.lyrics[0].text) + '”</div>';
+      var allLines = s.lyrics.map(function (f) {{ return esc(f.text); }}).join('<br>');
+      if (s.lyrics.length === 1) {{
+        lyrics = '<div class="song-lyrics">' + allLines + '</div>';
+      }} else {{
+        lyrics = '<div class="song-lyrics"><span class="lyr-preview">' + esc(s.lyrics[0].text) + '…</span>' +
+          '<button type="button" class="lyr-toggle">展开完整歌词</button>' +
+          '<span class="lyr-full" style="display:none">' + allLines + '</span></div>';
+      }}
     }}
     var credits = '';
     if (s.credits) {{
@@ -255,6 +264,24 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     }});
   }}
   setInterval(highlightPlaying, 800);
+  /* 展开/收起完整歌词（事件委托） */
+  document.getElementById('songList').addEventListener('click', function (e) {{
+    var btn = e.target && e.target.closest ? e.target.closest('.lyr-toggle') : null;
+    if (!btn) return;
+    var card = btn.closest('.song-card');
+    if (!card) return;
+    var full = card.querySelector('.lyr-full');
+    var preview = card.querySelector('.lyr-preview');
+    if (full && full.style.display === 'none') {{
+      full.style.display = 'block';
+      if (preview) preview.style.display = 'none';
+      btn.textContent = '▲ 收起歌词';
+    }} else if (full) {{
+      full.style.display = 'none';
+      if (preview) preview.style.display = '';
+      btn.textContent = '展开完整歌词';
+    }}
+  }});
   document.getElementById('chipAll').addEventListener('click', function () {{ setFilter('all'); }});
   document.getElementById('chipPlayable').addEventListener('click', function () {{ setFilter('playable'); }});
   document.getElementById('chipLyric').addEventListener('click', function () {{ setFilter('lyric'); }});

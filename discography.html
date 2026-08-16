@@ -33,6 +33,8 @@
         .track-title { font-weight: 600; }
         .track-credits { font-size: 12px; color: #777; margin-top: 2px; line-height: 1.6; }
         .track-lyrics { font-size: 12px; color: #999; margin-top: 2px; line-height: 1.6; border-left: 2px solid #eee; padding-left: 8px; }
+        .lyr-toggle { background: none; border: none; color: #c41e3a; font-size: 12px; cursor: pointer; padding: 0; margin-left: 4px; text-decoration: underline; }
+        .lyr-full { display: block; line-height: 1.9; margin-top: 4px; }
         .pe-btn { background: #c41e3a; color: #fff; border: none; border-radius: 14px; padding: 2px 12px; font-size: 12px; cursor: pointer; margin-left: auto; flex-shrink: 0; }
         .pe-btn:hover { filter: brightness(1.1); }
         .pe-btn.pe-playing { background: #0a7a5a; }
@@ -133,7 +135,11 @@
                 function lyricsHtml(s) {
                     if (!s.lyrics || !s.lyrics.length) return '';
                     var lines = s.lyrics.slice(0, 2).map(function (f) { return f.text; }).join(' / ');
-                    return '<div class="track-lyrics">“' + esc(lines) + (s.lyrics.length > 2 ? '…' : '') + '”</div>';
+                    var all = s.lyrics.map(function (f) { return esc(f.text); }).join('<br>');
+                    if (s.lyrics.length <= 2) return '<div class="track-lyrics">' + esc(lines) + '</div>';
+                    return '<div class="track-lyrics"><span class="lyr-preview">“' + esc(lines) + '…”</span>' +
+                        '<button type="button" class="lyr-toggle">展开完整歌词</button>' +
+                        '<span class="lyr-full" style="display:none">' + all + '</span></div>';
                 }
                 albums.forEach(function (a) {
                     var songs = a.songs || [];
@@ -153,6 +159,21 @@
                         window.PlayerEmbed.attach(b, { mid: b.getAttribute('data-mid'), title: b.getAttribute('data-title') });
                     });
                 }
+                box.addEventListener('click', function (e) {
+                    var btn = e.target && e.target.closest ? e.target.closest('.lyr-toggle') : null;
+                    if (!btn) return;
+                    var full = btn.parentNode.querySelector('.lyr-full');
+                    var preview = btn.parentNode.querySelector('.lyr-preview');
+                    if (full && full.style.display === 'none') {
+                        full.style.display = 'block';
+                        if (preview) preview.style.display = 'none';
+                        btn.textContent = '▲ 收起歌词';
+                    } else if (full) {
+                        full.style.display = 'none';
+                        if (preview) preview.style.display = '';
+                        btn.textContent = '展开完整歌词';
+                    }
+                });
             })
             .catch(function () { document.getElementById('albumList').innerHTML = '<p style="color:#888">专辑数据加载失败</p>'; });
     })();
