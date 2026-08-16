@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""watch_tours.py —— 演出/巡演候选监测（只读，人工确认后并入长表）
+"""watch_tours.py —— 演出/巡演候选监测（尽力而为 + 人工确认）
 
-数据源：公开票务/资讯搜索关键词（大麦/秀动/保利票务/新闻）。
-输出 data/pending_events.json（候选清单），**绝不自动入库**——演出信息必须人工确认（纪律：诚实披露）。
-
-注意：网页爬取可能失败或被反爬；失败时输出空清单并注明，不阻塞流水线。
+数据源：Bing 网页搜索（精确词查询，多次尝试）。
+输出 data/pending_events.json 候选清单。
+**绝不自动入库**：票务无公开 API、搜索易反爬/分词干扰，演出信息必须人工确认
+（纪律：不伪造；确认后一条命令入库：python project_b/confirm_event.py ...）
 """
 import json
 import re
@@ -14,43 +14,53 @@ import urllib.request
 
 ROOT = r"D:\wx409.github.io"
 OUT = ROOT + r"\data\pending_events.json"
-UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-# 候选关键词（可扩展）
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0"}
+
 QUERIES = [
-    "王晰 巡回音乐会 开票",
-    "王晰 演唱会 官宣",
-    "王晰 个人巡回 2026",
+    '"王晰" 演唱会 官宣 开票',
+    '"王晰" 巡回音乐会 新场次',
+    '"王晰" 个人巡回 2026 售票',
 ]
+HIT = re.compile(r"王晰")
+KEEP = re.compile(r"演唱会|音乐会|巡演|巡回|开票|官宣|演出|剧场|剧院|票务", re.I)
 
 
-def fetch_text(url):
+def bing(q):
+    url = "https://www.bing.com/search?q=" + urllib.parse.quote(q)
     try:
-        req = urllib.request.Request(url, headers=UA, timeout=15)
-        return urllib.request.urlopen(req).read().decode("utf-8", "ignore")
+        req = urllib.request.Request(url, headers=UA)
+        d = urllib.request.urlopen(req, timeout=12).read().decode("utf-8", "ignore")
+        return re.findall(r'<h2[^>]*><a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', d, re.S)
     except Exception:
-        return ""
+        return []
 
 
 def main():
     candidates = []
+    seen = set()
     for q in QUERIES:
-        # 用搜索引擎 HTML 摘要接口不可靠，这里改为 QQ/票务平台内搜索（可替换为实际票务 API）
-        # 示例：秀动/大麦无公开 JSON API，先记录关键词占位，预留对接点
-        candidates.append({
-            "query": q, "status": "需人工检索",
-            "note": "票务平台无公开 API，此条目为提醒：请人工在大麦/秀动/保利票务搜索确认是否有新场次",
-        })
-        time.sleep(0.5)
+        for url, title in bing(q):
+            t = re.sub(r"<[^>]+>", "", title).strip()
+            if not HIT.search(t) or not KEEP.search(t):
+                continue
+            if t in seen:
+                continue
+            seen.add(t)
+            candidates.append({"title": t[:80], "url": url, "query": q,
+                               "confirm_hint": "确认后执行: python project_b/confirm_event.py --date YYYY-MM-DD --city XX --venue XX --tour X巡"})
+        time.sleep(1.0)
 
     out = {
         "generated_at": "",
-        "rule": "只读候选清单；确认后并入巡演歌单长表 xlsx 或 cities.json，再跑 deploy_all",
+        "rule": "只读候选清单（Bing 网页检索，尽力而为）。票务无公开 API，演出信息必须人工确认后经 confirm_event.py 入库。",
         "candidates": candidates,
     }
     import datetime
     out["generated_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print("[OK] 候选清单 -> data/pending_events.json（请人工确认）")
+    print("[OK] 候选 %d 条 -> data/pending_events.json（请人工确认）" % len(candidates))
+    for c in candidates[:10]:
+        print("  -", c["title"])
 
 
 if __name__ == "__main__":
