@@ -122,7 +122,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="一键部署流水线")
     parser.add_argument("--commit", default=None, help="自定义 git commit 信息")
     parser.add_argument("--no-git", action="store_true", help="只跑生成，不提交")
+    parser.add_argument("--notify-only", action="store_true",
+                        help="只发送 IndexNow 通知（供 auto_update.py 发布后调用）")
     args = parser.parse_args()
+
+    if args.notify_only:
+        print("--- IndexNow 通知（notify-only）---")
+        ok = notify_indexnow()
+        print("通知完成 ✅" if ok else "通知失败（不影响站点）")
+        return
 
     print(f"王晰 GEO 站 · 一键部署流水线\n开始时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
