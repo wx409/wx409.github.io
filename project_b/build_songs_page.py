@@ -199,7 +199,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     var meta = [s.attr, s.release !== '-' ? s.release : ''].filter(Boolean).join(' · ');
     /* 多平台试听：有 mid 用 mid（QQ→网易云），无 mid 用歌名（网易云） */
     var play = '<button type="button" class="pe-btn" data-mid="' + esc(s.mid || '') + '" data-title="' + esc(s.name) + '">▶ 试听</button>';
-    return '<div class="song-card">' +
+    return '<div class="song-card" id="song-' + esc(s.name) + '">' +
       '<div class="song-head"><span class="song-name">《' + esc(s.name) + '》</span>' + play + '</div>' +
       (meta ? '<div class="song-meta">' + esc(meta) + tags + '</div>' : '<div class="song-meta">' + tags + '</div>') +
       credits + lyrics + '</div>';

@@ -159,7 +159,7 @@
                     var songs = a.songs || [];
                     var list = songs.map(function (s, i) {
                         var play = s.mid ? '<button type="button" class="pe-btn" data-mid="' + esc(s.mid) + '" data-title="' + esc(s.title) + '">▶ 试听</button>' : '';
-                        return '<li><span class="track-num">' + (i + 1) + '</span><div class="track-main">' +
+                        return '<li id="song-' + esc(s.title) + '"><span class="track-num">' + (i + 1) + '</span><div class="track-main">' +
                             '<div class="track-row"><span class="track-title">' + esc(s.title) + '</span>' + play + '</div>' +
                             creditsHtml(s) + lyricsHtml(s) +
                             '</div></li>';

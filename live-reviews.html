@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>王晰现场实录索引 | 一巡至六巡全网真实反馈聚合</title>
-    <meta name="description" content="王晰2019-2026六轮巡演各城演出后，听众在微博、小红书、抖音、豆瓣等平台发布的真实反馈与现场记录索引。仅供学术与信息聚合用途。">
+    <meta name="description" content="王晰2019-2026六轮巡演各城演出后，听众在微博、豆瓣、哔哩哔哩等平台发布的真实反馈与现场记录索引（含官方媒体报道）。仅供学术与信息聚合用途。">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; line-height: 1.8; max-width: 860px; margin: 0 auto; padding: 20px; color: #333; }
         h1 { border-bottom: 3px solid #c41e3a; padding-bottom: 10px; }
         h2 { border-left: 4px solid #c41e3a; padding-left: 12px; margin-top: 40px; background: #fafafa; padding: 10px; }
-        h3 { color: #555; margin-left: 20px; border-left: 2px solid #ddd; padding-left: 10px; }
         .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
         .nav a { color: #c41e3a; margin-right: 20px; text-decoration: none; font-weight: 500; }
         .review-card { background: #fafafa; padding: 15px; margin: 15px 0 15px 20px; border-radius: 8px; border-left: 3px solid #c41e3a; }
-        .history-item { background: #fff; padding: 12px; margin: 8px 0; border-radius: 6px; border: 1px solid #eee; }
-        .tag { display: inline-block; background: #e9ecef; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 5px; }
+        .history-item { background: #fff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; border: 1px solid #eee; }
+        /* 档案状态视觉区分 */
+        .history-item[data-status="completed"] { border-left: 4px solid #0a7a5a; }
+        .history-item[data-status="pending"] { border-left: 4px dashed #bbb; background: #fbfbfb; }
+        .history-item[data-status="pending"] header::after { content: " 待补充"; color: #b03030; font-size: 11px; border: 1px solid #e0b0b0; border-radius: 8px; padding: 0 6px; margin-left: 6px; }
+        .history-item[data-source-level="official"] { border-left-color: #2e7d32; }
+        .history-item[data-source-level="verified"] { border-left-color: #c41e3a; }
+        .history-item[data-source-level="single"] { border-left-color: #9e9e9e; }
+        .history-item header { margin-bottom: 6px; }
+        .repo-list { list-style: none; padding: 0; margin: 6px 0 0; font-size: 13px; }
+        .repo-list li { margin: 4px 0; }
+        .repo-list a { color: #1a56c4; text-decoration: none; }
+        .repo-list a:hover { text-decoration: underline; }
+        .repo-note { color: #b8860b; font-size: 12px; }
+        .pending-note { color: #999; font-size: 13px; margin: 6px 0 0; }
+        .cancel-note { color: #b03030; font-size: 13px; margin: 4px 0 0; }
+        .tag { display: inline-block; background: #e9ecef; padding: 0 6px; border-radius: 4px; font-size: 11px; margin-right: 4px; color: #555; }
+        .src-badge { display: inline-block; font-size: 10px; padding: 0 6px; border-radius: 8px; margin-left: 2px; }
+        .src-badge.official { background: #e3f2e3; color: #2e7d32; }
+        .src-badge.verified { background: #fdecea; color: #c41e3a; }
+        .src-badge.single { background: #eee; color: #666; }
         .stats { background: #f0f8ff; padding: 15px; border-radius: 8px; margin: 15px 0; }
     </style>
 <link rel="canonical" href="https://wx409.github.io/live-reviews.html">
@@ -35,246 +53,488 @@
 
     <h1>现场实录索引｜王晰一巡至六巡全网真实反馈</h1>
     <div class="stats">
-        <strong>📊 数据概览</strong>：2019-2026 年 <strong>6 轮</strong>巡演 · <strong>60+ 场次</strong> · 覆盖 <strong>30+ 城市</strong> · 已收录 repo <strong>持续更新中</strong>
+        <strong>📊 数据概览</strong>：2019-2026 年 <strong>6 轮</strong>巡演 · <strong>59</strong> 场次 · 已收录 repo <strong>51</strong> 场（待补充 <strong>8</strong> 场）<br>
+        信源级别：<span class="src-badge official">官方</span> 媒体/官方通告 ·
+        <span class="src-badge verified">多源</span> 多观众交叉验证 ·
+        <span class="src-badge single">单源</span> 单条未验证
     </div>
-    <p>以下为王晰各轮巡演历史场次索引，及演出后听众在微博、小红书、抖音、豆瓣等平台发布的真实反馈。<br>
-    <strong>灰色场次</strong>为待补充 repo，如果你记录了对应场次，欢迎投稿链接。</p>
+    <p>以下为王晰各轮巡演历史场次索引，及演出后听众在微博、豆瓣、哔哩哔哩等平台发布的真实反馈。<br>
+    <strong>虚线边框为待补充场次</strong>，如果你记录了对应场次，欢迎<a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">投稿</a>。</p>
 
-    <h2>一巡 ·Cherish珍晰（2019-2020）</h2>
-    <div class="history-item">
-        <strong>2019.06.07</strong> · 杭州 · 杭州剧院 · 一巡首场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.06.15</strong> · 武汉 · 武汉剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.07.20</strong> · 大连 · 大连国际会议中心大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.07.28</strong> · 南京 · 南京保利大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.08.04</strong> · 广州 · 广东艺术剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.08.16</strong> · 北京 · 北京世纪剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.09.08</strong> · 深圳 · 深圳保利剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.10.12</strong> · 南宁 · 广西文化艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.10.19</strong> · 重庆 · 重庆国泰艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.11.03</strong> · 上海 · 上海美琪大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.11.16</strong> · 海口 · 海口国际会展中心东方环球大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.11.29</strong> · 珠海 · 珠海大剧院·歌剧厅
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.12.01</strong> · 佛山 · 佛山大剧院·大剧场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.12.15</strong> · 长沙 · 长沙梅溪湖大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.12.21</strong> · 厦门 · 厦门沧江剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2019.12.28</strong> · 太原 · 山西大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2020.01.02</strong> · 北京 · 北京北展剧场 · 一巡收官
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <h2>二巡·2020-2021个人巡回（2020-2021）</h2>
-    <div class="history-item">
-        <strong>2020.11.14</strong> · 杭州 · 杭州剧院 · 二巡首场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2020.11.21</strong> · 佛山 · 佛山琼花大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2020.11.29</strong> · 北京 · 北京北展剧场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2020.12.05</strong> · 广州 · 广州中山纪念堂 · 腾讯直播
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2020.12.19</strong> · 南宁 · 广西文化艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2021.01.09</strong> · 长沙 · 长沙音乐厅
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2021.01.10</strong> · 武汉 · 武汉琴台大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2021.03.07</strong> · 上海 · 上海东方艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2021.03.08</strong> · 上海 · 上海东方艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2021.03.27</strong> · 宁波 · 宁波文化广场大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2021.04.11</strong> · 南京 · 南京保利大剧院 · 二巡收官
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <h2>三巡 · 图景（2021-2023）</h2>
-    <div class="history-item">
-        <strong>2021.12.04</strong> · 广州 · 广州中山纪念堂 · 三巡首场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.01.09</strong> · 无锡 · 无锡大剧院歌剧厅
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.01.10</strong> · 上海 · 上海东方艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.04.09</strong> · 北京 · 北京二七剧场 · 生日场 / Pico直播王晰图景VR音乐会
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.06.24</strong> · 长沙 · 长沙音乐厅
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.07.15</strong> · 太原 · 山西大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.07.17</strong> · 鄂尔多斯 · 鄂尔多斯市保利剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2022.09.17</strong> · 武汉 · 武汉琴台大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2023.05.01</strong> · 郑州 · 河南艺术中心
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2023.05.03</strong> · 昆明 · 云南省大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2023.05.20</strong> · 南宁 · 广西文化艺术中心·大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2023.06.23</strong> · 深圳 · 深圳光明文化艺术中心 · 三巡收官
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <h2>四巡·肆益（2023-2024）</h2>
-    <div class="history-item">
-        <strong>2023.11.12</strong> · 北京 · 北京二七剧场 · 四巡首场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2023.12.10</strong> · 广州 · 广东艺术剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2023.12.31</strong> · 上海 · 上海北外滩友邦大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.01.27</strong> · 南京 · 南京太阳宫剧场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.03.30</strong> · 重庆 · 重庆施光南大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.04.06</strong> · 上海 · 上海保利大剧院·大剧场 · 生日特别场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.05.25</strong> · 杭州 · 杭州剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.08.16</strong> · 北京 · 北京世纪剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.09.16</strong> · 武汉 · 武汉琴台大剧院 · 四巡收官
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <h2>五巡 · 吾（2024-2026）</h2>
-    <div class="history-item">
-        <strong>2024.12.21</strong> · 杭州 · 杭州剧院（杭州市拱墅区武林广场29号） · 五巡首场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2024.12.29</strong> · 南昌 · 南昌保利大剧院（红谷滩区南龙蟠街1328号）
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2025.01.01</strong> · 长沙 · 长沙梅溪湖大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2025.04.05</strong> · 北京 · 北京二七剧场（北京市西城区二七剧场路15号） · 生日场
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2025.05.24</strong> · 广州 · 广东艺术剧院（广州大道中1229号）
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2025.11.21</strong> · 上海 · 上海北外滩友邦大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2026.01.31</strong> · 杭州 · 杭州金沙湖大剧院
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <div class="history-item">
-        <strong>2026.04.10</strong> · 北京 · 北京世纪剧院 · 五巡收官
-        <p style="color:#999;font-size:12px;margin:5px 0 0 0;">现场repo待补充 · <a href="https://weibo.com/u/1292815744" target="_blank">@王晰</a></p>
-    </div>
-    <h2 id="chongqing-20260613">六巡 · 回（2026）</h2>
-    <!-- CHONGQING_20260613_START -->
+<h2 id="tour-一巡">一巡 ·Cherish珍晰（2019-2020）</h2>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-06-07">2019.06.07</time></strong> · 杭州 · 杭州剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="http://www.360doc.com/content/19/0610/13/60888534_841515329.shtml" target="_blank" rel="noopener nofollow">王晰2019巡演首站告捷 粉丝高喊安可再加唱</a> <span class="tag">360doc(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.bilibili.com/video/BV164411T75C/" target="_blank" rel="noopener nofollow">20190607 王晰杭州个巡《跟着你到天边》(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:4481019869331475" target="_blank" rel="noopener nofollow">王晰《Autumn》现场(饭拍视频)</a> <span class="tag">微博</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-06-15">2019.06.15</time></strong> · 武汉 · 武汉剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/143381781/" target="_blank" rel="noopener nofollow">一条毫无营养的615 repo</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/opus/265606554319997227" target="_blank" rel="noopener nofollow">亲密爱人—王晰个巡武汉站repo</a> <span class="tag">哔哩哔哩(专栏)</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV194411V7Xm/" target="_blank" rel="noopener nofollow">20190615武汉站返场《我的太阳》+合唱《慢慢喜欢你》(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="http://www.360doc.com/content/19/0618/15/60888534_843318777.shtml" target="_blank" rel="noopener nofollow">王晰2019巡演武汉站落幕 弘扬正能营造视听盛宴</a> <span class="tag">360doc(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2019-07-20">2019.07.20</time></strong> · 大连 · 大连国际会议中心大剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/146372720/" target="_blank" rel="noopener nofollow">一个严格的晰哥7.20大连场repo</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.douban.com/group/topic/146365926/" target="_blank" rel="noopener nofollow">严格的晰哥7.20大连场repo(施工完毕)</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.douban.com/group/topic/146230515/" target="_blank" rel="noopener nofollow">再识王晰(大连场观后感)</a> <span class="tag">豆瓣</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-07-28">2019.07.28</time></strong> · 南京 · 南京保利大剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/av62069268/" target="_blank" rel="noopener nofollow">王晰巡演南京站《叶塞尼亚》歌迷点歌清唱(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Rt411w7fi/" target="_blank" rel="noopener nofollow">2019.7.28 南京站现场(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1640372050620970149" target="_blank" rel="noopener nofollow">张瑶惊喜助阵王晰演唱会 合唱默契十足</a> <span class="tag">百家号(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1640471874009094716" target="_blank" rel="noopener nofollow">王晰个人巡演南京站落幕 真空西装展超A诱惑</a> <span class="tag">百家号(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-08-04">2019.08.04</time></strong> · 广州 · 广东艺术剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/147773365/" target="_blank" rel="noopener nofollow">王晰，晰爹…广州场太浪漫了…repo来了</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/av62319930/" target="_blank" rel="noopener nofollow">《她来听我的演唱会》约定四十岁还来听(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://yule.360.com/detail/551779" target="_blank" rel="noopener nofollow">王晰个人巡演广州站落幕 翻唱《她来听我的演唱会》</a> <span class="tag">360娱乐(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1641149206569245778" target="_blank" rel="noopener nofollow">王晰 醇厚低音“开口醉”</a> <span class="tag">百家号(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2019-08-16">2019.08.16</time></strong> · 北京 · 北京世纪剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/note/730697032/" target="_blank" rel="noopener nofollow">一个很长的“Cherish珍晰”王晰北京站repo 20190816</a> <span class="tag">豆瓣(日记)</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Y4411Z71F/" target="_blank" rel="noopener nofollow">【王晰】个人巡回音乐会2019《谁》(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2019-09-08">2019.09.08</time></strong> · 深圳 · 深圳保利剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/note/734586714/" target="_blank" rel="noopener nofollow">再次速战速决，晰哥个唱(观后感)</a> <span class="tag">豆瓣(日记)</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1kJ411N79n/" target="_blank" rel="noopener nofollow">【2019-9-8王晰深圳个巡】台下粉丝点歌环节(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1UJ411N7Fx/" target="_blank" rel="noopener nofollow">20190908珍晰深圳站《心动》饭拍</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1mJ411N7pt/" target="_blank" rel="noopener nofollow">20190908珍晰深圳站《莫斯科郊外的晚上》饭拍</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-10-12">2019.10.12</time></strong> · 南宁 · 广西文化艺术中心 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1nE411d7Ks/" target="_blank" rel="noopener nofollow">20191012王晰个巡 南宁站(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/av71142063/" target="_blank" rel="noopener nofollow">王晰“珍晰”个巡南宁站饭拍全程(大概)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://m.nn.bendibao.com/xiuxian/47356.shtm" target="_blank" rel="noopener nofollow">2019王晰个人巡回音乐会南宁演出节目单</a> <span class="tag">南宁本地宝</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-10-19">2019.10.19</time></strong> · 重庆 · 重庆国泰艺术中心（国泰大剧院） · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.sohu.com/a/348370346_100302123" target="_blank" rel="noopener nofollow">王晰将“重庆野玫瑰”献给重庆国泰剧院…音乐会</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.bilibili.com/video/BV1NE411r79X/" target="_blank" rel="noopener nofollow">《贝加尔湖畔》Cherish珍晰重庆场191019(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-11-03">2019.11.03</time></strong> · 上海 · 上海美琪大剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://m.sohu.com/a/350256387_120204627/" target="_blank" rel="noopener nofollow">2019王晰上海演唱会，声乐之中，纯享低音最让人迷醉</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://m.weibo.cn/status/4434751873953185" target="_blank" rel="noopener nofollow">王晰上海个巡相关微博(单条)</a> <span class="tag">微博</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-11-16">2019.11.16</time></strong> · 海口 · 海口国际会展中心东方环球大剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://zhuanlan.zhihu.com/p/74884027" target="_blank" rel="noopener nofollow">你真的了解男低音吗？2019王晰海口演唱会</a> <span class="tag">知乎(专栏)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.sohu.com/a/332824754_120204627" target="_blank" rel="noopener nofollow">2019王晰海口演唱会，军人的身份和模特的职业…</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.sohu.com/a/331914015_120204627" target="_blank" rel="noopener nofollow">2019王晰海口演唱会，声线的魅力…LowC</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.bilibili.com/video/av76138063/" target="_blank" rel="noopener nofollow">《南海姑娘》Cherish珍晰海口站20191116(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://m.weibo.cn/status/5255862522480933" target="_blank" rel="noopener nofollow">海口场相关微博(单条)</a> <span class="tag">微博</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-11-29">2019.11.29</time></strong> · 珠海 · 珠海大剧院·歌剧厅 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1FJ411v79w/" target="_blank" rel="noopener nofollow">【王晰/20191129珠海】《野狼disco》高清剪辑</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Eb411g796/" target="_blank" rel="noopener nofollow">【王晰】正片与饭拍part2</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://www.sohu.com/a/334589043_120283767" target="_blank" rel="noopener nofollow">2019王晰珠海演唱会，轻吟浅唱就是一段往日时光</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2019-12-01">2019.12.01</time></strong> · 佛山 · 佛山大剧院·大剧场 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1eJ411z7NE/" target="_blank" rel="noopener nofollow">【王晰＆高杨】“珍晰”佛山上头场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1oJ411q7Jn/" target="_blank" rel="noopener nofollow">【王晰】191201佛山站，禁欲or性感or可爱</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1vJ411z7hx/" target="_blank" rel="noopener nofollow">【王晰】她真漂亮 with 高杨 @ 佛山站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://tieba.baidu.com/p/6371215459" target="_blank" rel="noopener nofollow">王晰个人巡回音乐会佛山站(贴)</a> <span class="tag">贴吧</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-12-15">2019.12.15</time></strong> · 长沙 · 长沙梅溪湖国际文化艺术中心大剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1TJ41167Ma/" target="_blank" rel="noopener nofollow">【王晰】个巡长沙站合集20191215 梦回梅溪湖(嘉宾廖佳琳、石凯)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1649171148167932862" target="_blank" rel="noopener nofollow">王晰长沙站相关报道</a> <span class="tag">百家号(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2019-12-21">2019.12.21</time></strong> · 厦门 · 厦门沧江剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/161421010/" target="_blank" rel="noopener nofollow">王晰厦门 | 神奇提琴在哪里（已完结）(repo)</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1xJ411s7yH/" target="_blank" rel="noopener nofollow">王晰个人巡回音乐会2019.12.21厦门场(持续更新)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/av681795823/" target="_blank" rel="noopener nofollow">王晰《Your Man》【4K字幕】Cherish珍晰音乐会</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2019-12-28">2019.12.28</time></strong> · 太原 · 山西大剧院 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1EJ411a7a4/" target="_blank" rel="noopener nofollow">王晰 利刃出鞘般的花样年华 太原(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV16J41187wD/" target="_blank" rel="noopener nofollow">王晰 肆意绽放的玛莲娜(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.163.com/dy/article/F13PH80F0537ADJ8.html" target="_blank" rel="noopener nofollow">2019王晰太原演唱会倒计时5天…观演指南</a> <span class="tag">网易(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2020-01-02">2020.01.02</time></strong> · 北京收官 · 北京北展剧场 · Cherish珍晰
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/163339828/" target="_blank" rel="noopener nofollow">新年过期三连repo 晰佳超</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1aJ411j71g/" target="_blank" rel="noopener nofollow">王晰个人巡回音乐会200102北京场收官《Your man》</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV18J411j7GQ/" target="_blank" rel="noopener nofollow">200102北京场收官合影环节(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1xJ411j7Hs/" target="_blank" rel="noopener nofollow">王晰2019巡演收官合集(嘉宾简弘亦、廖佳琳、李彦锋等)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<h2 id="tour-二巡">二巡 ·2020-2021 个人巡回（2020-2021）</h2>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2020-11-14">2020.11.14</time></strong> · 杭州 · 杭州剧院 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/201200671/" target="_blank" rel="noopener nofollow">王晰的二巡太绝啦！！！想看的超级推荐现场</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.douban.com/group/topic/201128655/" target="_blank" rel="noopener nofollow">安利推荐｜王晰二巡首场–来听绝美改编《花儿为什么这样红》</a> <span class="tag">豆瓣</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1ia411w762/" target="_blank" rel="noopener nofollow">王晰 杭州二巡VLOG+演唱会</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2020-11-21">2020.11.21</time></strong> · 佛山 · 佛山琼花大剧院 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV14D4y1X78d/" target="_blank" rel="noopener nofollow">不愧是你！拉麦…《dear friend》超清饭拍【佛山站】</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV14y4y1z7BR/" target="_blank" rel="noopener nofollow">【王晰】雪地里寄不出的求救信 @ 佛山站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Za411c7Sc/" target="_blank" rel="noopener nofollow">【王晰】《滚滚红尘》歌颂巡回音乐会佛山站点歌</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2020-11-29">2020.11.29</time></strong> · 北京 · 北京展览馆剧场（北展剧场） · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1by4y167Dq/" target="_blank" rel="noopener nofollow">王晰二巡-北京站 爱情(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Yp4y1r77g/" target="_blank" rel="noopener nofollow">王晰二巡-北京站 后会无期(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://m.weibo.cn/detail/4571311114031762" target="_blank" rel="noopener nofollow">北京站相关微博(单条)</a> <span class="tag">微博</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2020-12-05">2020.12.05</time></strong> · 广州 · 广州中山纪念堂 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1Uz4y167hL/" target="_blank" rel="noopener nofollow">【王晰】besame mucho + 一帘幽梦 + 今宵多珍重(点歌环节) @ 广州站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2020-12-19">2020.12.19</time></strong> · 南宁 · 广西文化艺术中心 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1YK4y157y2/" target="_blank" rel="noopener nofollow">【王晰】20201219南宁场 全程部分歌曲&amp;talk 自剪</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2021-01-09">2021.01.09</time></strong> · 长沙 · 长沙音乐厅 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1R1421y7DA/" target="_blank" rel="noopener nofollow">唱着唱着腰封掉了…王晰《后会无期》20210109长沙</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.douban.com/group/topic/207747473/" target="_blank" rel="noopener nofollow">听说王晰唱了生日快乐隔空送马佳？</a> <span class="tag">豆瓣</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2021-01-10">2021.01.10</time></strong> · 武汉 · 武汉琴台大剧院 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/207895610/" target="_blank" rel="noopener nofollow">所以一段经历真的会影响一生吧(武汉场观后感)</a> <span class="tag">豆瓣</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://www.sohu.com/a/442782628_355693" target="_blank" rel="noopener nofollow">本周重磅上演 ▏2021王晰“歌颂”个人巡回音乐会·武汉站</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://weibo.com/2827620084/JivxO2rtb" target="_blank" rel="noopener nofollow">武汉场相关微博(单条)</a> <span class="tag">微博</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2021-03-07">2021.03.07</time></strong> · 上海（首场） · 上海东方艺术中心 · 2020-2021 个人巡回 · 首场
+<ul class="repo-list">
+<li><a href="https://www.douban.com/group/topic/211906958/" target="_blank" rel="noopener nofollow">王晰3.7音乐会(讨论帖)</a> <span class="tag">豆瓣</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://www.sohu.com/a/451257209_120938239" target="_blank" rel="noopener nofollow">2021王晰上海音乐会，巡演上海站(报道)</a> <span class="tag">搜狐(媒体)</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2021-03-08">2021.03.08</time></strong> · 上海（加场） · 上海东方艺术中心 · 2020-2021 个人巡回 · 加场
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV14f4y147R9/" target="_blank" rel="noopener nofollow">王晰个人巡回音乐会20210308上海 爱情(饭拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1YX4y1V7nZ/" target="_blank" rel="noopener nofollow">【王晰】210308歌颂二巡上海站《茕茕》</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2021-03-27">2021.03.27</time></strong> · 宁波 · 宁波文化广场大剧院 · 2020-2021 个人巡回
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1164y1U71Z/" target="_blank" rel="noopener nofollow">王晰2020个人巡回音乐会20210327宁波 长长的talk</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="http://news.cnnb.com.cn/system/2021/03/25/030239405.shtml" target="_blank" rel="noopener nofollow">“低音王子”来了！王晰个人巡回音乐会宁波站周六上演</a> <span class="tag">中国宁波网(媒体)</span> <span class="src-badge official">官方</span></li>
+<li><a href="http://daily.cnnb.com.cn/nbwb/html/2021-03/25/content_1266188.htm" target="_blank" rel="noopener nofollow">宁波晚报·数字报刊平台(报道)</a> <span class="tag">宁波晚报</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2021-04-11">2021.04.11</time></strong> · 南京（收官） · 南京保利大剧院 · 2020-2021 个人巡回 · 收官
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV18Z4y1E7Mi/" target="_blank" rel="noopener nofollow">【王晰】南京《崇拜》+闭幕，很难不爱这个男人(直拍)</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1v5411c7CC/" target="_blank" rel="noopener nofollow">【王晰】你 - 20210411 南京</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.sina.cn/news/detail/5281245806203125.html" target="_blank" rel="noopener nofollow">每次见完王哥都兴奋的睡不着(观后感,微博转载)</a> <span class="tag">新浪</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<h2 id="tour-三巡">三巡 ·图景（2021-2023）</h2>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2021-12-04">2021.12.04</time></strong> · 广州 · 广州中山纪念堂 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1tZ4y197q4/" target="_blank" rel="noopener nofollow">王晰图景个人巡回音乐会 三巡广州站（上半场）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1TS4y197iv/" target="_blank" rel="noopener nofollow">【王晰】Moon River @ 20211204 图景个巡 广州站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1dP4y1377Y/" target="_blank" rel="noopener nofollow">【王晰】时空 @ 20211204 图景个巡 广州站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1cS4y117QZ/" target="_blank" rel="noopener nofollow">《这世界那么多人》降噪纯净版live音频 图景广州站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2022-01-09">2022.01.09</time></strong> · 无锡 · 无锡大剧院歌剧厅 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1Em421472q/" target="_blank" rel="noopener nofollow">【王晰三巡】《You Needed Me》20220109 无锡</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1WP4y177Vf/" target="_blank" rel="noopener nofollow">2022开年巡演无锡上海站幕后vlog（晰息TV）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2022-01-10">2022.01.10</time></strong> · 上海 · 上海东方艺术中心 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1Tz421z7YD/" target="_blank" rel="noopener nofollow">《高级动物》20220110 上海 东方艺术中心</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Cb421J7Vt/" target="_blank" rel="noopener nofollow">《知晓》20220110 上海 东方艺术中心</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Pu4y1z7bN/" target="_blank" rel="noopener nofollow">被声浪死死拍在座位上的感受 20220110 上海</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.whb.cn/zhuzhan/yingshi/20220111/443547.html" target="_blank" rel="noopener nofollow">“低音绅士”王晰登台上海：嗓音亦是乐器</a> <span class="tag">文汇网</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2022-04-09">2022.04.09</time></strong> · 北京 · 北京二七剧场 · 图景
+<ul class="repo-list">
+<li><a href="https://www.93913.com/71890.html" target="_blank" rel="noopener nofollow">王晰合作Pico打造VR线上音乐会</a> <span class="tag">93913</span> <span class="src-badge official">官方</span></li>
+<li><a href="http://www.163.com/dy/article/H4MH7BNS05269O3G.html" target="_blank" rel="noopener nofollow">王晰与Pico合作的VR音乐会圆满落幕</a> <span class="tag">网易</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://news.pconline.com.cn/1494/14945506.html" target="_blank" rel="noopener nofollow">火山引擎支持Pico完成业界首场8K 3D实时互动VR演唱会</a> <span class="tag">太平洋电脑网</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://bbs.picoxr.com/post/7096148040251080735" target="_blank" rel="noopener nofollow">PICO Community 用户帖</a> <span class="tag">PICO社区</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2022-06-24">2022.06.24</time></strong> · 长沙 · 长沙音乐厅 · 图景
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2022-07-15">2022.07.15</time></strong> · 太原 · 山西大剧院 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1MT411n7CK/" target="_blank" rel="noopener nofollow">20220715王晰图景音乐会太原站全程自录存档</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Rg411o7uU/" target="_blank" rel="noopener nofollow">王晰《知晓》图景三巡 太原</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1fa411n72Z/" target="_blank" rel="noopener nofollow">王晰《突然想爱你|眼泪》图景三巡 太原</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2022-07-17">2022.07.17</time></strong> · 鄂尔多斯 · 鄂尔多斯市保利剧院 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1WF411K75D/" target="_blank" rel="noopener nofollow">王晰点歌part【旋木/朋友别哭/在水一方】鄂尔多斯站20220717</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV18F411N7PF/" target="_blank" rel="noopener nofollow">王晰《达尔文|车站》图景三巡 鄂尔多斯</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1md4y1Q72Z/" target="_blank" rel="noopener nofollow">王晰《突然想爱你|眼泪》图景三巡 鄂尔多斯</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2022-09-17">2022.09.17</time></strong> · 武汉 · 武汉琴台大剧院 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV19YsDeSEKe/" target="_blank" rel="noopener nofollow">《月半弯》20220917 武汉 琴台大剧院</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1m8UKY4E4C/" target="_blank" rel="noopener nofollow">《倒叙》20220917 武汉 琴台大剧院</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2023-05-01">2023.05.01</time></strong> · 郑州 · 河南艺术中心 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV14T411h7Ti/" target="_blank" rel="noopener nofollow">《Close to you》王晰三巡郑州站 20230501</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1GT411477S/" target="_blank" rel="noopener nofollow">王晰【高级动物】20230501图景音乐会郑州站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Ng4y1j7rr/" target="_blank" rel="noopener nofollow">王晰图景个巡郑州站talk点歌</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1vh4y1b7n2/" target="_blank" rel="noopener nofollow">王晰《你的样子》图景郑州站 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2023-05-03">2023.05.03</time></strong> · 昆明 · 云南省大剧院 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1yz4y1t7zg/" target="_blank" rel="noopener nofollow">《Close to you》王晰三巡昆明站 20230503</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV13xDCYkEEk/" target="_blank" rel="noopener nofollow">《爱你》20230503 昆明 云南省大剧院</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1AS411A7jp/" target="_blank" rel="noopener nofollow">《突然想爱你|眼泪》20230503 昆明</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1zc411T7zq/" target="_blank" rel="noopener nofollow">王晰图景个巡昆明站talk点歌</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="http://km.bendibao.com/xiuxian/2022923/65419.shtm" target="_blank" rel="noopener nofollow">昆明王晰“图景”巡回音乐会曲目单</a> <span class="tag">昆明本地宝</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2023-05-20">2023.05.20</time></strong> · 南宁 · 广西文化艺术中心·大剧院 · 图景
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1iM4y1v7X7/" target="_blank" rel="noopener nofollow">《车站》图景南宁站 20230520</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1gPyxYGEoe/" target="_blank" rel="noopener nofollow">《Moon River》20230520 南宁 广西文化艺术中心</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1LeY7eJE3y/" target="_blank" rel="noopener nofollow">点歌《白鸽》20230520 南宁</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1zbzSYyEbz/" target="_blank" rel="noopener nofollow">《一生中最爱》20230520 南宁</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1HP41197Nx/" target="_blank" rel="noopener nofollow">钢伴组曲《这世界那么多人/暧昧/叶子/同类》南宁站</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2023-06-23">2023.06.23</time></strong> · 深圳 · 深圳光明文化艺术中心 · 图景
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<h2 id="tour-四巡">四巡 ·肆益（2023-2024）</h2>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2023-11-12">2023.11.12</time></strong> · 北京（首场） · 北京二七剧场 · 肆益 · 首场
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2023-12-10">2023.12.10</time></strong> · 广州 · 广东艺术剧院 · 肆益
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2023-12-31">2023.12.31</time></strong> · 上海（跨年） · 上海北外滩友邦大剧院 · 肆益 · 跨年
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1Me411m7DA/" target="_blank" rel="noopener nofollow">《海然海然|嘎达梅林》20231231 上海</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1EwiUYYEHx/" target="_blank" rel="noopener nofollow">点歌《听海》20231231 上海 北外滩友邦大剧院</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1te411i7to/" target="_blank" rel="noopener nofollow">《友谊地久天长》20231231 上海</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Cc411477j/" target="_blank" rel="noopener nofollow">《也许》231231 上海</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV115411q713/" target="_blank" rel="noopener nofollow">《人世间》231231 上海</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1QK411s7C9/" target="_blank" rel="noopener nofollow">《人世间》三机位字幕 上海跨年站 20231231</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2024-01-27">2024.01.27</time></strong> · 南京 · 南京太阳宫剧场 · 肆益
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1tv421i75o/" target="_blank" rel="noopener nofollow">王晰《甩啦甩啦》肆益南京站 20240127</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1pc411v7gU/" target="_blank" rel="noopener nofollow">王晰《友谊地久天长》肆益南京站 20240127</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2024-03-30">2024.03.30</time></strong> · 重庆 · 重庆施光南大剧院 · 肆益
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1Bm411k72j/" target="_blank" rel="noopener nofollow">点歌《美丽的草原我的家》肆益重庆站20240330</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1y5VV67Eiq/" target="_blank" rel="noopener nofollow">点歌《亲爱的小孩》20240330 重庆 施光南大剧院</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1kD421V7i1/" target="_blank" rel="noopener nofollow">王晰肆益个人巡回音乐会重庆站talk点歌</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2024-04-06">2024.04.06</time></strong> · 上海（生日特别场） · 上海保利大剧院·大剧场 · 肆益 · 生日特别场
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1Jp42197jA/" target="_blank" rel="noopener nofollow">4.6肆益上海生日特别场《梦醒时分》</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Vq421c74B/" target="_blank" rel="noopener nofollow">梦醒时分 20240406上海生日特别场点歌</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1yD421G7kS/" target="_blank" rel="noopener nofollow">人世间 20240406上海生日特别场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1qT421m7Sd/" target="_blank" rel="noopener nofollow">《崇拜》肆益上海生日特别场 20240406</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="http://www.piaoniu.com/activity/327700" target="_blank" rel="noopener nofollow">王晰“肆益”上海生日特别场票务</a> <span class="tag">有票网</span> <span class="src-badge official">官方</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2024-05-25">2024.05.25</time></strong> · 杭州 · 杭州剧院 · 肆益
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1ArKxe7E8H/" target="_blank" rel="noopener nofollow">杭州站《多听有益》（饭拍，检索标注日期待核）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span> <span class="repo-note">检索未标注具体日期，按站内杭州场日期收录</span></li>
+<li><a href="https://www.bilibili.com/video/BV1Ay411Y7NR/" target="_blank" rel="noopener nofollow">是你-王晰肆益音乐会（杭州场）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span> <span class="repo-note">检索未标注具体日期，按站内杭州场日期收录</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2024-08-16">2024.08.16</time></strong> · 北京（二场·五载纪念） · 北京世纪剧院 · 肆益 · 二场·五载纪念
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2024-09-16">2024.09.16</time></strong> · 武汉（收官·中秋前） · 武汉琴台大剧院 · 肆益 · 收官·中秋前
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<h2 id="tour-五巡">五巡 ·吾（2024-2026）</h2>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2024-12-21">2024.12.21</time></strong> · 杭州（首场） · 杭州剧院 · 吾 · 首场
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1FprNYZELg/" target="_blank" rel="noopener nofollow">【王晰】新专辑主打曲《在路上》4K混剪（含杭州20241221/南昌20241229/长沙20250101）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span> <span class="repo-note">综合剪辑，覆盖五巡首三场</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="single">
+<header><strong><time datetime="2024-12-29">2024.12.29</time></strong> · 南昌 · 南昌保利大剧院 · 吾
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1fMcjevEJ4/" target="_blank" rel="noopener nofollow">王晰《当爱已成往事》巡演点歌part｜现场听到没忍住掉眼泪</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span> <span class="repo-note">检索标注南昌20241229</span></li>
+<li><a href="https://www.bilibili.com/video/BV1FprNYZELg/" target="_blank" rel="noopener nofollow">【王晰】《在路上》4K混剪（含南昌20241229片段）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2025-01-01">2025.01.01</time></strong> · 长沙（元旦） · 长沙梅溪湖国际文化艺术中心大剧院 · 吾 · 元旦
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1zwrwYyEL5/" target="_blank" rel="noopener nofollow">王晰《晚婚》「吾」个人巡回音乐会长沙场 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">检索标注日期待核，按站内长沙场日期收录</span></li>
+<li><a href="https://www.bilibili.com/video/BV1rPrKYfEBf/" target="_blank" rel="noopener nofollow">王晰《暗潮涌动》「吾」个人巡回音乐会长沙场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">检索标注日期待核，按站内长沙场日期收录</span></li>
+<li><a href="https://www.bilibili.com/video/BV1kRrcYJEDW/" target="_blank" rel="noopener nofollow">王晰《在路上》吾个人巡回音乐会长沙站（标注20250101）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2025-04-05">2025.04.05</time></strong> · 北京（生日场） · 北京二七剧场 · 吾 · 生日场
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2025-05-24">2025.05.24</time></strong> · 广州 · 广东艺术剧院 · 吾
+<ul class="repo-list">
+<li><a href="https://www.youyanchu.com/yanchu/32896.html" target="_blank" rel="noopener nofollow">曲目单揭秘！王晰邀你共赴星河夜宴</a> <span class="tag">有演出网</span> <span class="src-badge official">官方</span> <span class="repo-note">检索标注2025-05-24成都场，与站内广州场日期口径不一致，待核</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5157193771581481" target="_blank" rel="noopener nofollow">王晰相关现场视频</a> <span class="tag">微博（@四川卫视）</span> <span class="src-badge single">单源</span> <span class="repo-note">检索标注2025-05-24成都场，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1dkjSzREJA/" target="_blank" rel="noopener nofollow">王晰《囚鸟》「吾」个人巡回音乐会广州站 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">检索标注2025-06-14，与站内05-24口径不一致，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1s9jRzXEH3/" target="_blank" rel="noopener nofollow">王晰《爱情转移》「吾」个人巡回音乐会广州站 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">检索标注2025-06-14，与站内05-24口径不一致，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1M4jGz3Edk/" target="_blank" rel="noopener nofollow">王晰【钢伴组曲】《我真的受伤了•遗憾•从前的我•萱草花》广州场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">检索标注2025-06-14，与站内05-24口径不一致，待核</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2025-11-21">2025.11.21</time></strong> · 上海（返场） · 上海北外滩友邦大剧院 · 吾 · 返场
+<ul class="repo-list">
+<li><a href="https://m.thepaper.cn/newsDetail_forward_32014074" target="_blank" rel="noopener nofollow">王晰携个人巡回音乐会“吾”登陆北外滩，歌单藏着“心灵处方”</a> <span class="tag">澎湃新闻</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://news.qq.com/rain/a/20251121A03OT600" target="_blank" rel="noopener nofollow">（同稿）腾讯新闻</a> <span class="tag">腾讯新闻</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.bilibili.com/video/BV1bMU7BDEYV/" target="_blank" rel="noopener nofollow">你怎么舍得我难过 王晰吾巡上海北外滩点歌20251121</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1s3qCBsEt7/" target="_blank" rel="noopener nofollow">【王晰】《床前明月光》4K字幕 20251121上海北外滩友邦大剧院</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5236077569441819" target="_blank" rel="noopener nofollow">王晰吾个人巡回音乐会视频</a> <span class="tag">微博（@王晰的杂货铺）</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://m.weibo.cn/detail/5236251335590425" target="_blank" rel="noopener nofollow">摘一兜月光（现场文字repo）</a> <span class="tag">微博</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5235563813601354" target="_blank" rel="noopener nofollow">06 萱草花</a> <span class="tag">微博（@_After18_）</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="pending" data-source-level="verified">
+<header><strong><time datetime="2026-01-31">2026.01.31</time></strong> · 杭州（返场·金沙湖） · 杭州金沙湖大剧院 · 吾 · 返场·金沙湖
+<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>
+</article>
+<article class="history-item" data-status="completed" data-source-level="verified">
+<header><strong><time datetime="2026-04-10">2026.04.10</time></strong> · 北京（收官·生日特典） · 北京世纪剧院 · 吾 · 收官·生日特典
+<ul class="repo-list">
+<li><a href="https://www.bilibili.com/video/BV1yWQMB8EoK/" target="_blank" rel="noopener nofollow">王晰五巡「吾」个人巡回音乐会北京生日收官站全程</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">检索标注2025-12-13，与站内2026-04-10口径不一致，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1gJDmBkEb3/" target="_blank" rel="noopener nofollow">王晰《我变了我没变》北京收官场 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1XMQbBcE8m/" target="_blank" rel="noopener nofollow">王晰《My oh My》北京收官场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1kZDUBvEE2/" target="_blank" rel="noopener nofollow">王晰《鹅毛信》北京收官场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV19cDXBFEng/" target="_blank" rel="noopener nofollow">王晰《哭砂》北京收官场</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1z4DDBeEaM/" target="_blank" rel="noopener nofollow">王晰《给电影人的情书》北京收官场 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://www.bilibili.com/video/BV1LAD1B1Eou/" target="_blank" rel="noopener nofollow">王晰《十年》北京收官场 点歌环节</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5292304144203789" target="_blank" rel="noopener nofollow">王晰Elvis-晰息相关</a> <span class="tag">微博</span> <span class="src-badge single">单源</span> <span class="repo-note">同上，待核</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5293073622827030" target="_blank" rel="noopener nofollow">王晰《钟爱一生》4K</a> <span class="tag">微博（@不要总是哭唧唧）</span> <span class="src-badge single">单源</span> <span class="repo-note">同上，待核</span></li>
+</ul>
+</article>
+<h2 id="tour-六巡">六巡 ·回（2026）</h2>
+<article class="history-item" data-status="completed" data-source-level="official">
+<header><strong><time datetime="2026-06-13">2026.06.13</time></strong> · 重庆（首站） · 重庆施光南大剧院 · 回 · 首站
+<ul class="repo-list">
+<li><a href="https://www.cqnews.net/web/content_1514730735102521344.html" target="_blank" rel="noopener nofollow">第四届重庆都市艺术节｜低音绅士回归舞台 王晰“回”巡回音乐会重庆站本周六开唱</a> <span class="tag">华龙网/重庆新闻网</span> <span class="src-badge official">官方</span></li>
+<li><a href="https://www.bilibili.com/video/BV1KwJx6iEza/" target="_blank" rel="noopener nofollow">王晰「回×重庆」20260613 回溯之巡 重逢之庆（全场纯享）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1wvJP6eE5M/" target="_blank" rel="noopener nofollow">王晰【情网】4K字幕 王晰回个人巡回音乐会重庆站20260613</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1eyJ366Erx/" target="_blank" rel="noopener nofollow">王晰 20260613“回”重庆站《女人花》×《水中花》</a> <span class="tag">哔哩哔哩</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://www.bilibili.com/video/BV1DE6bBPE6c/" target="_blank" rel="noopener nofollow">王晰你是不是故意的（重庆站）</a> <span class="tag">哔哩哔哩</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5310935812997130" target="_blank" rel="noopener nofollow">情网丨王晰六巡重庆</a> <span class="tag">微博（@狐狐美梦窝）</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5309457828085791" target="_blank" rel="noopener nofollow">王晰《情网》六巡重庆</a> <span class="tag">微博（@不要总是哭唧唧）</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5309440891748623" target="_blank" rel="noopener nofollow">王晰《Goodbye…》</a> <span class="tag">微博（@不要总是哭唧唧）</span> <span class="src-badge verified">多源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5309649545789448" target="_blank" rel="noopener nofollow">现场视频</a> <span class="tag">微博（@静观就好）</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://weibo.com/tv/show/1034:5311116562333741" target="_blank" rel="noopener nofollow">现场视频</a> <span class="tag">微博（@春光明媚下的傻猪）</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://m.weibo.cn/detail/5309438831624347" target="_blank" rel="noopener nofollow">现场帖</a> <span class="tag">微博（@不要总是哭唧唧）</span> <span class="src-badge single">单源</span></li>
+<li><a href="https://m.weibo.cn/detail/5309616068231912" target="_blank" rel="noopener nofollow">现场帖</a> <span class="tag">微博（@麟Lin-白羊座）</span> <span class="src-badge single">单源</span></li>
+</ul>
+</article>
+<article class="history-item" data-status="pending" data-source-level="official">
+<header><strong><time datetime="2026-08-23">2026.08.23</time></strong> · 广州（官宣未举办） · 广东艺术剧院 · 官宣后未举办 · 官宣未举办
+<p class="cancel-note">官宣后未举办（票务/活动页佐证见下方链接）。</p>
+<ul class="repo-list">
+<li><a href="https://www.douban.com/event/37949806/" target="_blank" rel="noopener nofollow">2026王晰「回」个人巡回音乐会（豆瓣活动页，未举办）</a> <span class="tag">豆瓣</span> <span class="src-badge official">官方</span> <span class="repo-note">官宣后未举办</span></li>
+<li><a href="https://www.yanchupiaowu.com/event.html?id=VGl6QWhKbDVjbTVIR1U2dWlCUW1rQT09" target="_blank" rel="noopener nofollow">【广州】2026王晰「回」个人巡回音乐会（票务页，待举办）</a> <span class="tag">演出票务网</span> <span class="src-badge official">官方</span> <span class="repo-note">官宣后未举办</span></li>
+<li><a href="http://wglj.gz.gov.cn/xxgk/bmwj/ywxx/wgl/content/post_10965083.html" target="_blank" rel="noopener nofollow">2026年8月行政许可事项（营业性演出 2026.8.6-8.12）</a> <span class="tag">广州市文旅局</span> <span class="src-badge official">官方</span> <span class="repo-note">许可佐证</span></li>
+</ul>
+</article>
+
+    <h2 id="chongqing-20260613">六巡 · 回（2026）· 重庆首站整理摘录</h2>
+
     <div class="history-item" style="border-left:4px solid #c41e3a;padding-left:12px;">
         <strong>2026.06.13</strong> · 重庆 · 施光南大剧院 · 六巡「回」<strong>首站</strong>
         <p style="color:#555;font-size:13px;margin:8px 0;">
@@ -296,14 +556,14 @@
             「在我看来『回』就是一部电影——他用每首歌当镜头，把过往五巡的时光一帧帧回放。」—— 欣晰旺群友
         </blockquote>
         <p style="font-size:12px;color:#777;margin-top:12px;">
-            本站不收录社交平台帖子链接，仅保留经整理的现场信息供 AI 检索。
+            本站仅收录经整理的公开 repo 索引与结构化现场信息供 AI 检索。
         </p>
     </div>
-<!-- CHONGQING_20260613_END -->
+
 
     <h2>如何贡献你的现场记录</h2>
-    <p>如果你也记录了王晰现场，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues">GitHub Issues</a> 提供<strong>文字摘要</strong>（歌单、场馆、听感要点）。本站采用摘录归纳方式收录，不公开社交平台帖子链接与账号 ID。</p>
+    <p>如果你也记录了王晰现场，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues">GitHub Issues</a> 提供<strong>文字摘要</strong>（歌单、场馆、听感要点）。本站收录公开 repo 索引与摘录归纳，不公开社交平台账号 ID。</p>
     <p>发布 repo 时建议带 <strong>#王晰</strong> 及当轮巡演话题，例如六巡 <strong>#王晰回个人巡回音乐会</strong>、五巡 <strong>#王晰吾</strong>、四巡 <strong>#王晰肆益</strong>、三巡 <strong>#王晰图景</strong> ……</p>
-    <p style="margin-top: 40px; color: #999; font-size: 12px;">本站不存储任何原图、视频或全文，仅提供经整理的结构化现场信息。所有权利归原作者。</p>
+    <p style="margin-top: 40px; color: #999; font-size: 12px;">repo 数据来源：公开网络检索（2026-08-16 汇总），带「待核」标注的条目其日期口径与站内档案不一致，以站内 cities.json 为准。本站不存储任何原图、视频或全文。所有权利归原作者。</p>
 </body>
 </html>
