@@ -1,0 +1,68 @@
+/* ============================================================
+   王晰档案 · 品牌增强层（brand.css）
+   - 品牌色：酒红 #c41e3a（主）· 剧院暗金 #c9a227（辅）· 羊皮纸底 #fdfbf7
+   - 只做"增强覆盖"，不重写页面既有样式；未引入本文件的页面不受影响
+   - 含通用移动端适配（表格滚动 / 导航换行 / 字号收缩）
+   ============================================================ */
+
+:root {
+  --wx-primary: #c41e3a;
+  --wx-gold: #c9a227;
+  --wx-ink: #1a1a1a;
+  --wx-bg: #fdfbf7;
+  --wx-card-shadow: 0 4px 14px rgba(30, 20, 10, 0.08);
+  --wx-transition: all 0.25s ease;
+}
+
+/* 背景与字体基调 */
+body { background: var(--wx-bg); }
+h1, h2, h3 {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+  letter-spacing: 0.02em;
+}
+h1 { color: var(--wx-ink); }
+h2 { border-left-color: var(--wx-gold) !important; }
+
+/* 页面淡入 */
+body { animation: wx-fade 0.4s ease; }
+@keyframes wx-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* 卡片 hover：轻微上浮 + 暗金阴影 */
+.card, .song-card, .album-card, .history-item, .review-card, .gallery-item,
+.paper, .city-card, .tl-body, .single-card {
+  transition: var(--wx-transition);
+}
+.card:hover, .song-card:hover, .album-card:hover, .history-item:hover,
+.review-card:hover, .gallery-item:hover, .paper:hover, .city-card:hover,
+.tl-body:hover, .single-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--wx-card-shadow);
+}
+
+/* 链接下划线动效 */
+a { transition: color 0.2s ease; }
+a:hover { text-decoration-color: var(--wx-gold); }
+
+/* 金句墙：左线渐变（品牌记忆点） */
+blockquote {
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, var(--wx-primary), var(--wx-gold)) 1;
+}
+
+/* 按钮统一 */
+.pe-btn, .btn, .chip {
+  transition: var(--wx-transition);
+}
+.pe-btn:hover, .btn:hover, .chip:hover { filter: brightness(1.08); }
+
+/* ============ 移动端适配（通用） ============ */
+@media (max-width: 760px) {
+  h1 { font-size: 1.5em; }
+  h2 { font-size: 1.2em; }
+  .nav { display: flex; flex-wrap: wrap; gap: 6px 12px; }
+  .nav a { margin-right: 0; }
+  /* 表格横向滚动容器 */
+  table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  .song-list, .album-card { padding: 12px; }
+  .history-item, .review-card, .paper, .gallery-item { padding: 10px; }
+}
