@@ -23,6 +23,7 @@ SAME_AS = [
     "https://y.qq.com/n/ryqq/singer/0039pU5Y2PA9OW",
     "https://weibo.com/u/1292815744",
 ]
+episodes_data = {}  # 全局：供互链标题引用
 
 
 def label_of(key, ep):
@@ -71,10 +72,29 @@ h1{font-size:26px;font-weight:700;letter-spacing:2px;line-height:1.5;margin-bott
 .topic-tag.song{border-color:rgba(255,215,0,.35);color:#ffd700;background:rgba(255,215,0,.08);}
 .topic-tag:target{background:rgba(0,210,255,.25);box-shadow:0 0 0 2px rgba(0,210,255,.4);}
 .topic-tag.song:target{background:rgba(255,215,0,.3);box-shadow:0 0 0 2px rgba(255,215,0,.45);}
+/* 上一期/下一期互链 */
+.pn-nav{display:flex;justify-content:space-between;gap:12px;margin-top:24px;padding-top:14px;border-top:1px solid rgba(0,210,255,.12);}
+.pn{font-size:13px;color:#00d2ff;text-decoration:none;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pn:hover{text-decoration:underline;}
+.pn-next{margin-left:auto;text-align:right;}
 """
 
 
-def build_episode_page(key, ep):
+def sort_keys(keys):
+    """期次排序：营业预告最前、收官福利最后，中间按 EP 序号+part。"""
+    def rank(k):
+        if k == "营业预告":
+            return (-1, 0)
+        if k == "收官福利":
+            return (999, 0)
+        m = re.match(r"EP(\d+)_P(\d+)", k)
+        if m:
+            return (int(m.group(1)), int(m.group(2)))
+        return (500, 0)
+    return sorted(keys, key=rank)
+
+
+def build_episode_page(key, ep, prev_key=None, next_key=None):
     num = ep.get("episode_num", 0)
     theme = ep.get("theme", "").strip()
     text = ep.get("text", "") or ""
@@ -191,6 +211,16 @@ def build_episode_page(key, ep):
     minutes = f"{dur // 60}分{dur % 60}秒" if dur else ""
     meta_suffix = " · " + minutes if minutes else ""
 
+    # ---- 上一期/下一期互链（站内链接，增强爬虫连通性） ----
+    prev_next_html = ""
+    parts = []
+    if prev_key:
+        parts.append(f'<a class="pn pn-prev" href="{SITE}/tavern/ep/{quote(prev_key)}.html">← {html.escape(title_of(prev_key, episodes_data[prev_key]))}</a>')
+    if next_key:
+        parts.append(f'<a class="pn pn-next" href="{SITE}/tavern/ep/{quote(next_key)}.html">{html.escape(title_of(next_key, episodes_data[next_key]))} →</a>')
+    if parts:
+        prev_next_html = '<nav class="pn-nav">' + "".join(parts) + "</nav>"
+
     page = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -223,6 +253,7 @@ def build_episode_page(key, ep):
 {song_anchor_html}
 <div class="transcript">{transcript_html}</div>
 {song_html}
+{prev_next_html}
 <p class="footer">本页为粉丝创作，非官方内容。素材来自王晰公开节目与作品。</p>
 </div>
 </body>
@@ -282,20 +313,26 @@ def update_sitemap(keys):
 
 
 def main():
+    global episodes_data
     data = json.loads(TRANSCRIPTS.read_text(encoding="utf-8"))
     episodes = data.get("episodes", {})
-    keys = list(episodes.keys())
+    episodes_data = episodes
+    keys = sort_keys(list(episodes.keys()))
     print(f"数据源共 {len(keys)} 期")
 
     EP_DIR.mkdir(exist_ok=True)
     written = 0
     empty = []
-    for key in keys:
+    for i, key in enumerate(keys):
         ep = episodes[key]
         if not (ep.get("text") or "").strip():
             empty.append(key)
             continue
-        (EP_DIR / f"{key}.html").write_text(build_episode_page(key, ep), encoding="utf-8")
+        prev_key = keys[i - 1] if i > 0 else None
+        next_key = keys[i + 1] if i < len(keys) - 1 else None
+        (EP_DIR / f"{key}.html").write_text(
+            build_episode_page(key, ep, prev_key, next_key), encoding="utf-8"
+        )
         written += 1
 
     print(f"已生成 {written} 个独立页面 -> tavern/ep/")
