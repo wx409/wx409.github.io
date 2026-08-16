@@ -77,7 +77,17 @@ def main() -> None:
         for f in node.get("fragments", []):
             meta[n]["lyrics"].append({"text": f.get("text", ""), "moods": f.get("moods", [])})
 
-    # 3. 输出：剔除无任何信息的空壳（仅歌词条目也可能有价值，保留全部）
+    # 3. 歌词只增不减：旧 songs_meta.json 中已有的歌词（含 fetch_lyrics.py 补全的）不被覆盖
+    if OUT.exists():
+        try:
+            old = json.loads(OUT.read_text(encoding="utf-8")).get("songs", {})
+            for k, v in old.items():
+                if k in meta and v.get("lyrics") and not meta[k].get("lyrics"):
+                    meta[k]["lyrics"] = v["lyrics"]
+        except Exception:
+            pass
+
+    # 4. 输出：剔除无任何信息的空壳（仅歌词条目也可能有价值，保留全部）
     out = {k: v for k, v in meta.items() if v["name"]}
     out = dict(sorted(out.items(), key=lambda kv: kv[1]["name"]))
 
