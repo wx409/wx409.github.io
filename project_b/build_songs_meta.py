@@ -39,6 +39,11 @@ def main() -> None:
 
     # 1. 主源：entity_index（433 首全量，含 dashboard 指标）
     meta = {}
+    # uid 映射：dashboard detail_songs 的 uid（L:mid 格式）→ 歌曲名
+    mid_by_name = {}
+    for s in dash.get("detail_songs", []) or []:
+        if s.get("name") and s.get("uid"):
+            mid_by_name[norm(s["name"])] = s["uid"]
     for name, en in entity.items():
         dash_info = en.get("dashboard") or {}
         meta[norm(name)] = {
@@ -52,6 +57,7 @@ def main() -> None:
             "album": (en.get("discography") or {}).get("album"),
             "show_count": len(en.get("live", [])),
             "cities": sorted({lv.get("city") for lv in en.get("live", []) if lv.get("city")}),
+            "mid": mid_by_name.get(norm(name)),   # 试听用 songmid（可能为 null）
         }
         # live 场次精确化：用 entity 的 live 列表（含场馆）
         meta[norm(name)]["live"] = [
@@ -67,7 +73,7 @@ def main() -> None:
         if n not in meta:
             meta[n] = {"name": name, "attr": None, "release": "-", "latest": None,
                        "mean30": None, "peak": None, "lyrics": [], "album": None,
-                       "show_count": 0, "cities": [], "live": []}
+                       "show_count": 0, "cities": [], "live": [], "mid": None}
         for f in node.get("fragments", []):
             meta[n]["lyrics"].append({"text": f.get("text", ""), "moods": f.get("moods", [])})
 

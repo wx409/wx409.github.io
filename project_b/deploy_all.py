@@ -40,6 +40,7 @@ STEPS = [
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
     (ROOT / "project_b" / "build_setlists.py", "59场歌单 data/setlists.json", True),
     (ROOT / "project_b" / "build_songs_meta.py", "歌曲元数据 data/songs_meta.json", True),
+    (ROOT / "project_b" / "build_songs_page.py", "歌曲库页 songs.html", True),
     (ROOT / "project_b" / "build_setlists_page.py", "歌单索引页 live/setlists.html", True),
     (ROOT / "project_b" / "generate_city_guides.py", "22 城攻略 data/city_guides.json", True),
     (ROOT / "project_b" / "build_story.py", "数据故事 story.html", True),

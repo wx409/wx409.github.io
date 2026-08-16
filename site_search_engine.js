@@ -151,14 +151,24 @@
           return '<span class="sr-kw">' + highlight(k, terms) + '</span>';
         }).join('') + '</div>'
       : '';
-    return '<a class="sr-card" href="' + esc(e.url) + '" target="_blank" rel="noopener">' +
+    // 试听按钮：song 类型且 text 里带 pe-mid 的条目
+    var mid = '';
+    var mm = /pe-mid=([A-Za-z0-9]+)/.exec(e.text || '');
+    if (type === 'song' && mm) mid = mm[1];
+    var playHtml = '';
+    if (mid) {
+      playHtml = '<div class="sr-play"><button type="button" class="pe-btn" data-mid="' + esc(mid) + '">▶ 试听</button></div>';
+    }
+    return '<div class="sr-card">' +
+      '<a href="' + esc(e.url) + '" target="_blank" rel="noopener" class="sr-card-link">' +
       '<div class="sr-top">' +
       '<span class="sr-badge sr-badge-' + esc(type) + '">' + icon + ' ' + esc(label) + '</span>' +
       '<span class="sr-title">' + highlight(e.title || '', terms) + '</span>' +
       '</div>' +
       '<div class="sr-text">' + highlight(snippet(e.text || '', terms), terms) + '</div>' +
       kwHtml +
-      '</a>';
+      '</a>' + playHtml +
+      '</div>';
   }
 
   function render(hits, q) {
@@ -172,6 +182,12 @@
     }
     if (countEl) countEl.textContent = String(hits.length);
     out.innerHTML = hits.map(buildResultHtml).join('');
+    // 绑定试听按钮（PlayerEmbed 组件）
+    if (typeof window.PlayerEmbed === 'function' || (window.PlayerEmbed && window.PlayerEmbed.attach)) {
+      out.querySelectorAll('.pe-btn').forEach(function (btn) {
+        window.PlayerEmbed.attach(btn, { mid: btn.getAttribute('data-mid'), title: btn.parentElement.parentElement.querySelector('.sr-title').textContent });
+      });
+    }
   }
 
   function runSearch(q) {
