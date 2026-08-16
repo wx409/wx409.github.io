@@ -151,11 +151,12 @@
           return '<span class="sr-kw">' + highlight(k, terms) + '</span>';
         }).join('') + '</div>'
       : '';
-    // 试听按钮：song 类型（mid 或歌名均可，多平台回退 QQ→网易云）
-    var mid = (type === 'song' && e.mid) ? e.mid : '';
+    // 试听按钮：song（歌曲）与 episode（小酒馆期次）都可播放
+    var mid = e.mid ? e.mid : '';
     var playHtml = '';
-    if (type === 'song') {
-      playHtml = '<div class="sr-play"><button type="button" class="pe-btn" data-mid="' + esc(mid) + '" data-title="' + esc(e.title) + '">▶ 试听</button></div>';
+    if (mid && (type === 'song' || type === 'episode')) {
+      var label2 = type === 'episode' ? '▶ 播这期' : '▶ 试听';
+      playHtml = '<div class="sr-play"><button type="button" class="pe-btn" data-mid="' + esc(mid) + '" data-title="' + esc(e.title) + '">' + label2 + '</button></div>';
     }
     return '<div class="sr-card">' +
       '<a href="' + esc(e.url) + '" target="_blank" rel="noopener" class="sr-card-link">' +

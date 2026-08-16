@@ -135,7 +135,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 </div>
 </div>
 <p class="footnote">🎧 试听为多平台聚合：先试 QQ音乐（vkey 直链），失败自动切网易云音乐（搜索+直链）——哪个能听用哪个，不写死。VIP 锁曲需本地代理或登录。试听均为公开直链（不下载不托管）。生成时间 {meta["generated_at"]}。</p>
-<script src="assets/player_embed.js"></script>
+<script src="assets/player_embed.js?v=3"></script>
 <script>
 (function () {{
   'use strict';
