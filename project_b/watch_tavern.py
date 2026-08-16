@@ -95,6 +95,15 @@ def main():
     json.dump(ta, open(ROOT + r"\data\tavern_audio.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print("[apply] tavern_audio.json 现有 %d 条" % len(items))
+    if fresh:
+        try:
+            sys.path.insert(0, ROOT + r"\project_b")
+            import notify
+            lines = "\n".join("- %s（%ds）" % (f["name"], f["duration_sec"]) for f in fresh[:10])
+            notify.send("🍷 小酒馆新期次 %d 条" % len(fresh),
+                        "已自动入库，可试听：\n" + lines)
+        except Exception as e:
+            print("[notify] 失败:", e)
     # 提示：tavern_transcripts 逐字稿仍人工补充，但 songmid 可由 build_tavern_audio 反查
 
 

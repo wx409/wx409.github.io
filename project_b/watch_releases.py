@@ -89,6 +89,7 @@ def main():
 
     # --apply：自动入库
     n = 0
+    added = []
     for f in fresh:
         key = norm(f["name"])
         if key in songs:
@@ -97,11 +98,24 @@ def main():
         songs[key] = {"name": f["name"], "attr": None, "release": "-", "latest": None,
                       "mean30": None, "peak": None, "lyrics": [], "album": album,
                       "show_count": 0, "cities": [], "live": [], "mid": "L:" + f["mid"] if f["mid"] else None}
+        added.append(f)
         n += 1
     sm["song_count"] = len(songs)
     json.dump(sm, open(ROOT + r"\data\songs_meta.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print("[apply] 已入库 %d 条（歌词/班底由 fetch_credits_lyrics.py 增量补充）" % n)
+    if n:
+        try:
+            sys.path.insert(0, ROOT + r"\project_b")
+            import notify
+            lines = "\n".join("- %s（mid: %s，%s）" % (f["name"], f["mid"], f["album"] or "单曲")
+                              for f in added[:10])
+            notify.send("🎵 王晰新歌已自动上架 %d 首" % n,
+                        "已入库 songs_meta（uid 自动带好）：\n" + lines
+                        + ("\n…等" if n > 10 else "")
+                        + "\n\n歌词/班底将自动补充，站点已同步更新。")
+        except Exception as e:
+            print("[notify] 失败:", e)
 
 
 if __name__ == "__main__":

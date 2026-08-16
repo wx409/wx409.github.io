@@ -62,6 +62,19 @@ def main():
     for c in candidates[:10]:
         print("  -", c["title"])
 
+    # 有候选 → 明显通知（微信/邮件），提醒人工确认
+    if candidates:
+        try:
+            sys.path.insert(0, ROOT + r"\project_b")
+            import notify
+            lines = "\n".join("- %s\n  %s" % (c["title"], c["url"]) for c in candidates[:8])
+            notify.send("🎤 发现巡演候选 %d 条，需你确认" % len(candidates),
+                        "候选清单（data/pending_events.json）：\n" + lines
+                        + "\n\n确认后入库命令示例：\n"
+                        + "python project_b/confirm_event.py --date YYYY-MM-DD --city XX --venue XX --tour X巡")
+        except Exception as e:
+            print("[notify] 失败:", e)
+
 
 if __name__ == "__main__":
     main()

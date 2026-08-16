@@ -60,6 +60,15 @@ def run(cmd, cwd=None):
     return r.returncode == 0
 
 
+def notify(msg, title=None):
+    try:
+        sys.path.insert(0, str(ROOT / "project_b"))
+        import notify as nf
+        nf.send(title or "📡 王晰数字档案", msg)
+    except Exception as e:
+        log("notify 失败: %s" % e)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--machine", choices=["laptop", "desktop"], default="laptop",
@@ -92,6 +101,7 @@ def main():
     ok = run([sys.executable, str(ROOT / "project_b" / "deploy_all.py")])
     if not ok:
         log("deploy_all 失败，终止发布")
+        notify("⚠️ 自动更新失败：deploy_all 出错", "详情见 logs/ 目录")
         return
 
     # 3. diff 检查：无变化则跳过 push（deploy_all 未 commit 时）
@@ -108,9 +118,11 @@ def main():
     log("-- git push --")
     if not run(["git", "push", "origin", "main"]):
         log("push 失败（网络/凭据？），请手动 push")
+        notify("⚠️ 自动更新失败：git push 未成功", "请手动执行 cd D:\\wx409.github.io && git push origin main")
         return
     log("-- IndexNow 通知 --")
     run([sys.executable, str(ROOT / "project_b" / "deploy_all.py"), "--notify-only"])
+    notify("✅ 王晰数字档案已自动更新", "构建/发布/IndexNow 全部完成，站点已是最新。")
     log("=== 完成 ===")
 
 
