@@ -110,6 +110,17 @@ def main() -> None:
         except Exception:
             pass
 
+    # 3.6 保留旧文件中 entity 之外的新条目（watch_releases --apply 自动入库的新歌）
+    #     有 mid 的条目视为有效档案（来自 QQ 歌手页 diff），重建时不丢失
+    if OUT.exists():
+        try:
+            old = json.loads(OUT.read_text(encoding="utf-8")).get("songs", {})
+            for k, v in old.items():
+                if k not in meta and v.get("mid"):
+                    meta[k] = v
+        except Exception:
+            pass
+
     # 4. 输出：剔除无任何信息的空壳（仅歌词条目也可能有价值，保留全部）
     out = {k: v for k, v in meta.items() if v["name"]}
     out = dict(sorted(out.items(), key=lambda kv: kv[1]["name"]))
