@@ -1491,7 +1491,7 @@
         }).addTo(map);
     }
     setTimeout(function(){
-        fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+        fetch('../assets/china_bound.json')
             .then(function(r){ return r.json(); })
             .then(addBoundaries)
             .catch(function(){});
@@ -1653,10 +1653,10 @@
 
     /* ============ 足迹海报生成（地图涂色版） ============ */
     var PROVINCE_OF = {
-        '杭州':'浙江','武汉':'湖北','大连':'辽宁','南京':'江苏','广州':'广东','北京':'北京',
-        '深圳':'广东','南宁':'广西','重庆':'重庆','上海':'上海','海口':'海南','珠海':'广东',
-        '佛山':'广东','长沙':'湖南','厦门':'福建','太原':'山西','宁波':'浙江','无锡':'江苏',
-        '鄂尔多斯':'内蒙古','郑州':'河南','昆明':'云南','南昌':'江西'
+        '杭州':'浙江省','武汉':'湖北省','大连':'辽宁省','南京':'江苏省','广州':'广东省','北京':'北京市',
+        '深圳':'广东省','南宁':'广西壮族自治区','重庆':'重庆市','上海':'上海市','海口':'海南省','珠海':'广东省',
+        '佛山':'广东省','长沙':'湖南省','厦门':'福建省','太原':'山西省','宁波':'浙江省','无锡':'江苏省',
+        '鄂尔多斯':'内蒙古自治区','郑州':'河南省','昆明':'云南省','南昌':'江西省'
     };
     var posterChart = null;
 
@@ -1665,12 +1665,19 @@
         var s = document.createElement('script');
         s.src = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js';
         s.onload = cb;
-        s.onerror = function(){ alert('地图库加载失败（需联网），请稍后重试'); };
+        s.onerror = function(){
+            // 备胎 CDN（npmmirror 国内镜像）
+            var s2 = document.createElement('script');
+            s2.src = 'https://registry.npmmirror.com/echarts/5.4.3/files/dist/echarts.min.js';
+            s2.onload = cb;
+            s2.onerror = function(){ alert('地图库加载失败（需联网），请稍后重试'); };
+            document.head.appendChild(s2);
+        };
         document.head.appendChild(s);
     }
 
     function renderPosterMap(provs, pts){
-        fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000.json')
+        fetch('../assets/china.json')
             .then(function(r){ return r.json(); })
             .then(function(gj){
                 echarts.registerMap('china', gj);
