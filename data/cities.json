@@ -1,956 +1,956 @@
 {
-  "generated_at": "2026-08-15 16:38",
-  "city_count": 22,
-  "show_count": 59,
-  "cities": {
-    "杭州": {
-      "coord": [
-        30.2741,
-        120.1551
-      ],
-      "shows": [
-        {
-          "date": "2019-06-07",
-          "scene": "杭州",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "杭州剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2020-11-14",
-          "scene": "杭州",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "杭州剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2024-05-25",
-          "scene": "杭州",
-          "note": "",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "杭州剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2024-12-21",
-          "scene": "杭州（首场）",
-          "note": "首场",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "杭州剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2026-01-31",
-          "scene": "杭州（返场·金沙湖）",
-          "note": "返场·金沙湖",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "杭州金沙湖大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -6.7,
-            "setlist_uplift": -32.1,
-            "radiance_uplift": -6.6
-          }
-        }
-      ]
+ "generated_at": "2026-08-15 16:38",
+ "city_count": 22,
+ "show_count": 59,
+ "cities": {
+  "杭州": {
+   "coord": [
+    30.2741,
+    120.1551
+   ],
+   "shows": [
+    {
+     "date": "2019-06-07",
+     "scene": "杭州",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "杭州剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
     },
-    "武汉": {
-      "coord": [
-        30.5928,
-        114.3055
-      ],
-      "shows": [
-        {
-          "date": "2019-06-15",
-          "scene": "武汉",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "武汉剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2021-01-10",
-          "scene": "武汉",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "武汉琴台大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2022-09-17",
-          "scene": "武汉",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "武汉琴台大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2024-09-16",
-          "scene": "武汉（收官·中秋前）",
-          "note": "收官·中秋前",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "武汉琴台大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -2.6,
-            "setlist_uplift": -15.0,
-            "radiance_uplift": -7.8
-          }
-        }
-      ]
+    {
+     "date": "2020-11-14",
+     "scene": "杭州",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "杭州剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
     },
-    "大连": {
-      "coord": [
-        38.914,
-        121.6147
-      ],
-      "shows": [
-        {
-          "date": "2019-07-20",
-          "scene": "大连",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "大连国际会议中心大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
+    {
+     "date": "2024-05-25",
+     "scene": "杭州",
+     "note": "",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "杭州剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
     },
-    "南京": {
-      "coord": [
-        32.0603,
-        118.7969
-      ],
-      "shows": [
-        {
-          "date": "2019-07-28",
-          "scene": "南京",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "南京保利大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2021-04-11",
-          "scene": "南京（收官）",
-          "note": "收官",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "南京保利大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2024-01-27",
-          "scene": "南京",
-          "note": "",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "南京太阳宫剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
+    {
+     "date": "2024-12-21",
+     "scene": "杭州（首场）",
+     "note": "首场",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "杭州剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
     },
-    "广州": {
-      "coord": [
-        23.1291,
-        113.2644
-      ],
-      "shows": [
-        {
-          "date": "2019-08-04",
-          "scene": "广州",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "广东艺术剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2020-12-05",
-          "scene": "广州",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "广州中山纪念堂",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2021-12-04",
-          "scene": "广州",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "广州中山纪念堂",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2023-12-10",
-          "scene": "广州",
-          "note": "",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "广东艺术剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -37.2,
-            "setlist_uplift": -14.5,
-            "radiance_uplift": -8.4
-          }
-        },
-        {
-          "date": "2025-05-24",
-          "scene": "广州",
-          "note": "",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "广东艺术剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -3.2,
-            "setlist_uplift": -5.2,
-            "radiance_uplift": -4.0
-          }
-        },
-        {
-          "date": "2026-08-23",
-          "scene": "广州（官宣未举办）",
-          "note": "官宣未举办",
-          "tour": "六巡",
-          "tour_num": 6,
-          "theme": "回",
-          "venue": "广东艺术剧院",
-          "live_url": "live/hui-回-广州-2026.html",
-          "cancelled": true,
-          "has_data": false
-        }
-      ]
-    },
-    "北京": {
-      "coord": [
-        39.9042,
-        116.4074
-      ],
-      "shows": [
-        {
-          "date": "2019-08-16",
-          "scene": "北京",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "北京世纪剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2020-01-02",
-          "scene": "北京收官",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "北京北展剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2020-11-29",
-          "scene": "北京",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "北京展览馆剧场（北展剧场）",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2022-04-09",
-          "scene": "北京",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "北京二七剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2023-11-12",
-          "scene": "北京（首场）",
-          "note": "首场",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "北京二七剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -1.5,
-            "setlist_uplift": 59.7,
-            "radiance_uplift": -1.4
-          }
-        },
-        {
-          "date": "2024-08-16",
-          "scene": "北京（二场·五载纪念）",
-          "note": "二场·五载纪念",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "北京世纪剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2025-04-05",
-          "scene": "北京（生日场）",
-          "note": "生日场",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "北京二七剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -8.3,
-            "setlist_uplift": -20.2,
-            "radiance_uplift": -2.6
-          }
-        },
-        {
-          "date": "2026-04-10",
-          "scene": "北京（收官·生日特典）",
-          "note": "收官·生日特典",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "北京世纪剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -5.0,
-            "setlist_uplift": 27.0,
-            "radiance_uplift": 10.5
-          }
-        }
-      ]
-    },
-    "深圳": {
-      "coord": [
-        22.5431,
-        114.0579
-      ],
-      "shows": [
-        {
-          "date": "2019-09-08",
-          "scene": "深圳",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "深圳保利剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2023-06-23",
-          "scene": "深圳",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "深圳光明文化艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -14.7,
-            "setlist_uplift": 4.1,
-            "radiance_uplift": -10.0
-          }
-        }
-      ]
-    },
-    "南宁": {
-      "coord": [
-        22.817,
-        108.3665
-      ],
-      "shows": [
-        {
-          "date": "2019-10-12",
-          "scene": "南宁",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "广西文化艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2020-12-19",
-          "scene": "南宁",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "广西文化艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2023-05-20",
-          "scene": "南宁",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "广西文化艺术中心·大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -14.3,
-            "setlist_uplift": 22.8,
-            "radiance_uplift": -8.6
-          }
-        }
-      ]
-    },
-    "重庆": {
-      "coord": [
-        29.563,
-        106.5516
-      ],
-      "shows": [
-        {
-          "date": "2019-10-19",
-          "scene": "重庆",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "重庆国泰艺术中心（国泰大剧院）",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2024-03-30",
-          "scene": "重庆",
-          "note": "",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "重庆施光南大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2026-06-13",
-          "scene": "重庆（首站）",
-          "note": "首站",
-          "tour": "六巡",
-          "tour_num": 6,
-          "theme": "回",
-          "venue": "重庆施光南大剧院",
-          "live_url": "live/hui-回-重庆-2026.html",
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": 4.2,
-            "setlist_uplift": 18.9,
-            "radiance_uplift": 2.3
-          }
-        }
-      ]
-    },
-    "上海": {
-      "coord": [
-        31.2304,
-        121.4737
-      ],
-      "shows": [
-        {
-          "date": "2019-11-03",
-          "scene": "上海",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "上海美琪大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2021-03-07",
-          "scene": "上海（首场）",
-          "note": "首场",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "上海东方艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2021-03-08",
-          "scene": "上海（加场）",
-          "note": "加场",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "上海东方艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2022-01-10",
-          "scene": "上海",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "上海东方艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2023-12-31",
-          "scene": "上海（跨年）",
-          "note": "跨年",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "上海北外滩友邦大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2024-04-06",
-          "scene": "上海（生日特别场）",
-          "note": "生日特别场",
-          "tour": "四巡",
-          "tour_num": 4,
-          "theme": "肆益",
-          "venue": "上海保利大剧院·大剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2025-11-21",
-          "scene": "上海（返场）",
-          "note": "返场",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "上海北外滩友邦大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -2.4,
-            "setlist_uplift": -11.6,
-            "radiance_uplift": -3.2
-          }
-        }
-      ]
-    },
-    "海口": {
-      "coord": [
-        20.044,
-        110.1999
-      ],
-      "shows": [
-        {
-          "date": "2019-11-16",
-          "scene": "海口",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "海口国际会展中心东方环球大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "珠海": {
-      "coord": [
-        22.2707,
-        113.5767
-      ],
-      "shows": [
-        {
-          "date": "2019-11-29",
-          "scene": "珠海",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "珠海大剧院·歌剧厅",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "佛山": {
-      "coord": [
-        23.0218,
-        113.1219
-      ],
-      "shows": [
-        {
-          "date": "2019-12-01",
-          "scene": "佛山",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "佛山大剧院·大剧场",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2020-11-21",
-          "scene": "佛山",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "佛山琼花大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "长沙": {
-      "coord": [
-        28.2282,
-        112.9388
-      ],
-      "shows": [
-        {
-          "date": "2019-12-15",
-          "scene": "长沙",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "长沙梅溪湖国际文化艺术中心大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2021-01-09",
-          "scene": "长沙",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "长沙音乐厅",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2022-06-24",
-          "scene": "长沙",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "长沙音乐厅",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2025-01-01",
-          "scene": "长沙（元旦）",
-          "note": "元旦",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "长沙梅溪湖国际文化艺术中心大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "厦门": {
-      "coord": [
-        24.4798,
-        118.0894
-      ],
-      "shows": [
-        {
-          "date": "2019-12-21",
-          "scene": "厦门",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "厦门沧江剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "太原": {
-      "coord": [
-        37.8706,
-        112.5489
-      ],
-      "shows": [
-        {
-          "date": "2019-12-28",
-          "scene": "太原",
-          "note": "",
-          "tour": "一巡",
-          "tour_num": 1,
-          "theme": "Cherish珍晰",
-          "venue": "山西大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        },
-        {
-          "date": "2022-07-15",
-          "scene": "太原",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "山西大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "宁波": {
-      "coord": [
-        29.8683,
-        121.544
-      ],
-      "shows": [
-        {
-          "date": "2021-03-27",
-          "scene": "宁波",
-          "note": "",
-          "tour": "二巡",
-          "tour_num": 2,
-          "theme": "2020-2021 个人巡回",
-          "venue": "宁波文化广场大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "无锡": {
-      "coord": [
-        31.4912,
-        120.3119
-      ],
-      "shows": [
-        {
-          "date": "2022-01-09",
-          "scene": "无锡",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "无锡大剧院歌剧厅",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "鄂尔多斯": {
-      "coord": [
-        39.6085,
-        109.7809
-      ],
-      "shows": [
-        {
-          "date": "2022-07-17",
-          "scene": "鄂尔多斯",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "鄂尔多斯市保利剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
-    },
-    "郑州": {
-      "coord": [
-        34.7466,
-        113.6254
-      ],
-      "shows": [
-        {
-          "date": "2023-05-01",
-          "scene": "郑州",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "河南艺术中心",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -21.1,
-            "setlist_uplift": -15.3,
-            "radiance_uplift": -15.3
-          }
-        }
-      ]
-    },
-    "昆明": {
-      "coord": [
-        24.8801,
-        102.8329
-      ],
-      "shows": [
-        {
-          "date": "2023-05-03",
-          "scene": "昆明",
-          "note": "",
-          "tour": "三巡",
-          "tour_num": 3,
-          "theme": "图景",
-          "venue": "云南省大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": true,
-          "effect": {
-            "total_uplift": -17.1,
-            "setlist_uplift": -35.6,
-            "radiance_uplift": -9.8
-          }
-        }
-      ]
-    },
-    "南昌": {
-      "coord": [
-        28.682,
-        115.8579
-      ],
-      "shows": [
-        {
-          "date": "2024-12-29",
-          "scene": "南昌",
-          "note": "",
-          "tour": "五巡",
-          "tour_num": 5,
-          "theme": "吾",
-          "venue": "南昌保利大剧院",
-          "live_url": null,
-          "cancelled": false,
-          "has_data": false
-        }
-      ]
+    {
+     "date": "2026-01-31",
+     "scene": "杭州（返场·金沙湖）",
+     "note": "返场·金沙湖",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "杭州金沙湖大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -6.7,
+      "setlist_uplift": -32.1,
+      "radiance_uplift": -6.6
+     }
     }
+   ]
+  },
+  "武汉": {
+   "coord": [
+    30.5928,
+    114.3055
+   ],
+   "shows": [
+    {
+     "date": "2019-06-15",
+     "scene": "武汉",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "武汉剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2021-01-10",
+     "scene": "武汉",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "武汉琴台大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2022-09-17",
+     "scene": "武汉",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "武汉琴台大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2024-09-16",
+     "scene": "武汉（收官·中秋前）",
+     "note": "收官·中秋前",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "武汉琴台大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -2.6,
+      "setlist_uplift": -15.0,
+      "radiance_uplift": -7.8
+     }
+    }
+   ]
+  },
+  "大连": {
+   "coord": [
+    38.914,
+    121.6147
+   ],
+   "shows": [
+    {
+     "date": "2019-07-20",
+     "scene": "大连",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "大连国际会议中心大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "南京": {
+   "coord": [
+    32.0603,
+    118.7969
+   ],
+   "shows": [
+    {
+     "date": "2019-07-28",
+     "scene": "南京",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "南京保利大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2021-04-11",
+     "scene": "南京（收官）",
+     "note": "收官",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "南京保利大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2024-01-27",
+     "scene": "南京",
+     "note": "",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "南京太阳宫剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "广州": {
+   "coord": [
+    23.1291,
+    113.2644
+   ],
+   "shows": [
+    {
+     "date": "2019-08-04",
+     "scene": "广州",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "广东艺术剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2020-12-05",
+     "scene": "广州",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "广州中山纪念堂",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2021-12-04",
+     "scene": "广州",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "广州中山纪念堂",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2023-12-10",
+     "scene": "广州",
+     "note": "",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "广东艺术剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -37.2,
+      "setlist_uplift": -14.5,
+      "radiance_uplift": -8.4
+     }
+    },
+    {
+     "date": "2025-05-24",
+     "scene": "广州",
+     "note": "",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "广东艺术剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -3.2,
+      "setlist_uplift": -5.2,
+      "radiance_uplift": -4.0
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "scene": "广州（已开票·待举办）",
+     "note": "已开票·2026-08-23 19:30 广东艺术剧院",
+     "tour": "六巡",
+     "tour_num": 6,
+     "theme": "回",
+     "venue": "广东艺术剧院",
+     "live_url": "live/hui-回-广州-2026.html",
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "北京": {
+   "coord": [
+    39.9042,
+    116.4074
+   ],
+   "shows": [
+    {
+     "date": "2019-08-16",
+     "scene": "北京",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "北京世纪剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2020-01-02",
+     "scene": "北京收官",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "北京北展剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2020-11-29",
+     "scene": "北京",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "北京展览馆剧场（北展剧场）",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2022-04-09",
+     "scene": "北京",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "北京二七剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2023-11-12",
+     "scene": "北京（首场）",
+     "note": "首场",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "北京二七剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -1.5,
+      "setlist_uplift": 59.7,
+      "radiance_uplift": -1.4
+     }
+    },
+    {
+     "date": "2024-08-16",
+     "scene": "北京（二场·五载纪念）",
+     "note": "二场·五载纪念",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "北京世纪剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2025-04-05",
+     "scene": "北京（生日场）",
+     "note": "生日场",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "北京二七剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -8.3,
+      "setlist_uplift": -20.2,
+      "radiance_uplift": -2.6
+     }
+    },
+    {
+     "date": "2026-04-10",
+     "scene": "北京（收官·生日特典）",
+     "note": "收官·生日特典",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "北京世纪剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -5.0,
+      "setlist_uplift": 27.0,
+      "radiance_uplift": 10.5
+     }
+    }
+   ]
+  },
+  "深圳": {
+   "coord": [
+    22.5431,
+    114.0579
+   ],
+   "shows": [
+    {
+     "date": "2019-09-08",
+     "scene": "深圳",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "深圳保利剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2023-06-23",
+     "scene": "深圳",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "深圳光明文化艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -14.7,
+      "setlist_uplift": 4.1,
+      "radiance_uplift": -10.0
+     }
+    }
+   ]
+  },
+  "南宁": {
+   "coord": [
+    22.817,
+    108.3665
+   ],
+   "shows": [
+    {
+     "date": "2019-10-12",
+     "scene": "南宁",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "广西文化艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2020-12-19",
+     "scene": "南宁",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "广西文化艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2023-05-20",
+     "scene": "南宁",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "广西文化艺术中心·大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -14.3,
+      "setlist_uplift": 22.8,
+      "radiance_uplift": -8.6
+     }
+    }
+   ]
+  },
+  "重庆": {
+   "coord": [
+    29.563,
+    106.5516
+   ],
+   "shows": [
+    {
+     "date": "2019-10-19",
+     "scene": "重庆",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "重庆国泰艺术中心（国泰大剧院）",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2024-03-30",
+     "scene": "重庆",
+     "note": "",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "重庆施光南大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2026-06-13",
+     "scene": "重庆（首站）",
+     "note": "首站",
+     "tour": "六巡",
+     "tour_num": 6,
+     "theme": "回",
+     "venue": "重庆施光南大剧院",
+     "live_url": "live/hui-回-重庆-2026.html",
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": 4.2,
+      "setlist_uplift": 18.9,
+      "radiance_uplift": 2.3
+     }
+    }
+   ]
+  },
+  "上海": {
+   "coord": [
+    31.2304,
+    121.4737
+   ],
+   "shows": [
+    {
+     "date": "2019-11-03",
+     "scene": "上海",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "上海美琪大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2021-03-07",
+     "scene": "上海（首场）",
+     "note": "首场",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "上海东方艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2021-03-08",
+     "scene": "上海（加场）",
+     "note": "加场",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "上海东方艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2022-01-10",
+     "scene": "上海",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "上海东方艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2023-12-31",
+     "scene": "上海（跨年）",
+     "note": "跨年",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "上海北外滩友邦大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2024-04-06",
+     "scene": "上海（生日特别场）",
+     "note": "生日特别场",
+     "tour": "四巡",
+     "tour_num": 4,
+     "theme": "肆益",
+     "venue": "上海保利大剧院·大剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2025-11-21",
+     "scene": "上海（返场）",
+     "note": "返场",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "上海北外滩友邦大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -2.4,
+      "setlist_uplift": -11.6,
+      "radiance_uplift": -3.2
+     }
+    }
+   ]
+  },
+  "海口": {
+   "coord": [
+    20.044,
+    110.1999
+   ],
+   "shows": [
+    {
+     "date": "2019-11-16",
+     "scene": "海口",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "海口国际会展中心东方环球大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "珠海": {
+   "coord": [
+    22.2707,
+    113.5767
+   ],
+   "shows": [
+    {
+     "date": "2019-11-29",
+     "scene": "珠海",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "珠海大剧院·歌剧厅",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "佛山": {
+   "coord": [
+    23.0218,
+    113.1219
+   ],
+   "shows": [
+    {
+     "date": "2019-12-01",
+     "scene": "佛山",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "佛山大剧院·大剧场",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2020-11-21",
+     "scene": "佛山",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "佛山琼花大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "长沙": {
+   "coord": [
+    28.2282,
+    112.9388
+   ],
+   "shows": [
+    {
+     "date": "2019-12-15",
+     "scene": "长沙",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "长沙梅溪湖国际文化艺术中心大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2021-01-09",
+     "scene": "长沙",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "长沙音乐厅",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2022-06-24",
+     "scene": "长沙",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "长沙音乐厅",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2025-01-01",
+     "scene": "长沙（元旦）",
+     "note": "元旦",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "长沙梅溪湖国际文化艺术中心大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "厦门": {
+   "coord": [
+    24.4798,
+    118.0894
+   ],
+   "shows": [
+    {
+     "date": "2019-12-21",
+     "scene": "厦门",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "厦门沧江剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "太原": {
+   "coord": [
+    37.8706,
+    112.5489
+   ],
+   "shows": [
+    {
+     "date": "2019-12-28",
+     "scene": "太原",
+     "note": "",
+     "tour": "一巡",
+     "tour_num": 1,
+     "theme": "Cherish珍晰",
+     "venue": "山西大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    },
+    {
+     "date": "2022-07-15",
+     "scene": "太原",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "山西大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "宁波": {
+   "coord": [
+    29.8683,
+    121.544
+   ],
+   "shows": [
+    {
+     "date": "2021-03-27",
+     "scene": "宁波",
+     "note": "",
+     "tour": "二巡",
+     "tour_num": 2,
+     "theme": "2020-2021 个人巡回",
+     "venue": "宁波文化广场大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "无锡": {
+   "coord": [
+    31.4912,
+    120.3119
+   ],
+   "shows": [
+    {
+     "date": "2022-01-09",
+     "scene": "无锡",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "无锡大剧院歌剧厅",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "鄂尔多斯": {
+   "coord": [
+    39.6085,
+    109.7809
+   ],
+   "shows": [
+    {
+     "date": "2022-07-17",
+     "scene": "鄂尔多斯",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "鄂尔多斯市保利剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
+  },
+  "郑州": {
+   "coord": [
+    34.7466,
+    113.6254
+   ],
+   "shows": [
+    {
+     "date": "2023-05-01",
+     "scene": "郑州",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "河南艺术中心",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -21.1,
+      "setlist_uplift": -15.3,
+      "radiance_uplift": -15.3
+     }
+    }
+   ]
+  },
+  "昆明": {
+   "coord": [
+    24.8801,
+    102.8329
+   ],
+   "shows": [
+    {
+     "date": "2023-05-03",
+     "scene": "昆明",
+     "note": "",
+     "tour": "三巡",
+     "tour_num": 3,
+     "theme": "图景",
+     "venue": "云南省大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": true,
+     "effect": {
+      "total_uplift": -17.1,
+      "setlist_uplift": -35.6,
+      "radiance_uplift": -9.8
+     }
+    }
+   ]
+  },
+  "南昌": {
+   "coord": [
+    28.682,
+    115.8579
+   ],
+   "shows": [
+    {
+     "date": "2024-12-29",
+     "scene": "南昌",
+     "note": "",
+     "tour": "五巡",
+     "tour_num": 5,
+     "theme": "吾",
+     "venue": "南昌保利大剧院",
+     "live_url": null,
+     "cancelled": false,
+     "has_data": false
+    }
+   ]
   }
+ }
 }
