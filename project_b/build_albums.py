@@ -5,6 +5,7 @@
 每首歌带 mid（供试听）、网易云链接可后续补。
 """
 import json
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -24,13 +25,30 @@ ALBUMS = [
 ]
 
 
-def qq_search(kw, n=30):
-    url = ("https://c.y.qq.com/soso/fcgi-bin/client_search_cp?p=1&n=" + str(n)
+def qq_search(kw, n=50, page=1):
+    url = ("https://c.y.qq.com/soso/fcgi-bin/client_search_cp?p=" + str(page) + "&n=" + str(n)
            + "&format=json&w=" + urllib.parse.quote(kw))
     req = urllib.request.Request(url, headers={**UA, "Referer": "https://y.qq.com/"})
     with urllib.request.urlopen(req, timeout=15) as r:
         j = json.loads(r.read().decode("utf-8"))
     return j.get("data", {}).get("song", {}).get("list", [])
+
+
+def qq_search_multi(kw, n=50, pages=2):
+    """多关键词翻页搜索 + 按 mid 去重（QQ 单次结果有限，翻页避免漏歌）"""
+    songs, seen = [], set()
+    for page in range(1, pages + 1):
+        try:
+            hits = qq_search(kw, n=n, page=page)
+        except Exception:
+            continue
+        for s in hits:
+            mid = s.get("songmid")
+            if mid and mid not in seen:
+                seen.add(mid)
+                songs.append(s)
+        time.sleep(0.4)
+    return songs
 
 
 def norm_album(s):
@@ -42,7 +60,12 @@ def main():
     out = {"generated_at": "", "albums": []}
     for alb in ALBUMS:
         name = alb["name"]
-        hits = qq_search(f"王晰 {alb.get('alias', name)}")
+        search_kw = alb.get('alias', name)
+        # 两个关键词方向 + 翻页，确保专辑内全部曲目被归属
+        hits = []
+        for kw in (f"王晰 {search_kw}", f"{search_kw} 王晰"):
+            hits.extend(qq_search_multi(kw))
+            time.sleep(0.8)
         # 过滤：歌手含王晰 + albumname 精确匹配
         songs = []
         seen = set()
@@ -51,6 +74,8 @@ def main():
             album = norm_album(s.get("albumname"))
             if "王晰" not in singer or album != norm_album(name):
                 continue
+            if re.search(r"\(伴奏\)|伴奏版|\(纯音乐\)|Instrumental|\(KTV\)", s.get("songname", ""), re.I):
+                continue  # 排除伴奏/纯音乐版本
             mid = s.get("songmid")
             if not mid or mid in seen:
                 continue
