@@ -64,10 +64,10 @@
         <div class="btn-row" id="act" style="display:none">
             <button type="button" class="btn btn-copy" onclick="copyIt()">② 一键复制</button>
             <a class="btn btn-issue" id="ghLink" target="_blank" rel="noopener">③ 打开 GitHub 提交</a>
-            <a class="btn btn-mail" id="mailLink" target="_blank" rel="noopener">✉️ 发邮件提交（直达管理员）</a>
+            <button type="button" class="btn btn-mail" id="mailBtn" onclick="copyMail()">✉️ 复制邮箱提交</button>
         </div>
     </form>
-    <p class="tip" style="margin-top:20px;">复制后可以粘贴到<strong>任意渠道</strong>：微信粉丝群、微博私信、邮件……或者直接点「发邮件提交」——会打开你的邮箱并自动填好内容，发送到 <code>wangxi409@163.com</code>（管理员邮箱），无需 GitHub 账号。</p>
+    <p class="tip" style="margin-top:20px;">复制后可以粘贴到<strong>任意渠道</strong>：微信粉丝群、微博私信、邮件……「复制邮箱提交」会一键复制管理员邮箱 <strong style="color:#0a7a5a;">wangxi409@163.com</strong> 和你的投稿文本——打开任意邮箱/微信粘贴发送即可，无需 GitHub 账号。</p>
 
     <script>
     function build() {
@@ -87,9 +87,19 @@
         document.getElementById('ghLink').href = 'https://github.com/wx409/wx409.github.io/issues/new?title=' +
             encodeURIComponent('投稿：' + type + (city ? '（' + city + '）' : '')) +
             '&body=' + encodeURIComponent(t + '\n\n（由 submit.html 表单生成）');
-        document.getElementById('mailLink').href = 'mailto:wangxi409@163.com?subject=' +
-            encodeURIComponent('【王晰档案投稿】' + type + (city ? ' ' + city : '')) +
-            '&body=' + encodeURIComponent(t + '\n\n（由 wx409.github.io/submit.html 表单生成）');
+    }
+    function copyMail() {
+        var txt = document.getElementById('out').textContent;
+        var full = txt + '\n\n【收件人】wangxi409@163.com（管理员邮箱）';
+        var done = function () {
+            var b = document.getElementById('mailBtn');
+            b.textContent = '✅ 已复制，去粘贴发送';
+            b.style.background = '#0a7a5a';
+            setTimeout(function () { b.textContent = '✉️ 复制邮箱提交'; b.style.background = ''; }, 3000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(full).then(done, function () { fallbackCopy(full); done(); });
+        } else { fallbackCopy(full); done(); }
     }
     function copyIt() {
         var txt = document.getElementById('out').textContent;
