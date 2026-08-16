@@ -86,7 +86,7 @@
       var data = JSON.stringify({ req_0: { module: 'vkey.GetVkeyServer', method: 'CgiGetVkey', param: param } });
       var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg?callback=' + cbName +
                 '&data=' + encodeURIComponent(data) + '&format=json';
-      var timer = setTimeout(function () { cleanup(); reject(new Error('获取播放地址超时')); }, 15000);
+      var timer = setTimeout(function () { cleanup(); reject(new Error('获取播放地址超时')); }, 8000);
       function cleanup() {
         clearTimeout(timer);
         var s = document.getElementById(cbName);
@@ -131,7 +131,7 @@
       var cbName = 'callback';   /* client_search_cp 响应固定调用名为 callback 的全局函数 */
       var url = 'https://c.y.qq.com/soso/fcgi-bin/client_search_cp?p=1&n=8&format=jsonp&callback=' + cbName +
                 '&w=' + encodeURIComponent(keyword);
-      var timer = setTimeout(function () { cleanup(); reject(new Error('QQ搜索超时')); }, 12000);
+      var timer = setTimeout(function () { cleanup(); reject(new Error('QQ搜索超时')); }, 7000);
       function cleanup() {
         clearTimeout(timer);
         var s = document.getElementById(cbName + '_pe');
@@ -182,7 +182,7 @@
       var cbName = '__wyy_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
       var url = 'https://music.163.com/api/search/get/web?type=1&callback=' + cbName +
                 '&s=' + encodeURIComponent(keyword);
-      var timer = setTimeout(function () { cleanup(); reject(new Error('网易云搜索超时')); }, 12000);
+      var timer = setTimeout(function () { cleanup(); reject(new Error('网易云搜索超时')); }, 7000);
       function cleanup() {
         clearTimeout(timer);
         var s = document.getElementById(cbName);
@@ -237,36 +237,46 @@
    */
   function resolveCandidates(songmid, title) {
     var nt = title || '';
-    var cands = [];
-    function push(url, platform) { if (url) cands.push({ url: url, platform: platform }); }
+    /* 每步返回 {url, platform} 或 null；短路链：成功即停，不再跑后续搜索 */
     function tryQQvkey(mid) {
-      return fetchVkey(mid).then(function (url) { push(url, 'QQ音乐'); }).catch(function () {});
+      return fetchVkey(mid).then(function (url) {
+        if (url) return { url: url, platform: 'QQ音乐' };
+        return null;
+      }).catch(function () { return null; });
     }
     function tryQQsearch(kw) {
       return qqSearch(kw).then(function (hits) {
         var best = pickQq(hits, nt);
         if (best && best.mid) return tryQQvkey(best.mid);
-      }).catch(function () {});
+        return null;
+      }).catch(function () { return null; });
     }
     function tryWyy(kw) {
       return wyySearch(kw).then(function (hits) {
         var best = pickWyy(hits, nt);
-        if (best) push(wyyPlayUrl(best.id), '网易云');
-      }).catch(function () {});
+        if (best) return { url: wyyPlayUrl(best.id), platform: '网易云' };
+        return null;
+      }).catch(function () { return null; });
     }
-    var p = songmid ? tryQQvkey(songmid) : Promise.resolve();
-    p = p.then(function () { return tryQQsearch(nt + ' 王晰'); });
-    p = p.then(function () { return tryQQsearch(nt + ' 王晰 live'); });
-    p = p.then(function () { return tryWyy(nt + ' 王晰'); });
-    p = p.then(function () { return tryWyy(nt + ' 王晰 live'); });
-    return p.then(function () { return cands; });
+    var steps = [];
+    if (songmid) steps.push(function () { return tryQQvkey(songmid); });
+    steps.push(function () { return tryQQsearch(nt + ' 王晰'); });
+    steps.push(function () { return tryQQsearch(nt + ' 王晰 live'); });
+    steps.push(function () { return tryWyy(nt + ' 王晰'); });
+    steps.push(function () { return tryWyy(nt + ' 王晰 live'); });
+    /* 短路链：reduce 串联，一旦某步返回非 null 立即终止 */
+    return steps.reduce(function (chain, step) {
+      return chain.then(function (res) { return res ? res : step(); });
+    }, Promise.resolve(null)).then(function (res) {
+      return res ? [res] : [];
+    });
   }
 
   /* 尝试播放单个候选：canplay 成功 / error 或超时失败（带 token，过期结果丢弃） */
   function tryPlayUrl(a, url, token) {
     return new Promise(function (resolve, reject) {
       var settled = false;
-      var timer = setTimeout(function () { if (!settled) { settled = true; cleanup(); reject(new Error('加载超时')); } }, 20000);
+      var timer = setTimeout(function () { if (!settled) { settled = true; cleanup(); reject(new Error('加载超时')); } }, 12000);
       function onCan() {
         if (settled) return;
         settled = true;
