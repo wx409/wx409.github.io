@@ -16,6 +16,24 @@
   var currentTitle = '';
   var statusFn = null;
 
+  /* ---------- 本地电台代理（解锁 VIP 全曲，与小酒馆一致） ---------- */
+  var PROXY = 'http://127.0.0.1:8787';
+  var proxyState = 0; /* 0=未探测 1=可用 2=不可用 */
+  function proxyProbe() {
+    if (proxyState) return Promise.resolve(proxyState === 1);
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 1200);
+    return fetch(PROXY + '/health', { mode: 'cors', signal: ctrl.signal })
+      .then(function (r) { proxyState = r.ok ? 1 : 2; })
+      .catch(function () { proxyState = 2; })
+      .then(function () { clearTimeout(timer); return proxyState === 1; });
+  }
+  function proxyVkey(songmid) {
+    return fetch(PROXY + '/vkey?mid=' + encodeURIComponent(songmid), { mode: 'cors' })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { return (j.urls && j.urls[0]) || null; });
+  }
+
   function getAudio() {
     if (!audio) {
       audio = new Audio();
@@ -87,9 +105,18 @@
   }
 
   function fetchVkey(songmid) {
-    return jsonpVkey(songmid).then(function (url) {
-      if (!url) { var e = new Error('该曲为 VIP/未提供试听'); e.noPurl = true; throw e; }
-      return url;
+    /* 代理可用（本机电台代理）→ 走代理解锁 VIP；否则 JSONP 免费试听 */
+    return proxyProbe().then(function (ok) {
+      if (ok) {
+        return proxyVkey(songmid).then(function (url) {
+          if (url) return url;
+          var e = new Error('该曲为 VIP/未提供试听'); e.noPurl = true; throw e;
+        });
+      }
+      return jsonpVkey(songmid).then(function (url) {
+        if (!url) { var e = new Error('该曲为 VIP/未提供试听'); e.noPurl = true; throw e; }
+        return url;
+      });
     });
   }
 

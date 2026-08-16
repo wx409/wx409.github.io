@@ -151,10 +151,8 @@
           return '<span class="sr-kw">' + highlight(k, terms) + '</span>';
         }).join('') + '</div>'
       : '';
-    // 试听按钮：song 类型且 text 里带 pe-mid 的条目
-    var mid = '';
-    var mm = /pe-mid=([A-Za-z0-9]+)/.exec(e.text || '');
-    if (type === 'song' && mm) mid = mm[1];
+    // 试听按钮：song 类型且有独立 mid 字段的条目
+    var mid = (type === 'song' && e.mid) ? e.mid : '';
     var playHtml = '';
     if (mid) {
       playHtml = '<div class="sr-play"><button type="button" class="pe-btn" data-mid="' + esc(mid) + '">▶ 试听</button></div>';
