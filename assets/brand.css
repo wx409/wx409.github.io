@@ -1,69 +1,70 @@
 /* ============================================================
-   王晰档案 · 品牌层 v2 —— 深夜剧院风（dark theater）
-   - 深墨底（低音声场）+ 剧院暗金高光 + 酒红幕布
-   - 增量覆盖：所有引入本文件的页面自动获得统一视觉
+   王晰档案 · 品牌层 v3 —— 月白·爵士复古（moonlit jazz）
+   - 奶油米白底（深夜月光）+ 深褐文字（老唱片墨）+ 酒红（幕布）+ 旧金（剧院）
+   - 文艺气质：大量留白、衬线标题、纸张暖光、克制动效
+   - 小酒馆（tavern/）已豁免：保持其专属深蓝深夜设计
    - 内置通用移动端适配
    ============================================================ */
 
 :root {
-  --wx-primary: #d64550;          /* 酒红（深底提亮） */
-  --wx-gold: #d4af37;             /* 剧院金 */
-  --wx-gold-soft: #b8962e;
-  --wx-ink: #f2ece0;              /* 米白正文 */
-  --wx-muted: #b3a98e;            /* 暖灰辅助文字 */
-  --wx-bg: #141110;               /* 深夜墨黑 */
-  --wx-card: #1e1a17;             /* 卡片深褐 */
-  --wx-card-hi: #262019;
-  --wx-border: rgba(212, 175, 55, 0.22);
-  --wx-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-  --wx-glow: 0 0 18px rgba(212, 175, 55, 0.15);
+  --wx-primary: #a8323d;          /* 酒红（复古幕布） */
+  --wx-primary-soft: #c2575f;
+  --wx-gold: #b8912e;             /* 旧金 */
+  --wx-gold-soft: #d4af5e;
+  --wx-ink: #3a322a;              /* 深褐正文 */
+  --wx-muted: #8a7f6d;            /* 暖灰辅助 */
+  --wx-bg: #faf6ef;               /* 奶油米白 */
+  --wx-card: #fffdf8;             /* 卡片月白 */
+  --wx-border: rgba(184, 145, 46, 0.28);
+  --wx-shadow: 0 4px 16px rgba(90, 70, 40, 0.10);
+  --wx-glow: 0 0 0 1px rgba(184, 145, 46, 0.25);
   --wx-transition: all 0.25s ease;
 }
 
-/* ============ 基底：深夜幕布 ============ */
+/* ============ 基底：月白纸张 ============ */
 body {
   background:
-    radial-gradient(1100px 520px at 18% -8%, #33241c 0%, transparent 55%),
-    radial-gradient(900px 500px at 90% 0%, #221a14 0%, transparent 50%),
-    var(--wx-bg) fixed;
+    radial-gradient(1000px 480px at 12% -6%, rgba(212, 175, 94, 0.10) 0%, transparent 55%),
+    radial-gradient(800px 420px at 96% 4%, rgba(168, 50, 61, 0.05) 0%, transparent 50%),
+    var(--wx-bg);
   color: var(--wx-ink);
 }
 p, li, td, th, small, dd, dt { color: inherit; }
 
-/* 标题：衬线 + 金色渐变（品牌记忆点） */
+/* 标题：衬线 + 深褐，h1 酒红渐隐 */
 h1, h2, h3, h4 {
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
   letter-spacing: 0.02em;
 }
 h1 {
-  color: #e8b04b;
-  background: linear-gradient(92deg, #e8b04b 0%, #d64550 68%);
+  color: var(--wx-ink);
+  background: linear-gradient(92deg, #3a322a 0%, var(--wx-primary) 85%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(90deg, var(--wx-gold), transparent) 1;
 }
-h2 { border-left-color: var(--wx-gold) !important; color: #e6d9b8; }
-h3 { color: #d8cfba; }
+h2 { border-left-color: var(--wx-gold) !important; color: #4a4036; }
+h3 { color: #57493a; }
 
-/* 链接：金 */
-a { color: var(--wx-gold); transition: color 0.2s ease; }
-a:hover { color: #f0d070; text-decoration-color: var(--wx-gold); }
+/* 链接：酒红，hover 旧金 */
+a { color: var(--wx-primary); transition: color 0.2s ease; }
+a:hover { color: var(--wx-gold); text-decoration-color: var(--wx-gold); }
 
-/* 导航：深色条 + 金线 */
+/* 导航：月白 + 金色底线 */
 .nav {
-  background: rgba(30, 26, 23, 0.92) !important;
+  background: rgba(255, 253, 248, 0.9) !important;
   border: 1px solid var(--wx-border);
-  border-bottom: 2px solid rgba(212, 175, 55, 0.45);
+  border-bottom: 2px solid rgba(184, 145, 46, 0.5);
 }
-.nav a { color: #e0d5b8; }
-.nav a:hover { color: var(--wx-gold); }
+.nav a { color: #5a4c3c; }
+.nav a:hover { color: var(--wx-primary); }
 
-/* 卡片：深褐渐变 + 细金边 + hover 金辉 */
+/* 卡片：月白 + 细金边 + hover 柔和上浮 */
 .card, .song-card, .album-card, .history-item, .review-card, .gallery-item,
 .paper, .city-card, .tl-body, .single-card, .stats, .sources-panel, .store, .tip {
-  background: linear-gradient(180deg, var(--wx-card-hi), var(--wx-card)) !important;
+  background: linear-gradient(180deg, #fffdf8, #fbf6ec) !important;
   border-color: var(--wx-border) !important;
   transition: var(--wx-transition);
 }
@@ -72,51 +73,51 @@ a:hover { color: #f0d070; text-decoration-color: var(--wx-gold); }
 .tl-body:hover, .single-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--wx-shadow), var(--wx-glow);
-  border-color: rgba(212, 175, 55, 0.55) !important;
+  border-color: rgba(184, 145, 46, 0.55) !important;
 }
 
 /* 页面淡入 */
 body { animation: wx-fade 0.45s ease; }
 @keyframes wx-fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
-/* 金句墙 / 引用：金→酒红渐变左线，深色底 */
+/* 金句墙 / 引用：酒红→金渐变左线，米金底 */
 blockquote {
   border-left: 3px solid transparent;
-  border-image: linear-gradient(180deg, var(--wx-gold), var(--wx-primary)) 1;
-  background: rgba(212, 175, 55, 0.05) !important;
-  color: #e8e0cd;
+  border-image: linear-gradient(180deg, var(--wx-primary), var(--wx-gold)) 1;
+  background: rgba(184, 145, 46, 0.06) !important;
+  color: #4a4036;
 }
 .quote-item { background: transparent !important; }
 
-/* 表格：金线深色 */
-table { border-color: rgba(212, 175, 55, 0.2); }
+/* 表格：旧金表头 */
+table { border-color: rgba(184, 145, 46, 0.22); }
 th {
-  background: rgba(212, 175, 55, 0.12) !important;
-  color: #ecd9a0 !important;
-  border-color: rgba(212, 175, 55, 0.3) !important;
+  background: rgba(184, 145, 46, 0.12) !important;
+  color: #6a5420 !important;
+  border-color: rgba(184, 145, 46, 0.32) !important;
 }
-td { border-color: rgba(212, 175, 55, 0.15) !important; color: #d8d2c2; }
+td { border-color: rgba(184, 145, 46, 0.16) !important; color: #4a4036; }
 
-/* 表单：深色输入 */
+/* 表单：月白输入 */
 input, select, textarea {
-  background: #241f1a !important;
-  color: #f2ece0 !important;
+  background: #fffdf8 !important;
+  color: var(--wx-ink) !important;
   border: 1px solid var(--wx-border) !important;
 }
-input:focus, textarea:focus { border-color: var(--wx-gold) !important; box-shadow: var(--wx-glow); }
+input:focus, textarea:focus { border-color: var(--wx-gold) !important; box-shadow: 0 0 0 3px rgba(184, 145, 46, 0.15); }
 
-/* 按钮 */
-.pe-btn, .btn, .btn-copy { background: linear-gradient(135deg, #c83a46, #8f2730) !important; color: #fff; }
-.chip { background: rgba(212, 175, 55, 0.1); color: #e0d5b8; border: 1px solid var(--wx-border); }
-.chip.on { background: rgba(212, 175, 55, 0.25); color: #f0d070; }
-.pe-btn:hover, .btn:hover, .chip:hover { filter: brightness(1.12); box-shadow: var(--wx-glow); }
+/* 按钮：酒红渐变 + hover 金边光 */
+.pe-btn, .btn, .btn-copy { background: linear-gradient(135deg, #b03b46, #8f2730) !important; color: #fff; }
+.chip { background: rgba(184, 145, 46, 0.08); color: #6a5420; border: 1px solid var(--wx-border); }
+.chip.on { background: rgba(184, 145, 46, 0.22); color: #4a3a10; }
+.pe-btn:hover, .btn:hover, .chip:hover { filter: brightness(1.06); box-shadow: 0 2px 10px rgba(168, 50, 61, 0.18); }
 
-/* 标签徽章：深色变体（保留色相） */
-.tag { background: rgba(255, 255, 255, 0.07); color: #c9c0ab; }
-.tag.album { background: rgba(214, 69, 80, 0.18); color: #e88a92; }
-.tag.lyric { background: rgba(90, 140, 220, 0.16); color: #9fb9ec; }
-.tag.live { background: rgba(80, 170, 120, 0.15); color: #9fd8b8; }
-.tag.tavern { background: rgba(150, 110, 230, 0.16); color: #c0a8ec; }
+/* 标签徽章：复古浅调（保留色相） */
+.tag { background: rgba(90, 74, 50, 0.08); color: #6f6250; }
+.tag.album { background: rgba(168, 50, 61, 0.10); color: #a8323d; }
+.tag.lyric { background: rgba(70, 110, 180, 0.10); color: #4a6eb0; }
+.tag.live { background: rgba(60, 140, 100, 0.10); color: #3c8c64; }
+.tag.tavern { background: rgba(120, 90, 200, 0.10); color: #785ac8; }
 
 /* 辅助文字统一暖灰 */
 .song-meta, .desc, .track-credits, .track-lyrics, .footnote, .tip-src,
@@ -125,33 +126,33 @@ input:focus, textarea:focus { border-color: var(--wx-gold) !important; box-shado
   color: var(--wx-muted) !important;
 }
 .tl-date { color: var(--wx-gold) !important; }
-.tl-dot { box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35); background: var(--wx-primary); }
-.tl::before { background: rgba(212, 175, 55, 0.25) !important; }
-#out { background: #1e1a17 !important; color: #e0d5b8 !important; border-color: rgba(212, 175, 55, 0.4) !important; }
-.tavern-q { background: rgba(80, 100, 180, 0.12) !important; color: #c5cfea !important; border-left-color: rgba(120, 140, 220, 0.6) !important; }
+.tl-dot { box-shadow: 0 0 0 2px rgba(184, 145, 46, 0.35); background: var(--wx-primary); }
+.tl::before { background: rgba(184, 145, 46, 0.30) !important; }
+#out { background: #fffdf8 !important; color: var(--wx-ink) !important; border-color: rgba(184, 145, 46, 0.4) !important; }
+.tavern-q { background: rgba(110, 120, 190, 0.08) !important; color: #4a548c !important; border-left-color: rgba(110, 120, 190, 0.5) !important; }
 
 /* 歌词/金句区 */
-.song-lyrics, .track-lyrics { border-left-color: rgba(212, 175, 55, 0.4) !important; color: #cfc5ae; }
-.lyr-toggle { color: var(--wx-gold); }
+.song-lyrics, .track-lyrics { border-left-color: rgba(184, 145, 46, 0.4) !important; color: #6a5c46; }
+.lyr-toggle { color: var(--wx-primary); }
 
 /* 侧栏 */
-.sidebar, .sideList { background: rgba(30, 26, 23, 0.8) !important; border-color: var(--wx-border) !important; }
-.side-item { color: #d8d2c2; border-bottom-color: rgba(212, 175, 55, 0.12) !important; }
-.side-item.playing { color: var(--wx-gold) !important; }
+.sidebar, .sideList { background: rgba(255, 253, 248, 0.85) !important; border-color: var(--wx-border) !important; }
+.side-item { color: #5a4c3c; border-bottom-color: rgba(184, 145, 46, 0.14) !important; }
+.side-item.playing { color: var(--wx-primary) !important; }
 
 /* 状态条 */
-#playerStatus { background: rgba(60, 80, 140, 0.15) !important; color: #aebfe8 !important; }
+#playerStatus { background: rgba(70, 110, 180, 0.08) !important; color: #4a6eb0 !important; }
 
-/* 骨架屏（深色） */
-.sk { background: linear-gradient(90deg, #262019 25%, #33291f 37%, #262019 63%); background-size: 400% 100%; }
+/* 骨架屏 */
+.sk { background: linear-gradient(90deg, #f0e9db 25%, #e6dcc6 37%, #f0e9db 63%); background-size: 400% 100%; }
 
-/* 代码/数据文件引用 */
-code { background: rgba(212, 175, 55, 0.08); color: #e8c97a; border: 1px solid var(--wx-border); padding: 1px 6px; border-radius: 4px; }
+/* 代码 */
+code { background: rgba(184, 145, 46, 0.08); color: #8a6a18; border: 1px solid var(--wx-border); padding: 1px 6px; border-radius: 4px; }
 
-/* 深色滚动条（WebKit） */
+/* 滚动条（复古浅色） */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #181412; }
-::-webkit-scrollbar-thumb { background: #4a3f30; border-radius: 6px; }
+::-webkit-scrollbar-track { background: #f3edde; }
+::-webkit-scrollbar-thumb { background: #cdbd98; border-radius: 6px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--wx-gold-soft); }
 
 /* ============ 移动端适配（通用） ============ */
