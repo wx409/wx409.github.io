@@ -1694,16 +1694,9 @@
     function ensureEcharts(cb){
         if (window.echarts) { cb(); return; }
         var s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js';
+        s.src = '../assets/echarts.min.js';   // 本地化，零 CDN 依赖
         s.onload = cb;
-        s.onerror = function(){
-            // 备胎 CDN（npmmirror 国内镜像）
-            var s2 = document.createElement('script');
-            s2.src = 'https://registry.npmmirror.com/echarts/5.4.3/files/dist/echarts.min.js';
-            s2.onload = cb;
-            s2.onerror = function(){ alert('地图库加载失败（需联网），请稍后重试'); };
-            document.head.appendChild(s2);
-        };
+        s.onerror = function(){ alert('地图库加载失败，请刷新重试'); };
         document.head.appendChild(s);
     }
 
@@ -1820,9 +1813,9 @@
         }
         if (window.html2canvas) { capture(); return; }
         var s = document.createElement('script');
-        s.src = 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js';
+        s.src = '../assets/html2canvas.min.js';   // 本地化
         s.onload = capture;
-        s.onerror = function(){ btn.textContent = '⬇ 下载海报 PNG'; alert('截图库加载失败（需联网）'); };
+        s.onerror = function(){ btn.textContent = '⬇ 下载海报 PNG'; alert('截图库加载失败，请刷新重试'); };
         document.head.appendChild(s);
     }
     document.getElementById('posterBtn').addEventListener('click', buildPoster);
@@ -1857,7 +1850,7 @@
         }
         if (window.html2canvas) { doCapture(); return; }
         var s = document.createElement('script');
-        s.src = 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js';
+        s.src = '../assets/html2canvas.min.js';   // 本地化
         s.onload = doCapture;
         s.onerror = function(){ if (btn) btn.textContent = '📸 分享地图'; alert('截图库加载失败（需联网），请直接截图。'); };
         document.head.appendChild(s);
