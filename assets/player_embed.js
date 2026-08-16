@@ -120,7 +120,56 @@
     });
   }
 
-  /* ---------- 网易云音乐（第二平台，JSONP 搜索 + 试听直链） ---------- */
+  /* ---------- QQ 音乐搜索（JSONP，找王晰的发行版/Live 版 songmid） ---------- */
+  function qqSearch(keyword) {
+    return new Promise(function (resolve, reject) {
+      var cbName = '__qqs_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
+      var url = 'https://c.y.qq.com/soso/fcgi-bin/client_search_cp?p=1&n=8&format=jsonp&callback=' + cbName +
+                '&w=' + encodeURIComponent(keyword);
+      var timer = setTimeout(function () { cleanup(); reject(new Error('QQ搜索超时')); }, 12000);
+      function cleanup() {
+        clearTimeout(timer);
+        var s = document.getElementById(cbName);
+        if (s) s.remove();
+        delete global[cbName];
+      }
+      global[cbName] = function (resp) {
+        cleanup();
+        try {
+          var list = (resp.data && resp.data.song && resp.data.song.list) || [];
+          resolve(list.map(function (s) {
+            return {
+              mid: s.songmid,
+              name: s.songname,
+              singer: (s.singer || []).map(function (x) { return x.name; }).join('、')
+            };
+          }));
+        } catch (e) { reject(e); }
+      };
+      var s = document.createElement('script');
+      s.id = cbName;
+      s.src = url;
+      s.onerror = function () { cleanup(); reject(new Error('QQ搜索失败')); };
+      document.head.appendChild(s);
+    });
+  }
+  /* 严格过滤：演唱者必须含「王晰」（发行版优先，其次 Live 版） */
+  function pickQq(hits, title) {
+    var nt = norm(title);
+    var byWang = hits.filter(function (h) { return h.singer.indexOf('王晰') >= 0; });
+    if (!byWang.length) return null;   /* 没有王晰版本，坚决不播别人的 */
+    var stripped = byWang.map(function (h) {
+      return { h: h, plain: norm(h.name).replace(/\(.*?\)/g, '').replace(/\[.*?\]/g, '') };
+    });
+    var exact = stripped.filter(function (x) { return x.plain === nt; })[0];
+    if (exact) return exact.h;
+    var partial = stripped.filter(function (x) { return x.plain.indexOf(nt) >= 0 || nt.indexOf(x.plain) >= 0; })[0];
+    if (partial) return partial.h;
+    /* 发行版无 → 王晰的 Live/现场版 */
+    return byWang.filter(function (h) { return /live|现场|演唱会|巡演/i.test(h.name); })[0] || null;
+  }
+
+  /* ---------- 网易云音乐（JSONP 搜索 + 试听直链） ---------- */
   function wyySearch(keyword) {
     return new Promise(function (resolve, reject) {
       var cbName = '__wyy_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
@@ -143,7 +192,7 @@
               name: s.name,
               artist: (s.artists || []).map(function (a) { return a.name; }).join('、')
             };
-          }).slice(0, 5));
+          }).slice(0, 8));
         } catch (e) { reject(e); }
       };
       var s = document.createElement('script');
@@ -153,11 +202,11 @@
       document.head.appendChild(s);
     });
   }
-  /* 从网易云结果中挑选：优先发行版（歌名匹配+王晰），其次 live 版（王晰） */
+  /* 严格过滤：演唱者必须含「王晰」（发行版优先，其次 Live 版） */
   function pickWyy(hits, title) {
     var nt = norm(title);
     var byWang = hits.filter(function (h) { return h.artist.indexOf('王晰') >= 0; });
-    /* 发行版优先：先去括号（(Live)/(live版) 等）后与歌名完全相等 */
+    if (!byWang.length) return null;   /* 没有王晰版本，坚决不播别人的 */
     var stripped = byWang.map(function (h) {
       return { h: h, plain: norm(h.name).replace(/\(.*?\)/g, '').replace(/\[.*?\]/g, '') };
     });
@@ -165,34 +214,57 @@
     if (exact) return exact.h;
     var partial = stripped.filter(function (x) { return x.plain.indexOf(nt) >= 0 || nt.indexOf(x.plain) >= 0; })[0];
     if (partial) return partial.h;
-    /* 发行版没有 → 找王晰的 live/现场/演唱会版 */
-    var live = byWang.filter(function (h) {
-      return /live|现场|演唱会|巡演|live版|Live/i.test(h.name);
-    })[0];
-    return live || byWang[0] || null;
+    /* 发行版无 → 王晰的 Live/现场版 */
+    return byWang.filter(function (h) { return /live|现场|演唱会|巡演/i.test(h.name); })[0] || null;
   }
   function wyyPlayUrl(songId) {
-    /* 302 重定向到真实 MP3，audio 可直接播 */
     return 'https://music.163.com/song/media/outer/url?id=' + songId + '.mp3';
   }
-  /* 多平台聚合：QQ -> 网易云发行版 -> 网易云 live 版 -> 提示 */
+
+  /* ---------- 多平台回退链（每步严格「王晰演唱」） ----------
+   * ① QQ vkey（当前歌曲 mid，发行版）
+   * ② QQ 搜索：发行版（王晰）→ Live 版（王晰）
+   * ③ 网易云：发行版（王晰）→ Live 版（王晰）
+   * ④ 全部失败 → 提示
+   */
   function resolvePlayable(songmid, title) {
     if (!title && !songmid) return Promise.reject(new Error('无歌曲信息'));
-    function tryWyy(keyword) {
-      return wyySearch(keyword).then(function (hits) {
-        var best = pickWyy(hits, title);
-        if (best) return wyyPlayUrl(best.id);
-        throw new Error('网易云无匹配');
+    var nt = title || '';
+    function tryQQvkey(mid) {
+      return fetchVkey(mid).then(function (url) {
+        if (url) return url;
+        throw new Error('QQ无直链');
       });
     }
-    var fromQQ = songmid ? fetchVkey(songmid) : Promise.reject(new Error('无 QQ ID'));
-    return fromQQ.catch(function () {
-      /* QQ 不可用 → 网易云发行版（歌名 王晰） */
-      return tryWyy((title || '') + ' 王晰').catch(function () {
-        /* 发行版没有 → 网易云 live 版（歌名 王晰 live） */
-        return tryWyy((title || '') + ' 王晰 live');
+    function tryQQsearch(kw) {
+      return qqSearch(kw).then(function (hits) {
+        var best = pickQq(hits, nt);
+        if (!best || !best.mid) throw new Error('QQ无王晰版本');
+        return tryQQvkey(best.mid);
+      });
+    }
+    function tryWyy(kw) {
+      return wyySearch(kw).then(function (hits) {
+        var best = pickWyy(hits, nt);
+        if (!best) throw new Error('网易云无王晰版本');
+        return wyyPlayUrl(best.id);
+      });
+    }
+    /* ① QQ 当前歌曲 mid（发行版） */
+    var p = songmid ? tryQQvkey(songmid) : Promise.reject(new Error('无QQ ID'));
+    /* ② QQ 搜索发行版 → ③ QQ 搜索 Live 版 */
+    p = p.catch(function () {
+      return tryQQsearch(nt + ' 王晰').catch(function () {
+        return tryQQsearch(nt + ' 王晰 live');
       });
     });
+    /* ④ 网易云发行版 → ⑤ 网易云 Live 版 */
+    p = p.catch(function () {
+      return tryWyy(nt + ' 王晰').catch(function () {
+        return tryWyy(nt + ' 王晰 live');
+      });
+    });
+    return p;
   }
 
   /* ---------- 播放控制 ---------- */
