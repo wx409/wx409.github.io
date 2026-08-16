@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-16 18:39",
+  "timestamp": "2026-08-16 18:45",
   "total": 199088,
   "success": 36419,
   "complete_rate": 18.3,
@@ -120326,7 +120326,7 @@
         63.2,
         58.3,
         61.8,
-        68.9,
+        70.6,
         43.4,
         38.0,
         42.1,
@@ -121193,16 +121193,13 @@
   "second_spring": {
     "names": [
       "在路上",
-      "一生中最爱",
-      "晚风暖暖"
+      "一生中最爱"
     ],
     "values": [
-      121.6,
-      117.4,
-      110.5
+      122.0,
+      118.2
     ],
     "spring": [
-      false,
       false,
       false
     ],
@@ -127513,47 +127510,47 @@
   "daily_listen_overview": {
     "active_count": 17,
     "total_tracked": 325,
-    "concentration_top3": 61.9,
+    "concentration_top3": 62.7,
     "as_of": "2026-08-16"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 49.6,
-      "trend_pct": 68.6,
+      "share_pct": 49.3,
+      "trend_pct": 66.1,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "一生中最爱",
-      "share_pct": 6.7,
-      "trend_pct": 240.7,
+      "share_pct": 7.3,
+      "trend_pct": 266.7,
       "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "再叙",
-      "share_pct": 5.6,
-      "trend_pct": 46.2,
+      "share_pct": 6.1,
+      "trend_pct": 57.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
       "song": "在路上",
-      "share_pct": 4.4,
-      "trend_pct": 57.9,
+      "share_pct": 4.7,
+      "trend_pct": 68.4,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "山楂树",
-      "share_pct": 4.0,
-      "trend_pct": 57.1,
+      "share_pct": 4.2,
+      "trend_pct": 62.9,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-16 18:39",
+  "last_update": "2026-08-16 18:45",
   "today_batches": 902,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127615,13 +127612,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1729,
-      "success": 1729,
+      "total": 1730,
+      "success": 1730,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 481998,
+      "before": 482250,
       "after": 199088
     },
     "index_calibration": {
