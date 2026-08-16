@@ -58,7 +58,7 @@
   function loadIndex() {
     if (indexState !== 'pending') return;
     indexState = 'loading';
-    fetch(INDEX_URL)
+    fetch(INDEX_URL, { cache: 'no-store' })  // 规避浏览器对 JSON 的缓存，索引更新后立即生效
       .then(function (r) {
         if (!r.ok) throw new Error('index ' + r.status);
         return r.json();
