@@ -1326,51 +1326,59 @@
     </script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
-        :root { --bg:#080c24; --panel:#101633; --text:#c8cce0; --muted:#8b92b9; --accent:#00d2ff; --line:rgba(255,255,255,.08); }
+        :root { --bg:#faf6ef; --panel:#fffdf8; --text:#3a322a; --muted:#8a7f6d; --accent:#a8323d; --line:rgba(184,145,46,.28); --gold:#b8912e; }
         * { box-sizing:border-box; }
         html, body { margin:0; height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; }
         #map { position:fixed; inset:0; background:var(--bg); z-index:1; }
-        .topbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:linear-gradient(180deg,rgba(8,12,36,.95),rgba(8,12,36,0)); pointer-events:none; }
+        .topbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:linear-gradient(180deg,rgba(250,246,239,.96),rgba(250,246,239,0)); pointer-events:none; }
         .topbar a { pointer-events:auto; color:var(--accent); text-decoration:none; font-size:14px; background:var(--panel); padding:8px 14px; border-radius:8px; border:1px solid var(--line); }
-        .topbar .title { font-size:16px; font-weight:700; letter-spacing:1px; margin:0; }
+        .topbar .title { font-size:16px; font-weight:700; letter-spacing:1px; margin:0; color:var(--text); }
         .topbar h1.title { font-size:16px; font-weight:700; letter-spacing:1px; }
-        .legend { position:fixed; left:16px; bottom:24px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:13px; line-height:2; }
+        .legend { position:fixed; left:16px; bottom:24px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:13px; line-height:2; box-shadow:0 4px 16px rgba(90,70,40,.12); }
         .legend h4 { margin:0 0 6px; color:var(--muted); font-size:12px; }
         .legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle; }
-        .legend .dot.pulse { box-shadow:0 0 0 rgba(0,210,255,.6); animation:pulse 2s infinite; }
-        @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(0,210,255,.7)} 70%{box-shadow:0 0 0 10px rgba(0,210,255,0)} 100%{box-shadow:0 0 0 0 rgba(0,210,255,0)} }
-        .marker { width:14px; height:14px; border-radius:50%; background:var(--c,#888); border:2px solid rgba(255,255,255,.85); box-shadow:0 1px 4px rgba(0,0,0,.5); }
+        .legend .dot.pulse { box-shadow:0 0 0 rgba(184,145,46,.6); animation:pulse 2s infinite; }
+        @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(184,145,46,.6)} 70%{box-shadow:0 0 0 9px rgba(184,145,46,0)} 100%{box-shadow:0 0 0 0 rgba(184,145,46,0)} }
+        .marker { width:16px; height:16px; border-radius:50%; background:var(--c,#888); border:2px solid #fff; box-shadow:0 1px 5px rgba(60,40,20,.45); }
         .marker.has-data { animation:pulse 2s infinite; }
-        .leaflet-popup-content-wrapper { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:10px; }
+        .marker-label { position:absolute; left:12px; top:-7px; white-space:nowrap; background:rgba(255,253,248,.92); color:#4a4036; font-size:11px; font-weight:600; padding:1px 7px; border-radius:10px; border:1px solid rgba(184,145,46,.35); box-shadow:0 1px 4px rgba(60,40,20,.18); }
+        .leaflet-popup-content-wrapper { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:10px; box-shadow:0 6px 22px rgba(60,40,20,.22); }
         .leaflet-popup-tip { background:var(--panel); }
         .leaflet-popup-content { margin:14px 16px; font-size:13px; }
-        .leaflet-popup-content h3 { margin:0 0 8px; color:#fff; font-size:15px; }
+        .leaflet-popup-content h3 { margin:0 0 8px; color:#4a4036; font-size:15px; }
         .leaflet-popup-content ul { margin:0; padding-left:16px; line-height:1.9; }
         .leaflet-popup-content a { color:var(--accent); }
         .leaflet-popup-close-button { color:var(--muted) !important; }
         .tag { display:inline-block; font-size:10px; padding:1px 6px; border-radius:8px; margin-left:4px; }
-        .tag.data { background:#0e3a3f; color:#00d2ff; }
-        .tag.cancel { background:#3a1020; color:#ff6b81; }
-        .tag.attend { background:#3a3410; color:#ffd700; }
+        .tag.data { background:#eaf3e6; color:#3c8c64; }
+        .tag.cancel { background:#fbe4e4; color:#b03030; }
+        .tag.attend { background:#f5ecd8; color:#8a6d1a; }
         /* 互动：我参加过 */
-        .marker.attended { border-color:#ffd700; box-shadow:0 0 0 2px rgba(255,215,0,.55), 0 0 8px rgba(255,215,0,.45); }
+        .marker.attended { border-color:var(--gold); box-shadow:0 0 0 3px rgba(184,145,46,.5), 0 0 12px rgba(184,145,46,.4); }
+        .marker-wrap.attended .marker-label { background:#fff6dd; color:#8a6d1a; border-color:var(--gold); font-weight:700; }
         .attend-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; padding-top:8px; border-top:1px solid var(--line); }
-        .attend-btn { background:rgba(255,215,0,.10); border:1px solid rgba(255,215,0,.30); color:#ffd700; border-radius:14px; padding:2px 10px; font-size:11px; cursor:pointer; transition:all .25s; }
-        .attend-btn:hover { background:rgba(255,215,0,.22); }
-        .attend-btn.on { background:rgba(255,215,0,.85); color:#1a1a1a; font-weight:600; }
-        .attend-bar { position:fixed; top:64px; left:16px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 14px; font-size:12px; color:var(--muted); }
-        .attend-bar b { color:#ffd700; font-size:15px; margin:0 2px; }
+        .attend-btn { background:rgba(184,145,46,.08); border:1px solid rgba(184,145,46,.35); color:#8a6d1a; border-radius:14px; padding:3px 10px; font-size:11px; cursor:pointer; transition:all .25s; }
+        .attend-btn:hover { background:rgba(184,145,46,.18); }
+        .attend-btn.on { background:var(--gold); color:#fff; font-weight:600; }
+        .attend-bar { position:fixed; top:64px; left:16px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 14px; font-size:12px; color:var(--muted); box-shadow:0 4px 16px rgba(90,70,40,.12); display:flex; align-items:center; gap:10px; }
+        .attend-bar b { color:var(--gold); font-size:15px; margin:0 2px; }
+        .attend-filter { background:none; border:1px solid rgba(184,145,46,.4); color:#8a6d1a; border-radius:14px; padding:2px 10px; font-size:11px; cursor:pointer; }
+        .attend-filter.on { background:var(--gold); color:#fff; }
         .share-btn { pointer-events:auto; color:var(--accent); text-decoration:none; font-size:13px; background:var(--panel); padding:8px 14px; border-radius:8px; border:1px solid var(--line); margin-left:10px; cursor:pointer; }
         .share-btn:hover { border-color:var(--accent); }
+        .city-attend { margin-left:auto; background:rgba(184,145,46,.08); border:1px solid rgba(184,145,46,.35); color:#8a6d1a; border-radius:10px; padding:0 8px; font-size:11px; cursor:pointer; white-space:nowrap; }
+        .city-attend.on { background:var(--gold); color:#fff; font-weight:600; }
         @media (max-width:760px) { .attend-bar { top:auto; bottom:12px; left:12px; } .legend { bottom:12px; left:12px; } }
         /* 静态城市清单：供爬虫读取，视觉上折叠 */
-        .city-list { position:fixed; top:64px; right:16px; z-index:999; width:340px; max-height:calc(100vh - 120px); overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; font-size:13px; }
+        .city-list { position:fixed; top:64px; right:16px; z-index:999; width:340px; max-height:calc(100vh - 120px); overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; font-size:13px; box-shadow:0 4px 16px rgba(90,70,40,.12); }
         .city-list h2 { margin:0 0 10px; font-size:14px; color:var(--muted); }
         .city-list .city { margin-bottom:12px; }
-        .city-list .city h3 { margin:0 0 4px; font-size:14px; color:#fff; }
+        .city-list .city h3 { margin:0 0 4px; font-size:14px; color:#4a4036; }
         .city-list .count { font-size:11px; color:var(--muted); margin-left:8px; }
         .city-list ul { margin:0; padding-left:16px; line-height:1.8; }
+        .city-list li { display:flex; align-items:center; gap:6px; }
         .city-list a { color:var(--accent); }
+        .city-list li.attended-line { background:rgba(184,145,46,.10); border-radius:6px; }
         .badge { display:inline-block; font-size:10px; padding:0 6px; border-radius:8px; margin-left:4px; }
         .badge.data { background:#0e3a3f; color:#00d2ff; }
         .badge.cancel { background:#3a1020; color:#ff6b81; }
@@ -1385,7 +1393,7 @@
             <button type="button" class="share-btn" id="shareMapBtn" title="截图保存当前地图">📸 分享地图</button>
         </span>
     </div>
-    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场（点击城市标记勾选）</div>
+    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场 <button type="button" class="attend-filter" id="attendFilter">只看去过</button></div>
     <div id="map"></div>
     <div class="legend">
         <h4>图例（按该城最近一场巡次着色）</h4>
@@ -1395,7 +1403,8 @@
         <div><span class="dot" style="background:#2ecc71"></span>四巡</div>
         <div><span class="dot" style="background:#1abc9c"></span>五巡</div>
         <div><span class="dot" style="background:#3498db"></span>六巡</div>
-        <div><span class="dot pulse" style="background:#00d2ff"></span>有数据效应（脉冲）</div>
+        <div><span class="dot pulse" style="background:#b8912e"></span>有数据效应（脉冲）</div>
+        <div><span class="dot" style="background:#b8912e;box-shadow:0 0 0 3px rgba(184,145,46,.5)"></span>我参加过（金环）</div>
     </div>
     <aside class="city-list">
         <h2>巡演城市一览（22 城 · 59 场）</h2>
@@ -1464,24 +1473,41 @@
     }
     function saveAttended(a){ localStorage.setItem(ATTEND_KEY, JSON.stringify(a)); }
     var attended = loadAttended();
-    var markerEls = {};   // date -> marker DOM（更新金边用）
+    var markerEls = {};   // date -> marker DOM（兼容保留）
+    var citiesData = null;      // fetch 后赋值
+    var markerWrapByCity = {};  // city -> marker-wrap DOM
 
     function toggleAttend(date, btn){
         if (attended[date]) { delete attended[date]; } else { attended[date] = true; }
         saveAttended(attended);
+        // 按城市更新金环
+        var city = dateToCity ? dateToCity[date] : null;
+        if (city && citiesData && citiesData[city]) {
+            var cityAttended = citiesData[city].shows.some(function(s){ return attended[s.date]; });
+            var wrap = markerWrapByCity[city];
+            if (wrap) {
+                wrap.classList.toggle('attended', cityAttended);
+                var m = wrap.querySelector('.marker');
+                if (m) m.classList.toggle('attended', cityAttended);
+            }
+        }
+        // 侧栏该行高亮
+        document.querySelectorAll('.city-list li[data-date="' + date + '"]').forEach(function(li){
+            li.classList.toggle('attended-line', !!attended[date]);
+        });
         refreshAttendUI(date);
-        var m = markerEls[date];
-        if (m) m.classList.toggle('attended', !!attended[date]);
         updateAttendCount();
     }
     function refreshAttendUI(date){
-        // 更新弹窗内该场按钮状态（若弹窗开着）
-        var btn = document.querySelector('.attend-btn[data-date="' + date + '"]');
-        if (btn) {
-            var on = !!attended[date];
+        var on = !!attended[date];
+        document.querySelectorAll('.attend-btn[data-date="' + date + '"]').forEach(function(btn){
             btn.textContent = on ? '✓ 我参加过' : '☆ 我参加过';
             btn.classList.toggle('on', on);
-        }
+        });
+        document.querySelectorAll('.city-attend[data-date="' + date + '"]').forEach(function(btn){
+            btn.textContent = on ? '✓ 去过' : '☆ 去过';
+            btn.classList.toggle('on', on);
+        });
     }
     function updateAttendCount(){
         var n = Object.keys(attended).filter(function(d){ return attended[d]; }).length;
@@ -1507,27 +1533,82 @@
 
     fetch('../data/cities.json').then(function(r){ return r.json(); }).then(function(data){
         var cities = data.cities || {};
-        Object.keys(cities).forEach(function(name){
+        citiesData = cities;
+        var cityKeys = Object.keys(cities);
+        var markerByCity = {};      // city -> marker
+        var markerWrapByCity = {};  // city -> marker-wrap DOM（金环/城市名）
+        var dateToCity = {};        // date -> city（城市列表/弹窗按钮联动）
+
+        // 重新渲染右侧城市清单（带每场「我参加过」按钮）
+        var aside = document.querySelector('.city-list');
+        aside.innerHTML = '<h2>巡演城市一览（' + cityKeys.length + ' 城 · 59 场）<br><span style="font-size:11px;color:var(--muted);">点「☆」标记你去过的场次</span></h2>';
+        cityKeys.forEach(function(name){
+            var c = cities[name];
+            var art = document.createElement('article');
+            art.className = 'city';
+            var html = '<h3>' + esc(name) + '<span class="count">' + c.shows.length + ' 场</span></h3><ul>';
+            c.shows.forEach(function(s){
+                dateToCity[s.date] = name;
+                var on = !!attended[s.date];
+                html += '<li data-date="' + s.date + '" class="' + (on ? 'attended-line' : '') + '">' +
+                    '<span>' + esc(s.date.slice(5)) + ' · ' + esc(s.tour) + '「' + esc(s.theme) + '」</span>' +
+                    '<button type="button" class="city-attend' + (on ? ' on' : '') + '" data-date="' + s.date + '">' +
+                    (on ? '✓ 去过' : '☆ 去过') + '</button></li>';
+            });
+            html += '</ul>';
+            art.innerHTML = html;
+            aside.appendChild(art);
+        });
+
+        cityKeys.forEach(function(name){
             var c = cities[name];
             if (!c.coord) return;
             var latest = c.shows[c.shows.length - 1];
             var hasData = c.shows.some(function(s){ return s.has_data; });
             var color = TOUR_COLORS[latest.tour_num] || '#888';
-            // 弹窗内容：场次列表 + 每场「我参加过」按钮
+            var cityAttended = c.shows.some(function(s){ return attended[s.date]; });
             var popupHtml = showHtml(name, c) + '<div class="attend-row">' +
                 c.shows.map(function(s){ return attendBtnHtml(s.date); }).join(' ') + '</div>';
-            var icon = L.divIcon({ className:'', html:'<div class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '"></div>', iconSize:[14,14], iconAnchor:[7,7] });
+            var icon = L.divIcon({
+                className: '',
+                html: '<div class="marker-wrap' + (cityAttended ? ' attended' : '') + '" style="position:relative;">' +
+                      '<div class="marker' + (hasData ? ' has-data' : '') + (cityAttended ? ' attended' : '') + '" style="--c:' + color + '"></div>' +
+                      '<span class="marker-label">' + esc(name) + '</span></div>',
+                iconSize: [16, 16], iconAnchor: [7, 7]
+            });
             var marker = L.marker(c.coord, {icon:icon}).addTo(map).bindPopup(popupHtml);
-            // 记录 marker DOM（同城多场共享 marker，取第一个）
-            c.shows.forEach(function(s){ if (!markerEls[s.date]) markerEls[s.date] = marker.getElement().querySelector('.marker'); });
+            markerByCity[name] = marker;
+            markerWrapByCity[name] = marker.getElement().querySelector('.marker-wrap');
         });
-        // 弹窗打开后绑定「我参加过」按钮
-        map.on('popupopen', function(){
-            document.querySelectorAll('.attend-btn').forEach(function(btn){
+
+        // 弹窗内按钮 + 侧栏按钮统一绑定（事件委托）
+        function bindAttend(){
+            document.querySelectorAll('.attend-btn, .city-attend').forEach(function(btn){
                 btn.onclick = function(e){
                     e.stopPropagation();
                     toggleAttend(btn.getAttribute('data-date'), btn);
                 };
+            });
+        }
+        map.on('popupopen', bindAttend);
+        bindAttend(); // 侧栏按钮立即生效
+
+        // 「只看去过」筛选
+        var filterBtn = document.getElementById('attendFilter');
+        var filterOn = false;
+        filterBtn.addEventListener('click', function(){
+            filterOn = !filterOn;
+            filterBtn.classList.toggle('on', filterOn);
+            cityKeys.forEach(function(name){
+                var c = cities[name];
+                var cityAttended = c.shows.some(function(s){ return attended[s.date]; });
+                var m = markerByCity[name];
+                if (!m) return;
+                if (filterOn && !cityAttended) {
+                    m.setOpacity(0.15);
+                } else {
+                    m.setOpacity(1);
+                }
             });
         });
         updateAttendCount();
@@ -1542,7 +1623,7 @@
             var wrap = document.getElementById('map');
             window.html2canvas(wrap, {
                 useCORS: true,
-                backgroundColor: '#0b0f2a',
+                backgroundColor: '#faf6ef',
                 scale: 2,
                 logging: false
             }).then(function(canvas){
