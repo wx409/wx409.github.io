@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-16 08:25",
+  "timestamp": "2026-08-16 11:49",
   "total": 199088,
   "success": 36419,
   "complete_rate": 18.3,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    17.6
+    18.0
   ],
   "listener_labels": [
     "2024-08",
@@ -120326,7 +120326,7 @@
         63.2,
         58.3,
         61.8,
-        51.2,
+        74.0,
         43.4,
         38.0,
         42.1,
@@ -121192,12 +121192,15 @@
   },
   "second_spring": {
     "names": [
-      "在路上"
+      "在路上",
+      "一生中最爱"
     ],
     "values": [
-      118.8
+      123.5,
+      115.0
     ],
     "spring": [
+      false,
       false
     ],
     "max": 100
@@ -127505,58 +127508,52 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 19,
+    "active_count": 7,
     "total_tracked": 325,
-    "concentration_top3": 59.4,
-    "as_of": "2026-08-15"
+    "concentration_top3": 78.9,
+    "as_of": "2026-08-16"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 48.5,
-      "trend_pct": 6.6,
+      "share_pct": 61.3,
+      "trend_pct": 48.9,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "再叙",
-      "share_pct": 6.3,
-      "trend_pct": -3.7,
-      "trend_label": "flat"
+      "share_pct": 9.7,
+      "trend_pct": 80.8,
+      "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "在路上",
-      "share_pct": 4.6,
-      "trend_pct": 2.7,
-      "trend_label": "flat"
+      "share_pct": 7.9,
+      "trend_pct": 102.6,
+      "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 4.2,
-      "trend_pct": 52.2,
+      "song": "一生中最爱",
+      "share_pct": 7.5,
+      "trend_pct": 170.4,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "月弯弯",
-      "share_pct": 4.1,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
+      "song": "山楂树",
+      "share_pct": 6.8,
+      "trend_pct": 88.6,
+      "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-16 08:25",
+  "last_update": "2026-08-16 11:49",
   "today_batches": 902,
   "daily_new_records": 0,
   "recent_7days": [
-    {
-      "date": "2026-08-09",
-      "avg_index": 668.4,
-      "total_songs": 252,
-      "complete": true
-    },
     {
       "date": "2026-08-10",
       "avg_index": 604.3,
@@ -127592,31 +127589,16 @@
       "avg_index": 646.8,
       "total_songs": 252,
       "complete": true
-    }
-  ],
-  "latest_anomaly": {
-    "song": "晚风暖暖",
-    "type": "📈 排名飙升",
-    "metric": "排名",
-    "change_pct": null,
-    "desc": "排名较昨日上升 4,364 位"
-  },
-  "daily_anomalies": [
-    {
-      "song": "晚风暖暖",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 4,364 位"
     },
     {
-      "song": "南屏晚钟",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 3,693 位"
+      "date": "2026-08-16",
+      "avg_index": null,
+      "total_songs": 252,
+      "complete": true
     }
   ],
+  "latest_anomaly": null,
+  "daily_anomalies": [],
   "chart_summaries": {
     "sankey": "作品成长生态流转分析（近60日窗口）：20 首作品在上升期、稳定期、经典沉淀期之间健康流转，其中 5 首沉淀为经典，经典沉淀期占比最高，说明作品具有长尾生命力，无衰退迹象。",
     "weekend_premium": "听众时间偏好洞察：专辑类作品周末溢价 1.33，高于 OST/单曲的 1.04，表明专辑具有周末沉浸式聆听特质，而非通勤背景音属性。",
@@ -127630,13 +127612,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1722,
-      "success": 1722,
+      "total": 1723,
+      "success": 1723,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 480234,
+      "before": 480486,
       "after": 199088
     },
     "index_calibration": {
