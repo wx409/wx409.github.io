@@ -1466,10 +1466,45 @@
     <script>
     var TOUR_COLORS = {1:"#e74c3c",2:"#e67e22",3:"#f1c40f",4:"#2ecc71",5:"#1abc9c",6:"#3498db"};
     var map = L.map('map', {zoomControl:true}).setView([34.5, 108.9], 4);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO',
-        subdomains: 'abcd', maxZoom: 19
-    }).addTo(map);
+    // 多源瓦片：Esri（国内可达性好）为主，失败自动切 OSM，再切 Carto
+    var TILE_SOURCES = [
+        {
+            name: 'Esri',
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+            attribution: '&copy; Esri &copy; OpenStreetMap'
+        },
+        {
+            name: 'OSM',
+            url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            attribution: '&copy; OpenStreetMap contributors'
+        },
+        {
+            name: 'Carto',
+            url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+            attribution: '&copy; OpenStreetMap &copy; CARTO',
+            subdomains: 'abcd'
+        }
+    ];
+    var tileIndex = 0;
+    var tileErrors = 0;
+    var tileLayer = null;
+    function mountTile(){
+        var src = TILE_SOURCES[tileIndex];
+        var opts = { attribution: src.attribution, maxZoom: 19 };
+        if (src.subdomains) opts.subdomains = src.subdomains;
+        if (tileLayer) { map.removeLayer(tileLayer); }
+        tileLayer = L.tileLayer(src.url, opts).addTo(map);
+        tileErrors = 0;
+        console.log('[map] 瓦片源:', src.name);
+        tileLayer.on('tileerror', function(){
+            tileErrors++;
+            if (tileErrors >= 3 && tileIndex < TILE_SOURCES.length - 1) {
+                tileIndex++;
+                mountTile();
+            }
+        });
+    }
+    mountTile();
 
     // 边界线叠加：省界/国界（单层渲染，省一半开销；延迟到首屏之后）
     function addBoundaries(gj){
