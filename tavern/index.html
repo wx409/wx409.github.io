@@ -516,8 +516,27 @@ a{color:#00d2ff;text-decoration:none}
         fallbackCopy(url, done);
       }
     } else {
+      /* 桌面端：跳新标签前记录待播曲目，切回页面时自动重试本页播放 */
+      var pending = { mid: radioOpenMid, title: radioSong && radioSong.mid === radioOpenMid ? radioSong.title : '' };
       window.open(url, '_blank');
+      radioStateEl.textContent = '在新标签完成登录/播放后，切回本页会自动尝试页面内播放…';
+      window.__tavernPending = pending;
     }
+  });
+  /* 切回页面（QQ标签 → 本站标签）时自动重试本页播放 */
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState !== 'visible') return;
+    var p = window.__tavernPending;
+    if (!p || !p.mid) return;
+    window.__tavernPending = null;
+    radioHideOpen();
+    var cur = radioSong && radioSong.mid === p.mid ? radioSong : null;
+    TavernPlayer.playSong(p.mid, (cur && cur.title) || p.title || '正在播放').then(function (ok) {
+      if (!ok) {
+        radioShowOpen(p.mid);
+        radioStateEl.textContent = '本页仍无法直连播放（浏览器未放行 QQ 登录态）。可继续在新标签听，或点「📋 复制链接」。';
+      }
+    });
   });
   function fallbackCopy(text, cb) {
     var ta = document.createElement('textarea');
