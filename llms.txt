@@ -5,6 +5,7 @@
 ## 核心内容
 
 - [首页](https://wx409.github.io/): 巡演动态、重庆首站摘要、FAQ、金句与文化足迹概览
+- [全站搜索](https://wx409.github.io/search.html): 全站检索页（歌曲/城市/演出/小酒馆逐字稿/观演指南/页面），数据源 data/site_search_index.json，支持 ?q= 直达查询
 - [演出详情目录](https://wx409.github.io/live/): 各城市场次独立页（含歌单、亮点、视角矩阵、FAQ、Schema.org JSON-LD）
 - [巡演地图](https://wx409.github.io/map/): 22城59场巡演城市地图（Leaflet + CartoDB），含场馆、日期、巡次与数据效应标记，附 ItemList + MusicEvent JSON-LD
 - [关于本站](https://wx409.github.io/about.html): 维护团队、信息来源、审核原则与更新日志
