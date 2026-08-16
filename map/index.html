@@ -1681,9 +1681,7 @@
                 if (!el) return;
                 if (posterChart) { posterChart.dispose(); }
                 posterChart = echarts.init(el);
-                var regions = Object.keys(provs).map(function(p){
-                    return { name: p, itemStyle: { areaColor: '#a8323d' } };
-                });
+                var provList = Object.keys(provs);
                 posterChart.setOption({
                     backgroundColor: '#fbf7ee',
                     geo: {
@@ -1691,16 +1689,28 @@
                         layoutCenter: ['50%', '50%'], layoutSize: '106%',
                         itemStyle: { areaColor: '#f0e9d8', borderColor: 'rgba(184,145,46,.5)', borderWidth: 1 },
                         emphasis: { disabled: true },
-                        label: { show: false },
-                        regions: regions
+                        label: { show: false }
                     },
-                    series: [{
-                        type: 'effectScatter', coordinateSystem: 'geo', data: pts,
-                        symbolSize: 9, rippleEffect: { brushType: 'stroke', scale: 2.6 },
-                        itemStyle: { color: '#b8912e', shadowBlur: 6, shadowColor: 'rgba(184,145,46,.7)' },
-                        label: { show: true, formatter: '{b}', position: 'right',
-                                 color: '#5a4030', fontSize: 11, fontWeight: 700 }
-                    }]
+                    series: [
+                        {
+                            // 涂色层：与 geo 共享坐标系，只画去过的省（酒红），其余透明露出底图
+                            type: 'map', map: 'china', geoIndex: 0, silent: true,
+                            itemStyle: { areaColor: 'transparent', borderColor: 'transparent' },
+                            emphasis: { disabled: true },
+                            label: { show: false },
+                            data: provList.map(function(p){
+                                return { name: p, itemStyle: { areaColor: '#a8323d' } };
+                            })
+                        },
+                        {
+                            type: 'effectScatter', coordinateSystem: 'geo', data: pts,
+                            symbolSize: 9, rippleEffect: { brushType: 'stroke', scale: 2.6 },
+                            itemStyle: { color: '#b8912e', shadowBlur: 6, shadowColor: 'rgba(184,145,46,.7)' },
+                            label: { show: true, formatter: '{b}', position: 'right',
+                                     color: '#5a4030', fontSize: 11, fontWeight: 700 },
+                            zlevel: 2
+                        }
+                    ]
                 });
             })
             .catch(function(){ alert('地图数据加载失败，请重试'); });
