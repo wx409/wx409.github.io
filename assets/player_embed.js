@@ -38,10 +38,14 @@
   function getAudio() {
     if (!audio) {
       audio = new Audio();
-      audio.crossOrigin = 'anonymous';
+      /* 注意：不设 crossOrigin——普通试听播放无需 CORS；
+         若设 anonymous 而流媒体服务器无 CORS 头，音频会被浏览器拦截（表现为点了没反应） */
       audio.volume = 0.8;
       audio.preload = 'none';
       audio.addEventListener('ended', function () { setState('play'); });
+      audio.addEventListener('error', function () {
+        if (typeof statusFn === 'function') statusFn('fail', '音频加载失败（服务器未放行或链接失效）');
+      });
     }
     return audio;
   }
@@ -124,15 +128,14 @@
   /* ---------- QQ 音乐搜索（JSONP，找王晰的发行版/Live 版 songmid） ---------- */
   function qqSearch(keyword) {
     return new Promise(function (resolve, reject) {
-      var cbName = '__qqs_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
+      var cbName = 'callback';   /* client_search_cp 响应固定调用名为 callback 的全局函数 */
       var url = 'https://c.y.qq.com/soso/fcgi-bin/client_search_cp?p=1&n=8&format=jsonp&callback=' + cbName +
                 '&w=' + encodeURIComponent(keyword);
       var timer = setTimeout(function () { cleanup(); reject(new Error('QQ搜索超时')); }, 12000);
       function cleanup() {
         clearTimeout(timer);
-        var s = document.getElementById(cbName);
+        var s = document.getElementById(cbName + '_pe');
         if (s) s.remove();
-        delete global[cbName];
       }
       global[cbName] = function (resp) {
         cleanup();
@@ -148,7 +151,7 @@
         } catch (e) { reject(e); }
       };
       var s = document.createElement('script');
-      s.id = cbName;
+      s.id = cbName + '_pe';
       s.src = url;
       s.onerror = function () { cleanup(); reject(new Error('QQ搜索失败')); };
       document.head.appendChild(s);
