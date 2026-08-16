@@ -116,6 +116,9 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
       if (kind === 'fail') {
         el.style.display = '';
         el.textContent = '⚠️ 试听失败：' + (title || '该曲可能为 VIP 或需登录 QQ音乐') + '。可点击歌曲标题跳转大屏/QQ音乐。';
+      } else if (kind === 'load') {
+        el.style.display = '';
+        el.textContent = '⏳ ' + (title || '正在查找可播版本…');
       } else if (kind === 'play' && title) {
         el.style.display = '';
         el.textContent = '🎵 正在试听：' + title;

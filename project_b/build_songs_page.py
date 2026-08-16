@@ -149,6 +149,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     window.PlayerEmbed.setStatusFn(function (kind, title) {{
       if (!statusEl) return;
       if (kind === 'fail') {{ statusEl.style.display=''; statusEl.textContent = '⚠️ 试听失败：' + (title || '该曲可能为 VIP 或需登录 QQ音乐'); }}
+      else if (kind === 'load') {{ statusEl.style.display=''; statusEl.textContent = '⏳ ' + (title || '正在查找可播版本…'); }}
       else if (kind === 'play' && title) {{ statusEl.style.display=''; statusEl.textContent = '🎵 正在试听：' + title; }}
       else if (kind === 'pause') {{ statusEl.style.display=''; statusEl.textContent = '⏸ 已暂停'; }}
     }});

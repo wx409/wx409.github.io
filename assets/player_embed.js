@@ -15,6 +15,7 @@
   var currentMid = '';
   var currentTitle = '';
   var statusFn = null;
+  var playToken = 0;       /* 竞态 token：只认最新一次点击 */
 
   /* ---------- 本地电台代理（解锁 VIP 全曲，与小酒馆一致） ---------- */
   var PROXY = 'http://127.0.0.1:8787';
@@ -227,50 +228,88 @@
     return 'https://music.163.com/song/media/outer/url?id=' + songId + '.mp3';
   }
 
-  /* ---------- 多平台回退链（每步严格「王晰演唱」） ----------
-   * ① QQ vkey（当前歌曲 mid，发行版）
-   * ② QQ 搜索：发行版（王晰）→ Live 版（王晰）
-   * ③ 网易云：发行版（王晰）→ Live 版（王晰）
-   * ④ 全部失败 → 提示
+  /* ---------- 多平台候选收集（每步严格「王晰演唱」） ----------
+   * 候选列表：① QQ vkey ② QQ搜索发行版 ③ QQ搜索Live ④ 网易云发行版 ⑤ 网易云Live
+   * 每个候选带 platform 标记；播放时逐个尝试，失败自动换下一个
    */
-  function resolvePlayable(songmid, title) {
-    if (!title && !songmid) return Promise.reject(new Error('无歌曲信息'));
+  function resolveCandidates(songmid, title) {
     var nt = title || '';
+    var cands = [];
+    function push(url, platform) { if (url) cands.push({ url: url, platform: platform }); }
     function tryQQvkey(mid) {
-      return fetchVkey(mid).then(function (url) {
-        if (url) return url;
-        throw new Error('QQ无直链');
-      });
+      return fetchVkey(mid).then(function (url) { push(url, 'QQ音乐'); }).catch(function () {});
     }
     function tryQQsearch(kw) {
       return qqSearch(kw).then(function (hits) {
         var best = pickQq(hits, nt);
-        if (!best || !best.mid) throw new Error('QQ无王晰版本');
-        return tryQQvkey(best.mid);
-      });
+        if (best && best.mid) return tryQQvkey(best.mid);
+      }).catch(function () {});
     }
     function tryWyy(kw) {
       return wyySearch(kw).then(function (hits) {
         var best = pickWyy(hits, nt);
-        if (!best) throw new Error('网易云无王晰版本');
-        return wyyPlayUrl(best.id);
-      });
+        if (best) push(wyyPlayUrl(best.id), '网易云');
+      }).catch(function () {});
     }
-    /* ① QQ 当前歌曲 mid（发行版） */
-    var p = songmid ? tryQQvkey(songmid) : Promise.reject(new Error('无QQ ID'));
-    /* ② QQ 搜索发行版 → ③ QQ 搜索 Live 版 */
-    p = p.catch(function () {
-      return tryQQsearch(nt + ' 王晰').catch(function () {
-        return tryQQsearch(nt + ' 王晰 live');
-      });
+    var p = songmid ? tryQQvkey(songmid) : Promise.resolve();
+    p = p.then(function () { return tryQQsearch(nt + ' 王晰'); });
+    p = p.then(function () { return tryQQsearch(nt + ' 王晰 live'); });
+    p = p.then(function () { return tryWyy(nt + ' 王晰'); });
+    p = p.then(function () { return tryWyy(nt + ' 王晰 live'); });
+    return p.then(function () { return cands; });
+  }
+
+  /* 尝试播放单个候选：canplay 成功 / error 或超时失败（带 token，过期结果丢弃） */
+  function tryPlayUrl(a, url, token) {
+    return new Promise(function (resolve, reject) {
+      var settled = false;
+      var timer = setTimeout(function () { if (!settled) { settled = true; cleanup(); reject(new Error('加载超时')); } }, 20000);
+      function onCan() {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        if (token !== playToken) return;   /* 已被更新的点击取代，丢弃 */
+        var p = a.play();
+        if (p && p.catch) p.catch(function () {});
+        resolve(true);
+      }
+      function onErr() {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        if (token !== playToken) return;
+        reject(new Error('加载失败'));
+      }
+      function cleanup() {
+        clearTimeout(timer);
+        a.removeEventListener('canplay', onCan);
+        a.removeEventListener('error', onErr);
+      }
+      a.addEventListener('canplay', onCan);
+      a.addEventListener('error', onErr);
+      a.src = url;
+      var p = a.play();
+      if (p && p.catch) p.catch(function () {});
     });
-    /* ④ 网易云发行版 → ⑤ 网易云 Live 版 */
-    p = p.catch(function () {
-      return tryWyy(nt + ' 王晰').catch(function () {
-        return tryWyy(nt + ' 王晰 live');
-      });
+  }
+
+  /* 逐个尝试候选：全部失败才提示（带 token） */
+  function tryCandidates(a, cands, i, token) {
+    if (i >= cands.length) {
+      if (token !== playToken) return Promise.resolve(false);
+      setState('fail');
+      if (typeof statusFn === 'function') statusFn('fail', 'QQ/网易云均无王晰可播版本（VIP 或版权限制）');
+      return Promise.resolve(false);
+    }
+    var c = cands[i];
+    if (token === playToken && typeof statusFn === 'function') statusFn('load', '正在尝试：' + c.platform + ' · ' + currentTitle);
+    return tryPlayUrl(a, c.url, token).then(function () {
+      if (token !== playToken) return false;
+      setState('play');
+      return true;
+    }).catch(function () {
+      return tryCandidates(a, cands, i + 1, token);
     });
-    return p;
   }
 
   /* ---------- 播放控制 ---------- */
@@ -278,24 +317,31 @@
     var songmid = norm(mid);
     if (!songmid && !title) return Promise.resolve(false);
     var a = getAudio();
-    if (currentMid === songmid && !a.paused && songmid) { a.pause(); setState('pause'); return Promise.resolve(true); }
-    if (currentMid === songmid && a.src && a.paused && songmid) { a.play(); setState('play'); return Promise.resolve(true); }
+    /* 同曲切换：播放↔暂停 */
+    if (currentMid === songmid && songmid) {
+      if (!a.paused) { a.pause(); setState('pause'); return Promise.resolve(true); }
+      if (a.src) { a.play(); setState('play'); return Promise.resolve(true); }
+    }
+    /* 新歌：清空旧音频，防止残留播放/状态错乱 */
+    var token = ++playToken;
+    a.pause();
+    a.removeAttribute('src');
+    a.load();
     currentMid = songmid;
     currentTitle = title || '试听';
     setState('load');
-    /* 多平台：QQ(vkey) -> 网易云(搜索+直链) */
-    return resolvePlayable(songmid, title).then(function (url) {
-      a.src = url;
-      var p = a.play();
-      if (p && p.catch) p.catch(function () {
+    return resolveCandidates(songmid, title).then(function (cands) {
+      if (token !== playToken) return false;   /* 已被更新的点击取代 */
+      if (!cands.length) {
         setState('fail');
-        if (typeof statusFn === 'function') statusFn('fail', '音频无法播放（可能为 VIP 或需登录）');
-      });
-      setState('play');
-      return true;
-    }).catch(function (e) {
+        if (typeof statusFn === 'function') statusFn('fail', '未找到王晰的可播版本（VIP 或版权限制）');
+        return false;
+      }
+      return tryCandidates(a, cands, 0, token);
+    }).catch(function () {
+      if (token !== playToken) return false;
       setState('fail');
-      if (typeof statusFn === 'function') statusFn('fail', (e && e.message) || '播放失败');
+      if (typeof statusFn === 'function') statusFn('fail', '播放失败');
       return false;
     });
   }
@@ -317,7 +363,7 @@
     VERSION: '1.0.0',
     play: play,
     attach: attach,
-    stop: function () { if (audio) { audio.pause(); audio.removeAttribute('src'); } currentMid = ''; },
+    stop: function () { playToken++; if (audio) { audio.pause(); audio.removeAttribute('src'); } currentMid = ''; },
     setStatusFn: function (fn) { statusFn = fn; },
     isPlaying: function () { return !!(audio && !audio.paused); },
     get currentMid() { return currentMid; }
