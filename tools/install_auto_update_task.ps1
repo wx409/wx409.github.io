@@ -1,4 +1,4 @@
-# ============================================================
+﻿# ============================================================
 # 王晰数字档案 · 自动更新任务一键安装脚本
 # 用法：
 #   本机（笔记本）：右键"使用 PowerShell 运行"，或双击同目录 .bat
@@ -35,14 +35,13 @@ Write-Host "[i] 机器:   $Machine（$([DateTime]::Now.DayOfWeek)）"
 $TaskName = "WangXiArchiveAutoUpdate"
 $Arg = "`"$Script`" --machine $Machine --watch"
 
-$Action = New-ScheduledTaskAction -Execute $Py -Argument $Arg -WorkingDirectory $RepoPath
-$Triggers = @(
-    (New-ScheduledTaskTrigger -Daily -At 08:30),
-    (New-ScheduledTaskTrigger -Daily -At 20:30)
-)
-$Settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew
-
 try {
+    $Action = New-ScheduledTaskAction -Execute $Py -Argument $Arg -WorkingDirectory $RepoPath
+    $Triggers = @(
+        (New-ScheduledTaskTrigger -Daily -At 08:30),
+        (New-ScheduledTaskTrigger -Daily -At 20:30)
+    )
+    $Settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew
     Register-ScheduledTask -TaskName $TaskName -Action $Action -Trigger $Triggers `
         -Settings $Settings -Description "王晰数字档案自动聚合（采集->构建->发布->IndexNow），$Machine 值班" `
         -Force | Out-Null
