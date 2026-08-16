@@ -87,6 +87,29 @@ def main() -> None:
         except Exception:
             pass
 
+    # 3.5 小酒馆音频条目合并（tavern_audio.json）：防止重跑后营业预告等条目丢失
+    tavern_path = ROOT / "data" / "tavern_audio.json"
+    if tavern_path.exists():
+        try:
+            tj = json.loads(tavern_path.read_text(encoding="utf-8"))
+            for it in tj.get("items", []):
+                nm = it.get("name")
+                if not nm:
+                    continue
+                n = norm(nm)
+                if n in meta:
+                    if not meta[n].get("mid") and it.get("mid"):
+                        meta[n]["mid"] = "L:" + it["mid"]
+                    meta[n]["album"] = meta[n].get("album") or (it.get("album") or "日木斤深夜小酒馆")
+                    meta[n]["attr"] = meta[n].get("attr") or "小酒馆音频"
+                else:
+                    meta[n] = {"name": nm, "attr": "小酒馆音频", "release": "-", "latest": None,
+                               "mean30": None, "peak": None, "lyrics": [], "album": "日木斤深夜小酒馆",
+                               "show_count": 0, "cities": [], "live": [],
+                               "mid": ("L:" + it["mid"]) if it.get("mid") else None}
+        except Exception:
+            pass
+
     # 4. 输出：剔除无任何信息的空壳（仅歌词条目也可能有价值，保留全部）
     out = {k: v for k, v in meta.items() if v["name"]}
     out = dict(sorted(out.items(), key=lambda kv: kv[1]["name"]))
