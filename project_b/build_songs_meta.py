@@ -39,9 +39,9 @@ def main() -> None:
 
     # 1. 主源：entity_index（433 首全量，含 dashboard 指标）
     meta = {}
-    # uid 映射：dashboard detail_songs 的 uid（L:mid 格式）→ 歌曲名
+    # uid 映射：dashboard song_index（325 首全量 uid）→ 歌曲名
     mid_by_name = {}
-    for s in dash.get("detail_songs", []) or []:
+    for s in dash.get("song_index", []) or []:
         if s.get("name") and s.get("uid"):
             mid_by_name[norm(s["name"])] = s["uid"]
     for name, en in entity.items():

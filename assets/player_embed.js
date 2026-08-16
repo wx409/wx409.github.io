@@ -28,13 +28,13 @@
   }
 
   function setState(kind) {
-    /* 更新所有按钮状态 */
+    /* 更新所有按钮状态（基于 audio 真实状态） */
+    var playing = !!(audio && !audio.paused);
     var btns = document.querySelectorAll('.pe-btn');
     btns.forEach(function (b) {
       var mid = b.getAttribute('data-mid');
       if (mid === currentMid) {
-        var playing = kind === 'pause' && !audio.paused;
-        b.textContent = playing ? '⏸ 暂停' : (b.getAttribute('data-was-playing') === '1' ? '▶ 继续' : '▶ 试听');
+        b.textContent = playing ? '⏸ 暂停' : '▶ 试听';
         b.classList.toggle('pe-playing', playing);
       } else {
         b.textContent = '▶ 试听';
@@ -99,13 +99,18 @@
     if (!songmid) return Promise.resolve(false);
     var a = getAudio();
     if (currentMid === songmid && !a.paused) { a.pause(); setState('pause'); return Promise.resolve(true); }
+    if (currentMid === songmid && a.src && a.paused) { a.play(); setState('play'); return Promise.resolve(true); }
     currentMid = songmid;
     currentTitle = title || '试听';
     setState('load');
     return fetchVkey(songmid).then(function (url) {
       a.src = url;
       var p = a.play();
-      if (p && p.catch) p.catch(function () {});
+      if (p && p.catch) p.catch(function () {
+        /* 自动播放被拦 / 音频加载失败：给明确反馈 */
+        setState('fail');
+        if (typeof statusFn === 'function') statusFn('fail', '音频无法播放（可能为 VIP 或需登录 QQ音乐）');
+      });
       setState('play');
       return true;
     }).catch(function (e) {
@@ -120,17 +125,9 @@
     opts = opts || {};
     btn.classList.add('pe-btn');
     btn.setAttribute('data-mid', norm(opts.mid || ''));
-    btn.setAttribute('data-was-playing', '0');
     btn.textContent = '▶ 试听';
     btn.addEventListener('click', function () {
-      if (btn.getAttribute('data-was-playing') === '1' && audio && currentMid === norm(opts.mid)) {
-        if (audio.paused) { audio.play(); btn.setAttribute('data-was-playing', '0'); setState('play'); }
-        else { audio.pause(); btn.setAttribute('data-was-playing', '1'); setState('pause'); }
-        return;
-      }
-      play(opts.mid, opts.title).then(function (ok) {
-        btn.setAttribute('data-was-playing', ok ? '1' : '0');
-      });
+      play(opts.mid, opts.title);
     });
     return btn;
   }
