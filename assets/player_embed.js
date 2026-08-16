@@ -120,23 +120,77 @@
     });
   }
 
+  /* ---------- 网易云音乐（第二平台，JSONP 搜索 + 试听直链） ---------- */
+  function wyySearch(keyword) {
+    return new Promise(function (resolve, reject) {
+      var cbName = '__wyy_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e4);
+      var url = 'https://music.163.com/api/search/get/web?type=1&callback=' + cbName +
+                '&s=' + encodeURIComponent(keyword + ' 王晰');
+      var timer = setTimeout(function () { cleanup(); reject(new Error('网易云搜索超时')); }, 12000);
+      function cleanup() {
+        clearTimeout(timer);
+        var s = document.getElementById(cbName);
+        if (s) s.remove();
+        delete global[cbName];
+      }
+      global[cbName] = function (resp) {
+        cleanup();
+        try {
+          var songs = (resp.result && resp.result.songs) || [];
+          resolve(songs.map(function (s) {
+            return {
+              id: s.id,
+              name: s.name,
+              artist: (s.artists || []).map(function (a) { return a.name; }).join('、')
+            };
+          }).slice(0, 5));
+        } catch (e) { reject(e); }
+      };
+      var s = document.createElement('script');
+      s.id = cbName;
+      s.src = url;
+      s.onerror = function () { cleanup(); reject(new Error('网易云搜索失败')); };
+      document.head.appendChild(s);
+    });
+  }
+  function wyyPlayUrl(songId) {
+    /* 302 重定向到真实 MP3，audio 可直接播 */
+    return 'https://music.163.com/song/media/outer/url?id=' + songId + '.mp3';
+  }
+  /* 多平台聚合：QQ -> 网易云 -> 提示 */
+  function resolvePlayable(songmid, title) {
+    if (!songmid) return Promise.reject(new Error('无歌曲 ID'));
+    return fetchVkey(songmid).catch(function (e) {
+      /* QQ 不可用（VIP/无直链）→ 尝试网易云 */
+      if (!title) throw e;
+      return wyySearch(title).then(function (hits) {
+        if (!hits.length) throw new Error('QQ/网易云均无免费试听');
+        /* 优先取歌手为王晰且歌名匹配的 */
+        var best = hits.filter(function (h) {
+          return h.artist.indexOf('王晰') >= 0 && norm(h.name).indexOf(norm(title)) >= 0;
+        })[0] || hits[0];
+        return wyyPlayUrl(best.id);
+      });
+    });
+  }
+
   /* ---------- 播放控制 ---------- */
   function play(mid, title) {
     var songmid = norm(mid);
-    if (!songmid) return Promise.resolve(false);
+    if (!songmid && !title) return Promise.resolve(false);
     var a = getAudio();
-    if (currentMid === songmid && !a.paused) { a.pause(); setState('pause'); return Promise.resolve(true); }
-    if (currentMid === songmid && a.src && a.paused) { a.play(); setState('play'); return Promise.resolve(true); }
+    if (currentMid === songmid && !a.paused && songmid) { a.pause(); setState('pause'); return Promise.resolve(true); }
+    if (currentMid === songmid && a.src && a.paused && songmid) { a.play(); setState('play'); return Promise.resolve(true); }
     currentMid = songmid;
     currentTitle = title || '试听';
     setState('load');
-    return fetchVkey(songmid).then(function (url) {
+    /* 多平台：QQ(vkey) -> 网易云(搜索+直链) */
+    return resolvePlayable(songmid, title).then(function (url) {
       a.src = url;
       var p = a.play();
       if (p && p.catch) p.catch(function () {
-        /* 自动播放被拦 / 音频加载失败：给明确反馈 */
         setState('fail');
-        if (typeof statusFn === 'function') statusFn('fail', '音频无法播放（可能为 VIP 或需登录 QQ音乐）');
+        if (typeof statusFn === 'function') statusFn('fail', '音频无法播放（可能为 VIP 或需登录）');
       });
       setState('play');
       return true;

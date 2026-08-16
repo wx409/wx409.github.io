@@ -117,9 +117,9 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 <p style="color:#666;font-size:14px;">共 <strong>{len(songs)}</strong> 首：{n_lyrics} 首含歌词片段 · {n_album} 首有专辑关联 · {n_shows} 首有巡演演唱记录。数据来源 <code>data/songs_meta.json</code>。</p>
 <div class="layout">
 <div class="sidebar">
-<h3>🎧 可播歌单（{n_playable}）</h3>
+<h3>🎧 曲库试听（{n_all}）</h3>
 <div id="sideList"></div>
-<p class="side-note">经 QQ音乐接口实测可免费试听；点击即播，再次点击暂停。</p>
+<p class="side-note">点击即播：自动探测 QQ音乐 → 网易云音乐，哪个能听用哪个；再点暂停。</p>
 </div>
 <div class="main">
 <div class="search-box" role="search">
@@ -134,7 +134,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 <div class="song-list" id="songList"></div>
 </div>
 </div>
-<p class="footnote">🎧 可播 = 经 QQ音乐 vkey 接口实测可免费试听（{n_playable} 首）；VIP 锁曲需本地代理或登录。无 ID 的为组合曲目/现场翻唱。试听为公开直链（不下载不托管）。生成时间 {meta["generated_at"]}。</p>
+<p class="footnote">🎧 试听为多平台聚合：先试 QQ音乐（vkey 直链），失败自动切网易云音乐（搜索+直链）——哪个能听用哪个，不写死。VIP 锁曲需本地代理或登录。试听均为公开直链（不下载不托管）。生成时间 {meta["generated_at"]}。</p>
 <script src="assets/player_embed.js"></script>
 <script>
 (function () {{
@@ -163,10 +163,9 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
       lyrics = '<div class="song-lyrics">“' + esc(s.lyrics[0].text) + '”</div>';
     }}
     var meta = [s.attr, s.release !== '-' ? s.release : ''].filter(Boolean).join(' · ');
-    var play = s.mid
-      ? '<button type="button" class="pe-btn" data-mid="' + esc(s.mid) + '">▶ 试听</button>'
-      : '<span class="no-play">无试听</span>';
-    return '<div class="song-card' + (s.mid ? ' playable' : '') + '">' +
+    /* 多平台试听：有 mid 用 mid（QQ→网易云），无 mid 用歌名（网易云） */
+    var play = '<button type="button" class="pe-btn" data-mid="' + esc(s.mid || '') + '" data-title="' + esc(s.name) + '">▶ 试听</button>';
+    return '<div class="song-card">' +
       '<div class="song-head"><span class="song-name">《' + esc(s.name) + '》</span>' + play + '</div>' +
       (meta ? '<div class="song-meta">' + esc(meta) + tags + '</div>' : '<div class="song-meta">' + tags + '</div>') +
       lyrics + '</div>';
@@ -195,7 +194,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     box.innerHTML = list.map(cardHtml).join('');
     if (window.PlayerEmbed && window.PlayerEmbed.attach) {{
       box.querySelectorAll('.pe-btn').forEach(function (b) {{
-        window.PlayerEmbed.attach(b, {{ mid: b.getAttribute('data-mid'), title: b.closest('.song-card').querySelector('.song-name').textContent }});
+        window.PlayerEmbed.attach(b, {{ mid: b.getAttribute('data-mid'), title: b.getAttribute('data-title') }});
       }});
     }}
   }}
@@ -207,16 +206,16 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     }});
     render();
   }}
-  /* 左侧可播歌单 */
+  /* 左侧试听栏：全部歌曲，点击时动态探测 QQ→网易云 */
   function renderSide() {{
     var box = document.getElementById('sideList');
-    if (!box) return;
-    box.innerHTML = PLAYABLE.map(function (p) {{
-      return '<button type="button" class="side-item" data-mid="' + esc(p.mid) + '">▶ ' + esc(p.name) + '</button>';
+    if (!box || !songs) return;
+    box.innerHTML = songs.map(function (s) {{
+      return '<button type="button" class="side-item" data-mid="' + esc(s.mid || '') + '" data-title="' + esc(s.name) + '">▶ ' + esc(s.name) + '</button>';
     }}).join('');
     if (window.PlayerEmbed && window.PlayerEmbed.attach) {{
       box.querySelectorAll('.side-item').forEach(function (b) {{
-        window.PlayerEmbed.attach(b, {{ mid: b.getAttribute('data-mid'), title: b.textContent.replace(/^▶ /, '') }});
+        window.PlayerEmbed.attach(b, {{ mid: b.getAttribute('data-mid'), title: b.getAttribute('data-title') }});
       }});
     }}
   }}
@@ -238,6 +237,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     .then(function (j) {{
       songs = Object.values(j.songs || {{}});
       render();
+      renderSide();
     }})
     .catch(function () {{ document.getElementById('songList').innerHTML = '<div class="empty">数据加载失败</div>'; }});
   document.getElementById('songSearch').addEventListener('input', render);

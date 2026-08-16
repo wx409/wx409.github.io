@@ -151,11 +151,11 @@
           return '<span class="sr-kw">' + highlight(k, terms) + '</span>';
         }).join('') + '</div>'
       : '';
-    // 试听按钮：song 类型且有独立 mid 字段的条目
+    // 试听按钮：song 类型（mid 或歌名均可，多平台回退 QQ→网易云）
     var mid = (type === 'song' && e.mid) ? e.mid : '';
     var playHtml = '';
-    if (mid) {
-      playHtml = '<div class="sr-play"><button type="button" class="pe-btn" data-mid="' + esc(mid) + '">▶ 试听</button></div>';
+    if (type === 'song') {
+      playHtml = '<div class="sr-play"><button type="button" class="pe-btn" data-mid="' + esc(mid) + '" data-title="' + esc(e.title) + '">▶ 试听</button></div>';
     }
     return '<div class="sr-card">' +
       '<a href="' + esc(e.url) + '" target="_blank" rel="noopener" class="sr-card-link">' +
@@ -180,10 +180,10 @@
     }
     if (countEl) countEl.textContent = String(hits.length);
     out.innerHTML = hits.map(buildResultHtml).join('');
-    // 绑定试听按钮（PlayerEmbed 组件）
+    // 绑定试听按钮（PlayerEmbed 组件，多平台回退）
     if (typeof window.PlayerEmbed === 'function' || (window.PlayerEmbed && window.PlayerEmbed.attach)) {
       out.querySelectorAll('.pe-btn').forEach(function (btn) {
-        window.PlayerEmbed.attach(btn, { mid: btn.getAttribute('data-mid'), title: btn.parentElement.parentElement.querySelector('.sr-title').textContent });
+        window.PlayerEmbed.attach(btn, { mid: btn.getAttribute('data-mid'), title: btn.getAttribute('data-title') });
       });
     }
   }
