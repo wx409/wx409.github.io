@@ -49,6 +49,12 @@
         .tip-list a:hover { text-decoration: underline; }
         .tip-src { color: #888; font-size: 12px; }
         .loading { color: #888; padding: 40px; text-align: center; }
+        /* 骨架屏 */
+        .sk { background: linear-gradient(90deg, #f0f0f0 25%, #e4e4e4 37%, #f0f0f0 63%); background-size: 400% 100%; animation: sk-shimmer 1.4s ease infinite; border-radius: 4px; }
+        .sk-title { width: 40%; height: 20px; margin: 24px 0 10px; }
+        .sk-row { width: 100%; height: 13px; margin: 8px 0; }
+        .sk-row:nth-child(2n) { width: 78%; }
+        @keyframes sk-shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
         .footnote { color: #888; font-size: 12px; margin-top: 30px; }
     </style>
 </head>
@@ -69,7 +75,11 @@
     本页 22 城数据由 <code>data/cities.json</code> 与 <code>data/city_guides.json</code> 动态生成：演出历史 / 常唱歌曲 / 深夜小酒馆声音 / 网络观演贴士。</p>
 
     <div id="cityNav" class="city-nav"></div>
-    <div id="cityCards"><div class="loading">加载城市攻略中…</div></div>
+    <div id="cityCards"><div class="sk-wrap" aria-label="加载中" style="padding:4px 0;">
+        <div class="sk sk-title"></div><div class="sk sk-row"></div><div class="sk sk-row"></div><div class="sk sk-row"></div>
+        <div class="sk sk-title"></div><div class="sk sk-row"></div><div class="sk sk-row"></div><div class="sk sk-row"></div>
+        <div class="sk sk-title"></div><div class="sk sk-row"></div><div class="sk sk-row"></div><div class="sk sk-row"></div>
+    </div></div>
 
     <p class="footnote">演出历史与常唱歌曲来自巡演歌单长表与数据大屏（dashboard_data.json 派生），酒馆声音来自深夜小酒馆逐字稿，网络贴士为公开搜索摘要（仅引用标题与链接）。持续更新中。</p>
 
