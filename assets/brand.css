@@ -1,59 +1,158 @@
 /* ============================================================
-   王晰档案 · 品牌增强层（brand.css）
-   - 品牌色：酒红 #c41e3a（主）· 剧院暗金 #c9a227（辅）· 羊皮纸底 #fdfbf7
-   - 只做"增强覆盖"，不重写页面既有样式；未引入本文件的页面不受影响
-   - 含通用移动端适配（表格滚动 / 导航换行 / 字号收缩）
+   王晰档案 · 品牌层 v2 —— 深夜剧院风（dark theater）
+   - 深墨底（低音声场）+ 剧院暗金高光 + 酒红幕布
+   - 增量覆盖：所有引入本文件的页面自动获得统一视觉
+   - 内置通用移动端适配
    ============================================================ */
 
 :root {
-  --wx-primary: #c41e3a;
-  --wx-gold: #c9a227;
-  --wx-ink: #1a1a1a;
-  --wx-bg: #fdfbf7;
-  --wx-card-shadow: 0 4px 14px rgba(30, 20, 10, 0.08);
+  --wx-primary: #d64550;          /* 酒红（深底提亮） */
+  --wx-gold: #d4af37;             /* 剧院金 */
+  --wx-gold-soft: #b8962e;
+  --wx-ink: #f2ece0;              /* 米白正文 */
+  --wx-muted: #b3a98e;            /* 暖灰辅助文字 */
+  --wx-bg: #141110;               /* 深夜墨黑 */
+  --wx-card: #1e1a17;             /* 卡片深褐 */
+  --wx-card-hi: #262019;
+  --wx-border: rgba(212, 175, 55, 0.22);
+  --wx-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --wx-glow: 0 0 18px rgba(212, 175, 55, 0.15);
   --wx-transition: all 0.25s ease;
 }
 
-/* 背景与字体基调 */
-body { background: var(--wx-bg); }
-h1, h2, h3 {
+/* ============ 基底：深夜幕布 ============ */
+body {
+  background:
+    radial-gradient(1100px 520px at 18% -8%, #33241c 0%, transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, #221a14 0%, transparent 50%),
+    var(--wx-bg) fixed;
+  color: var(--wx-ink);
+}
+p, li, td, th, small, dd, dt { color: inherit; }
+
+/* 标题：衬线 + 金色渐变（品牌记忆点） */
+h1, h2, h3, h4 {
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
   letter-spacing: 0.02em;
 }
-h1 { color: var(--wx-ink); }
-h2 { border-left-color: var(--wx-gold) !important; }
+h1 {
+  color: #e8b04b;
+  background: linear-gradient(92deg, #e8b04b 0%, #d64550 68%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--wx-gold), transparent) 1;
+}
+h2 { border-left-color: var(--wx-gold) !important; color: #e6d9b8; }
+h3 { color: #d8cfba; }
 
-/* 页面淡入 */
-body { animation: wx-fade 0.4s ease; }
-@keyframes wx-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+/* 链接：金 */
+a { color: var(--wx-gold); transition: color 0.2s ease; }
+a:hover { color: #f0d070; text-decoration-color: var(--wx-gold); }
 
-/* 卡片 hover：轻微上浮 + 暗金阴影 */
+/* 导航：深色条 + 金线 */
+.nav {
+  background: rgba(30, 26, 23, 0.92) !important;
+  border: 1px solid var(--wx-border);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.45);
+}
+.nav a { color: #e0d5b8; }
+.nav a:hover { color: var(--wx-gold); }
+
+/* 卡片：深褐渐变 + 细金边 + hover 金辉 */
 .card, .song-card, .album-card, .history-item, .review-card, .gallery-item,
-.paper, .city-card, .tl-body, .single-card {
+.paper, .city-card, .tl-body, .single-card, .stats, .sources-panel, .store, .tip {
+  background: linear-gradient(180deg, var(--wx-card-hi), var(--wx-card)) !important;
+  border-color: var(--wx-border) !important;
   transition: var(--wx-transition);
 }
 .card:hover, .song-card:hover, .album-card:hover, .history-item:hover,
 .review-card:hover, .gallery-item:hover, .paper:hover, .city-card:hover,
 .tl-body:hover, .single-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--wx-card-shadow);
+  box-shadow: var(--wx-shadow), var(--wx-glow);
+  border-color: rgba(212, 175, 55, 0.55) !important;
 }
 
-/* 链接下划线动效 */
-a { transition: color 0.2s ease; }
-a:hover { text-decoration-color: var(--wx-gold); }
+/* 页面淡入 */
+body { animation: wx-fade 0.45s ease; }
+@keyframes wx-fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
-/* 金句墙：左线渐变（品牌记忆点） */
+/* 金句墙 / 引用：金→酒红渐变左线，深色底 */
 blockquote {
   border-left: 3px solid transparent;
-  border-image: linear-gradient(180deg, var(--wx-primary), var(--wx-gold)) 1;
+  border-image: linear-gradient(180deg, var(--wx-gold), var(--wx-primary)) 1;
+  background: rgba(212, 175, 55, 0.05) !important;
+  color: #e8e0cd;
 }
+.quote-item { background: transparent !important; }
 
-/* 按钮统一 */
-.pe-btn, .btn, .chip {
-  transition: var(--wx-transition);
+/* 表格：金线深色 */
+table { border-color: rgba(212, 175, 55, 0.2); }
+th {
+  background: rgba(212, 175, 55, 0.12) !important;
+  color: #ecd9a0 !important;
+  border-color: rgba(212, 175, 55, 0.3) !important;
 }
-.pe-btn:hover, .btn:hover, .chip:hover { filter: brightness(1.08); }
+td { border-color: rgba(212, 175, 55, 0.15) !important; color: #d8d2c2; }
+
+/* 表单：深色输入 */
+input, select, textarea {
+  background: #241f1a !important;
+  color: #f2ece0 !important;
+  border: 1px solid var(--wx-border) !important;
+}
+input:focus, textarea:focus { border-color: var(--wx-gold) !important; box-shadow: var(--wx-glow); }
+
+/* 按钮 */
+.pe-btn, .btn, .btn-copy { background: linear-gradient(135deg, #c83a46, #8f2730) !important; color: #fff; }
+.chip { background: rgba(212, 175, 55, 0.1); color: #e0d5b8; border: 1px solid var(--wx-border); }
+.chip.on { background: rgba(212, 175, 55, 0.25); color: #f0d070; }
+.pe-btn:hover, .btn:hover, .chip:hover { filter: brightness(1.12); box-shadow: var(--wx-glow); }
+
+/* 标签徽章：深色变体（保留色相） */
+.tag { background: rgba(255, 255, 255, 0.07); color: #c9c0ab; }
+.tag.album { background: rgba(214, 69, 80, 0.18); color: #e88a92; }
+.tag.lyric { background: rgba(90, 140, 220, 0.16); color: #9fb9ec; }
+.tag.live { background: rgba(80, 170, 120, 0.15); color: #9fd8b8; }
+.tag.tavern { background: rgba(150, 110, 230, 0.16); color: #c0a8ec; }
+
+/* 辅助文字统一暖灰 */
+.song-meta, .desc, .track-credits, .track-lyrics, .footnote, .tip-src,
+.repo-note, .side-note, .tl-src, .pending-note, .source-verification,
+.song-credits, .loading, .empty, .meta {
+  color: var(--wx-muted) !important;
+}
+.tl-date { color: var(--wx-gold) !important; }
+.tl-dot { box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35); background: var(--wx-primary); }
+.tl::before { background: rgba(212, 175, 55, 0.25) !important; }
+#out { background: #1e1a17 !important; color: #e0d5b8 !important; border-color: rgba(212, 175, 55, 0.4) !important; }
+.tavern-q { background: rgba(80, 100, 180, 0.12) !important; color: #c5cfea !important; border-left-color: rgba(120, 140, 220, 0.6) !important; }
+
+/* 歌词/金句区 */
+.song-lyrics, .track-lyrics { border-left-color: rgba(212, 175, 55, 0.4) !important; color: #cfc5ae; }
+.lyr-toggle { color: var(--wx-gold); }
+
+/* 侧栏 */
+.sidebar, .sideList { background: rgba(30, 26, 23, 0.8) !important; border-color: var(--wx-border) !important; }
+.side-item { color: #d8d2c2; border-bottom-color: rgba(212, 175, 55, 0.12) !important; }
+.side-item.playing { color: var(--wx-gold) !important; }
+
+/* 状态条 */
+#playerStatus { background: rgba(60, 80, 140, 0.15) !important; color: #aebfe8 !important; }
+
+/* 骨架屏（深色） */
+.sk { background: linear-gradient(90deg, #262019 25%, #33291f 37%, #262019 63%); background-size: 400% 100%; }
+
+/* 代码/数据文件引用 */
+code { background: rgba(212, 175, 55, 0.08); color: #e8c97a; border: 1px solid var(--wx-border); padding: 1px 6px; border-radius: 4px; }
+
+/* 深色滚动条（WebKit） */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #181412; }
+::-webkit-scrollbar-thumb { background: #4a3f30; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--wx-gold-soft); }
 
 /* ============ 移动端适配（通用） ============ */
 @media (max-width: 760px) {
@@ -61,7 +160,6 @@ blockquote {
   h2 { font-size: 1.2em; }
   .nav { display: flex; flex-wrap: wrap; gap: 6px 12px; }
   .nav a { margin-right: 0; }
-  /* 表格横向滚动容器 */
   table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
   .song-list, .album-card { padding: 12px; }
   .history-item, .review-card, .paper, .gallery-item { padding: 10px; }
