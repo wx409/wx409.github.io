@@ -38,6 +38,8 @@ STEPS = [
     (ROOT / "generate_tour_index.py", "巡演目录 live/index.html", True),
     (ROOT / "update_index_table.py", "首页表格（效应注入）", True),
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
+    (ROOT / "project_b" / "build_setlists.py", "59场歌单 data/setlists.json", True),
+    (ROOT / "project_b" / "build_setlists_page.py", "歌单索引页 live/setlists.html", True),
     (ROOT / "project_b" / "generate_city_guides.py", "22 城攻略 data/city_guides.json", True),
     (ROOT / "project_b" / "build_story.py", "数据故事 story.html", True),
     (ROOT / "tavern" / "_build_episodes.py", "小酒馆逐字稿页", True),

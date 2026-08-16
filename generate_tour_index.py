@@ -184,6 +184,7 @@ def build_page(setlists: list[dict], effects: dict, live_pages: dict) -> str:
         <a href="/gallery.html">视觉记录</a>
         <a href="/dashboard/">数据大屏</a>
         <a href="/map/">🗺️ 巡演地图</a>
+        <a href="/live/setlists.html">全部歌单</a>
     </div>
 
     <h1>演出详情目录</h1>
