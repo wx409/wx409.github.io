@@ -44,8 +44,14 @@ h1{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}
 .pe-btn{background:#c41e3a;color:#fff;border:none;border-radius:14px;padding:3px 14px;font-size:12px;cursor:pointer;}
 .pe-btn:hover{filter:brightness(1.1);}
 .pe-btn.pe-playing{background:#0a7a5a;}
+.no-play{font-size:11px;color:#bbb;}
 #playerStatus{display:none;margin:8px 0;padding:8px 12px;background:#f0f4ff;border-left:3px solid #3a7bd5;border-radius:6px;font-size:13px;}
 .empty{color:#888;text-align:center;padding:30px;}
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;}
+.chip{background:#f8f9fa;border:1px solid #ddd;border-radius:16px;padding:4px 14px;font-size:13px;cursor:pointer;color:#555;}
+.chip:hover{border-color:#c41e3a;color:#c41e3a;}
+.chip.on{background:#c41e3a;color:#fff;border-color:#c41e3a;}
+.playable-top{background:#e6f7ee;border:1px solid #b7e0cc;border-radius:8px;padding:8px 14px;margin:8px 0;font-size:13px;color:#0a7a5a;}
 .footnote{color:#888;font-size:12px;margin-top:30px;border-top:1px solid #eee;padding-top:12px;}
 </style>
 </head>
@@ -64,15 +70,21 @@ h1{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}
 <div class="search-box" role="search">
 <input type="search" id="songSearch" placeholder="搜索歌曲 / 专辑 / 歌词…" autocomplete="off" aria-label="搜索歌曲库">
 </div>
+<div class="filter-bar">
+<button type="button" class="chip chip-all" id="chipAll">全部（433）</button>
+<button type="button" class="chip" id="chipPlayable">🎧 可试听（117）</button>
+<button type="button" class="chip" id="chipLyric">📝 有歌词（42）</button>
+</div>
 <div id="playerStatus"></div>
 <div class="song-list" id="songList"></div>
-<p class="footnote">试听为 QQ音乐公开试听直链（页面内播放，不下载不托管）；VIP 曲目需登录 QQ音乐。生成时间 2026-08-16 10:16。</p>
+<p class="footnote">🎧 可试听 = 有 QQ 音乐歌曲 ID（可页面内试听，代理开启时 VIP 也能播）；无 ID 的为组合曲目/现场翻唱。试听为公开直链（不下载不托管）。生成时间 2026-08-16 10:22。</p>
 <script src="assets/player_embed.js"></script>
 <script>
 (function () {
   'use strict';
   var songs = null;
   var statusEl = document.getElementById('playerStatus');
+  var filter = 'all';
   function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   function norm(s) { return String(s == null ? '' : s).replace(/[《》「」]/g,'').replace(/\s+/g,'').toLowerCase(); }
   if (window.PlayerEmbed && window.PlayerEmbed.setStatusFn) {
@@ -93,14 +105,34 @@ h1{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}
       lyrics = '<div class="song-lyrics">“' + esc(s.lyrics[0].text) + '”</div>';
     }
     var meta = [s.attr, s.release !== '-' ? s.release : ''].filter(Boolean).join(' · ');
-    var play = s.mid ? '<button type="button" class="pe-btn" data-mid="' + esc(s.mid) + '">▶ 试听</button>' : '';
-    return '<div class="song-card">' +
+    var play = s.mid
+      ? '<button type="button" class="pe-btn" data-mid="' + esc(s.mid) + '">▶ 试听</button>'
+      : '<span class="no-play">无试听</span>';
+    return '<div class="song-card' + (s.mid ? ' playable' : '') + '">' +
       '<div class="song-head"><span class="song-name">《' + esc(s.name) + '》</span>' + play + '</div>' +
       (meta ? '<div class="song-meta">' + esc(meta) + tags + '</div>' : '<div class="song-meta">' + tags + '</div>') +
       lyrics + '</div>';
   }
-  function render(list) {
+  function applyFilter(list) {
+    if (filter === 'playable') return list.filter(function (s) { return !!s.mid; });
+    if (filter === 'lyric') return list.filter(function (s) { return s.lyrics && s.lyrics.length; });
+    return list;
+  }
+  function render() {
     var box = document.getElementById('songList');
+    var q = norm(document.getElementById('songSearch').value);
+    var list = songs || [];
+    if (q) {
+      list = list.filter(function (s) {
+        return norm(s.name).indexOf(q) >= 0 ||
+          (s.album || '').indexOf(q) >= 0 ||
+          (s.attr || '').indexOf(q) >= 0 ||
+          (s.lyrics || []).some(function (f) { return norm(f.text).indexOf(q) >= 0; });
+      });
+    }
+    list = applyFilter(list);
+    /* 可试听置顶 */
+    list = list.slice().sort(function (a, b) { return (b.mid ? 1 : 0) - (a.mid ? 1 : 0); });
     if (!list.length) { box.innerHTML = '<div class="empty">没有匹配的歌曲</div>'; return; }
     box.innerHTML = list.map(cardHtml).join('');
     if (window.PlayerEmbed && window.PlayerEmbed.attach) {
@@ -109,25 +141,25 @@ h1{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}
       });
     }
   }
+  function setFilter(f) {
+    filter = f;
+    ['chipAll','chipPlayable','chipLyric'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.toggle('on', id === ('chip' + f.charAt(0).toUpperCase() + f.slice(1)));
+    });
+    render();
+  }
+  document.getElementById('chipAll').addEventListener('click', function () { setFilter('all'); });
+  document.getElementById('chipPlayable').addEventListener('click', function () { setFilter('playable'); });
+  document.getElementById('chipLyric').addEventListener('click', function () { setFilter('lyric'); });
   fetch('data/songs_meta.json', { cache: 'no-store' })
     .then(function (r) { return r.json(); })
     .then(function (j) {
       songs = Object.values(j.songs || {});
-      render(songs);
+      render();
     })
     .catch(function () { document.getElementById('songList').innerHTML = '<div class="empty">数据加载失败</div>'; });
-  var input = document.getElementById('songSearch');
-  input.addEventListener('input', function () {
-    if (!songs) return;
-    var q = norm(input.value);
-    if (!q) { render(songs); return; }
-    render(songs.filter(function (s) {
-      return norm(s.name).indexOf(q) >= 0 ||
-        (s.album || '').indexOf(q) >= 0 ||
-        (s.attr || '').indexOf(q) >= 0 ||
-        (s.lyrics || []).some(function (f) { return norm(f.text).indexOf(q) >= 0; });
-    }));
-  });
+  document.getElementById('songSearch').addEventListener('input', render);
 })();
 </script>
 </body>
