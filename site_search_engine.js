@@ -88,11 +88,13 @@
   /* ---------------- 打分匹配 ---------------- */
   var TYPE_LABEL = {
     song: '歌曲', city: '城市', concert: '演出',
-    episode: '小酒馆', guide: '指南', page: '页面'
+    episode: '小酒馆', guide: '指南', page: '页面',
+    setlist: '歌单'
   };
   var TYPE_ICON = {
     song: '🎵', city: '🏙️', concert: '🎤',
-    episode: '🍷', guide: '🧭', page: '📄'
+    episode: '🍷', guide: '🧭', page: '📄',
+    setlist: '📋'
   };
 
   function matchEntry(entry, terms) {
