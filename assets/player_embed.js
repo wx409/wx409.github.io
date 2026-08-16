@@ -163,10 +163,13 @@
     });
     var exact = stripped.filter(function (x) { return x.plain === nt; })[0];
     if (exact) return exact.h;
-    var partial = stripped.filter(function (x) { return x.plain.indexOf(nt) >= 0 || nt.indexOf(x.plain) >= 0; })[0];
+    /* 仅允许「歌名包含搜索词」（搜"晚风"可命中"晚风暖暖"）；不允许反向退化 */
+    var partial = stripped.filter(function (x) { return x.plain.indexOf(nt) >= 0 && x.plain !== nt; })[0];
     if (partial) return partial.h;
-    /* 发行版无 → 王晰的 Live/现场版 */
-    return byWang.filter(function (h) { return /live|现场|演唱会|巡演/i.test(h.name); })[0] || null;
+    /* 发行版无 → 王晰的 Live/现场版（同样要求歌名包含搜索词） */
+    return byWang.filter(function (h) {
+      return /live|现场|演唱会|巡演/i.test(h.name) && norm(h.name).indexOf(nt) >= 0;
+    })[0] || null;
   }
 
   /* ---------- 网易云音乐（JSONP 搜索 + 试听直链） ---------- */
@@ -212,10 +215,13 @@
     });
     var exact = stripped.filter(function (x) { return x.plain === nt; })[0];
     if (exact) return exact.h;
-    var partial = stripped.filter(function (x) { return x.plain.indexOf(nt) >= 0 || nt.indexOf(x.plain) >= 0; })[0];
+    /* 仅允许「歌名包含搜索词」；不允许反向退化（"晚风暖暖"不会命中"晚风"） */
+    var partial = stripped.filter(function (x) { return x.plain.indexOf(nt) >= 0 && x.plain !== nt; })[0];
     if (partial) return partial.h;
-    /* 发行版无 → 王晰的 Live/现场版 */
-    return byWang.filter(function (h) { return /live|现场|演唱会|巡演/i.test(h.name); })[0] || null;
+    /* 发行版无 → 王晰的 Live/现场版（同样要求歌名包含搜索词） */
+    return byWang.filter(function (h) {
+      return /live|现场|演唱会|巡演/i.test(h.name) && norm(h.name).indexOf(nt) >= 0;
+    })[0] || null;
   }
   function wyyPlayUrl(songId) {
     return 'https://music.163.com/song/media/outer/url?id=' + songId + '.mp3';
