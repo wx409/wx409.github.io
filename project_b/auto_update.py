@@ -89,14 +89,12 @@ def main():
     log("=== 开始自动更新（%s）===" % args.machine)
     before = snapshot()
 
-    # 1. watch（新歌/小酒馆自动入库；演出候选仍只读）
+    # 1. watch（新歌自动入库；小酒馆节目已结束，不再监测/推送）
     if args.watch:
         log("-- watch_releases (--apply 自动入库QQ新歌) --")
         run([sys.executable, str(ROOT / "project_b" / "watch_releases.py"), "--apply"])
         log("-- watch_netease (--apply 自动入库网易云新歌) --")
         run([sys.executable, str(ROOT / "project_b" / "watch_netease.py"), "--apply"])
-        log("-- watch_tavern (--apply 自动入库新期次) --")
-        run([sys.executable, str(ROOT / "project_b" / "watch_tavern.py"), "--apply"])
         log("-- watch_web (Bing site: 聚合，只读) --")
         run([sys.executable, str(ROOT / "project_b" / "watch_web.py"), "--notify"])
 
