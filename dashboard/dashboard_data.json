@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-17 18:15",
+  "timestamp": "2026-08-17 18:25",
   "total": 199340,
   "success": 36439,
   "complete_rate": 18.3,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    19.6
+    19.7
   ],
   "listener_labels": [
     "2024-08",
@@ -121281,9 +121281,9 @@
       "晚风暖暖"
     ],
     "values": [
-      127.6,
-      126.2,
-      111.3
+      128.0,
+      126.0,
+      112.3
     ],
     "spring": [
       false,
@@ -127595,49 +127595,49 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 15,
+    "active_count": 16,
     "total_tracked": 325,
-    "concentration_top3": 61.2,
+    "concentration_top3": 61.6,
     "as_of": "2026-08-17"
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 47.1,
-      "trend_pct": 82.8,
+      "share_pct": 47.5,
+      "trend_pct": 83.3,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "一生中最爱",
-      "share_pct": 7.5,
-      "trend_pct": 124.5,
+      "share_pct": 7.4,
+      "trend_pct": 120.4,
       "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "再叙",
-      "share_pct": 6.6,
+      "share_pct": 6.7,
       "trend_pct": 110.9,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 5.5,
-      "trend_pct": 110.5,
+      "song": "在路上",
+      "share_pct": 5.4,
+      "trend_pct": 62.5,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "月弯弯",
+      "song": "山楂树",
       "share_pct": 5.3,
-      "trend_pct": 156.7,
+      "trend_pct": 102.6,
       "trend_label": "up"
     }
   ],
-  "last_update": "2026-08-17 18:15",
+  "last_update": "2026-08-17 18:25",
   "today_batches": 903,
   "daily_new_records": 0,
   "recent_7days": [
@@ -127699,13 +127699,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1743,
-      "success": 1743,
+      "total": 1744,
+      "success": 1744,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 485526,
+      "before": 485778,
       "after": 199340
     },
     "index_calibration": {
