@@ -55,16 +55,29 @@ COMMIT_MSG = "自动部署: 数据更新 ({ts})"
 # IndexNow：部署后通知 Bing/Yandex 即时抓取（key 为公开验证文件，协议要求公开）
 INDEXNOW_KEY_FILE = ROOT / "e3f1a2b4c5d6e7f8a9b0c1d2e3f4a5b6.txt"
 INDEXNOW_URLS = [
+    # 枢纽页：其中 sitemap.xml 会让引擎顺藤摸瓜覆盖全部详情页
     "https://wx409.github.io/",
-    "https://wx409.github.io/story.html",
     "https://wx409.github.io/sitemap.xml",
     "https://wx409.github.io/feed.xml",
     "https://wx409.github.io/entity_index.json",
+    "https://wx409.github.io/search.html",
+    # 常更新内容入口页（巡演讯息/反馈/新歌/新专辑）
+    "https://wx409.github.io/live-reviews.html",
+    "https://wx409.github.io/live/",
+    "https://wx409.github.io/discography.html",
+    "https://wx409.github.io/songs.html",
+    "https://wx409.github.io/timeline.html",
+    "https://wx409.github.io/city-guides.html",
+    # 其他固定入口页
+    "https://wx409.github.io/story.html",
+    "https://wx409.github.io/about.html",
+    "https://wx409.github.io/academic.html",
+    "https://wx409.github.io/gallery.html",
+    "https://wx409.github.io/jazz.html",
+    "https://wx409.github.io/submit.html",
     "https://wx409.github.io/tavern/",
     "https://wx409.github.io/map/",
     "https://wx409.github.io/dashboard/",
-    "https://wx409.github.io/city-guides.html",
-    "https://wx409.github.io/live-reviews.html",
     "https://wx409.github.io/culture/",
 ]
 
