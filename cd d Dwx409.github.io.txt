@@ -1,0 +1,12 @@
+#修改后推送到github
+cd /d D:\wx409.github.io
+git push origin main #推送
+python -X utf8 project_b\deploy_all.py --notify-only  #强制通知bing
+
+#更新大屏命令
+Copy-Item "E:\wx\index_records\dashboard\*" "D:\wx409.github.io\dashboard\" -Recurse -Force
+cd D:\wx409.github.io
+git add dashboard/ ; git commit -m "更新数据大屏" ; git push
+
+#查看大屏是否启动
+Get-Content e:\wx\qqmusic_dp_edge.log -Tail 12 -Encoding UTF8

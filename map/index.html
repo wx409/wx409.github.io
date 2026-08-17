@@ -6,7 +6,6 @@
     <title>王晰全国巡演地图 | 2019-2026 六轮巡演城市一览</title>
     <meta name="description" content="王晰2019-2026六轮全国个人巡回音乐会的巡演城市地图，覆盖22城59场，含场馆、日期、巡次与数据效应。">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-        <link rel="stylesheet" href="../assets/brand.css">
     <link rel="canonical" href="https://wx409.github.io/map/">
     <meta property="og:title" content="王晰全国巡演地图 | 2019-2026">
     <meta property="og:description" content="22城59场巡演城市地图，含场馆、日期、巡次与数据效应。">
@@ -1326,80 +1325,51 @@
     </script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
-        :root { --bg:#faf6ef; --panel:#fffdf8; --text:#3a322a; --muted:#8a7f6d; --accent:#a8323d; --line:rgba(184,145,46,.28); --gold:#b8912e; }
+        :root { --bg:#080c24; --panel:#101633; --text:#c8cce0; --muted:#8b92b9; --accent:#00d2ff; --line:rgba(255,255,255,.08); }
         * { box-sizing:border-box; }
         html, body { margin:0; height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif; }
         #map { position:fixed; inset:0; background:var(--bg); z-index:1; }
-        .topbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:linear-gradient(180deg,rgba(250,246,239,.96),rgba(250,246,239,0)); pointer-events:none; }
+        .topbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background:linear-gradient(180deg,rgba(8,12,36,.95),rgba(8,12,36,0)); pointer-events:none; }
         .topbar a { pointer-events:auto; color:var(--accent); text-decoration:none; font-size:14px; background:var(--panel); padding:8px 14px; border-radius:8px; border:1px solid var(--line); }
-        .topbar .title { font-size:16px; font-weight:700; letter-spacing:1px; margin:0; color:var(--text); }
+        .topbar .title { font-size:16px; font-weight:700; letter-spacing:1px; margin:0; }
         .topbar h1.title { font-size:16px; font-weight:700; letter-spacing:1px; }
-        .legend { position:fixed; left:16px; bottom:24px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:13px; line-height:2; box-shadow:0 4px 16px rgba(90,70,40,.12); }
+        .legend { position:fixed; left:16px; bottom:24px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:13px; line-height:2; }
         .legend h4 { margin:0 0 6px; color:var(--muted); font-size:12px; }
         .legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle; }
-        .legend .dot.pulse { box-shadow:0 0 0 rgba(184,145,46,.6); animation:pulse 2s infinite; }
-        @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(184,145,46,.6)} 70%{box-shadow:0 0 0 9px rgba(184,145,46,0)} 100%{box-shadow:0 0 0 0 rgba(184,145,46,0)} }
-        .marker { width:16px; height:16px; border-radius:50%; background:var(--c,#888); border:2px solid #fff; box-shadow:0 1px 5px rgba(60,40,20,.45); }
+        .legend .dot.pulse { box-shadow:0 0 0 rgba(0,210,255,.6); animation:pulse 2s infinite; }
+        @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(0,210,255,.7)} 70%{box-shadow:0 0 0 10px rgba(0,210,255,0)} 100%{box-shadow:0 0 0 0 rgba(0,210,255,0)} }
+        .marker { width:14px; height:14px; border-radius:50%; background:var(--c,#888); border:2px solid rgba(255,255,255,.85); box-shadow:0 1px 4px rgba(0,0,0,.5); }
         .marker.has-data { animation:pulse 2s infinite; }
-        .marker-label { position:absolute; left:12px; top:-7px; white-space:nowrap; background:rgba(255,253,248,.92); color:#4a4036; font-size:11px; font-weight:600; padding:1px 7px; border-radius:10px; border:1px solid rgba(184,145,46,.35); box-shadow:0 1px 4px rgba(60,40,20,.18); }
-        .leaflet-popup-content-wrapper { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:10px; box-shadow:0 6px 22px rgba(60,40,20,.22); }
+        .leaflet-popup-content-wrapper { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:10px; }
         .leaflet-popup-tip { background:var(--panel); }
         .leaflet-popup-content { margin:14px 16px; font-size:13px; }
-        .leaflet-popup-content h3 { margin:0 0 8px; color:#4a4036; font-size:15px; }
+        .leaflet-popup-content h3 { margin:0 0 8px; color:#fff; font-size:15px; }
         .leaflet-popup-content ul { margin:0; padding-left:16px; line-height:1.9; }
         .leaflet-popup-content a { color:var(--accent); }
         .leaflet-popup-close-button { color:var(--muted) !important; }
         .tag { display:inline-block; font-size:10px; padding:1px 6px; border-radius:8px; margin-left:4px; }
-        .tag.data { background:#eaf3e6; color:#3c8c64; }
-        .tag.cancel { background:#fbe4e4; color:#b03030; }
-        .tag.attend { background:#f5ecd8; color:#8a6d1a; }
+        .tag.data { background:#0e3a3f; color:#00d2ff; }
+        .tag.cancel { background:#3a1020; color:#ff6b81; }
+        .tag.attend { background:#3a3410; color:#ffd700; }
         /* 互动：我参加过 */
-        .marker.attended { border-color:var(--gold); box-shadow:0 0 0 3px rgba(184,145,46,.5), 0 0 12px rgba(184,145,46,.4); }
-        .marker-wrap.attended .marker-label { background:#fff6dd; color:#8a6d1a; border-color:var(--gold); font-weight:700; }
+        .marker.attended { border-color:#ffd700; box-shadow:0 0 0 2px rgba(255,215,0,.55), 0 0 8px rgba(255,215,0,.45); }
         .attend-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; padding-top:8px; border-top:1px solid var(--line); }
-        .attend-btn { background:rgba(184,145,46,.08); border:1px solid rgba(184,145,46,.35); color:#8a6d1a; border-radius:14px; padding:3px 10px; font-size:11px; cursor:pointer; transition:all .25s; }
-        .attend-btn:hover { background:rgba(184,145,46,.18); }
-        .attend-btn.on { background:var(--gold); color:#fff; font-weight:600; }
-        .attend-bar { position:fixed; top:64px; left:16px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 14px; font-size:12px; color:var(--muted); box-shadow:0 4px 16px rgba(90,70,40,.12); display:flex; align-items:center; gap:10px; }
-        .attend-bar b { color:var(--gold); font-size:15px; margin:0 2px; }
-        .attend-filter { background:none; border:1px solid rgba(184,145,46,.4); color:#8a6d1a; border-radius:14px; padding:2px 10px; font-size:11px; cursor:pointer; }
-        .attend-filter.on { background:var(--gold); color:#fff; }
+        .attend-btn { background:rgba(255,215,0,.10); border:1px solid rgba(255,215,0,.30); color:#ffd700; border-radius:14px; padding:2px 10px; font-size:11px; cursor:pointer; transition:all .25s; }
+        .attend-btn:hover { background:rgba(255,215,0,.22); }
+        .attend-btn.on { background:rgba(255,215,0,.85); color:#1a1a1a; font-weight:600; }
+        .attend-bar { position:fixed; top:64px; left:16px; z-index:1000; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 14px; font-size:12px; color:var(--muted); }
+        .attend-bar b { color:#ffd700; font-size:15px; margin:0 2px; }
         .share-btn { pointer-events:auto; color:var(--accent); text-decoration:none; font-size:13px; background:var(--panel); padding:8px 14px; border-radius:8px; border:1px solid var(--line); margin-left:10px; cursor:pointer; }
         .share-btn:hover { border-color:var(--accent); }
-        .city-attend { margin-left:auto; background:rgba(184,145,46,.08); border:1px solid rgba(184,145,46,.35); color:#8a6d1a; border-radius:10px; padding:0 8px; font-size:11px; cursor:pointer; white-space:nowrap; }
-        .city-attend.on { background:var(--gold); color:#fff; font-weight:600; }
         @media (max-width:760px) { .attend-bar { top:auto; bottom:12px; left:12px; } .legend { bottom:12px; left:12px; } }
         /* 静态城市清单：供爬虫读取，视觉上折叠 */
-        .city-list { position:fixed; top:64px; right:16px; z-index:999; width:340px; max-height:calc(100vh - 120px); overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; font-size:13px; box-shadow:0 4px 16px rgba(90,70,40,.12); }
+        .city-list { position:fixed; top:64px; right:16px; z-index:999; width:340px; max-height:calc(100vh - 120px); overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; font-size:13px; }
         .city-list h2 { margin:0 0 10px; font-size:14px; color:var(--muted); }
         .city-list .city { margin-bottom:12px; }
-        .city-list .city h3 { margin:0 0 4px; font-size:14px; color:#4a4036; }
+        .city-list .city h3 { margin:0 0 4px; font-size:14px; color:#fff; }
         .city-list .count { font-size:11px; color:var(--muted); margin-left:8px; }
         .city-list ul { margin:0; padding-left:16px; line-height:1.8; }
-        .city-list li { display:flex; align-items:center; gap:6px; }
         .city-list a { color:var(--accent); }
-        .city-list li.attended-line { background:rgba(184,145,46,.10); border-radius:6px; }
-        /* ===== 足迹海报（定制分享卡） ===== */
-        .poster-mask { position:fixed; inset:0; z-index:2000; background:rgba(30,20,10,.55); display:none; align-items:flex-start; justify-content:center; padding:26px 20px; overflow-y:auto; }
-        .poster-mask.open { display:flex; }
-        .poster { width:min(720px, 92vw); background:linear-gradient(172deg,#fffdf8 0%,#f7f0e2 60%,#f2e8d4 100%); color:#3a322a; border-radius:18px; padding:44px 52px 34px; position:relative; overflow:hidden; box-shadow:0 24px 70px rgba(30,10,12,.35); font-family:"Noto Serif SC","Songti SC",serif; }
-        .poster::before { content:''; position:absolute; inset:10px; border:1px solid rgba(184,145,46,.45); border-radius:12px; pointer-events:none; }
-        .poster::after { content:''; position:absolute; top:-120px; right:-90px; width:320px; height:320px; border-radius:50%; background:radial-gradient(circle, rgba(184,145,46,.16), transparent 70%); pointer-events:none; }
-        .poster .p-kicker { font-size:12px; letter-spacing:6px; color:#8a6d1a; }
-        .poster h2 { margin:8px 0 2px; font-size:32px; letter-spacing:9px; color:#4a3224; border:none; }
-        .poster .p-sub { font-size:13px; letter-spacing:3px; color:#8a6d1a; }
-        .poster .p-rule { height:2px; background:linear-gradient(90deg,#b8912e,transparent); margin:18px 0 12px; }
-        .poster .p-map { width:100%; height:380px; margin:4px 0 2px; border:1px solid rgba(184,145,46,.4); border-radius:10px; overflow:hidden; background:#fbf7ee; }
-        .poster .p-legend-title { font-size:11px; letter-spacing:4px; color:#8a6d1a; margin:12px 0 2px; }
-        .poster .p-list { list-style:none; padding:0; margin:0; }
-        .poster .p-list li { display:flex; align-items:baseline; gap:10px; padding:5px 0; border-bottom:1px dashed rgba(184,145,46,.3); font-size:13px; color:#4a4036; }
-        .poster .p-list .p-dot { width:7px; height:7px; border-radius:50%; background:#a8323d; flex:none; align-self:center; }
-        .poster .p-list .p-date { color:#8a7f6d; font-size:12px; min-width:66px; }
-        .poster .p-foot { margin-top:18px; display:flex; justify-content:space-between; font-size:11px; color:#9a8a6c; letter-spacing:1px; border-top:1px solid rgba(184,145,46,.3); padding-top:10px; }
-        .poster-actions { position:absolute; bottom:-52px; left:0; right:0; display:flex; gap:12px; justify-content:center; }
-        .poster-actions button { background:#d4af37; color:#2a0f15; border:none; border-radius:22px; padding:10px 26px; font-size:14px; font-weight:600; cursor:pointer; letter-spacing:2px; }
-        .poster-actions button:hover { filter:brightness(1.08); }
-        .poster-close { position:absolute; top:14px; right:18px; z-index:5; background:none; border:none; color:#a89068; font-size:20px; cursor:pointer; }
         .badge { display:inline-block; font-size:10px; padding:0 6px; border-radius:8px; margin-left:4px; }
         .badge.data { background:#0e3a3f; color:#00d2ff; }
         .badge.cancel { background:#3a1020; color:#ff6b81; }
@@ -1411,11 +1381,10 @@
         <h1 class="title">王晰全国巡演地图 · 2019-2026</h1>
         <span style="display:flex;align-items:center;gap:10px;">
             <a href="/">← 返回主站</a>
-            <button type="button" class="share-btn" id="posterBtn" title="生成我的巡演足迹海报">🏅 足迹海报</button>
             <button type="button" class="share-btn" id="shareMapBtn" title="截图保存当前地图">📸 分享地图</button>
         </span>
     </div>
-    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场 <button type="button" class="attend-filter" id="attendFilter">只看去过</button></div>
+    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场（点击城市标记勾选）</div>
     <div id="map"></div>
     <div class="legend">
         <h4>图例（按该城最近一场巡次着色）</h4>
@@ -1425,15 +1394,15 @@
         <div><span class="dot" style="background:#2ecc71"></span>四巡</div>
         <div><span class="dot" style="background:#1abc9c"></span>五巡</div>
         <div><span class="dot" style="background:#3498db"></span>六巡</div>
-        <div><span class="dot pulse" style="background:#b8912e"></span>有数据效应（脉冲）</div>
-        <div><span class="dot" style="background:#b8912e;box-shadow:0 0 0 3px rgba(184,145,46,.5)"></span>我参加过（金环）</div>
+        <div><span class="dot pulse" style="background:#00d2ff"></span>有数据效应（脉冲）</div>
     </div>
     <aside class="city-list">
-        <h2>巡演城市一览（22 城 · 59 场）</h2><article class="city"><h3>杭州<span class="count">5 场</span></h3><ul><li>2019-06-07 · 一巡「Cherish珍晰」 · 杭州剧院 </li><li>2020-11-14 · 二巡「2020-2021 个人巡回」 · 杭州剧院 </li><li>2024-05-25 · 四巡「肆益」 · 杭州剧院 </li><li>2024-12-21 · 五巡「吾」 · 杭州剧院 </li><li>2026-01-31 · 五巡「吾」 · 杭州金沙湖大剧院 <span class="badge data">有数据</span></li></ul></article>
+        <h2>巡演城市一览（22 城 · 59 场）</h2>
+<article class="city"><h3>杭州<span class="count">5 场</span></h3><ul><li>2019-06-07 · 一巡「Cherish珍晰」 · 杭州剧院 </li><li>2020-11-14 · 二巡「2020-2021 个人巡回」 · 杭州剧院 </li><li>2024-05-25 · 四巡「肆益」 · 杭州剧院 </li><li>2024-12-21 · 五巡「吾」 · 杭州剧院 </li><li>2026-01-31 · 五巡「吾」 · 杭州金沙湖大剧院 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>武汉<span class="count">4 场</span></h3><ul><li>2019-06-15 · 一巡「Cherish珍晰」 · 武汉剧院 </li><li>2021-01-10 · 二巡「2020-2021 个人巡回」 · 武汉琴台大剧院 </li><li>2022-09-17 · 三巡「图景」 · 武汉琴台大剧院 </li><li>2024-09-16 · 四巡「肆益」 · 武汉琴台大剧院 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>大连<span class="count">1 场</span></h3><ul><li>2019-07-20 · 一巡「Cherish珍晰」 · 大连国际会议中心大剧院 </li></ul></article>
 <article class="city"><h3>南京<span class="count">3 场</span></h3><ul><li>2019-07-28 · 一巡「Cherish珍晰」 · 南京保利大剧院 </li><li>2021-04-11 · 二巡「2020-2021 个人巡回」 · 南京保利大剧院 </li><li>2024-01-27 · 四巡「肆益」 · 南京太阳宫剧场 </li></ul></article>
-<article class="city"><h3>广州<span class="count">6 场</span></h3><ul><li>2019-08-04 · 一巡「Cherish珍晰」 · 广东艺术剧院 </li><li>2020-12-05 · 二巡「2020-2021 个人巡回」 · 广州中山纪念堂 </li><li>2021-12-04 · 三巡「图景」 · 广州中山纪念堂 </li><li>2023-12-10 · 四巡「肆益」 · 广东艺术剧院 <span class="badge data">有数据</span></li><li>2025-05-24 · 五巡「吾」 · 广东艺术剧院 <span class="badge data">有数据</span></li><li>2026-08-23 · 六巡「回」 · <a href="/live/hui-回-广州-2026.html">广东艺术剧院</a> <span class="badge data">已开票·待举办</span></li></ul></article>
+<article class="city"><h3>广州<span class="count">6 场</span></h3><ul><li>2019-08-04 · 一巡「Cherish珍晰」 · 广东艺术剧院 </li><li>2020-12-05 · 二巡「2020-2021 个人巡回」 · 广州中山纪念堂 </li><li>2021-12-04 · 三巡「图景」 · 广州中山纪念堂 </li><li>2023-12-10 · 四巡「肆益」 · 广东艺术剧院 <span class="badge data">有数据</span></li><li>2025-05-24 · 五巡「吾」 · 广东艺术剧院 <span class="badge data">有数据</span></li><li>2026-08-23 · 六巡「回」 · <a href="/live/hui-回-广州-2026.html">广东艺术剧院</a> <span class="badge cancel">未举办</span></li></ul></article>
 <article class="city"><h3>北京<span class="count">8 场</span></h3><ul><li>2019-08-16 · 一巡「Cherish珍晰」 · 北京世纪剧院 </li><li>2020-01-02 · 一巡「Cherish珍晰」 · 北京北展剧场 </li><li>2020-11-29 · 二巡「2020-2021 个人巡回」 · 北京展览馆剧场（北展剧场） </li><li>2022-04-09 · 三巡「图景」 · 北京二七剧场 </li><li>2023-11-12 · 四巡「肆益」 · 北京二七剧场 <span class="badge data">有数据</span></li><li>2024-08-16 · 四巡「肆益」 · 北京世纪剧院 </li><li>2025-04-05 · 五巡「吾」 · 北京二七剧场 <span class="badge data">有数据</span></li><li>2026-04-10 · 五巡「吾」 · 北京世纪剧院 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>深圳<span class="count">2 场</span></h3><ul><li>2019-09-08 · 一巡「Cherish珍晰」 · 深圳保利剧院 </li><li>2023-06-23 · 三巡「图景」 · 深圳光明文化艺术中心 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>南宁<span class="count">3 场</span></h3><ul><li>2019-10-12 · 一巡「Cherish珍晰」 · 广西文化艺术中心 </li><li>2020-12-19 · 二巡「2020-2021 个人巡回」 · 广西文化艺术中心 </li><li>2023-05-20 · 三巡「图景」 · 广西文化艺术中心·大剧院 <span class="badge data">有数据</span></li></ul></article>
@@ -1452,81 +1421,37 @@
 <article class="city"><h3>昆明<span class="count">1 场</span></h3><ul><li>2023-05-03 · 三巡「图景」 · 云南省大剧院 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>南昌<span class="count">1 场</span></h3><ul><li>2024-12-29 · 五巡「吾」 · 南昌保利大剧院 </li></ul></article>
     </aside>
-    <!-- 足迹海报弹层 -->
-    <div class="poster-mask" id="posterMask">
-        <div style="position:relative;">
-            <button type="button" class="poster-close" id="posterClose">✕</button>
-            <div class="poster" id="posterCard"></div>
-            <div class="poster-actions">
-                <button type="button" id="posterDownload">⬇ 下载海报 PNG</button>
-            </div>
-        </div>
-    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
     var TOUR_COLORS = {1:"#e74c3c",2:"#e67e22",3:"#f1c40f",4:"#2ecc71",5:"#1abc9c",6:"#3498db"};
     var map = L.map('map', {zoomControl:true}).setView([34.5, 108.9], 4);
-    // 多源瓦片：Esri（国内可达性好）为主，失败自动切 OSM，再切 Carto
-    var TILE_SOURCES = [
-        {
-            name: 'Esri',
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-            attribution: '&copy; Esri &copy; OpenStreetMap'
-        },
-        {
-            name: 'OSM',
-            url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            attribution: '&copy; OpenStreetMap contributors'
-        },
-        {
-            name: 'Carto',
-            url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-            attribution: '&copy; OpenStreetMap &copy; CARTO',
-            subdomains: 'abcd'
-        }
-    ];
-    var tileIndex = 0;
-    var tileErrors = 0;
-    var tileLayer = null;
-    function mountTile(){
-        var src = TILE_SOURCES[tileIndex];
-        var opts = { attribution: src.attribution, maxZoom: 19 };
-        if (src.subdomains) opts.subdomains = src.subdomains;
-        if (tileLayer) { map.removeLayer(tileLayer); }
-        tileLayer = L.tileLayer(src.url, opts).addTo(map);
-        tileErrors = 0;
-        console.log('[map] 瓦片源:', src.name);
-        tileLayer.on('tileerror', function(){
-            tileErrors++;
-            if (tileErrors >= 3 && tileIndex < TILE_SOURCES.length - 1) {
-                tileIndex++;
-                mountTile();
-            }
-        });
-    }
-    mountTile();
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
 
-    // 边界线叠加：省界/国界（单层渲染，省一半开销；延迟到首屏之后）
+    // 边界线叠加：省界/国界（阿里云 DataV 公开 GeoJSON，双色描边兼容深浅底图）
     function addBoundaries(gj){
         function lineStyle(weight, color, opacity){
             return { color: color, weight: weight, opacity: opacity, fill: false, interactive: false };
         }
+        // 底层：白色衬线（暗色底图上提供轮廓）
+        L.geoJSON(gj, { style: lineStyle(1.2, '#ffffff', 0.5), interactive: false }).addTo(map);
+        // 上层：深灰主色（浅色底图上清晰），国界加粗
         L.geoJSON(gj, {
             style: function(f){
                 var isCountry = f.properties && f.properties.adcode === 100000;
                 return isCountry
-                    ? lineStyle(1.6, 'rgba(150,125,90,0.9)', 0.9)
-                    : lineStyle(0.8, 'rgba(150,125,90,0.45)', 0.55);
+                    ? lineStyle(1.8, 'rgba(40,45,65,0.9)', 0.95)
+                    : lineStyle(0.9, 'rgba(40,45,65,0.55)', 0.6);
             },
             interactive: false
         }).addTo(map);
     }
-    setTimeout(function(){
-        fetch('../assets/china_bound.json')
-            .then(function(r){ return r.json(); })
-            .then(addBoundaries)
-            .catch(function(){});
-    }, 800);
+    fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+        .then(function(r){ return r.json(); })
+        .then(addBoundaries)
+        .catch(function(){});
 
     function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
@@ -1538,43 +1463,24 @@
     }
     function saveAttended(a){ localStorage.setItem(ATTEND_KEY, JSON.stringify(a)); }
     var attended = loadAttended();
-    var markerEls = {};   // date -> marker DOM（兼容保留）
-    var citiesData = null;      // fetch 后赋值
-    var markerWrapByCity = {};  // city -> marker-wrap DOM
-    var dateToCity = {};        // date -> city
-    var dateToInfo = {};        // date -> {tour, theme}
+    var markerEls = {};   // date -> marker DOM（更新金边用）
 
     function toggleAttend(date, btn){
         if (attended[date]) { delete attended[date]; } else { attended[date] = true; }
         saveAttended(attended);
-        // 按城市更新金环
-        var city = dateToCity ? dateToCity[date] : null;
-        if (city && citiesData && citiesData[city]) {
-            var cityAttended = citiesData[city].shows.some(function(s){ return attended[s.date]; });
-            var wrap = markerWrapByCity[city];
-            if (wrap) {
-                wrap.classList.toggle('attended', cityAttended);
-                var m = wrap.querySelector('.marker');
-                if (m) m.classList.toggle('attended', cityAttended);
-            }
-        }
-        // 侧栏该行高亮
-        document.querySelectorAll('.city-list li[data-date="' + date + '"]').forEach(function(li){
-            li.classList.toggle('attended-line', !!attended[date]);
-        });
         refreshAttendUI(date);
+        var m = markerEls[date];
+        if (m) m.classList.toggle('attended', !!attended[date]);
         updateAttendCount();
     }
     function refreshAttendUI(date){
-        var on = !!attended[date];
-        document.querySelectorAll('.attend-btn[data-date="' + date + '"]').forEach(function(btn){
+        // 更新弹窗内该场按钮状态（若弹窗开着）
+        var btn = document.querySelector('.attend-btn[data-date="' + date + '"]');
+        if (btn) {
+            var on = !!attended[date];
             btn.textContent = on ? '✓ 我参加过' : '☆ 我参加过';
             btn.classList.toggle('on', on);
-        });
-        document.querySelectorAll('.city-attend[data-date="' + date + '"]').forEach(function(btn){
-            btn.textContent = on ? '✓ 去过' : '☆ 去过';
-            btn.classList.toggle('on', on);
-        });
+        }
     }
     function updateAttendCount(){
         var n = Object.keys(attended).filter(function(d){ return attended[d]; }).length;
@@ -1590,7 +1496,7 @@
     function showHtml(name, node){
         var rows = node.shows.map(function(s){
             var venue = s.venue || '场馆待补';
-            var tags = (s.has_data ? '<span class="tag data">有数据</span>' : '') + (s.cancelled ? '<span class="tag cancel">未举办</span>' : (s.date >= '2026-08-23' ? '<span class="tag data">已开票·待举办</span>' : ''));
+            var tags = (s.has_data ? '<span class="tag data">有数据</span>' : '') + (s.cancelled ? '<span class="tag cancel">未举办</span>' : '');
             var venueHtml = s.live_url ? '<a href="/' + s.live_url + '">' + esc(venue) + '</a>' : esc(venue);
             var att = attended[s.date] ? '<span class="tag attend">我参加过</span>' : '';
             return '<li>' + esc(s.date) + ' · ' + esc(s.tour) + '「' + esc(s.theme) + '」 · ' + venueHtml + tags + att + '</li>';
@@ -1600,230 +1506,31 @@
 
     fetch('../data/cities.json').then(function(r){ return r.json(); }).then(function(data){
         var cities = data.cities || {};
-        citiesData = cities;
-        var cityKeys = Object.keys(cities);
-        var markerByCity = {};      // city -> marker
-        var markerWrapByCity = {};  // city -> marker-wrap DOM（金环/城市名）
-        var dateToCity = {};        // date -> city（城市列表/弹窗按钮联动）
-
-        // 重新渲染右侧城市清单（带每场「我参加过」按钮）
-        var aside = document.querySelector('.city-list');
-        aside.innerHTML = '<h2>巡演城市一览（' + cityKeys.length + ' 城 · 59 场）<br><span style="font-size:11px;color:var(--muted);">点「☆」标记你去过的场次</span></h2>';
-        cityKeys.forEach(function(name){
-            var c = cities[name];
-            var art = document.createElement('article');
-            art.className = 'city';
-            var html = '<h3>' + esc(name) + '<span class="count">' + c.shows.length + ' 场</span></h3><ul>';
-            c.shows.forEach(function(s){
-                dateToCity[s.date] = name;
-                dateToInfo[s.date] = { tour: s.tour, theme: s.theme };
-                var on = !!attended[s.date];
-                html += '<li data-date="' + s.date + '" class="' + (on ? 'attended-line' : '') + '">' +
-                    '<span>' + esc(s.date.slice(5)) + ' · ' + esc(s.tour) + '「' + esc(s.theme) + '」</span>' +
-                    '<button type="button" class="city-attend' + (on ? ' on' : '') + '" data-date="' + s.date + '">' +
-                    (on ? '✓ 去过' : '☆ 去过') + '</button></li>';
-            });
-            html += '</ul>';
-            art.innerHTML = html;
-            aside.appendChild(art);
-        });
-
-        cityKeys.forEach(function(name){
+        Object.keys(cities).forEach(function(name){
             var c = cities[name];
             if (!c.coord) return;
             var latest = c.shows[c.shows.length - 1];
             var hasData = c.shows.some(function(s){ return s.has_data; });
             var color = TOUR_COLORS[latest.tour_num] || '#888';
-            var cityAttended = c.shows.some(function(s){ return attended[s.date]; });
+            // 弹窗内容：场次列表 + 每场「我参加过」按钮
             var popupHtml = showHtml(name, c) + '<div class="attend-row">' +
                 c.shows.map(function(s){ return attendBtnHtml(s.date); }).join(' ') + '</div>';
-            var icon = L.divIcon({
-                className: '',
-                html: '<div class="marker-wrap' + (cityAttended ? ' attended' : '') + '" style="position:relative;">' +
-                      '<div class="marker' + (hasData ? ' has-data' : '') + (cityAttended ? ' attended' : '') + '" style="--c:' + color + '"></div>' +
-                      '<span class="marker-label">' + esc(name) + '</span></div>',
-                iconSize: [16, 16], iconAnchor: [7, 7]
-            });
+            var icon = L.divIcon({ className:'', html:'<div class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '"></div>', iconSize:[14,14], iconAnchor:[7,7] });
             var marker = L.marker(c.coord, {icon:icon}).addTo(map).bindPopup(popupHtml);
-            markerByCity[name] = marker;
-            markerWrapByCity[name] = marker.getElement().querySelector('.marker-wrap');
+            // 记录 marker DOM（同城多场共享 marker，取第一个）
+            c.shows.forEach(function(s){ if (!markerEls[s.date]) markerEls[s.date] = marker.getElement().querySelector('.marker'); });
         });
-
-        // 弹窗内按钮 + 侧栏按钮统一绑定（事件委托）
-        function bindAttend(){
-            document.querySelectorAll('.attend-btn, .city-attend').forEach(function(btn){
+        // 弹窗打开后绑定「我参加过」按钮
+        map.on('popupopen', function(){
+            document.querySelectorAll('.attend-btn').forEach(function(btn){
                 btn.onclick = function(e){
                     e.stopPropagation();
                     toggleAttend(btn.getAttribute('data-date'), btn);
                 };
             });
-        }
-        map.on('popupopen', bindAttend);
-        bindAttend(); // 侧栏按钮立即生效
-
-        // 「只看去过」筛选
-        var filterBtn = document.getElementById('attendFilter');
-        var filterOn = false;
-        filterBtn.addEventListener('click', function(){
-            filterOn = !filterOn;
-            filterBtn.classList.toggle('on', filterOn);
-            cityKeys.forEach(function(name){
-                var c = cities[name];
-                var cityAttended = c.shows.some(function(s){ return attended[s.date]; });
-                var m = markerByCity[name];
-                if (!m) return;
-                if (filterOn && !cityAttended) {
-                    m.setOpacity(0.15);
-                } else {
-                    m.setOpacity(1);
-                }
-            });
         });
         updateAttendCount();
     }).catch(function(){});
-
-    /* ============ 足迹海报生成（地图涂色版） ============ */
-    var PROVINCE_OF = {
-        '杭州':'浙江省','武汉':'湖北省','大连':'辽宁省','南京':'江苏省','广州':'广东省','北京':'北京市',
-        '深圳':'广东省','南宁':'广西壮族自治区','重庆':'重庆市','上海':'上海市','海口':'海南省','珠海':'广东省',
-        '佛山':'广东省','长沙':'湖南省','厦门':'福建省','太原':'山西省','宁波':'浙江省','无锡':'江苏省',
-        '鄂尔多斯':'内蒙古自治区','郑州':'河南省','昆明':'云南省','南昌':'江西省'
-    };
-    var posterChart = null;
-
-    function ensureEcharts(cb){
-        if (window.echarts) { cb(); return; }
-        var s = document.createElement('script');
-        s.src = '../assets/echarts.min.js';   // 本地化，零 CDN 依赖
-        s.onload = cb;
-        s.onerror = function(){ alert('地图库加载失败，请刷新重试'); };
-        document.head.appendChild(s);
-    }
-
-    function renderPosterMap(provs, pts){
-        fetch('../assets/china.json')
-            .then(function(r){ return r.json(); })
-            .then(function(gj){
-                echarts.registerMap('china', gj);
-                var el = document.getElementById('pMap');
-                if (!el) return;
-                if (posterChart) { posterChart.dispose(); }
-                posterChart = echarts.init(el);
-                var provList = Object.keys(provs);
-                posterChart.setOption({
-                    backgroundColor: '#fbf7ee',
-                    geo: {
-                        map: 'china', roam: false, silent: true,
-                        layoutCenter: ['50%', '50%'], layoutSize: '106%',
-                        itemStyle: { areaColor: '#f0e9d8', borderColor: 'rgba(184,145,46,.5)', borderWidth: 1 },
-                        emphasis: { disabled: true },
-                        label: { show: false }
-                    },
-                    series: [
-                        {
-                            // 涂色层：与 geo 共享坐标系，只画去过的省（酒红），其余透明露出底图
-                            type: 'map', map: 'china', geoIndex: 0, silent: true,
-                            itemStyle: { areaColor: 'transparent', borderColor: 'transparent' },
-                            emphasis: { disabled: true },
-                            label: { show: false },
-                            data: provList.map(function(p){
-                                return { name: p, itemStyle: { areaColor: '#a8323d' } };
-                            })
-                        },
-                        {
-                            type: 'effectScatter', coordinateSystem: 'geo', data: pts,
-                            symbolSize: 9, rippleEffect: { brushType: 'stroke', scale: 2.6 },
-                            itemStyle: { color: '#b8912e', shadowBlur: 6, shadowColor: 'rgba(184,145,46,.7)' },
-                            label: { show: true, formatter: '{b}', position: 'right',
-                                     color: '#5a4030', fontSize: 11, fontWeight: 700 },
-                            zlevel: 2
-                        }
-                    ]
-                });
-            })
-            .catch(function(){ alert('地图数据加载失败，请重试'); });
-    }
-
-    function buildPoster(){
-        var dates = Object.keys(attended).filter(function(d){ return attended[d]; }).sort();
-        if (!dates.length) { alert('先在右侧清单点「☆ 去过」标记你参加过的场次，再生成海报'); return; }
-        var cities = {}, years = {}, provs = {};
-        var pts = [];
-        dates.forEach(function(d){
-            var c = dateToCity[d];
-            if (c) cities[c] = true;
-            years[d.slice(0,4)] = true;
-            var p = PROVINCE_OF[c];
-            if (p) provs[p] = true;
-            var cd = citiesData[c] && citiesData[c].coord;
-            if (cd && c) pts.push({ name: c, value: cd });
-        });
-        var nCity = Object.keys(cities).length;
-        var first = dates[0], last = dates[dates.length - 1];
-        var yearList = Object.keys(years).sort();
-        var spanText = yearList.length > 1 ? yearList[0] + '—' + yearList[yearList.length - 1] : yearList[0];
-        var info0 = dateToInfo[first] || {};
-        var info1 = dateToInfo[last] || {};
-        var liHtml = dates.map(function(d){
-            var c = dateToCity[d] || '';
-            var inf = dateToInfo[d] || {};
-            return '<li><span class="p-dot"></span><span class="p-date">' + esc(d.slice(5).replace('-', '.')) + '</span>' +
-                   '<span>' + esc(c) + ' · ' + esc(inf.tour || '') + '「' + esc(inf.theme || '') + '」</span></li>';
-        }).join('');
-        var card = document.getElementById('posterCard');
-        card.innerHTML =
-            '<div class="p-kicker">WANG XI · TOUR FOOTPRINTS</div>' +
-            '<h2>我的王晰巡演足迹</h2>' +
-            '<div class="p-sub">' + nCity + ' 城 · ' + dates.length + ' 场 · ' + spanText + '</div>' +
-            '<div class="p-rule"></div>' +
-            '<div class="p-map" id="pMap"></div>' +
-            '<div class="p-legend-title">—— 足迹图例 ——</div>' +
-            '<ul class="p-list">' + liHtml + '</ul>' +
-            '<div class="p-foot"><span>去过的省份涂酒红 · 金色星为足迹城市</span><span>wx409.github.io · ' + new Date().toISOString().slice(0,10) + '</span></div>';
-        document.getElementById('posterMask').classList.add('open');
-        lastProvs = provs; lastPts = pts;   // 缓存供截图后恢复
-        ensureEcharts(function(){ renderPosterMap(provs, pts); });
-    }
-    var lastProvs = null, lastPts = null;
-    function closePoster(){
-        document.getElementById('posterMask').classList.remove('open');
-    }
-    function downloadPoster(){
-        var btn = document.getElementById('posterDownload');
-        btn.textContent = '⏳ 生成中…';
-        function capture(){
-            var mask = document.getElementById('posterMask');
-            mask.style.overflowY = 'visible';
-            ensureEcharts(function(){
-                window.html2canvas(document.getElementById('posterCard'), {
-                    useCORS: true, scale: 2, logging: false, backgroundColor: '#fbf7ee'
-                }).then(function(canvas){
-                    mask.style.overflowY = '';
-                    var a = document.createElement('a');
-                    a.download = 'wangxi-footprints-' + new Date().toISOString().slice(0,10) + '.png';
-                    a.href = canvas.toDataURL('image/png');
-                    a.click();
-                    btn.textContent = '⬇ 下载海报 PNG';
-                }).catch(function(){
-                    mask.style.overflowY = '';
-                    btn.textContent = '⬇ 下载海报 PNG';
-                    alert('生成失败，请重试');
-                });
-            });
-        }
-        if (window.html2canvas) { capture(); return; }
-        var s = document.createElement('script');
-        s.src = '../assets/html2canvas.min.js';   // 本地化
-        s.onload = capture;
-        s.onerror = function(){ btn.textContent = '⬇ 下载海报 PNG'; alert('截图库加载失败，请刷新重试'); };
-        document.head.appendChild(s);
-    }
-    document.getElementById('posterBtn').addEventListener('click', buildPoster);
-    document.getElementById('posterClose').addEventListener('click', closePoster);
-    document.getElementById('posterMask').addEventListener('click', function(e){
-        if (e.target === this) closePoster();
-    });
-    document.getElementById('posterDownload').addEventListener('click', downloadPoster);
 
     /* ============ 截图分享（html2canvas，懒加载 CDN） ============ */
     function shareMap(){
@@ -1834,7 +1541,7 @@
             var wrap = document.getElementById('map');
             window.html2canvas(wrap, {
                 useCORS: true,
-                backgroundColor: '#faf6ef',
+                backgroundColor: '#0b0f2a',
                 scale: 2,
                 logging: false
             }).then(function(canvas){
@@ -1850,7 +1557,7 @@
         }
         if (window.html2canvas) { doCapture(); return; }
         var s = document.createElement('script');
-        s.src = '../assets/html2canvas.min.js';   // 本地化
+        s.src = 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js';
         s.onload = doCapture;
         s.onerror = function(){ if (btn) btn.textContent = '📸 分享地图'; alert('截图库加载失败（需联网），请直接截图。'); };
         document.head.appendChild(s);
