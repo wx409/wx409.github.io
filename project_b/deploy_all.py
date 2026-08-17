@@ -29,6 +29,14 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# 强制 stdout/stderr 走 UTF-8：计划任务环境默认 GBK 控制台，遇到 ▶ 等符号会
+# 抛 UnicodeEncodeError 导致整条链路中止（2026-08-17 8:49 曾因此崩溃）。
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 ROOT = Path(__file__).resolve().parent.parent
 PY = sys.executable
 

@@ -91,10 +91,14 @@ def main():
 
     # 1. watch（新歌/小酒馆自动入库；演出候选仍只读）
     if args.watch:
-        log("-- watch_releases (--apply 自动入库新歌) --")
+        log("-- watch_releases (--apply 自动入库QQ新歌) --")
         run([sys.executable, str(ROOT / "project_b" / "watch_releases.py"), "--apply"])
+        log("-- watch_netease (--apply 自动入库网易云新歌) --")
+        run([sys.executable, str(ROOT / "project_b" / "watch_netease.py"), "--apply"])
         log("-- watch_tavern (--apply 自动入库新期次) --")
         run([sys.executable, str(ROOT / "project_b" / "watch_tavern.py"), "--apply"])
+        log("-- watch_web (Bing site: 聚合，只读) --")
+        run([sys.executable, str(ROOT / "project_b" / "watch_web.py"), "--notify"])
 
     # 2. 构建（deploy_all 自带敏感文件扫描；内部已含 commit）
     log("-- deploy_all --")
