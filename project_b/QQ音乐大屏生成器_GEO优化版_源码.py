@@ -3949,6 +3949,21 @@ def _copy_with_retry(src, dst, retries=3, base_wait=3):
     return False
 
 
+def _staged_has(repo_dir, path_prefix):
+    """检测暂存区（git diff --cached --name-only）中是否有以 path_prefix 开头的文件。
+    用于区分「dashboard 变更」与「源码快照变更」，从而生成精确的 commit 信息。
+    注意：加 core.quotepath=false 让中文文件名按 UTF-8 原样输出（否则 git 会转义成 \\NNN 八进制，导致 startswith 失效）。"""
+    import subprocess
+    try:
+        r = subprocess.run(
+            ["git", "-c", "core.quotepath=false", "diff", "--cached", "--name-only"],
+            cwd=repo_dir, capture_output=True, text=True, encoding="utf-8", timeout=15)
+        lines = (r.stdout or "").splitlines()
+        return any(ln.strip('"').startswith(path_prefix.rstrip("/")) for ln in lines if ln)
+    except Exception:
+        return False
+
+
 def auto_deploy(dashboard_dir):
     """把 dashboard 目录复制到网站仓库并自动 git push（若失败不影响采集，仅记录警告）"""
     import subprocess, shutil
@@ -3982,17 +3997,33 @@ def auto_deploy(dashboard_dir):
         logger.warning(f"自动部署复制失败: {e}")
         return
     try:
-        # git add / commit / push（dashboard + 源码快照一并提交）
+        # git add：dashboard 与源码快照分开暂存，据此区分各自是否有变更，动态拼 commit 信息
         _src_rel = os.path.join("project_b", os.path.basename(__file__))
-        subprocess.run(["git", "add", "dashboard/", _src_rel], cwd=WEBSITE_REPO,
+
+        # 1) dashboard 是否变更
+        subprocess.run(["git", "add", "dashboard/"], cwd=WEBSITE_REPO,
                        check=True, capture_output=True, timeout=30)
+        _dash_changed = _staged_has(WEBSITE_REPO, "dashboard/")
+
+        # 2) 源码快照是否变更
+        subprocess.run(["git", "add", _src_rel], cwd=WEBSITE_REPO,
+                       check=True, capture_output=True, timeout=30)
+        _src_changed = _staged_has(WEBSITE_REPO, _src_rel)
+
         ts = datetime.now().strftime("%m-%d %H:%M")
-        msg = f"自动部署: dashboard 数据更新 ({ts})"
+        if _src_changed and _dash_changed:
+            msg = f"自动部署: 源码快照更新 + dashboard 数据更新 ({ts})"
+        elif _src_changed:
+            msg = f"自动部署: 源码快照更新 ({ts})"
+        elif _dash_changed:
+            msg = f"自动部署: dashboard 数据更新 ({ts})"
+        else:
+            logger.info("自动部署: dashboard 与源码快照均无新变更，跳过 commit")
+            return
         r = subprocess.run(["git", "commit", "-m", msg], cwd=WEBSITE_REPO,
                            capture_output=True, timeout=30)
         if r.returncode != 0:
-            # 可能是 no changes to commit（dashboard 数据和源码快照都和上次一样）
-            logger.info(f"自动部署: 无新变更，跳过 commit")
+            logger.info(f"自动部署: commit 失败（可能无变更）: {r.stderr.strip()[:120]}")
             return
         subprocess.run(["git", "push", "origin", "main"], cwd=WEBSITE_REPO,
                        check=True, capture_output=True, timeout=60)
