@@ -1377,15 +1377,20 @@ def compute_timeline_narrative(df_all, song_info, top_n=15, max_months=48):
     return frames
 
 
-def compute_daily_listen(df_all, total_songs, min_active=5, top_n=5):
+def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_display=10):
     """今日收听态势：活跃歌曲池份额集中度 + 环比趋势（全部为比率/计数，无绝对收听人数）。
     口径：活跃池 = 当日 max(listeners) > 0 的歌曲；份额分母 = 当日活跃池峰值总和。
     数据完整日回退：最新采集日活跃 < min_active（采集未完成，如凌晨批次仅 2 首）时，
-    自动回退到最近一个活跃 >= min_active 的日期，并在 as_of 标注实际数据日期，避免份额失真。"""
+    自动回退到最近一个活跃 >= min_active 的日期，并在 as_of 标注实际数据日期，避免份额失真。
+    min_display：当日活跃歌曲数低于该阈值时视为"样本过小"，trend 返回空、
+    overview.too_small=True，前端隐藏份额列表（避免 8 首这种小样本误导）。
+    top_n：份额列表最多列出的歌曲数（默认 20，覆盖当日有指数的多数歌曲）。
+    另输出 new_today：昨日无指数而今日出现指数的歌曲（首次活跃/恢复活跃）。"""
     empty = {
         "overview": {"active_count": 0, "total_tracked": int(total_songs),
-                     "concentration_top3": None, "as_of": None},
+                     "concentration_top3": None, "as_of": None, "too_small": False},
         "trend": [],
+        "new_today": [],
     }
     if df_all is None or df_all.empty or "listeners" not in df_all.columns:
         return empty
@@ -1448,14 +1453,29 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=5):
             "trend_pct": trend_pct,
             "trend_label": label,
         })
+
+    # 昨日无指数、今日出现指数的歌曲（首次活跃/恢复活跃，不限于 TopN）
+    new_today = []
+    for uid, r in active.sort_values("peak", ascending=False).iterrows():
+        prev = y_peak.get(uid)
+        if prev is None or pd.isna(prev) or prev <= 0:
+            new_today.append({
+                "song": str(uid2disp.get(uid, uid)),
+                "share_pct": round(float(r["peak"]) / total_peak * 100, 1),
+            })
+    new_today = new_today[:20]
+
+    too_small = int(len(active)) < min_display
     return {
         "overview": {
             "active_count": int(len(active)),
             "total_tracked": int(total_songs),
             "concentration_top3": concentration,
             "as_of": cur_date.strftime("%Y-%m-%d"),
+            "too_small": too_small,
         },
-        "trend": trend,
+        "trend": [] if too_small else trend,
+        "new_today": new_today,
     }
 
 
@@ -2147,8 +2167,14 @@ __GEO_SUMMARY__
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 Top5</div>
+    <div class="daily-trend-header">今日收听份额 TOP20</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
+    <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
+  </div>
+  <div class="daily-trend-card" id="dailyNewTodayCard" style="margin-top:12px;">
+    <div class="daily-trend-header">🆕 昨日无指数 · 今日出现</div>
+    <div class="daily-trend-list" id="dailyNewTodayList"></div>
+    <div class="daily-trend-empty" id="dailyNewTodayEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日无"昨日空白、今日新增指数"的歌曲。</div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
     <h2 class="chart-title">最近7日全站热度微趋势</h2>
@@ -2476,10 +2502,19 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   var conc = document.getElementById('concentration');
   conc.textContent = (ov.concentration_top3 !== null && ov.concentration_top3 !== undefined) ? ov.concentration_top3 : '--';
   document.getElementById('asOf').textContent = ov.as_of || '--';
-  // ===== Top5 份额列表（独立卡片 dailyTrendCard）=====
+  // ===== 今日份额列表（dailyTrendCard）：小样本（too_small）时隐藏，避免误导 =====
   var card = document.getElementById('dailyTrendCard');
   var list = document.getElementById('dailyTrendList');
-  if (!card || !list || trend.length === 0) return;
+  var emptyTip = document.getElementById('dailyTrendEmpty');
+  if (!card || !list) return;
+  if (ov.too_small) {
+    if (emptyTip) emptyTip.style.display = 'block';
+    return;
+  }
+  if (trend.length === 0) {
+    if (emptyTip) emptyTip.style.display = 'block';
+    return;
+  }
   list.innerHTML = '';
   trend.forEach(function(it){
     var badgeTxt = '', badgeCls = '';
@@ -2496,6 +2531,27 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       '<span class="pulse-badge ' + badgeCls + '">' + badgeTxt + '</span>';
     list.appendChild(div);
   });
+  // ===== 昨日无指数 · 今日出现（dailyNewTodayCard）=====
+  var ntCard = document.getElementById('dailyNewTodayCard');
+  var ntList = document.getElementById('dailyNewTodayList');
+  var ntEmpty = document.getElementById('dailyNewTodayEmpty');
+  if (ntCard && ntList) {
+    var nt = dashboardData.daily_new_today || [];
+    if (nt.length === 0) {
+      if (ntEmpty) ntEmpty.style.display = 'block';
+    } else {
+      ntList.innerHTML = '';
+      nt.forEach(function(it){
+        var div = document.createElement('div');
+        div.className = 'trend-item';
+        div.innerHTML = '<span class="trend-rank">🆕</span>' +
+          '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
+          '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
+          '<span class="trend-share-label">' + it.share_pct + '%</span>';
+        ntList.appendChild(div);
+      });
+    }
+  }
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
 (function(){
@@ -3667,8 +3723,9 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
         "rank_waterfall": rank_waterfall,            # 排名跃迁瀑布
         "new_track_trend": new_track_trend,          # KPI sparkline：近30日新增追踪数
         "timeline_narrative": timeline_narrative,    # 月度竞争格局时间轴（指令5）
-        "daily_listen_overview": daily_listen["overview"],  # 今日收听态势：活跃数/集中度/截至日期
-        "daily_listen_trend": daily_listen["trend"],        # Top5 份额 + 环比趋势（无绝对人数）
+        "daily_listen_overview": daily_listen["overview"],  # 今日收听态势：活跃数/集中度/截至日期/小样本标记
+        "daily_listen_trend": daily_listen["trend"],        # 今日份额 TOP20 + 环比趋势（无绝对人数）
+        "daily_new_today": daily_listen["new_today"],       # 昨日无指数、今日出现指数的歌曲
         "last_update": now.strftime("%Y-%m-%d %H:%M"),      # 日报层：数据快照时间（与 timestamp 同源）
         "today_batches": batch_count,        # 修正：当日批次不可得，展示数据覆盖天数
         "daily_new_records": daily_fresh["daily_new_records"],  # 较昨日新增歌曲数
