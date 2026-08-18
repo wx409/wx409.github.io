@@ -43,6 +43,7 @@ def norm(s):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true", help="入库到 netease_catalog.json")
+    ap.add_argument("--no-notify", action="store_true", help="不推送微信（由 auto_update 汇总统一推送）")
     args = ap.parse_args()
 
     # 读旧目录
@@ -96,6 +97,10 @@ def main():
         cat["generated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
         OUT.write_text(json.dumps(cat, ensure_ascii=False, indent=1), encoding="utf-8")
         print("[apply] 已入库 %d 条 -> data/netease_catalog.json" % len(fresh))
+        # 落盘本次新增（供 auto_update 汇总推送）
+        (ROOT / "data" / "pending_netease.json").write_text(
+            json.dumps({"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+                        "fresh": fresh}, ensure_ascii=False, indent=1), encoding="utf-8")
     else:
         # 只读：仍输出 pending 供查看
         pend = {"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -105,7 +110,7 @@ def main():
         print("[只读] 新增清单 -> data/pending_netease.json")
 
     # 通知（新增时）
-    if fresh:
+    if fresh and not args.no_notify:
         try:
             sys.path.insert(0, str(ROOT / "project_b"))
             import notify

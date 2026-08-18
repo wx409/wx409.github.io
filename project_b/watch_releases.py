@@ -13,6 +13,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from datetime import datetime
 
 ROOT = r"D:\wx409.github.io"
 UA = {"User-Agent": "Mozilla/5.0", "Referer": "https://y.qq.com/"}
@@ -41,6 +42,7 @@ def qq_search(kw, n=50):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true", help="将新增条目写入 songs_meta.json")
+    ap.add_argument("--no-notify", action="store_true", help="不推送微信（由 auto_update 汇总统一推送）")
     ap.add_argument("--out", default=ROOT + r"\data\pending_releases.json",
                     help="只读模式输出路径")
     args = ap.parse_args()
@@ -104,7 +106,13 @@ def main():
     json.dump(sm, open(ROOT + r"\data\songs_meta.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print("[apply] 已入库 %d 条（歌词/班底由 fetch_credits_lyrics.py 增量补充）" % n)
-    if n:
+
+    # 落盘本次新增清单（无论是否推送），供 auto_update 汇总推送
+    json.dump({"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+               "releases": fresh, "live": live_fresh},
+              open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+    if n and not args.no_notify:
         try:
             sys.path.insert(0, ROOT + r"\project_b")
             import notify

@@ -61,6 +61,7 @@ def strip(t):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--notify", action="store_true", help="有新增时汇总推送微信")
+    ap.add_argument("--no-notify", action="store_true", help="不推送微信（由 auto_update 汇总统一推送）")
     args = ap.parse_args()
 
     # 读旧结果用于 diff
@@ -87,20 +88,21 @@ def main():
     results = list(found.values())
     results.sort(key=lambda x: x["title"])
 
+    new = [r for r in results if r["url"] not in old]
+
     out = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "rule": "Bing 索引聚合（微博/小红书/抖音/百度无公开 API，经 Bing 间接覆盖）。只读候选，需人工确认后入库。",
         "count": len(results),
         "results": results,
+        "new": new,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
-
-    new = [r for r in results if r["url"] not in old]
     print("[OK] 全渠道聚合 %d 条，其中本次新增 %d 条 -> data/pending_web.json" % (len(results), len(new)))
     for r in new[:15]:
         print("  +", r["title"][:50], "|", r["query"])
 
-    if args.notify and new:
+    if args.notify and not args.no_notify and new:
         try:
             sys.path.insert(0, str(ROOT / "project_b"))
             import notify

@@ -60,13 +60,49 @@ def run(cmd, cwd=None):
     return r.returncode == 0
 
 
-def notify(msg, title=None):
+def notify(title, msg):
     try:
         sys.path.insert(0, str(ROOT / "project_b"))
         import notify as nf
         nf.send(title or "📡 王晰数字档案", msg)
     except Exception as e:
         log("notify 失败: %s" % e)
+
+
+def notify_digest():
+    """汇总三个 watch 的新增结果，整合成 2 条推送：
+    1 条「歌曲类」（QQ + 网易云新歌），1 条「消息类」（Bing 全渠道聚合）。
+    无新增则不推该条；都无新增则跳过。"""
+    releases = json.loads((ROOT / "data" / "pending_releases.json").read_text(encoding="utf-8")) \
+        if (ROOT / "data" / "pending_releases.json").exists() else {}
+    netease = json.loads((ROOT / "data" / "pending_netease.json").read_text(encoding="utf-8")) \
+        if (ROOT / "data" / "pending_netease.json").exists() else {}
+    web = json.loads((ROOT / "data" / "pending_web.json").read_text(encoding="utf-8")) \
+        if (ROOT / "data" / "pending_web.json").exists() else {}
+
+    # 歌曲类：QQ 正式作品 + 网易云新增
+    qq = releases.get("releases", []) or []
+    ne = netease.get("fresh", []) or []
+    if qq or ne:
+        lines = []
+        for f in qq[:10]:
+            lines.append("- %s（QQ，%s）" % (f.get("name"), f.get("album") or "单曲"))
+        for f in ne[:10]:
+            lines.append("- %s（网易云，%s）" % (f.get("name"), f.get("album") or "单曲"))
+        n = len(qq) + len(ne)
+        notify("🎵 王晰新歌 %d 首待确认" % n,
+               "QQ + 网易云新增：\n" + "\n".join(lines)
+               + ("\n…等共 %d 首" % n if n > 10 else "")
+               + "\n\n已入库候选清单，歌词/班底将自动补充。")
+
+    # 消息类：Bing 全渠道聚合新增
+    wnew = web.get("new", []) or []
+    if wnew:
+        lines = "\n".join("- %s\n  %s" % (r.get("title"), r.get("url")) for r in wnew[:10])
+        notify("📣 王晰动态聚合 %d 条新增（需确认）" % len(wnew),
+               "全渠道(Bing索引)本日新增：\n" + lines
+               + ("\n…等共 %d 条" % len(wnew) if len(wnew) > 10 else "")
+               + "\n\n详情见 data/pending_web.json；确认后入库。")
 
 
 def main():
@@ -92,11 +128,13 @@ def main():
     # 1. watch（新歌自动入库；小酒馆节目已结束，不再监测/推送）
     if args.watch:
         log("-- watch_releases (--apply 自动入库QQ新歌) --")
-        run([sys.executable, str(ROOT / "project_b" / "watch_releases.py"), "--apply"])
+        run([sys.executable, str(ROOT / "project_b" / "watch_releases.py"), "--apply", "--no-notify"])
         log("-- watch_netease (--apply 自动入库网易云新歌) --")
-        run([sys.executable, str(ROOT / "project_b" / "watch_netease.py"), "--apply"])
+        run([sys.executable, str(ROOT / "project_b" / "watch_netease.py"), "--apply", "--no-notify"])
         log("-- watch_web (Bing site: 聚合，只读) --")
-        run([sys.executable, str(ROOT / "project_b" / "watch_web.py"), "--notify"])
+        run([sys.executable, str(ROOT / "project_b" / "watch_web.py"), "--no-notify"])
+        log("-- 汇总推送（歌曲类 + 消息类）--")
+        notify_digest()
 
     # 2. 构建（deploy_all 自带敏感文件扫描；内部已含 commit）
     log("-- deploy_all --")
@@ -106,15 +144,21 @@ def main():
         notify("⚠️ 自动更新失败：deploy_all 出错", "详情见 logs/ 目录")
         return
 
-    # 3. diff 检查：无变化则跳过 push（deploy_all 未 commit 时）
+    # 3. 检查是否有未推送的 commit（deploy_all 内部已 commit，
+    #    工作区恒为空，不能用 git status 判断，改用 rev-list 对比远端）
     if args.no_push:
         log("调试模式 --no-push，跳过发布")
         return
-    r = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+    r = subprocess.run(["git", "rev-list", "--count", "origin/main..HEAD"], cwd=ROOT,
                        capture_output=True, text=True, encoding="utf-8")
-    if not r.stdout.strip():
-        log("工作区无变化，跳过 push/IndexNow")
+    try:
+        ahead = int((r.stdout or "").strip() or "0")
+    except ValueError:
+        ahead = 0
+    if ahead == 0:
+        log("无未推送提交，跳过 push/IndexNow")
         return
+    log("检测到 %d 个未推送提交，执行 push" % ahead)
 
     # 4. 发布
     log("-- git push --")
