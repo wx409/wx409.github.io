@@ -3679,6 +3679,113 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
         "lineage": LINEAGE,  # #5 数据谱系：清洗日志统计（「数据谱系」折叠面板）
     }
 
+
+def build_daily_brief(payload):
+    """生成「每日文字分析简报」：把当日数据更新转化为一段结构化的分析文字，
+    供爬虫/搜索引擎/AI 直接抓取（静态 HTML，非前端渲染）。
+    涵盖：今日快照、异动监测、热点聚焦、近7日走势、演出/发行事件关联、
+    周末收听洞察、收听热度变化、数据可信度声明。所有数字均来自 payload，不写死。
+    """
+    from html import escape
+
+    lines = []
+    ts = str(payload.get("timestamp", ""))
+    date_str = ts.split(" ")[0] if ts else ""
+    total = payload.get("total_songs", 0)
+    active = payload.get("active_songs", 0)
+    active_rate = payload.get("active_rate", 0)
+    complete = payload.get("complete_rate", 0)
+    batches = payload.get("batch_count", 0)
+    new_records = payload.get("daily_new_records", 0)
+
+    # 1) 今日快照
+    snap = (f"【今日快照】截至 {ts}，王晰 QQ 音乐指数追踪数据集已覆盖 {batches} 个监测批次、"
+            f"{total} 首追踪歌曲（数据完整度 {complete}%），其中 {active} 首（{active_rate}%）"
+            f"近期仍有收听记录。")
+    if isinstance(new_records, int) and new_records > 0:
+        snap += f" 较昨日新增追踪 {new_records} 首。"
+    else:
+        snap += " 追踪曲目池与昨日持平。"
+    lines.append(snap)
+
+    # 2) 今日异动
+    anomalies = payload.get("daily_anomalies", []) or []
+    if anomalies:
+        bits = "；".join(f"{a.get('song','')}{a.get('desc','')}" for a in anomalies[:3])
+        lines.append(f"【异动监测】今日出现 {len(anomalies)} 项显著异动：{bits}。"
+                     f"（异动指当日指数/排名相对常态出现明显偏离，需结合上下文判断是临时波动还是趋势变化。）")
+    else:
+        latest = payload.get("latest_anomaly")
+        if latest:
+            lines.append(f"【异动监测】今日最显著异动：{latest.get('song','')}{latest.get('desc','')}。")
+        else:
+            lines.append("【异动监测】今日监测平稳，未检出显著异动。")
+
+    # 3) 热点聚焦（近30日异常活跃 TOP3）
+    top = payload.get("top_songs", []) or []
+    if top:
+        hot_bits = "；".join(f"《{escape(t.get('name',''))}》{'+' if (t.get('trend') or 0)>=0 else ''}{t.get('trend')}%"
+                             f"（{t.get('tag','')}）" for t in top[:3])
+        lines.append(f"【热点聚焦】近 30 日活跃度变化最显著的歌曲：{hot_bits}。"
+                     f"这类歌曲的涨幅通常关联新歌发行、巡演带动或平台算法推荐，可结合下方事件时间轴交叉验证。")
+
+    # 4) 近7日走势
+    r7 = payload.get("recent_7days", []) or []
+    if len(r7) >= 3:
+        vals = [r.get("avg_index") for r in r7 if isinstance(r.get("avg_index"), (int, float))]
+        if len(vals) >= 3:
+            first, last = vals[0], vals[-1]
+            pct = (last - first) / first * 100 if first else 0
+            trend_word = "上行" if pct > 1 else ("下行" if pct < -1 else "平稳")
+            lines.append(f"【近 7 日走势】全站平均指数由 {first:.0f} 变化至 {last:.0f}"
+                         f"（{'↑' if pct>=0 else '↓'}{abs(pct):.1f}%），整体呈{trend_word}态势。"
+                         f"近 7 日每日均值：{'、'.join(f'{v:.0f}' for v in vals)}。")
+
+    # 5) 演出/发行事件关联
+    pe = payload.get("performance_events", []) or []
+    recent_pe = [e for e in pe if e[0] >= (date_str[:7] if date_str else "")]
+    if recent_pe:
+        pe_bits = "；".join(e[1] for e in recent_pe[-4:])
+        lines.append(f"【演出活动】近期有演出活动节点：{pe_bits}。"
+                     f"可按时间轴位置观察演出前后歌曲指数的变化，评估演出对音乐收听的带动效应。")
+    tf = payload.get("tour_fx", []) or []
+    if tf:
+        avg_up = round(sum(e.get("uplift", 0) for e in tf) / len(tf), 1)
+        best = tf[0]
+        best_lbl = str(best.get("label", "")).strip().replace("《", "").replace("》", "")
+        lines.append(f"【巡演带动】已量化 {len(tf)} 个巡演节点，巡演后 7 日全站日均指数较基线"
+                     f"平均{'上涨' if avg_up>=0 else '下降'} {abs(avg_up)}%；"
+                     f"带动最强的是 {best_lbl}（{'+' if (best.get('uplift') or 0)>=0 else ''}{best.get('uplift')}%）。")
+    rf = payload.get("release_fx", []) or []
+    if rf:
+        b = rf[0]
+        b_lbl = str(b.get("label", "")).strip().replace("《", "").replace("》", "")
+        lines.append(f"【新歌表现】新歌发行后 14 日表现最佳为《{escape(b_lbl)}》"
+                     f"（14 日平均指数 {b.get('avg',0):.0f}，峰值 {b.get('peak',0):.0f}）。")
+
+    # 6) 周末收听洞察
+    ww = payload.get("weekend_workday", [0, 0]) or [0, 0]
+    if ww and ww[1]:
+        diff = (ww[0] / ww[1] - 1) * 100
+        lines.append(f"【时间偏好】周末平均指数 {ww[0]:.0f} vs 工作日 {ww[1]:.0f}，"
+                     f"周末{'高于' if diff>=0 else '低于'}工作日 {abs(diff):.1f}%，"
+                     f"听众收听呈现明显的「{'周末沉浸' if diff>=0 else '通勤伴随'}」特征。")
+
+    # 7) 收听热度变化
+    lr = payload.get("listener_ratio_trend", []) or []
+    lr_valid = [x for x in lr if isinstance(x, (int, float))]
+    if len(lr_valid) >= 2:
+        chg = lr_valid[-1] - lr_valid[0]
+        lines.append(f"【收听热度】归一化收听热度（峰值月=100%）由期初 {lr_valid[0]:.0f}% "
+                     f"变化至最新月 {lr_valid[-1]:.0f}%（{'↑' if chg>=0 else '↓'}{abs(chg):.0f}pct）。")
+
+    # 8) 数据可信度声明
+    lines.append("【数据说明】本简报由监测脚本在每次数据更新时自动生成，所有数字直接取自当次监测结果，"
+                 "未人工修饰；数据仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。")
+
+    return " ".join(lines)
+
+
 def build_geo_content(payload):
     """生成面向搜索引擎与 AI 引用的静态内容：meta 标签 / JSON-LD / 文字结论 / 方法说明"""
     from html import escape
@@ -3747,6 +3854,17 @@ def build_geo_content(payload):
 
     citation_line = (f"引用本数据请注明：{escape(ARTIST_NAME)}音乐指数追踪数据集（更新至{date_end}），{SITE_URL}")
 
+    # 每日文字分析简报：静态 HTML，供爬虫/搜索引擎/AI 直接抓取（数据全部来自 payload）
+    brief_text = build_daily_brief(payload)
+    brief_html = f"""  <section class="geo-summary" id="daily-brief" style="border-left:4px solid #00d2ff;background:rgba(0,210,255,0.04);">
+    <h2>📋 每日文字分析简报（{escape(str(payload.get('timestamp','')))}）
+      <span class="data-snapshot-badge">🤖 静态文本 · 供搜索引擎/AI 直接抓取</span>
+    </h2>
+    <p style="line-height:1.9;">{escape(brief_text)}</p>
+    <p style="font-size:12px;color:#5a6b8c;margin-top:8px;">本简报由监测脚本随每次数据更新自动生成，数字直接取自 <a href="dashboard_data.json">dashboard_data.json</a>，未人工修饰。时间轴上的「演出活动」「巡演节点」「新歌发行」标记可与本简报交叉印证。</p>
+  </section>
+"""
+
     summary = f"""  <section class="geo-summary" id="summary">
     <h2>核心数据结论（截至 {date_end}）
       <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">{escape(payload.get('timestamp',''))}</span></span>
@@ -3767,6 +3885,7 @@ def build_geo_content(payload):
     </ul>
     <p style="font-size:12px;color:#5a6b8c">{citation_line}</p>
   </section>"""
+    summary = brief_html + summary  # 每日简报置顶于核心结论之前
 
     about = f"""  <section class="geo-summary" id="methodology">
     <h2>数据来源与方法说明</h2>
