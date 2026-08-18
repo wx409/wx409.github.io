@@ -3681,55 +3681,38 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
 
 
 def build_daily_brief(payload):
-    """生成「每日文字分析简报」：把当日数据更新转化为一段结构化的分析文字，
-    供爬虫/搜索引擎/AI 直接抓取（静态 HTML，非前端渲染）。
-    涵盖：今日快照、异动监测、热点聚焦、近7日走势、演出/发行事件关联、
-    周末收听洞察、收听热度变化、数据可信度声明。所有数字均来自 payload，不写死。
+    """生成「每日文字分析简报」：面向当次数据更新的动态研判（"今天怎么了、意味着什么"），
+    与页面内"核心数据结论"（静态档案快照）形成差异化分工：
+      - 核心数据结论 = 累计覆盖/排名格局/数据速览（长期稳定，回答"是什么"）
+      - 每日简报     = 当日新增/异动/环比/事件联动/结构变化/综合研判（随批次变化，回答"今天如何"）
+    供爬虫/搜索引擎/AI 直接抓取（静态 HTML，非前端渲染）。所有数字均来自 payload，不写死。
     """
     from html import escape
 
     lines = []
     ts = str(payload.get("timestamp", ""))
     date_str = ts.split(" ")[0] if ts else ""
-    total = payload.get("total_songs", 0)
-    active = payload.get("active_songs", 0)
-    active_rate = payload.get("active_rate", 0)
-    complete = payload.get("complete_rate", 0)
-    batches = payload.get("batch_count", 0)
     new_records = payload.get("daily_new_records", 0)
 
-    # 1) 今日快照
-    snap = (f"【今日快照】截至 {ts}，王晰 QQ 音乐指数追踪数据集已覆盖 {batches} 个监测批次、"
-            f"{total} 首追踪歌曲（数据完整度 {complete}%），其中 {active} 首（{active_rate}%）"
-            f"近期仍有收听记录。")
+    # 1) 今日概览：聚焦"本次更新本身"，不重复累计覆盖数
+    snap_parts = [f"截至 {ts} 的监测更新已完成"]
     if isinstance(new_records, int) and new_records > 0:
-        snap += f" 较昨日新增追踪 {new_records} 首。"
+        snap_parts.append(f"追踪曲目池较昨日新增 {new_records} 首")
+    latest_anom = payload.get("latest_anomaly")
+    if latest_anom:
+        snap_parts.append(f"检出异动：{latest_anom.get('song','')}{latest_anom.get('desc','')}")
     else:
-        snap += " 追踪曲目池与昨日持平。"
-    lines.append(snap)
+        snap_parts.append("无显著异动")
+    lines.append("【今日概览】" + "；".join(snap_parts) + "。")
 
-    # 2) 今日异动
+    # 2) 今日异动明细（仅当有异动时展开；无异动则合并进概览，避免空话）
     anomalies = payload.get("daily_anomalies", []) or []
     if anomalies:
         bits = "；".join(f"{a.get('song','')}{a.get('desc','')}" for a in anomalies[:3])
-        lines.append(f"【异动监测】今日出现 {len(anomalies)} 项显著异动：{bits}。"
-                     f"（异动指当日指数/排名相对常态出现明显偏离，需结合上下文判断是临时波动还是趋势变化。）")
-    else:
-        latest = payload.get("latest_anomaly")
-        if latest:
-            lines.append(f"【异动监测】今日最显著异动：{latest.get('song','')}{latest.get('desc','')}。")
-        else:
-            lines.append("【异动监测】今日监测平稳，未检出显著异动。")
+        lines.append(f"【异动明细】共 {len(anomalies)} 项：{bits}。"
+                     f"异动需结合上下文判断是临时波动还是趋势起点，可对照近 7 日走势与事件时间轴。")
 
-    # 3) 热点聚焦（近30日异常活跃 TOP3）
-    top = payload.get("top_songs", []) or []
-    if top:
-        hot_bits = "；".join(f"《{escape(t.get('name',''))}》{'+' if (t.get('trend') or 0)>=0 else ''}{t.get('trend')}%"
-                             f"（{t.get('tag','')}）" for t in top[:3])
-        lines.append(f"【热点聚焦】近 30 日活跃度变化最显著的歌曲：{hot_bits}。"
-                     f"这类歌曲的涨幅通常关联新歌发行、巡演带动或平台算法推荐，可结合下方事件时间轴交叉验证。")
-
-    # 4) 近7日走势
+    # 3) 市场信号：近7日走势 + 涨跌极值（区别于核心结论的"平均指数最高"）
     r7 = payload.get("recent_7days", []) or []
     if len(r7) >= 3:
         vals = [r.get("avg_index") for r in r7 if isinstance(r.get("avg_index"), (int, float))]
@@ -3737,51 +3720,87 @@ def build_daily_brief(payload):
             first, last = vals[0], vals[-1]
             pct = (last - first) / first * 100 if first else 0
             trend_word = "上行" if pct > 1 else ("下行" if pct < -1 else "平稳")
-            lines.append(f"【近 7 日走势】全站平均指数由 {first:.0f} 变化至 {last:.0f}"
-                         f"（{'↑' if pct>=0 else '↓'}{abs(pct):.1f}%），整体呈{trend_word}态势。"
-                         f"近 7 日每日均值：{'、'.join(f'{v:.0f}' for v in vals)}。")
+            lines.append(f"【市场信号】近 7 日全站平均指数 {first:.0f}→{last:.0f}"
+                         f"（{'↑' if pct>=0 else '↓'}{abs(pct):.1f}%），整体{trend_word}；"
+                         f"7 日序列：{'、'.join(f'{v:.0f}' for v in vals)}。")
+    # 涨跌极值（用 top_songs 的趋势字段：涨幅最大 vs 跌幅最大）
+    top = payload.get("top_songs", []) or []
+    if top:
+        pos = [t for t in top if (t.get("trend") or 0) > 0][:2]
+        neg = [t for t in top if (t.get("trend") or 0) < 0][:2]
+        bits = []
+        if pos:
+            bits.append("领涨 " + "、".join(f"《{escape(t.get('name',''))}》{'+'}{t.get('trend')}%" for t in pos))
+        if neg:
+            bits.append("领跌 " + "、".join(f"《{escape(t.get('name',''))}》{t.get('trend')}%" for t in neg))
+        if bits:
+            lines.append("【涨跌结构】近 30 日活跃度变化中，" + "；".join(bits) + "。"
+                         + "涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。")
 
-    # 5) 演出/发行事件关联
+    # 4) 事件联动与解读（升级为分析角度，非单纯罗列）
     pe = payload.get("performance_events", []) or []
     recent_pe = [e for e in pe if e[0] >= (date_str[:7] if date_str else "")]
     if recent_pe:
-        pe_bits = "；".join(e[1] for e in recent_pe[-4:])
-        lines.append(f"【演出活动】近期有演出活动节点：{pe_bits}。"
-                     f"可按时间轴位置观察演出前后歌曲指数的变化，评估演出对音乐收听的带动效应。")
+        cities = []
+        for e in recent_pe[-4:]:
+            lbl = e[1]
+            city = lbl.split("·")[-1] if "·" in lbl else lbl
+            if city not in cities:
+                cities.append(city)
+        lines.append(f"【演出联动】本监测窗口内有演出活动：{'、'.join(cities)} 等 {len(recent_pe)} 场。"
+                     f"对比演出前后歌曲指数可评估『单曲演出的辐射带动』——即观众因演出关注王晰后，"
+                     f"是否带动其他歌曲收听。详见下方『巡演歌曲级效应』面板的三口径涨幅。")
     tf = payload.get("tour_fx", []) or []
     if tf:
         avg_up = round(sum(e.get("uplift", 0) for e in tf) / len(tf), 1)
         best = tf[0]
         best_lbl = str(best.get("label", "")).strip().replace("《", "").replace("》", "")
-        lines.append(f"【巡演带动】已量化 {len(tf)} 个巡演节点，巡演后 7 日全站日均指数较基线"
+        lines.append(f"【巡演效应】已量化 {len(tf)} 个巡演节点：巡演后 7 日全站日均指数较基线"
                      f"平均{'上涨' if avg_up>=0 else '下降'} {abs(avg_up)}%；"
-                     f"带动最强的是 {best_lbl}（{'+' if (best.get('uplift') or 0)>=0 else ''}{best.get('uplift')}%）。")
+                     f"最强节点 {best_lbl}（{'+' if (best.get('uplift') or 0)>=0 else ''}{best.get('uplift')}%）。"
+                     f"巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。")
     rf = payload.get("release_fx", []) or []
     if rf:
         b = rf[0]
         b_lbl = str(b.get("label", "")).strip().replace("《", "").replace("》", "")
         lines.append(f"【新歌表现】新歌发行后 14 日表现最佳为《{escape(b_lbl)}》"
-                     f"（14 日平均指数 {b.get('avg',0):.0f}，峰值 {b.get('peak',0):.0f}）。")
+                     f"（14 日平均指数 {b.get('avg',0):.0f}，峰值 {b.get('peak',0):.0f}）。"
+                     f"新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。")
 
-    # 6) 周末收听洞察
-    ww = payload.get("weekend_workday", [0, 0]) or [0, 0]
-    if ww and ww[1]:
-        diff = (ww[0] / ww[1] - 1) * 100
-        lines.append(f"【时间偏好】周末平均指数 {ww[0]:.0f} vs 工作日 {ww[1]:.0f}，"
-                     f"周末{'高于' if diff>=0 else '低于'}工作日 {abs(diff):.1f}%，"
-                     f"听众收听呈现明显的「{'周末沉浸' if diff>=0 else '通勤伴随'}」特征。")
+    # 5) 结构变化：老歌复活 / 排名跃迁（核心结论未覆盖的分析维度）
+    ss = payload.get("second_spring", {}) or {}
+    ss_names = (ss.get("names") or [])[:3]
+    if ss_names:
+        ss_str = "、".join("《" + escape(n) + "》" for n in ss_names)
+        lines.append(f"【老歌复活】{ss_str} 等老歌近期出现二次活跃信号（沉寂后指数回升），"
+                     f"这类「复活」通常由综艺、怀旧话题或新受众涌入触发。")
+    rw = payload.get("rank_waterfall", {}) or {}
+    rw_names = (rw.get("names") or [])[:3]
+    rw_changes = (rw.get("changes") or [])[:3]
+    if rw_names:
+        chg_bits = "；".join(f"《{escape(rw_names[i])}》{'↑' if rw_changes[i]>0 else '↓'}{abs(rw_changes[i])}位"
+                             for i in range(min(len(rw_names), len(rw_changes))))
+        lines.append(f"【排名跃迁】今日全站排名变动最显著：{chg_bits}。"
+                     f"排名快速跃迁往往是算法推荐或话题热度的直接映射。")
 
-    # 7) 收听热度变化
-    lr = payload.get("listener_ratio_trend", []) or []
-    lr_valid = [x for x in lr if isinstance(x, (int, float))]
-    if len(lr_valid) >= 2:
-        chg = lr_valid[-1] - lr_valid[0]
-        lines.append(f"【收听热度】归一化收听热度（峰值月=100%）由期初 {lr_valid[0]:.0f}% "
-                     f"变化至最新月 {lr_valid[-1]:.0f}%（{'↑' if chg>=0 else '↓'}{abs(chg):.0f}pct）。")
+    # 6) 综合研判：分析师式总结（把多维度串成可引用的结论）
+    verdict_bits = []
+    if len(r7) >= 3 and len(vals) >= 3:
+        verdict_bits.append(f"近 7 日指数{'上行' if pct>1 else ('下行' if pct<-1 else '平稳')}")
+    if tf:
+        verdict_bits.append(f"巡演带动{'正向' if avg_up>=0 else '偏弱'}")
+    if recent_pe:
+        verdict_bits.append("有音乐剧演出活动在监测窗口内")
+    if latest_anom:
+        verdict_bits.append("存在单曲异动需关注")
+    if verdict_bits:
+        lines.append("【综合研判】本期数据要点：" + "；".join(verdict_bits)
+                     + "。综合来看，" + ("王晰音乐热度处于阶段性上行通道，演出与宣发节点对收听的带动值得持续跟踪。"
+                                        if pct > 1 else "王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。"))
 
-    # 8) 数据可信度声明
-    lines.append("【数据说明】本简报由监测脚本在每次数据更新时自动生成，所有数字直接取自当次监测结果，"
-                 "未人工修饰；数据仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。")
+    # 7) 数据说明
+    lines.append("【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；"
+                 "仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。")
 
     return " ".join(lines)
 
