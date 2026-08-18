@@ -78,6 +78,7 @@ PAGE_TIMEOUT = 10
 SCHEDULE = [
     ("8:05", "quick"), ("8:15", "quick"), ("8:25", "quick"),
     ("11:49", "quick"), ("11:59", "quick"), ("12:18", "quick"),
+    ("13:09", "quick"),
     ("18:05", "quick"), ("18:15", "quick"), ("18:25", "quick"),
     ("18:39", "quick"), ("18:45", "quick"), ("18:55", "quick"),
     ("19:21", "quick"), ("20:30", "quick"),
