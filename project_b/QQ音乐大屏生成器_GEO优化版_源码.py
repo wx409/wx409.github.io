@@ -1175,26 +1175,33 @@ def compute_weekend_premium(df_all, song_info=None, max_months=6):
         sub = df[(df["attr"] == attr_name) & (df["ym"].isin(months))]
         if sub.empty:
             return [], []
-        # 歌曲活跃度：按该组数据点计数排序（样本充分度），取 TopN
-        act = sub.groupby("uid").size().sort_values(ascending=False).head(top_n)
-        uids = act.index.tolist()
-        names = []
-        for u in uids:
-            disp = sub[sub["uid"] == u]["display_name"].dropna()
-            names.append(str(disp.iloc[-1]) if len(disp) > 0 else str(u))
-        matrix = []
-        for u in uids:
-            g = sub[sub["uid"] == u]
+        # 选歌逻辑：按"近窗口内有效月份数"优先（而非总数据点数）。
+        # 原因：QQ音乐指数仅对近期活跃歌曲返回数据，按数据点计数会选出
+        # 大量"仅在个别月份零散冒泡"的歌，导致热力矩阵大片空白。
+        # 这里先逐曲统计其在 months 内能满足样本门槛(周末≥2/工作日≥3)的月份数，
+        # 有效月份越多越靠前，且只保留至少 1 个有效月份的歌曲。
+        scored = []
+        for u, g in sub.groupby("uid"):
+            valid_months = 0
             row = []
             for m in months:
                 mm = g[g["ym"] == m]
                 wk = mm[mm["is_weekend"]]["current_index"].dropna()
                 wd = mm[~mm["is_weekend"]]["current_index"].dropna()
                 if len(wk) >= 2 and len(wd) >= 3 and wd.mean() > 0:
+                    valid_months += 1
                     row.append(round(float(wk.mean() / wd.mean()), 2))
                 else:
                     row.append(None)
-            matrix.append(row)
+            if valid_months >= 1:
+                disp = g["display_name"].dropna()
+                name = str(disp.iloc[-1]) if len(disp) > 0 else str(u)
+                scored.append((valid_months, row, name))
+        # 有效月份多者优先；同月份数时按最近月份是否有值微调（稳定排序即可）
+        scored.sort(key=lambda x: (x[0], x[1][-1] if x[1][-1] is not None else -1), reverse=True)
+        scored = scored[:top_n]
+        matrix = [s[1] for s in scored]
+        names = [s[2] for s in scored]
         return matrix, names
 
     album_mat, album_names = build_matrix("专辑")
