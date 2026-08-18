@@ -1639,6 +1639,13 @@ def load_performance_events(path):
     return events
 
 
+def _city_of(scene):
+    """从演出活动场次名（'演出名·城市'）中提取城市部分，供节点展示去重。"""
+    if not scene:
+        return ""
+    return scene.split("·")[-1].strip() if "·" in scene else scene
+
+
 def tour_song_effects(df_all, setlists, topn=5):
     """场次后歌曲级效应（以长表为唯一输入）：
     - 直接效应：该场歌单内歌曲 演出后7日 日均指数 vs 前21~7日基线 的涨幅
@@ -3527,7 +3534,8 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
                    for e in song_info.get("tour_events", []) if to_month(e["date"]) in label_set]
     release_events = [[to_month(e["date"]), f"{e['date']} 《{e['name']}》发行（{e['kind']}）"]
                       for e in song_info.get("release_events", []) if to_month(e["date"]) in label_set]
-    performance_events = [[to_month(e["date"]), f"{e['date']} {e['desc']}·{e['name']}"]
+    # 演出活动节点：desc=演出名，name=scene(演出名·城市)，仅取城市部分避免演出名重复
+    performance_events = [[to_month(e["date"]), f"{e['date']} {e['desc']}·{_city_of(e['name'])}"]
                           for e in song_info.get("performance_events", []) if to_month(e["date"]) in label_set]
 
     # 属性维度：信息表收录数 vs 被追踪数
