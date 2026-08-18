@@ -3969,19 +3969,29 @@ def auto_deploy(dashboard_dir):
             logger.warning(f"自动部署复制失败（文件占用，重试后仍失败）: {failed}")
             return
         logger.info(f"自动部署: 已复制 dashboard 文件到 {repo_dashboard}")
+        # 源码快照自动同步：把本源码复制到仓库 project_b/（单一事实源之外的只读快照，供版本回溯）
+        try:
+            _src_file = os.path.abspath(__file__)
+            _dst_file = os.path.join(WEBSITE_REPO, "project_b", os.path.basename(_src_file))
+            os.makedirs(os.path.dirname(_dst_file), exist_ok=True)
+            shutil.copy2(_src_file, _dst_file)
+            logger.info(f"自动部署: 源码快照已同步 -> project_b/{os.path.basename(_dst_file)}")
+        except Exception as _e:
+            logger.warning(f"自动部署: 源码快照同步失败（不影响 dashboard 发布）: {_e}")
     except Exception as e:
         logger.warning(f"自动部署复制失败: {e}")
         return
     try:
-        # git add / commit / push
-        subprocess.run(["git", "add", "dashboard/"], cwd=WEBSITE_REPO,
+        # git add / commit / push（dashboard + 源码快照一并提交）
+        _src_rel = os.path.join("project_b", os.path.basename(__file__))
+        subprocess.run(["git", "add", "dashboard/", _src_rel], cwd=WEBSITE_REPO,
                        check=True, capture_output=True, timeout=30)
         ts = datetime.now().strftime("%m-%d %H:%M")
         msg = f"自动部署: dashboard 数据更新 ({ts})"
         r = subprocess.run(["git", "commit", "-m", msg], cwd=WEBSITE_REPO,
                            capture_output=True, timeout=30)
         if r.returncode != 0:
-            # 可能是 no changes to commit（dashboard 数据和上次一样）
+            # 可能是 no changes to commit（dashboard 数据和源码快照都和上次一样）
             logger.info(f"自动部署: 无新变更，跳过 commit")
             return
         subprocess.run(["git", "push", "origin", "main"], cwd=WEBSITE_REPO,
