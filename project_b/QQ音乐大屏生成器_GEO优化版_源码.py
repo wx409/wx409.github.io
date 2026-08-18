@@ -1146,7 +1146,7 @@ def compute_release_decay(df_all, song_info, max_days=90):
     return {"labels": labels, "series": series, "halflife": halflife}
 
 
-def compute_weekend_premium(df_all, song_info=None, max_months=24):
+def compute_weekend_premium(df_all, song_info=None, max_months=6):
     """周末溢价热力矩阵：按属性分组（专辑 vs OST/单曲）并排对比
     每首歌 周末均值/工作日均值 比率；X=月份（最近 max_months），Y=各自 Top12 歌曲。
     输出：{album, ost, months, album_songs, ost_songs, attr_premium}"""
@@ -3560,7 +3560,7 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     # 指令4：高级分析维度（全部以比率/偏离度/趋势表达，无新绝对数值）
     lifecycle_migration = compute_lifecycle_migration(df_all)
     release_decay = compute_release_decay(df_all, song_info)
-    weekend_premium = compute_weekend_premium(df_all, song_info)
+    weekend_premium = compute_weekend_premium(df_all, song_info, max_months=6)  # 近6个月窗口：让周末溢价反映近期收听习惯
     second_spring = compute_second_spring(df_all, days=30, song_info=song_info)
     rank_waterfall = compute_rank_waterfall(df_all)
     timeline_narrative = compute_timeline_narrative(df_all, song_info)
