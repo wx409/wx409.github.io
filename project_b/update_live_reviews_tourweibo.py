@@ -79,16 +79,27 @@ def main():
             by_show.setdefault(show_date, []).append(rec)
 
     inserted = 0
+    skipped = 0
     failed = []
     for show_date, recs in by_show.items():
-        html, ok = insert_for_event(html, show_date, recs)
+        # 去重：跳过 url 已在页面中的记录
+        new_recs = []
+        for r in recs:
+            url = r.get('url', '')
+            if url and url in html:
+                skipped += 1
+                continue
+            new_recs.append(r)
+        if not new_recs:
+            continue
+        html, ok = insert_for_event(html, show_date, new_recs)
         if ok:
-            inserted += len(recs)
+            inserted += len(new_recs)
         else:
             failed.append(show_date)
 
     HTML.write_text(html, encoding='utf-8')
-    print(f'插入 {inserted} 条微博')
+    print(f'插入 {inserted} 条微博（跳过重复 {skipped} 条）')
     if failed:
         print(f'失败场次: {failed}')
 
