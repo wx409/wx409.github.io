@@ -12,7 +12,10 @@ def build_li(rec):
     url = rec.get('url', '')
     platform = rec.get('platform', '微博')
     disp_text = text_short[:50] + ('…' if len(text_short) > 50 else '')
-    tag = '王晰本人' if '工作室' not in platform else '王晰工作室'
+    # 用 sourceType 区分：studio_weibo=工作室，其余=王晰本人
+    src_type = rec.get('sourceType', '')
+    is_studio = src_type == 'studio_weibo' or '工作室' in platform or '晰息相关' in platform
+    tag = '王晰工作室' if is_studio else '王晰本人'
     if url:
         return (f'<li><a href="{url}" target="_blank" rel="noopener nofollow" title="{text_short}">'
                 f'王晰微博：{disp_text}</a> <span class="tag">{tag}</span> '
