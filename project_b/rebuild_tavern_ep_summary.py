@@ -1,0 +1,125 @@
+# -*- coding: utf-8 -*-
+"""生成小酒馆摘要版 ep 页：用干净模板替换站内逐字稿全文页（全文已备份本地全文库）
+保留 head/标题/导航/合规标注，正文改为摘要+喜好+金句+本期歌单+官方外链。
+用法：python project_b/rebuild_tavern_ep_summary.py --limit 2   # 试2期
+      python project_b/rebuild_tavern_ep_summary.py --all        # 全部106期
+"""
+from __future__ import annotations
+import json, re, html
+from pathlib import Path
+
+ROOT = Path(r"D:\wx409.github.io")
+EP = ROOT / "tavern" / "ep"
+SUMMARIES = ROOT / "tavern" / "tavern_summaries.json"
+
+CSS = """
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;line-height:1.8;max-width:760px;margin:0 auto;padding:20px;color:#333}
+h1{color:#1a1a1a;border-bottom:2px solid #7c3aed;padding-bottom:10px;font-size:22px}
+h2{color:#4a3a7a;margin-top:26px;border-left:4px solid #7c3aed;padding-left:12px;font-size:17px}
+h3{color:#5b4a8a}
+a{color:#7c3aed;text-decoration:none}
+.nav{background:#f4f0fb;padding:12px 15px;border-radius:8px;margin-bottom:18px}
+.nav a{margin-right:16px;font-weight:500;color:#7c3aed}
+.back{color:#999;font-size:13px}
+.note{background:#fdf6e3;border:1px solid #e8d9a0;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:13px;color:#666}
+.summary{background:#fafafd;padding:14px 16px;border-radius:8px;margin:14px 0;font-size:15px;line-height:2}
+.likes{background:#f0fdf4;padding:12px 16px;border-radius:8px;margin:12px 0}
+.likes li{margin:4px 0;font-size:14px}
+.quote{font-style:italic;color:#7c3aed;border-left:3px solid #b79be3;padding-left:12px;margin:8px 0;font-size:15px}
+.kw{display:inline-block;background:#eee;border-radius:12px;padding:2px 10px;font-size:12px;margin:3px 4px 3px 0;color:#555}
+"""
+
+
+def build_page(key, v):
+    ep = v.get('episode', key)
+    theme = v.get('theme', '')
+    category = v.get('category', '')
+    summary = v.get('summary', '')
+    likes = v.get('likes', [])
+    songs = v.get('songs', [])
+    quotes = v.get('quotes', [])
+    kws = v.get('keywords', [])
+    songmid = v.get('songmid', '')
+    title = f"{ep} · {theme} ｜ 深夜小酒馆 · 王晰"
+
+    likes_html = ''
+    if likes:
+        likes_html = '<h2>王晰的喜好</h2><ul class="likes">' + ''.join(f'<li>{html.escape(l)}</li>' for l in likes) + '</ul>'
+    songs_html = ''
+    if songs:
+        songs_html = '<h2>本期提到</h2><p>' + ' · '.join(html.escape(s) for s in songs) + '</p>'
+    quotes_html = ''
+    if quotes:
+        quotes_html = '<h2>王晰金句</h2>' + ''.join(f'<p class="quote">“{html.escape(q)}”</p>' for q in quotes)
+    kw_html = '<p>' + ''.join(f'<span class="kw">{html.escape(k)}</span>' for k in kws) + '</p>'
+
+    jsonld = {
+        "@context": "https://schema.org",
+        "@type": "RadioEpisode",
+        "name": title,
+        "description": f"深夜小酒馆「{theme}」摘要（合规：已去逐字稿全文，仅保留主题/喜好/金句/关键词）。",
+        "inLanguage": "zh-CN",
+        "partOfSeries": {"@type": "RadioSeries", "name": "日木斤深夜小酒馆｜王晰哄你入睡", "url": "https://wx409.github.io/tavern/"},
+        "episodeNumber": re.sub(r"\D", "", ep or "") or 0,
+    }
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<title>{html.escape(title)}</title>
+<meta name="description" content="{html.escape(theme or title)} 摘要 · 深夜小酒馆 王晰">
+<link rel="canonical" href="https://wx409.github.io/tavern/ep/{html.escape(ep)}.html">
+<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>
+<style>{CSS}</style>
+</head>
+<body>
+<div class="nav">
+<a href="../index.html">← 深夜小酒馆</a>
+<a href="../index.html#episodes">节目单</a>
+</div>
+<h1>{html.escape(theme or ep)}</h1>
+<p class="back">深夜小酒馆 · {html.escape(category or '')} · {html.escape(ep)}</p>
+<div class="note">📌 合规说明：本页为小酒馆节目**要点摘要**（逐字稿全文已存档本地，不上传）。</div>
+<div class="summary">{html.escape(summary or '')}</div>
+{likes_html}
+{songs_html}
+{quotes_html}
+<h2>关键词</h2>{kw_html}
+<hr>
+<p class="back"><a href="../index.html">← 返回小酒馆</a> · 本页为摘要版；节目音频及逐字稿版权归原作者。</p>
+</body>
+</html>
+"""
+
+
+def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--limit', type=int, default=2)
+    ap.add_argument('--all', action='store_true')
+    a = ap.parse_args()
+
+    d = json.loads(SUMMARIES.read_text(encoding='utf-8'))
+    eps = d.get('episodes', {})
+    keys = list(eps.keys())
+    if not a.all:
+        keys = keys[:a.limit]
+
+    made = 0
+    for key in keys:
+        v = eps[key]
+        ep = v.get('episode', key)
+        # 生成摘要页覆盖原 ep 页（全文已备份）
+        page = build_page(key, v)
+        f = EP / f"{ep}.html"
+        f.write_text(page, encoding='utf-8')
+        made += 1
+        print(f"[{made}] {ep}: 生成摘要版")
+    print(f"[完成] 生成了 {made} 期摘要版 ep 页")
+
+
+if __name__ == '__main__':
+    main()
