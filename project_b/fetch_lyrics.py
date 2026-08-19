@@ -61,8 +61,8 @@ def main():
     songs = meta["songs"]
 
     todo = [k for k, v in songs.items() if (v.get("mid") or "").startswith("L:")
-            and not v.get("lyrics")]
-    print("待补歌词（有QQ mid且无歌词）: %d 首" % len(todo))
+            and not v.get("lyric_tags")]
+    print("待补歌词标签（有QQ mid且无歌词标签）: %d 首" % len(todo))
 
     ok, skip, fail = 0, 0, 0
     for i, key in enumerate(todo, 1):
@@ -71,9 +71,17 @@ def main():
         if lrc:
             frags = lrc_to_fragments(lrc)
             if frags:
-                songs[key]["lyrics"] = frags
+                # 合规：只提取关键词标签 + 首句定位句（≤60字），不存完整歌词
+                tags = []
+                for f in frags[:6]:
+                    for w in re.findall(r"[A-Za-z\u4e00-\u9fff]{2,}", f.get("text", "")):
+                        w = w.lower()
+                        if w not in tags:
+                            tags.append(w)
+                songs[key]["lyric_tags"] = tags[:6]
+                songs[key]["lyric_snippet"] = frags[0].get("text", "")[:60]
                 ok += 1
-                print("[%d/%d] %s: %d 行" % (i, len(todo), key, len(frags)))
+                print("[%d/%d] %s: +%d 标签" % (i, len(todo), key, len(tags)))
             else:
                 skip += 1
                 print("[%d/%d] %s: 解析为空" % (i, len(todo), key))
@@ -82,11 +90,11 @@ def main():
             print("[%d/%d] %s: 无歌词" % (i, len(todo), key))
         time.sleep(0.5)
 
-    meta["lyrics_count"] = sum(1 for v in songs.values() if v.get("lyrics"))
+    meta["lyrics_count"] = sum(1 for v in songs.values() if v.get("lyric_tags"))
     json.dump(meta, open(META, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-    print("\n[完成] 成功 %d | 无歌词 %d | 失败 %d" % (ok, skip, fail))
-    print("现在有歌词: %d 首" % meta["lyrics_count"])
+    print("\n[完成] 成功 %d | 无歌词 %d | 失败 %d（已合规，仅存标签/定位句，不存完整歌词）" % (ok, skip, fail))
+    print("现在有歌词标签: %d 首" % meta["lyrics_count"])
 
 
 if __name__ == "__main__":

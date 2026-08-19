@@ -130,14 +130,16 @@ def main():
                 continue
             if r["credits"]:
                 s["credits"] = r["credits"]
-            if r["lyrics"]:
-                s["lyrics"] = r["lyrics"]
+            # 合规：albums.json 也不再写完整歌词，只存定位句+标签
+            if r["lyrics"] and not s.get("lyric_snippet"):
+                frags0 = r["lyrics"][0].get("text", "")[:60] if r["lyrics"] else ""
+                s["lyric_snippet"] = frags0
     json.dump(albums, open(albums_path, "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
 
-    # 写回 songs_meta.json（credits 一律补；lyrics 仅补原本没有的）
+    # 写回 songs_meta.json（credits 一律补；合规：不再写完整歌词，只提取标签/定位句）
     n_credit = 0
-    n_lyric = 0
+    n_tags = 0
     for k, v in meta["songs"].items():
         m = (v.get("mid") or "")
         if not m.startswith("L:"):
@@ -148,13 +150,23 @@ def main():
         if r["credits"]:
             v["credits"] = r["credits"]
             n_credit += 1
-        if r["lyrics"] and not v.get("lyrics"):
-            v["lyrics"] = r["lyrics"]
-            n_lyric += 1
+        if r["lyrics"] and not v.get("lyric_tags"):
+            # 合规：只提取关键词标签 + 定位句（首句≤60字），不存完整歌词
+            frags = r["lyrics"]
+            tags = []
+            for f in frags[:6]:
+                for w in re.findall(r"[A-Za-z\u4e00-\u9fff]{2,}", f.get("text", "")):
+                    w = w.lower()
+                    if w not in tags:
+                        tags.append(w)
+            v["lyric_tags"] = tags[:6]
+            if frags:
+                v["lyric_snippet"] = frags[0].get("text", "")[:60]
+            n_tags += 1
     json.dump(meta, open(meta_path, "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
 
-    print("\n[OK] songs_meta: 补 credits %d 首, 补 lyrics %d 首" % (n_credit, n_lyric))
+    print("\n[OK] songs_meta: 补 credits %d 首, 补 lyric_tags %d 首（已合规，不存完整歌词）" % (n_credit, n_tags))
     print("albums.json: 已写回 credits/lyrics")
 
 

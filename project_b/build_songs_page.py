@@ -20,7 +20,7 @@ SITE = "https://wx409.github.io"
 def build_page(meta: dict) -> str:
     songs = meta["songs"]
     n_all = len(songs)
-    n_lyrics = sum(1 for v in songs.values() if v.get("lyrics"))
+    n_lyrics = sum(1 for v in songs.values() if v.get("lyric_tags") or v.get("lyric_frags"))
     n_album = sum(1 for v in songs.values() if v.get("album"))
     n_shows = sum(1 for v in songs.values() if v.get("show_count"))
     n_play = sum(1 for v in songs.values() if v.get("mid"))
@@ -173,18 +173,27 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     var tags = '';
     if (s.tavern) tags += '<span class="tag tavern">🍷 日木斤深夜小酒馆</span>';
     if (s.album) tags += '<span class="tag album">专辑《' + esc(s.album) + '》</span>';
-    if (s.lyrics && s.lyrics.length) tags += '<span class="tag lyric">歌词</span>';
+    if (s.lyric_tags && s.lyric_tags.length) tags += '<span class="tag lyric">歌词</span>';
     if (s.show_count) tags += '<span class="tag live">巡演 ' + s.show_count + ' 场</span>';
     var lyrics = '';
-    if (s.lyrics && s.lyrics.length) {{
-      var allLines = s.lyrics.map(function (f) {{ return esc(f.text); }}).join('<br>');
-      if (s.lyrics.length === 1) {{
-        lyrics = '<div class="song-lyrics">' + allLines + '</div>';
-      }} else {{
-        lyrics = '<div class="song-lyrics"><span class="lyr-preview">' + esc(s.lyrics[0].text) + '…</span>' +
-          '<button type="button" class="lyr-toggle">展开完整歌词</button>' +
-          '<span class="lyr-full" style="display:none">' + allLines + '</span></div>';
+    // 合规：只展示合理引用片段(≤80字) + 关键词标签 + 官方歌词外链，不渲染完整歌词
+    if (s.lyric_tags && s.lyric_tags.length) {{
+      var fragHtml = '';
+      if (s.lyric_frags && s.lyric_frags.length) {{
+        var seenFrag = {{}}; var frags = [];
+        s.lyric_frags.forEach(function (f) {{
+          var t = eva_norm(f.text);
+          if (t && !seenFrag[t]) {{ seenFrag[t] = 1; frags.push(f.text); }}
+        }});
+        fragHtml = '<div class="song-lyrics"><strong>歌词片段：</strong>' +
+          frags.map(function (t) {{ return '<span class="lyr-frag">' + esc(t) + '</span>'; }}).join('') + '</div>';
       }}
+      var tagHtml = '<div class="song-lyrics lyric-tags"><strong>关键词：</strong>' +
+        s.lyric_tags.map(function (t) {{ return '<span class="tag lyric">' + esc(t) + '</span>'; }}).join('') + '</div>';
+      var refHtml = s.lyric_ref
+        ? '<div class="song-lyrics"><a href="' + esc(s.lyric_ref) + '" target="_blank" rel="noopener nofollow">▶ 查看完整歌词（官方来源）</a></div>'
+        : '';
+      lyrics = fragHtml + tagHtml + refHtml;
     }}
     var credits = '';
     if (s.credits) {{
@@ -204,9 +213,10 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
       (meta ? '<div class="song-meta">' + esc(meta) + tags + '</div>' : '<div class="song-meta">' + tags + '</div>') +
       credits + lyrics + '</div>';
   }}
+  function eva_norm(t) {{ return (t || '').replace(/[\\s\\W_]+/g, '').toLowerCase(); }}
   function applyFilter(list) {{
     if (filter === 'playable') return list.filter(function (s) {{ return !!s.mid; }});
-    if (filter === 'lyric') return list.filter(function (s) {{ return s.lyrics && s.lyrics.length; }});
+    if (filter === 'lyric') return list.filter(function (s) {{ return (s.lyric_tags && s.lyric_tags.length) || (s.lyric_frags && s.lyric_frags.length); }});
     if (filter === 'tavern') return list.filter(function (s) {{ return s.tavern; }});
     return list;
   }}
@@ -219,7 +229,9 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
         return norm(s.name).indexOf(q) >= 0 ||
           (s.album || '').indexOf(q) >= 0 ||
           (s.attr || '').indexOf(q) >= 0 ||
-          (s.lyrics || []).some(function (f) {{ return norm(f.text).indexOf(q) >= 0; }});
+          (s.lyric_tags || []).some(function (t) {{ return norm(t).indexOf(q) >= 0; }}) ||
+          (s.lyric_frags || []).some(function (f) {{ return norm(f.text).indexOf(q) >= 0; }}) ||
+          norm(s.lyric_snippet || '').indexOf(q) >= 0;
       }});
     }}
     list = applyFilter(list);

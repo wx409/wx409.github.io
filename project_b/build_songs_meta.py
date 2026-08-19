@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -53,7 +54,7 @@ def main() -> None:
             "latest": dash_info.get("latest"),
             "mean30": dash_info.get("mean30"),
             "peak": dash_info.get("peak"),
-            "lyrics": [],
+            "lyric_frags": [],
             "album": (en.get("discography") or {}).get("album"),
             "show_count": len(en.get("live", [])),
             "cities": sorted({lv.get("city") for lv in en.get("live", []) if lv.get("city")}),
@@ -65,27 +66,36 @@ def main() -> None:
             for lv in en.get("live", [])
         ]
 
-    # 2. 歌词片段补充
+    # 2. 歌词片段补充（核心合规：不再写入完整歌词，仅保留 1-2 句引用片段 + 关键词）
+    #    安全审查要求：完整歌词（songs_meta.lyrics 全文 + fetch_lyrics 抓取）是版权高危。
+    #    本生成器改为：只存 lyric_frags（多段短引用片段，来自 tavern/lyrics_fragments.json 的合理引文）
+    #    + lyric_tags（关键词）；不存连续歌词全文。
     for name, node in lyrics.items():
         if name == "_meta":
             continue
         n = norm(name)
         if n not in meta:
             meta[n] = {"name": name, "attr": None, "release": "-", "latest": None,
-                       "mean30": None, "peak": None, "lyrics": [], "album": None,
+                       "mean30": None, "peak": None, "lyric_frags": [], "album": None,
                        "show_count": 0, "cities": [], "live": [], "mid": None}
-        for f in node.get("fragments", []):
-            meta[n]["lyrics"].append({"text": f.get("text", ""), "moods": f.get("moods", [])})
+        frags = node.get("fragments", [])
+        # 只保留合理引用片段（不拼接成完整歌词）
+        meta[n]["lyric_frags"] = [{"text": f.get("text", ""), "moods": f.get("moods", [])}
+                                  for f in frags if len(f.get("text", "")) <= 80]
+        # 关键词标签（从片段摘要提取，避免存连续全文）
+        _tags = []
+        for f in frags[:4]:
+            for _w in re.findall(r"[A-Za-z\u4e00-\u9fff]{2,}", f.get("text", "")):
+                _w = _w.lower()
+                if _w not in _tags:
+                    _tags.append(_w)
+        meta[n]["lyric_tags"] = _tags[:6]
+        # 定位句（首段片段，≤60字，合理引用）
+        if frags:
+            meta[n]["lyric_snippet"] = frags[0].get("text", "")[:60]
 
-    # 3. 歌词只增不减：旧 songs_meta.json 中已有的歌词（含 fetch_lyrics.py 补全的）不被覆盖
-    if OUT.exists():
-        try:
-            old = json.loads(OUT.read_text(encoding="utf-8")).get("songs", {})
-            for k, v in old.items():
-                if k in meta and v.get("lyrics") and not meta[k].get("lyrics"):
-                    meta[k]["lyrics"] = v["lyrics"]
-        except Exception:
-            pass
+    # (原第3步「歌词只增不减从旧 songs_meta 保留完整歌词」已删除——正是它把 fetch_lyrics
+    #   抓取的完整歌词回流进 songs_meta，是版权高危源头。合规要求不再保留完整歌词。)
 
     # 3.5 小酒馆音频条目合并（tavern_audio.json）：防止重跑后营业预告等条目丢失
     tavern_path = ROOT / "data" / "tavern_audio.json"
@@ -104,7 +114,7 @@ def main() -> None:
                     meta[n]["attr"] = meta[n].get("attr") or "小酒馆音频"
                 else:
                     meta[n] = {"name": nm, "attr": "小酒馆音频", "release": "-", "latest": None,
-                               "mean30": None, "peak": None, "lyrics": [], "album": "日木斤深夜小酒馆",
+                               "mean30": None, "peak": None, "lyric_frags": [], "album": "日木斤深夜小酒馆",
                                "show_count": 0, "cities": [], "live": [],
                                "mid": ("L:" + it["mid"]) if it.get("mid") else None}
         except Exception:
@@ -133,11 +143,11 @@ def main() -> None:
     }
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    with_lyrics = sum(1 for v in out.values() if v["lyrics"])
+    with_lyrics = sum(1 for v in out.values() if v.get("lyric_frags") or v.get("lyric_tags"))
     with_album = sum(1 for v in out.values() if v["album"])
     with_shows = sum(1 for v in out.values() if v.get("live"))
     print(f"[OK] 已生成 -> {OUT}")
-    print(f"  歌曲: {len(out)} | 有歌词: {with_lyrics} | 有专辑: {with_album} | 有演唱记录: {with_shows}")
+    print(f"  歌曲: {len(out)} | 有歌词片段/标签: {with_lyrics} | 有专辑: {with_album} | 有演唱记录: {with_shows}")
 
 
 if __name__ == "__main__":
