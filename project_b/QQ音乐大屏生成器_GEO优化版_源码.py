@@ -2617,7 +2617,7 @@ __GEO_SUMMARY__
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 TOP15 · 含🆕新上榜</div>
+    <div class="daily-trend-header">今日收听份额 TOP20 · 含🆕新上榜</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
   </div>
