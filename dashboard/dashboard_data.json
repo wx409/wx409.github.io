@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20 18:25",
+  "timestamp": "2026-08-20 18:39",
   "total": 200096,
   "success": 36496,
   "complete_rate": 18.2,
@@ -110302,13 +110302,13 @@
       }
     ],
     "total_events": 38,
-    "analysis_html": "按场馆类型聚合数据显示，音乐剧辐射带动均值最高（2.2%），13场有效样本表明其跨圈层溢出效应最为稳定；音乐节（5.8%）虽数值更高但仅2场，样本不足仅供参考。精准转化方面，“其他”类型歌单内变化均值高达255.8%，而辐射带动仅-1.9%，转化聚焦效应极强，但同样因样本仅3场需谨慎解读；晚会歌单内均值34.1%也明显高于辐射（2.4%）。剧院平均表现中歌单内（-1.3%）优于辐射（-5.0%），但品牌效应场次中剧院占多数，表明效应分化显著；演唱会（-10.4%）因仅2场样本不足仅供参考。建议演出方：音乐剧场景可强化辐射带动，策划跨城联动；晚会和“其他”场合宜打磨歌单内容，提升精准转化；剧院演出应分析具体场次特征，区分品牌辐射型与歌单转化型，制定差异化宣发策略。",
+    "analysis_html": "数据显示，不同场馆类型的辐射与转化效能分化显著。音乐节（n=2）平均辐射带动5.8%，溢出效应最强，但样本不足仅供参考；晚会（n=5）辐射带动2.4%且歌单内变化34.1%，兼顾辐射与转化；音乐剧（n=13）辐射带动2.2%，整体稳定。精准转化方面，“其他”类平均歌单内变化255.8%（n=3），但受极端值影响大；晚会次之（34.1%）。剧院（n=13）三项指标均为负（总变化-10.0%、歌单内-1.3%、辐射-5.0%），但品牌效应场次多发生在剧院，说明特定场次具有相对韧性。演唱会（n=2）辐射-10.4%，表现较弱，样本不足仅供参考。建议：演出方若以破圈为目标，优先选择音乐节、晚会或音乐剧场景；若以强化粉丝歌单粘性为目标，可聚焦晚会及“其他”类活动，并针对剧院场景优化歌单结构。",
     "key_findings": [
-      "音乐剧场馆辐射带动均值最高（2.2%），且有效样本13场，溢出效应最稳定；音乐节（5.8%）更高但仅2场，仅供参考。",
-      "“其他”场馆精准转化最强（歌单内均值255.8%），远超辐射带动（-1.9%），但样本仅3场；晚会歌单内均值34.1%也显示较强转化。",
-      "剧院品牌效应与精准转化并存：平均歌单内（-1.3%）高于辐射（-5.0%），但品牌效应场次中剧院占主要，需分场策略。"
+      "音乐节辐射带动最强（5.8%），但仅2场样本，仅供参考；晚会（2.4%）和音乐剧（2.2%）为稳定正向溢出场景。",
+      "“其他”类场次平均歌单内变化高达255.8%，精准转化最突出，但受单场异常值影响大；晚会以34.1%居次。",
+      "剧院类整体效能为负，但品牌效应场次集中于此，提示特定场次（如生日特典）仍可挖掘品牌资产价值。"
     ],
-    "generated_at": "2026-08-20 18:16:25"
+    "generated_at": "2026-08-20 18:26:14"
   },
   "batch_count": 906,
   "date_range": "2023-01-01 ~ 2026-08-20",
@@ -125781,7 +125781,7 @@
         52.4,
         44.9,
         49.0,
-        56.0,
+        54.5,
         36.4,
         40.3,
         38.0,
@@ -126125,8 +126125,8 @@
       "在路上"
     ],
     "values": [
-      146.2,
-      134.4
+      145.8,
+      133.4
     ],
     "spring": [
       false,
@@ -132436,7 +132436,7 @@
   "daily_listen_overview": {
     "active_count": 18,
     "total_tracked": 325,
-    "concentration_top3": 61.1,
+    "concentration_top3": 62.0,
     "as_of": "2026-08-20",
     "too_small": false
   },
@@ -132444,84 +132444,84 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 49.3,
-      "trend_pct": 127.5,
+      "share_pct": 50.2,
+      "trend_pct": 119.8,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "在路上",
-      "share_pct": 6.7,
-      "trend_pct": 103.6,
+      "share_pct": 6.5,
+      "trend_pct": 87.3,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "一生中最爱",
-      "share_pct": 5.1,
-      "trend_pct": 120.5,
+      "song": "月弯弯",
+      "share_pct": 5.3,
+      "trend_pct": 189.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "月弯弯",
-      "share_pct": 4.8,
-      "trend_pct": 179.3,
+      "song": "山楂树",
+      "share_pct": 5.2,
+      "trend_pct": 112.8,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 4.8,
-      "trend_pct": 105.1,
+      "song": "一生中最爱",
+      "share_pct": 5.2,
+      "trend_pct": 112.8,
       "trend_label": "up"
     },
     {
       "rank": 6,
       "song": "再叙",
-      "share_pct": 4.7,
-      "trend_pct": 163.3,
+      "share_pct": 4.6,
+      "trend_pct": 146.7,
       "trend_label": "up"
     },
     {
       "rank": 7,
       "song": "Sound of Silence",
-      "share_pct": 3.9,
-      "trend_pct": 230.0,
+      "share_pct": 3.6,
+      "trend_pct": 190.0,
       "trend_label": "up"
     },
     {
       "rank": 8,
       "song": "她真漂亮",
-      "share_pct": 3.3,
-      "trend_pct": 89.7,
+      "share_pct": 3.1,
+      "trend_pct": 69.0,
       "trend_label": "up"
     },
     {
       "rank": 9,
       "song": "神魂颠倒",
-      "share_pct": 3.2,
-      "trend_pct": 350.0,
+      "share_pct": 2.9,
+      "trend_pct": 283.3,
       "trend_label": "up"
     },
     {
       "rank": 10,
-      "song": "亲密爱人",
-      "share_pct": 2.6,
-      "trend_pct": 152.9,
+      "song": "南屏晚钟",
+      "share_pct": 2.0,
+      "trend_pct": 88.2,
       "trend_label": "up"
     },
     {
       "rank": 11,
-      "song": "谁",
-      "share_pct": 2.0,
-      "trend_pct": 36.0,
+      "song": "亲密爱人",
+      "share_pct": 1.9,
+      "trend_pct": 82.4,
       "trend_label": "up"
     },
     {
       "rank": 12,
       "song": "晚风暖暖",
-      "share_pct": 1.8,
+      "share_pct": 1.9,
       "trend_pct": 500.0,
       "trend_label": "up"
     },
@@ -132529,47 +132529,47 @@
       "rank": 13,
       "song": "相思",
       "share_pct": 1.6,
-      "trend_pct": 200.0,
+      "trend_pct": 188.9,
       "trend_label": "up"
     },
     {
       "rank": 14,
-      "song": "南屏晚钟",
+      "song": "谁",
       "share_pct": 1.5,
-      "trend_pct": 52.9,
-      "trend_label": "up"
+      "trend_pct": -4.0,
+      "trend_label": "flat"
     },
     {
       "rank": 15,
-      "song": "荒人之歌",
-      "share_pct": 1.4,
+      "song": "一生守候",
+      "share_pct": 1.5,
       "trend_pct": 118.2,
       "trend_label": "up"
     },
     {
       "rank": 16,
-      "song": "一生守候",
+      "song": "荒人之歌",
       "share_pct": 1.4,
-      "trend_pct": 109.1,
+      "trend_pct": 100.0,
       "trend_label": "up"
     },
     {
       "rank": 17,
       "song": "Over the Rainbow",
-      "share_pct": 1.1,
+      "share_pct": 0.9,
       "trend_pct": null,
       "trend_label": "new"
     },
     {
       "rank": 18,
       "song": "往前",
-      "share_pct": 0.8,
+      "share_pct": 0.6,
       "trend_pct": null,
       "trend_label": "new"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-08-20 18:25",
+  "last_update": "2026-08-20 18:39",
   "today_batches": 906,
   "daily_new_records": 0,
   "recent_7days": [
@@ -132631,13 +132631,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1802,
-      "success": 1802,
+      "total": 1803,
+      "success": 1803,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 500898,
+      "before": 501150,
       "after": 200096
     },
     "index_calibration": {
