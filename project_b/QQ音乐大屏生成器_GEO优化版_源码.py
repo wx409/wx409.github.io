@@ -1711,41 +1711,59 @@ def _city_of(scene):
 
 
 def _city_of_name(scene):
-    """从场次名提取城市：'演出名·城市' 取·后部分；'城市' 直接返回。供 tour_song_effects 的 city 字段。"""
+    """从场次名提取城市。
+    两种格式：
+      - 演出活动表 '演出名·城市'（如"翻浪四季歌会·三亚"）→ 取·后城市
+      - 巡演长表 '城市（备注）'（如"武汉（收官·中秋前）"，备注里可能含·）→ 取括号前城市
+    nan/none/空 返回空串。"""
     if not scene:
         return ""
     s = str(scene).strip()
+    if s.lower() in ("", "nan", "none", "null", "-"):
+        return ""
     if "·" in s:
-        # 演出活动表格式：演出名·城市 → 取城市
-        tail = s.split("·")[-1].strip()
-        tail = re.split(r"[（(]", tail)[0].strip()
-        return tail
-    # 巡演长表格式：scene 即城市名（含括号如"杭州（首场）"），取括号前
+        parts = s.split("·")
+        tail = parts[-1].strip()
+        # 若·右半含括号（如"中秋前）"），说明·在「备注」里，城市在括号前
+        if any(k in tail for k in ("（", "(", "）", ")")):
+            return re.split(r"[（(]", s)[0].strip()
+        # ·右半是纯城市
+        t2 = tail
+        if t2.lower() in ("nan", "none", "null", "-"):
+            return ""
+        return t2
     return re.split(r"[（(]", s)[0].strip()
 
 
 def content_type_of(tour, scene):
-    """推断内容形态（按演出性质分5类）：个人巡回 / 主题音乐会 / 晚会 / 音乐节 / 政府活动 / 其他。
-    政府活动单独成组（如百城千站文旅启动仪式）。tour=巡演名或演出名，scene=场次名（含·城市）。"""
+    """推断内容形态（按演出性质分类，命名经联网信源校准）：
+    个人巡回 / 歌舞剧·音乐剧 / 拼盘演唱会 / 综艺 / 晚会 / 音乐节 / 政府活动 / 签唱会 / 其他。
+    政府活动单独成组。tour=巡演名或演出名，scene=场次名（含·城市）。"""
     t = (tour or "") + (scene or "")
     # 政府活动优先（文旅/政府主导）
     if any(k in t for k in ["百城千站", "文旅", "政府", "启动仪式", "发改委", "国务院", "省文旅", "市文旅"]):
         return "政府活动"
-    # 个人巡回：个人品牌巡演
+    # 个人巡回：个人品牌巡演（一~六巡）
     if "巡回音乐会" in t or "个人巡回" in t:
         return "个人巡回"
-    # 主题音乐会/IP主题演出
-    if any(k in t for k in ["歌谣", "可克达拉", "主题音乐会", "致敬", "音乐会"]):
-        return "主题音乐会"
+    # 歌舞剧/音乐剧（草原之夜—可克达拉是东方演艺集团歌舞剧；有故事的歌音乐剧全明星）
+    if any(k in t for k in ["歌谣", "可克达拉", "音乐剧", "歌舞剧"]):
+        return "歌舞剧·音乐剧"
+    # 综艺（CCTV-3 你好时光这类棚内节目，无固定演出地）
+    if any(k in t for k in ["你好时光", "再见音乐会"]):
+        return "综艺"
     # 音乐节
     if "音乐节" in t:
         return "音乐节"
-    # 晚会/颁奖/综艺
-    if any(k in t for k in ["歌会", "晚会", "盛典", "颁奖", "榜", "春晚", "芒果夜", "影视之夜", "综艺", "再见音乐会", "奇妙游"]):
+    # 晚会/颁奖
+    if any(k in t for k in ["歌会", "晚会", "盛典", "颁奖", "榜", "春晚", "芒果夜", "影视之夜"]):
         return "晚会"
-    # 演唱会
-    if "演唱会" in t:
-        return "演唱会"
+    # 拼盘演唱会（家族演唱会、听海而歌等多人拼盘；王晰目前无个人演唱会）
+    if "演唱会" in t or "家族" in t:
+        return "拼盘演唱会"
+    # 签唱会
+    if "签唱会" in t:
+        return "签唱会"
     return "其他"
 
 
