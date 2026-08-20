@@ -2170,7 +2170,7 @@ __GEO_SUMMARY__
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 80% · 含🆕新上榜</div>
+    <div class="daily-trend-header">今日收听份额 TOP15 · 含🆕新上榜</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
   </div>
@@ -2529,14 +2529,15 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       '<span class="pulse-badge ' + badgeCls + '">' + badgeTxt + '</span>';
     list.appendChild(div);
   });
-  // ===== 新上榜并入主份额列表：80% 内已在 trend 中（badge 已标🆕），占比在 80% 之外的追加到末尾 =====
+  // ===== 新上榜完整并入主份额列表 =====
+  // 已在 TOP15 主列表里的新上榜（badge 已标🆕）不重复追加；未进主列表的新上榜追加到末尾，一条不少。
   var nt = dashboardData.daily_new_today || [];
   // trend 中已出现的歌名集合（防止重复追加）
   var trendSongs = {};
   trend.forEach(function(titem){ trendSongs[titem.song] = true; });
-  // 追加份额未进入主列表（80%之外）的新上榜歌曲
+  // 追加未进入主列表（TOP15 之外）的新上榜歌曲 -> 完整显示
   nt.forEach(function(it){
-    if (it.in_trend || trendSongs[it.song]) return;  // 已在 80% 主列表，跳过
+    if (trendSongs[it.song]) return;  // 已在主列表，跳过
     var div = document.createElement('div');
     div.className = 'trend-item';
     div.innerHTML = '<span class="trend-rank">🆕</span>' +
