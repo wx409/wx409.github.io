@@ -1455,18 +1455,32 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
         })
 
     # 昨日无指数、今日出现指数的歌曲（首次活跃/恢复活跃，不限于 TopN）
+    # 过滤规则：仅保留能解析出真实歌名的（排除回退显示纯数字 uid 的无名边缘记录），并按歌名去重。
+    import re as _re
+    _numeric = _re.compile(r"^\d+$").match
     trend_uids = {t["song"] for t in trend}
     new_today = []
+    seen_song = set()
     for uid, r in active.sort_values("peak", ascending=False).iterrows():
         prev = y_peak.get(uid)
         if prev is None or pd.isna(prev) or prev <= 0:
             song = str(uid2disp.get(uid, uid))
+            # 解析不出真实歌名（回退为纯数字 uid / 空）→ 无名边缘记录，丢弃
+            if not song or _numeric(song) or song == str(uid):
+                continue
+            if song in seen_song:  # 同歌多 uid 去重
+                continue
+            seen_song.add(song)
             new_today.append({
                 "song": song,
                 "share_pct": round(float(r["peak"]) / total_peak * 100, 1),
-                "in_trend": song in trend_uids,  # 是否已在 80% 主列表（TOP）中
+                "in_trend": song in trend_uids,  # 是否已在主列表（TOP)中
             })
     new_today = new_today[:20]
+    # [诊断] rebuild 时输出过滤结果，便于核对新上榜歌名解析
+    import sys as _sys
+    if "--rebuild" in _sys.argv:
+        print(f"[DEBUG new_today] {len(new_today)} 首 -> " + "、".join(f"{x['song']}({x['share_pct']}%)" for x in new_today), flush=True)
 
     too_small = int(len(active)) < min_display
     return {
