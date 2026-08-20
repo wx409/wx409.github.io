@@ -2853,57 +2853,34 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
 })();
-// ===== 演出辐射效能分析：渲染分析文本 + 按场馆聚合 + Top10 =====
+// ===== 演出辐射效能与衰减形态分析（V2：直接渲染 LLM 生成的 HTML，省前端逻辑）=====
 (function(){
   var ra = dashboardData.radiation_analysis;
-  var insight = document.getElementById('radiationInsight');
-  var findings = document.getElementById('radiationKeyFindings');
-  var aggBox = document.getElementById('radiationAgg');
-  var top10Box = document.getElementById('radiationTop10');
+  var summary = document.getElementById('radiationSummary');
+  var morph = document.getElementById('radiationMorphology');
+  var pattern = document.getElementById('radiationPattern');
+  var decay = document.getElementById('radiationDecay');
+  var top10 = document.getElementById('radiationTop10');
+  var notes = document.getElementById('radiationNotes');
   var ais = document.getElementById('ai-radiation');
   if (!ra) {
-    if (insight) insight.textContent = '暂无辐射效能分析数据';
+    if (summary) summary.textContent = '暂无辐射效能分析数据';
     return;
   }
-  function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
-  function cls(v){ return v>0?'tse-up':(v<0?'tse-down':'tse-flat'); }
-  // 1) 分析文本（LLM 措辞）
-  if (insight) insight.innerHTML = ra.analysis_html ? ra.analysis_html.replace(/\n/g,'<br>') : '（分析生成中）';
-  // 2) 关键发现
-  if (findings && ra.key_findings && ra.key_findings.length) {
-    findings.innerHTML = ra.key_findings.map(function(k){ return '<div>• '+k+'</div>'; }).join('');
-  }
-  // 3) 按场馆类型聚合表
-  if (aggBox && ra.aggregation) {
-    var agg = ra.aggregation;
-    var order = ['剧院','音乐节','晚会','演唱会','音乐剧','其他'];
-    var h = '<table class="event-ranking"><tr><th>场馆类型</th><th>场次</th><th>平均全站</th><th>平均歌单内</th><th>平均辐射带动</th></tr>';
-    order.forEach(function(vt){
-      var g = agg[vt];
-      if (!g) return;
-      var note = (g.n < 3) ? '<span style="color:#8c959f;font-size:11px;">（样本不足）</span>' : '';
-      h += '<tr><td>'+vt+'</td><td>'+g.n+'</td>'+
-           '<td class="'+cls(g.avg_total||0)+'">'+fmt(g.avg_total)+'</td>'+
-           '<td class="'+cls(g.avg_setlist||0)+'">'+fmt(g.avg_setlist)+'</td>'+
-           '<td class="'+cls(g.avg_radiance||0)+'">'+fmt(g.avg_radiance)+'</td></tr>';
-    });
-    h += '</table>';
-    aggBox.innerHTML = h;
-  }
-  // 4) Top10 排名表
-  if (top10Box && ra.top10 && ra.top10.length) {
-    var h = '<table class="event-ranking"><tr><th>日期</th><th>城市</th><th>类型</th><th>辐射带动</th><th>歌单内</th><th>溢出比</th></tr>';
-    ra.top10.forEach(function(e){
-      var spill = (typeof e.spill_ratio==='number') ? e.spill_ratio.toFixed(1)+'×' : (e.spill_ratio||'—');
-      h += '<tr><td>'+(e.date||'')+'</td><td>'+(e.city||'')+'</td><td>'+(e.venue_type||'')+'</td>'+
-           '<td class="'+cls(e.radiance_uplift||0)+'">'+fmt(e.radiance_uplift)+'</td>'+
-           '<td class="'+cls(e.setlist_uplift||0)+'">'+fmt(e.setlist_uplift)+'</td>'+
-           '<td>'+spill+'</td></tr>';
-    });
-    h += '</table>';
-    top10Box.innerHTML = h;
-  }
-  if (ais) ais.textContent = '演出辐射效能分析：共'+(ra.total_events||0)+'场演出，按场馆类型聚合三口径。';
+  if (summary) summary.innerHTML = ra.summary_html || '<p>（分析生成中…）</p>';
+  if (morph) morph.innerHTML = ra.morphology_table_html || '<p style="color:#8c959f">暂无形态聚合表</p>';
+  if (pattern) pattern.innerHTML = ra.pattern_distribution_html || '';
+  if (decay) decay.innerHTML = ra.decay_table_html || '<p style="color:#8c959f">暂无衰减表</p>';
+  if (top10) top10.innerHTML = ra.top10_table_html || '<p style="color:#8c959f">暂无 Top10</p>';
+  var extras = [];
+  if (ra.key_findings && ra.key_findings.length)
+    extras.push('<div><b style="color:#00d2ff">关键发现</b>：' + ra.key_findings.map(function(k){return '• '+k;}).join(' ') + '</div>');
+  if (ra.strategic_notes && ra.strategic_notes.length)
+    extras.push('<div><b style="color:#00d2ff">给演出方</b>：' + ra.strategic_notes.join('；') + '</div>');
+  if (ra.data_quality_note)
+    extras.push('<div style="color:#8c959f">' + ra.data_quality_note + '</div>');
+  if (notes) notes.innerHTML = extras.join('<br>');
+  if (ais) ais.textContent = '演出辐射效能与衰减形态分析：共'+(ra.total_events||0)+'场，'+(ra.decay_count||0)+'场含逐日衰减数据，已按内容形态聚合。';
 })();
 </script>
 <script>

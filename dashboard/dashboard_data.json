@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21 06:42",
+  "timestamp": "2026-08-21 07:12",
   "total": 200096,
   "success": 36518,
   "complete_rate": 18.3,
@@ -9,7 +9,7 @@
   "active_songs": 206,
   "link_uids": 253,
   "name_uids": 72,
-  "tracked_links": 382,
+  "tracked_links": 253,
   "time_labels": [
     "2023-01",
     "2023-02",
@@ -131,30 +131,30 @@
     252
   ],
   "listener_ratio_trend": [
-    4.1,
-    7.6,
-    8.3,
-    11.4,
-    0.9,
-    5.4,
-    18.7,
-    17.0,
-    18.4,
-    13.9,
-    8.9,
-    8.8,
-    8.1,
-    6.8,
-    5.4,
-    4.4,
-    4.6,
-    4.3,
-    3.6,
-    3.2,
-    2.9,
-    3.0,
-    8.2,
-    23.8
+    4.5,
+    8.0,
+    10.1,
+    14.2,
+    0.6,
+    5.0,
+    16.1,
+    16.7,
+    16.6,
+    14.2,
+    9.4,
+    13.3,
+    13.3,
+    8.6,
+    3.4,
+    3.1,
+    2.6,
+    2.4,
+    2.0,
+    2.0,
+    1.9,
+    1.6,
+    22.4,
+    87.8
   ],
   "listener_labels": [
     "2024-08",
@@ -111505,23 +111505,23 @@
     ],
     "total_events": 38,
     "decay_count": 38,
-    "summary_html": "<div class='dashboard-insight'><h3>演出辐射效能与衰减形态分析</h3><p>整体来看，各内容形态中，“晚会”的溢出带动与歌单转化表现最为突出：中位辐射带动1.5%、中位歌单内提升34.1%，在同类型样本中均居首，是“稳溢出+强转化”的双优形态；“主题音乐会”中位辐射及歌单内均为正值，但辐射强度弱于晚会；“个人巡回”中位歌单内为-11.6%，全站中位-6.7%，表明其传播效能明显偏弱，或与场次主题分散、曲目热度不足有关。衰减曲线上，各主流形态以“缓释型”为主（晚会80%、个人巡回76.9%、主题音乐会71.4%），平均半衰期仅1天左右，总时长8-10天，热度回落较快，但个别场次出现异常峰值（如个巡峰值达93.0%和155.4%），说明存在点状爆发机会。效应模式上，除主题音乐会外，其余形态近九成以上为“单点触发型”，辐射多依赖单一场次的话题引爆，缺乏跨场联动。建议演出方：1）优先增加晚会及主题音乐会排期，强化歌单内互动设计；2）针对个人巡回优化曲目与宣传，改善全站负向指标；3）抓住演出后24小时峰值期，集中释放视频物料以延长传播半衰期。</p></div>",
-    "morphology_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均全站</td><td>中位全站</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody><tr><td>个人巡回</td><td>13</td><td>-10.0%</td><td>-6.7%</td><td>-1.3%</td><td>-11.6%</td><td>-5.0%</td><td>-6.6%</td></tr><tr><td>主题音乐会</td><td>14</td><td>-1.1%</td><td>0.1%</td><td>3.3%</td><td>3.3%</td><td>0.7%</td><td>-0.3%</td></tr><tr><td>晚会</td><td>5</td><td>-5.1%</td><td>1.8%</td><td>34.1%</td><td>34.1%</td><td>2.4%</td><td>1.5%</td></tr><tr><td>音乐节</td><td>2</td><td>样本不足</td><td>样本不足</td><td></td><td></td><td>样本不足</td><td>样本不足</td></tr><tr><td>演唱会</td><td>2</td><td>样本不足</td><td>样本不足</td><td></td><td></td><td>样本不足</td><td>样本不足</td></tr><tr><td>其他</td><td>1</td><td>样本不足</td><td>样本不足</td><td></td><td></td><td>样本不足</td><td>样本不足</td></tr></tbody></table>",
-    "pattern_distribution_html": "<div class='dashboard-insight'><h4>效应模式分布</h4><table class='event-ranking'><thead><tr><td>形态</td><td>精准型</td><td>扩散型</td><td>均衡型</td><td>无效型</td><td>单点触发型</td></tr></thead><tbody><tr><td>晚会</td><td></td><td></td><td></td><td>20.0%</td><td>80.0%</td></tr><tr><td>个人巡回</td><td>15.4%</td><td></td><td>15.4%</td><td>69.2%</td><td></td></tr><tr><td>演唱会</td><td></td><td></td><td></td><td></td><td>100.0%</td></tr><tr><td>政府活动</td><td>100.0%</td><td></td><td></td><td></td><td></td></tr><tr><td>其他</td><td></td><td></td><td></td><td></td><td>100.0%</td></tr><tr><td>音乐节</td><td></td><td></td><td></td><td></td><td>100.0%</td></tr><tr><td>主题音乐会</td><td></td><td>7.1%</td><td></td><td></td><td>92.9%</td></tr></tbody></table></div>",
-    "decay_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均峰值</td><td>平均持续时间(天)</td><td>平均半衰期(天)</td><td>形状分布</td></tr></thead><tbody><tr><td>晚会</td><td>5</td><td>8.7%</td><td>8.8</td><td>1.0</td><td>缓释型80.0% / 脉冲型20.0%</td></tr><tr><td>个人巡回</td><td>13</td><td>29.9%</td><td>10.2</td><td>1.1</td><td>缓释型76.9% / 短促型7.7% / 脉冲型15.4%</td></tr><tr><td>演唱会</td><td>2</td><td>1.2%</td><td>1.0</td><td>1.0</td><td>脉冲型100.0%</td></tr><tr><td>其他</td><td>1</td><td colspan='4'>样本不足</td></tr><tr><td>音乐节</td><td>2</td><td>4.5%</td><td>7.5</td><td>1.5</td><td>缓释型50.0% / 脉冲型50.0%</td></tr><tr><td>主题音乐会</td><td>14</td><td>14.4%</td><td>10.6</td><td>1.4</td><td>缓释型71.4% / 短促型28.6%</td></tr></tbody></table>",
-    "top10_table_html": "<table class='event-ranking'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody><tr><td>2026-08-16</td><td>乌鲁木齐</td><td>主题音乐会</td><td>18.9%</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-15</td><td>乌鲁木齐</td><td>主题音乐会</td><td>16.9%</td><td></td><td></td><td>无</td></tr><tr><td>2025-04-12</td><td>杭州</td><td>音乐节</td><td>12.8%</td><td></td><td></td><td>无</td></tr><tr><td>2026-04-10</td><td>生日特典）</td><td>个人巡回</td><td>10.5%</td><td>27.0%</td><td>0.4</td><td>有</td></tr><tr><td>2026-01-17</td><td>北京</td><td>主题音乐会</td><td>8.0%</td><td></td><td></td><td>无</td></tr><tr><td>2025-04-09</td><td>上海</td><td>其他</td><td>6.1%</td><td></td><td></td><td>无</td></tr><tr><td>2026-01-18</td><td>北京</td><td>主题音乐会</td><td>5.7%</td><td></td><td></td><td>无</td></tr><tr><td>2025-10-29</td><td>北京</td><td>晚会</td><td>5.5%</td><td>34.1%</td><td>0.2</td><td>有</td></tr><tr><td>2023-12-17</td><td>北京</td><td>晚会</td><td>4.5%</td><td></td><td></td><td>无</td></tr><tr><td>2025-09-26</td><td>深圳</td><td>主题音乐会</td><td>2.5%</td><td></td><td></td><td>无</td></tr></tbody></table>",
+    "summary_html": "<div class='dashboard-insight'><h3>演出辐射效能与衰减形态分析</h3><p>分析显示，晚会形态在辐射带动和歌单内转化上均表现突出：其中位辐射带动1.5%，是样本≥3形态中唯一正值；中位歌单内高达34.1%，精准转化最强。主题音乐会次之（中位辐射-0.3%，中位歌单内3.3%）。个人巡回虽样本较多，但整体带动为负（全站中位-6.7%），且69.2%为无效型。衰减形态上，缓释型占主导（晚会80%、个人巡回76.9%），说明演出后影响力可持续；演唱会全为脉冲型，需警惕快速消退。建议：①增加晚会及主题音乐会排期，发挥其精准转化与正向辐射；②优化个人巡回的歌单与传播策略，扭转负带动；③对演唱会等脉冲型活动，加强事前预热与事后沉淀，延长影响力。</p></div>",
+    "morphology_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均全站</td><td>中位全站</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody><tr><td>个人巡回</td><td>13</td><td>-10.0</td><td>-6.7</td><td>-1.3</td><td>-11.6</td><td>-5.0</td><td>-6.6</td></tr><tr><td>主题音乐会</td><td>14</td><td>-1.1</td><td>0.1</td><td>3.3</td><td>3.3</td><td>0.7</td><td>-0.3</td></tr><tr><td>晚会</td><td>5</td><td>-5.1</td><td>1.8</td><td>34.1</td><td>34.1</td><td>2.4</td><td>1.5</td></tr><tr><td>音乐节*</td><td>2</td><td>-0.4</td><td>-0.4</td><td></td><td></td><td>5.8</td><td>5.8</td></tr><tr><td>演唱会*</td><td>2</td><td>-10.4</td><td>-10.4</td><td></td><td></td><td>-10.4</td><td>-10.4</td></tr><tr><td>其他*</td><td>1</td><td>-0.9</td><td>-0.9</td><td></td><td></td><td>6.1</td><td>6.1</td></tr></tbody></table><p class='note'>*样本不足3场，均值仅供参考</p>",
+    "pattern_distribution_html": "<div class='dashboard-insight'><h4>效应模式分布</h4><p>个人巡回：均衡型15.4%，无效型69.2%，精准型15.4%</p><p>主题音乐会：扩散型7.1%，单点触发型92.9%</p><p>晚会：单点触发型80.0%，无效型20.0%</p><p>音乐节：单点触发型100.0%</p><p>演唱会：单点触发型100.0%</p><p>其他：单点触发型100.0%</p><p>政府活动：精准型100.0%</p></div>",
+    "decay_table_html": "<table class='event-ranking'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>峰值</td><td>同形态均值</td></tr></thead><tbody><tr><td>2023-02-25</td><td>三亚</td><td>晚会</td><td>21.9</td><td>8.7</td></tr><tr><td>2023-12-17</td><td>北京</td><td>晚会</td><td>-9.5</td><td>8.7</td></tr><tr><td>2026-06-20</td><td>北京</td><td>晚会</td><td>23.0</td><td>8.7</td></tr><tr><td>2023-05-03</td><td>昆明</td><td>个人巡回</td><td>93.0</td><td>29.9</td></tr><tr><td>2025-05-24</td><td>广州</td><td>个人巡回</td><td>155.4</td><td>29.9</td></tr><tr><td>2026-01-17</td><td>北京</td><td>主题音乐会</td><td>3.3</td><td>14.4</td></tr><tr><td>2026-01-18</td><td>北京</td><td>主题音乐会</td><td>3.3</td><td>14.4</td></tr><tr><td>2026-08-04</td><td>伊宁</td><td>主题音乐会</td><td>27.1</td><td>14.4</td></tr><tr><td>2026-08-06</td><td>乌鲁木齐</td><td>主题音乐会</td><td>32.1</td><td>14.4</td></tr><tr><td>2026-08-07</td><td>乌鲁木齐</td><td>主题音乐会</td><td>37.6</td><td>14.4</td></tr></tbody></table>",
+    "top10_table_html": "<table class='event-ranking'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody><tr><td>2026-08-16</td><td>乌鲁木齐</td><td>主题音乐会</td><td>18.9</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-15</td><td>乌鲁木齐</td><td>主题音乐会</td><td>16.9</td><td></td><td></td><td>无</td></tr><tr><td>2025-04-12</td><td>杭州</td><td>音乐节</td><td>12.8</td><td></td><td></td><td>无</td></tr><tr><td>2026-04-10</td><td>生日特典）</td><td>个人巡回</td><td>10.5</td><td>27.0</td><td>0.4</td><td>有</td></tr><tr><td>2026-01-17</td><td>北京</td><td>主题音乐会</td><td>8.0</td><td></td><td></td><td>无</td></tr><tr><td>2025-04-09</td><td>上海</td><td>其他</td><td>6.1</td><td></td><td></td><td>无</td></tr><tr><td>2026-01-18</td><td>北京</td><td>主题音乐会</td><td>5.7</td><td></td><td></td><td>无</td></tr><tr><td>2025-10-29</td><td>北京</td><td>晚会</td><td>5.5</td><td>34.1</td><td>0.2</td><td>有</td></tr><tr><td>2023-12-17</td><td>北京</td><td>晚会</td><td>4.5</td><td></td><td></td><td>无</td></tr><tr><td>2025-09-26</td><td>深圳</td><td>主题音乐会</td><td>2.5</td><td></td><td></td><td>无</td></tr></tbody></table>",
     "key_findings": [
-      "晚会类演出辐射稳定且歌单转化最高，中位辐射1.5%、中位歌单内34.1%。",
-      "多数形态衰减呈缓释型，平均半衰期仅1天，热度回落快；但个人巡回存在异常峰值场次（如155.4%）。",
-      "单点触发型主导效应分布，跨场次联动弱，仅主题音乐会出现少量扩散型（7.1%）。"
+      "晚会形态在歌单内转化上表现最佳，中位数达34.1%，精准转化效能领先；辐射带动中位数1.5%，是样本≥3形态中唯一正值，溢出稳定。",
+      "个人巡回虽场次最多，但整体带动为负（全站中位数-6.7%），且69.2%场次为无效型，表现亟待改善。",
+      "衰减形态以缓释型为主导（晚会80%、个人巡回76.9%），影响可持续；演唱会则全部为脉冲型，需警惕快速消退。"
     ],
     "strategic_notes": [
-      "优先增加晚会与主题音乐会场次，利用其稳定辐射带动歌单转化。",
-      "个人巡回需优化全站宣传与歌单设计，扭转中位负值局面。",
-      "演出后24小时内释放现场精华物料，制造二次传播窗口。"
+      "增加晚会和主题音乐会排期，发挥其精准转化与正向辐射优势。",
+      "优化个人巡回的歌单与传播节奏，扭转负辐射带动，提升有效转化。",
+      "对演唱会等脉冲型活动，加强事前预热与事后内容沉淀，延长影响力周期。"
     ],
-    "data_quality_note": "本简报基于37场常规演出（另1场政府活动单独列示，不参与均值）；音乐节（2场）、演唱会（2场）、其他（1场）样本量不足，相关均值以“样本不足”标注；全部37场均含逐日衰减数据。",
-    "generated_at": "2026-08-20 23:56:07"
+    "data_quality_note": "基于38场演出数据（其中政府活动1场单独列示，不参与均值）；37场含逐日衰减数据并参与衰减聚合；音乐节、演唱会、其他等样本<3的形态均值标注样本不足。",
+    "generated_at": "2026-08-21 07:14:19"
   },
   "batch_count": 906,
   "date_range": "2023-01-01 ~ 2026-08-20",
@@ -133794,7 +133794,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-08-21 06:42",
+  "last_update": "2026-08-21 07:12",
   "today_batches": 906,
   "daily_new_records": 0,
   "recent_7days": [
@@ -133888,7 +133888,7 @@
       "success": 1812,
       "failed": []
     },
-    "link_registry": 382,
+    "link_registry": 253,
     "intraday_merged": {
       "before": 503418,
       "after": 200096
