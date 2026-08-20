@@ -1477,10 +1477,6 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
                 "in_trend": song in trend_uids,  # 是否已在主列表（TOP)中
             })
     new_today = new_today[:20]
-    # [诊断] rebuild 时输出过滤结果，便于核对新上榜歌名解析
-    import sys as _sys
-    if "--rebuild" in _sys.argv:
-        print(f"[DEBUG new_today] {len(new_today)} 首 -> " + "、".join(f"{x['song']}({x['share_pct']}%)" for x in new_today), flush=True)
 
     too_small = int(len(active)) < min_display
     return {
