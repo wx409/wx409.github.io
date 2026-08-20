@@ -1680,10 +1680,14 @@ def load_performance_events(path):
 
 
 def _city_of(scene):
-    """从演出活动场次名（'演出名·城市'）中提取城市部分，供节点展示去重。"""
+    """从演出活动场次名（'演出名·城市'）中提取城市部分，供节点展示去重。
+    无城市/空/nan 返回空串（调用方据空串去掉·前缀），避免显示 nan 或·。"""
     if not scene:
         return ""
-    return scene.split("·")[-1].strip() if "·" in scene else scene
+    s = str(scene).strip()
+    if s.lower() in ("", "nan", "none", "-", "null"):
+        return ""
+    return s.split("·")[-1].strip() if "·" in s else ""
 
 
 def tour_song_effects(df_all, setlists, topn=5):
@@ -3604,7 +3608,10 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     release_events = [[to_month(e["date"]), f"{e['date']} 《{e['name']}》发行（{e['kind']}）"]
                       for e in song_info.get("release_events", []) if to_month(e["date"]) in label_set]
     # 演出活动节点：desc=演出名，name=scene(演出名·城市)，仅取城市部分避免演出名重复
-    performance_events = [[to_month(e["date"]), f"{e['date']} {e['desc']}·{_city_of(e['name'])}"]
+    def _node_label(e):
+        city = _city_of(e["name"])
+        return f"{e['date']} {e['desc']}" + (f"·{city}" if city else "")
+    performance_events = [[to_month(e["date"]), _node_label(e)]
                           for e in song_info.get("performance_events", []) if to_month(e["date"]) in label_set]
 
     # 属性维度：信息表收录数 vs 被追踪数
