@@ -34,6 +34,7 @@ import shutil
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+import urllib.request   # 辐射效能分析的 DeepSeek 调用
 
 # DrissionPage 只在采集时需要；--rebuild 模式没装也能跑
 try:
@@ -69,6 +70,25 @@ WEBSITE_REPO = r"D:\wx409.github.io"                      # GitHub Pages 本地�
 # 每批次只读取新增/变更的 2-4 个 Excel 增量合并，rebuild 从 ~19 分钟降到 ~1 分钟
 MERGE_CACHE_PATH = os.path.join(OUTPUT_DIR, "merge_cache.pkl")
 MERGE_CACHE_VERSION = 2  # v2：缓存从「原始 concat 1439万行」改为「过滤后 ~43万行」，旧 v1 缓存（2GB）自动失效
+
+# ============ 演出辐射效能分析（新增，LLM 只做措辞、计算用 Python，省 token） ============
+# 城市层级映射（用于 city_tier 字段；未命中默认「其他」）
+CITY_TIER = {
+    "北京": "一线", "上海": "一线", "广州": "一线", "深圳": "一线",
+    "杭州": "新一线", "南京": "新一线", "武汉": "新一线", "重庆": "新一线",
+    "成都": "新一线", "苏州": "新一线", "长沙": "新一线", "郑州": "新一线",
+    "西安": "新一线", "天津": "新一线", "宁波": "新一线", "青岛": "新一线",
+    "佛山": "新一线", "厦门": "二线", "珠海": "二线", "昆明": "二线",
+    "南昌": "二线", "南宁": "二线", "太原": "二线", "大连": "二线",
+    "海口": "二线", "无锡": "二线", "澳门": "其他", "三亚": "其他",
+    "鄂尔多斯": "其他", "乌鲁木齐": "其他", "伊宁": "其他", "舟山": "其他",
+    "延边": "其他", "庐山": "其他", "河南": "其他",
+}
+# 辐射效能分析的 LLM 结果缓存（数据变化才重跑，省 token）
+RADIATION_CACHE_PATH = os.path.join(OUTPUT_DIR, "radiation_analysis_cache.json")
+DEEPSEEK_KEY_PATH = r"D:\wx409.github.io\temp\deepseek_key.json"
+DEEPSEEK_API = "https://api.deepseek.com/v1/chat/completions"
+DEEPSEEK_MODEL = "deepseek-v4-flash"
 
 TAB_COUNT_QUICK = 20
 TAB_COUNT_FULL = 15
@@ -1690,6 +1710,44 @@ def _city_of(scene):
     return s.split("·")[-1].strip() if "·" in s else ""
 
 
+def _city_of_name(scene):
+    """从场次名提取城市：'演出名·城市' 取·后部分；'城市' 直接返回。供 tour_song_effects 的 city 字段。"""
+    if not scene:
+        return ""
+    s = str(scene).strip()
+    if "·" in s:
+        # 演出活动表格式：演出名·城市 → 取城市
+        tail = s.split("·")[-1].strip()
+        tail = re.split(r"[（(]", tail)[0].strip()
+        return tail
+    # 巡演长表格式：scene 即城市名（含括号如"杭州（首场）"），取括号前
+    return re.split(r"[（(]", s)[0].strip()
+
+
+def venue_type_of(tour, scene):
+    """推断场馆类型：剧院 / 音乐节 / 晚会 / 演唱会 / 音乐剧 / 其他。
+    tour=巡演名或演出名，scene=场次名（含·城市）。"""
+    t = (tour or "") + (scene or "")
+    if any(k in t for k in ["巡回音乐会", "个人巡回"]):
+        return "剧院"
+    if "音乐节" in t:
+        return "音乐节"
+    if "音乐剧" in t or "歌谣" in t or "可克达拉" in t:
+        return "音乐剧"
+    if "演唱会" in t:
+        return "演唱会"
+    if any(k in t for k in ["歌会", "晚会", "盛典", "颁奖", "榜", "春晚", "芒果夜", "影视之夜", "见面会"]):
+        return "晚会"
+    return "其他"
+
+
+def city_tier_of(city):
+    """城市 → 层级；未命中返回「其他」。"""
+    if not city:
+        return "其他"
+    return CITY_TIER.get(str(city).strip(), "其他")
+
+
 def tour_song_effects(df_all, setlists, topn=5):
     """场次后歌曲级效应（以长表为唯一输入）：
     - 直接效应：该场歌单内歌曲 演出后7日 日均指数 vs 前21~7日基线 的涨幅
@@ -1739,10 +1797,13 @@ def tour_song_effects(df_all, setlists, topn=5):
         setlist_uplift = (sum(e[1] for e in on_list) / len(on_list)) if on_list else None
         radiance_uplift = (sum(e[1] for e in off_list) / len(off_list)) if off_list else None
         candidates = sorted(effects, key=lambda e: e[1], reverse=True)[:topn]
+        e_city = _city_of_name(scene)
         rows.append({
             "date": date,
             "scene": scene,
-            "city": re.split(r"[（(]", scene)[0].strip(),
+            "city": e_city,
+            "city_tier": city_tier_of(e_city),
+            "venue_type": venue_type_of(str(info["tour"]), scene),
             "tour": info["tour"],
             "total_uplift": round(float(total_uplift), 1),
             "setlist_uplift": round(float(setlist_uplift), 1) if setlist_uplift is not None else None,
@@ -1753,6 +1814,186 @@ def tour_song_effects(df_all, setlists, topn=5):
         })
     rows.sort(key=lambda r: r["date"])
     return rows
+
+
+# ============ 演出辐射效能分析（LLM 只做措辞，计算用 Python 保证准确/省token） ============
+
+def _call_deepseek(prompt):
+    """调用 DeepSeek 返回文本内容；任何异常返回 None（不阻断主管道）。"""
+    try:
+        key = ""
+        if os.path.exists(DEEPSEEK_KEY_PATH):
+            try:
+                key = json.loads(open(DEEPSEEK_KEY_PATH, encoding="utf-8").read()).get("api_key", "").strip()
+            except Exception:
+                key = ""
+        key = key or os.environ.get("DEEPSEEK_API_KEY", "").strip()
+        if not key:
+            logger.warning("辐射效能分析：未找到 DeepSeek key，跳过 LLM 措辞")
+            return None
+        body = json.dumps({
+            "model": DEEPSEEK_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "response_format": {"type": "json_object"},
+        }).encode("utf-8")
+        req = urllib.request.Request(DEEPSEEK_API, data=body, headers={
+            "Authorization": "Bearer " + key, "Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        content = data["choices"][0]["message"]["content"].strip()
+        if content.startswith("```"):
+            content = re.sub(r"^```(?:json)?\s*|\s*```$", "", content)
+        return content
+    except Exception as e:
+        logger.warning(f"辐射效能分析 LLM 调用失败（不影响大屏）: {e}")
+        return None
+
+
+def _compute_radiation(tour_song_fx):
+    """纯 Python 计算：按场馆类型聚合三口径 + Top10 排名 + 异常场次 + 关键发现。
+    返回 dict，不调 LLM，保证数值准确。"""
+    from collections import defaultdict
+    groups = defaultdict(lambda: {"n": 0, "total": [], "setlist": [], "radiance": []})
+    for e in tour_song_fx:
+        vt = e.get("venue_type", "其他")
+        g = groups[vt]
+        if e.get("total_uplift") is not None:
+            g["total"].append(e["total_uplift"])
+        if e.get("setlist_uplift") is not None:
+            g["setlist"].append(e["setlist_uplift"])
+        if e.get("radiance_uplift") is not None:
+            g["radiance"].append(e["radiance_uplift"])
+        g["n"] += 1
+
+    def _avg(lst):
+        return round(sum(lst) / len(lst), 1) if lst else None
+
+    agg = {}
+    for vt, g in groups.items():
+        agg[vt] = {
+            "n": g["n"],
+            "avg_total": _avg(g["total"]),
+            "avg_setlist": _avg(g["setlist"]),
+            "avg_radiance": _avg(g["radiance"]),
+        }
+
+    # 待 LLM 的场次，按辐射带动降序 Top10
+    ranked = sorted(tour_song_fx, key=lambda e: (e.get("radiance_uplift") if e.get("radiance_uplift") is not None else -1e9), reverse=True)[:10]
+    top10 = []
+    for e in ranked:
+        rl = e.get("radiance_uplift")
+        sl = e.get("setlist_uplift")
+        spill = None
+        if rl is not None and sl is not None and abs(sl) > 1e-6:
+            spill = round(rl / sl, 2)
+        elif rl is not None and (sl is None or abs(sl) <= 1e-6):
+            spill = "∞（歌单内无样本）"
+        top10.append({
+            "date": e.get("date"), "city": e.get("city"), "venue_type": e.get("venue_type"),
+            "radiance_uplift": rl, "setlist_uplift": sl, "spill_ratio": spill,
+            "top_song": (e.get("top_songs") or [{}])[0].get("name", "") if e.get("top_songs") else "",
+        })
+
+    # 异常场次：辐射 > 歌单内（品牌效应）与 歌单内 >> 辐射（精准转化）
+    brand_effect = []   # 辐射带动明显高于歌单内
+    direct_effect = []  # 歌单内明显高于辐射带动
+    for e in tour_song_fx:
+        rl = e.get("radiance_uplift")
+        sl = e.get("setlist_uplift")
+        if rl is None or sl is None:
+            continue
+        if rl - sl > 5:
+            brand_effect.append({"date": e.get("date"), "city": e.get("city"), "venue_type": e.get("venue_type"),
+                                 "radiance": rl, "setlist": sl})
+        elif sl - rl > 15:
+            direct_effect.append({"date": e.get("date"), "city": e.get("city"), "venue_type": e.get("venue_type"),
+                                  "radiance": rl, "setlist": sl})
+
+    return {
+        "aggregation": agg,
+        "top10": top10,
+        "brand_effect": brand_effect,
+        "direct_effect": direct_effect,
+        "total_events": len(tour_song_fx),
+    }
+
+
+def build_radiation_analysis(tour_song_fx):
+    """构建辐射效能分析：先纯 Python 计算，再用 LLM 生成措辞（仅措辞，数值已由 Python 算好）。
+    缓存：只有场次数/日期范围/关键值变化才重跑 LLM。"""
+    if not tour_song_fx:
+        return None
+    calc = _compute_radiation(tour_song_fx)
+
+    # 缓存指纹：场次数 + 每个场次的 radiance/setlist 值（简化：排序拼接）
+    fingerprint = "|".join(
+        "%s:%s:%s" % (e.get("date"), e.get("radiance_uplift"), e.get("setlist_uplift"))
+        for e in sorted(tour_song_fx, key=lambda x: x.get("date") or "")
+    )
+
+    cached = None
+    cache_meta = {}
+    if os.path.exists(RADIATION_CACHE_PATH):
+        try:
+            cached = json.loads(open(RADIATION_CACHE_PATH, encoding="utf-8").read())
+            cache_meta = cached.get("_meta", {})
+            if cache_meta.get("fingerprint") != fingerprint:
+                cached = None  # 数据变了，失效
+        except Exception:
+            cached = None
+
+    if cached and cached.get("analysis_html") and cached.get("key_findings"):
+        logger.info("辐射效能分析：缓存命中，复用 LLM 分析（省 token）")
+    else:
+        # 组织给 LLM 的输入（只含计算好的聚合与Top10，让它写措辞）
+        agg_text = json.dumps(calc["aggregation"], ensure_ascii=False)
+        top10_text = json.dumps(calc["top10"], ensure_ascii=False)
+        brand_text = json.dumps(calc["brand_effect"], ensure_ascii=False)
+        direct_text = json.dumps(calc["direct_effect"], ensure_ascii=False)
+        prompt = (
+            "你是音乐数据简报撰写者。下面是歌手王晰的演出辐射效能数据（已按场馆类型聚合、已算好数值）。"
+            "请只做措辞表达，不要改数值、不要编造。\n\n"
+            "按场馆类型聚合（avg_total=平均全站变化%，avg_setlist=平均歌单内变化%，avg_radiance=平均辐射带动%）：\n"
+            + agg_text + "\n\n"
+            "辐射带动 Top10（radiance_uplift=辐射带动%，setlist_uplift=歌单内%，spill_ratio=辐射/歌单内溢出比）：\n"
+            + top10_text + "\n\n"
+            "品牌效应场次（辐射带动明显高于歌单内，溢出>5pp）：\n" + brand_text + "\n\n"
+            "精准转化场次（歌单内明显高于辐射带动）：\n" + direct_text + "\n\n"
+            "要求输出严格 JSON（不要 markdown）：\n"
+            '{"analysis_text": "300字左右的中文分析，说明哪类场馆溢出效应最强、哪类精准转化最强、给演出方的actionable insight，客观冷静数据简报风格",'
+            '"key_findings": ["发现1", "发现2", "发现3"]}\n'
+            "百分比保留1位小数。若某类场馆场次<3，在分析文本里标注「样本不足仅供参考」。"
+        )
+        llm_text = _call_deepseek(prompt)
+        parsed = None
+        if llm_text:
+            try:
+                parsed = json.loads(llm_text)
+            except Exception:
+                parsed = None
+        analysis_text = (parsed or {}).get("analysis_text", "") if parsed else ""
+        key_findings = (parsed or {}).get("key_findings", []) if parsed else []
+        if not analysis_text:
+            analysis_text = "（LLM 措辞暂不可用，以下为自动计算的关键数据。）"
+        cached = {
+            "_meta": {"fingerprint": fingerprint, "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")},
+            "analysis_text": analysis_text,
+            "key_findings": key_findings,
+        }
+        try:
+            open(RADIATION_CACHE_PATH, "w", encoding="utf-8").write(json.dumps(cached, ensure_ascii=False, indent=1))
+            logger.info("辐射效能分析：已生成并缓存 LLM 措辞")
+        except Exception as e:
+            logger.warning(f"辐射效能分析缓存写入失败: {e}")
+
+    # 合并 Python 计算结果 + LLM 措辞，输出给前端
+    result = dict(calc)
+    result["analysis_html"] = cached.get("analysis_text", "")
+    result["key_findings"] = cached.get("key_findings", [])
+    result["generated_at"] = cache_meta.get("generated_at", "") or (cached.get("_meta", {}).get("generated_at", ""))
+    return result
+
 
 def release_performance(df_all, release_events, topn=10):
     """新歌发行后 14 日表现：该曲发行起 14 日内的平均指数与峰值（仅统计已有数据的发行）"""
@@ -2278,6 +2519,25 @@ __STATUS_INFO__
       <div class="ai-summary" id="ai-tourSongFx" aria-label="图表文本摘要" style="position:absolute;left:-9999px;"></div>
     </div>
   </div>
+  <div class="chart-row">
+    <div class="chart-box">
+      <h2 class="chart-title">演出辐射效能分析 · 场馆类型 vs 三口径效应</h2>
+      <p class="chart-insight">按场馆类型聚合：全站变化 / 歌单内直接效应 / 辐射带动溢出；样本 &lt;3 场的类型标注「样本不足仅供参考」</p>
+      <div id="radiationInsight" class="dashboard-insight" style="margin:10px 0;padding:14px 16px;background:rgba(255,255,255,0.04);border-radius:8px;font-size:14px;line-height:1.9;color:#cdd6e6"></div>
+      <div id="radiationKeyFindings" style="margin:10px 0;padding:0 16px;font-size:13px;line-height:1.8;color:#9fb0c8"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;">
+        <div style="flex:1;min-width:280px;">
+          <h3 style="font-size:14px;color:#00d2ff;margin:8px 0;">按场馆类型平均效应</h3>
+          <div id="radiationAgg"></div>
+        </div>
+        <div style="flex:1;min-width:280px;">
+          <h3 style="font-size:14px;color:#00d2ff;margin:8px 0;">辐射带动 Top10 场次</h3>
+          <div id="radiationTop10"></div>
+        </div>
+      </div>
+      <div class="ai-summary" id="ai-radiation" aria-label="辐射效能分析摘要" style="position:absolute;left:-9999px;"></div>
+    </div>
+  </div>
 __ABOUT_SECTION__
   <div class="footer">数据仅供个人研究使用 · 链接身份唯一识别 · 历史趋势分析面板 · 原始数据本地留存</div>
 </div>
@@ -2406,6 +2666,58 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   }
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
+})();
+// ===== 演出辐射效能分析：渲染分析文本 + 按场馆聚合 + Top10 =====
+(function(){
+  var ra = dashboardData.radiation_analysis;
+  var insight = document.getElementById('radiationInsight');
+  var findings = document.getElementById('radiationKeyFindings');
+  var aggBox = document.getElementById('radiationAgg');
+  var top10Box = document.getElementById('radiationTop10');
+  var ais = document.getElementById('ai-radiation');
+  if (!ra) {
+    if (insight) insight.textContent = '暂无辐射效能分析数据';
+    return;
+  }
+  function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
+  function cls(v){ return v>0?'tse-up':(v<0?'tse-down':'tse-flat'); }
+  // 1) 分析文本（LLM 措辞）
+  if (insight) insight.innerHTML = ra.analysis_html ? ra.analysis_html.replace(/\n/g,'<br>') : '（分析生成中）';
+  // 2) 关键发现
+  if (findings && ra.key_findings && ra.key_findings.length) {
+    findings.innerHTML = ra.key_findings.map(function(k){ return '<div>• '+k+'</div>'; }).join('');
+  }
+  // 3) 按场馆类型聚合表
+  if (aggBox && ra.aggregation) {
+    var agg = ra.aggregation;
+    var order = ['剧院','音乐节','晚会','演唱会','音乐剧','其他'];
+    var h = '<table class="event-ranking"><tr><th>场馆类型</th><th>场次</th><th>平均全站</th><th>平均歌单内</th><th>平均辐射带动</th></tr>';
+    order.forEach(function(vt){
+      var g = agg[vt];
+      if (!g) return;
+      var note = (g.n < 3) ? '<span style="color:#8c959f;font-size:11px;">（样本不足）</span>' : '';
+      h += '<tr><td>'+vt+'</td><td>'+g.n+'</td>'+
+           '<td class="'+cls(g.avg_total||0)+'">'+fmt(g.avg_total)+'</td>'+
+           '<td class="'+cls(g.avg_setlist||0)+'">'+fmt(g.avg_setlist)+'</td>'+
+           '<td class="'+cls(g.avg_radiance||0)+'">'+fmt(g.avg_radiance)+'</td></tr>';
+    });
+    h += '</table>';
+    aggBox.innerHTML = h;
+  }
+  // 4) Top10 排名表
+  if (top10Box && ra.top10 && ra.top10.length) {
+    var h = '<table class="event-ranking"><tr><th>日期</th><th>城市</th><th>类型</th><th>辐射带动</th><th>歌单内</th><th>溢出比</th></tr>';
+    ra.top10.forEach(function(e){
+      var spill = (typeof e.spill_ratio==='number') ? e.spill_ratio.toFixed(1)+'×' : (e.spill_ratio||'—');
+      h += '<tr><td>'+(e.date||'')+'</td><td>'+(e.city||'')+'</td><td>'+(e.venue_type||'')+'</td>'+
+           '<td class="'+cls(e.radiance_uplift||0)+'">'+fmt(e.radiance_uplift)+'</td>'+
+           '<td class="'+cls(e.setlist_uplift||0)+'">'+fmt(e.setlist_uplift)+'</td>'+
+           '<td>'+spill+'</td></tr>';
+    });
+    h += '</table>';
+    top10Box.innerHTML = h;
+  }
+  if (ais) ais.textContent = '演出辐射效能分析：共'+(ra.total_events||0)+'场演出，按场馆类型聚合三口径。';
 })();
 </script>
 <script>
@@ -3598,6 +3910,8 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     release_fx = release_performance(df_all, song_info.get("release_events", []))
     # 场次后歌曲级效应（长表为唯一输入：直接效应=歌单内，辐射带动=歌单外）
     tour_song_fx = tour_song_effects(df_all, setlists) if setlists else []
+    # 演出辐射效能分析（Python 计算 + LLM 措辞，数据变化才重跑 LLM，省 token）
+    radiation_analysis = build_radiation_analysis(tour_song_fx) if tour_song_fx else None
 
     # 事件标记：映射到月份标签
     def to_month(ev_date):
@@ -3724,6 +4038,7 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
         "top_lines": top_lines, "cat_lines": cat_lines,
         "tour_fx": tour_fx, "release_fx": release_fx,
         "tour_song_effects": tour_song_fx,  # 场次后歌曲级效应：直接(歌单内)+辐射带动(歌单外)
+        "radiation_analysis": radiation_analysis,  # 演出辐射效能分析（聚合+Top10+LLM措辞+缓存）
         "batch_count": batch_count, "date_range": date_range,
         "hist_trends": hist_trends,  # 历史收听趋势 {uid: {labels:[], values:[], raw:[]}}
         "hist_uid_names": hist_uid_names or {},  # uid → 歌名（由 rebuild 传入）
