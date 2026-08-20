@@ -1953,7 +1953,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .tse-city{color:#fff;font-weight:600}
 .tse-m{color:#8896b3;font-size:12px}
 .tse-m b{font-size:13px;margin-left:2px}
-.tse-up{color:#00ff9d}.tse-down{color:#ff5e62}.tse-flat{color:#ffd700}
+.tse-up{color:#ff5e62}.tse-down{color:#00ff9d}.tse-flat{color:#ffd700}
 .tse-body{padding:12px 16px 16px;border-top:1px solid rgba(0,210,255,0.1)}
 .tse-tops{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;font-size:12px;color:#5a6b8c}
 .tse-chip{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(0,210,255,0.08);border:1px solid rgba(0,210,255,0.15);color:#8896b3;white-space:nowrap}
