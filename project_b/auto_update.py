@@ -168,7 +168,8 @@ def main():
         return
     log("-- IndexNow 通知 --")
     run([sys.executable, str(ROOT / "project_b" / "deploy_all.py"), "--notify-only"])
-    notify("✅ 王晰数字档案已自动更新", "构建/发布/IndexNow 全部完成，站点已是最新。")
+    # IndexNow 通知搜索引擎保留；但不再向 Server酱(微信)推送"更新完成"，
+    # 以免占用 Server酱 免费推送名额（每日仅 5 条）。
     log("=== 完成 ===")
 
 
