@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20 12:55",
+  "timestamp": "2026-08-20 13:09",
   "total": 200096,
   "success": 36496,
   "complete_rate": 18.2,
@@ -9,7 +9,7 @@
   "active_songs": 206,
   "link_uids": 253,
   "name_uids": 72,
-  "tracked_links": 253,
+  "tracked_links": 382,
   "time_labels": [
     "2023-01",
     "2023-02",
@@ -131,30 +131,30 @@
     252
   ],
   "listener_ratio_trend": [
-    4.5,
-    8.0,
-    10.1,
-    14.2,
-    0.6,
-    5.0,
-    16.1,
-    16.7,
-    16.6,
-    14.2,
-    9.4,
-    13.3,
-    13.3,
-    8.6,
-    3.4,
-    3.1,
-    2.6,
-    2.4,
-    2.0,
-    2.0,
-    1.9,
-    1.6,
-    22.4,
-    85.7
+    4.1,
+    7.6,
+    8.3,
+    11.4,
+    0.9,
+    5.4,
+    18.7,
+    17.0,
+    18.4,
+    13.9,
+    8.9,
+    8.8,
+    8.1,
+    6.8,
+    5.4,
+    4.4,
+    4.6,
+    4.3,
+    3.6,
+    3.2,
+    2.9,
+    3.0,
+    8.2,
+    23.3
   ],
   "listener_labels": [
     "2024-08",
@@ -124964,7 +124964,7 @@
         52.4,
         44.9,
         49.0,
-        47.1,
+        48.6,
         36.4,
         40.3,
         38.0,
@@ -125308,8 +125308,8 @@
       "在路上"
     ],
     "values": [
-      143.7,
-      128.7
+      141.5,
+      129.8
     ],
     "spring": [
       false,
@@ -131617,15 +131617,52 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 8,
+    "active_count": 9,
     "total_tracked": 325,
-    "concentration_top3": 79.6,
+    "concentration_top3": 75.8,
     "as_of": "2026-08-20",
     "too_small": true
   },
   "daily_listen_trend": [],
-  "daily_new_today": [],
-  "last_update": "2026-08-20 12:55",
+  "daily_new_today": [
+    {
+      "song": "152496",
+      "share_pct": 61.1
+    },
+    {
+      "song": "90356",
+      "share_pct": 8.2
+    },
+    {
+      "song": "128687",
+      "share_pct": 6.4
+    },
+    {
+      "song": "172434",
+      "share_pct": 6.0
+    },
+    {
+      "song": "73627",
+      "share_pct": 6.0
+    },
+    {
+      "song": "4983",
+      "share_pct": 5.8
+    },
+    {
+      "song": "104910",
+      "share_pct": 4.3
+    },
+    {
+      "song": "126849",
+      "share_pct": 1.5
+    },
+    {
+      "song": "2271",
+      "share_pct": 0.6
+    }
+  ],
+  "last_update": "2026-08-20 13:09",
   "today_batches": 906,
   "daily_new_records": 0,
   "recent_7days": [
@@ -131683,17 +131720,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 0,
+      "rows": 130,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1798,
-      "success": 1798,
+      "total": 1799,
+      "success": 1799,
       "failed": []
     },
-    "link_registry": 253,
+    "link_registry": 382,
     "intraday_merged": {
-      "before": 499890,
+      "before": 500142,
       "after": 200096
     },
     "index_calibration": {
