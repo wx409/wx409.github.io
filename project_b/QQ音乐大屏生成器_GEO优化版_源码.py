@@ -1455,13 +1455,26 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
         })
 
     # 昨日无指数、今日出现指数的歌曲（首次活跃/恢复活跃，不限于 TopN）
+    # 过滤规则：仅保留能解析出真实歌名的（排除回退显示纯数字 uid 的无名边缘记录），并按歌名去重。
+    import re as _re
+    _numeric = _re.compile(r"^\d+$").match
+    trend_uids = {t["song"] for t in trend}
     new_today = []
+    seen_song = set()
     for uid, r in active.sort_values("peak", ascending=False).iterrows():
         prev = y_peak.get(uid)
         if prev is None or pd.isna(prev) or prev <= 0:
+            song = str(uid2disp.get(uid, uid))
+            # 解析不出真实歌名（回退为纯数字 uid / 空）→ 无名边缘记录，丢弃
+            if not song or _numeric(song) or song == str(uid):
+                continue
+            if song in seen_song:  # 同歌多 uid 去重
+                continue
+            seen_song.add(song)
             new_today.append({
-                "song": str(uid2disp.get(uid, uid)),
+                "song": song,
                 "share_pct": round(float(r["peak"]) / total_peak * 100, 1),
+                "in_trend": song in trend_uids,  # 是否已在主列表（TOP)中
             })
     new_today = new_today[:20]
 
@@ -1940,7 +1953,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .tse-city{color:#fff;font-weight:600}
 .tse-m{color:#8896b3;font-size:12px}
 .tse-m b{font-size:13px;margin-left:2px}
-.tse-up{color:#00ff9d}.tse-down{color:#ff5e62}.tse-flat{color:#ffd700}
+.tse-up{color:#ff5e62}.tse-down{color:#00ff9d}.tse-flat{color:#ffd700}
 .tse-body{padding:12px 16px 16px;border-top:1px solid rgba(0,210,255,0.1)}
 .tse-tops{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;font-size:12px;color:#5a6b8c}
 .tse-chip{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(0,210,255,0.08);border:1px solid rgba(0,210,255,0.15);color:#8896b3;white-space:nowrap}
@@ -2167,14 +2180,9 @@ __GEO_SUMMARY__
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 TOP20</div>
+    <div class="daily-trend-header">今日收听份额 TOP15 · 含🆕新上榜</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
-  </div>
-  <div class="daily-trend-card" id="dailyNewTodayCard" style="margin-top:12px;">
-    <div class="daily-trend-header">🆕 昨日无指数 · 今日出现</div>
-    <div class="daily-trend-list" id="dailyNewTodayList"></div>
-    <div class="daily-trend-empty" id="dailyNewTodayEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日无"昨日空白、今日新增指数"的歌曲。</div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
     <h2 class="chart-title">最近7日全站热度微趋势</h2>
@@ -2521,7 +2529,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     if (it.trend_label === 'up') { badgeTxt = '↑ ' + Math.round(Math.abs(it.trend_pct)) + '%'; badgeCls = 'up'; }
     else if (it.trend_label === 'down') { badgeTxt = '↓ ' + Math.round(Math.abs(it.trend_pct)) + '%'; badgeCls = 'down'; }
     else if (it.trend_label === 'flat') { badgeTxt = '→ 持平'; badgeCls = 'flat'; }
-    else { badgeTxt = '● 新活跃'; badgeCls = 'new'; }
+    else { badgeTxt = '🆕 新上榜'; badgeCls = 'new'; }
     var div = document.createElement('div');
     div.className = 'trend-item';
     div.innerHTML = '<span class="trend-rank">' + it.rank + '</span>' +
@@ -2531,27 +2539,25 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       '<span class="pulse-badge ' + badgeCls + '">' + badgeTxt + '</span>';
     list.appendChild(div);
   });
-  // ===== 昨日无指数 · 今日出现（dailyNewTodayCard）=====
-  var ntCard = document.getElementById('dailyNewTodayCard');
-  var ntList = document.getElementById('dailyNewTodayList');
-  var ntEmpty = document.getElementById('dailyNewTodayEmpty');
-  if (ntCard && ntList) {
-    var nt = dashboardData.daily_new_today || [];
-    if (nt.length === 0) {
-      if (ntEmpty) ntEmpty.style.display = 'block';
-    } else {
-      ntList.innerHTML = '';
-      nt.forEach(function(it){
-        var div = document.createElement('div');
-        div.className = 'trend-item';
-        div.innerHTML = '<span class="trend-rank">🆕</span>' +
-          '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
-          '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
-          '<span class="trend-share-label">' + it.share_pct + '%</span>';
-        ntList.appendChild(div);
-      });
-    }
-  }
+  // ===== 新上榜完整并入主份额列表 =====
+  // 已在 TOP15 主列表里的新上榜（badge 已标🆕）不重复追加；未进主列表的新上榜追加到末尾，一条不少。
+  var nt = dashboardData.daily_new_today || [];
+  // trend 中已出现的歌名集合（防止重复追加）
+  var trendSongs = {};
+  trend.forEach(function(titem){ trendSongs[titem.song] = true; });
+  // 追加未进入主列表（TOP15 之外）的新上榜歌曲 -> 完整显示
+  nt.forEach(function(it){
+    if (trendSongs[it.song]) return;  // 已在主列表，跳过
+    var div = document.createElement('div');
+    div.className = 'trend-item';
+    div.innerHTML = '<span class="trend-rank">🆕</span>' +
+      '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
+      '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
+      '<span class="trend-share-label">' + it.share_pct + '%</span>' +
+      '<span class="pulse-badge new">🆕 新上榜</span>';
+    list.appendChild(div);
+    trendSongs[it.song] = true;
+  });
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
 (function(){
@@ -3930,21 +3936,14 @@ def build_geo_content(payload):
 
     citation_line = (f"引用本数据请注明：{escape(ARTIST_NAME)}音乐指数追踪数据集（更新至{date_end}），{SITE_URL}")
 
-    # 每日文字分析简报：静态 HTML，供爬虫/搜索引擎/AI 直接抓取（数据全部来自 payload）
+    # 每日研判文字（并入下方"核心数据结论"的"今日研判"段落，不单独成区块）
     brief_text = build_daily_brief(payload)
-    brief_html = f"""  <section class="geo-summary" id="daily-brief" style="border-left:4px solid #00d2ff;background:rgba(0,210,255,0.04);">
-    <h2>📋 每日文字分析简报（{escape(str(payload.get('timestamp','')))}）
-      <span class="data-snapshot-badge">🤖 静态文本 · 供搜索引擎/AI 直接抓取</span>
-    </h2>
-    <p style="line-height:1.9;">{escape(brief_text)}</p>
-    <p style="font-size:12px;color:#5a6b8c;margin-top:8px;">本简报由监测脚本随每次数据更新自动生成，数字直接取自 <a href="dashboard_data.json">dashboard_data.json</a>，未人工修饰。时间轴上的「演出活动」「巡演节点」「新歌发行」标记可与本简报交叉印证。</p>
-  </section>
-"""
 
     summary = f"""  <section class="geo-summary" id="summary">
     <h2>核心数据结论（截至 {date_end}）
       <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">{escape(payload.get('timestamp',''))}</span></span>
     </h2>
+    <p><strong>今日研判：</strong>{escape(brief_text)}</p>
     <p>本站持续追踪中国内地流行男低音歌手<strong>{escape(ARTIST_NAME)}</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>{payload['date_range']}</strong>，累计 <strong>{payload['batch_count']}</strong> 个监测批次，覆盖 <strong>{payload['total_songs']}</strong> 首追踪歌曲（链接身份 {payload['link_uids']} + 名称身份 {payload['name_uids']}），其中 <strong>{payload['active_songs']}</strong> 首（{payload['active_rate']}%）近期有收听记录，数据完整度 {payload['complete_rate']}%。数据集{UPDATE_FREQ_DESC}，最后更新于 <strong>{payload['timestamp']}</strong>。</p>
     <p>{trend_sentence}{top_sentence}{rank_sentence}</p>
     <p>{tour_sentence}{release_sentence}{week_sentence}{listener_sentence}{anom_sentence}</p>
@@ -3960,8 +3959,8 @@ def build_geo_content(payload):
       <li>开放数据 <b><a href="dashboard_data.json">dashboard_data.json</a></b></li>
     </ul>
     <p style="font-size:12px;color:#5a6b8c">{citation_line}</p>
+    <p style="font-size:12px;color:#5a6b8c;margin-top:6px;">本研判由监测脚本随每次数据更新自动生成，数字直接取自 <a href="dashboard_data.json">dashboard_data.json</a>；时间轴上的「演出活动」「巡演节点」「新歌发行」标记可与本结论交叉印证。</p>
   </section>"""
-    summary = brief_html + summary  # 每日简报置顶于核心结论之前
 
     about = f"""  <section class="geo-summary" id="methodology">
     <h2>数据来源与方法说明</h2>

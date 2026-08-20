@@ -148,7 +148,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .tse-city{color:#fff;font-weight:600}
 .tse-m{color:#8896b3;font-size:12px}
 .tse-m b{font-size:13px;margin-left:2px}
-.tse-up{color:#00ff9d}.tse-down{color:#ff5e62}.tse-flat{color:#ffd700}
+.tse-up{color:#ff5e62}.tse-down{color:#00ff9d}.tse-flat{color:#ffd700}
 .tse-body{padding:12px 16px 16px;border-top:1px solid rgba(0,210,255,0.1)}
 .tse-tops{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;font-size:12px;color:#5a6b8c}
 .tse-chip{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(0,210,255,0.08);border:1px solid rgba(0,210,255,0.15);color:#8896b3;white-space:nowrap}
@@ -348,7 +348,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <h1>音乐数据趋势大屏</h1>
     <div class="subtitle">TREND ANALYSIS DASHBOARD</div>
     <div class="time" id="clock">--</div>
-    <div class="subtitle" style="margin-top:6px;color:#3a7bd5">数据周期: 2023-01-01 ~ 2026-08-20 | 共 906 批次 | 追踪歌曲 325 个（链接身份 253 + 名称身份 72） | 链接清单 382 条</div>
+    <div class="subtitle" style="margin-top:6px;color:#3a7bd5">数据周期: 2023-01-01 ~ 2026-08-20 | 共 906 批次 | 追踪歌曲 325 个（链接身份 253 + 名称身份 72） | 链接清单 253 条</div>
   </div>
   <div class="grid">
     <div class="kpi-card"><div class="kpi-label">数据完整度</div><div id="kpiCompleteGauge" style="height:92px"></div><div class="kpi-trend"><span class="trend-flat">有指数记录占比</span></div></div>
@@ -363,20 +363,14 @@ h2.chart-title{font-size:15px;font-weight:600}
     <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
     <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
   </nav>
-  <section class="geo-summary" id="daily-brief" style="border-left:4px solid #00d2ff;background:rgba(0,210,255,0.04);">
-    <h2>📋 每日文字分析简报（2026-08-20 12:18）
-      <span class="data-snapshot-badge">🤖 静态文本 · 供搜索引擎/AI 直接抓取</span>
-    </h2>
-    <p style="line-height:1.9;">【今日概览】截至 2026-08-20 12:18 的监测更新已完成；无显著异动。 【市场信号】近 7 日全站平均指数 640→712（↑11.3%），整体上行；7 日序列：640、650、642、611、674、712。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+45.3%、《荒人之歌》+12.6%；领跌 《黎明前的黑暗》-8.7%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【演出联动】本监测窗口内有演出活动：乌鲁木齐 等 5 场。对比演出前后歌曲指数可评估『单曲演出的辐射带动』——即观众因演出关注王晰后，是否带动其他歌曲收听。详见下方『巡演歌曲级效应』面板的三口径涨幅。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日全站日均指数较基线平均上涨 4.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《在路上》↑4321位；《亲密爱人》↑2558位；《一生守候》↑2557位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数上行；巡演带动正向；有音乐剧演出活动在监测窗口内。综合来看，王晰音乐热度处于阶段性上行通道，演出与宣发节点对收听的带动值得持续跟踪。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
-    <p style="font-size:12px;color:#5a6b8c;margin-top:8px;">本简报由监测脚本随每次数据更新自动生成，数字直接取自 <a href="dashboard_data.json">dashboard_data.json</a>，未人工修饰。时间轴上的「演出活动」「巡演节点」「新歌发行」标记可与本简报交叉印证。</p>
-  </section>
   <section class="geo-summary" id="summary">
     <h2>核心数据结论（截至 2026-08-20）
-      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-08-20 12:18</span></span>
+      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-08-20 12:49</span></span>
     </h2>
-    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-08-20</strong>，累计 <strong>906</strong> 个监测批次，覆盖 <strong>325</strong> 首追踪歌曲（链接身份 253 + 名称身份 72），其中 <strong>206</strong> 首（63.4%）近期有收听记录，数据完整度 18.2%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-08-20 12:18</strong>。</p>
+    <p><strong>今日研判：</strong>【今日概览】截至 2026-08-20 12:49 的监测更新已完成；无显著异动。 【市场信号】近 7 日全站平均指数 640→712（↑11.3%），整体上行；7 日序列：640、650、642、611、674、712。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+45.3%、《荒人之歌》+12.6%；领跌 《黎明前的黑暗》-8.7%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【演出联动】本监测窗口内有演出活动：乌鲁木齐 等 5 场。对比演出前后歌曲指数可评估『单曲演出的辐射带动』——即观众因演出关注王晰后，是否带动其他歌曲收听。详见下方『巡演歌曲级效应』面板的三口径涨幅。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日全站日均指数较基线平均上涨 4.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《在路上》↑4321位；《亲密爱人》↑2558位；《一生守候》↑2557位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数上行；巡演带动正向；有音乐剧演出活动在监测窗口内。综合来看，王晰音乐热度处于阶段性上行通道，演出与宣发节点对收听的带动值得持续跟踪。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
+    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-08-20</strong>，累计 <strong>906</strong> 个监测批次，覆盖 <strong>325</strong> 首追踪歌曲（链接身份 253 + 名称身份 72），其中 <strong>206</strong> 首（63.4%）近期有收听记录，数据完整度 18.2%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-08-20 12:49</strong>。</p>
     <p>全曲目月度平均指数由期初（2023-01）的 1873 变化至最新月（2026-08）的 585（-68.8%）（注：期初监测批次较早、追踪曲目池覆盖与近期不同，此处变化主要反映样本规模扩大，不直接等同于热度衰减），历史峰值出现在 2023-01（1873）。近30日平均指数最高的作品为 《黎明前的黑暗》、《再叙》、《一生中最爱》。近90日综合表现：专辑类第一《在路上》（综合得分 13.7），OST/单曲类第一《再叙》（综合得分 19.2），其他追踪类第一《黎明前的黑暗》（综合得分 63.2）。</p>
-    <p>在可量化的 10 个巡演节点中，巡演后7日全站日均指数较基线平均上涨 4.8%（带动最强的是 11-12 北京（首场），+70.4%）。新歌发行14日表现最佳为 《多听有益》01-12（14日平均指数 54004，峰值 369883）。周末平均指数 451，工作日 462，周末低出 2.4%。收听热度（归一化至峰值月100%）由期初 4% 变化至最新月 23%（↑19pct）。近30日异常活跃歌曲：《一生中最爱》（环比+45.3%，飙升）、《荒人之歌》（环比+12.6%，上涨）、《小河》（环比+17.4%，上涨）。</p>
+    <p>在可量化的 10 个巡演节点中，巡演后7日全站日均指数较基线平均上涨 4.8%（带动最强的是 11-12 北京（首场），+70.4%）。新歌发行14日表现最佳为 《多听有益》01-12（14日平均指数 54004，峰值 369883）。周末平均指数 451，工作日 462，周末低出 2.4%。收听热度（归一化至峰值月100%）由期初 4% 变化至最新月 86%（↑81pct）。近30日异常活跃歌曲：《一生中最爱》（环比+45.3%，飙升）、《荒人之歌》（环比+12.6%，上涨）、《小河》（环比+17.4%，上涨）。</p>
     <h3>数据速览</h3>
     <ul>
       <li>时间跨度 <b>2023-01-01 ~ 2026-08-20</b></li>
@@ -389,6 +383,7 @@ h2.chart-title{font-size:15px;font-weight:600}
       <li>开放数据 <b><a href="dashboard_data.json">dashboard_data.json</a></b></li>
     </ul>
     <p style="font-size:12px;color:#5a6b8c">引用本数据请注明：王晰音乐指数追踪数据集（更新至2026-08-20），https://wx409.github.io/dashboard</p>
+    <p style="font-size:12px;color:#5a6b8c;margin-top:6px;">本研判由监测脚本随每次数据更新自动生成，数字直接取自 <a href="dashboard_data.json">dashboard_data.json</a>；时间轴上的「演出活动」「巡演节点」「新歌发行」标记可与本结论交叉印证。</p>
   </section>
   <div class="listen-pulse-bar" id="listenPulseBar">
     <div class="pulse-overview">
@@ -401,14 +396,9 @@ h2.chart-title{font-size:15px;font-weight:600}
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 TOP20</div>
+    <div class="daily-trend-header">今日收听份额 TOP15 · 含🆕新上榜</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
-  </div>
-  <div class="daily-trend-card" id="dailyNewTodayCard" style="margin-top:12px;">
-    <div class="daily-trend-header">🆕 昨日无指数 · 今日出现</div>
-    <div class="daily-trend-list" id="dailyNewTodayList"></div>
-    <div class="daily-trend-empty" id="dailyNewTodayEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日无"昨日空白、今日新增指数"的歌曲。</div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
     <h2 class="chart-title">最近7日全站热度微趋势</h2>
@@ -452,7 +442,7 @@ h2.chart-title{font-size:15px;font-weight:600}
       <div class="status-item"><span>活跃歌曲</span><span class="status-value">206 个</span></div>
       <div class="status-item"><span>指数口径</span><span class="status-value">昨日音乐指数校准</span></div>
       <div class="status-item"><span>巡演节点 / 发行事件</span><span class="status-value">17 / 29</span></div>
-      <div class="status-item"><span>最后更新</span><span class="status-value">2026-08-20 12:18</span></div>
+      <div class="status-item"><span>最后更新</span><span class="status-value">2026-08-20 12:49</span></div>
       <div class="status-item"><span>下次监测</span><span class="status-value">13:09 极速</span></div>
     </div></div>
   </div>
@@ -772,7 +762,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     if (it.trend_label === 'up') { badgeTxt = '↑ ' + Math.round(Math.abs(it.trend_pct)) + '%'; badgeCls = 'up'; }
     else if (it.trend_label === 'down') { badgeTxt = '↓ ' + Math.round(Math.abs(it.trend_pct)) + '%'; badgeCls = 'down'; }
     else if (it.trend_label === 'flat') { badgeTxt = '→ 持平'; badgeCls = 'flat'; }
-    else { badgeTxt = '● 新活跃'; badgeCls = 'new'; }
+    else { badgeTxt = '🆕 新上榜'; badgeCls = 'new'; }
     var div = document.createElement('div');
     div.className = 'trend-item';
     div.innerHTML = '<span class="trend-rank">' + it.rank + '</span>' +
@@ -782,27 +772,25 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       '<span class="pulse-badge ' + badgeCls + '">' + badgeTxt + '</span>';
     list.appendChild(div);
   });
-  // ===== 昨日无指数 · 今日出现（dailyNewTodayCard）=====
-  var ntCard = document.getElementById('dailyNewTodayCard');
-  var ntList = document.getElementById('dailyNewTodayList');
-  var ntEmpty = document.getElementById('dailyNewTodayEmpty');
-  if (ntCard && ntList) {
-    var nt = dashboardData.daily_new_today || [];
-    if (nt.length === 0) {
-      if (ntEmpty) ntEmpty.style.display = 'block';
-    } else {
-      ntList.innerHTML = '';
-      nt.forEach(function(it){
-        var div = document.createElement('div');
-        div.className = 'trend-item';
-        div.innerHTML = '<span class="trend-rank">🆕</span>' +
-          '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
-          '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
-          '<span class="trend-share-label">' + it.share_pct + '%</span>';
-        ntList.appendChild(div);
-      });
-    }
-  }
+  // ===== 新上榜完整并入主份额列表 =====
+  // 已在 TOP15 主列表里的新上榜（badge 已标🆕）不重复追加；未进主列表的新上榜追加到末尾，一条不少。
+  var nt = dashboardData.daily_new_today || [];
+  // trend 中已出现的歌名集合（防止重复追加）
+  var trendSongs = {};
+  trend.forEach(function(titem){ trendSongs[titem.song] = true; });
+  // 追加未进入主列表（TOP15 之外）的新上榜歌曲 -> 完整显示
+  nt.forEach(function(it){
+    if (trendSongs[it.song]) return;  // 已在主列表，跳过
+    var div = document.createElement('div');
+    div.className = 'trend-item';
+    div.innerHTML = '<span class="trend-rank">🆕</span>' +
+      '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
+      '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
+      '<span class="trend-share-label">' + it.share_pct + '%</span>' +
+      '<span class="pulse-badge new">🆕 新上榜</span>';
+    list.appendChild(div);
+    trendSongs[it.song] = true;
+  });
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
 (function(){
