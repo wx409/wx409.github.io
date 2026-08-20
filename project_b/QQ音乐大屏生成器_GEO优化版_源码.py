@@ -1455,13 +1455,16 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
         })
 
     # 昨日无指数、今日出现指数的歌曲（首次活跃/恢复活跃，不限于 TopN）
+    trend_uids = {t["song"] for t in trend}
     new_today = []
     for uid, r in active.sort_values("peak", ascending=False).iterrows():
         prev = y_peak.get(uid)
         if prev is None or pd.isna(prev) or prev <= 0:
+            song = str(uid2disp.get(uid, uid))
             new_today.append({
-                "song": str(uid2disp.get(uid, uid)),
+                "song": song,
                 "share_pct": round(float(r["peak"]) / total_peak * 100, 1),
+                "in_trend": song in trend_uids,  # 是否已在 80% 主列表（TOP）中
             })
     new_today = new_today[:20]
 
@@ -2167,14 +2170,9 @@ __GEO_SUMMARY__
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 80%</div>
+    <div class="daily-trend-header">今日收听份额 80% · 含🆕新上榜</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
-  </div>
-  <div class="daily-trend-card" id="dailyNewTodayCard" style="margin-top:12px;">
-    <div class="daily-trend-header">🆕 新上榜</div>
-    <div class="daily-trend-list" id="dailyNewTodayList"></div>
-    <div class="daily-trend-empty" id="dailyNewTodayEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日无「昨日指数为空、今日新增指数」的新上榜歌曲。</div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
     <h2 class="chart-title">最近7日全站热度微趋势</h2>
@@ -2521,7 +2519,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     if (it.trend_label === 'up') { badgeTxt = '↑ ' + Math.round(Math.abs(it.trend_pct)) + '%'; badgeCls = 'up'; }
     else if (it.trend_label === 'down') { badgeTxt = '↓ ' + Math.round(Math.abs(it.trend_pct)) + '%'; badgeCls = 'down'; }
     else if (it.trend_label === 'flat') { badgeTxt = '→ 持平'; badgeCls = 'flat'; }
-    else { badgeTxt = '● 新活跃'; badgeCls = 'new'; }
+    else { badgeTxt = '🆕 新上榜'; badgeCls = 'new'; }
     var div = document.createElement('div');
     div.className = 'trend-item';
     div.innerHTML = '<span class="trend-rank">' + it.rank + '</span>' +
@@ -2531,27 +2529,24 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       '<span class="pulse-badge ' + badgeCls + '">' + badgeTxt + '</span>';
     list.appendChild(div);
   });
-  // ===== 昨日无指数 · 今日出现（dailyNewTodayCard）=====
-  var ntCard = document.getElementById('dailyNewTodayCard');
-  var ntList = document.getElementById('dailyNewTodayList');
-  var ntEmpty = document.getElementById('dailyNewTodayEmpty');
-  if (ntCard && ntList) {
-    var nt = dashboardData.daily_new_today || [];
-    if (nt.length === 0) {
-      if (ntEmpty) ntEmpty.style.display = 'block';
-    } else {
-      ntList.innerHTML = '';
-      nt.forEach(function(it){
-        var div = document.createElement('div');
-        div.className = 'trend-item';
-        div.innerHTML = '<span class="trend-rank">🆕</span>' +
-          '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
-          '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
-          '<span class="trend-share-label">' + it.share_pct + '%</span>';
-        ntList.appendChild(div);
-      });
-    }
-  }
+  // ===== 新上榜并入主份额列表：80% 内已在 trend 中（badge 已标🆕），占比在 80% 之外的追加到末尾 =====
+  var nt = dashboardData.daily_new_today || [];
+  // trend 中已出现的歌名集合（防止重复追加）
+  var trendSongs = {};
+  trend.forEach(function(titem){ trendSongs[titem.song] = true; });
+  // 追加份额未进入主列表（80%之外）的新上榜歌曲
+  nt.forEach(function(it){
+    if (it.in_trend || trendSongs[it.song]) return;  // 已在 80% 主列表，跳过
+    var div = document.createElement('div');
+    div.className = 'trend-item';
+    div.innerHTML = '<span class="trend-rank">🆕</span>' +
+      '<span class="trend-song" title="' + it.song + '">' + it.song + '</span>' +
+      '<div class="trend-share-bar"><div class="trend-share-fill" style="width:' + Math.min(it.share_pct, 100) + '%"></div></div>' +
+      '<span class="trend-share-label">' + it.share_pct + '%</span>' +
+      '<span class="pulse-badge new">🆕 新上榜</span>';
+    list.appendChild(div);
+    trendSongs[it.song] = true;
+  });
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
 (function(){
