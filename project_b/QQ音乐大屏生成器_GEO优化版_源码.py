@@ -1724,21 +1724,34 @@ def _city_of_name(scene):
     return re.split(r"[（(]", s)[0].strip()
 
 
-def venue_type_of(tour, scene):
-    """推断场馆类型：剧院 / 音乐节 / 晚会 / 演唱会 / 音乐剧 / 其他。
-    tour=巡演名或演出名，scene=场次名（含·城市）。"""
+def content_type_of(tour, scene):
+    """推断内容形态（按演出性质分5类）：个人巡回 / 主题音乐会 / 晚会 / 音乐节 / 政府活动 / 其他。
+    政府活动单独成组（如百城千站文旅启动仪式）。tour=巡演名或演出名，scene=场次名（含·城市）。"""
     t = (tour or "") + (scene or "")
-    if any(k in t for k in ["巡回音乐会", "个人巡回"]):
-        return "剧院"
+    # 政府活动优先（文旅/政府主导）
+    if any(k in t for k in ["百城千站", "文旅", "政府", "启动仪式", "发改委", "国务院", "省文旅", "市文旅"]):
+        return "政府活动"
+    # 个人巡回：个人品牌巡演
+    if "巡回音乐会" in t or "个人巡回" in t:
+        return "个人巡回"
+    # 主题音乐会/IP主题演出
+    if any(k in t for k in ["歌谣", "可克达拉", "主题音乐会", "致敬", "音乐会"]):
+        return "主题音乐会"
+    # 音乐节
     if "音乐节" in t:
         return "音乐节"
-    if "音乐剧" in t or "歌谣" in t or "可克达拉" in t:
-        return "音乐剧"
+    # 晚会/颁奖/综艺
+    if any(k in t for k in ["歌会", "晚会", "盛典", "颁奖", "榜", "春晚", "芒果夜", "影视之夜", "综艺", "再见音乐会", "奇妙游"]):
+        return "晚会"
+    # 演唱会
     if "演唱会" in t:
         return "演唱会"
-    if any(k in t for k in ["歌会", "晚会", "盛典", "颁奖", "榜", "春晚", "芒果夜", "影视之夜", "见面会"]):
-        return "晚会"
     return "其他"
+
+
+# 兼容旧字段名：venue_type 已弃用，统一用 content_type
+def venue_type_of(tour, scene):
+    return content_type_of(tour, scene)
 
 
 def city_tier_of(city):
@@ -1798,16 +1811,44 @@ def tour_song_effects(df_all, setlists, topn=5):
         radiance_uplift = (sum(e[1] for e in off_list) / len(off_list)) if off_list else None
         candidates = sorted(effects, key=lambda e: e[1], reverse=True)[:topn]
         e_city = _city_of_name(scene)
+
+        # ---- 全站逐日衰减序列 daily_series：演出后 T+1..T+14 全站平均指数 相对基线(baseline)变化率 ----
+        daily_series = None
+        try:
+            _bl_lo, _bl_hi = d - pd.Timedelta(days=7), d - pd.Timedelta(days=1)
+            _base_vals, _day_vals = [], {}
+            for _disp, _nrm, _s in series.values():
+                _b = _s[(_s.index >= _bl_lo) & (_s.index < _bl_hi)]
+                if len(_b) >= 3 and _b.mean() > 0:
+                    _base_vals.append(_b.mean())
+                for _off in range(1, 15):
+                    _td = d + pd.Timedelta(days=_off)
+                    if _td in _s.index:
+                        _v = _s.loc[_td]
+                        if pd.notna(_v) and _v > 0:
+                            _day_vals.setdefault(_off, []).append(_v)
+            if _base_vals and _day_vals:
+                _base = sum(_base_vals) / len(_base_vals)
+                daily_series = {}
+                for _off in sorted(_day_vals):
+                    _avg = sum(_day_vals[_off]) / len(_day_vals[_off])
+                    if _base > 0:
+                        daily_series["T+%d" % _off] = round((_avg / _base - 1) * 100, 1)
+        except Exception:
+            daily_series = None
+
         rows.append({
             "date": date,
             "scene": scene,
             "city": e_city,
             "city_tier": city_tier_of(e_city),
+            "content_type": venue_type_of(str(info["tour"]), scene),
             "venue_type": venue_type_of(str(info["tour"]), scene),
             "tour": info["tour"],
             "total_uplift": round(float(total_uplift), 1),
             "setlist_uplift": round(float(setlist_uplift), 1) if setlist_uplift is not None else None,
             "radiance_uplift": round(float(radiance_uplift), 1) if radiance_uplift is not None else None,
+            "daily_series": daily_series,
             "top_songs": [{"name": n, "uplift": round(u, 1), "on_setlist": o} for n, u, o in candidates],
             # 全量歌曲涨幅（不限 top5）：供 live 页「完整歌单」逐曲标注场后涨幅
             "songs": [{"name": n, "uplift": round(u, 1), "on_setlist": o} for n, u, o in effects],
@@ -1850,14 +1891,33 @@ def _call_deepseek(prompt):
         return None
 
 
+def _median(lst):
+    """标准中位数：排序后取中间，偶数取中间两数均值。"""
+    if not lst:
+        return None
+    s = sorted(lst)
+    n = len(s)
+    if n % 2 == 1:
+        return round(s[n // 2], 1)
+    return round((s[n // 2 - 1] + s[n // 2]) / 2.0, 1)
+
+
 def _compute_radiation(tour_song_fx):
-    """纯 Python 计算：按场馆类型聚合三口径 + Top10 排名 + 异常场次 + 关键发现。
-    返回 dict，不调 LLM，保证数值准确。"""
+    """纯 Python 计算（V2）：按内容形态聚合（均值+中位数）+ 效应模式识别 + 衰减曲线分析。
+    政府活动单独成组，不参与均值/中位数（仅列示）。返回 dict，不调 LLM。"""
     from collections import defaultdict
+    # 内容形态顺序（个人巡回/主题音乐会/晚会/音乐节/演唱会/政府活动/其他）
+    MORPH = ["个人巡回", "主题音乐会", "晚会", "音乐节", "演唱会", "政府活动", "其他"]
+
+    # ---- 1) 形态聚合（政府活动除外，单独列示）----
     groups = defaultdict(lambda: {"n": 0, "total": [], "setlist": [], "radiance": []})
+    gov_events = []
     for e in tour_song_fx:
-        vt = e.get("venue_type", "其他")
-        g = groups[vt]
+        ct = e.get("content_type") or "其他"
+        if ct == "政府活动":
+            gov_events.append(e)
+            continue
+        g = groups[ct]
         if e.get("total_uplift") is not None:
             g["total"].append(e["total_uplift"])
         if e.get("setlist_uplift") is not None:
@@ -1869,66 +1929,168 @@ def _compute_radiation(tour_song_fx):
     def _avg(lst):
         return round(sum(lst) / len(lst), 1) if lst else None
 
-    agg = {}
-    for vt, g in groups.items():
-        agg[vt] = {
+    agg = {}   # 非政府形态聚合
+    for ct in MORPH:
+        g = groups.get(ct)
+        if not g or g["n"] == 0:
+            continue
+        agg[ct] = {
             "n": g["n"],
-            "avg_total": _avg(g["total"]),
-            "avg_setlist": _avg(g["setlist"]),
-            "avg_radiance": _avg(g["radiance"]),
+            "avg_total": _avg(g["total"]), "med_total": _median(g["total"]),
+            "avg_setlist": _avg(g["setlist"]), "med_setlist": _median(g["setlist"]),
+            "avg_radiance": _avg(g["radiance"]), "med_radiance": _median(g["radiance"]),
         }
 
-    # 待 LLM 的场次，按辐射带动降序 Top10
+    # ---- 2) 效应模式识别（每场打标签 + 各形态模式占比）----
+    def _pattern(e):
+        sl = e.get("setlist_uplift")
+        rl = e.get("radiance_uplift")
+        if sl is None:
+            return "单点触发型" if rl is not None else "无效型"
+        a, b = abs(sl), abs(rl if rl is not None else 0)
+        if a > 20 and b < 5:
+            return "精准型"
+        if a < 5 and b > 10:
+            return "扩散型"
+        if a > 10 and b > 10:
+            return "均衡型"
+        return "无效型"
+
+    pat_count = defaultdict(lambda: defaultdict(int))
+    for e in tour_song_fx:
+        ct = e.get("content_type") or "其他"
+        pat = _pattern(e)
+        e["pattern"] = pat
+        pat_count[ct][pat] += 1
+    pattern_dist = {}
+    for ct, pc in pat_count.items():
+        total = sum(pc.values())
+        pattern_dist[ct] = {k: round(v / total * 100, 1) for k, v in pc.items()}
+
+    # ---- 3) 衰减曲线分析（daily_series 非空场次）----
+    def _decay_metrics(ds):
+        if not ds:
+            return None
+        vals = [(int(k.split("+")[1]), v) for k, v in ds.items()]
+        if not vals:
+            return None
+        vals.sort(key=lambda x: x[0])
+        peak_off, peak_val = max(vals, key=lambda x: x[1])
+        # 持续期：最后一个 >0 的天
+        pos = [o for o, v in vals if v > 0]
+        duration = pos[-1] if pos else 0
+        # 半衰期：从峰值日向后，首次衰减到 peak/2
+        half = None
+        if peak_val > 0:
+            for o, v in vals:
+                if o > peak_off and v <= peak_val / 2:
+                    half = o - peak_off
+                    break
+        if duration <= 2:
+            shape = "脉冲型"
+        elif duration <= 5:
+            shape = "短促型"
+        elif duration <= 14:
+            shape = "缓释型"
+        else:
+            shape = "长尾型"
+        return {"peak_day": peak_off, "peak_val": round(peak_val, 1),
+                "half_life": half if half is not None else ">观测期",
+                "duration": duration, "shape": shape}
+
+    decay_all = []
+    decay_by_morph = defaultdict(list)
+    for e in tour_song_fx:
+        ds = e.get("daily_series")
+        if not ds:
+            continue
+        dm = _decay_metrics(ds)
+        if not dm:
+            continue
+        ct = e.get("content_type") or "其他"
+        rec = dict(dm)
+        rec["date"] = e.get("date"); rec["city"] = e.get("city"); rec["content_type"] = ct
+        decay_all.append(rec)
+        if ct != "政府活动":
+            decay_by_morph[ct].append(dm)
+
+    decay_agg = {}
+    for ct, items in decay_by_morph.items():
+        if len(items) < 2:
+            decay_agg[ct] = {"n": len(items), "note": "样本不足，不做聚类"}
+            continue
+        pks = [x["peak_val"] for x in items]
+        durs = [x["duration"] for x in items]
+        shapes = defaultdict(int)
+        for x in items:
+            shapes[x["shape"]] += 1
+        halflist = [x["half_life"] for x in items if isinstance(x["half_life"], (int, float))]
+        decay_agg[ct] = {
+            "n": len(items),
+            "avg_peak": _avg(pks), "avg_duration": _avg(durs),
+            "avg_half_life": _avg(halflist),
+            "shape_dist": {k: round(v / len(items) * 100, 1) for k, v in shapes.items()},
+        }
+
+    # ---- 4) 异常归因：与同形态均值偏离 >1 标准差 ----
+    anomaly = []
+    for ct, items in decay_by_morph.items():
+        if len(items) < 3:
+            continue
+        peaks = [x["peak_val"] for x in items]
+        mn = sum(peaks) / len(peaks)
+        sd = (sum((p - mn) ** 2 for p in peaks) / len(peaks)) ** 0.5
+        for rec in decay_all:
+            if rec["content_type"] == ct and (rec["peak_val"] > mn + sd or rec["peak_val"] < mn - sd):
+                anomaly.append({"date": rec["date"], "city": rec["city"], "content_type": ct,
+                                "peak_val": rec["peak_val"], "avg": round(mn, 1)})
+
+    # ---- 5) 辐射带动 Top10 ----
     ranked = sorted(tour_song_fx, key=lambda e: (e.get("radiance_uplift") if e.get("radiance_uplift") is not None else -1e9), reverse=True)[:10]
     top10 = []
     for e in ranked:
         rl = e.get("radiance_uplift")
         sl = e.get("setlist_uplift")
-        spill = None
+        spill = ""
         if rl is not None and sl is not None and abs(sl) > 1e-6:
-            spill = round(rl / sl, 2)
-        elif rl is not None and (sl is None or abs(sl) <= 1e-6):
-            spill = "∞（歌单内无样本）"
+            spill = round(rl / sl, 1)
+        elif sl is None or abs(sl) <= 1e-6:
+            spill = ""  # null/0 留空
         top10.append({
-            "date": e.get("date"), "city": e.get("city"), "venue_type": e.get("venue_type"),
+            "date": e.get("date"), "city": e.get("city"), "content_type": e.get("content_type"),
             "radiance_uplift": rl, "setlist_uplift": sl, "spill_ratio": spill,
-            "top_song": (e.get("top_songs") or [{}])[0].get("name", "") if e.get("top_songs") else "",
+            "setlist_has": (sl is not None),
         })
-
-    # 异常场次：辐射 > 歌单内（品牌效应）与 歌单内 >> 辐射（精准转化）
-    brand_effect = []   # 辐射带动明显高于歌单内
-    direct_effect = []  # 歌单内明显高于辐射带动
-    for e in tour_song_fx:
-        rl = e.get("radiance_uplift")
-        sl = e.get("setlist_uplift")
-        if rl is None or sl is None:
-            continue
-        if rl - sl > 5:
-            brand_effect.append({"date": e.get("date"), "city": e.get("city"), "venue_type": e.get("venue_type"),
-                                 "radiance": rl, "setlist": sl})
-        elif sl - rl > 15:
-            direct_effect.append({"date": e.get("date"), "city": e.get("city"), "venue_type": e.get("venue_type"),
-                                  "radiance": rl, "setlist": sl})
 
     return {
         "aggregation": agg,
+        "gov_events": [{"date": e.get("date"), "city": e.get("city"), "total": e.get("total_uplift"),
+                        "radiance": e.get("radiance_uplift"), "setlist": e.get("setlist_uplift")} for e in gov_events],
+        "pattern_distribution": pattern_dist,
+        "decay_agg": decay_agg,
+        "decay_all": decay_all,
+        "anomaly": anomaly,
         "top10": top10,
-        "brand_effect": brand_effect,
-        "direct_effect": direct_effect,
         "total_events": len(tour_song_fx),
+        "decay_count": len(decay_all),
     }
 
 
 def build_radiation_analysis(tour_song_fx):
-    """构建辐射效能分析：先纯 Python 计算，再用 LLM 生成措辞（仅措辞，数值已由 Python 算好）。
-    缓存：只有场次数/日期范围/关键值变化才重跑 LLM。"""
+    """构建辐射效能分析（V2）：Python 计算 + LLM 措辞，数据变化才重跑 LLM（省 token）。"""
     if not tour_song_fx:
         return None
     calc = _compute_radiation(tour_song_fx)
 
-    # 缓存指纹：场次数 + 每个场次的 radiance/setlist 值（简化：排序拼接）
+    # 缓存指纹：每场 date + content_type + 三口径 + daily_series 摘要
+    def _ds_sig(ds):
+        if not ds:
+            return "-"
+        return ",".join("%s=%.1f" % (k, v) for k, v in (sorted(ds.items()) if ds else []))
     fingerprint = "|".join(
-        "%s:%s:%s" % (e.get("date"), e.get("radiance_uplift"), e.get("setlist_uplift"))
+        "%s:%s:%s:%s:%s:%s" % (
+            e.get("date"), e.get("content_type"), e.get("total_uplift"),
+            e.get("radiance_uplift"), e.get("setlist_uplift"), _ds_sig(e.get("daily_series")))
         for e in sorted(tour_song_fx, key=lambda x: x.get("date") or "")
     )
 
@@ -1943,27 +2105,47 @@ def build_radiation_analysis(tour_song_fx):
         except Exception:
             cached = None
 
-    if cached and cached.get("analysis_html") and cached.get("key_findings"):
-        logger.info("辐射效能分析：缓存命中，复用 LLM 分析（省 token）")
+    if cached and cached.get("summary_html") and cached.get("key_findings"):
+        logger.info("辐射效能分析(V2)：缓存命中，复用 LLM 分析（省 token）")
     else:
-        # 组织给 LLM 的输入（只含计算好的聚合与Top10，让它写措辞）
-        agg_text = json.dumps(calc["aggregation"], ensure_ascii=False)
-        top10_text = json.dumps(calc["top10"], ensure_ascii=False)
-        brand_text = json.dumps(calc["brand_effect"], ensure_ascii=False)
-        direct_text = json.dumps(calc["direct_effect"], ensure_ascii=False)
+        # V2：给 LLM 的输入 = 各形态聚合(均值+中位数) + 效应模式 + 衰减 + Top10 + 政府活动
+        input_payload = {
+            "morphology_aggregation": calc["aggregation"],
+            "gov_events": calc["gov_events"],
+            "pattern_distribution": calc["pattern_distribution"],
+            "decay_aggregation": calc["decay_agg"],
+            "decay_events": [{"date": x["date"], "city": x["city"], "content_type": x["content_type"],
+                              "peak_day": x["peak_day"], "peak_val": x["peak_val"],
+                              "half_life": x["half_life"], "duration": x["duration"], "shape": x["shape"]}
+                             for x in calc["decay_all"]],
+            "anomaly": calc["anomaly"],
+            "top10": calc["top10"],
+            "total_events": calc["total_events"],
+            "decay_count": calc["decay_count"],
+        }
         prompt = (
-            "你是音乐数据简报撰写者。下面是歌手王晰的演出辐射效能数据（已按场馆类型聚合、已算好数值）。"
+            "你是音乐数据简报撰写者。下面是歌手王晰的演出辐射效能数据，已由程序算好数值（V2，按内容形态分类）。"
             "请只做措辞表达，不要改数值、不要编造。\n\n"
-            "按场馆类型聚合（avg_total=平均全站变化%，avg_setlist=平均歌单内变化%，avg_radiance=平均辐射带动%）：\n"
-            + agg_text + "\n\n"
-            "辐射带动 Top10（radiance_uplift=辐射带动%，setlist_uplift=歌单内%，spill_ratio=辐射/歌单内溢出比）：\n"
-            + top10_text + "\n\n"
-            "品牌效应场次（辐射带动明显高于歌单内，溢出>5pp）：\n" + brand_text + "\n\n"
-            "精准转化场次（歌单内明显高于辐射带动）：\n" + direct_text + "\n\n"
+            "【形态聚合(均值+中位数)】avg_total=平均全站变化%, med_total=中位全站, avg_setlist=平均歌单内, avg_radiance=平均辐射带动:\n"
+            + json.dumps(input_payload["morphology_aggregation"], ensure_ascii=False) + "\n\n"
+            "【政府活动】单独列示，不参与均值:\n" + json.dumps(input_payload["gov_events"], ensure_ascii=False) + "\n\n"
+            "【效应模式分布】各形态中各模式占比(精准型/扩散型/均衡型/无效型/单点触发型):\n"
+            + json.dumps(input_payload["pattern_distribution"], ensure_ascii=False) + "\n\n"
+            "【衰减聚合】按形态 peak_val/duration/half_life/shape 分布:\n"
+            + json.dumps(input_payload["decay_aggregation"], ensure_ascii=False) + "\n\n"
+            "【衰减异常场次】(偏离同形态均值>1SD):\n" + json.dumps(input_payload["anomaly"], ensure_ascii=False) + "\n\n"
+            "【辐射带动Top10】(radiance_uplift=辐射带动%,setlist_uplift=歌单内%,setlist_has=歌单内有无数据):\n"
+            + json.dumps(input_payload["top10"], ensure_ascii=False) + "\n\n"
             "要求输出严格 JSON（不要 markdown）：\n"
-            '{"analysis_text": "300字左右的中文分析，说明哪类场馆溢出效应最强、哪类精准转化最强、给演出方的actionable insight，客观冷静数据简报风格",'
-            '"key_findings": ["发现1", "发现2", "发现3"]}\n'
-            "百分比保留1位小数。若某类场馆场次<3，在分析文本里标注「样本不足仅供参考」。"
+            '{"summary_html": "<div class=\'dashboard-insight\'><h3>演出辐射效能与衰减形态分析</h3><p>300字左右中文分析：哪类形态溢出最稳定(看中位数辐射带动)、哪类精准转化最强(看中位数歌单内)、衰减形态主要发现、给演出方务实建议不超3条</p></div>",'
+            '"morphology_table_html": "<table class=\'event-ranking\'><thead><tr><td>形态</td><td>n</td><td>平均全站</td><td>中位全站</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody>...</tbody></table>",'
+            '"pattern_distribution_html": "<div class=\'dashboard-insight\'><h4>效应模式分布</h4>...</div>",'
+            '"decay_table_html": "<table class=\'event-ranking\'><thead>...</thead><tbody>...</tbody></table>",'
+            '"top10_table_html": "<table class=\'event-ranking\'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody>...</tbody></table>",'
+            '"key_findings": ["发现1", "发现2", "发现3"],'
+            '"strategic_notes": ["建议1", "建议2", "建议3"],'
+            '"data_quality_note": "基于N场，其中X场含逐日衰减数据；政府活动单独列示；样本<3形态均值标样本不足"}\n'
+            "约束：百分比1位小数；无数据留空不填0；样本<3的形态均值标注「样本不足」；政府活动仅列示；Top10溢出比当歌单内为null/0时留空。"
         )
         llm_text = _call_deepseek(prompt)
         parsed = None
@@ -1972,25 +2154,35 @@ def build_radiation_analysis(tour_song_fx):
                 parsed = json.loads(llm_text)
             except Exception:
                 parsed = None
-        analysis_text = (parsed or {}).get("analysis_text", "") if parsed else ""
-        key_findings = (parsed or {}).get("key_findings", []) if parsed else []
-        if not analysis_text:
-            analysis_text = "（LLM 措辞暂不可用，以下为自动计算的关键数据。）"
         cached = {
             "_meta": {"fingerprint": fingerprint, "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")},
-            "analysis_text": analysis_text,
-            "key_findings": key_findings,
+            "summary_html": (parsed or {}).get("summary_html", "") if parsed else "",
+            "morphology_table_html": (parsed or {}).get("morphology_table_html", "") if parsed else "",
+            "pattern_distribution_html": (parsed or {}).get("pattern_distribution_html", "") if parsed else "",
+            "decay_table_html": (parsed or {}).get("decay_table_html", "") if parsed else "",
+            "top10_table_html": (parsed or {}).get("top10_table_html", "") if parsed else "",
+            "key_findings": (parsed or {}).get("key_findings", []) if parsed else [],
+            "strategic_notes": (parsed or {}).get("strategic_notes", []) if parsed else [],
+            "data_quality_note": (parsed or {}).get("data_quality_note", "") if parsed else "",
         }
+        if not cached["summary_html"]:
+            cached["summary_html"] = "<div class='dashboard-insight'><p>（LLM 措辞暂不可用，已由程序计算关键数据，见下方表格。）</p></div>"
         try:
             open(RADIATION_CACHE_PATH, "w", encoding="utf-8").write(json.dumps(cached, ensure_ascii=False, indent=1))
-            logger.info("辐射效能分析：已生成并缓存 LLM 措辞")
+            logger.info("辐射效能分析(V2)：已生成并缓存 LLM 措辞")
         except Exception as e:
             logger.warning(f"辐射效能分析缓存写入失败: {e}")
 
-    # 合并 Python 计算结果 + LLM 措辞，输出给前端
+    # 合并 Python 计算结果 + LLM 措辞 HTML，输出给前端
     result = dict(calc)
-    result["analysis_html"] = cached.get("analysis_text", "")
+    result["summary_html"] = cached.get("summary_html", "")
+    result["morphology_table_html"] = cached.get("morphology_table_html", "")
+    result["pattern_distribution_html"] = cached.get("pattern_distribution_html", "")
+    result["decay_table_html"] = cached.get("decay_table_html", "")
+    result["top10_table_html"] = cached.get("top10_table_html", "")
     result["key_findings"] = cached.get("key_findings", [])
+    result["strategic_notes"] = cached.get("strategic_notes", [])
+    result["data_quality_note"] = cached.get("data_quality_note", "")
     result["generated_at"] = cache_meta.get("generated_at", "") or (cached.get("_meta", {}).get("generated_at", ""))
     return result
 
@@ -2521,20 +2713,14 @@ __STATUS_INFO__
   </div>
   <div class="chart-row">
     <div class="chart-box">
-      <h2 class="chart-title">演出辐射效能分析 · 场馆类型 vs 三口径效应</h2>
-      <p class="chart-insight">按场馆类型聚合：全站变化 / 歌单内直接效应 / 辐射带动溢出；样本 &lt;3 场的类型标注「样本不足仅供参考」</p>
-      <div id="radiationInsight" class="dashboard-insight" style="margin:10px 0;padding:14px 16px;background:rgba(255,255,255,0.04);border-radius:8px;font-size:14px;line-height:1.9;color:#cdd6e6"></div>
-      <div id="radiationKeyFindings" style="margin:10px 0;padding:0 16px;font-size:13px;line-height:1.8;color:#9fb0c8"></div>
-      <div style="display:flex;flex-wrap:wrap;gap:24px;">
-        <div style="flex:1;min-width:280px;">
-          <h3 style="font-size:14px;color:#00d2ff;margin:8px 0;">按场馆类型平均效应</h3>
-          <div id="radiationAgg"></div>
-        </div>
-        <div style="flex:1;min-width:280px;">
-          <h3 style="font-size:14px;color:#00d2ff;margin:8px 0;">辐射带动 Top10 场次</h3>
-          <div id="radiationTop10"></div>
-        </div>
-      </div>
+      <h2 class="chart-title">演出辐射效能与衰减形态分析</h2>
+      <p class="chart-insight">按内容形态（个人巡回/主题音乐会/晚会/音乐节/演唱会/政府活动）聚合：全站变化均值+中位、歌单内精准转化、辐射带动溢出，含逐日衰减曲线</p>
+      <div id="radiationSummary" class="dashboard-insight" style="margin:10px 0;padding:14px 16px;background:rgba(255,255,255,0.04);border-radius:8px;font-size:14px;line-height:1.9;color:#cdd6e6"></div>
+      <div id="radiationMorphology" style="margin:12px 0;overflow-x:auto;"></div>
+      <div id="radiationPattern" class="dashboard-insight" style="margin:10px 0;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:13px;line-height:1.8;color:#9fb0c8"></div>
+      <div id="radiationDecay" style="margin:12px 0;overflow-x:auto;"></div>
+      <div id="radiationTop10" style="margin:12px 0;overflow-x:auto;"></div>
+      <div id="radiationNotes" style="margin:10px 0;padding:0 16px;font-size:12px;line-height:1.7;color:#8c959f"></div>
       <div class="ai-summary" id="ai-radiation" aria-label="辐射效能分析摘要" style="position:absolute;left:-9999px;"></div>
     </div>
   </div>
