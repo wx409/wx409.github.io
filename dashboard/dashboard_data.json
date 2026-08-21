@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21 13:09",
+  "timestamp": "2026-08-21 17:47",
   "total": 200348,
   "success": 36518,
   "complete_rate": 18.2,
@@ -9,7 +9,7 @@
   "active_songs": 206,
   "link_uids": 253,
   "name_uids": 72,
-  "tracked_links": 382,
+  "tracked_links": 253,
   "time_labels": [
     "2023-01",
     "2023-02",
@@ -131,30 +131,30 @@
     252
   ],
   "listener_ratio_trend": [
-    4.1,
-    7.6,
-    8.3,
-    11.4,
-    0.9,
-    5.4,
-    18.7,
-    17.0,
-    18.4,
-    13.9,
-    8.9,
-    8.8,
-    8.1,
-    6.8,
-    5.4,
-    4.4,
-    4.6,
-    4.3,
-    3.6,
-    3.2,
-    2.9,
-    3.0,
-    8.2,
-    24.6
+    4.5,
+    8.0,
+    10.1,
+    14.2,
+    0.6,
+    5.0,
+    16.1,
+    16.7,
+    16.6,
+    14.2,
+    9.4,
+    13.3,
+    13.3,
+    8.6,
+    3.4,
+    3.1,
+    2.6,
+    2.4,
+    2.0,
+    2.0,
+    1.9,
+    1.6,
+    22.4,
+    90.9
   ],
   "listener_labels": [
     "2024-08",
@@ -109890,7 +109890,7 @@
       "音乐节虽样本少但中位辐射带动5.8%，可作为拓展舞台的尝试，并扩充样本以验证稳定性。"
     ],
     "data_quality_note": "基于40场数据，其中39场含逐日衰减数据；政府活动单独列示；样本<3形态均值标注样本不足。",
-    "generated_at": "2026-08-21 08:57:13"
+    "generated_at": "2026-08-21 13:11:11"
   },
   "batch_count": 907,
   "date_range": "2023-01-01 ~ 2026-08-21",
@@ -132030,7 +132030,7 @@
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-08-21 13:09",
+  "last_update": "2026-08-21 17:47",
   "today_batches": 907,
   "daily_new_records": 0,
   "recent_7days": [
@@ -132088,15 +132088,15 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 130,
+      "rows": 0,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1819,
-      "success": 1819,
+      "total": 1820,
+      "success": 1820,
       "failed": []
     },
-    "link_registry": 382,
+    "link_registry": 253,
     "intraday_merged": {
       "before": 505182,
       "after": 200348
