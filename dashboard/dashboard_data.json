@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21 09:01",
+  "timestamp": "2026-08-21 11:49",
   "total": 200348,
   "success": 36518,
   "complete_rate": 18.2,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    24.5
+    24.6
   ],
   "listener_labels": [
     "2024-08",
@@ -124546,7 +124546,7 @@
         44.9,
         49.0,
         39.3,
-        51.9,
+        52.5,
         40.3,
         38.0,
         37.2,
@@ -124889,8 +124889,8 @@
       "在路上"
     ],
     "values": [
-      145.6,
-      133.1
+      143.5,
+      131.6
     ],
     "spring": [
       false,
@@ -131201,15 +131201,15 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 5,
+    "active_count": 7,
     "total_tracked": 325,
-    "concentration_top3": 85.9,
+    "concentration_top3": 76.0,
     "as_of": "2026-08-21",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-08-21 09:01",
+  "last_update": "2026-08-21 11:49",
   "today_batches": 907,
   "daily_new_records": 0,
   "recent_7days": [
@@ -131267,17 +131267,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 0,
+      "rows": 130,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1815,
-      "success": 1815,
+      "total": 1816,
+      "success": 1816,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 504174,
+      "before": 504426,
       "after": 200348
     },
     "index_calibration": {
