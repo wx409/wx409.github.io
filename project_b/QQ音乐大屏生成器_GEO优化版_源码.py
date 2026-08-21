@@ -3857,6 +3857,7 @@ else{
 }
 </script>
 <script src="search_engine.js"></script>
+<script src="/qa_engine.js"></script>
 </body>
 </html>
 """
