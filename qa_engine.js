@@ -21,8 +21,59 @@
   var bankState = 'pending';
   var widgetInjected = false;
 
+  // 同义词折叠：把常见同义表达归一，提升语义匹配
+  var SYNONYMS = [
+    ['下降', '下滑', '跌落', '下跌', '掉', '跌'],
+    ['上涨', '上升', '涨', '升'],
+    ['最多', '最常', '经常', '频繁', '次数最多'],
+    ['顶点', '峰值', '最高', '最火', '最红', '最好'],
+    ['演唱', '唱', '唱过', '演绎', '表演'],
+    ['歌曲', '歌', '曲目', '作品', '曲子'],
+    ['巡回', '巡演', '演唱会', '个唱'],
+    ['制作人', '监制', 'producer'],
+    ['词作者', '作词', '写词', '词人'],
+    ['曲作者', '作曲', '写曲', '编曲'],
+  ];
   function norm(s) {
-    return String(s || '').toLowerCase().replace(/[，。！？、；：""''《》【】（）()\s\-—·]/g, '');
+    var t = String(s || '').toLowerCase().replace(/[，。！？、；：""''《》【】（）()\s\-—·]/g, '');
+    SYNONYMS.forEach(function (grp) {
+      for (var i = 1; i < grp.length; i++) {
+        t = t.split(grp[i]).join(grp[0]);
+      }
+    });
+    return t;
+  }
+  function bigrams(s) {
+    var b = {};
+    for (var i = 0; i < s.length - 1; i++) {
+      b[s.slice(i, i + 2)] = true;
+    }
+    return b;
+  }
+
+  function scoreItem(item, q) {
+    var nq = norm(q);
+    var qb = bigrams(nq);
+    var score = 0, hit = false;
+    // 问题/别名：字级 bigram 重合度
+    (item.aliases || []).concat([item.question]).forEach(function (a) {
+      var na = norm(a);
+      if (na && (nq.indexOf(na) >= 0 || na.indexOf(nq) >= 0)) { score += 50; hit = true; }
+      else if (na && nq.length >= 2) {
+        var overlap = 0, total = 0;
+        var ab = bigrams(na);
+        for (var b in qb) { if (ab[b]) overlap++; total++; }
+        if (total > 0 && overlap / total >= 0.4) { score += 20 * (overlap / total); hit = true; }
+      }
+    });
+    // 关键词命中（归一后）
+    var counted = {};
+    (item.keywords || []).forEach(function (k) {
+      var nk = norm(k);
+      if (nk && nk.length >= 2 && !counted[nk] && nq.indexOf(nk) >= 0) { score += 15; hit = true; counted[nk] = true; }
+    });
+    if (!hit && item.category && nq.indexOf(norm(item.category)) >= 0) { score += 8; hit = true; }
+    return hit ? score : 0;
   }
   function esc(s) {
     return String(s || '').replace(/[&<>"]/g, function (c) {
@@ -38,23 +89,6 @@
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (j) { bank = j; bankState = 'ready'; cb && cb(); })
       .catch(function () { bankState = 'failed'; cb && cb(); });
-  }
-
-  function scoreItem(item, q) {
-    var nq = norm(q);
-    var score = 0, hit = false;
-    (item.aliases || []).concat([item.question]).forEach(function (a) {
-      var na = norm(a);
-      if (na && nq.indexOf(na) >= 0) { score += 50; hit = true; }
-      else if (na && na && nq.length > 0 && na.indexOf(nq) >= 0) { score += 30; hit = true; }
-    });
-    var counted = {};
-    (item.keywords || []).forEach(function (k) {
-      var nk = norm(k);
-      if (nk && !counted[nk] && nk && nq.indexOf(nk) >= 0) { score += 15; hit = true; counted[nk] = true; }
-    });
-    if (!hit && item.category && nq.indexOf(norm(item.category)) >= 0) { score += 8; hit = true; }
-    return hit ? score : 0;
   }
 
   function answer(q) {
