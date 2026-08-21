@@ -67,25 +67,7 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 .sr-empty{color:#888;font-size:14px;padding:30px 10px;text-align:center;}
 .sr-status{font-size:12px;color:#888;}
 .footnote{color:#888;font-size:12px;margin-top:30px;border-top:1px solid #eee;padding-top:14px;}
-/* AI 问答区 */
-.qa-box{margin:22px 0;padding:18px 16px;background:linear-gradient(135deg,#fdf6f7 0%,#f5f8ff 100%);border:1px solid #f0d5da;border-radius:12px;}
-.qa-head{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:#a31832;margin-bottom:8px;}
-.qa-sub{font-size:12px;color:#999;margin-bottom:12px;}
-.qa-search{display:flex;gap:8px;margin-bottom:12px;}
-.qa-search input{flex:1;min-width:0;padding:10px 14px;font-size:14px;border:1px solid #e0c0c6;border-radius:8px;outline:none;}
-.qa-search input:focus{border-color:#c41e3a;box-shadow:0 0 0 3px rgba(196,30,58,.08);}
-.qa-search button{background:#c41e3a;border:none;border-radius:8px;color:#fff;font-weight:600;padding:0 18px;font-size:14px;cursor:pointer;}
-.qa-card{background:#fff;border:1px solid #f0e0e3;border-radius:10px;padding:14px 16px;margin:10px 0;}
-.qa-q{font-weight:700;color:#1a1a1a;margin-bottom:8px;}
-.qa-a{font-size:14px;color:#333;line-height:1.85;white-space:normal;}
-.qa-src{font-size:11px;color:#999;margin-top:10px;padding-top:8px;border-top:1px dashed #eee;}
-.qa-related{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
-.qa-rel-btn{background:#fff;border:1px solid #e0c0c6;border-radius:16px;padding:4px 12px;font-size:12px;color:#a31832;cursor:pointer;}
-.qa-rel-btn:hover{border-color:#c41e3a;background:#fdf0f2;}
-.qa-empty{color:#888;font-size:13px;padding:14px;text-align:center;}
-.qa-all{margin-top:10px;}
-.qa-all-title{font-size:12px;color:#999;margin-bottom:6px;}
-@media (max-width:600px){.qa-search{flex-direction:column;}.qa-search button{padding:10px 0;}}
+@media (max-width:600px){.search-box{flex-direction:column;}.search-box button{padding:10px 0;}}
 @media (max-width:600px){.search-box{flex-direction:column;}.search-box button{padding:10px 0;}}
 </style>
 </head>
@@ -106,20 +88,6 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 
 <h1>🔍 全站搜索</h1>
 <p style="color:#666;font-size:14px;">检索歌曲、巡演城市、演出、深夜小酒馆逐字稿、观演指南与站内页面。数据来源：<code>data/site_search_index.json</code>（纯前端，零后端）。</p>
-
-<div class="qa-box" id="qaBox">
-  <div class="qa-head">🤖 AI 问答 · 数据归因助手</div>
-  <div class="qa-sub">基于 38 场演出的逐日指数 + 867 条微博事件 + 联网信源，回答「为什么」类深层问题（离线预生成，随提问持续扩充）。</div>
-  <div class="qa-search">
-    <input type="search" id="qaInput" placeholder="例如：为什么王晰个人巡演当天指数会下降？" autocomplete="off" aria-label="AI问答">
-    <button type="button" id="qaBtn">提问</button>
-  </div>
-  <div id="qaResult"></div>
-  <div class="qa-all">
-    <div class="qa-all-title">已收录的问题（点击查看答案）：</div>
-    <div id="qaAllList" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
-  </div>
-</div>
 
 <div class="search-box" role="search">
 <input type="search" id="searchInput" placeholder="搜索歌曲 / 城市 / 演出 / 小酒馆 / 指南…（支持空格多词）" autocomplete="off" aria-label="全站搜索">
