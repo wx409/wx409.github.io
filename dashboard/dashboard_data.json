@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21 17:49",
+  "timestamp": "2026-08-21 18:05",
   "total": 200348,
   "success": 36518,
   "complete_rate": 18.2,
@@ -9,7 +9,7 @@
   "active_songs": 206,
   "link_uids": 253,
   "name_uids": 72,
-  "tracked_links": 253,
+  "tracked_links": 382,
   "time_labels": [
     "2023-01",
     "2023-02",
@@ -131,30 +131,30 @@
     252
   ],
   "listener_ratio_trend": [
-    4.5,
-    8.0,
-    10.1,
-    14.2,
-    0.6,
-    5.0,
-    16.1,
-    16.7,
-    16.6,
-    14.2,
-    9.4,
-    13.3,
-    13.3,
-    8.6,
-    3.4,
-    3.1,
-    2.6,
-    2.4,
-    2.0,
-    2.0,
-    1.9,
-    1.6,
-    22.4,
-    90.9
+    4.1,
+    7.6,
+    8.3,
+    11.4,
+    0.9,
+    5.4,
+    18.7,
+    17.0,
+    18.4,
+    13.9,
+    8.9,
+    8.8,
+    8.1,
+    6.8,
+    5.4,
+    4.4,
+    4.6,
+    4.3,
+    3.6,
+    3.2,
+    2.9,
+    3.0,
+    8.2,
+    25.0
   ],
   "listener_labels": [
     "2024-08",
@@ -110446,7 +110446,7 @@
       "演出后1-2天为热度窗口期，建议集中投放短视频、乐评等内容，延长衰减周期。"
     ],
     "data_quality_note": "基于41场演出，其中41场含逐日衰减数据；政府活动单独列示；样本量<3的形态均值已标注‘样本不足’。",
-    "generated_at": "2026-08-21 13:11:11"
+    "generated_at": "2026-08-21 17:50:50"
   },
   "batch_count": 907,
   "date_range": "2023-01-01 ~ 2026-08-21",
@@ -125915,7 +125915,7 @@
         44.9,
         49.0,
         39.3,
-        48.5,
+        54.9,
         40.3,
         38.0,
         37.2,
@@ -126258,8 +126258,8 @@
       "在路上"
     ],
     "values": [
-      143.5,
-      129.8
+      147.1,
+      132.2
     ],
     "spring": [
       false,
@@ -132578,15 +132578,135 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 9,
+    "active_count": 17,
     "total_tracked": 325,
-    "concentration_top3": 76.7,
+    "concentration_top3": 62.3,
     "as_of": "2026-08-21",
-    "too_small": true
+    "too_small": false
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 50.7,
+      "trend_pct": 88.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "一生中最爱",
+      "share_pct": 6.1,
+      "trend_pct": 133.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "山楂树",
+      "share_pct": 5.5,
+      "trend_pct": 203.7,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "在路上",
+      "share_pct": 5.0,
+      "trend_pct": 50.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "再叙",
+      "share_pct": 4.7,
+      "trend_pct": 180.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
+      "song": "月弯弯",
+      "share_pct": 4.6,
+      "trend_pct": 122.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "Sound of Silence",
+      "share_pct": 4.1,
+      "trend_pct": 125.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 8,
+      "song": "她真漂亮",
+      "share_pct": 2.7,
+      "trend_pct": 127.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 9,
+      "song": "神魂颠倒",
+      "share_pct": 2.7,
+      "trend_pct": 263.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 10,
+      "song": "荒人之歌",
+      "share_pct": 2.4,
+      "trend_pct": 200.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 11,
+      "song": "谁",
+      "share_pct": 2.0,
+      "trend_pct": 50.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 12,
+      "song": "亲密爱人",
+      "share_pct": 1.9,
+      "trend_pct": 45.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 13,
+      "song": "晚风暖暖",
+      "share_pct": 1.7,
+      "trend_pct": 177.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 14,
+      "song": "一生守候",
+      "share_pct": 1.6,
+      "trend_pct": 84.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 15,
+      "song": "Over the Rainbow",
+      "share_pct": 1.5,
+      "trend_pct": 91.7,
+      "trend_label": "up"
+    },
+    {
+      "rank": 16,
+      "song": "爱于此生",
+      "share_pct": 1.4,
+      "trend_pct": 200.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 17,
+      "song": "相思",
+      "share_pct": 1.3,
+      "trend_pct": 81.8,
+      "trend_label": "up"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-08-21 17:49",
+  "last_update": "2026-08-21 18:05",
   "today_batches": 907,
   "daily_new_records": 0,
   "recent_7days": [
@@ -132644,17 +132764,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 0,
+      "rows": 130,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1820,
-      "success": 1820,
+      "total": 1821,
+      "success": 1821,
       "failed": []
     },
-    "link_registry": 253,
+    "link_registry": 382,
     "intraday_merged": {
-      "before": 505182,
+      "before": 505434,
       "after": 200348
     },
     "index_calibration": {
