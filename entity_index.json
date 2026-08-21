@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21 00:05",
+  "generated_at": "2026-08-21 14:00",
   "song_count": 434,
   "songs": {
     "（歌单待现场解锁）": {
@@ -473,6 +473,22 @@
           "tour": "一巡",
           "name": "北京收官",
           "url": null
+        },
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《歌",
+          "name": "杭州",
+          "url": null
+        },
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null,
+          "tour": "《歌",
+          "name": "北京",
+          "url": null
         }
       ],
       "cities": [
@@ -482,6 +498,7 @@
         "南宁",
         "厦门",
         "太原",
+        "杭州",
         "海口",
         "重庆",
         "长沙"
@@ -903,7 +920,7 @@
     "Sound of Silence": {
       "dashboard": {
         "latest": 307.0,
-        "mean30": 280.0,
+        "mean30": 281.0,
         "peak": 11149.0,
         "lifecycle": null,
         "attr": "其他追踪",
@@ -1400,7 +1417,7 @@
     "一生中最爱": {
       "dashboard": {
         "latest": 1033.0,
-        "mean30": 612.0,
+        "mean30": 627.0,
         "peak": 9236.0,
         "lifecycle": null,
         "attr": "OST/单曲",
@@ -1435,7 +1452,7 @@
     "一生守候": {
       "dashboard": {
         "latest": 166.0,
-        "mean30": 148.0,
+        "mean30": 150.0,
         "peak": 1859.0,
         "lifecycle": null,
         "attr": "其他追踪",
@@ -1654,6 +1671,16 @@
       ]
     },
     "不需要结果": {
+      "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
+          "url": null
+        }
+      ],
       "tavern": [
         "歌词"
       ],
@@ -2072,6 +2099,14 @@
           "venue": "北京北展剧场",
           "tour": "一巡",
           "name": "北京收官",
+          "url": null
+        },
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《歌",
+          "name": "杭州",
           "url": null
         },
         {
@@ -2803,6 +2838,14 @@
     "你": {
       "live": [
         {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null,
+          "tour": "《歌",
+          "name": "北京",
+          "url": null
+        },
+        {
           "date": "2020-12-19",
           "city": "南宁",
           "venue": "广西文化艺术中心",
@@ -2825,10 +2868,19 @@
           "tour": "二巡",
           "name": "宁波",
           "url": null
+        },
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
+          "url": null
         }
       ],
       "cities": [
         "上海",
+        "北京",
         "南宁",
         "宁波"
       ]
@@ -3549,6 +3601,14 @@
     "分岔": {
       "live": [
         {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《B",
+          "name": "杭州",
+          "url": null
+        },
+        {
           "date": "2021-12-04",
           "city": "广州",
           "venue": "广州中山纪念堂",
@@ -3653,6 +3713,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -4006,7 +4067,7 @@
     "南屏晚钟": {
       "dashboard": {
         "latest": 196.0,
-        "mean30": 188.0,
+        "mean30": 187.0,
         "peak": 5605.0,
         "lifecycle": null,
         "attr": "专辑",
@@ -4628,6 +4689,14 @@
     "哑光": {
       "live": [
         {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《B",
+          "name": "杭州",
+          "url": null
+        },
+        {
           "date": "2021-12-04",
           "city": "广州",
           "venue": "广州中山纪念堂",
@@ -4732,6 +4801,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -4745,7 +4815,7 @@
     "哭砂": {
       "dashboard": {
         "latest": 157.0,
-        "mean30": 151.0,
+        "mean30": 152.0,
         "peak": 11371.0,
         "lifecycle": null,
         "attr": "OST/单曲",
@@ -5269,6 +5339,14 @@
           "venue": "北京二七剧场",
           "tour": "五巡",
           "name": "北京（生日场）",
+          "url": null
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null,
+          "tour": "《不",
+          "name": "上海",
           "url": null
         },
         {
@@ -5858,14 +5936,22 @@
     },
     "小河": {
       "dashboard": {
-        "latest": 17.4,
+        "latest": 21.0,
         "mean30": 0,
         "peak": 0,
         "lifecycle": null,
-        "attr": "上涨",
+        "attr": "飙升",
         "release": "-"
       },
       "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
+          "url": null
+        },
         {
           "date": "2023-11-12",
           "city": "北京",
@@ -5981,7 +6067,7 @@
     "山楂树": {
       "dashboard": {
         "latest": 578.0,
-        "mean30": 550.0,
+        "mean30": 546.0,
         "peak": 2794.0,
         "lifecycle": null,
         "attr": "其他追踪",
@@ -6619,6 +6705,22 @@
     "怂": {
       "live": [
         {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《歌",
+          "name": "杭州",
+          "url": null
+        },
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null,
+          "tour": "《歌",
+          "name": "北京",
+          "url": null
+        },
+        {
           "date": "2020-11-14",
           "city": "杭州",
           "venue": "杭州剧院",
@@ -6945,6 +7047,14 @@
     "惑许": {
       "live": [
         {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《B",
+          "name": "杭州",
+          "url": null
+        },
+        {
           "date": "2021-12-04",
           "city": "广州",
           "venue": "广州中山纪念堂",
@@ -7049,6 +7159,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -7915,6 +8026,14 @@
           "url": null
         },
         {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null,
+          "tour": "《不",
+          "name": "上海",
+          "url": null
+        },
+        {
           "date": "2025-05-24",
           "city": "广州",
           "venue": "广东艺术剧院",
@@ -8083,6 +8202,14 @@
     "时空": {
       "live": [
         {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《B",
+          "name": "杭州",
+          "url": null
+        },
+        {
           "date": "2021-12-04",
           "city": "广州",
           "venue": "广州中山纪念堂",
@@ -8187,6 +8314,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -8253,6 +8381,14 @@
           "venue": "北京二七剧场",
           "tour": "五巡",
           "name": "北京（生日场）",
+          "url": null
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null,
+          "tour": "《不",
+          "name": "上海",
           "url": null
         },
         {
@@ -8368,7 +8504,7 @@
     "晚风暖暖": {
       "dashboard": {
         "latest": 176.0,
-        "mean30": 182.0,
+        "mean30": 180.0,
         "peak": 1529.0,
         "lifecycle": null,
         "attr": "专辑",
@@ -8912,7 +9048,7 @@
     "月弯弯": {
       "dashboard": {
         "latest": 302.0,
-        "mean30": 317.0,
+        "mean30": 316.0,
         "peak": 3048.0,
         "lifecycle": null,
         "attr": "其他追踪",
@@ -8950,6 +9086,22 @@
       "tavern": [
         "EP47_P2"
       ]
+    },
+    "朝凤": {
+      "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
+          "url": null
+        }
+      ],
+      "discography": {
+        "album": "朝凤",
+        "release": "2023-01"
+      }
     },
     "桂花香是秋天的灵魂,闻过便醉了": {
       "tavern": [
@@ -9113,6 +9265,14 @@
     },
     "歌颂": {
       "live": [
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null,
+          "tour": "《歌",
+          "name": "北京",
+          "url": null
+        },
         {
           "date": "2020-11-14",
           "city": "杭州",
@@ -9549,6 +9709,16 @@
       ]
     },
     "游离": {
+      "live": [
+        {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《B",
+          "name": "杭州",
+          "url": null
+        }
+      ],
       "tavern": [
         "歌词"
       ]
@@ -9564,16 +9734,6 @@
           "url": null
         }
       ]
-    },
-    "滚滚长江东逝水": {
-      "dashboard": {
-        "latest": 106.0,
-        "mean30": 106.0,
-        "peak": 893.0,
-        "lifecycle": null,
-        "attr": "其他追踪",
-        "release": "-"
-      }
     },
     "漂洋过海来看你": {
       "live": [
@@ -10021,6 +10181,14 @@
     "猫模狗样": {
       "live": [
         {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
+          "url": null
+        },
+        {
           "date": "2023-11-12",
           "city": "北京",
           "venue": "北京二七剧场",
@@ -10109,6 +10277,14 @@
     },
     "王牌就是我": {
       "live": [
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《歌",
+          "name": "杭州",
+          "url": null
+        },
         {
           "date": "2020-11-14",
           "city": "杭州",
@@ -10787,7 +10963,7 @@
     "相思": {
       "dashboard": {
         "latest": 213.0,
-        "mean30": 166.0,
+        "mean30": 165.0,
         "peak": 1368.0,
         "lifecycle": null,
         "attr": "OST/单曲",
@@ -11114,6 +11290,14 @@
           "url": null
         },
         {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null,
+          "tour": "《不",
+          "name": "上海",
+          "url": null
+        },
+        {
           "date": "2025-05-24",
           "city": "广州",
           "venue": "广东艺术剧院",
@@ -11160,9 +11344,9 @@
     },
     "神魂颠倒": {
       "dashboard": {
-        "latest": 264.0,
-        "mean30": 273.0,
-        "peak": 4976.0,
+        "latest": 235.0,
+        "mean30": 252.0,
+        "peak": 304.0,
         "lifecycle": null,
         "attr": "其他追踪",
         "release": "-"
@@ -11170,9 +11354,9 @@
     },
     "神魂颠倒（版本2）": {
       "dashboard": {
-        "latest": 235.0,
-        "mean30": 252.0,
-        "peak": 304.0,
+        "latest": 264.0,
+        "mean30": 264.0,
+        "peak": 4976.0,
         "lifecycle": null,
         "attr": "其他追踪",
         "release": "-"
@@ -11329,13 +11513,34 @@
     "等一等昨天": {
       "live": [
         {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null,
+          "tour": "《歌",
+          "name": "北京",
+          "url": null
+        },
+        {
           "date": "2021-01-10",
           "city": "武汉",
           "venue": "武汉琴台大剧院",
           "tour": "二巡",
           "name": "武汉",
           "url": null
+        },
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
+          "url": null
         }
+      ],
+      "cities": [
+        "上海",
+        "北京",
+        "武汉"
       ],
       "tavern": [
         "歌词"
@@ -11885,7 +12090,7 @@
     "荒人之歌": {
       "dashboard": {
         "latest": 154.0,
-        "mean30": 149.0,
+        "mean30": 148.0,
         "peak": 1022.0,
         "lifecycle": null,
         "attr": "其他追踪",
@@ -12239,7 +12444,7 @@
     "谁": {
       "dashboard": {
         "latest": 211.0,
-        "mean30": 231.0,
+        "mean30": 228.0,
         "peak": 1109.0,
         "lifecycle": null,
         "attr": "其他追踪",
@@ -13527,7 +13732,7 @@
     "重庆野玫瑰": {
       "dashboard": {
         "latest": 109.0,
-        "mean30": 126.0,
+        "mean30": 127.0,
         "peak": 1304.0,
         "lifecycle": null,
         "attr": "专辑",
@@ -13700,6 +13905,22 @@
     "雪地里寄不出的求救信": {
       "live": [
         {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null,
+          "tour": "《歌",
+          "name": "杭州",
+          "url": null
+        },
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null,
+          "tour": "《歌",
+          "name": "北京",
+          "url": null
+        },
+        {
           "date": "2020-11-14",
           "city": "杭州",
           "venue": "杭州剧院",
@@ -13785,6 +14006,14 @@
           "venue": "南京保利大剧院",
           "tour": "二巡",
           "name": "南京（收官）",
+          "url": null
+        },
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null,
+          "tour": "《X",
+          "name": "上海",
           "url": null
         }
       ],
@@ -13945,6 +14174,14 @@
           "venue": "北京二七剧场",
           "tour": "五巡",
           "name": "北京（生日场）",
+          "url": null
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null,
+          "tour": "《不",
+          "name": "上海",
           "url": null
         },
         {
@@ -14301,6 +14538,14 @@
           "url": null
         },
         {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null,
+          "tour": "《不",
+          "name": "上海",
+          "url": null
+        },
+        {
           "date": "2025-05-24",
           "city": "广州",
           "venue": "广东艺术剧院",
@@ -14384,7 +14629,7 @@
     "黎明前的黑暗": {
       "dashboard": {
         "latest": 7054.0,
-        "mean30": 6173.0,
+        "mean30": 6143.0,
         "peak": 41656.0,
         "lifecycle": null,
         "attr": "其他追踪",

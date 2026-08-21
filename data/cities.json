@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-21 00:05",
+  "generated_at": "2026-08-21 14:00",
   "city_count": 22,
-  "show_count": 59,
+  "show_count": 64,
   "cities": {
     "杭州": {
       "coord": [
@@ -22,6 +22,18 @@
           "has_data": false
         },
         {
+          "date": "2020-10-07",
+          "scene": "杭州",
+          "note": "",
+          "tour": "其他",
+          "tour_num": 0,
+          "theme": "",
+          "venue": null,
+          "live_url": null,
+          "cancelled": false,
+          "has_data": false
+        },
+        {
           "date": "2020-11-14",
           "scene": "杭州",
           "note": "",
@@ -29,6 +41,18 @@
           "tour_num": 2,
           "theme": "2020-2021 个人巡回",
           "venue": "杭州剧院",
+          "live_url": null,
+          "cancelled": false,
+          "has_data": false
+        },
+        {
+          "date": "2021-11-27",
+          "scene": "杭州",
+          "note": "",
+          "tour": "其他",
+          "tour_num": 0,
+          "theme": "",
+          "venue": null,
           "live_url": null,
           "cancelled": false,
           "has_data": false
@@ -322,6 +346,18 @@
           "has_data": false
         },
         {
+          "date": "2020-10-17",
+          "scene": "北京",
+          "note": "",
+          "tour": "其他",
+          "tour_num": 0,
+          "theme": "",
+          "venue": null,
+          "live_url": null,
+          "cancelled": false,
+          "has_data": false
+        },
+        {
           "date": "2020-11-29",
           "scene": "北京",
           "note": "",
@@ -600,6 +636,23 @@
           "has_data": false
         },
         {
+          "date": "2023-04-09",
+          "scene": "上海",
+          "note": "",
+          "tour": "其他",
+          "tour_num": 0,
+          "theme": "",
+          "venue": null,
+          "live_url": null,
+          "cancelled": false,
+          "has_data": true,
+          "effect": {
+            "total_uplift": -51.6,
+            "setlist_uplift": -38.7,
+            "radiance_uplift": -45.0
+          }
+        },
+        {
           "date": "2023-12-31",
           "scene": "上海（跨年）",
           "note": "跨年",
@@ -622,6 +675,23 @@
           "live_url": null,
           "cancelled": false,
           "has_data": false
+        },
+        {
+          "date": "2025-05-01",
+          "scene": "上海",
+          "note": "",
+          "tour": "其他",
+          "tour_num": 0,
+          "theme": "",
+          "venue": null,
+          "live_url": null,
+          "cancelled": false,
+          "has_data": true,
+          "effect": {
+            "total_uplift": -6.8,
+            "setlist_uplift": 0.4,
+            "radiance_uplift": -9.4
+          }
         },
         {
           "date": "2025-11-21",

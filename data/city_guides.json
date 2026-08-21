@@ -12,11 +12,31 @@
         "has_data": false
       },
       {
+        "date": "2020-10-07",
+        "scene": "杭州",
+        "venue": null,
+        "tour": "其他",
+        "theme": "",
+        "live_url": null,
+        "cancelled": false,
+        "has_data": false
+      },
+      {
         "date": "2020-11-14",
         "scene": "杭州",
         "venue": "杭州剧院",
         "tour": "二巡",
         "theme": "2020-2021 个人巡回",
+        "live_url": null,
+        "cancelled": false,
+        "has_data": false
+      },
+      {
+        "date": "2021-11-27",
+        "scene": "杭州",
+        "venue": null,
+        "tour": "其他",
+        "theme": "",
         "live_url": null,
         "cancelled": false,
         "has_data": false
@@ -54,6 +74,10 @@
     ],
     "top_songs": [
       {
+        "name": "云一定知道",
+        "count": 3
+      },
+      {
         "name": "My Oh My",
         "count": 2
       },
@@ -63,10 +87,6 @@
       },
       {
         "name": "Westway",
-        "count": 2
-      },
-      {
-        "name": "云一定知道",
         "count": 2
       },
       {
@@ -497,6 +517,16 @@
         "has_data": false
       },
       {
+        "date": "2020-10-17",
+        "scene": "北京",
+        "venue": null,
+        "tour": "其他",
+        "theme": "",
+        "live_url": null,
+        "cancelled": false,
+        "has_data": false
+      },
+      {
         "date": "2020-11-29",
         "scene": "北京",
         "venue": "北京展览馆剧场（北展剧场）",
@@ -867,6 +897,16 @@
         "has_data": false
       },
       {
+        "date": "2023-04-09",
+        "scene": "上海",
+        "venue": null,
+        "tour": "其他",
+        "theme": "",
+        "live_url": null,
+        "cancelled": false,
+        "has_data": true
+      },
+      {
         "date": "2023-12-31",
         "scene": "上海（跨年）",
         "venue": "上海北外滩友邦大剧院",
@@ -887,6 +927,16 @@
         "has_data": false
       },
       {
+        "date": "2025-05-01",
+        "scene": "上海",
+        "venue": null,
+        "tour": "其他",
+        "theme": "",
+        "live_url": null,
+        "cancelled": false,
+        "has_data": true
+      },
+      {
         "date": "2025-11-21",
         "scene": "上海（返场）",
         "venue": "上海北外滩友邦大剧院",
@@ -903,19 +953,19 @@
         "count": 3
       },
       {
+        "name": "小河",
+        "count": 3
+      },
+      {
+        "name": "猫模狗样",
+        "count": 3
+      },
+      {
+        "name": "雪地里寄不出的求救信",
+        "count": 3
+      },
+      {
         "name": "Besame Mucho",
-        "count": 2
-      },
-      {
-        "name": "City of Stars",
-        "count": 2
-      },
-      {
-        "name": "Dear Friend",
-        "count": 2
-      },
-      {
-        "name": "为你我受冷风吹",
         "count": 2
       }
     ],

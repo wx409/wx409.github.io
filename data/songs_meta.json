@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-21 00:05",
-  "song_count": 565,
+  "generated_at": "2026-08-21 14:00",
+  "song_count": 571,
   "songs": {
     "AutumnLeaves": {
       "name": "Autumn Leaves",
@@ -314,7 +314,7 @@
       "peak": null,
       "lyric_frags": [],
       "album": null,
-      "show_count": 9,
+      "show_count": 11,
       "cities": [
         "上海",
         "佛山",
@@ -322,6 +322,7 @@
         "南宁",
         "厦门",
         "太原",
+        "杭州",
         "海口",
         "重庆",
         "长沙"
@@ -372,6 +373,16 @@
           "date": "2020-01-02",
           "city": "北京",
           "venue": "北京北展剧场"
+        },
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null
+        },
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null
         }
       ]
     },
@@ -791,7 +802,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 307.0,
-      "mean30": 280.0,
+      "mean30": 281.0,
       "peak": 11149.0,
       "lyric_frags": [],
       "album": null,
@@ -1302,7 +1313,7 @@
       "attr": "OST/单曲",
       "release": "2022-07-10",
       "latest": 1033.0,
-      "mean30": 612.0,
+      "mean30": 627.0,
       "peak": 9236.0,
       "lyric_frags": [],
       "album": null,
@@ -1330,7 +1341,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 166.0,
-      "mean30": 148.0,
+      "mean30": 150.0,
       "peak": 1859.0,
       "lyric_frags": [],
       "album": null,
@@ -1550,6 +1561,20 @@
       ],
       "lyric_snippet": "子夜，沉沉呼吸，招揽睡意，拢进身体"
     },
+    "下潜": {
+      "name": "下潜",
+      "attr": null,
+      "release": "-",
+      "latest": null,
+      "mean30": null,
+      "peak": null,
+      "lyrics": [],
+      "album": "下潜",
+      "show_count": 0,
+      "cities": [],
+      "live": [],
+      "mid": "L:000ujzTw46MLNF"
+    },
     "不快乐也没关系": {
       "name": "不快乐也没关系",
       "attr": null,
@@ -1640,10 +1665,18 @@
         }
       ],
       "album": "不需要结果",
-      "show_count": 0,
-      "cities": [],
+      "show_count": 1,
+      "cities": [
+        "上海"
+      ],
       "mid": "L:001lNNs04NDnuP",
-      "live": [],
+      "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
+        }
+      ],
       "lyric_tags": [
         "若答案",
         "是没有",
@@ -2031,7 +2064,7 @@
         }
       ],
       "album": null,
-      "show_count": 28,
+      "show_count": 29,
       "cities": [
         "上海",
         "佛山",
@@ -2137,6 +2170,11 @@
           "date": "2020-01-02",
           "city": "北京",
           "venue": "北京北展剧场"
+        },
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null
         },
         {
           "date": "2020-11-14",
@@ -2840,14 +2878,20 @@
       "peak": null,
       "lyric_frags": [],
       "album": null,
-      "show_count": 3,
+      "show_count": 5,
       "cities": [
         "上海",
+        "北京",
         "南宁",
         "宁波"
       ],
       "mid": "L:004P6sTR3Epw11",
       "live": [
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null
+        },
         {
           "date": "2020-12-19",
           "city": "南宁",
@@ -2862,6 +2906,11 @@
           "date": "2021-03-27",
           "city": "宁波",
           "venue": "宁波文化广场大剧院"
+        },
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
         }
       ]
     },
@@ -3752,7 +3801,7 @@
         }
       ],
       "album": null,
-      "show_count": 12,
+      "show_count": 13,
       "cities": [
         "上海",
         "北京",
@@ -3761,6 +3810,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -3769,6 +3819,11 @@
       ],
       "mid": "L:004NX9LT3tgB7Z",
       "live": [
+        {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null
+        },
         {
           "date": "2021-12-04",
           "city": "广州",
@@ -4202,7 +4257,7 @@
       "attr": "专辑",
       "release": "2014-09-26",
       "latest": 196.0,
-      "mean30": 188.0,
+      "mean30": 187.0,
       "peak": 5605.0,
       "lyric_frags": [],
       "album": "南屏晚钟",
@@ -4934,7 +4989,7 @@
         }
       ],
       "album": null,
-      "show_count": 12,
+      "show_count": 13,
       "cities": [
         "上海",
         "北京",
@@ -4943,6 +4998,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -4951,6 +5007,11 @@
       ],
       "mid": "L:0043Tsce1VREx0",
       "live": [
+        {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null
+        },
         {
           "date": "2021-12-04",
           "city": "广州",
@@ -5027,7 +5088,7 @@
       "attr": "OST/单曲",
       "release": "2020-04-23",
       "latest": 157.0,
-      "mean30": 151.0,
+      "mean30": 152.0,
       "peak": 11371.0,
       "lyric_frags": [],
       "album": null,
@@ -5591,7 +5652,7 @@
         }
       ],
       "album": "在路上",
-      "show_count": 8,
+      "show_count": 9,
       "cities": [
         "上海",
         "北京",
@@ -5621,6 +5682,11 @@
           "date": "2025-04-05",
           "city": "北京",
           "venue": "北京二七剧场"
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null
         },
         {
           "date": "2025-05-24",
@@ -6494,9 +6560,9 @@
     },
     "小河": {
       "name": "小河",
-      "attr": "上涨",
+      "attr": "飙升",
       "release": "-",
-      "latest": 17.4,
+      "latest": 21.0,
       "mean30": 0,
       "peak": 0,
       "lyric_frags": [
@@ -6523,7 +6589,7 @@
         }
       ],
       "album": "小河",
-      "show_count": 9,
+      "show_count": 10,
       "cities": [
         "上海",
         "北京",
@@ -6535,6 +6601,11 @@
       ],
       "mid": "L:001cQPGY1CnRn1",
       "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
+        },
         {
           "date": "2023-11-12",
           "city": "北京",
@@ -6646,7 +6717,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 578.0,
-      "mean30": 550.0,
+      "mean30": 546.0,
       "peak": 2794.0,
       "lyric_frags": [],
       "album": null,
@@ -7479,7 +7550,7 @@
       "peak": null,
       "lyric_frags": [],
       "album": null,
-      "show_count": 11,
+      "show_count": 13,
       "cities": [
         "上海",
         "佛山",
@@ -7494,6 +7565,16 @@
       ],
       "mid": "L:001ng7yi1EAXaT",
       "live": [
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null
+        },
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null
+        },
         {
           "date": "2020-11-14",
           "city": "杭州",
@@ -7905,7 +7986,7 @@
       "peak": null,
       "lyric_frags": [],
       "album": null,
-      "show_count": 12,
+      "show_count": 13,
       "cities": [
         "上海",
         "北京",
@@ -7914,6 +7995,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -7922,6 +8004,11 @@
       ],
       "mid": "L:002gWJrJ1oGUkR",
       "live": [
+        {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null
+        },
         {
           "date": "2021-12-04",
           "city": "广州",
@@ -9034,7 +9121,7 @@
         }
       ],
       "album": null,
-      "show_count": 8,
+      "show_count": 9,
       "cities": [
         "上海",
         "北京",
@@ -9064,6 +9151,11 @@
           "date": "2025-04-05",
           "city": "北京",
           "venue": "北京二七剧场"
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null
         },
         {
           "date": "2025-05-24",
@@ -9157,6 +9249,20 @@
       "cities": [],
       "live": [],
       "mid": "L:000MvJrt1NYbek"
+    },
+    "无荒": {
+      "name": "无荒",
+      "attr": null,
+      "release": "-",
+      "latest": null,
+      "mean30": null,
+      "peak": null,
+      "lyrics": [],
+      "album": "金庸武侠世界 影视原声带",
+      "show_count": 0,
+      "cities": [],
+      "live": [],
+      "mid": "L:001c3QeR0Pj8u3"
     },
     "日文歌片段": {
       "name": "日文歌片段",
@@ -9292,7 +9398,7 @@
         }
       ],
       "album": null,
-      "show_count": 12,
+      "show_count": 13,
       "cities": [
         "上海",
         "北京",
@@ -9301,6 +9407,7 @@
         "广州",
         "无锡",
         "昆明",
+        "杭州",
         "武汉",
         "深圳",
         "郑州",
@@ -9309,6 +9416,11 @@
       ],
       "mid": "L:004T9nCD4a0cFF",
       "live": [
+        {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null
+        },
         {
           "date": "2021-12-04",
           "city": "广州",
@@ -9439,7 +9551,7 @@
         }
       ],
       "album": null,
-      "show_count": 8,
+      "show_count": 9,
       "cities": [
         "上海",
         "北京",
@@ -9469,6 +9581,11 @@
           "date": "2025-04-05",
           "city": "北京",
           "venue": "北京二七剧场"
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null
         },
         {
           "date": "2025-05-24",
@@ -9666,7 +9783,7 @@
       "attr": "专辑",
       "release": "2017-11-27",
       "latest": 176.0,
-      "mean30": 182.0,
+      "mean30": 180.0,
       "peak": 1529.0,
       "lyric_frags": [
         {
@@ -10198,7 +10315,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 302.0,
-      "mean30": 317.0,
+      "mean30": 316.0,
       "peak": 3048.0,
       "lyric_frags": [],
       "album": null,
@@ -10264,6 +10381,28 @@
       "cities": [],
       "mid": null,
       "live": []
+    },
+    "朝凤": {
+      "name": "朝凤",
+      "attr": null,
+      "release": "-",
+      "latest": null,
+      "mean30": null,
+      "peak": null,
+      "lyric_frags": [],
+      "album": "朝凤",
+      "show_count": 1,
+      "cities": [
+        "上海"
+      ],
+      "mid": "L:0008O7Gc3Nmykm",
+      "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
+        }
+      ]
     },
     "桂花香是秋天的灵魂,闻过便醉了": {
       "name": "桂花香是秋天的灵魂,闻过便醉了",
@@ -10471,7 +10610,7 @@
         }
       ],
       "album": null,
-      "show_count": 11,
+      "show_count": 12,
       "cities": [
         "上海",
         "佛山",
@@ -10486,6 +10625,11 @@
       ],
       "mid": "L:0003sIJJ2u3gA4",
       "live": [
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null
+        },
         {
           "date": "2020-11-14",
           "city": "杭州",
@@ -11035,10 +11179,18 @@
         }
       ],
       "album": null,
-      "show_count": 0,
-      "cities": [],
+      "show_count": 1,
+      "cities": [
+        "杭州"
+      ],
       "mid": "L:000gZZuO1bLvSC",
-      "live": [],
+      "live": [
+        {
+          "date": "2021-11-27",
+          "city": "杭州",
+          "venue": null
+        }
+      ],
       "lyric_tags": [
         "雾里有灯",
         "就会有人",
@@ -11452,6 +11604,20 @@
         }
       ]
     },
+    "爱我吗": {
+      "name": "爱我吗",
+      "attr": null,
+      "release": "-",
+      "latest": null,
+      "mean30": null,
+      "peak": null,
+      "lyrics": [],
+      "album": "爱我就别想太多 电视剧原声带",
+      "show_count": 0,
+      "cities": [],
+      "live": [],
+      "mid": "L:0009aHhw4TQupp"
+    },
     "爱的代价": {
       "name": "爱的代价",
       "attr": null,
@@ -11629,7 +11795,7 @@
       "peak": null,
       "lyric_frags": [],
       "album": "猫模狗样",
-      "show_count": 9,
+      "show_count": 10,
       "cities": [
         "上海",
         "北京",
@@ -11641,6 +11807,11 @@
       ],
       "mid": "L:003UVjFu1Cf5ew",
       "live": [
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
+        },
         {
           "date": "2023-11-12",
           "city": "北京",
@@ -11697,7 +11868,7 @@
       "peak": null,
       "lyric_frags": [],
       "album": null,
-      "show_count": 11,
+      "show_count": 12,
       "cities": [
         "上海",
         "佛山",
@@ -11712,6 +11883,11 @@
       ],
       "mid": "L:003wv6ql2bOmOb",
       "live": [
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null
+        },
         {
           "date": "2020-11-14",
           "city": "杭州",
@@ -12369,7 +12545,7 @@
       "attr": "OST/单曲",
       "release": "2020-06-02",
       "latest": 213.0,
-      "mean30": 166.0,
+      "mean30": 165.0,
       "peak": 1368.0,
       "lyric_frags": [],
       "album": null,
@@ -12723,7 +12899,7 @@
         }
       ],
       "album": null,
-      "show_count": 8,
+      "show_count": 9,
       "cities": [
         "上海",
         "北京",
@@ -12753,6 +12929,11 @@
           "date": "2025-04-05",
           "city": "北京",
           "venue": "北京二七剧场"
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null
         },
         {
           "date": "2025-05-24",
@@ -12789,9 +12970,9 @@
       "name": "神魂颠倒",
       "attr": "其他追踪",
       "release": "-",
-      "latest": 264.0,
-      "mean30": 273.0,
-      "peak": 4976.0,
+      "latest": 235.0,
+      "mean30": 252.0,
+      "peak": 304.0,
       "lyric_frags": [],
       "album": null,
       "show_count": 0,
@@ -12803,9 +12984,9 @@
       "name": "神魂颠倒（版本2）",
       "attr": "其他追踪",
       "release": "-",
-      "latest": 235.0,
-      "mean30": 252.0,
-      "peak": 304.0,
+      "latest": 264.0,
+      "mean30": 264.0,
+      "peak": 4976.0,
       "lyric_frags": [],
       "album": null,
       "show_count": 0,
@@ -14460,16 +14641,28 @@
         }
       ],
       "album": null,
-      "show_count": 1,
+      "show_count": 3,
       "cities": [
+        "上海",
+        "北京",
         "武汉"
       ],
       "mid": "L:001hnZan1TkNtA",
       "live": [
         {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null
+        },
+        {
           "date": "2021-01-10",
           "city": "武汉",
           "venue": "武汉琴台大剧院"
+        },
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
         }
       ],
       "lyric_tags": [
@@ -14596,6 +14789,34 @@
           "venue": "北京二七剧场"
         }
       ]
+    },
+    "绝不会和你错过": {
+      "name": "绝不会和你错过",
+      "attr": null,
+      "release": "-",
+      "latest": null,
+      "mean30": null,
+      "peak": null,
+      "lyrics": [],
+      "album": "绝不会和你错过",
+      "show_count": 0,
+      "cities": [],
+      "live": [],
+      "mid": "L:0028Sw3o3IAt9d"
+    },
+    "罗辑": {
+      "name": "罗辑",
+      "attr": null,
+      "release": "-",
+      "latest": null,
+      "mean30": null,
+      "peak": null,
+      "lyrics": [],
+      "album": "罗辑",
+      "show_count": 0,
+      "cities": [],
+      "live": [],
+      "mid": "L:003didpc1ODfyU"
     },
     "美丽的草原我的家": {
       "name": "美丽的草原我的家",
@@ -15110,7 +15331,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 154.0,
-      "mean30": 149.0,
+      "mean30": 148.0,
       "peak": 1022.0,
       "lyric_frags": [],
       "album": null,
@@ -15535,7 +15756,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 211.0,
-      "mean30": 231.0,
+      "mean30": 228.0,
       "peak": 1109.0,
       "lyric_frags": [],
       "album": null,
@@ -16717,7 +16938,7 @@
       "attr": "专辑",
       "release": "2016-05-01",
       "latest": 109.0,
-      "mean30": 126.0,
+      "mean30": 127.0,
       "peak": 1304.0,
       "lyric_frags": [],
       "album": "重庆野玫瑰",
@@ -17017,7 +17238,7 @@
         }
       ],
       "album": null,
-      "show_count": 11,
+      "show_count": 14,
       "cities": [
         "上海",
         "佛山",
@@ -17032,6 +17253,16 @@
       ],
       "mid": "L:000CHxeP06ry49",
       "live": [
+        {
+          "date": "2020-10-07",
+          "city": "杭州",
+          "venue": null
+        },
+        {
+          "date": "2020-10-17",
+          "city": "北京",
+          "venue": null
+        },
         {
           "date": "2020-11-14",
           "city": "杭州",
@@ -17086,6 +17317,11 @@
           "date": "2021-04-11",
           "city": "南京",
           "venue": "南京保利大剧院"
+        },
+        {
+          "date": "2023-04-09",
+          "city": "上海",
+          "venue": null
         }
       ],
       "lyric_tags": [
@@ -17224,7 +17460,7 @@
         }
       ],
       "album": null,
-      "show_count": 8,
+      "show_count": 9,
       "cities": [
         "上海",
         "北京",
@@ -17254,6 +17490,11 @@
           "date": "2025-04-05",
           "city": "北京",
           "venue": "北京二七剧场"
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null
         },
         {
           "date": "2025-05-24",
@@ -17630,7 +17871,7 @@
         }
       ],
       "album": null,
-      "show_count": 8,
+      "show_count": 9,
       "cities": [
         "上海",
         "北京",
@@ -17660,6 +17901,11 @@
           "date": "2025-04-05",
           "city": "北京",
           "venue": "北京二七剧场"
+        },
+        {
+          "date": "2025-05-01",
+          "city": "上海",
+          "venue": null
         },
         {
           "date": "2025-05-24",
@@ -17763,7 +18009,7 @@
       "attr": "其他追踪",
       "release": "-",
       "latest": 7054.0,
-      "mean30": 6173.0,
+      "mean30": 6143.0,
       "peak": 41656.0,
       "lyric_frags": [],
       "album": null,
