@@ -4590,6 +4590,26 @@ def generate_dashboard(payload, dashboard_dir):
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
+    # 助手实时检索精简版（单一数据源：从 payload 派生，供 qa_engine.js 轻量加载）
+    _lite_fields = [
+        "timestamp", "last_update", "date_range", "total", "complete_rate",
+        "total_songs", "active_songs", "active_rate", "batch_count",
+        "time_labels", "trend_raw", "song_count_trend",
+        "listener_labels", "listener_ratio_trend",
+        "top_songs", "daily_listen_trend", "daily_anomalies", "latest_anomaly",
+        "weekend_workday", "tour_events", "release_events", "performance_events",
+        "tour_fx", "release_fx", "timeline_narrative", "recent_7days",
+    ]
+    _lite = {_k: payload.get(_k) for _k in _lite_fields if _k in payload}
+    _lite["tour_song_effects"] = [
+        {_k2: _e.get(_k2) for _k2 in
+         ("date", "scene", "city", "content_type", "tour", "total_uplift", "pattern", "top_songs")}
+        for _e in (payload.get("tour_song_effects") or [])
+    ]
+    with open(os.path.join(dashboard_dir, "dashboard_lite.json"), "w", encoding="utf-8") as _f:
+        json.dump(_lite, _f, ensure_ascii=False, indent=1)
+    logger.info(f"助手实时检索精简数据已写出: dashboard_lite.json（{len(json.dumps(_lite, ensure_ascii=False))//1024}KB）")
+
     head_info = (f'<div class="subtitle" style="margin-top:6px;color:#3a7bd5">'
                  f'数据周期: {payload["date_range"]} | 共 {payload["batch_count"]} 批次 | '
                  f'追踪歌曲 {payload["total_songs"]} 个（链接身份 {payload["link_uids"]} + 名称身份 {payload["name_uids"]}） | '
