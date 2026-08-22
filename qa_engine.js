@@ -304,20 +304,27 @@
     }
     personsWithCf = cfReady;
   }
-  // 问题需含角色意图才做人名反查（避免"王晰最火的歌"被截胡）
-  var PERSON_INTENT = /作词|作曲|制作|编曲|监制|和声|混音|弦乐|吉他|贝斯|鼓|录音|母带|词人|曲人|谁写|谁作|谁编|谁制|谁监|写的|写词|写曲|写了|编的|做的/;
+  // 人名反查：宽松触发——单独人名、人名+任意作品/角色词都能搜到；
+  // 仅当问题指向"榜单/演出"等明确意图时跳过（防截胡）
+  var PERSON_BLOCK = /最火|最热|最高|排名|排行|榜单|演唱会|巡演|巡回|开唱|唱过|歌单|现场|票房|粉丝|数据|效应|周末/;
+  var PERSON_HINT = /写|词|曲|作|编|制|监|和声|混音|弦乐|吉他|贝斯|鼓|录音|母带|作品|参与|的歌|有哪些|谁/;
   function findPerson(q) {
     buildPersons();
     if (!persons) return null;
     var nq = norm(q);
-    if (!PERSON_INTENT.test(nq)) return null;
+    if (PERSON_BLOCK.test(nq)) return null;
     var best = null, bestLen = 0;
     for (var p in persons) {
       var np = norm(p);
       if (np.length < 2 || np.length <= bestLen) continue;
       if (nq.indexOf(np) >= 0) { best = p; bestLen = np.length; }
     }
-    return best ? { name: best, entries: persons[best] } : null;
+    if (!best) return null;
+    // 宽松触发：问题基本就是人名本身（≤ 人名长度+3）或含作品/角色相关词
+    if (nq.length <= bestLen + 3 || PERSON_HINT.test(nq)) {
+      return { name: best, entries: persons[best] };
+    }
+    return null;
   }
   function personCard(p) {
     var songs = p.entries.slice(0, 12).map(function (e) {
@@ -583,7 +590,7 @@
       + '<div class="qaw-head">🤖 AI 问答助手 <button class="qaw-close" id="qaWidgetClose" aria-label="关闭">×</button></div>'
       + '<div class="qaw-body">'
       + '  <div class="qaw-search"><input type="search" id="qaWidgetInput" placeholder="问：为什么巡演当天指数下降？" autocomplete="off"><button id="qaWidgetBtn">提问</button></div>'
-      + '  <div class="qaw-result" id="qaWidgetResult"><div class="qaw-empty">可问：歌名档案、作词/作曲/制作/编曲人名反查、巡演歌单（如「三巡」「二巡广州」）、实时榜单与异常、以及"为什么"类深层问题。</div></div>'
+      + '  <div class="qaw-result" id="qaWidgetResult"><div class="qaw-empty">直接输入人名可查作品（如「林夕」「谭伊哲」），或问：歌名档案、巡演歌单（「三巡」「二巡广州」）、实时榜单/异常、"为什么"类问题。</div></div>'
       + '  <div class="qaw-all" id="qaWidgetAll"></div>'
       + '</div>';
 
