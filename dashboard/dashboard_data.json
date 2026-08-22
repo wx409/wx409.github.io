@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-22 18:15",
+  "timestamp": "2026-08-22 18:25",
   "total": 200600,
   "success": 36538,
   "complete_rate": 18.2,
@@ -126331,7 +126331,7 @@
         49.0,
         39.3,
         46.9,
-        56.4,
+        53.3,
         38.0,
         37.2,
         31.0,
@@ -126673,8 +126673,8 @@
       "在路上"
     ],
     "values": [
-      149.7,
-      135.1
+      148.8,
+      134.5
     ],
     "spring": [
       false,
@@ -132998,7 +132998,7 @@
   "daily_listen_overview": {
     "active_count": 15,
     "total_tracked": 325,
-    "concentration_top3": 68.0,
+    "concentration_top3": 67.1,
     "as_of": "2026-08-22",
     "too_small": false
   },
@@ -133006,111 +133006,111 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 54.5,
-      "trend_pct": 81.8,
+      "share_pct": 53.6,
+      "trend_pct": 66.2,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "在路上",
-      "share_pct": 7.4,
-      "trend_pct": 154.1,
+      "share_pct": 7.6,
+      "trend_pct": 140.5,
       "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "一生中最爱",
       "share_pct": 6.0,
-      "trend_pct": 40.7,
+      "trend_pct": 29.6,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "再叙",
-      "share_pct": 5.0,
-      "trend_pct": 43.2,
+      "song": "山楂树",
+      "share_pct": 5.3,
+      "trend_pct": 77.1,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 5.0,
-      "trend_pct": 80.0,
+      "song": "再叙",
+      "share_pct": 4.5,
+      "trend_pct": 20.5,
       "trend_label": "up"
     },
     {
       "rank": 6,
       "song": "月弯弯",
       "share_pct": 4.2,
-      "trend_pct": 47.2,
+      "trend_pct": 36.1,
       "trend_label": "up"
     },
     {
       "rank": 7,
-      "song": "神魂颠倒",
-      "share_pct": 3.2,
-      "trend_pct": 192.9,
+      "song": "她真漂亮",
+      "share_pct": 3.5,
+      "trend_pct": 78.3,
       "trend_label": "up"
     },
     {
       "rank": 8,
-      "song": "她真漂亮",
-      "share_pct": 2.8,
-      "trend_pct": 52.2,
+      "song": "神魂颠倒",
+      "share_pct": 3.0,
+      "trend_pct": 150.0,
       "trend_label": "up"
     },
     {
       "rank": 9,
-      "song": "谁",
-      "share_pct": 2.7,
+      "song": "Sound of Silence",
+      "share_pct": 2.9,
       "trend_pct": 61.9,
       "trend_label": "up"
     },
     {
       "rank": 10,
-      "song": "Sound of Silence",
-      "share_pct": 2.6,
-      "trend_pct": 57.1,
+      "song": "谁",
+      "share_pct": 2.7,
+      "trend_pct": 52.4,
       "trend_label": "up"
     },
     {
       "rank": 11,
       "song": "亲密爱人",
-      "share_pct": 1.7,
-      "trend_pct": 29.4,
+      "share_pct": 2.2,
+      "trend_pct": 52.9,
       "trend_label": "up"
     },
     {
       "rank": 12,
-      "song": "荒人之歌",
-      "share_pct": 1.7,
-      "trend_pct": 50.0,
+      "song": "晚风暖暖",
+      "share_pct": 1.4,
+      "trend_pct": 142.9,
       "trend_label": "up"
     },
     {
       "rank": 13,
-      "song": "哭砂",
-      "share_pct": 1.3,
-      "trend_pct": 112.5,
+      "song": "荒人之歌",
+      "share_pct": 1.4,
+      "trend_pct": 21.4,
       "trend_label": "up"
     },
     {
       "rank": 14,
-      "song": "晚风暖暖",
-      "share_pct": 1.0,
-      "trend_pct": 85.7,
+      "song": "哭砂",
+      "share_pct": 1.2,
+      "trend_pct": 75.0,
       "trend_label": "up"
     },
     {
       "rank": 15,
       "song": "爱于此生",
-      "share_pct": 0.8,
-      "trend_pct": 42.9,
-      "trend_label": "up"
+      "share_pct": 0.6,
+      "trend_pct": 0.0,
+      "trend_label": "flat"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-08-22 18:15",
+  "last_update": "2026-08-22 18:25",
   "today_batches": 908,
   "daily_new_records": 0,
   "recent_7days": [
@@ -133172,13 +133172,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1835,
-      "success": 1835,
+      "total": 1836,
+      "success": 1836,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 508962,
+      "before": 509214,
       "after": 200600
     },
     "index_calibration": {
