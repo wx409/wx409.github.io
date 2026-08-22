@@ -283,11 +283,18 @@
       String(val).split(/[&、,/;；/]/).forEach(function (nm) {
         nm = nm.trim();
         if (nm.length < 2) return;
-        var kk = nm + '|' + songName + '|' + rn;
-        if (seen[kk]) return;
-        seen[kk] = 1;
-        if (!persons[nm]) persons[nm] = [];
-        persons[nm].push({ song: songName, role: rn });
+        var variants = [nm];
+        // 去掉 @工作室 后缀再注册一个变体（如 黄竣琮@TYZ → 黄竣琮），保证人名可直接搜
+        var at = nm.indexOf('@');
+        if (at > 0) variants.push(nm.slice(0, at).trim());
+        variants.forEach(function (v) {
+          if (v.length < 2) return;
+          var kk = v + '|' + songName + '|' + rn;
+          if (seen[kk]) return;
+          seen[kk] = 1;
+          if (!persons[v]) persons[v] = [];
+          persons[v].push({ song: songName, role: rn });
+        });
       });
     }
     for (var key in songIndex) {
@@ -325,6 +332,33 @@
       return { name: best, entries: persons[best] };
     }
     return null;
+  }
+  // 角色统计：问「谁编曲最多」「编曲人有哪些」→ 返回该角色参与作品 Top 榜
+  function roleBoard(q) {
+    if (!songIndex) return null;
+    var nq = norm(q);
+    if (!/(谁|哪些|最多|有哪些|最常)/.test(nq)) return null;
+    var roleHit = null;
+    for (var rn in PERSON_ROLES) {
+      if (nq.indexOf(PERSON_ROLES[rn]) >= 0) { roleHit = PERSON_ROLES[rn]; break; }
+    }
+    if (!roleHit) return null;
+    buildPersons();
+    var stats = {};
+    for (var p in persons) {
+      // 按去 @后缀 的主名合并统计（黄竣琮@TYZ 与 黄竣琮 算同一人）
+      var main = p.split('@')[0];
+      persons[p].forEach(function (e) {
+        if (e.role === roleHit) stats[main] = (stats[main] || 0) + 1;
+      });
+    }
+    var top = Object.keys(stats).sort(function (a, b) { return stats[b] - stats[a]; }).slice(0, 8);
+    if (!top.length) return null;
+    var lines = top.map(function (p, i) {
+      return '<div>· ' + (i + 1) + '. ' + esc(p) + '（' + stats[p] + ' 首' + roleHit + '）</div>';
+    }).join('');
+    return '<div class="qaw-card"><div class="qaw-q">🎼 ' + esc(roleHit) + ' Top 榜</div><div class="qaw-a">' + lines + '</div>' +
+      '<div class="qaw-src">📚 数据：data/song_index_lite.json + credits_full.json（动态统计）</div></div>';
   }
   function personCard(p) {
     var songs = p.entries.slice(0, 12).map(function (e) {
@@ -520,6 +554,11 @@
       var person = songState === 'ready' ? findPerson(q) : null;
       if (person) {
         result.innerHTML = personCard(person);
+        return;
+      }
+      var roleB = songState === 'ready' ? roleBoard(q) : null;
+      if (roleB) {
+        result.innerHTML = roleB;
         return;
       }
       var attrH = songState === 'ready' ? attrAnswer(q) : null;
