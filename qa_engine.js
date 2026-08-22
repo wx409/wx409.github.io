@@ -150,6 +150,79 @@
     return lines.join('');
   }
 
+  // ===== 巡演歌单参数化查询：识别巡次/城市 → 实时查 setlists.json =====
+  var setlistsData = null;
+  var setlistsState = 'pending';
+  function loadSetlists(cb) {
+    if (setlistsState === 'ready') { cb && cb(); return; }
+    if (setlistsState === 'loading') return;
+    setlistsState = 'loading';
+    var slUrl = INDEX_URL.replace('qa_bank.json', 'setlists.json');
+    fetch(slUrl, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { setlistsData = j.setlists || {}; setlistsState = 'ready'; cb && cb(); })
+      .catch(function () { setlistsState = 'failed'; cb && cb(); });
+  }
+
+  // 识别巡次（一巡/二巡/.../六巡）或城市名
+  function findTourScope(q) {
+    if (!setlistsData) return null;
+    var nq = norm(q);
+    // 巡次
+    var tourNum = nq.match(/([一二三四五六])巡/);
+    if (tourNum) {
+      return { type: 'tour', key: tourNum[1] + '巡' };
+    }
+    // 城市：从所有场的 city 里找
+    var cityList = {};
+    for (var dt in setlistsData) {
+      var c = setlistsData[dt].city;
+      if (c) cityList[norm(c)] = c;
+    }
+    for (var nk in cityList) {
+      if (nk && nk.length >= 2 && nq.indexOf(nk) >= 0) {
+        return { type: 'city', key: cityList[nk] };
+      }
+    }
+    return null;
+  }
+
+  function setlistCardItems(entries) {
+    // entries: [{date, city, venue, tour, songs}]
+    var html = '';
+    entries.forEach(function (e) {
+      var songs = (e.songs || []).map(function (s) { return s.title; }).join('、');
+      html += '<div class="qaw-card">'
+        + '<div class="qaw-q">' + esc(e.date) + ' · ' + esc(e.city) + (e.venue ? ' · ' + esc(e.venue) : '') + '（' + esc(e.tour) + '）</div>'
+        + '<div class="qaw-a">' + esc(songs) + '</div>'
+        + '</div>';
+    });
+    return html;
+  }
+
+  function renderSetlist(scope) {
+    if (!setlistsData) return '';
+    var entries = [];
+    if (scope.type === 'tour') {
+      for (var dt in setlistsData) {
+        if (setlistsData[dt].tour === scope.key) {
+          entries.push(setlistsData[dt]);
+        }
+      }
+    } else if (scope.type === 'city') {
+      for (var dt2 in setlistsData) {
+        if (setlistsData[dt2].city === scope.key) {
+          entries.push(setlistsData[dt2]);
+        }
+      }
+    }
+    entries.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    if (!entries.length) return '';
+    var title = scope.type === 'tour' ? '「' + scope.key + '」共 ' + entries.length + ' 场' : '「' + scope.key + '」共 ' + entries.length + ' 场演出';
+    return '<div class="qaw-q">' + esc(title) + ' 的歌单：</div>' + setlistCardItems(entries.slice(0, 6))
+      + (entries.length > 6 ? '<div class="qaw-src">（仅显示前 6 场，共 ' + entries.length + ' 场）</div>' : '');
+  }
+
   function render(list) {
     var result = document.getElementById('qaWidgetResult');
     var all = document.getElementById('qaWidgetAll');
@@ -195,19 +268,25 @@
     var result = document.getElementById('qaWidgetResult');
     if (!input || !result) return;
     var q = String(input.value || '').trim();
-    if (!q) { result.innerHTML = '<div class="qaw-empty">请输入你的问题，例如「为什么巡演当天指数下降」或「在路上的词曲作者」。</div>'; return; }
-    // 先尝试歌名档案查询（参数化，实时读 song_index_lite）
+    if (!q) { result.innerHTML = '<div class="qaw-empty">请输入问题：如「在路上的词曲作者」「为什么要下降」「北京唱了什么歌」「一巡」等。</div>'; return; }
+    // 优先级：歌名档案 → 巡次/城市歌单 → 预设问答
     loadSongIndex(function () {
       var song = songState === 'ready' ? findSong(q) : null;
       if (song) {
-        result.innerHTML = songCard(song)
-          + '<div class="qaw-rel">提示：还可问歌单/城市/巡演，或点下方问题。</div>';
-      } else {
+        result.innerHTML = songCard(song);
+        return;
+      }
+      loadSetlists(function () {
+        var scope = setlistsState === 'ready' ? findTourScope(q) : null;
+        if (scope) {
+          var slHtml = renderSetlist(scope);
+          if (slHtml) { result.innerHTML = slHtml; return; }
+        }
         loadBank(function () {
           if (bankState === 'failed') { result.innerHTML = '<div class="qaw-empty">问答库加载失败，请刷新。</div>'; return; }
           render(answer(q));
         });
-      }
+      });
     });
   }
 
