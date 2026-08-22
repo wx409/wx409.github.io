@@ -237,7 +237,7 @@
     var siUrl = INDEX_URL.replace('qa_bank.json', 'song_index_lite.json');
     fetch(siUrl, { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function (j) { songIndex = j.songs || {}; songState = 'ready'; cb && cb(); })
+      .then(function (j) { songIndex = j.songs || {}; songMeta = { generated_at: j.generated_at || '' }; songState = 'ready'; cb && cb(); })
       .catch(function () { songState = 'failed'; cb && cb(); });
   }
 
@@ -349,10 +349,35 @@
     return lines.join('');
   }
 
+  // ===== 作品属性分布（实时统计，排除小酒馆音频/趋势脏标签；原创/翻唱诚实披露）=====
+  var songMeta = null;
+  function attrAnswer(q) {
+    if (!songIndex) return null;
+    var nq = norm(q);
+    if (!/(原创|翻唱|\bost\b|属性分布|作品类型|什么类型|专辑多|单曲多|作品.*分布)/.test(nq)) return null;
+    var cnt = {};
+    var tavern = 0;
+    for (var key in songIndex) {
+      var a = String(songIndex[key].attr || '').trim();
+      if (a === '小酒馆音频') { tavern++; continue; }
+      if (a === '飙升' || a === '上涨' || a === '下降') a = ''; // 趋势标签混入的脏值，剔除
+      if (!a) a = '未标注（多为翻唱/现场曲）';
+      cnt[a] = (cnt[a] || 0) + 1;
+    }
+    var total = 0;
+    var keys = Object.keys(cnt).sort(function (x, y) { return cnt[y] - cnt[x]; });
+    keys.forEach(function (k) { total += cnt[k]; });
+    var lines = keys.map(function (a) { return '<div>· ' + esc(a) + '：' + cnt[a] + ' 首</div>'; }).join('');
+    var ts = songMeta && songMeta.generated_at ? songMeta.generated_at : '';
+    return '<div class="qaw-card"><div class="qaw-q">🎵 王晰作品属性分布（' + total + ' 首音乐作品，实时统计）</div><div class="qaw-a">' + lines +
+      (tavern ? '<div style="margin-top:6px;color:#888">· 另有小酒馆电台音频 ' + tavern + ' 期（非音乐作品，不计入）</div>' : '') +
+      '<div style="margin-top:6px;color:#a05a2c">诚实说明：档案未标注「原创/翻唱」字段，无法直接统计两者比例；单曲的词曲作者可查「《歌名》的词曲作者」。</div></div>' +
+      '<div class="qaw-src">📚 数据：data/song_index_lite.json' + (ts ? ' · ' + esc(ts) : '') + '</div></div>';
+  }
+
   // ===== 巡演歌单参数化查询：识别巡次/城市 → 实时查 setlists.json =====
   var setlistsData = null;
-  var setlistsState = 'pending';
-  function loadSetlists(cb) {
+  var setlistsState = 'pending';  function loadSetlists(cb) {
     if (setlistsState === 'ready') { cb && cb(); return; }
     if (setlistsState === 'loading') return;
     setlistsState = 'loading';
@@ -488,6 +513,11 @@
       var person = songState === 'ready' ? findPerson(q) : null;
       if (person) {
         result.innerHTML = personCard(person);
+        return;
+      }
+      var attrH = songState === 'ready' ? attrAnswer(q) : null;
+      if (attrH) {
+        result.innerHTML = attrH;
         return;
       }
       loadDashboard(function () {
