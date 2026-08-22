@@ -98,6 +98,58 @@
       .sort(function (a, b) { return b.score - a.score; });
   }
 
+  // ===== 歌曲档案参数化查询：识别歌名 → 实时从 song_index_lite.json 查 =====
+  var songIndex = null;
+  var songState = 'pending';
+  function loadSongIndex(cb) {
+    if (songState === 'ready') { cb && cb(); return; }
+    if (songState === 'loading') return;
+    songState = 'loading';
+    var siUrl = INDEX_URL.replace('qa_bank.json', 'song_index_lite.json');
+    fetch(siUrl, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { songIndex = j.songs || {}; songState = 'ready'; cb && cb(); })
+      .catch(function () { songState = 'failed'; cb && cb(); });
+  }
+
+  // 从问题里识别歌名（最长歌名优先，避免短名误匹配）
+  function findSong(q) {
+    if (!songIndex) return null;
+    var nq = norm(q);
+    var best = null, bestLen = 0;
+    for (var key in songIndex) {
+      var e = songIndex[key];
+      var nn = norm(e.name);
+      if (nn.length < 2) continue;
+      if (nq.indexOf(nn) >= 0 && nn.length > bestLen) {
+        best = e; bestLen = nn.length;
+      }
+    }
+    return best;
+  }
+
+  function songCard(e) {
+    var lines = [];
+    lines.push('<div class="qaw-card">');
+    lines.push('<div class="qaw-q">《' + esc(e.name) + '》</div>');
+    var cr = e.credits || {};
+    var roleMap = { lyricist: '作词', composer: '作曲', producer: '制作人', arranger: '编曲', backing: '和声', mixing: '混音', guitar: '吉他', strings: '弦乐' };
+    var crLines = [];
+    for (var k in roleMap) { if (cr[k]) crLines.push(roleMap[k] + '：' + esc(cr[k])); }
+    if (crLines.length) lines.push('<div class="qaw-a">' + crLines.join('<br>') + '</div>');
+    else lines.push('<div class="qaw-a">（翻唱/资料歌，无词曲制作信息）</div>');
+    var meta = [];
+    if (e.release && e.release !== '-') meta.push('发行 ' + esc(e.release));
+    if (e.attr) meta.push(esc(e.attr));
+    if (e.show_count) meta.push('演唱 ' + e.show_count + ' 次');
+    if (e.cities && e.cities.length) {
+      meta.push('演出城市：' + e.cities.slice(0, 12).join('、') + (e.cities.length > 12 ? ' 等' + e.cities.length + '城' : ''));
+    }
+    if (meta.length) lines.push('<div class="qaw-src">' + esc(meta.join(' · ')) + '</div>');
+    lines.push('</div>');
+    return lines.join('');
+  }
+
   function render(list) {
     var result = document.getElementById('qaWidgetResult');
     var all = document.getElementById('qaWidgetAll');
@@ -143,10 +195,19 @@
     var result = document.getElementById('qaWidgetResult');
     if (!input || !result) return;
     var q = String(input.value || '').trim();
-    if (!q) { result.innerHTML = '<div class="qaw-empty">请输入你的问题，例如「为什么巡演当天指数下降」。</div>'; return; }
-    loadBank(function () {
-      if (bankState === 'failed') { result.innerHTML = '<div class="qaw-empty">问答库加载失败，请刷新。</div>'; return; }
-      render(answer(q));
+    if (!q) { result.innerHTML = '<div class="qaw-empty">请输入你的问题，例如「为什么巡演当天指数下降」或「在路上的词曲作者」。</div>'; return; }
+    // 先尝试歌名档案查询（参数化，实时读 song_index_lite）
+    loadSongIndex(function () {
+      var song = songState === 'ready' ? findSong(q) : null;
+      if (song) {
+        result.innerHTML = songCard(song)
+          + '<div class="qaw-rel">提示：还可问歌单/城市/巡演，或点下方问题。</div>';
+      } else {
+        loadBank(function () {
+          if (bankState === 'failed') { result.innerHTML = '<div class="qaw-empty">问答库加载失败，请刷新。</div>'; return; }
+          render(answer(q));
+        });
+      }
     });
   }
 
