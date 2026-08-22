@@ -5283,10 +5283,16 @@ def schedule_shutdown():
     target = now.replace(hour=0, minute=10, second=0, microsecond=0)
     if target <= now:
         target += timedelta(days=1)
+    # 周一到周五 00:10 关机；周六/周日 00:10 不关机（保持开机）
+    if target.weekday() >= 5:  # 5=周六, 6=周日
+        os.system("shutdown -a")
+        logger.info(f"周末（{target.strftime('%m-%d %A')} 00:10）跳过自动关机，电脑保持运行")
+        return
     seconds = int((target - now).total_seconds())
     if seconds > 0:
+        os.system("shutdown -a")
         os.system(f"shutdown -s -t {seconds}")
-        logger.info(f"已设置自动关机: {target.strftime('%m-%d %H:%M')}，还有 {seconds//60} 分钟（每日 00:10 自动关机）")
+        logger.info(f"已设置自动关机: {target.strftime('%m-%d %H:%M')}，还有 {seconds//60} 分钟（周一~周五 00:10 自动关机）")
 
 def run_scheduler():
     logger.info("=" * 60)
