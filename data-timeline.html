@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据时间线叙事｜王晰 2023-2026 收听数据与关键事件</title>
+    <meta name="description" content="王晰数字档案·数据时间线叙事：把 QQ音乐收听指数与发行、巡演、晚会事件对齐，看每一件事如何留在数据里。数据来自 dashboard/dashboard_data.json 与 data/timeline.json，全部数值动态读取，不写死。">
+    <link rel="canonical" href="https://wx409.github.io/data-timeline.html">
+    <link rel="stylesheet" href="assets/brand.css">
+    <meta property="og:title" content="数据时间线叙事｜王晰 2023-2026">
+    <meta property="og:description" content="把收听数据与关键事件对齐的数据叙事时间线。">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Serif SC", serif; line-height: 1.8; max-width: 960px; margin: 0 auto; padding: 20px; color: #333; background: #fdfbf7; }
+        h1 { color: #1a1a1a; border-bottom: 3px solid #c41e3a; padding-bottom: 10px; }
+        h2 { border-left: 4px solid #c41e3a; padding-left: 12px; margin-top: 34px; }
+        .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .nav a { color: #c41e3a; margin-right: 14px; text-decoration: none; font-weight: 500; }
+        .sub { color: #666; }
+        .overview { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+        .ov-card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 10px 16px; min-width: 130px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+        .ov-num { font-size: 22px; font-weight: 700; color: #c41e3a; }
+        .ov-label { font-size: 12px; color: #888; }
+        .legend { font-size: 12px; color: #666; margin: 6px 0 18px; }
+        .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
+        .month-card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 14px 18px; margin: 12px 0; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+        .month-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+        .month-title { font-size: 17px; font-weight: 700; color: #1a1a1a; }
+        .month-index { font-size: 14px; color: #c41e3a; font-weight: 600; }
+        .month-delta { font-size: 13px; color: #888; }
+        .ev { font-size: 13px; margin: 3px 0; }
+        .badge { display: inline-block; font-size: 11px; padding: 0 8px; border-radius: 10px; margin-right: 6px; font-weight: 500; }
+        .b-tour { background: #e0f0ff; color: #0a5a8a; }
+        .b-release { background: #e6f7ee; color: #0a7a5a; }
+        .b-perf { background: #f3e8ff; color: #7c3aed; }
+        .b-stage { background: #fdf1e0; color: #9a6a1a; }
+        .badge.life { background: #e8f0fe; color: #1a56c4; }
+        .badge.career { background: #e6f7ee; color: #0a7a5a; }
+        .badge.award { background: #fff3cd; color: #8a6d1a; }
+        .badge.album { background: #fdecea; color: #c41e3a; }
+        .badge.media { background: #f3e8ff; color: #7c3aed; }
+        .badge.tour { background: #e0f0ff; color: #0a5a8a; }
+        .fx-box { background: #f7f3ec; border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 13px; }
+        .fx-title { font-weight: 600; color: #8a6d1a; }
+        .narr { font-size: 13px; color: #555; margin-top: 6px; }
+        .stage-chip { font-size: 11px; background: #fdf1e0; color: #9a6a1a; border-radius: 8px; padding: 1px 7px; margin: 0 3px 2px 0; display: inline-block; }
+        .footnote { color: #888; font-size: 12px; margin-top: 34px; border-top: 1px solid #eee; padding-top: 12px; }
+        .tl { list-style: none; padding: 0; margin: 14px 0; }
+        .tl-item { position: relative; display: flex; gap: 16px; margin: 10px 0; align-items: flex-start; }
+        .tl-date { flex: 0 0 90px; text-align: right; font-weight: 700; color: #8a6d1a; font-size: 13px; padding-top: 2px; }
+        .tl-body { flex: 1; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 8px 12px; font-size: 14px; }
+        .tl-src { font-size: 12px; color: #888; margin-top: 2px; }
+        .err { color: #b03030; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="live-reviews.html">现场实录</a>
+        <a href="discography.html">作品百科</a>
+        <a href="songs.html">🎵 歌曲库</a>
+        <a href="timeline.html">生涯时间轴</a>
+        <a href="data-timeline.html" style="font-weight:800;">📈 数据时间线</a>
+        <a href="dashboard/">数据大屏</a>
+        <a href="live/setlists.html">全部歌单</a>
+        <a href="map/">巡演地图</a>
+        <a href="search.html">🔍 全站搜索</a>
+    </div>
+
+    <h1>数据时间线叙事｜王晰 2023–2026</h1>
+    <p class="sub">把 QQ音乐收听指数与发行、巡演、晚会事件对齐——看每一件事如何留在数据里。所有数值由 <code>dashboard/dashboard_data.json</code> 动态读取，不做人工写死。</p>
+
+    <div id="overview" class="overview"><p style="color:#999">加载中…</p></div>
+
+    <h2>📈 总收听指数 × 关键事件</h2>
+    <div id="chart" style="width:100%;height:440px;"></div>
+    <p class="legend">
+        <span class="dot" style="background:#0a5a8a;"></span>巡演/签唱 ·
+        <span class="dot" style="background:#0a7a5a;"></span>发行 ·
+        <span class="dot" style="background:#7c3aed;"></span>晚会/演出
+        ｜ 折线 = 当月全部追踪歌曲平均收听指数
+    </p>
+
+    <h2>🗓️ 逐月叙事</h2>
+    <div id="months"><p style="color:#999">加载中…</p></div>
+
+    <h2>📜 监测前大事记（2023 之前）</h2>
+    <div id="pre2023"><p style="color:#999">加载中…</p></div>
+
+    <p class="footnote">
+        数据口径：监测自 2023-01 起，覆盖 <span id="rangeFoot">—</span>；"指数"为 QQ音乐公开页逐日采集的收听指数均值；
+        完整度指当日采集覆盖率；事件与效应来自演出活动表/巡演歌单长表（见 <a href="dashboard/">数据大屏</a> 与 <a href="timeline.html">生涯时间轴</a>）。
+        效应值为事件前后收听指数相对 7 日均值的变化（%），正=带动，负=回落。诚实披露：采集存在缺口，见大屏完整度。
+    </p>
+
+    <script src="assets/echarts.min.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+        var TYPE_CN = { life: '出生·生活', career: '生涯', award: '奖项', album: '专辑', media: '综艺·媒体', tour: '巡演' };
+
+        function groupEvents(arr) {
+            // events 数组格式: [["2023-04", "2023-04-09 事件"], ...]（两元素：[月份, 事件]）
+            var map = {};
+            (arr || []).forEach(function (item) {
+                if (Array.isArray(item) && item.length >= 2) {
+                    var m = String(item[0]);
+                    if (!map[m]) map[m] = [];
+                    map[m].push(String(item[1]));
+                }
+            });
+            return map;
+        }
+
+        Promise.all([
+            fetch('dashboard/dashboard_data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }),
+            fetch('data/timeline.json', { cache: 'no-store' }).then(function (r) { return r.json(); })
+        ]).then(function (res) {
+            var d = res[0], life = res[1];
+            var labels = d.time_labels || [], trend = d.trend_raw || [];
+
+            // ---- 概览条（全部动态）----
+            var ov = document.getElementById('overview');
+            var cards = [
+                ['数据范围', d.date_range || '—'],
+                ['累计记录', (d.total || 0).toLocaleString() + ' 条'],
+                ['数据完整度', (d.complete_rate || 0) + '%'],
+                ['追踪歌曲', d.total_songs + ' 首'],
+                ['活跃歌曲', d.active_songs + ' 首'],
+                ['监测批次', d.batch_count + ' 批'],
+                ['最后更新', d.last_update || '—']
+            ];
+            ov.innerHTML = cards.map(function (c) {
+                return '<div class="ov-card"><div class="ov-num">' + esc(c[1]) + '</div><div class="ov-label">' + esc(c[0]) + '</div></div>';
+            }).join('');
+
+            var tourMap = groupEvents(d.tour_events);
+            var relMap = groupEvents(d.release_events);
+            var perfMap = groupEvents(d.performance_events);
+
+            // ---- 主图 ----
+            var el = document.getElementById('chart');
+            var chart = null;
+            if (window.echarts && el) {
+                chart = echarts.init(el);
+                function pts(map, color) {
+                    var out = [];
+                    labels.forEach(function (m, i) {
+                        var evs = map[m];
+                        if (evs && evs.length) {
+                            out.push({ value: [m, trend[i] || 0, evs], itemStyle: { color: color }, symbolSize: 9 });
+                        }
+                    });
+                    return out;
+                }
+                chart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: function (ps) {
+                            var m = ps[0].axisValue;
+                            var html = '<b>' + m + '</b> · 指数 ' + (ps[0].value == null ? '—' : ps[0].value);
+                            ps.slice(1).forEach(function (p) {
+                                if (p.value && p.value[2]) {
+                                    html += '<br/><span style="color:' + p.color + '">●</span> ' + esc(p.value[2].join('；'));
+                                }
+                            });
+                            return html;
+                        }
+                    },
+                    grid: { left: 50, right: 16, top: 24, bottom: 60 },
+                    xAxis: { type: 'category', data: labels, axisLabel: { rotate: 45, fontSize: 11 } },
+                    yAxis: { type: 'value', name: '收听指数' },
+                    dataZoom: [{ type: 'inside' }, { type: 'slider', height: 18, bottom: 8 }],
+                    series: [
+                        { name: '总指数', type: 'line', data: trend, symbol: 'none', lineStyle: { width: 2, color: '#c41e3a' }, itemStyle: { color: '#c41e3a' }, z: 2 },
+                        { name: '巡演/签唱', type: 'scatter', data: pts(tourMap, '#0a5a8a'), z: 5 },
+                        { name: '发行', type: 'scatter', data: pts(relMap, '#0a7a5a'), z: 5 },
+                        { name: '晚会/演出', type: 'scatter', data: pts(perfMap, '#7c3aed'), z: 5 }
+                    ]
+                });
+                window.addEventListener('resize', function () { chart.resize(); });
+            }
+
+            // ---- 逐月叙事 ----
+            var fxByMonth = {};
+            (d.tour_song_effects || []).forEach(function (fx) {
+                var m = String(fx.date || '').slice(0, 7);
+                if (!fxByMonth[m]) fxByMonth[m] = [];
+                fxByMonth[m].push(fx);
+            });
+            var narrMap = {};
+            (d.timeline_narrative || []).forEach(function (n) { narrMap[n.month] = n.points || []; });
+
+            var monthsBox = document.getElementById('months');
+            var trendMap = {};
+            labels.forEach(function (m, i) { trendMap[m] = trend[i]; });
+
+            var prevVal = null;
+            var monthHtml = labels.map(function (m) {
+                var val = trendMap[m];
+                var delta = (prevVal != null && prevVal > 0) ? ((val - prevVal) / prevVal * 100) : null;
+                prevVal = val;
+                var parts = [];
+                (tourMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-tour">巡演</span>' + esc(e) + '</div>'); });
+                (relMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-release">发行</span>' + esc(e) + '</div>'); });
+                (perfMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-perf">晚会</span>' + esc(e) + '</div>'); });
+
+                var fxs = fxByMonth[m] || [];
+                var fxHtml = fxs.map(function (fx) {
+                    var top = (fx.top_songs || []).slice(0, 3).map(function (s) { return s.name + '+' + s.uplift + '%'; }).join('、');
+                    return '<div class="fx-box"><span class="fx-title">' + esc(fx.scene) + '</span>（' + esc(fx.city || '') + '）全站效应 <b>' + (fx.total_uplift != null ? fx.total_uplift + '%' : '—') + '</b> · 模式：' + esc(fx.pattern || '—') +
+                        (top ? '<br/>带动歌曲：' + esc(top) : '') + '</div>';
+                }).join('');
+
+                var narr = (narrMap[m] || []).slice(0, 4).map(function (p) {
+                    var stage = p.value && p.value[3] ? p.value[3] : '';
+                    var share = p.value && p.value[1] != null ? ' · 份额 ' + p.value[1] + '%' : '';
+                    return '<span class="stage-chip">' + esc(p.name) + share + (stage ? ' · ' + esc(stage) : '') + '</span>';
+                }).join('');
+
+                var deltaStr = '';
+                if (delta != null) {
+                    var cls = delta >= 0 ? '#0a7a5a' : '#b03030';
+                    deltaStr = '<span class="month-delta">环比 ' + (delta >= 0 ? '+' : '') + delta.toFixed(1) + '%</span>';
+                }
+                var content = parts.join('') || '<div class="ev" style="color:#aaa">当月无已登记事件</div>';
+                return '<div class="month-card"><div class="month-head"><span class="month-title">' + esc(m) + '</span>' +
+                    '<span class="month-index">指数 ' + (val != null ? val : '—') + '</span>' + deltaStr + '</div>' + content +
+                    (narr ? '<div class="narr">当月收听看点：' + narr + '</div>' : '') + fxHtml + '</div>';
+            }).join('');
+            monthsBox.innerHTML = monthHtml;
+
+            // ---- 监测前大事记 ----
+            var pre = document.getElementById('pre2023');
+            var before = (life || []).filter(function (t) { return String(t.date) < '2023'; })
+                .sort(function (a, b) { return String(a.date) < String(b.date) ? -1 : 1; });
+            pre.innerHTML = '<ul class="tl">' + before.map(function (t) {
+                var badge = '<span class="badge ' + esc(t.type) + '">' + esc(TYPE_CN[t.type] || t.type) + '</span>';
+                return '<li class="tl-item"><span class="tl-date">' + esc(t.date) + '</span><div class="tl-body">' + badge + ' ' +
+                    esc(t.title) + (t.source ? '<div class="tl-src">信源：' + esc(t.source) + '</div>' : '') + '</div></li>';
+            }).join('') + '</ul>';
+
+            document.getElementById('rangeFoot').textContent = d.date_range || '—';
+        }).catch(function (e) {
+            ['overview', 'months', 'pre2023'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) el.innerHTML = '<p class="err">数据加载失败：' + esc(e && e.message ? e.message : e) + '。请刷新或稍后再试。</p>';
+            });
+        });
+    })();
+    </script>
+<script src="/qa_engine.js"></script>
+</body>
+</html>
