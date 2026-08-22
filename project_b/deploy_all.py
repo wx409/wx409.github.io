@@ -75,6 +75,7 @@ INDEXNOW_URLS = [
     "https://wx409.github.io/discography.html",
     "https://wx409.github.io/songs.html",
     "https://wx409.github.io/timeline.html",
+    "https://wx409.github.io/data-timeline.html",
     "https://wx409.github.io/city-guides.html",
     # 其他固定入口页
     "https://wx409.github.io/story.html",
