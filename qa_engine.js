@@ -257,6 +257,76 @@
     return best;
   }
 
+  // ===== 人名反查：作词人/作曲人/制作人/编曲人 → 作品列表 =====
+  var PERSON_ROLES = { lyricist: '作词', composer: '作曲', producer: '制作人', arranger: '编曲', backing: '和声', guitar: '吉他', strings: '弦乐', mixing: '混音', recording: '录音', mastering: '母带', bass: '贝斯', drum: '鼓', supervisor: '监制' };
+  var creditsFull = null;
+  var cfState = 'pending';
+  function loadCreditsFull() {
+    if (cfState === 'ready' || cfState === 'loading') return;
+    cfState = 'loading';
+    var cfUrl = INDEX_URL.replace('qa_bank.json', 'credits_full.json');
+    fetch(cfUrl, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { creditsFull = j; cfState = 'ready'; })
+      .catch(function () { cfState = 'failed'; });
+  }
+  var persons = null;
+  var personsWithCf = false;
+  function buildPersons() {
+    if (!songIndex) return;
+    var cfReady = (cfState === 'ready');
+    if (persons && personsWithCf === cfReady) return; // 缓存命中
+    persons = {};
+    var seen = {};
+    function add(songName, roleKey, val) {
+      var rn = PERSON_ROLES[roleKey] || roleKey;
+      String(val).split(/[&、,/;；/]/).forEach(function (nm) {
+        nm = nm.trim();
+        if (nm.length < 2) return;
+        var kk = nm + '|' + songName + '|' + rn;
+        if (seen[kk]) return;
+        seen[kk] = 1;
+        if (!persons[nm]) persons[nm] = [];
+        persons[nm].push({ song: songName, role: rn });
+      });
+    }
+    for (var key in songIndex) {
+      var e = songIndex[key];
+      var cr = e.credits || {};
+      for (var role in cr) add(e.name || key, role, cr[role]);
+    }
+    if (cfReady && creditsFull && creditsFull.songs) {
+      for (var sk in creditsFull.songs) {
+        var info = creditsFull.songs[sk];
+        var cr2 = info.credits || {};
+        for (var role2 in cr2) add(sk, role2, cr2[role2]);
+      }
+    }
+    personsWithCf = cfReady;
+  }
+  // 问题需含角色意图才做人名反查（避免"王晰最火的歌"被截胡）
+  var PERSON_INTENT = /作词|作曲|制作|编曲|监制|和声|混音|弦乐|吉他|贝斯|鼓|录音|母带|词人|曲人|谁写|谁作|谁编|谁制|谁监|写的|写词|写曲|写了|编的|做的/;
+  function findPerson(q) {
+    buildPersons();
+    if (!persons) return null;
+    var nq = norm(q);
+    if (!PERSON_INTENT.test(nq)) return null;
+    var best = null, bestLen = 0;
+    for (var p in persons) {
+      var np = norm(p);
+      if (np.length < 2 || np.length <= bestLen) continue;
+      if (nq.indexOf(np) >= 0) { best = p; bestLen = np.length; }
+    }
+    return best ? { name: best, entries: persons[best] } : null;
+  }
+  function personCard(p) {
+    var songs = p.entries.slice(0, 12).map(function (e) {
+      return '<div>· 《' + esc(e.song) + '》' + esc(e.role) + '</div>';
+    }).join('');
+    return '<div class="qaw-card"><div class="qaw-q">📝 ' + esc(p.name) + ' 参与的作品（' + p.entries.length + ' 首）</div><div class="qaw-a">' + songs +
+      (p.entries.length > 12 ? '<div class="qaw-src">（仅显示前 12 首，共 ' + p.entries.length + ' 首）</div>' : '') + '</div></div>';
+  }
+
   function songCard(e) {
     var lines = [];
     lines.push('<div class="qaw-card">');
@@ -293,27 +363,32 @@
       .catch(function () { setlistsState = 'failed'; cb && cb(); });
   }
 
-  // 识别巡次（一巡/二巡/.../六巡）或城市名
+  // 识别巡次（一巡/二巡/.../六巡）或城市名，可组合（如"二巡广州"）
   function findTourScope(q) {
     if (!setlistsData) return null;
     var nq = norm(q);
+    var scope = null;
     // 巡次
     var tourNum = nq.match(/([一二三四五六])巡/);
     if (tourNum) {
-      return { type: 'tour', key: tourNum[1] + '巡' };
+      scope = { type: 'tour', key: tourNum[1] + '巡' };
     }
-    // 城市：从所有场的 city 里找
+    // 城市：从所有场的 city 里找（与巡次可并存，过滤更精确）
     var cityList = {};
     for (var dt in setlistsData) {
       var c = setlistsData[dt].city;
       if (c) cityList[norm(c)] = c;
     }
+    var cityHit = null;
     for (var nk in cityList) {
       if (nk && nk.length >= 2 && nq.indexOf(nk) >= 0) {
-        return { type: 'city', key: cityList[nk] };
+        cityHit = cityList[nk];
+        break;
       }
     }
-    return null;
+    if (scope && cityHit) scope.city = cityHit;
+    else if (!scope && cityHit) scope = { type: 'city', key: cityHit };
+    return scope;
   }
 
   function setlistCardItems(entries) {
@@ -335,7 +410,9 @@
     if (scope.type === 'tour') {
       for (var dt in setlistsData) {
         if (setlistsData[dt].tour === scope.key) {
-          entries.push(setlistsData[dt]);
+          if (!scope.city || setlistsData[dt].city === scope.city) {
+            entries.push(setlistsData[dt]);
+          }
         }
       }
     } else if (scope.type === 'city') {
@@ -347,7 +424,9 @@
     }
     entries.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
     if (!entries.length) return '';
-    var title = scope.type === 'tour' ? '「' + scope.key + '」共 ' + entries.length + ' 场' : '「' + scope.key + '」共 ' + entries.length + ' 场演出';
+    var title = scope.type === 'tour'
+      ? '「' + scope.key + '」' + (scope.city ? '·' + esc(scope.city) : '') + ' 共 ' + entries.length + ' 场'
+      : '「' + scope.key + '」共 ' + entries.length + ' 场演出';
     return '<div class="qaw-q">' + esc(title) + ' 的歌单：</div>' + setlistCardItems(entries.slice(0, 6))
       + (entries.length > 6 ? '<div class="qaw-src">（仅显示前 6 场，共 ' + entries.length + ' 场）</div>' : '');
   }
@@ -398,11 +477,17 @@
     if (!input || !result) return;
     var q = String(input.value || '').trim();
     if (!q) { result.innerHTML = '<div class="qaw-empty">请输入问题：如「在路上的词曲作者」「为什么要下降」「北京唱了什么歌」「一巡」等。</div>'; return; }
-    // 优先级：歌名档案 → 实时数据 → 巡次/城市歌单 → 预设问答
+    // 优先级：歌名档案 → 人名反查 → 实时数据 → 巡次/城市歌单 → 预设问答
     loadSongIndex(function () {
+      loadCreditsFull(); // 后台预载完整班底，让人名反查更全（不阻塞）
       var song = songState === 'ready' ? findSong(q) : null;
       if (song) {
         result.innerHTML = songCard(song);
+        return;
+      }
+      var person = songState === 'ready' ? findPerson(q) : null;
+      if (person) {
+        result.innerHTML = personCard(person);
         return;
       }
       loadDashboard(function () {
@@ -468,7 +553,7 @@
       + '<div class="qaw-head">🤖 AI 问答助手 <button class="qaw-close" id="qaWidgetClose" aria-label="关闭">×</button></div>'
       + '<div class="qaw-body">'
       + '  <div class="qaw-search"><input type="search" id="qaWidgetInput" placeholder="问：为什么巡演当天指数下降？" autocomplete="off"><button id="qaWidgetBtn">提问</button></div>'
-      + '  <div class="qaw-result" id="qaWidgetResult"><div class="qaw-empty">可问：歌名档案、实时榜单与异常、演出效应、歌单、以及"为什么"类深层问题。</div></div>'
+      + '  <div class="qaw-result" id="qaWidgetResult"><div class="qaw-empty">可问：歌名档案、作词/作曲/制作/编曲人名反查、巡演歌单（如「三巡」「二巡广州」）、实时榜单与异常、以及"为什么"类深层问题。</div></div>'
       + '  <div class="qaw-all" id="qaWidgetAll"></div>'
       + '</div>';
 
