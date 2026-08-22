@@ -21,6 +21,135 @@
   var bankState = 'pending';
   var widgetInjected = false;
 
+  // ===== 实时数据层（dashboard_lite.json，随大屏 rebuild 自动更新）=====
+  var dash = null;
+  var dashState = 'pending';
+  var DASH_URL = (document.querySelector('base') && document.querySelector('base').href)
+    ? new URL('dashboard/dashboard_lite.json', document.querySelector('base').href).href
+    : 'dashboard/dashboard_lite.json';
+  if (window.location.pathname.split('/').length > 2) {
+    DASH_URL = 'https://wx409.github.io/dashboard/dashboard_lite.json';
+  }
+  function loadDashboard(cb) {
+    if (dashState === 'ready') { cb && cb(); return; }
+    if (dashState === 'loading') return;
+    dashState = 'loading';
+    fetch(DASH_URL, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { dash = j; dashState = 'ready'; cb && cb(); })
+      .catch(function () { dashState = 'failed'; cb && cb(); });
+  }
+  function dashFoot(extra) {
+    // 数据口径脚注：时间戳 + 完整度（动态，不写死）
+    var ts = dash && dash.last_update ? dash.last_update : (dash && dash.timestamp ? dash.timestamp : '—');
+    var cr = dash && dash.complete_rate != null ? ' · 数据完整度 ' + dash.complete_rate + '%' : '';
+    return '<div class="qaw-src">📊 ' + esc(ts) + ' 数据快照' + cr + (extra || '') + '</div>';
+  }
+  function dashCard(title, body) {
+    return '<div class="qaw-card"><div class="qaw-q">' + title + '</div><div class="qaw-a">' + body + '</div>' + dashFoot() + '</div>';
+  }
+  // 实时数据回答器：返回 HTML 或 null（"为什么"类归因问题留给预生成问答库）
+  function dashboardAnswer(q) {
+    if (!dash) return null;
+    var nq = norm(q);
+    if (/为什么|为何|原因|因为|怎么会|凭什么/.test(nq)) return null;
+
+    // 1) 异常监测
+    if (/(异常|突增|骤降|飙升|异动|波动|反常|猛涨|大跌)/.test(nq) && (dash.daily_anomalies || []).length) {
+      var items = dash.daily_anomalies.map(function (a) {
+        return '<div>· ' + esc(a.song) + '（' + esc(a.type) + '，' + esc(a.desc) + '）</div>';
+      }).join('');
+      var lat = dash.latest_anomaly;
+      var head = lat ? '最新：' + esc(lat.song) + '（' + esc(lat.desc) + '）' : '';
+      return dashCard('🔍 近期指数异常（' + (dash.daily_anomalies.length) + ' 条）', (head ? '<div style="margin-bottom:4px">' + head + '</div>' : '') + items);
+    }
+
+    // 2) 完整度 / 数据概况
+    if (/(完整度|覆盖率|数据完整|采集|数据规模|总记录|一共.*条|多少条|多少首|追踪)/.test(nq)) {
+      var rows = [
+        ['数据周期', dash.date_range],
+        ['累计记录', (dash.total || 0).toLocaleString() + ' 条'],
+        ['数据完整度', (dash.complete_rate != null ? dash.complete_rate : 0) + '%'],
+        ['追踪歌曲', dash.total_songs + ' 首（活跃 ' + dash.active_songs + ' 首，' + (dash.active_rate != null ? dash.active_rate : 0) + '%）'],
+        ['监测批次', dash.batch_count + ' 批']
+      ].map(function (r) { return '<div>· ' + esc(r[0]) + '：' + esc(r[1]) + '</div>'; }).join('');
+      return dashCard('📊 数据概况', rows);
+    }
+
+    // 3) 演出效应（带动/辐射）
+    if (/(效应|带动|辐射|哪场|演出效果|演出.*最|巡演.*涨|哪场演出)/.test(nq) && (dash.tour_song_effects || []).length) {
+      var fx = dash.tour_song_effects.slice().sort(function (a, b) {
+        return (b.total_uplift == null ? -999 : b.total_uplift) - (a.total_uplift == null ? -999 : a.total_uplift);
+      }).slice(0, 5);
+      var fxHtml = fx.map(function (f) {
+        var top = (f.top_songs || []).slice(0, 3).map(function (s) { return '《' + s.name + '》+' + s.uplift + '%'; }).join('、');
+        return '<div>· ' + esc(f.scene) + '（' + esc(f.city || '') + '，' + esc(f.content_type || '') + '）全站效应 <b>' + (f.total_uplift != null ? f.total_uplift + '%' : '—') + '</b> · ' + esc(f.pattern || '') + (top ? '<br/><span style="color:#888">　带动：' + top + '</span>' : '') + '</div>';
+      }).join('');
+      return dashCard('🎤 演出效应 Top' + fx.length + '（全站指数相对基线变化）', fxHtml);
+    }
+
+    // 4) 周末 / 工作日
+    if (/(周末|工作日|通勤)/.test(nq) && dash.weekend_workday && dash.weekend_workday.length === 2) {
+      var wk = dash.weekend_workday[0], wd = dash.weekend_workday[1];
+      var ratio = wd > 0 ? (wk / wd) : null;
+      var kind = ratio == null ? '' : (ratio > 1.05 ? '偏「周末型」' : (ratio < 0.95 ? '偏「通勤/工作日型」' : '周末与工作日接近'));
+      return dashCard('🗓️ 周末 vs 工作日收听', '周末均值 <b>' + wk + '</b> · 工作日均值 <b>' + wd + '</b>' + (ratio != null ? '（比值 ' + ratio.toFixed(2) + '，' + kind + '）' : ''));
+    }
+
+    // 5) 今日收听份额 / 最近7天（先于榜单，避免"份额"意图被抢）
+    if (/(今日|份额|占比|收听榜|最近7天|近7天|七天)/.test(nq) && (dash.daily_listen_trend || []).length) {
+      var dl = dash.daily_listen_trend.slice(0, 5).map(function (x) {
+        var d = x.trend_pct != null ? ('（' + (x.trend_pct > 0 ? '+' : '') + x.trend_pct + '%）') : '';
+        return '<div>· 《' + esc(x.song) + '》 份额 ' + esc(x.share_pct) + '%' + d + '</div>';
+      }).join('');
+      var r7 = '';
+      if ((dash.recent_7days || []).length) {
+        r7 = '<div style="margin-top:6px;color:#888">近7日均值：' + dash.recent_7days.map(function (r) { return esc(String(r.date).slice(5)) + ' ' + esc(r.avg_index); }).join(' · ') + '</div>';
+      }
+      return dashCard('📻 今日收听份额 Top' + dash.daily_listen_trend.length, dl + r7);
+    }
+
+    // 6) 榜单（最火/最高/排名）
+    if (/(最火|最热|最高|top|榜首|排名|排行|榜单|哪首.*最)/.test(nq) && (dash.top_songs || []).length) {
+      var tops = dash.top_songs.slice(0, 8).map(function (s, i) {
+        return '<div>· ' + (i + 1) + '. 《' + esc(s.name) + '》 指数 ' + esc(s.trend) + (s.tag ? '（' + esc(s.tag) + '）' : '') + '</div>';
+      }).join('');
+      return dashCard('🔥 热度榜单（当前 Top' + dash.top_songs.length + '）', tops);
+    }
+
+    // 7) 月度叙事 / 走势
+    if (/(月|走势|趋势|叙事|大盘|整体)/.test(nq) && (dash.timeline_narrative || []).length && (dash.time_labels || []).length) {
+      var labels = dash.time_labels, trend = dash.trend_raw || [];
+      var last = labels.slice(-4).map(function (m, i) {
+        var idx = labels.length - 4 + i;
+        var v = trend[idx];
+        var prev = idx > 0 ? trend[idx - 1] : null;
+        var d = (prev != null && prev > 0) ? ((v - prev) / prev * 100) : null;
+        return '<div>· ' + esc(m) + '：指数 <b>' + (v != null ? v : '—') + '</b>' + (d != null ? '（' + (d >= 0 ? '+' : '') + d.toFixed(1) + '%）' : '') + '</div>';
+      }).join('');
+      return dashCard('📈 近期走势（最近 4 个月）', last);
+    }
+
+    // 8) 近期事件（演出/发行/晚会）
+    if (/(演出|发行|晚会|综艺|最近|最新|近期|有什么活动)/.test(nq)) {
+      function evBlock(name, arr, cls, max) {
+        arr = arr || [];
+        if (!arr.length) return '';
+        var last3 = arr.slice(-max || 3).map(function (e) {
+          return '<div><span class="badge ' + cls + '">' + name + '</span>' + esc(Array.isArray(e) ? (e[1] || e[0]) : e) + '</div>';
+        }).join('');
+        return last3;
+      }
+      var b = evBlock('巡演', dash.tour_events, 'b-tour', 3)
+        + evBlock('发行', dash.release_events, 'b-release', 3)
+        + evBlock('晚会', dash.performance_events, 'b-perf', 3);
+      if (!b) return null;
+      return dashCard('📅 最近已登记事件', b);
+    }
+
+    return null;
+  }
+
   // 同义词折叠：把常见同义表达归一，提升语义匹配
   var SYNONYMS = [
     ['下降', '下滑', '跌落', '下跌', '掉', '跌'],
@@ -269,22 +398,29 @@
     if (!input || !result) return;
     var q = String(input.value || '').trim();
     if (!q) { result.innerHTML = '<div class="qaw-empty">请输入问题：如「在路上的词曲作者」「为什么要下降」「北京唱了什么歌」「一巡」等。</div>'; return; }
-    // 优先级：歌名档案 → 巡次/城市歌单 → 预设问答
+    // 优先级：歌名档案 → 实时数据 → 巡次/城市歌单 → 预设问答
     loadSongIndex(function () {
       var song = songState === 'ready' ? findSong(q) : null;
       if (song) {
         result.innerHTML = songCard(song);
         return;
       }
-      loadSetlists(function () {
-        var scope = setlistsState === 'ready' ? findTourScope(q) : null;
-        if (scope) {
-          var slHtml = renderSetlist(scope);
-          if (slHtml) { result.innerHTML = slHtml; return; }
+      loadDashboard(function () {
+        var dh = dashState === 'ready' ? dashboardAnswer(q) : null;
+        if (dh) {
+          result.innerHTML = dh;
+          return;
         }
-        loadBank(function () {
-          if (bankState === 'failed') { result.innerHTML = '<div class="qaw-empty">问答库加载失败，请刷新。</div>'; return; }
-          render(answer(q));
+        loadSetlists(function () {
+          var scope = setlistsState === 'ready' ? findTourScope(q) : null;
+          if (scope) {
+            var slHtml = renderSetlist(scope);
+            if (slHtml) { result.innerHTML = slHtml; return; }
+          }
+          loadBank(function () {
+            if (bankState === 'failed') { result.innerHTML = '<div class="qaw-empty">问答库加载失败，请刷新。</div>'; return; }
+            render(answer(q));
+          });
         });
       });
     });
@@ -332,7 +468,7 @@
       + '<div class="qaw-head">🤖 AI 问答助手 <button class="qaw-close" id="qaWidgetClose" aria-label="关闭">×</button></div>'
       + '<div class="qaw-body">'
       + '  <div class="qaw-search"><input type="search" id="qaWidgetInput" placeholder="问：为什么巡演当天指数下降？" autocomplete="off"><button id="qaWidgetBtn">提问</button></div>'
-      + '  <div class="qaw-result" id="qaWidgetResult"><div class="qaw-empty">基于 38 场逐日指数 + 867 条微博事件，回答「为什么」类深层问题。</div></div>'
+      + '  <div class="qaw-result" id="qaWidgetResult"><div class="qaw-empty">可问：歌名档案、实时榜单与异常、演出效应、歌单、以及"为什么"类深层问题。</div></div>'
       + '  <div class="qaw-all" id="qaWidgetAll"></div>'
       + '</div>';
 
