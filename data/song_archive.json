@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-08-21 15:29:43",
+ "generated_at": "2026-08-22 人工补充班底信息",
  "说明": "王晰歌曲统一档案：每首歌含 credits(词曲制作编曲)、数据表现、演唱次数、演出场次。合并自 credits_full/songs_meta/dashboard song_index。",
- "count": 747,
+ "count": 748,
  "songs": [
   {
    "name": "云一定知道",
@@ -9150,7 +9150,7 @@
   {
    "name": "平凡又美好的晚上",
    "attr": "OST/单曲",
-   "release": "-",
+   "release": "2022-10-10",
    "album": "",
    "credits": {
     "lyricist": "周梦忆/靳苓艺",
@@ -14404,7 +14404,7 @@
   {
    "name": "下潜",
    "attr": "OST/单曲",
-   "release": "-",
+   "release": "2022-05-24",
    "album": "下潜",
    "credits": {
     "lyricist": "姚六一",
@@ -14412,7 +14412,8 @@
     "arranger": "Simon Mongtrison",
     "producer": "崔迪",
     "drum": "祁大为",
-    "guitar": "WUNJUN"
+    "guitar": "WUNJUN",
+    "strings": "Charles Wong（弦乐编写）"
    },
    "index": {
     "mean30": 0,
@@ -17196,7 +17197,9 @@
    "album": "",
    "credits": {
     "lyricist": "小新",
-    "composer": "王正一"
+    "composer": "王正一",
+    "producer": "崔迪",
+    "arranger": "Simon Mongtrison、吴奇"
    },
    "index": {
     "mean30": 0,
@@ -17459,7 +17462,9 @@
    "attr": "其他追踪",
    "release": "-",
    "album": "",
-   "credits": {},
+   "credits": {
+    "arranger": "Simon Mongtrison"
+   },
    "index": {
     "mean30": 0,
     "peak": 0,
@@ -18508,7 +18513,10 @@
    "attr": "其他追踪",
    "release": "-",
    "album": "",
-   "credits": {},
+   "credits": {
+    "producer": "崔迪",
+    "arranger": "Victor Kong"
+   },
    "index": {
     "mean30": 0,
     "peak": 0,
@@ -19073,6 +19081,22 @@
    "index": {
     "mean30": null,
     "peak": null,
+    "lifecycle": ""
+   },
+   "show_count": 0,
+   "performances": []
+  },
+  {
+   "name": "万物可爱",
+   "attr": "其他追踪",
+   "release": "-",
+   "album": "",
+   "credits": {
+    "arranger": "Charles Wong"
+   },
+   "index": {
+    "mean30": 0,
+    "peak": 0,
     "lifecycle": ""
    },
    "show_count": 0,

@@ -326,6 +326,19 @@
       if (np.length < 2 || np.length <= bestLen) continue;
       if (nq.indexOf(np) >= 0) { best = p; bestLen = np.length; }
     }
+    if (!best) {
+      // 部分匹配：问题作为子串反查人名（如「炫豆」→「刘炫豆」）；匹配过多人名则放弃避免泛匹配
+      var subs = [];
+      for (var p2 in persons) {
+        var np2 = norm(p2);
+        if (np2.length > 2 && np2.length >= nq.length && np2.indexOf(nq) >= 0) subs.push(p2);
+      }
+      if (subs.length && subs.length <= 3) {
+        subs.sort(function (a, b) { return persons[b].length - persons[a].length; }); // 参与作品多的优先
+        best = subs[0];
+        bestLen = nq.length;
+      }
+    }
     if (!best) return null;
     // 宽松触发：问题基本就是人名本身（≤ 人名长度+3）或含作品/角色相关词
     if (nq.length <= bestLen + 3 || PERSON_HINT.test(nq)) {
@@ -361,11 +374,23 @@
       '<div class="qaw-src">📚 数据：data/song_index_lite.json + credits_full.json（动态统计）</div></div>';
   }
   function personCard(p) {
-    var songs = p.entries.slice(0, 12).map(function (e) {
+    var all = p.entries.map(function (e) {
       return '<div>· 《' + esc(e.song) + '》' + esc(e.role) + '</div>';
     }).join('');
-    return '<div class="qaw-card"><div class="qaw-q">📝 ' + esc(p.name) + ' 参与的作品（' + p.entries.length + ' 首）</div><div class="qaw-a">' + songs +
-      (p.entries.length > 12 ? '<div class="qaw-src">（仅显示前 12 首，共 ' + p.entries.length + ' 首）</div>' : '') + '</div></div>';
+    var head = '<div class="qaw-q">📝 ' + esc(p.name) + ' 参与的作品（' + p.entries.length + ' 首）</div>';
+    if (p.entries.length <= 8) {
+      return '<div class="qaw-card">' + head + '<div class="qaw-a">' + all + '</div></div>';
+    }
+    // 超过 8 首：前 8 直接显示，其余折叠（点击展开）
+    var first = p.entries.slice(0, 8).map(function (e) {
+      return '<div>· 《' + esc(e.song) + '》' + esc(e.role) + '</div>';
+    }).join('');
+    var rest = p.entries.slice(8).map(function (e) {
+      return '<div>· 《' + esc(e.song) + '》' + esc(e.role) + '</div>';
+    }).join('');
+    return '<div class="qaw-card">' + head + '<div class="qaw-a">' + first +
+      '<details><summary style="cursor:pointer;color:#a31832;font-size:12px;margin-top:6px">展开其余 ' + (p.entries.length - 8) + ' 首（点击）</summary>' +
+      '<div style="margin-top:6px">' + rest + '</div></details></div></div>';
   }
 
   function songCard(e) {
