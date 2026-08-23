@@ -64,23 +64,55 @@
       <span class="badge tour">巡演</span>
     </p>
     <div id="tlList"><p style="color:#999">加载中…</p></div>
-    <p class="footnote">时间轴节点来源分级：官方（机构/官网）、官方报道（新华社/中新社等）、官方通告（巡演主办）、公开资料（百科级）。持续更新。</p>
+    <p class="footnote">时间轴节点来源分级：官方（机构/官网）、官方报道（新华社/中新社等）、官方通告（巡演主办）、公开资料（百科级）。阶段划分依据体制身份变迁（海政文工团撤编 2018-09 / 签约乐华 2019-04 / 加入中国东方演艺集团 2025）。持续更新。</p>
     <script>
     (function () {
         'use strict';
         function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
         var TYPE_CN = { life: '出生·生活', career: '生涯', award: '奖项', album: '专辑', media: '综艺·媒体', tour: '巡演' };
+        // 阶段元信息（顺序即展示顺序）
+        var STAGES = [
+            { key: '奠基', title: '专业奠基期', range: '1985-2013', desc: '金钟奖(2011)·青歌赛冠军(2013)·军旅三等功(2013)' },
+            { key: '海政', title: '海政文工团时期', range: '2014-2018', desc: '《我是歌手》(2016)·《声入人心》(2018)·海政2018-09撤编' },
+            { key: '乐华', title: '乐华市场时期', range: '2019-2024', desc: '签约乐华(2019)·一巡至五巡·专辑密集发行' },
+            { key: '东演', title: '东演双轨时期', range: '2025-', desc: '加入中国东方演艺集团(2025)·九三晚会·《草原之夜》主演' }
+        ];
+        function dateKey(d) {
+            var m = String(d).match(/(\d{4})(?:-(\d{1,2}))?(?:-(\d{1,2}))?/);
+            if (!m) return [9999, 0, 0];
+            return [parseInt(m[1],10), m[2]?parseInt(m[2],10):1, m[3]?parseInt(m[3],10):1];
+        }
+        function stageOf(t) {
+            var y = dateKey(t.date)[0];
+            if (y <= 2013) return '奠基';
+            if (y <= 2018) return '海政';
+            if (y <= 2024) return '乐华';
+            return '东演';
+        }
         fetch('data/timeline.json', { cache: 'no-store' })
             .then(function (r) { return r.json(); })
             .then(function (list) {
+                // 双保险：按时间排序
+                list = list.slice().sort(function (a, b) {
+                    var ka = dateKey(a.date), kb = dateKey(b.date);
+                    for (var i = 0; i < 3; i++) if (ka[i] !== kb[i]) return ka[i] - kb[i];
+                    return 0;
+                });
                 var box = document.getElementById('tlList');
-                var html = '<ul class="tl">' + list.map(function (t) {
-                    var badge = '<span class="badge ' + esc(t.type) + '">' + esc(TYPE_CN[t.type] || t.type) + '</span>';
-                    var src = t.source ? '<div class="tl-src">信源：' + esc(t.source) + '</div>' : '';
-                    return '<li class="tl-item"><span class="tl-date"><time datetime="' + esc(t.date) + '">' + esc(t.date) + '</time></span>' +
-                        '<span class="tl-dot"></span><div class="tl-body">' + badge +
-                        '<div class="tl-title">' + esc(t.title) + '</div>' + src + '</div></li>';
-                }).join('') + '</ul>';
+                var html = '';
+                STAGES.forEach(function (st) {
+                    var items = list.filter(function (t) { return stageOf(t) === st.key; });
+                    if (!items.length) return;
+                    html += '<h2 style="margin-top:28px;">' + esc(st.title) + ' <span style="font-size:13px;color:#8a6d1a;">(' + esc(st.range) + ')</span></h2>';
+                    html += '<p style="font-size:12px;color:#777;margin-top:-6px;">' + esc(st.desc) + '</p>';
+                    html += '<ul class="tl">' + items.map(function (t) {
+                        var badge = '<span class="badge ' + esc(t.type) + '">' + esc(TYPE_CN[t.type] || t.type) + '</span>';
+                        var src = t.source ? '<div class="tl-src">信源：' + esc(t.source) + '</div>' : '';
+                        return '<li class="tl-item"><span class="tl-date"><time datetime="' + esc(t.date) + '">' + esc(t.date) + '</time></span>' +
+                            '<span class="tl-dot"></span><div class="tl-body">' + badge +
+                            '<div class="tl-title">' + esc(t.title) + '</div>' + src + '</div></li>';
+                    }).join('') + '</ul>';
+                });
                 box.innerHTML = html;
             })
             .catch(function () { document.getElementById('tlList').innerHTML = '<p style="color:#b03030">数据加载失败，请刷新。</p>'; });
