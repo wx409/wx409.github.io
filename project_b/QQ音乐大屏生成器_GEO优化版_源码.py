@@ -5286,6 +5286,54 @@ def main(mode="full", run_time_str=""):
     logger.info("=" * 60)
 
 # ==================== 定时调度与关机 ====================
+# 可调"不关机日"配置文件：放脚本同目录，文件名 shutdown_skip.txt
+# 每行一条，支持三种写法（# 开头为注释）：
+#   - 日期     格式 YYYY-MM-DD，如 2026-08-24
+#   - 星期名    周一~周日（含"周六""周日"），表示每周这天 01:30 不关机
+#   - 空行为忽略
+# 每次设置关机前重新读取，出差/节假日改这个文件即可，无需改代码、无需重启。
+SHUTDOWN_SKIP_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "shutdown_skip.txt")
+_WEEKDAY_NAMES = {"周一": 0, "星期二": 1, "周二": 1, "星期三": 2, "周三": 2,
+                  "星期四": 3, "周四": 3, "星期五": 4, "周五": 4,
+                  "星期六": 5, "周六": 5, "星期日": 6, "周天": 6, "周日": 6}
+
+def load_shutdown_skip(target_date, target_weekday):
+    """读取 shutdown_skip.txt，判断给定日期(target_date)与星期几(target_weekday)是否命中"不关机"。
+    命中任一规则则返回 True（不关机）；读取异常时保守起见仅保留"周末不关机"默认行为。"""
+    from datetime import date as _date  # 局部引用，避免作用域混淆
+    try:
+        with open(SHUTDOWN_SKIP_FILE, "r", encoding="utf-8") as f:
+            lines = f.read().splitlines()
+    except FileNotFoundError:
+        logger.warning(f"未找到 {SHUTDOWN_SKIP_FILE}，按默认规则处理（周一~周五 01:30 关机，周六/周日不关机）")
+        # 默认行为：与旧逻辑一致，仅周六/周日不关机
+        return target_weekday >= 5
+    except Exception as e:
+        logger.warning(f"读取 {SHUTDOWN_SKIP_FILE} 失败({e})，按默认规则处理")
+        return target_weekday >= 5
+
+    hit_date = False
+    hit_weekday = False
+    for raw in lines:
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        # 匹配日期 YYYY-MM-DD
+        if re.fullmatch(r"\d{4}-\d{1,2}-\d{1,2}", line):
+            try:
+                if _date.fromisoformat(line) == target_date:
+                    hit_date = True
+            except ValueError:
+                continue
+            continue
+        # 匹配星期名
+        if line in _WEEKDAY_NAMES and _WEEKDAY_NAMES[line] == target_weekday:
+            hit_weekday = True
+            continue
+        # 未识别的行：忽略，不中断
+        logger.info(f"  忽略无法识别的行: {line!r}")
+    return hit_date or hit_weekday
+
 def get_next_run_time():
     now = datetime.now()
     today = now.date()
@@ -5304,17 +5352,19 @@ def schedule_shutdown():
     target = now.replace(hour=1, minute=30, second=0, microsecond=0)
     if target <= now:
         target += timedelta(days=1)
-    # 周一到周五 01:30 关机；周六/周日 01:30 不关机（保持开机）
-    # 01:30 而非 00:10：给 00:30 的演出反馈收集任务留足 1 小时窗口
-    if target.weekday() >= 5:  # 5=周六, 6=周日
+    # 默认：周一到周五 01:30 关机；周六/周日 01:30 不关机（保持开机）。
+    # 01:30 而非 00:10：给 00:30 的演出反馈收集任务留足 1 小时窗口。
+    # 实际是否"不关机"：由 shutdown_skip.txt（脚本同目录）动态决定，
+    # 命中其中任一"日期/星期"即不关机。出差/节假日改该文件即可，无需改代码。
+    if load_shutdown_skip(target.date(), target.weekday()):
         os.system("shutdown -a")
-        logger.info(f"周末（{target.strftime('%m-%d %A')} 01:30）跳过自动关机，电脑保持运行")
+        logger.info(f"本次（{target.strftime('%m-%d %A')} 01:30）命中不关机规则，跳过自动关机，电脑保持运行")
         return
     seconds = int((target - now).total_seconds())
     if seconds > 0:
         os.system("shutdown -a")
         os.system(f"shutdown -s -t {seconds}")
-        logger.info(f"已设置自动关机: {target.strftime('%m-%d %H:%M')}，还有 {seconds//60} 分钟（周一~周五 01:30 自动关机）")
+        logger.info(f"已设置自动关机: {target.strftime('%m-%d %H:%M')}，还有 {seconds//60} 分钟（默认周一~周五 01:30 自动关机；命中 shutdown_skip.txt 的日期/星期则不关机）")
 
 def run_scheduler():
     logger.info("=" * 60)
