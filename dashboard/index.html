@@ -569,7 +569,8 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     ['非歌曲内容剔除', lg.nonsong_filtered ? (lg.nonsong_filtered.rows + ' 行（' + lg.nonsong_filtered.pct + '%），播客/综艺条目') : '-'],
     ['日内多批次合并', lg.intraday_merged ? (lg.intraday_merged.before + ' → ' + lg.intraday_merged.after + ' 行，按字段取最新有效值') : '-'],
     ['指数口径校准', lg.index_calibration ? (lg.index_calibration.rows + '/' + lg.index_calibration.total + ' 行采用「昨日音乐指数」官方值（' + lg.index_calibration.pct + '%）') : '-'],
-    ['追踪数据集', lg.dataset ? (lg.dataset.records + ' 条记录 · ' + lg.dataset.date_range + ' · 追踪歌曲 ' + lg.dataset.tracked_uids + ' 首') : '-'],
+    ['追踪歌曲', lg.dataset ? (lg.dataset.tracked_uids + ' 首 · 覆盖 ' + lg.dataset.date_range) : '-'],
+    ['追踪数据集清洗', lg.dataset ? (lg.dataset.records + ' 条记录（日内多批次合并后）') : '-'],
     ['身份识别', lg.link_registry ? ('链接注册表 ' + lg.link_registry + ' 个唯一 mid；参考映射 ' + (lg.reference_map ? lg.reference_map.mid2name + ' mid→name（' + lg.reference_map.name2mid_1to1 + ' 组 1:1）' : '-')) : '-'],
     ['生命周期分布', lg.lifecycle_dist ? Object.keys(lg.lifecycle_dist).map(function(k){return k + ' ' + lg.lifecycle_dist[k] + ' 首';}).join(' · ') : '-'],
     ['历史收听归档', (lg.hist_cache_rows ? ('缓存 ' + lg.hist_cache_rows + ' 条；') : '') + (lg.hist_trend_songs ? lg.hist_trend_songs + ' 首歌曲有 3 月以上有效数据' : '-')]
