@@ -4498,7 +4498,7 @@ def build_geo_content(payload):
     about = f"""  <section class="geo-summary" id="methodology">
     <h2>数据来源与方法说明</h2>
     <p><strong>追踪对象：</strong>{escape(ARTIST_NAME)}（中国内地流行男低音歌手）。<strong>数据来源：</strong>QQ音乐网页公开展示的音乐指数、实时收听人数与全站排名，基于公开页面信息按固定链接清单逐日整理，未使用任何非公开接口。</p>
-    <p><strong>指数口径：</strong>以"昨日音乐指数"校准为日粒度数值。<strong>身份识别：</strong>同一链接视为同一作品（链接身份，{payload['link_uids']} 个）；无法识别链接的历史记录按歌名归并（名称身份，{payload['name_uids']} 个）；同名不同版本（如 Live / 录音室版）分开统计。</p>
+    <p><strong>指数口径：</strong>以"昨日音乐指数"校准为日粒度数值。<strong>追踪池：</strong>追踪歌曲总数 {payload['total_songs']} 首（链接清单），其中指数覆盖 {payload['link_uids']} 首（实际采到指数）、名称身份 {payload['name_uids']} 个（历史按歌名归并）；同名不同版本（如 Live / 录音室版）分开统计。</p>
     <p><strong>更新频率：</strong>{UPDATE_FREQ_DESC}，本页随每批监测自动重建；图表数据同步发布为 <a href="dashboard_data.json">dashboard_data.json</a>（JSON，每日更新）。</p>
     <p><strong>局限性：</strong>数据仅反映单一平台的公开指标，不构成对全网热度的完整度量；仅供个人研究使用，转载请注明来源。</p>
     <p><strong>维护者：</strong>{escape(AUTHOR_NAME)} · 托管于 GitHub Pages · {SITE_URL}</p>
@@ -4641,7 +4641,7 @@ def generate_dashboard(payload, dashboard_dir):
 
     head_info = (f'<div class="subtitle" style="margin-top:6px;color:#3a7bd5">'
                  f'数据周期: {payload["date_range"]} | 共 {payload["batch_count"]} 批次 | '
-                 f'追踪歌曲 {payload["total_songs"]} 个（链接身份 {payload["link_uids"]} + 名称身份 {payload["name_uids"]}） | '
+                 f'追踪歌曲 {payload["total_songs"]} 个（指数覆盖 {payload["link_uids"]} + 名称身份 {payload["name_uids"]}） | '
                  f'链接清单 {payload["tracked_links"]} 条</div>')
     status_info = (
         f'      <div class="status-item"><span><span class="status-dot"></span>系统状态</span><span class="status-value">运行正常</span></div>\n'
@@ -4664,7 +4664,7 @@ def generate_dashboard(payload, dashboard_dir):
     html = html.replace("__META_TAGS__", geo["meta_tags"])
     html = html.replace("__JSON_LD__", geo["json_ld"])
     html = html.replace("__KPI_TOTAL__", str(payload["total_songs"]))
-    html = html.replace("__UID_SPLIT__", f"链接身份 {payload['link_uids']} | 名称身份 {payload['name_uids']}")
+    html = html.replace("__UID_SPLIT__", f"指数覆盖 {payload['link_uids']} | 名称身份 {payload['name_uids']}")
     html = html.replace("__GEO_SUMMARY__", geo["summary"])
     html = html.replace("__ABOUT_SECTION__", geo["about"])
     html = html.replace("__HEAD_INFO__", head_info)
