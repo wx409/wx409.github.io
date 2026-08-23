@@ -3872,9 +3872,30 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     total_records = len(df_all)
     success_records = int(df_all["current_index"].notna().sum()) if "current_index" in df_all.columns else 0
     active_songs = int(df_all[df_all["listeners"].notna() & (df_all["listeners"] > 0)]["uid"].nunique()) if "listeners" in df_all.columns else 0
-    total_songs = int(df_all["uid"].nunique())
-    link_uids = int(df_all[df_all["uid"].str.startswith("L:")]["uid"].nunique())
-    name_uids = total_songs - link_uids
+    # 修正「追踪歌曲数」口径：以链接清单(依据表)的真实 mid 数为准，
+    # 而非 df_all 全量 uid（历史归档混入其他歌手/非追踪内容导致虚高）。
+    track_mids = set()
+    try:
+        for _idx, _url in read_links(EXCEL_INPUT):
+            _m = extract_mid(_url)
+            if _m:
+                track_mids.add(_m)
+    except Exception:
+        track_mids = set()
+    if track_mids:
+        total_songs = len(track_mids)
+        # 链接身份 = 链接清单 mid 中实际出现在数据里的数量
+        if "uid" in df_all.columns:
+            _uid_mids = df_all.loc[df_all["uid"].str.startswith("L:"), "uid"].str[2:]
+            link_uids = int(_uid_mids[_uid_mids.isin(track_mids)].nunique())
+        else:
+            link_uids = 0
+        name_uids = max(total_songs - link_uids, 0)
+    else:
+        # 兜底：读不到链接清单时退回全量 uid（兼容旧行为）
+        total_songs = int(df_all["uid"].nunique())
+        link_uids = int(df_all[df_all["uid"].str.startswith("L:")]["uid"].nunique())
+        name_uids = total_songs - link_uids
     complete_rate = round(success_records / total_records * 100, 1) if total_records > 0 else 0
     active_rate = round(active_songs / total_songs * 100, 1) if total_songs > 0 else 0
 
@@ -4128,7 +4149,7 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
 
     date_range = f"{df_all['data_date'].min().strftime('%Y-%m-%d')} ~ {df_all['data_date'].max().strftime('%Y-%m-%d')}"
     batch_count = int(df_all["data_date"].nunique())
-    tracked_links = len(registry_info.get("mid2name", {}))
+    tracked_links = len(track_mids) if track_mids else len(registry_info.get("mid2name", {}))
 
     # 指令4：高级分析维度（全部以比率/偏离度/趋势表达，无新绝对数值）
     lifecycle_migration = compute_lifecycle_migration(df_all)
