@@ -2617,6 +2617,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div class="kpi-card"><div class="kpi-label">追踪歌曲总数</div><div class="kpi-value" id="kpi-total">__KPI_TOTAL__</div><div class="kpi-trend"><span class="trend-up" id="uid-split">__UID_SPLIT__</span></div><div style="font-size:10px;color:#5a6b8c;text-align:center">作品库规模 · 非实时指标</div><div id="kpiSparkline" style="height:42px;margin-top:6px"></div></div>
   </div>
   <nav class="story-nav" id="storyNav">
+    <a href="https://wx409.github.io/" style="color:#fff;background:rgba(196,30,58,.9);border-radius:8px;font-weight:600;">🏠 返回主页</a>
     <a href="#trendChart" data-target="trendChart">① 全景概览</a>
     <a href="#timelineChart" data-target="timelineChart">② 竞争格局演变</a>
     <a href="#sankeyChart" data-target="sankeyChart">③ 生命周期流转</a>

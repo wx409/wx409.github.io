@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-23 12:18",
+  "timestamp": "2026-08-23 12:59",
   "total": 200852,
   "success": 36559,
   "complete_rate": 18.2,
@@ -9,7 +9,7 @@
   "active_songs": 206,
   "link_uids": 253,
   "name_uids": 72,
-  "tracked_links": 382,
+  "tracked_links": 253,
   "time_labels": [
     "2023-01",
     "2023-02",
@@ -131,30 +131,30 @@
     252
   ],
   "listener_ratio_trend": [
-    4.1,
-    7.6,
-    8.3,
-    11.4,
-    0.9,
-    5.4,
-    18.7,
-    17.0,
-    18.4,
-    13.9,
-    8.9,
-    8.8,
-    8.1,
-    6.8,
-    5.4,
-    4.4,
-    4.6,
-    4.3,
-    3.6,
-    3.2,
-    2.9,
-    3.0,
-    8.2,
-    27.0
+    4.5,
+    8.0,
+    10.1,
+    14.2,
+    0.6,
+    5.0,
+    16.1,
+    16.7,
+    16.6,
+    14.2,
+    9.4,
+    13.3,
+    13.3,
+    8.6,
+    3.4,
+    3.1,
+    2.6,
+    2.4,
+    2.0,
+    2.0,
+    1.9,
+    1.6,
+    22.4,
+    99.4
   ],
   "listener_labels": [
     "2024-08",
@@ -134235,7 +134235,7 @@
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-08-23 12:18",
+  "last_update": "2026-08-23 12:59",
   "today_batches": 909,
   "daily_new_records": 0,
   "recent_7days": [
@@ -134293,7 +134293,7 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 130,
+      "rows": 0,
       "pct": 0.0
     },
     "excel_files": {
@@ -134301,7 +134301,7 @@
       "success": 1852,
       "failed": []
     },
-    "link_registry": 382,
+    "link_registry": 253,
     "intraday_merged": {
       "before": 513246,
       "after": 200852
