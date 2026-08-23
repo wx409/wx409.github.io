@@ -1,12 +1,12 @@
 {
- "timestamp": "2026-08-23 17:14",
- "last_update": "2026-08-23 17:14",
+ "timestamp": "2026-08-23 18:06",
+ "last_update": "2026-08-23 18:06",
  "date_range": "2023-01-01 ~ 2026-08-23",
  "total": 278262,
  "complete_rate": 23.9,
- "total_songs": 383,
- "active_songs": 244,
- "active_rate": 63.7,
+ "total_songs": 10856,
+ "active_songs": 8919,
+ "active_rate": 82.2,
  "batch_count": 1208,
  "time_labels": [
   "2023-01",
@@ -196,7 +196,7 @@
   2.9,
   3.0,
   8.2,
-  26.9
+  27.1
  ],
  "top_songs": [
   {
@@ -260,7 +260,106 @@
    "tag": "活跃"
   }
  ],
- "daily_listen_trend": [],
+ "daily_listen_trend": [
+  {
+   "rank": 1,
+   "song": "黎明前的黑暗",
+   "share_pct": 54.0,
+   "trend_pct": 87.4,
+   "trend_label": "up"
+  },
+  {
+   "rank": 2,
+   "song": "在路上",
+   "share_pct": 7.5,
+   "trend_pct": 106.8,
+   "trend_label": "up"
+  },
+  {
+   "rank": 3,
+   "song": "一生中最爱",
+   "share_pct": 6.2,
+   "trend_pct": 150.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 4,
+   "song": "山楂树",
+   "share_pct": 5.8,
+   "trend_pct": 133.3,
+   "trend_label": "up"
+  },
+  {
+   "rank": 5,
+   "song": "再叙",
+   "share_pct": 5.0,
+   "trend_pct": 90.6,
+   "trend_label": "up"
+  },
+  {
+   "rank": 6,
+   "song": "月弯弯",
+   "share_pct": 3.7,
+   "trend_pct": 50.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 7,
+   "song": "她真漂亮",
+   "share_pct": 3.0,
+   "trend_pct": 125.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 8,
+   "song": "Sound of Silence",
+   "share_pct": 2.9,
+   "trend_pct": 66.7,
+   "trend_label": "up"
+  },
+  {
+   "rank": 9,
+   "song": "神魂颠倒",
+   "share_pct": 2.6,
+   "trend_pct": 220.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 10,
+   "song": "谁",
+   "share_pct": 2.3,
+   "trend_pct": 33.3,
+   "trend_label": "up"
+  },
+  {
+   "rank": 11,
+   "song": "南屏晚钟",
+   "share_pct": 2.1,
+   "trend_pct": 225.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 12,
+   "song": "哭砂",
+   "share_pct": 1.8,
+   "trend_pct": 120.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 13,
+   "song": "亲密爱人",
+   "share_pct": 1.6,
+   "trend_pct": 33.3,
+   "trend_label": "up"
+  },
+  {
+   "rank": 14,
+   "song": "一生守候",
+   "share_pct": 1.4,
+   "trend_pct": 41.7,
+   "trend_label": "up"
+  }
+ ],
  "daily_anomalies": [],
  "latest_anomaly": null,
  "weekend_workday": [
