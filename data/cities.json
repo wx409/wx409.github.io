@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21 14:00",
+  "generated_at": "2026-08-24 00:05",
   "city_count": 22,
   "show_count": 64,
   "cities": {
@@ -67,7 +67,12 @@
           "venue": "杭州剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": 3.5,
+            "setlist_uplift": 18.5,
+            "radiance_uplift": -5.1
+          }
         },
         {
           "date": "2024-12-21",
@@ -79,7 +84,12 @@
           "venue": "杭州剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": -10.2,
+            "setlist_uplift": null,
+            "radiance_uplift": -8.8
+          }
         },
         {
           "date": "2026-01-31",
@@ -154,9 +164,9 @@
           "cancelled": false,
           "has_data": true,
           "effect": {
-            "total_uplift": -2.6,
-            "setlist_uplift": -15.0,
-            "radiance_uplift": -7.8
+            "total_uplift": -5.4,
+            "setlist_uplift": -19.4,
+            "radiance_uplift": -6.3
           }
         }
       ]
@@ -221,7 +231,12 @@
           "venue": "南京太阳宫剧场",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": 3.8,
+            "setlist_uplift": -28.6,
+            "radiance_uplift": 3.0
+          }
         }
       ]
     },
@@ -408,7 +423,12 @@
           "venue": "北京世纪剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": -7.0,
+            "setlist_uplift": 17.5,
+            "radiance_uplift": -18.6
+          }
         },
         {
           "date": "2025-04-05",
@@ -560,7 +580,12 @@
           "venue": "重庆施光南大剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": 0.9,
+            "setlist_uplift": -2.0,
+            "radiance_uplift": 11.4
+          }
         },
         {
           "date": "2026-06-13",
@@ -662,7 +687,12 @@
           "venue": "上海北外滩友邦大剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": 18.9,
+            "setlist_uplift": 35.5,
+            "radiance_uplift": 14.7
+          }
         },
         {
           "date": "2024-04-06",
@@ -674,7 +704,12 @@
           "venue": "上海保利大剧院·大剧场",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": 4.0,
+            "setlist_uplift": 6.6,
+            "radiance_uplift": 8.9
+          }
         },
         {
           "date": "2025-05-01",
@@ -836,7 +871,12 @@
           "venue": "长沙梅溪湖国际文化艺术中心大剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": -54.2,
+            "setlist_uplift": -70.4,
+            "radiance_uplift": -16.3
+          }
         }
       ]
     },
@@ -1018,7 +1058,12 @@
           "venue": "南昌保利大剧院",
           "live_url": null,
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": -59.7,
+            "setlist_uplift": -81.8,
+            "radiance_uplift": -13.6
+          }
         }
       ]
     }
