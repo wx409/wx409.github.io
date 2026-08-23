@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-23 18:26",
+  "timestamp": "2026-08-23 18:40",
   "total": 278262,
   "success": 66446,
   "complete_rate": 23.9,
@@ -441252,7 +441252,7 @@
         34.5,
         41.9,
         43.8,
-        54.2,
+        55.1,
         36.7,
         28.6,
         32.9,
@@ -441593,8 +441593,8 @@
       "在路上"
     ],
     "values": [
-      144.6,
-      135.7
+      144.1,
+      136.3
     ],
     "spring": [
       false,
@@ -448898,7 +448898,7 @@
   "daily_listen_overview": {
     "active_count": 15,
     "total_tracked": 10856,
-    "concentration_top3": 64.0,
+    "concentration_top3": 64.5,
     "as_of": "2026-08-23",
     "too_small": false
   },
@@ -448906,111 +448906,111 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 49.4,
-      "trend_pct": 76.0,
+      "share_pct": 49.0,
+      "trend_pct": 66.6,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "在路上",
-      "share_pct": 8.3,
-      "trend_pct": 136.4,
+      "share_pct": 9.2,
+      "trend_pct": 147.7,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "一生中最爱",
+      "song": "再叙",
       "share_pct": 6.3,
-      "trend_pct": 160.0,
+      "trend_pct": 134.4,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "再叙",
-      "share_pct": 5.8,
-      "trend_pct": 125.0,
+      "song": "一生中最爱",
+      "share_pct": 6.2,
+      "trend_pct": 146.7,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "山楂树",
-      "share_pct": 5.6,
-      "trend_pct": 133.3,
+      "share_pct": 5.2,
+      "trend_pct": 106.7,
       "trend_label": "up"
     },
     {
       "rank": 6,
       "song": "Sound of Silence",
-      "share_pct": 4.2,
-      "trend_pct": 147.6,
+      "share_pct": 4.9,
+      "trend_pct": 176.2,
       "trend_label": "up"
     },
     {
       "rank": 7,
       "song": "月弯弯",
-      "share_pct": 4.0,
-      "trend_pct": 66.7,
+      "share_pct": 4.1,
+      "trend_pct": 63.3,
       "trend_label": "up"
     },
     {
       "rank": 8,
       "song": "她真漂亮",
-      "share_pct": 3.1,
-      "trend_pct": 143.8,
+      "share_pct": 3.7,
+      "trend_pct": 175.0,
       "trend_label": "up"
     },
     {
       "rank": 9,
       "song": "神魂颠倒",
-      "share_pct": 3.0,
-      "trend_pct": 270.0,
+      "share_pct": 3.2,
+      "trend_pct": 280.0,
       "trend_label": "up"
     },
     {
       "rank": 10,
-      "song": "谁",
-      "share_pct": 2.2,
-      "trend_pct": 33.3,
-      "trend_label": "up"
-    },
-    {
-      "rank": 11,
       "song": "亲密爱人",
-      "share_pct": 2.2,
+      "share_pct": 2.3,
       "trend_pct": 80.0,
       "trend_label": "up"
     },
     {
+      "rank": 11,
+      "song": "谁",
+      "share_pct": 1.7,
+      "trend_pct": -4.8,
+      "trend_label": "flat"
+    },
+    {
       "rank": 12,
-      "song": "南屏晚钟",
-      "share_pct": 1.8,
-      "trend_pct": 175.0,
+      "song": "哭砂",
+      "share_pct": 1.5,
+      "trend_pct": 80.0,
       "trend_label": "up"
     },
     {
       "rank": 13,
-      "song": "哭砂",
-      "share_pct": 1.8,
-      "trend_pct": 120.0,
-      "trend_label": "up"
+      "song": "一生守候",
+      "share_pct": 1.0,
+      "trend_pct": 0.0,
+      "trend_label": "flat"
     },
     {
       "rank": 14,
-      "song": "一生守候",
-      "share_pct": 1.5,
-      "trend_pct": 58.3,
-      "trend_label": "up"
-    },
-    {
-      "rank": 15,
       "song": "重庆野玫瑰",
       "share_pct": 0.9,
       "trend_pct": -8.3,
       "trend_label": "down"
+    },
+    {
+      "rank": 15,
+      "song": "南屏晚钟",
+      "share_pct": 0.8,
+      "trend_pct": 25.0,
+      "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-08-23 18:26",
+  "last_update": "2026-08-23 18:40",
   "today_batches": 1208,
   "daily_new_records": 1,
   "recent_7days": [
@@ -449072,13 +449072,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 2316,
-      "success": 2316,
+      "total": 2317,
+      "success": 2317,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1435945,
+      "before": 1436198,
       "after": 278262
     },
     "index_calibration": {
