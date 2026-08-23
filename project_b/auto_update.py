@@ -108,21 +108,14 @@ def notify_digest():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--machine", choices=["laptop", "desktop"], default="laptop",
-                    help="双机错峰：laptop 工作日 / desktop 周末")
+                    help="机器标签（仅日志用）；不再做双机错峰，笔记本每天都执行")
     ap.add_argument("--watch", action="store_true", help="先跑 watch_releases/watch_tavern（只读）")
     ap.add_argument("--no-push", action="store_true", help="只构建不推送（调试）")
     args = ap.parse_args()
 
-    # 双机错峰（复用 run_scheduler 模式）
-    weekday = datetime.datetime.now().weekday()
-    if args.machine == "laptop" and weekday >= 5:
-        log("laptop 周末跳过（desktop 值班）")
-        return
-    if args.machine == "desktop" and weekday < 5:
-        log("desktop 工作日跳过（laptop 值班）")
-        return
-
-    log("=== 开始自动更新（%s）===" % args.machine)
+    # 说明：已取消双机错峰（此前 laptop 周末/desktop 工作日互相跳过）。
+    # 现在统一由笔记本每天自动更新 + push + IndexNow，无需换班。
+    log("=== 开始自动更新（%s，每天执行）===" % args.machine)
     before = snapshot()
 
     # 1. watch（新歌自动入库；小酒馆节目已结束，不再监测/推送）

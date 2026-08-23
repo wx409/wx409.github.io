@@ -147,14 +147,16 @@ def extract_new_events(archive_dir, new_folders):
         log('事件提取：无新增文本')
         return 0
 
-    # 取 DeepSeek key
-    key = ''
-    kp = Path(r'D:\wx409.github.io\temp\deepseek_key.json')
-    if kp.exists():
-        try:
-            key = json.loads(kp.read_text(encoding='utf-8')).get('api_key', '').strip()
-        except Exception:
-            pass
+    # 取 DeepSeek key：优先环境变量 DEEPSEEK_API_KEY（由 secret_vault run 注入），
+    # 其次 gitignored 私有配置 temp/deepseek_key.json（兼容旧路径）
+    key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    if not key:
+        kp = Path(r'D:\wx409.github.io\temp\deepseek_key.json')
+        if kp.exists():
+            try:
+                key = json.loads(kp.read_text(encoding='utf-8')).get('api_key', '').strip()
+            except Exception:
+                pass
     if not key:
         log('事件提取：无 DeepSeek key，跳过（仅归档）')
         return 0
