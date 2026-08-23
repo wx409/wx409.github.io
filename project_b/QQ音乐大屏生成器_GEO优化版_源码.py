@@ -3871,7 +3871,6 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     now = datetime.now()
     total_records = len(df_all)
     success_records = int(df_all["current_index"].notna().sum()) if "current_index" in df_all.columns else 0
-    active_songs = int(df_all[df_all["listeners"].notna() & (df_all["listeners"] > 0)]["uid"].nunique()) if "listeners" in df_all.columns else 0
     # 修正「追踪歌曲数」口径：以链接清单(依据表)的真实 mid 数为准，
     # 而非 df_all 全量 uid（历史归档混入其他歌手/非追踪内容导致虚高）。
     track_mids = set()
@@ -3882,6 +3881,14 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
                 track_mids.add(_m)
     except Exception:
         track_mids = set()
+    if track_mids and "uid" in df_all.columns:
+        # active_songs 也限于链接清单中的歌（有收听记录的）
+        _uid_mids_all = df_all["uid"].astype(str)
+        _has_listener = df_all["listeners"].notna() & (df_all["listeners"] > 0) if "listeners" in df_all.columns else pd.Series(False, index=df_all.index)
+        _in_track = _uid_mids_all.str.startswith("L:").values & _uid_mids_all.str[2:].isin(track_mids).values
+        active_songs = int(df_all.loc[_in_track & _has_listener.values, "uid"].nunique())
+    else:
+        active_songs = int(df_all[df_all["listeners"].notna() & (df_all["listeners"] > 0)]["uid"].nunique()) if "listeners" in df_all.columns else 0
     if track_mids:
         total_songs = len(track_mids)
         # 链接身份 = 链接清单 mid 中实际出现在数据里的数量
