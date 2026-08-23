@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-23 08:25",
+  "timestamp": "2026-08-23 11:49",
   "total": 200852,
   "success": 36559,
   "complete_rate": 18.2,
@@ -154,7 +154,7 @@
     2.9,
     3.0,
     8.2,
-    26.6
+    26.9
   ],
   "listener_labels": [
     "2024-08",
@@ -127560,7 +127560,7 @@
         39.3,
         46.9,
         46.8,
-        38.0,
+        57.1,
         37.2,
         31.0,
         35.9,
@@ -127901,8 +127901,8 @@
       "在路上"
     ],
     "values": [
-      138.9,
-      128.5
+      143.5,
+      134.5
     ],
     "spring": [
       false,
@@ -134227,165 +134227,18 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 21,
+    "active_count": 5,
     "total_tracked": 325,
-    "concentration_top3": 61.3,
-    "as_of": "2026-08-22",
-    "too_small": false
+    "concentration_top3": 83.9,
+    "as_of": "2026-08-23",
+    "too_small": true
   },
-  "daily_listen_trend": [
-    {
-      "rank": 1,
-      "song": "黎明前的黑暗",
-      "share_pct": 50.4,
-      "trend_pct": -7.7,
-      "trend_label": "down"
-    },
-    {
-      "rank": 2,
-      "song": "在路上",
-      "share_pct": 6.3,
-      "trend_pct": 18.9,
-      "trend_label": "up"
-    },
-    {
-      "rank": 3,
-      "song": "再叙",
-      "share_pct": 4.6,
-      "trend_pct": -27.3,
-      "trend_label": "down"
-    },
-    {
-      "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 4.3,
-      "trend_pct": -44.4,
-      "trend_label": "down"
-    },
-    {
-      "rank": 5,
-      "song": "月弯弯",
-      "share_pct": 4.3,
-      "trend_pct": -16.7,
-      "trend_label": "down"
-    },
-    {
-      "rank": 6,
-      "song": "山楂树",
-      "share_pct": 4.3,
-      "trend_pct": -14.3,
-      "trend_label": "down"
-    },
-    {
-      "rank": 7,
-      "song": "谁",
-      "share_pct": 3.0,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
-    },
-    {
-      "rank": 8,
-      "song": "Sound of Silence",
-      "share_pct": 3.0,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
-    },
-    {
-      "rank": 9,
-      "song": "她真漂亮",
-      "share_pct": 2.3,
-      "trend_pct": -30.4,
-      "trend_label": "down"
-    },
-    {
-      "rank": 10,
-      "song": "亲密爱人",
-      "share_pct": 2.2,
-      "trend_pct": -11.8,
-      "trend_label": "down"
-    },
-    {
-      "rank": 11,
-      "song": "Over the Rainbow",
-      "share_pct": 1.9,
-      "trend_pct": 8.3,
-      "trend_label": "up"
-    },
-    {
-      "rank": 12,
-      "song": "重庆野玫瑰",
-      "share_pct": 1.7,
-      "trend_pct": null,
-      "trend_label": "new"
-    },
-    {
-      "rank": 13,
-      "song": "相思",
-      "share_pct": 1.7,
-      "trend_pct": 71.4,
-      "trend_label": "up"
-    },
-    {
-      "rank": 14,
-      "song": "一生守候",
-      "share_pct": 1.7,
-      "trend_pct": -20.0,
-      "trend_label": "down"
-    },
-    {
-      "rank": 15,
-      "song": "神魂颠倒",
-      "share_pct": 1.4,
-      "trend_pct": -28.6,
-      "trend_label": "down"
-    },
-    {
-      "rank": 16,
-      "song": "哭砂",
-      "share_pct": 1.4,
-      "trend_pct": 25.0,
-      "trend_label": "up"
-    },
-    {
-      "rank": 17,
-      "song": "晚风暖暖",
-      "share_pct": 1.3,
-      "trend_pct": 28.6,
-      "trend_label": "up"
-    },
-    {
-      "rank": 18,
-      "song": "荒人之歌",
-      "share_pct": 1.2,
-      "trend_pct": -42.9,
-      "trend_label": "down"
-    },
-    {
-      "rank": 19,
-      "song": "南屏晚钟",
-      "share_pct": 1.2,
-      "trend_pct": -11.1,
-      "trend_label": "down"
-    },
-    {
-      "rank": 20,
-      "song": "爱于此生",
-      "share_pct": 1.0,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
-    }
-  ],
+  "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-08-23 08:25",
+  "last_update": "2026-08-23 11:49",
   "today_batches": 909,
   "daily_new_records": 0,
   "recent_7days": [
-    {
-      "date": "2026-08-16",
-      "avg_index": 642.5,
-      "total_songs": 252,
-      "complete": true
-    },
     {
       "date": "2026-08-17",
       "avg_index": 610.7,
@@ -134421,6 +134274,12 @@
       "avg_index": 584.9,
       "total_songs": 252,
       "complete": true
+    },
+    {
+      "date": "2026-08-23",
+      "avg_index": null,
+      "total_songs": 252,
+      "complete": true
     }
   ],
   "latest_anomaly": null,
@@ -134438,13 +134297,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 1849,
-      "success": 1849,
+      "total": 1850,
+      "success": 1850,
       "failed": []
     },
     "link_registry": 382,
     "intraday_merged": {
-      "before": 512490,
+      "before": 512742,
       "after": 200852
     },
     "index_calibration": {
