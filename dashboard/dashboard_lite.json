@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-08-23 15:12",
- "last_update": "2026-08-23 15:12",
+ "timestamp": "2026-08-23 15:44",
+ "last_update": "2026-08-23 15:44",
  "date_range": "2023-01-01 ~ 2026-08-23",
  "total": 278262,
  "complete_rate": 23.9,
@@ -614,6 +614,10 @@
   ],
   [
    "2025-09",
+   "2025-09-20 俄罗斯\"国际视界\"国际音乐大赛（中国代表）·莫斯科"
+  ],
+  [
+   "2025-09",
    "2025-09-26 王晰参演有故事的歌音乐剧全明星音乐会·深圳"
   ],
   [
@@ -622,7 +626,15 @@
   ],
   [
    "2025-10",
+   "2025-10-25 第十五届中国音乐金钟奖金钟之星音乐会·成都"
+  ],
+  [
+   "2025-10",
    "2025-10-29 2025央视重阳晚会·北京"
+  ],
+  [
+   "2025-11",
+   "2025-11-12 2025年国际艺术体操邀请赛暨北京艺术体操公开赛开幕式·北京"
   ],
   [
    "2026-01",
@@ -9397,6 +9409,42 @@
    ]
   },
   {
+   "date": "2025-09-20",
+   "scene": "俄罗斯\"国际视界\"国际音乐大赛（中国代表）·莫斯科",
+   "city": "莫斯科",
+   "content_type": "其他",
+   "tour": "俄罗斯\"国际视界\"国际音乐大赛（中国代表）",
+   "total_uplift": -3.2,
+   "pattern": "单点触发型",
+   "top_songs": [
+    {
+     "name": "哭砂",
+     "uplift": 46.3,
+     "on_setlist": false
+    },
+    {
+     "name": "晚风暖暖",
+     "uplift": 30.4,
+     "on_setlist": false
+    },
+    {
+     "name": "在路上",
+     "uplift": 24.9,
+     "on_setlist": false
+    },
+    {
+     "name": "惑许",
+     "uplift": 19.5,
+     "on_setlist": false
+    },
+    {
+     "name": "神魂颠倒",
+     "uplift": 16.4,
+     "on_setlist": false
+    }
+   ]
+  },
+  {
    "date": "2025-09-26",
    "scene": "王晰参演有故事的歌音乐剧全明星音乐会·深圳",
    "city": "深圳",
@@ -9469,6 +9517,42 @@
    ]
   },
   {
+   "date": "2025-10-25",
+   "scene": "第十五届中国音乐金钟奖金钟之星音乐会·成都",
+   "city": "成都",
+   "content_type": "其他",
+   "tour": "第十五届中国音乐金钟奖金钟之星音乐会",
+   "total_uplift": 6.1,
+   "pattern": "单点触发型",
+   "top_songs": [
+    {
+     "name": "小河",
+     "uplift": 52.6,
+     "on_setlist": false
+    },
+    {
+     "name": "南屏晚钟",
+     "uplift": 22.0,
+     "on_setlist": false
+    },
+    {
+     "name": "晚风暖暖",
+     "uplift": 21.2,
+     "on_setlist": false
+    },
+    {
+     "name": "滚滚长江东逝水",
+     "uplift": 19.9,
+     "on_setlist": false
+    },
+    {
+     "name": "谁",
+     "uplift": 17.3,
+     "on_setlist": false
+    }
+   ]
+  },
+  {
    "date": "2025-10-29",
    "scene": "2025央视重阳晚会·北京",
    "city": "北京",
@@ -9500,6 +9584,42 @@
     {
      "name": "谁",
      "uplift": 18.8,
+     "on_setlist": false
+    }
+   ]
+  },
+  {
+   "date": "2025-11-12",
+   "scene": "2025年国际艺术体操邀请赛暨北京艺术体操公开赛开幕式·北京",
+   "city": "北京",
+   "content_type": "其他",
+   "tour": "2025年国际艺术体操邀请赛暨北京艺术体操公开赛开幕式",
+   "total_uplift": 4.5,
+   "pattern": "单点触发型",
+   "top_songs": [
+    {
+     "name": "她真漂亮",
+     "uplift": 58.4,
+     "on_setlist": false
+    },
+    {
+     "name": "南屏晚钟",
+     "uplift": 58.3,
+     "on_setlist": false
+    },
+    {
+     "name": "亲密爱人",
+     "uplift": 20.5,
+     "on_setlist": false
+    },
+    {
+     "name": "一生守候",
+     "uplift": 9.9,
+     "on_setlist": false
+    },
+    {
+     "name": "Over the Rainbow",
+     "uplift": 8.7,
      "on_setlist": false
     }
    ]
