@@ -1513,8 +1513,8 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
 
 
 def compute_daily_freshness(df_all, min_active=5, idx_pct_thr=0.30, rank_up_thr=3000, top_n=3):
-    """日报层数据新鲜度：新增歌曲数 + 最近7日全站均值 + 今日异动检测。
-    异动口径（与全站一致用 current_index / current_rank）：
+    """日报层数据新鲜度：新增歌曲数 + 最近7日追踪曲目池均值 + 今日异动检测。
+    异动口径（与追踪曲目池一致用 current_index / current_rank）：
       - 指数突增：当日指数较前7日均值涨幅 >= +30%
       - 排名飙升：当日排名较昨日上升 >= 3000 位（排名数字变小 = 靠前）
     基准日沿用「数据完整日回退」（最新日活跃 < min_active 视为采集未完成）。
@@ -1551,7 +1551,7 @@ def compute_daily_freshness(df_all, min_active=5, idx_pct_thr=0.30, rank_up_thr=
     cur_uids = set(df[df["data_date"] == cur_date]["uid"])
     daily_new_records = int(len(cur_uids - prev_uids)) if cur_uids else 0
 
-    # 2) 最近7日（含 as_of）全站平均指数
+    # 2) 最近7日（含 as_of）追踪曲目池平均指数
     recent_7days = []
     for i in range(6, -1, -1):
         d = cur_date - pd.Timedelta(days=i)
@@ -1611,7 +1611,7 @@ def compute_daily_freshness(df_all, min_active=5, idx_pct_thr=0.30, rank_up_thr=
 # 第二部分C：事件效应量化（巡演带动 / 新歌发行）
 # ============================================================
 def tour_uplift(df_all, tour_events, topn=10):
-    """巡演带动效应：每场巡演后 7 日的全站日均指数 vs 前 21~7 日基线的涨幅%"""
+    """巡演带动效应：每场巡演后 7 日的追踪曲目池日均指数 vs 前 21~7 日基线的涨幅%"""
     daily = df_all.groupby("data_date")["current_index"].mean().dropna().sort_index()
     rows = []
     for e in tour_events:
@@ -1830,7 +1830,7 @@ def tour_song_effects(df_all, setlists, topn=5):
         candidates = sorted(effects, key=lambda e: e[1], reverse=True)[:topn]
         e_city = _city_of_name(scene)
 
-        # ---- 全站逐日衰减序列 daily_series：演出后 T+1..T+14 全站平均指数 相对基线(baseline)变化率 ----
+        # ---- 追踪曲目池逐日衰减序列 daily_series：演出后 T+1..T+14 追踪曲目池平均指数 相对基线(baseline)变化率 ----
         daily_series = None
         try:
             _bl_lo, _bl_hi = d - pd.Timedelta(days=7), d - pd.Timedelta(days=1)
@@ -2144,7 +2144,7 @@ def build_radiation_analysis(tour_song_fx):
         prompt = (
             "你是音乐数据简报撰写者。下面是歌手王晰的演出辐射效能数据，已由程序算好数值（V2，按内容形态分类）。"
             "请只做措辞表达，不要改数值、不要编造。\n\n"
-            "【形态聚合(均值+中位数)】avg_total=平均全站变化%, med_total=中位全站, avg_setlist=平均歌单内, avg_radiance=平均辐射带动:\n"
+            "【形态聚合(均值+中位数)】avg_total=平均追踪曲目池变化%, med_total=中位追踪曲目池, avg_setlist=平均歌单内, avg_radiance=平均辐射带动:\n"
             + json.dumps(input_payload["morphology_aggregation"], ensure_ascii=False) + "\n\n"
             "【政府活动】单独列示，不参与均值:\n" + json.dumps(input_payload["gov_events"], ensure_ascii=False) + "\n\n"
             "【效应模式分布】各形态中各模式占比(精准型/扩散型/均衡型/无效型/单点触发型):\n"
@@ -2156,7 +2156,7 @@ def build_radiation_analysis(tour_song_fx):
             + json.dumps(input_payload["top10"], ensure_ascii=False) + "\n\n"
             "要求输出严格 JSON（不要 markdown）：\n"
             '{"summary_html": "<div class=\'dashboard-insight\'><h3>演出辐射效能与衰减形态分析</h3><p>300字左右中文分析：哪类形态溢出最稳定(看中位数辐射带动)、哪类精准转化最强(看中位数歌单内)、衰减形态主要发现、给演出方务实建议不超3条</p></div>",'
-            '"morphology_table_html": "<table class=\'event-ranking\'><thead><tr><td>形态</td><td>n</td><td>平均全站</td><td>中位全站</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody>...</tbody></table>",'
+            '"morphology_table_html": "<table class=\'event-ranking\'><thead><tr><td>形态</td><td>n</td><td>平均追踪曲目池</td><td>中位追踪曲目池</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody>...</tbody></table>",'
             '"pattern_distribution_html": "<div class=\'dashboard-insight\'><h4>效应模式分布</h4>...</div>",'
             '"decay_table_html": "<table class=\'event-ranking\'><thead>...</thead><tbody>...</tbody></table>",'
             '"top10_table_html": "<table class=\'event-ranking\'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody>...</tbody></table>",'
@@ -2641,7 +2641,7 @@ __GEO_SUMMARY__
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
-    <h2 class="chart-title">最近7日全站热度微趋势</h2>
+    <h2 class="chart-title">最近7日追踪曲目池热度微趋势</h2>
     <div id="microTrendChart" style="width:100%;height:140px"></div>
   </div>
   <div class="chart-row">
@@ -2692,7 +2692,7 @@ __STATUS_INFO__
     <div class="chart-box"><h2 class="chart-title">头部集中度 &amp; 峰值半衰期</h2><div id="advancedMetrics" style="padding:12px 16px;color:#8896b3;font-size:13px;line-height:1.8"></div></div>
   </div>
   <div class="dim-row" style="grid-template-columns:1fr 1fr">
-    <div class="chart-box"><h2 class="chart-title">巡演带动效应（事件后7日 vs 基线，全站日均指数涨幅%）</h2><div class="chart-container" id="tourFxChart" style="height:300px"></div></div>
+    <div class="chart-box"><h2 class="chart-title">巡演带动效应（事件后7日 vs 基线，追踪曲目池日均指数涨幅%）</h2><div class="chart-container" id="tourFxChart" style="height:300px"></div></div>
     <div class="chart-box"><h2 class="chart-title">新歌发行14日表现（平均指数 / 峰值）</h2><div class="chart-container" id="releaseFxChart" style="height:300px"></div></div>
   </div>
   <div class="dim-row">
@@ -2724,8 +2724,8 @@ __STATUS_INFO__
   </div>
   <div class="chart-row">
     <div class="chart-box">
-      <h2 class="chart-title">巡演歌曲级效应 · 每场全站/歌单内/辐射带动</h2>
-      <p class="chart-insight"><span id="tourSongFxCount">--</span> 场演出已有歌曲级监测数据：演出后 7 日平台指数相对演出前（21~7 日）基线的变化，分全站 / 歌单内 / 辐射带动三口径；歌单内 = 直接效应，歌单外 = 巡演辐射带动</p>
+      <h2 class="chart-title">巡演歌曲级效应 · 每场追踪曲目池/歌单内/辐射带动</h2>
+      <p class="chart-insight"><span id="tourSongFxCount">--</span> 场演出已有歌曲级监测数据：演出后 7 日平台指数相对演出前（21~7 日）基线的变化，分追踪曲目池 / 歌单内 / 辐射带动三口径；歌单内 = 直接效应，歌单外 = 巡演辐射带动</p>
       <div id="tourSongFx"></div>
       <div class="ai-summary" id="ai-tourSongFx" aria-label="图表文本摘要" style="position:absolute;left:-9999px;"></div>
     </div>
@@ -2733,7 +2733,7 @@ __STATUS_INFO__
   <div class="chart-row">
     <div class="chart-box">
       <h2 class="chart-title">演出辐射效能与衰减形态分析</h2>
-      <p class="chart-insight">按内容形态（个人巡回/主题音乐会/晚会/音乐节/演唱会/政府活动）聚合：全站变化均值+中位、歌单内精准转化、辐射带动溢出，含逐日衰减曲线</p>
+      <p class="chart-insight">按内容形态（个人巡回/主题音乐会/晚会/音乐节/演唱会/政府活动）聚合：追踪曲目池变化均值+中位、歌单内精准转化、辐射带动溢出，含逐日衰减曲线</p>
       <div id="radiationSummary" class="dashboard-insight" style="margin:10px 0;padding:14px 16px;background:rgba(255,255,255,0.04);border-radius:8px;font-size:14px;line-height:1.9;color:#cdd6e6"></div>
       <div id="radiationMorphology" style="margin:12px 0;overflow-x:auto;"></div>
       <div id="radiationPattern" class="dashboard-insight" style="margin:10px 0;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;font-size:13px;line-height:1.8;color:#9fb0c8"></div>
@@ -2834,7 +2834,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     html += (e.live_url
       ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'') + '</a>'
       : '<span class="tse-city">' + (e.city||'') + '</span>');
-    html += '<span class="tse-m">全站 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
+    html += '<span class="tse-m">追踪曲目池 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
     html += (e.setlist_uplift!=null ? '<span class="tse-m">歌单内 <b class="'+cls(e.setlist_uplift)+'">'+fmt(e.setlist_uplift)+'</b></span>' : '');
     html += (e.radiance_uplift!=null ? '<span class="tse-m">辐射带动 <b class="'+cls(e.radiance_uplift)+'">'+fmt(e.radiance_uplift)+'</b></span>' : '');
     html += '</summary><div class="tse-body">';
@@ -2851,7 +2851,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       html += '</table>';
     }
     html += '</div></details>';
-    aiLines.push((e.date||'') + ' ' + (e.city||'') + ' 全站' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
+    aiLines.push((e.date||'') + ' ' + (e.city||'') + ' 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
   });
   box.innerHTML = html;
   var ais = document.getElementById('ai-tourSongFx');
@@ -4178,14 +4178,14 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     _tse = tour_song_fx or []
     if _tse:
         _tse_lines = "；".join(
-            f"{e.get('city', '')}({e.get('date', '')})全站{'+' if (e.get('total_uplift') or 0) >= 0 else ''}{e.get('total_uplift')}%"
+            f"{e.get('city', '')}({e.get('date', '')})追踪曲目池{'+' if (e.get('total_uplift') or 0) >= 0 else ''}{e.get('total_uplift')}%"
             f"歌单内{'+' if (e.get('setlist_uplift') or 0) >= 0 else ''}{e.get('setlist_uplift')}%"
             f"辐射带动{'+' if (e.get('radiance_uplift') or 0) >= 0 else ''}{e.get('radiance_uplift')}%"
             for e in _tse
         )
         chart_summaries["tour_song_effects"] = (
             f"巡演歌曲级效应：共 {len(_tse)} 场演出有歌曲级监测数据，"
-            f"每场分全站/歌单内（直接效应）/辐射带动（歌单外）三口径统计演出后7日较前基线涨幅。{_tse_lines}。"
+            f"每场分追踪曲目池/歌单内（直接效应）/辐射带动（歌单外）三口径统计演出后7日较前基线涨幅。{_tse_lines}。"
         )
 
     # KPI 第4卡 mini sparkline：近30日每日新增追踪歌曲数（完整30天窗口，0填充）
@@ -4240,7 +4240,7 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
         "last_update": now.strftime("%Y-%m-%d %H:%M"),      # 日报层：数据快照时间（与 timestamp 同源）
         "today_batches": batch_count,        # 修正：当日批次不可得，展示数据覆盖天数
         "daily_new_records": daily_fresh["daily_new_records"],  # 较昨日新增歌曲数
-        "recent_7days": daily_fresh["recent_7days"],            # 最近7日全站平均指数
+        "recent_7days": daily_fresh["recent_7days"],            # 最近7日追踪曲目池平均指数
         "latest_anomaly": daily_fresh["latest_anomaly"],        # 今日最显著异动（无异动为 null）
         "daily_anomalies": daily_fresh["daily_anomalies"],      # 今日异动列表（最多3条）
         "chart_summaries": chart_summaries,  # 指令4：AI 可读摘要（隐藏层填充）
@@ -4288,7 +4288,7 @@ def build_daily_brief(payload):
             first, last = vals[0], vals[-1]
             pct = (last - first) / first * 100 if first else 0
             trend_word = "上行" if pct > 1 else ("下行" if pct < -1 else "平稳")
-            lines.append(f"【市场信号】近 7 日全站平均指数 {first:.0f}→{last:.0f}"
+            lines.append(f"【市场信号】近 7 日追踪曲目池平均指数 {first:.0f}→{last:.0f}"
                          f"（{'↑' if pct>=0 else '↓'}{abs(pct):.1f}%），整体{trend_word}；"
                          f"7 日序列：{'、'.join(f'{v:.0f}' for v in vals)}。")
     # 涨跌极值（用 top_songs 的趋势字段：涨幅最大 vs 跌幅最大）
@@ -4323,7 +4323,7 @@ def build_daily_brief(payload):
         avg_up = round(sum(e.get("uplift", 0) for e in tf) / len(tf), 1)
         best = tf[0]
         best_lbl = str(best.get("label", "")).strip().replace("《", "").replace("》", "")
-        lines.append(f"【巡演效应】已量化 {len(tf)} 个巡演节点：巡演后 7 日全站日均指数较基线"
+        lines.append(f"【巡演效应】已量化 {len(tf)} 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线"
                      f"平均{'上涨' if avg_up>=0 else '下降'} {abs(avg_up)}%；"
                      f"最强节点 {best_lbl}（{'+' if (best.get('uplift') or 0)>=0 else ''}{best.get('uplift')}%）。"
                      f"巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。")
@@ -4406,7 +4406,7 @@ def build_geo_content(payload):
     if tf:
         avg_up = round(sum(e["uplift"] for e in tf) / len(tf), 1)
         b = tf[0]
-        tour_sentence = (f"在可量化的 {len(tf)} 个巡演节点中，巡演后7日全站日均指数较基线平均上涨 {avg_up}%"
+        tour_sentence = (f"在可量化的 {len(tf)} 个巡演节点中，巡演后7日追踪曲目池日均指数较基线平均上涨 {avg_up}%"
                          f"（带动最强的是 {escape(b['label'])}，{'+' if b['uplift'] >= 0 else ''}{b['uplift']}%）。")
 
     rf = payload.get("release_fx", [])
@@ -5084,7 +5084,7 @@ def rebuild_dashboard():
         logger.info(f"维度分析: {len(dims)} 首 | 近30日异常活跃: {len(df_stats)} 首")
         LINEAGE["lifecycle_dist"] = {str(k): int(v) for k, v in lc.items()}
     song_info = load_song_info(SONG_INFO_XLSX)
-    # 长表为唯一输入：读巡演歌单长表（场次+歌单），并以其场次替代权威表巡演节点参与全站效应/时间轴
+    # 长表为唯一输入：读巡演歌单长表（场次+歌单），并以其场次替代权威表巡演节点参与追踪曲目池效应/时间轴
     setlists = load_setlist(SETLIST_LONG_XLSX)
     if setlists:
         song_info["tour_events"] = [
