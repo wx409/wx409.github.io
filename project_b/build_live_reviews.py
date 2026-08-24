@@ -231,6 +231,6 @@ if __name__ == "__main__":
     # 重建后重跑小红书入库（幂等：清旧的+写新的 纯文字/无链接/≥20字）。
     r2 = subprocess.run(
         [_sys.executable, "-X", "utf8",
-         str(Path(__file__).resolve().parent / "import_xhs_links.py")],
+         str(Path(__file__).resolve().parent / "render_xhs_songs.py")],
         capture_output=True, text=True, encoding="utf-8", errors="replace")
-    print("[小红书重插]", (r2.stdout or r2.stderr or "").strip())
+    print("[小红书歌曲归类分区]", (r2.stdout or r2.stderr or "").strip())
