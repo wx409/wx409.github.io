@@ -22,6 +22,9 @@ echo     7. 歌单候选 (反馈反推歌名)
 echo     8. 歌单重建 (长表 ^> setlists.json + 页面)
 echo     9. 场次标记已举办 + 大屏 rebuild
 echo.
+echo   [地图线]
+echo    15. 地图+巡演目录重建 (长表 ^> cities.json/map/目录, 联动)
+echo.
 echo   [发布线]
 echo    10. 完整部署 deploy_all (12步+commit+IndexNow)
 echo    11. IndexNow 通知 only (已push后催抓取)
@@ -49,6 +52,7 @@ if "%op%"=="11" goto dp_indexnow
 if "%op%"=="12" goto dp_auto
 if "%op%"=="13" goto git_push
 if "%op%"=="14" goto git_status
+if "%op%"=="15" goto map_rebuild
 if "%op%"=="0" exit /b
 echo   [!] 无效选项，请重试
 pause
@@ -200,6 +204,19 @@ cd /d "D:\wx409.github.io"
 chcp 65001 >nul
 python -X utf8 project_b\auto_update.py --machine laptop --watch
 chcp 936 >nul
+pause
+goto menu
+
+:map_rebuild
+cls
+echo === 地图+巡演目录重建 (长表单一事实源) ===
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\run_map_rebuild.py
+chcp 936 >nul
+echo.
+echo 已更新: data/cities.json + map/index.html + live/index.html
+echo 提示: 提交推送用 13, 催搜索引擎用 11
 pause
 goto menu
 
