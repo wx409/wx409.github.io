@@ -234,3 +234,9 @@ if __name__ == "__main__":
          str(Path(__file__).resolve().parent / "render_xhs_songs.py")],
         capture_output=True, text=True, encoding="utf-8", errors="replace")
     print("[小红书歌曲归类分区]", (r2.stdout or r2.stderr or "").strip())
+    # 广州站优美评论区块（重庆摘录下）同样手工维护，重建后重渲染（幂等）
+    r3 = subprocess.run(
+        [_sys.executable, "-X", "utf8",
+         str(Path(__file__).resolve().parent / "render_gz_quotes.py")],
+        capture_output=True, text=True, encoding="utf-8", errors="replace")
+    print("[广州优美评论]", (r3.stdout or r3.stderr or "").strip())
