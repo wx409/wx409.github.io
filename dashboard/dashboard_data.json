@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-24 13:08",
+  "timestamp": "2026-08-24 13:10",
   "total": 278515,
   "success": 66458,
   "complete_rate": 23.9,
@@ -425987,15 +425987,23 @@
     ],
     "total_events": 64,
     "decay_count": 64,
-    "summary_html": "<div class='dashboard-insight'><p>（LLM 措辞暂不可用，已由程序计算关键数据，见下方表格。）</p></div>",
-    "morphology_table_html": "",
-    "pattern_distribution_html": "",
-    "decay_table_html": "",
-    "top10_table_html": "",
-    "key_findings": [],
-    "strategic_notes": [],
-    "data_quality_note": "",
-    "generated_at": "2026-08-24 13:06:59"
+    "summary_html": "<div class='dashboard-insight'><h3>演出辐射效能与衰减形态分析</h3><p>从演出辐射效能数据看，晚会、音乐节等形态呈现出正面的辐射带动；其中‘其他’形态（含综艺、音乐剧等）中位辐射带动3.2%，且中位歌单内提升高达132.6%，显示极强的精准转化能力；晚会中位辐射带动1.4%，中位歌单内34.1%，亦是不错的稳定形态。个人巡回则整体为负值，中位辐射-5.1%，中位歌单内-3.6%，提示常规巡演对曲目池的长期拉动有限。衰减形态上，绝大多数为缓释型（占比75%以上），影响平均持续约10天，半衰期集中在1~1.7天，其中个人巡回平均峰值最高（23.6%），偶发高值（如广州155.4%）值得关注。晚会存在脉冲型案例（20%），峰值可达23.1%。异常场次分析显示，峰值偏离多与特定城市或特殊编排相关。建议：1）加大晚会及‘其他’类演出比例，以带动收藏与辐射；2）个人巡回需强化曲目与歌单的联动设计，将短期关注转化为长期收藏；3）提炼高幅值场次（如上海晚会96.1%辐射带动）的成功要素，形成可复制的演出模式。</p></div>",
+    "morphology_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均追踪曲目池</td><td>中位追踪曲目池</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody><tr><td>个人巡回</td><td>23</td><td>-9.9%</td><td>-5.4%</td><td>-4.9%</td><td>-3.6%</td><td>-3.7%</td><td>-5.1%</td></tr><tr><td>晚会</td><td>10</td><td>2.7%</td><td>-1.2%</td><td>62.2%</td><td>34.1%</td><td>6.6%</td><td>1.4%</td></tr><tr><td>音乐节</td><td>2</td><td>样本不足</td><td>样本不足</td><td></td><td></td><td>样本不足</td><td>样本不足</td></tr><tr><td>其他</td><td>8</td><td>-0.8%</td><td>1.4%</td><td>132.6%</td><td>132.6%</td><td>1.5%</td><td>3.2%</td></tr></tbody></table>",
+    "pattern_distribution_html": "<div class='dashboard-insight'><h4>效应模式分布</h4><table class='event-ranking'><thead><tr><td>形态</td><td>精准型</td><td>扩散型</td><td>均衡型</td><td>无效型</td><td>单点触发型</td></tr></thead><tbody><tr><td>晚会</td><td>10.0%</td><td></td><td>10.0%</td><td>10.0%</td><td>70.0%</td></tr><tr><td>签唱会</td><td></td><td></td><td>33.3%</td><td>33.3%</td><td>33.3%</td></tr><tr><td>个人巡回</td><td>13.0%</td><td>4.3%</td><td>26.1%</td><td>52.2%</td><td>4.3%</td></tr><tr><td>其他</td><td></td><td></td><td></td><td>12.5%</td><td>87.5%</td></tr><tr><td>拼盘演唱会</td><td></td><td></td><td></td><td></td><td>100.0%</td></tr><tr><td>政府活动</td><td>100.0%</td><td></td><td></td><td></td><td></td></tr><tr><td>音乐节</td><td></td><td></td><td></td><td></td><td>100.0%</td></tr><tr><td>综艺</td><td></td><td>100.0%</td><td></td><td></td><td></td></tr><tr><td>歌舞剧·音乐剧</td><td></td><td></td><td></td><td></td><td>100.0%</td></tr></tbody></table></div>",
+    "decay_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均峰值</td><td>平均持续时间</td><td>平均半衰期</td><td>形状分布</td></tr></thead><tbody><tr><td>晚会</td><td>10</td><td>9.2%</td><td>9.2天</td><td>1.0天</td><td>缓释型80.0%，脉冲型20.0%</td></tr><tr><td>签唱会</td><td>3</td><td>-4.8%</td><td>7.0天</td><td>1.5天</td><td>缓释型66.7%，脉冲型33.3%</td></tr><tr><td>个人巡回</td><td>23</td><td>23.6%</td><td>10.5天</td><td>1.6天</td><td>缓释型78.3%，短促型4.3%，脉冲型17.4%</td></tr><tr><td>其他</td><td>8</td><td>11.9%</td><td>9.5天</td><td>1.7天</td><td>缓释型75.0%，脉冲型25.0%</td></tr><tr><td>拼盘演唱会</td><td>3</td><td>7.5%</td><td>5.3天</td><td>1.0天</td><td>缓释型33.3%，脉冲型66.7%</td></tr><tr><td>音乐节</td><td>2</td><td>4.5%</td><td>7.5天</td><td>1.5天</td><td>缓释型50.0%，脉冲型50.0%</td></tr><tr><td>综艺</td><td>1</td><td>样本不足</td><td>样本不足</td><td>样本不足</td><td></td></tr><tr><td>歌舞剧·音乐剧</td><td>13</td><td>14.5%</td><td>10.5天</td><td>1.2天</td><td>缓释型76.9%，短促型23.1%</td></tr></tbody></table>",
+    "top10_table_html": "<table class='event-ranking'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody><tr><td>2024-06-16</td><td>上海</td><td>晚会</td><td>96.1%</td><td>187.7%</td><td>0.5</td><td>有</td></tr><tr><td>2024-08-24</td><td>上海</td><td>拼盘演唱会</td><td>24.8%</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-16</td><td>乌鲁木齐</td><td>歌舞剧·音乐剧</td><td>16.9%</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-15</td><td>乌鲁木齐</td><td>歌舞剧·音乐剧</td><td>16.3%</td><td></td><td></td><td>无</td></tr><tr><td>2023-12-31</td><td>上海</td><td>个人巡回</td><td>14.7%</td><td>35.5%</td><td>0.4</td><td>有</td></tr><tr><td>2025-04-12</td><td>杭州</td><td>音乐节</td><td>12.8%</td><td></td><td></td><td>无</td></tr><tr><td>2024-03-30</td><td>重庆</td><td>个人巡回</td><td>11.4%</td><td>-2.0%</td><td>-5.7</td><td>有</td></tr><tr><td>2026-04-10</td><td>北京</td><td>个人巡回</td><td>10.5%</td><td>27.0%</td><td>0.4</td><td>有</td></tr><tr><td>2024-04-06</td><td>上海</td><td>个人巡回</td><td>8.9%</td><td>6.6%</td><td>1.3</td><td>有</td></tr><tr><td>2026-01-17</td><td>北京</td><td>歌舞剧·音乐剧</td><td>8.0%</td><td></td><td></td><td>无</td></tr></tbody></table>",
+    "key_findings": [
+      "“其他”形态（综艺、音乐剧等）精准转化最强：中位歌单内提升132.6%，中位辐射带动3.2%。",
+      "晚会为最稳定的溢出形态：中位辐射带动1.4%，且中位歌单内提升34.1%。",
+      "衰减形态以缓释型为主，平均持续约10天，半衰期1-1.7天；个人巡回平均峰值高（23.6%）但长期辐射为负。"
+    ],
+    "strategic_notes": [
+      "增加晚会与“其他”类（综艺、音乐剧）演出排布，以强化辐射与歌单收藏。",
+      "个人巡回需优化歌单内曲目设置，将短期峰值流量沉淀为长期曲目池。",
+      "研究辐射带动Top10及异常高值场次（如广州155.4%、上海96.1%），复制其内容或传播策略。"
+    ],
+    "data_quality_note": "基于64场演出（含政府活动1场），其中63场含逐日衰减数据；政府活动仅列示；样本<3的形态均值标注“样本不足”。",
+    "generated_at": "2026-08-24 13:11:15"
   },
   "batch_count": 1209,
   "date_range": "2023-01-01 ~ 2026-08-24",
@@ -441477,7 +441485,7 @@
         41.9,
         43.8,
         47.1,
-        56.5,
+        50.9,
         28.6,
         32.9,
         31.4,
@@ -441817,8 +441825,8 @@
       "在路上"
     ],
     "values": [
-      142.0,
-      134.8
+      139.5,
+      133.8
     ],
     "spring": [
       false,
@@ -449160,13 +449168,13 @@
   "daily_listen_overview": {
     "active_count": 8,
     "total_tracked": 383,
-    "concentration_top3": 75.2,
+    "concentration_top3": 78.4,
     "as_of": "2026-08-24",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-08-24 13:08",
+  "last_update": "2026-08-24 13:10",
   "today_batches": 1209,
   "daily_new_records": 0,
   "recent_7days": [
@@ -449224,17 +449232,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 0,
+      "rows": 130,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 2329,
-      "success": 2329,
+      "total": 2330,
+      "success": 2330,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1439234,
+      "before": 1439487,
       "after": 278515
     },
     "index_calibration": {
