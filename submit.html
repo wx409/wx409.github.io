@@ -58,14 +58,37 @@
             <option value="setlist">现场歌单补充</option>
             <option value="quote">金句 / 语录</option>
             <option value="fix">资料勘误</option>
+            <option value="xhs_note">小红书笔记收集（演出反馈/现场repo）</option>
             <option value="other">其他补充</option>
         </select>
+
+        <div id="xhsHelp" style="display:none;background:#f0f7ff;border-left:3px solid #1a56c4;padding:10px 14px;border-radius:6px;margin:10px 0;font-size:13px;">
+            <strong>小红书笔记收集说明</strong><br>
+            ① 打开小红书笔记 → 点「分享」→「复制链接」<br>
+            ② 回到本页，把复制的内容粘贴到下方输入框 → 点「自动解析」<br>
+            ③ 解析后自动填入 链接/标题/时间/作者，你只需补充一句话「内容要点」<br>
+            <em>（说明：小红书不开放自动抓取接口，需手动复制分享文本；解析只在浏览器本地完成，不上传服务器）</em>
+        </div>
+
+        <label for="paste">小红书分享文本（粘贴后点「自动解析」）</label>
+        <textarea id="paste" placeholder="在小红书笔记点分享→复制链接，然后粘贴到这里（含标题/作者/链接的文本）"></textarea>
+        <div class="btn-row">
+            <button type="button" class="btn btn-copy" style="flex:0 0 auto;padding:8px 16px;min-width:auto;" onclick="parseXhs()">🔍 自动解析小红书文本</button>
+        </div>
+
+        <label for="link">笔记链接 *</label>
+        <input id="link" placeholder="https://www.xiaohongshu.com/explore/xxxx">
+        <label for="pubtime">笔记发布时间（选填）</label>
+        <input id="pubtime" placeholder="2026-08-24">
+        <label for="author">作者（选填）</label>
+        <input id="author" placeholder="小红书昵称">
+
         <label for="date">场次日期（选填，如 2026-06-13）</label>
         <input id="date" placeholder="2026-06-13">
         <label for="city">城市（选填）</label>
-        <input id="city" placeholder="重庆">
-        <label for="content">内容 *</label>
-        <textarea id="content" required placeholder="例：重庆首站《Your Man》加演；前排观众反馈声场饱满……"></textarea>
+        <input id="city" placeholder="广州">
+        <label for="content">内容要点 *</label>
+        <textarea id="content" required placeholder="例：广州场《心动》现场反馈；粉丝repo：低音现场震撼……"></textarea>
         <label for="nick">署名（选填，用于来源标注）</label>
         <input id="nick" placeholder="昵称或微博ID">
         <div class="btn-row">
@@ -81,15 +104,61 @@
     <p class="tip" style="margin-top:20px;">复制后可以粘贴到<strong>任意渠道</strong>：微信粉丝群、微博私信、邮件……「复制邮箱提交」会一键复制管理员邮箱 <strong style="color:#0a7a5a;">wangxi409@163.com</strong> 和你的投稿文本——打开任意邮箱/微信粘贴发送即可，无需 GitHub 账号。</p>
 
     <script>
+    // 类型切换：小红书类型时显示说明
+    document.getElementById('type').addEventListener('change', function () {
+        document.getElementById('xhsHelp').style.display = (this.value === 'xhs_note') ? 'block' : 'none';
+    });
+
+    // 小红书文本解析：从分享文本提取 链接/标题/时间/作者
+    function parseXhs() {
+        var txt = document.getElementById('paste').value.trim();
+        if (!txt) { alert('请先粘贴小红书分享文本'); return; }
+        // 提取链接（含 xiaohongshu.com 的 URL）
+        var mLink = txt.match(/https?:\/\/[^\s"'<>]+xiaohongshu\.com[^\s"'<>]*/);
+        if (mLink) {
+            var url = mLink[0].split('?')[0];
+            document.getElementById('link').value = url;
+        }
+        // 提取标题：通常第一行非链接非"分享图片"文本
+        var lines = txt.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+        var title = '';
+        for (var i = 0; i < lines.length; i++) {
+            var l = lines[i];
+            if (/^https?:\/\//.test(l) || /^(分享|来自|发布于|小红书)/.test(l)) continue;
+            if (l.length > 3 && l.length < 60) { title = l; break; }
+        }
+        if (title) document.getElementById('content').value = title;
+        // 提取时间：形如 2026-08-24 或 8月24日
+        var mTime = txt.match(/(20\d{2}[-/.年]\d{1,2}[-/.月]\d{1,2}日?|\d{1,2}月\d{1,2}日)/);
+        if (mTime) {
+            var t = mTime[1].replace(/[年月]/g, '-').replace(/日/g, '').replace(/\//g, '-');
+            document.getElementById('pubtime').value = t;
+        }
+        // 提取作者：找"作者：xxx"或链接后一行
+        var mAuthor = txt.match(/作者[:：]\s*(\S+)/);
+        if (mAuthor) document.getElementById('author').value = mAuthor[1];
+        var link = document.getElementById('link').value;
+        if (!link) { alert('未识别到小红书链接，请手动填写笔记链接'); return; }
+        document.getElementById('out').textContent = '✅ 已解析：链接=' + link + (title ? ' | 标题=' + title : '') +
+            (mTime ? ' | 时间=' + document.getElementById('pubtime').value : '');
+        document.getElementById('out').style.display = 'block';
+    }
+
     function build() {
         var type = document.getElementById('type').value;
         var date = document.getElementById('date').value.trim();
         var city = document.getElementById('city').value.trim();
         var content = document.getElementById('content').value.trim();
         var nick = document.getElementById('nick').value.trim();
+        var link = document.getElementById('link').value.trim();
+        var pubtime = document.getElementById('pubtime').value.trim();
+        var author = document.getElementById('author').value.trim();
         if (!content) { alert('请填写内容'); return; }
         var t = '【投稿类型】' + type + '\n' +
             (date ? '【场次】' + date + (city ? ' ' + city : '') + '\n' : '') +
+            (link ? '【笔记链接】' + link + '\n' : '') +
+            (pubtime ? '【发布时间】' + pubtime + '\n' : '') +
+            (author ? '【作者】' + author + '\n' : '') +
             '【内容】' + content + '\n' +
             (nick ? '【署名】' + nick : '');
         document.getElementById('out').textContent = t;
