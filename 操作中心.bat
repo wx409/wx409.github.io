@@ -21,6 +21,7 @@ echo     6. 反馈入库 live 页 (短句+外链)
 echo     7. 歌单候选 (反馈反推歌名)
 echo     8. 歌单重建 (长表 ^> setlists.json + 页面)
 echo     9. 场次标记已举办 + 大屏 rebuild
+echo    16. 追踪报告入库 (实时追踪md ^> live-reviews)
 echo.
 echo   [地图线]
 echo    15. 地图+巡演目录重建 (长表 ^> cities.json/map/目录, 联动)
@@ -53,6 +54,7 @@ if "%op%"=="12" goto dp_auto
 if "%op%"=="13" goto git_push
 if "%op%"=="14" goto git_status
 if "%op%"=="15" goto map_rebuild
+if "%op%"=="16" goto trk_import
 if "%op%"=="0" exit /b
 echo   [!] 无效选项，请重试
 pause
@@ -204,6 +206,20 @@ cd /d "D:\wx409.github.io"
 chcp 65001 >nul
 python -X utf8 project_b\auto_update.py --machine laptop --watch
 chcp 936 >nul
+pause
+goto menu
+
+:trk_import
+cls
+echo === 追踪报告入库 (实时追踪md ^> live-reviews) ===
+echo 读: temp\演出追踪_20260823\实时反馈_手动收集.md
+echo 写: data/live_repos.json + live-reviews.html (自动去重)
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\import_tracking_repo.py
+chcp 936 >nul
+echo.
+echo 提示: 提交推送用 13, 催搜索引擎用 11
 pause
 goto menu
 
