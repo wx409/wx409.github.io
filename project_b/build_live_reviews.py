@@ -83,8 +83,9 @@ def build():
                 extra = " · 官宣后未举办"
 
             html = ['<article class="history-item" data-status="%s" data-source-level="%s">' % (status, level)]
-            html.append('<header><strong><time datetime="%s">%s</time></strong> · %s · %s%s%s'
-                        % (esc(date), esc(fmt_date(date)), esc(scene), esc(venue), esc(extra), esc(note)))
+            done_tag = '（已举办）' if (status == "completed" and not cancelled) else ''
+            html.append('<header><strong><time datetime="%s">%s</time></strong> · %s%s · %s%s%s'
+                        % (esc(date), esc(fmt_date(date)), esc(scene), done_tag, esc(venue), esc(extra), esc(note)))
             if cancelled:
                 html.append('<p class="cancel-note">官宣后未举办（票务/活动页佐证见下方链接）。</p>')
             if rlist:
@@ -216,3 +217,13 @@ def build():
 
 if __name__ == "__main__":
     build()
+    # 重建会冲掉 update_live_reviews_tourweibo.py 手工插入的微博条目
+    # （微博数据在 data/tour_weibo_posts.json，不在 live_repos.json）。
+    # 重建后立即重跑微博插入，恢复 本人纯文字/工作室链接 专用格式。
+    import subprocess
+    import sys as _sys
+    r = subprocess.run(
+        [_sys.executable, "-X", "utf8",
+         str(Path(__file__).resolve().parent / "update_live_reviews_tourweibo.py")],
+        capture_output=True, text=True, encoding="utf-8", errors="replace")
+    print("[微博重插]", (r.stdout or r.stderr or "").strip())

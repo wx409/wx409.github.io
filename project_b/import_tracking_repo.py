@@ -78,13 +78,38 @@ def main():
     REPOS_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"追加 {len(added)} 条观众 repo -> {SHOW_DATE}")
 
-    # 重建 live-reviews.html
-    import subprocess
-    r = subprocess.run([sys.executable, "-X", "utf8",
-                        str(ROOT / "project_b" / "build_live_reviews.py")], cwd=ROOT,
-                       capture_output=True, text=True, encoding="utf-8")
-    print(r.stdout.strip() or r.stderr.strip())
-    print("完成。下一步: git add/commit/push + IndexNow")
+    # HTML 级插入到 live-reviews.html 对应场次（绝不跑 build_live_reviews.py，
+    # 它会重建页面并冲掉 update_live_reviews_tourweibo.py 插入的微博条目）
+    _insert_into_page(added)
+
+
+def _insert_into_page(new_items):
+    html = HTML.read_text(encoding="utf-8")
+    # 安全护栏：页面必须已有微博条目，否则中止（防误伤/防重建后空跑）
+    if "王晰微博" not in html:
+        print("!! 页面无微博条目（可能被 build_live_reviews 重建冲掉），请先用 git 恢复")
+        return
+    # 找该场次的 </ul>（在对应 <time datetime> 的 article 内）
+    pat = re.compile(
+        r'(<time datetime="%s"[^>]*>.*?</ul>)' % re.escape(SHOW_DATE), re.S)
+    m = pat.search(html)
+    if not m:
+        print(f"!! 未找到 {SHOW_DATE} 场次的 </ul>，跳过页面插入（JSON 已更新）")
+        return
+    segment = m.group(1)
+    ul_pos = segment.rfind("</ul>")
+    abs_pos = m.start() + ul_pos
+    lis = []
+    for r in new_items:
+        url = r.get("url", "")
+        title = r.get("title", "")
+        lis.append(
+            f'<li><a href="{url}" target="_blank" rel="noopener nofollow">{title}</a> '
+            f'<span class="tag">微博</span> <span class="src-badge single">单源</span></li>'
+        )
+    block = "\n" + "\n".join(lis) + "\n"
+    HTML.write_text(html[:abs_pos] + block + html[abs_pos:], encoding="utf-8")
+    print(f"已插入 {len(new_items)} 条到 live-reviews.html 广州站（HTML 级，未重建）")
 
 
 if __name__ == "__main__":

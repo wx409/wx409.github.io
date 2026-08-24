@@ -106,19 +106,23 @@ def main():
     skipped = 0
     failed = []
     for show_date, recs in by_show.items():
-        # 去重：跳过 url 已在页面中的记录
-        new_recs = []
-        for r in recs:
-            url = r.get('url', '')
-            if url and url in html:
-                skipped += 1
-                continue
-            new_recs.append(r)
-        if not new_recs:
+        # 去重：按场次粒度——该场 article 内已有「王晰微博」条目则整场跳过，
+        # 否则全部插入。build_live_reviews 重建会清空微博，重插脚本据此补回。
+        # 用 time 锚点定位该场 article（与 insert_for_event 一致），避免跨 article 误判。
+        m = re.search(r'<time datetime="%s"[^>]*>' % re.escape(show_date), html)
+        already = False
+        if m:
+            a_start = html.rfind('<article', 0, m.start())
+            if a_start >= 0:
+                a_end = html.find('</article>', m.start())
+                if a_end >= 0:
+                    already = '王晰微博' in html[a_start:a_end]
+        if already:
+            skipped += len(recs)
             continue
-        html, ok = insert_for_event(html, show_date, new_recs)
+        html, ok = insert_for_event(html, show_date, recs)
         if ok:
-            inserted += len(new_recs)
+            inserted += len(recs)
         else:
             failed.append(show_date)
 
