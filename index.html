@@ -2303,7 +2303,7 @@
     </article>
   </div>
 </details><h2>历史巡演回顾（2019-2026）</h2>
-    <p>王晰自2019年起，已完成五轮全国个人巡回音乐会，累计覆盖<strong>20+城</strong>。第六轮「回」正在进行中。</p>
+    <p>王晰自2019年起，已完成五轮全国个人巡回音乐会，累计覆盖<strong id="city-count">20+</strong>城。第六轮「回」正在进行中。</p>
     <table>
         <tr><th>轮次</th><th>主题</th><th>时间跨度</th><th>场次</th><th>状态</th></tr>
         <tr><td>一巡</td><td>Cherish珍晰</td><td>2019.06 - 2020.01</td><td>17场</td><td>已结束</td></tr>
@@ -2553,5 +2553,20 @@
     <p style="margin-top: 40px; color: #999; font-size: 12px;">本站为王晰歌迷自发维护的 GEO 资料站，信息持续更新中。最后更新：2026-07-29</p>
     <p style="margin-top: 10px; color: #999; font-size: 12px;">本站内容采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans" target="_blank" rel="noopener nofollow" style="color:#999;">CC BY-NC 4.0 知识共享·署名-非商业性使用国际许可协议</a>。非商业个人公益档案站，无任何商业行为。</p>
 <script src="/qa_engine.js"></script>
+<script>
+// 巡演城市数动态化：从 data/cities.json（长表生成）读真实城市数
+(function () {
+    var el = document.getElementById('city-count');
+    if (!el) return;
+    fetch('/data/cities.json').then(function (r) { return r.json(); }).then(function (d) {
+        var n = d && d.city_count;
+        if (n && n > 0 && String(n) !== el.textContent) {
+            el.textContent = n;
+            var p = el.closest('p');
+            if (p) p.innerHTML = p.innerHTML.replace(/(\d+)\+?城/, '$1 城');
+        }
+    }).catch(function () { /* JS失败保持默认 20+ */ });
+})();
+</script>
 </body>
 </html>
