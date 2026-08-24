@@ -53,9 +53,9 @@ echo   [小红书线]
 echo    17. 小红书按链接抓取 (links.txt ^> 本地图/视频/文字)
 
 echo    18. 小红书入库 (按歌曲归类 纯文字 无链接无id)
-
+echo    19. 广州优美评论重渲染 (改完 _gz_quotes.json 后跑)
+echo    20. 小红书summary重建 (抓取中断后恢复完整汇总)
 echo.
-
 echo   [地图线]
 
 echo    15. 地图+巡演目录重建 (长表 ^> cities.json/map/目录, 联动)
@@ -123,6 +123,8 @@ if "%op%"=="16" goto trk_import
 if "%op%"=="17" goto xhs_fetch
 
 if "%op%"=="18" goto xhs_import
+if "%op%"=="19" goto gz_render
+if "%op%"=="20" goto xhs_rebuild
 
 if "%op%"=="0" exit /b
 
@@ -500,10 +502,14 @@ cd /d "D:\wx409.github.io"
 
 chcp 65001 >nul
 
-python -X utf8 project_b\import_xhs_songs.py
-chcp 936 >nul
-echo --- 渲染歌曲分区 ---
-chcp 65001 >nul
+python -X utf8 project_b\import_xhs_songs.py
+
+chcp 936 >nul
+
+echo --- 渲染歌曲分区 ---
+
+chcp 65001 >nul
+
 python -X utf8 project_b\render_xhs_songs.py
 
 chcp 936 >nul
@@ -515,6 +521,29 @@ pause
 goto menu
 
 
+
+:gz_render
+cls
+echo === 广州优美评论重渲染 ===
+echo 改完 temp\_gz_quotes.json 后跑本项，重写 live-reviews 广州评论区
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\render_gz_quotes.py
+chcp 936 >nul
+echo 提示: 提交推送用 13
+pause
+goto menu
+
+:xhs_rebuild
+cls
+echo === 小红书 summary 重建 ===
+echo 用途: fetch 中断后 summary 被最后一次运行覆盖，从归档目录重建完整汇总
+chcp 65001 >nul
+python -X utf8 project_b\run_xhs_rebuild.py
+chcp 936 >nul
+echo 之后可执行 18(入库)
+pause
+goto menu
 
 :map_rebuild
 
