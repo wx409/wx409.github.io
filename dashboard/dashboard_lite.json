@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-08-24 13:10",
- "last_update": "2026-08-24 13:10",
+ "timestamp": "2026-08-24 13:15",
+ "last_update": "2026-08-24 13:15",
  "date_range": "2023-01-01 ~ 2026-08-24",
  "total": 278515,
  "complete_rate": 23.9,
@@ -362,11 +362,11 @@
   ],
   [
    "2026-06",
-   "2026-06-13 六巡·王晰回个人巡回音乐会 广州站"
+   "2026-06-13 六巡·王晰回个人巡回音乐会 重庆（首站）站"
   ],
   [
-   "2026-06",
-   "2026-06-13 六巡·王晰回个人巡回音乐会 重庆（首站）站"
+   "2026-08",
+   "2026-08-23 六巡·王晰回个人巡回音乐会 广州站"
   ]
  ],
  "release_events": [
@@ -723,10 +723,6 @@
    "uplift": 6.8
   },
   {
-   "label": "06-13 广州",
-   "uplift": 2.4
-  },
-  {
    "label": "06-13 重庆（首站）",
    "uplift": 2.4
   },
@@ -737,6 +733,10 @@
   {
    "label": "01-27 南京",
    "uplift": 1.2
+  },
+  {
+   "label": "09-16 武汉（收官·中秋前）",
+   "uplift": -0.5
   }
  ],
  "release_fx": [
@@ -7665,14 +7665,10 @@
    "events": [
     {
      "type": "tour",
-     "name": "广州"
-    },
-    {
-     "type": "tour",
      "name": "重庆（首站）"
     }
    ],
-   "event_str": "🎤 广州站  🎤 重庆（首站）站"
+   "event_str": "🎤 重庆（首站）站"
   },
   {
    "month": "2026-07",
@@ -7990,8 +7986,13 @@
      "uid": "L:004ZfaYl39yo55"
     }
    ],
-   "events": [],
-   "event_str": ""
+   "events": [
+    {
+     "type": "tour",
+     "name": "广州"
+    }
+   ],
+   "event_str": "🎤 广州站"
   }
  ],
  "recent_7days": [
@@ -9943,42 +9944,6 @@
     {
      "name": "重庆野玫瑰",
      "uplift": 2.2,
-     "on_setlist": false
-    }
-   ]
-  },
-  {
-   "date": "2026-06-13",
-   "scene": "广州",
-   "city": "广州",
-   "content_type": "个人巡回",
-   "tour": "六巡·王晰回个人巡回音乐会",
-   "total_uplift": 4.2,
-   "pattern": "无效型",
-   "top_songs": [
-    {
-     "name": "谁",
-     "uplift": 47.3,
-     "on_setlist": false
-    },
-    {
-     "name": "重庆野玫瑰",
-     "uplift": 19.6,
-     "on_setlist": false
-    },
-    {
-     "name": "一生守候",
-     "uplift": 18.9,
-     "on_setlist": true
-    },
-    {
-     "name": "在路上",
-     "uplift": 17.2,
-     "on_setlist": false
-    },
-    {
-     "name": "亲密爱人",
-     "uplift": 11.2,
      "on_setlist": false
     }
    ]
