@@ -227,3 +227,10 @@ if __name__ == "__main__":
          str(Path(__file__).resolve().parent / "update_live_reviews_tourweibo.py")],
         capture_output=True, text=True, encoding="utf-8", errors="replace")
     print("[微博重插]", (r.stdout or r.stderr or "").strip())
+    # 小红书条目同样不在 live_repos.json（否则重建会渲染成带链接 repo，违背纯文字原则），
+    # 重建后重跑小红书入库（幂等：清旧的+写新的 纯文字/无链接/≥20字）。
+    r2 = subprocess.run(
+        [_sys.executable, "-X", "utf8",
+         str(Path(__file__).resolve().parent / "import_xhs_links.py")],
+        capture_output=True, text=True, encoding="utf-8", errors="replace")
+    print("[小红书重插]", (r2.stdout or r2.stderr or "").strip())
