@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24 15:36",
+  "generated_at": "2026-08-25 00:05",
   "city_count": 22,
   "show_count": 64,
   "cities": {
@@ -326,7 +326,12 @@
           "venue": "广东艺术剧院",
           "live_url": "live/hui-回-广州-2026.html",
           "cancelled": false,
-          "has_data": false
+          "has_data": true,
+          "effect": {
+            "total_uplift": 9.7,
+            "setlist_uplift": 0.2,
+            "radiance_uplift": 10.2
+          }
         }
       ]
     },
