@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>王晰全国巡演地图 | 2019-2026 六轮巡演城市一览</title>
-    <meta name="description" content="王晰2019-2026六轮全国个人巡回音乐会的巡演城市地图，覆盖22城59场，含场馆、日期、巡次与数据效应。">
+    <meta name="description" content="王晰2019-2026六轮全国个人巡回音乐会的巡演城市地图，覆盖22城64场，含场馆、日期、巡次与数据效应。">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://wx409.github.io/map/">
     <meta property="og:title" content="王晰全国巡演地图 | 2019-2026">
-    <meta property="og:description" content="22城59场巡演城市地图，含场馆、日期、巡次与数据效应。">
+    <meta property="og:description" content="22城64场巡演城市地图，含场馆、日期、巡次与数据效应。">
     <meta property="og:url" content="https://wx409.github.io/map/">
     <meta property="og:image" content="https://wx409.github.io/cover.png">
     <meta name="twitter:image" content="https://wx409.github.io/cover.png">
@@ -1447,8 +1447,10 @@
         .legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle; }
         .legend .dot.pulse { box-shadow:0 0 0 rgba(0,210,255,.6); animation:pulse 2s infinite; }
         @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(0,210,255,.7)} 70%{box-shadow:0 0 0 10px rgba(0,210,255,0)} 100%{box-shadow:0 0 0 0 rgba(0,210,255,0)} }
-        .marker { width:14px; height:14px; border-radius:50%; background:var(--c,#888); border:2px solid rgba(255,255,255,.85); box-shadow:0 1px 4px rgba(0,0,0,.5); }
+        .marker { width:26px; height:26px; border-radius:50%; background:var(--c,#888); border:3px solid rgba(255,255,255,.95); box-shadow:0 2px 8px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.15); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:700; text-shadow:0 1px 2px rgba(0,0,0,.6); transition:transform .2s; }
+        .marker:hover { transform:scale(1.2); }
         .marker.has-data { animation:pulse 2s infinite; }
+        .marker.attended { border-color:#ffd700; box-shadow:0 0 0 3px rgba(255,215,0,.6), 0 0 12px rgba(255,215,0,.5); }
         .leaflet-popup-content-wrapper { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:10px; }
         .leaflet-popup-tip { background:var(--panel); }
         .leaflet-popup-content { margin:14px 16px; font-size:13px; }
@@ -1490,10 +1492,10 @@
         <h1 class="title">王晰全国巡演地图 · 2019-2026</h1>
         <span style="display:flex;align-items:center;gap:10px;">
             <a href="/">← 返回主站</a>
-            <button type="button" class="share-btn" id="shareMapBtn" title="截图保存当前地图">📸 分享地图</button>
+            <button type="button" class="share-btn" id="shareMapBtn" title="分享我去过哪些站（文字/链接/截图）">📸 分享</button>
         </span>
     </div>
-    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场（点击城市标记勾选）</div>
+    <div class="attend-bar">🏅 我参加过 <b id="attendCount">0</b> 场（点击城市标记勾选 · 📸分享可生成链接）</div>
     <div id="map"></div>
     <div class="legend">
         <h4>图例（按该城最近一场巡次着色）</h4>
@@ -1506,7 +1508,7 @@
         <div><span class="dot pulse" style="background:#00d2ff"></span>有数据效应（脉冲）</div>
     </div>
     <aside class="city-list">
-        <h2>巡演城市一览（22 城 · 59 场）</h2>
+        <h2>巡演城市一览（22 城 · 64 场）</h2>
 <article class="city"><h3>杭州<span class="count">7 场</span></h3><ul><li>2019-06-07 · 一巡「Cherish珍晰」 · 杭州剧院 </li><li>2020-10-07 · 其他「」 · 场馆待补 </li><li>2020-11-14 · 二巡「2020-2021 个人巡回」 · 杭州剧院 </li><li>2021-11-27 · 其他「」 · 场馆待补 </li><li>2024-05-25 · 四巡「肆益」 · 杭州剧院 <span class="badge data">有数据</span></li><li>2024-12-21 · 五巡「吾」 · 杭州剧院 <span class="badge data">有数据</span></li><li>2026-01-31 · 五巡「吾」 · 杭州金沙湖大剧院 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>武汉<span class="count">4 场</span></h3><ul><li>2019-06-15 · 一巡「Cherish珍晰」 · 武汉剧院 </li><li>2021-01-10 · 二巡「2020-2021 个人巡回」 · 武汉琴台大剧院 </li><li>2022-09-17 · 三巡「图景」 · 武汉琴台大剧院 </li><li>2024-09-16 · 四巡「肆益」 · 武汉琴台大剧院 <span class="badge data">有数据</span></li></ul></article>
 <article class="city"><h3>大连<span class="count">1 场</span></h3><ul><li>2019-07-20 · 一巡「Cherish珍晰」 · 大连国际会议中心大剧院 </li></ul></article>
@@ -1564,7 +1566,7 @@
 
     function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
-    /* ============ 互动：我参加过（localStorage 持久化） ============ */
+    /* ============ 互动：我参加过（localStorage 持久化 + URL 分享） ============ */
     var ATTEND_KEY = 'wangxi_attended_v1';
     function loadAttended(){
         try { return JSON.parse(localStorage.getItem(ATTEND_KEY)) || {}; }
@@ -1573,6 +1575,19 @@
     function saveAttended(a){ localStorage.setItem(ATTEND_KEY, JSON.stringify(a)); }
     var attended = loadAttended();
     var markerEls = {};   // date -> marker DOM（更新金边用）
+
+    // URL 参数 ?attended=2026-06-13,2026-08-23 → 载入时自动勾选（分享给朋友）
+    (function applyUrlAttend(){
+        var m = location.search.match(/[?&]attended=([^&]+)/);
+        if (!m) return;
+        m[1].split(',').forEach(function(d){
+            d = d.trim();
+            if (d) attended[d] = true;
+        });
+        saveAttended(attended);
+        // 清掉 URL 参数，避免刷新重复叠加（用 history.replaceState）
+        try { history.replaceState(null, '', location.pathname + location.hash); } catch(e){}
+    })();
 
     function toggleAttend(date, btn){
         if (attended[date]) { delete attended[date]; } else { attended[date] = true; }
@@ -1591,8 +1606,11 @@
             btn.classList.toggle('on', on);
         }
     }
+    function attendedDates(){
+        return Object.keys(attended).filter(function(d){ return attended[d]; }).sort();
+    }
     function updateAttendCount(){
-        var n = Object.keys(attended).filter(function(d){ return attended[d]; }).length;
+        var n = attendedDates().length;
         var el = document.getElementById('attendCount');
         if (el) el.textContent = n;
     }
@@ -1615,16 +1633,17 @@
 
     fetch('../data/cities.json').then(function(r){ return r.json(); }).then(function(data){
         var cities = data.cities || {};
-        Object.keys(cities).forEach(function(name){
+        Object.keys(cities).forEach(function(name, idx){
             var c = cities[name];
             if (!c.coord) return;
             var latest = c.shows[c.shows.length - 1];
             var hasData = c.shows.some(function(s){ return s.has_data; });
             var color = TOUR_COLORS[latest.tour_num] || '#888';
+            var num = c.shows.length > 1 ? c.shows.length : '';
             // 弹窗内容：场次列表 + 每场「我参加过」按钮
             var popupHtml = showHtml(name, c) + '<div class="attend-row">' +
                 c.shows.map(function(s){ return attendBtnHtml(s.date); }).join(' ') + '</div>';
-            var icon = L.divIcon({ className:'', html:'<div class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '"></div>', iconSize:[14,14], iconAnchor:[7,7] });
+            var icon = L.divIcon({ className:'', html:'<div class="marker' + (hasData ? ' has-data' : '') + '" style="--c:' + color + '">' + num + '</div>', iconSize:[26,26], iconAnchor:[13,13] });
             var marker = L.marker(c.coord, {icon:icon}).addTo(map).bindPopup(popupHtml);
             // 记录 marker DOM（同城多场共享 marker，取第一个）
             c.shows.forEach(function(s){ if (!markerEls[s.date]) markerEls[s.date] = marker.getElement().querySelector('.marker'); });
@@ -1641,7 +1660,37 @@
         updateAttendCount();
     }).catch(function(){});
 
-    /* ============ 截图分享（html2canvas，懒加载 CDN） ============ */
+    /* ============ 分享：复制文本 / 复制链接 / 截图（html2canvas 懒加载 CDN） ============ */
+    function copyText(txt, okMsg){
+        function done(){ var b=document.getElementById('shareMapBtn'); if(b) b.textContent=okMsg; setTimeout(function(){ if(b) b.textContent='📸 分享'; }, 1800); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(done).catch(function(){ fallbackCopy(txt); done(); });
+        } else { fallbackCopy(txt); done(); }
+    }
+    function fallbackCopy(txt){
+        var ta = document.createElement('textarea');
+        ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+    }
+    function shareMenu(){
+        var dates = attendedDates();
+        var base = 'https://wx409.github.io/map/';
+        var lines = ['🏅 我参加过王晰巡演 ' + dates.length + ' 场：'];
+        dates.forEach(function(d){ lines.push('  · ' + d); });
+        lines.push('');
+        lines.push('我在「王晰全国巡演地图」上标注了去过哪些站，你也来点一点 →');
+        var text = lines.join('\n');
+        var link = dates.length ? base + '?attended=' + dates.join(',') : base;
+        var choice = prompt(
+            '分享「我去过哪站」\n\n' +
+            '1. 复制文字版\n2. 复制链接（朋友打开自动勾选你的场次）\n3. 取消',
+            '1'
+        );
+        if (choice === '1') copyText(text, '✅ 已复制文字');
+        else if (choice === '2') copyText(link, '✅ 已复制链接');
+    }
     function shareMap(){
         var btn = document.getElementById('shareMapBtn');
         if (btn) btn.textContent = '⏳ 生成中…';
@@ -1658,9 +1707,9 @@
                 a.download = 'wangxi-tour-map-' + new Date().toISOString().slice(0, 10) + '.png';
                 a.href = canvas.toDataURL('image/png');
                 a.click();
-                if (btn) btn.textContent = '📸 分享地图';
+                if (btn) btn.textContent = '📸 分享';
             }).catch(function(){
-                if (btn) btn.textContent = '📸 分享地图';
+                if (btn) btn.textContent = '📸 分享';
                 alert('截图失败：地图瓦片可能跨域受限，请直接截图或在新标签打开地图。');
             });
         }
@@ -1668,11 +1717,11 @@
         var s = document.createElement('script');
         s.src = 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js';
         s.onload = doCapture;
-        s.onerror = function(){ if (btn) btn.textContent = '📸 分享地图'; alert('截图库加载失败（需联网），请直接截图。'); };
+        s.onerror = function(){ if (btn) btn.textContent = '📸 分享'; alert('截图库加载失败（需联网），请直接截图。'); };
         document.head.appendChild(s);
     }
     var shareBtn = document.getElementById('shareMapBtn');
-    if (shareBtn) shareBtn.addEventListener('click', shareMap);
+    if (shareBtn) shareBtn.addEventListener('click', shareMenu);
     </script>
 </body>
 </html>

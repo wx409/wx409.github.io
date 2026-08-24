@@ -51,12 +51,24 @@ def load_setlists(path: str) -> list[dict]:
                 "date": d,
                 "date_display": d.replace("-", "."),
                 "scene": str(scene).strip(),
-                "city": re.split(r"[（(]", str(scene))[0].strip(),
+                "city": _clean_city(str(scene)),
                 "lun": m.group(1) if m else "其他",
             }
         )
     out.sort(key=lambda x: (TOUR_ORDER.index(x["lun"]) if x["lun"] in TOUR_ORDER else 99, x["date"]))
     return out
+
+
+def _clean_city(scene: str) -> str:
+    """归一化城市名：剥括注（如（首站）/（收官）/（返场））与「收官」后缀，去空白。
+    与地图生成器 generate_cities_json.clean_city 保持同一口径。"""
+    city = re.split(r"[（(]", str(scene))[0].strip()
+    city = re.sub(r"\s+", "", city)
+    for suf in ("收官", "首站", "首场", "返场", "加场"):
+        if city.endswith(suf):
+            city = city[: -len(suf)]
+            break
+    return city
 
 
 def scan_live_pages(live_dir: Path) -> dict:
@@ -129,6 +141,8 @@ def build_page(setlists: list[dict], effects: dict, live_pages: dict) -> str:
     for s in setlists:
         by_lun.setdefault(s["lun"], []).append(s)
     has_detail = len(live_pages)
+    n_city = len({s["city"] for s in setlists})
+    n_show = len(setlists)
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -138,7 +152,7 @@ def build_page(setlists: list[dict], effects: dict, live_pages: dict) -> str:
     <meta name="description" content="王晰2019-2026六轮全国个人巡回音乐会全部场次索引，含城市、日期、场馆、数据效应与详情页链接。">
     <link rel="canonical" href="https://wx409.github.io/live/">
     <meta property="og:title" content="演出详情目录 | 王晰个人巡回音乐会 2019-2026">
-    <meta property="og:description" content="王晰六轮巡演全部场次索引，50+城市60+场次，含每场数据效应。">
+    <meta property="og:description" content="王晰六轮巡演全部场次索引，{n_city}城{n_show}场，含每场数据效应。">
     <meta property="og:url" content="https://wx409.github.io/live/">
     <meta property="og:image" content="https://wx409.github.io/cover.png">
     <meta name="twitter:image" content="https://wx409.github.io/cover.png">
