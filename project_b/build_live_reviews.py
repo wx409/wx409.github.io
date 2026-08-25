@@ -89,15 +89,30 @@ def build():
             if cancelled:
                 html.append('<p class="cancel-note">官宣后未举办（票务/活动页佐证见下方链接）。</p>')
             if rlist:
-                html.append('<ul class="repo-list">')
-                for r in rlist:
-                    lv = r.get("level", "single")
-                    ntxt = (' <span class="repo-note">' + esc(r.get("note")) + '</span>') if r.get("note") else ""
-                    html.append('<li><a href="%s" target="_blank" rel="noopener nofollow">%s</a> '
-                                '<span class="tag">%s</span> <span class="%s">%s</span>%s</li>'
-                                % (esc(r.get("url")), esc(r.get("title")), esc(r.get("platform")),
-                                   BADGE.get(lv, "src-badge single"), LEVEL_CN.get(lv, "单源"), ntxt))
-                html.append('</ul>')
+                official = [r for r in rlist if r.get("level") == "official"]
+                audience = [r for r in rlist if r.get("level") != "official"]
+                if official:
+                    html.append('<p class="src-group-title official">官方与媒体记录</p>')
+                    html.append('<ul class="repo-list">')
+                    for r in official:
+                        lv = r.get("level", "single")
+                        ntxt = (' <span class="repo-note">' + esc(r.get("note")) + '</span>') if r.get("note") else ""
+                        html.append('<li><a href="%s" target="_blank" rel="noopener nofollow">%s</a> '
+                                    '<span class="tag">%s</span> <span class="%s">%s</span>%s</li>'
+                                    % (esc(r.get("url")), esc(r.get("title")), esc(r.get("platform")),
+                                       BADGE.get(lv, "src-badge single"), LEVEL_CN.get(lv, "单源"), ntxt))
+                    html.append('</ul>')
+                if audience:
+                    html.append('<p class="src-group-title audience">观众反馈</p>')
+                    html.append('<ul class="repo-list">')
+                    for r in audience:
+                        lv = r.get("level", "single")
+                        ntxt = (' <span class="repo-note">' + esc(r.get("note")) + '</span>') if r.get("note") else ""
+                        html.append('<li><a href="%s" target="_blank" rel="noopener nofollow">%s</a> '
+                                    '<span class="tag">%s</span> <span class="%s">%s</span>%s</li>'
+                                    % (esc(r.get("url")), esc(r.get("title")), esc(r.get("platform")),
+                                       BADGE.get(lv, "src-badge single"), LEVEL_CN.get(lv, "单源"), ntxt))
+                    html.append('</ul>')
             else:
                 html.append('<p class="pending-note">该场次记录待补充。如果你有现场歌单/听感记录，欢迎通过 '
                             '<a href="https://github.com/wx409/wx409.github.io/issues" target="_blank" rel="noopener nofollow">GitHub Issues</a> 投稿。</p>')
@@ -135,6 +150,27 @@ def build():
     </div>
 """
 
+    # 结构化数据（JSON-LD）：为已举办且有整理摘录的场次（重庆首站/广州站）生成 Event
+    ld_events = []
+    for _name, _v in cities.items():
+        for _s in _v.get("shows", []):
+            if _s.get("date") in ("2026-06-13", "2026-08-23"):
+                ld_events.append({
+                    "@type": "Event",
+                    "name": "王晰「%s」个人巡回音乐会·%s站" % (_s.get("theme") or "回", _name),
+                    "startDate": _s["date"],
+                    "eventStatus": "https://schema.org/EventScheduled",
+                    "location": {
+                        "@type": "Place",
+                        "name": _s.get("venue") or "场馆待补",
+                        "address": {"@type": "PostalAddress", "addressLocality": _name},
+                    },
+                    "performer": {"@type": "Person", "name": "王晰"},
+                    "url": "https://wx409.github.io/live-reviews.html",
+                })
+    json_ld = json.dumps({"@context": "https://schema.org", "@graph": ld_events},
+                         ensure_ascii=False, indent=2)
+
     page = """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -170,11 +206,24 @@ def build():
         .src-badge.verified { background: #fdecea; color: #c41e3a; }
         .src-badge.single { background: #eee; color: #666; }
         .stats { background: #f0f8ff; padding: 15px; border-radius: 8px; margin: 15px 0; }
+        /* 来源分组与匿名观众引用（GEO：来源/级别/时间结构化呈现） */
+        .src-group-title { font-size: 12px; font-weight: 600; margin: 10px 0 2px; }
+        .src-group-title.official { color: #2e7d32; }
+        .src-group-title.audience { color: #c41e3a; }
+        .quote-list { list-style: none; padding: 0; margin: 6px 0; }
+        .audience-quote { background: #fafafa; border-left: 3px solid #c41e3a; padding: 8px 12px; margin: 8px 0 8px 12px; border-radius: 4px; }
+        .audience-quote blockquote { margin: 0; font-size: 13px; line-height: 1.7; color: #333; }
+        .quote-meta { font-size: 12px; color: #888; margin: 5px 0 0; }
+        .song-head { margin: 12px 0 2px; font-size: 14px; font-weight: 600; color: #1a1a1a; }
+        .src-note { font-size: 12px; color: #999; margin: 6px 0 10px; }
     </style>
 <link rel="canonical" href="https://wx409.github.io/live-reviews.html">
     <meta property="og:image" content="https://wx409.github.io/cover.png">
     <meta name="twitter:image" content="https://wx409.github.io/cover.png">
     <meta property="og:type" content="website">
+    <script type="application/ld+json">
+%s
+    </script>
 </head>
 <body>
     <div class="nav">
@@ -206,10 +255,10 @@ def build():
     <h2>如何贡献你的现场记录</h2>
     <p>如果你也记录了王晰现场，欢迎通过 <a href="https://github.com/wx409/wx409.github.io/issues">GitHub Issues</a> 提供<strong>文字摘要</strong>（歌单、场馆、听感要点）。本站收录公开 repo 索引与摘录归纳，不公开社交平台账号 ID。</p>
     <p>发布 repo 时建议带 <strong>#王晰</strong> 及当轮巡演话题，例如六巡 <strong>#王晰回个人巡回音乐会</strong>、五巡 <strong>#王晰吾</strong>、四巡 <strong>#王晰肆益</strong>、三巡 <strong>#王晰图景</strong> ……</p>
-    <p style="margin-top: 40px; color: #999; font-size: 12px;">repo 数据来源：公开网络检索（2026-08-16 汇总），带「待核」标注的条目其日期口径与站内档案不一致，以站内 cities.json 为准。本站不存储任何原图、视频或全文。所有权利归原作者。</p>
+    <p style="margin-top: 40px; color: #999; font-size: 12px;">repo 数据来源：公开网络检索（2026-08-16 汇总），带「待核」标注的条目其日期口径与站内档案不一致，以站内 cities.json 为准。观众评论昵称均已匿名化处理（观众A/B/C），本站不公开任何社交平台账号；不存储任何原图、视频或全文。所有权利归原作者。</p>
 </body>
 </html>
-""" % (n_total, n_ok, n_total - n_ok, "\n".join(body), chongqing)
+""" % (json_ld, n_total, n_ok, n_total - n_ok, "\n".join(body), chongqing)
 
     OUT.write_text(page, encoding="utf-8")
     print("[OK] -> live-reviews.html | %d 场，%d 场有 repo" % (n_total, n_ok))
