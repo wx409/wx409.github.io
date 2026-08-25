@@ -500,7 +500,7 @@ echo === 小红书按链接抓取 (links.txt ^> 本地) ===
 
 echo 前置: 链接文件 D:\wx409.github.io\temp\xhs_links.txt (每行一个分享链接)
 
-echo       cookie 在 E:\wx\私有工具\xhs_proxy\xhs_cookie.json
+echo       cookie 优先读 E:\wx\index_records\xhs.txt
 
 echo 存档: E:\wx\私有工具\xhs_archive\按链接\
 
