@@ -55,6 +55,7 @@ echo    17. 小红书按链接抓取 (links.txt ^> 本地图/视频/文字)
 echo    18. 小红书入库 (按歌曲归类 纯文字 无链接无id)
 echo    19. 广州整理摘录重渲染 (改完 _gz_quotes.json 后跑)
 echo    20. 小红书summary重建 (抓取中断后恢复完整汇总)
+echo    21. 评论多层面分析 (微博/小红书/B站, 论文友好, 默认广州场)
 echo.
 echo   [地图线]
 
@@ -125,6 +126,7 @@ if "%op%"=="17" goto xhs_fetch
 if "%op%"=="18" goto xhs_import
 if "%op%"=="19" goto gz_render
 if "%op%"=="20" goto xhs_rebuild
+if "%op%"=="21" goto an_analyze
 
 if "%op%"=="0" exit /b
 
@@ -542,6 +544,19 @@ chcp 65001 >nul
 python -X utf8 project_b\run_xhs_rebuild.py
 chcp 936 >nul
 echo 之后可执行 18(入库)
+pause
+goto menu
+
+:an_analyze
+cls
+echo === 评论多层面分析 (论文友好) ===
+echo 聚合微博/小红书/B站/Bing 评论: 高频主题/独特观点/评价维度/情感/画像/格言
+echo 默认: 广州 2026-08-23; 加 --llm 启用 DeepSeek 归纳层 (需 temp\deepseek_key.json)
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\analyze_audience_comments.py --date 2026-08-23 --city 广州
+chcp 936 >nul
+echo 输出: temp\audience_analysis\2026-08-23_广州.json + .md
 pause
 goto menu
 
