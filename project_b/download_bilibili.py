@@ -17,8 +17,6 @@ import argparse, io, json, os, re, sys, time, hashlib, urllib.parse, urllib.requ
 from datetime import datetime
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-
 DEFAULT_TXT = Path(r"E:\wx\六巡\20260823广州站\bilibili链接.txt")
 DEFAULT_OUT = Path(r"E:\wx\六巡\20260823广州站\bilibili视频")
 
@@ -170,8 +168,15 @@ BILI_COOKIE_FILE = Path(r"E:\wx\私有工具\bilibili_cookie.json")
 
 
 def load_bili_cookie():
-    """B站登录 Cookie（可选）：E:\\wx\\私有工具\\bilibili_cookie.json {"cookie": "SESSDATA=..."}
+    """B站登录 Cookie：优先读用户更新的 bilibili_cookies.txt（纯文本，E:\\wx\\index_records）；
+    兜底 E:\\wx\\私有工具\\bilibili_cookie.json {"cookie": "SESSDATA=..."}。
     空间全量抓取需要登录态；普通 BV 链接下载不需要。"""
+    try:
+        t = Path(r"E:\wx\index_records\bilibili_cookies.txt").read_text(encoding="utf-8").strip()
+        if t:
+            return t
+    except Exception:
+        pass
     try:
         return json.loads(BILI_COOKIE_FILE.read_text(encoding="utf-8")).get("cookie", "")
     except Exception:
@@ -179,7 +184,8 @@ def load_bili_cookie():
 
 
 def fetch_space_bvids(mid):
-    """拉取 B站用户空间全部视频的 BV 列表（wbi 签名分页；匿名会遇风控，需登录 Cookie）。"""
+    """拉取 B站用户空间全部视频的 BV 列表。
+    实测：x/space/arc/search（旧接口）带登录 Cookie 可用；wbi 版接口返回 -403（风控），故用旧接口。"""
     cookie = get_session_cookie()
     extra = load_bili_cookie()
     if extra:
@@ -188,18 +194,25 @@ def fetch_space_bvids(mid):
                "Cookie": cookie}
     bvids, pn = [], 1
     while pn <= 20:
-        img_key, sub_key = get_wbi_keys()
-        query = enc_wbi({"mid": str(mid), "ps": 50, "pn": pn}, img_key, sub_key)
-        try:
-            j = http_get_json("https://api.bilibili.com/x/space/wbi/arc/search?" + query, headers=headers)
-        except Exception as e:
+        j = None
+        for _attempt in range(4):  # -799 限流：冷却 60s 重试
+            try:
+                j = http_get_json(
+                    f"https://api.bilibili.com/x/space/arc/search?mid={mid}&ps=50&pn={pn}",
+                    headers=headers)
+            except Exception as e:
+                raise RuntimeError(
+                    f"B站空间接口被风控（{e}）。请配置 B站登录 Cookie："
+                    f"E:\\wx\\index_records\\bilibili_cookies.txt（浏览器登录 bilibili.com 后 F12 复制完整 Cookie）")
+            if j.get("code") == -799:
+                print(f"  限流(-799)，冷却 60s 后重试…")
+                time.sleep(60)
+                continue
+            break
+        if j is None or j.get("code") != 0:
             raise RuntimeError(
-                f"B站空间接口被风控（{e}）。请配置 B站登录 Cookie："
-                f"{BILI_COOKIE_FILE} 写入 {{\"cookie\": \"SESSDATA=...\"}}（浏览器登录 bilibili.com 后 F12 → Application → Cookies 复制 SESSDATA 等）")
-        if j.get("code") == -403 or j.get("code") == -352:
-            raise RuntimeError(
-                "B站空间接口访问受限（-403/-352），需登录 Cookie。配置方法同上："
-                f"{BILI_COOKIE_FILE} 写入 SESSDATA。")
+                f"B站空间接口失败 code={j.get('code') if j else '?'} {j.get('message') if j else ''}；"
+                f"需 B站登录 Cookie（E:\\wx\\index_records\\bilibili_cookies.txt）且避免高频请求")
         d = j.get("data") or {}
         vlist = (d.get("list") or {}).get("vlist") or []
         if not vlist:
@@ -211,11 +224,16 @@ def fetch_space_bvids(mid):
         if not d.get("has_more"):
             break
         pn += 1
-        time.sleep(0.8)
+        time.sleep(1.0)
     return bvids
 
 
 def main():
+    if sys.stdout and getattr(sys.stdout, "buffer", None):
+        try:
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser(description="B站视频下载+摘要")
     ap.add_argument("txt", nargs="?", default=str(DEFAULT_TXT))
     ap.add_argument("--out", default=str(DEFAULT_OUT))
