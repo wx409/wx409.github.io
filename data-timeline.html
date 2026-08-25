@@ -32,6 +32,9 @@
         .b-tour { background: #e0f0ff; color: #0a5a8a; }
         .b-release { background: #e6f7ee; color: #0a7a5a; }
         .b-perf { background: #f3e8ff; color: #7c3aed; }
+        .b-musical { background: #fdecef; color: #b03050; }
+        .b-concert { background: #e8f0fe; color: #1a56c4; }
+        .b-variety { background: #e6f7ee; color: #0a7a5a; }
         .b-stage { background: #fdf1e0; color: #9a6a1a; }
         .badge.life { background: #e8f0fe; color: #1a56c4; }
         .badge.career { background: #e6f7ee; color: #0a7a5a; }
@@ -82,7 +85,7 @@
     <p class="legend">
         <span class="dot" style="background:#0a5a8a;"></span>巡演/签唱 ·
         <span class="dot" style="background:#0a7a5a;"></span>发行 ·
-        <span class="dot" style="background:#7c3aed;"></span>晚会/演出
+        <span class="dot" style="background:#7c3aed;"></span>演出活动
         ｜ 折线 = 当月全部追踪歌曲平均收听指数
     </p>
 
@@ -105,14 +108,24 @@
         function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
         var TYPE_CN = { life: '出生·生活', career: '生涯', award: '奖项', album: '专辑', media: '综艺·媒体', tour: '巡演' };
 
+        var PERF_KIND = {
+            '音乐剧': ['b-musical', '音乐剧'],
+            '晚会': ['b-perf', '晚会'],
+            '演唱会': ['b-concert', '演唱会'],
+            '综艺': ['b-variety', '综艺']
+        };
+        function kindBadge(k) {
+            var x = PERF_KIND[k] || ['b-perf', '演出'];
+            return '<span class="badge ' + x[0] + '">' + x[1] + '</span>';
+        }
         function groupEvents(arr) {
-            // events 数组格式: [["2023-04", "2023-04-09 事件"], ...]（两元素：[月份, 事件]）
+            // events 数组格式: [["2023-04", "事件文本", "类型"], ...]（月份/事件/类型，类型可选）
             var map = {};
             (arr || []).forEach(function (item) {
                 if (Array.isArray(item) && item.length >= 2) {
                     var m = String(item[0]);
                     if (!map[m]) map[m] = [];
-                    map[m].push(String(item[1]));
+                    map[m].push({ text: String(item[1]), kind: item[2] || '' });
                 }
             });
             return map;
@@ -154,7 +167,7 @@
                     labels.forEach(function (m, i) {
                         var evs = map[m];
                         if (evs && evs.length) {
-                            out.push({ value: [m, trend[i] || 0, evs], itemStyle: { color: color }, symbolSize: 9 });
+                            out.push({ value: [m, trend[i] || 0, evs.map(function (x) { return x.text; })], itemStyle: { color: color }, symbolSize: 9 });
                         }
                     });
                     return out;
@@ -181,7 +194,7 @@
                         { name: '总指数', type: 'line', data: trend, symbol: 'none', lineStyle: { width: 2, color: '#c41e3a' }, itemStyle: { color: '#c41e3a' }, z: 2 },
                         { name: '巡演/签唱', type: 'scatter', data: pts(tourMap, '#0a5a8a'), z: 5 },
                         { name: '发行', type: 'scatter', data: pts(relMap, '#0a7a5a'), z: 5 },
-                        { name: '晚会/演出', type: 'scatter', data: pts(perfMap, '#7c3aed'), z: 5 }
+                        { name: '演出活动', type: 'scatter', data: pts(perfMap, '#7c3aed'), z: 5 }
                     ]
                 });
                 window.addEventListener('resize', function () { chart.resize(); });
@@ -209,7 +222,7 @@
                 var parts = [];
                 (tourMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-tour">巡演</span>' + esc(e) + '</div>'); });
                 (relMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-release">发行</span>' + esc(e) + '</div>'); });
-                (perfMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-perf">晚会</span>' + esc(e) + '</div>'); });
+                (perfMap[m] || []).forEach(function (e) { parts.push('<div class="ev">' + kindBadge(e.kind) + esc(e.text) + '</div>'); });
 
                 var fxs = fxByMonth[m] || [];
                 var fxHtml = fxs.map(function (fx) {
