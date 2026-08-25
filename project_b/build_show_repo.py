@@ -125,8 +125,9 @@ def main():
     # 插入 live 页（幂等：先删旧 repo 区，再替换 notice + 插入新 repo 区）
     page = ROOT / args.page
     html = page.read_text(encoding='utf-8')
-    html = re.sub(r'<section id="audience-repo">.*?</section>', '', html, flags=re.S)  # 删旧 repo 区
-    notice_pat = re.compile(r'<div class="notice">.*?</div>', re.S)
+    # 兼容带内联样式的旧标记（此前插入会改写 notice/section 为带 style 版本，导致正则失配的自锁 bug）
+    html = re.sub(r'<section id="audience-repo"[^>]*>.*?</section>', '', html, flags=re.S)  # 删旧 repo 区
+    notice_pat = re.compile(r'<div class="notice"[^>]*>.*?</div>', re.S)
     if not notice_pat.search(html):
         print('!! 未找到 notice 区，插入失败（检查页面结构）')
         return
