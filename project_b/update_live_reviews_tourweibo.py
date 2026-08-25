@@ -16,7 +16,7 @@ def build_li(rec):
     src_type = rec.get('sourceType', '')
     is_studio = src_type == 'studio_weibo' or '工作室' in platform or '晰息相关' in platform
     tag = '王晰工作室' if is_studio else '王晰本人'
-    # 原则：王晰本人微博只放纯文字（不引导跳外链），本地已留存完整内容；
+    # 原则：王晰本人微博只放纯文字（不引导跳外链），完整内容已在本地归档；
     # 工作室微博可保留链接（信息性官方渠道）。
     if url and is_studio:
         return (f'<li><a href="{url}" target="_blank" rel="noopener nofollow" title="{text_short}">'
@@ -24,20 +24,18 @@ def build_li(rec):
                 f'<span class="src-badge official">官方</span></li>')
     # 王晰本人或纯文字：不带 <a>，仅文字 + 来源标注
     return (f'<li><span title="{text_short}">王晰微博：{disp_text}</span> '
-            f'<span class="tag">{tag}</span> <span class="src-badge official">官方</span>'
-            f'<span class="repo-note">（本地已留存全文/图/视频/快照）</span></li>')
+            f'<span class="tag">{tag}</span> <span class="src-badge official">官方</span></li>')
 
 
 def fix_linked_self(html):
     """把页面里已存在的『王晰本人』带 <a> 链接条目转成纯文字，去掉外链。
-    原则：王晰本人微博只放纯文字（不引导跳外链），本地已留存完整内容。"""
+    原则：王晰本人微博只放纯文字（不引导跳外链），完整内容已在本地归档。"""
     def repl(m):
         href_attr = m.group('href')       # 含 href="..."
         title = m.group('title').replace('"', '&quot;')
         disp = m.group('disp')            # 链接内部文字（纯文字部分）
         tail = m.group('tail')            # <a> 之后到 </li> 的内容（含 tag badge）
-        return (f'<span title="{title}">{disp.strip()}</span>'
-                f'<span class="repo-note">（本地已留存全文/图/视频/快照）</span>{tail}')
+        return (f'<span title="{title}">{disp.strip()}</span>{tail}')
     pattern = re.compile(
         r'<a href="(?P<href>[^"]*weibo[^"]*)"(?:[^>]*)title="(?P<title>[^"]*)"[^>]*>'
         r'(?P<disp>王晰微博：[^<]*)</a>(?P<tail>\s*<span class="tag">王晰本人</span>.*?</li>)',

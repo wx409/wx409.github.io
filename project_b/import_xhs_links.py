@@ -84,8 +84,7 @@ def main():
         seen.add(content)
         lis.append(
             f'<li><span title="{esc(content)}">{esc(content)}</span> '
-            f'<span class="tag">小红书</span> <span class="src-badge single">单源</span>'
-            f'<span class="repo-note">（本地已留存全文/图/视频/快照）</span></li>'
+            f'<span class="tag">小红书</span> <span class="src-badge single">单源</span></li>'
         )
 
     # 3) HTML 级插入（绝不重建）；先清掉该场已有的小红书条目（避免重复）

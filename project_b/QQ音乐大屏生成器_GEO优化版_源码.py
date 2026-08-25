@@ -2744,7 +2744,7 @@ __STATUS_INFO__
     </div>
   </div>
 __ABOUT_SECTION__
-  <div class="footer">数据仅供个人研究使用 · 链接身份唯一识别 · 历史趋势分析面板 · 原始数据本地留存</div>
+  <div class="footer">数据仅供个人研究使用 · 链接身份唯一识别 · 历史趋势分析面板 · 原始数据归档</div>
 </div>
 <script>
 // 数据加载：改为从独立的 dashboard_data.json 加载（不再内嵌进 HTML）。

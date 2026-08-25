@@ -55,7 +55,7 @@ def render_quote(x, aud_map):
         f'<li class="audience-quote" data-audience="{esc(code)}">'
         f'<blockquote>{body}</blockquote>'
         f'<p class="quote-meta"><span class="tag">小红书</span> 观众 {esc(code)} · 2026-08-23 · '
-        f'<span class="src-badge single">单源</span><span class="repo-note">（原文/图/视频本地留存）</span></p></li>'
+        f'<span class="src-badge single">单源</span></p></li>'
     )
 
 
@@ -78,7 +78,7 @@ def main():
         blocks.append('<h4 style="margin:14px 0 6px;color:#c41e3a;">🎵 按歌曲归类 · 小红书观众评论</h4>')
         blocks.append(
             '<p class="src-note">观众真实反馈摘录，纯文字呈现、无链接；'
-            '为保护隐私，昵称以「观众X」匿名呈现（同一编号即同一观众）；原文/图/视频本地留存。</p>'
+            '为保护隐私，昵称以「观众X」匿名呈现（同一编号即同一观众）。</p>'
         )
         for song in sorted(groups):
             lst = groups[song]
