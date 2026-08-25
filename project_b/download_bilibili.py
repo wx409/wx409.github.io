@@ -156,26 +156,96 @@ def try_ytdlp(bvid, dest):
         return False, str(e)[:120]
 
 
+def get_session_cookie():
+    """访问 bilibili.com 首页收集匿名会话 cookie（buvid3/buvid4），绕过 412 风控。"""
+    import http.cookiejar
+    cj = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    opener.open(urllib.request.Request("https://www.bilibili.com/",
+                                       headers={"User-Agent": UA}), timeout=15)
+    return "; ".join(f"{c.name}={c.value}" for c in cj)
+
+
+BILI_COOKIE_FILE = Path(r"E:\wx\私有工具\bilibili_cookie.json")
+
+
+def load_bili_cookie():
+    """B站登录 Cookie（可选）：E:\\wx\\私有工具\\bilibili_cookie.json {"cookie": "SESSDATA=..."}
+    空间全量抓取需要登录态；普通 BV 链接下载不需要。"""
+    try:
+        return json.loads(BILI_COOKIE_FILE.read_text(encoding="utf-8")).get("cookie", "")
+    except Exception:
+        return os.environ.get("BILI_COOKIE", "")
+
+
+def fetch_space_bvids(mid):
+    """拉取 B站用户空间全部视频的 BV 列表（wbi 签名分页；匿名会遇风控，需登录 Cookie）。"""
+    cookie = get_session_cookie()
+    extra = load_bili_cookie()
+    if extra:
+        cookie = cookie + "; " + extra
+    headers = {"User-Agent": UA, "Referer": f"https://space.bilibili.com/{mid}",
+               "Cookie": cookie}
+    bvids, pn = [], 1
+    while pn <= 20:
+        img_key, sub_key = get_wbi_keys()
+        query = enc_wbi({"mid": str(mid), "ps": 50, "pn": pn}, img_key, sub_key)
+        try:
+            j = http_get_json("https://api.bilibili.com/x/space/wbi/arc/search?" + query, headers=headers)
+        except Exception as e:
+            raise RuntimeError(
+                f"B站空间接口被风控（{e}）。请配置 B站登录 Cookie："
+                f"{BILI_COOKIE_FILE} 写入 {{\"cookie\": \"SESSDATA=...\"}}（浏览器登录 bilibili.com 后 F12 → Application → Cookies 复制 SESSDATA 等）")
+        if j.get("code") == -403 or j.get("code") == -352:
+            raise RuntimeError(
+                "B站空间接口访问受限（-403/-352），需登录 Cookie。配置方法同上："
+                f"{BILI_COOKIE_FILE} 写入 SESSDATA。")
+        d = j.get("data") or {}
+        vlist = (d.get("list") or {}).get("vlist") or []
+        if not vlist:
+            break
+        for v in vlist:
+            b = v.get("bvid")
+            if b:
+                bvids.append(b)
+        if not d.get("has_more"):
+            break
+        pn += 1
+        time.sleep(0.8)
+    return bvids
+
+
 def main():
     ap = argparse.ArgumentParser(description="B站视频下载+摘要")
     ap.add_argument("txt", nargs="?", default=str(DEFAULT_TXT))
     ap.add_argument("--out", default=str(DEFAULT_OUT))
     ap.add_argument("--no-download", action="store_true", help="只生成摘要不下载")
     ap.add_argument("--force", action="store_true", help="强制重新下载")
+    ap.add_argument("--space", default="", help="B站用户空间 MID，拉取该空间全部视频（如王晰 3493257487059302）")
     args = ap.parse_args()
 
-    txt = Path(args.txt)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    if not txt.exists():
-        print(f"!! 链接文件不存在: {txt}"); return
 
-    bvids = []
-    for ln in txt.read_text(encoding="utf-8").splitlines():
-        b = extract_bvid(ln)
-        if b:
-            bvids.append(b)
-    print(f"读取到 {len(bvids)} 个 BV 号")
+    if args.space:
+        print(f"拉取空间 MID={args.space} 全部视频…")
+        try:
+            bvids = fetch_space_bvids(args.space)
+        except Exception as e:
+            print(f"!! {e}")
+            print("提示：空间全量抓取需 B站登录 Cookie；替代方案——把空间视频链接逐条复制进 bilibili链接.txt 后重跑（普通 BV 下载不受风控影响）。")
+            return
+        print(f"空间视频 {len(bvids)} 个")
+    else:
+        txt = Path(args.txt)
+        if not txt.exists():
+            print(f"!! 链接文件不存在: {txt}"); return
+        bvids = []
+        for ln in txt.read_text(encoding="utf-8").splitlines():
+            b = extract_bvid(ln)
+            if b:
+                bvids.append(b)
+        print(f"读取到 {len(bvids)} 个 BV 号")
     if not bvids:
         return
 

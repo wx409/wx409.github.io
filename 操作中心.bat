@@ -20,15 +20,25 @@ echo ============================================
 
 echo.
 
+echo   [官方账号 · 全量下载]
+
+echo     1. 微博全量 - 王晰本人 (文字+图片+视频)
+
+echo     2. 微博全量 - 王晰工作室 (文字+图片+视频)
+
+echo    22. 小红书全量 - 王晰主页 (文字+图片+视频)
+
+echo    23. B站全量 - 王晰空间 (文字+视频)
+
+echo.
+
 echo   [微博线]
-
-echo     1. 微博抓取 - 王晰本人 (uid 1292815744)
-
-echo     2. 微博抓取 - 王晰工作室 (uid 7215995153)
 
 echo     3. 本地网页快照 (weibo_snapshots)
 
 echo     4. 更新 live-reviews (本人纯文字/工作室留链接)
+
+echo    24. 微博抓取 - 仅文字图片 (跳过视频)
 
 echo.
 
@@ -50,12 +60,18 @@ echo.
 
 echo   [小红书线]
 
-echo    17. 小红书按链接抓取 (links.txt ^> 本地图/视频/文字)
+echo    17. 小红书按链接抓取 - 视频+图文全量 (links.txt)
+
+echo    25. 小红书按链接抓取 - 仅文字图片 (links.txt)
 
 echo    18. 小红书入库 (按歌曲归类 纯文字 无链接无id)
 echo    19. 广州整理摘录重渲染 (改完 _gz_quotes.json 后跑)
 echo    20. 小红书summary重建 (抓取中断后恢复完整汇总)
 echo    21. 评论多层面分析 (微博/小红书/B站, 论文友好, 默认广州场)
+echo.
+echo   [视频线]
+echo    26. B站下载+摘要 - 视频+文字 (bilibili链接.txt)
+echo    27. B站仅文字摘要 - 不下视频
 echo.
 echo   [地图线]
 
@@ -127,6 +143,18 @@ if "%op%"=="18" goto xhs_import
 if "%op%"=="19" goto gz_render
 if "%op%"=="20" goto xhs_rebuild
 if "%op%"=="21" goto an_analyze
+
+if "%op%"=="22" goto xhs_user_full
+
+if "%op%"=="23" goto bili_space_full
+
+if "%op%"=="24" goto wb_novideo
+
+if "%op%"=="25" goto xhs_links_novideo
+
+if "%op%"=="26" goto bili_dl
+
+if "%op%"=="27" goto bili_text
 
 if "%op%"=="0" exit /b
 
@@ -557,6 +585,75 @@ chcp 65001 >nul
 python -X utf8 project_b\analyze_audience_comments.py --date 2026-08-23 --city 广州
 chcp 936 >nul
 echo 输出: temp\audience_analysis\2026-08-23_广州.json + .md
+pause
+goto menu
+
+:xhs_user_full
+cls
+echo === 小红书全量 - 王晰主页 (视频+图文) ===
+cd /d "E:\wx\私有工具\xhs_proxy"
+chcp 65001 >nul
+python -X utf8 fetch_xhs_user.py
+chcp 936 >nul
+echo 归档: E:\wx\私有工具\xhs_archive\官方账号\王晰\
+pause
+goto menu
+
+:bili_space_full
+cls
+echo === B站全量 - 王晰空间 (视频+文字) ===
+echo 注意: 空间抓取需 B站登录 Cookie (E:\wx\私有工具\bilibili_cookie.json)
+echo       未配置时请把空间视频链接逐条加入 bilibili链接.txt 后走选项26
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\download_bilibili.py --space 3493257487059302
+chcp 936 >nul
+pause
+goto menu
+
+:wb_novideo
+cls
+echo === 微博抓取 - 仅文字图片 (本人+工作室, 跳过视频) ===
+cd /d "E:\wx\私有工具\weibo_proxy"
+chcp 65001 >nul
+python -X utf8 weibo_proxy.py fetch --no-video
+python -X utf8 weibo_proxy_studio.py fetch --no-video
+chcp 936 >nul
+pause
+goto menu
+
+:xhs_links_novideo
+cls
+echo === 小红书按链接抓取 - 仅文字图片 ===
+echo 前置: D:\wx409.github.io\temp\xhs_links.txt (每行一个分享链接)
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 E:\wx\私有工具\xhs_proxy\fetch_xhs_links.py --file "D:\wx409.github.io\temp\xhs_links.txt" --no-video
+chcp 936 >nul
+echo 提示: 抓完可执行 18(入库)
+pause
+goto menu
+
+:bili_dl
+cls
+echo === B站下载+摘要 - 视频+文字 ===
+echo 前置: E:\wx\六巡\20260823广州站\bilibili链接.txt (每行一个链接/BV号)
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\download_bilibili.py
+chcp 936 >nul
+echo 输出: E:\wx\六巡\20260823广州站\bilibili视频\
+pause
+goto menu
+
+:bili_text
+cls
+echo === B站仅文字摘要 - 不下视频 ===
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\download_bilibili.py --no-download
+chcp 936 >nul
+echo 输出: bilibili_summary.md (标题/UP主/时长/简介)
 pause
 goto menu
 
