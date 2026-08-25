@@ -143,10 +143,24 @@ def try_ytdlp(bvid, dest):
         import yt_dlp
     except Exception:
         return False, "未安装 yt-dlp"
+    # 高清合并需要 ffmpeg：系统 PATH 优先，imageio_ffmpeg 二进制兜底
+    import shutil
+    ffmpeg = shutil.which("ffmpeg")
+    if not ffmpeg:
+        try:
+            import imageio_ffmpeg
+            ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:
+            ffmpeg = None
     try:
         opts = {"outtmpl": str(dest).rsplit(".", 1)[0] + ".%(ext)s",
                 "format": "bv*+ba/b", "merge_output_format": "mp4",
                 "quiet": True, "noplaylist": True}
+        if ffmpeg:
+            opts["ffmpeg_location"] = ffmpeg
+        _ck = load_bili_cookie()
+        if _ck:
+            opts["http_headers"] = {"User-Agent": UA, "Referer": REFERER, "Cookie": _ck}
         with yt_dlp.YoutubeDL(opts) as ydl:
             ydl.download([f"https://www.bilibili.com/video/{bvid}"])
         return True, ""
