@@ -45,6 +45,17 @@ SONG_RULES = [
 ]
 # 泛评论/整场关键词（无法归到单曲，单独放）
 GENERAL_HINTS = ["巡演", "音乐会", "演唱会", "现场", "repo", "六巡", "个巡", "回"]
+# 无关内容特征（防搜索归档混入的跨艺人排期类笔记，如【8月】张远、BY2、泳儿…）
+JUNK_PATTERNS = [
+    r"【\d+月】",                       # 【8月】【9月】排期标题
+    r"livehouse",                       # 场地排期
+    r"演出日历|排期|档期",
+    r"(?:[\u4e00-\u9fff]{1,6}[、，]){3,}[\u4e00-\u9fff]{1,6}",  # 顿号分隔的多艺人名单
+]
+
+
+def is_junk(text):
+    return any(re.search(p, text) for p in JUNK_PATTERNS)
 
 
 def esc(s):
@@ -96,6 +107,8 @@ def main():
             for s in set(songs):
                 by_song.setdefault(s, []).append(content)
         elif is_gen:
+            if is_junk(text):
+                continue  # 排期/跨艺人名单类 → 丢弃
             if len(text) >= 20:
                 general.append(content)
             else:
