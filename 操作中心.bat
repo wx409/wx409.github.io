@@ -602,7 +602,7 @@ goto menu
 :bili_space_full
 cls
 echo === B站全量 - 王晰空间 (视频+文字) ===
-echo 注意: 空间抓取需 B站登录 Cookie (E:\wx\私有工具\bilibili_cookie.json)
+echo 注意: 空间抓取需 B站登录 Cookie (E:\wx\index_records\bilibili_cookies.txt)
 echo       未配置时请把空间视频链接逐条加入 bilibili链接.txt 后走选项26
 cd /d "D:\wx409.github.io"
 chcp 65001 >nul
