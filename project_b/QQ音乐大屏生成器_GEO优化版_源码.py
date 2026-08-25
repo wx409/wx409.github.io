@@ -1710,6 +1710,21 @@ def _city_of(scene):
     return s.split("·")[-1].strip() if "·" in s else ""
 
 
+def _classify_perf_kind(name):
+    """演出活动类型分类（按名称关键词规则，零成本）：
+    音乐剧（歌舞剧/草原之夜）/ 晚会（网络春晚/盛典/颁奖）/ 演唱会（歌会/签唱）/ 综艺 / 其他演出"""
+    s = str(name or "")
+    if any(k in s for k in ("草原之夜", "歌舞剧", "音乐剧", "歌剧", "舞剧")):
+        return "音乐剧"
+    if any(k in s for k in ("晚会", "网络春晚", "跨年", "盛典", "颁奖", "春晚")):
+        return "晚会"
+    if any(k in s for k in ("演唱会", "音乐会", "歌会", "签唱")):
+        return "演唱会"
+    if any(k in s for k in ("综艺", "节目", "录制", "采访", "专访")):
+        return "综艺"
+    return "演出"
+
+
 def _city_of_name(scene):
     """从场次名提取城市。
     两种格式：
@@ -4137,7 +4152,7 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     def _node_label(e):
         city = _city_of(e["name"])
         return f"{e['date']} {e['desc']}" + (f"·{city}" if city else "")
-    performance_events = [[to_month(e["date"]), _node_label(e)]
+    performance_events = [[to_month(e["date"]), _node_label(e), _classify_perf_kind(e.get("desc") or e.get("name") or "")]
                           for e in song_info.get("performance_events", []) if to_month(e["date"]) in label_set]
 
     # 属性维度：信息表收录数 vs 被追踪数
@@ -5145,7 +5160,7 @@ def rebuild_dashboard():
     if perf_events:
         setlists.update(perf_events)
         song_info.setdefault("performance_events", []).extend(
-            {"date": d, "name": scene, "desc": info["tour"], "kind": "音乐剧"}
+            {"date": d, "name": scene, "desc": info["tour"], "kind": _classify_perf_kind(info["tour"])}
             for (d, scene), info in sorted(perf_events.items(), key=lambda x: x[0][0])
         )
         logger.info(f"演出活动并入歌曲级效应: {len(perf_events)} 场（辐射带动分析含音乐剧演出）")
