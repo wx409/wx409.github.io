@@ -2917,13 +2917,14 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     links.forEach(function(a){ a.classList.remove('active'); });
     if (link) link.classList.add('active');
   }
-  // 点击：平滑滚动并立即高亮对应项
+  // 点击：平滑滚动并立即高亮对应项；无 data-target 的链接（如「返回主页」）不拦截，走默认导航
   links.forEach(function(a){
     a.addEventListener('click', function(e){
+      var target = document.getElementById(a.getAttribute('data-target'));
+      if (!target) return;
       e.preventDefault();
       setActive(a);
-      var target = document.getElementById(a.getAttribute('data-target'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
   // 手动滚动：以「距视口阈值线最近」的区块高亮（确定性，且同行区块也能正确区分）
@@ -5088,6 +5089,15 @@ def build_historical_trends(df_clean):
     return trends
 
 # ============================================================
+def _is_wangxi_keep(display_name):
+    """防污染过滤判定（站点口径）：独唱非王晰删；合唱不含王晰删；无歌手信息（王晰本名歌）保留。"""
+    s = str(display_name)
+    if "\n" not in s:
+        return True
+    artists = [a.strip() for a in re.split(r"[/／、,，&＆]", s.split("\n", 1)[1]) if a.strip()]
+    return any("王晰" in a for a in artists)
+
+
 def rebuild_dashboard():
     scan_dirs = [HISTORY_DIR, OUTPUT_DIR, DOWNLOAD_MAIN, DB_INCREMENT, QUICK_DIR]
     df_all, registry_info = load_all_history(scan_dirs)
@@ -5100,6 +5110,15 @@ def rebuild_dashboard():
     peak = extract_listener_from_dirs(listener_dirs)
     if peak is not None:
         df_all = df_all.merge(peak, on=["uid", "data_date"], how="left")
+
+    # 防污染过滤（2024-07~11 历史归档曾混入热歌榜其他歌手歌曲，挤占月度 Top 与收听看点）：
+    # 站点口径：独唱非王晰删；合唱不含王晰删；无歌手信息（王晰本名歌）保留。
+    _keep = df_all["display_name"].map(_is_wangxi_keep)
+    _dropped = int((~_keep).sum())
+    if _dropped:
+        df_all = df_all[_keep].copy()
+        logger.info(f"防污染过滤: 剔除非王晰歌曲 {_dropped} 行")
+    LINEAGE["wangxi_filter"] = {"dropped_rows": _dropped, "rule": "独唱非王晰删；合唱不含王晰删；无歌手信息保留"}
 
     logger.info(f"合并后歌曲记录: {len(df_all)} | 时间范围: {df_all['data_date'].min().date()} ~ {df_all['data_date'].max().date()} | 追踪歌曲(uid): {df_all['uid'].nunique()}")
     LINEAGE["dataset"] = {"records": int(len(df_all)),

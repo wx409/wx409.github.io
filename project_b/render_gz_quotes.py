@@ -34,7 +34,7 @@ def main():
         )
 
     section = (
-        '\n\n    <h2 id="guangzhou-20260823">六巡 · 回（2026）· 广州站优美评论</h2>\n'
+        '\n\n    <h2 id="guangzhou-20260823">六巡 · 回（2026）· 广州站整理摘录</h2>\n'
         '    <div class="history-item" style="border-left:4px solid #0a7a5a;padding-left:12px;">\n'
         '        <strong>2026.08.23</strong> · 广州 · 广东艺术剧院 · 六巡「回」\n'
         '        <p style="color:#555;font-size:13px;margin:8px 0;">'
