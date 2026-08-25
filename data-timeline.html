@@ -220,8 +220,8 @@
                 var delta = (prevVal != null && prevVal > 0) ? ((val - prevVal) / prevVal * 100) : null;
                 prevVal = val;
                 var parts = [];
-                (tourMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-tour">巡演</span>' + esc(e) + '</div>'); });
-                (relMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-release">发行</span>' + esc(e) + '</div>'); });
+                (tourMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-tour">巡演</span>' + esc(e.text) + '</div>'); });
+                (relMap[m] || []).forEach(function (e) { parts.push('<div class="ev"><span class="badge b-release">发行</span>' + esc(e.text) + '</div>'); });
                 (perfMap[m] || []).forEach(function (e) { parts.push('<div class="ev">' + kindBadge(e.kind) + esc(e.text) + '</div>'); });
 
                 var fxs = fxByMonth[m] || [];
