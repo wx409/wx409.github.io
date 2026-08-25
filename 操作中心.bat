@@ -53,7 +53,7 @@ echo   [小红书线]
 echo    17. 小红书按链接抓取 (links.txt ^> 本地图/视频/文字)
 
 echo    18. 小红书入库 (按歌曲归类 纯文字 无链接无id)
-echo    19. 广州优美评论重渲染 (改完 _gz_quotes.json 后跑)
+echo    19. 广州整理摘录重渲染 (改完 _gz_quotes.json 后跑)
 echo    20. 小红书summary重建 (抓取中断后恢复完整汇总)
 echo.
 echo   [地图线]
@@ -524,7 +524,7 @@ goto menu
 
 :gz_render
 cls
-echo === 广州优美评论重渲染 ===
+echo === 广州整理摘录重渲染 ===
 echo 改完 temp\_gz_quotes.json 后跑本项，重写 live-reviews 广州评论区
 cd /d "D:\wx409.github.io"
 chcp 65001 >nul

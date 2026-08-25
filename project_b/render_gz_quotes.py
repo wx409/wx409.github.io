@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""渲染「广州站优美评论」区块到 live-reviews.html（重庆摘录下，防重建丢失）
+"""渲染「广州站整理摘录」区块到 live-reviews.html（重庆摘录下，防重建丢失）
 数据源：temp/_gz_quotes.json（人工维护的广州站精选评论）
 幂等：先删旧区块再写。build_live_reviews 重建后自动调用。
 """
@@ -17,11 +17,11 @@ QUOTES = ROOT / "temp" / "_gz_quotes.json"
 
 def main():
     if not QUOTES.exists():
-        print("无 _gz_quotes.json，跳过（优美评论未配置）"); return
+        print("无 _gz_quotes.json，跳过（整理摘录未配置）"); return
     quotes = json.loads(QUOTES.read_text(encoding="utf-8"))
     rows = quotes.get("quotes", [])
     if not rows:
-        print("无优美评论内容"); return
+        print("无整理摘录内容"); return
 
     blocks = []
     for q in rows:
@@ -57,7 +57,7 @@ def main():
         print("!! 定位失败"); return
     html = html[:k] + section + html[k:]
     HTML.write_text(html, encoding="utf-8")
-    print(f"已写入广州优美评论区（删旧 {n_del} 个）")
+    print(f"已写入广州整理摘录区（删旧 {n_del} 个）")
 
 
 if __name__ == "__main__":
