@@ -55,6 +55,8 @@ echo     8. 歌单重建 (长表 ^> setlists.json + 页面)
 echo     9. 场次标记已举办 + 大屏 rebuild
 
 echo    16. 追踪报告入库 (实时追踪md ^> live-reviews)
+echo    32. 微博手动正文入库 (wb链接txt ^> 匿名化 ^> live页+分析)
+echo    33. B站翻页补收 (--bili-only, 3页, 最新排序)
 
 echo.
 
@@ -169,6 +171,8 @@ if "%op%"=="29" goto trans_precheck
 if "%op%"=="30" goto trans_merge
 
 if "%op%"=="31" goto trans_ingest
+if "%op%"=="32" goto wb_manual_import
+if "%op%"=="33" goto bili_backfill
 
 if "%op%"=="0" exit /b
 
@@ -784,4 +788,41 @@ git status -sb
 
 pause
 
+goto menu
+
+:wb_manual_import
+cls
+echo === 微博手动正文入库 (匿名化, 按mid去重) ===
+echo 输入: wb链接（复制正文文字）.txt (每段: 日期行 + 正文 + weibo链接)
+set /p fdate=请输入演出日期(YYYY-MM-DD, 如 2026-08-23): 
+set /p fcity=请输入城市(如 广州): 
+set /p wbfile=请输入正文txt路径(回车用默认): 
+if "%fdate%"=="" goto wb_manual_import
+if "%fcity%"=="" goto wb_manual_import
+if "%wbfile%"=="" set "wbfile=E:\wx\六巡\20260823广州站\wb链接（复制正文文字）.txt"
+chcp 65001 >nul
+python -X utf8 D:\wx409.github.io\project_b\import_wb_manual.py --date %fdate% --city %fcity% --file "%wbfile%"
+echo --- 入库 live 页 ---
+set /p fpage=请输入live页路径(回车默认 live\hui-回-广州-2026.html): 
+if "%fpage%"=="" set "fpage=live\hui-回-广州-2026.html"
+python -X utf8 D:\wx409.github.io\project_b\build_show_repo.py --date %fdate% --city %fcity% --page %fpage% --no-push
+chcp 936 >nul
+echo 下一步: 提交推送(13) + IndexNow(11); 评论分析(21)
+pause
+goto menu
+
+:bili_backfill
+cls
+echo === B站翻页补收 (演出后UGC, 最新排序) ===
+echo 说明: 默认按最新发布3页, 自动排除本站档案账号, 复用B站登录cookie翻更深
+set /p fdate=请输入演出日期(YYYY-MM-DD): 
+set /p fcity=请输入城市(如 广州): 
+if "%fdate%"=="" goto bili_backfill
+if "%fcity%"=="" goto bili_backfill
+chcp 65001 >nul
+python -X utf8 D:\wx409.github.io\project_b\collect_show_feedback.py --date %fdate% --city %fcity% --bili-only --bili-pages 3 --bili-order pubdate
+chcp 936 >nul
+echo 结果: E:\wx\私有工具\show_feedback\
+echo 下一步: 入库 live 页(6) + 评论分析(21)
+pause
 goto menu
