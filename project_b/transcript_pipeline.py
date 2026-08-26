@@ -190,6 +190,8 @@ def main():
     ap.add_argument("--merge", action="store_true", help="合并审核清单中 [x] 通过的条目（调 merge_transcripts）")
     ap.add_argument("--extract-quotes", nargs="*", default=None,
                     help="规则金句提取（零token）：输入原始转写JSON，输出候选 quotes 加工JSON")
+    ap.add_argument("--curate-import", nargs="*", default=None,
+                    help="策展JSON转加工候选：segments[].anchor→quotes，segments→timeline_events（prompts/speech_curation.md 产物）")
     ap.add_argument("--demo", action="store_true", help="生成样例加工JSON（测试用）")
     args = ap.parse_args()
 
@@ -208,6 +210,35 @@ def main():
             out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
             print(f"[金句] {p.name}: 规则提取 {len(qs)} 条候选 -> {out_path}")
             print(f"       （可直接 --precheck {out_path} 进审核；DeepSeek 层可再增强 FAQ/时间轴/冲突）")
+        return
+
+    if args.curate_import is not None:
+        REVIEW_DIR.mkdir(parents=True, exist_ok=True)
+        for fp in args.curate_import:
+            p = Path(fp)
+            try:
+                cu = json.loads(p.read_text(encoding="utf-8"))
+            except Exception as e:
+                print(f"!! 读取失败 {p}: {e}"); continue
+            meta = cu.get("meta") or {}
+            date = str(meta.get("date") or "")
+            segs = cu.get("segments") or []
+            quotes, timeline = [], []
+            for j, seg in enumerate(segs, 1):
+                anchor = (seg.get("anchor") or "").strip()
+                if anchor:
+                    quotes.append({"text": anchor, "scene": seg.get("scene", "串场"),
+                                   "sentiment": "neutral", "source_transcript_id": f"C{j:03d}", "verified": False})
+                st = seg.get("start") or ""
+                if date and st:
+                    timeline.append({"time": f"{date}T{st}", "type": "speech",
+                                     "label": f"{seg.get('scene','致辞')}：{anchor[:18] if anchor else ''}",
+                                     "quote_ref": f"C{j:03d}"})
+            out = {"meta": meta, "quotes": quotes, "faqs": [], "timeline_events": timeline, "conflicts": []}
+            out_path = REVIEW_DIR / f"{p.stem}_curated.json"
+            out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"[策展] {p.name}: 锚点金句 {len(quotes)} 条 / 时间轴 {len(timeline)} 条 -> {out_path}")
+            print(f"       （可直接 --precheck {out_path} 进审核；若 meta.date 缺失请先在策展JSON补 meta.date）")
         return
 
     if args.demo:
