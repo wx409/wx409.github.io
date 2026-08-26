@@ -145,7 +145,8 @@ MIN_LEN, MAX_LEN = 12, 150
 
 
 def extract_quotes_rules(transcript):
-    """零 LLM 规则金句提取：输入 transcript[]（{start,end,text}），输出候选 quotes[]。"""
+    """零 LLM 规则金句提取：输入句级列表（{start,end,text} 或 {text}），输出候选 quotes[]。
+    兼容 DSH 格式：start 可为秒数或 HH:MM:SS 字符串（提取只依赖文本与顺序位置）。"""
     quotes = []
     n = len(transcript)
     for i, seg in enumerate(transcript):
@@ -188,12 +189,49 @@ def main():
     ap.add_argument("--precheck", nargs="*", default=None, help="加工JSON文件列表，做版权预筛+校验+生成清单")
     ap.add_argument("--review", action="store_true", help="查看/刷新审核清单")
     ap.add_argument("--merge", action="store_true", help="合并审核清单中 [x] 通过的条目（调 merge_transcripts）")
+    ap.add_argument("--ingest-txt", nargs="*", default=None,
+                    help="把清洗后的 talk 文本(.txt) 解析为 DSH 格式 JSON（段落实体；配合 --date/--venue/--tour/--source-url）")
+    ap.add_argument("--date", default="", help="ingest 时写入 meta.date")
+    ap.add_argument("--venue", default="", help="ingest 时写入 meta.venue")
+    ap.add_argument("--tour", default="", help="ingest 时写入 meta.tour")
+    ap.add_argument("--source-url", default="", help="ingest 时写入 meta.source_url（有公开URL时版权可判为可发布）")
+    ap.add_argument("--source-type", default="fan_recording", help="ingest 时写入 meta.source_type")
     ap.add_argument("--extract-quotes", nargs="*", default=None,
-                    help="规则金句提取（零token）：输入原始转写JSON，输出候选 quotes 加工JSON")
+                    help="规则金句提取（零token）：输入原始转写JSON（transcript[] 或 segments[]），输出候选 quotes 加工JSON")
     ap.add_argument("--curate-import", nargs="*", default=None,
                     help="策展JSON转加工候选：segments[].anchor→quotes，segments→timeline_events（prompts/speech_curation.md 产物）")
     ap.add_argument("--demo", action="store_true", help="生成样例加工JSON（测试用）")
     args = ap.parse_args()
+
+    if args.ingest_txt is not None:
+        REVIEW_DIR.mkdir(parents=True, exist_ok=True)
+        from transcript_fix import apply_fixes, count_fixes
+        for fp in args.ingest_txt:
+            p = Path(fp)
+            if not p.exists():
+                print(f"!! 文件不存在: {p}"); continue
+            lines = [ln.strip() for ln in p.read_text(encoding="utf-8").splitlines()]
+            meta = {"file": p.name, "engine": "whisper", "date": args.date or "",
+                    "venue": args.venue or "", "tour": args.tour or "",
+                    "source_type": args.source_type or "fan_recording"}
+            if args.source_url:
+                meta["source_url"] = args.source_url
+            segments = []
+            n_fix = 0
+            for ln in lines:
+                if not ln or ln.startswith("#"):
+                    m = re.match(r"^#\s*engine=(\S+)", ln)
+                    if m:
+                        meta["engine"] = m.group(1)
+                    continue
+                fixed_n, _pairs = count_fixes(ln, None)
+                n_fix += fixed_n
+                segments.append({"start": "", "end": "", "text": apply_fixes(ln), "speaker": "王晰"})
+            out = {"meta": meta, "segments": segments}
+            out_path = REVIEW_DIR / f"{p.stem}.json"
+            out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"[ingest] {p.name}: {len(segments)} 段（ASR纠错 {n_fix} 处）-> {out_path}（engine={meta['engine']}）")
+        return
 
     if args.extract_quotes is not None:
         REVIEW_DIR.mkdir(parents=True, exist_ok=True)
@@ -204,7 +242,7 @@ def main():
             except Exception as e:
                 print(f"!! 读取失败 {p}: {e}"); continue
             meta = raw.get("meta") or {}
-            qs = extract_quotes_rules(raw.get("transcript") or [])
+            qs = extract_quotes_rules(raw.get("transcript") or raw.get("segments") or [])
             out = {"meta": meta, "quotes": qs, "faqs": [], "timeline_events": [], "conflicts": []}
             out_path = REVIEW_DIR / f"{p.stem}_quotes.json"
             out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
