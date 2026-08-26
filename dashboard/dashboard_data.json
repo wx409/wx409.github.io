@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-26 08:26",
+  "timestamp": "2026-08-26 11:50",
   "total": 268461,
   "success": 56075,
   "complete_rate": 20.9,
@@ -172,7 +172,7 @@
     2.9,
     3.0,
     8.2,
-    30.3
+    30.4
   ],
   "listener_labels": [
     "2024-09",
@@ -188012,7 +188012,7 @@
         47.1,
         43.5,
         39.0,
-        53.0,
+        47.7,
         31.4,
         27.0,
         26.9,
@@ -188350,8 +188350,8 @@
       "在路上"
     ],
     "values": [
-      142.5,
-      129.6
+      141.6,
+      130.5
     ],
     "spring": [
       false,
@@ -195627,165 +195627,18 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 20,
+    "active_count": 8,
     "total_tracked": 383,
-    "concentration_top3": 62.3,
-    "as_of": "2026-08-25",
-    "too_small": false
+    "concentration_top3": 78.3,
+    "as_of": "2026-08-26",
+    "too_small": true
   },
-  "daily_listen_trend": [
-    {
-      "rank": 1,
-      "song": "黎明前的黑暗",
-      "share_pct": 49.5,
-      "trend_pct": -4.2,
-      "trend_label": "flat"
-    },
-    {
-      "rank": 2,
-      "song": "再叙",
-      "share_pct": 7.3,
-      "trend_pct": 46.9,
-      "trend_label": "up"
-    },
-    {
-      "rank": 3,
-      "song": "一生中最爱",
-      "share_pct": 5.6,
-      "trend_pct": 28.6,
-      "trend_label": "up"
-    },
-    {
-      "rank": 4,
-      "song": "在路上",
-      "share_pct": 5.3,
-      "trend_pct": -5.6,
-      "trend_label": "down"
-    },
-    {
-      "rank": 5,
-      "song": "月弯弯",
-      "share_pct": 4.5,
-      "trend_pct": 31.8,
-      "trend_label": "up"
-    },
-    {
-      "rank": 6,
-      "song": "山楂树",
-      "share_pct": 3.9,
-      "trend_pct": -7.4,
-      "trend_label": "down"
-    },
-    {
-      "rank": 7,
-      "song": "Sound of Silence",
-      "share_pct": 3.2,
-      "trend_pct": -8.7,
-      "trend_label": "down"
-    },
-    {
-      "rank": 8,
-      "song": "她真漂亮",
-      "share_pct": 2.9,
-      "trend_pct": 18.8,
-      "trend_label": "up"
-    },
-    {
-      "rank": 9,
-      "song": "亲密爱人",
-      "share_pct": 2.9,
-      "trend_pct": 35.7,
-      "trend_label": "up"
-    },
-    {
-      "rank": 10,
-      "song": "南屏晚钟",
-      "share_pct": 2.2,
-      "trend_pct": 55.6,
-      "trend_label": "up"
-    },
-    {
-      "rank": 11,
-      "song": "谁",
-      "share_pct": 2.2,
-      "trend_pct": -36.4,
-      "trend_label": "down"
-    },
-    {
-      "rank": 12,
-      "song": "神魂颠倒",
-      "share_pct": 1.5,
-      "trend_pct": -9.1,
-      "trend_label": "down"
-    },
-    {
-      "rank": 13,
-      "song": "一生守候",
-      "share_pct": 1.5,
-      "trend_pct": -9.1,
-      "trend_label": "down"
-    },
-    {
-      "rank": 14,
-      "song": "晚风暖暖",
-      "share_pct": 1.5,
-      "trend_pct": 11.1,
-      "trend_label": "up"
-    },
-    {
-      "rank": 15,
-      "song": "相思",
-      "share_pct": 1.4,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
-    },
-    {
-      "rank": 16,
-      "song": "哭砂",
-      "share_pct": 1.4,
-      "trend_pct": -18.2,
-      "trend_label": "down"
-    },
-    {
-      "rank": 17,
-      "song": "Over the Rainbow",
-      "share_pct": 1.1,
-      "trend_pct": 133.3,
-      "trend_label": "up"
-    },
-    {
-      "rank": 18,
-      "song": "重庆野玫瑰",
-      "share_pct": 0.9,
-      "trend_pct": 20.0,
-      "trend_label": "up"
-    },
-    {
-      "rank": 19,
-      "song": "爱于此生",
-      "share_pct": 0.9,
-      "trend_pct": null,
-      "trend_label": "new"
-    },
-    {
-      "rank": 20,
-      "song": "荒人之歌",
-      "share_pct": 0.3,
-      "trend_pct": -83.3,
-      "trend_label": "down"
-    }
-  ],
+  "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-08-26 08:26",
+  "last_update": "2026-08-26 11:50",
   "today_batches": 1211,
   "daily_new_records": 0,
   "recent_7days": [
-    {
-      "date": "2026-08-19",
-      "avg_index": 682.8,
-      "total_songs": 252,
-      "complete": true
-    },
     {
       "date": "2026-08-20",
       "avg_index": 628.0,
@@ -195821,38 +195674,16 @@
       "avg_index": 616.7,
       "total_songs": 253,
       "complete": true
-    }
-  ],
-  "latest_anomaly": {
-    "song": "南屏晚钟",
-    "type": "📈 排名飙升",
-    "metric": "排名",
-    "change_pct": null,
-    "desc": "排名较昨日上升 3,276 位"
-  },
-  "daily_anomalies": [
-    {
-      "song": "南屏晚钟",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 3,276 位"
     },
     {
-      "song": "Sound of Silence",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 3,272 位"
-    },
-    {
-      "song": "神魂颠倒",
-      "type": "📈 排名飙升",
-      "metric": "排名",
-      "change_pct": null,
-      "desc": "排名较昨日上升 3,130 位"
+      "date": "2026-08-26",
+      "avg_index": null,
+      "total_songs": 253,
+      "complete": true
     }
   ],
+  "latest_anomaly": null,
+  "daily_anomalies": [],
   "chart_summaries": {
     "sankey": "作品成长生态流转分析（近60日窗口）：19 首作品在上升期、稳定期、经典沉淀期之间健康流转，其中 9 首沉淀为经典，经典沉淀期占比最高，说明作品具有长尾生命力，无衰退迹象。",
     "weekend_premium": "听众时间偏好洞察：专辑类作品周末溢价 1.47，高于 OST/单曲的 1.14，表明专辑具有周末沉浸式聆听特质，而非通勤背景音属性。",
@@ -195866,13 +195697,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 2362,
-      "success": 2362,
+      "total": 2363,
+      "success": 2363,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1447583,
+      "before": 1447836,
       "after": 279021
     },
     "index_calibration": {
