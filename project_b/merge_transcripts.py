@@ -117,7 +117,7 @@ def merge_one(proc, city, raw_transcripts):
         stat["timeline"] += 1
     save_json(TIMELINE, tl)
 
-    # ---- 4) qa_bank.json：FAQ ----
+    # ---- 4) qa_bank.json：FAQ（仅新增时才写入，避免无变化重写导致格式diff） ----
     qb = load_json(QA_BANK, {"meta": {}, "items": []})
     items = qb.setdefault("items", [])
     exist_qid = {q.get("id") for q in items}
@@ -136,8 +136,9 @@ def merge_one(proc, city, raw_transcripts):
         exist_qid.add(f"t_{n:03d}")
         exist_qn.add(question)
         stat["faqs"] += 1
-    qb.setdefault("meta", {})["count"] = len(items)
-    save_json(QA_BANK, qb)
+    if stat["faqs"]:
+        qb.setdefault("meta", {})["count"] = len(items)
+        save_json(QA_BANK, qb)
 
     # ---- 5) data/tour/<date>-<city>.json：单场事件簇 ----
     if pinyin:
