@@ -73,6 +73,11 @@ echo   [视频线]
 echo    26. B站下载+摘要 - 视频+文字 (bilibili链接.txt)
 echo    27. B站仅文字摘要 - 不下视频
 echo.
+echo   [转写线]
+echo    28. 转写加工 - DeepSeek 后处理 (提示词在 project_b\prompts)
+echo    29. 转写预筛+待审清单 (pipeline --precheck, 需加工JSON路径)
+echo    30. 转写合并 - 审核通过项 (pipeline --merge)
+echo.
 echo   [地图线]
 
 echo    15. 地图+巡演目录重建 (长表 ^> cities.json/map/目录, 联动)
@@ -155,6 +160,12 @@ if "%op%"=="25" goto xhs_links_novideo
 if "%op%"=="26" goto bili_dl
 
 if "%op%"=="27" goto bili_text
+
+if "%op%"=="28" goto trans_process
+
+if "%op%"=="29" goto trans_precheck
+
+if "%op%"=="30" goto trans_merge
 
 if "%op%"=="0" exit /b
 
@@ -654,6 +665,41 @@ chcp 65001 >nul
 python -X utf8 project_b\download_bilibili.py --no-download
 chcp 936 >nul
 echo 输出: bilibili_summary.md (标题/UP主/时长/简介)
+pause
+goto menu
+
+:trans_process
+cls
+echo === 转写加工 - DeepSeek 后处理 ===
+echo 提示词: project_b\prompts\transcript_postprocess.md
+echo 步骤: 1) v4 转写工具产出原始JSON(句级时间戳)
+echo       2) 按提示词用 DeepSeek 加工 -> quotes/faqs/timeline/conflicts
+echo       3) 加工JSON存到 temp\transcripts_review\ 后跑 29
+cd /d "D:\wx409.github.io"
+pause
+goto menu
+
+:trans_precheck
+cls
+echo === 转写预筛+待审清单 ===
+set /p tpath=请输入加工JSON路径(可多个空格分隔, 回车重输): 
+if "%tpath%"=="" goto trans_precheck
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\transcript_pipeline.py --precheck %tpath%
+chcp 936 >nul
+echo 清单: temp\transcripts_review\review.md (人工打勾后跑 30)
+pause
+goto menu
+
+:trans_merge
+cls
+echo === 转写合并 - 审核通过项 ===
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\transcript_pipeline.py --merge
+chcp 936 >nul
+echo 合并目标: live_repos/quotes/timeline/qa_bank/data\tour 单场簇
 pause
 goto menu
 
