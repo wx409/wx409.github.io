@@ -15,9 +15,9 @@
 import argparse, json, re, sys, io, time, datetime, subprocess, os
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
-
 COOKIE_FILE = Path(r'E:\wx\私有工具\weibo_cookies.txt')
+SETLIST_LONG = Path(r'E:\wx\index_records\历次巡演歌单\王晰巡演歌单长表_单一事实源.xlsx')
+EVENT_WORDS = ['巡演', '演出', '音乐会', '演唱会', '现场', 'repo', '低音']
 OUT_ROOT = Path(r'E:\wx\私有工具\show_feedback')
 XHS_CRAWLER = Path(r'E:\wx\私有工具\xhs_proxy\xhs_crawler.py')
 HDRS = {
@@ -75,6 +75,38 @@ def parse_date(s):
         return t.date()
     except Exception:
         return None
+
+def load_setlist_songs(date_str):
+    """从长表读该场次歌单（曲目+数据层归一名），供二次筛选；城市/歌单随场次动态。"""
+    try:
+        import pandas as pd
+        df = pd.read_excel(SETLIST_LONG, sheet_name='合并长表')
+        df['日期'] = pd.to_datetime(df['日期']).dt.strftime('%Y-%m-%d')
+        sub = df[df['日期'] == date_str]
+        songs = set()
+        for col in ('曲目', '数据层归一名'):
+            for v in sub[col].dropna().astype(str):
+                v = v.strip()
+                if v and v != 'nan':
+                    songs.add(v)
+        return songs
+    except Exception as e:
+        log('!! 长表读取失败（歌单筛选降级为城市+活动词）: %s' % e)
+        return set()
+
+
+def build_filter(city, setlist_songs):
+    """二次筛选：命中 任一歌单歌曲（高级）或 城市 或 活动词 即保留。
+    演出后 7 日内内容多围绕音乐会，营销号/纯分享旧歌会被此筛掉。"""
+    def keep(text):
+        t = str(text or '')
+        if any(s and s in t for s in setlist_songs):
+            return True
+        if city and city in t:
+            return True
+        return any(k in t for k in EVENT_WORDS)
+    return keep
+
 
 # ---- B站（晚些收集；零 LLM，规则筛选）----
 _bili_opener = None
@@ -172,6 +204,11 @@ def bing_search(q):
         return []
 
 def main():
+    if sys.stdout and getattr(sys.stdout, "buffer", None):
+        try:
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser()
     ap.add_argument('--date', required=True, help='演出日期 YYYY-MM-DD')
     ap.add_argument('--city', required=True, help='城市')
@@ -191,13 +228,19 @@ def main():
     else:
         log('!! 微博 cookie 缺失: %s' % COOKIE_FILE)
 
+    # 场次歌单 + 二次筛选器（城市/活动词/歌单歌曲，随场次动态）
+    setlist_songs = load_setlist_songs(args.date)
+    keep = build_filter(args.city, setlist_songs)
+    log('场次歌单 %d 首（长表），筛选: 城市[%s] + 活动词 + 歌单歌曲' % (len(setlist_songs), args.city))
+
     # ===== B站（晚些收集，独立可跑）=====
     if args.bili_only:
-        run_bili(args, show_date, out_dir)
+        run_bili(args, show_date, out_dir, keep)
         return
 
     # ===== 微博 =====
     keywords = [
+        '王晰',
         '王晰 %s 演唱会' % args.city,
         '王晰 %s站' % args.city,
         '王晰 巡演 repo',
@@ -215,6 +258,9 @@ def main():
             if d and d < show_date:  # 只要演出当天及以后的反馈
                 continue
             p['official'] = OFFICIAL_UIDS.get(p['uid'], '')
+            # 二次筛选：命中歌单歌曲/城市/活动词才保留（滤营销号旧内容）
+            if not keep(p['text']):
+                continue
             all_posts.append(p)
     log('微博去重后: %d 条（演出当日及以后）' % len(all_posts))
     (out_dir / 'weibo_feedback.json').write_text(
@@ -242,10 +288,10 @@ def main():
 
     # ===== B站（首次可跳过，8/25 补收）=====
     if not args.skip_bili:
-        run_bili(args, show_date, out_dir)
+        run_bili(args, show_date, out_dir, keep)
 
     # ===== Bing 托底 =====
-    run_bing(args, out_dir)
+    run_bing(args, out_dir, keep)
 
     # ===== 汇总 =====
     merge_all(out_dir)
@@ -262,10 +308,10 @@ def main():
     (out_dir / 'douyin_guide.txt').write_text(guide, encoding='utf-8')
     log('完成。结果目录: %s' % out_dir)
 
-def run_bili(args, show_date, out_dir):
+def run_bili(args, show_date, out_dir, keep):
     """B站视频搜索 + Top 视频评论（规则筛选，零 LLM）"""
     log('=== B站搜索（api.bilibili.com）===')
-    bili_kws = ['王晰 %s 演唱会' % args.city, '王晰 %s 巡演' % args.city, '王晰 回 巡演 %s' % args.city]
+    bili_kws = ['王晰', '王晰 %s 演唱会' % args.city, '王晰 %s 巡演' % args.city, '王晰 回 巡演 %s' % args.city]
     bili_all = []
     seen_bv = set()
     for kw in bili_kws:
@@ -275,6 +321,9 @@ def run_bili(args, show_date, out_dir):
             pub = datetime.datetime.fromtimestamp(v.get('pubdate') or 0).date() if v.get('pubdate') else None
             if pub and pub < show_date:
                 continue  # 只要演出后的视频
+            # 二次筛选：标题/简介命中歌单歌曲/城市/活动词才拉评论
+            if not keep(v.get('title', '') + ' ' + (v.get('desc') or '')):
+                continue
             v['comments'] = bili_comments(v['bvid'], topn=3)
             bili_all.append(v)
         time.sleep(1.0)
@@ -287,10 +336,11 @@ def run_bili(args, show_date, out_dir):
         ), encoding='utf-8')
         log('已存: %s\\bili_feedback.json' % out_dir)
 
-def run_bing(args, out_dir):
+def run_bing(args, out_dir, keep):
     """Bing 托底搜索（覆盖抖音网页/知乎/豆瓣/百家号等）"""
     log('=== Bing 托底搜索 ===')
     bing_qs = [
+        '王晰 %s 演出' % args.city,
         '王晰 %s 演唱会 评价' % args.city,
         '王晰 %s站 repo' % args.city,
         '王晰 %s 演唱会 观后感' % args.city,
@@ -304,6 +354,9 @@ def run_bing(args, out_dir):
         for h in bing_search(q):
             if h['url'] in seen_u: continue
             seen_u.add(h['url'])
+            # 二次筛选：标题/摘要命中歌单歌曲/城市/活动词才保留
+            if not keep(h.get('title', '') + ' ' + (h.get('snippet') or '')):
+                continue
             h['query'] = q
             bing_all.append(h)
         time.sleep(1.0)
