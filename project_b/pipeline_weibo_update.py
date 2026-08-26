@@ -32,11 +32,19 @@ def get_cookie():
 
 def fetch_list(uid, since=None):
     """翻一页列表，返回 (cards, since_id)"""
-    import urllib.request, urllib.parse
+    import urllib.request, urllib.parse, urllib.error
     base = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s&containerid=107603%s' % (uid, uid)
     url = base + ('&since_id=%s' % since if since else '')
     req = urllib.request.Request(url, headers=HDRS)
-    d = json.loads(urllib.request.urlopen(req, timeout=20).read().decode('utf-8'))
+    try:
+        d = json.loads(urllib.request.urlopen(req, timeout=20).read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        if e.code == 432:
+            raise RuntimeError(
+                '微博风控(HTTP 432)：m.weibo.cn 已标记当前 IP/账号（多为近期高频抓取触发，'
+                '如 weibo_proxy 全量抓取）。请停止一切微博请求 24-48 小时后重试，'
+                '期间勿跑 weibo_proxy / collect_show_feedback / 本管线')
+        raise
     info = d.get('data', {}).get('cardlistInfo', {})
     cards = [c for c in d.get('data', {}).get('cards', []) if c.get('card_type') == 9]
     return cards, info.get('since_id')

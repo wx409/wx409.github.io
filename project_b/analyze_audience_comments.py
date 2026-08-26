@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 ROOT = Path(r"D:\wx409.github.io")
 FB = Path(r"E:\wx\私有工具\show_feedback")
 XHS_CLS = ROOT / "temp" / "_xhs_classified.json"
+XHS_LINKS = Path(r"E:\wx\私有工具\xhs_archive\按链接")  # fetch_xhs_links.py 按链接归档（content.txt 正文）
 GZ = ROOT / "temp" / "_gz_quotes.json"
 OUT_DIR = ROOT / "temp" / "audience_analysis"
 KEY_FILE = ROOT / "temp" / "deepseek_key.json"
@@ -96,6 +97,23 @@ def load_feedback(date, city):
                             items.append({"platform": pmap.get(k, k), "text": str(r["text"]),
                                           "user": str(r.get("user", "")), "url": str(r.get("url", "")),
                                           "date": date})
+    # 按链接归档：fetch_xhs_links.py 下载到本地的笔记正文（title+desc），鲜活观众反馈
+    if XHS_LINKS.exists():
+        for d in sorted(XHS_LINKS.iterdir()):
+            if not d.is_dir():
+                continue
+            ct = d / "content.txt"
+            if not ct.exists():
+                continue
+            try:
+                meta = json.loads((d / "meta.json").read_text(encoding="utf-8")) if (d / "meta.json").exists() else {}
+            except Exception:
+                meta = {}
+            txt = ct.read_text(encoding="utf-8", errors="ignore").strip()
+            if txt:
+                items.append({"platform": "小红书", "text": audience_anon.strip_nick(txt),
+                              "user": str(meta.get("author", "")), "url": str(meta.get("link", "")),
+                              "date": date})
     if XHS_CLS.exists():
         xd = json.loads(XHS_CLS.read_text(encoding="utf-8"))
 
@@ -364,6 +382,7 @@ def render_md(date, city, stats, llm):
     L.append("")
     L.append("- 分析口径：公开平台评论聚合，本地规则统计（维度/情感/画像词表），LLM 层仅做归纳措辞，数据未人工修饰。")
     L.append("- 数据来源：微博/B站/Bing 收集（`E:\\wx\\私有工具\\show_feedback`）、小红书分类（`temp/_xhs_classified.json`）、")
+    L.append("  小红书按链接归档正文（`E:\\wx\\私有工具\\xhs_archive\\按链接`，fetch_xhs_links.py 下载）、")
     L.append("  精选摘录（`temp/_gz_quotes.json`）。")
     L.append("- 匿名化：昵称不展示；微博条目保留可回源链接（公开内容）。")
     return "\n".join(L)
