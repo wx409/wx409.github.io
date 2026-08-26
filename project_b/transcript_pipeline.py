@@ -17,8 +17,6 @@ import argparse, io, json, re, sys
 from datetime import datetime
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-
 ROOT = Path(r"D:\wx409.github.io")
 REVIEW_DIR = ROOT / "temp" / "transcripts_review"
 CANDIDATES = REVIEW_DIR / "candidates.json"   # 待审条目汇总（管道内部状态）
@@ -130,13 +128,87 @@ def collect_candidates(files):
     return entries
 
 
+# ============ 规则金句提取器（零 token，直接可用） ============
+# 不调 LLM：长度 + 价值词 + 边界句（开场/谢幕）启发式，产出候选 quotes。
+# DeepSeek 加工层仍可作为增强（更精准的语义金句/FAQ/冲突），两者可接力。
+FLOW_WORDS = ["接下来", "下一首", "请大家", "让我介绍", "掌声鼓励", "给大家带来"]
+GREETING = ("大家好", "谢谢大家", "欢迎", "谢谢你们来")
+VALUE_WORDS = {
+    "warm": ["谢谢", "感谢", "爱", "幸福", "温暖", "祝福", "开心", "喜欢", "珍惜"],
+    "sad": ["哭", "泪", "难过", "舍不得", "伤感", "哽咽"],
+    "humorous": ["哈哈", "好笑", "开玩笑", "逗你"],
+    "passionate": ["永远", "一直", "坚持", "热爱", "梦想", "音乐", "唱歌", "约定"],
+    "proud": ["骄傲", "自豪", "荣幸", "第一次"],
+}
+BOUNDARY_FIRST_N, BOUNDARY_LAST_N = 2, 2
+MIN_LEN, MAX_LEN = 12, 150
+
+
+def extract_quotes_rules(transcript):
+    """零 LLM 规则金句提取：输入 transcript[]（{start,end,text}），输出候选 quotes[]。"""
+    quotes = []
+    n = len(transcript)
+    for i, seg in enumerate(transcript):
+        text = (seg.get("text") or "").strip()
+        if not (MIN_LEN <= len(text) <= MAX_LEN):
+            continue
+        # 短寒暄排除（"大家好，我是王晰"这类）
+        if len(text) <= 16 and any(w in text for w in GREETING):
+            continue
+        # 流程句排除（报幕/过渡）
+        if any(w in text for w in FLOW_WORDS) and len(text) < 40:
+            continue
+        senti, hit = "neutral", False
+        for s, words in VALUE_WORDS.items():
+            if any(w in text for w in words):
+                senti, hit = s, True
+        is_first = i < BOUNDARY_FIRST_N
+        is_last = i >= n - BOUNDARY_LAST_N
+        # 门槛：开场/谢幕句需 ≥25 字或有价值词；串场句必须有价值词
+        if is_first or is_last:
+            if len(text) < 25 and not hit:
+                continue
+        elif not hit:
+            continue
+        scene = "开场" if is_first else ("谢幕" if is_last else "串场")
+        quotes.append({
+            "text": text, "scene": scene, "sentiment": senti,
+            "source_transcript_id": f"T{i + 1:03d}", "verified": False,
+        })
+    return quotes
+
+
 def main():
+    if sys.stdout and getattr(sys.stdout, "buffer", None):
+        try:
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser(description="音视频转写对接管道")
     ap.add_argument("--precheck", nargs="*", default=None, help="加工JSON文件列表，做版权预筛+校验+生成清单")
     ap.add_argument("--review", action="store_true", help="查看/刷新审核清单")
     ap.add_argument("--merge", action="store_true", help="合并审核清单中 [x] 通过的条目（调 merge_transcripts）")
+    ap.add_argument("--extract-quotes", nargs="*", default=None,
+                    help="规则金句提取（零token）：输入原始转写JSON，输出候选 quotes 加工JSON")
     ap.add_argument("--demo", action="store_true", help="生成样例加工JSON（测试用）")
     args = ap.parse_args()
+
+    if args.extract_quotes is not None:
+        REVIEW_DIR.mkdir(parents=True, exist_ok=True)
+        for fp in args.extract_quotes:
+            p = Path(fp)
+            try:
+                raw = json.loads(p.read_text(encoding="utf-8"))
+            except Exception as e:
+                print(f"!! 读取失败 {p}: {e}"); continue
+            meta = raw.get("meta") or {}
+            qs = extract_quotes_rules(raw.get("transcript") or [])
+            out = {"meta": meta, "quotes": qs, "faqs": [], "timeline_events": [], "conflicts": []}
+            out_path = REVIEW_DIR / f"{p.stem}_quotes.json"
+            out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"[金句] {p.name}: 规则提取 {len(qs)} 条候选 -> {out_path}")
+            print(f"       （可直接 --precheck {out_path} 进审核；DeepSeek 层可再增强 FAQ/时间轴/冲突）")
+        return
 
     if args.demo:
         REVIEW_DIR.mkdir(parents=True, exist_ok=True)

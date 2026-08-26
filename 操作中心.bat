@@ -672,6 +672,7 @@ goto menu
 cls
 echo === 转写加工 - DeepSeek 后处理 ===
 echo 提示词: project_b\prompts\transcript_postprocess.md
+echo 步骤: 0) 也可先规则提取金句(零token): pipeline --extract-quotes 原始JSON
 echo 步骤: 1) v4 转写工具产出原始JSON(句级时间戳)
 echo       2) 按提示词用 DeepSeek 加工 -> quotes/faqs/timeline/conflicts
 echo       3) 加工JSON存到 temp\transcripts_review\ 后跑 29
