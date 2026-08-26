@@ -59,16 +59,27 @@ def build_effect_cell(effect: dict) -> str:
 
 
 def load_manifest(live_dir: Path) -> list[dict]:
+    """合并 manifest.json 与 live/*.html 的 meta 扫描（按日期去重，补齐缺失场次并回写 manifest）"""
+    entries: list[dict] = []
+    seen: set[str] = set()
     manifest_path = live_dir / "manifest.json"
-    if manifest_path.exists():
-        return json.loads(manifest_path.read_text(encoding="utf-8"))
 
-    entries = []
+    if manifest_path.exists():
+        try:
+            for e in json.loads(manifest_path.read_text(encoding="utf-8")):
+                d = e.get("date")
+                if d and d not in seen:
+                    seen.add(d)
+                    entries.append(e)
+        except Exception:
+            pass
+
     for html_file in sorted(live_dir.glob("*.html")):
         text = html_file.read_text(encoding="utf-8")
         date = _meta(text, "live-date")
-        if not date:
+        if not date or date in seen:
             continue
+        seen.add(date)
         entries.append(
             {
                 "date": date,
@@ -84,6 +95,10 @@ def load_manifest(live_dir: Path) -> list[dict]:
             }
         )
     entries.sort(key=lambda x: x["date"], reverse=True)
+    try:
+        manifest_path.write_text(json.dumps(entries, ensure_ascii=False, indent=1), encoding="utf-8")
+    except Exception:
+        pass
     return entries
 
 

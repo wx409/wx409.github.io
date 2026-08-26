@@ -94,6 +94,7 @@ echo    10. 完整部署 deploy_all (12步+commit+IndexNow)
 echo    11. IndexNow 通知 only (已push后催抓取)
 
 echo    12. 全链路 auto_update (watch-deploy-push-indexnow)
+echo    34. 首页重建+动态更新 (五层架构, 摘要卡自动刷新)
 
 echo    13. git 手动 push
 
@@ -140,6 +141,7 @@ if "%op%"=="12" goto dp_auto
 if "%op%"=="13" goto git_push
 
 if "%op%"=="14" goto git_status
+if "%op%"=="34" goto home_build
 
 if "%op%"=="15" goto map_rebuild
 
@@ -824,5 +826,18 @@ python -X utf8 D:\wx409.github.io\project_b\collect_show_feedback.py --date %fda
 chcp 936 >nul
 echo 结果: E:\wx\私有工具\show_feedback\
 echo 下一步: 入库 live 页(6) + 评论分析(21)
+pause
+goto menu
+
+:home_build
+cls
+echo === 首页重建 + 动态更新 (五层架构) ===
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 D:\wx409.github.io\project_b\build_home.py --rebuild
+python -X utf8 D:\wx409.github.io\update_index_table.py
+python -X utf8 D:\wx409.github.io\project_b\build_home.py --dynamic-only
+chcp 936 >nul
+echo 完成。下一步: 提交推送(13) + IndexNow(11); 日常动态更新已含在选项12/10自动流程
 pause
 goto menu

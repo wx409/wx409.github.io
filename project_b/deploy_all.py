@@ -45,6 +45,7 @@ STEPS = [
     (r"E:\wx\私有工具\generate_cities_json.py", "地图 cities.json + map/index.html", True),
     (ROOT / "generate_tour_index.py", "巡演目录 live/index.html", True),
     (ROOT / "update_index_table.py", "首页表格（效应注入）", True),
+    (ROOT / "project_b" / "build_home.py", "首页动态槽（最新场次摘要卡）", False),
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
     (ROOT / "project_b" / "build_setlists.py", "59场歌单 data/setlists.json", True),
     (ROOT / "project_b" / "build_songs_meta.py", "歌曲元数据 data/songs_meta.json", True),
