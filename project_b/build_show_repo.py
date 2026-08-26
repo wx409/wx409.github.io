@@ -30,10 +30,12 @@ def classify(t):
     return 'neu'
 
 def xhs_notes(show_date, city):
-    """从 xhs_archive 扫演出日及以后、含城市的笔记（正文短句）"""
+    """从 xhs_archive 扫演出日及以后、含城市的笔记（正文短句）
+    两个来源：① 关键词搜索目录（8位日期前缀）；② 按链接归档（fetch_xhs_links.py，note_id_标题）"""
     out = []
     if not XHS_ARCHIVE.exists(): return out
     d0 = show_date.strftime('%Y%m%d')
+    # ① 关键词搜索目录（日期前缀 + 目录名含城市）
     for kd in XHS_ARCHIVE.iterdir():
         if not kd.is_dir(): continue
         name = kd.name
@@ -47,6 +49,20 @@ def xhs_notes(show_date, city):
         out.append({'platform': '小红书', 'text': txt,
                     'url': 'https://www.xiaohongshu.com/explore/' + (kd.name.split('_')[-1] if '_' in kd.name else ''),
                     'tag': classify(txt)})
+    # ② 按链接归档（fetch_xhs_links.py：目录名 <24hex note_id>_<标题>；无日期前缀，用户精选全收）
+    by_link = XHS_ARCHIVE / '按链接'
+    if by_link.exists():
+        for kd in by_link.iterdir():
+            if not kd.is_dir(): continue
+            note_id = kd.name.split('_')[0] if '_' in kd.name else kd.name
+            if not re.match(r'^[0-9a-f]{24}$', note_id): continue
+            ct = kd / 'content.txt'
+            if not ct.exists(): continue
+            txt = ct.read_text(encoding='utf-8', errors='ignore').strip().replace('\n', ' ')[:80]
+            if len(txt) < 10: continue
+            out.append({'platform': '小红书', 'text': txt,
+                        'url': 'https://www.xiaohongshu.com/explore/' + note_id,
+                        'tag': classify(txt)})
     return out
 
 def main():
