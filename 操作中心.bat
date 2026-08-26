@@ -77,6 +77,7 @@ echo   [转写线]
 echo    28. 转写加工 - DeepSeek 后处理 (提示词在 project_b\prompts)
 echo    29. 转写预筛+待审清单 (pipeline --precheck, 需加工JSON路径)
 echo    30. 转写合并 - 审核通过项 (pipeline --merge)
+echo    31. 转写txt导入 + ASR专有名词纠错 (--ingest-txt)
 echo.
 echo   [地图线]
 
@@ -166,6 +167,8 @@ if "%op%"=="28" goto trans_process
 if "%op%"=="29" goto trans_precheck
 
 if "%op%"=="30" goto trans_merge
+
+if "%op%"=="31" goto trans_ingest
 
 if "%op%"=="0" exit /b
 
@@ -701,6 +704,23 @@ chcp 65001 >nul
 python -X utf8 project_b\transcript_pipeline.py --merge
 chcp 936 >nul
 echo 合并目标: live_repos/quotes/timeline/qa_bank/data\tour 单场簇
+pause
+goto menu
+
+:trans_ingest
+cls
+echo === 转写txt导入 + ASR专有名词纠错 ===
+echo 输入: 清洗后的talk文本(.txt); 自动应用14组专有名词纠错(王露斌→王洛宾等)
+set /p tpath=请输入txt路径: 
+if "%tpath%"=="" goto trans_ingest
+set /p tdate=请输入演出日期(如 2026-08-23): 
+set /p tvenue=请输入城市(如 广州): 
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\transcript_pipeline.py --ingest-txt "%tpath%" --date %tdate% --venue %tvenue%
+chcp 936 >nul
+echo 产物: temp\transcripts_review\<文件名>.json (已纠错)
+echo 之后: 28(DeepSeek加工/策展) 或 29(预筛审核) 或 --extract-quotes 规则金句
 pause
 goto menu
 
