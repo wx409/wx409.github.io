@@ -25,6 +25,12 @@ ROOT = Path(r"D:\wx409.github.io")
 OUT_DIR = ROOT / "temp" / "transcripts"
 VIDEO_DIRS = [Path(r"E:\wx\私有工具\bilibili_wangxi"), Path(r"E:\wx\六巡\20260823广州站\bilibili视频")]
 MODEL_DIR = Path(os.environ.get("XDG_CACHE_HOME", str(Path.home() / ".cache"))) / "huggingface" / "hub"
+CITY_PINYIN = {"重庆": "chongqing", "北京": "beijing", "上海": "shanghai", "广州": "guangzhou",
+               "深圳": "shenzhen", "南京": "nanjing", "杭州": "hangzhou", "武汉": "wuhan",
+               "长沙": "changsha", "成都": "chengdu", "南昌": "nanchang", "三亚": "sanya",
+               "郑州": "zhengzhou", "昆明": "kunming", "南宁": "nanning", "延边": "yanbian",
+               "澳门": "macao", "苏州": "suzhou", "乌鲁木齐": "wulumuqi", "伊宁": "yining",
+               "舟山": "zhoushan", "庐山": "lushan", "莫斯科": "moscow", "河南": "henan"}
 
 # 镜像下载：必须在 import faster_whisper / huggingface_hub 之前设置
 # HF_HUB_DISABLE_XET=1：禁用新 Xet/CAS 存储后端（国内不可达），强制经典 LFS 走镜像
@@ -79,13 +85,29 @@ def fmt_ts(sec):
     return "%02d:%02d" % (sec // 60, sec % 60)
 
 
-def verify_quotes(segments, show_json_path, quotes_data_path=None):
-    """金句 ↔ 分段模糊匹配：命中则 verified=true + start/end 时间戳。
+def verify_quotes(segments, show_json_path, quotes_data_path=None, seg_pointer=""):
+    """金句 ↔ 分段模糊匹配（窗口相似度）：命中则 verified=true + start/end 时间戳。
     返回 (matched, unmatched, updated_quotes)"""
+    from difflib import SequenceMatcher
     joined = []
     for s in segments:
         joined.append({"start": s["start"], "end": s["end"], "n": norm(s["text"])})
     full_n = "".join(x["n"] for x in joined)
+
+    def best_window(qn):
+        """滑动窗口找与金句相似度最高的位置（窗口为金句长度，步进 len/20）"""
+        win = len(qn)
+        if win < 4 or len(full_n) < win:
+            return 0.0, -1
+        step = max(1, win // 20)
+        best_r, best_p = 0.0, -1
+        for pos in range(0, len(full_n) - win + 1, step):
+            r = SequenceMatcher(None, qn, full_n[pos:pos + win]).ratio()
+            if r > best_r:
+                best_r, best_p = r, pos
+                if r > 0.85:
+                    break
+        return best_r, best_p
 
     show = json.loads(show_json_path.read_text(encoding="utf-8"))
     quotes = show.get("quotes") or []
@@ -97,19 +119,17 @@ def verify_quotes(segments, show_json_path, quotes_data_path=None):
         if len(qn) < 6:
             unmatched.append((q.get("source_transcript_id"), q.get("text", "")[:20], "过短"))
             continue
-        # 在全文归一化串中找最早出现位置，映射回分段
-        pos = full_n.find(qn)
-        if pos < 0:
-            # 容错：取最长公共子串近似（简化为前 60% 长度前缀再找）
-            prefix = qn[: max(6, int(len(qn) * 0.6))]
-            pos = full_n.find(prefix)
-        if pos < 0:
-            unmatched.append((q.get("source_transcript_id"), q.get("text", "")[:20], "未命中"))
+        ratio, pos = best_window(qn)
+        # 阈值：长句（润色稿容忍更多误听）0.52；短句从严 0.68
+        thr = 0.52 if len(qn) >= 20 else 0.68
+        if ratio < thr:
+            unmatched.append((q.get("source_transcript_id"), q.get("text", "")[:20],
+                              "未命中(相似%.2f)" % ratio))
             if not already:
                 continue
-            # 已人工核实但未命中机器稿：保留 verified，不误改
             updated.append(q)
-            matched.append((q.get("source_transcript_id"), q.get("ts", "?"), q.get("text", "")[:24] + " (人工核实，机器稿未命中)"))
+            matched.append((q.get("source_transcript_id"), q.get("ts", "?"),
+                            q.get("text", "")[:24] + " (人工核实，机器稿未命中)"))
             continue
         # 定位命中位置所在分段（累计长度法）
         acc, seg_hit = 0, joined[0]
@@ -123,26 +143,64 @@ def verify_quotes(segments, show_json_path, quotes_data_path=None):
         q["end"] = seg_hit["end"]
         q["ts"] = "%s-%s" % (fmt_ts(seg_hit["start"]), fmt_ts(seg_hit["end"]))
         updated.append(q)
-        matched.append((q.get("source_transcript_id"), fmt_ts(seg_hit["start"]), q.get("text", "")[:24]))
+        matched.append((q.get("source_transcript_id"), fmt_ts(seg_hit["start"]),
+                        q.get("text", "")[:24] + " (相似%.2f)" % ratio))
     show["quotes"] = quotes
+    # 全文转写仅本地存档（temp/，gitignore）；公开数据层只落摘要+指针（版权红线：饭拍仅公开摘要+引语）
+    n_seg = len(segments)
+    show["transcripts"] = [{
+        "source_url": show.get("meta", {}).get("source_url", ""),
+        "source_type": show.get("meta", {}).get("source_type", "fan_recording"),
+        "engine": "faster-whisper", "model": "small", "local": True,
+        "transcribed_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "segment_count": n_seg,
+        "duration_sec": round(segments[-1]["end"], 1) if n_seg else 0,
+        "pointer": "temp/transcripts/" + seg_pointer,
+        "note": "全文转写仅本地存档（版权红线：饭拍仅公开摘要+关键引语，标注BV号可复核）",
+    }]
+    show.setdefault("meta", {})["updated_at"] = time.strftime("%Y-%m-%d %H:%M")
     show_json_path.write_text(json.dumps(show, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("[存档] 全文转写 %d 段已归档 -> %s (transcripts[0].segments)" % (len(segments), show_json_path.name))
     print("[校验] %s 共 %d 条金句：命中 %d / 未命中 %d" % (show_json_path.name, len(quotes), len(matched), len(unmatched)))
     for m in matched:
         print("  ✓ %s @%s | %s" % m)
     for u in unmatched:
         print("  ✗ %s | %s | %s" % u)
-    # 同步金句墙数据源 data/quotes.json（按 source_transcript_id + text 前12字匹配）
+    # 同步金句墙数据源 data/quotes.json：先按 id+前缀覆盖，未覆盖的条目用窗口匹配直接补时间戳
     if quotes_data_path and quotes_data_path.exists():
         qd = json.loads(quotes_data_path.read_text(encoding="utf-8"))
         qlist = qd.get("quotes") or []
-        for q in updated:
-            for i, old in enumerate(qlist):
-                if old.get("source_transcript_id") == q.get("source_transcript_id") and \
+        for i, old in enumerate(qlist):
+            old_id = old.get("source_transcript_id")
+            for q in updated:
+                if old_id == q.get("source_transcript_id") and \
                         norm(old.get("text", ""))[:12] == norm(q.get("text", ""))[:12]:
                     qlist[i]["verified"] = True
                     qlist[i]["start"] = q.get("start")
                     qlist[i]["end"] = q.get("end")
                     qlist[i]["ts"] = q.get("ts")
+                    break
+            else:
+                # 公开版文案与 tour 版不同：直接对 quotes.json 文本做窗口匹配补时间戳
+                if old.get("ts"):
+                    continue
+                qn = norm(old.get("text", ""))
+                if len(qn) < 6:
+                    continue
+                ratio, pos = best_window(qn)
+                thr = 0.52 if len(qn) >= 20 else 0.68
+                if ratio < thr:
+                    continue
+                acc, seg_hit = 0, joined[0]
+                for x in joined:
+                    if acc + len(x["n"]) > pos:
+                        seg_hit = x
+                        break
+                    acc += len(x["n"])
+                qlist[i]["start"] = seg_hit["start"]
+                qlist[i]["end"] = seg_hit["end"]
+                qlist[i]["ts"] = "%s-%s" % (fmt_ts(seg_hit["start"]), fmt_ts(seg_hit["end"]))
+                print("  ⊕ quotes.json %s 独立匹配 @%s (相似%.2f)" % (old_id, qlist[i]["ts"], ratio))
         qd["quotes"] = qlist
         quotes_data_path.write_text(json.dumps(qd, ensure_ascii=False, indent=1), encoding="utf-8")
         print("[校验] data/quotes.json 已同步 verified/时间戳")
@@ -211,25 +269,27 @@ def main():
     if not bvid:
         m = re.search(r"(BV[0-9A-Za-z]+)", video.name)
         bvid = m.group(1) if m else video.stem
-    segs, lang = transcribe_workflow(bvid, video, args.model, args.threads, ffmpeg)
+    segs, lang, seg_file = transcribe_workflow(bvid, video, args.model, args.threads, ffmpeg)
 
     if args.verify_show:
         date, city = args.verify_show
-        show_json = ROOT / "data" / "tour" / ("%s-%s.json" % (date, city))
+        pinyin = CITY_PINYIN.get(city, city)
+        show_json = ROOT / "data" / "tour" / ("%s-%s.json" % (date, pinyin))
         if not show_json.exists():
             print("!! show json 不存在: %s" % show_json)
         else:
-            verify_quotes(segs, show_json, ROOT / "data" / "quotes.json")
+            verify_quotes(segs, show_json, ROOT / "data" / "quotes.json", seg_file.name)
 
 
 def transcribe_workflow(bvid, video, model_name, threads, ffmpeg):
     """单视频转写主流程：抽音 → 转写 → 落盘 segments.json + txt"""
-    stem = "%s_%s" % (bvid, video.stem[:20]) if bvid else video.stem
+    # 文件名已含 BV 号时不重复拼接
+    stem = video.stem[:20] if (bvid and video.stem.startswith(bvid)) else ("%s_%s" % (bvid, video.stem[:20]) if bvid else video.stem)
     seg_json = OUT_DIR / (stem + ".segments.json")
     seg_txt = OUT_DIR / (stem + ".txt")
     if seg_json.exists():
         log("%s 已有转写产物，跳过（删除 %s 可重跑）" % (bvid or video.name, seg_json.name))
-        return json.loads(seg_json.read_text(encoding="utf-8"))["segments"], "zh"
+        return json.loads(seg_json.read_text(encoding="utf-8"))["segments"], "zh", seg_json
     t0 = time.time()
     log("① 抽音: %s (%s)" % (video.name, "%.0fMB" % (video.stat().st_size / 1048576)))
     wav = Path(tempfile.mkdtemp(prefix="wx_asr_")) / "audio.wav"
@@ -247,7 +307,7 @@ def transcribe_workflow(bvid, video, model_name, threads, ffmpeg):
     seg_txt.write_text("\n".join("%.1f\t%.1f\t%s" % (s["start"], s["end"], s["text"]) for s in segs), encoding="utf-8")
     log("③ 完成: %d 段 / %.0f 分钟 -> %s" % (len(segs), (segs[-1]["end"] or 0) / 60, seg_json.name))
     log("   用时 %.0f 秒" % (time.time() - t0))
-    return segs, lang
+    return segs, lang, seg_json
 
 
 if __name__ == "__main__":

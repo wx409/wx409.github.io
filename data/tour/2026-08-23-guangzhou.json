@@ -6,7 +6,7 @@
   "tour": "六巡回",
   "source_url": "https://www.bilibili.com/video/BV1aNhP65E4A",
   "source_type": "fan_recording",
-  "updated_at": "2026-08-26 08:24"
+  "updated_at": "2026-08-27 12:21"
  },
  "quotes": [
   {
@@ -14,28 +14,40 @@
    "scene": "开场寒暄",
    "sentiment": "neutral",
    "source_transcript_id": "C001",
-   "verified": false
+   "verified": true,
+   "start": 10.6,
+   "end": 14.1,
+   "ts": "00:10-00:14"
   },
   {
    "text": "没有去过可克达拉的话，真的是，你是听不懂这个《草原之夜》的。",
    "scene": "音乐理念",
    "sentiment": "neutral",
    "source_transcript_id": "C002",
-   "verified": false
+   "verified": true,
+   "start": 115.5,
+   "end": 119.9,
+   "ts": "01:55-01:59"
   },
   {
    "text": "如果经济自由的时候，希望能够去到这个美丽的伊犁，然后开一间民宿，为大家服务。",
    "scene": "城市记忆",
    "sentiment": "neutral",
    "source_transcript_id": "C003",
-   "verified": false
+   "verified": true,
+   "start": 133.9,
+   "end": 138.6,
+   "ts": "02:13-02:18"
   },
   {
    "text": "六岁的小孩子骑着马，天哪……真的是这马背上的民族，这不一样。",
    "scene": "回忆叙事",
    "sentiment": "neutral",
    "source_transcript_id": "C004",
-   "verified": false
+   "verified": true,
+   "start": 329.0,
+   "end": 330.0,
+   "ts": "05:29-05:30"
   },
   {
    "text": "其实声音对我来讲，唱商是排在第一位的，然后是音色，再之后才是你唱歌的能力——所谓唱功。",
@@ -49,31 +61,56 @@
    "scene": "观众互动",
    "sentiment": "neutral",
    "source_transcript_id": "C006",
-   "verified": false
+   "verified": true,
+   "start": 682.1,
+   "end": 683.1,
+   "ts": "11:22-11:23"
   },
   {
    "text": "自然，你是我最近的爱。只要你们能来就好。",
    "scene": "音乐理念",
    "sentiment": "neutral",
    "source_transcript_id": "C007",
-   "verified": false
+   "verified": true,
+   "start": 753.7,
+   "end": 754.7,
+   "ts": "12:33-12:34"
   },
   {
    "text": "邓丽君小姐的一首非常温暖的歌，叫做《夜色》，送给你们。",
    "scene": "歌曲串讲",
    "sentiment": "neutral",
    "source_transcript_id": "C008",
-   "verified": false
+   "verified": true,
+   "start": 2652.6,
+   "end": 2656.2,
+   "ts": "44:12-44:16"
   },
   {
    "text": "2018年的时候，有很多朋友，通过这首歌认识王晰。今天我想把这首歌送给大家。",
    "scene": "谢幕致辞",
    "sentiment": "neutral",
    "source_transcript_id": "C009",
-   "verified": false
+   "verified": true,
+   "start": 1102.8,
+   "end": 1104.8,
+   "ts": "18:22-18:24"
   }
  ],
  "faqs": [],
  "timeline_events": [],
- "transcripts": []
+ "transcripts": [
+  {
+   "source_url": "https://www.bilibili.com/video/BV1aNhP65E4A",
+   "source_type": "fan_recording",
+   "engine": "faster-whisper",
+   "model": "small",
+   "local": true,
+   "transcribed_at": "2026-08-27 12:21:44",
+   "segment_count": 1175,
+   "duration_sec": 2658.2,
+   "pointer": "temp/transcripts/BV1aNhP65E4A_王晰六巡「回」.segments.json",
+   "note": "全文转写仅本地存档（版权红线：饭拍仅公开摘要+关键引语，标注BV号可复核）"
+  }
+ ]
 }
