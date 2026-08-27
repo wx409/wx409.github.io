@@ -91,6 +91,8 @@ def verify_quotes(segments, show_json_path, quotes_data_path=None):
     quotes = show.get("quotes") or []
     updated, matched, unmatched = [], [], []
     for q in quotes:
+        # 已人工核实的条目不覆盖文本，仅尝试补时间戳
+        already = q.get("verified") is True and q.get("ts")
         qn = norm(q.get("text", ""))
         if len(qn) < 6:
             unmatched.append((q.get("source_transcript_id"), q.get("text", "")[:20], "过短"))
@@ -103,6 +105,11 @@ def verify_quotes(segments, show_json_path, quotes_data_path=None):
             pos = full_n.find(prefix)
         if pos < 0:
             unmatched.append((q.get("source_transcript_id"), q.get("text", "")[:20], "未命中"))
+            if not already:
+                continue
+            # 已人工核实但未命中机器稿：保留 verified，不误改
+            updated.append(q)
+            matched.append((q.get("source_transcript_id"), q.get("ts", "?"), q.get("text", "")[:24] + " (人工核实，机器稿未命中)"))
             continue
         # 定位命中位置所在分段（累计长度法）
         acc, seg_hit = 0, joined[0]
