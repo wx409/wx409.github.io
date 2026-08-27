@@ -116,6 +116,25 @@ def main():
 
     w("_清单.md", "\n".join(manifest))
 
+    # ---- 原始抓取留存：微博/B站/Bing JSON + 摘要 原样归档（省空间：只复制文本JSON，不重复格式化） ----
+    RAW_DIR = OUT / "原始抓取"
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    n_raw = 0
+    for fn in ("weibo_feedback.json", "bili_feedback.json", "bing_feedback.json",
+               "all_feedback.json", "weibo_summary.txt", "bili_summary.txt",
+               "bing_summary.txt", "xhs_log.txt", "douyin_guide.txt"):
+        p = FB / fn
+        if p.exists():
+            dst = RAW_DIR / fn
+            if not dst.exists():
+                import shutil
+                shutil.copy2(p, dst)
+                n_raw += 1
+    if n_raw:
+        print("[原始] 复制 %d 个平台原始文件 -> %s" % (n_raw, RAW_DIR))
+        m = (OUT / "_清单.md").read_text(encoding="utf-8")
+        (OUT / "_清单.md").write_text(m + "- 原始抓取：微博/B站/Bing JSON+摘要 已原样归档（%d 个文件）\n" % n_raw, encoding="utf-8")
+
     # ---- 图片归档：xhs 笔记图（关键词目录+按链接）→ 图片\xhs\ ----
     def safe(n, limit=40):
         s = re.sub(r'[<>:"/\\|?*\r\n\t#]', "", n or "").strip()

@@ -108,8 +108,16 @@ echo.
 
 set "op="
 
+echo.
+echo   [论文素材]
+echo    91. 打开论文素材索引
+echo    92. 打开论文草稿目录
+echo    93. 打开预测实验档案
 set /p op=请输入选项数字后回车: 
 
+if "%op%"=="91" goto paper_assets
+if "%op%"=="92" goto paper_drafts
+if "%op%"=="93" goto paper_predictions
 if "%op%"=="" exit /b
 
 
@@ -839,5 +847,27 @@ python -X utf8 D:\wx409.github.io\update_index_table.py
 python -X utf8 D:\wx409.github.io\project_b\build_home.py --dynamic-only
 chcp 936 >nul
 echo 完成。下一步: 提交推送(13) + IndexNow(11); 日常动态更新已含在选项12/10自动流程
+pause
+goto menu
+
+:paper_assets
+cls
+echo === 论文素材索引 ===
+start "" "E:\wx\论文素材_王晰作传\数据资产索引.md"
+pause
+goto menu
+
+:paper_drafts
+cls
+echo === 论文草稿目录 ===
+start "" "E:\wx\论文素材_王晰作传\论文草稿"
+pause
+goto menu
+
+:paper_predictions
+cls
+echo === 预测实验档案 ===
+start "" "D:\wx409.github.io\temp\预测实验.md"
+start "" "D:\wx409.github.io\temp\预测实验\predictions.json"
 pause
 goto menu

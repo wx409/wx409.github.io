@@ -81,12 +81,13 @@ def main():
         fb = json.loads((out_dir / 'all_feedback.json').read_text(encoding='utf-8'))
 
     rows = []
-    # 微博（观众，非官方）
+    # 微博（观众，非官方；铁律：王晰本人 uid 1292815744 微博开了"半年可见"，一律不附外链，仅存文本）
     for p in fb.get('weibo') or []:
         if p.get('official'): continue
         t = p.get('text', '')
         if len(t.strip()) < 10: continue
-        rows.append({'platform': '微博', 'text': cut(t), 'url': p.get('url', ''), 'tag': classify(t)})
+        url = '' if p.get('official') == '王晰本人' else p.get('url', '')
+        rows.append({'platform': '微博', 'text': cut(t), 'url': url, 'tag': classify(t)})
     # B站（视频标题 + Top 评论）
     for v in fb.get('bili') or []:
         t = v.get('title', '')
