@@ -40,11 +40,13 @@ def main():
         date = q.get('date') or ''
         url = q.get('source_url') or ''
         verified = q.get('verified')
+        ts = q.get('ts') or ''
         mark = '' if verified else ' <em style="color:#b8860b;font-size:12px;">（转写原文，待人工核对）</em>'
         link = ''
         if url:
             link = f' <a href="{esc(url)}" target="_blank" rel="noopener nofollow" style="font-size:12px;color:#1a56c4;">视频→</a>'
-        meta = f'<span class="tag">{esc(scene)}</span> {esc(date)}{link}{mark}'
+        tshtml = f' <span style="font-size:12px;color:#555;font-family:monospace;">[{esc(ts)}]</span>' if ts else ''
+        meta = f'<span class="tag">{esc(scene)}</span> {esc(date)}{tshtml}{link}{mark}'
         lis.append(f'        <li><blockquote style="margin:0;">"{esc(text)}"</blockquote><p style="font-size:12px;color:#777;margin:2px 0 0;">{meta}</p></li>')
 
     section = (

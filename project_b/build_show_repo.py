@@ -15,7 +15,7 @@ XHS_ARCHIVE = Path(r'E:\wx\私有工具\xhs_archive')
 
 POS = re.compile(r'好听|震撼|值|绝|封神|感动|完美|牛|沉浸|惊喜|精彩|安可|返场|低音|声压|氛围|浪漫|治愈|值回|难忘|上头')
 NEG = re.compile(r'差|失望|一般|不值|翻车|拉胯|后悔|退票|糟糕|敷衍')
-WEB_DOMAIN_OK = re.compile(r'weibo\.com|xiaohongshu\.com|bilibili\.com|douyin\.com|zhihu\.com|douban\.com|baijiahao|toutiao\.com')
+WEB_DOMAIN_OK = re.compile(r'weibo\.com|xiaohongshu\.com|bilibili\.com|douyin\.com|zhihu\.com|douban\.com|baijiahao|toutiao\.com|hupu\.com|gov\.cn|yanchupiaowu\.com|dianping\.com')
 
 def esc(s):
     return (s or '').replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')

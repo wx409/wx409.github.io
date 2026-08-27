@@ -119,13 +119,22 @@ def load_setlist_songs(date_str):
 def build_filter(city, setlist_songs):
     """二次筛选：命中 任一歌单歌曲（高级）或 城市 或 活动词 即保留。
     演出后 7 日内内容多围绕音乐会，营销号/纯分享旧歌会被此筛掉。"""
+    def norm_zh(s):
+        # 繁体/异体归一到简体常用字形，避免 廣州/個巡/演唱會 等标题被漏筛
+        for a, b in (('廣', '广'), ('灣', '湾'), ('會', '会'), ('個', '个'),
+                     ('迴', '回'), ('巡迴', '巡回'), ('樂', '乐'), ('國', '国'),
+                     ('團', '团'), ('場', '场'), ('見', '见'), ('與', '与'),
+                     ('裡', '里'), ('這', '这'), ('嗎', '吗'), ('無', '无')):
+            s = s.replace(a, b)
+        return s
     def keep(text):
         t = str(text or '')
-        if any(s and s in t for s in setlist_songs):
+        tn = norm_zh(t)
+        if any(s and (s in t or s in tn) for s in setlist_songs):
             return True
-        if city and city in t:
+        if city and (city in t or city in tn):
             return True
-        return any(k in t for k in EVENT_WORDS)
+        return any(k in t or k in tn for k in EVENT_WORDS)
     return keep
 
 
