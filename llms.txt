@@ -35,3 +35,11 @@
 
 - GitHub Issues: https://github.com/wx409/wx409.github.io/issues
 - 更新日志: 见 /about.html
+
+## 知识库（机器可读 · 自动生成）
+
+- [知识库摘要](https://wx409.github.io/data/kb/kb_digest.md): 生涯里程碑/机构归属时间线/体量统计/已核实金句
+- [事实层 facts.json](https://wx409.github.io/data/kb/facts.json): 原子事实（subject/property/value/时间区间/来源/置信度，880条）
+- [实体层 entities.json](https://wx409.github.io/data/kb/entities.json): 实体注册表（人/歌曲/专辑/演出/城市/场馆/机构/事件/媒体/金句/小酒馆，1143个）
+- [关系层 relations.json](https://wx409.github.io/data/kb/relations.json): 实体关系边（1917条）
+- 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）

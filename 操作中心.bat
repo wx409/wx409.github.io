@@ -113,11 +113,13 @@ echo   [论文素材]
 echo    91. 打开论文素材索引
 echo    92. 打开论文草稿目录
 echo    93. 打开预测实验档案
+echo    94. 重建知识库 (build_kb_graph)
 set /p op=请输入选项数字后回车: 
 
 if "%op%"=="91" goto paper_assets
 if "%op%"=="92" goto paper_drafts
-if "%op%"=="93" goto paper_predictions
+if "%op%"=="93" goto paper_predictionsif "%op%"=="94" goto kb_build
+
 if "%op%"=="" exit /b
 
 
@@ -869,5 +871,16 @@ cls
 echo === 预测实验档案 ===
 start "" "D:\wx409.github.io\temp\预测实验.md"
 start "" "D:\wx409.github.io\temp\预测实验\predictions.json"
+pause
+goto menu
+
+:kb_build
+cls
+echo === 重建知识库 ===
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 project_b\build_kb_graph.py
+chcp 936 >nul
+echo 知识库已重建: data/kb/*.json + qa_bank 扩充
 pause
 goto menu

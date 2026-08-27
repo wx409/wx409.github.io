@@ -1,0 +1,31 @@
+{
+ "generated_at": "2026-08-27 17:02",
+ "facts": 880,
+ "relations": 1917,
+ "entities_by_type": {
+  "album": 8,
+  "city": 22,
+  "event": 34,
+  "media": 228,
+  "org": 3,
+  "person": 2,
+  "quote": 7,
+  "show": 64,
+  "song": 621,
+  "tavern": 106,
+  "tour": 11,
+  "venue": 37
+ },
+ "sources": [
+  "timeline.json",
+  "setlists.json",
+  "cities.json",
+  "albums.json",
+  "songs_meta.json",
+  "entity_index.json",
+  "live_repos.json",
+  "quotes.json",
+  "tour/*.json",
+  "tavern_transcripts.json"
+ ]
+}
