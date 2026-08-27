@@ -260,8 +260,9 @@ def expand_qa(kb):
         if f["property"] == "member_of":
             new.append(("王晰何时加入%s？" % f["value"],
                         "%s（%s→%s，%s）" % (f["value"], f["valid_from"], f["valid_to"] or "至今", f["source"])))
-        if f["property"] == "released_album":
-            new.append(("王晰的专辑有哪些？", f["value"]))
+    albums = sorted({f["value"] for f in facts if f["property"] == "released_album"})
+    if albums:
+        new.append(("王晰的专辑有哪些？", "；".join(albums)))
     rel = kb.relations
     ents = kb.entities
     for e in ents.values():

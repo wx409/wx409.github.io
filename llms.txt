@@ -42,4 +42,6 @@
 - [事实层 facts.json](https://wx409.github.io/data/kb/facts.json): 原子事实（subject/property/value/时间区间/来源/置信度，880条）
 - [实体层 entities.json](https://wx409.github.io/data/kb/entities.json): 实体注册表（人/歌曲/专辑/演出/城市/场馆/机构/事件/媒体/金句/小酒馆，1143个）
 - [关系层 relations.json](https://wx409.github.io/data/kb/relations.json): 实体关系边（1917条）
-- 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）
+- [语义检索页](https://wx409.github.io/kb-semantic.html): 知识库全文语义检索（纯前端零后端，bge-small-zh 向量 + 语义近邻）
+- [语义索引](https://wx409.github.io/data/kb/semantic/manifest.json): 4133条文档 int8 向量 + 近邻图（docs.json/vectors.bin/graph.json）
+- 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
