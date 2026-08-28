@@ -108,12 +108,83 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 </div>
 <div class="search-meta">共找到 <strong id="resultCount">0</strong> 条结果（上限 30）<span id="searchStatus" class="sr-status"></span></div>
 <div id="playerStatus" style="display:none;margin:8px 0;padding:8px 12px;background:#f0f4ff;border-left:3px solid #3a7bd5;border-radius:6px;font-size:13px;color:#333;"></div>
+<div id="kbResults"></div>
 <div id="searchResults"></div>
 
-<p class="footnote">搜索结果来自 <code>data/site_search_index.json</code>，由索引生成脚本维护；歌曲结果可跳转数据大屏对应查询。</p>
+<p class="footnote">站内结果来自 <code>data/site_search_index.json</code>；知识库结果来自 <code>data/kb/semantic/</code>（bge-small-zh 语义向量，自动生成）；AI 问答助手在右下角。歌曲结果可跳转数据大屏对应查询。</p>
 <script src="assets/player_embed.js?v=3"></script>
 <script src="site_search_engine.js"></script>
+<script src="kb_semantic.js"></script>
 <script src="qa_engine.js"></script>
+<style>
+#kbResults{margin:10px 0 18px}
+.kb-sec{background:#fafafc;border:1px solid #e6e6ee;border-radius:10px;padding:12px 16px}
+.kb-sec h3{margin:0 0 8px;font-size:15px;color:#1a1a1a}
+.kb-ans{background:#fff;border:1px solid #e3e3ec;border-left:4px solid #c41e3a;border-radius:8px;padding:10px 12px;margin:8px 0}
+.kb-q{font-size:14px;color:#333;font-weight:600}
+.kb-a{font-size:14px;color:#1a56c4;margin-top:4px}
+.kb-meta{font-size:12px;color:#999;margin-top:4px}
+.kb-hit{font-size:13px;color:#444;padding:6px 2px;border-bottom:1px dashed #eee;line-height:1.6}
+.kb-hit .tag{background:#eee;border-radius:10px;padding:0 7px;font-size:11px;color:#666;margin-right:6px}
+.kb-hit .tag.qa{background:#fff3cd;color:#8a6d1a}
+.kb-hit .tag.fact{background:#e8f0fe;color:#1a56c4}
+.kb-hit .tag.event{background:#eef9ee;color:#1a7a3a}
+.kb-score{color:#c41e3a;font-size:11px}
+.kb-none{font-size:13px;color:#999;padding:6px 2px}
+</style>
+<script>
+/* 知识库语义召回（统一入口：站内文档 + 知识库答案 + 语义延伸） */
+(function () {
+  var box = document.getElementById('kbResults');
+  if (!box) return;
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function qaSplit(t) {
+    var i = t.indexOf('？'); if (i < 0) i = t.indexOf('?');
+    if (i >= 0 && i < t.length - 1) return [t.slice(0, i + 1), t.slice(i + 1).trim()];
+    return [null, t];
+  }
+  function render(q) {
+    q = (q || '').trim();
+    if (!q) { box.innerHTML = ''; return; }
+    if (!window.KBSearch || !KBSearch.ready()) {
+      box.innerHTML = '<div class="kb-sec"><h3>💡 知识库</h3><div class="kb-none">语义索引加载中…</div></div>';
+      return;
+    }
+    var hits = KBSearch.search(q, 8);
+    if (!hits.length) { box.innerHTML = ''; return; }
+    var ans = hits.filter(function (h) { return h.score != null && h.score >= 0.28 && (h.type === 'qa' || h.type === 'fact'); }).slice(0, 2);
+    var rest = hits.filter(function (h) { return ans.indexOf(h) < 0; }).slice(0, 6);
+    var html = '<div class="kb-sec"><h3>💡 知识库</h3>';
+    ans.forEach(function (a) {
+      var sp = qaSplit(a.text);
+      html += '<div class="kb-ans"><div class="kb-q">' + esc(sp[0] || a.text) + '</div>' +
+        (sp[1] ? '<div class="kb-a">' + esc(sp[1]) + '</div>' : '') +
+        '<div class="kb-meta">' + esc(a.id) + ' · 相关度 ' + a.score + '</div></div>';
+    });
+    rest.forEach(function (h) {
+      html += '<div class="kb-hit"><span class="tag ' + esc(h.type) + '">' + esc(h.type) + '</span>' + esc(h.text) +
+        (h.score != null ? ' <span class="kb-score">' + h.score + '</span>' : '') + '</div>';
+    });
+    if (!ans.length && !rest.length) html += '<div class="kb-none">知识库未命中，换个说法试试（支持别名：低音炮/Low C/青歌赛/东演）。</div>';
+    html += '</div>';
+    box.innerHTML = html;
+    if (/[?&]kb=1/.test(location.search)) box.scrollIntoView({ behavior: 'smooth' });
+  }
+  var inp = document.getElementById('searchInput');
+  if (inp) inp.addEventListener('input', function () { render(inp.value); });
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t.id === 'searchBtn' || (t.classList && t.classList.contains('chip'))) {
+      render(document.getElementById('searchInput').value);
+    }
+  });
+  if (window.KBSearch) {
+    KBSearch.init().then(function () { if (inp && inp.value.trim()) render(inp.value); });
+  }
+  var m = /[?&]q=([^&]+)/.exec(location.search || '');
+  if (m) { try { render(decodeURIComponent(m[1])); } catch (e) {} }
+})();
+</script>
 <script>
 /* 全局播放状态提示（搜索页内直听） */
 (function () {

@@ -903,6 +903,6 @@ goto menu
 :kb_semantic_page
 cls
 echo === ´ò¿ªÓïÒå¼ìË÷Ò³ ===
-start "" https://wx409.github.io/kb-semantic.html
+start "" https://wx409.github.io/search.html?kb=1
 pause
 goto menu
