@@ -12362,6 +12362,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:不赖",
+  "type": "belongs_to_album",
+  "target": "album:赖猫的狮子倒影 影视剧原声专辑",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "media:2019-06-15-01",
   "type": "covers",
   "target": "show:2019-06-15-wuhan",
