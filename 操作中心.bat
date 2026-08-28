@@ -117,11 +117,13 @@ echo    94. 重建知识库 (build_kb_graph)
 echo    95. 重建语义索引 (bge-small-zh)
 echo    96. 打开语义检索页 (kb-semantic.html)
 echo    97. 预测最终验证 P001 广州站 (预览+定论)
+echo    99. 演出反馈一周工作流 (收集-入库-归档-分析-KB-发布)
 set /p op=请输入选项数字后回车: 
 
 if "%op%"=="91" goto paper_assets
 if "%op%"=="92" goto paper_drafts
-if "%op%"=="93" goto paper_predictionsif "%op%"=="94" goto kb_buildif "%op%"=="95" goto kb_vectorsif "%op%"=="96" goto kb_semantic_pageif "%op%"=="97" goto pred_verify
+if "%op%"=="93" goto paper_predictionsif "%op%"=="94" goto kb_buildif "%op%"=="95" goto kb_vectorsif "%op%"=="96" goto kb_semantic_pageif "%op%"=="97" goto pred_verifyif "%op%"=="99" goto fb_week
+
 
 
 
@@ -921,5 +923,19 @@ set /p ok=窗口数据完整? 输入 y 正式定论, 回车退出:
 if /i "%ok%"=="y" python -X utf8 "temp\预测实验\verify_prediction.py" --id P001
 chcp 936 >nul
 echo 完成。定论已写入 temp\预测实验\predictions.json (verification_log final)
+pause
+goto menu
+
+:fb_week
+cls
+echo === 演出反馈一周工作流 (收集-入库-归档-分析-KB-发布) ===
+set /p fdate=演出日期(YYYY-MM-DD, 回车=2026-08-23): 
+set /p fcity=城市(回车=广州): 
+if "%fdate%"=="" set fdate=2026-08-23
+if "%fcity%"=="" set fcity=广州
+chcp 65001 >nul
+python -X utf8 project_b\feedback_week.py --date %fdate% --city %fcity%
+chcp 936 >nul
+echo 完成: live页反馈+全文归档+评论分析+KB评论维度, 已commit+push+IndexNow
 pause
 goto menu

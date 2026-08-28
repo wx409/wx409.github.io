@@ -190,6 +190,42 @@ def build():
                {"part": ep.get("part"), "episode_num": ep.get("episode_num")})
         kb.rel("person:wangxi", "hosts", eid, ep.get("category", ""), "tavern_transcripts.json")
 
+    # ---- 9) 观众评论分析维度（analyze_audience_comments.py 产出，论文/分析/档案维度）----
+    import glob as _glob
+    an_dir = ROOT / "temp" / "audience_analysis"
+    n_an = 0
+    for ap in sorted(_glob.glob(str(an_dir / "*.json"))):
+        try:
+            an = json.loads(Path(ap).read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        date, city = an.get("date", ""), an.get("city", "")
+        if not date:
+            continue
+        sid = show_id(date, city)
+        kb.ent(sid, "show", "%s %s" % (date, city))
+        st = an.get("stats") or {}
+        total = st.get("total") or 0
+        if total:
+            kb.fact(sid, "audience_comments_total", total, date, "", "analyze_audience_comments", 0.8)
+        dims = st.get("dimensions") or {}
+        if dims:
+            kb.fact(sid, "audience_dim_top", "、".join("%s(%d)" % (k, v) for k, v in sorted(dims.items(), key=lambda x: -x[1])[:3]),
+                    date, "", "analyze_audience_comments", 0.8)
+            kb.fact(sid, "audience_dim_dist", "；".join("%s %d" % (k, v) for k, v in sorted(dims.items(), key=lambda x: -x[1])),
+                    date, "", "analyze_audience_comments", 0.8)
+        song_top = st.get("song_top") or []
+        if song_top:
+            kb.fact(sid, "audience_song_top", "、".join("%s(%d次)" % (s[0], s[1]) for s in song_top[:5]),
+                    date, "", "analyze_audience_comments", 0.8)
+        pf = st.get("platforms") or {}
+        if pf:
+            kb.fact(sid, "audience_platforms", "；".join("%s %d" % (k, v) for k, v in pf.items()),
+                    date, "", "analyze_audience_comments", 0.8)
+        n_an += 1
+    if n_an:
+        print("[评论维度] %d 个场次分析结果入 KB（评论数/评价维度/歌曲提及/平台分布）" % n_an)
+
     # ---- 组织归属（从 timeline 事件推导 valid_from/valid_to） ----
     org_rules = [("海政文工团", "2011", "2018"), ("乐华娱乐", "2019-04-09", "2024"),
                  ("中国东方演艺集团", "2025", "")]

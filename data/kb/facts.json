@@ -8771,6 +8771,56 @@
  },
  {
   "id": "f0878",
+  "subject": "show:2026-08-23-guangzhou",
+  "property": "audience_comments_total",
+  "value": 117,
+  "valid_from": "2026-08-23",
+  "valid_to": "",
+  "source": "analyze_audience_comments",
+  "confidence": 0.8
+ },
+ {
+  "id": "f0879",
+  "subject": "show:2026-08-23-guangzhou",
+  "property": "audience_dim_top",
+  "value": "现场体验(38)、嗓音/低音(30)、舞台/造型(21)",
+  "valid_from": "2026-08-23",
+  "valid_to": "",
+  "source": "analyze_audience_comments",
+  "confidence": 0.8
+ },
+ {
+  "id": "f0880",
+  "subject": "show:2026-08-23-guangzhou",
+  "property": "audience_dim_dist",
+  "value": "现场体验 38；嗓音/低音 30；舞台/造型 21；互动/氛围 18；选曲/歌单 17；情怀/回忆 15；唱功/技术 11",
+  "valid_from": "2026-08-23",
+  "valid_to": "",
+  "source": "analyze_audience_comments",
+  "confidence": 0.8
+ },
+ {
+  "id": "f0881",
+  "subject": "show:2026-08-23-guangzhou",
+  "property": "audience_song_top",
+  "value": "让她降落(22次)、一生守候(16次)、夜色(10次)、Your Man(10次)、情网(9次)",
+  "valid_from": "2026-08-23",
+  "valid_to": "",
+  "source": "analyze_audience_comments",
+  "confidence": 0.8
+ },
+ {
+  "id": "f0882",
+  "subject": "show:2026-08-23-guangzhou",
+  "property": "audience_platforms",
+  "value": "微博 21；小红书 88；小红书(精选) 8",
+  "valid_from": "2026-08-23",
+  "valid_to": "",
+  "source": "analyze_audience_comments",
+  "confidence": 0.8
+ },
+ {
+  "id": "f0883",
   "subject": "person:wangxi",
   "property": "member_of",
   "value": "海政文工团",
@@ -8780,7 +8830,7 @@
   "confidence": 0.95
  },
  {
-  "id": "f0879",
+  "id": "f0884",
   "subject": "person:wangxi",
   "property": "member_of",
   "value": "乐华娱乐",
@@ -8790,7 +8840,7 @@
   "confidence": 0.95
  },
  {
-  "id": "f0880",
+  "id": "f0885",
   "subject": "person:wangxi",
   "property": "member_of",
   "value": "中国东方演艺集团",
