@@ -48,7 +48,7 @@ STEPS = [
     (ROOT / "project_b" / "build_home.py", "首页动态槽（最新场次摘要卡）", False),
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
     (ROOT / "project_b" / "build_kb_graph.py", "知识库三层 data/kb/*.json", True),
-    (ROOT / "tools" / "build_kb_vectors.py", "知识库语义索引 data/kb/semantic/*", True),
+    (ROOT / "tools" / "build_kb_vectors.py", "知识库语义索引 data/kb/semantic/*（需sentence-transformers，缺依赖仅警告）", False),
     (ROOT / "tools" / "build_qa_page.py", "问答库静态页 qa.html（GEO 可引用）", True),
     (ROOT / "project_b" / "build_setlists.py", "59场歌单 data/setlists.json", True),
     (ROOT / "project_b" / "build_songs_meta.py", "歌曲元数据 data/songs_meta.json", True),
