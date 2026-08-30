@@ -12369,6 +12369,20 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:绿岛小夜曲",
+  "type": "belongs_to_album",
+  "target": "album:Low C的诱惑",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
+  "source": "song:说了再见(男声版)",
+  "type": "belongs_to_album",
+  "target": "album:程序员那么可爱 影视原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "media:2019-06-15-01",
   "type": "covers",
   "target": "show:2019-06-15-wuhan",
