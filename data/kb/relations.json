@@ -12292,6 +12292,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:绿岛小夜曲",
+  "type": "belongs_to_album",
+  "target": "album:Low C的诱惑",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:罗辑",
   "type": "belongs_to_album",
   "target": "album:罗辑",
@@ -12334,6 +12341,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:说了再见(男声版)",
+  "type": "belongs_to_album",
+  "target": "album:程序员那么可爱 影视原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:过客",
   "type": "belongs_to_album",
   "target": "album:过客",
@@ -12365,20 +12379,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:绿岛小夜曲",
-  "type": "belongs_to_album",
-  "target": "album:Low C的诱惑",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:说了再见(男声版)",
-  "type": "belongs_to_album",
-  "target": "album:程序员那么可爱 影视原声带",
   "context": "",
   "source_ref": "songs_meta.json"
  },
