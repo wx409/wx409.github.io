@@ -1980,12 +1980,12 @@ def _compute_radiation(tour_song_fx):
     #   · 扩散型：歌单内≈0（a<5）、辐射强（b>10）
     #   · 均衡型：两路都强（绝对值 a>10 且 b>10）
     #   · 出圈型（新增）：辐射强（b>10）、歌单内温和或负（未达均衡门槛）——如 2026-08-23 广州
-    #   · 无效型：其余（无明显正向效应）
+    #   · 常态型（原「无效型」）：其余（未检出显著正向效应，数据平稳/负向，属常态表现）
     def _pattern(e):
         sl = e.get("setlist_uplift")
         rl = e.get("radiance_uplift")
         if sl is None:
-            return "单点触发型" if rl is not None else "无效型"
+            return "单点触发型" if rl is not None else "常态型"
         a, b = abs(sl), abs(rl if rl is not None else 0)
         if sl > 15 and b < 10:
             return "精准型"
@@ -1995,7 +1995,7 @@ def _compute_radiation(tour_song_fx):
             return "均衡型"
         if b > 10:
             return "出圈型"
-        return "无效型"
+        return "常态型"
 
     pat_count = defaultdict(lambda: defaultdict(int))
     for e in tour_song_fx:
@@ -2170,7 +2170,7 @@ def build_radiation_analysis(tour_song_fx):
             "【形态聚合(均值+中位数)】avg_total=平均追踪曲目池变化%, med_total=中位追踪曲目池, avg_setlist=平均歌单内, avg_radiance=平均辐射带动:\n"
             + json.dumps(input_payload["morphology_aggregation"], ensure_ascii=False) + "\n\n"
             "【政府活动】单独列示，不参与均值:\n" + json.dumps(input_payload["gov_events"], ensure_ascii=False) + "\n\n"
-            "【效应模式分布】各形态中各模式占比(精准型/扩散型/均衡型/出圈型/无效型/单点触发型):\n"
+            "【效应模式分布】各形态中各模式占比(精准型/扩散型/均衡型/出圈型/常态型/单点触发型):\n"
             + json.dumps(input_payload["pattern_distribution"], ensure_ascii=False) + "\n\n"
             "【衰减聚合】按形态 peak_val/duration/half_life/shape 分布:\n"
             + json.dumps(input_payload["decay_aggregation"], ensure_ascii=False) + "\n\n"
