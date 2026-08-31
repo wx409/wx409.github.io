@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-08-31 00:05",
- "entity_count": 1146,
+ "generated_at": "2026-08-31 14:00",
+ "entity_count": 1153,
  "entities": {
   "person:wangxi": {
    "type": "person",
@@ -107,6 +107,15 @@
   },
   "event:t009": {
    "type": "event",
+   "name": "2015全国巡回演唱会-珠海站（个人全国巡回前史·仅此一场，珠海大会堂，嘉宾降央卓玛）",
+   "aliases": [],
+   "attrs": {
+    "date": "2015-06-27",
+    "type": "tour"
+   }
+  },
+  "event:t010": {
+   "type": "event",
    "name": "《我是歌手》第四季踢馆夺冠，打破“高音必胜论”",
    "aliases": [],
    "attrs": {
@@ -114,7 +123,7 @@
     "type": "media"
    }
   },
-  "event:t010": {
+  "event:t011": {
    "type": "event",
    "name": "专辑《Low C的诱惑Ⅱ》发行",
    "aliases": [],
@@ -123,7 +132,16 @@
     "type": "album"
    }
   },
-  "event:t011": {
+  "event:t012": {
+   "type": "event",
+   "name": "首触音乐剧：音乐剧《M先生》饰演一角（百老汇触电）",
+   "aliases": [],
+   "attrs": {
+    "date": "2016-07-28",
+    "type": "career"
+   }
+  },
+  "event:t013": {
    "type": "event",
    "name": "翻唱专辑《重游往昔》发行",
    "aliases": [],
@@ -132,7 +150,25 @@
     "type": "album"
    }
   },
-  "event:t012": {
+  "event:t014": {
+   "type": "event",
+   "name": "央视音乐频道《纵情歌唱》个人专场演唱会（十首连唱）",
+   "aliases": [],
+   "attrs": {
+    "date": "2017-12-05",
+    "type": "career"
+   }
+  },
+  "event:t015": {
+   "type": "event",
+   "name": "全国巡回签售见面会启幕（常州首站）",
+   "aliases": [],
+   "attrs": {
+    "date": "2017-12-09",
+    "type": "career"
+   }
+  },
+  "event:t016": {
    "type": "event",
    "name": "海政文工团撤编（国防部宣布不再保留军种文工团）",
    "aliases": [],
@@ -141,7 +177,7 @@
     "type": "career"
    }
   },
-  "event:t013": {
+  "event:t017": {
    "type": "event",
    "name": "加盟湖南卫视《声入人心》，演唱《一生守候》（海政2018-09撤编后、签约乐华前参与）",
    "aliases": [],
@@ -150,7 +186,7 @@
     "type": "media"
    }
   },
-  "event:t014": {
+  "event:t018": {
    "type": "event",
    "name": "签约乐华娱乐（市场化转型，生日当天官宣）",
    "aliases": [],
@@ -159,7 +195,7 @@
     "type": "career"
    }
   },
-  "event:t015": {
+  "event:t019": {
    "type": "event",
    "name": "一巡「Cherish珍晰」首场·杭州（杭州剧院）",
    "aliases": [],
@@ -168,7 +204,7 @@
     "type": "tour"
    }
   },
-  "event:t016": {
+  "event:t020": {
    "type": "event",
    "name": "专辑《歌颂》发行（共10首，制作人谭伊哲）",
    "aliases": [],
@@ -177,7 +213,7 @@
     "type": "album"
    }
   },
-  "event:t017": {
+  "event:t021": {
    "type": "event",
    "name": "二巡「2020-2021个人巡回」首场·杭州",
    "aliases": [],
@@ -186,7 +222,7 @@
     "type": "tour"
    }
   },
-  "event:t018": {
+  "event:t022": {
    "type": "event",
    "name": "专辑《B面图景》发行",
    "aliases": [],
@@ -195,16 +231,7 @@
     "type": "album"
    }
   },
-  "event:t019": {
-   "type": "event",
-   "name": "专辑《回望》发行",
-   "aliases": [],
-   "attrs": {
-    "date": "2021-12",
-    "type": "album"
-   }
-  },
-  "event:t020": {
+  "event:t023": {
    "type": "event",
    "name": "三巡「图景」首场·广州（中山纪念堂）",
    "aliases": [],
@@ -213,7 +240,16 @@
     "type": "tour"
    }
   },
-  "event:t021": {
+  "event:t024": {
+   "type": "event",
+   "name": "专辑《回望》发行",
+   "aliases": [],
+   "attrs": {
+    "date": "2021-12",
+    "type": "album"
+   }
+  },
+  "event:t025": {
    "type": "event",
    "name": "专辑《X自选集》发行",
    "aliases": [],
@@ -222,7 +258,7 @@
     "type": "album"
    }
   },
-  "event:t022": {
+  "event:t026": {
    "type": "event",
    "name": "四巡「肆益」首场·北京（二七剧场）",
    "aliases": [],
@@ -231,16 +267,16 @@
     "type": "tour"
    }
   },
-  "event:t023": {
+  "event:t027": {
    "type": "event",
-   "name": "专辑《不说》发行",
+   "name": "音乐剧《光影少年》饰演「幻影」（首次挑战音乐剧，唱段《镜中的自己》）",
    "aliases": [],
    "attrs": {
-    "date": "2024-12",
-    "type": "album"
+    "date": "2024-06-07",
+    "type": "career"
    }
   },
-  "event:t024": {
+  "event:t028": {
    "type": "event",
    "name": "五巡「吾」首场·杭州（杭州剧院）",
    "aliases": [],
@@ -249,16 +285,16 @@
     "type": "tour"
    }
   },
-  "event:t025": {
+  "event:t029": {
    "type": "event",
-   "name": "加入中国东方演艺集团（乐华+东演双轨并进）",
+   "name": "专辑《不说》发行",
    "aliases": [],
    "attrs": {
-    "date": "2025",
-    "type": "career"
+    "date": "2024-12",
+    "type": "album"
    }
   },
-  "event:t026": {
+  "event:t030": {
    "type": "event",
    "name": "网友首次在社交媒体提及王晰与中国东方演艺集团的关联（加入东演时间锚点）",
    "aliases": [],
@@ -267,7 +303,7 @@
     "type": "career"
    }
   },
-  "event:t027": {
+  "event:t031": {
    "type": "event",
    "name": "纪念抗战胜利80周年「九三」文艺晚会独唱《啊，朋友再见》（国家级晚会，东演时期）",
    "aliases": [],
@@ -276,7 +312,7 @@
     "type": "career"
    }
   },
-  "event:t028": {
+  "event:t032": {
    "type": "event",
    "name": "中国流行音乐艺术交流活动在莫斯科举行，王晰赴格涅辛音乐学院交流（新华社/中新网报道）",
    "aliases": [],
@@ -285,7 +321,7 @@
     "type": "career"
    }
   },
-  "event:t029": {
+  "event:t033": {
    "type": "event",
    "name": "俄罗斯「国际视界」国际音乐大赛代表中国参赛（莫斯科，普京致欢迎辞，23国参赛）",
    "aliases": [],
@@ -294,7 +330,7 @@
     "type": "career"
    }
   },
-  "event:t030": {
+  "event:t034": {
    "type": "event",
    "name": "第十五届中国音乐金钟奖金钟之星音乐会（演唱《天边》《万物可爱》）",
    "aliases": [],
@@ -303,7 +339,7 @@
     "type": "award"
    }
   },
-  "event:t031": {
+  "event:t035": {
    "type": "event",
    "name": "2025年国际艺术体操邀请赛暨北京艺术体操公开赛开幕式（与拉格达·海尼耶夫合唱《贝加尔湖畔》）",
    "aliases": [],
@@ -312,7 +348,25 @@
     "type": "career"
    }
   },
-  "event:t032": {
+  "event:t036": {
+   "type": "event",
+   "name": "加入中国东方演艺集团（乐华+东演双轨并进）",
+   "aliases": [],
+   "attrs": {
+    "date": "2025",
+    "type": "career"
+   }
+  },
+  "event:t037": {
+   "type": "event",
+   "name": "中国东方演艺集团歌舞剧《草原之夜——来自可克达拉的歌谣》首演·北京天桥艺术中心（饰垦荒者）",
+   "aliases": [],
+   "attrs": {
+    "date": "2026-01-17",
+    "type": "career"
+   }
+  },
+  "event:t038": {
    "type": "event",
    "name": "六巡「回」首场·重庆（施光南大剧院）",
    "aliases": [],
@@ -321,7 +375,7 @@
     "type": "tour"
    }
   },
-  "event:t033": {
+  "event:t039": {
    "type": "event",
    "name": "六巡「回」广州站·广东艺术剧院 19:30（王晰主演）",
    "aliases": [],
@@ -5852,6 +5906,14 @@
    "aliases": [],
    "attrs": {
     "album": null
+   }
+  },
+  "song:小毛驴(摇滚版)": {
+   "type": "song",
+   "name": "小毛驴(摇滚版)",
+   "aliases": [],
+   "attrs": {
+    "album": "追光吧！ 第2期"
    }
   },
   "media:2019-06-07-00": {

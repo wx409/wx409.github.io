@@ -66,14 +66,14 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t009",
-  "context": "media",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t010",
-  "context": "album",
+  "context": "media",
   "source_ref": "timeline.json"
  },
  {
@@ -94,7 +94,7 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t013",
-  "context": "media",
+  "context": "album",
   "source_ref": "timeline.json"
  },
  {
@@ -108,84 +108,84 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t015",
-  "context": "tour",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t016",
-  "context": "album",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t017",
-  "context": "tour",
+  "context": "media",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t018",
-  "context": "album",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t019",
-  "context": "album",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t020",
-  "context": "tour",
+  "context": "album",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t021",
-  "context": "album",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t022",
-  "context": "tour",
-  "source_ref": "timeline.json"
- },
- {
-  "source": "person:wangxi",
-  "type": "has_event",
-  "target": "event:t023",
   "context": "album",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
-  "target": "event:t024",
+  "target": "event:t023",
   "context": "tour",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
+  "target": "event:t024",
+  "context": "album",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
   "target": "event:t025",
-  "context": "career",
+  "context": "album",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t026",
-  "context": "career",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
@@ -199,21 +199,21 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t028",
-  "context": "career",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t029",
-  "context": "career",
+  "context": "album",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t030",
-  "context": "award",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
@@ -227,13 +227,55 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t032",
-  "context": "tour",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t033",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t034",
+  "context": "award",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t035",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t036",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t037",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t038",
+  "context": "tour",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t039",
   "context": "tour",
   "source_ref": "timeline.json"
  },
@@ -12379,6 +12421,13 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
+  "source": "song:小毛驴(摇滚版)",
+  "type": "belongs_to_album",
+  "target": "album:追光吧！ 第2期",
   "context": "",
   "source_ref": "songs_meta.json"
  },
