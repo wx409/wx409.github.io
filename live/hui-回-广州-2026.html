@@ -101,7 +101,41 @@
         <tr><td>状态</td><td class="highlight">已结束</td></tr>
     </table>
 
-    <div class="notice" style="background:#eef9ee;"><strong>演出已完成。</strong>以下为观众反馈汇总（自动收集，链接可复核）；完整歌单与现场实录持续补充中。</div>
+    <div class="notice" style="background:#eef9ee;"><strong>演出已完成。</strong>以下为完整歌单、数据效应（演出后 7 日）与观众反馈汇总（自动收集，链接可复核）。</div>
+
+    <section id="setlist" style="margin-top:36px;">
+        <h2>🎵 完整歌单（20 首）</h2>
+        <table id="setlist-table">
+            <tr><th>#</th><th>曲目</th><th>场后涨幅</th><th>说明</th></tr>
+            <tr data-song="生日快乐"><td>0</td><td>生日快乐</td><td class="uplift">—</td><td>互动环节（八月寿星合唱）</td></tr>
+            <tr data-song="花儿为什么这样红"><td>1</td><td>花儿为什么这样红</td><td class="uplift">—</td><td>开场曲（新疆民歌）</td></tr>
+            <tr data-song="橄榄树"><td>2</td><td>橄榄树</td><td class="uplift">—</td><td><span class="highlight">广州限定新增曲（重庆站无）</span>；五巡金曲回归</td></tr>
+            <tr data-song="像雾像雨又像风"><td>3</td><td>像雾像雨又像风</td><td class="uplift">—</td><td>六巡固定</td></tr>
+            <tr data-song="Yesterday Once More"><td>4</td><td>Yesterday Once More</td><td class="uplift">—</td><td>卡朋特经典；全场 shalalala 合唱</td></tr>
+            <tr data-song="Close to You"><td>5</td><td>Close to You</td><td class="uplift">—</td><td>卡朋特经典；三巡图景回归</td></tr>
+            <tr data-song="月半弯"><td>6</td><td>月半弯</td><td class="uplift">—</td><td>六巡回归（观众：2022太原-2026广州记忆重合）</td></tr>
+            <tr data-song="再见我的爱人"><td>7</td><td>再见我的爱人</td><td class="uplift">—</td><td>一巡经典；2016《我是歌手》十年曲目</td></tr>
+            <tr data-song="心动"><td>8</td><td>心动</td><td class="uplift">—</td><td>一巡/四巡经典；六巡固定</td></tr>
+            <tr data-song="一生守候"><td>9</td><td>一生守候</td><td class="uplift">—</td><td>2018 让很多人认识王晰的歌；安可/点歌；六巡固定</td></tr>
+            <tr data-song="让她降落"><td>10</td><td>让她降落</td><td class="uplift">—</td><td>一巡珍晰开场曲；全场讨论度最高</td></tr>
+            <tr data-song="Besame Mucho"><td>11</td><td>Besame Mucho</td><td class="uplift">—</td><td>《我是歌手》封神曲；一巡/四巡固定</td></tr>
+            <tr data-song="Autumn Leaves"><td>12</td><td>Autumn Leaves</td><td class="uplift">—</td><td>爵士经典；<span class="highlight">金色手麦首唱</span></td></tr>
+            <tr data-song="情网"><td>13</td><td>情网</td><td class="uplift">—</td><td>张学友翻唱；六巡固定（本场唱两遍）</td></tr>
+            <tr data-song="平凡又美好的晚上"><td>14</td><td>平凡又美好的晚上</td><td class="uplift">—</td><td>六巡新增固定；自述「很好听，但确实不红」</td></tr>
+            <tr data-song="女人花+水中花"><td>15</td><td>女人花+水中花</td><td class="uplift">—</td><td>组曲（观众称「四十一枝花」remix）</td></tr>
+            <tr data-song="Your Man"><td>16</td><td>Your Man</td><td class="uplift">—</td><td>加演；本场唱两遍</td></tr>
+            <tr data-song="Your Man"><td>17</td><td>Your Man（第二遍）</td><td class="uplift">—</td><td>观众「再来一遍」点唱</td></tr>
+            <tr data-song="情网"><td>18</td><td>情网（第二遍）</td><td class="uplift">—</td><td>「铁姐喊再来一遍，人形许愿池就没让人失望过」</td></tr>
+            <tr data-song="夜色"><td>19</td><td>夜色</td><td class="uplift">—</td><td>收尾曲（邓丽君）；观众称「8 句歌词唱出层次」</td></tr>
+        </table>
+        <p style="font-size:13px;color:#777;">场后涨幅：该曲演出后 7 日平台指数相对演出前（21~7 日）基线的变化，仅标注歌单内且有监测数据的曲目；歌单外作品不计入此表，无数据显示「—」。曲目来源：巡演歌单长表（单一事实源）。</p>
+    </section>
+
+    <section id="data-effect" style="margin-top:36px;">
+        <h2>📊 数据效应（演出后 7 日）</h2>
+        <div id="effect-box"><p style="color:#777;">效应数据加载中……</p></div>
+    </section>
+
     <section id="audience-repo" style="margin-top:36px;">
         <h2>👥 观众反馈（自动收集 · 多平台）</h2>
         <p style="font-size:13px;color:#777;">以下为演出后微博/B站/小红书/网页等平台观众公开发布的短评，自动汇总并附外链可复核（不公开昵称，仅保留短句）。</p>
@@ -197,6 +231,55 @@
         <p style="font-size:13px;color:#777;">🛎️ 观演贴士：广东艺术剧院距珠江新城约 4 公里；19:30 开演，建议 18:45 前入场；附近地铁 5 号线五羊邨站、1/5 号线杨箕站。票务：广东艺术剧院、大麦、猫眼。</p>
     </section>
 
+<script>
+(function(){
+  var SHOW_DATE = '2026-08-23';
+  function fmt(v){ return (v===null||v===undefined) ? '—' : ((v>=0?'+':'')+v.toFixed(1)+'%'); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  fetch('../dashboard/dashboard_data.json').then(function(r){ return r.json(); }).then(function(d){
+    var list = (d && d.tour_song_effects) || [];
+    var e = null;
+    for (var i=0;i<list.length;i++){ if (list[i].date === SHOW_DATE){ e = list[i]; break; } }
+    var box = document.getElementById('effect-box');
+    if (!e){ if (box){ box.innerHTML = '<p style="color:#777;">该场次暂无数效应数据（待 dashboard 更新）。</p>'; } return; }
+    var note = '演出后 7 日，全站指数较演出前（21~7 日）基线' + fmt(e.total_uplift) +
+        (e.setlist_uplift!=null ? '；歌单内曲目平均' + fmt(e.setlist_uplift) : '') +
+        (e.radiance_uplift!=null ? '；歌单外作品平均' + fmt(e.radiance_uplift) + '，巡演的辐射带动同样带来积极影响' : '');
+    var h = '<p>' + note + '</p><table><tr><th>口径</th><th>变化</th></tr>' +
+        '<tr><td>全站指数（追踪曲目池）</td><td>' + fmt(e.total_uplift) + '</td></tr>' +
+        '<tr><td>歌单内曲目（直接效应）</td><td>' + fmt(e.setlist_uplift) + '</td></tr>' +
+        '<tr><td>歌单外作品（辐射带动）</td><td>' + fmt(e.radiance_uplift) + '</td></tr></table>';
+    if (e.top_songs && e.top_songs.length){
+      h += '<h3 style="font-size:15px;">本轮带动最显著歌曲</h3><table><tr><th>曲目</th><th>变化</th><th>归属</th></tr>';
+      for (var j=0;j<e.top_songs.length;j++){
+        var s = e.top_songs[j];
+        h += '<tr><td>' + esc(s.name) + '</td><td>' + fmt(s.uplift) + '</td><td>' + (s.on_setlist ? '歌单内' : '辐射带动（歌单外）') + '</td></tr>';
+      }
+      h += '</table>';
+    }
+    h += '<p style="font-size:13px;color:#777;">口径：演出后 7 日平台指数，相对演出前 21~7 日基线的变化。数据来源：<a href="../dashboard/dashboard_data.json">数据大屏 dashboard_data.json</a>，随监测数据自动更新。</p>';
+    box.innerHTML = h;
+    /* 歌单逐曲场后涨幅标注：仅歌单内且有监测数据的曲目（其余保持 —） */
+    var map = {};
+    var songs = e.songs || [];
+    for (var k=0;k<songs.length;k++){
+      if (songs[k].on_setlist){ map[String(songs[k].name).replace(/\s+/g,'')] = songs[k].uplift; }
+    }
+    var rows = document.querySelectorAll('#setlist-table tr[data-song]');
+    for (var m=0;m<rows.length;m++){
+      var key = String(rows[m].getAttribute('data-song') || '').replace(/\s+/g,'');
+      var parts = key.split('+');
+      var val = null;
+      for (var p=0;p<parts.length;p++){ if (parts[p] in map){ val = map[parts[p]]; } }
+      var td = rows[m].querySelector('td.uplift');
+      if (td){ td.textContent = (val===null) ? '—' : fmt(val); }
+    }
+  }).catch(function(){
+    var box = document.getElementById('effect-box');
+    if (box){ box.innerHTML = '<p style="color:#777;">效应数据加载失败，请刷新重试。</p>'; }
+  });
+})();
+</script>
 <script src="/qa_engine.js"></script>
 </body>
 </html>
