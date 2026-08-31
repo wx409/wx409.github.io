@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-08-31 13:27",
- "last_update": "2026-08-31 13:27",
+ "timestamp": "2026-08-31 18:06",
+ "last_update": "2026-08-31 18:06",
  "date_range": "2023-01-01 ~ 2026-08-31",
  "total": 269727,
  "complete_rate": 20.8,
@@ -196,7 +196,7 @@
   2.9,
   3.0,
   8.2,
-  36.1
+  36.5
  ],
  "top_songs": [
   {
@@ -260,7 +260,120 @@
    "tag": "活跃"
   }
  ],
- "daily_listen_trend": [],
+ "daily_listen_trend": [
+  {
+   "rank": 1,
+   "song": "黎明前的黑暗",
+   "share_pct": 45.6,
+   "trend_pct": 88.5,
+   "trend_label": "up"
+  },
+  {
+   "rank": 2,
+   "song": "一生中最爱",
+   "share_pct": 8.3,
+   "trend_pct": 182.1,
+   "trend_label": "up"
+  },
+  {
+   "rank": 3,
+   "song": "在路上",
+   "share_pct": 7.0,
+   "trend_pct": 111.4,
+   "trend_label": "up"
+  },
+  {
+   "rank": 4,
+   "song": "山楂树",
+   "share_pct": 5.6,
+   "trend_pct": 124.2,
+   "trend_label": "up"
+  },
+  {
+   "rank": 5,
+   "song": "再叙",
+   "share_pct": 4.8,
+   "trend_pct": 128.6,
+   "trend_label": "up"
+  },
+  {
+   "rank": 6,
+   "song": "月弯弯",
+   "share_pct": 4.4,
+   "trend_pct": 63.9,
+   "trend_label": "up"
+  },
+  {
+   "rank": 7,
+   "song": "神魂颠倒",
+   "share_pct": 4.1,
+   "trend_pct": 450.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 8,
+   "song": "Sound of Silence",
+   "share_pct": 4.0,
+   "trend_pct": 89.3,
+   "trend_label": "up"
+  },
+  {
+   "rank": 9,
+   "song": "谁",
+   "share_pct": 3.1,
+   "trend_pct": 127.8,
+   "trend_label": "up"
+  },
+  {
+   "rank": 10,
+   "song": "她真漂亮",
+   "share_pct": 2.8,
+   "trend_pct": 27.6,
+   "trend_label": "up"
+  },
+  {
+   "rank": 11,
+   "song": "荒人之歌",
+   "share_pct": 2.3,
+   "trend_pct": 150.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 12,
+   "song": "亲密爱人",
+   "share_pct": 2.2,
+   "trend_pct": 38.1,
+   "trend_label": "up"
+  },
+  {
+   "rank": 13,
+   "song": "晚风暖暖",
+   "share_pct": 1.9,
+   "trend_pct": 78.6,
+   "trend_label": "up"
+  },
+  {
+   "rank": 14,
+   "song": "相思",
+   "share_pct": 1.7,
+   "trend_pct": 46.7,
+   "trend_label": "up"
+  },
+  {
+   "rank": 15,
+   "song": "Bésame Mucho",
+   "share_pct": 1.2,
+   "trend_pct": null,
+   "trend_label": "new"
+  },
+  {
+   "rank": 16,
+   "song": "南屏晚钟",
+   "share_pct": 1.1,
+   "trend_pct": 25.0,
+   "trend_label": "up"
+  }
+ ],
  "daily_anomalies": [],
  "latest_anomaly": null,
  "weekend_workday": [
@@ -8300,7 +8413,7 @@
    "content_type": "个人巡回",
    "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
    "total_uplift": -17.1,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "我的心里只有你没有他",
@@ -8372,7 +8485,7 @@
    "content_type": "个人巡回",
    "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
    "total_uplift": -14.3,
-   "pattern": "精准型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "乌兰巴托的夜晚",
@@ -8444,7 +8557,7 @@
    "content_type": "个人巡回",
    "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
    "total_uplift": -14.7,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "微醺23点08分",
@@ -8660,7 +8773,7 @@
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": -37.2,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "相思",
@@ -8840,7 +8953,7 @@
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": 3.8,
-   "pattern": "常态型",
+   "pattern": "精准型",
    "top_songs": [
     {
      "name": "重庆野玫瑰",
@@ -8876,7 +8989,7 @@
    "content_type": "晚会",
    "tour": "2024星月榜样盛典",
    "total_uplift": 4.9,
-   "pattern": "常态型",
+   "pattern": "精准型",
    "top_songs": [
     {
      "name": "重庆野玫瑰",
@@ -8984,7 +9097,7 @@
    "content_type": "其他",
    "tour": "清明奇妙游（河南卫视综艺）",
    "total_uplift": 2.0,
-   "pattern": "精准型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "哭砂",
@@ -9020,7 +9133,7 @@
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": 4.0,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "哭砂",
@@ -9128,7 +9241,7 @@
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": 3.5,
-   "pattern": "精准型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "多听有益",
@@ -9344,7 +9457,7 @@
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": -5.4,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "滚滚长江东逝水",
@@ -9632,7 +9745,7 @@
    "content_type": "个人巡回",
    "tour": "五巡·王晰吾个人巡回音乐会",
    "total_uplift": -8.3,
-   "pattern": "常态型",
+   "pattern": "精准型",
    "top_songs": [
     {
      "name": "无荒",
@@ -9740,7 +9853,7 @@
    "content_type": "签唱会",
    "tour": "《不说》签唱会",
    "total_uplift": -6.8,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "住口",
@@ -9776,7 +9889,7 @@
    "content_type": "个人巡回",
    "tour": "五巡·王晰吾个人巡回音乐会",
    "total_uplift": -3.2,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "在路上",
@@ -9956,7 +10069,7 @@
    "content_type": "其他",
    "tour": "俄罗斯\"国际视界\"国际音乐大赛（中国代表）",
    "total_uplift": -3.2,
-   "pattern": "单点触发型",
+   "pattern": "精准型",
    "top_songs": [
     {
      "name": "哭砂",
@@ -9971,7 +10084,7 @@
     {
      "name": "在路上",
      "uplift": 24.9,
-     "on_setlist": false
+     "on_setlist": true
     },
     {
      "name": "惑许",
@@ -10172,7 +10285,7 @@
    "content_type": "晚会",
    "tour": "2025央视重阳晚会",
    "total_uplift": 6.6,
-   "pattern": "精准型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "南屏晚钟",
@@ -10244,7 +10357,7 @@
    "content_type": "其他",
    "tour": "国际艺术体操公开赛闭幕式",
    "total_uplift": 0.5,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "南屏晚钟",
@@ -10280,7 +10393,7 @@
    "content_type": "个人巡回",
    "tour": "五巡·王晰吾个人巡回音乐会",
    "total_uplift": -2.4,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "重庆野玫瑰",
@@ -10532,7 +10645,7 @@
    "content_type": "个人巡回",
    "tour": "五巡·王晰吾个人巡回音乐会",
    "total_uplift": -6.7,
-   "pattern": "常态型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "下沉",
@@ -10820,7 +10933,7 @@
    "content_type": "个人巡回",
    "tour": "六巡·王晰回个人巡回音乐会",
    "total_uplift": 4.2,
-   "pattern": "精准型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "谁",
@@ -11180,7 +11293,7 @@
    "content_type": "个人巡回",
    "tour": "六巡·王晰回个人巡回音乐会",
    "total_uplift": 13.1,
-   "pattern": "出圈型",
+   "pattern": "无效型",
    "top_songs": [
     {
      "name": "一生中最爱",
