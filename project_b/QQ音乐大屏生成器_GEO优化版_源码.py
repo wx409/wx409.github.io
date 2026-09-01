@@ -4650,6 +4650,18 @@ def _load_live_url_map(dashboard_dir):
     return mapping
 
 
+def _clean_nan(obj):
+    """递归清洗 NaN/Infinity → None（浏览器严格 JSON.parse 不允许 NaN/Infinity 字面量，2026-09-01 修复）"""
+    import math
+    if isinstance(obj, dict):
+        return {k: _clean_nan(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_clean_nan(v) for v in obj]
+    if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+        return None
+    return obj
+
+
 def generate_dashboard(payload, dashboard_dir):
     os.makedirs(dashboard_dir, exist_ok=True)
 
@@ -4660,7 +4672,7 @@ def generate_dashboard(payload, dashboard_dir):
 
     json_path = os.path.join(dashboard_dir, "dashboard_data.json")
     with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
+        json.dump(_clean_nan(payload), f, ensure_ascii=False, indent=2)
 
     # 助手实时检索精简版（单一数据源：从 payload 派生，供 qa_engine.js 轻量加载）
     _lite_fields = [
@@ -4679,7 +4691,7 @@ def generate_dashboard(payload, dashboard_dir):
         for _e in (payload.get("tour_song_effects") or [])
     ]
     with open(os.path.join(dashboard_dir, "dashboard_lite.json"), "w", encoding="utf-8") as _f:
-        json.dump(_lite, _f, ensure_ascii=False, indent=1)
+        json.dump(_clean_nan(_lite), _f, ensure_ascii=False, indent=1)
     logger.info(f"助手实时检索精简数据已写出: dashboard_lite.json（{len(json.dumps(_lite, ensure_ascii=False))//1024}KB）")
 
     head_info = (f'<div class="subtitle" style="margin-top:6px;color:#3a7bd5">'
