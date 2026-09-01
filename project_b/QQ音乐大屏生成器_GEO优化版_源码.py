@@ -4663,6 +4663,94 @@ def _clean_nan(obj):
     return obj
 
 
+def _build_analysis(payload):
+    """数据驱动自动分析结论（规则模板，随数据变化自动更新；配 temp/deepseek_key.json 后可升级 LLM 润色）
+    所有数字从 payload 派生，不写死；口径警告随数据自动判定。"""
+    fx = payload.get("tour_song_effects") or []
+    pairs = []
+    for e in fx:
+        for s in e.get("songs", []):
+            pairs.append({"t": e.get("content_type", ""), "d": e.get("date", ""),
+                          "c": e.get("city", ""), "up": s.get("uplift"), "on": s.get("on_setlist"),
+                          "n": s.get("name")})
+    if not pairs:
+        return {"note": "暂无数据"}
+    ups = [p["up"] for p in pairs]
+    n_pos = sum(1 for u in ups if u > 0)
+    n_big = sum(1 for u in ups if u >= 20)
+    n = len(ups)
+    med = sorted(ups)[n // 2] if n else 0
+
+    # 形态排序
+    from collections import defaultdict
+    by_t = defaultdict(list)
+    for p in pairs:
+        by_t[p["t"]].append(p["up"])
+    morph = sorted([(t, sum(u) / len(u)) for t, u in by_t.items()], key=lambda x: -x[1])
+    morph_best = f"{morph[0][0]}（平均 {morph[0][1]:+.1f}%）" if morph else "—"
+    morph_worst = f"{morph[-1][0]}（平均 {morph[-1][1]:+.1f}%）" if morph else "—"
+
+    # 年度趋势
+    by_y = defaultdict(list)
+    for p in pairs:
+        by_y[p["d"][:4]].append(p["up"])
+    yrs = sorted(by_y)
+    y_trend = ""
+    if len(yrs) >= 2:
+        p0 = sum(1 for u in by_y[yrs[0]] if u > 0) / len(by_y[yrs[0]]) * 100
+        p1 = sum(1 for u in by_y[yrs[-1]] if u > 0) / len(by_y[yrs[-1]]) * 100
+        y_trend = f"正涨幅占比 {yrs[0]} 的 {p0:.0f}% → {yrs[-1]} 的 {p1:.0f}%"
+
+    # 全局最大爆点
+    top = max(pairs, key=lambda p: p["up"])
+    burst = f"{top['n']}（{top['d']}，{'歌单内' if top['on'] else '辐射带动'} +{top['up']:.1f}%）" if top["up"] > 0 else "无显著爆点"
+
+    # 最新场次
+    latest = None
+    if fx:
+        latest_e = max(fx, key=lambda e: e.get("date") or "")
+        latest = {"date": latest_e.get("date"), "city": latest_e.get("city"),
+                  "type": latest_e.get("content_type"), "total": latest_e.get("total_uplift"),
+                  "rl": latest_e.get("radiance_uplift"), "sl": latest_e.get("setlist_uplift"),
+                  "pattern": latest_e.get("pattern")}
+
+    # 广州曲线（若在场）
+    gz = [e for e in fx if e.get("city") == "广州"]
+    gz_curve = ""
+    if gz:
+        seq = sorted(gz, key=lambda e: e.get("date") or "")
+        gz_curve = " → ".join(f"{e['date'][:7]}({e.get('total_uplift') if e.get('total_uplift') is not None else '—'})" for e in seq)
+
+    # 六巡双站
+    dual = [e for e in fx if e.get("date") in ("2026-06-13", "2026-08-23")]
+    dual_txt = "；".join(f"{e.get('city')}{e.get('pattern', '')} 全站{'+' if (e.get('total_uplift') or 0) >= 0 else ''}{e.get('total_uplift')}%" for e in dual) if dual else ""
+
+    # 口径警告（数据驱动判定）
+    warnings = []
+    if n_pos / n < 0.5:
+        warnings.append(f"正涨幅占比仅 {n_pos / n * 100:.0f}%——多数观测随宣发基线回落（测量效应，非流量流失）")
+    # 窗口重叠：相邻场次间隔 < 7 日
+    dates = sorted(set(e.get("date") for e in fx if e.get("date")))
+    overlap = sum(1 for a, b in zip(dates, dates[1:]) if (int(b.replace('-', '')) - int(a.replace('-', ''))) < 7)
+    if overlap:
+        warnings.append(f"检测到 {overlap} 处场次间隔<7日（效应窗口重叠，归因可能串扰）")
+    warnings.append("口径说明：基线为演出前 21~7 日均值，未做同星期对齐（流媒体有星期结构性差异，待升级）")
+
+    return {
+        "generated_at": payload.get("timestamp") or payload.get("last_update") or "",
+        "overview": f"共 {len(fx)} 场活动 / {n} 个歌曲观测，正涨幅 {n_pos}（{n_pos / n * 100:.0f}%），显著带动≥20% 占 {n_big / n * 100:.0f}%，平均 {sum(ups) / n:+.1f}%、中位 {med:+.1f}%。",
+        "morph_best": morph_best,
+        "morph_worst": morph_worst,
+        "year_trend": y_trend,
+        "burst": burst,
+        "latest_show": latest,
+        "gz_curve": gz_curve,
+        "dual_2026": dual_txt,
+        "warnings": warnings,
+        "engine": "rule-template-v1（配 deepseek_key.json 可升级 LLM 润色）",
+    }
+
+
 def generate_dashboard(payload, dashboard_dir):
     os.makedirs(dashboard_dir, exist_ok=True)
 
@@ -4672,6 +4760,7 @@ def generate_dashboard(payload, dashboard_dir):
         _e["live_url"] = live_map.get(_e.get("date"))
 
     json_path = os.path.join(dashboard_dir, "dashboard_data.json")
+    payload["analysis"] = _build_analysis(payload)
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(_clean_nan(payload), f, ensure_ascii=False, indent=2)
 
