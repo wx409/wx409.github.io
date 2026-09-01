@@ -80,6 +80,11 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
     <div class="box span6"><h3>六巡双路径<span class="tag">重庆精准 vs 广州出圈</span></h3><div id="c_dual" class="chart"></div></div>
   </div>
 
+  <div class="insight" id="autoAnalysis" style="display:none">
+    <h2>📈 自动分析（数据驱动 · 随 dashboard_data.json 自动更新）</h2>
+    <div id="anaBody"></div>
+  </div>
+
   <div class="insight">
     <h2>归因洞察（2026-09-01 五主题并行研究 · 数据+微博+在线信源）</h2>
     <div class="ins-cards">
@@ -111,6 +116,30 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
     var fx = d.tour_song_effects||[];
     document.getElementById('snap').textContent = d.timestamp || d.last_update || '';
     if(!fx.length){ return; }
+
+    // ---- 自动分析区块（数据驱动结论文本） ----
+    var ana = d.analysis;
+    if (ana && ana.overview) {
+      var box = document.getElementById('autoAnalysis');
+      var latest = ana.latest_show || {};
+      var h = '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:12.5px;color:#A8B0C8;line-height:1.6">' +
+        '<div style="grid-column:span 2;color:#F2D98D;font-weight:600;font-size:13px">全景：' + ana.overview + '</div>' +
+        '<div><b style="color:#5BC2E7">带动最强形态：</b>' + ana.morph_best + '</div>' +
+        '<div><b style="color:#E0645C">最弱形态：</b>' + ana.morph_worst + '</div>' +
+        '<div><b style="color:#5BC2E7">年度趋势：</b>' + (ana.year_trend || '—') + '</div>' +
+        '<div><b style="color:#E0B64F">最大爆点：</b>' + ana.burst + '</div>' +
+        (ana.gz_curve ? '<div><b style="color:#6FBF8F">广州城效应史：</b>' + ana.gz_curve + '（首次转正）</div>' : '') +
+        (ana.dual_2026 ? '<div><b style="color:#5BC2E7">六巡双路径：</b>' + ana.dual_2026 + '</div>' : '') +
+        (latest.date ? '<div><b style="color:#F2D98D">最新场次：</b>' + (latest.date||'') + ' ' + (latest.city||'') + ' [' + (latest.type||'') + '] 全站 ' + fmt(latest.total) + ' · ' + (latest.pattern||'') + '</div>' : '') +
+        '</div>';
+      if (ana.warnings && ana.warnings.length) {
+        h += '<div style="margin-top:10px;font-size:11.5px;color:#E0645C;border-top:1px dashed #3C4468;padding-top:8px"><b>口径警告：</b><br>' +
+          ana.warnings.map(function(w){ return '⚠ ' + w; }).join('<br>') + '</div>';
+      }
+      h += '<div style="margin-top:8px;font-size:10.5px;color:#5A6B8C">引擎：' + (ana.engine||'') + ' · 快照：' + (ana.generated_at||'') + '</div>';
+      document.getElementById('anaBody').innerHTML = h;
+      box.style.display = 'block';
+    }
 
     // ---- 歌曲观测 ----
     var pairs=[];
