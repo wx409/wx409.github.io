@@ -2859,12 +2859,20 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     window.open(a.getAttribute('href'), '_blank', 'noopener');
   });
   var html = '', aiLines = [];
+  // 内容形态短标签（content_type → 展示名）
+  var CT_LABEL = {
+    '个人巡回': '巡演', '歌舞剧·音乐剧': '音乐剧', '拼盘演唱会': '拼盘',
+    '签唱会': '签唱', '政府活动': '政府', '主题音乐会': '音乐会'
+  };
   tse.slice().reverse().forEach(function(e){  // 最新场次在前
     var tops = e.top_songs || [];
     var songs = (e.songs || []).slice().sort(function(a,b){ return (b.uplift||0)-(a.uplift||0); });
     html += '<details class="tse-scene" id="tour-scene-' + (e.date||'') + '">';
     html += '<summary>';
     html += '<span class="tse-date">' + (e.date||'').replace(/-/g,'.') + '</span>';
+    var ctRaw = e.content_type || '';
+    var ctLabel = CT_LABEL[ctRaw] || ctRaw;
+    html += '<span class="tse-tag">' + ctLabel + '</span>';
     html += (e.live_url
       ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'') + '</a>'
       : '<span class="tse-city">' + (e.city||'') + '</span>');
@@ -2885,7 +2893,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       html += '</table>';
     }
     html += '</div></details>';
-    aiLines.push((e.date||'') + ' ' + (e.city||'') + ' 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
+    aiLines.push((e.date||'') + ' ' + (e.city||'') + '[' + ctLabel + '] 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
   });
   box.innerHTML = html;
   var ais = document.getElementById('ai-tourSongFx');
