@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-01 12:00",
+  "timestamp": "2026-09-01 12:19",
   "total": 269980,
   "success": 56197,
   "complete_rate": 20.8,
@@ -193222,7 +193222,7 @@
         33.9,
         36.0,
         31.9,
-        36.1,
+        39.5,
         26.7,
         28.0,
         26.0,
@@ -193527,8 +193527,8 @@
       "在路上"
     ],
     "values": [
-      139.4,
-      129.6
+      135.4,
+      128.8
     ],
     "spring": [
       false,
@@ -200866,15 +200866,86 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 8,
+    "active_count": 10,
     "total_tracked": 383,
-    "concentration_top3": 76.8,
+    "concentration_top3": 71.5,
     "as_of": "2026-09-01",
-    "too_small": true
+    "too_small": false
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 55.6,
+      "trend_pct": 62.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "一生中最爱",
+      "share_pct": 8.7,
+      "trend_pct": 44.2,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "在路上",
+      "share_pct": 7.2,
+      "trend_pct": 113.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "山楂树",
+      "share_pct": 7.1,
+      "trend_pct": 117.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "再叙",
+      "share_pct": 6.5,
+      "trend_pct": 143.5,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
+      "song": "月弯弯",
+      "share_pct": 4.3,
+      "trend_pct": 48.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "Sound of Silence",
+      "share_pct": 3.6,
+      "trend_pct": 63.2,
+      "trend_label": "up"
+    },
+    {
+      "rank": 8,
+      "song": "神魂颠倒",
+      "share_pct": 3.2,
+      "trend_pct": 115.4,
+      "trend_label": "up"
+    },
+    {
+      "rank": 9,
+      "song": "她真漂亮",
+      "share_pct": 3.0,
+      "trend_pct": 4.0,
+      "trend_label": "flat"
+    },
+    {
+      "rank": 10,
+      "song": "贝加尔湖畔",
+      "share_pct": 0.8,
+      "trend_pct": null,
+      "trend_label": "new"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-09-01 12:00",
+  "last_update": "2026-09-01 12:19",
   "today_batches": 1217,
   "daily_new_records": 0,
   "recent_7days": [
@@ -200936,13 +201007,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 2473,
-      "success": 2473,
+      "total": 2474,
+      "success": 2474,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1475415,
+      "before": 1475668,
       "after": 280540
     },
     "index_calibration": {
