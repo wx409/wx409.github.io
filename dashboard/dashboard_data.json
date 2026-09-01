@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-01 17:34",
+  "timestamp": "2026-09-01 17:38",
   "total": 269980,
   "success": 56197,
   "complete_rate": 20.8,
@@ -177732,23 +177732,23 @@
     ],
     "total_events": 84,
     "decay_count": 83,
-    "summary_html": "<div class='dashboard-insight'><h3>演出辐射效能与衰减形态分析</h3><p>从不同内容形态看，晚会的辐射带动最稳定，中位辐射带动为1.5%，中位歌单内达30.6%，说明晚会不仅能有效带动听众追踪，还能精准触发歌单收藏，是演出形态中『溢出』与『留存』双优的选择。音乐节虽中位辐射为4.0%，但样本仅2场，参考性有限。个人巡回中位辐射为-5.1%、中位歌单内为-6.8%，均为负值，需警惕热度快速回落。衰减形态上，晚会与歌舞剧·音乐剧以缓释型为主（均占85.7%），半衰期仅1-2天但持续期约10-12天，呈现『短引爆、长尾效应』特征。异常场次显示，个别歌舞剧辐射带动达215.7%、个人巡回广州场达155.4%，爆款内容能带来超额溢出，但多数场次中位为负，个体差异大。建议：一、将晚会作为主力形态，稳定做量与留存；二、优化个人巡演的选曲与互动，改善负向辐射；三、演出后一周内持续释放物料与话题，利用缓释惯性最大化长尾收益。</p></div>",
-    "morphology_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均追踪曲目池</td><td>中位追踪曲目池</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody><tr><td>个人巡回</td><td>23</td><td>-9.5</td><td>-5.4</td><td>-6.1</td><td>-6.8</td><td>-3.1</td><td>-5.1</td></tr><tr><td>晚会</td><td>14</td><td>2.8</td><td>-3.2</td><td>41.5</td><td>30.6</td><td>6.4</td><td>1.5</td></tr><tr><td>音乐节</td><td>2</td><td>样本不足</td><td>样本不足</td><td>样本不足</td><td>样本不足</td><td>样本不足</td><td>样本不足</td></tr><tr><td>其他</td><td>22</td><td>-3.6</td><td>-2.2</td><td>24.6</td><td>14.9</td><td>-1.0</td><td>-0.5</td></tr></tbody></table>",
-    "pattern_distribution_html": "<div class='dashboard-insight'><h4>效应模式分布</h4><ul><li>晚会：常态型14.3%，单点触发型64.3%，均衡型14.3%，精准型7.1%</li><li>签唱会：均衡型33.3%，单点触发型33.3%，常态型33.3%</li><li>个人巡回：均衡型26.1%，常态型43.5%，精准型17.4%，扩散型4.3%，单点触发型4.3%，出圈型4.3%</li><li>其他：单点触发型63.6%，常态型13.6%，精准型13.6%，扩散型4.5%，均衡型4.5%</li><li>拼盘演唱会：扩散型33.3%，均衡型33.3%，常态型33.3%</li><li>歌舞剧·音乐剧：单点触发型92.9%，常态型7.1%</li><li>政府活动：精准型100.0%</li><li>音乐节：精准型50.0%，常态型50.0%</li><li>综艺：单点触发型50.0%，扩散型50.0%</li></ul></div>",
-    "decay_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均峰值</td><td>平均时长（天）</td><td>平均半衰期（天）</td><td>形态分布</td></tr></thead><tbody><tr><td>晚会</td><td>14</td><td>11.0</td><td>10.6</td><td>1.1</td><td>缓释型85.7%，脉冲型14.3%</td></tr><tr><td>签唱会</td><td>3</td><td>-4.8</td><td>7.0</td><td>1.5</td><td>脉冲型33.3%，缓释型66.7%</td></tr><tr><td>个人巡回</td><td>23</td><td>22.5</td><td>9.9</td><td>1.6</td><td>缓释型73.9%，短促型4.3%，脉冲型21.7%</td></tr><tr><td>其他</td><td>21</td><td>23.5</td><td>9.2</td><td>1.6</td><td>缓释型71.4%，脉冲型23.8%，短促型4.8%</td></tr><tr><td>拼盘演唱会</td><td>3</td><td>7.5</td><td>5.3</td><td>1.0</td><td>脉冲型66.7%，缓释型33.3%</td></tr><tr><td>歌舞剧·音乐剧</td><td>14</td><td>17.0</td><td>12.0</td><td>1.2</td><td>缓释型85.7%，短促型14.3%</td></tr><tr><td>音乐节</td><td>2</td><td>样本不足</td><td>样本不足</td><td>样本不足</td><td>缓释型50.0%，脉冲型50.0%</td></tr><tr><td>综艺</td><td>2</td><td>样本不足</td><td>样本不足</td><td>样本不足</td><td>缓释型100.0%</td></tr></tbody></table>",
-    "top10_table_html": "<table class='event-ranking'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody><tr><td>2024-06-07</td><td>—</td><td>歌舞剧·音乐剧</td><td>215.7</td><td></td><td></td><td>无</td></tr><tr><td>2024-06-16</td><td>上海</td><td>晚会</td><td>96.1</td><td>187.7</td><td>0.5</td><td>有</td></tr><tr><td>2024-08-24</td><td>上海</td><td>拼盘演唱会</td><td>24.6</td><td>38.0</td><td>0.6</td><td>有</td></tr><tr><td>2025-12-31</td><td>—</td><td>晚会</td><td>21.1</td><td>30.6</td><td>0.7</td><td>有</td></tr><tr><td>2023-10-29</td><td>—</td><td>其他</td><td>17.9</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-16</td><td>乌鲁木齐</td><td>歌舞剧·音乐剧</td><td>16.9</td><td></td><td></td><td>无</td></tr><tr><td>2023-12-31</td><td>—</td><td>其他</td><td>16.8</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-15</td><td>乌鲁木齐</td><td>歌舞剧·音乐剧</td><td>16.3</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-23</td><td>广州</td><td>个人巡回</td><td>15.5</td><td>-8.5</td><td>-1.8</td><td>有</td></tr><tr><td>2023-12-31</td><td>上海</td><td>个人巡回</td><td>14.7</td><td>35.5</td><td>0.4</td><td>有</td></tr></tbody></table>",
+    "summary_html": "<div class='dashboard-insight'><h3>演出辐射效能与衰减形态分析</h3><p>本次分析覆盖82场含逐日衰减数据的演出，政府活动单独列示。从辐射带动看，晚会的溢出最稳定，中位辐射带动为1.5%，音乐节虽然中位达4.0%，但样本不足不具参考性；个人巡回中位-5.1%，波动最大。在精准转化层面，晚会歌单内中位数达30.6%，显著领先其他形态，个人巡回歌单内中位数为-6.8%，表现低迷。衰减形态方面，多数演出呈缓释型，晚会85.7%、歌舞剧85.7%、个人巡回73.9%均为缓释型，说明演出影响力可在结束后多日持续释放；拼盘演唱会脉冲型占66.7%，爆发强但消退快。建议：1）优先增加晚会类演出，以获取稳定辐射与高效转化；2）个人巡回需复盘高辐射场次，优化选曲与互动环节；3）针对缓释型演出，应在演出后持续运营话题，引导歌单收藏，延长长尾效应。</p></div>",
+    "morphology_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均追踪曲目池</td><td>中位追踪曲目池</td><td>平均歌单内</td><td>中位歌单内</td><td>平均辐射</td><td>中位辐射</td></tr></thead><tbody><tr><td>个人巡回</td><td>23</td><td>-9.5%</td><td>-5.4%</td><td>-6.1%</td><td>-6.8%</td><td>-3.1%</td><td>-5.1%</td></tr><tr><td>晚会</td><td>14</td><td>2.8%</td><td>-3.2%</td><td>41.5%</td><td>30.6%</td><td>6.4%</td><td>1.5%</td></tr><tr><td>音乐节</td><td>2</td><td>-0.4%*</td><td>-0.4%*</td><td>10.6%*</td><td>10.6%*</td><td>4.0%*</td><td>4.0%*</td></tr><tr><td>其他</td><td>22</td><td>-3.6%</td><td>-2.2%</td><td>24.6%</td><td>14.9%</td><td>-1.0%</td><td>-0.5%</td></tr><tr><td>政府活动（单独列示）</td><td>—</td><td>8.6%</td><td>—</td><td>508.3%</td><td>—</td><td>1.9%</td><td>—</td></tr></tbody></table><p class='note'>*样本不足（n<3）</p>",
+    "pattern_distribution_html": "<div class='dashboard-insight'><h4>效应模式分布</h4><table class='event-ranking'><thead><tr><td>形态</td><td>精准型</td><td>扩散型</td><td>均衡型</td><td>出圈型</td><td>常态型</td><td>单点触发型</td></tr></thead><tbody><tr><td>晚会</td><td>7.1%</td><td></td><td>14.3%</td><td></td><td>14.3%</td><td>64.3%</td></tr><tr><td>签唱会</td><td></td><td></td><td>33.3%</td><td></td><td>33.3%</td><td>33.3%</td></tr><tr><td>个人巡回</td><td>17.4%</td><td>4.3%</td><td>26.1%</td><td>4.3%</td><td>43.5%</td><td>4.3%</td></tr><tr><td>其他</td><td>13.6%</td><td>4.5%</td><td>4.5%</td><td></td><td>13.6%</td><td>63.6%</td></tr><tr><td>拼盘演唱会</td><td></td><td>33.3%</td><td>33.3%</td><td></td><td>33.3%</td><td></td></tr><tr><td>歌舞剧·音乐剧</td><td></td><td></td><td></td><td></td><td>7.1%</td><td>92.9%</td></tr><tr><td>政府活动</td><td>100%</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>音乐节</td><td>50%</td><td></td><td></td><td></td><td>50%</td><td></td></tr><tr><td>综艺</td><td></td><td>50%</td><td></td><td></td><td></td><td>50%</td></tr></tbody></table></div>",
+    "decay_table_html": "<table class='event-ranking'><thead><tr><td>形态</td><td>n</td><td>平均峰值</td><td>平均时长</td><td>平均半衰期</td><td>形状分布</td></tr></thead><tbody><tr><td>晚会</td><td>14</td><td>11.0%</td><td>10.6天</td><td>1.1天</td><td>缓释型85.7%、脉冲型14.3%</td></tr><tr><td>签唱会</td><td>3</td><td>-4.8%</td><td>7.0天</td><td>1.5天</td><td>脉冲型33.3%、缓释型66.7%</td></tr><tr><td>个人巡回</td><td>23</td><td>22.5%</td><td>9.9天</td><td>1.6天</td><td>缓释型73.9%、短促型4.3%、脉冲型21.7%</td></tr><tr><td>其他</td><td>21</td><td>23.5%</td><td>9.2天</td><td>1.6天</td><td>缓释型71.4%、脉冲型23.8%、短促型4.8%</td></tr><tr><td>拼盘演唱会</td><td>3</td><td>7.5%</td><td>5.3天</td><td>1.0天</td><td>脉冲型66.7%、缓释型33.3%</td></tr><tr><td>歌舞剧·音乐剧</td><td>14</td><td>17.0%</td><td>12.0天</td><td>1.2天</td><td>缓释型85.7%、短促型14.3%</td></tr><tr><td>音乐节</td><td>2</td><td>4.5%*</td><td>7.5天*</td><td>1.5天*</td><td>缓释型50.0%、脉冲型50.0%</td></tr><tr><td>综艺</td><td>2</td><td>13.6%*</td><td>12.5天*</td><td>2.5天*</td><td>缓释型100.0%</td></tr></tbody></table><p class='note'>*样本不足（n<3）</p>",
+    "top10_table_html": "<table class='event-ranking'><thead><tr><td>日期</td><td>城市</td><td>内容形态</td><td>辐射带动</td><td>歌单内</td><td>溢出比</td><td>歌单内数据</td></tr></thead><tbody><tr><td>2024-06-07</td><td>—</td><td>歌舞剧·音乐剧</td><td>215.7%</td><td></td><td></td><td>无</td></tr><tr><td>2024-06-16</td><td>上海</td><td>晚会</td><td>96.1%</td><td>187.7%</td><td>0.5</td><td>有</td></tr><tr><td>2024-08-24</td><td>上海</td><td>拼盘演唱会</td><td>24.6%</td><td>38.0%</td><td>0.6</td><td>有</td></tr><tr><td>2025-12-31</td><td>—</td><td>晚会</td><td>21.1%</td><td>30.6%</td><td>0.7</td><td>有</td></tr><tr><td>2023-10-29</td><td>—</td><td>其他</td><td>17.9%</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-16</td><td>乌鲁木齐</td><td>歌舞剧·音乐剧</td><td>16.9%</td><td></td><td></td><td>无</td></tr><tr><td>2023-12-31</td><td>—</td><td>其他</td><td>16.8%</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-15</td><td>乌鲁木齐</td><td>歌舞剧·音乐剧</td><td>16.3%</td><td></td><td></td><td>无</td></tr><tr><td>2026-08-23</td><td>广州</td><td>个人巡回</td><td>15.5%</td><td>-8.5%</td><td>-1.8</td><td>有</td></tr><tr><td>2023-12-31</td><td>上海</td><td>个人巡回</td><td>14.7%</td><td>35.5%</td><td>0.4</td><td>有</td></tr></tbody></table>",
     "key_findings": [
-      "晚会形态中位辐射带动与歌单内均为正（1.5%、30.6%），是唯一稳定双正的内容形态。",
-      "衰减以缓释型为主，晚会与歌舞剧·音乐剧缓释型占比均达85.7%，半衰期约1-2天，效应可持续10天以上。",
-      "极端峰值场次贡献主要溢出，但整体中位辐射为负，个体差异显著。"
+      "晚会形态辐射带动最稳定（中位1.5%），歌单转化最强（中位30.6%），综合效能领先。",
+      "多数形态呈缓释型衰减（晚会/歌舞剧/个人巡回均超70%），长尾效应明显；拼盘演唱会脉冲型为主，短期爆发强。",
+      "个人巡回整体波动大（中位辐射-5.1%、歌单内-6.8%），但高辐射场次如广州（峰值155.4%）、昆明（峰值93.0%）值得复盘。"
     ],
     "strategic_notes": [
-      "将晚会作为演出排期的核心，优先争取高质量晚会邀约。",
-      "个人巡回需调整歌单结构并强化现场互动，提升歌单收藏与辐射带动。",
-      "演出后一周内持续运营话题与物料，利用缓释效应拉长传播周期。"
+      "演出方应优先增加晚会类演出，以获取稳定辐射和高效歌单转化。",
+      "个人巡回需复盘高辐射场次（如广州、昆明）的选曲与互动策略，优化歌单结构。",
+      "缓释型演出应加强演出后期话题运营和歌单引导；脉冲型演出需提前布局高峰引流。"
     ],
-    "data_quality_note": "基于61场演出样本（政府活动单独列示），其中60场含逐日衰减数据；样本<3形态均值已标注样本不足。",
-    "generated_at": "2026-09-01 17:31:26"
+    "data_quality_note": "基于82场含逐日衰减数据的演出，其中61场含歌单内数据；政府活动单独列示；样本<3形态均值标样本不足。",
+    "generated_at": "2026-09-01 17:40:59"
   },
   "batch_count": 1217,
   "date_range": "2023-01-01 ~ 2026-09-01",
@@ -200958,7 +200958,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-09-01 17:34",
+  "last_update": "2026-09-01 17:38",
   "today_batches": 1217,
   "daily_new_records": 0,
   "recent_7days": [
@@ -201057,7 +201057,7 @@
     }
   },
   "analysis": {
-    "generated_at": "2026-09-01 17:34",
+    "generated_at": "2026-09-01 17:38",
     "overview": "共 84 场活动 / 2960 个歌曲观测，正涨幅 1221（41%），显著带动≥20% 占 13%，平均 -0.1%、中位 -3.5%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
