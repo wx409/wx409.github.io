@@ -5097,9 +5097,10 @@ def _build_analysis(payload):
                  if e.get("total_uplift") is not None and e.get("total_uplift_wk") is not None]
         if len(_both) >= 10:
             _flips = [b for b in _both if (b[0] > 0) != (b[1] > 0)]
-            _big = sorted(_both, key=lambda b: -abs(b[1] - b[0]))
+            _big = [b for b in _both if abs(b[1] - b[0]) >= 5]
+            _big_sorted = sorted(_big, key=lambda b: -abs(b[1] - b[0]))
             _flip_pct = round(len(_flips) / len(_both) * 100)
-            _ex1 = _big[0][2]
+            _ex1 = _big_sorted[0][2] if _big_sorted else _both[0][2]
             _ex2 = next((b[2] for b in _both if b[0] < -40 and b[1] > b[0]), None)
             _txt = (f"同星期对齐基线复算 {len(_both)} 场：{len(_big)} 场变动≥5个百分点、{_flip_pct}% 方向反转——"
                     "原口径存在双向偏差：①周末/节日场效应被高估（跨年上海 +18.9%→同星期 -12.6%、六巡重庆 +4.2%→-9.0%）；"
