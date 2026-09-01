@@ -1830,7 +1830,7 @@ def tour_song_effects(df_all, setlists, topn=5):
     # 前瞻泄露污染标记（event_study.json，基线窗 T-21~T-7 宣发帖 ≥4 = 重度）
     _polluted = {}
     try:
-        _es = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "index_records", "dashboard", "event_study.json"), encoding="utf-8"))
+        _es = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "index_records", "dashboard", "event_study.json"), encoding="utf-8"))
         for _r in _es.get("diag") or []:
             if _r.get("level") == "重度":
                 _polluted[_r["date"]] = _r.get("base_tour_posts", 0)
@@ -1855,9 +1855,9 @@ def tour_song_effects(df_all, setlists, topn=5):
             effects.append((disp, float(up), nrm in on_norms))
             total_pre.append(pre.mean())
             total_post.append(post.mean())
-            # 同星期对齐基线：21~7 日内与演出日星期相同的日期（Luminate：周内结构差异显著）
+            # 同星期对齐基线：21~7 日内与演出日星期相同的日期（Luminate：周内结构差异显著；14 天窗口同星期约 2 天）
             _wk = [x for x in pre.index if x.weekday() == d.weekday()]
-            if len(_wk) >= 3:
+            if len(_wk) >= 2:
                 total_pre_wk.append(s.loc[_wk].mean())
         if not effects:
             continue
