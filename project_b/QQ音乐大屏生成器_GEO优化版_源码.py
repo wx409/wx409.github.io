@@ -5017,6 +5017,21 @@ def _build_analysis(payload):
             "evidence": f"数据：{top['n']} +{top['up']:.1f}%（{top['d']}）· 全样本中位 {med_u:+.1f}% / MAD {mad:.1f}",
         })
 
+    # ⑥ 微博语言画像（深度文本挖掘：词频/城市/歌曲实体/mention→uplift，文件缺失则跳过）
+    try:
+        _wl = json.load(open(r'D:\wx409.github.io\temp\_attr\weibo_language.json', encoding='utf-8'))
+        if _wl.get("insight"):
+            _bridge = "；".join(
+                f"{b['song']}提及{b['mention']}次↔{'涨幅+%.0f%%' % b['max_uplift'] if b['max_uplift'] is not None else '—'}"
+                for b in (_wl.get("bridge") or [])[:4])
+            insights.append({
+                "title": "微博语言画像（1722 帖文本挖掘）",
+                "text": _wl.get("insight", ""),
+                "evidence": "数据：核心话语「个人巡回音乐会」词组 439 次 · " + _bridge,
+            })
+    except Exception:
+        pass
+
     # ===== 口径科学性（第一性原理，随版本可迭代）=====
     method_text = [
         {"q": "为什么基线用「演出前 21~7 日」？", "a": "第一性原理：效应=事件引起的增量，须剥离「没有演出也会发生的变化」。估计窗须远离事件窗——演出前 1~7 日是官宣/开票/预热的高扰动期，若纳入基线会系统性低估效应；21~7 日=避开预热又不过度前移（前移越远越混入季节性漂移）。"},
