@@ -1903,16 +1903,47 @@ def tour_song_effects(df_all, setlists, topn=5):
 
 # ============ 演出辐射效能分析（LLM 只做措辞，计算用 Python 保证准确/省token） ============
 
+def _dpapi_key_from_secrets():
+    """从 DPAPI 加密的 secrets.bat.dpapi 提取 DEEPSEEK_API_KEY（绑定本机用户，拷走解不开）
+    优先仓库根，其次本脚本同级的 secrets.bat.dpapi。"""
+    import re as _re
+    for cand in (
+        r"D:\wx409.github.io\secrets.bat.dpapi",
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "secrets.bat.dpapi"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "secrets.bat.dpapi"),
+    ):
+        try:
+            if not os.path.exists(cand):
+                continue
+            import win32crypt
+            with open(cand, "rb") as f:
+                blob = f.read()
+            _d, data = win32crypt.CryptUnprotectData(blob, None, None, None, 0)
+            text = data.decode("utf-8", errors="replace")
+            m = _re.search(r'^\s*set\s+DEEPSEEK_API_KEY\s*=\s*"?([^"\r\n]+)"?', text, _re.M)
+            if m and m.group(1).strip():
+                return m.group(1).strip()
+        except Exception:
+            continue
+    return ""
+
+
 def _call_deepseek(prompt):
-    """调用 DeepSeek 返回文本内容；任何异常返回 None（不阻断主管道）。"""
+    """调用 DeepSeek 返回文本内容；任何异常返回 None（不阻断主管道）。
+    key 获取顺序：环境变量 → DPAPI(secrets.bat.dpapi) → 明文 deepseek_key.json（兼容旧）。"""
     try:
         key = ""
-        if os.path.exists(DEEPSEEK_KEY_PATH):
+        # ① 环境变量（secret_vault run 注入兼容）
+        key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+        # ② DPAPI 加密的 secrets.bat（本机解密，首选安全途径）
+        if not key:
+            key = _dpapi_key_from_secrets()
+        # ③ 明文 json（旧兼容）
+        if not key and os.path.exists(DEEPSEEK_KEY_PATH):
             try:
                 key = json.loads(open(DEEPSEEK_KEY_PATH, encoding="utf-8").read()).get("api_key", "").strip()
             except Exception:
                 key = ""
-        key = key or os.environ.get("DEEPSEEK_API_KEY", "").strip()
         if not key:
             logger.warning("辐射效能分析：未找到 DeepSeek key，跳过 LLM 措辞")
             return None
