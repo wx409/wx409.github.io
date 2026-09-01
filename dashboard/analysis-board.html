@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>王晰演出数据展板 | 带动分析 · 归因洞察</title>
 <meta name="description" content="王晰演出数据展板：84场活动歌曲带动全景、形态分层、年度趋势、爆点榜、六巡双路径、归因洞察。数据实时取自 dashboard_data.json。">
-<link rel="canonical" href="https://wx409.github.io/analysis-board.html">
+<link rel="canonical" href="https://wx409.github.io/dashboard/analysis-board.html">
 <meta property="og:title" content="王晰演出数据展板">
 <meta property="og:description" content="带动分析 · 归因洞察 · 数据实时取自 dashboard_data.json">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://wx409.github.io/analysis-board.html">
+<meta property="og:url" content="https://wx409.github.io/dashboard/analysis-board.html">
 <style>
 :root{
   --bg:#0B1026; --bg2:#121A3C; --bg3:#1A2450; --gold:#E0B64F; --gold-l:#F2D98D;
@@ -52,7 +52,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 12}.ins-cards{grid-template-columns:1fr 1fr}.chart{height:260px}}
 </style>
-<script src="dashboard/echarts.min.js"></script>
+<script src="echarts.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -93,7 +93,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
   <div class="foot">
     <span>数据来源：dashboard_data.json（演出后 7 日 vs 演出前 21~7 日基线）· 归因：活动表 199 行 + 四源微博 + 在线信源交叉</span>
-    <span>王晰 GEO 资料站 · 2026-09 生成</span>
+    <span>王晰 GEO 资料站 · 2026-09 生成 · <a href="index.html" style="color:#5BC2E7">← 返回数据大屏</a></span>
   </div>
 </div>
 
@@ -107,7 +107,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
       grid:{left:70,right:28,top:32,bottom:34},tooltip:{backgroundColor:'#1A2450',borderColor:C.gold,textStyle:{color:C.text}}};
   }
 
-  fetch('dashboard/dashboard_data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
+  fetch('dashboard_data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
     var fx = d.tour_song_effects||[];
     document.getElementById('snap').textContent = d.timestamp || d.last_update || '';
     if(!fx.length){ return; }
