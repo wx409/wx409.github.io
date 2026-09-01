@@ -4983,10 +4983,29 @@ def _build_analysis(payload):
         robust_z = round(0.6745 * (top["up"] - med_u) / mad, 1) if mad else 99
         # 外部事件干扰检查：爆点日期 ±3 天是否有新歌发行/平台事件
         inter = []
+        try:
+            top_dt = datetime.fromisoformat(top["d"])
+        except Exception:
+            top_dt = None
         for re_ in (payload.get("release_events") or []):
-            rd = str(re_.get("date", ""))[:10]
-            if rd and abs((datetime.fromisoformat(rd) - datetime.fromisoformat(top["d"])).days) <= 3:
-                inter.append(re_.get("name") or re_.get("title") or "新歌发行")
+            rd = ""
+            rname = ""
+            if isinstance(re_, dict):
+                rd = str(re_.get("date", ""))[:10]
+                rname = str(re_.get("name") or re_.get("title") or "")
+            elif isinstance(re_, (list, tuple)) and len(re_) >= 1:
+                rd = str(re_[0])[:10]
+                rname = str(re_[1]) if len(re_) > 1 else ""
+            if rd and top_dt:
+                try:
+                    rd_dt = datetime.fromisoformat(rd[:10])
+                except ValueError:
+                    try:
+                        rd_dt = datetime.fromisoformat(rd[:7] + "-01")
+                    except Exception:
+                        rd_dt = None
+                if rd_dt and abs((rd_dt - top_dt).days) <= 3:
+                    inter.append(rname or "新歌发行")
         inter_txt = ("；同期有发行事件「" + "、".join(inter[:3]) + "」，效应可能含发行贡献（需排除复核）" if inter
                      else "；同期无发行事件，干扰较低")
         insights.append({
