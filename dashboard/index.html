@@ -365,29 +365,12 @@ h2.chart-title{font-size:15px;font-weight:600}
     <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
     <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
   </nav>
-  <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
-    <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
-    <div id="autoAnalysisBody" style="font-size:13.5px;line-height:1.9;color:#cdd6e6;"></div>
-    <div id="insightsBody" style="margin-top:12px;padding-top:12px;border-top:1px dashed #3c4468;"></div>
-  </div>
-  <details style="margin:0 0 14px 0;background:rgba(16,20,40,.55);border:1px solid #2A3552;border-radius:10px;padding:10px 16px;">
-    <summary style="cursor:pointer;color:#00d2ff;font-size:13.5px;font-weight:600;">🔬 口径与方法（点击展开 · 每个数字可解释）</summary>
-    <div id="methodBody" style="font-size:12.5px;line-height:2;color:#9fb0c8;margin-top:8px;"></div>
-    <div style="margin-top:10px;color:#00d2ff;font-size:13px;font-weight:600;">📅 星期效应诊断（为什么基线需星期对齐）</div>
-    <div id="weekdayChart" style="width:100%;height:170px;margin-top:6px;"></div>
-  </details>
-  <div class="chart-box" style="margin-bottom:14px;">
-    <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
-    <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
-    <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
-    <div id="esChart" style="width:100%;height:260px"></div>
-  </div>
   <section class="geo-summary" id="summary">
     <h2>核心数据结论（截至 2026-09-01）
-      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-09-01 18:40</span></span>
+      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-09-01 18:46</span></span>
     </h2>
-    <p><strong>今日研判：</strong>【今日概览】截至 2026-09-01 18:40 的监测更新已完成；无显著异动。 【市场信号】近 7 日追踪曲目池平均指数 626→583（↓6.8%），整体下行；7 日序列：626、648、586、630、634、583。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+79.9%、《在路上》+24.9%；领跌 《亲密爱人》-7.7%、《Sound of Silence》-5.2%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线平均上涨 16.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《南屏晚钟》↑6168位；《谁》↑4946位；《神魂颠倒》↑2988位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数下行；巡演带动正向。综合来看，王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
-    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-09-01</strong>，累计 <strong>1217</strong> 个监测批次，覆盖 <strong>383</strong> 首追踪歌曲（链接身份 255 + 名称身份 128），其中 <strong>244</strong> 首（63.7%）近期有收听记录，数据完整度 20.8%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-09-01 18:40</strong>。</p>
+    <p><strong>今日研判：</strong>【今日概览】截至 2026-09-01 18:46 的监测更新已完成；无显著异动。 【市场信号】近 7 日追踪曲目池平均指数 626→583（↓6.8%），整体下行；7 日序列：626、648、586、630、634、583。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+79.9%、《在路上》+24.9%；领跌 《亲密爱人》-7.7%、《Sound of Silence》-5.2%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线平均上涨 16.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《南屏晚钟》↑6168位；《谁》↑4946位；《神魂颠倒》↑2988位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数下行；巡演带动正向。综合来看，王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
+    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-09-01</strong>，累计 <strong>1217</strong> 个监测批次，覆盖 <strong>383</strong> 首追踪歌曲（链接身份 255 + 名称身份 128），其中 <strong>244</strong> 首（63.7%）近期有收听记录，数据完整度 20.8%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-09-01 18:46</strong>。</p>
     <p>全曲目月度平均指数由期初（2023-01）的 1873 变化至最新月（2026-09）的 nan（nan%），历史峰值出现在 2023-01（1873）。近30日平均指数最高的作品为 《黎明前的黑暗》、《再叙》、《一生中最爱》。近90日综合表现：专辑类第一《在路上》（综合得分 16.5），OST/单曲类第一《一生中最爱》（综合得分 22.9），其他追踪类第一《黎明前的黑暗》（综合得分 65.5）。</p>
     <p>在可量化的 10 个巡演节点中，巡演后7日追踪曲目池日均指数较基线平均上涨 16.8%（带动最强的是 11-12 北京（首场），+70.4%）。新歌发行14日表现最佳为 《多听有益》01-12（14日平均指数 54004，峰值 369883）。周末平均指数 451，工作日 464，周末低出 2.8%。收听热度（归一化至峰值月100%）由期初 22% 变化至最新月 1%（↓20pct）。近30日异常活跃歌曲：《一生中最爱》（环比+79.9%，飙升）、《在路上》（环比+24.9%，飙升）、《荒人之歌》（环比+21.4%，飙升）。</p>
     <h3>数据速览</h3>
@@ -461,8 +444,8 @@ h2.chart-title{font-size:15px;font-weight:600}
       <div class="status-item"><span>活跃歌曲</span><span class="status-value">244 个</span></div>
       <div class="status-item"><span>指数口径</span><span class="status-value">昨日音乐指数校准</span></div>
       <div class="status-item"><span>巡演节点 / 发行事件</span><span class="status-value">25 / 41</span></div>
-      <div class="status-item"><span>最后更新</span><span class="status-value">2026-09-01 18:40</span></div>
-      <div class="status-item"><span>下次监测</span><span class="status-value">18:45 极速</span></div>
+      <div class="status-item"><span>最后更新</span><span class="status-value">2026-09-01 18:46</span></div>
+      <div class="status-item"><span>下次监测</span><span class="status-value">18:55 极速</span></div>
     </div></div>
   </div>
   <div class="dim-row" style="grid-template-columns:1fr 1fr">
@@ -704,155 +687,6 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     extras.push('<div style="color:#8c959f">' + ra.data_quality_note + '</div>');
   if (notes) notes.innerHTML = extras.join('<br>');
   if (ais) ais.textContent = '演出辐射效能与衰减形态分析：共'+(ra.total_events||0)+'场，'+(ra.decay_count||0)+'场含逐日衰减数据，已按内容形态聚合。';
-})();
-// ===== 数据自动分析面板（analysis 字段，规则模板引擎生成，随 dashboard_data.json 自动更新）=====
-(function(){
-  var box = document.getElementById('autoAnalysisPanel');
-  var body = document.getElementById('autoAnalysisBody');
-  var a = dashboardData.analysis;
-  if (!box || !body || !a || !a.overview) return;
-  function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
-  var latest = a.latest_show || {};
-  var h = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 20px;font-size:13.5px;line-height:1.8;color:#cdd6e6">';
-  h += '<div style="grid-column:1/-1;color:#f2d98d;font-weight:600;margin-bottom:4px">' + a.overview + '</div>';
-  h += '<div><b style="color:#5bc2e7">最强形态：</b>' + (a.morph_best||'—') + '</div>';
-  h += '<div><b style="color:#e0645c">最弱形态：</b>' + (a.morph_worst||'—') + '</div>';
-  h += '<div><b style="color:#5bc2e7">年度趋势：</b>' + (a.year_trend||'—') + '</div>';
-  h += '<div><b style="color:#e0b64f">最大爆点：</b>' + (a.burst||'—') + '</div>';
-  if (a.gz_curve) h += '<div><b style="color:#6fbf8f">广州城效应史：</b>' + a.gz_curve + '（首次转正）</div>';
-  if (a.dual_2026) h += '<div><b style="color:#5bc2e7">六巡双路径：</b>' + a.dual_2026 + '</div>';
-  if (latest.date) h += '<div><b style="color:#f2d98d">最新场次：</b>' + (latest.date||'') + ' ' + (latest.city||'') + ' [' + (latest.type||'') + '] 全站' + fmt(latest.total) + ' · ' + (latest.pattern||'') + '</div>';
-  h += '</div>';
-  if (a.warnings && a.warnings.length) {
-    h += '<div style="margin-top:8px;padding-top:8px;border-top:1px dashed #3c4468;color:#e0645c;font-size:12px;line-height:1.8">' + a.warnings.map(function(w){ return '⚠ ' + w; }).join('<br>') + '</div>';
-  }
-  h += '<div style="margin-top:8px;font-size:11px;color:#8c959f">引擎：' + (a.engine||'') + ' · 快照：' + (a.generated_at||'') + '</div>';
-  body.innerHTML = h;
-  box.style.display = 'block';
-  // ---- 数据驱动洞察（带上下文，随数据自动更新）----
-  if (a.insights && a.insights.length) {
-    var ib = document.getElementById('insightsBody');
-    var ih = '<div style="color:#f2d98d;font-weight:700;font-size:14px;margin-bottom:8px">💡 数据洞察（自动生成 · 含证据与上下文）</div>';
-    a.insights.forEach(function(it){
-      ih += '<div style="margin-bottom:10px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px;">' +
-        '<div style="color:#5bc2e7;font-weight:700;font-size:13px">' + it.title + '</div>' +
-        '<div style="color:#cdd6e6;font-size:12.5px;line-height:1.75;margin-top:3px">' + it.text + '</div>' +
-        '<div style="color:#8c959f;font-size:11px;margin-top:3px">🔎 ' + it.evidence + '</div></div>';
-    });
-    ib.innerHTML = ih;
-  }
-})();
-// ===== 口径与方法抽屉（数据驱动填充）=====
-(function(){
-  var mb = document.getElementById('methodBody');
-  if (!mb) return;
-  var a = dashboardData.analysis || {};
-  var fx = dashboardData.tour_song_effects || [];
-  var complete = dashboardData.complete_rate;
-  var rows = [
-    ['效应口径', '演出后 7 日平台指数 vs 演出前 21~7 日基线（事件研究法简化：估计窗远离事件窗，规避宣发预告污染）'],
-    ['三口径定义', '追踪曲目池=全曲目；歌单内=直接转化（现场曲目）；辐射带动=歌单外（路人经活动认识后收听整体作品）'],
-    ['已知局限（调研修正）', '①基线未做同星期对齐（流媒体有星期结构性差异）；②' + (a.warnings && a.warnings.length ? a.warnings.length - 1 : 0) + ' 条自动口径警告见上方；③爆点建议用中位数/MAD 稳健检测'],
-    ['归因措辞', '页面表述为「伴随效应」而非严格因果归因——平台推荐放大（NBER）与外部事件（综艺/新歌/节假日）可能贡献增量'],
-    ['数据完整度', (complete !== undefined && complete !== null) ? '有指数记录占比 ' + (typeof complete === 'number' ? complete.toFixed(1) : complete) + '%' : '—' + '（缺失场次按待补降级展示）'],
-    ['数据源', 'dashboard_data.json（单一数据源）· 辐射分析文案由 DeepSeek LLM 实时生成（DPAPI 加密 key）'],
-  ];
-  var h = rows.map(function(r){ return '<b style="color:#00d2ff">' + r[0] + '：</b>' + r[1]; }).join('<br>');
-  // 口径科学性（第一性原理 Q&A）
-  if (a.method_text && a.method_text.length) {
-    h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#f2d98d;font-weight:700;font-size:13px">🎓 口径科学性（第一性原理）</div>';
-    a.method_text.forEach(function(m){
-      h += '<div style="margin-top:6px"><b style="color:#5bc2e7">' + m.q + '</b><br><span style="color:#9fb0c8">' + m.a + '</span></div>';
-    });
-  }
-  mb.innerHTML = h;
-})();
-// ===== 星期效应诊断（按星期几聚合收听份额，证明基线需对齐）=====
-(function(){
-  var el = document.getElementById('weekdayChart');
-  if (!el) return;
-  var tl = dashboardData.listener_ratio_trend || dashboardData.daily_listen_trend || [];
-  if (!Array.isArray(tl) || tl.length < 20) { el.parentNode.style.display = 'none'; return; }
-  // 提取日期+值序列
-  var pts = [];
-  tl.forEach(function(row){
-    var d = Array.isArray(row) ? row[0] : (row.date || row.d || '');
-    var v = Array.isArray(row) ? row[1] : (row.value !== undefined ? row.value : row.ratio);
-    if (d && v !== undefined && v !== null) pts.push([String(d).slice(0,10), Number(v)]);
-  });
-  if (pts.length < 20) { el.parentNode.style.display = 'none'; return; }
-  var byDow = [[],[],[],[],[],[],[]];
-  pts.forEach(function(p){
-    var t = new Date(p[0].replace(/-/g,'/'));
-    if (isNaN(t)) return;
-    byDow[t.getDay()].push(p[1]);
-  });
-  var names = ['周日','周一','周二','周三','周四','周五','周六'];
-  var data = byDow.map(function(a){ return a.length ? a.reduce(function(x,y){return x+y;},0)/a.length : null; });
-  var avg = data.filter(function(v){return v!==null;});
-  var med = avg.sort(function(a,b){return a-b;})[Math.floor(avg.length/2)];
-  var spread = avg.length ? ((Math.max.apply(null,avg) - Math.min.apply(null,avg)) / med * 100).toFixed(1) : '0';
-  echarts.init(el).setOption({
-    backgroundColor:'transparent', textStyle:{color:'#9fb0c8',fontFamily:'Microsoft YaHei'},
-    grid:{left:50,right:16,top:30,bottom:26}, tooltip:{trigger:'axis',backgroundColor:'#1A2450',borderColor:'#E0B64F',textStyle:{color:'#fff'}},
-    xAxis:{type:'category',data:names,axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8'}},
-    yAxis:{type:'value',axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8'},splitLine:{lineStyle:{color:'#232C4C'}}},
-    series:[{type:'bar',data:data.map(function(v){return v===null?0:v;}),barWidth:'50%',
-      itemStyle:{color:'#5bc2e7',opacity:.8},label:{show:true,position:'top',color:'#9fb0c8',fontSize:10,formatter:function(p){return p.value.toFixed(1);}}}],
-    title:{text:'周内极差 ' + spread + '%（Luminate 实证：周内差可达两位数%）',textStyle:{color:'#f2d98d',fontSize:12},top:0,left:0}
-  });
-})();
-// ===== 事件研究曲线（daily_series T+1~T+14，CAR 式）=====
-(function(){
-  var picker = document.getElementById('esPicker');
-  var chartEl = document.getElementById('esChart');
-  if (!picker || !chartEl) return;
-  var fx = dashboardData.tour_song_effects || [];
-  var withDs = fx.filter(function(e){ return e.daily_series && Object.keys(e.daily_series).length >= 3; });
-  if (!withDs.length) return;
-  // 重点场次（最新 / 广州 / 重庆 / 最大爆点 / 最强单场）
-  var picks = [];
-  var latest = withDs.slice().sort(function(a,b){ return (b.date||'') < (a.date||'') ? -1 : 1; })[0];
-  if (latest) picks.push({label:'最新·' + (latest.city||latest.date), e:latest});
-  ['2026-08-23','2026-06-13','2024-06-07','2025-03-21'].forEach(function(d){
-    var e = withDs.find(function(x){ return x.date === d; });
-    if (e) picks.push({label:(e.city||'') + '·' + e.date.slice(2), e:e});
-  });
-  // 去重（按 date）
-  var seen = {};
-  picks = picks.filter(function(p){ if (seen[p.e.date]) return false; seen[p.e.date] = true; return true; }).slice(0,5);
-  function draw(entry){
-    var ds = entry.e.daily_series || {};
-    var days = Object.keys(ds).sort(function(a,b){ return parseInt(a.slice(2)) - parseInt(b.slice(2)); })
-      .filter(function(k){ return parseInt(k.slice(2)) <= 14; });
-    var data = days.map(function(k){ return ds[k]; });
-    // 历史均值带：其他场次同窗口逐日均值
-    var otherAvg = {};
-    days.forEach(function(k){ var off = parseInt(k.slice(2)); var vs = []; withDs.forEach(function(e2){ if (e2.date !== entry.e.date && e2.daily_series && e2.daily_series[k] !== undefined) vs.push(e2.daily_series[k]); }); otherAvg[k] = vs.length ? vs.reduce(function(a,b){return a+b;},0)/vs.length : null; });
-    var band = days.map(function(k){ return otherAvg[k]; });
-    echarts.init(chartEl).setOption({
-      backgroundColor:'transparent', textStyle:{color:'#cdd6e6',fontFamily:'Microsoft YaHei'},
-      grid:{left:60,right:30,top:44,bottom:30},
-      legend:{textStyle:{color:'#9fb0c8'},top:0,right:0},
-      tooltip:{trigger:'axis',backgroundColor:'#1A2450',borderColor:'#E0B64F',textStyle:{color:'#fff'}},
-      xAxis:{type:'category',data:days,axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8'}},
-      yAxis:{type:'value',axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8',formatter:'{value}%'},splitLine:{lineStyle:{color:'#232C4C'}}},
-      series:[
-        {name:'本场（' + entry.e.date + '）',type:'line',data:data,smooth:true,lineStyle:{color:'#E0B64F',width:3},itemStyle:{color:'#E0B64F'},symbolSize:7,
-         label:{show:true,color:'#F2D98D',fontSize:10,formatter:function(p){return (p.value>0?'+':'')+p.value.toFixed(1)+'%';}}},
-        {name:'其余场次均值带',type:'line',data:band,smooth:true,lineStyle:{color:'#5BC2E7',width:2,type:'dashed'},itemStyle:{color:'#5BC2E7'},symbol:'none'},
-        {name:'零线',type:'line',data:days.map(function(){return 0;}),lineStyle:{color:'#5a6b8c',width:1},symbol:'none',tooltip:{show:false}}
-      ]
-    });
-  }
-  picks.forEach(function(p){
-    var btn = document.createElement('button');
-    btn.textContent = p.label;
-    btn.style.cssText = 'background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.3);color:#00d2ff;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;';
-    btn.onclick = function(){ draw(p); };
-    picker.appendChild(btn);
-  });
-  if (picks.length) draw(picks[0]);
 })();
 </script>
 <script>
