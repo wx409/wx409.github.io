@@ -1687,13 +1687,24 @@ def load_performance_events(path):
             d = pd.to_datetime(date).strftime("%Y-%m-%d")
             # 场次键用"演出名·城市"避免与巡演长表的 (日期, 城市) 键冲突
             scene = f"{name}·{city}" if city else name
-            nsong = norm_name(song)
-            songs = {nsong}
-            # 组合曲目拆分（仅用于匹配）
-            if "+" in nsong:
-                songs.update(p.strip() for p in nsong.split("+") if len(p.strip()) >= 2)
-            events[(d, scene)] = {"tour": name, "songs": songs}
-        logger.info(f"演出活动表: {len(events)} 场演出已加载（辐射带动分析输入）")
+            # 多首歌拆分：顿号/逗号/分号/斜杠 分隔（用户以"、""，"为主），逐首归一化
+            parts = re.split(r"[、，,;；/]+", song)
+            songs = set()
+            for p in parts:
+                p = p.strip().strip("。.，、,;； ")
+                if len(p) >= 2:
+                    songs.add(norm_name(p))
+            # 组合曲目拆分（如"女人花+水中花"，仅用于匹配）
+            merged = set()
+            for s in songs:
+                if "+" in s:
+                    merged.update(p.strip() for p in s.split("+") if len(p.strip()) >= 2)
+                else:
+                    merged.add(s)
+            if not merged:
+                continue
+            events[(d, scene)] = {"tour": name, "songs": merged}
+        logger.info(f"演出活动表: {len(events)} 场演出已加载（辐射带动分析输入，多曲目已拆分）")
     except Exception as e:
         logger.warning(f"演出活动表读取失败（辐射带动分析跳过演出活动）: {e}")
     return events
