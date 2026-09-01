@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-31 23:56",
+  "timestamp": "2026-09-01 08:59",
   "total": 269727,
   "success": 56197,
   "complete_rate": 20.8,
@@ -158459,7 +158459,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -159182,7 +159182,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "精准型",
       "live_url": null
     },
     {
@@ -159835,7 +159835,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -161002,7 +161002,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -161845,7 +161845,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "精准型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -162033,7 +162033,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "精准型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -162598,7 +162598,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "精准型",
       "live_url": null
     },
     {
@@ -162786,7 +162786,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -163323,7 +163323,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "精准型",
       "live_url": null
     },
     {
@@ -165442,7 +165442,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -168140,7 +168140,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "精准型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -169172,7 +169172,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -169516,7 +169516,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -171716,7 +171716,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "精准型",
       "live_url": null
     },
     {
@@ -172060,7 +172060,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -172243,7 +172243,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -173537,7 +173537,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "常态型",
       "live_url": null
     },
     {
@@ -174900,7 +174900,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "精准型",
       "live_url": null
     },
     {
@@ -176458,7 +176458,7 @@
           "on_setlist": false
         }
       ],
-      "pattern": "无效型",
+      "pattern": "出圈型",
       "live_url": null
     }
   ],
@@ -176513,26 +176513,27 @@
     "pattern_distribution": {
       "晚会": {
         "单点触发型": 71.4,
-        "精准型": 7.1,
+        "常态型": 7.1,
         "均衡型": 14.3,
-        "无效型": 7.1
+        "精准型": 7.1
       },
       "签唱会": {
         "均衡型": 33.3,
         "单点触发型": 33.3,
-        "无效型": 33.3
+        "常态型": 33.3
       },
       "个人巡回": {
         "均衡型": 26.1,
-        "无效型": 52.2,
-        "精准型": 13.0,
+        "常态型": 43.5,
+        "精准型": 17.4,
         "扩散型": 4.3,
-        "单点触发型": 4.3
+        "单点触发型": 4.3,
+        "出圈型": 4.3
       },
       "其他": {
         "单点触发型": 86.4,
-        "无效型": 9.1,
-        "精准型": 4.5
+        "精准型": 9.1,
+        "常态型": 4.5
       },
       "拼盘演唱会": {
         "单点触发型": 100.0
@@ -177725,7 +177726,7 @@
       "利用缓释型衰减特征，演出后一周内进行曲目推送，放大长尾效应；总结高辐射场次（如2024-06-07）的选曲与宣发策略，复制成功经验。"
     ],
     "data_quality_note": "基于本报告所涉演出场次，其中主要形态（个人巡回、晚会、音乐节、其他）样本61场，含逐日衰减数据的场次82场（含细分类）；政府活动单独列示；样本<3形态均值标注「样本不足」。",
-    "generated_at": "2026-08-31 23:17:48"
+    "generated_at": "2026-08-31 23:57:49"
   },
   "batch_count": 1216,
   "date_range": "2023-01-01 ~ 2026-08-31",
@@ -201025,7 +201026,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-08-31 23:56",
+  "last_update": "2026-09-01 08:59",
   "today_batches": 1216,
   "daily_new_records": 0,
   "recent_7days": [
@@ -201104,7 +201105,7 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 260,
+      "rows": 0,
       "pct": 0.0
     },
     "excel_files": {
