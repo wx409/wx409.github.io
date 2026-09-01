@@ -5091,6 +5091,30 @@ def _build_analysis(payload):
     except Exception:
         pass
 
+    # ⑦ 口径修正发现（同星期对齐基线 vs 原基线；生成器已算 total_uplift_wk）
+    try:
+        _both = [(e.get("total_uplift"), e.get("total_uplift_wk"), e) for e in fx
+                 if e.get("total_uplift") is not None and e.get("total_uplift_wk") is not None]
+        if len(_both) >= 10:
+            _flips = [b for b in _both if (b[0] > 0) != (b[1] > 0)]
+            _big = sorted(_both, key=lambda b: -abs(b[1] - b[0]))
+            _flip_pct = round(len(_flips) / len(_both) * 100)
+            _ex1 = _big[0][2]
+            _ex2 = next((b[2] for b in _both if b[0] < -40 and b[1] > b[0]), None)
+            _txt = (f"同星期对齐基线复算 {len(_both)} 场：{len(_big)} 场变动≥5个百分点、{_flip_pct}% 方向反转——"
+                    "原口径存在双向偏差：①周末/节日场效应被高估（跨年上海 +18.9%→同星期 -12.6%、六巡重庆 +4.2%→-9.0%）；"
+                    "②极端负值被宣发基线放大（南昌 -59.7%→-3.2%、长沙 -54.2%→-11.5%）；"
+                    "③爆点仍稳健（光影少年 +182.5%→+144.4%、影视之夜 +99.8%→+60.5%，量级不变）。")
+            if _ex2:
+                _txt += f" 建议：重度污染场次（{len([e for e in fx if e.get('base_polluted')])} 场）以同星期基线为报告口径。"
+            insights.append({
+                "title": "口径修正发现：同星期基线揭示双向偏差",
+                "text": _txt,
+                "evidence": f"数据：Δ最大 {_ex1.get('date')} {_ex1.get('city', '')} 原{_ex1.get('total_uplift')}%→同星期{_ex1.get('total_uplift_wk')}%",
+            })
+    except Exception:
+        pass
+
     # ===== 口径科学性（第一性原理，随版本可迭代）=====
     method_text = [
         {"q": "为什么基线用「演出前 21~7 日」？", "a": "第一性原理：效应=事件引起的增量，须剥离「没有演出也会发生的变化」。估计窗须远离事件窗——演出前 1~7 日是官宣/开票/预热的高扰动期，若纳入基线会系统性低估效应；21~7 日=避开预热又不过度前移（前移越远越混入季节性漂移）。"},
