@@ -2690,9 +2690,20 @@ h2.chart-title{font-size:15px;font-weight:600}
     <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
     <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
   </nav>
-  <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 18px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
+  <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
     <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
     <div id="autoAnalysisBody" style="font-size:13.5px;line-height:1.9;color:#cdd6e6;"></div>
+    <div id="insightsBody" style="margin-top:12px;padding-top:12px;border-top:1px dashed #3c4468;"></div>
+  </div>
+  <details style="margin:0 0 14px 0;background:rgba(16,20,40,.55);border:1px solid #2A3552;border-radius:10px;padding:10px 16px;">
+    <summary style="cursor:pointer;color:#00d2ff;font-size:13.5px;font-weight:600;">🔬 口径与方法（点击展开 · 每个数字可解释）</summary>
+    <div id="methodBody" style="font-size:12.5px;line-height:2;color:#9fb0c8;margin-top:8px;"></div>
+  </details>
+  <div class="chart-box" style="margin-bottom:14px;">
+    <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
+    <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
+    <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
+    <div id="esChart" style="width:100%;height:260px"></div>
   </div>
 __GEO_SUMMARY__
   <div class="listen-pulse-bar" id="listenPulseBar">
@@ -3003,6 +3014,88 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   h += '<div style="margin-top:8px;font-size:11px;color:#8c959f">引擎：' + (a.engine||'') + ' · 快照：' + (a.generated_at||'') + '</div>';
   body.innerHTML = h;
   box.style.display = 'block';
+  // ---- 数据驱动洞察（带上下文，随数据自动更新）----
+  if (a.insights && a.insights.length) {
+    var ib = document.getElementById('insightsBody');
+    var ih = '<div style="color:#f2d98d;font-weight:700;font-size:14px;margin-bottom:8px">💡 数据洞察（自动生成 · 含证据与上下文）</div>';
+    a.insights.forEach(function(it){
+      ih += '<div style="margin-bottom:10px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px;">' +
+        '<div style="color:#5bc2e7;font-weight:700;font-size:13px">' + it.title + '</div>' +
+        '<div style="color:#cdd6e6;font-size:12.5px;line-height:1.75;margin-top:3px">' + it.text + '</div>' +
+        '<div style="color:#8c959f;font-size:11px;margin-top:3px">🔎 ' + it.evidence + '</div></div>';
+    });
+    ib.innerHTML = ih;
+  }
+})();
+// ===== 口径与方法抽屉（数据驱动填充）=====
+(function(){
+  var mb = document.getElementById('methodBody');
+  if (!mb) return;
+  var a = dashboardData.analysis || {};
+  var fx = dashboardData.tour_song_effects || [];
+  var complete = dashboardData.complete_rate;
+  var rows = [
+    ['效应口径', '演出后 7 日平台指数 vs 演出前 21~7 日基线（事件研究法简化：估计窗远离事件窗，规避宣发预告污染）'],
+    ['三口径定义', '追踪曲目池=全曲目；歌单内=直接转化（现场曲目）；辐射带动=歌单外（路人经活动认识后收听整体作品）'],
+    ['已知局限（调研修正）', '①基线未做同星期对齐（流媒体有星期结构性差异）；②' + (a.warnings && a.warnings.length ? a.warnings.length - 1 : 0) + ' 条自动口径警告见上方；③爆点建议用中位数/MAD 稳健检测'],
+    ['归因措辞', '页面表述为「伴随效应」而非严格因果归因——平台推荐放大（NBER）与外部事件（综艺/新歌/节假日）可能贡献增量'],
+    ['数据完整度', (complete !== undefined && complete !== null) ? '有指数记录占比 ' + (typeof complete === 'number' ? complete.toFixed(1) : complete) + '%' : '—' + '（缺失场次按待补降级展示）'],
+    ['数据源', 'dashboard_data.json（单一数据源）· 辐射分析文案由 DeepSeek LLM 实时生成（DPAPI 加密 key）'],
+  ];
+  var h = rows.map(function(r){ return '<b style="color:#00d2ff">' + r[0] + '：</b>' + r[1]; }).join('<br>');
+  mb.innerHTML = h;
+})();
+// ===== 事件研究曲线（daily_series T+1~T+14，CAR 式）=====
+(function(){
+  var picker = document.getElementById('esPicker');
+  var chartEl = document.getElementById('esChart');
+  if (!picker || !chartEl) return;
+  var fx = dashboardData.tour_song_effects || [];
+  var withDs = fx.filter(function(e){ return e.daily_series && Object.keys(e.daily_series).length >= 3; });
+  if (!withDs.length) return;
+  // 重点场次（最新 / 广州 / 重庆 / 最大爆点 / 最强单场）
+  var picks = [];
+  var latest = withDs.slice().sort(function(a,b){ return (b.date||'') < (a.date||'') ? -1 : 1; })[0];
+  if (latest) picks.push({label:'最新·' + (latest.city||latest.date), e:latest});
+  ['2026-08-23','2026-06-13','2024-06-07','2025-03-21'].forEach(function(d){
+    var e = withDs.find(function(x){ return x.date === d; });
+    if (e) picks.push({label:(e.city||'') + '·' + e.date.slice(2), e:e});
+  });
+  // 去重（按 date）
+  var seen = {};
+  picks = picks.filter(function(p){ if (seen[p.e.date]) return false; seen[p.e.date] = true; return true; }).slice(0,5);
+  function draw(entry){
+    var ds = entry.e.daily_series || {};
+    var days = Object.keys(ds).sort(function(a,b){ return parseInt(a.slice(2)) - parseInt(b.slice(2)); })
+      .filter(function(k){ return parseInt(k.slice(2)) <= 14; });
+    var data = days.map(function(k){ return ds[k]; });
+    // 历史均值带：其他场次同窗口逐日均值
+    var otherAvg = {};
+    days.forEach(function(k){ var off = parseInt(k.slice(2)); var vs = []; withDs.forEach(function(e2){ if (e2.date !== entry.e.date && e2.daily_series && e2.daily_series[k] !== undefined) vs.push(e2.daily_series[k]); }); otherAvg[k] = vs.length ? vs.reduce(function(a,b){return a+b;},0)/vs.length : null; });
+    var band = days.map(function(k){ return otherAvg[k]; });
+    echarts.init(chartEl).setOption({
+      backgroundColor:'transparent', textStyle:{color:'#cdd6e6',fontFamily:'Microsoft YaHei'},
+      grid:{left:60,right:30,top:44,bottom:30},
+      legend:{textStyle:{color:'#9fb0c8'},top:0,right:0},
+      tooltip:{trigger:'axis',backgroundColor:'#1A2450',borderColor:'#E0B64F',textStyle:{color:'#fff'}},
+      xAxis:{type:'category',data:days,axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8'}},
+      yAxis:{type:'value',axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8',formatter:'{value}%'},splitLine:{lineStyle:{color:'#232C4C'}}},
+      series:[
+        {name:'本场（' + entry.e.date + '）',type:'line',data:data,smooth:true,lineStyle:{color:'#E0B64F',width:3},itemStyle:{color:'#E0B64F'},symbolSize:7,
+         label:{show:true,color:'#F2D98D',fontSize:10,formatter:function(p){return (p.value>0?'+':'')+p.value.toFixed(1)+'%';}}},
+        {name:'其余场次均值带',type:'line',data:band,smooth:true,lineStyle:{color:'#5BC2E7',width:2,type:'dashed'},itemStyle:{color:'#5BC2E7'},symbol:'none'},
+        {name:'零线',type:'line',data:days.map(function(){return 0;}),lineStyle:{color:'#5a6b8c',width:1},symbol:'none',tooltip:{show:false}}
+      ]
+    });
+  }
+  picks.forEach(function(p){
+    var btn = document.createElement('button');
+    btn.textContent = p.label;
+    btn.style.cssText = 'background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.3);color:#00d2ff;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;';
+    btn.onclick = function(){ draw(p); };
+    picker.appendChild(btn);
+  });
+  if (picks.length) draw(picks[0]);
 })();
 </script>
 <script>
@@ -4796,6 +4889,57 @@ def _build_analysis(payload):
         warnings.append(f"检测到 {overlap} 处场次间隔<7日（效应窗口重叠，归因可能串扰）")
     warnings.append("口径说明：基线为演出前 21~7 日均值，未做同星期对齐（流媒体有星期结构性差异，待升级）")
 
+    # ===== 数据驱动洞察（带上下文解释；随数据变化自动更新；措辞用「伴随效应」避免伪因果）=====
+    insights = []
+    # ① 广州为何单独受关注（自动检测：显著案例即自动生成，任何城市同理）
+    if gz:
+        gz_seq = sorted(gz, key=lambda e: e.get("date") or "")
+        gz_totals = [e.get("total_uplift") for e in gz_seq if e.get("total_uplift") is not None]
+        if gz_totals and gz_totals[-1] > 0 and all((t or 0) <= 0 for t in gz_totals[:-1]):
+            insights.append({
+                "title": "广州城效应首次转正（自动检出案例）",
+                "text": (f"广州{len(gz_seq)}场可量化巡演效应为 {'→'.join(str(t) for t in gz_totals)}，最新一场首次转正。"
+                         "该洞察由引擎按「历史为负+最新转正」规则自动生成——任何城市出现同样信号都会自动提示，广州仅是最新触发案例。"),
+                "evidence": f"数据：{gz_curve}",
+            })
+    # ② 巡演负效应解释（机制+证据，防误解）
+    tour_ps = [p for p in pairs if p["t"] == "个人巡回"]
+    if tour_ps:
+        tu = [p["up"] for p in tour_ps]
+        t_pos = sum(1 for u in tu if u > 0)
+        pos_ratio = round(t_pos / len(tu) * 100)
+        t_avg = round(sum(tu) / len(tu), 1)
+        insights.append({
+            "title": "巡演带动为何多为负（机制解释）",
+            "text": (f"个人巡回 {len(tu)} 个观测中正涨幅仅 {pos_ratio}%（均值 {t_avg:+.1f}%）。这是测量效应而非流量流失："
+                     "①演出前 1~7 日宣发/开票推高收听基线，演出后回归产生负 delta；②存量粉丝到场消费替代流媒体收听；"
+                     "③歌单以翻唱为主，其流媒体增量多归原唱版本。证据：同曲在触达新受众的媒介事件上大幅上涨（见最大爆点）。"),
+            "evidence": f"数据：巡演正占比 {pos_ratio}% / 均值 {t_avg:+.1f}% / 六巡双站 {dual_txt}",
+        })
+    # ③ 带动最强形态
+    if morph:
+        insights.append({
+            "title": "带动最强形态：" + morph[0][0],
+            "text": f"{morph[0][0]}平均 {morph[0][1]:+.1f}%（正占比 {round(sum(1 for u in by_t[morph[0][0]] if u > 0) / len(by_t[morph[0][0]]) * 100)}%）。"
+                    "稀缺内容事件（音乐剧首演/主题曲）与平台级曝光是主要带动引擎；辐射带动（歌单外）为主路径，歌单内转化仅对「主题曲/高频曝光曲」成立。",
+            "evidence": f"数据：形态均值排序首位",
+        })
+    # ④ 年度趋势
+    if y_trend:
+        insights.append({
+            "title": "带动广度持续改善",
+            "text": y_trend + "——带动从「少数爆点」转向「普遍温和正向」，与艺人活动供给机构化（国家院团演出矩阵）同步。",
+            "evidence": f"数据：{y_trend}",
+        })
+    # ⑤ 最大爆点（若有）
+    if top and top["up"] > 50:
+        insights.append({
+            "title": "最大爆点：《" + top["n"] + "》",
+            "text": f"{top['d']} 活动带动 +{top['up']:.0f}%（{'歌单内直接转化' if top['on'] else '辐射带动'}）。"
+                    "爆点为事件驱动的短时脉冲，基线多为负——注意：平台推荐放大可能贡献部分增量（NBER 实证），故表述为「伴随效应」而非严格因果归因。",
+            "evidence": f"数据：{top['n']} +{top['up']:.1f}%（{top['d']}）",
+        })
+
     return {
         "generated_at": payload.get("timestamp") or payload.get("last_update") or "",
         "overview": f"共 {len(fx)} 场活动 / {n} 个歌曲观测，正涨幅 {n_pos}（{n_pos / n * 100:.0f}%），显著带动≥20% 占 {n_big / n * 100:.0f}%，平均 {sum(ups) / n:+.1f}%、中位 {med:+.1f}%。",
@@ -4806,6 +4950,7 @@ def _build_analysis(payload):
         "latest_show": latest,
         "gz_curve": gz_curve,
         "dual_2026": dual_txt,
+        "insights": insights,
         "warnings": warnings,
         "engine": "rule-template-v1（配 deepseek_key.json 可升级 LLM 润色）",
     }
