@@ -2690,6 +2690,10 @@ h2.chart-title{font-size:15px;font-weight:600}
     <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
     <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
   </nav>
+  <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 18px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
+    <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
+    <div id="autoAnalysisBody" style="font-size:13.5px;line-height:1.9;color:#cdd6e6;"></div>
+  </div>
 __GEO_SUMMARY__
   <div class="listen-pulse-bar" id="listenPulseBar">
     <div class="pulse-overview">
@@ -2974,6 +2978,31 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     extras.push('<div style="color:#8c959f">' + ra.data_quality_note + '</div>');
   if (notes) notes.innerHTML = extras.join('<br>');
   if (ais) ais.textContent = '演出辐射效能与衰减形态分析：共'+(ra.total_events||0)+'场，'+(ra.decay_count||0)+'场含逐日衰减数据，已按内容形态聚合。';
+})();
+// ===== 数据自动分析面板（analysis 字段，规则模板引擎生成，随 dashboard_data.json 自动更新）=====
+(function(){
+  var box = document.getElementById('autoAnalysisPanel');
+  var body = document.getElementById('autoAnalysisBody');
+  var a = dashboardData.analysis;
+  if (!box || !body || !a || !a.overview) return;
+  function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
+  var latest = a.latest_show || {};
+  var h = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 20px;font-size:13.5px;line-height:1.8;color:#cdd6e6">';
+  h += '<div style="grid-column:1/-1;color:#f2d98d;font-weight:600;margin-bottom:4px">' + a.overview + '</div>';
+  h += '<div><b style="color:#5bc2e7">最强形态：</b>' + (a.morph_best||'—') + '</div>';
+  h += '<div><b style="color:#e0645c">最弱形态：</b>' + (a.morph_worst||'—') + '</div>';
+  h += '<div><b style="color:#5bc2e7">年度趋势：</b>' + (a.year_trend||'—') + '</div>';
+  h += '<div><b style="color:#e0b64f">最大爆点：</b>' + (a.burst||'—') + '</div>';
+  if (a.gz_curve) h += '<div><b style="color:#6fbf8f">广州城效应史：</b>' + a.gz_curve + '（首次转正）</div>';
+  if (a.dual_2026) h += '<div><b style="color:#5bc2e7">六巡双路径：</b>' + a.dual_2026 + '</div>';
+  if (latest.date) h += '<div><b style="color:#f2d98d">最新场次：</b>' + (latest.date||'') + ' ' + (latest.city||'') + ' [' + (latest.type||'') + '] 全站' + fmt(latest.total) + ' · ' + (latest.pattern||'') + '</div>';
+  h += '</div>';
+  if (a.warnings && a.warnings.length) {
+    h += '<div style="margin-top:8px;padding-top:8px;border-top:1px dashed #3c4468;color:#e0645c;font-size:12px;line-height:1.8">' + a.warnings.map(function(w){ return '⚠ ' + w; }).join('<br>') + '</div>';
+  }
+  h += '<div style="margin-top:8px;font-size:11px;color:#8c959f">引擎：' + (a.engine||'') + ' · 快照：' + (a.generated_at||'') + '</div>';
+  body.innerHTML = h;
+  box.style.display = 'block';
 })();
 </script>
 <script>
