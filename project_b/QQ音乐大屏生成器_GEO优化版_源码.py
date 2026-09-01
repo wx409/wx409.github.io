@@ -2705,7 +2705,9 @@ h2.chart-title{font-size:15px;font-weight:600}
     <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
     <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
     <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
-    <div id="esChart" style="width:100%;height:260px"></div>
+    <div id="esChart" style="width:100%;height:250px"></div>
+    <div style="color:#00d2ff;font-size:12.5px;font-weight:600;margin-top:10px;">📣 宣传链时序（发博前置 → 演出 → 数据）：下方为 T-21~T+14 微博发帖密度</div>
+    <div id="esPosts" style="width:100%;height:90px;margin-top:4px;"></div>
   </div>
 __GEO_SUMMARY__
   <div class="listen-pulse-bar" id="listenPulseBar">
@@ -3053,6 +3055,19 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     });
   }
   mb.innerHTML = h;
+  // 基线污染实测（event_study.json 前瞻泄露诊断）
+  try {
+    fetch('event_study.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(es){
+      if (es.diag && es.diag.length) {
+        var lv = {无污染:0, 轻度:0, 重度:0};
+        es.diag.forEach(function(r){ if (lv[r.level]!==undefined) lv[r.level]++; });
+        var line = document.createElement('div');
+        line.style.cssText = 'margin-top:8px;padding:8px 12px;background:rgba(224,100,92,.08);border:1px solid rgba(224,100,92,.3);border-radius:6px;color:#e0645c;font-size:12px;line-height:1.8';
+        line.innerHTML = '<b>⚠ 前瞻泄露实测（' + es.diag.length + ' 场）：</b>基线窗(T-21~T-7)被宣发帖重度污染 ' + lv['重度'] + ' 场、轻度 ' + lv['轻度'] + ' 场、无污染 ' + lv['无污染'] + ' 场——重度场次效应被系统性低估，建议升级「同星期对齐 + 污染排除」口径。';
+        mb.appendChild(line);
+      }
+    }).catch(function(){});
+  } catch(e){}
 })();
 // ===== 星期效应诊断（按星期几聚合收听份额，证明基线需对齐）=====
 (function(){
@@ -3108,7 +3123,32 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   // 去重（按 date）
   var seen = {};
   picks = picks.filter(function(p){ if (seen[p.e.date]) return false; seen[p.e.date] = true; return true; }).slice(0,5);
+  // 宣传链数据（event_study.json：发博时序 + 基线污染诊断）
+  var esData = null, curEntry = null;
+  try {
+    fetch('event_study.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(es){ esData = es; if (curEntry) draw(curEntry); }).catch(function(){});
+  } catch(e){}
+  function drawPosts(entry){
+    var pEl = document.getElementById('esPosts');
+    if (!pEl) return;
+    if (!esData || !esData.timeline || !esData.timeline[entry.e.date]) { pEl.innerHTML = ''; return; }
+    var posts = esData.timeline[entry.e.date].posts || [];
+    var cats = [], vals = [];
+    for (var o=-21;o<=14;o++){ cats.push(o===0?'T0':('T'+o)); var f=null; for(var i=0;i<posts.length;i++){ if(posts[i].off===o){f=posts[i];break;} } vals.push(f?(f.tour||f.n):0); }
+    echarts.init(pEl).setOption({
+      backgroundColor:'transparent', textStyle:{color:'#9fb0c8',fontFamily:'Microsoft YaHei'},
+      grid:{left:34,right:14,top:6,bottom:22},
+      tooltip:{trigger:'axis',backgroundColor:'#1A2450',borderColor:'#E0B64F',textStyle:{color:'#fff'}},
+      xAxis:{type:'category',data:cats,axisLabel:{color:'#9fb0c8',fontSize:9,interval:3},axisLine:{lineStyle:{color:'#3C4468'}}},
+      yAxis:{type:'value',axisLabel:{color:'#9fb0c8',fontSize:9},splitLine:{lineStyle:{color:'#232C4C'}}},
+      series:[{type:'bar',data:vals,barWidth:'60%',
+        itemStyle:{color:function(p){ return p.dataIndex===21?'#E0B64F':'#5bc2e7'; },opacity:.85},
+        markLine:{symbol:'none',data:[{xAxis:'T0',lineStyle:{color:'#E0B64F',width:2,type:'dashed'},label:{formatter:'演出T0',color:'#F2D98D',fontSize:10}}]}}]
+    });
+  }
   function draw(entry){
+    curEntry = entry;
+    drawPosts(entry);
     var ds = entry.e.daily_series || {};
     var days = Object.keys(ds).sort(function(a,b){ return parseInt(a.slice(2)) - parseInt(b.slice(2)); })
       .filter(function(k){ return parseInt(k.slice(2)) <= 14; });
