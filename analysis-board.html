@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王晰演出数据展板 | 带动分析 · 归因洞察</title>
+<meta name="description" content="王晰演出数据展板：84场活动歌曲带动全景、形态分层、年度趋势、爆点榜、六巡双路径、归因洞察。数据实时取自 dashboard_data.json。">
+<link rel="canonical" href="https://wx409.github.io/analysis-board.html">
+<meta property="og:title" content="王晰演出数据展板">
+<meta property="og:description" content="带动分析 · 归因洞察 · 数据实时取自 dashboard_data.json">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wx409.github.io/analysis-board.html">
+<style>
+:root{
+  --bg:#0B1026; --bg2:#121A3C; --bg3:#1A2450; --gold:#E0B64F; --gold-l:#F2D98D;
+  --blue:#4A6FA5; --cyan:#5BC2E7; --text:#F2F0E8; --sub:#A8B0C8; --red:#E0645C; --green:#6FBF8F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh}
+.wrap{max-width:1500px;margin:0 auto;padding:18px 22px}
+/* 标题栏 */
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--gold);padding-bottom:12px;margin-bottom:16px}
+.top h1{font-size:30px;font-weight:700}
+.top h1 small{display:block;font-size:13px;color:var(--sub);font-weight:400;margin-top:4px;letter-spacing:2px}
+.top .meta{text-align:right;font-size:12px;color:var(--sub)}
+.top .meta b{color:var(--gold-l)}
+/* KPI 行 */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:linear-gradient(160deg,var(--bg2),var(--bg3));border:1px solid var(--blue);border-radius:10px;padding:14px 18px;position:relative;overflow:hidden}
+.kpi::after{content:'';position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(224,182,79,.18),transparent 70%)}
+.kpi .num{font-size:34px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+.kpi .unit{font-size:14px;color:var(--text);margin-top:2px;font-weight:600}
+.kpi .sub{font-size:12px;color:var(--sub);margin-top:2px}
+/* 图表网格 */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.box{background:var(--bg2);border:1px solid #2A3552;border-radius:10px;padding:12px 14px}
+.box h3{font-size:15px;color:var(--gold-l);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.box h3 .tag{font-size:11px;color:var(--sub);font-weight:400}
+.chart{width:100%;height:300px}
+.span3{grid-column:span 3}.span4{grid-column:span 4}.span5{grid-column:span 5}.span6{grid-column:span 6}.span7{grid-column:span 7}.span8{grid-column:span 8}.span12{grid-column:span 12}
+/* 归因卡片 */
+.insight{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid rgba(224,182,79,.4);border-radius:10px;padding:14px 16px;margin-top:16px}
+.insight h2{font-size:18px;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.insight h2::before{content:'';width:6px;height:20px;background:var(--gold);border-radius:3px;display:inline-block}
+.ins-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ins-card{background:var(--bg2);border:1px solid #2A3552;border-radius:8px;padding:10px 12px}
+.ins-card .t{font-size:13px;color:var(--cyan);font-weight:700;margin-bottom:5px}
+.ins-card .d{font-size:11.5px;color:var(--sub);line-height:1.55}
+/* 底部 */
+.foot{margin-top:16px;padding-top:10px;border-top:1px solid #2A3552;font-size:11.5px;color:var(--sub);display:flex;justify-content:space-between}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--sub);margin-top:8px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 12}.ins-cards{grid-template-columns:1fr 1fr}.chart{height:260px}}
+</style>
+<script src="dashboard/echarts.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>📊 王晰演出数据展板<small>ACTIVITY × SONG UPLIFT · 带动分析与归因洞察</small></h1>
+    <div class="meta">数据快照：<b id="snap">加载中…</b><br>数据源：dashboard_data.json（单一数据源，实时读取）</div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="num" id="k1">—</div><div class="unit">场活动</div><div class="sub">监测窗口内可量化演出</div></div>
+    <div class="kpi"><div class="num" id="k2">—</div><div class="unit">歌曲观测</div><div class="sub">场次×曲目涨幅</div></div>
+    <div class="kpi"><div class="num" id="k3">—</div><div class="unit">正涨幅占比</div><div class="sub">带动力广度</div></div>
+    <div class="kpi"><div class="num" id="k4">—</div><div class="unit">显著带动 ≥20%</div><div class="sub">爆点观测占比</div></div>
+  </div>
+
+  <div class="grid">
+    <div class="box span6"><h3>形态带动能力<span class="tag">平均涨幅 % · 正资产 vs 存量场景</span></h3><div id="c_morph" class="chart"></div></div>
+    <div class="box span6"><h3>年度趋势<span class="tag">平均涨幅线 + 正占比柱</span></h3><div id="c_year" class="chart"></div></div>
+
+    <div class="box span5"><h3>单曲爆点 Top10<span class="tag">金色=歌单内 · 青色=辐射带动</span></h3><div id="c_top" class="chart"></div></div>
+    <div class="box span3"><h3>效应模式分布<span class="tag">84 场标签</span></h3><div id="c_pattern" class="chart"></div></div>
+    <div class="box span4"><h3>广州城效应史<span class="tag">四巡→六巡：首次转正</span></h3><div id="c_gz" class="chart"></div></div>
+
+    <div class="box span6"><h3>巡演城市效应<span class="tag">23 场个人巡回按城市</span></h3><div id="c_city" class="chart"></div></div>
+    <div class="box span6"><h3>六巡双路径<span class="tag">重庆精准 vs 广州出圈</span></h3><div id="c_dual" class="chart"></div></div>
+  </div>
+
+  <div class="insight">
+    <h2>归因洞察（2026-09-01 五主题并行研究 · 数据+微博+在线信源）</h2>
+    <div class="ins-cards">
+      <div class="ins-card"><div class="t">2024 带动高峰</div><div class="d">《光影少年》音乐剧首演（首次挑战）单场 top5 全部 +297~380%，稀缺内容事件制造脉冲，S 级平台承接扩散。</div></div>
+      <div class="ins-card"><div class="t">《在路上》双链路</div><div class="d">卫视播出未演唱仍 +542%（种草）→ 车友节主题曲 +508%（收割），6 天双脉冲，事件驱动短时效应。</div></div>
+      <div class="ins-card"><div class="t">六巡广州出圈</div><div class="d">《一生中最爱》2 月已随《光从东方来》国民曝光 → 现场 talk 激活 → +91.8%；CANALI/批文放大话题。</div></div>
+      <div class="ins-card"><div class="t">巡演负效应</div><div class="d">宣发基线回归 + 存量替代 + 翻唱弱转化三重机制；负效应是测量效应非流量流失。</div></div>
+      <div class="ins-card"><div class="t">东演转型红利</div><div class="d">国家院团化 → 草原之夜 12 场占 2026 年 57% → 正占比 35%→47%，带动从爆点转向广谱温和。</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>数据来源：dashboard_data.json（演出后 7 日 vs 演出前 21~7 日基线）· 归因：活动表 199 行 + 四源微博 + 在线信源交叉</span>
+    <span>王晰 GEO 资料站 · 2026-09 生成</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var C = {bg:'#0B1026',bg2:'#121A3C',gold:'#E0B64F',goldL:'#F2D98D',cyan:'#5BC2E7',blue:'#4A6FA5',text:'#F2F0E8',sub:'#A8B0C8',red:'#E0645C',green:'#6FBF8F'};
+  function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
+  var axis = {axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:C.sub,fontSize:11},splitLine:{lineStyle:{color:'#232C4C'}}};
+  function base(){
+    return {backgroundColor:'transparent',textStyle:{color:C.text,fontFamily:'Microsoft YaHei'},
+      grid:{left:70,right:28,top:32,bottom:34},tooltip:{backgroundColor:'#1A2450',borderColor:C.gold,textStyle:{color:C.text}}};
+  }
+
+  fetch('dashboard/dashboard_data.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
+    var fx = d.tour_song_effects||[];
+    document.getElementById('snap').textContent = d.timestamp || d.last_update || '';
+    if(!fx.length){ return; }
+
+    // ---- 歌曲观测 ----
+    var pairs=[];
+    fx.forEach(function(e){ (e.songs||[]).forEach(function(s){ pairs.push({t:e.content_type||'',c:e.city||'',d:e.date,up:s.uplift,on:s.on_setlist,n:s.name}); }); });
+    var pos = pairs.filter(function(p){return p.up>0;}).length;
+    var big = pairs.filter(function(p){return p.up>=20;}).length;
+    document.getElementById('k1').textContent = fx.length;
+    document.getElementById('k2').textContent = pairs.length;
+    document.getElementById('k3').textContent = Math.round(pos/pairs.length*100)+'%';
+    document.getElementById('k4').textContent = Math.round(big/pairs.length*100)+'%';
+
+    // ---- 1 形态带动 ----
+    var byT={};
+    pairs.forEach(function(p){ (byT[p.t]=byT[p.t]||[]).push(p.up); });
+    var morph=Object.keys(byT).map(function(t){ var u=byT[t]; var s=u.reduce(function(a,b){return a+b;},0)/u.length; return [t,s]; })
+      .sort(function(a,b){return b[1]-a[1];});
+    var CT={'个人巡回':'巡演','歌舞剧·音乐剧':'音乐剧','拼盘演唱会':'拼盘','签唱会':'签唱','政府活动':'政府'};
+    var mNames=morph.map(function(m){return (CT[m[0]]||m[0]).replace('·音乐剧','剧');});
+    var mUp=morph.map(function(m){return +m[1].toFixed(1);});
+    echarts.init(document.getElementById('c_morph')).setOption(Object.assign(base(),{
+      xAxis:Object.assign({type:'value'},axis),yAxis:Object.assign({type:'category',data:mNames,axisLabel:{color:C.text,fontSize:12}},axis),
+      series:[{type:'bar',data:mUp.map(function(v){return {value:v,itemStyle:{color:v>=0?C.gold:C.red,opacity:.9}};}),
+        barWidth:'58%',label:{show:true,position:'right',color:C.text,fontSize:11,formatter:function(p){return fmt(p.value);}}}]
+    }));
+
+    // ---- 2 年度趋势 ----
+    var byY={};
+    pairs.forEach(function(p){ (byY[p.d.slice(0,4)]=byY[p.d.slice(0,4)]||[]).push(p.up); });
+    var ys=Object.keys(byY).sort();
+    var yAvg=ys.map(function(y){var u=byY[y];return +(u.reduce(function(a,b){return a+b;},0)/u.length).toFixed(1);});
+    var yPos=ys.map(function(y){var u=byY[y];return Math.round(u.filter(function(v){return v>0;}).length/u.length*100);});
+    echarts.init(document.getElementById('c_year')).setOption(Object.assign(base(),{
+      legend:{textStyle:{color:C.sub},top:0,right:10},
+      xAxis:Object.assign({type:'category',data:ys},axis),yAxis:[Object.assign({type:'value',name:'平均%',nameTextStyle:{color:C.sub}},axis),
+        Object.assign({type:'value',name:'正占比%',nameTextStyle:{color:C.sub},min:0,max:60},axis)],
+      series:[
+        {name:'平均涨幅',type:'line',data:yAvg,smooth:true,lineStyle:{color:C.gold,width:3},itemStyle:{color:C.gold},symbolSize:8,
+          label:{show:true,color:C.goldL,fontSize:11,formatter:function(p){return fmt(p.value);}}},
+        {name:'正涨幅占比',type:'bar',yAxisIndex:1,data:yPos,barWidth:'34%',itemStyle:{color:C.cyan,opacity:.75},
+          label:{show:true,position:'top',color:C.cyan,fontSize:10,formatter:function(p){return p.value+'%';}}}
+      ]
+    }));
+
+    // ---- 3 爆点 Top10 ----
+    var best={};
+    pairs.forEach(function(p){ if(!best[p.n]||p.up>best[p.n].up){best[p.n]={up:p.up,on:p.on};} });
+    var tops=Object.keys(best).map(function(n){return {n:n,up:best[n].up,on:best[n].on};})
+      .sort(function(a,b){return b.up-a.up;}).slice(0,10).reverse();
+    echarts.init(document.getElementById('c_top')).setOption(Object.assign(base(),{
+      xAxis:Object.assign({type:'value'},axis),yAxis:Object.assign({type:'category',data:tops.map(function(t){return t.n;})},axis),
+      series:[{type:'bar',data:tops.map(function(t){return {value:+t.up.toFixed(0),itemStyle:{color:t.on?C.gold:C.cyan}};}),
+        barWidth:'56%',label:{show:true,position:'right',color:C.text,fontSize:10,formatter:function(p){return '+'+p.value+'%';}}}]
+    }));
+
+    // ---- 4 模式分布 ----
+    var pat={};
+    fx.forEach(function(e){ pat[e.pattern]=(pat[e.pattern]||0)+1; });
+    var PC={'精准型':C.gold,'扩散型':C.cyan,'均衡型':C.blue,'出圈型':C.green,'常态型':C.sub,'单点触发型':'#5A6B8C'};
+    echarts.init(document.getElementById('c_pattern')).setOption(Object.assign(base(),{
+      tooltip:{trigger:'item'},legend:{textStyle:{color:C.sub,fontSize:10},bottom:0},
+      series:[{type:'pie',radius:['38%','66%'],center:['50%','44%'],
+        data:Object.keys(pat).map(function(p){return {name:p,value:pat[p],itemStyle:{color:PC[p]||C.blue}};}),
+        label:{color:C.sub,fontSize:10,formatter:'{b} {c}'}}]
+    }));
+
+    // ---- 5 广州效应史 ----
+    var gz=fx.filter(function(e){return e.city==='广州';}).sort(function(a,b){return a.date<b.date?-1:1;});
+    echarts.init(document.getElementById('c_gz')).setOption(Object.assign(base(),{
+      xAxis:Object.assign({type:'category',data:gz.map(function(g){return g.date.slice(2,7);})},axis),
+      yAxis:Object.assign({type:'value'},axis),
+      series:[{type:'line',data:gz.map(function(g){return g.total_uplift;}),
+        lineStyle:{color:C.gold,width:3},itemStyle:{color:C.gold},symbolSize:9,areaStyle:{color:'rgba(224,182,79,.15)'},
+        label:{show:true,color:C.goldL,fontSize:11,formatter:function(p){return fmt(p.value);}}},
+        {type:'bar',data:gz.map(function(g){return g.radiance_uplift;}),barWidth:'36%',itemStyle:{color:C.cyan,opacity:.7},
+         label:{show:true,position:'top',color:C.cyan,fontSize:10,formatter:function(p){return '辐射'+fmt(p.value);}}}]
+    }));
+
+    // ---- 6 巡演城市 ----
+    var byC={};
+    pairs.forEach(function(p){ if(p.t==='个人巡回'){(byC[p.c]=byC[p.c]||[]).push(p.up);} });
+    var cities=Object.keys(byC).map(function(c){var u=byC[c];return [c,+(u.reduce(function(a,b){return a+b;},0)/u.length).toFixed(1)];})
+      .sort(function(a,b){return b[1]-a[1];}).slice(0,12);
+    echarts.init(document.getElementById('c_city')).setOption(Object.assign(base(),{
+      xAxis:Object.assign({type:'value'},axis),yAxis:Object.assign({type:'category',data:cities.map(function(c){return c[0];})},axis),
+      series:[{type:'bar',data:cities.map(function(c){return {value:c[1],itemStyle:{color:c[1]>=0?C.green:C.red,opacity:.85}};}),
+        barWidth:'56%',label:{show:true,position:'right',color:C.text,fontSize:10,formatter:function(p){return fmt(p.value);}}}]
+    }));
+
+    // ---- 7 六巡双路径 ----
+    var dual=fx.filter(function(e){return e.date==='2026-06-13'||e.date==='2026-08-23';});
+    var dualMap={'2026-06-13':'重庆·精准型','2026-08-23':'广州·出圈型'};
+    var dims=['total_uplift','setlist_uplift','radiance_uplift'];
+    echarts.init(document.getElementById('c_dual')).setOption(Object.assign(base(),{
+      legend:{textStyle:{color:C.sub},top:0,right:0},
+      xAxis:Object.assign({type:'category',data:dual.map(function(e){return dualMap[e.date];})},axis),
+      yAxis:Object.assign({type:'value'},axis),
+      series:[
+        {name:'全站',type:'bar',data:dual.map(function(e){return {value:e.total_uplift,itemStyle:{color:C.gold}};}),barWidth:18,label:{show:true,position:'top',color:C.goldL,fontSize:10,formatter:function(p){return fmt(p.value);}}},
+        {name:'歌单内',type:'bar',data:dual.map(function(e){return {value:e.setlist_uplift,itemStyle:{color:C.cyan}};}),barWidth:18,label:{show:true,position:'top',color:C.cyan,fontSize:10,formatter:function(p){return fmt(p.value);}}},
+        {name:'辐射带动',type:'bar',data:dual.map(function(e){return {value:e.radiance_uplift,itemStyle:{color:C.green}};}),barWidth:18,label:{show:true,position:'top',color:C.green,fontSize:10,formatter:function(p){return fmt(p.value);}}}
+      ]
+    }));
+  }).catch(function(e){
+    document.querySelectorAll('.chart').forEach(function(c){c.innerHTML='<div style="color:#E0645C;padding:40px;text-align:center">数据加载失败：'+e.message+'</div>';});
+  });
+})();
+</script>
+</body>
+</html>
