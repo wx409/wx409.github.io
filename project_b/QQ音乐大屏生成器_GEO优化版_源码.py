@@ -2652,6 +2652,7 @@ h2.chart-title{font-size:15px;font-weight:600}
   </div>
   <nav class="story-nav" id="storyNav">
     <a href="https://wx409.github.io/" style="color:#fff;background:rgba(196,30,58,.9);border-radius:8px;font-weight:600;">🏠 返回主页</a>
+    <a href="analysis-board.html" target="_blank" rel="noopener" style="color:#fff;background:rgba(224,182,79,.85);border-radius:8px;font-weight:600;">📊 数据展板</a>
     <a href="#trendChart" data-target="trendChart">① 全景概览</a>
     <a href="#timelineChart" data-target="timelineChart">② 竞争格局演变</a>
     <a href="#sankeyChart" data-target="sankeyChart">③ 生命周期流转</a>
