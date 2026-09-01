@@ -1827,6 +1827,15 @@ def tour_song_effects(df_all, setlists, topn=5):
         series[uid] = (name, norm_name(name), s)  # (原始显示名, 数据层归一名, 时序)
     if not series:
         return []
+    # 前瞻泄露污染标记（event_study.json，基线窗 T-21~T-7 宣发帖 ≥4 = 重度）
+    _polluted = {}
+    try:
+        _es = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "index_records", "dashboard", "event_study.json"), encoding="utf-8"))
+        for _r in _es.get("diag") or []:
+            if _r.get("level") == "重度":
+                _polluted[_r["date"]] = _r.get("base_tour_posts", 0)
+    except Exception:
+        pass
     rows = []
     for (date, scene), info in setlists.items():
         d = pd.to_datetime(date, errors="coerce")
@@ -1836,7 +1845,7 @@ def tour_song_effects(df_all, setlists, topn=5):
         post_lo, post_hi = d, d + pd.Timedelta(days=7)
         on_norms = set(info["songs"])
         effects = []  # (显示名, uplift, on_setlist)
-        total_pre, total_post = [], []
+        total_pre, total_post, total_pre_wk = [], [], []
         for disp, nrm, s in series.values():
             pre = s[(s.index >= pre_lo) & (s.index < pre_hi)]
             post = s[(s.index >= post_lo) & (s.index <= post_hi)]
@@ -1846,9 +1855,17 @@ def tour_song_effects(df_all, setlists, topn=5):
             effects.append((disp, float(up), nrm in on_norms))
             total_pre.append(pre.mean())
             total_post.append(post.mean())
+            # 同星期对齐基线：21~7 日内与演出日星期相同的日期（Luminate：周内结构差异显著）
+            _wk = [x for x in pre.index if x.weekday() == d.weekday()]
+            if len(_wk) >= 3:
+                total_pre_wk.append(s.loc[_wk].mean())
         if not effects:
             continue
         total_uplift = ((sum(total_post) / len(total_post)) / (sum(total_pre) / len(total_pre)) - 1) * 100
+        # 同星期基线全站效应（仅当 ≥3 个同星期样本）
+        total_uplift_wk = None
+        if len(total_pre_wk) >= 3 and sum(total_pre_wk) > 0:
+            total_uplift_wk = ((sum(total_post) / len(total_post)) / (sum(total_pre_wk) / len(total_pre_wk)) - 1) * 100
         on_list = [e for e in effects if e[2]]
         off_list = [e for e in effects if not e[2]]
         setlist_uplift = (sum(e[1] for e in on_list) / len(on_list)) if on_list else None
@@ -1890,6 +1907,8 @@ def tour_song_effects(df_all, setlists, topn=5):
             "venue_type": venue_type_of(str(info["tour"]), scene),
             "tour": info["tour"],
             "total_uplift": round(float(total_uplift), 1),
+            "total_uplift_wk": round(float(total_uplift_wk), 1) if total_uplift_wk is not None else None,
+            "base_polluted": _polluted.get(date),  # 重度污染宣发帖数（None=无/轻污染）
             "setlist_uplift": round(float(setlist_uplift), 1) if setlist_uplift is not None else None,
             "radiance_uplift": round(float(radiance_uplift), 1) if radiance_uplift is not None else None,
             "daily_series": daily_series,
