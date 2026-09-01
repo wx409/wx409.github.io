@@ -2698,6 +2698,8 @@ h2.chart-title{font-size:15px;font-weight:600}
   <details style="margin:0 0 14px 0;background:rgba(16,20,40,.55);border:1px solid #2A3552;border-radius:10px;padding:10px 16px;">
     <summary style="cursor:pointer;color:#00d2ff;font-size:13.5px;font-weight:600;">🔬 口径与方法（点击展开 · 每个数字可解释）</summary>
     <div id="methodBody" style="font-size:12.5px;line-height:2;color:#9fb0c8;margin-top:8px;"></div>
+    <div style="margin-top:10px;color:#00d2ff;font-size:13px;font-weight:600;">📅 星期效应诊断（为什么基线需星期对齐）</div>
+    <div id="weekdayChart" style="width:100%;height:170px;margin-top:6px;"></div>
   </details>
   <div class="chart-box" style="margin-bottom:14px;">
     <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
@@ -3043,7 +3045,49 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     ['数据源', 'dashboard_data.json（单一数据源）· 辐射分析文案由 DeepSeek LLM 实时生成（DPAPI 加密 key）'],
   ];
   var h = rows.map(function(r){ return '<b style="color:#00d2ff">' + r[0] + '：</b>' + r[1]; }).join('<br>');
+  // 口径科学性（第一性原理 Q&A）
+  if (a.method_text && a.method_text.length) {
+    h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#f2d98d;font-weight:700;font-size:13px">🎓 口径科学性（第一性原理）</div>';
+    a.method_text.forEach(function(m){
+      h += '<div style="margin-top:6px"><b style="color:#5bc2e7">' + m.q + '</b><br><span style="color:#9fb0c8">' + m.a + '</span></div>';
+    });
+  }
   mb.innerHTML = h;
+})();
+// ===== 星期效应诊断（按星期几聚合收听份额，证明基线需对齐）=====
+(function(){
+  var el = document.getElementById('weekdayChart');
+  if (!el) return;
+  var tl = dashboardData.listener_ratio_trend || dashboardData.daily_listen_trend || [];
+  if (!Array.isArray(tl) || tl.length < 20) { el.parentNode.style.display = 'none'; return; }
+  // 提取日期+值序列
+  var pts = [];
+  tl.forEach(function(row){
+    var d = Array.isArray(row) ? row[0] : (row.date || row.d || '');
+    var v = Array.isArray(row) ? row[1] : (row.value !== undefined ? row.value : row.ratio);
+    if (d && v !== undefined && v !== null) pts.push([String(d).slice(0,10), Number(v)]);
+  });
+  if (pts.length < 20) { el.parentNode.style.display = 'none'; return; }
+  var byDow = [[],[],[],[],[],[],[]];
+  pts.forEach(function(p){
+    var t = new Date(p[0].replace(/-/g,'/'));
+    if (isNaN(t)) return;
+    byDow[t.getDay()].push(p[1]);
+  });
+  var names = ['周日','周一','周二','周三','周四','周五','周六'];
+  var data = byDow.map(function(a){ return a.length ? a.reduce(function(x,y){return x+y;},0)/a.length : null; });
+  var avg = data.filter(function(v){return v!==null;});
+  var med = avg.sort(function(a,b){return a-b;})[Math.floor(avg.length/2)];
+  var spread = avg.length ? ((Math.max.apply(null,avg) - Math.min.apply(null,avg)) / med * 100).toFixed(1) : '0';
+  echarts.init(el).setOption({
+    backgroundColor:'transparent', textStyle:{color:'#9fb0c8',fontFamily:'Microsoft YaHei'},
+    grid:{left:50,right:16,top:30,bottom:26}, tooltip:{trigger:'axis',backgroundColor:'#1A2450',borderColor:'#E0B64F',textStyle:{color:'#fff'}},
+    xAxis:{type:'category',data:names,axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8'}},
+    yAxis:{type:'value',axisLine:{lineStyle:{color:'#3C4468'}},axisLabel:{color:'#9fb0c8'},splitLine:{lineStyle:{color:'#232C4C'}}},
+    series:[{type:'bar',data:data.map(function(v){return v===null?0:v;}),barWidth:'50%',
+      itemStyle:{color:'#5bc2e7',opacity:.8},label:{show:true,position:'top',color:'#9fb0c8',fontSize:10,formatter:function(p){return p.value.toFixed(1);}}}],
+    title:{text:'周内极差 ' + spread + '%（Luminate 实证：周内差可达两位数%）',textStyle:{color:'#f2d98d',fontSize:12},top:0,left:0}
+  });
 })();
 // ===== 事件研究曲线（daily_series T+1~T+14，CAR 式）=====
 (function(){
@@ -4933,13 +4977,35 @@ def _build_analysis(payload):
         })
     # ⑤ 最大爆点（若有）
     if top and top["up"] > 50:
+        # 稳健性：median/MAD Z-score（均值易被离群值污染，EPJ 建议）
+        med_u = sorted(ups)[n // 2]
+        mad = sorted(abs(u - med_u) for u in ups)[n // 2]
+        robust_z = round(0.6745 * (top["up"] - med_u) / mad, 1) if mad else 99
+        # 外部事件干扰检查：爆点日期 ±3 天是否有新歌发行/平台事件
+        inter = []
+        for re_ in (payload.get("release_events") or []):
+            rd = str(re_.get("date", ""))[:10]
+            if rd and abs((datetime.fromisoformat(rd) - datetime.fromisoformat(top["d"])).days) <= 3:
+                inter.append(re_.get("name") or re_.get("title") or "新歌发行")
+        inter_txt = ("；同期有发行事件「" + "、".join(inter[:3]) + "」，效应可能含发行贡献（需排除复核）" if inter
+                     else "；同期无发行事件，干扰较低")
         insights.append({
             "title": "最大爆点：《" + top["n"] + "》",
-            "text": f"{top['d']} 活动带动 +{top['up']:.0f}%（{'歌单内直接转化' if top['on'] else '辐射带动'}）。"
-                    "爆点为事件驱动的短时脉冲，基线多为负——注意：平台推荐放大可能贡献部分增量（NBER 实证），故表述为「伴随效应」而非严格因果归因。",
-            "evidence": f"数据：{top['n']} +{top['up']:.1f}%（{top['d']}）",
+            "text": (f"{top['d']} 活动带动 +{top['up']:.0f}%（{'歌单内直接转化' if top['on'] else '辐射带动'}）。"
+                     f"稳健性 Z 分 {robust_z}（median/MAD 口径，|Z|>3 视为稳健异常）"
+                     f"——{'确认为稳健爆点' if robust_z > 3 else '受离群影响，需人工复核'}。"
+                     + inter_txt + "。平台推荐放大可能贡献部分增量，表述为「伴随效应」而非严格因果归因。"),
+            "evidence": f"数据：{top['n']} +{top['up']:.1f}%（{top['d']}）· 全样本中位 {med_u:+.1f}% / MAD {mad:.1f}",
         })
 
+    # ===== 口径科学性（第一性原理，随版本可迭代）=====
+    method_text = [
+        {"q": "为什么基线用「演出前 21~7 日」？", "a": "第一性原理：效应=事件引起的增量，须剥离「没有演出也会发生的变化」。估计窗须远离事件窗——演出前 1~7 日是官宣/开票/预热的高扰动期，若纳入基线会系统性低估效应；21~7 日=避开预热又不过度前移（前移越远越混入季节性漂移）。"},
+        {"q": "为什么效应主窗口用 7 日？", "a": "实证（Concert-Induced Streaming）显示演出带动主要在事件后 1~2 周释放；7 日=信号集中期且与周循环对齐，便于同星期对比。局限：冷门老歌回春可长达数周，7 日会截断长尾——故事件研究曲线延伸至 T+14/T+30 观察衰减。窗口选择应做敏感性分析（7/14/30 对比），而非拍脑袋。"},
+        {"q": "30/90 日用在何处？", "a": "30 日=单曲热度/月度趋势（已有 hist_trends）；90 日=生命周期与季节性（周末/工作日、寒暑假结构）。它们描述长期水平与结构，不用于事件效应判定——效应判定与长期趋势必须分窗，混用会互相污染。"},
+        {"q": "为什么要做星期对齐？", "a": "Luminate 实证：流媒体消费有显著星期结构差异（周内差可达两位数%）。「后 7 日 vs 前 21~7 日」若演出日为周末、基线含较多工作日，会系统误判。升级方向：基线改为「演出前 3 个同星期几」均值。当前已诊断展示（见星期效应图）。"},
+        {"q": "为什么爆点用 median/MAD 而非均值？", "a": "播放量呈重尾分布，均值被爆款主导（EPJ 实证）；median/MAD 稳健 Z 分能识别真正的异常点，避免单曲离群值污染全部结论。页面爆点卡已带稳健性标记。"},
+    ]
     return {
         "generated_at": payload.get("timestamp") or payload.get("last_update") or "",
         "overview": f"共 {len(fx)} 场活动 / {n} 个歌曲观测，正涨幅 {n_pos}（{n_pos / n * 100:.0f}%），显著带动≥20% 占 {n_big / n * 100:.0f}%，平均 {sum(ups) / n:+.1f}%、中位 {med:+.1f}%。",
@@ -4951,6 +5017,7 @@ def _build_analysis(payload):
         "gz_curve": gz_curve,
         "dual_2026": dual_txt,
         "insights": insights,
+        "method_text": method_text,
         "warnings": warnings,
         "engine": "rule-template-v1（配 deepseek_key.json 可升级 LLM 润色）",
     }
