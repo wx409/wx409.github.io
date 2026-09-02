@@ -1397,15 +1397,15 @@ def compute_timeline_narrative(df_all, song_info, top_n=15, max_months=48):
     return frames
 
 
-def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_display=10):
+def compute_daily_listen(df_all, total_songs, min_active=5, top_n=500, min_display=10):
     """今日收听态势：活跃歌曲池份额集中度 + 环比趋势（全部为比率/计数，无绝对收听人数）。
     口径：活跃池 = 当日 max(listeners) > 0 的歌曲；份额分母 = 当日活跃池峰值总和。
     数据完整日回退：最新采集日活跃 < min_active（采集未完成，如凌晨批次仅 2 首）时，
     自动回退到最近一个活跃 >= min_active 的日期，并在 as_of 标注实际数据日期，避免份额失真。
     min_display：当日活跃歌曲数低于该阈值时视为"样本过小"，trend 返回空、
     overview.too_small=True，前端隐藏份额列表（避免 8 首这种小样本误导）。
-    top_n：份额列表最多列出的歌曲数（默认 20，覆盖当日有指数的多数歌曲）。
-    另输出 new_today：昨日无指数而今日出现指数的歌曲（首次活跃/恢复活跃）。"""
+    top_n：份额列表最多列出的歌曲数（默认 500 = 全量覆盖当日所有出指数歌曲，2026-09-01 调整）。
+    另输出 new_today：昨日无指数而今日出现指数的歌曲（首次活跃/恢复活跃，不限于 TopN）。"""
     empty = {
         "overview": {"active_count": 0, "total_tracked": int(total_songs),
                      "concentration_top3": None, "as_of": None, "too_small": False},
@@ -1496,7 +1496,7 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
                 "share_pct": round(float(r["peak"]) / total_peak * 100, 1),
                 "in_trend": song in trend_uids,  # 是否已在主列表（TOP)中
             })
-    new_today = new_today[:20]
+    new_today = new_today[:500]  # 全量（当天新上榜歌曲一般不多）
 
     too_small = int(len(active)) < min_display
     return {
@@ -1510,6 +1510,56 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=20, min_displa
         "trend": [] if too_small else trend,
         "new_today": new_today,
     }
+
+
+def compute_monthly(df_all, month=None):
+    """当月（默认最新数据月）榜单：新上榜排行 + 指标排行（2026-09-01 新增）
+    new_songs: 当月内「昨日无指数、当日有指数」的歌曲，按累计上榜天数排（days=多次上榜）
+    top_index: 当月日均指数 Top15（current_index 均值，指数口径）
+    top_listeners: 当月日均收听峰值 Top15（listeners 峰值，热度口径）"""
+    if df_all is None or df_all.empty or "listeners" not in df_all.columns:
+        return None
+    df = df_all.copy()
+    df["data_date"] = pd.to_datetime(df["data_date"], errors="coerce")
+    df = df.dropna(subset=["data_date"])
+    if df.empty:
+        return None
+    last = df["data_date"].max()
+    m = last.strftime("%Y-%m") if month is None else month
+    mdf = df[df["data_date"].dt.strftime("%Y-%m") == m]
+    if mdf.empty:
+        return None
+    uid2disp = df.groupby("uid")["display_name"].last().to_dict()
+    daily = mdf.groupby(["uid", "data_date"])["listeners"].max().reset_index()
+    # 当月新上榜：歌在该月某日首次出现（前一自然日无指数）
+    dates = sorted(daily["data_date"].unique())
+    appeared, new_count = {}, {}
+    for d in dates:
+        prev = d - pd.Timedelta(days=1)
+        prev_uids = set(daily.loc[daily["data_date"] == prev, "uid"]) if (daily["data_date"] == prev).any() else set()
+        cur = daily[daily["data_date"] == d]
+        for uid in cur["uid"]:
+            if uid not in prev_uids and uid not in appeared:
+                appeared[uid] = d
+                new_count[uid] = 1
+            elif uid in appeared:
+                new_count[uid] += 1
+    new_songs = [{"song": str(uid2disp.get(u, u)), "first_day": appeared[u].strftime("%m-%d"), "days": new_count[u]}
+                 for u in appeared]
+    new_songs.sort(key=lambda x: (-x["days"], x["first_day"]))
+    # 当月日均指数 Top
+    top_idx = []
+    if "current_index" in mdf.columns:
+        idx = mdf.groupby("uid")["current_index"].mean().reset_index()
+        idx = idx[idx["current_index"] > 0].sort_values("current_index", ascending=False).head(15)
+        top_idx = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "avg_index": round(float(r["current_index"]), 1)}
+                   for _, r in idx.iterrows()]
+    # 当月日均收听峰值 Top
+    lpk = mdf.groupby("uid")["listeners"].max().reset_index()
+    lpk = lpk[lpk["listeners"] > 0].sort_values("listeners", ascending=False).head(15)
+    top_lp = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "peak": int(r["listeners"])}
+              for _, r in lpk.iterrows()]
+    return {"month": m, "new_songs": new_songs, "top_index": top_idx, "top_listeners": top_lp}
 
 
 def compute_daily_freshness(df_all, min_active=5, idx_pct_thr=0.30, rank_up_thr=3000, top_n=3):
@@ -5839,6 +5889,7 @@ def rebuild_dashboard():
     df_all.to_excel(latest_excel, index=False)
     logger.info(f"原始数据已本地归档: {raw_excel}（{len(df_all)} 行）")
 
+    payload["monthly"] = compute_monthly(df_all)
     result = generate_dashboard(payload, DASHBOARD_DIR)
     # 自动部署到网站（失败不影响采集，仅记录日志）
     auto_deploy(DASHBOARD_DIR)
