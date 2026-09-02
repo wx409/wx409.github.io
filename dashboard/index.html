@@ -359,11 +359,12 @@ h2.chart-title{font-size:15px;font-weight:600}
   <nav class="story-nav" id="storyNav">
     <a href="https://wx409.github.io/" style="color:#fff;background:rgba(196,30,58,.9);border-radius:8px;font-weight:600;">🏠 返回主页</a>
     <a href="analysis-board.html" target="_blank" rel="noopener" style="color:#fff;background:rgba(224,182,79,.85);border-radius:8px;font-weight:600;">📊 数据展板</a>
-    <a href="#trendChart" data-target="trendChart">① 全景概览</a>
-    <a href="#timelineChart" data-target="timelineChart">② 竞争格局演变</a>
-    <a href="#sankeyChart" data-target="sankeyChart">③ 生命周期流转</a>
-    <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
-    <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
+    <a href="#autoAnalysisPanel" data-target="autoAnalysisPanel">① 洞察结论</a>
+    <a href="#actionPanel" data-target="actionPanel">② 行动建议</a>
+    <a href="#textArchivePanel" data-target="textArchivePanel">📚 文本档案</a>
+    <a href="#esBox" data-target="esBox">③ 归因证据</a>
+    <a href="#tourSongFx" data-target="tourSongFx">④ 效应全景</a>
+    <a href="#kpiRow" data-target="kpiRow">⑤ 数据可信</a>
   </nav>
   <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
     <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
@@ -376,7 +377,15 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div style="margin-top:10px;color:#00d2ff;font-size:13px;font-weight:600;">📅 星期效应诊断（为什么基线需星期对齐）</div>
     <div id="weekdayChart" style="width:100%;height:170px;margin-top:6px;"></div>
   </details>
-  <div class="chart-box" style="margin-bottom:14px;">
+  <div id="actionPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(91,194,231,.10),rgba(20,26,58,.65));border:1px solid rgba(91,194,231,.38);border-radius:12px;">
+    <h3 style="margin:0 0 10px;color:#5bc2e7;font-size:17px;">🎯 行动建议（数据驱动 · 随 dashboard_data.json 更新）</h3>
+    <div id="actionBody" style="font-size:13px;line-height:1.8;color:#cdd6e6;"></div>
+  </div>
+  <div id="textArchivePanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(111,191,143,.08),rgba(20,26,58,.6));border:1px solid rgba(111,191,143,.32);border-radius:12px;">
+    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博/百家号/微博书/工作室 + 长表/活动表）</h3>
+    <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
+  </div>
+  <div class="chart-box" id="esBox" style="margin-bottom:14px;">
     <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
     <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
     <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
@@ -386,10 +395,10 @@ h2.chart-title{font-size:15px;font-weight:600}
   </div>
   <section class="geo-summary" id="summary">
     <h2>核心数据结论（截至 2026-09-01）
-      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-09-02 08:45</span></span>
+      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-09-02 08:50</span></span>
     </h2>
-    <p><strong>今日研判：</strong>【今日概览】截至 2026-09-02 08:45 的监测更新已完成；检出异动：Over the Rainbow排名较昨日上升 5,107 位。 【异动明细】共 3 项：Over the Rainbow排名较昨日上升 5,107 位；月弯弯排名较昨日上升 3,802 位；亲密爱人排名较昨日上升 3,027 位。异动需结合上下文判断是临时波动还是趋势起点，可对照近 7 日走势与事件时间轴。 【市场信号】近 7 日追踪曲目池平均指数 626→558（↓10.9%），整体下行；7 日序列：626、648、586、630、634、586、558。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+84.2%、《在路上》+25.6%；领跌 《亲密爱人》-7.2%、《Sound of Silence》-4.4%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线平均上涨 16.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《Over the Rainbow》↑5107位；《月弯弯》↑3802位；《亲密爱人》↑3027位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数下行；巡演带动正向；存在单曲异动需关注。综合来看，王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
-    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-09-01</strong>，累计 <strong>1217</strong> 个监测批次，覆盖 <strong>383</strong> 首追踪歌曲（链接身份 255 + 名称身份 128），其中 <strong>244</strong> 首（63.7%）近期有收听记录，数据完整度 20.8%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-09-02 08:45</strong>。</p>
+    <p><strong>今日研判：</strong>【今日概览】截至 2026-09-02 08:50 的监测更新已完成；检出异动：Over the Rainbow排名较昨日上升 5,107 位。 【异动明细】共 3 项：Over the Rainbow排名较昨日上升 5,107 位；月弯弯排名较昨日上升 3,802 位；亲密爱人排名较昨日上升 3,027 位。异动需结合上下文判断是临时波动还是趋势起点，可对照近 7 日走势与事件时间轴。 【市场信号】近 7 日追踪曲目池平均指数 626→558（↓10.9%），整体下行；7 日序列：626、648、586、630、634、586、558。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+84.2%、《在路上》+25.6%；领跌 《亲密爱人》-7.2%、《Sound of Silence》-4.4%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线平均上涨 16.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《Over the Rainbow》↑5107位；《月弯弯》↑3802位；《亲密爱人》↑3027位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数下行；巡演带动正向；存在单曲异动需关注。综合来看，王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
+    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-09-01</strong>，累计 <strong>1217</strong> 个监测批次，覆盖 <strong>383</strong> 首追踪歌曲（链接身份 255 + 名称身份 128），其中 <strong>244</strong> 首（63.7%）近期有收听记录，数据完整度 20.8%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-09-02 08:50</strong>。</p>
     <p>全曲目月度平均指数由期初（2023-01）的 1873 变化至最新月（2026-09）的 558（-70.2%）（注：期初监测批次较早、追踪曲目池覆盖与近期不同，此处变化主要反映样本规模扩大，不直接等同于热度衰减），历史峰值出现在 2023-01（1873）。近30日平均指数最高的作品为 《黎明前的黑暗》、《再叙》、《一生中最爱》。近90日综合表现：专辑类第一《在路上》（综合得分 15.7），OST/单曲类第一《一生中最爱》（综合得分 23.0），其他追踪类第一《黎明前的黑暗》（综合得分 65.1）。</p>
     <p>在可量化的 10 个巡演节点中，巡演后7日追踪曲目池日均指数较基线平均上涨 16.8%（带动最强的是 11-12 北京（首场），+70.4%）。新歌发行14日表现最佳为 《多听有益》01-12（14日平均指数 54004，峰值 369883）。周末平均指数 451，工作日 464，周末低出 2.8%。收听热度（归一化至峰值月100%）由期初 22% 变化至最新月 1%（↓20pct）。近30日异常活跃歌曲：《一生中最爱》（环比+84.2%，飙升）、《在路上》（环比+25.6%，飙升）、《荒人之歌》（环比+22.3%，飙升）。</p>
     <h3>数据速览</h3>
@@ -463,7 +472,7 @@ h2.chart-title{font-size:15px;font-weight:600}
       <div class="status-item"><span>活跃歌曲</span><span class="status-value">244 个</span></div>
       <div class="status-item"><span>指数口径</span><span class="status-value">昨日音乐指数校准</span></div>
       <div class="status-item"><span>巡演节点 / 发行事件</span><span class="status-value">25 / 41</span></div>
-      <div class="status-item"><span>最后更新</span><span class="status-value">2026-09-02 08:45</span></div>
+      <div class="status-item"><span>最后更新</span><span class="status-value">2026-09-02 08:50</span></div>
       <div class="status-item"><span>下次监测</span><span class="status-value">11:49 极速</span></div>
     </div></div>
   </div>
@@ -743,6 +752,16 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     });
     ib.innerHTML = ih;
   }
+  // ---- 行动建议 ----
+  if (a.actions && a.actions.length) {
+    var ab = document.getElementById('actionBody');
+    var ah = a.actions.map(function(ac){
+      return '<div style="margin-bottom:8px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px">' +
+        '<b style="color:#5bc2e7">' + ac.title + '：</b><span style="color:#cdd6e6">' + ac.text + '</span></div>';
+    }).join('');
+    document.getElementById('actionBody').innerHTML = ah;
+    document.getElementById('actionPanel').style.display = 'block';
+  }
 })();
 // ===== 口径与方法抽屉（数据驱动填充）=====
 (function(){
@@ -817,7 +836,48 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     title:{text:'周内极差 ' + spread + '%（Luminate 实证：周内差可达两位数%）',textStyle:{color:'#f2d98d',fontSize:12},top:0,left:0}
   });
 })();
-// ===== 事件研究曲线（daily_series T+1~T+14，CAR 式）=====
+// ===== 文本档案（全源语言画像：微博/微博书/长表/活动表文本挖掘）=====
+(function(){
+  var box = document.getElementById('textArchivePanel');
+  var body = document.getElementById('textArchiveBody');
+  if (!box || !body) return;
+  fetch('text_archive.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(t){
+    if (!t.weibo && !t.setlist) return;
+    function miniBar(title, items, color){
+      if (!items || !items.length) return '';
+      var max = Math.max.apply(null, items.map(function(x){ return x.n || x.shows || 0; }));
+      var rows = items.map(function(x){
+        var name = x.c || x.s || x.t || x.w || '';
+        var v = x.n || x.shows || 0;
+        var w = Math.round(v / max * 100);
+        return '<div style="display:flex;align-items:center;gap:8px;margin:2px 0"><span style="width:64px;color:#9fb0c8;font-size:11px;text-align:right">' + name + '</span>' +
+          '<div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;height:12px"><div style="width:' + w + '%;height:12px;background:' + color + ';border-radius:3px"></div></div>' +
+          '<span style="width:30px;color:#cdd6e6;font-size:11px">' + v + '</span></div>';
+      }).join('');
+      return '<div style="margin:8px 0"><b style="color:#6fbf8f;font-size:12.5px">' + title + '</b>' + rows + '</div>';
+    }
+    var h = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px">';
+    // 左列：微博 + 微博书
+    h += '<div>' +
+      '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">📱 微博四源（' + (t.weibo.n||0) + ' 帖）· 城市提及</div>' +
+      miniBar('', t.weibo.cities_top, '#5bc2e7') +
+      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">📖 微博书（' + (t.weibo_book.n||0) + ' 帖，2014-2023 本人微博）· 城市提及</div>' +
+      miniBar('', t.weibo_book.cities_top, '#6fbf8f') +
+      '</div>';
+    // 右列：长表常青曲 + 活动类型
+    h += '<div>' +
+      '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">🎵 长表常青曲目（' + (t.setlist.n_shows||0) + ' 场歌单，跨场出现）</div>' +
+      miniBar('', (t.setlist.evergreen||[]).slice(0,8), '#e0b64f') +
+      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">🎭 活动表类型分布（' + (t.activities.n||0) + ' 行）</div>' +
+      miniBar('', t.activities.type_dist, '#5bc2e7') +
+      '</div></div>';
+    h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#8c959f;font-size:11.5px">' +
+      '数据源：微博 1722 帖（本人+工作室+百家号）· 微博书 3 册 OCR · 长表 64 场歌单 · 活动表 199 行（含百科入库）。' +
+      '详细文本挖掘（词频/情感/mention→数据桥接）见 <a href="../temp/微博深度文本挖掘报告_20260901.md" style="color:#5bc2e7">深度报告</a>。</div>';
+    body.innerHTML = h;
+    box.style.display = 'block';
+  }).catch(function(){});
+})();
 (function(){
   var picker = document.getElementById('esPicker');
   var chartEl = document.getElementById('esChart');

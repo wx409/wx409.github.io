@@ -2703,11 +2703,12 @@ h2.chart-title{font-size:15px;font-weight:600}
   <nav class="story-nav" id="storyNav">
     <a href="https://wx409.github.io/" style="color:#fff;background:rgba(196,30,58,.9);border-radius:8px;font-weight:600;">🏠 返回主页</a>
     <a href="analysis-board.html" target="_blank" rel="noopener" style="color:#fff;background:rgba(224,182,79,.85);border-radius:8px;font-weight:600;">📊 数据展板</a>
-    <a href="#trendChart" data-target="trendChart">① 全景概览</a>
-    <a href="#timelineChart" data-target="timelineChart">② 竞争格局演变</a>
-    <a href="#sankeyChart" data-target="sankeyChart">③ 生命周期流转</a>
-    <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
-    <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
+    <a href="#autoAnalysisPanel" data-target="autoAnalysisPanel">① 洞察结论</a>
+    <a href="#actionPanel" data-target="actionPanel">② 行动建议</a>
+    <a href="#textArchivePanel" data-target="textArchivePanel">📚 文本档案</a>
+    <a href="#esBox" data-target="esBox">③ 归因证据</a>
+    <a href="#tourSongFx" data-target="tourSongFx">④ 效应全景</a>
+    <a href="#kpiRow" data-target="kpiRow">⑤ 数据可信</a>
   </nav>
   <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
     <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
@@ -2720,7 +2721,15 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div style="margin-top:10px;color:#00d2ff;font-size:13px;font-weight:600;">📅 星期效应诊断（为什么基线需星期对齐）</div>
     <div id="weekdayChart" style="width:100%;height:170px;margin-top:6px;"></div>
   </details>
-  <div class="chart-box" style="margin-bottom:14px;">
+  <div id="actionPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(91,194,231,.10),rgba(20,26,58,.65));border:1px solid rgba(91,194,231,.38);border-radius:12px;">
+    <h3 style="margin:0 0 10px;color:#5bc2e7;font-size:17px;">🎯 行动建议（数据驱动 · 随 dashboard_data.json 更新）</h3>
+    <div id="actionBody" style="font-size:13px;line-height:1.8;color:#cdd6e6;"></div>
+  </div>
+  <div id="textArchivePanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(111,191,143,.08),rgba(20,26,58,.6));border:1px solid rgba(111,191,143,.32);border-radius:12px;">
+    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博/百家号/微博书/工作室 + 长表/活动表）</h3>
+    <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
+  </div>
+  <div class="chart-box" id="esBox" style="margin-bottom:14px;">
     <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
     <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
     <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
@@ -3049,6 +3058,16 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     });
     ib.innerHTML = ih;
   }
+  // ---- 行动建议 ----
+  if (a.actions && a.actions.length) {
+    var ab = document.getElementById('actionBody');
+    var ah = a.actions.map(function(ac){
+      return '<div style="margin-bottom:8px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px">' +
+        '<b style="color:#5bc2e7">' + ac.title + '：</b><span style="color:#cdd6e6">' + ac.text + '</span></div>';
+    }).join('');
+    document.getElementById('actionBody').innerHTML = ah;
+    document.getElementById('actionPanel').style.display = 'block';
+  }
 })();
 // ===== 口径与方法抽屉（数据驱动填充）=====
 (function(){
@@ -3123,7 +3142,48 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     title:{text:'周内极差 ' + spread + '%（Luminate 实证：周内差可达两位数%）',textStyle:{color:'#f2d98d',fontSize:12},top:0,left:0}
   });
 })();
-// ===== 事件研究曲线（daily_series T+1~T+14，CAR 式）=====
+// ===== 文本档案（全源语言画像：微博/微博书/长表/活动表文本挖掘）=====
+(function(){
+  var box = document.getElementById('textArchivePanel');
+  var body = document.getElementById('textArchiveBody');
+  if (!box || !body) return;
+  fetch('text_archive.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(t){
+    if (!t.weibo && !t.setlist) return;
+    function miniBar(title, items, color){
+      if (!items || !items.length) return '';
+      var max = Math.max.apply(null, items.map(function(x){ return x.n || x.shows || 0; }));
+      var rows = items.map(function(x){
+        var name = x.c || x.s || x.t || x.w || '';
+        var v = x.n || x.shows || 0;
+        var w = Math.round(v / max * 100);
+        return '<div style="display:flex;align-items:center;gap:8px;margin:2px 0"><span style="width:64px;color:#9fb0c8;font-size:11px;text-align:right">' + name + '</span>' +
+          '<div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;height:12px"><div style="width:' + w + '%;height:12px;background:' + color + ';border-radius:3px"></div></div>' +
+          '<span style="width:30px;color:#cdd6e6;font-size:11px">' + v + '</span></div>';
+      }).join('');
+      return '<div style="margin:8px 0"><b style="color:#6fbf8f;font-size:12.5px">' + title + '</b>' + rows + '</div>';
+    }
+    var h = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px">';
+    // 左列：微博 + 微博书
+    h += '<div>' +
+      '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">📱 微博四源（' + (t.weibo.n||0) + ' 帖）· 城市提及</div>' +
+      miniBar('', t.weibo.cities_top, '#5bc2e7') +
+      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">📖 微博书（' + (t.weibo_book.n||0) + ' 帖，2014-2023 本人微博）· 城市提及</div>' +
+      miniBar('', t.weibo_book.cities_top, '#6fbf8f') +
+      '</div>';
+    // 右列：长表常青曲 + 活动类型
+    h += '<div>' +
+      '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">🎵 长表常青曲目（' + (t.setlist.n_shows||0) + ' 场歌单，跨场出现）</div>' +
+      miniBar('', (t.setlist.evergreen||[]).slice(0,8), '#e0b64f') +
+      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">🎭 活动表类型分布（' + (t.activities.n||0) + ' 行）</div>' +
+      miniBar('', t.activities.type_dist, '#5bc2e7') +
+      '</div></div>';
+    h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#8c959f;font-size:11.5px">' +
+      '数据源：微博 1722 帖（本人+工作室+百家号）· 微博书 3 册 OCR · 长表 64 场歌单 · 活动表 199 行（含百科入库）。' +
+      '详细文本挖掘（词频/情感/mention→数据桥接）见 <a href="../temp/微博深度文本挖掘报告_20260901.md" style="color:#5bc2e7">深度报告</a>。</div>';
+    body.innerHTML = h;
+    box.style.display = 'block';
+  }).catch(function(){});
+})();
 (function(){
   var picker = document.getElementById('esPicker');
   var chartEl = document.getElementById('esChart');
@@ -5124,6 +5184,21 @@ def _build_analysis(payload):
         {"q": "为什么要做星期对齐？", "a": "Luminate 实证：流媒体消费有显著星期结构差异（周内差可达两位数%）。「后 7 日 vs 前 21~7 日」若演出日为周末、基线含较多工作日，会系统误判。升级方向：基线改为「演出前 3 个同星期几」均值。当前已诊断展示（见星期效应图）。"},
         {"q": "为什么爆点用 median/MAD 而非均值？", "a": "播放量呈重尾分布，均值被爆款主导（EPJ 实证）；median/MAD 稳健 Z 分能识别真正的异常点，避免单曲离群值污染全部结论。页面爆点卡已带稳健性标记。"},
     ]
+    # ===== 行动建议（数据驱动 · 5 段式叙事收尾）=====
+    actions = []
+    if morph:
+        actions.append({"title": "形态策略：聚焦带动正资产",
+                        "text": f"{morph[0][0]}平均 {morph[0][1]:+.1f}% 为最强带动形态——建议优先承接音乐剧/音乐节/政府/晚会类活动；"
+                                f"{morph[-1][0]}（{morph[-1][1]:+.1f}%）为存量场景，需内容升级（选曲+talk）而非加场。"})
+    if top and top["up"] > 50:
+        actions.append({"title": "宣传节奏：事件质量 > 发帖数量",
+                        "text": f"最大爆点《{top['n']}》+{top['up']:.0f}% 由事件场景（综艺/主题曲）驱动而非宣传帖数量——"
+                                "建议把预算投向「节目曝光+主题曲绑定」，并避免长前置分散宣发（基线污染放大负效应）。"})
+    if gz_curve:
+        actions.append({"title": "城市策略：复制广州出圈模式",
+                        "text": f"广州效应史 {gz_curve}——首次转正由「国民曝光（《光从东方来》）→ 现场 talk 种草 → 辐射带动」驱动，"
+                                "该模式可复制到其他高潜力城市（前置曝光+经典曲目+口播种草）。"})
+
     return {
         "generated_at": payload.get("timestamp") or payload.get("last_update") or "",
         "overview": f"共 {len(fx)} 场活动 / {n} 个歌曲观测，正涨幅 {n_pos}（{n_pos / n * 100:.0f}%），显著带动≥20% 占 {n_big / n * 100:.0f}%，平均 {sum(ups) / n:+.1f}%、中位 {med:+.1f}%。",
@@ -5135,6 +5210,7 @@ def _build_analysis(payload):
         "gz_curve": gz_curve,
         "dual_2026": dual_txt,
         "insights": insights,
+        "actions": actions,
         "method_text": method_text,
         "warnings": warnings,
         "engine": "rule-template-v1（配 deepseek_key.json 可升级 LLM 润色）",
