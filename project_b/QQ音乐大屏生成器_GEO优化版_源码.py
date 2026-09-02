@@ -2506,6 +2506,26 @@ __META_TAGS__
 __JSON_LD__
 __ECHARTS_TAG__
 <style>
+:root{
+  --gold:#E0B64F; --gold-l:#F2D98D; --cyan:#00d2ff; --blue:#3a7bd5;
+  --up:#ff9f7f; --down:#5bc2e7; --muted:#5a6b8c; --panel:rgba(16,20,40,.55);
+  --line:#2A3552; --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* 统一卡片规范（语义色 + 卡片化，2026-09-02 P0） */
+.dash-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin:0 0 14px 0;}
+.dash-card.gold{border-color:rgba(224,182,79,.38);background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65))}
+.dash-card.cyan{border-color:rgba(91,194,231,.38);background:linear-gradient(135deg,rgba(91,194,231,.10),rgba(20,26,58,.65))}
+.dash-card.green{border-color:rgba(111,191,143,.32);background:linear-gradient(135deg,rgba(111,191,143,.08),rgba(20,26,58,.6))}
+.dash-card h3{color:var(--gold-l);font-size:17px;margin-bottom:10px}
+/* 筛选条 */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 14px 0;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+.filter-bar .f-label{color:var(--muted);font-size:12px;margin-right:2px}
+.filter-chip{background:rgba(0,210,255,.06);border:1px solid rgba(0,210,255,.25);color:#9fb0c8;border-radius:14px;padding:3px 12px;font-size:12px;cursor:pointer;transition:all .2s}
+.filter-chip:hover{color:#00d2ff;border-color:#00d2ff}
+.filter-chip.on{background:rgba(0,210,255,.18);border-color:#00d2ff;color:#00d2ff;font-weight:600}
+.filter-chip.gold.on{background:rgba(224,182,79,.2);border-color:var(--gold);color:var(--gold-l)}
+</style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:radial-gradient(ellipse at center,#0f1535 0%,#080c24 100%),radial-gradient(circle at 18% 28%,rgba(0,210,255,0.07) 0,transparent 32%),radial-gradient(circle at 82% 72%,rgba(0,255,157,0.05) 0,transparent 32%);color:#fff;overflow-x:hidden;min-height:100vh;}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(0,210,255,0.10) 1px,transparent 1px);background-size:26px 26px;opacity:.16;animation:floatGrid 20s linear infinite;}
@@ -2764,7 +2784,14 @@ h2.chart-title{font-size:15px;font-weight:600}
     <a href="#tourSongFx" data-target="tourSongFx">④ 效应全景</a>
     <a href="#kpiRow" data-target="kpiRow">⑤ 数据可信</a>
   </nav>
-  <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
+  <div class="filter-bar" id="filterBar">
+    <span class="f-label">筛选：</span>
+    <span class="f-label">形态</span><span id="typeFilter"></span>
+    <span class="f-label">城市</span><span id="cityFilter"></span>
+    <span class="f-label">年份</span><span id="yearFilter"></span>
+    <span class="f-label" id="filterCount" style="margin-left:auto;color:#00d2ff"></span>
+  </div>
+  <div id="autoAnalysisPanel" class="dash-card gold" style="display:none;">
     <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
     <div id="autoAnalysisBody" style="font-size:13.5px;line-height:1.9;color:#cdd6e6;"></div>
     <div id="insightsBody" style="margin-top:12px;padding-top:12px;border-top:1px dashed #3c4468;"></div>
@@ -2775,11 +2802,11 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div style="margin-top:10px;color:#00d2ff;font-size:13px;font-weight:600;">📅 星期效应诊断（为什么基线需星期对齐）</div>
     <div id="weekdayChart" style="width:100%;height:170px;margin-top:6px;"></div>
   </details>
-  <div id="actionPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(91,194,231,.10),rgba(20,26,58,.65));border:1px solid rgba(91,194,231,.38);border-radius:12px;">
+  <div id="actionPanel" class="dash-card cyan" style="display:none;">
     <h3 style="margin:0 0 10px;color:#5bc2e7;font-size:17px;">🎯 行动建议（数据驱动 · 随 dashboard_data.json 更新）</h3>
     <div id="actionBody" style="font-size:13px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
-  <div id="textArchivePanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(111,191,143,.08),rgba(20,26,58,.6));border:1px solid rgba(111,191,143,.32);border-radius:12px;">
+  <div id="textArchivePanel" class="dash-card green" style="display:none;">
     <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博全源 + 巡演长表 + 活动表）</h3>
     <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
@@ -2978,16 +3005,14 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
 (function(){
   var box = document.getElementById('tourSongFx');
   if (!box) return;
-  var tse = dashboardData.tour_song_effects || [];
+  var ALL = dashboardData.tour_song_effects || [];
   var cnt = document.getElementById('tourSongFxCount');
-  if (cnt) cnt.textContent = tse.length;
-  if (!tse.length) {
-    box.innerHTML = '<div style="color:#5a6b8c;padding:20px;text-align:center">暂无歌曲级效应数据</div>';
-    return;
-  }
   function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
   function cls(v){ return v>0?'tse-up':(v<0?'tse-down':'tse-flat'); }
-  // 点击 live 链接：阻止 <summary> 默认展开/收起，改为新标签页打开详情页
+  var CT_LABEL = {
+    '个人巡回': '巡演', '歌舞剧·音乐剧': '音乐剧', '拼盘演唱会': '拼盘',
+    '签唱会': '签唱', '政府活动': '政府', '主题音乐会': '音乐会'
+  };
   box.addEventListener('click', function(ev){
     var t = ev.target;
     var a = (t && t.closest) ? t.closest('a.tse-link') : null;
@@ -2995,46 +3020,83 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     ev.preventDefault();
     window.open(a.getAttribute('href'), '_blank', 'noopener');
   });
-  var html = '', aiLines = [];
-  // 内容形态短标签（content_type → 展示名）
-  var CT_LABEL = {
-    '个人巡回': '巡演', '歌舞剧·音乐剧': '音乐剧', '拼盘演唱会': '拼盘',
-    '签唱会': '签唱', '政府活动': '政府', '主题音乐会': '音乐会'
-  };
-  tse.slice().reverse().forEach(function(e){  // 最新场次在前
-    var tops = e.top_songs || [];
-    var songs = (e.songs || []).slice().sort(function(a,b){ return (b.uplift||0)-(a.uplift||0); });
-    html += '<details class="tse-scene" id="tour-scene-' + (e.date||'') + '">';
-    html += '<summary>';
-    html += '<span class="tse-date">' + (e.date||'').replace(/-/g,'.') + '</span>';
-    var ctRaw = e.content_type || '';
-    var ctLabel = CT_LABEL[ctRaw] || ctRaw;
-    html += '<span class="tse-tag">' + ctLabel + '</span>';
-    html += (e.live_url
-      ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'') + '</a>'
-      : '<span class="tse-city">' + (e.city||'') + '</span>');
-    html += '<span class="tse-m">追踪曲目池 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
-    html += (e.setlist_uplift!=null ? '<span class="tse-m">歌单内 <b class="'+cls(e.setlist_uplift)+'">'+fmt(e.setlist_uplift)+'</b></span>' : '');
-    html += (e.radiance_uplift!=null ? '<span class="tse-m">辐射带动 <b class="'+cls(e.radiance_uplift)+'">'+fmt(e.radiance_uplift)+'</b></span>' : '');
-    html += '</summary><div class="tse-body">';
-    if (tops.length) {
-      html += '<div class="tse-tops">带动最显著：' + tops.map(function(t){
-        return '<span class="tse-chip'+(t.on_setlist?' on':'')+'">' + t.name + ' ' + fmt(t.uplift) + (t.on_setlist?' · 歌单内':'') + '</span>';
-      }).join('') + '</div>';
+  // ---- 全局筛选（形态/城市/年份联动，P0）----
+  var FILTER = {type:'全部', city:'全部', year:'全部'};
+  function renderTourFx(){
+    var tse = ALL.filter(function(e){
+      return (FILTER.type==='全部'||e.content_type===FILTER.type) &&
+             (FILTER.city==='全部'||e.city===FILTER.city) &&
+             (FILTER.year==='全部'||(e.date||'').slice(0,4)===FILTER.year);
+    });
+    if (cnt) cnt.textContent = tse.length + ' / ' + ALL.length;
+    var fc = document.getElementById('filterCount');
+    if (fc) fc.textContent = '命中 ' + tse.length + ' 场';
+    if (!tse.length) {
+      box.innerHTML = '<div style="color:#5a6b8c;padding:20px;text-align:center">无匹配场次</div>';
+      return;
     }
-    if (songs.length) {
-      html += '<table class="tse-table"><tr><th>曲目</th><th>涨幅</th><th>归属</th></tr>';
-      songs.forEach(function(s){
-        html += '<tr><td class="name">' + s.name + '</td><td class="'+cls(s.uplift)+'">' + fmt(s.uplift) + '</td><td>' + (s.on_setlist?'<span class="tse-tag-on">歌单内</span>':'<span class="tse-tag">辐射带动</span>') + '</td></tr>';
-      });
-      html += '</table>';
+    var html = '', aiLines = [];
+    tse.slice().reverse().forEach(function(e){
+      var tops = e.top_songs || [];
+      var songs = (e.songs || []).slice().sort(function(a,b){ return (b.uplift||0)-(a.uplift||0); });
+      html += '<details class="tse-scene" id="tour-scene-' + (e.date||'') + '">';
+      html += '<summary>';
+      html += '<span class="tse-date">' + (e.date||'').replace(/-/g,'.') + '</span>';
+      var ctLabel = CT_LABEL[e.content_type||''] || (e.content_type||'');
+      html += '<span class="tse-tag">' + ctLabel + '</span>';
+      html += (e.live_url
+        ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'') + '</a>'
+        : '<span class="tse-city">' + (e.city||'') + '</span>');
+      html += '<span class="tse-m">追踪曲目池 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
+      html += (e.setlist_uplift!=null ? '<span class="tse-m">歌单内 <b class="'+cls(e.setlist_uplift)+'">'+fmt(e.setlist_uplift)+'</b></span>' : '');
+      html += (e.radiance_uplift!=null ? '<span class="tse-m">辐射带动 <b class="'+cls(e.radiance_uplift)+'">'+fmt(e.radiance_uplift)+'</b></span>' : '');
+      html += '</summary><div class="tse-body">';
+      if (tops.length) {
+        html += '<div class="tse-tops">带动最显著：' + tops.map(function(t){
+          return '<span class="tse-chip'+(t.on_setlist?' on':'')+'">' + t.name + ' ' + fmt(t.uplift) + (t.on_setlist?' · 歌单内':'') + '</span>';
+        }).join('') + '</div>';
+      }
+      if (songs.length) {
+        html += '<table class="tse-table"><tr><th>曲目</th><th>涨幅</th><th>归属</th></tr>';
+        songs.forEach(function(s){
+          html += '<tr><td class="name">' + s.name + '</td><td class="'+cls(s.uplift)+'">' + fmt(s.uplift) + '</td><td>' + (s.on_setlist?'<span class="tse-tag-on">歌单内</span>':'<span class="tse-tag">辐射带动</span>') + '</td></tr>';
+        });
+        html += '</table>';
+      }
+      html += '</div></details>';
+      aiLines.push((e.date||'') + ' ' + (e.city||'') + '[' + ctLabel + '] 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
+    });
+    box.innerHTML = html;
+    var ais = document.getElementById('ai-tourSongFx');
+    if (ais) ais.textContent = '巡演歌曲级效应：共' + tse.length + '场。' + aiLines.join(' ');
+  }
+  function mkChips(elId, options, key, gold){
+    var el = document.getElementById(elId); if (!el) return;
+    function one(label, val){
+      var c = document.createElement('span');
+      c.className = 'filter-chip' + (gold?' gold':'') + ((FILTER[key]===val)?' on':'');
+      c.textContent = label;
+      c.onclick = function(){ FILTER[key] = val; renderTourFx(); buildChips(); };
+      el.appendChild(c);
     }
-    html += '</div></details>';
-    aiLines.push((e.date||'') + ' ' + (e.city||'') + '[' + ctLabel + '] 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
-  });
-  box.innerHTML = html;
-  var ais = document.getElementById('ai-tourSongFx');
-  if (ais) ais.textContent = '巡演歌曲级效应：共' + tse.length + '场有监测数据。' + aiLines.join(' ');
+    one('全部', '全部');
+    options.forEach(function(o){ one(o, o); });
+  }
+  function buildChips(){
+    var tEl = document.getElementById('typeFilter'), cEl = document.getElementById('cityFilter'), yEl = document.getElementById('yearFilter');
+    if (tEl) tEl.innerHTML = ''; if (cEl) cEl.innerHTML = ''; if (yEl) yEl.innerHTML = '';
+    var types = [], cities = [], years = [];
+    ALL.forEach(function(e){
+      var t = e.content_type; if (t && types.indexOf(t) < 0) types.push(t);
+      var c = e.city; if (c && cities.indexOf(c) < 0) cities.push(c);
+      var y = (e.date||'').slice(0,4); if (y && years.indexOf(y) < 0) years.push(y);
+    });
+    mkChips('typeFilter', types, 'type', false);
+    mkChips('cityFilter', cities.slice(0,16), 'city', false);
+    mkChips('yearFilter', years, 'year', true);
+  }
+  buildChips();
+  renderTourFx();
   // 深链定位：#tour-scene-YYYY-MM-DD → 自动展开该场并滚动到视口（无匹配时正常加载不报错）
   function openFromHash(){
     var h = location.hash;
