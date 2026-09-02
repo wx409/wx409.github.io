@@ -1942,7 +1942,7 @@ def tour_song_effects(df_all, setlists, topn=5):
         setlist_uplift = (sum(e[1] for e in on_list) / len(on_list)) if on_list else None
         radiance_uplift = (sum(e[1] for e in off_list) / len(off_list)) if off_list else None
         candidates = sorted(effects, key=lambda e: e[1], reverse=True)[:topn]
-        e_city = info.get("city") or _city_of_name(scene)
+        e_city = info["city"] if "city" in info else _city_of_name(scene)
 
         # ---- 追踪曲目池逐日衰减序列 daily_series：演出后 T+1..T+14 追踪曲目池平均指数 相对基线(baseline)变化率 ----
         daily_series = None
