@@ -1712,6 +1712,27 @@ def load_setlist(path):
     return setlists
 
 
+def _clean_city(raw):
+    """清洗「地点」列 → 城市/地点展示名（诚实披露，不伪造城市）：
+    - 待补标记（—、-、无、空、nan、纯括号备注）→ 空串（城市待补）
+    - 「北京（CCTV-1）」→「北京」（去括号备注）
+    - 「央视演播厅（…）」等场馆/演播厅词 → 空串（非城市，城市待补）
+    返回清洗后的地点（城市/区县/省份名），或空串表示待补。"""
+    if raw is None:
+        return ""
+    s = str(raw).strip()
+    if s.lower() in ("", "nan", "none", "null", "-", "—", "无", "待补", "待定"):
+        return ""
+    # 去括号备注（全角/半角），如「北京（CCTV-1）」「央视演播厅（CCTV-3综艺…）」
+    s = re.split(r"[（(]", s)[0].strip()
+    if s.lower() in ("", "nan", "none", "null", "-", "—", "无"):
+        return ""
+    # 场馆/演播厅等非城市地点 → 城市待补（保留空）
+    if any(k in s for k in ("演播厅", "演播室", "剧场", "剧院", "体育馆", "音乐厅", "会展中心", "录音棚", "基地")):
+        return ""
+    return s
+
+
 def load_performance_events(path):
     """读取演出活动表（音乐剧/综艺等非巡演演出），输出与 load_setlist 同构的 dict：
     (日期, 场次名) → {tour, songs(数据层归一名集合)}，复用 tour_song_effects 做辐射带动分析。
@@ -1753,7 +1774,7 @@ def load_performance_events(path):
                     merged.add(s)
             if not merged:
                 continue
-            events[(d, scene)] = {"tour": name, "songs": merged}
+            events[(d, scene)] = {"tour": name, "songs": merged, "city": _clean_city(row.get("地点"))}
         logger.info(f"演出活动表: {len(events)} 场演出已加载（辐射带动分析输入，多曲目已拆分）")
     except Exception as e:
         logger.warning(f"演出活动表读取失败（辐射带动分析跳过演出活动）: {e}")
@@ -1795,7 +1816,7 @@ def _city_of_name(scene):
     if not scene:
         return ""
     s = str(scene).strip()
-    if s.lower() in ("", "nan", "none", "null", "-"):
+    if s.lower() in ("", "nan", "none", "null", "-", "—"):
         return ""
     if "·" in s:
         parts = s.split("·")
@@ -1805,7 +1826,7 @@ def _city_of_name(scene):
             return re.split(r"[（(]", s)[0].strip()
         # ·右半是纯城市
         t2 = tail
-        if t2.lower() in ("nan", "none", "null", "-"):
+        if t2.lower() in ("nan", "none", "null", "-", "—"):
             return ""
         return t2
     return re.split(r"[（(]", s)[0].strip()
@@ -1921,7 +1942,7 @@ def tour_song_effects(df_all, setlists, topn=5):
         setlist_uplift = (sum(e[1] for e in on_list) / len(on_list)) if on_list else None
         radiance_uplift = (sum(e[1] for e in off_list) / len(off_list)) if off_list else None
         candidates = sorted(effects, key=lambda e: e[1], reverse=True)[:topn]
-        e_city = _city_of_name(scene)
+        e_city = info.get("city") or _city_of_name(scene)
 
         # ---- 追踪曲目池逐日衰减序列 daily_series：演出后 T+1..T+14 追踪曲目池平均指数 相对基线(baseline)变化率 ----
         daily_series = None
@@ -2560,6 +2581,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .tse-scene[open]{border-color:rgba(0,210,255,0.3)}
 .tse-date{color:#00d2ff;font-weight:600;min-width:92px}
 .tse-city{color:#fff;font-weight:600}
+.tse-city-na{color:#5a6b8c;font-weight:400;font-style:italic}
 .tse-m{color:#8896b3;font-size:12px}
 .tse-m b{font-size:13px;margin-left:2px}
 .tse-up{color:#ff5e62}.tse-down{color:#00ff9d}.tse-flat{color:#ffd700}
@@ -3045,8 +3067,8 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
       var ctLabel = CT_LABEL[e.content_type||''] || (e.content_type||'');
       html += '<span class="tse-tag">' + ctLabel + '</span>';
       html += (e.live_url
-        ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'') + '</a>'
-        : '<span class="tse-city">' + (e.city||'') + '</span>');
+        ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'待补') + '</a>'
+        : '<span class="tse-city' + (e.city ? '' : ' tse-city-na') + '">' + (e.city||'待补') + '</span>');
       html += '<span class="tse-m">追踪曲目池 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
       html += (e.setlist_uplift!=null ? '<span class="tse-m">歌单内 <b class="'+cls(e.setlist_uplift)+'">'+fmt(e.setlist_uplift)+'</b></span>' : '');
       html += (e.radiance_uplift!=null ? '<span class="tse-m">辐射带动 <b class="'+cls(e.radiance_uplift)+'">'+fmt(e.radiance_uplift)+'</b></span>' : '');
