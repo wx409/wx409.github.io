@@ -112,26 +112,6 @@
 })();
 </script>
 <style>
-:root{
-  --gold:#E0B64F; --gold-l:#F2D98D; --cyan:#00d2ff; --blue:#3a7bd5;
-  --up:#ff9f7f; --down:#5bc2e7; --muted:#5a6b8c; --panel:rgba(16,20,40,.55);
-  --line:#2A3552; --radius:12px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-/* 统一卡片规范（语义色 + 卡片化，2026-09-02 P0） */
-.dash-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin:0 0 14px 0;}
-.dash-card.gold{border-color:rgba(224,182,79,.38);background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65))}
-.dash-card.cyan{border-color:rgba(91,194,231,.38);background:linear-gradient(135deg,rgba(91,194,231,.10),rgba(20,26,58,.65))}
-.dash-card.green{border-color:rgba(111,191,143,.32);background:linear-gradient(135deg,rgba(111,191,143,.08),rgba(20,26,58,.6))}
-.dash-card h3{color:var(--gold-l);font-size:17px;margin-bottom:10px}
-/* 筛选条 */
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 14px 0;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
-.filter-bar .f-label{color:var(--muted);font-size:12px;margin-right:2px}
-.filter-chip{background:rgba(0,210,255,.06);border:1px solid rgba(0,210,255,.25);color:#9fb0c8;border-radius:14px;padding:3px 12px;font-size:12px;cursor:pointer;transition:all .2s}
-.filter-chip:hover{color:#00d2ff;border-color:#00d2ff}
-.filter-chip.on{background:rgba(0,210,255,.18);border-color:#00d2ff;color:#00d2ff;font-weight:600}
-.filter-chip.gold.on{background:rgba(224,182,79,.2);border-color:var(--gold);color:var(--gold-l)}
-</style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:radial-gradient(ellipse at center,#0f1535 0%,#080c24 100%),radial-gradient(circle at 18% 28%,rgba(0,210,255,0.07) 0,transparent 32%),radial-gradient(circle at 82% 72%,rgba(0,255,157,0.05) 0,transparent 32%);color:#fff;overflow-x:hidden;min-height:100vh;}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(0,210,255,0.10) 1px,transparent 1px);background-size:26px 26px;opacity:.16;animation:floatGrid 20s linear infinite;}
@@ -166,7 +146,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .tse-scene[open]{border-color:rgba(0,210,255,0.3)}
 .tse-date{color:#00d2ff;font-weight:600;min-width:92px}
 .tse-city{color:#fff;font-weight:600}
-.tse-city-na{color:#5a6b8c;font-weight:400;font-style:italic}
 .tse-m{color:#8896b3;font-size:12px}
 .tse-m b{font-size:13px;margin-left:2px}
 .tse-up{color:#ff5e62}.tse-down{color:#00ff9d}.tse-flat{color:#ffd700}
@@ -345,10 +324,6 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div id="anomalyMiniList" class="anomaly-mini-list"></div>
     <a class="open-data-link" href="dashboard_data.json" download title="开放数据 JSON（Schema.org Dataset 分发）">开放数据 JSON ↗</a>
   </div>
-  <details class="lineage-panel" id="songEcoPanel">
-    <summary>📦 歌曲生态深度监测 <span style="font-weight:400;color:#5a6b8c;font-size:11px">（竞争格局/生命周期/时间偏好/老歌复活/排名战争等 · 点击展开 · 服务论文研究者）</span></summary>
-    <div id="songEcoBody" class="lineage-body"></div>
-  </details>
   <details class="lineage-panel" id="lineagePanel">
     <summary>数据谱系 · 清洗日志 <span style="font-weight:400;color:#5a6b8c;font-size:11px">（点击展开 · 供 AI/研究者核验数据可信度）</span></summary>
     <div id="lineageBody" class="lineage-body"></div>
@@ -384,21 +359,13 @@ h2.chart-title{font-size:15px;font-weight:600}
   <nav class="story-nav" id="storyNav">
     <a href="https://wx409.github.io/" style="color:#fff;background:rgba(196,30,58,.9);border-radius:8px;font-weight:600;">🏠 返回主页</a>
     <a href="analysis-board.html" target="_blank" rel="noopener" style="color:#fff;background:rgba(224,182,79,.85);border-radius:8px;font-weight:600;">📊 数据展板</a>
-    <a href="#autoAnalysisPanel" data-target="autoAnalysisPanel">① 洞察结论</a>
-    <a href="#actionPanel" data-target="actionPanel">② 行动建议</a>
-    <a href="#textArchivePanel" data-target="textArchivePanel">📚 文本档案</a>
-    <a href="#esBox" data-target="esBox">③ 归因证据</a>
-    <a href="#tourSongFx" data-target="tourSongFx">④ 效应全景</a>
-    <a href="#kpiRow" data-target="kpiRow">⑤ 数据可信</a>
+    <a href="#trendChart" data-target="trendChart">① 全景概览</a>
+    <a href="#timelineChart" data-target="timelineChart">② 竞争格局演变</a>
+    <a href="#sankeyChart" data-target="sankeyChart">③ 生命周期流转</a>
+    <a href="#albumPremiumChart" data-target="albumPremiumChart">④ 时间偏好洞察</a>
+    <a href="#tourFxChart" data-target="tourFxChart">⑤ 巡演与发行事件</a>
   </nav>
-  <div class="filter-bar" id="filterBar">
-    <span class="f-label">筛选：</span>
-    <span class="f-label">形态</span><span id="typeFilter"></span>
-    <span class="f-label">城市</span><span id="cityFilter"></span>
-    <span class="f-label">年份</span><span id="yearFilter"></span>
-    <span class="f-label" id="filterCount" style="margin-left:auto;color:#00d2ff"></span>
-  </div>
-  <div id="autoAnalysisPanel" class="dash-card gold" style="display:none;">
+  <div id="autoAnalysisPanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(224,182,79,.10),rgba(20,26,58,.65));border:1px solid rgba(224,182,79,.38);border-radius:12px;">
     <h3 style="margin:0 0 10px;color:#f2d98d;font-size:17px;">📈 数据自动分析（随 dashboard_data.json 更新）</h3>
     <div id="autoAnalysisBody" style="font-size:13.5px;line-height:1.9;color:#cdd6e6;"></div>
     <div id="insightsBody" style="margin-top:12px;padding-top:12px;border-top:1px dashed #3c4468;"></div>
@@ -409,15 +376,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div style="margin-top:10px;color:#00d2ff;font-size:13px;font-weight:600;">📅 星期效应诊断（为什么基线需星期对齐）</div>
     <div id="weekdayChart" style="width:100%;height:170px;margin-top:6px;"></div>
   </details>
-  <div id="actionPanel" class="dash-card cyan" style="display:none;">
-    <h3 style="margin:0 0 10px;color:#5bc2e7;font-size:17px;">🎯 行动建议（数据驱动 · 随 dashboard_data.json 更新）</h3>
-    <div id="actionBody" style="font-size:13px;line-height:1.8;color:#cdd6e6;"></div>
-  </div>
-  <div id="textArchivePanel" class="dash-card green" style="display:none;">
-    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博全源 + 巡演长表 + 活动表）</h3>
-    <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
-  </div>
-  <div class="chart-box" id="esBox" style="margin-bottom:14px;">
+  <div class="chart-box" style="margin-bottom:14px;">
     <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
     <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
     <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
@@ -427,12 +386,12 @@ h2.chart-title{font-size:15px;font-weight:600}
   </div>
   <section class="geo-summary" id="summary">
     <h2>核心数据结论（截至 2026-09-02）
-      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-09-02 14:35</span></span>
+      <span class="data-snapshot-badge">📅 数据快照 · <span id="snapshotDate">2026-09-02 18:06</span></span>
     </h2>
-    <p><strong>今日研判：</strong>【今日概览】截至 2026-09-02 14:35 的监测更新已完成；无显著异动。 【市场信号】近 7 日追踪曲目池平均指数 648→558（↓13.9%），整体下行；7 日序列：648、586、630、634、586、558。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+80.0%、《在路上》+30.4%；领跌 《亲密爱人》-4.3%、《Sound of Silence》-2.2%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线平均上涨 16.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《Over the Rainbow》↑5107位；《月弯弯》↑3802位；《亲密爱人》↑3027位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数下行；巡演带动正向。综合来看，王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
-    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-09-02</strong>，累计 <strong>1218</strong> 个监测批次，覆盖 <strong>383</strong> 首追踪歌曲（链接身份 255 + 名称身份 128），其中 <strong>244</strong> 首（63.7%）近期有收听记录，数据完整度 20.8%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-09-02 14:35</strong>。</p>
+    <p><strong>今日研判：</strong>【今日概览】截至 2026-09-02 18:06 的监测更新已完成；无显著异动。 【市场信号】近 7 日追踪曲目池平均指数 648→558（↓13.9%），整体下行；7 日序列：648、586、630、634、586、558。 【涨跌结构】近 30 日活跃度变化中，领涨 《一生中最爱》+80.0%、《在路上》+30.4%；领跌 《亲密爱人》-4.3%、《Sound of Silence》-2.2%。涨跌结构反映市场关注点的迁移方向，领涨曲目通常是近期宣发或演出的受益者。 【巡演效应】已量化 10 个巡演节点：巡演后 7 日追踪曲目池日均指数较基线平均上涨 16.8%；最强节点 11-12 北京（首场）（+70.4%）。巡演对音乐收听的带动强度，是评估演出商业价值之外的另一观察维度。 【新歌表现】新歌发行后 14 日表现最佳为《多听有益01-12》（14 日平均指数 54004，峰值 369883）。新歌的持久度（峰值后的衰减速率）可在『新歌衰减曲线』面板查看。 【老歌复活】《一生中最爱》、《在路上》 等老歌近期出现二次活跃信号（沉寂后指数回升），这类「复活」通常由综艺、怀旧话题或新受众涌入触发。 【排名跃迁】今日全站排名变动最显著：《Over the Rainbow》↑5107位；《月弯弯》↑3802位；《亲密爱人》↑3027位。排名快速跃迁往往是算法推荐或话题热度的直接映射。 【综合研判】本期数据要点：近 7 日指数下行；巡演带动正向。综合来看，王晰音乐热度总体平稳，未见明显拐点，关注后续演出/发行事件是否带来变化。 【数据说明】本简报随每次监测更新自动生成，数字直接取自当次结果，未人工修饰；仅反映 QQ 音乐单一平台公开指标，供研究参考，不构成对全网热度的完整度量。</p>
+    <p>本站持续追踪中国内地流行男低音歌手<strong>王晰</strong>在QQ音乐平台的公开音乐指数表现。数据周期 <strong>2023-01-01 ~ 2026-09-02</strong>，累计 <strong>1218</strong> 个监测批次，覆盖 <strong>383</strong> 首追踪歌曲（链接身份 255 + 名称身份 128），其中 <strong>244</strong> 首（63.7%）近期有收听记录，数据完整度 20.8%。数据集每日多批次自动监测更新，最后更新于 <strong>2026-09-02 18:06</strong>。</p>
     <p>全曲目月度平均指数由期初（2023-01）的 1873 变化至最新月（2026-09）的 558（-70.2%）（注：期初监测批次较早、追踪曲目池覆盖与近期不同，此处变化主要反映样本规模扩大，不直接等同于热度衰减），历史峰值出现在 2023-01（1873）。近30日平均指数最高的作品为 《黎明前的黑暗》、《再叙》、《一生中最爱》。近90日综合表现：专辑类第一《在路上》（综合得分 14.9），OST/单曲类第一《一生中最爱》（综合得分 19.8），其他追踪类第一《黎明前的黑暗》（综合得分 64.8）。</p>
-    <p>在可量化的 10 个巡演节点中，巡演后7日追踪曲目池日均指数较基线平均上涨 16.8%（带动最强的是 11-12 北京（首场），+70.4%）。新歌发行14日表现最佳为 《多听有益》01-12（14日平均指数 54004，峰值 369883）。周末平均指数 451，工作日 464，周末低出 2.8%。收听热度（归一化至峰值月100%）由期初 22% 变化至最新月 2%（↓20pct）。近30日异常活跃歌曲：《一生中最爱》（环比+80.0%，飙升）、《在路上》（环比+30.4%，飙升）、《荒人之歌》（环比+24.1%，飙升）。</p>
+    <p>在可量化的 10 个巡演节点中，巡演后7日追踪曲目池日均指数较基线平均上涨 16.8%（带动最强的是 11-12 北京（首场），+70.4%）。新歌发行14日表现最佳为 《多听有益》01-12（14日平均指数 54004，峰值 369883）。周末平均指数 451，工作日 464，周末低出 2.8%。收听热度（归一化至峰值月100%）由期初 22% 变化至最新月 2%（↓19pct）。近30日异常活跃歌曲：《一生中最爱》（环比+80.0%，飙升）、《在路上》（环比+30.4%，飙升）、《荒人之歌》（环比+24.1%，飙升）。</p>
     <h3>数据速览</h3>
     <ul>
       <li>时间跨度 <b>2023-01-01 ~ 2026-09-02</b></li>
@@ -458,13 +417,9 @@ h2.chart-title{font-size:15px;font-weight:600}
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额（全量 · 含🆕新上榜）</div>
+    <div class="daily-trend-header">今日收听份额 TOP20 · 含🆕新上榜</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
-  </div>
-  <div class="daily-trend-card" id="monthlyCard" style="margin-top:14px;">
-    <div class="daily-trend-header">📅 当月榜单 · <span id="monthLabel">--</span>（新上榜排行 / 日均指数 Top / 收听峰值 Top）</div>
-    <div id="monthlyBody" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:10px 2px;"></div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
     <h2 class="chart-title">最近7日追踪曲目池热度微趋势</h2>
@@ -508,8 +463,8 @@ h2.chart-title{font-size:15px;font-weight:600}
       <div class="status-item"><span>活跃歌曲</span><span class="status-value">244 个</span></div>
       <div class="status-item"><span>指数口径</span><span class="status-value">昨日音乐指数校准</span></div>
       <div class="status-item"><span>巡演节点 / 发行事件</span><span class="status-value">25 / 41</span></div>
-      <div class="status-item"><span>最后更新</span><span class="status-value">2026-09-02 14:35</span></div>
-      <div class="status-item"><span>下次监测</span><span class="status-value">18:05 极速</span></div>
+      <div class="status-item"><span>最后更新</span><span class="status-value">2026-09-02 18:06</span></div>
+      <div class="status-item"><span>下次监测</span><span class="status-value">18:15 极速</span></div>
     </div></div>
   </div>
   <div class="dim-row" style="grid-template-columns:1fr 1fr">
@@ -650,14 +605,16 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
 (function(){
   var box = document.getElementById('tourSongFx');
   if (!box) return;
-  var ALL = dashboardData.tour_song_effects || [];
+  var tse = dashboardData.tour_song_effects || [];
   var cnt = document.getElementById('tourSongFxCount');
+  if (cnt) cnt.textContent = tse.length;
+  if (!tse.length) {
+    box.innerHTML = '<div style="color:#5a6b8c;padding:20px;text-align:center">暂无歌曲级效应数据</div>';
+    return;
+  }
   function fmt(v){ return (v===null||v===undefined)?'—':((v>0?'+':'')+v.toFixed(1)+'%'); }
   function cls(v){ return v>0?'tse-up':(v<0?'tse-down':'tse-flat'); }
-  var CT_LABEL = {
-    '个人巡回': '巡演', '歌舞剧·音乐剧': '音乐剧', '拼盘演唱会': '拼盘',
-    '签唱会': '签唱', '政府活动': '政府', '主题音乐会': '音乐会'
-  };
+  // 点击 live 链接：阻止 <summary> 默认展开/收起，改为新标签页打开详情页
   box.addEventListener('click', function(ev){
     var t = ev.target;
     var a = (t && t.closest) ? t.closest('a.tse-link') : null;
@@ -665,83 +622,46 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     ev.preventDefault();
     window.open(a.getAttribute('href'), '_blank', 'noopener');
   });
-  // ---- 全局筛选（形态/城市/年份联动，P0）----
-  var FILTER = {type:'全部', city:'全部', year:'全部'};
-  function renderTourFx(){
-    var tse = ALL.filter(function(e){
-      return (FILTER.type==='全部'||e.content_type===FILTER.type) &&
-             (FILTER.city==='全部'||e.city===FILTER.city) &&
-             (FILTER.year==='全部'||(e.date||'').slice(0,4)===FILTER.year);
-    });
-    if (cnt) cnt.textContent = tse.length + ' / ' + ALL.length;
-    var fc = document.getElementById('filterCount');
-    if (fc) fc.textContent = '命中 ' + tse.length + ' 场';
-    if (!tse.length) {
-      box.innerHTML = '<div style="color:#5a6b8c;padding:20px;text-align:center">无匹配场次</div>';
-      return;
+  var html = '', aiLines = [];
+  // 内容形态短标签（content_type → 展示名）
+  var CT_LABEL = {
+    '个人巡回': '巡演', '歌舞剧·音乐剧': '音乐剧', '拼盘演唱会': '拼盘',
+    '签唱会': '签唱', '政府活动': '政府', '主题音乐会': '音乐会'
+  };
+  tse.slice().reverse().forEach(function(e){  // 最新场次在前
+    var tops = e.top_songs || [];
+    var songs = (e.songs || []).slice().sort(function(a,b){ return (b.uplift||0)-(a.uplift||0); });
+    html += '<details class="tse-scene" id="tour-scene-' + (e.date||'') + '">';
+    html += '<summary>';
+    html += '<span class="tse-date">' + (e.date||'').replace(/-/g,'.') + '</span>';
+    var ctRaw = e.content_type || '';
+    var ctLabel = CT_LABEL[ctRaw] || ctRaw;
+    html += '<span class="tse-tag">' + ctLabel + '</span>';
+    html += (e.live_url
+      ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'') + '</a>'
+      : '<span class="tse-city">' + (e.city||'') + '</span>');
+    html += '<span class="tse-m">追踪曲目池 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
+    html += (e.setlist_uplift!=null ? '<span class="tse-m">歌单内 <b class="'+cls(e.setlist_uplift)+'">'+fmt(e.setlist_uplift)+'</b></span>' : '');
+    html += (e.radiance_uplift!=null ? '<span class="tse-m">辐射带动 <b class="'+cls(e.radiance_uplift)+'">'+fmt(e.radiance_uplift)+'</b></span>' : '');
+    html += '</summary><div class="tse-body">';
+    if (tops.length) {
+      html += '<div class="tse-tops">带动最显著：' + tops.map(function(t){
+        return '<span class="tse-chip'+(t.on_setlist?' on':'')+'">' + t.name + ' ' + fmt(t.uplift) + (t.on_setlist?' · 歌单内':'') + '</span>';
+      }).join('') + '</div>';
     }
-    var html = '', aiLines = [];
-    tse.slice().reverse().forEach(function(e){
-      var tops = e.top_songs || [];
-      var songs = (e.songs || []).slice().sort(function(a,b){ return (b.uplift||0)-(a.uplift||0); });
-      html += '<details class="tse-scene" id="tour-scene-' + (e.date||'') + '">';
-      html += '<summary>';
-      html += '<span class="tse-date">' + (e.date||'').replace(/-/g,'.') + '</span>';
-      var ctLabel = CT_LABEL[e.content_type||''] || (e.content_type||'');
-      html += '<span class="tse-tag">' + ctLabel + '</span>';
-      html += (e.live_url
-        ? '<a class="tse-city tse-link" href="' + e.live_url + '" target="_blank" rel="noopener" title="打开该场次 live 详情页">' + (e.city||'待补') + '</a>'
-        : '<span class="tse-city' + (e.city ? '' : ' tse-city-na') + '">' + (e.city||'待补') + '</span>');
-      html += '<span class="tse-m">追踪曲目池 <b class="'+cls(e.total_uplift)+'">'+fmt(e.total_uplift)+'</b></span>';
-      html += (e.setlist_uplift!=null ? '<span class="tse-m">歌单内 <b class="'+cls(e.setlist_uplift)+'">'+fmt(e.setlist_uplift)+'</b></span>' : '');
-      html += (e.radiance_uplift!=null ? '<span class="tse-m">辐射带动 <b class="'+cls(e.radiance_uplift)+'">'+fmt(e.radiance_uplift)+'</b></span>' : '');
-      html += '</summary><div class="tse-body">';
-      if (tops.length) {
-        html += '<div class="tse-tops">带动最显著：' + tops.map(function(t){
-          return '<span class="tse-chip'+(t.on_setlist?' on':'')+'">' + t.name + ' ' + fmt(t.uplift) + (t.on_setlist?' · 歌单内':'') + '</span>';
-        }).join('') + '</div>';
-      }
-      if (songs.length) {
-        html += '<table class="tse-table"><tr><th>曲目</th><th>涨幅</th><th>归属</th></tr>';
-        songs.forEach(function(s){
-          html += '<tr><td class="name">' + s.name + '</td><td class="'+cls(s.uplift)+'">' + fmt(s.uplift) + '</td><td>' + (s.on_setlist?'<span class="tse-tag-on">歌单内</span>':'<span class="tse-tag">辐射带动</span>') + '</td></tr>';
-        });
-        html += '</table>';
-      }
-      html += '</div></details>';
-      aiLines.push((e.date||'') + ' ' + (e.city||'') + '[' + ctLabel + '] 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
-    });
-    box.innerHTML = html;
-    var ais = document.getElementById('ai-tourSongFx');
-    if (ais) ais.textContent = '巡演歌曲级效应：共' + tse.length + '场。' + aiLines.join(' ');
-  }
-  function mkChips(elId, options, key, gold){
-    var el = document.getElementById(elId); if (!el) return;
-    function one(label, val){
-      var c = document.createElement('span');
-      c.className = 'filter-chip' + (gold?' gold':'') + ((FILTER[key]===val)?' on':'');
-      c.textContent = label;
-      c.onclick = function(){ FILTER[key] = val; renderTourFx(); buildChips(); };
-      el.appendChild(c);
+    if (songs.length) {
+      html += '<table class="tse-table"><tr><th>曲目</th><th>涨幅</th><th>归属</th></tr>';
+      songs.forEach(function(s){
+        html += '<tr><td class="name">' + s.name + '</td><td class="'+cls(s.uplift)+'">' + fmt(s.uplift) + '</td><td>' + (s.on_setlist?'<span class="tse-tag-on">歌单内</span>':'<span class="tse-tag">辐射带动</span>') + '</td></tr>';
+      });
+      html += '</table>';
     }
-    one('全部', '全部');
-    options.forEach(function(o){ one(o, o); });
-  }
-  function buildChips(){
-    var tEl = document.getElementById('typeFilter'), cEl = document.getElementById('cityFilter'), yEl = document.getElementById('yearFilter');
-    if (tEl) tEl.innerHTML = ''; if (cEl) cEl.innerHTML = ''; if (yEl) yEl.innerHTML = '';
-    var types = [], cities = [], years = [];
-    ALL.forEach(function(e){
-      var t = e.content_type; if (t && types.indexOf(t) < 0) types.push(t);
-      var c = e.city; if (c && cities.indexOf(c) < 0) cities.push(c);
-      var y = (e.date||'').slice(0,4); if (y && years.indexOf(y) < 0) years.push(y);
-    });
-    mkChips('typeFilter', types, 'type', false);
-    mkChips('cityFilter', cities.slice(0,16), 'city', false);
-    mkChips('yearFilter', years, 'year', true);
-  }
-  buildChips();
-  renderTourFx();
+    html += '</div></details>';
+    aiLines.push((e.date||'') + ' ' + (e.city||'') + '[' + ctLabel + '] 追踪曲目池' + fmt(e.total_uplift) + ' 歌单内' + fmt(e.setlist_uplift) + ' 辐射带动' + fmt(e.radiance_uplift) + '；');
+  });
+  box.innerHTML = html;
+  var ais = document.getElementById('ai-tourSongFx');
+  if (ais) ais.textContent = '巡演歌曲级效应：共' + tse.length + '场有监测数据。' + aiLines.join(' ');
   // 深链定位：#tour-scene-YYYY-MM-DD → 自动展开该场并滚动到视口（无匹配时正常加载不报错）
   function openFromHash(){
     var h = location.hash;
@@ -814,55 +734,16 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   // ---- 数据驱动洞察（带上下文，随数据自动更新）----
   if (a.insights && a.insights.length) {
     var ib = document.getElementById('insightsBody');
-    var ih = '<div style="color:#f2d98d;font-weight:700;font-size:14px;margin-bottom:8px">💡 数据洞察（自动生成 · 含证据与上下文 · 可下钻）</div>';
+    var ih = '<div style="color:#f2d98d;font-weight:700;font-size:14px;margin-bottom:8px">💡 数据洞察（自动生成 · 含证据与上下文）</div>';
     a.insights.forEach(function(it){
       ih += '<div style="margin-bottom:10px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px;">' +
         '<div style="color:#5bc2e7;font-weight:700;font-size:13px">' + it.title + '</div>' +
         '<div style="color:#cdd6e6;font-size:12.5px;line-height:1.75;margin-top:3px">' + it.text + '</div>' +
-        '<div style="color:#8c959f;font-size:11px;margin-top:3px">🔎 ' + it.evidence + '</div>' +
-        '<button class="drill-btn" data-drill="' + (it.drill || '') + '" data-title="' + it.title + '" style="margin-top:5px;background:rgba(0,210,255,.1);border:1px solid rgba(0,210,255,.35);color:#00d2ff;border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer">🔍 查看数据</button></div>';
+        '<div style="color:#8c959f;font-size:11px;margin-top:3px">🔎 ' + it.evidence + '</div></div>';
     });
     ib.innerHTML = ih;
-    // 下钻：滚动到对应图表（drill=日期→事件曲线该场；tour→巡演效应；text→文本档案；method→口径抽屉；空→按标题推断）
-    ib.querySelectorAll('.drill-btn').forEach(function(btn){
-      btn.onclick = function(){
-        var d = btn.getAttribute('data-drill'), t = btn.getAttribute('data-title');
-        var target = null, open = null;
-        if (d && /^\d{4}-/.test(d)) { target = document.getElementById('esBox'); }
-        else if (d === 'tour') { target = document.getElementById('tourSongFx'); }
-        else if (d === 'text') { target = document.getElementById('textArchivePanel'); }
-        else if (d === 'method') { open = document.querySelector('details'); target = open; }
-        else if (t && t.indexOf('形态') >= 0) { target = document.getElementById('radiationPattern') || document.getElementById('tourSongFx'); }
-        else if (t && t.indexOf('年度') >= 0) { target = document.getElementById('trendChart'); }
-        if (target) { target.scrollIntoView({behavior:'smooth', block:'start'}); if (open) open.setAttribute('open',''); }
-      };
-    });
-  }
-  // ---- 行动建议 ----
-  if (a.actions && a.actions.length) {
-    var ab = document.getElementById('actionBody');
-    var ah = a.actions.map(function(ac){
-      return '<div style="margin-bottom:8px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px">' +
-        '<b style="color:#5bc2e7">' + ac.title + '：</b><span style="color:#cdd6e6">' + ac.text + '</span></div>';
-    }).join('');
-    document.getElementById('actionBody').innerHTML = ah;
-    document.getElementById('actionPanel').style.display = 'block';
   }
 })();
-// ===== 歌曲生态收敛折叠：把深度监测图移入折叠区（延迟到图表初始化后，避免 ECharts 在隐藏容器上取到 0 尺寸）=====
-setTimeout(function(){
-  var ecoBody = document.getElementById('songEcoBody');
-  if (!ecoBody) return;
-  var ecoIds = ['sankeyChart','decayChart','albumPremiumChart','ostPremiumChart','radarSpringChart','waterfallChart','timelineChart','matrixChart','weekChart','attrChart','catChart','crossEraChart','histTrendChart','histCurrentChart'];
-  var moved = 0;
-  ecoIds.forEach(function(id){
-    var el = document.getElementById(id);
-    if (!el) return;
-    var box = el.closest ? el.closest('.chart-box, .chart-row > div') : null;
-    if (box && box.parentNode && box.parentNode !== ecoBody) { ecoBody.appendChild(box); moved++; }
-  });
-  if (moved) console.log('[收敛] 已折叠 ' + moved + ' 个歌曲生态图');
-}, 800);
 // ===== 口径与方法抽屉（数据驱动填充）=====
 (function(){
   var mb = document.getElementById('methodBody');
@@ -879,8 +760,6 @@ setTimeout(function(){
     ['数据源', 'dashboard_data.json（单一数据源）· 辐射分析文案由 DeepSeek LLM 实时生成（DPAPI 加密 key）'],
   ];
   var h = rows.map(function(r){ return '<b style="color:#00d2ff">' + r[0] + '：</b>' + r[1]; }).join('<br>');
-  // 返回洞察结论锚点（结论↔口径互链）
-  h = '<div style="margin-bottom:6px"><a href="#autoAnalysisPanel" onclick="var p=document.getElementById(\'autoAnalysisPanel\');if(p){p.scrollIntoView({behavior:\'smooth\'});}return false;" style="color:#00d2ff;font-size:12px">← 返回洞察结论</a></div>' + h;
   // 口径科学性（第一性原理 Q&A）
   if (a.method_text && a.method_text.length) {
     h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#f2d98d;font-weight:700;font-size:13px">🎓 口径科学性（第一性原理）</div>';
@@ -938,48 +817,7 @@ setTimeout(function(){
     title:{text:'周内极差 ' + spread + '%（Luminate 实证：周内差可达两位数%）',textStyle:{color:'#f2d98d',fontSize:12},top:0,left:0}
   });
 })();
-// ===== 文本档案（全源语言画像：微博全源/长表/活动表文本挖掘）=====
-(function(){
-  var box = document.getElementById('textArchivePanel');
-  var body = document.getElementById('textArchiveBody');
-  if (!box || !body) return;
-  fetch('text_archive.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(t){
-    if (!t.weibo && !t.setlist) return;
-    function miniBar(title, items, color){
-      if (!items || !items.length) return '';
-      var max = Math.max.apply(null, items.map(function(x){ return x.n || x.shows || 0; }));
-      var rows = items.map(function(x){
-        var name = x.c || x.s || x.t || x.w || '';
-        var v = x.n || x.shows || 0;
-        var w = Math.round(v / max * 100);
-        return '<div style="display:flex;align-items:center;gap:8px;margin:2px 0"><span style="width:64px;color:#9fb0c8;font-size:11px;text-align:right">' + name + '</span>' +
-          '<div style="flex:1;background:rgba(255,255,255,.05);border-radius:3px;height:12px"><div style="width:' + w + '%;height:12px;background:' + color + ';border-radius:3px"></div></div>' +
-          '<span style="width:30px;color:#cdd6e6;font-size:11px">' + v + '</span></div>';
-      }).join('');
-      return '<div style="margin:8px 0"><b style="color:#6fbf8f;font-size:12.5px">' + title + '</b>' + rows + '</div>';
-    }
-    var h = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px">';
-    // 左列：微博全源 + 早期档案
-    h += '<div>' +
-      '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">📱 微博四源（' + (t.weibo.n||0) + ' 帖）· 城市提及</div>' +
-      miniBar('', t.weibo.cities_top, '#5bc2e7') +
-      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">📖 早期微博档案（' + (t.weibo_book.n||0) + ' 帖，2014-2023 本人微博整理）· 城市提及</div>' +
-      miniBar('', t.weibo_book.cities_top, '#6fbf8f') +
-      '</div>';
-    // 右列：长表常青曲 + 活动类型
-    h += '<div>' +
-      '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">🎵 长表常青曲目（' + (t.setlist.n_shows||0) + ' 场歌单，跨场出现）</div>' +
-      miniBar('', (t.setlist.evergreen||[]).slice(0,8), '#e0b64f') +
-      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">🎭 活动表类型分布（' + (t.activities.n||0) + ' 行）</div>' +
-      miniBar('', t.activities.type_dist, '#5bc2e7') +
-      '</div></div>';
-    h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#8c959f;font-size:11.5px">' +
-      '数据源：微博全源（含 2014-2023 早期档案整理）· 巡演长表 64 场歌单 · 活动表 199 行（含百科入库）。' +
-      '详细文本挖掘（词频/情感/mention→数据桥接）见 <a href="../temp/微博深度文本挖掘报告_20260901.md" style="color:#5bc2e7">深度报告</a>。</div>';
-    body.innerHTML = h;
-    box.style.display = 'block';
-  }).catch(function(){});
-})();
+// ===== 事件研究曲线（daily_series T+1~T+14，CAR 式）=====
 (function(){
   var picker = document.getElementById('esPicker');
   var chartEl = document.getElementById('esChart');
@@ -1212,26 +1050,6 @@ setTimeout(function(){
     list.appendChild(div);
     trendSongs[it.song] = true;
   });
-  // ===== 当月榜单（monthly：新上榜排行 / 日均指数 Top / 收听峰值 Top）=====
-  var mo = dashboardData.monthly;
-  if (mo) {
-    document.getElementById('monthLabel').textContent = mo.month || '--';
-    var mb = document.getElementById('monthlyBody');
-    function col(title, rows, valFmt){
-      if (!rows || !rows.length) return '';
-      var items = rows.slice(0, 12).map(function(x, i){
-        return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px">' +
-          '<span style="color:#8c959f;width:22px">' + (i+1) + '</span>' +
-          '<span style="color:#c8cce0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + x.song + '">' + x.song + '</span>' +
-          (x.days ? '<span style="color:#5bc2e7">' + x.days + '日</span>' : '<span style="color:#e0b64f">' + valFmt(x) + '</span>') + '</div>';
-      }).join('');
-      return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div>' + items + '</div>';
-    }
-    mb.innerHTML =
-      col('🆕 当月新上榜排行', mo.new_songs, function(x){ return x.first_day; }) +
-      col('📈 当月日均指数 Top', mo.top_index, function(x){ return x.avg_index; }) +
-      col('👥 当月收听峰值 Top', mo.top_listeners, function(x){ return x.peak; });
-  }
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
 (function(){
