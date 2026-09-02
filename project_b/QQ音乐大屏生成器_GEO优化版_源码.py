@@ -2799,9 +2799,13 @@ __GEO_SUMMARY__
     </div>
   </div>
   <div class="daily-trend-card" id="dailyTrendCard">
-    <div class="daily-trend-header">今日收听份额 TOP20 · 含🆕新上榜</div>
+    <div class="daily-trend-header">今日收听份额（全量 · 含🆕新上榜）</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
     <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
+  </div>
+  <div class="daily-trend-card" id="monthlyCard" style="margin-top:14px;">
+    <div class="daily-trend-header">📅 当月榜单 · <span id="monthLabel">--</span>（新上榜排行 / 日均指数 Top / 收听峰值 Top）</div>
+    <div id="monthlyBody" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:10px 2px;"></div>
   </div>
   <div class="micro-trend-box" id="microTrendBox">
     <h2 class="chart-title">最近7日追踪曲目池热度微趋势</h2>
@@ -3466,6 +3470,26 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     list.appendChild(div);
     trendSongs[it.song] = true;
   });
+  // ===== 当月榜单（monthly：新上榜排行 / 日均指数 Top / 收听峰值 Top）=====
+  var mo = dashboardData.monthly;
+  if (mo) {
+    document.getElementById('monthLabel').textContent = mo.month || '--';
+    var mb = document.getElementById('monthlyBody');
+    function col(title, rows, valFmt){
+      if (!rows || !rows.length) return '';
+      var items = rows.slice(0, 12).map(function(x, i){
+        return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px">' +
+          '<span style="color:#8c959f;width:22px">' + (i+1) + '</span>' +
+          '<span style="color:#c8cce0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + x.song + '">' + x.song + '</span>' +
+          (x.days ? '<span style="color:#5bc2e7">' + x.days + '日</span>' : '<span style="color:#e0b64f">' + valFmt(x) + '</span>') + '</div>';
+      }).join('');
+      return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div>' + items + '</div>';
+    }
+    mb.innerHTML =
+      col('🆕 当月新上榜排行', mo.new_songs, function(x){ return x.first_day; }) +
+      col('📈 当月日均指数 Top', mo.top_index, function(x){ return x.avg_index; }) +
+      col('👥 当月收听峰值 Top', mo.top_listeners, function(x){ return x.peak; });
+  }
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
 (function(){
