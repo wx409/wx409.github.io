@@ -2780,7 +2780,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div id="actionBody" style="font-size:13px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
   <div id="textArchivePanel" class="dashboard-insight" style="display:none;margin:0 0 14px 0;padding:16px 20px;background:linear-gradient(135deg,rgba(111,191,143,.08),rgba(20,26,58,.6));border:1px solid rgba(111,191,143,.32);border-radius:12px;">
-    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博/百家号/微博书/工作室 + 长表/活动表）</h3>
+    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博全源 + 巡演长表 + 活动表）</h3>
     <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
   <div class="chart-box" id="esBox" style="margin-bottom:14px;">
@@ -3231,7 +3231,7 @@ setTimeout(function(){
     title:{text:'周内极差 ' + spread + '%（Luminate 实证：周内差可达两位数%）',textStyle:{color:'#f2d98d',fontSize:12},top:0,left:0}
   });
 })();
-// ===== 文本档案（全源语言画像：微博/微博书/长表/活动表文本挖掘）=====
+// ===== 文本档案（全源语言画像：微博全源/长表/活动表文本挖掘）=====
 (function(){
   var box = document.getElementById('textArchivePanel');
   var body = document.getElementById('textArchiveBody');
@@ -3252,11 +3252,11 @@ setTimeout(function(){
       return '<div style="margin:8px 0"><b style="color:#6fbf8f;font-size:12.5px">' + title + '</b>' + rows + '</div>';
     }
     var h = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px">';
-    // 左列：微博 + 微博书
+    // 左列：微博全源 + 早期档案
     h += '<div>' +
       '<div style="color:#f2d98d;font-size:12.5px;font-weight:600">📱 微博四源（' + (t.weibo.n||0) + ' 帖）· 城市提及</div>' +
       miniBar('', t.weibo.cities_top, '#5bc2e7') +
-      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">📖 微博书（' + (t.weibo_book.n||0) + ' 帖，2014-2023 本人微博）· 城市提及</div>' +
+      '<div style="margin-top:8px;color:#f2d98d;font-size:12.5px;font-weight:600">📖 早期微博档案（' + (t.weibo_book.n||0) + ' 帖，2014-2023 本人微博整理）· 城市提及</div>' +
       miniBar('', t.weibo_book.cities_top, '#6fbf8f') +
       '</div>';
     // 右列：长表常青曲 + 活动类型
@@ -3267,7 +3267,7 @@ setTimeout(function(){
       miniBar('', t.activities.type_dist, '#5bc2e7') +
       '</div></div>';
     h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#8c959f;font-size:11.5px">' +
-      '数据源：微博 1722 帖（本人+工作室+百家号）· 微博书 3 册 OCR · 长表 64 场歌单 · 活动表 199 行（含百科入库）。' +
+      '数据源：微博全源（含 2014-2023 早期档案整理）· 巡演长表 64 场歌单 · 活动表 199 行（含百科入库）。' +
       '详细文本挖掘（词频/情感/mention→数据桥接）见 <a href="../temp/微博深度文本挖掘报告_20260901.md" style="color:#5bc2e7">深度报告</a>。</div>';
     body.innerHTML = h;
     box.style.display = 'block';
