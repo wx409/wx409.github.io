@@ -2718,6 +2718,10 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div id="anomalyMiniList" class="anomaly-mini-list"></div>
     <a class="open-data-link" href="dashboard_data.json" download title="开放数据 JSON（Schema.org Dataset 分发）">开放数据 JSON ↗</a>
   </div>
+  <details class="lineage-panel" id="songEcoPanel">
+    <summary>📦 歌曲生态深度监测 <span style="font-weight:400;color:#5a6b8c;font-size:11px">（竞争格局/生命周期/时间偏好/老歌复活/排名战争等 · 点击展开 · 服务论文研究者）</span></summary>
+    <div id="songEcoBody" class="lineage-body"></div>
+  </details>
   <details class="lineage-panel" id="lineagePanel">
     <summary>数据谱系 · 清洗日志 <span style="font-weight:400;color:#5a6b8c;font-size:11px">（点击展开 · 供 AI/研究者核验数据可信度）</span></summary>
     <div id="lineageBody" class="lineage-body"></div>
@@ -3103,14 +3107,29 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   // ---- 数据驱动洞察（带上下文，随数据自动更新）----
   if (a.insights && a.insights.length) {
     var ib = document.getElementById('insightsBody');
-    var ih = '<div style="color:#f2d98d;font-weight:700;font-size:14px;margin-bottom:8px">💡 数据洞察（自动生成 · 含证据与上下文）</div>';
+    var ih = '<div style="color:#f2d98d;font-weight:700;font-size:14px;margin-bottom:8px">💡 数据洞察（自动生成 · 含证据与上下文 · 可下钻）</div>';
     a.insights.forEach(function(it){
       ih += '<div style="margin-bottom:10px;padding:9px 12px;background:rgba(91,194,231,.06);border-left:3px solid #5bc2e7;border-radius:6px;">' +
         '<div style="color:#5bc2e7;font-weight:700;font-size:13px">' + it.title + '</div>' +
         '<div style="color:#cdd6e6;font-size:12.5px;line-height:1.75;margin-top:3px">' + it.text + '</div>' +
-        '<div style="color:#8c959f;font-size:11px;margin-top:3px">🔎 ' + it.evidence + '</div></div>';
+        '<div style="color:#8c959f;font-size:11px;margin-top:3px">🔎 ' + it.evidence + '</div>' +
+        '<button class="drill-btn" data-drill="' + (it.drill || '') + '" data-title="' + it.title + '" style="margin-top:5px;background:rgba(0,210,255,.1);border:1px solid rgba(0,210,255,.35);color:#00d2ff;border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer">🔍 查看数据</button></div>';
     });
     ib.innerHTML = ih;
+    // 下钻：滚动到对应图表（drill=日期→事件曲线该场；tour→巡演效应；text→文本档案；method→口径抽屉；空→按标题推断）
+    ib.querySelectorAll('.drill-btn').forEach(function(btn){
+      btn.onclick = function(){
+        var d = btn.getAttribute('data-drill'), t = btn.getAttribute('data-title');
+        var target = null, open = null;
+        if (d && /^\d{4}-/.test(d)) { target = document.getElementById('esBox'); }
+        else if (d === 'tour') { target = document.getElementById('tourSongFx'); }
+        else if (d === 'text') { target = document.getElementById('textArchivePanel'); }
+        else if (d === 'method') { open = document.querySelector('details'); target = open; }
+        else if (t && t.indexOf('形态') >= 0) { target = document.getElementById('radiationPattern') || document.getElementById('tourSongFx'); }
+        else if (t && t.indexOf('年度') >= 0) { target = document.getElementById('trendChart'); }
+        if (target) { target.scrollIntoView({behavior:'smooth', block:'start'}); if (open) open.setAttribute('open',''); }
+      };
+    });
   }
   // ---- 行动建议 ----
   if (a.actions && a.actions.length) {
@@ -3123,6 +3142,20 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     document.getElementById('actionPanel').style.display = 'block';
   }
 })();
+// ===== 歌曲生态收敛折叠：把深度监测图移入折叠区（延迟到图表初始化后，避免 ECharts 在隐藏容器上取到 0 尺寸）=====
+setTimeout(function(){
+  var ecoBody = document.getElementById('songEcoBody');
+  if (!ecoBody) return;
+  var ecoIds = ['sankeyChart','decayChart','albumPremiumChart','ostPremiumChart','radarSpringChart','waterfallChart','timelineChart','matrixChart','weekChart','attrChart','catChart','crossEraChart','histTrendChart','histCurrentChart'];
+  var moved = 0;
+  ecoIds.forEach(function(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    var box = el.closest ? el.closest('.chart-box, .chart-row > div') : null;
+    if (box && box.parentNode && box.parentNode !== ecoBody) { ecoBody.appendChild(box); moved++; }
+  });
+  if (moved) console.log('[收敛] 已折叠 ' + moved + ' 个歌曲生态图');
+}, 800);
 // ===== 口径与方法抽屉（数据驱动填充）=====
 (function(){
   var mb = document.getElementById('methodBody');
@@ -3139,6 +3172,8 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
     ['数据源', 'dashboard_data.json（单一数据源）· 辐射分析文案由 DeepSeek LLM 实时生成（DPAPI 加密 key）'],
   ];
   var h = rows.map(function(r){ return '<b style="color:#00d2ff">' + r[0] + '：</b>' + r[1]; }).join('<br>');
+  // 返回洞察结论锚点（结论↔口径互链）
+  h = '<div style="margin-bottom:6px"><a href="#autoAnalysisPanel" onclick="var p=document.getElementById(\'autoAnalysisPanel\');if(p){p.scrollIntoView({behavior:\'smooth\'});}return false;" style="color:#00d2ff;font-size:12px">← 返回洞察结论</a></div>' + h;
   // 口径科学性（第一性原理 Q&A）
   if (a.method_text && a.method_text.length) {
     h += '<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #3c4468;color:#f2d98d;font-weight:700;font-size:13px">🎓 口径科学性（第一性原理）</div>';
@@ -5138,6 +5173,7 @@ def _build_analysis(payload):
                 "text": (f"广州{len(gz_seq)}场可量化巡演效应为 {'→'.join(str(t) for t in gz_totals)}，最新一场首次转正。"
                          "该洞察由引擎按「历史为负+最新转正」规则自动生成——任何城市出现同样信号都会自动提示，广州仅是最新触发案例。"),
                 "evidence": f"数据：{gz_curve}",
+                "drill": gz_seq[-1].get("date") if gz_seq else None,
             })
     # ② 巡演效应解释（蓄能期框架+机制+证据，正面表述但数据诚实）
     tour_ps = [p for p in pairs if p["t"] == "个人巡回"]
@@ -5152,6 +5188,7 @@ def _build_analysis(payload):
                      "演出前 1~7 日官宣/彩排/倒计时推高收听基线，演出后注意力自然回归，实为存量巩固与品牌积累。"
                      "六巡双站（重庆精准、广州出圈）已证明蓄能可转化为释放：经典曲目引流（歌单内）+ talk 种草（辐射带动）是两条已验证的路径。"),
             "evidence": f"数据：巡演正占比 {pos_ratio}% / 均值 {t_avg:+.1f}% / 六巡双站 {dual_txt} / 巡演宣传帖占微博 35%（最大板块）",
+            "drill": "tour",
         })
     # ③ 带动最强形态
     if morph:
@@ -5201,13 +5238,21 @@ def _build_analysis(payload):
                     inter.append(rname or "新歌发行")
         inter_txt = ("；同期有发行事件「" + "、".join(inter[:3]) + "」，效应可能含发行贡献（需排除复核）" if inter
                      else "；同期无发行事件，干扰较低")
+        # 贡献度分解：该场带动 Top3（哪几首歌贡献了效应）
+        _e_top = next((e for e in fx if e.get("date") == top["d"]), None)
+        _contrib = ""
+        if _e_top and _e_top.get("top_songs"):
+            _contrib = "；该场贡献Top3：" + "、".join(
+                f"{t['name']}({'+' if (t.get('uplift') or 0) >= 0 else ''}{t.get('uplift')}%)"
+                for t in _e_top["top_songs"][:3])
         insights.append({
             "title": "最大爆点：《" + top["n"] + "》",
             "text": (f"{top['d']} 活动带动 +{top['up']:.0f}%（{'歌单内直接转化' if top['on'] else '辐射带动'}）。"
                      f"稳健性 Z 分 {robust_z}（median/MAD 口径，|Z|>3 视为稳健异常）"
                      f"——{'确认为稳健爆点' if robust_z > 3 else '受离群影响，需人工复核'}。"
-                     + inter_txt + "。平台推荐放大可能贡献部分增量，表述为「伴随效应」而非严格因果归因。"),
+                     + inter_txt + _contrib + "。平台推荐放大可能贡献部分增量，表述为「伴随效应」而非严格因果归因。"),
             "evidence": f"数据：{top['n']} +{top['up']:.1f}%（{top['d']}）· 全样本中位 {med_u:+.1f}% / MAD {mad:.1f}",
+            "drill": top["d"],  # 可下钻到该场事件曲线
         })
 
     # ⑥ 微博语言画像（深度文本挖掘：词频/城市/歌曲实体/mention→uplift，文件缺失则跳过）
@@ -5221,6 +5266,7 @@ def _build_analysis(payload):
                 "title": "微博语言画像（1722 帖文本挖掘）",
                 "text": _wl.get("insight", ""),
                 "evidence": "数据：核心话语「个人巡回音乐会」词组 439 次 · " + _bridge,
+                "drill": "text",
             })
     except Exception:
         pass
@@ -5246,6 +5292,7 @@ def _build_analysis(payload):
                 "title": "口径修正发现：同星期基线揭示双向偏差",
                 "text": _txt,
                 "evidence": f"数据：Δ最大 {_ex1.get('date')} {_ex1.get('city', '')} 原{_ex1.get('total_uplift')}%→同星期{_ex1.get('total_uplift_wk')}%",
+                "drill": "method",
             })
     except Exception:
         pass
