@@ -11543,6 +11543,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:梦开始的地方",
+  "type": "belongs_to_album",
+  "target": "album:中国人的故事",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:渔光曲",
   "type": "belongs_to_album",
   "target": "album:Low C的诱惑",
@@ -12432,13 +12439,6 @@
   "source_ref": "songs_meta.json"
  },
  {
-  "source": "song:梦开始的地方",
-  "type": "belongs_to_album",
-  "target": "album:中国人的故事",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
   "source": "media:2019-06-15-01",
   "type": "covers",
   "target": "show:2019-06-15-wuhan",
@@ -12481,6 +12481,13 @@
   "source_ref": "live_repos.json"
  },
  {
+  "source": "media:2019-11-03-02",
+  "type": "covers",
+  "target": "show:2019-11-03-shanghai",
+  "context": "微博（@王晰Elvis-晰息相关）",
+  "source_ref": "live_repos.json"
+ },
+ {
   "source": "media:2019-12-15-00",
   "type": "covers",
   "target": "show:2019-12-15-changsha",
@@ -12502,6 +12509,13 @@
   "source_ref": "live_repos.json"
  },
  {
+  "source": "media:2021-01-09-02",
+  "type": "covers",
+  "target": "show:2021-01-09-changsha",
+  "context": "微博（@王晰Elvis-晰息相关）",
+  "source_ref": "live_repos.json"
+ },
+ {
   "source": "media:2021-01-10-00",
   "type": "covers",
   "target": "show:2021-01-10-wuhan",
@@ -12516,10 +12530,38 @@
   "source_ref": "live_repos.json"
  },
  {
+  "source": "media:2021-01-10-03",
+  "type": "covers",
+  "target": "show:2021-01-10-wuhan",
+  "context": "微博（@王晰Elvis-晰息相关）",
+  "source_ref": "live_repos.json"
+ },
+ {
+  "source": "media:2021-01-10-04",
+  "type": "covers",
+  "target": "show:2021-01-10-wuhan",
+  "context": "微博（@王晰Elvis-晰息相关）",
+  "source_ref": "live_repos.json"
+ },
+ {
+  "source": "media:2021-01-10-06",
+  "type": "covers",
+  "target": "show:2021-01-10-wuhan",
+  "context": "微博（@王晰Elvis-晰息相关）",
+  "source_ref": "live_repos.json"
+ },
+ {
   "source": "media:2021-03-07-01",
   "type": "covers",
   "target": "show:2021-03-07-shanghai",
   "context": "搜狐(媒体)",
+  "source_ref": "live_repos.json"
+ },
+ {
+  "source": "media:2021-03-07-02",
+  "type": "covers",
+  "target": "show:2021-03-07-shanghai",
+  "context": "微博（@王晰Elvis-晰息相关）",
   "source_ref": "live_repos.json"
  },
  {
@@ -12534,6 +12576,20 @@
   "type": "covers",
   "target": "show:2021-03-08-shanghai",
   "context": "哔哩哔哩",
+  "source_ref": "live_repos.json"
+ },
+ {
+  "source": "media:2021-03-08-03",
+  "type": "covers",
+  "target": "show:2021-03-08-shanghai",
+  "context": "微博（@王晰Elvis-晰息相关）",
+  "source_ref": "live_repos.json"
+ },
+ {
+  "source": "media:2021-03-08-05",
+  "type": "covers",
+  "target": "show:2021-03-08-shanghai",
+  "context": "微博（@王晰Elvis-晰息相关）",
   "source_ref": "live_repos.json"
  },
  {
@@ -12674,6 +12730,13 @@
   "type": "covers",
   "target": "show:2025-01-01-changsha",
   "context": "百家号（王晰）",
+  "source_ref": "live_repos.json"
+ },
+ {
+  "source": "media:2025-11-21-08",
+  "type": "covers",
+  "target": "show:2025-11-21-shanghai",
+  "context": "微博（@王晰Elvis-晰息相关）",
   "source_ref": "live_repos.json"
  },
  {
