@@ -1,12 +1,12 @@
 {
- "timestamp": "2026-09-03 21:01",
- "last_update": "2026-09-03 21:01",
+ "timestamp": "2026-09-03 21:30",
+ "last_update": "2026-09-03 21:30",
  "date_range": "2023-01-01 ~ 2026-09-03",
  "total": 270486,
  "complete_rate": 20.8,
- "total_songs": 383,
- "active_songs": 244,
- "active_rate": 63.7,
+ "total_songs": 703,
+ "active_songs": 440,
+ "active_rate": 62.6,
  "batch_count": 1219,
  "time_labels": [
   "2023-01",
@@ -176,30 +176,30 @@
   "2026-09"
  ],
  "listener_ratio_trend": [
-  21.5,
-  14.0,
-  32.8,
-  1.7,
-  5.4,
-  18.7,
-  17.0,
-  18.4,
-  13.9,
-  8.9,
-  8.8,
-  8.1,
-  6.8,
-  5.4,
-  4.4,
-  4.6,
-  4.3,
-  3.6,
-  3.2,
+  35.2,
+  21.7,
+  10.4,
+  0.6,
   2.9,
-  3.0,
-  8.2,
-  36.6,
-  4.0
+  9.4,
+  9.7,
+  9.7,
+  8.3,
+  5.5,
+  7.7,
+  7.8,
+  5.0,
+  2.0,
+  1.8,
+  1.5,
+  1.4,
+  1.2,
+  1.1,
+  1.1,
+  0.9,
+  13.1,
+  78.8,
+  8.7
  ],
  "top_songs": [
   {
@@ -215,14 +215,14 @@
    "tag": "飙升"
   },
   {
-   "name": "一生守候",
-   "trend": 29.2,
+   "name": "相思",
+   "trend": 21.0,
    "score": 60,
    "tag": "飙升"
   },
   {
-   "name": "相思",
-   "trend": 21.0,
+   "name": "一生守候",
+   "trend": 29.2,
    "score": 60,
    "tag": "飙升"
   },
@@ -251,8 +251,8 @@
    "tag": "上涨"
   },
   {
-   "name": "Sound of Silence",
-   "trend": -0.3,
+   "name": "晚风暖暖",
+   "trend": -4.3,
    "score": 35,
    "tag": "上涨"
   },
@@ -364,17 +364,17 @@
   },
   {
    "rank": 15,
-   "song": "晚风暖暖",
-   "share_pct": 1.5,
-   "trend_pct": 81.8,
-   "trend_label": "up"
-  },
-  {
-   "rank": 16,
    "song": "Bésame Mucho",
    "share_pct": 1.5,
    "trend_pct": null,
    "trend_label": "new"
+  },
+  {
+   "rank": 16,
+   "song": "晚风暖暖",
+   "share_pct": 1.5,
+   "trend_pct": 81.8,
+   "trend_label": "up"
   },
   {
    "rank": 17,
@@ -385,14 +385,14 @@
   },
   {
    "rank": 18,
-   "song": "荒人之歌",
+   "song": "一生守候",
    "share_pct": 1.4,
    "trend_pct": 50.0,
    "trend_label": "up"
   },
   {
    "rank": 19,
-   "song": "一生守候",
+   "song": "荒人之歌",
    "share_pct": 1.4,
    "trend_pct": 50.0,
    "trend_label": "up"
