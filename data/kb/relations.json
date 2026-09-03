@@ -12432,6 +12432,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:梦开始的地方",
+  "type": "belongs_to_album",
+  "target": "album:中国人的故事",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "media:2019-06-15-01",
   "type": "covers",
   "target": "show:2019-06-15-wuhan",

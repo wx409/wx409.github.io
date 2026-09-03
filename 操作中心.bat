@@ -39,6 +39,7 @@ echo     3. 本地网页快照 (weibo_snapshots)
 echo     4. 更新 live-reviews (本人纯文字/工作室留链接)
 
 echo    24. 微博抓取 - 仅文字图片 (跳过视频)
+echo    35. 同步 wb.txt Cookie (wb.txt ^> 3处抓取工具)
 
 echo.
 
@@ -122,7 +123,12 @@ set /p op=请输入选项数字后回车:
 
 if "%op%"=="91" goto paper_assets
 if "%op%"=="92" goto paper_drafts
-if "%op%"=="93" goto paper_predictionsif "%op%"=="94" goto kb_buildif "%op%"=="95" goto kb_vectorsif "%op%"=="96" goto kb_semantic_pageif "%op%"=="97" goto pred_verifyif "%op%"=="99" goto fb_week
+if "%op%"=="93" goto paper_predictions
+if "%op%"=="94" goto kb_build
+if "%op%"=="95" goto kb_vectors
+if "%op%"=="96" goto kb_semantic_page
+if "%op%"=="97" goto pred_verify
+if "%op%"=="99" goto fb_week
 
 
 
@@ -177,6 +183,7 @@ if "%op%"=="22" goto xhs_user_full
 if "%op%"=="23" goto bili_space_full
 
 if "%op%"=="24" goto wb_novideo
+if "%op%"=="35" goto wb_cookie_sync
 
 if "%op%"=="25" goto xhs_links_novideo
 
@@ -240,7 +247,7 @@ cd /d "E:\wx\私有工具\weibo_proxy"
 
 chcp 65001 >nul
 
-python -X utf8 weibo_proxy_studio.py fetch
+python -X utf8 weibo_proxy_studio.py fetch --all
 
 chcp 936 >nul
 
@@ -270,7 +277,7 @@ chcp 936 >nul
 
 echo.
 
-echo 输出: E:\wx\私有工具\weibo_snapshots\posts\<YYYY-MM>\<mid>.html
+echo 输出: E:\wx\私有工具\weibo_snapshots\posts\^<YYYY-MM^>\^<mid^>.html
 
 pause
 
@@ -311,6 +318,9 @@ goto menu
 cls
 
 echo === 观众反馈收集 (微博+小红书+B站+Bing) ===
+echo [提示] 微博/小红书风控高，可能等待较久；若出现 HTTP 432 请冷却后重试。
+echo 快速首次收集: python project_b\collect_show_feedback.py --date 日期 --city 城市 --skip-bili
+echo B站补收: 操作中心 33 或加 --bili-only
 
 set /p fdate=请输入演出日期(YYYY-MM-DD, 如2026-08-23): 
 
@@ -743,7 +753,7 @@ cd /d "D:\wx409.github.io"
 chcp 65001 >nul
 python -X utf8 project_b\transcript_pipeline.py --ingest-txt "%tpath%" --date %tdate% --venue %tvenue%
 chcp 936 >nul
-echo 产物: temp\transcripts_review\<文件名>.json (已纠错)
+echo 产物: temp\transcripts_review\^<文件名^>.json (已纠错)
 echo 之后: 28(DeepSeek加工/策展) 或 29(预筛审核) 或 --extract-quotes 规则金句
 pause
 goto menu
@@ -808,6 +818,18 @@ git status -sb
 
 pause
 
+goto menu
+
+:wb_cookie_sync
+cls
+echo === 同步微博 Cookie (wb.txt ^> 3处抓取工具) ===
+echo 源: E:\wx\index_records\wb.txt
+echo 目标: weibo_cookies.txt / weibo_proxy/weibo_cookie.json / realtime_cookies/weibo_cookie.json
+cd /d "D:\wx409.github.io"
+chcp 65001 >nul
+python -X utf8 tools\sync_weibo_cookie.py
+chcp 936 >nul
+pause
 goto menu
 
 :wb_manual_import
