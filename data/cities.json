@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-03 18:22",
+  "generated_at": "2026-09-04 00:05",
   "city_count": 22,
-  "show_count": 64,
+  "show_count": 65,
   "cities": {
     "杭州": {
       "coord": [
@@ -124,6 +124,18 @@
           "tour_num": 1,
           "theme": "Cherish珍晰",
           "venue": "武汉剧院",
+          "live_url": null,
+          "cancelled": false,
+          "has_data": false
+        },
+        {
+          "date": "2021-01-10",
+          "scene": "武汉",
+          "note": "",
+          "tour": "二巡",
+          "tour_num": 2,
+          "theme": "2020-2021 个人巡回",
+          "venue": "武汉琴台大剧院",
           "live_url": null,
           "cancelled": false,
           "has_data": false
