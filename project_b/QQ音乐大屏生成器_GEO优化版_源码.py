@@ -1531,21 +1531,29 @@ def compute_monthly(df_all, month=None):
         return None
     uid2disp = df.groupby("uid")["display_name"].last().to_dict()
     daily = mdf.groupby(["uid", "data_date"])["listeners"].max().reset_index()
-    # 当月新上榜：歌在该月某日首次出现（前一自然日无指数）
-    dates = sorted(daily["data_date"].unique())
-    appeared, new_count = {}, {}
-    for d in dates:
-        prev = d - pd.Timedelta(days=1)
-        prev_uids = set(daily.loc[daily["data_date"] == prev, "uid"]) if (daily["data_date"] == prev).any() else set()
-        cur = daily[daily["data_date"] == d]
-        for uid in cur["uid"]:
-            if uid not in prev_uids and uid not in appeared:
-                appeared[uid] = d
-                new_count[uid] = 1
-            elif uid in appeared:
-                new_count[uid] += 1
-    new_songs = [{"song": str(uid2disp.get(u, u)), "first_day": appeared[u].strftime("%m-%d"), "days": new_count[u]}
-                 for u in appeared]
+    # 当月新上榜：以上月为基准，本月首次出现且上月未上榜的歌曲。
+    # 修复：不再把“每月1日所有歌”误判为新上榜。
+    month_start = pd.Timestamp(m + "-01")
+    prev_month_start = month_start - pd.DateOffset(months=1)
+    prev_uids = set(df.loc[
+        (df["data_date"] >= prev_month_start) & (df["data_date"] < month_start),
+        "uid"
+    ])
+    first_day = daily.groupby("uid")["data_date"].min()
+    new_uids = [u for u, d in first_day.items() if u not in prev_uids]
+    if new_uids:
+        new_daily = daily[daily["uid"].isin(new_uids)]
+        day_counts = new_daily.groupby("uid")["data_date"].nunique()
+        new_songs = [
+            {
+                "song": str(uid2disp.get(u, u)),
+                "first_day": first_day[u].strftime("%m-%d"),
+                "days": int(day_counts.get(u, 0)),
+            }
+            for u in new_uids
+        ]
+    else:
+        new_songs = []
     new_songs.sort(key=lambda x: (-x["days"], x["first_day"]))
     # 当月日均指数 Top
     top_idx = []
