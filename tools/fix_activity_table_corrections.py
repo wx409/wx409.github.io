@@ -60,13 +60,16 @@ def main() -> int:
             ws.cell(row=r, column=5).value = (note + "；CCTV-14少儿频道").strip("；")
             print(f"[merge] row {r} 备注补 CCTV-14少儿频道")
 
-    # 2) 合并光从东方来：主行备注补充长安夜色说明，删除副行
+    # 2) 合并光从东方来：只保留官方主条目，删除副行；
+    #    同时移除此前可能已写入的“长安夜色”主观提炼备注
     if gz_dup_rows:
         r = gz_dup_rows[0]
-        note = ws.cell(row=r, column=5).value or ""
-        if "西安夜色" not in note:
-            ws.cell(row=r, column=5).value = (note + "；王晰在西安夜色中用低音演绎启新生主题").strip("；")
-            print(f"[merge] row {r} 备注补 长安夜色说明")
+        note = str(ws.cell(row=r, column=5).value or "")
+        remove_phrase = "王晰在西安夜色中用低音演绎启新生主题"
+        if remove_phrase in note:
+            note = note.replace(remove_phrase, "").replace("；；", "；").strip("；")
+            ws.cell(row=r, column=5).value = note
+            print(f"[clean] row {r} 已移除主观备注：{remove_phrase}")
 
     # 3) 启航2026：补地点/歌曲
     if qh_rows:
