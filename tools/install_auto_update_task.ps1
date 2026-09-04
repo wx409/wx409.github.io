@@ -1,9 +1,10 @@
-﻿# ============================================================
+# ============================================================
 # 王晰数字档案 · 自动更新任务一键安装脚本
 # 用法：
 #   本机（笔记本）：右键"使用 PowerShell 运行"，或双击同目录 .bat
 #   台式机：powershell -ExecutionPolicy Bypass -File .\install_auto_update_task.ps1 -Machine desktop
-# 功能：注册计划任务 WangXiArchiveAutoUpdate（每日 14:00 + 次日 00:05 各一次）
+# 功能：注册计划任务 WangXiArchiveAutoUpdate
+#       每日 09:00 / 14:00 / 17:00 / 21:00 / 次日 00:03 共 5 次
 # ============================================================
 param(
     [string]$Machine = "laptop",      # laptop（工作日值班）/ desktop（周末值班）
@@ -38,14 +39,17 @@ $Arg = "`"$Script`" --machine $Machine --watch"
 try {
     $Action = New-ScheduledTaskAction -Execute $Py -Argument $Arg -WorkingDirectory $RepoPath
     $Triggers = @(
+        (New-ScheduledTaskTrigger -Daily -At 09:00),
         (New-ScheduledTaskTrigger -Daily -At 14:00),
-        (New-ScheduledTaskTrigger -Daily -At 00:05)
+        (New-ScheduledTaskTrigger -Daily -At 17:00),
+        (New-ScheduledTaskTrigger -Daily -At 21:00),
+        (New-ScheduledTaskTrigger -Daily -At 00:03)
     )
     $Settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew
     Register-ScheduledTask -TaskName $TaskName -Action $Action -Trigger $Triggers `
         -Settings $Settings -Description "王晰数字档案自动聚合（采集->构建->发布->IndexNow），$Machine 值班" `
         -Force | Out-Null
-    Write-Host "[OK] 任务已创建：$TaskName（每日 14:00 / 次日 00:05）" -ForegroundColor Green
+    Write-Host "[OK] 任务已创建：$TaskName（每日 09:00 / 14:00 / 17:00 / 21:00 / 次日 00:03）" -ForegroundColor Green
 } catch {
     Write-Host "[X] 创建失败：$($_.Exception.Message)" -ForegroundColor Red
     Write-Host "    请尝试：以管理员身份运行 PowerShell 后再执行本脚本" -ForegroundColor Yellow
