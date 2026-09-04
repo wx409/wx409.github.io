@@ -43,7 +43,7 @@ def _cfg():
     return _CONFIG
 
 
-def append_local(title, content):
+def append_local(title, content, category="通知", source="", url="", extra=None):
     """把通知追加到 data/notifications.json，供网站 notifications.html 展示。"""
     try:
         LOCAL_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -52,19 +52,35 @@ def append_local(title, content):
         else:
             data = {}
         items = data.get("items", [])
-        items.append({
+        item = {
             "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "title": str(title)[:200],
             "content": str(content)[:4000],
-        })
-        # 只保留最近 500 条，避免文件无限变大
-        data["items"] = items[-500:]
+            "category": str(category or "通知")[:30],
+        }
+        if source:
+            item["source"] = str(source)[:100]
+        if url:
+            item["url"] = str(url)[:500]
+        if extra:
+            item["extra"] = extra
+        items.append(item)
+        # 只保留最近 2000 条，方便网页端做更完整的聚合
+        data["items"] = items[-2000:]
         data["updated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         LOCAL_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
         return True
     except Exception as e:
         print("[notify] 本地表格写入失败: %s" % e)
         return False
+
+
+def record(title, content, category="通知", source="", url="", extra=None):
+    """只写本地通知表，不做任何外部推送。用于网页端更细粒度的聚合。"""
+    ok = append_local(title, content, category=category, source=source, url=url, extra=extra)
+    if ok:
+        print("[notify] 已记录本地通知: %s | %s" % (category, title[:40]))
+    return ok
 
 
 def serverchan(title, content):

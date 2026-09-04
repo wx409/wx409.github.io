@@ -69,10 +69,24 @@ def notify(title, msg):
         log("notify 失败: %s" % e)
 
 
+def _record(category, title, content, source="", url=""):
+    """只写本地通知表，供 notifications.html 做细粒度聚合展示。"""
+    try:
+        sys.path.insert(0, str(ROOT / "project_b"))
+        import notify as nf
+        nf.record(title, content, category=category, source=source, url=url)
+    except Exception as e:
+        log("本地通知记录失败: %s" % e)
+
+
 def notify_digest():
-    """汇总三个 watch 的新增结果，整合成 2 条推送：
-    1 条「歌曲类」（QQ + 网易云新歌），1 条「消息类」（Bing 全渠道聚合）。
-    无新增则不推该条；都无新增则跳过。"""
+    """把 watch 结果按来源/条目写入本地通知表，供网页端聚合展示。
+
+    不再受 Server酱条数限制，因此可以记录到更细的粒度：
+    - QQ 新歌
+    - 网易云新歌
+    - Bing/全网动态
+    """
     releases = json.loads((ROOT / "data" / "pending_releases.json").read_text(encoding="utf-8")) \
         if (ROOT / "data" / "pending_releases.json").exists() else {}
     netease = json.loads((ROOT / "data" / "pending_netease.json").read_text(encoding="utf-8")) \
@@ -80,29 +94,43 @@ def notify_digest():
     web = json.loads((ROOT / "data" / "pending_web.json").read_text(encoding="utf-8")) \
         if (ROOT / "data" / "pending_web.json").exists() else {}
 
-    # 歌曲类：QQ 正式作品 + 网易云新增
+    # QQ 新歌
     qq = releases.get("releases", []) or []
-    ne = netease.get("fresh", []) or []
-    if qq or ne:
-        lines = []
-        for f in qq[:10]:
-            lines.append("- %s（QQ，%s）" % (f.get("name"), f.get("album") or "单曲"))
-        for f in ne[:10]:
-            lines.append("- %s（网易云，%s）" % (f.get("name"), f.get("album") or "单曲"))
-        n = len(qq) + len(ne)
-        notify("🎵 王晰新歌 %d 首待确认" % n,
-               "QQ + 网易云新增：\n" + "\n".join(lines)
-               + ("\n…等共 %d 首" % n if n > 10 else "")
-               + "\n\n已入库候选清单，歌词/班底将自动补充。")
+    for f in qq[:50]:
+        name = f.get("name") or ""
+        album = f.get("album") or "单曲"
+        url = f.get("url") or ""
+        _record("QQ新歌", "🎵 QQ新歌 · %s" % name,
+                "专辑/单曲：%s\n已写入候选清单，后续自动补歌词/班底。" % album,
+                source="QQ音乐", url=url)
 
-    # 消息类：Bing 全渠道聚合新增
+    # 网易云新歌
+    ne = netease.get("fresh", []) or []
+    for f in ne[:50]:
+        name = f.get("name") or ""
+        album = f.get("album") or "单曲"
+        url = f.get("url") or ""
+        _record("网易云新歌", "🎵 网易云新歌 · %s" % name,
+                "专辑/单曲：%s\n已写入候选清单，后续自动补歌词/班底。" % album,
+                source="网易云", url=url)
+
+    # Bing/全网动态
     wnew = web.get("new", []) or []
-    if wnew:
-        lines = "\n".join("- %s\n  %s" % (r.get("title"), r.get("url")) for r in wnew[:10])
-        notify("📣 王晰动态聚合 %d 条新增（需确认）" % len(wnew),
-               "全渠道(Bing索引)本日新增：\n" + lines
-               + ("\n…等共 %d 条" % len(wnew) if len(wnew) > 10 else "")
-               + "\n\n详情见 data/pending_web.json；确认后入库。")
+    for r in wnew[:100]:
+        title = r.get("title") or "全网动态"
+        url = r.get("url") or ""
+        snippet = (r.get("snippet") or r.get("summary") or "")[:200]
+        _record("全网动态", "📣 %s" % title,
+                snippet + ("\n链接：%s" % url if url else ""),
+                source="Bing聚合", url=url)
+
+    total = len(qq) + len(ne) + len(wnew)
+    if total:
+        _record("汇总", "自动更新聚合完成",
+                "本轮新增：QQ %d 首 / 网易云 %d 首 / 全网动态 %d 条" % (len(qq), len(ne), len(wnew)),
+                source="auto_update")
+    else:
+        log("本轮无新增，不写本地通知明细。")
 
 
 def main():
