@@ -1,13 +1,13 @@
 {
- "timestamp": "2026-09-04 08:36",
- "last_update": "2026-09-04 08:36",
- "date_range": "2023-01-01 ~ 2026-09-03",
- "total": 270486,
+ "timestamp": "2026-09-04 11:50",
+ "last_update": "2026-09-04 11:50",
+ "date_range": "2023-01-01 ~ 2026-09-04",
+ "total": 270739,
  "complete_rate": 20.8,
  "total_songs": 383,
  "active_songs": 244,
  "active_rate": 63.7,
- "batch_count": 1219,
+ "batch_count": 1220,
  "time_labels": [
   "2023-01",
   "2023-02",
@@ -199,66 +199,66 @@
   3.0,
   8.2,
   36.6,
-  4.0
+  4.8
  ],
  "top_songs": [
   {
    "name": "一生中最爱",
-   "trend": 85.0,
+   "trend": 82.5,
    "score": 83,
    "tag": "飙升"
   },
   {
    "name": "再叙",
-   "trend": 38.7,
+   "trend": 35.5,
    "score": 68,
    "tag": "飙升"
   },
   {
    "name": "在路上",
-   "trend": 35.1,
+   "trend": 37.4,
    "score": 68,
    "tag": "飙升"
   },
   {
    "name": "相思",
-   "trend": 22.8,
+   "trend": 23.8,
    "score": 60,
    "tag": "飙升"
   },
   {
    "name": "一生守候",
-   "trend": 29.1,
+   "trend": 28.7,
    "score": 60,
    "tag": "飙升"
   },
   {
    "name": "南屏晚钟",
-   "trend": 20.3,
+   "trend": 21.5,
    "score": 60,
    "tag": "飙升"
   },
   {
-   "name": "她真漂亮",
-   "trend": 9.4,
-   "score": 45,
-   "tag": "上涨"
-  },
-  {
    "name": "哭砂",
-   "trend": 7.7,
+   "trend": 8.5,
    "score": 45,
    "tag": "上涨"
   },
   {
    "name": "荒人之歌",
-   "trend": 27.2,
+   "trend": 26.3,
    "score": 40,
    "tag": "飙升"
   },
   {
    "name": "亲密爱人",
-   "trend": -1.7,
+   "trend": -1.0,
+   "score": 35,
+   "tag": "上涨"
+  },
+  {
+   "name": "谁",
+   "trend": -7.8,
    "score": 35,
    "tag": "上涨"
   }
@@ -267,181 +267,90 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 45.2,
-   "trend_pct": 5.9,
+   "share_pct": 48.9,
+   "trend_pct": 46.6,
    "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "在路上",
-   "share_pct": 7.3,
-   "trend_pct": 5.8,
+   "song": "一生中最爱",
+   "share_pct": 12.3,
+   "trend_pct": 155.1,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "一生中最爱",
-   "share_pct": 6.5,
-   "trend_pct": -5.8,
-   "trend_label": "down"
+   "song": "在路上",
+   "share_pct": 7.1,
+   "trend_pct": 30.9,
+   "trend_label": "up"
   },
   {
    "rank": 4,
    "song": "再叙",
-   "share_pct": 4.1,
-   "trend_pct": -11.4,
-   "trend_label": "down"
+   "share_pct": 7.0,
+   "trend_pct": 129.0,
+   "trend_label": "up"
   },
   {
    "rank": 5,
-   "song": "月弯弯",
-   "share_pct": 3.9,
-   "trend_pct": -3.3,
-   "trend_label": "flat"
+   "song": "山楂树",
+   "share_pct": 5.5,
+   "trend_pct": 100.0,
+   "trend_label": "up"
   },
   {
    "rank": 6,
-   "song": "山楂树",
-   "share_pct": 3.7,
-   "trend_pct": -12.5,
-   "trend_label": "down"
+   "song": "月弯弯",
+   "share_pct": 4.6,
+   "trend_pct": 62.1,
+   "trend_label": "up"
   },
   {
    "rank": 7,
-   "song": "她真漂亮",
-   "share_pct": 3.6,
-   "trend_pct": 3.8,
-   "trend_label": "flat"
+   "song": "Sound of Silence",
+   "share_pct": 3.3,
+   "trend_pct": 88.9,
+   "trend_label": "up"
   },
   {
    "rank": 8,
-   "song": "亲密爱人",
+   "song": "神魂颠倒",
    "share_pct": 2.9,
-   "trend_pct": 15.8,
+   "trend_pct": 61.1,
    "trend_label": "up"
   },
   {
    "rank": 9,
-   "song": "Sound of Silence",
-   "share_pct": 2.4,
-   "trend_pct": -25.0,
+   "song": "她真漂亮",
+   "share_pct": 2.5,
+   "trend_pct": -7.4,
    "trend_label": "down"
   },
   {
    "rank": 10,
-   "song": "荒人之歌",
-   "share_pct": 2.4,
-   "trend_pct": 50.0,
+   "song": "南屏晚钟",
+   "share_pct": 2.1,
+   "trend_pct": 61.5,
    "trend_label": "up"
   },
   {
    "rank": 11,
-   "song": "神魂颠倒",
-   "share_pct": 2.4,
-   "trend_pct": -14.3,
+   "song": "亲密爱人",
+   "share_pct": 2.0,
+   "trend_pct": -9.1,
    "trend_label": "down"
   },
   {
    "rank": 12,
    "song": "相思",
-   "share_pct": 2.1,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 13,
-   "song": "谁",
-   "share_pct": 2.0,
-   "trend_pct": -37.5,
-   "trend_label": "down"
-  },
-  {
-   "rank": 14,
-   "song": "哭砂",
-   "share_pct": 2.0,
-   "trend_pct": -25.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 15,
-   "song": "Over the Rainbow",
    "share_pct": 1.9,
-   "trend_pct": 55.6,
+   "trend_pct": 18.8,
    "trend_label": "up"
-  },
-  {
-   "rank": 16,
-   "song": "南屏晚钟",
-   "share_pct": 1.7,
-   "trend_pct": -23.5,
-   "trend_label": "down"
-  },
-  {
-   "rank": 17,
-   "song": "晚风暖暖",
-   "share_pct": 1.7,
-   "trend_pct": 18.2,
-   "trend_label": "up"
-  },
-  {
-   "rank": 18,
-   "song": "一生守候",
-   "share_pct": 1.3,
-   "trend_pct": -16.7,
-   "trend_label": "down"
-  },
-  {
-   "rank": 19,
-   "song": "Bésame Mucho",
-   "share_pct": 1.1,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 20,
-   "song": "鸽子",
-   "share_pct": 0.8,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 21,
-   "song": "重庆野玫瑰",
-   "share_pct": 0.8,
-   "trend_pct": -25.0,
-   "trend_label": "down"
   }
  ],
- "daily_anomalies": [
-  {
-   "song": "南屏晚钟",
-   "type": "🔥 指数突增",
-   "metric": "指数",
-   "change_pct": 0.726,
-   "desc": "指数较7日均值 +72.6%"
-  },
-  {
-   "song": "亲密爱人",
-   "type": "🔥 指数突增",
-   "metric": "指数",
-   "change_pct": 0.504,
-   "desc": "指数较7日均值 +50.4%"
-  },
-  {
-   "song": "哭砂",
-   "type": "🔥 指数突增",
-   "metric": "指数",
-   "change_pct": 0.403,
-   "desc": "指数较7日均值 +40.3%"
-  }
- ],
- "latest_anomaly": {
-  "song": "南屏晚钟",
-  "type": "🔥 指数突增",
-  "metric": "指数",
-  "change_pct": 0.726,
-  "desc": "指数较7日均值 +72.6%"
- },
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   444.0,
   456.0
@@ -717,7 +626,7 @@
  "performance_events": [
   [
    "2023-01",
-   "2023-01-06 优酷《朝阳打歌中心》·—",
+   "2023-01-06 优酷《朝阳打歌中心》·北京",
    "演出"
   ],
   [
@@ -752,12 +661,12 @@
   ],
   [
    "2023-10",
-   "2023-10-01 中国梦·家国情2023国庆特别节目·—",
+   "2023-10-01 中国梦·家国情2023国庆特别节目·北京",
    "综艺"
   ],
   [
    "2023-10",
-   "2023-10-29 第九届文荣奖（特邀演唱嘉宾）·—",
+   "2023-10-29 第九届文荣奖（特邀演唱嘉宾）·北京",
    "演出"
   ],
   [
@@ -767,12 +676,12 @@
   ],
   [
    "2023-12",
-   "2023-12-17 中国唱片光影音乐节·nan",
+   "2023-12-17 中国唱片光影音乐节·成都",
    "演出"
   ],
   [
    "2023-12",
-   "2023-12-31 踏上新征程2024 BRTV跨年之夜·—",
+   "2023-12-31 踏上新征程2024 BRTV跨年之夜·北京",
    "晚会"
   ],
   [
@@ -807,7 +716,7 @@
   ],
   [
    "2024-06",
-   "2024-06-07 音乐剧《光影少年》饰演幻影（首演）·—",
+   "2024-06-07 音乐剧《光影少年》饰演幻影（首演）·北京",
    "音乐剧"
   ],
   [
@@ -837,12 +746,12 @@
   ],
   [
    "2024-12",
-   "2024-12-22 2024往日时光音乐会·—",
+   "2024-12-22 2024往日时光音乐会·上海",
    "演唱会"
   ],
   [
    "2025-03",
-   "2025-03-15 四川卫视《中国情歌大会》·—",
+   "2025-03-15 四川卫视《中国情歌大会》·成都",
    "演出"
   ],
   [
@@ -862,12 +771,12 @@
   ],
   [
    "2025-06",
-   "2025-06-28 《你好时光》播出·—",
+   "2025-06-28 《你好时光》播出·北京",
    "演出"
   ],
   [
    "2025-06",
-   "2025-06-29 湖南卫视/芒果TV《背后》·—",
+   "2025-06-29 湖南卫视/芒果TV《背后》·长沙",
    "演出"
   ],
   [
@@ -932,17 +841,17 @@
   ],
   [
    "2025-12",
-   "2025-12-06 总台《CMG童声歌会》播出（王晰助阵）·CCTV-14少儿频道",
+   "2025-12-06 总台《CMG童声歌会》播出·北京",
    "演唱会"
   ],
   [
    "2025-12",
-   "2025-12-14 总台《信马游疆》第三期·—",
+   "2025-12-14 总台《信马游疆》第三期·新疆",
    "演出"
   ],
   [
    "2025-12",
-   "2025-12-31 《启航2026》总台跨年晚会·山西吕梁新区体育中心（演唱《在路上》）",
+   "2025-12-31 《启航2026》总台跨年晚会·山西吕梁新区体育中心",
    "晚会"
   ],
   [
@@ -957,7 +866,7 @@
   ],
   [
    "2026-02",
-   "2026-02-11 老兵年味特别节目《本色华年》·—",
+   "2026-02-11 老兵年味特别节目《本色华年》·北京",
    "综艺"
   ],
   [
@@ -8488,12 +8397,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-08-28",
-   "avg_index": 586.5,
-   "total_songs": 253,
-   "complete": true
-  },
-  {
    "date": "2026-08-29",
    "avg_index": 629.5,
    "total_songs": 253,
@@ -8526,6 +8429,12 @@
   {
    "date": "2026-09-03",
    "avg_index": 656.6,
+   "total_songs": 253,
+   "complete": true
+  },
+  {
+   "date": "2026-09-04",
+   "avg_index": null,
    "total_songs": 253,
    "complete": true
   }
@@ -8893,8 +8802,8 @@
   },
   {
    "date": "2023-10-01",
-   "scene": "中国梦·家国情2023国庆特别节目·—",
-   "city": "",
+   "scene": "中国梦·家国情2023国庆特别节目·北京",
+   "city": "北京",
    "content_type": "其他",
    "tour": "中国梦·家国情2023国庆特别节目",
    "total_uplift": -14.2,
@@ -8929,8 +8838,8 @@
   },
   {
    "date": "2023-10-29",
-   "scene": "第九届文荣奖（特邀演唱嘉宾）·—",
-   "city": "",
+   "scene": "第九届文荣奖（特邀演唱嘉宾）·北京",
+   "city": "北京",
    "content_type": "其他",
    "tour": "第九届文荣奖（特邀演唱嘉宾）",
    "total_uplift": 10.4,
@@ -9073,8 +8982,8 @@
   },
   {
    "date": "2023-12-17",
-   "scene": "中国唱片光影音乐节·nan",
-   "city": "",
+   "scene": "中国唱片光影音乐节·成都",
+   "city": "成都",
    "content_type": "音乐节",
    "tour": "中国唱片光影音乐节",
    "total_uplift": -30.9,
@@ -9145,8 +9054,8 @@
   },
   {
    "date": "2023-12-31",
-   "scene": "踏上新征程2024 BRTV跨年之夜·—",
-   "city": "",
+   "scene": "踏上新征程2024 BRTV跨年之夜·北京",
+   "city": "北京",
    "content_type": "其他",
    "tour": "踏上新征程2024 BRTV跨年之夜",
    "total_uplift": 18.9,
@@ -9541,8 +9450,8 @@
   },
   {
    "date": "2024-06-07",
-   "scene": "音乐剧《光影少年》饰演幻影（首演）·—",
-   "city": "",
+   "scene": "音乐剧《光影少年》饰演幻影（首演）·北京",
+   "city": "北京",
    "content_type": "歌舞剧·音乐剧",
    "tour": "音乐剧《光影少年》饰演幻影（首演）",
    "total_uplift": 182.5,
@@ -9726,7 +9635,7 @@
    "content_type": "拼盘演唱会",
    "tour": "乐华家族演唱会上海站",
    "total_uplift": 0.4,
-   "pattern": "单点触发型",
+   "pattern": "均衡型",
    "top_songs": [
     {
      "name": "带着一颗好心去流浪",
@@ -9865,8 +9774,8 @@
   },
   {
    "date": "2024-12-22",
-   "scene": "2024往日时光音乐会·—",
-   "city": "",
+   "scene": "2024往日时光音乐会·上海",
+   "city": "上海",
    "content_type": "其他",
    "tour": "2024往日时光音乐会",
    "total_uplift": -11.2,
@@ -9973,8 +9882,8 @@
   },
   {
    "date": "2025-03-15",
-   "scene": "四川卫视《中国情歌大会》·—",
-   "city": "",
+   "scene": "四川卫视《中国情歌大会》·成都",
+   "city": "成都",
    "content_type": "其他",
    "tour": "四川卫视《中国情歌大会》",
    "total_uplift": 13.4,
@@ -10225,12 +10134,12 @@
   },
   {
    "date": "2025-06-28",
-   "scene": "《你好时光》播出·—",
-   "city": "",
+   "scene": "《你好时光》播出·北京",
+   "city": "北京",
    "content_type": "综艺",
    "tour": "《你好时光》播出",
    "total_uplift": -0.3,
-   "pattern": "单点触发型",
+   "pattern": "常态型",
    "top_songs": [
     {
      "name": "滚滚长江东逝水",
@@ -10261,8 +10170,8 @@
   },
   {
    "date": "2025-06-29",
-   "scene": "湖南卫视/芒果TV《背后》·—",
-   "city": "",
+   "scene": "湖南卫视/芒果TV《背后》·长沙",
+   "city": "长沙",
    "content_type": "其他",
    "tour": "湖南卫视/芒果TV《背后》",
    "total_uplift": -0.5,
@@ -10765,8 +10674,8 @@
   },
   {
    "date": "2025-12-06",
-   "scene": "总台《CMG童声歌会》播出·—",
-   "city": "",
+   "scene": "总台《CMG童声歌会》播出·北京",
+   "city": "北京",
    "content_type": "晚会",
    "tour": "总台《CMG童声歌会》播出",
    "total_uplift": -5.5,
@@ -10800,45 +10709,9 @@
    ]
   },
   {
-   "date": "2025-12-06",
-   "scene": "王晰助阵CMG童声歌会·nan",
-   "city": "",
-   "content_type": "晚会",
-   "tour": "王晰助阵CMG童声歌会",
-   "total_uplift": -5.5,
-   "pattern": "单点触发型",
-   "top_songs": [
-    {
-     "name": "爱于此生",
-     "uplift": 71.4,
-     "on_setlist": false
-    },
-    {
-     "name": "哭砂",
-     "uplift": 25.6,
-     "on_setlist": false
-    },
-    {
-     "name": "滚滚长江东逝水",
-     "uplift": 23.8,
-     "on_setlist": false
-    },
-    {
-     "name": "重庆野玫瑰",
-     "uplift": 22.2,
-     "on_setlist": false
-    },
-    {
-     "name": "晚风暖暖",
-     "uplift": 7.8,
-     "on_setlist": false
-    }
-   ]
-  },
-  {
    "date": "2025-12-14",
-   "scene": "总台《信马游疆》第三期·—",
-   "city": "",
+   "scene": "总台《信马游疆》第三期·新疆",
+   "city": "新疆",
    "content_type": "其他",
    "tour": "总台《信马游疆》第三期",
    "total_uplift": -7.5,
@@ -10873,8 +10746,8 @@
   },
   {
    "date": "2025-12-31",
-   "scene": "《启航2026》总台跨年晚会·—",
-   "city": "",
+   "scene": "《启航2026》总台跨年晚会·山西吕梁新区体育中心",
+   "city": "山西吕梁新区体育中心",
    "content_type": "晚会",
    "tour": "《启航2026》总台跨年晚会",
    "total_uplift": 24.5,
@@ -11017,8 +10890,8 @@
   },
   {
    "date": "2026-02-11",
-   "scene": "老兵年味特别节目《本色华年》·—",
-   "city": "",
+   "scene": "老兵年味特别节目《本色华年》·北京",
+   "city": "北京",
    "content_type": "其他",
    "tour": "老兵年味特别节目《本色华年》",
    "total_uplift": -22.3,
@@ -11074,42 +10947,6 @@
      "name": "一生中最爱",
      "uplift": 15.2,
      "on_setlist": true
-    },
-    {
-     "name": "云一定知道",
-     "uplift": -0.4,
-     "on_setlist": false
-    },
-    {
-     "name": "哭砂",
-     "uplift": -0.9,
-     "on_setlist": false
-    }
-   ]
-  },
-  {
-   "date": "2026-02-12",
-   "scene": "王晰长安夜色低音演出·西安",
-   "city": "西安",
-   "content_type": "其他",
-   "tour": "王晰长安夜色低音演出",
-   "total_uplift": -26.0,
-   "pattern": "单点触发型",
-   "top_songs": [
-    {
-     "name": "滚滚长江东逝水",
-     "uplift": 37.0,
-     "on_setlist": false
-    },
-    {
-     "name": "晚风暖暖",
-     "uplift": 28.9,
-     "on_setlist": false
-    },
-    {
-     "name": "一生中最爱",
-     "uplift": 15.2,
-     "on_setlist": false
     },
     {
      "name": "云一定知道",
@@ -11695,42 +11532,6 @@
     {
      "name": "荒人之歌",
      "uplift": 25.2,
-     "on_setlist": false
-    }
-   ]
-  },
-  {
-   "date": "2026-08-24",
-   "scene": "广州歌声相逢·广州",
-   "city": "广州",
-   "content_type": "其他",
-   "tour": "广州歌声相逢",
-   "total_uplift": 10.5,
-   "pattern": "单点触发型",
-   "top_songs": [
-    {
-     "name": "一生中最爱",
-     "uplift": 93.4,
-     "on_setlist": false
-    },
-    {
-     "name": "谁",
-     "uplift": 35.6,
-     "on_setlist": false
-    },
-    {
-     "name": "荒人之歌",
-     "uplift": 28.4,
-     "on_setlist": false
-    },
-    {
-     "name": "山楂树",
-     "uplift": 26.7,
-     "on_setlist": false
-    },
-    {
-     "name": "相思",
-     "uplift": 17.0,
      "on_setlist": false
     }
    ]
