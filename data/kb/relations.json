@@ -12383,6 +12383,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:致我们的小宇宙",
+  "type": "belongs_to_album",
+  "target": "album:致我们的小宇宙",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:苏幕遮",
   "type": "belongs_to_album",
   "target": "album:山河之影 影视原声带",
@@ -12456,13 +12463,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:致我们的小宇宙",
-  "type": "belongs_to_album",
-  "target": "album:致我们的小宇宙",
   "context": "",
   "source_ref": "songs_meta.json"
  },
