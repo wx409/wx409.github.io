@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-09-04 00:05",
- "entity_count": 1412,
+ "generated_at": "2026-09-04 14:01",
+ "entity_count": 1413,
  "entities": {
   "person:wangxi": {
    "type": "person",
@@ -143,7 +143,7 @@
   },
   "event:t013": {
    "type": "event",
-   "name": "翻唱专辑《重游往昔》发行",
+   "name": "专辑《重游往昔》发行",
    "aliases": [],
    "attrs": {
     "date": "2017-11",
@@ -1727,6 +1727,12 @@
   "song:注：武汉站是二巡官方完整披露歌单的场次，可作为二巡标准歌单参考": {
    "type": "song",
    "name": "注：武汉站是二巡官方完整披露歌单的场次，可作为二巡标准歌单参考",
+   "aliases": [],
+   "attrs": {}
+  },
+  "song:漫长的告别": {
+   "type": "song",
+   "name": "漫长的告别",
    "aliases": [],
    "attrs": {}
   },
@@ -4596,14 +4602,6 @@
     "album": null
    }
   },
-  "song:漫长的告别": {
-   "type": "song",
-   "name": "漫长的告别",
-   "aliases": [],
-   "attrs": {
-    "album": "漫长的告别"
-   }
-  },
   "song:灯塔": {
    "type": "song",
    "name": "灯塔",
@@ -5828,6 +5826,14 @@
     "album": null
    }
   },
+  "song:追梦者": {
+   "type": "song",
+   "name": "追梦者",
+   "aliases": [],
+   "attrs": {
+    "album": "追梦者"
+   }
+  },
   "song:遗憾": {
    "type": "song",
    "name": "遗憾",
@@ -5924,12 +5930,12 @@
     "album": null
    }
   },
-  "song:追梦者": {
+  "song:致我们的小宇宙": {
    "type": "song",
-   "name": "追梦者",
+   "name": "致我们的小宇宙",
    "aliases": [],
    "attrs": {
-    "album": "追梦者"
+    "album": "致我们的小宇宙"
    }
   },
   "media:2019-06-07-00": {

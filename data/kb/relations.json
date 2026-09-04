@@ -4620,6 +4620,13 @@
   "source_ref": "setlists.json"
  },
  {
+  "source": "song:漫长的告别",
+  "type": "performed_in",
+  "target": "show:2021-01-10-wuhan",
+  "context": "第22首",
+  "source_ref": "setlists.json"
+ },
+ {
   "source": "show:2021-03-07-shanghai",
   "type": "held_at",
   "target": "venue:上海东方艺术中心",
@@ -11571,13 +11578,6 @@
   "source_ref": "songs_meta.json"
  },
  {
-  "source": "song:漫长的告别",
-  "type": "belongs_to_album",
-  "target": "album:漫长的告别",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
   "source": "song:爱会和海风一起抵达",
   "type": "belongs_to_album",
   "target": "album:爱会和海风一起抵达",
@@ -12425,6 +12425,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:追梦者",
+  "type": "belongs_to_album",
+  "target": "album:追梦者",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:重庆野玫瑰",
   "type": "belongs_to_album",
   "target": "album:重庆野玫瑰",
@@ -12453,9 +12460,9 @@
   "source_ref": "songs_meta.json"
  },
  {
-  "source": "song:追梦者",
+  "source": "song:致我们的小宇宙",
   "type": "belongs_to_album",
-  "target": "album:追梦者",
+  "target": "album:致我们的小宇宙",
   "context": "",
   "source_ref": "songs_meta.json"
  },

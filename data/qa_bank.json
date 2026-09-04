@@ -4,7 +4,7 @@
   "version": "0.1",
   "generated_at": "2026-08-22 13:54:07",
   "说明": "预生成问答库，前端 search.html 语义检索匹配。支持按用户提问增量扩充（人机协作闭环）。",
-  "count": 314,
+  "count": 315,
   "data_fingerprint": "90a6343d99cf8e1be17278fe565a7c2a"
  },
  "items": [
@@ -1284,6 +1284,13 @@
   },
   {
    "question": "王晰的歌曲《注：武汉站是二巡官方完整披露歌单的场次，可作为二巡标准歌单参考》在哪些演出唱过？",
+   "answer": "2021-01-10 武汉 2020-2021 个人巡回",
+   "category": "知识库自动生成",
+   "source": "data/kb/facts.json",
+   "generated_at": "2026-09-04"
+  },
+  {
+   "question": "王晰的歌曲《漫长的告别》在哪些演出唱过？",
    "answer": "2021-01-10 武汉 2020-2021 个人巡回",
    "category": "知识库自动生成",
    "source": "data/kb/facts.json",
