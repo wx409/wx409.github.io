@@ -11347,6 +11347,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:午后三点",
+  "type": "belongs_to_album",
+  "target": "album:超时空罗曼史 影视原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:南屏晚钟",
   "type": "belongs_to_album",
   "target": "album:南屏晚钟",
@@ -12463,13 +12470,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:午后三点",
-  "type": "belongs_to_album",
-  "target": "album:超时空罗曼史 影视原声带",
   "context": "",
   "source_ref": "songs_meta.json"
  },
