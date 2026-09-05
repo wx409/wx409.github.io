@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-05 11:50",
+  "timestamp": "2026-09-05 12:00",
   "total": 270992,
   "success": 56285,
   "complete_rate": 20.8,
@@ -175,7 +175,7 @@
     3.0,
     8.2,
     36.6,
-    6.2
+    6.3
   ],
   "listener_labels": [
     "2024-10",
@@ -194338,7 +194338,7 @@
         34.1,
         34.2,
         32.1,
-        42.1,
+        44.0,
         23.1,
         27.8,
         24.6,
@@ -194639,8 +194639,8 @@
       "在路上"
     ],
     "values": [
-      148.9,
-      127.1
+      146.7,
+      128.0
     ],
     "spring": [
       false,
@@ -202140,13 +202140,13 @@
   "daily_listen_overview": {
     "active_count": 6,
     "total_tracked": 383,
-    "concentration_top3": 80.0,
+    "concentration_top3": 80.5,
     "as_of": "2026-09-05",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-09-05 11:50",
+  "last_update": "2026-09-05 12:00",
   "today_batches": 1221,
   "daily_new_records": 0,
   "recent_7days": [
@@ -202208,13 +202208,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 2545,
-      "success": 2545,
+      "total": 2546,
+      "success": 2546,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1493125,
+      "before": 1493378,
       "after": 281552
     },
     "index_calibration": {
@@ -203578,27 +203578,27 @@
     "top_listeners": [
       {
         "song": "黎明前的黑暗",
-        "peak": 554
+        "peak": 550
       },
       {
         "song": "一生中最爱",
-        "peak": 129
-      },
-      {
-        "song": "山楂树",
-        "peak": 70
+        "peak": 110
       },
       {
         "song": "在路上",
-        "peak": 68
-      },
-      {
-        "song": "月弯弯",
-        "peak": 60
+        "peak": 77
       },
       {
         "song": "再叙",
-        "peak": 60
+        "peak": 66
+      },
+      {
+        "song": "山楂树",
+        "peak": 63
+      },
+      {
+        "song": "月弯弯",
+        "peak": 49
       },
       {
         "song": "她真漂亮",
@@ -203639,7 +203639,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-09-05 11:50",
+    "generated_at": "2026-09-05 12:00",
     "overview": "共 86 场活动 / 3043 个歌曲观测，正涨幅 1280（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.2%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
