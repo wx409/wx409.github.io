@@ -1,88 +1,87 @@
 @echo off
-chcp 65001 >nul
-title ç‹æ™°æ¡£æ¡ˆç«™ Â· æ“ä½œä¸­å¿ƒ (v3)
+title ÍõÎúµµ°¸Õ¾ ¡¤ ²Ù×÷ÖĞĞÄ (v3)
 setlocal EnableExtensions
 :menu
 cls
 echo ================================================================
-echo   ç‹æ™° GEO æ•°å­—æ¡£æ¡ˆç«™ Â· æ“ä½œä¸­å¿ƒ  (é‡æ„ç‰ˆ v2)
-echo   è¯´æ˜: temp\è¿ç»´SOP_æ–°å¾®åšä¸è¯„è®ºå¤„ç†.md
-echo   å¤‡å¿˜: temp\è¿ç»´å¤‡å¿˜_YYYYMMDD.md
+echo   ÍõÎú GEO Êı×Öµµ°¸Õ¾ ¡¤ ²Ù×÷ÖĞĞÄ  (ÖØ¹¹°æ v2)
+echo   ËµÃ÷: temp\ÔËÎ¬SOP_ĞÂÎ¢²©ÓëÆÀÂÛ´¦Àí.md
+echo   ±¸Íü: temp\ÔËÎ¬±¸Íü_YYYYMMDD.md
 echo ================================================================
 echo.
 echo.
-echo  [A Â· å¹³å°é‡‡é›†ï¼ˆæœ¬äºº/å·¥ä½œå®¤/å¾®åš/å°çº¢ä¹¦/Bç«™ï¼‰]
+echo  [A ¡¤ Æ½Ì¨²É¼¯£¨±¾ÈË/¹¤×÷ÊÒ/Î¢²©/Ğ¡ºìÊé/BÕ¾£©]
 echo  ------------------------------------------------------------------------------
-echo    1. å¾®åšå…¨é‡ - ç‹æ™°æœ¬äººï¼ˆæ–‡å­—+å›¾ç‰‡+è§†é¢‘ï¼‰
-echo    2. å¾®åšå…¨é‡ - ç‹æ™°å·¥ä½œå®¤
-echo    3. å¾®åšæŠ“å– - ä»…æ–‡å­—å›¾ç‰‡
-echo    4. å¾®åšæœ¬åœ°ç½‘é¡µå¿«ç…§
-echo    5. åŒæ­¥ wb.txt Cookie
-echo    6. å°çº¢ä¹¦å…¨é‡ - ç‹æ™°ä¸»é¡µ
-echo    7. å°çº¢ä¹¦æŒ‰é“¾æ¥æŠ“å– - è§†é¢‘+å›¾æ–‡
-echo    8. å°çº¢ä¹¦æŒ‰é“¾æ¥æŠ“å– - ä»…æ–‡å­—å›¾ç‰‡
-echo    9. å°çº¢ä¹¦ summary é‡å»º
-echo    10. Bç«™å…¨é‡ - ç‹æ™°ç©ºé—´
-echo    11. Bç«™ä¸‹è½½+æ‘˜è¦ - è§†é¢‘+æ–‡å­—
-echo    12. Bç«™ä»…æ–‡å­—æ‘˜è¦
+echo    1. Î¢²©È«Á¿ - ÍõÎú±¾ÈË£¨ÎÄ×Ö+Í¼Æ¬+ÊÓÆµ£©
+echo    2. Î¢²©È«Á¿ - ÍõÎú¹¤×÷ÊÒ
+echo    3. Î¢²©×¥È¡ - ½öÎÄ×ÖÍ¼Æ¬
+echo    4. Î¢²©±¾µØÍøÒ³¿ìÕÕ
+echo    5. Í¬²½ wb.txt Cookie
+echo    6. Ğ¡ºìÊéÈ«Á¿ - ÍõÎúÖ÷Ò³
+echo    7. Ğ¡ºìÊé°´Á´½Ó×¥È¡ - ÊÓÆµ+Í¼ÎÄ
+echo    8. Ğ¡ºìÊé°´Á´½Ó×¥È¡ - ½öÎÄ×ÖÍ¼Æ¬
+echo    9. Ğ¡ºìÊé summary ÖØ½¨
+echo    10. BÕ¾È«Á¿ - ÍõÎú¿Õ¼ä
+echo    11. BÕ¾ÏÂÔØ+ÕªÒª - ÊÓÆµ+ÎÄ×Ö
+echo    12. BÕ¾½öÎÄ×ÖÕªÒª
 echo.
-echo  [B Â· æ¼”å‡ºåé¦ˆ / è¯„è®º / æ­Œå•]
+echo  [B ¡¤ Ñİ³ö·´À¡ / ÆÀÂÛ / ¸èµ¥]
 echo  ------------------------------------------------------------------------------
-echo    13. è§‚ä¼—åé¦ˆæ”¶é›†ï¼ˆå¾®åš+å°çº¢ä¹¦+Bç«™+Bingï¼‰
-echo    14. åé¦ˆå…¥åº“ live é¡µ
-echo    15. æ­Œå•å€™é€‰ï¼ˆåé¦ˆåæ¨æ­Œåï¼‰
-echo    16. æ¼”å‡ºåé¦ˆä¸€å‘¨å·¥ä½œæµ
-echo    17. è¿½è¸ªæŠ¥å‘Šå…¥åº“
-echo    18. å¾®åšæ‰‹åŠ¨æ­£æ–‡å…¥åº“
-echo    19. è¯„è®ºå¤šå±‚é¢åˆ†æï¼ˆé»˜è®¤å¹¿å·åœºï¼‰
-echo    20. å°çº¢ä¹¦å…¥åº“ï¼ˆæŒ‰æ­Œæ›²å½’ç±»ï¼‰
-echo    21. å¹¿å·æ•´ç†æ‘˜å½•é‡æ¸²æŸ“
-echo    22. æ›´æ–° live-reviews
-echo    23. Bç«™ç¿»é¡µè¡¥æ”¶
-echo    24. æ­Œå•é‡å»ºï¼ˆé•¿è¡¨ï¼setlists.json+é¡µï¼‰
-echo    25. åœºæ¬¡æ ‡è®°å·²ä¸¾åŠ + å¤§å± rebuild
+echo    13. ¹ÛÖÚ·´À¡ÊÕ¼¯£¨Î¢²©+Ğ¡ºìÊé+BÕ¾+Bing£©
+echo    14. ·´À¡Èë¿â live Ò³
+echo    15. ¸èµ¥ºòÑ¡£¨·´À¡·´ÍÆ¸èÃû£©
+echo    16. Ñİ³ö·´À¡Ò»ÖÜ¹¤×÷Á÷
+echo    17. ×·×Ù±¨¸æÈë¿â
+echo    18. Î¢²©ÊÖ¶¯ÕıÎÄÈë¿â
+echo    19. ÆÀÂÛ¶à²ãÃæ·ÖÎö£¨Ä¬ÈÏ¹ãÖİ³¡£©
+echo    20. Ğ¡ºìÊéÈë¿â£¨°´¸èÇú¹éÀà£©
+echo    21. ¹ãÖİÕûÀíÕªÂ¼ÖØäÖÈ¾
+echo    22. ¸üĞÂ live-reviews
+echo    23. BÕ¾·­Ò³²¹ÊÕ
+echo    24. ¸èµ¥ÖØ½¨£¨³¤±í£¾setlists.json+Ò³£©
+echo    25. ³¡´Î±ê¼ÇÒÑ¾Ù°ì + ´óÆÁ rebuild
 echo.
-echo  [C Â· è½¬å†™ä¸å†…å®¹åŠ å·¥]
+echo  [C ¡¤ ×ªĞ´ÓëÄÚÈİ¼Ó¹¤]
 echo  ------------------------------------------------------------------------------
-echo    26. è½¬å†™ txt å¯¼å…¥ + ASR çº é”™
-echo    27. è½¬å†™åŠ å·¥ - DeepSeek åå¤„ç†
-echo    28. è½¬å†™é¢„ç­› + å¾…å®¡æ¸…å•
-echo    29. è½¬å†™åˆå¹¶
+echo    26. ×ªĞ´ txt µ¼Èë + ASR ¾À´í
+echo    27. ×ªĞ´¼Ó¹¤ - DeepSeek ºó´¦Àí
+echo    28. ×ªĞ´Ô¤É¸ + ´ıÉóÇåµ¥
+echo    29. ×ªĞ´ºÏ²¢
 echo.
-echo  [D Â· é¡µé¢é‡å»º / åœ°å›¾ / çŸ¥è¯†åº“]
+echo  [D ¡¤ Ò³ÃæÖØ½¨ / µØÍ¼ / ÖªÊ¶¿â]
 echo  ------------------------------------------------------------------------------
-echo    30. åœ°å›¾ + å·¡æ¼”ç›®å½•é‡å»º
-echo    31. é¦–é¡µé‡å»º + åŠ¨æ€æ›´æ–°
-echo    32. é‡å»ºçŸ¥è¯†åº“å›¾è°±
-echo    33. é‡å»ºè¯­ä¹‰ç´¢å¼• (bge-small-zh)
-echo    34. æ‰“å¼€è¯­ä¹‰æ£€ç´¢é¡µ
+echo    30. µØÍ¼ + Ñ²ÑİÄ¿Â¼ÖØ½¨
+echo    31. Ê×Ò³ÖØ½¨ + ¶¯Ì¬¸üĞÂ
+echo    32. ÖØ½¨ÖªÊ¶¿âÍ¼Æ×
+echo    33. ÖØ½¨ÓïÒåË÷Òı (bge-small-zh)
+echo    34. ´ò¿ªÓïÒå¼ìË÷Ò³
 echo.
-echo  [E Â· æ¡£æ¡ˆ / è®ºæ–‡ / ç ”ç©¶]
+echo  [E ¡¤ µµ°¸ / ÂÛÎÄ / ÑĞ¾¿]
 echo  ------------------------------------------------------------------------------
-echo    35. æ‰“å¼€è®ºæ–‡ç´ æç´¢å¼•
-echo    36. æ‰“å¼€è®ºæ–‡è‰ç¨¿ç›®å½•
-echo    37. æ‰“å¼€é¢„æµ‹å®éªŒæ¡£æ¡ˆ
-echo    38. é¢„æµ‹æœ€ç»ˆéªŒè¯ P001
+echo    35. ´ò¿ªÂÛÎÄËØ²ÄË÷Òı
+echo    36. ´ò¿ªÂÛÎÄ²İ¸åÄ¿Â¼
+echo    37. ´ò¿ªÔ¤²âÊµÑéµµ°¸
+echo    38. Ô¤²â×îÖÕÑéÖ¤ P001
 echo.
-echo  [F Â· éƒ¨ç½² / Git / è¿ç»´]
+echo  [F ¡¤ ²¿Êğ / Git / ÔËÎ¬]
 echo  ------------------------------------------------------------------------------
-echo    39. å®Œæ•´éƒ¨ç½² deploy_allï¼ˆ12æ­¥+commit+IndexNowï¼‰
-echo    40. IndexNow é€šçŸ¥ only
-echo    41. å…¨é“¾è·¯ auto_update
-echo    42. git æ‰‹åŠ¨ push
-echo    43. git çŠ¶æ€æŸ¥çœ‹
+echo    39. ÍêÕû²¿Êğ deploy_all£¨12²½+commit+IndexNow£©
+echo    40. IndexNow Í¨Öª only
+echo    41. È«Á´Â· auto_update
+echo    42. git ÊÖ¶¯ push
+echo    43. git ×´Ì¬²é¿´
 echo.
 echo  ------------------------------------------------------------------------------
 echo.
-echo  [G Â· æ¡£æ¡ˆä¸€é”®ç”Ÿæˆï¼ˆå£å¾„åŸºçº¿ + å…¨é‡å¹´åº¦å¡ï¼‰]
+echo  [G ¡¤ µµ°¸Ò»¼üÉú³É£¨¿Ú¾¶»ùÏß + È«Á¿Äê¶È¿¨£©]
 echo  ------------------------------------------------------------------------------
-echo    44. æ¡£æ¡ˆä¸€é”®å…¨é‡ï¼ˆå£å¾„åŸºçº¿ + å…¨éƒ¨å¹´åº¦å¡ + digestï¼‰
-echo    45. ä»…é‡ç®—å£å¾„ä¸æ•ˆåº”åŸºçº¿ï¼ˆç¬¬ä¸€å¼ è¡¨ï¼‰
-echo    46. ä»…ç”Ÿæˆå…¨éƒ¨å¹´åº¦æ¡£æ¡ˆå¡
-echo    0. é€€å‡º
+echo    44. µµ°¸Ò»¼üÈ«Á¿£¨¿Ú¾¶»ùÏß + È«²¿Äê¶È¿¨ + digest£©
+echo    45. ½öÖØËã¿Ú¾¶ÓëĞ§Ó¦»ùÏß£¨µÚÒ»ÕÅ±í£©
+echo    46. ½öÉú³ÉÈ«²¿Äê¶Èµµ°¸¿¨
+echo    0. ÍË³ö
 echo.
 set "op="
-set /p op=  è¾“å…¥ç¼–å·åå›è½¦: 
+set /p op=  ÊäÈë±àºÅºó»Ø³µ: 
 if "%op%"=="0" exit /b
 if "%op%"=="" goto menu
 if "%op%"=="1" goto wb_self
@@ -131,28 +130,26 @@ if "%op%"=="43" goto git_status
 if "%op%"=="44" goto arch_full
 if "%op%"=="45" goto arch_base
 if "%op%"=="46" goto arch_cards
-echo   [!] æ— æ•ˆé€‰é¡¹ï¼Œè¯·é‡è¯•
+echo   [!] ÎŞĞ§Ñ¡Ïî£¬ÇëÖØÊÔ
 timeout /t 1 /nobreak >nul
 goto menu
 :wb_self
 
 cls
 
-echo === å¾®åšæŠ“å– - ç‹æ™°æœ¬äºº (æ–­ç‚¹ç»­ä¼ , åªæŠ“æ–°çš„) ===
+echo === Î¢²©×¥È¡ - ÍõÎú±¾ÈË (¶ÏµãĞø´«, Ö»×¥ĞÂµÄ) ===
 
-cd /d "E:\wx\ç§æœ‰å·¥å…·\weibo_proxy"
+cd /d "E:\wx\Ë½ÓĞ¹¤¾ß\weibo_proxy"
 
-chcp 65001 >nul
 
 python -X utf8 weibo_proxy.py fetch
 
-chcp 936 >nul
 
 echo.
 
-echo å­˜æ¡£: E:\wx\ç§æœ‰å·¥å…·\weibo_archive\posts + media
+echo ´æµµ: E:\wx\Ë½ÓĞ¹¤¾ß\weibo_archive\posts + media
 
-echo æç¤º: æŠ“å®Œå¯æ‰§è¡Œ 3(å¿«ç…§) å’Œ 4(æ›´æ–°live-reviews)
+echo ÌáÊ¾: ×¥Íê¿ÉÖ´ĞĞ 3(¿ìÕÕ) ºÍ 4(¸üĞÂlive-reviews)
 
 pause
 
@@ -164,19 +161,17 @@ goto menu
 
 cls
 
-echo === å¾®åšæŠ“å– - ç‹æ™°å·¥ä½œå®¤ (å…³é”®è¯è¿‡æ»¤) ===
+echo === Î¢²©×¥È¡ - ÍõÎú¹¤×÷ÊÒ (¹Ø¼ü´Ê¹ıÂË) ===
 
-cd /d "E:\wx\ç§æœ‰å·¥å…·\weibo_proxy"
+cd /d "E:\wx\Ë½ÓĞ¹¤¾ß\weibo_proxy"
 
-chcp 65001 >nul
 
 python -X utf8 weibo_proxy_studio.py fetch --all
 
-chcp 936 >nul
 
 echo.
 
-echo å­˜æ¡£: E:\wx\ç§æœ‰å·¥å…·\weibo_archive_studio\posts + media
+echo ´æµµ: E:\wx\Ë½ÓĞ¹¤¾ß\weibo_archive_studio\posts + media
 
 pause
 
@@ -188,19 +183,17 @@ goto menu
 
 cls
 
-echo === æœ¬åœ°ç½‘é¡µå¿«ç…§ç”Ÿæˆ (å¢é‡) ===
+echo === ±¾µØÍøÒ³¿ìÕÕÉú³É (ÔöÁ¿) ===
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\run_weibo_snapshot.py --once
 
-chcp 936 >nul
 
 echo.
 
-echo è¾“å‡º: E:\wx\ç§æœ‰å·¥å…·\weibo_snapshots\posts\^<YYYY-MM^ï¼\^<mid^ï¼.html
+echo Êä³ö: E:\wx\Ë½ÓĞ¹¤¾ß\weibo_snapshots\posts\^<YYYY-MM^£¾\^<mid^£¾.html
 
 pause
 
@@ -212,23 +205,21 @@ goto menu
 
 cls
 
-echo === æ›´æ–° live-reviews.html ===
+echo === ¸üĞÂ live-reviews.html ===
 
-echo å‰æ: å…ˆåœ¨ data\tour_weibo_posts.json çš„ matched_to_shows è¿½åŠ æ–°è®°å½•
+echo Ç°Ìá: ÏÈÔÚ data\tour_weibo_posts.json µÄ matched_to_shows ×·¼ÓĞÂ¼ÇÂ¼
 
-echo       (sourceType å†³å®šæœ¬äºº=çº¯æ–‡å­— / å·¥ä½œå®¤=å¯ç•™é“¾æ¥)
+echo       (sourceType ¾ö¶¨±¾ÈË=´¿ÎÄ×Ö / ¹¤×÷ÊÒ=¿ÉÁôÁ´½Ó)
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\update_live_reviews_tourweibo.py
 
-chcp 936 >nul
 
 echo.
 
-echo ä¸‹ä¸€æ­¥: æäº¤æ¨é€(13) + IndexNow(11)
+echo ÏÂÒ»²½: Ìá½»ÍÆËÍ(13) + IndexNow(11)
 
 pause
 
@@ -240,28 +231,26 @@ goto menu
 
 cls
 
-echo === è§‚ä¼—åé¦ˆæ”¶é›† (å¾®åš+å°çº¢ä¹¦+Bç«™+Bing) ===
-echo [æç¤º] å¾®åš/å°çº¢ä¹¦é£æ§é«˜ï¼Œå¯èƒ½ç­‰å¾…è¾ƒä¹…ï¼›è‹¥å‡ºç° HTTP 432 è¯·å†·å´åé‡è¯•ã€‚
-echo å¿«é€Ÿé¦–æ¬¡æ”¶é›†: python project_b\collect_show_feedback.py --date æ—¥æœŸ --city åŸå¸‚ --skip-bili
-echo Bç«™è¡¥æ”¶: æ“ä½œä¸­å¿ƒ 33 æˆ–åŠ  --bili-only
+echo === ¹ÛÖÚ·´À¡ÊÕ¼¯ (Î¢²©+Ğ¡ºìÊé+BÕ¾+Bing) ===
+echo [ÌáÊ¾] Î¢²©/Ğ¡ºìÊé·ç¿Ø¸ß£¬¿ÉÄÜµÈ´ı½Ï¾Ã£»Èô³öÏÖ HTTP 432 ÇëÀäÈ´ºóÖØÊÔ¡£
+echo ¿ìËÙÊ×´ÎÊÕ¼¯: python project_b\collect_show_feedback.py --date ÈÕÆÚ --city ³ÇÊĞ --skip-bili
+echo BÕ¾²¹ÊÕ: ²Ù×÷ÖĞĞÄ 33 »ò¼Ó --bili-only
 
-set /p fdate=è¯·è¾“å…¥æ¼”å‡ºæ—¥æœŸ(YYYY-MM-DD, å¦‚2026-08-23): 
+set /p fdate=ÇëÊäÈëÑİ³öÈÕÆÚ(YYYY-MM-DD, Èç2026-08-23): 
 
-set /p fcity=è¯·è¾“å…¥åŸå¸‚(å¦‚ å¹¿å·): 
+set /p fcity=ÇëÊäÈë³ÇÊĞ(Èç ¹ãÖİ): 
 
 if "%fdate%"=="" goto fb_collect
 
 if "%fcity%"=="" goto fb_collect
 
-chcp 65001 >nul
 
 python -X utf8 D:\wx409.github.io\project_b\collect_show_feedback.py --date %fdate% --city %fcity%
 
-chcp 936 >nul
 
 echo.
 
-echo ç»“æœ: E:\wx\ç§æœ‰å·¥å…·\show_feedback\
+echo ½á¹û: E:\wx\Ë½ÓĞ¹¤¾ß\show_feedback\
 
 pause
 
@@ -273,13 +262,13 @@ goto menu
 
 cls
 
-echo === åé¦ˆå…¥åº“ live é¡µ (çŸ­å¥+å¤–é“¾, è‡ªåŠ¨commit+push) ===
+echo === ·´À¡Èë¿â live Ò³ (¶Ì¾ä+ÍâÁ´, ×Ô¶¯commit+push) ===
 
-set /p fdate=è¯·è¾“å…¥æ¼”å‡ºæ—¥æœŸ(YYYY-MM-DD): 
+set /p fdate=ÇëÊäÈëÑİ³öÈÕÆÚ(YYYY-MM-DD): 
 
-set /p fcity=è¯·è¾“å…¥åŸå¸‚: 
+set /p fcity=ÇëÊäÈë³ÇÊĞ: 
 
-set /p fpage=è¯·è¾“å…¥liveé¡µè·¯å¾„(å¦‚ live\hui-å›-å¹¿å·-2026.html): 
+set /p fpage=ÇëÊäÈëliveÒ³Â·¾¶(Èç live\hui-»Ø-¹ãÖİ-2026.html): 
 
 if "%fdate%"=="" goto fb_repo
 
@@ -287,11 +276,9 @@ if "%fcity%"=="" goto fb_repo
 
 if "%fpage%"=="" goto fb_repo
 
-chcp 65001 >nul
 
 python -X utf8 D:\wx409.github.io\project_b\build_show_repo.py --date %fdate% --city %fcity% --page %fpage%
 
-chcp 936 >nul
 
 pause
 
@@ -303,21 +290,19 @@ goto menu
 
 cls
 
-echo === æ­Œå•å€™é€‰ (åé¦ˆåæ¨æ­Œå) ===
+echo === ¸èµ¥ºòÑ¡ (·´À¡·´ÍÆ¸èÃû) ===
 
-set /p fdate=è¯·è¾“å…¥æ¼”å‡ºæ—¥æœŸ(YYYY-MM-DD): 
+set /p fdate=ÇëÊäÈëÑİ³öÈÕÆÚ(YYYY-MM-DD): 
 
-set /p fcity=è¯·è¾“å…¥åŸå¸‚: 
+set /p fcity=ÇëÊäÈë³ÇÊĞ: 
 
 if "%fdate%"=="" goto fb_candidate
 
 if "%fcity%"=="" goto fb_candidate
 
-chcp 65001 >nul
 
 python -X utf8 D:\wx409.github.io\project_b\build_repo_setlist_candidates.py --date %fdate% --city %fcity%
 
-chcp 936 >nul
 
 pause
 
@@ -329,21 +314,19 @@ goto menu
 
 cls
 
-echo === æ­Œå•é‡å»º: é•¿è¡¨ ^ï¼ setlists.json + live/setlists.html ===
+echo === ¸èµ¥ÖØ½¨: ³¤±í ^£¾ setlists.json + live/setlists.html ===
 
-echo å‰æ: æ­£ç¡®æ­Œå•å·²å†™å…¥é•¿è¡¨
+echo Ç°Ìá: ÕıÈ·¸èµ¥ÒÑĞ´Èë³¤±í
 
-echo    E:\wx\index_records\å†æ¬¡å·¡æ¼”æ­Œå•\ç‹æ™°å·¡æ¼”æ­Œå•é•¿è¡¨_å•ä¸€äº‹å®æº.xlsx
+echo    E:\wx\index_records\Àú´ÎÑ²Ñİ¸èµ¥\ÍõÎúÑ²Ñİ¸èµ¥³¤±í_µ¥Ò»ÊÂÊµÔ´.xlsx
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\build_setlists.py
 
 python -X utf8 project_b\build_setlists_page.py
 
-chcp 936 >nul
 
 pause
 
@@ -355,15 +338,13 @@ goto menu
 
 cls
 
-echo === åœºæ¬¡æ ‡è®°å·²ä¸¾åŠ + å¤§å± rebuild ===
+echo === ³¡´Î±ê¼ÇÒÑ¾Ù°ì + ´óÆÁ rebuild ===
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\update_show_status.py --rebuild
 
-chcp 936 >nul
 
 pause
 
@@ -375,19 +356,17 @@ goto menu
 
 cls
 
-echo === å®Œæ•´éƒ¨ç½² deploy_all (12æ­¥ç”Ÿæˆ + commit + IndexNow) ===
+echo === ÍêÕû²¿Êğ deploy_all (12²½Éú³É + commit + IndexNow) ===
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\deploy_all.py
 
-chcp 936 >nul
 
 echo.
 
-echo æ³¨æ„: deploy_all åªæœ¬åœ° commit, éœ€æ‰‹åŠ¨ push(13)
+echo ×¢Òâ: deploy_all Ö»±¾µØ commit, ĞèÊÖ¶¯ push(13)
 
 pause
 
@@ -399,15 +378,13 @@ goto menu
 
 cls
 
-echo === IndexNow é€šçŸ¥ only ===
+echo === IndexNow Í¨Öª only ===
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\deploy_all.py --notify-only
 
-chcp 936 >nul
 
 pause
 
@@ -419,15 +396,13 @@ goto menu
 
 cls
 
-echo === å…¨é“¾è·¯ auto_update (watch-deploy-push-indexnow-é€šçŸ¥) ===
+echo === È«Á´Â· auto_update (watch-deploy-push-indexnow-Í¨Öª) ===
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\auto_update.py --machine laptop --watch
 
-chcp 936 >nul
 
 pause
 
@@ -439,23 +414,21 @@ goto menu
 
 cls
 
-echo === è¿½è¸ªæŠ¥å‘Šå…¥åº“ (å®æ—¶è¿½è¸ªmd ^ï¼ live-reviews) ===
+echo === ×·×Ù±¨¸æÈë¿â (ÊµÊ±×·×Ùmd ^£¾ live-reviews) ===
 
-echo è¯»: temp\æ¼”å‡ºè¿½è¸ª_20260823\å®æ—¶åé¦ˆ_æ‰‹åŠ¨æ”¶é›†.md
+echo ¶Á: temp\Ñİ³ö×·×Ù_20260823\ÊµÊ±·´À¡_ÊÖ¶¯ÊÕ¼¯.md
 
-echo å†™: data/live_repos.json + live-reviews.html (è‡ªåŠ¨å»é‡)
+echo Ğ´: data/live_repos.json + live-reviews.html (×Ô¶¯È¥ÖØ)
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\import_tracking_repo.py
 
-chcp 936 >nul
 
 echo.
 
-echo æç¤º: æäº¤æ¨é€ç”¨ 13, å‚¬æœç´¢å¼•æ“ç”¨ 11
+echo ÌáÊ¾: Ìá½»ÍÆËÍÓÃ 13, ´ßËÑË÷ÒıÇæÓÃ 11
 
 pause
 
@@ -467,21 +440,19 @@ goto menu
 
 cls
 
-echo === å°çº¢ä¹¦æŒ‰é“¾æ¥æŠ“å– (links.txt ^ï¼ æœ¬åœ°) ===
+echo === Ğ¡ºìÊé°´Á´½Ó×¥È¡ (links.txt ^£¾ ±¾µØ) ===
 
-echo å‰ç½®: é“¾æ¥æ–‡ä»¶ D:\wx409.github.io\temp\xhs_links.txt (æ¯è¡Œä¸€ä¸ªåˆ†äº«é“¾æ¥)
+echo Ç°ÖÃ: Á´½ÓÎÄ¼ş D:\wx409.github.io\temp\xhs_links.txt (Ã¿ĞĞÒ»¸ö·ÖÏíÁ´½Ó)
 
-echo       cookie ä¼˜å…ˆè¯» E:\wx\index_records\xhs.txt
+echo       cookie ÓÅÏÈ¶Á E:\wx\index_records\xhs.txt
 
-echo å­˜æ¡£: E:\wx\ç§æœ‰å·¥å…·\xhs_archive\æŒ‰é“¾æ¥\
+echo ´æµµ: E:\wx\Ë½ÓĞ¹¤¾ß\xhs_archive\°´Á´½Ó\
 
-chcp 65001 >nul
 
-python -X utf8 E:\wx\ç§æœ‰å·¥å…·\xhs_proxy\fetch_xhs_links.py --file "D:\wx409.github.io\temp\xhs_links.txt"
+python -X utf8 E:\wx\Ë½ÓĞ¹¤¾ß\xhs_proxy\fetch_xhs_links.py --file "D:\wx409.github.io\temp\xhs_links.txt"
 
-chcp 936 >nul
 
-echo æç¤º: æŠ“å®Œå¯æ‰§è¡Œ 18(å…¥åº“)
+echo ÌáÊ¾: ×¥Íê¿ÉÖ´ĞĞ 18(Èë¿â)
 
 pause
 
@@ -493,29 +464,25 @@ goto menu
 
 cls
 
-echo === å°çº¢ä¹¦å…¥åº“ (çº¯æ–‡å­— æ— é“¾æ¥ æ— id 20å­—ä»¥ä¸Š) ===
+echo === Ğ¡ºìÊéÈë¿â (´¿ÎÄ×Ö ÎŞÁ´½Ó ÎŞid 20×ÖÒÔÉÏ) ===
 
-echo è¯»: E:\wx\ç§æœ‰å·¥å…·\xhs_archive\_by_links_summary.json
+echo ¶Á: E:\wx\Ë½ÓĞ¹¤¾ß\xhs_archive\_by_links_summary.json
 
-echo å†™: live-reviews.html (çº¯æ–‡å­—, å¹‚ç­‰)
+echo Ğ´: live-reviews.html (´¿ÎÄ×Ö, ÃİµÈ)
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\import_xhs_songs.py
 
-chcp 936 >nul
 
-echo --- æ¸²æŸ“æ­Œæ›²åˆ†åŒº ---
+echo --- äÖÈ¾¸èÇú·ÖÇø ---
 
-chcp 65001 >nul
 
 python -X utf8 project_b\render_xhs_songs.py
 
-chcp 936 >nul
 
-echo æç¤º: æäº¤æ¨é€ç”¨ 13, å‚¬æœç´¢å¼•æ“ç”¨ 11
+echo ÌáÊ¾: Ìá½»ÍÆËÍÓÃ 13, ´ßËÑË÷ÒıÇæÓÃ 11
 
 pause
 
@@ -525,159 +492,135 @@ goto menu
 
 :gz_render
 cls
-echo === å¹¿å·æ•´ç†æ‘˜å½•é‡æ¸²æŸ“ ===
-echo æ”¹å®Œ temp\_gz_quotes.json åè·‘æœ¬é¡¹ï¼Œé‡å†™ live-reviews å¹¿å·è¯„è®ºåŒº
+echo === ¹ãÖİÕûÀíÕªÂ¼ÖØäÖÈ¾ ===
+echo ¸ÄÍê temp\_gz_quotes.json ºóÅÜ±¾Ïî£¬ÖØĞ´ live-reviews ¹ãÖİÆÀÂÛÇø
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\render_gz_quotes.py
-chcp 936 >nul
-echo æç¤º: æäº¤æ¨é€ç”¨ 13
+echo ÌáÊ¾: Ìá½»ÍÆËÍÓÃ 13
 pause
 goto menu
 
 :xhs_rebuild
 cls
-echo === å°çº¢ä¹¦ summary é‡å»º ===
-echo ç”¨é€”: fetch ä¸­æ–­å summary è¢«æœ€åä¸€æ¬¡è¿è¡Œè¦†ç›–ï¼Œä»å½’æ¡£ç›®å½•é‡å»ºå®Œæ•´æ±‡æ€»
-chcp 65001 >nul
+echo === Ğ¡ºìÊé summary ÖØ½¨ ===
+echo ÓÃÍ¾: fetch ÖĞ¶Ïºó summary ±»×îºóÒ»´ÎÔËĞĞ¸²¸Ç£¬´Ó¹éµµÄ¿Â¼ÖØ½¨ÍêÕû»ã×Ü
 python -X utf8 project_b\run_xhs_rebuild.py
-chcp 936 >nul
-echo ä¹‹åå¯æ‰§è¡Œ 18(å…¥åº“)
+echo Ö®ºó¿ÉÖ´ĞĞ 18(Èë¿â)
 pause
 goto menu
 
 :an_analyze
 cls
-echo === è¯„è®ºå¤šå±‚é¢åˆ†æ (è®ºæ–‡å‹å¥½) ===
-echo èšåˆå¾®åš/å°çº¢ä¹¦/Bç«™/Bing è¯„è®º: é«˜é¢‘ä¸»é¢˜/ç‹¬ç‰¹è§‚ç‚¹/è¯„ä»·ç»´åº¦/æƒ…æ„Ÿ/ç”»åƒ/æ ¼è¨€
-echo é»˜è®¤: å¹¿å· 2026-08-23; åŠ  --llm å¯ç”¨ DeepSeek å½’çº³å±‚ (éœ€ temp\deepseek_key.json)
+echo === ÆÀÂÛ¶à²ãÃæ·ÖÎö (ÂÛÎÄÓÑºÃ) ===
+echo ¾ÛºÏÎ¢²©/Ğ¡ºìÊé/BÕ¾/Bing ÆÀÂÛ: ¸ßÆµÖ÷Ìâ/¶ÀÌØ¹Ûµã/ÆÀ¼ÛÎ¬¶È/Çé¸Ğ/»­Ïñ/¸ñÑÔ
+echo Ä¬ÈÏ: ¹ãÖİ 2026-08-23; ¼Ó --llm ÆôÓÃ DeepSeek ¹éÄÉ²ã (Ğè temp\deepseek_key.json)
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
-python -X utf8 project_b\analyze_audience_comments.py --date 2026-08-23 --city å¹¿å·
-chcp 936 >nul
-echo è¾“å‡º: temp\audience_analysis\2026-08-23_å¹¿å·.json + .md
+python -X utf8 project_b\analyze_audience_comments.py --date 2026-08-23 --city ¹ãÖİ
+echo Êä³ö: temp\audience_analysis\2026-08-23_¹ãÖİ.json + .md
 pause
 goto menu
 
 :xhs_user_full
 cls
-echo === å°çº¢ä¹¦å…¨é‡ - ç‹æ™°ä¸»é¡µ (è§†é¢‘+å›¾æ–‡) ===
-cd /d "E:\wx\ç§æœ‰å·¥å…·\xhs_proxy"
-chcp 65001 >nul
+echo === Ğ¡ºìÊéÈ«Á¿ - ÍõÎúÖ÷Ò³ (ÊÓÆµ+Í¼ÎÄ) ===
+cd /d "E:\wx\Ë½ÓĞ¹¤¾ß\xhs_proxy"
 python -X utf8 fetch_xhs_user.py
-chcp 936 >nul
-echo å½’æ¡£: E:\wx\ç§æœ‰å·¥å…·\xhs_archive\å®˜æ–¹è´¦å·\ç‹æ™°\
+echo ¹éµµ: E:\wx\Ë½ÓĞ¹¤¾ß\xhs_archive\¹Ù·½ÕËºÅ\ÍõÎú\
 pause
 goto menu
 
 :bili_space_full
 cls
-echo === Bç«™å…¨é‡ - ç‹æ™°ç©ºé—´ (è§†é¢‘+æ–‡å­—) ===
-echo æ³¨æ„: ç©ºé—´æŠ“å–éœ€ Bç«™ç™»å½• Cookie (E:\wx\index_records\bilibili_cookies.txt)
-echo       æœªé…ç½®æ—¶è¯·æŠŠç©ºé—´è§†é¢‘é“¾æ¥é€æ¡åŠ å…¥ bilibilié“¾æ¥.txt åèµ°é€‰é¡¹26
+echo === BÕ¾È«Á¿ - ÍõÎú¿Õ¼ä (ÊÓÆµ+ÎÄ×Ö) ===
+echo ×¢Òâ: ¿Õ¼ä×¥È¡Ğè BÕ¾µÇÂ¼ Cookie (E:\wx\index_records\bilibili_cookies.txt)
+echo       Î´ÅäÖÃÊ±Çë°Ñ¿Õ¼äÊÓÆµÁ´½ÓÖğÌõ¼ÓÈë bilibiliÁ´½Ó.txt ºó×ßÑ¡Ïî26
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\download_bilibili.py --space 3493257487059302
-chcp 936 >nul
 pause
 goto menu
 
 :wb_novideo
 cls
-echo === å¾®åšæŠ“å– - ä»…æ–‡å­—å›¾ç‰‡ (æœ¬äºº+å·¥ä½œå®¤, è·³è¿‡è§†é¢‘) ===
-cd /d "E:\wx\ç§æœ‰å·¥å…·\weibo_proxy"
-chcp 65001 >nul
+echo === Î¢²©×¥È¡ - ½öÎÄ×ÖÍ¼Æ¬ (±¾ÈË+¹¤×÷ÊÒ, Ìø¹ıÊÓÆµ) ===
+cd /d "E:\wx\Ë½ÓĞ¹¤¾ß\weibo_proxy"
 python -X utf8 weibo_proxy.py fetch --no-video
 python -X utf8 weibo_proxy_studio.py fetch --no-video
-chcp 936 >nul
 pause
 goto menu
 
 :xhs_links_novideo
 cls
-echo === å°çº¢ä¹¦æŒ‰é“¾æ¥æŠ“å– - ä»…æ–‡å­—å›¾ç‰‡ ===
-echo å‰ç½®: D:\wx409.github.io\temp\xhs_links.txt (æ¯è¡Œä¸€ä¸ªåˆ†äº«é“¾æ¥)
+echo === Ğ¡ºìÊé°´Á´½Ó×¥È¡ - ½öÎÄ×ÖÍ¼Æ¬ ===
+echo Ç°ÖÃ: D:\wx409.github.io\temp\xhs_links.txt (Ã¿ĞĞÒ»¸ö·ÖÏíÁ´½Ó)
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
-python -X utf8 E:\wx\ç§æœ‰å·¥å…·\xhs_proxy\fetch_xhs_links.py --file "D:\wx409.github.io\temp\xhs_links.txt" --no-video
-chcp 936 >nul
-echo æç¤º: æŠ“å®Œå¯æ‰§è¡Œ 18(å…¥åº“)
+python -X utf8 E:\wx\Ë½ÓĞ¹¤¾ß\xhs_proxy\fetch_xhs_links.py --file "D:\wx409.github.io\temp\xhs_links.txt" --no-video
+echo ÌáÊ¾: ×¥Íê¿ÉÖ´ĞĞ 18(Èë¿â)
 pause
 goto menu
 
 :bili_dl
 cls
-echo === Bç«™ä¸‹è½½+æ‘˜è¦ - è§†é¢‘+æ–‡å­— ===
-echo å‰ç½®: E:\wx\å…­å·¡\20260823å¹¿å·ç«™\bilibilié“¾æ¥.txt (æ¯è¡Œä¸€ä¸ªé“¾æ¥/BVå·)
+echo === BÕ¾ÏÂÔØ+ÕªÒª - ÊÓÆµ+ÎÄ×Ö ===
+echo Ç°ÖÃ: E:\wx\ÁùÑ²\20260823¹ãÖİÕ¾\bilibiliÁ´½Ó.txt (Ã¿ĞĞÒ»¸öÁ´½Ó/BVºÅ)
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\download_bilibili.py
-chcp 936 >nul
-echo è¾“å‡º: E:\wx\å…­å·¡\20260823å¹¿å·ç«™\bilibiliè§†é¢‘\
+echo Êä³ö: E:\wx\ÁùÑ²\20260823¹ãÖİÕ¾\bilibiliÊÓÆµ\
 pause
 goto menu
 
 :bili_text
 cls
-echo === Bç«™ä»…æ–‡å­—æ‘˜è¦ - ä¸ä¸‹è§†é¢‘ ===
+echo === BÕ¾½öÎÄ×ÖÕªÒª - ²»ÏÂÊÓÆµ ===
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\download_bilibili.py --no-download
-chcp 936 >nul
-echo è¾“å‡º: bilibili_summary.md (æ ‡é¢˜/UPä¸»/æ—¶é•¿/ç®€ä»‹)
+echo Êä³ö: bilibili_summary.md (±êÌâ/UPÖ÷/Ê±³¤/¼ò½é)
 pause
 goto menu
 
 :trans_process
 cls
-echo === è½¬å†™åŠ å·¥ - DeepSeek åå¤„ç† ===
-echo æç¤ºè¯: project_b\prompts\transcript_postprocess.md
-echo æ­¥éª¤: 0) ä¹Ÿå¯å…ˆè§„åˆ™æå–é‡‘å¥(é›¶token): pipeline --extract-quotes åŸå§‹JSON
-echo æ­¥éª¤: 1) v4 è½¬å†™å·¥å…·äº§å‡ºåŸå§‹JSON(å¥çº§æ—¶é—´æˆ³)
-echo       2) æŒ‰æç¤ºè¯ç”¨ DeepSeek åŠ å·¥ -ï¼ quotes/faqs/timeline/conflicts
-echo       3) åŠ å·¥JSONå­˜åˆ° temp\transcripts_review\ åè·‘ 29
+echo === ×ªĞ´¼Ó¹¤ - DeepSeek ºó´¦Àí ===
+echo ÌáÊ¾´Ê: project_b\prompts\transcript_postprocess.md
+echo ²½Öè: 0) Ò²¿ÉÏÈ¹æÔòÌáÈ¡½ğ¾ä(Áãtoken): pipeline --extract-quotes Ô­Ê¼JSON
+echo ²½Öè: 1) v4 ×ªĞ´¹¤¾ß²ú³öÔ­Ê¼JSON(¾ä¼¶Ê±¼ä´Á)
+echo       2) °´ÌáÊ¾´ÊÓÃ DeepSeek ¼Ó¹¤ -£¾ quotes/faqs/timeline/conflicts
+echo       3) ¼Ó¹¤JSON´æµ½ temp\transcripts_review\ ºóÅÜ 29
 cd /d "D:\wx409.github.io"
 pause
 goto menu
 
 :trans_precheck
 cls
-echo === è½¬å†™é¢„ç­›+å¾…å®¡æ¸…å• ===
-set /p tpath=è¯·è¾“å…¥åŠ å·¥JSONè·¯å¾„(å¯å¤šä¸ªç©ºæ ¼åˆ†éš”, å›è½¦é‡è¾“): 
+echo === ×ªĞ´Ô¤É¸+´ıÉóÇåµ¥ ===
+set /p tpath=ÇëÊäÈë¼Ó¹¤JSONÂ·¾¶(¿É¶à¸ö¿Õ¸ñ·Ö¸ô, »Ø³µÖØÊä): 
 if "%tpath%"=="" goto trans_precheck
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\transcript_pipeline.py --precheck %tpath%
-chcp 936 >nul
-echo æ¸…å•: temp\transcripts_review\review.md (äººå·¥æ‰“å‹¾åè·‘ 30)
+echo Çåµ¥: temp\transcripts_review\review.md (ÈË¹¤´ò¹´ºóÅÜ 30)
 pause
 goto menu
 
 :trans_merge
 cls
-echo === è½¬å†™åˆå¹¶ - å®¡æ ¸é€šè¿‡é¡¹ ===
+echo === ×ªĞ´ºÏ²¢ - ÉóºËÍ¨¹ıÏî ===
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\transcript_pipeline.py --merge
-chcp 936 >nul
-echo åˆå¹¶ç›®æ ‡: live_repos/quotes/timeline/qa_bank/data\tour å•åœºç°‡
+echo ºÏ²¢Ä¿±ê: live_repos/quotes/timeline/qa_bank/data\tour µ¥³¡´Ø
 pause
 goto menu
 
 :trans_ingest
 cls
-echo === è½¬å†™txtå¯¼å…¥ + ASRä¸“æœ‰åè¯çº é”™ ===
-echo è¾“å…¥: æ¸…æ´—åçš„talkæ–‡æœ¬(.txt); è‡ªåŠ¨åº”ç”¨14ç»„ä¸“æœ‰åè¯çº é”™(ç‹éœ²æ–Œâ†’ç‹æ´›å®¾ç­‰)
-set /p tpath=è¯·è¾“å…¥txtè·¯å¾„: 
+echo === ×ªĞ´txtµ¼Èë + ASR×¨ÓĞÃû´Ê¾À´í ===
+echo ÊäÈë: ÇåÏ´ºóµÄtalkÎÄ±¾(.txt); ×Ô¶¯Ó¦ÓÃ14×é×¨ÓĞÃû´Ê¾À´í(ÍõÂ¶±ó¡úÍõÂå±öµÈ)
+set /p tpath=ÇëÊäÈëtxtÂ·¾¶: 
 if "%tpath%"=="" goto trans_ingest
-set /p tdate=è¯·è¾“å…¥æ¼”å‡ºæ—¥æœŸ(å¦‚ 2026-08-23): 
-set /p tvenue=è¯·è¾“å…¥åŸå¸‚(å¦‚ å¹¿å·): 
+set /p tdate=ÇëÊäÈëÑİ³öÈÕÆÚ(Èç 2026-08-23): 
+set /p tvenue=ÇëÊäÈë³ÇÊĞ(Èç ¹ãÖİ): 
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\transcript_pipeline.py --ingest-txt "%tpath%" --date %tdate% --venue %tvenue%
-chcp 936 >nul
-echo äº§ç‰©: temp\transcripts_review\^<æ–‡ä»¶å^ï¼.json (å·²çº é”™)
-echo ä¹‹å: 28(DeepSeekåŠ å·¥/ç­–å±•) æˆ– 29(é¢„ç­›å®¡æ ¸) æˆ– --extract-quotes è§„åˆ™é‡‘å¥
+echo ²úÎï: temp\transcripts_review\^<ÎÄ¼şÃû^£¾.json (ÒÑ¾À´í)
+echo Ö®ºó: 28(DeepSeek¼Ó¹¤/²ßÕ¹) »ò 29(Ô¤É¸ÉóºË) »ò --extract-quotes ¹æÔò½ğ¾ä
 pause
 goto menu
 
@@ -685,21 +628,19 @@ goto menu
 
 cls
 
-echo === åœ°å›¾+å·¡æ¼”ç›®å½•é‡å»º (é•¿è¡¨å•ä¸€äº‹å®æº) ===
+echo === µØÍ¼+Ñ²ÑİÄ¿Â¼ÖØ½¨ (³¤±íµ¥Ò»ÊÂÊµÔ´) ===
 
 cd /d "D:\wx409.github.io"
 
-chcp 65001 >nul
 
 python -X utf8 project_b\run_map_rebuild.py
 
-chcp 936 >nul
 
 echo.
 
-echo å·²æ›´æ–°: data/cities.json + map/index.html + live/index.html
+echo ÒÑ¸üĞÂ: data/cities.json + map/index.html + live/index.html
 
-echo æç¤º: æäº¤æ¨é€ç”¨ 13, å‚¬æœç´¢å¼•æ“ç”¨ 11
+echo ÌáÊ¾: Ìá½»ÍÆËÍÓÃ 13, ´ßËÑË÷ÒıÇæÓÃ 11
 
 pause
 
@@ -711,7 +652,7 @@ goto menu
 
 cls
 
-echo === git æ‰‹åŠ¨ push ===
+echo === git ÊÖ¶¯ push ===
 
 cd /d "D:\wx409.github.io"
 
@@ -731,7 +672,7 @@ goto menu
 
 cls
 
-echo === git çŠ¶æ€ ===
+echo === git ×´Ì¬ ===
 
 cd /d "D:\wx409.github.io"
 
@@ -745,171 +686,152 @@ goto menu
 
 :wb_cookie_sync
 cls
-echo === åŒæ­¥å¾®åš Cookie (wb.txt ^ï¼ 3å¤„æŠ“å–å·¥å…·) ===
-echo æº: E:\wx\index_records\wb.txt
-echo ç›®æ ‡: weibo_cookies.txt / weibo_proxy/weibo_cookie.json / realtime_cookies/weibo_cookie.json
+echo === Í¬²½Î¢²© Cookie (wb.txt ^£¾ 3´¦×¥È¡¹¤¾ß) ===
+echo Ô´: E:\wx\index_records\wb.txt
+echo Ä¿±ê: weibo_cookies.txt / weibo_proxy/weibo_cookie.json / realtime_cookies/weibo_cookie.json
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 tools\sync_weibo_cookie.py
-chcp 936 >nul
 pause
 goto menu
 
 :wb_manual_import
 cls
-echo === å¾®åšæ‰‹åŠ¨æ­£æ–‡å…¥åº“ (åŒ¿ååŒ–, æŒ‰midå»é‡) ===
-echo è¾“å…¥: wbé“¾æ¥ï¼ˆå¤åˆ¶æ­£æ–‡æ–‡å­—ï¼‰.txt (æ¯æ®µ: æ—¥æœŸè¡Œ + æ­£æ–‡ + weiboé“¾æ¥)
-set /p fdate=è¯·è¾“å…¥æ¼”å‡ºæ—¥æœŸ(YYYY-MM-DD, å¦‚ 2026-08-23): 
-set /p fcity=è¯·è¾“å…¥åŸå¸‚(å¦‚ å¹¿å·): 
-set /p wbfile=è¯·è¾“å…¥æ­£æ–‡txtè·¯å¾„(å›è½¦ç”¨é»˜è®¤): 
+echo === Î¢²©ÊÖ¶¯ÕıÎÄÈë¿â (ÄäÃû»¯, °´midÈ¥ÖØ) ===
+echo ÊäÈë: wbÁ´½Ó£¨¸´ÖÆÕıÎÄÎÄ×Ö£©.txt (Ã¿¶Î: ÈÕÆÚĞĞ + ÕıÎÄ + weiboÁ´½Ó)
+set /p fdate=ÇëÊäÈëÑİ³öÈÕÆÚ(YYYY-MM-DD, Èç 2026-08-23): 
+set /p fcity=ÇëÊäÈë³ÇÊĞ(Èç ¹ãÖİ): 
+set /p wbfile=ÇëÊäÈëÕıÎÄtxtÂ·¾¶(»Ø³µÓÃÄ¬ÈÏ): 
 if "%fdate%"=="" goto wb_manual_import
 if "%fcity%"=="" goto wb_manual_import
-if "%wbfile%"=="" set "wbfile=E:\wx\å…­å·¡\20260823å¹¿å·ç«™\wbé“¾æ¥ï¼ˆå¤åˆ¶æ­£æ–‡æ–‡å­—ï¼‰.txt"
-chcp 65001 >nul
+if "%wbfile%"=="" set "wbfile=E:\wx\ÁùÑ²\20260823¹ãÖİÕ¾\wbÁ´½Ó£¨¸´ÖÆÕıÎÄÎÄ×Ö£©.txt"
 python -X utf8 D:\wx409.github.io\project_b\import_wb_manual.py --date %fdate% --city %fcity% --file "%wbfile%"
-echo --- å…¥åº“ live é¡µ ---
-set /p fpage=è¯·è¾“å…¥liveé¡µè·¯å¾„(å›è½¦é»˜è®¤ live\hui-å›-å¹¿å·-2026.html): 
-if "%fpage%"=="" set "fpage=live\hui-å›-å¹¿å·-2026.html"
+echo --- Èë¿â live Ò³ ---
+set /p fpage=ÇëÊäÈëliveÒ³Â·¾¶(»Ø³µÄ¬ÈÏ live\hui-»Ø-¹ãÖİ-2026.html): 
+if "%fpage%"=="" set "fpage=live\hui-»Ø-¹ãÖİ-2026.html"
 python -X utf8 D:\wx409.github.io\project_b\build_show_repo.py --date %fdate% --city %fcity% --page %fpage% --no-push
-chcp 936 >nul
-echo ä¸‹ä¸€æ­¥: æäº¤æ¨é€(13) + IndexNow(11); è¯„è®ºåˆ†æ(21)
+echo ÏÂÒ»²½: Ìá½»ÍÆËÍ(13) + IndexNow(11); ÆÀÂÛ·ÖÎö(21)
 pause
 goto menu
 
 :bili_backfill
 cls
-echo === Bç«™ç¿»é¡µè¡¥æ”¶ (æ¼”å‡ºåUGC, æœ€æ–°æ’åº) ===
-echo è¯´æ˜: é»˜è®¤æŒ‰æœ€æ–°å‘å¸ƒ3é¡µ, è‡ªåŠ¨æ’é™¤æœ¬ç«™æ¡£æ¡ˆè´¦å·, å¤ç”¨Bç«™ç™»å½•cookieç¿»æ›´æ·±
-set /p fdate=è¯·è¾“å…¥æ¼”å‡ºæ—¥æœŸ(YYYY-MM-DD): 
-set /p fcity=è¯·è¾“å…¥åŸå¸‚(å¦‚ å¹¿å·): 
+echo === BÕ¾·­Ò³²¹ÊÕ (Ñİ³öºóUGC, ×îĞÂÅÅĞò) ===
+echo ËµÃ÷: Ä¬ÈÏ°´×îĞÂ·¢²¼3Ò³, ×Ô¶¯ÅÅ³ı±¾Õ¾µµ°¸ÕËºÅ, ¸´ÓÃBÕ¾µÇÂ¼cookie·­¸üÉî
+set /p fdate=ÇëÊäÈëÑİ³öÈÕÆÚ(YYYY-MM-DD): 
+set /p fcity=ÇëÊäÈë³ÇÊĞ(Èç ¹ãÖİ): 
 if "%fdate%"=="" goto bili_backfill
 if "%fcity%"=="" goto bili_backfill
-chcp 65001 >nul
 python -X utf8 D:\wx409.github.io\project_b\collect_show_feedback.py --date %fdate% --city %fcity% --bili-only --bili-pages 3 --bili-order pubdate
-chcp 936 >nul
-echo ç»“æœ: E:\wx\ç§æœ‰å·¥å…·\show_feedback\
-echo ä¸‹ä¸€æ­¥: å…¥åº“ live é¡µ(6) + è¯„è®ºåˆ†æ(21)
+echo ½á¹û: E:\wx\Ë½ÓĞ¹¤¾ß\show_feedback\
+echo ÏÂÒ»²½: Èë¿â live Ò³(6) + ÆÀÂÛ·ÖÎö(21)
 pause
 goto menu
 
 :home_build
 cls
-echo === é¦–é¡µé‡å»º + åŠ¨æ€æ›´æ–° (äº”å±‚æ¶æ„) ===
+echo === Ê×Ò³ÖØ½¨ + ¶¯Ì¬¸üĞÂ (Îå²ã¼Ü¹¹) ===
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 D:\wx409.github.io\project_b\build_home.py --rebuild
 python -X utf8 D:\wx409.github.io\update_index_table.py
 python -X utf8 D:\wx409.github.io\project_b\build_home.py --dynamic-only
-chcp 936 >nul
-echo å®Œæˆã€‚ä¸‹ä¸€æ­¥: æäº¤æ¨é€(13) + IndexNow(11); æ—¥å¸¸åŠ¨æ€æ›´æ–°å·²å«åœ¨é€‰é¡¹12/10è‡ªåŠ¨æµç¨‹
+echo Íê³É¡£ÏÂÒ»²½: Ìá½»ÍÆËÍ(13) + IndexNow(11); ÈÕ³£¶¯Ì¬¸üĞÂÒÑº¬ÔÚÑ¡Ïî12/10×Ô¶¯Á÷³Ì
 pause
 goto menu
 
 :paper_assets
 cls
-echo === è®ºæ–‡ç´ æç´¢å¼• ===
-start "" "E:\wx\è®ºæ–‡ç´ æ_ç‹æ™°ä½œä¼ \æ•°æ®èµ„äº§ç´¢å¼•.md"
+echo === ÂÛÎÄËØ²ÄË÷Òı ===
+start "" "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\Êı¾İ×Ê²úË÷Òı.md"
 pause
 goto menu
 
 :paper_drafts
 cls
-echo === è®ºæ–‡è‰ç¨¿ç›®å½• ===
-start "" "E:\wx\è®ºæ–‡ç´ æ_ç‹æ™°ä½œä¼ \è®ºæ–‡è‰ç¨¿"
+echo === ÂÛÎÄ²İ¸åÄ¿Â¼ ===
+start "" "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\ÂÛÎÄ²İ¸å"
 pause
 goto menu
 
 :paper_predictions
 cls
-echo === é¢„æµ‹å®éªŒæ¡£æ¡ˆ ===
-start "" "D:\wx409.github.io\temp\é¢„æµ‹å®éªŒ.md"
-start "" "D:\wx409.github.io\temp\é¢„æµ‹å®éªŒ\predictions.json"
+echo === Ô¤²âÊµÑéµµ°¸ ===
+start "" "D:\wx409.github.io\temp\Ô¤²âÊµÑé.md"
+start "" "D:\wx409.github.io\temp\Ô¤²âÊµÑé\predictions.json"
 pause
 goto menu
 
 :kb_build
 cls
-echo === é‡å»ºçŸ¥è¯†åº“ ===
+echo === ÖØ½¨ÖªÊ¶¿â ===
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 project_b\build_kb_graph.py
-chcp 936 >nul
-echo çŸ¥è¯†åº“å·²é‡å»º: data/kb/*.json + qa_bank æ‰©å……
+echo ÖªÊ¶¿âÒÑÖØ½¨: data/kb/*.json + qa_bank À©³ä
 pause
 goto menu
 
 :kb_vectors
 cls
-echo === é‡å»ºçŸ¥è¯†åº“è¯­ä¹‰ç´¢å¼• ===
+echo === ÖØ½¨ÖªÊ¶¿âÓïÒåË÷Òı ===
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
 python -X utf8 tools\build_kb_vectors.py
-chcp 936 >nul
-echo è¯­ä¹‰ç´¢å¼•å·²é‡å»º: data/kb/semantic/*
+echo ÓïÒåË÷ÒıÒÑÖØ½¨: data/kb/semantic/*
 pause
 goto menu
 
 :kb_semantic_page
 cls
-echo === æ‰“å¼€è¯­ä¹‰æ£€ç´¢é¡µ ===
+echo === ´ò¿ªÓïÒå¼ìË÷Ò³ ===
 start "" https://wx409.github.io/search.html?kb=1
 pause
 goto menu
 
 :pred_verify
 cls
-echo === é¢„æµ‹æœ€ç»ˆéªŒè¯ P001 å…­å·¡å›å¹¿å·ç«™ ===
+echo === Ô¤²â×îÖÕÑéÖ¤ P001 ÁùÑ²»Ø¹ãÖİÕ¾ ===
 cd /d "D:\wx409.github.io"
-chcp 65001 >nul
-python -X utf8 "temp\é¢„æµ‹å®éªŒ\verify_prediction.py" --id P001 --dry
+python -X utf8 "temp\Ô¤²âÊµÑé\verify_prediction.py" --id P001 --dry
 echo.
-echo ä»¥ä¸Šä¸ºé¢„è§ˆ(æœªå†™å›)ã€‚ç¡®è®¤åçª—å£(08-24~08-30)æ•°æ®å®Œæ•´åæ­£å¼å®šè®º:
-set /p ok=çª—å£æ•°æ®å®Œæ•´? è¾“å…¥ y æ­£å¼å®šè®º, å›è½¦é€€å‡º: 
-if /i "%ok%"=="y" python -X utf8 "temp\é¢„æµ‹å®éªŒ\verify_prediction.py" --id P001
-chcp 936 >nul
-echo å®Œæˆã€‚å®šè®ºå·²å†™å…¥ temp\é¢„æµ‹å®éªŒ\predictions.json (verification_log final)
+echo ÒÔÉÏÎªÔ¤ÀÀ(Î´Ğ´»Ø)¡£È·ÈÏºó´°¿Ú(08-24~08-30)Êı¾İÍêÕûºóÕıÊ½¶¨ÂÛ:
+set /p ok=´°¿ÚÊı¾İÍêÕû? ÊäÈë y ÕıÊ½¶¨ÂÛ, »Ø³µÍË³ö: 
+if /i "%ok%"=="y" python -X utf8 "temp\Ô¤²âÊµÑé\verify_prediction.py" --id P001
+echo Íê³É¡£¶¨ÂÛÒÑĞ´Èë temp\Ô¤²âÊµÑé\predictions.json (verification_log final)
 pause
 goto menu
 
 :fb_week
 cls
-echo === æ¼”å‡ºåé¦ˆä¸€å‘¨å·¥ä½œæµ (æ”¶é›†-å…¥åº“-å½’æ¡£-åˆ†æ-KB-å‘å¸ƒ) ===
-set /p fdate=æ¼”å‡ºæ—¥æœŸ(YYYY-MM-DD, å›è½¦=2026-08-23): 
-set /p fcity=åŸå¸‚(å›è½¦=å¹¿å·): 
+echo === Ñİ³ö·´À¡Ò»ÖÜ¹¤×÷Á÷ (ÊÕ¼¯-Èë¿â-¹éµµ-·ÖÎö-KB-·¢²¼) ===
+set /p fdate=Ñİ³öÈÕÆÚ(YYYY-MM-DD, »Ø³µ=2026-08-23): 
+set /p fcity=³ÇÊĞ(»Ø³µ=¹ãÖİ): 
 if "%fdate%"=="" set fdate=2026-08-23
-if "%fcity%"=="" set fcity=å¹¿å·
-chcp 65001 >nul
+if "%fcity%"=="" set fcity=¹ãÖİ
 python -X utf8 project_b\feedback_week.py --date %fdate% --city %fcity%
-chcp 936 >nul
-echo å®Œæˆ: liveé¡µåé¦ˆ+å…¨æ–‡å½’æ¡£+è¯„è®ºåˆ†æ+KBè¯„è®ºç»´åº¦, å·²commit+push+IndexNow
+echo Íê³É: liveÒ³·´À¡+È«ÎÄ¹éµµ+ÆÀÂÛ·ÖÎö+KBÆÀÂÛÎ¬¶È, ÒÑcommit+push+IndexNow
 pause
 goto menu
 :arch_full
 cls
-echo  [æ¡£æ¡ˆä¸€é”®å…¨é‡ç”Ÿæˆ] å£å¾„åŸºçº¿ + å¹´åº¦å¡ + digest ...
-cd /d "E:\wx\è®ºæ–‡ç´ æ_ç‹æ™°ä½œä¼ \åŸºçº¿å£å¾„"
-chcp 65001 >nul
+echo  [µµ°¸Ò»¼üÈ«Á¿Éú³É] ¿Ú¾¶»ùÏß + Äê¶È¿¨ + digest ...
+cd /d "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\»ùÏß¿Ú¾¶"
 python -X utf8 compute_baseline_v1.py
 python -X utf8 generate_year_cards.py
 echo.
-echo  [OK] å¹´åº¦å¡è§ æ¡£æ¡ˆå¡\å¹´åº¦\ ; digest -ï¼ data\archive_digest.json
+echo  [OK] Äê¶È¿¨¼û µµ°¸¿¨\Äê¶È\ ; digest -£¾ data\archive_digest.json
 pause
 goto menu
 
 :arch_base
 cls
-cd /d "E:\wx\è®ºæ–‡ç´ æ_ç‹æ™°ä½œä¼ \åŸºçº¿å£å¾„"
-chcp 65001 >nul
+cd /d "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\»ùÏß¿Ú¾¶"
 python -X utf8 compute_baseline_v1.py
-echo  [OK] åŸºçº¿å·²é‡ç®—ï¼ˆå¹´åº¦è¡¨/æ•ˆåº”/ç¬¬ä¸€å¼ è¡¨mdï¼‰
+echo  [OK] »ùÏßÒÑÖØËã£¨Äê¶È±í/Ğ§Ó¦/µÚÒ»ÕÅ±ímd£©
 pause
 goto menu
 
 :arch_cards
 cls
-cd /d "E:\wx\è®ºæ–‡ç´ æ_ç‹æ™°ä½œä¼ \åŸºçº¿å£å¾„"
-chcp 65001 >nul
+cd /d "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\»ùÏß¿Ú¾¶"
 python -X utf8 generate_year_cards.py
-echo  [OK] å¹´åº¦å¡å·²å…¨éƒ¨é‡æ–°ç”Ÿæˆ
+echo  [OK] Äê¶È¿¨ÒÑÈ«²¿ÖØĞÂÉú³É
 pause
 goto menu

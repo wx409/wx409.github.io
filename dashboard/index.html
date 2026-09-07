@@ -333,8 +333,15 @@ h2.chart-title{font-size:15px;font-weight:600}
 .footer{text-align:center;padding:25px;color:#3a4a6c;font-size:12px;border-top:1px solid rgba(0,210,255,0.08);margin-top:20px;letter-spacing:1px;}
 @media(max-width:1200px){.grid{grid-template-columns:repeat(2,1fr)}.bottom-row{grid-template-columns:1fr}.dim-row{grid-template-columns:1fr}.geo-summary ul{columns:1}.listen-pulse-bar{flex-direction:column;align-items:flex-start;}.daily-trend-list{flex-direction:column;}.data-freshness-bar{flex-direction:column;align-items:flex-start;gap:10px;}.anomaly-mini-list{margin-left:0;}}
 </style>
+<style id="kai-fold-css">
+  .kai-nav{position:sticky;top:0;z-index:60;background:rgba(15,18,34,.92);display:flex;gap:6px;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid #334;max-width:1200px;margin:0 auto}
+  .kai-nav button{background:#2a3050;color:#cfd6ff;border:1px solid #46508a;border-radius:14px;padding:4px 12px;font-size:13px;cursor:pointer}
+  .kai-nav button.kai-on{background:#3b5bdb;color:#fff}
+  .chart-box,.dash-card{scroll-margin-top:56px}
+</style>
 </head>
 <body>
+<div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：论文素材_王晰作传\基线口径\compute_baseline_v1.py</div>
 <div class="container">
   <div class="data-freshness-bar" id="freshnessBar">
     <span class="fresh-item">📊 数据快照 <strong id="snapTime">--</strong></span>
@@ -2035,12 +2042,9 @@ else{
 <script src="search_engine.js"></script>
 <script src="/qa_engine.js"></script>
 
-<style id="kai-fold-css">
-  .kai-nav{position:sticky;top:0;z-index:60;background:rgba(15,18,34,.92);display:flex;gap:6px;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid #334;max-width:1200px;margin:0 auto}
-  .kai-nav button{background:#2a3050;color:#cfd6ff;border:1px solid #46508a;border-radius:14px;padding:4px 12px;font-size:13px;cursor:pointer}
-  .kai-nav button.kai-on{background:#3b5bdb;color:#fff}
-  .chart-box,.dash-card{scroll-margin-top:56px}
-</style>
+<div id="arch-mount" style="max-width:1200px;margin:18px auto;padding:0 14px"><h2 style="font-size:18px">📚 数字档案 · 口径与年度卡</h2><div id="arch-body" style="font-size:13px;color:#333">加载中…</div></div>
+
+
 <script id="kai-fold-js">
 (function(){
  var GROUPS=[
