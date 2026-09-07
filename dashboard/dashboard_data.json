@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-07 13:10",
+  "timestamp": "2026-09-07 17:25",
   "total": 271498,
   "success": 56333,
   "complete_rate": 20.7,
@@ -176950,7 +176950,7 @@
         }
       ],
       "pattern": "精准型",
-      "live_url": "/live/hui-回-重庆-2026.html"
+      "live_url": null
     },
     {
       "date": "2026-06-20",
@@ -178534,7 +178534,7 @@
         }
       ],
       "pattern": "出圈型",
-      "live_url": "/live/hui-回-广州-2026.html"
+      "live_url": null
     }
   ],
   "radiation_analysis": {
@@ -203204,7 +203204,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-09-07 13:10",
+  "last_update": "2026-09-07 17:25",
   "today_batches": 1223,
   "daily_new_records": 0,
   "recent_7days": [
@@ -203262,7 +203262,7 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 130,
+      "rows": 0,
       "pct": 0.0
     },
     "excel_files": {
@@ -203304,7 +203304,68 @@
   },
   "monthly": {
     "month": "2026-09",
-    "new_songs": [],
+    "new_songs": [
+      {
+        "song": "带着一颗好心去流浪",
+        "first_day": "09-01",
+        "days": 1,
+        "peak_index": 103
+      },
+      {
+        "song": "贝加尔湖畔",
+        "first_day": "09-01",
+        "days": 1,
+        "peak_index": 159
+      },
+      {
+        "song": "鸽子",
+        "first_day": "09-01",
+        "days": 3,
+        "peak_index": 119
+      },
+      {
+        "song": "友谊地久天长",
+        "first_day": "09-02",
+        "days": 2,
+        "peak_index": 171
+      },
+      {
+        "song": "多听有益",
+        "first_day": "09-02",
+        "days": 2,
+        "peak_index": 252
+      },
+      {
+        "song": "惑许",
+        "first_day": "09-02",
+        "days": 1,
+        "peak_index": 126
+      },
+      {
+        "song": "Bésame Mucho",
+        "first_day": "09-03",
+        "days": 2,
+        "peak_index": 140
+      },
+      {
+        "song": "云一定知道",
+        "first_day": "09-04",
+        "days": 2,
+        "peak_index": 102
+      },
+      {
+        "song": "好好说再见",
+        "first_day": "09-05",
+        "days": 1,
+        "peak_index": 117
+      },
+      {
+        "song": "小河",
+        "first_day": "09-05",
+        "days": 1,
+        "peak_index": 110
+      }
+    ],
     "top_index": [
       {
         "song": "黎明前的黑暗",
@@ -203370,68 +203431,68 @@
     "top_listeners": [
       {
         "song": "黎明前的黑暗",
-        "peak": 477
+        "peak": 775
       },
       {
         "song": "一生中最爱",
-        "peak": 95
+        "peak": 167
       },
       {
         "song": "在路上",
-        "peak": 55
+        "peak": 109
       },
       {
         "song": "月弯弯",
-        "peak": 53
+        "peak": 97
       },
       {
         "song": "山楂树",
-        "peak": 49
+        "peak": 96
       },
       {
         "song": "再叙",
-        "peak": 41
-      },
-      {
-        "song": "Sound of Silence",
-        "peak": 35
+        "peak": 95
       },
       {
         "song": "神魂颠倒",
-        "peak": 30
-      },
-      {
-        "song": "她真漂亮",
-        "peak": 27
-      },
-      {
-        "song": "谁",
-        "peak": 25
-      },
-      {
-        "song": "亲密爱人",
-        "peak": 24
-      },
-      {
-        "song": "哭砂",
-        "peak": 20
-      },
-      {
-        "song": "荒人之歌",
-        "peak": 18
+        "peak": 78
       },
       {
         "song": "南屏晚钟",
-        "peak": 17
+        "peak": 72
       },
       {
-        "song": "一生守候",
-        "peak": 17
+        "song": "Sound of Silence",
+        "peak": 69
+      },
+      {
+        "song": "她真漂亮",
+        "peak": 63
+      },
+      {
+        "song": "谁",
+        "peak": 59
+      },
+      {
+        "song": "荒人之歌",
+        "peak": 57
+      },
+      {
+        "song": "晚风暖暖",
+        "peak": 53
+      },
+      {
+        "song": "亲密爱人",
+        "peak": 53
+      },
+      {
+        "song": "相思",
+        "peak": 43
       }
     ]
   },
   "analysis": {
-    "generated_at": "2026-09-07 13:10",
+    "generated_at": "2026-09-07 17:25",
     "overview": "共 86 场活动 / 3043 个歌曲观测，正涨幅 1280（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.2%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",

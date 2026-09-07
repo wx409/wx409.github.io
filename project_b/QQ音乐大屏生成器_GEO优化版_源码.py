@@ -778,6 +778,19 @@ def load_all_history(dirs, use_cache=True):
     mid2name, name2mids = build_link_registry(df_all)
     df_all, name_map = assign_uids(df_all, mid2name, name2mids)
 
+    # 当日收听峰值(晚间口径)：当日存在 18:00 后(_seq>=1800)批次且该批有收听 -> 取其中最大收听；
+    # 当日无 18 点后批次 -> 退回当日有收听数据批次的收听峰值（供 compute_monthly「当月收听峰值 Top」用）
+    _eve_series = None
+    if "listeners" in df_all.columns and "_seq" in df_all.columns and df_all["listeners"].notna().any():
+        _t = df_all[df_all["listeners"].notna()].copy()
+        _t["_seq"] = _t["_seq"].fillna(0)
+        _e18 = _t[_t["_seq"] >= 1800].groupby(["uid", "data_date"])["listeners"].max()
+        _eda = _t.groupby(["uid", "data_date"])["listeners"].max()
+        _eve_series = pd.DataFrame({"_e18": _e18, "_eda": _eda})
+        _eve_series["_v"] = _eve_series["_e18"].where(_eve_series["_e18"] > 0, _eve_series["_eda"])
+        _eve_series = _eve_series["_v"].rename("listeners_eve")
+        logger.info(f"晚间收听峰值(listeners_eve)预计算: {len(_eve_series)} 条(18点后批次优先, 无则当日最大)")
+
     # 同一首歌同一天：日内多批次按字段取最新有效值（解决 23:39/23:55 取舍，互相补全）
     # 向量化：按 _seq 排序后，每列取组内（uid, data_date）_seq 最大的有效值（原 groupby.agg 逐组 Python 调用，由分钟级降到秒级）
     before = len(df_all)
@@ -805,6 +818,12 @@ def load_all_history(dirs, use_cache=True):
     after = len(df_all)
     logger.info(f"日内多批次合并: {before} -> {after} 行（按字段取最新有效值，前批次补全后批次缺失）")
     LINEAGE["intraday_merged"] = {"before": int(before), "after": int(after)}
+
+    if _eve_series is not None:
+        _eve_df = _eve_series.reset_index()
+        _eve_df.columns = ["uid", "data_date", "listeners_eve"]
+        df_all = df_all.merge(_eve_df, on=["uid", "data_date"], how="left")
+        logger.info(f"listeners_eve 已并入 df_all（当日18点后收听峰值，无则当日最大）")
 
     # 校验：display_name 不应泄漏 uid 格式（L:/N:）
     leak = int(df_all["display_name"].astype(str).str.match(r"^[LN]:[A-Za-z0-9]+$").sum())
@@ -1513,11 +1532,12 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=500, min_displ
 
 
 def compute_monthly(df_all, month=None):
-    """当月（默认最新数据月）榜单：新上榜排行 + 指标排行（2026-09-01 新增）
-    new_songs: 当月内「昨日无指数、当日有指数」的歌曲，按累计上榜天数排（days=多次上榜）
+    """当月（默认最新数据月）榜单：新上榜排行 + 指标排行（2026-09-01 新增 / 2026-09-08 口径修订）
+    new_songs: 当月内逐日「昨日无指数/无记录、当日有指数」的歌曲，逐条列出（first_day=首次上榜日，
+               days=当月累计上榜天数, peak_index=当月最高指数）
     top_index: 当月日均指数 Top15（current_index 均值，指数口径）
-    top_listeners: 当月日均收听峰值 Top15（listeners 峰值，热度口径）"""
-    if df_all is None or df_all.empty or "listeners" not in df_all.columns:
+    top_listeners: 当月收听峰值 Top15（listeners_eve 口径：每日峰值取 18 点后批次收听，无则当日有收听的最大值）"""
+    if df_all is None or df_all.empty:
         return None
     df = df_all.copy()
     df["data_date"] = pd.to_datetime(df["data_date"], errors="coerce")
@@ -1530,43 +1550,75 @@ def compute_monthly(df_all, month=None):
     if mdf.empty:
         return None
     uid2disp = df.groupby("uid")["display_name"].last().to_dict()
-    daily = mdf.groupby(["uid", "data_date"])["listeners"].max().reset_index()
-    # 当月新上榜：以上月为基准，本月首次出现且上月未上榜的歌曲。
-    # 修复：不再把“每月1日所有歌”误判为新上榜。
-    month_start = pd.Timestamp(m + "-01")
-    prev_month_start = month_start - pd.DateOffset(months=1)
-    prev_uids = set(df.loc[
-        (df["data_date"] >= prev_month_start) & (df["data_date"] < month_start),
-        "uid"
-    ])
-    first_day = daily.groupby("uid")["data_date"].min()
-    new_uids = [u for u, d in first_day.items() if u not in prev_uids]
-    if new_uids:
-        new_daily = daily[daily["uid"].isin(new_uids)]
-        day_counts = new_daily.groupby("uid")["data_date"].nunique()
-        new_songs = [
-            {
-                "song": str(uid2disp.get(u, u)),
-                "first_day": first_day[u].strftime("%m-%d"),
-                "days": int(day_counts.get(u, 0)),
-            }
-            for u in new_uids
-        ]
-    else:
+
+    # ---- 当月新上榜：逐日「昨日该歌无指数/无记录 -> 当日有指数」----
+    # 有指数 = 当日存在 current_index>0（同歌同日多批已日内合并，无需再聚合）
+    idx_col = "current_index" if "current_index" in df.columns else None
+    new_songs = []
+    if idx_col:
+        has_df = df[df[idx_col].notna() & (df[idx_col] > 0)].copy()
+        has_df["d"] = has_df["data_date"].dt.normalize()
+        # 当月每日含月初前一日（用于 1 号的“昨日”判定）
+        month_start = pd.Timestamp(m + "-01")
+        month_end = month_start + pd.DateOffset(months=1)
+        # 建 每日 uid 集
+        day_sets = {}
+        for d, g in has_df.groupby("d"):
+            day_sets[d] = set(g["uid"].unique())
+        # 当月内的上榜事件：day 有指数 且 day-1 该 uid 不在当日集合（无指数记录）
+        ev = []  # (uid, day)
+        d0 = month_start - pd.Timedelta(days=1)
+        d_end = min(pd.Timestamp.now().normalize(), month_end - pd.Timedelta(days=1))
+        cur = month_start
+        while cur <= d_end:
+            if cur in day_sets:
+                prev_set = day_sets.get(cur - pd.Timedelta(days=1), set())
+                fresh = day_sets[cur] - prev_set
+                for u in sorted(fresh):
+                    ev.append((u, cur))
+            cur += pd.Timedelta(days=1)
+        # 聚合：同歌多日上榜 -> 合并为一条（首日/累计天数/当月最高指数）
+        first_day = {}
+        days_cnt = {}
+        for u, d in ev:
+            if u not in first_day:
+                first_day[u] = d
+                days_cnt[u] = 0
+            days_cnt[u] += 1
+        if idx_col:
+            mth_idx = has_df[has_df["d"].dt.strftime("%Y-%m") == m]
+            pk_idx = mth_idx.groupby("uid")[idx_col].max()
+        else:
+            pk_idx = {}
         new_songs = []
-    new_songs.sort(key=lambda x: (-x["days"], x["first_day"]))
+        for u, fd in sorted(first_day.items(), key=lambda kv: (kv[1], kv[0])):
+            _pk = pk_idx.get(u, 0) or 0
+            try:
+                _pki = int(round(float(_pk)))
+            except Exception:
+                _pki = None
+            new_songs.append({
+                "song": str(uid2disp.get(u, u)),
+                "first_day": fd.strftime("%m-%d"),
+                "days": int(days_cnt[u]),
+                "peak_index": _pki,
+            })
+        new_songs.sort(key=lambda x: (x["first_day"], x["song"]))
     # 当月日均指数 Top
     top_idx = []
-    if "current_index" in mdf.columns:
-        idx = mdf.groupby("uid")["current_index"].mean().reset_index()
-        idx = idx[idx["current_index"] > 0].sort_values("current_index", ascending=False).head(15)
-        top_idx = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "avg_index": round(float(r["current_index"]), 1)}
+    if idx_col:
+        idx = mdf.groupby("uid")[idx_col].mean().reset_index()
+        idx = idx[idx[idx_col] > 0].sort_values(idx_col, ascending=False).head(15)
+        top_idx = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "avg_index": round(float(r[idx_col]), 1)}
                    for _, r in idx.iterrows()]
-    # 当月日均收听峰值 Top
-    lpk = mdf.groupby("uid")["listeners"].max().reset_index()
-    lpk = lpk[lpk["listeners"] > 0].sort_values("listeners", ascending=False).head(15)
-    top_lp = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "peak": int(r["listeners"])}
-              for _, r in lpk.iterrows()]
+    # 当月收听峰值 Top（晚间口径）
+    lpk_col = "listeners_eve" if "listeners_eve" in mdf.columns else ("listeners" if "listeners" in mdf.columns else None)
+    top_lp = []
+    if lpk_col:
+        lpk = mdf.groupby("uid")[lpk_col].max().reset_index()
+        lpk = lpk[lpk[lpk_col] > 0].sort_values(lpk_col, ascending=False).head(15)
+        top_lp = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "peak": int(r[lpk_col])}
+                  for _, r in lpk.iterrows()]
     return {"month": m, "new_songs": new_songs, "top_index": top_idx, "top_listeners": top_lp}
 
 
@@ -3639,20 +3691,24 @@ setTimeout(function(){
   if (mo) {
     document.getElementById('monthLabel').textContent = mo.month || '--';
     var mb = document.getElementById('monthlyBody');
-    function col(title, rows, valFmt){
-      if (!rows || !rows.length) return '';
+    function col(title, rows, valFmt, emptyHint){
+      if (!rows || !rows.length) return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div><div style="color:#5a6b8c;font-size:11.5px;padding:6px 0">' + (emptyHint || '本月暂无数据') + '</div></div>';
       var items = rows.slice(0, 12).map(function(x, i){
+        var right = '';
+        if (x.peak_index !== undefined && x.peak_index !== null) right = '<span style="color:#e0b64f" title="首榜 ' + (x.first_day || '') + ' · 当月最高指数">峰值 ' + x.peak_index + '</span>';
+        else if (x.days) right = '<span style="color:#5bc2e7">' + x.days + '日</span>';
+        else right = '<span style="color:#e0b64f">' + valFmt(x) + '</span>';
         return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px">' +
           '<span style="color:#8c959f;width:22px">' + (i+1) + '</span>' +
-          '<span style="color:#c8cce0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + x.song + '">' + x.song + '</span>' +
-          (x.days ? '<span style="color:#5bc2e7">' + x.days + '日</span>' : '<span style="color:#e0b64f">' + valFmt(x) + '</span>') + '</div>';
+          '<span style="color:#c8cce0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + x.song + ' 首榜' + (x.first_day || '') + '">' + x.song + '</span>' +
+          right + '</div>';
       }).join('');
       return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div>' + items + '</div>';
     }
     mb.innerHTML =
-      col('🆕 当月新上榜排行', mo.new_songs, function(x){ return x.first_day; }) +
-      col('📈 当月日均指数 Top', mo.top_index, function(x){ return x.avg_index; }) +
-      col('👥 当月收听峰值 Top', mo.top_listeners, function(x){ return x.peak; });
+      col('🆕 当月新上榜排行', mo.new_songs, function(x){ return x.first_day; }, '本月暂无「昨日无指数→当日出现」的新上榜歌') +
+      col('📈 当月日均指数 Top', mo.top_index, function(x){ return x.avg_index; }, '本月暂无指数数据') +
+      col('👥 当月收听峰值 Top', mo.top_listeners, function(x){ return x.peak; }, '本月暂无收听数据');
   }
 })();
 // ===== 日报层：数据新鲜度条 + insight-meta + 微趋势图 + 异动警报 =====
@@ -4458,7 +4514,47 @@ else{
 <script src="search_engine.js"></script>
 <script src="/qa_engine.js"></script>
 
-<div id="arch-mount" style="max-width:1200px;margin:18px auto;padding:0 14px"><h2 style="font-size:18px">📚 数字档案 · 口径与年度卡</h2><div id="arch-body" style="font-size:13px;color:#333">加载中…</div></div>
+<div id="arch-mount" style="max-width:1200px;margin:18px auto;padding:0 14px;background:#fff;border:1px solid #e3e6ef;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+    <h2 style="font-size:18px;margin:0 0 4px">📚 数字档案 · 口径与年度卡</h2>
+    <div style="font-size:11.5px;color:#8892a6;margin-bottom:10px">分层：2023+ 定量（追踪曲目池日均，带均值/中位）；2007-2022 定性。数据源：<code>data/archive_baseline.json</code> + <code>data/archive_digest.json</code>（由 generate_year_cards.py 确定性生成，可复算）</div>
+    <div id="arch-body" style="font-size:13px;color:#333">加载中…</div>
+  </div>
+  <script id="arch-loader">
+  (function(){
+    function loadJson(urls){ return Promise.all(urls.map(function(u){ return fetch(u).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); })); }
+    var bases = [ (location.href.indexOf('/dashboard/') >= 0 ? '../data/' : 'data/'), 'data/' ];
+    function tryLoad(){
+      loadJson([bases[0]+'archive_baseline.json', bases[0]+'archive_digest.json', bases[1]+'archive_baseline.json', bases[1]+'archive_digest.json']).then(function(arr){
+        var bl = arr[0] || arr[2], dg = arr[1] || arr[3];
+        var box = document.getElementById('arch-body');
+        if (!box) return;
+        if (!bl && !dg) { box.innerHTML = '<div style="color:#b00;font-size:12px">档案数据未找到（data/archive_*.json 缺失或未生成）。请在仓库运行 操作中心 44 档案一键全量。</div>'; return; }
+        var h = '';
+        if (bl) {
+          h += '<div style="background:#f6f8ff;border:1px solid #dde4f6;border-radius:6px;padding:8px 12px;margin-bottom:10px;font-size:12.5px;line-height:1.7">';
+          h += '<b>📐 口径：</b>' + (bl['口径'] || '') + ' · 区间 ' + ((bl['区间']||[]).join(' ~ ')) + '<br>';
+          var ann = (bl['annual']||[]).slice(-5);
+          h += '<b>年度池日均：</b>' + ann.map(function(a){ return a.year + ' ' + a.mean; }).join(' · ') + '<br>';
+          h += '<span style="color:#8892a6">' + (bl['注意'] || '') + '（源：' + (bl['源'] || '') + '）</span>';
+          h += '</div>';
+        }
+        if (dg && dg['years'] && dg['years'].length) {
+          var rows = dg['years'].slice().reverse().map(function(y){
+            var tag = y['mode'] || '';
+            return '<tr><td style="padding:2px 8px 2px 0"><b>' + y['year'] + '</b></td>' +
+              '<td style="padding:2px 8px;color:#5a6b8c;font-size:11.5px">' + (y['stage'] || '') + '</td>' +
+              '<td style="padding:2px 8px;text-align:right">' + (y['index_mean'] !== null && y['index_mean'] !== undefined ? y['index_mean'] : '—') + '</td>' +
+              '<td style="padding:2px 0 2px 8px;font-size:11px;color:#8a94ab">' + tag + '</td></tr>';
+          }).join('');
+          h += '<table style="width:100%;border-collapse:collapse;font-size:12.5px"><thead><tr style="color:#8892a6;font-size:11px;text-align:left"><th style="padding:2px 8px 2px 0">年份</th><th>阶段</th><th style="text-align:right">指数日均</th><th style="padding-left:8px">类型</th></tr></thead><tbody>' + rows + '</tbody></table>';
+          h += '<div style="font-size:11px;color:#8892a6;margin-top:6px">年度卡全文（含事件/原话/出处）在 <code>论文素材_王晰作传/档案卡/年度/*.md</code>；本层为展示摘要。</div>';
+        }
+        box.innerHTML = h;
+      });
+    }
+    tryLoad();
+  })();
+  </script>
 
 
 <script id="kai-fold-js">
