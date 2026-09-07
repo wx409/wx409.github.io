@@ -2522,6 +2522,37 @@ def calc_next_run():
             return t_str + (" 全量" if mode == "full" else " 极速")
     return SCHEDULE[0][0] + "（明日）"
 
+def _html_structural_ok(html):
+    """防呆自检：dashboard 页面 <head> 结构必须合法，返回 (True,'ok') 或 (False,原因)。
+
+    历史反复 bug 的两种形态，这里都必须拦下：
+      1) <style>/</style> 不配对（悬空闭合 / 提前闭合）——2026-09-06 线上坏产物形态；
+      2) </head> 之前夹带非空白裸文本（旧 CSS 未包进 <style> 直接裸露）——
+         浏览器会把 head 内文本当正文渲染到页面最上方（即“/dashboard/ 顶部吐 CSS”）。
+    用于 generate_dashboard 写文件前拦截，确保坏结构永远进不了仓库与线上。
+    """
+    if not isinstance(html, str) or html.count("<html") == 0:
+        return False, "html 内容缺失"
+    opens = html.count("<style")
+    closes = html.count("</style>")
+    if opens == 0 or opens != closes:
+        return False, "<style> 开/闭不配对（open=%d close=%d）" % (opens, closes)
+    head_end = html.find("</head>")
+    if head_end == -1:
+        return False, "缺少 </head>"
+    last_style_end = html.rfind("</style>")
+    if last_style_end == -1 or last_style_end > head_end:
+        return False, "</style> 位置异常（应整体位于 </head> 之前）"
+    between = html[last_style_end + len("</style>"):head_end]
+    if between.strip():
+        return False, ("</style> 与 </head> 之间残留裸文本（疑似未包裹的 CSS）: "
+                       + repr(between.strip()[:60]))
+    body_at = html.find("<body")
+    if body_at == -1 or body_at < head_end:
+        return False, "<body> 缺失或位于 </head> 之前"
+    return True, "ok"
+
+
 HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -5495,9 +5526,19 @@ def generate_dashboard(payload, dashboard_dir):
     # 数据已改为前端 fetch dashboard_data.json（fetch 改造），不再内嵌 __JSON_DATA__。
     # payload 仍写入 dashboard_data.json（见上方 json.dump），供前端 fetch 加载。
 
+    # === 防呆自检（2026-09-07 防复发）===
+    # 历史反复 bug：<style>/</style> 不配对或 </head> 前夹带裸 CSS 文本时，
+    # 浏览器会把 head 内文本当正文渲染到页面最上方（/dashboard/ 顶部吐 CSS）。
+    # 自检不通过 → 保留上一版完好页面（数据 JSON 照常更新），并阻止坏结构进入自动部署。
+    _ok, _why = _html_structural_ok(html)
     html_path = os.path.join(dashboard_dir, "index.html")
-    with open(html_path, "w", encoding="utf-8") as f:
-        f.write(html)
+    if _ok:
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(html)
+        logger.info(f"大屏看板已生成: {os.path.abspath(html_path)}")
+    else:
+        logger.error(f"!!! 看板 HTML 结构自检未通过，本次不写新页面/不自动部署（数据照常更新）: {_why}")
+        logger.error("!!! 请检查 HTML_TEMPLATE 的 <style> 配对与 </head> 前是否夹带裸文本；修复模板后必须重启计划任务 QQMusicDashboardAutoStart 才生效")
 
     # llms.txt：给 AI 爬虫的站点导览（放在站点根目录，连同 index.html 一起 push）
     llms_path = os.path.join(dashboard_dir, "llms.txt")
@@ -5514,7 +5555,6 @@ def generate_dashboard(payload, dashboard_dir):
         except Exception as e:
             logger.warning(f"复制知识库搜索引擎失败: {e}")
 
-    logger.info(f"大屏看板已生成: {os.path.abspath(html_path)}")
     logger.info(f"llms.txt 已生成: {os.path.abspath(llms_path)}")
     logger.info(f"JSON 数据: {os.path.abspath(json_path)}")
     logger.info("提示: 双击 index.html 即可查看；把 dashboard 目录 push 到仓库即可在线查看")
