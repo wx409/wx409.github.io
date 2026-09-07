@@ -78,6 +78,8 @@ echo  --------------------------------------------------------------------------
 echo    44. 档案一键全量（口径基线 + 全部年度卡 + digest）
 echo    45. 仅重算口径与效应基线（第一张表）
 echo    46. 仅生成全部年度档案卡
+echo    47. 重启大屏监测 daemon（改生成器/模板后必做，内存旧模板会覆盖新页面）
+echo    48. 大屏 HTML 三查（发布前结构自检）
 echo    0. 退出
 echo.
 set "op="
@@ -130,6 +132,8 @@ if "%op%"=="43" goto git_status
 if "%op%"=="44" goto arch_full
 if "%op%"=="45" goto arch_base
 if "%op%"=="46" goto arch_cards
+if "%op%"=="47" goto daemon_restart
+if "%op%"=="48" goto dash_verify
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -833,5 +837,23 @@ cls
 cd /d "E:\wx\论文素材_王晰作传\基线口径"
 python -X utf8 generate_year_cards.py
 echo  [OK] 年度卡已全部重新生成
+pause
+goto menu
+
+:daemon_restart
+cls
+echo  [重启大屏监测 daemon] 先停止计划任务再启动（加载最新生成器代码与模板）
+schtasks /End /TN QQMusicDashboardAutoStart
+timeout /t 2 /nobreak >nul
+schtasks /Run /TN QQMusicDashboardAutoStart
+echo  [OK] 已重启 daemon，启动时会自动 rebuild 一次看板（含当月榜单/档案层）
+pause
+goto menu
+
+:dash_verify
+cls
+echo  [大屏 HTML 三查] style 配对 / head 无裸文本 / body 位置
+python -X utf8 D:\wx409.github.io\tools\verify_dashboard.py
+echo  [提示] 退出码 0 = 结构完好，可放心 push
 pause
 goto menu
