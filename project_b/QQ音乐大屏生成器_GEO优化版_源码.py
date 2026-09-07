@@ -2789,6 +2789,7 @@ h2.chart-title{font-size:15px;font-weight:600}
 </style>
 </head>
 <body>
+<div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：论文素材_王晰作传\基线口径\compute_baseline_v1.py</div>
 <div class="container">
   <div class="data-freshness-bar" id="freshnessBar">
     <span class="fresh-item">📊 数据快照 <strong id="snapTime">--</strong></span>
@@ -4450,7 +4451,46 @@ else{
 </script>
 <script src="search_engine.js"></script>
 <script src="/qa_engine.js"></script>
-</body>
+
+<div id="arch-mount" style="max-width:1200px;margin:18px auto;padding:0 14px"><h2 style="font-size:18px">📚 数字档案 · 口径与年度卡</h2><div id="arch-body" style="font-size:13px;color:#333">加载中…</div></div>
+
+<style id="kai-fold-css">
+  .kai-nav{position:sticky;top:0;z-index:60;background:rgba(15,18,34,.92);display:flex;gap:6px;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid #334;max-width:1200px;margin:0 auto}
+  .kai-nav button{background:#2a3050;color:#cfd6ff;border:1px solid #46508a;border-radius:14px;padding:4px 12px;font-size:13px;cursor:pointer}
+  .kai-nav button.kai-on{background:#3b5bdb;color:#fff}
+  .chart-box,.dash-card{scroll-margin-top:56px}
+</style>
+<script id="kai-fold-js">
+(function(){
+ var GROUPS=[
+  ['热度概览',['最近7日','历史指数趋势','收听热度比例','TOP 歌曲指数','单曲详情','作品属性走势','近30日异常','综合表现 TOP','数据速览','当月榜单','微趋势','监测与归档']],
+  ['事件研究',['事件研究曲线','巡演带动','新歌发行14日']],
+  ['作品生态',['收听历史对比','收听趋势对比','同曲跨时代','头部集中度','热度-稳定性','周末 vs 工作日','作品属性维度','作品成长生态','作品生命力衰减','听众时间偏好','老歌复活','热度生命力']],
+ ];
+ function which(t){for(var i=0;i<GROUPS.length;i++){for(var j=0;j<GROUPS[i][1].length;j++){if(t.indexOf(GROUPS[i][1][j])>-1)return i;}}return -1;}
+ var nav=document.createElement('div');nav.className='kai-nav';
+ GROUPS.forEach(function(g,i){var b=document.createElement('button');b.textContent=g[0];
+   b.onclick=function(){var t=document.querySelector('.kai-box[data-kai="'+i+'"]');if(t)t.scrollIntoView({behavior:'smooth'});};nav.appendChild(b);});
+ var all=document.createElement('button');all.textContent='全部展开';all.onclick=function(){document.querySelectorAll('.chart-box,.dash-card').forEach(function(e){e.style.display='';});};
+ nav.appendChild(all);nav.style.display='none';
+ function run(){
+   var boxes=[].slice.call(document.querySelectorAll('.chart-box,.dash-card'));
+   boxes.forEach(function(b){
+     var h=b.querySelector('h2,h3');if(!h)return;var g=which(h.textContent);if(g>=0)b.setAttribute('data-kai',g);
+     h.style.cursor='pointer';h.title='点击折叠/展开';
+     h.onclick=function(ev){ev.stopPropagation();
+       // 折叠该卡主体：隐藏标题之后的直接内容
+       var kids=[].slice.call(b.children).filter(function(c){return c!==h;});
+       var hid = kids.every(function(c){return c.style.display==='none';});
+       kids.forEach(function(c){c.style.display=hid?'':'none';});
+     };
+   });
+   // 默认折叠 作品生态(组2)与事件研究(组1)子卡? 组内仅高亮导航
+   var any=document.querySelector('[data-kai]');nav.style.display='flex';
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
+</script></body>
 </html>
 """
 
