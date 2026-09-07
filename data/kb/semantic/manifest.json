@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-09-07 00:04:11",
+ "generated_at": "2026-09-07 09:08:01",
  "model": "BAAI/bge-small-zh-v1.5",
  "dim": 512,
  "quant": "int8 scale=127",
- "doc_count": 4698,
+ "doc_count": 4699,
  "topk": 8,
- "size_bytes": 2405376,
+ "size_bytes": 2405888,
  "types": {
   "album": 8,
   "city": 22,
@@ -18,7 +18,7 @@
   "quote": 7,
   "relation": 1819,
   "show": 64,
-  "song": 629,
+  "song": 630,
   "tavern": 106,
   "tour": 11,
   "venue": 37
