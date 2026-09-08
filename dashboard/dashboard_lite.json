@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-09-08 12:19",
- "last_update": "2026-09-08 12:19",
+ "timestamp": "2026-09-08 13:10",
+ "last_update": "2026-09-08 13:10",
  "date_range": "2023-01-01 ~ 2026-09-08",
  "total": 271751,
  "complete_rate": 20.7,
@@ -199,7 +199,7 @@
   3.0,
   8.2,
   36.6,
-  10.0
+  10.1
  ],
  "top_songs": [
   {
@@ -263,7 +263,78 @@
    "tag": "上涨"
   }
  ],
- "daily_listen_trend": [],
+ "daily_listen_trend": [
+  {
+   "rank": 1,
+   "song": "黎明前的黑暗",
+   "share_pct": 59.0,
+   "trend_pct": 71.9,
+   "trend_label": "up"
+  },
+  {
+   "rank": 2,
+   "song": "在路上",
+   "share_pct": 7.9,
+   "trend_pct": 100.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 3,
+   "song": "一生中最爱",
+   "share_pct": 7.3,
+   "trend_pct": 46.5,
+   "trend_label": "up"
+  },
+  {
+   "rank": 4,
+   "song": "再叙",
+   "share_pct": 5.4,
+   "trend_pct": 39.4,
+   "trend_label": "up"
+  },
+  {
+   "rank": 5,
+   "song": "山楂树",
+   "share_pct": 5.4,
+   "trend_pct": 76.9,
+   "trend_label": "up"
+  },
+  {
+   "rank": 6,
+   "song": "月弯弯",
+   "share_pct": 4.4,
+   "trend_pct": 26.7,
+   "trend_label": "up"
+  },
+  {
+   "rank": 7,
+   "song": "Sound of Silence",
+   "share_pct": 4.2,
+   "trend_pct": 50.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 8,
+   "song": "神魂颠倒",
+   "share_pct": 3.3,
+   "trend_pct": 133.3,
+   "trend_label": "up"
+  },
+  {
+   "rank": 9,
+   "song": "荒人之歌",
+   "share_pct": 2.6,
+   "trend_pct": 22.2,
+   "trend_label": "up"
+  },
+  {
+   "rank": 10,
+   "song": "玫瑰",
+   "share_pct": 0.6,
+   "trend_pct": null,
+   "trend_label": "new"
+  }
+ ],
  "daily_anomalies": [],
  "latest_anomaly": null,
  "weekend_workday": [
