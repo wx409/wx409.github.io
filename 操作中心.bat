@@ -908,10 +908,10 @@ goto menu
 
 :vocal_digest
 cls
-echo  [音域谱生成] 10曲最低音 生成 data\archive_vocal.json
+echo  [音域谱生成] 10曲最低音 生成 data/archive_vocal.json
 cd /d E:\wx\论文素材_王晰作传\基线口径
 python -X utf8 generate_vocal.py
-echo  [OK] 已生成 D:\wx409.github.io\datarchive_vocal.json（大屏档案层音域谱读取）
+echo  [OK] 已生成 data\archive_vocal.json（大屏档案层音域谱读取）
 pause
 goto menu
 
@@ -926,14 +926,13 @@ goto menu
 
 :vocal_voice_page
 cls
-echo  [更新 voice.html 音域数据] 重跑音域谱生成后手动提交
+echo  [更新 voice.html] 重跑音域谱+页面生成
 cd /d E:\wx\论文素材_王晰作传\基线口径
 python -X utf8 generate_vocal.py
-echo  [提示] voice.html 在 D:\wx409.github.io
-oice.html，图片在 assets
-oiceecho         改动后: git add voice.html assets
-oice datarchive_vocal.json 后 commit+push
-echo         IndexNow 提交可参考 temp\indexnow_batch_all.py 的写法
+python -X utf8 generate_voice_page.py
+echo  [OK] 已生成 data\archive_vocal.json 与 voice.html
+echo  改动后: git add voice.html assets\voice data\archive_vocal.json 后 commit+push
+echo  IndexNow 提交参考 temp\indexnow_batch_all.py 的写法
 pause
 goto menu
 
@@ -941,7 +940,7 @@ goto menu
 cls
 echo  [更新 analysis-board 展板] 演出带动分析页
 echo  该页读 dashboard_data.json（tour_song_effects 84场），改内容在页面内手改
-echo  位置: D:\wx409.github.io\dashboardnalysis-board.html
+echo  位置: D:\wx409.github.io\dashboard\analysis-board.html
 echo  完善方向: 顶部加音域结论卡(链接 voice.html) + 归因洞察更新
 echo  改动后: git add dashboard/analysis-board.html 后 commit+push
 pause

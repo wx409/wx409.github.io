@@ -9,70 +9,80 @@
    "lowest_note": "B1",
    "lowest_hz": 60.5,
    "time_s": 465.0,
-   "trust": "人声分离实测(王晰低音段465-480s/615-630s)"
+   "trust": "人声分离实测(王晰低音段465-480s/615-630s)",
+   "source": "央视《经典咏流传》"
   },
   {
    "name": "多听有益",
    "lowest_note": "B1",
    "lowest_hz": 61.2,
    "time_s": 153.3,
-   "trust": "人声分离实测"
+   "trust": "人声分离实测",
+   "source": "录音室 MV"
   },
   {
    "name": "向着太阳",
    "lowest_note": "B1",
    "lowest_hz": 61.9,
    "time_s": 125.0,
-   "trust": "主歌低音段(120-130s)实测,官方版全曲最低D#2"
+   "trust": "主歌低音段(120-130s)实测,官方版全曲最低D#2",
+   "source": "VITAS×王晰合唱"
   },
   {
    "name": "雾里",
    "lowest_note": "C2",
    "lowest_hz": 64.5,
    "time_s": 136.5,
-   "trust": "人声分离实测(三人合唱)"
+   "trust": "人声分离实测(三人合唱)",
+   "source": "央视网络春晚"
   },
   {
    "name": "南屏晚钟",
    "lowest_note": "C#2",
    "lowest_hz": 67.9,
    "time_s": 18.8,
-   "trust": "人声分离实测"
+   "trust": "人声分离实测",
+   "source": "录音室"
   },
   {
    "name": "在路上",
    "lowest_note": "C#2",
    "lowest_hz": 69.1,
    "time_s": 172.1,
-   "trust": "人声分离实测"
+   "trust": "人声分离实测",
+   "source": "录音室"
   },
   {
    "name": "想游泳的星",
    "lowest_note": "D2",
    "lowest_hz": 71.5,
    "time_s": 31.5,
-   "trust": "人声分离实测"
+   "trust": "人声分离实测",
+   "source": "录音室"
   },
   {
    "name": "下潜",
    "lowest_note": "D2",
    "lowest_hz": 71.9,
    "time_s": 145.7,
-   "trust": "待确认是否王晰原声"
+   "trust": "待确认是否王晰原声",
+   "source": "现场"
   },
   {
    "name": "鹅毛信",
    "lowest_note": "D2",
    "lowest_hz": 71.9,
    "time_s": 16.6,
-   "trust": "人声分离实测"
+   "trust": "人声分离实测",
+   "source": "录音室"
   },
   {
    "name": "惑许",
    "lowest_note": "D2",
    "lowest_hz": 74.5,
    "time_s": 31.7,
-   "trust": "人声分离实测"
+   "trust": "人声分离实测",
+   "source": "录音室"
   }
  ],
  "conclusion": {
@@ -86,5 +96,18 @@
   "廖昌永(上音院长)": "「男生就像一座高山一样，稳稳地……这个用男低音是特别好的」",
   "caution": "「两个半八度」为主持人撒贝宁口语、不准确（实测男女声叠加约3.3个八度）；「抒情花腔女高音」「声音化妆」指合唱搭档霍圆元，非王晰"
  },
+ "studio_vs_live": {
+  "song": "多听有益",
+  "studio_hz": 61.2,
+  "live_hz": 63.4,
+  "live_note": "杭州站（肆益巡演）",
+  "note": "录音室 B1(61.2Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到，不是录音室后期\"修\"出来的"
+ },
+ "public_refs": [
+  "豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1，有效极端音域 A1–C5 超三个八度。",
+  "hifi168《65HZ 的男低音》：王晰音域下限大字组 C（Low C，65.406Hz）。",
+  "新浪博客胡颖欣：从 LOW C 以下唱到 HIGH C 以上，歌唱音域超三个八度。",
+  "民歌中国：「流行乐坛\"稀有\"的男低音歌者」。"
+ ],
  "full_report": "音域分析/音域白皮书_v1.md 与 多点交叉实测_四曲目.md 与 渡荆门送别点评转写稿.md"
 }
