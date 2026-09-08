@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "generated": "2026-09-08",
+ "method": "demucs(htdemucs/GPU) 人声分离 + librosa pYIN 逐帧 F0 + voiced 帧稳健统计",
+ "count": 10,
+ "songs": [
+  {
+   "name": "渡荆门送别",
+   "lowest_note": "B1",
+   "lowest_hz": 60.5,
+   "time_s": 465.0,
+   "trust": "人声分离实测(王晰低音段465-480s/615-630s)"
+  },
+  {
+   "name": "多听有益",
+   "lowest_note": "B1",
+   "lowest_hz": 61.2,
+   "time_s": 153.3,
+   "trust": "人声分离实测"
+  },
+  {
+   "name": "向着太阳",
+   "lowest_note": "B1",
+   "lowest_hz": 61.9,
+   "time_s": 125.0,
+   "trust": "主歌低音段(120-130s)实测,官方版全曲最低D#2"
+  },
+  {
+   "name": "雾里",
+   "lowest_note": "C2",
+   "lowest_hz": 64.5,
+   "time_s": 136.5,
+   "trust": "人声分离实测(三人合唱)"
+  },
+  {
+   "name": "南屏晚钟",
+   "lowest_note": "C#2",
+   "lowest_hz": 67.9,
+   "time_s": 18.8,
+   "trust": "人声分离实测"
+  },
+  {
+   "name": "在路上",
+   "lowest_note": "C#2",
+   "lowest_hz": 69.1,
+   "time_s": 172.1,
+   "trust": "人声分离实测"
+  },
+  {
+   "name": "想游泳的星",
+   "lowest_note": "D2",
+   "lowest_hz": 71.5,
+   "time_s": 31.5,
+   "trust": "人声分离实测"
+  },
+  {
+   "name": "下潜",
+   "lowest_note": "D2",
+   "lowest_hz": 71.9,
+   "time_s": 145.7,
+   "trust": "待确认是否王晰原声"
+  },
+  {
+   "name": "鹅毛信",
+   "lowest_note": "D2",
+   "lowest_hz": 71.9,
+   "time_s": 16.6,
+   "trust": "人声分离实测"
+  },
+  {
+   "name": "惑许",
+   "lowest_note": "D2",
+   "lowest_hz": 74.5,
+   "time_s": 31.7,
+   "trust": "人声分离实测"
+  }
+ ],
+ "conclusion": {
+  "main_range": "B1–D2（60.5–75Hz）",
+  "below_e2": "全部低于一般男低音下限 E2(82.4Hz)",
+  "b1_count": 3,
+  "note": "B1 三次独立复现（多听有益/向着太阳/渡荆门送别），是可稳定到达的低音能力，绝非孤例"
+ },
+ "authority": {
+  "姚峰(深圳音协主席)": "「作为 Bass-baritone 的话，在中国本身就不多，这是流行圈内的，恐怕就是孤本了」",
+  "廖昌永(上音院长)": "「男生就像一座高山一样，稳稳地……这个用男低音是特别好的」",
+  "caution": "「两个半八度」为主持人撒贝宁口语、不准确（实测男女声叠加约3.3个八度）；「抒情花腔女高音」「声音化妆」指合唱搭档霍圆元，非王晰"
+ },
+ "full_report": "音域分析/音域白皮书_v1.md 与 多点交叉实测_四曲目.md 与 渡荆门送别点评转写稿.md"
+}
