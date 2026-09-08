@@ -80,6 +80,8 @@ echo    45. 仅重算口径与效应基线（第一张表）
 echo    46. 仅生成全部年度档案卡
 echo    47. 重启大屏监测 daemon（改生成器/模板后必做，内存旧模板会覆盖新页面）
 echo    48. 大屏 HTML 三查（发布前结构自检）
+echo    49. 命题卡+宣传词条摘要（data/archive_propositions.json）
+echo    50. 矛盾扫描（event_effects x 年度表 x 微博行为）
 echo    0. 退出
 echo.
 set "op="
@@ -134,6 +136,8 @@ if "%op%"=="45" goto arch_base
 if "%op%"=="46" goto arch_cards
 if "%op%"=="47" goto daemon_restart
 if "%op%"=="48" goto dash_verify
+if "%op%"=="49" goto prop_gen
+if "%op%"=="50" goto contradiction_scan
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -855,5 +859,23 @@ cls
 echo  [大屏 HTML 三查] style 配对 / head 无裸文本 / body 位置
 python -X utf8 D:\wx409.github.io\tools\verify_dashboard.py
 echo  [提示] 退出码 0 = 结构完好，可放心 push
+pause
+goto menu
+
+:prop_gen
+cls
+echo  [命题卡+宣传词条摘要] 扫描 档案卡\命题卡\*.md 生成 data/archive_propositions.json
+cd /d E:\wx\论文素材_王晰作传\基线口径
+python -X utf8 generate_propositions.py
+echo  [OK] 已生成 data\archive_propositions.json（大屏档案层\命题卡层读取）
+pause
+goto menu
+
+:contradiction_scan
+cls
+echo  [矛盾扫描] event_effects x 年度表 x 微博行为 生成 矛盾扫描_日期.md
+cd /d E:\wx\论文素材_王晰作传\基线口径
+python -X utf8 矛盾扫描器.py
+echo  [OK] 互斥信号已列出，供命题卡选题
 pause
 goto menu
