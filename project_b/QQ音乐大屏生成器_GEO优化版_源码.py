@@ -4551,6 +4551,22 @@ else{
         }
         box.innerHTML = h;
       });
+      // 命题卡层：读 archive_propositions.json 渲染"矛盾驱动的命题卡 + 宣传词条"
+      loadJson([bases[0]+'archive_propositions.json', bases[1]+'archive_propositions.json']).then(function(arr){
+        var pp = arr[0] || arr[1];
+        var box = document.getElementById('arch-body');
+        if (!pp || !pp.cards || !pp.cards.length) return;
+        var cards = pp.cards.map(function(c){
+          var tags = (c.tags||[]).map(function(t){ return '<span style="background:#fdecea;color:#c0392b;border-radius:10px;padding:0 8px;font-size:11px">#' + t + '</span>'; }).join(' ');
+          return '<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:8px 12px;margin-top:8px">' +
+            '<b style="font-size:13px">' + c.title + '</b> <span style="font-size:11px;color:#8a94ab">' + (c.dim||'') + '</span><br>' +
+            '<div style="font-size:12px;color:#555;margin-top:3px;line-height:1.6">' + (c.contradiction||'') + '</div>' +
+            (tags ? '<div style="margin-top:5px">' + tags + '</div>' : '') + '</div>';
+        }).join('');
+        var h2 = '<div style="margin-top:14px;padding-top:10px;border-top:1px dashed #e3e6ef"><div style="font-size:13.5px;font-weight:700;color:#1a2a55">🧭 命题卡 · 宣传切入点（矛盾驱动 · 五段式）</div>' +
+          cards + '</div>';
+        box.insertAdjacentHTML('beforeend', h2);
+      });
     }
     tryLoad();
   })();
