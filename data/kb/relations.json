@@ -11403,6 +11403,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:好好说再见",
+  "type": "belongs_to_album",
+  "target": "album:好好说再见",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:如翡",
   "type": "belongs_to_album",
   "target": "album:有翡 电视剧原声带",
