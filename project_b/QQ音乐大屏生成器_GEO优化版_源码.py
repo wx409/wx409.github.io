@@ -4567,6 +4567,39 @@ else{
           cards + '</div>';
         box.insertAdjacentHTML('beforeend', h2);
       });
+      // 音域层：读 archive_vocal.json 渲染"人声分离实测音域谱 + 权威背书"
+      loadJson([bases[0]+'archive_vocal.json', bases[1]+'archive_vocal.json']).then(function(arr){
+        var vv = arr[0] || arr[1];
+        var box = document.getElementById('arch-body');
+        if (!vv || !vv.songs || !vv.songs.length) return;
+        var rows = vv.songs.map(function(s){
+          var b1 = s.lowest_note.indexOf('B1') === 0;
+          return '<tr' + (b1 ? ' style="background:#fff7e6"' : '') + '><td style="padding:2px 8px 2px 0"><b style="' + (b1?'color:#b8860b':'color:#1a2a55') + '">' + s.lowest_note + '</b></td>' +
+            '<td style="padding:2px 8px;color:#5a6b8c">' + s.lowest_hz.toFixed(1) + ' Hz</td>' +
+            '<td style="padding:2px 8px">' + s.name + '</td>' +
+            '<td style="padding:2px 0 2px 8px;font-size:11px;color:#8a94ab">' + (s.trust||'') + '</td></tr>';
+        }).join('');
+        var concl = vv.conclusion || {};
+        var auth = vv.authority || {};
+        var h3 = '<div style="margin-top:14px;padding-top:10px;border-top:1px dashed #e3e6ef">' +
+          '<div style="font-size:13.5px;font-weight:700;color:#1a2a55">🎼 音域谱 · 人声分离实测（' + vv.count + ' 曲）</div>' +
+          '<div style="font-size:12px;color:#555;margin-top:4px;line-height:1.7">' +
+          '<b>低音主区 ' + (concl.main_range||'') + '</b>，' + (concl.below_e2||'') + '。<br>' +
+          (concl.note||'') + '</div>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px"><thead><tr style="color:#8892a6;font-size:11px;text-align:left"><th style="padding:2px 8px 2px 0">最低音</th><th>频率</th><th>曲目</th><th>口径</th></tr></thead><tbody>' + rows + '</tbody></table>';
+        if (auth && Object.keys(auth).length) {
+          h3 += '<div style="margin-top:8px;font-size:12px;color:#555;line-height:1.7;background:#fff8f0;border:1px solid #f0e0c8;border-radius:6px;padding:8px 12px">' +
+            '<b>权威背书：</b><br>';
+          Object.keys(auth).forEach(function(k){
+            if (k === 'caution') return;
+            h3 += '· <b>' + k + '</b>：' + auth[k] + '<br>';
+          });
+          if (auth.caution) h3 += '<span style="color:#a06a00;font-size:11px">⚠️ ' + auth.caution + '</span>';
+          h3 += '</div>';
+        }
+        h3 += '</div>';
+        box.insertAdjacentHTML('beforeend', h3);
+      });
     }
     tryLoad();
   })();
