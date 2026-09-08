@@ -82,6 +82,14 @@ echo    47. 重启大屏监测 daemon（改生成器/模板后必做，内存旧模板会覆盖新页面）
 echo    48. 大屏 HTML 三查（发布前结构自检）
 echo    49. 命题卡+宣传词条摘要（data/archive_propositions.json）
 echo    50. 矛盾扫描（event_effects x 年度表 x 微博行为）
+echo.
+echo  [H · 音域实测（人声分离 + F0 + 白皮书）]
+echo  ------------------------------------------------------------------------------
+echo    51. 音域一键（B站下载→人声分离→落盘F0）
+echo    52. 音域谱生成（10曲→data/archive_vocal.json）
+echo    53. 生成分享图文（长图+图文版HTML）
+echo    54. 更新 voice.html 音域数据（含 IndexNow）
+echo    55. 更新 analysis-board 展板
 echo    0. 退出
 echo.
 set "op="
@@ -138,6 +146,11 @@ if "%op%"=="47" goto daemon_restart
 if "%op%"=="48" goto dash_verify
 if "%op%"=="49" goto prop_gen
 if "%op%"=="50" goto contradiction_scan
+if "%op%"=="51" goto vocal_one
+if "%op%"=="52" goto vocal_digest
+if "%op%"=="53" goto vocal_share
+if "%op%"=="54" goto vocal_voice_page
+if "%op%"=="55" goto analysis_board_upd
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -877,5 +890,59 @@ echo  [矛盾扫描] event_effects x 年度表 x 微博行为 生成 矛盾扫描_日期.md
 cd /d E:\wx\论文素材_王晰作传\基线口径
 python -X utf8 矛盾扫描器.py
 echo  [OK] 互斥信号已列出，供命题卡选题
+pause
+goto menu
+
+
+:vocal_one
+cls
+echo  [音域一键] B站下载-人声分离-落盘F0（需先填 音域分析ilibili链接.txt）
+cd /d E:\wx\论文素材_王晰作传\音域分析
+echo  步骤1: 下载B站视频
+python -X utf8 D:\wx409.github.io\project_b\download_bilibili.py ".ilibili链接.txt"
+echo  步骤2: 对下载目录逐首 分离+落盘（见 批量下载分离分析.py）
+python -X utf8 批量下载分离分析.py
+echo  [OK] 已分离并落盘 F0 到 分析结果\ 目录
+pause
+goto menu
+
+:vocal_digest
+cls
+echo  [音域谱生成] 10曲最低音 生成 data\archive_vocal.json
+cd /d E:\wx\论文素材_王晰作传\基线口径
+python -X utf8 generate_vocal.py
+echo  [OK] 已生成 D:\wx409.github.io\datarchive_vocal.json（大屏档案层音域谱读取）
+pause
+goto menu
+
+:vocal_share
+cls
+echo  [生成分享图文] 长图+图文版HTML（歌迷向）
+cd /d E:\wx\论文素材_王晰作传\音域分析
+python -X utf8 生成分享图文.py
+echo  [OK] 见 音域分析\分享\ 下 总结长图_竖版.png / 王晰音域实测_图文版.html 等
+pause
+goto menu
+
+:vocal_voice_page
+cls
+echo  [更新 voice.html 音域数据] 重跑音域谱生成后手动提交
+cd /d E:\wx\论文素材_王晰作传\基线口径
+python -X utf8 generate_vocal.py
+echo  [提示] voice.html 在 D:\wx409.github.io
+oice.html，图片在 assets
+oiceecho         改动后: git add voice.html assets
+oice datarchive_vocal.json 后 commit+push
+echo         IndexNow 提交可参考 temp\indexnow_batch_all.py 的写法
+pause
+goto menu
+
+:analysis_board_upd
+cls
+echo  [更新 analysis-board 展板] 演出带动分析页
+echo  该页读 dashboard_data.json（tour_song_effects 84场），改内容在页面内手改
+echo  位置: D:\wx409.github.io\dashboardnalysis-board.html
+echo  完善方向: 顶部加音域结论卡(链接 voice.html) + 归因洞察更新
+echo  改动后: git add dashboard/analysis-board.html 后 commit+push
 pause
 goto menu
