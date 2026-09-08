@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王晰音域实测 | 人声分离 F0 分析 · 低音主区 B1–D2</title>
+<meta name="description" content="王晰（华语流行男低音）音域实测：10 首歌曲人声分离 + 逐帧 F0 音高提取，低音主区 B1–D2（60.5–75Hz），3 首达 B1（低于 Low C 65.4Hz），含录音室 vs 现场对比与权威背书。">
+<meta name="keywords" content="王晰,男低音,音域,B1,Low C,低音,声乐分析,F0,人声分离">
+<link rel="canonical" href="https://wx409.github.io/voice.html">
+<meta property="og:title" content="王晰音域实测 · 低音主区 B1–D2">
+<meta property="og:description" content="10 首歌人声分离实测：3 首最低音达 B1（低于男低音标志音 Low C），现场同样做得到。附姚峰/廖昌永权威点评。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wx409.github.io/voice.html">
+<meta property="og:image" content="https://wx409.github.io/assets/voice/range_10songs.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "王晰音域实测数据集（10 曲人声分离 F0 分析）",
+  "description": "对华语流行男低音王晰 10 首歌曲进行人声分离（demucs htdemucs）与逐帧 F0 音高提取（librosa pYIN），测得最低稳定音主区 B1–D2（60.5–75Hz），其中 3 首达 B1（低于男低音标志音 Low C 65.4Hz）。含录音室与现场版对比。",
+  "url": "https://wx409.github.io/voice.html",
+  "dateModified": "2026-09-08",
+  "creator": {"@type": "Person", "name": "wx409", "url": "https://wx409.github.io/"},
+  "about": {"@type": "Person", "name": "王晰", "url": "https://wx409.github.io/"},
+  "measurementTechnique": "demucs 人声分离 + librosa pYIN 逐帧基频(F0)提取 + voiced 帧稳健统计",
+  "variableMeasured": [
+    {"@type": "PropertyValue", "name": "最低稳定音", "description": "人声分离后最低稳定基频音高（音名+Hz）"},
+    {"@type": "PropertyValue", "name": "低音主区", "description": "B1–D2（60.5–75Hz），全部低于一般男低音下限 E2（82.4Hz）"},
+    {"@type": "PropertyValue", "name": "B1 复现次数", "description": "3 曲达 B1（多听有益/向着太阳/渡荆门送别）"}
+  ],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/"
+}
+</script>
+<style>
+:root{--primary:#a8323d;--gold:#b8912e;--ink:#3a322a;--muted:#8a7f6d;--bg:#faf6ef;--card:#fffdf8;--border:rgba(184,145,46,.28)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.85;max-width:860px;margin:0 auto;padding:24px;color:var(--ink);background:var(--bg)}
+.nav{background:var(--card);padding:14px 18px;border-radius:8px;margin-bottom:20px;border:1px solid var(--border);font-size:14px}
+.nav a{color:var(--primary);margin-right:18px;text-decoration:none;font-weight:500}
+.nav a:hover{text-decoration:underline}
+h1{color:var(--primary);font-size:28px;border-bottom:3px solid var(--primary);padding-bottom:12px;margin-bottom:8px}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 24px}
+h2{color:var(--ink);margin-top:34px;border-left:4px solid var(--primary);padding-left:12px;font-size:21px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:16px 0}
+.hl{background:#fff3cd;border-left:4px solid #e0a800;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:15px}
+.quote{background:var(--card);border:1px solid #e8e0f0;border-left:4px solid #8e44ad;border-radius:8px;padding:14px 18px;margin:12px 0;font-size:15px}
+.quote .who{color:var(--muted);font-size:12.5px;margin-top:6px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px;background:var(--card)}
+th{background:#f0ead9;text-align:left;padding:8px 12px;font-size:13px;color:#5a4a30;border-bottom:2px solid var(--gold)}
+td{padding:8px 12px;border-bottom:1px solid #efe6d2}
+tr:nth-child(-n+3) td{background:#fdf6ea}
+.b1{color:#a8323d;font-weight:700}
+img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid var(--border)}
+.method{background:#eef4f0;border:1px solid #cfe3d6;border-radius:8px;padding:12px 16px;font-size:13.5px;margin:12px 0;color:#3a5545}
+.caveat{font-size:12.5px;color:var(--muted);margin-top:30px;border-top:1px dashed #ccc;padding-top:14px}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">🏠 首页</a>
+  <a href="dashboard/">数据大屏</a>
+  <a href="academic.html">学术研究</a>
+  <a href="songs.html">歌曲库</a>
+  <a href="search.html">全站搜索</a>
+</div>
+
+<h1>🎼 王晰音域实测</h1>
+<p class="sub">人声分离 F0 分析 · 低音主区 B1–D2 · 更新 2026-09-08</p>
+
+<div class="hl">
+<strong>核心结论：</strong>王晰的低音主区在 <strong>B1–D2（60.5–75Hz）</strong>，全部低于一般男低音下限 E2（82.4Hz）。其中 <strong>3 首歌曲（《多听有益》《向着太阳》《渡荆门送别》）最低稳定音达 B1（约 61Hz）</strong>——这是比男低音标志音 Low C（C2，65.4Hz）还低的音。
+</div>
+
+<img src="assets/voice/range_10songs.png" alt="王晰10首歌最低音谱">
+
+<h2>一、方法学（可复现）</h2>
+<div class="method">
+<strong>测量流程：</strong>音频/视频 → demucs（htdemucs，GPU）人声分离 → librosa pYIN 逐帧基频（F0）提取（fmin=50Hz, fmax=500Hz, frame=2048, hop=512）→ voiced 帧稳健统计（取 P1/P5/最低稳定音）。<br>
+<strong>数据落盘：</strong>每首歌约 2 万帧逐帧 F0（time/f0/voiced/note/midi）存为 CSV，可复算、可扩展其他维度（颤音/音域跨度/音色）。<br>
+<strong>可信度纪律：</strong>混音版会在 53–57Hz 混入伴奏 bass 残留（伪 A1），<strong>只有人声分离后的 B1 及以上才可信</strong>。
+</div>
+
+<h2>二、10 首歌曲最低稳定音（精确数据）</h2>
+<table>
+<tr><th>曲目</th><th>最低稳定音</th><th>频率</th><th>素材来源</th></tr>
+<tr><td>渡荆门送别</td><td class="b1">B1</td><td>60.5 Hz</td><td>央视《经典咏流传》（王晰×霍圆元）</td></tr>
+<tr><td>多听有益</td><td class="b1">B1</td><td>61.2 Hz</td><td>录音室 MV</td></tr>
+<tr><td>向着太阳</td><td class="b1">B1</td><td>61.9 Hz</td><td>VITAS×王晰合唱（主歌低音段）</td></tr>
+<tr><td>雾里</td><td>C2（Low C）</td><td>64.5 Hz</td><td>央视网络春晚（三人合唱）</td></tr>
+<tr><td>南屏晚钟</td><td>C#2</td><td>67.9 Hz</td><td>录音室</td></tr>
+<tr><td>在路上</td><td>C#2</td><td>69.1 Hz</td><td>录音室</td></tr>
+<tr><td>想游泳的星</td><td>D2</td><td>71.5 Hz</td><td>录音室</td></tr>
+<tr><td>下潜</td><td>D2</td><td>71.9 Hz</td><td>现场（待确认原声）</td></tr>
+<tr><td>鹅毛信</td><td>D2</td><td>71.9 Hz</td><td>录音室</td></tr>
+<tr><td>惑许</td><td>D2</td><td>74.5 Hz</td><td>录音室</td></tr>
+</table>
+
+<h2>三、录音室 vs 现场：现场也能到 B1</h2>
+<img src="assets/voice/studio_vs_live.png" alt="录音室vs现场对比">
+<div class="hl">
+《多听有益》录音室版最低 <strong class="b1">B1（61.2Hz）</strong>，<strong>现场版（肆益巡演·杭州站）最低 B1（63.4Hz）</strong>——几乎持平。说明 B1 是他稳定可控的低音区，现场照样唱得到，不是录音室后期"修"出来的。<br>
+<span style="font-size:13px;color:#8a7f6d">⚠️ 口径：现场验证当前仅基于杭州站 4K 直拍（BV1ArKxe7E8H），其他场次待补充。</span>
+</div>
+
+<h2>四、权威点评（央视《经典咏流传》）</h2>
+<div class="quote">"作为 <strong>Bass-baritone</strong> 的话，在中国本身就不多，这是流行圈内的，<strong>恐怕就是孤本了</strong>。"<div class="who">—— 姚峰（深圳音乐家协会主席）</div></div>
+<div class="quote">"男生就像<strong>一座高山</strong>一样，稳稳地……这个用<strong>男低音</strong>是特别好的。"<div class="who">—— 廖昌永（上海音乐学院院长）</div></div>
+
+<h2>五、公开资料互证</h2>
+<ul>
+<li>豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1，有效极端音域 A1–C5 超三个八度。</li>
+<li>hifi168《65HZ 的男低音》：王晰音域下限大字组 C（Low C，65.406Hz）。</li>
+<li>新浪博客胡颖欣：从 LOW C 以下唱到 HIGH C 以上，歌唱音域超三个八度。</li>
+<li>民歌中国："流行乐坛'稀有'的男低音歌者"。</li>
+</ul>
+
+<p class="caveat">
+⚠️ <strong>口径与边界（诚实披露）：</strong>① 数据来自本地人声分离 + F0 提取，源为有损流媒体音频（QQ音乐 320k / B站 / 央视网），非母带，绝对频率 ±0.5Hz 误差但不影响音级判定；② 未主张"华语最低/唯一"等排名式结论（横向存在赵鹏/董攀等不同口径）；③ "两个半八度"为主持人撒贝宁口语说法、不准确（实测男女声叠加约 3.3 个八度），不采信；④ 本页数据仅供研究参考与歌迷交流，非官方发布。<br>
+数据底账：本地音域分析目录（demucs 分离人声 + 逐帧 F0 CSV），方法可复现。
+</p>
+
+</body>
+</html>
