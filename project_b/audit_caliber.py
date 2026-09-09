@@ -162,11 +162,30 @@ def main() -> None:
 
     # ---- 5) llms.txt 计数（由 generate_llms.py 从 manifest 派生）----
     lp = ROOT / "llms.txt"
+    cal = ROOT / "data" / "calibers.json"
+    cal_map = {}
+    if cal.exists():
+        cal_map = {x["id"]: x["value"] for x in json.loads(cal.read_text(encoding="utf-8")).get("calibers", [])}
     if lp.exists():
         llms = lp.read_text(encoding="utf-8")
         m = re.search(r"(\d+)\s*场", llms)
         if m:
             ok("llms.txt 场次", t["shows_total"], int(m.group(1)))
+        # llms.txt 的知识库计数必须与口径登记表一致（同一数据、两处展示）
+        pairs = [("事实层", "kb_facts"), ("实体层", "kb_entities"), ("关系层", "kb_relations"),
+                 ("语义索引", "semantic_docs"), ("问答", "qa_pairs")]
+        for label, cid in pairs:
+            if cid not in cal_map or cal_map[cid] is None:
+                continue
+            # 在 llms.txt 中找包含该标签且带数字的片段
+            seg = ""
+            for line in llms.splitlines():
+                if label in line:
+                    seg = line
+                    break
+            nums = [int(x) for x in re.findall(r"(\d{3,6})", seg)]
+            if nums:
+                ok(f"llms.txt {label} 与口径登记表一致", cal_map[cid], cal_map[cid] if cal_map[cid] in nums else f"未出现（{nums[:4]}）")
 
     # ---- 6) 语义层 / 知识库规模（信息项，便于跨页核对）----
     for rel, keys in [

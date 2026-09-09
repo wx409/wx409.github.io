@@ -62,7 +62,7 @@ FOOTER_GROUPS = [
     ("核心", ["index.html", "live-reviews.html", "discography.html", "songs.html", "timeline.html",
               "data-timeline.html", "story.html", "notifications.html"]),
     ("数据", ["dashboard/", "map/", "data-timeline.html", "live/", "live/setlists.html",
-              "data/music-index.html", "data/kb/kb_digest.md"]),
+              "data/music-index.html", "data/calibers.md", "data/kb/kb_digest.md"]),
     ("内容", ["voice.html", "academic.html", "qa.html", "jazz.html", "gallery.html", "city-guides.html",
               "culture/index.html", "tavern/", "live-reviews.html"]),
     ("关于", ["about.html", "submit.html", "search.html", "feed.xml", "sitemap.xml", "llms.txt",
@@ -80,7 +80,7 @@ LABELS = {
     "gallery.html": "视觉记录", "city-guides.html": "城市攻略", "about.html": "关于本站",
     "submit.html": "投稿", "search.html": "全站搜索", "dashboard/": "数据大屏", "map/": "巡演地图",
     "live/": "演出详情目录", "live/setlists.html": "全部歌单", "data/music-index.html": "音乐数据周报",
-    "data/kb/kb_digest.md": "知识库摘要", "culture/index.html": "文化足迹", "tavern/": "深夜小酒馆",
+    "data/kb/kb_digest.md": "知识库摘要", "data/calibers.md": "口径登记表（数字字典）", "culture/index.html": "文化足迹", "tavern/": "深夜小酒馆",
     "feed.xml": "RSS 订阅", "sitemap.xml": "站点地图", "llms.txt": "AI 摘要（llms.txt）",
     "robots.txt": "robots.txt", "404.html": "404 页",
 }

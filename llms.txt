@@ -48,6 +48,7 @@
 - [语义检索（统一入口）](https://wx409.github.io/search.html?kb=1): 全站搜索含知识库语义召回（bge-small-zh 向量 + 语义近邻，答案卡优先）
 - [问答库静态页 qa.html](https://wx409.github.io/qa.html): 315 条问答对（真实HTML，含 FAQPage JSON-LD），可直接引用
 - [语义索引](https://wx409.github.io/data/kb/semantic/manifest.json): 4702条文档 int8 向量 + 近邻图（docs.json/vectors.bin/graph.json）
+- [口径登记表](https://wx409.github.io/data/calibers.md): 全站数字字典（每个计数的名称/范围/来源；机读版 data/calibers.json）——**引用任何数字前先查此表，不同范围的数字不可混用**
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---

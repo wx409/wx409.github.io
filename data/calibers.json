@@ -1,0 +1,166 @@
+{
+  "generated_at": "2026-09-09 09:03",
+  "count": 20,
+  "calibers": [
+    {
+      "id": "tracked_songs",
+      "label": "追踪曲目池",
+      "value": 383,
+      "scope": "主动追踪并采集指数的曲目清单（池内）",
+      "source": "dashboard/dashboard_data.json",
+      "note": "站内绝大多数'热度'结论的样本范围；池逐年缩小，跨年比较须注意"
+    },
+    {
+      "id": "tracked_links",
+      "label": "追踪链接数",
+      "value": 383,
+      "scope": "同一首歌的多个平台链接（一首歌可有多条链接）",
+      "source": "dashboard/dashboard_data.json",
+      "note": "与曲目数不同：链接是采集单位，曲目是分析单位"
+    },
+    {
+      "id": "entity_songs",
+      "label": "关系图谱曲目",
+      "value": 435,
+      "scope": "至少有一条关系（现场/小酒馆/专辑）的曲目",
+      "source": "entity_index.json",
+      "note": "歌曲↔城市↔场馆↔逐字稿的聚合图谱节点数"
+    },
+    {
+      "id": "songs_meta",
+      "label": "歌曲元数据条目",
+      "value": 586,
+      "scope": "含元信息（时长/专辑/发行等）的曲目",
+      "source": "data/songs_meta.json",
+      "note": ""
+    },
+    {
+      "id": "song_archive",
+      "label": "歌曲档案条目",
+      "value": 748,
+      "scope": "档案库收录的全部曲目条目（含未追踪/无指数）",
+      "source": "data/song_archive.json",
+      "note": "站内最大口径，用于'作品总量'类表述"
+    },
+    {
+      "id": "credits_songs",
+      "label": "署名/演职信息曲目",
+      "value": 325,
+      "scope": "有公开演职/署名记录的曲目",
+      "source": "data/credits_full.json",
+      "note": ""
+    },
+    {
+      "id": "playable_songs",
+      "label": "可试听曲目",
+      "value": 117,
+      "scope": "站内提供试听入口的曲目",
+      "source": "data/playable_songs.json",
+      "note": ""
+    },
+    {
+      "id": "netease_songs",
+      "label": "网易云曲库曲目",
+      "value": 122,
+      "scope": "网易云音乐侧可核验曲目",
+      "source": "data/netease_catalog.json",
+      "note": "另一平台口径，不与 QQ 音乐池混用"
+    },
+    {
+      "id": "shows_all",
+      "label": "全站场次",
+      "value": 64,
+      "scope": "六轮巡演 + 签唱会等非巡演演出",
+      "source": "data/cities.json（长表派生）",
+      "note": "对外表述'全站'时用此数，必须同时给出 shows_tour"
+    },
+    {
+      "id": "shows_setlists",
+      "label": "有歌单记录的场次",
+      "value": 64,
+      "scope": "长表中至少有 1 条曲目记录的场次",
+      "source": "data/setlists.json",
+      "note": "与全站场次应一致"
+    },
+    {
+      "id": "cities",
+      "label": "巡演城市数",
+      "value": 22,
+      "scope": "去重城市",
+      "source": "data/cities.json",
+      "note": ""
+    },
+    {
+      "id": "live_songs",
+      "label": "有现场记录的曲目",
+      "value": 302,
+      "scope": "至少在一个场次歌单中出现过的曲目",
+      "source": "entity_index.json",
+      "note": ""
+    },
+    {
+      "id": "kb_facts",
+      "label": "知识库事实条数",
+      "value": 1150,
+      "scope": "结构化事实",
+      "source": "data/kb/manifest.json",
+      "note": ""
+    },
+    {
+      "id": "kb_entities",
+      "label": "知识库实体数",
+      "value": 1416,
+      "scope": "人/歌/专辑/演出/城市等实体",
+      "source": "data/kb/manifest.json",
+      "note": ""
+    },
+    {
+      "id": "kb_relations",
+      "label": "知识库关系数",
+      "value": 1942,
+      "scope": "实体间关系",
+      "source": "data/kb/manifest.json",
+      "note": ""
+    },
+    {
+      "id": "semantic_docs",
+      "label": "语义索引文档数",
+      "value": 4702,
+      "scope": "可语义检索的文档块",
+      "source": "data/kb/semantic/manifest.json",
+      "note": ""
+    },
+    {
+      "id": "qa_pairs",
+      "label": "问答对数量",
+      "value": 315,
+      "scope": "可引用问答（GEO 资产）",
+      "source": "data/qa_bank.json",
+      "note": ""
+    },
+    {
+      "id": "shows_tour",
+      "label": "六轮巡演场次",
+      "value": 59,
+      "scope": "一巡~六巡的巡演场次（不含签唱会）",
+      "source": "巡演歌单长表（单一事实源）",
+      "note": "与 shows_all 成对出现：全站 64 = 巡演 59 + 签唱会等 5"
+    },
+    {
+      "id": "setlist_rows",
+      "label": "歌单曲目记录行",
+      "value": 1249,
+      "scope": "长表曲目行（含串烧拆分行前的原始记录）",
+      "source": "巡演歌单长表",
+      "note": ""
+    },
+    {
+      "id": "setlist_songs_unique",
+      "label": "歌单唯一曲目（数据层归一名）",
+      "value": 289,
+      "scope": "长表去重后的曲目名",
+      "source": "巡演歌单长表",
+      "note": ""
+    }
+  ]
+}
