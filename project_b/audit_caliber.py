@@ -157,6 +157,16 @@ def main() -> None:
                 ei_dates.add(lv["date"])
     ok("entity_index.json 场次日期数", t["shows_total"], len(ei_dates))
 
+    # ---- 3b) 知识库关系层（kb/relations.json）：场次实体必须与真值一致 ----
+    rel_path = ROOT / "data" / "kb" / "relations.json"
+    if rel_path.exists():
+        rel = json.loads(rel_path.read_text(encoding="utf-8"))
+        show_ids = {r.get("target") for r in rel
+                    if isinstance(r, dict) and str(r.get("target", "")).startswith("show:")}
+        ok("kb/relations.json show: 实体数", t["shows_total"], len(show_ids))
+        in_city = sum(1 for r in rel if isinstance(r, dict) and r.get("type") == "in_city")
+        ok("kb/relations.json in_city 关系数", t["shows_total"], in_city)
+
     # ---- 4) story.html 口径成对 ----
     sp = ROOT / "story.html"
     if sp.exists():
