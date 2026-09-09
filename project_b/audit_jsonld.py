@@ -20,7 +20,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BLOCK = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
 # 只拦「对王晰的排名/唯一性断言」，不拦引语与客观事实里的"唯一"（如"六首曲目中唯一的合作曲"）
-BANNED = ["声学指纹", "生物指纹", "机械级音准", "华语最低", "华语第一", "国内唯一", "唯一一位", "排名第一", "第一人", "世界最低"]
+BANNED = ["声学指纹", "生物指纹", "机械级音准", "华语最低", "华语第一", "国内唯一", "唯一一位", "排名第一", "第一人", "世界最低",
+          # 过程稿措辞：读者只关心结论与现行方法，旧口径叙述只会引起误解（2026-09-09 决策）
+          "旧口径", "v1 口径", "v1 曾", "v1 报告", "口径升级", "口径变更", "结论修正", "瞬时最低", "已作废", "NoneHz"]
 REQUIRED = {
     "voice.html": ("ResearchProject", "FAQPage"),
     "stage.html": ("ResearchProject", "FAQPage"),

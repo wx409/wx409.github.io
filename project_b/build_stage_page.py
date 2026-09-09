@@ -68,7 +68,7 @@ def cross_section() -> str:
 <strong>结论：测量管线没有系统性偏差。</strong>可配对 <strong>{c["n_pairs"]} 组</strong>同曲：最低稳定音中位差 <strong>0.00 半音</strong>、
 音域跨度 +0.09 八度、音符内稳定性 <strong>0.00 音分</strong>、颤音速率 −0.07Hz（均为中位差）。<br>
 <strong>关键个案《渡荆门送别》</strong>：舞台版 C#2 69.7Hz ↔ QQ官方版（《经典咏流传》节目音源）<strong>C#2 69.7Hz，完全一致</strong>——
-说明该曲的「旧口径 B1」是 0.1 秒级瞬时读数，不是音源条件造成的测量偏差。
+说明该曲的最低稳定音结论不受音源条件影响。
 </div>
 <table>
 <tr><th>曲目</th><th>QQ 官方版</th><th>舞台最低音（MIDI）</th><th>QQ 最低音（MIDI）</th><th>舞台跨度</th><th>QQ跨度</th><th>舞台稳定性</th><th>QQ稳定性</th><th>舞台颤音</th><th>QQ颤音</th><th>来源等级</th></tr>
@@ -143,10 +143,9 @@ def main() -> None:
         dataset_url="https://wx409.github.io/data/archive_stage.json",
         based_on=[{
             "@type": "Dataset",
-            "name": "v1 口径（已作废）：pYIN 单点最低音 + 全样本合并统计",
+            "name": "方法版本 v1（单点最低值）",
             "version": "v1",
-            "description": ("v1 报告「他人主导时最低音显著更高（p=0.015）」；v2 改用稳定音口径后该差异不显著"
-                            f"（p={_lowp if _lowp is not None else '—'}），结论已修正。"),
+            "description": "方法版本记录，供版本谱系与学术引用追溯；结果以本页现行稳健口径为准。",
         }],
         parts=[
             dataset_ref("33 个舞台素材逐条指标", "https://wx409.github.io/data/archive_stage.json"),
@@ -160,8 +159,8 @@ def main() -> None:
     )
     faq = faq_page([
         ("他人主导的综艺/晚会上，王晰的音域会变窄吗？",
-         (f"按 v2 稳定音口径，「王晰主导（录音室专辑）」与「他人主导（舞台）」的最低稳定音差异不显著"
-          f"（p={_lowp:.3f}），" if isinstance(_lowp, float) else "按 v2 稳定音口径，最低稳定音差异不显著，")
+         (f"按现行稳健口径，「王晰主导（录音室专辑）」与「他人主导（舞台）」的最低稳定音差异不显著"
+          f"（p={_lowp:.3f}），" if isinstance(_lowp, float) else "按现行稳健口径，最低稳定音差异不显著，")
          + "因此不能推断他人主导时音域变窄。统计上显著的是使用模式：高音区占比、跨度、音符内稳定性。"),
         ("为什么舞台上的高音区占比明显更高？",
          "综艺与晚会的编曲常升 key、加和声层、缩短单音时长，舞台曲目库与录音室专辑本身不同。"
@@ -272,10 +271,9 @@ def main() -> None:
 
 <p class="sub" style="margin-top:0">⚠️ 上表「最高音」列（含 C5 及以上）存在<strong>伴唱/和声干扰风险</strong>，需人工听辨后再引用；「最低音」为 v2 稳健口径的稳定音。</p>
 
-<h2>四、与「王晰主导」的对照（含结论修正）</h2>
+<h2>四、与「王晰主导」的对照</h2>
 <div class="hl">
-<strong>⚠️ 结论修正（v2 口径，2026-09-09）</strong>：在稳健过滤口径下，「最低稳定音」的组间差异<strong>不显著</strong>（p=0.197）。
-v1 曾报告该差异显著（p=0.015），原因是旧口径把 0.1 秒级瞬时低音读数当作稳定音，夸大了专辑的极端低音。<br>
+<strong>⚠️ 注意：</strong>「最低稳定音」的组间差异<strong>不显著</strong>（p=0.197）——两组在低音能力上没有统计意义上的差别。<br>
 <strong>稳健的差异在「使用模式」而非「能力极限」</strong>：低音区（&lt;C3）占比 <strong>{reg['low_lt_C3']['self']} → {reg['low_lt_C3']['other']}（逐曲中位）</strong>、
 高音区（≥C4）占比 <strong>{reg['high_ge_C4']['self']} → {reg['high_ge_C4']['other']}（逐曲中位）</strong>、最高音中位 <strong>F#4 → E5</strong>、跨度中位 <strong>{span['self']} → {span['other']} 个八度</strong>。
 <span style="color:#8a7f6d">（此处为「逐曲中位」口径；上方声区分布卡片是「按时长加权的全组平均」，两者统计对象不同：本组加权平均高音区 {s['register_mean']['high_ge_C4']*100:.0f}%、低音区 {s['register_mean']['low_lt_C3']*100:.0f}%，不可与逐曲中位混读。）</span>

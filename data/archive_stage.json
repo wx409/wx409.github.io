@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09 15:21",
+ "generated_at": "2026-09-09 17:26",
  "source": {
   "fav_title": "王晰综艺现场live",
   "fav_id": 4075783258,
@@ -821,7 +821,7 @@
   "f0": "自研 numpy YIN（fmin=55.0 fmax=1100.0 frame=2048 hop=512 sr=22050）",
   "note_segmentation": "稳定段 ≥80ms、抖动 <0.6 半音",
   "robust_filter": "时长≥0.15s 且 HNR≥5dB 且强度≥中位-25dB；极值音级需该音符本身≥0.2s",
-  "cross_check": "同一素材上 YIN 与 librosa pYIN 一致（多听有益人声轨 61.0 vs 61.2Hz）"
+  "cross_check": "结论已用独立音源复测互证（同一首《渡荆门送别》的舞台版与 QQ 音乐官方版最低稳定音同为 C#2 69.7Hz）。"
  },
  "note": "现场/电视/饭拍音轨；含修音与和声层可能；不做排名或单曲因果；音频仅本地留存不公开分发"
 }
