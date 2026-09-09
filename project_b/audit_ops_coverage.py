@@ -43,6 +43,7 @@ MANUAL_FEATURES = {
     "基线口径\\build_index_raw_long.py": "重建原始库长表",
     "基线口径\\指数数据源诊断.py": "指数数据源诊断",
     "project_b\\check_index_integrity.py": "指数数据源完整性守卫",
+    "project_b\\build_academic.py": "学术研究页生成",
 }
 
 

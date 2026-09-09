@@ -56,6 +56,7 @@ STEPS = [
     (ROOT / "project_b" / "build_setlists_page.py", "歌单索引页 live/setlists.html", True),
     (ROOT / "project_b" / "generate_city_guides.py", "22 城攻略 data/city_guides.json", True),
     (ROOT / "project_b" / "build_story.py", "数据故事 story.html", True),
+    (ROOT / "project_b" / "build_academic.py", "学术研究页 academic.html（读 data/literature.json）", False),
     (r"E:\wx\论文素材_王晰作传\基线口径\generate_voice_page.py", "声部·音域页 voice.html（读 data/archive_vocal.json）", False),
     (ROOT / "project_b" / "build_calibers.py", "口径登记表 data/calibers.json+md（数字字典，禁混用）", True),
     (r"E:\wx\论文素材_王晰作传\基线口径\generate_llms.py", "llms.txt（计数从各 manifest 自动派生，禁手写）", True),

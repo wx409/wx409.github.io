@@ -104,6 +104,7 @@ echo    64. 重建指数长表（00_build_matrix.py，含千分位修复）
 echo    65. 重建原始库长表（build_index_raw_long.py）
 echo    66. 指数数据源诊断（覆盖率+年度多口径对照）
 echo    67. 指数数据源完整性守卫（防回退，退出码1=异常）
+echo    68. 生成学术研究页（data/literature.json 转 academic.html）
 echo    0. 退出
 echo.
 set "op="
@@ -177,6 +178,7 @@ if "%op%"=="64" goto rebuild_matrix
 if "%op%"=="65" goto rebuild_raw_long
 if "%op%"=="66" goto diag_index
 if "%op%"=="67" goto index_guard
+if "%op%"=="68" goto build_academic
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1087,5 +1089,15 @@ echo  [指数数据源完整性守卫] 长表健康度 + 构建脚本指纹 + 站点与源头一致
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\check_index_integrity.py
 echo  [提示] 退出码 0 = 完整；1 = 疑似回退到缺陷版构建（禁止对外引用）
+pause
+goto menu
+
+:build_academic
+cls
+echo  [生成学术研究页] 读 data\literature.json 渲染 academic.html（含 Schema.org JSON-LD）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_academic.py
+python -X utf8 project_b\build_nav.py
+echo  [OK] 已生成 academic.html（新增文献只需编辑 data\literature.json）
 pause
 goto menu
