@@ -65,7 +65,7 @@ echo    38. 预测最终验证 P001
 echo.
 echo  [F · 部署 / Git / 运维]
 echo  ------------------------------------------------------------------------------
-echo    39. 完整部署 deploy_all（12步+commit+IndexNow）
+echo    39. 完整部署 deploy_all（25步+commit+IndexNow，末尾自动口径/导航/bat 把关）
 echo    40. IndexNow 通知 only
 echo    41. 全链路 auto_update
 echo    42. git 手动 push
@@ -96,6 +96,9 @@ echo    57. 口径登记表（data/calibers.json+md）
 echo    58. 导航统一（顶部导航+底部全站索引）
 echo    59. 导航与内链审计（孤儿页检查）
 echo    60. 一键全部把关（口径+登记表+导航+批处理）
+echo    61. 生成 llms.txt（计数从 manifest 派生，禁手写）
+echo    62. 事件效应口径修正（同窗合并+去重叠+FDR）
+echo    63. 打开核实记录与文献综述
 echo    0. 退出
 echo.
 set "op="
@@ -162,6 +165,9 @@ if "%op%"=="57" goto build_calibers
 if "%op%"=="58" goto build_nav
 if "%op%"=="59" goto audit_nav
 if "%op%"=="60" goto gate_all
+if "%op%"=="61" goto gen_llms
+if "%op%"=="62" goto fix_event_effect
+if "%op%"=="63" goto open_records
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -388,7 +394,7 @@ goto menu
 
 cls
 
-echo === 完整部署 deploy_all (12步生成 + commit + IndexNow) ===
+echo === 完整部署 deploy_all (25步生成 + 把关 + commit + IndexNow) ===
 
 cd /d "D:\wx409.github.io"
 
@@ -1004,5 +1010,33 @@ python -X utf8 project_b\audit_nav.py
 python -X utf8 project_b\audit_bat.py
 echo.
 echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
+pause
+goto menu
+
+:gen_llms
+cls
+echo  [生成 llms.txt] 计数从各 manifest 自动派生（禁手写数字）
+cd /d "E:\wx\论文素材_王晰作传\基线口径"
+python -X utf8 generate_llms.py
+echo  [OK] 已生成 D:\wx409.github.io\llms.txt
+echo  [提示] 内容或数据变更后重跑本项即可，数字自动同步
+pause
+goto menu
+
+:fix_event_effect
+cls
+echo  [事件效应口径修正] 同窗合并 + 窗口去重叠 + BH-FDR + 非平稳标记
+cd /d "E:\wx\论文素材_王晰作传\基线口径"
+python -X utf8 事件效应口径修正.py
+echo  [OK] 报告: 事件效应口径修正报告_20260909.md / 机读: 事件效应口径修正_20260909.json
+pause
+goto menu
+
+:open_records
+cls
+echo  [打开核实记录与文献综述]
+start "" "E:\wx\论文素材_王晰作传\档案卡\核实记录_求学履历_20260909.md"
+start "" "E:\wx\论文素材_王晰作传\文献综述\文献综述_外部检索_v1.md"
+start "" "E:\wx\论文素材_王晰作传\第一性原理总检报告_20260908.md"
 pause
 goto menu
