@@ -90,6 +90,12 @@ echo    52. 音域谱生成（10曲→data/archive_vocal.json）
 echo    53. 生成分享图文（长图+图文版HTML）
 echo    54. 更新 voice.html 音域数据（含 IndexNow）
 echo    55. 更新 analysis-board 展板
+echo    ---- I组 口径与导航把关 ----
+echo    56. 口径审计（单一事实源一致性自检）
+echo    57. 口径登记表（data/calibers.json+md）
+echo    58. 导航统一（顶部导航+底部全站索引）
+echo    59. 导航与内链审计（孤儿页检查）
+echo    60. 一键全部把关（56+57+58+59）
 echo    0. 退出
 echo.
 set "op="
@@ -151,6 +157,11 @@ if "%op%"=="52" goto vocal_digest
 if "%op%"=="53" goto vocal_share
 if "%op%"=="54" goto vocal_voice_page
 if "%op%"=="55" goto analysis_board_upd
+if "%op%"=="56" goto audit_caliber
+if "%op%"=="57" goto build_calibers
+if "%op%"=="58" goto build_nav
+if "%op%"=="59" goto audit_nav
+if "%op%"=="60" goto gate_all
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -943,5 +954,54 @@ echo  该页读 dashboard_data.json（tour_song_effects 84场），改内容在页面内手改
 echo  位置: D:\wx409.github.io\dashboard\analysis-board.html
 echo  完善方向: 顶部加音域结论卡(链接 voice.html) + 归因洞察更新
 echo  改动后: git add dashboard/analysis-board.html 后 commit+push
+pause
+goto menu
+
+:audit_caliber
+cls
+echo  [口径审计] 长表真值 vs cities/setlists/entity_index/story/llms
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_caliber.py
+echo  [提示] 退出码 0 = 全部一致；非 0 = 有口径漂移，必须修后再发布
+pause
+goto menu
+
+:build_calibers
+cls
+echo  [口径登记表] 生成 data/calibers.json + data/calibers.md（数字字典）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_calibers.py
+echo  [OK] 已生成 data\calibers.json 与 data\calibers.md
+pause
+goto menu
+
+:build_nav
+cls
+echo  [导航统一] 顶部导航 + 底部全站索引（25页，幂等）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_nav.py
+echo  [OK] 导航已统一；生成器重写页面后重跑本项即可恢复
+pause
+goto menu
+
+:audit_nav
+cls
+echo  [导航与内链审计] 孤儿页 + 导航漂移
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_nav.py
+echo  [提示] 退出码 0 = 孤儿页 0 且导航一致
+pause
+goto menu
+
+:gate_all
+cls
+echo  [一键把关] 口径审计 + 口径登记表 + 导航统一 + 导航审计
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_caliber.py
+python -X utf8 project_b\build_calibers.py
+python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\audit_nav.py
+echo.
+echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
 pause
 goto menu

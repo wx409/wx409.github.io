@@ -79,6 +79,8 @@ def scan_stale_counts(t: dict) -> list[str]:
     good = {t["shows_total"], t["shows_tour"], t["shows_other"]}
     suspect = {"58", "59", "60", "61", "62", "63", "64", "65", "66", "67"}
     pat = re.compile(r"(\d{2})\s*场")
+    # 模糊/陈旧的口径措辞（曾出现在首页：覆盖 50+ 城市、累计 60+ 场次）
+    vague = re.compile(r"(50\+|60\+)\s*(城市|城|场次|场)")
     skip_dirs = {".git", "temp", "node_modules", "__pycache__", ".venv", "venv"}
     out = []
     for root, dirs, files in os.walk(ROOT):
@@ -101,6 +103,10 @@ def scan_stale_counts(t: dict) -> list[str]:
                     rel = p.relative_to(ROOT)
                     ctx = s[max(0, m.start() - 30): m.end() + 30].replace("\n", " ")
                     out.append(f"陈旧场次口径 {n} 场 @ {rel} … {ctx.strip()} …")
+            for m in vague.finditer(s):
+                rel = p.relative_to(ROOT)
+                ctx = s[max(0, m.start() - 30): m.end() + 30].replace("\n", " ")
+                out.append(f"模糊场次口径「{m.group(0)}」 @ {rel} … {ctx.strip()} …（改用口径登记表的准确数字）")
     # 同一文件同一数字只报一次
     seen, uniq = set(), []
     for x in out:
