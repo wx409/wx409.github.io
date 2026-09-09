@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>王晰音域实测 | 72 曲录音室专辑 + 人声分离 F0 分析 · 低音主区 B1–F#2</title>
-<meta name="description" content="王晰（华语流行男低音）音域实测：七张录音室专辑 + EP 共 72 首全部完成人声分离 + 逐帧 F0 提取，最低稳定音 B1（61.7Hz），最高 C6（1046.5Hz），跨度中位 2.25 个八度；含音准/颤音/音符密度/声区分布多维指标与录音室 vs 现场对比。">
+<meta name="description" content="王晰（华语流行男低音）音域实测：七张录音室专辑 + EP 共 72 首全部完成人声分离 + 逐帧 F0 提取，最低稳定音 B1（61.7Hz），最高 C6（1046.5Hz，含伴唱/和声干扰风险，需听辨），跨度中位 2.34 个八度；含音准/颤音/音符密度/声区分布多维指标与录音室 vs 现场对比。">
 <meta name="keywords" content="王晰,男低音,音域,B1,Low C,低音,声乐分析,F0,人声分离">
 <link rel="canonical" href="https://wx409.github.io/voice.html">
 <meta property="og:title" content="王晰音域实测 · 低音主区 B1–F#2">
@@ -118,6 +118,16 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <h1>🎼 王晰音域实测</h1>
 <p class="sub">人声分离 F0 分析 · 低音主区 B1–F#2（61.6–91.0Hz） · 更新 2026-09-09</p>
 
+<div class="hl" style="border-left-color:#e0a800;background:#fff8e1">
+<strong>研究口径升级说明（2026-09-09）</strong><br>
+本研究于 2026-09-09 完成口径升级。<strong>旧口径</strong>采用「单点最低值」，可能把 <strong>0.1 秒级</strong>的瞬时低音读数当成「稳定音」。
+<strong>新口径</strong>增加「稳健过滤」（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB、极值音级 ≥0.2s），只采信持续足够长且质量达标的音符。<br>
+升级后部分曲目的最低音读数上调（如《渡荆门送别》由 B1 修正为 <strong>C#2 69.7Hz</strong>、《向着太阳》由 B1 修正为 <strong>D#2 78.1Hz</strong>），
+但核心结论——<strong>低音主区 B1–D2、B1 在专辑中稳定复现</strong>——依然成立。<br>
+<strong>独立校验</strong>：《渡荆门送别》舞台版与 QQ音乐官方版分别实测，两版最低稳定音<strong>同为 C#2 69.7Hz</strong>，说明旧读数属瞬时值而非测量误差。
+详细复核见 <a href="/stage.html">舞台实测</a> 与本地复核报告。
+</div>
+
 <div class="hl">
 <strong>核心结论：</strong>王晰的低音主区在 <strong>B1–F#2（61.6–91.0Hz）</strong>，全部低于一般男低音下限 E2(82.4Hz)。其中 <strong>1 首歌曲（《多听有益》）最低稳定音达 B1（约 61Hz）</strong>——这是比男低音标志音 Low C（C2，65.4Hz）还低的音。
 </div>
@@ -152,8 +162,18 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <tr><td>惑许</td><td>F#2</td><td>91.0 Hz</td><td>0.21s / HNR 7.0dB</td><td style="color:#8a7f6d">D2（74.5Hz）</td><td>录音室</td></tr>
 </table>
 
-<h2>三、录音室专辑全量实测（72 曲）</h2>
-<img src="assets/voice/acoustic_id_card.png" alt="王晰声学身份证：72 首录音室曲目的实测音域图，横轴频率、纵轴专辑发行时间，标注 B1/Low C/E2/C4/C6 参考线">
+<h2>三、B1 现场复现：录音室与现场同音级</h2>
+<table>
+<tr><th>版本</th><th>最低稳定音</th><th>频率</th><th>时间点</th><th>素材</th><th>可信度</th><th>说明</th></tr>
+<tr><td>录音室版（MV）</td><td class="b1">B1</td><td>61.6 Hz</td><td>153.3s</td><td>BV1zG411f72T</td><td>高</td><td>官方音源 + 人声分离实测</td></tr>
+<tr><td>杭州站现场（4K 直拍）</td><td class="b1">B1</td><td>63.4 Hz</td><td>114.6s</td><td>BV1ArKxe7E8H</td><td>高</td><td>与录音室同音级，差 1.8Hz</td></tr>
+<tr><td>四巡现场直拍</td><td class="b1">D2</td><td>74.9 Hz</td><td>237.3s</td><td>BV1Ab4y1g7Wj</td><td>中</td><td>手机直拍，音质受限</td></tr>
+<tr><td>武汉收官场</td><td class="b1">A2</td><td>111.6 Hz</td><td>35.7s</td><td>BV1iWtUefEkm</td><td>低</td><td>音频处理失真，仅作参考</td></tr>
+</table>
+<p class="sub" style="margin-top:0">口径：杭州站现场实测最低 B1（不写成「所有现场都能到 B1」）；四巡直拍为手机录制、武汉收官场音频处理失真，仅作参考。</p>
+
+<h2>四、录音室专辑全量实测（72 曲）</h2>
+<img src="assets/voice/acoustic_id_card.png" alt="王晰声学身份证：72 首录音室曲目的实测音域图，横轴频率、纵轴专辑发行时间，标注 B1/Low C/E2/C4/C6 参考线；C5 以上存在伴唱/和声干扰风险">
 <div class="hl">
 <strong>七张录音室专辑 + EP《回望》共 72 首，全部完成人声分离 + 逐帧 F0 实测。</strong><br>
 最低稳定音 <strong class="b1">B1（61.9 Hz，《知晓》）</strong>；
@@ -170,7 +190,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 </div>
 <h3 style="font-size:17px;margin-top:22px">专辑汇总</h3>
 <table>
-<tr><th>专辑</th><th>曲数</th><th>最低音</th><th>出自</th><th>最高音</th><th>出自</th><th>平均跨度（八度）</th></tr>
+<tr><th>专辑</th><th>曲数</th><th>最低音*</th><th>出自</th><th>最高音 ⚠️</th><th>出自</th><th>平均跨度（八度）</th></tr>
 <tr><td>Low C的诱惑Ⅱ</td><td>12</td><td class="b1">C2</td><td>乌兰巴托的夜晚</td><td>C6</td><td>如梦令</td><td>2.63</td></tr>
 <tr><td>不说</td><td>8</td><td class="b1">C2</td><td>勿扰</td><td>F5</td><td>勿扰</td><td>2.63</td></tr>
 <tr><td>重游往昔</td><td>8</td><td class="b1">B1</td><td>静止了的夜晚</td><td>G5</td><td>茕茕</td><td>2.62</td></tr>
@@ -265,46 +285,52 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <strong>⚠️ 高音侧说明：</strong>部分曲目的最高音来自和声/伴唱层（人声轨含所有演唱声部），已在报告中标出时间点供人工听辨；低音侧结论不受此影响。
 </div>
 
-<h2>四、情境对比：他主导时 vs 他人主导时</h2>
+<h2>五、情境对比：他主导时 vs 他人主导时</h2>
 <img src="assets/voice/context_compare.png" alt="王晰主导（录音室专辑 72 首）与他人主导（综艺/晚会/商演/饭拍 33 个舞台）六项声学指标箱线图对比">
 <div class="hl">
-<strong>反直觉发现：他人主导时，他唱得更高、音域更宽，低音区反而更少。</strong>（逐条明细见 <a href="/stage.html">🎤 他人主导现场实测</a>）<br>
-高音区（≥C4）占比 <strong>4% → 20%</strong>；最高稳定音中位 <strong>F#4 → E5</strong>；音域跨度 <strong>2.25 → 2.75 个八度</strong>；低音区（&lt;C3）占比 <strong>23% → 11%</strong>。<br>
-<span style="font-size:13px;color:#8a7f6d">口径：A 组 = 王晰主导（录音室专辑 72 首）；B 组 = 他人主导（33 个舞台：晚会 5、盛典商演 4、综艺 21、饭拍直拍 3）；统计用 Mann–Whitney U（非参数）。</span>
+<strong>⚠️ 结论修正（v2 口径）：</strong>「最低稳定音」的组间差异 <strong>不显著</strong>（p=0.197）——
+v1 曾报告显著（p=0.015），系旧口径把 0.1 秒级瞬时低音当作稳定音所致。<br>
+稳健的差异在<strong>「使用模式」而非「能力极限」</strong>：高音区（≥C4）占比 <strong>4% → 20%</strong>、
+低音区（&lt;C3）占比 <strong>23% → 11%</strong>、
+最高稳定音中位 <strong>F#4 → E5</strong>、跨度 <strong>2.31 → 2.95 个八度</strong>。
+（逐条明细见 <a href="/stage.html">🎤 他人主导现场实测</a>）
 </div>
 <table>
 <tr><th>指标</th><th>王晰主导（中位）</th><th>他人主导（中位）</th><th>差值</th><th>p 值</th><th>效应量 r</th></tr>
 <tr><td>最低稳定音（MIDI，越大越高）</td><td>39.00</td><td>39.90</td><td>+0.90</td><td>0.197</td><td>+0.16</td></tr>
-<tr><td>最高稳定音（MIDI）</td><td>66.50</td><td>**76.10**</td><td>+9.60</td><td>0.000</td><td>+0.52</td></tr>
-<tr><td>音域跨度（八度）</td><td>2.31</td><td>**2.95**</td><td>+0.65</td><td>0.000</td><td>+0.43</td></tr>
-<tr><td>音符内稳定性（音分，越小越稳）</td><td>7.25</td><td>**5.60**</td><td>-1.65</td><td>0.000</td><td>-0.52</td></tr>
+<tr><td>最高稳定音（MIDI）</td><td>66.50</td><td><b>76.10</b></td><td>+9.60</td><td>0.000</td><td>+0.52</td></tr>
+<tr><td>音域跨度（八度）</td><td>2.31</td><td><b>2.95</b></td><td>+0.65</td><td>0.000</td><td>+0.43</td></tr>
+<tr><td>音符内稳定性（音分，越小越稳）</td><td>7.25</td><td><b>5.60</b></td><td>-1.65</td><td>0.000</td><td>-0.52</td></tr>
 <tr><td>颤音速率（Hz）</td><td>5.17</td><td>5.07</td><td>-0.10</td><td>0.441</td><td>-0.09</td></tr>
-<tr><td>颤音幅度（音分）</td><td>86.00</td><td>**73.00**</td><td>-13.00</td><td>0.000</td><td>-0.58</td></tr>
-<tr><td>音符密度（个/秒）</td><td>1.85</td><td>**1.63**</td><td>-0.23</td><td>0.004</td><td>-0.35</td></tr>
-<tr><td>低音区占比(&lt;C3)</td><td>0.23</td><td>**0.11**</td><td>-0.12</td><td>0.000</td><td>-0.61</td></tr>
+<tr><td>颤音幅度（音分）</td><td>86.00</td><td><b>73.00</b></td><td>-13.00</td><td>0.000</td><td>-0.58</td></tr>
+<tr><td>音符密度（个/秒）</td><td>1.85</td><td><b>1.63</b></td><td>-0.23</td><td>0.004</td><td>-0.35</td></tr>
+<tr><td>低音区占比(&lt;C3)</td><td>0.23</td><td><b>0.11</b></td><td>-0.12</td><td>0.000</td><td>-0.61</td></tr>
 <tr><td>中音区占比(C3–B3)</td><td>0.63</td><td>0.66</td><td>+0.03</td><td>0.995</td><td>+0.00</td></tr>
-<tr><td>高音区占比(≥C4)</td><td>0.04</td><td>**0.20**</td><td>+0.16</td><td>0.000</td><td>+0.64</td></tr>
+<tr><td>高音区占比(≥C4)</td><td>0.04</td><td><b>0.20</b></td><td>+0.16</td><td>0.000</td><td>+0.64</td></tr>
 <tr><td>中位音符时长（秒）</td><td>0.21</td><td>0.19</td><td>-0.02</td><td>0.265</td><td>-0.13</td></tr>
 </table>
 <div class="method">
-<strong>怎么读：</strong>① 颤音速率 <strong>5.17 → 5.07 Hz（p=0.44，无差异）</strong>——跨情境几乎不动，可视为「声学指纹」；<br>
-② 低音区占比下降、高音区占比上升，说明<b>别人用他时更多在中高音区</b>，而低音多出现在他自己的专辑里（他的自主审美选择）；<br>
-③ <strong>已剔除合唱/对唱做敏感性检验，核心差异依然显著</strong>；但 B 组为现场/电视音轨（可能含修音、伴唱、观众噪声），<b>稳定性更高不等于「现场唱得更准」</b>；<br>
-④ 两组曲目不同（他选的歌 vs 别人给的歌），差异同时包含曲目与使用方式，<b>不做单曲级因果或能力排名</b>。
+<strong>怎么读：</strong>① 颤音速率 <strong>5.17 → 5.07 Hz（p=0.441，无显著差异）</strong>——
+跨情境基本不动，可视作极具辨识度的演唱习惯特征（<em>属演唱习惯，不作生物特征解读</em>）；<br>
+② 低音区使用时长占比下降、高音区占比上升：这是<b>曲目库与舞台使用模式带来的客观结果，多重因素叠加</b>（选曲、编配、调性、播出条件、伴唱等），
+不宜简化为单一因果；<br>
+③ <strong>已剔除合唱/对唱做敏感性检验，核心差异依然稳健</strong>；但 B 组为现场/电视音轨（可能含修音、伴唱、观众噪声），
+<b>稳定性更高不等于「现场唱得更准」</b>；<br>
+④ 两组曲目不同，差异同时包含曲目与使用方式，<b>不做单曲级因果或能力排名</b>。
 </div>
 
-<h2>五、录音室 vs 现场：现场也能到 B1</h2>
+<h2>六、录音室 vs 现场：现场也能到 B1</h2>
 <img src="assets/voice/studio_vs_live.png" alt="录音室vs现场对比">
 <div class="hl">
 多听有益 录音室版最低 <strong class="b1">B1（61.6Hz）</strong>，<strong>现场版（杭州站（肆益巡演））最低 B1（63.4Hz）</strong>——几乎持平。录音室 B1(61.6Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到<br>
 <span style="font-size:13px;color:#8a7f6d">⚠️ 口径：现场验证当前仅基于杭州站 4K 直拍（BV1ArKxe7E8H），其他场次待补充。</span>
 </div>
 
-<h2>六、权威点评（央视《经典咏流传》）</h2>
+<h2>七、权威点评（央视《经典咏流传》）</h2>
 <div class="quote">「作为 Bass-baritone 的话，在中国本身就不多，这是流行圈内的，恐怕就是孤本了」<div class="who">—— 姚峰(深圳音协主席)</div></div>
 <div class="quote">「男生就像一座高山一样，稳稳地……这个用男低音是特别好的」<div class="who">—— 廖昌永(上音院长)</div></div>
 
-<h2>七、公开资料互证</h2>
+<h2>八、公开资料互证</h2>
 <ul>
 <li>豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1。</li>
 <li>hifi168《65HZ 的男低音》：王晰音域下限大字组 C（Low C，65.406Hz）。</li>
@@ -313,7 +339,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 </ul>
 
 <p class="caveat">
-⚠️ <strong>口径与边界（诚实披露）：</strong>① 数据来自本地人声分离 + F0 提取，源为有损流媒体音频（QQ音乐 320k / B站 / 央视网），非母带，绝对频率 ±0.5Hz 误差但不影响音级判定；② 未主张"华语最低/唯一"等排名式结论（横向存在赵鹏/董攀等不同口径）；③ 「两个半八度」为主持人撒贝宁口语、不准确（实测男女声叠加约3.3个八度）；「抒情花腔女高音」「声音化妆」指合唱搭档霍圆元，非王晰；④ 本页数据仅供研究参考与歌迷交流，非官方发布。<br>
+⚠️ <strong>口径与边界（诚实披露）：</strong>① 数据来自本地人声分离 + F0 提取，源为有损流媒体音频（QQ音乐 320k / B站 / 央视网），非母带，绝对频率 ±0.5Hz 误差但不影响音级判定；② 不作排名式结论（不对歌手作横向最低音排序；民间口径中王晰与赵鹏并列、董攀为不同声部）；③ 「两个半八度」为主持人撒贝宁口语、不准确（实测男女声叠加约3.3个八度）；「抒情花腔女高音」「声音化妆」指合唱搭档霍圆元，非王晰；④ 本页数据仅供研究参考与歌迷交流，非官方发布。<br>
 数据底账：本地音域分析目录（demucs 分离人声 + 逐帧 F0 CSV），方法可复现。
 </p>
 

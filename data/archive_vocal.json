@@ -133,6 +133,44 @@
   "廖昌永(上音院长)": "「男生就像一座高山一样，稳稳地……这个用男低音是特别好的」",
   "caution": "「两个半八度」为主持人撒贝宁口语、不准确（实测男女声叠加约3.3个八度）；「抒情花腔女高音」「声音化妆」指合唱搭档霍圆元，非王晰"
  },
+ "b1_reproduction": [
+  {
+   "version": "录音室版（MV）",
+   "note": "B1",
+   "hz": 61.6,
+   "time_s": 153.3,
+   "source": "BV1zG411f72T",
+   "trust": "高",
+   "note_text": "官方音源 + 人声分离实测"
+  },
+  {
+   "version": "杭州站现场（4K 直拍）",
+   "note": "B1",
+   "hz": 63.4,
+   "time_s": 114.6,
+   "source": "BV1ArKxe7E8H",
+   "trust": "高",
+   "note_text": "与录音室同音级，差 1.8Hz"
+  },
+  {
+   "version": "四巡现场直拍",
+   "note": "D2",
+   "hz": 74.9,
+   "time_s": 237.3,
+   "source": "BV1Ab4y1g7Wj",
+   "trust": "中",
+   "note_text": "手机直拍，音质受限"
+  },
+  {
+   "version": "武汉收官场",
+   "note": "A2",
+   "hz": 111.6,
+   "time_s": 35.7,
+   "source": "BV1iWtUefEkm",
+   "trust": "低",
+   "note_text": "音频处理失真，仅作参考"
+  }
+ ],
  "studio_vs_live": {
   "song": "多听有益",
   "studio_hz": 61.6,
