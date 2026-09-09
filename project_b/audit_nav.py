@@ -90,9 +90,58 @@ def main() -> None:
     if problems == 0:
         print("  全部一致 ✅")
 
+    # 3) 站内锚点存在性（死锚点对 GEO 是硬伤：链接可点但跳不到内容）
+    #    只检查 GEO 关键页，且容忍"由 JS 运行时生成"的锚点（discography 的 song-<曲名>）。
+    anchor_problems: list[str] = []
+    js_anchor_ok = set()
+    try:
+        import json
+        albums = json.loads((ROOT / "data" / "albums.json").read_text(encoding="utf-8"))
+        for a in albums.get("albums", []):
+            for s in a.get("songs", []):
+                t = s if isinstance(s, str) else (s.get("title") or s.get("name") or "")
+                if t:
+                    js_anchor_ok.add("song-" + t)
+    except Exception:
+        pass
+
+    CHECK_ANCHOR_PAGES = ["index.html", "voice.html", "stage.html", "qa.html", "academic.html"]
+    for rel in CHECK_ANCHOR_PAGES:
+        p = ROOT / rel
+        if not p.exists():
+            continue
+        html = p.read_text(encoding="utf-8", errors="ignore")
+        ids = set(re.findall(r'id="([^"]+)"', html))
+        for href in re.findall(r'href="([^"]+#[^"]+)"', html):
+            page, frag = href.split("#", 1)
+            if page.startswith("http") or not frag:
+                continue
+            if page == "":
+                target_html, target_rel = html, rel
+            else:
+                t = ROOT / page.lstrip("/")
+                if t.is_dir():
+                    t = t / "index.html"
+                if not t.exists():
+                    continue                      # 页面本身不存在由其他审计负责
+                target_html = t.read_text(encoding="utf-8", errors="ignore")
+                target_rel = t.relative_to(ROOT).as_posix()
+            if frag in set(re.findall(r'id="([^"]+)"', target_html)):
+                continue
+            if frag in js_anchor_ok:              # 运行时由 JS 生成（discography 曲目锚点）
+                continue
+            anchor_problems.append(f"{rel} -> {target_rel}#{frag} 锚点不存在")
+
+    print("\n【站内锚点】死锚点（链接可点但跳不到）：")
+    if anchor_problems:
+        for x in anchor_problems:
+            print("  " + x)
+    else:
+        print("  无 ✅")
+
     print("\n" + "=" * 68)
-    print(f"页面数 {len(pages)}｜孤儿页 {len(orphans)}｜导航不一致 {problems}")
-    if orphans or problems:
+    print(f"页面数 {len(pages)}｜孤儿页 {len(orphans)}｜导航不一致 {problems}｜死锚点 {len(anchor_problems)}")
+    if orphans or problems or anchor_problems:
         sys.exit(1)
 
 
