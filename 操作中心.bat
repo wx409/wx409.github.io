@@ -109,6 +109,9 @@ echo    ---- K组 专辑音域全量实测 ----
 echo    69. 下载专辑音频（七专辑+回望，QQ音乐320k）
 echo    70. 专辑音域实测（分离+F0+多维指标，约12分钟）
 echo    71. 生成专辑音域报告（报告+站点数据+voice.html）
+echo    72. 添加待测曲目（搜索歌名写入待测清单）
+echo    73. 一键音域实测（69到71全流程）
+echo    74. 清理分离人声缓存（释放约2.9GB）
 echo    0. 退出
 echo.
 set "op="
@@ -186,6 +189,9 @@ if "%op%"=="68" goto build_academic
 if "%op%"=="69" goto dl_albums
 if "%op%"=="70" goto analyze_albums
 if "%op%"=="71" goto report_albums
+if "%op%"=="72" goto add_song
+if "%op%"=="73" goto one_click_vocal
+if "%op%"=="74" goto clean_stems
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1137,5 +1143,35 @@ python -X utf8 generate_voice_page.py
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_nav.py
 echo  [OK] 报告 专辑音域报告_v1.md ；voice.html 已更新
+pause
+goto menu
+
+:add_song
+cls
+echo  [添加待测曲目] 搜索 QQ音乐 并把王晰版本写入 待测清单.json
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+set /p kw=输入歌名（回车退出）: 
+if "%kw%"=="" goto menu
+python -X utf8 添加待测曲目.py "%kw%"
+pause
+goto menu
+
+:one_click_vocal
+cls
+echo  [一键音域实测] 下载 到 分离测量 到 报告 到 voice.html
+echo  默认只处理 待测清单.json 的增量；整张新专辑请用 69/70/71
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 一键音域实测.py
+pause
+goto menu
+
+:clean_stems
+cls
+echo  [清理分离人声缓存] 删除 分离_专辑 下的 vocals.wav（释放约 2.9GB）
+echo  已测数据（分析结果_专辑 的 f0.csv/stats.json）与音频保留，重算时自动重建
+set /p ok=确认删除? 输入 y 继续: 
+if /i not "%ok%"=="y" goto menu
+rmdir /s /q "E:\wx\论文素材_王晰作传\音域分析\分离_专辑"
+echo  [OK] 已清理
 pause
 goto menu

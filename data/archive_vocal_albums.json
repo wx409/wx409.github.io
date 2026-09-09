@@ -1,10 +1,11 @@
 {
- "generated_at": "2026-09-09 12:41",
+ "generated_at": "2026-09-09 12:51",
  "source": "录音室专辑实测（QQ音乐 320k → demucs → YIN）",
  "method": {
   "separation": "demucs htdemucs（--two-stems=vocals，GPU，本地缓存模型）",
   "f0": "自研 numpy YIN（fmin=55.0 fmax=1100.0 frame=2048 hop=512 sr=22050）",
   "note_segmentation": "稳定段 ≥80ms、抖动 <0.6 半音",
+  "robust_filter": "时长≥0.15s 且 HNR≥5dB 且强度≥中位-25dB；极值音级需累计≥0.3s",
   "cross_check": "同一素材上 YIN 与 librosa pYIN 一致（多听有益人声轨 61.0 vs 61.2Hz）"
  },
  "summary": {
