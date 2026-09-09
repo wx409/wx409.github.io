@@ -955,7 +955,7 @@ echo  位置: D:\wx409.github.io\dashboard\analysis-board.html
 echo  完善方向: 顶部加音域结论卡(链接 voice.html) + 归因洞察更新
 echo  改动后: git add dashboard/analysis-board.html 后 commit+push
 pause
-goto menu
+goto menu
 
 :audit_caliber
 cls
