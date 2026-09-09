@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-09 12:00",
+  "timestamp": "2026-09-09 12:19",
   "total": 272004,
   "success": 56376,
   "complete_rate": 20.7,
@@ -197550,7 +197550,7 @@
         29.1,
         35.1,
         32.5,
-        33.2,
+        33.7,
         26.1,
         25.6,
         25.9,
@@ -197847,8 +197847,8 @@
       "在路上"
     ],
     "values": [
-      148.3,
-      128.6
+      146.3,
+      127.4
     ],
     "spring": [
       false,
@@ -205349,15 +205349,86 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 9,
+    "active_count": 10,
     "total_tracked": 383,
-    "concentration_top3": 75.9,
+    "concentration_top3": 73.5,
     "as_of": "2026-09-09",
-    "too_small": true
+    "too_small": false
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 56.6,
+      "trend_pct": 60.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "在路上",
+      "share_pct": 8.8,
+      "trend_pct": 55.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "一生中最爱",
+      "share_pct": 8.1,
+      "trend_pct": 92.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "山楂树",
+      "share_pct": 6.5,
+      "trend_pct": 233.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "再叙",
+      "share_pct": 6.2,
+      "trend_pct": 78.1,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
+      "song": "月弯弯",
+      "share_pct": 4.3,
+      "trend_pct": 29.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "她真漂亮",
+      "share_pct": 3.4,
+      "trend_pct": 14.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 8,
+      "song": "Sound of Silence",
+      "share_pct": 2.8,
+      "trend_pct": 136.4,
+      "trend_label": "up"
+    },
+    {
+      "rank": 9,
+      "song": "谁",
+      "share_pct": 2.8,
+      "trend_pct": 30.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 10,
+      "song": "你要忘了我",
+      "share_pct": 0.5,
+      "trend_pct": null,
+      "trend_label": "new"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-09-09 12:00",
+  "last_update": "2026-09-09 12:19",
   "today_batches": 1225,
   "daily_new_records": 0,
   "recent_7days": [
@@ -205419,13 +205490,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 3492,
-      "success": 3492,
+      "total": 3493,
+      "success": 3493,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1512100,
+      "before": 1512353,
       "after": 282564
     },
     "index_calibration": {
@@ -205651,7 +205722,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-09-09 12:00",
+    "generated_at": "2026-09-09 12:19",
     "overview": "共 86 场活动 / 3043 个歌曲观测，正涨幅 1280（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.2%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
