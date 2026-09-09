@@ -116,6 +116,8 @@ echo    ---- L组 情境对比（他主导 vs 他人主导） ----
 echo    75. 抓取B站收藏夹清单（王晰综艺现场live）
 echo    76. 下载他人主导音频（综艺/晚会/商演/饭拍）
 echo    77. 情境对比分析（报告+箱线图+站点数据）
+echo    78. 生成他人主导详细报告（分类明细+长图）
+echo    79. 生成舞台实测页 stage.html
 echo    0. 退出
 echo.
 set "op="
@@ -199,6 +201,8 @@ if "%op%"=="74" goto clean_stems
 if "%op%"=="75" goto fav_fetch
 if "%op%"=="76" goto dl_other
 if "%op%"=="77" goto ctx_compare
+if "%op%"=="78" goto stage_report
+if "%op%"=="79" goto stage_page
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1211,5 +1215,24 @@ python -X utf8 generate_voice_page.py
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_nav.py
 echo  [OK] 报告 情境对比报告.md ；voice.html 板块四已更新
+pause
+goto menu
+
+:stage_report
+cls
+echo  [生成他人主导详细报告] 分类明细 + 逐条表 + 音域长图 + 站点数据
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 生成他人主导报告.py
+echo  [OK] 他人主导\详细报告.md ；分享\他人主导_音域长图.png
+pause
+goto menu
+
+:stage_page
+cls
+echo  [生成舞台实测页] 读 data/archive_stage.json 渲染 stage.html
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_stage_page.py
+python -X utf8 project_b\build_nav.py
+echo  [OK] stage.html 已更新
 pause
 goto menu
