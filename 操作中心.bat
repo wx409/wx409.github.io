@@ -123,6 +123,12 @@ echo    80. 复核十曲严格口径（新旧口径逐曲对照）
 echo    81. 匹配QQ官方版本（舞台素材同曲对照）
 echo    82. 双重校验（舞台版 vs QQ官方版）
 echo    83. 重绘十曲图（按现行口径）
+echo    ---- N组 一致性与 GEO 资产维护 ----
+echo    84. sitemap lastmod 自动回填（按 git，禁手写）
+echo    85. 电梯定义句刷新（首页/问答库/llms/Person）
+echo    86. 首页音域摘要块刷新（从实测 JSON 派生）
+echo    87. 结构化数据审计（JSON-LD 语法/类型/纪律）
+echo    88. 分享图重新生成 + 版本指纹（长图一致性）
 echo    0. 退出
 echo.
 set "op="
@@ -212,6 +218,11 @@ if "%op%"=="80" goto recheck10
 if "%op%"=="81" goto qq_match
 if "%op%"=="82" goto crosscheck
 if "%op%"=="83" goto redraw10
+if "%op%"=="84" goto sitemap_lm
+if "%op%"=="85" goto elev_def
+if "%op%"=="86" goto vocal_sum
+if "%op%"=="87" goto audit_ld
+if "%op%"=="88" goto idcard
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1283,5 +1294,51 @@ echo  [重绘十曲图] 按现行「最低稳定音」口径重绘 range_10songs.png
 cd /d "E:\wx\论文素材_王晰作传\音域分析"
 python -X utf8 重绘十曲图.py
 echo  [OK] assets\voice\range_10songs.png 已更新
+pause
+goto menu
+
+:sitemap_lm
+cls
+echo  [sitemap lastmod 回填] 按 git 提交日期刷新 144 条 URL 的 lastmod
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\update_sitemap_lastmod.py
+echo  [OK] sitemap.xml 已刷新（加 --check 可做审计）
+pause
+goto menu
+
+:elev_def
+cls
+echo  [电梯定义句] 从 calibers/音域实测/姚峰原话 派生，注入首页+问答库+llms+Person
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\elevator_definition.py
+echo  [OK] data\elevator_definition.json ；index.html / qa.html 顶部已更新
+echo  提示: 再跑 llms.txt 生成步骤才会同步到 llms.txt
+pause
+goto menu
+
+:vocal_sum
+cls
+echo  [首页音域摘要] 从 archive_vocal*.json 派生，替换首页手写残留
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\inject_vocal_summary.py
+echo  [OK] index.html 音域摘要块已更新（加 --check 校验）
+pause
+goto menu
+
+:audit_ld
+cls
+echo  [结构化数据审计] JSON-LD 语法 + ResearchProject/FAQPage 必备 + 纪律用词
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_jsonld.py
+echo  [OK] 审计完成（exit 1 = 不合格，看输出逐条修）
+pause
+goto menu
+
+:idcard
+cls
+echo  [分享图重生成] 声学身份证长图 + 版本指纹（供口径审计校验）
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 生成声学身份证.py
+echo  [OK] 分享\王晰声学身份证_长图.png ；站点 assets\voice\acoustic_id_card.png + 指纹
 pause
 goto menu

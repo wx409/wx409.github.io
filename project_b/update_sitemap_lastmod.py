@@ -112,7 +112,25 @@ def main() -> int:
             if not dry and not check:
                 lm.text = new
 
-    if changed and not dry and not check:
+    # ---- 补全遗漏页：顶层 HTML 若不在 sitemap 中则自动登记（stage.html 曾漏登记）----
+    have = {(u.findtext("sm:loc", default="", namespaces=NS) or "").strip()
+            for u in tree.findall("sm:url", NS)}
+    added: list[str] = []
+    for page in sorted(ROOT.glob("*.html")):
+        if page.name in ("live_template.html", "404.html", "index.html"):  # 首页的规范 URL 是根路径 /
+            continue
+        loc = BASE + page.name
+        if loc in have:
+            continue
+        rel = page.name
+        lm = TODAY if rel in dirty else dates.get(rel, TODAY)
+        entry = (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lm}</lastmod>\n"
+                 f"    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>\n")
+        added.append(loc)
+        if not dry and not check:
+            text = text.replace("</urlset>", entry + "</urlset>")
+
+    if (changed or added) and not dry and not check:
         # 保持原始排版：按行回填（正则容忍 LF/CRLF 混排），最小化 diff
         for loc, old, new in changed:
             text = re.sub(
@@ -123,6 +141,10 @@ def main() -> int:
         io.open(SITEMAP, "w", encoding="utf-8", newline="").write(text)
 
     print(f"[sitemap] 共 {len(tree.findall('sm:url', NS))} 条 URL，本次回填 {len(changed)} 条")
+    if added:
+        print(f"[sitemap] 补登记遗漏页 {len(added)} 个：")
+        for loc in added:
+            print(f"  + {loc}")
     for loc, old, new in changed[:20]:
         print(f"  {loc} : {old} -> {new}")
     if len(changed) > 20:
