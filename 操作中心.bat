@@ -105,6 +105,10 @@ echo    65. 重建原始库长表（build_index_raw_long.py）
 echo    66. 指数数据源诊断（覆盖率+年度多口径对照）
 echo    67. 指数数据源完整性守卫（防回退，退出码1=异常）
 echo    68. 生成学术研究页（data/literature.json 转 academic.html）
+echo    ---- K组 专辑音域全量实测 ----
+echo    69. 下载专辑音频（七专辑+回望，QQ音乐320k）
+echo    70. 专辑音域实测（分离+F0+多维指标，约12分钟）
+echo    71. 生成专辑音域报告（报告+站点数据+voice.html）
 echo    0. 退出
 echo.
 set "op="
@@ -179,6 +183,9 @@ if "%op%"=="65" goto rebuild_raw_long
 if "%op%"=="66" goto diag_index
 if "%op%"=="67" goto index_guard
 if "%op%"=="68" goto build_academic
+if "%op%"=="69" goto dl_albums
+if "%op%"=="70" goto analyze_albums
+if "%op%"=="71" goto report_albums
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1099,5 +1106,36 @@ cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_academic.py
 python -X utf8 project_b\build_nav.py
 echo  [OK] 已生成 academic.html（新增文献只需编辑 data\literature.json）
+pause
+goto menu
+
+:dl_albums
+cls
+echo  [下载专辑音频] 七张录音室专辑 + EP 回望（QQ音乐 320k，跳过已存在）
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 批量下载专辑.py
+echo  [OK] 见 专辑音频 目录下的各专辑子目录；清单 专辑下载清单.json
+pause
+goto menu
+
+:analyze_albums
+cls
+echo  [专辑音域实测] demucs 人声分离 + 逐帧 F0 + 多维声学指标（约 12 分钟）
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 批量专辑音域.py
+echo  [OK] 汇总 专辑音域汇总.json ；逐曲 分析结果_专辑 目录
+pause
+goto menu
+
+:report_albums
+cls
+echo  [生成专辑音域报告] 报告 + 站点数据 + 重渲染 voice.html
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 生成专辑音域报告.py
+cd /d "E:\wx\论文素材_王晰作传\基线口径"
+python -X utf8 generate_voice_page.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_nav.py
+echo  [OK] 报告 专辑音域报告_v1.md ；voice.html 已更新
 pause
 goto menu

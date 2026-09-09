@@ -44,6 +44,9 @@ MANUAL_FEATURES = {
     "基线口径\\指数数据源诊断.py": "指数数据源诊断",
     "project_b\\check_index_integrity.py": "指数数据源完整性守卫",
     "project_b\\build_academic.py": "学术研究页生成",
+    "音域分析\\批量下载专辑.py": "专辑音频下载",
+    "音域分析\\批量专辑音域.py": "专辑音域实测",
+    "音域分析\\生成专辑音域报告.py": "专辑音域报告",
 }
 
 
