@@ -103,6 +103,7 @@ echo    ---- J组 指数数据源（原始库/重算/诊断） ----
 echo    64. 重建指数长表（00_build_matrix.py，含千分位修复）
 echo    65. 重建原始库长表（build_index_raw_long.py）
 echo    66. 指数数据源诊断（覆盖率+年度多口径对照）
+echo    67. 指数数据源完整性守卫（防回退，退出码1=异常）
 echo    0. 退出
 echo.
 set "op="
@@ -175,6 +176,7 @@ if "%op%"=="63" goto open_records
 if "%op%"=="64" goto rebuild_matrix
 if "%op%"=="65" goto rebuild_raw_long
 if "%op%"=="66" goto diag_index
+if "%op%"=="67" goto index_guard
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1016,6 +1018,7 @@ python -X utf8 project_b\build_nav.py
 python -X utf8 project_b\audit_nav.py
 python -X utf8 project_b\audit_bat.py
 python -X utf8 project_b\audit_ops_coverage.py
+python -X utf8 project_b\check_index_integrity.py
 echo.
 echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
 pause
@@ -1075,5 +1078,14 @@ echo  [指数数据源诊断] 覆盖率对比 + 年度多口径对照（旧表/原始库/当日/昨日）
 cd /d "E:\wx\论文素材_王晰作传\基线口径"
 python -X utf8 指数数据源诊断.py
 echo  [OK] 报告: 指数数据源诊断报告_20260909.md
+pause
+goto menu
+
+:index_guard
+cls
+echo  [指数数据源完整性守卫] 长表健康度 + 构建脚本指纹 + 站点与源头一致
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\check_index_integrity.py
+echo  [提示] 退出码 0 = 完整；1 = 疑似回退到缺陷版构建（禁止对外引用）
 pause
 goto menu

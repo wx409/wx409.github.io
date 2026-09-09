@@ -42,6 +42,7 @@ MANUAL_FEATURES = {
     "wx_textmine\\00_build_matrix.py": "重建指数长表（含千分位修复）",
     "基线口径\\build_index_raw_long.py": "重建原始库长表",
     "基线口径\\指数数据源诊断.py": "指数数据源诊断",
+    "project_b\\check_index_integrity.py": "指数数据源完整性守卫",
 }
 
 

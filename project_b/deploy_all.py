@@ -67,6 +67,7 @@ STEPS = [
     (ROOT / "project_b" / "audit_nav.py", "导航与内链审计（孤儿页=0 把关）", False),
     (ROOT / "project_b" / "audit_bat.py", "批处理体检（GBK/BEL/双回车/goto 目标）", False),
     (ROOT / "project_b" / "audit_ops_coverage.py", "操作中心覆盖审计（人工功能都有菜单入口）", False),
+    (ROOT / "project_b" / "check_index_integrity.py", "指数数据源完整性守卫（防回退到缺陷版构建）", True),
     (ROOT / "project_b" / "audit_caliber.py", "口径审计（单一事实源一致性自检，末尾把关）", False),
 ]
 
