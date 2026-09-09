@@ -284,6 +284,27 @@ def main() -> None:
         problems.append("[FAIL] 分享图指纹缺失（跑 音域分析/生成声学身份证.py 生成）")
         print("[FAIL] 分享图指纹缺失（跑 音域分析/生成声学身份证.py 生成）")
 
+    # ---- 10) 页面引用资产存在性（本地仓库级：图片断链必须在本轮内发现）----
+    for page in ("voice.html", "stage.html", "index.html"):
+        pp = ROOT / page
+        if not pp.exists():
+            continue
+        text = pp.read_text(encoding="utf-8")
+        refs = set(re.findall(r'<img[^>]+src="([^"]+)"', text))
+        for m in re.finditer(r'<meta[^>]+(?:property|name)="og:image"[^>]*>', text):
+            mm = re.search(r'content="([^"]+)"', m.group(0))
+            if mm:
+                refs.add(mm.group(1))
+        for u in sorted(refs):
+            if u.startswith("http"):
+                if "wx409.github.io/" not in u:
+                    continue          # 站外图不检查
+                rel = u.split("wx409.github.io/", 1)[1]
+            else:
+                rel = u.lstrip("/")
+            rel = rel.split("?")[0].split("#")[0]
+            ok(f"{page} 引用资产存在 {rel}", True, (ROOT / rel).exists())
+
     print("-" * 68)
     if problems:
         print(f"结论：发现 {len(problems)} 处口径不一致 —— 必须修，禁止对外引用。")
