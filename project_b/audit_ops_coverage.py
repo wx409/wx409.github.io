@@ -39,6 +39,9 @@ MANUAL_FEATURES = {
     "基线口径\\compute_baseline_v1.py": "口径基线重算",
     "基线口径\\事件效应口径修正.py": "事件效应口径修正",
     "基线口径\\矛盾扫描器.py": "矛盾扫描",
+    "wx_textmine\\00_build_matrix.py": "重建指数长表（含千分位修复）",
+    "基线口径\\build_index_raw_long.py": "重建原始库长表",
+    "基线口径\\指数数据源诊断.py": "指数数据源诊断",
 }
 
 

@@ -1,38 +1,38 @@
 {
- "口径": "追踪曲目池日均（非全站）",
+ "口径": "追踪曲目池日均（非全站；每日最终指数）",
  "源": "music_index_long.csv（QQ音乐指数长表，本地单一事实源，不进公开仓库）",
  "区间": [
   "2023-01-01",
-  "2026-09-06"
+  "2026-09-08"
  ],
  "annual": [
   {
    "year": "2023",
    "cover_days": 311,
    "valid_days": 311,
-   "mean": 477.5,
-   "median": 330.3
+   "mean": 1029.6,
+   "median": 810.9
   },
   {
    "year": "2024",
-   "cover_days": 355,
+   "cover_days": 356,
    "valid_days": 355,
-   "mean": 301.4,
-   "median": 322.0
+   "mean": 880.5,
+   "median": 904.0
   },
   {
    "year": "2025",
    "cover_days": 330,
    "valid_days": 330,
-   "mean": 307.3,
-   "median": 310.0
+   "mean": 861.9,
+   "median": 850.4
   },
   {
    "year": "2026",
-   "cover_days": 238,
-   "valid_days": 238,
-   "mean": 268.3,
-   "median": 258.6
+   "cover_days": 240,
+   "valid_days": 240,
+   "mean": 686.5,
+   "median": 657.6
   }
  ],
  "effects_sample": [
@@ -40,9 +40,9 @@
    "date": "2023-01-14",
    "type": "综艺/影视",
    "title": "王晰参加CCTV网络春晚合唱《雾里》",
-   "baseline": 3552.8,
-   "post": 370.5,
-   "effect_pct": -89.6,
+   "baseline": 3632.1,
+   "post": 2526.5,
+   "effect_pct": -30.4,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -50,9 +50,9 @@
    "date": "2023-01-14",
    "type": "综艺/影视",
    "title": "参加网络春晚",
-   "baseline": 3552.8,
-   "post": 370.5,
-   "effect_pct": -89.6,
+   "baseline": 3632.1,
+   "post": 2526.5,
+   "effect_pct": -30.4,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -60,9 +60,9 @@
    "date": "2023-01-14",
    "type": "演出",
    "title": "参加《中央广播电视总台2023网络春晚》",
-   "baseline": 3552.8,
-   "post": 370.5,
-   "effect_pct": -89.6,
+   "baseline": 3632.1,
+   "post": 2526.5,
+   "effect_pct": -30.4,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -70,9 +70,9 @@
    "date": "2023-02-03",
    "type": "综艺/影视",
    "title": "王晰采访即将上线",
-   "baseline": 360.2,
-   "post": 361.2,
-   "effect_pct": 0.3,
+   "baseline": 2147.7,
+   "post": 1259.1,
+   "effect_pct": -41.4,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -80,9 +80,9 @@
    "date": "2023-02-05",
    "type": "综艺/影视",
    "title": "王晰采访正片上线",
-   "baseline": 364.0,
-   "post": 373.7,
-   "effect_pct": 2.7,
+   "baseline": 1898.1,
+   "post": 1289.4,
+   "effect_pct": -32.1,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -90,9 +90,9 @@
    "date": "2023-02-07",
    "type": "发歌/专辑",
    "title": "王晰新歌《想游泳的星》预告",
-   "baseline": 362.3,
-   "post": 383.4,
-   "effect_pct": 5.8,
+   "baseline": 1534.0,
+   "post": 1312.5,
+   "effect_pct": -14.4,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -100,9 +100,9 @@
    "date": "2023-02-08",
    "type": "发歌/专辑",
    "title": "新歌《想游泳的星》发布",
-   "baseline": 424.8,
-   "post": 388.1,
-   "effect_pct": -8.6,
+   "baseline": 1472.6,
+   "post": 1320.5,
+   "effect_pct": -10.3,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -110,9 +110,9 @@
    "date": "2023-02-08",
    "type": "发歌/专辑",
    "title": "单曲《想游泳的星》上线",
-   "baseline": 424.8,
-   "post": 388.1,
-   "effect_pct": -8.6,
+   "baseline": 1472.6,
+   "post": 1320.5,
+   "effect_pct": -10.3,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -120,9 +120,9 @@
    "date": "2023-02-09",
    "type": "综艺/影视",
    "title": "王晰幕后采访特辑发布",
-   "baseline": 426.1,
-   "post": 532.6,
-   "effect_pct": 25.0,
+   "baseline": 1434.7,
+   "post": 1324.7,
+   "effect_pct": -7.7,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -130,9 +130,9 @@
    "date": "2023-02-14",
    "type": "演出",
    "title": "王晰生日签唱会官宣",
-   "baseline": 422.3,
-   "post": 546.1,
-   "effect_pct": 29.3,
+   "baseline": 1288.6,
+   "post": 1389.0,
+   "effect_pct": 7.8,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -140,9 +140,9 @@
    "date": "2023-02-22",
    "type": "综艺/影视",
    "title": "王晰参加翻浪四季歌会",
-   "baseline": 436.5,
-   "post": 541.9,
-   "effect_pct": 24.1,
+   "baseline": 1293.4,
+   "post": 1403.3,
+   "effect_pct": 8.5,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -150,13 +150,13 @@
    "date": "2023-02-22",
    "type": "综艺/影视",
    "title": "参加翻浪四季歌会预告",
-   "baseline": 436.5,
-   "post": 541.9,
-   "effect_pct": 24.1,
+   "baseline": 1293.4,
+   "post": 1403.3,
+   "effect_pct": 8.5,
    "flag": "",
    "source": "LLM抽取待核"
   }
  ],
- "generated": "2026-09-07",
+ "generated": "2026-09-09（含千分位逗号修复）",
  "注意": "效应为修基线后的池均值窗口差异，事件源自LLM抽取待核"
 }
