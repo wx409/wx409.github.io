@@ -42,6 +42,109 @@
   "license": "https://creativecommons.org/licenses/by-nc/4.0/"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchProject",
+  "name": "王晰声学档案：他人主导场景（综艺/晚会/商演/饭拍）舞台语料实测",
+  "url": "https://wx409.github.io/stage.html",
+  "description": "对王晰在他人主导场景的 33 个舞台素材做统一口径测量（demucs 人声分离 + 逐帧 F0），并与 72 首录音室曲目做 Mann–Whitney U 组间对比，用于区分「能力极限」与「使用模式」两类差异。",
+  "dateModified": "2026-09-09 15:21",
+  "creator": {
+    "@type": "Person",
+    "name": "wx409",
+    "url": "https://wx409.github.io"
+  },
+  "about": {
+    "@type": "Person",
+    "name": "王晰",
+    "url": "https://wx409.github.io"
+  },
+  "measurementTechnique": "demucs htdemucs（--two-stems=vocals，GPU，本地缓存模型）；自研 numpy YIN（fmin=55.0 fmax=1100.0 frame=2048 hop=512 sr=22050）",
+  "keywords": [
+    "王晰",
+    "舞台实测",
+    "综艺",
+    "晚会",
+    "音域",
+    "F0",
+    "人声分离",
+    "情境对比"
+  ],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "hasPart": [
+    {
+      "@type": "Dataset",
+      "name": "33 个舞台素材逐条指标",
+      "url": "https://wx409.github.io/data/archive_stage.json"
+    },
+    {
+      "@type": "Dataset",
+      "name": "专辑 vs 舞台情境对比统计",
+      "url": "https://wx409.github.io/data/archive_context_compare.json"
+    },
+    {
+      "@type": "Dataset",
+      "name": "舞台版 vs QQ 音乐官方版双重校验",
+      "url": "https://wx409.github.io/data/archive_crosscheck.json"
+    }
+  ],
+  "subjectOf": {
+    "@type": "Dataset",
+    "url": "https://wx409.github.io/data/archive_stage.json"
+  },
+  "isBasedOn": [
+    {
+      "@type": "Dataset",
+      "name": "v1 口径（已作废）：pYIN 单点最低音 + 全样本合并统计",
+      "version": "v1",
+      "description": "v1 报告「他人主导时最低音显著更高（p=0.015）」；v2 改用稳定音口径后该差异不显著（p=0.1966），结论已修正。"
+    }
+  ],
+  "disambiguatingDescription": "最低音组间差异不显著，不可推断「他人主导的舞台唱不到低音」；最高音读数含伴唱/和声干扰风险，需听辨。"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "他人主导的综艺/晚会上，王晰的音域会变窄吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "按 v2 稳定音口径，「王晰主导（录音室专辑）」与「他人主导（舞台）」的最低稳定音差异不显著（p=0.197），因此不能推断他人主导时音域变窄。统计上显著的是使用模式：高音区占比、跨度、音符内稳定性。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么舞台上的高音区占比明显更高？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "综艺与晚会的编曲常升 key、加和声层、缩短单音时长，舞台曲目库与录音室专辑本身不同。这是曲目库与舞台使用模式带来的客观结果，多重因素叠加，不指向「刻意删掉低音」之类的推断。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "舞台版和录音室版的差异，是测量误差吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "已做双重校验：同一首歌的舞台版与 QQ 音乐官方版配对比对 24 组，最低稳定音中位差 0.00 半音、跨度差 +0.09 八度、音符内稳定性差 0.00 音分，测量系统本身一致。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "舞台实测里出现过的 B1 可信吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "现场 B1 只在已核验的个案中复现（杭州站），且需满足稳定音口径（时长 ≥0.2s、HNR ≥5dB）；低于 B1 理论值 61.74Hz 的孤立读数一律列为待复核，不纳入结论。"
+      }
+    }
+  ],
+  "url": "https://wx409.github.io/stage.html"
+}
+</script>
 <style>
 :root{--primary:#a8323d;--gold:#b8912e;--ink:#3a322a;--muted:#8a7f6d;--bg:#faf6ef;--card:#fffdf8;--border:rgba(184,145,46,.28)}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.85;max-width:900px;margin:0 auto;padding:24px;color:var(--ink);background:var(--bg)}
@@ -108,7 +211,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 对比：他自己的录音室专辑为 23% / 63% / 4%（见 <a href="/voice.html">音域实测</a> 板块四）。
 </div>
 
-<div class="card" style="border-color:#e0a800;background:#fffdf3">⚠️ <strong>待复核读数：</strong>《她真漂亮》王晰and高杨（A1 55.1Hz）——低于 B1（61.7Hz）的孤立低音读数，按历史经验多为 demucs 低频残留（伴奏贝斯渗透），<strong>未纳入结论</strong>，需人工听辨复核。</div>
+<div class="card" style="border-color:#e0a800;background:#fffdf3">⚠️ <strong>待复核读数：</strong>《她真漂亮》王晰and高杨（A1 55.1Hz）——低于 B1 理论值（61.74Hz）的孤立低音读数，按历史经验多为 demucs 低频残留（伴奏贝斯渗透），<strong>未纳入结论</strong>，需人工听辨复核。</div>
 
 <h2>一、语料来源与筛选</h2>
 <p>来源：B站收藏夹「王晰综艺现场live」（fid=4075783258，共 44 条）。
@@ -173,8 +276,9 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <div class="hl">
 <strong>⚠️ 结论修正（v2 口径，2026-09-09）</strong>：在稳健过滤口径下，「最低稳定音」的组间差异<strong>不显著</strong>（p=0.197）。
 v1 曾报告该差异显著（p=0.015），原因是旧口径把 0.1 秒级瞬时低音读数当作稳定音，夸大了专辑的极端低音。<br>
-<strong>稳健的差异在「使用模式」而非「能力极限」</strong>：低音区（&lt;C3）使用时长占比 <strong>23% → 11%</strong>、
-高音区（≥C4）占比 <strong>4% → 27%</strong>、最高音中位 F#4 → E5、跨度 2.30 → 2.95 个八度。
+<strong>稳健的差异在「使用模式」而非「能力极限」</strong>：低音区（&lt;C3）占比 <strong>23% → 11%（逐曲中位）</strong>、
+高音区（≥C4）占比 <strong>4% → 20%（逐曲中位）</strong>、最高音中位 <strong>F#4 → E5</strong>、跨度中位 <strong>2.30 → 2.95 个八度</strong>。
+<span style="color:#8a7f6d">（此处为「逐曲中位」口径；上方声区分布卡片是「按时长加权的全组平均」，两者统计对象不同：本组加权平均高音区 27%、低音区 11%，不可与逐曲中位混读。）</span>
 </div>
 <p>上述差异是<strong>曲目库与舞台使用模式带来的客观结果，多重因素叠加</strong>（选曲、编配、调性、播出条件、伴唱叠加等），
 不宜简化为单一因果。可确定的是：他的低音更多出现在自己主导的专辑里，而舞台素材整体偏中高音区——

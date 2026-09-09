@@ -184,9 +184,10 @@ def main() -> None:
         cal_map = {x["id"]: x["value"] for x in json.loads(cal.read_text(encoding="utf-8")).get("calibers", [])}
     if lp.exists():
         llms = lp.read_text(encoding="utf-8")
-        m = re.search(r"(\d+)\s*场", llms)
-        if m:
-            ok("llms.txt 场次", t["shows_total"], int(m.group(1)))
+        # 场次口径必须成对出现：巡演 59 场 + 全站 64 场（旧实现只抓第一个"N 场"，
+        # 一旦正文先出现巡演场次就误报，这里改为显式成对校验）
+        ok("llms.txt 含六轮巡演场次", True, (f"{t['shows_tour']} 场" in llms) or (f"{t['shows_tour']}场" in llms))
+        ok("llms.txt 含全站场次", True, (f"{t['shows_total']} 场" in llms) or (f"{t['shows_total']}场" in llms))
         # llms.txt 的知识库计数必须与口径登记表一致（同一数据、两处展示）
         pairs = [("事实层", "kb_facts"), ("实体层", "kb_entities"), ("关系层", "kb_relations"),
                  ("语义索引", "semantic_docs"), ("问答", "qa_pairs")]
@@ -253,6 +254,35 @@ def main() -> None:
             print(f"[FAIL] {s}")
     else:
         ok("全站无陈旧场次字面量（59/60/65 场）", True, True)
+
+    # ---- 9) 分享图版本指纹：图片承载事实，陈旧图片不会被 HTML 审计发现 ----
+    fp_path = ROOT / "assets" / "voice" / "acoustic_id_card.fingerprint.json"
+    png_path = ROOT / "assets" / "voice" / "acoustic_id_card.png"
+    alb_path = ROOT / "data" / "archive_vocal_albums.json"
+    if fp_path.exists() and alb_path.exists() and png_path.exists():
+        import hashlib
+        fp = json.loads(fp_path.read_text(encoding="utf-8"))
+        alb = json.loads(alb_path.read_text(encoding="utf-8"))
+        rn = fp.get("rendered_numbers") or {}
+        sm = alb["summary"]
+        expect = {
+            "songs": sm["songs"],
+            "lowest_note": sm["lowest"]["note"],
+            "lowest_hz": sm["lowest"]["hz"],
+            "lowest_song": sm["lowest"]["song"],
+            "highest_note": sm["highest"]["note"],
+            "highest_hz": sm["highest"]["hz"],
+            "highest_song": sm["highest"]["song"],
+            "span_median_octaves": round(sm["span_median_octaves"], 2),
+            "b1_songs": sum(1 for x in alb["songs"] if str(x.get("low") or "").startswith("B1")),
+        }
+        for k, v in expect.items():
+            ok(f"分享图指纹 {k}", v, rn.get(k))
+        sha = hashlib.sha256(png_path.read_bytes()).hexdigest()
+        ok("分享图与指纹 sha256 一致", fp.get("png_sha256"), sha)
+    else:
+        problems.append("[FAIL] 分享图指纹缺失（跑 音域分析/生成声学身份证.py 生成）")
+        print("[FAIL] 分享图指纹缺失（跑 音域分析/生成声学身份证.py 生成）")
 
     print("-" * 68)
     if problems:

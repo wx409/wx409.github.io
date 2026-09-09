@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "archive_stage.json"
 CROSS = ROOT / "data" / "archive_crosscheck.json"
+CTX = ROOT / "data" / "archive_context_compare.json"
 OUT = ROOT / "stage.html"
 
 STYLE = """
@@ -106,13 +107,84 @@ def main() -> None:
             f'<td>{x["stability"]:.1f}</td><td>{vib}</td></tr>')
     item_table = "\n".join(item_rows)
 
+    # 情境对比：逐曲中位（与 voice.html 同一统计对象，避免"均值 vs 中位"混读）
+    try:
+        _ctx = json.loads(CTX.read_text(encoding="utf-8"))
+        _mm = {m["key"]: m for m in _ctx["metrics"]}
+        def _pair(key, pct=False):
+            m = _mm[key]
+            f = (lambda x: f"{x*100:.0f}%") if pct else (lambda x: f"{x:.2f}")
+            return {"self": f(m["self_median"]), "other": f(m["other_median"]),
+                    "p": m.get("p"), "r": m.get("r")}
+        reg = {"low_lt_C3": _pair("register_share.low_lt_C3", True),
+               "high_ge_C4": _pair("register_share.high_ge_C4", True)}
+        span = _pair("span_octaves")
+    except Exception:
+        reg = {"low_lt_C3": {"self": "—", "other": "—"}, "high_ge_C4": {"self": "—", "other": "—"}}
+        span = {"self": "—", "other": "—"}
+
+    # ResearchProject + FAQPage（与 voice.html 共享同一套结构化数据措辞）
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from research_ld import research_project, faq_page, dataset_ref
+
+    _p_low = (reg["low_lt_C3"].get("p") if isinstance(reg.get("low_lt_C3"), dict) else None)
+    try:
+        _lowp = _mm["low_stable.midi"].get("p")
+    except Exception:
+        _lowp = None
+    rp = research_project(
+        name="王晰声学档案：他人主导场景（综艺/晚会/商演/饭拍）舞台语料实测",
+        url="https://wx409.github.io/stage.html",
+        description=(
+            f"对王晰在他人主导场景的 {src['analyzed']} 个舞台素材做统一口径测量（demucs 人声分离 + 逐帧 F0），"
+            "并与 72 首录音室曲目做 Mann–Whitney U 组间对比，用于区分「能力极限」与「使用模式」两类差异。"
+        ),
+        date_modified=d["generated_at"],
+        dataset_url="https://wx409.github.io/data/archive_stage.json",
+        based_on=[{
+            "@type": "Dataset",
+            "name": "v1 口径（已作废）：pYIN 单点最低音 + 全样本合并统计",
+            "version": "v1",
+            "description": ("v1 报告「他人主导时最低音显著更高（p=0.015）」；v2 改用稳定音口径后该差异不显著"
+                            f"（p={_lowp if _lowp is not None else '—'}），结论已修正。"),
+        }],
+        parts=[
+            dataset_ref("33 个舞台素材逐条指标", "https://wx409.github.io/data/archive_stage.json"),
+            dataset_ref("专辑 vs 舞台情境对比统计", "https://wx409.github.io/data/archive_context_compare.json"),
+            dataset_ref("舞台版 vs QQ 音乐官方版双重校验", "https://wx409.github.io/data/archive_crosscheck.json"),
+        ],
+        keywords=["王晰", "舞台实测", "综艺", "晚会", "音域", "F0", "人声分离", "情境对比"],
+        method=(d.get("method") or {}).get("separation", "") + "；" + (d.get("method") or {}).get("f0", ""),
+        scope_note=("最低音组间差异不显著，不可推断「他人主导的舞台唱不到低音」；"
+                    "最高音读数含伴唱/和声干扰风险，需听辨。"),
+    )
+    faq = faq_page([
+        ("他人主导的综艺/晚会上，王晰的音域会变窄吗？",
+         (f"按 v2 稳定音口径，「王晰主导（录音室专辑）」与「他人主导（舞台）」的最低稳定音差异不显著"
+          f"（p={_lowp:.3f}），" if isinstance(_lowp, float) else "按 v2 稳定音口径，最低稳定音差异不显著，")
+         + "因此不能推断他人主导时音域变窄。统计上显著的是使用模式：高音区占比、跨度、音符内稳定性。"),
+        ("为什么舞台上的高音区占比明显更高？",
+         "综艺与晚会的编曲常升 key、加和声层、缩短单音时长，舞台曲目库与录音室专辑本身不同。"
+         "这是曲目库与舞台使用模式带来的客观结果，多重因素叠加，不指向「刻意删掉低音」之类的推断。"),
+        ("舞台版和录音室版的差异，是测量误差吗？",
+         "已做双重校验：同一首歌的舞台版与 QQ 音乐官方版配对比对 24 组，"
+         "最低稳定音中位差 0.00 半音、跨度差 +0.09 八度、音符内稳定性差 0.00 音分，测量系统本身一致。"),
+        ("舞台实测里出现过的 B1 可信吗？",
+         "现场 B1 只在已核验的个案中复现（杭州站），且需满足稳定音口径（时长 ≥0.2s、HNR ≥5dB）；"
+         "低于 B1 理论值 61.74Hz 的孤立读数一律列为待复核，不纳入结论。"),
+    ], url="https://wx409.github.io/stage.html")
+    ld_extra = "\n".join(
+        '<script type="application/ld+json">\n' + json.dumps(x, ensure_ascii=False, indent=2) + '\n</script>'
+        for x in (rp, faq)
+    )
+
     cross_html = cross_section()
     flagged = s.get("lowest_flagged") or []
     flag_html = ""
     if flagged:
         lst = "、".join(f'{esc(x["title"])[:22]}（{esc(x["note"])} {x["hz"]}Hz）' for x in flagged)
         flag_html = (f'<div class="card" style="border-color:#e0a800;background:#fffdf3">'
-                     f'⚠️ <strong>待复核读数：</strong>{lst}——低于 B1（61.7Hz）的孤立低音读数，'
+                     f'⚠️ <strong>待复核读数：</strong>{lst}——低于 B1 理论值（61.74Hz）的孤立低音读数，'
                      f'按历史经验多为 demucs 低频残留（伴奏贝斯渗透），<strong>未纳入结论</strong>，需人工听辨复核。</div>')
 
     ld = {
@@ -149,6 +221,7 @@ def main() -> None:
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=2)}
 </script>
+{ld_extra}
 <style>{STYLE}</style>
 </head>
 <body>
@@ -203,8 +276,9 @@ def main() -> None:
 <div class="hl">
 <strong>⚠️ 结论修正（v2 口径，2026-09-09）</strong>：在稳健过滤口径下，「最低稳定音」的组间差异<strong>不显著</strong>（p=0.197）。
 v1 曾报告该差异显著（p=0.015），原因是旧口径把 0.1 秒级瞬时低音读数当作稳定音，夸大了专辑的极端低音。<br>
-<strong>稳健的差异在「使用模式」而非「能力极限」</strong>：低音区（&lt;C3）使用时长占比 <strong>23% → {s['register_mean']['low_lt_C3']*100:.0f}%</strong>、
-高音区（≥C4）占比 <strong>4% → {s['register_mean']['high_ge_C4']*100:.0f}%</strong>、最高音中位 F#4 → E5、跨度 2.30 → {s['span_median']} 个八度。
+<strong>稳健的差异在「使用模式」而非「能力极限」</strong>：低音区（&lt;C3）占比 <strong>{reg['low_lt_C3']['self']} → {reg['low_lt_C3']['other']}（逐曲中位）</strong>、
+高音区（≥C4）占比 <strong>{reg['high_ge_C4']['self']} → {reg['high_ge_C4']['other']}（逐曲中位）</strong>、最高音中位 <strong>F#4 → E5</strong>、跨度中位 <strong>{span['self']} → {span['other']} 个八度</strong>。
+<span style="color:#8a7f6d">（此处为「逐曲中位」口径；上方声区分布卡片是「按时长加权的全组平均」，两者统计对象不同：本组加权平均高音区 {s['register_mean']['high_ge_C4']*100:.0f}%、低音区 {s['register_mean']['low_lt_C3']*100:.0f}%，不可与逐曲中位混读。）</span>
 </div>
 <p>上述差异是<strong>曲目库与舞台使用模式带来的客观结果，多重因素叠加</strong>（选曲、编配、调性、播出条件、伴唱叠加等），
 不宜简化为单一因果。可确定的是：他的低音更多出现在自己主导的专辑里，而舞台素材整体偏中高音区——

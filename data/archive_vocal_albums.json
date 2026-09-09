@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09 15:21",
+ "generated_at": "2026-09-09 16:15",
  "source": "录音室专辑实测（QQ音乐 320k → demucs → YIN）",
  "method": {
   "separation": "demucs htdemucs（--two-stems=vocals，GPU，本地缓存模型）",
@@ -12,39 +12,39 @@
   "songs": 72,
   "lowest": {
    "note": "B1",
-   "hz": 61.9,
-   "song": "知晓",
-   "album": "B面图景"
+   "hz": 61.5,
+   "song": "静止了的夜晚",
+   "album": "重游往昔"
   },
   "highest": {
    "note": "C6",
-   "hz": 1042.3,
-   "song": "如梦令",
+   "hz": 1065.0,
+   "song": "月光",
    "album": "Low C的诱惑Ⅱ"
   },
-  "span_median_octaves": 2.34,
+  "span_median_octaves": 2.3,
   "span_max_octaves": 3.93,
   "stability_cents_median": 7.0,
   "intonation_cents_median": 9.0,
   "vibrato_rate_hz_median": 5.17,
   "vibrato_extent_cents_median": 86.0,
-  "note_density_median": 1.86
+  "note_density_median": 1.85
  },
  "albums": [
   {
    "album": "Low C的诱惑Ⅱ",
    "n": 12,
    "low": "C2",
-   "low_song": "乌兰巴托的夜晚",
+   "low_song": "多年以后",
    "high": "C6",
-   "high_song": "如梦令",
+   "high_song": "月光",
    "span_mean": 2.63
   },
   {
    "album": "不说",
    "n": 8,
    "low": "C2",
-   "low_song": "勿扰",
+   "low_song": "鹅毛信",
    "high": "F5",
    "high_song": "勿扰",
    "span_mean": 2.63
@@ -62,7 +62,7 @@
    "album": "歌颂",
    "n": 10,
    "low": "C2",
-   "low_song": "偏执",
+   "low_song": "雪地里寄不出的求救信",
    "high": "D#5",
    "high_song": "Come to Me",
    "span_mean": 2.27
@@ -73,7 +73,7 @@
    "low": "B1",
    "low_song": "多听有益",
    "high": "B4",
-   "high_song": "Crystal Store",
+   "high_song": "不需要结果",
    "span_mean": 2.21
   },
   {
