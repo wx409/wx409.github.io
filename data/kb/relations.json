@@ -10444,20 +10444,6 @@
   "source_ref": "cities.json"
  },
  {
-  "source": "show:2021-01-10-wuhan",
-  "type": "held_at",
-  "target": "venue:武汉琴台大剧院",
-  "context": "2021-01-10",
-  "source_ref": "cities.json"
- },
- {
-  "source": "show:2021-01-10-wuhan",
-  "type": "part_of",
-  "target": "tour:二巡",
-  "context": "2020-2021 个人巡回",
-  "source_ref": "cities.json"
- },
- {
   "source": "show:2022-09-17-wuhan",
   "type": "held_at",
   "target": "venue:武汉琴台大剧院",
@@ -12477,6 +12463,13 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
+  "source": "song:时间",
+  "type": "belongs_to_album",
+  "target": "album:玫瑰行者 网剧原声大碟",
   "context": "",
   "source_ref": "songs_meta.json"
  },

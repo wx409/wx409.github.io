@@ -9,7 +9,7 @@
 - [全站搜索](https://wx409.github.io/search.html): 全站检索页（歌曲/城市/演出/小酒馆逐字稿/观演指南/页面），数据源 data/site_search_index.json，支持 ?q= 直达查询
 - [演出详情目录](https://wx409.github.io/live/): 各城市场次独立页（含歌单、亮点、视角矩阵、FAQ、Schema.org JSON-LD）
 - [数据复盘｜六巡广州站 2026-08-23](https://wx409.github.io/story-hui-guangzhou-2026.html): 单场数据复盘专题（效应三口径/歌单亮点/现场Talk金句/观众反馈/城市维度，效应数字实时取自 dashboard_data.json）
-- [巡演地图](https://wx409.github.io/map/): 22城65场巡演城市地图（Leaflet + CartoDB），含场馆、日期、巡次与数据效应标记，附 ItemList + MusicEvent JSON-LD
+- [巡演地图](https://wx409.github.io/map/): 22城64场巡演城市地图（Leaflet + CartoDB），含场馆、日期、巡次与数据效应标记，附 ItemList + MusicEvent JSON-LD
 - [数据大屏](https://wx409.github.io/dashboard/): 383 首追踪歌曲指数趋势、当月榜单、档案层（年度卡/命题卡/音域谱）
 - [关于本站](https://wx409.github.io/about.html): 维护团队、信息来源、审核原则与更新日志
 - [文化足迹](https://wx409.github.io/culture/): 对外文化交流、城市文旅与官方艺术项目参与记录
@@ -43,12 +43,12 @@
 
 - [知识库摘要](https://wx409.github.io/data/kb/kb_digest.md): 生涯里程碑/机构归属时间线/体量统计/已核实金句
 - [事实层 facts.json](https://wx409.github.io/data/kb/facts.json): 原子事实（subject/property/value/时间区间/来源/置信度，1150条）
-- [实体层 entities.json](https://wx409.github.io/data/kb/entities.json): 实体注册表（人/歌曲/专辑/演出/城市/场馆/机构/事件/媒体/金句/小酒馆，1415个）
-- [关系层 relations.json](https://wx409.github.io/data/kb/relations.json): 实体关系边（1943条）
+- [实体层 entities.json](https://wx409.github.io/data/kb/entities.json): 实体注册表（人/歌曲/专辑/演出/城市/场馆/机构/事件/媒体/金句/小酒馆，1416个）
+- [关系层 relations.json](https://wx409.github.io/data/kb/relations.json): 实体关系边（1942条）
 - [语义检索（统一入口）](https://wx409.github.io/search.html?kb=1): 全站搜索含知识库语义召回（bge-small-zh 向量 + 语义近邻，答案卡优先）
 - [问答库静态页 qa.html](https://wx409.github.io/qa.html): 315 条问答对（真实HTML，含 FAQPage JSON-LD），可直接引用
-- [语义索引](https://wx409.github.io/data/kb/semantic/manifest.json): 4700条文档 int8 向量 + 近邻图（docs.json/vectors.bin/graph.json）
+- [语义索引](https://wx409.github.io/data/kb/semantic/manifest.json): 4702条文档 int8 向量 + 近邻图（docs.json/vectors.bin/graph.json）
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-09 00:04:33；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-09 09:00:57；请勿手改数字。）

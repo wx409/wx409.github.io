@@ -42,6 +42,11 @@ def load_setlists(path: str) -> list[dict]:
     """读取长表 → 场次列表（日期/场次名/城市/轮次），唯一场次来源"""
     df = pd.read_excel(path, sheet_name="合并长表")
     df = df[df["曲目"].notna() & (df["曲目"].astype(str).str.strip() != "")]
+    # 日期归一化（关键）：长表「日期」列存在 str 与 Timestamp 混排（后补行如 2021-01-10 点歌
+    # 追加行被 Excel 读成 Timestamp），直接 groupby 会把同一场拆成两组 → 场次虚增 1（64→65）。
+    # 统一成 "YYYY-MM-DD" 字符串后再分组，保证「一场 = 一行」。
+    df = df.copy()
+    df["日期"] = pd.to_datetime(df["日期"]).dt.strftime("%Y-%m-%d")
     out = []
     for (date, scene, tour), _ in df.groupby(["日期", "场次", "巡次"]):
         d = str(date)[:10]

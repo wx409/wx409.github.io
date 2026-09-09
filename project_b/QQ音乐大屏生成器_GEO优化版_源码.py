@@ -1750,6 +1750,11 @@ def load_setlist(path):
     try:
         df = pd.read_excel(path, sheet_name="合并长表")
         df = df[df["曲目"].notna() & (df["曲目"].astype(str).str.strip() != "")]
+        # 日期归一化（关键）：长表「日期」列 str/Timestamp 混排（后补的点歌行被 Excel 读成
+        # Timestamp），直接 groupby("日期") 会把同一场拆成两组且后者覆盖前者，
+        # 该场歌单只剩最后一行（武汉 2021-01-10 曾只剩《漫长的告别》）。
+        df = df.copy()
+        df["日期"] = pd.to_datetime(df["日期"]).dt.strftime("%Y-%m-%d")
         for date, g in df.groupby("日期"):
             d = str(date)[:10]
             for scene, gg in g.groupby("场次"):

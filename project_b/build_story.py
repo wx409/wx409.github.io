@@ -97,6 +97,10 @@ def compute_stories() -> dict:
         "total_songs": len(rows),
         "total_cities": len(cities),
         "total_shows": sum(x["count"] for x in city_shows),
+        # 口径（务必成对出现）：
+        #   total_shows = 全站场次（六轮巡演 + 签唱会等非巡演）
+        #   tour_shows  = 六轮巡演场次（TOUR_ORDER 内）
+        "tour_shows": sum(t["shows"] for t in tour_stats),
     }
 
 
@@ -167,11 +171,13 @@ def build_jsonld(st: dict, generated_at: str) -> str:
             "a": f"{c['city']} 是王晰巡演场次最多的城市，共 {c['count']} 场（实际举办 {c['held']} 场）。",
         })
     if st["tour_stats"]:
-        total = sum(t["shows"] for t in st["tour_stats"])
+        total = st["tour_shows"]
+        extra = st["total_shows"] - total
+        note = f"（口径说明：{total} 场为六轮巡演场次"
+        note += f"；全站另有 {extra} 场签唱会等非巡演演出，合计 {st['total_shows']} 场。）" if extra else "。）"
         faq.append({
             "q": "王晰一共巡演了多少场？",
-            "a": f"王晰 2019-2026 年共完成 {len(st['tour_stats'])} 轮巡演、{total} 场，覆盖 {st['total_cities']} 个城市。"
-                 f"（口径说明：此处 {total} 场为六轮巡演场次；页面其他位置 {st['total_shows']} 场为含音乐节/晚会等非巡演演出的全站场次。）",
+            "a": f"王晰 2019-2026 年共完成 {len(st['tour_stats'])} 轮巡演、{total} 场，覆盖 {st['total_cities']} 个城市。" + note,
         })
 
     main_entity = [
@@ -198,7 +204,7 @@ def build_jsonld(st: dict, generated_at: str) -> str:
                 "@context": "https://schema.org",
                 "@type": "Dataset",
                 "name": "王晰巡演数据故事",
-                "description": f"基于 2019-2026 六轮巡演 {st['total_shows']} 场与深夜小酒馆 106 期逐字稿计算的数据故事，全部数字动态生成。",
+                "description": f"基于 2019-2026 六轮巡演 {st['tour_shows']} 场与深夜小酒馆 106 期逐字稿计算的数据故事，全部数字动态生成。",
                 "url": url,
                 "dateModified": generated_at,
                 "isPartOf": {"@type": "WebSite", "name": "王晰 GEO 资料站", "url": site},
@@ -236,7 +242,7 @@ def build_page(st: dict, jsonld: str) -> str:
             "name": r["name"], "metrics": [("城市", f"{r['city_count']} 城"), ("场次", f"{r['show_count']} 场")],
             "extra": "、".join(r["cities"][:6]) + ("…" if len(r["cities"]) > 6 else ""),
         })
-    b1 = story_block("跨城之王", "🗺️", f"从 {st['total_cities']} 城 {st['total_shows']} 场巡演数据中，找出足迹最广的歌曲——它们在最多城市留下过现场。", c1)
+    b1 = story_block("跨城之王", "🗺️", f"从 {st['total_cities']} 城 {st['tour_shows']} 场巡演数据中，找出足迹最广的歌曲——它们在最多城市留下过现场。", c1)
 
     # ② 场次之王
     c2 = []
@@ -275,7 +281,9 @@ def build_page(st: dict, jsonld: str) -> str:
     b5 = (
         '<section class="story-block" id="tour-footprint">'
         '<h2>🧭 巡演足迹</h2><p class="story-intro">六轮巡演，从 2019 到 2026——每轮的规模都在这里。'
-        f'（全站共 {st["total_songs"]} 首有现场记录的歌、{st["total_cities"]} 城、{st["total_shows"]} 场）</p>'
+        f'（口径：六轮巡演合计 {st["tour_shows"]} 场；另有签唱会等非巡演演出 '
+        f'{st["total_shows"] - st["tour_shows"]} 场，全站合计 {st["total_shows"]} 场、{st["total_cities"]} 城、'
+        f'{st["total_songs"]} 首有现场记录的歌）</p>'
         '<table><tr><th>轮次</th><th>主题</th><th>城市</th><th>场次</th></tr>'
         + "".join(rows) + "</table></section>"
     )
@@ -286,7 +294,7 @@ def build_page(st: dict, jsonld: str) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>数据故事 | 王晰巡演足迹 · 跨城之王 · 酒馆之声</title>
-<meta name="description" content="从 {st['total_shows']} 场巡演与 106 期小酒馆数据中自动计算的故事：唱过最多城市的歌、演出场次最多的歌、酒馆提及最多的歌。">
+<meta name="description" content="从 {st['tour_shows']} 场巡演与 106 期小酒馆数据中自动计算的故事：唱过最多城市的歌、演出场次最多的歌、酒馆提及最多的歌。">
 <link rel="canonical" href="https://wx409.github.io/story.html">
 <meta property="og:title" content="数据故事 | 王晰巡演足迹">
 <meta property="og:description" content="全部结论从 entity_index.json / cities.json 实时计算。">

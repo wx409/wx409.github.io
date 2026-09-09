@@ -50,16 +50,21 @@ STEPS = [
     (ROOT / "project_b" / "build_kb_graph.py", "知识库三层 data/kb/*.json", True),
     (ROOT / "tools" / "build_kb_vectors.py", "知识库语义索引 data/kb/semantic/*（需sentence-transformers，缺依赖仅警告）", False),
     (ROOT / "tools" / "build_qa_page.py", "问答库静态页 qa.html（GEO 可引用）", True),
-    (ROOT / "project_b" / "build_setlists.py", "59场歌单 data/setlists.json", True),
+    (ROOT / "project_b" / "build_setlists.py", "歌单 data/setlists.json（全站 64 场 = 巡演 59 + 签唱会 5）", True),
     (ROOT / "project_b" / "build_songs_meta.py", "歌曲元数据 data/songs_meta.json", True),
     (ROOT / "project_b" / "build_songs_page.py", "歌曲库页 songs.html", True),
     (ROOT / "project_b" / "build_setlists_page.py", "歌单索引页 live/setlists.html", True),
     (ROOT / "project_b" / "generate_city_guides.py", "22 城攻略 data/city_guides.json", True),
     (ROOT / "project_b" / "build_story.py", "数据故事 story.html", True),
+    (r"E:\wx\论文素材_王晰作传\基线口径\generate_voice_page.py", "声部·音域页 voice.html（读 data/archive_vocal.json）", False),
+    (r"E:\wx\论文素材_王晰作传\基线口径\generate_llms.py", "llms.txt（计数从各 manifest 自动派生，禁手写）", True),
     (ROOT / "tavern" / "_build_episodes.py", "小酒馆逐字稿页", True),
     (ROOT / "tavern" / "_build_songs_compact.py", "小酒馆歌曲索引", False),
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
     (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),
+    (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
+    (ROOT / "project_b" / "audit_nav.py", "导航与内链审计（孤儿页=0 把关）", False),
+    (ROOT / "project_b" / "audit_caliber.py", "口径审计（单一事实源一致性自检，末尾把关）", False),
 ]
 
 COMMIT_MSG = "自动部署: 数据更新 ({ts})"
