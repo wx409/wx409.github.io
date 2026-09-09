@@ -58,12 +58,12 @@ def check(path: Path) -> list[str]:
             if not re.search(r"\^[|><&]", s):
                 problems.append(f"第 {i} 行 echo 含半角 | > & 且未转义: {s[:70]}")
 
-    # 4) goto 目标完整性
+    # 4) goto 目标完整性（含 `if "%op%"=="56" goto xxx` 这类行内跳转）
     labels = {m.group(1).lower() for m in re.finditer(r"^\s*:([A-Za-z_][\w]*)", text, re.M)}
     for i, ln in enumerate(lines, 1):
-        m = re.match(r"\s*goto\s+:?([A-Za-z_][\w]*)", ln, re.I)
-        if m and m.group(1).lower() not in labels:
-            problems.append(f"第 {i} 行 goto {m.group(1)} —— 找不到对应标签")
+        for m in re.finditer(r"\bgoto\s+:?([A-Za-z_][\w]*)", ln, re.I):
+            if m.group(1).lower() not in labels:
+                problems.append(f"第 {i} 行 goto {m.group(1)} —— 找不到对应标签")
     return problems
 
 

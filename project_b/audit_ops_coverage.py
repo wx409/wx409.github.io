@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""操作中心覆盖审计（audit_ops_coverage.py）：确保「每个需要手动触发的功能」都有菜单入口。
+
+第一性原理：
+  自动化流水线（deploy_all.py）覆盖的是"每次部署都要跑"的步骤；
+  而人工按需触发的功能（口径审计、登记表、llms.txt、音域、事件效应修正…）
+  必须在 `操作中心.bat` 里有稳定入口，否则下次要翻备忘找命令——这就是"知识没留下"。
+
+本脚本检查两类：
+  A. deploy_all.py 的关键步骤脚本 → 必须能被操作中心调用（直接引用，或由 39 号一键部署覆盖）
+  B. 明确列为"人工功能"的脚本清单 → 必须在操作中心里有独立菜单项
+
+用法：
+  python project_b/audit_ops_coverage.py
+退出码：0=覆盖完整；1=有缺口。
+"""
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BAT = ROOT / "操作中心.bat"
+
+# 需要独立菜单入口的人工功能（脚本路径片段 → 说明）
+MANUAL_FEATURES = {
+    "project_b\\deploy_all.py": "完整部署（25 步）",
+    "project_b\\audit_caliber.py": "口径审计",
+    "project_b\\build_calibers.py": "口径登记表",
+    "project_b\\build_nav.py": "导航统一",
+    "project_b\\audit_nav.py": "导航与内链审计",
+    "project_b\\audit_bat.py": "批处理体检",
+    "基线口径\\generate_llms.py": "llms.txt 生成",
+    "基线口径\\generate_vocal.py": "音域谱生成",
+    "基线口径\\generate_voice_page.py": "voice.html 更新",
+    "基线口径\\generate_propositions.py": "命题卡摘要",
+    "基线口径\\compute_baseline_v1.py": "口径基线重算",
+    "基线口径\\事件效应口径修正.py": "事件效应口径修正",
+    "基线口径\\矛盾扫描器.py": "矛盾扫描",
+}
+
+
+def main() -> None:
+    if not BAT.exists():
+        print(f"[FAIL] 找不到 {BAT}")
+        sys.exit(1)
+    try:
+        bat = BAT.read_text(encoding="gbk", errors="replace")
+    except Exception:
+        bat = BAT.read_text(encoding="utf-8", errors="replace")
+
+    print("=" * 68)
+    print("操作中心覆盖审计")
+    print("=" * 68)
+
+    missing = []
+    for frag, label in MANUAL_FEATURES.items():
+        # 同时接受反斜杠/正斜杠与仅文件名两种写法
+        name = frag.split("\\")[-1]
+        hit = (frag in bat) or (frag.replace("\\", "/") in bat) or (name in bat)
+        flag = "OK  " if hit else "FAIL"
+        print(f"[{flag}] {label:14s} {frag}")
+        if not hit:
+            missing.append(f"{label}（{frag}）")
+
+    # 菜单项计数
+    menu_items = re.findall(r"^\s*echo\s+(\d+)\.\s*(.+)$", bat, re.M)
+    labels = set(re.findall(r"^\s*:([A-Za-z_][\w]*)", bat, re.M))
+    gotos = set(re.findall(r"^\s*goto\s+:?([A-Za-z_][\w]*)", bat, re.M))
+    print("-" * 68)
+    print(f"菜单项：{len(menu_items)} 个｜标签：{len(labels)} 个｜goto 引用：{len(gotos)} 个")
+    print(f"goto 目标缺失：{sorted(gotos - labels) or '无'}")
+    if gotos - labels:
+        missing.append(f"goto 目标缺失 {sorted(gotos - labels)}")
+
+    print("-" * 68)
+    if missing:
+        print(f"结论：{len(missing)} 项功能没有菜单入口 —— 请补进操作中心.bat：")
+        for m in missing:
+            print("  -", m)
+        sys.exit(1)
+    print("结论：全部人工功能均有菜单入口 ✅")
+
+
+if __name__ == "__main__":
+    main()
