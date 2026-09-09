@@ -129,6 +129,8 @@ echo    85. 电梯定义句刷新（首页/问答库/llms/Person）
 echo    86. 首页音域摘要块刷新（从实测 JSON 派生）
 echo    87. 结构化数据审计（JSON-LD 语法/类型/纪律）
 echo    88. 分享图重新生成 + 版本指纹（长图一致性）
+echo    ---- O组 线上核验（审计线上化） ----
+echo    89. 线上核验（图片200+sha256对指纹+数字一致+黑名单）
 echo    0. 退出
 echo.
 set "op="
@@ -223,6 +225,7 @@ if "%op%"=="85" goto elev_def
 if "%op%"=="86" goto vocal_sum
 if "%op%"=="87" goto audit_ld
 if "%op%"=="88" goto idcard
+if "%op%"=="89" goto audit_live
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1059,7 +1062,7 @@ goto menu
 
 :gate_all
 cls
-echo  [一键把关] 口径 + 登记表 + 导航 + 批处理 + 结构化数据 + sitemap + 指数完整性
+echo  [一键把关] 口径 + 登记表 + 导航 + 批处理 + 结构化数据 + sitemap + 指数完整性 + 线上核验
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\audit_caliber.py
 python -X utf8 project_b\build_calibers.py
@@ -1070,6 +1073,7 @@ python -X utf8 project_b\audit_jsonld.py
 python -X utf8 project_b\audit_ops_coverage.py
 python -X utf8 project_b\check_index_integrity.py
 python -X utf8 project_b\update_sitemap_lastmod.py --check
+python -X utf8 project_b\audit_live.py --skip-if-unpushed
 echo.
 echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
 pause
@@ -1348,5 +1352,15 @@ echo  [分享图重生成] 声学身份证长图 + 版本指纹（供口径审计校验）
 cd /d "E:\wx\论文素材_王晰作传\音域分析"
 python -X utf8 生成声学身份证.py
 echo  [OK] 分享\王晰声学身份证_长图.png ；站点 assets\voice\acoustic_id_card.png + 指纹
+pause
+goto menu
+
+:audit_live
+cls
+echo  [线上核验] 图片 200 + 长图 sha256 对指纹 + 关键数字 + 陈旧数字黑名单
+echo  提示: 刚 push 完请等 2-3 分钟再跑（Pages 构建/缓存窗口）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_live.py --wait 180
+echo  [OK] exit 0 = 通过或网络不可达 SKIP；exit 1 = 线上不一致，看输出逐条修
 pause
 goto menu

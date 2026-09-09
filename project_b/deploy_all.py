@@ -47,6 +47,7 @@ STEPS = [
     (ROOT / "update_index_table.py", "首页表格（效应注入）", True),
     (ROOT / "project_b" / "build_home.py", "首页动态槽（最新场次摘要卡）", False),
     (ROOT / "project_b" / "inject_vocal_summary.py", "首页音域摘要块（从实测 JSON 派生，禁手写）", True),
+    (ROOT / "project_b" / "inject_index_facts.py", "首页事实块（轮次/城市/覆盖天数/Last updated 派生）", True),
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
     (ROOT / "project_b" / "build_kb_graph.py", "知识库三层 data/kb/*.json", True),
     (ROOT / "tools" / "build_kb_vectors.py", "知识库语义索引 data/kb/semantic/*（需sentence-transformers，缺依赖仅警告）", False),
@@ -75,6 +76,8 @@ STEPS = [
     (ROOT / "project_b" / "audit_ops_coverage.py", "操作中心覆盖审计（人工功能都有菜单入口）", False),
     (ROOT / "project_b" / "check_index_integrity.py", "指数数据源完整性守卫（防回退到缺陷版构建）", True),
     (ROOT / "project_b" / "audit_caliber.py", "口径审计（单一事实源一致性自检，末尾把关）", False),
+    (ROOT / "project_b" / "audit_live.py", "线上核验（图片200+sha256对指纹+关键数字+黑名单；未推送/工作区脏自动 SKIP）",
+     False, ["--skip-if-unpushed", "--skip-if-dirty"]),
 ]
 
 COMMIT_MSG = "自动部署: 数据更新 ({ts})"
@@ -138,10 +141,10 @@ def notify_indexnow() -> bool:
     return ok > 0
 
 
-def run(script, desc: str, critical: bool) -> bool:
+def run(script, desc: str, critical: bool, extra: list[str] | None = None) -> bool:
     script = Path(script)
     print(f"\n{'=' * 60}\n▶ {desc}\n   {script}\n{'=' * 60}")
-    r = subprocess.run([PY, "-X", "utf8", str(script)], cwd=ROOT, capture_output=True, text=True,
+    r = subprocess.run([PY, "-X", "utf8", str(script), *(extra or [])], cwd=ROOT, capture_output=True, text=True,
                        encoding="utf-8", errors="replace")
     # 输出可能含非 GBK 字符，写到日志
     log = ROOT / "temp" / "deploy_run.log"
@@ -194,9 +197,11 @@ def main() -> None:
         print("[!] 中止部署，请先处理。")
         sys.exit(1)
 
-    # 2. 顺序执行生成脚本
-    for script, desc, critical in STEPS:
-        if not run(script, desc, critical):
+    # 2. 顺序执行生成脚本（第 4 项为可选附加参数）
+    for step in STEPS:
+        script, desc, critical = step[0], step[1], step[2]
+        extra = list(step[3]) if len(step) > 3 else []
+        if not run(script, desc, critical, extra):
             print("\n[X] 流水线中止于关键步骤")
             sys.exit(2)
 
@@ -224,6 +229,7 @@ def main() -> None:
     print("下一步（手动，沙箱限制 ssh）:")
     print("  cd D:\\wx409.github.io")
     print("  git push origin main")
+    print("  python -X utf8 project_b\\audit_live.py --wait 180   # 推送后等 Pages 构建窗口再核验")
     print("=" * 60)
 
 
