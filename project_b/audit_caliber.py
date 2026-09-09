@@ -219,7 +219,33 @@ def main() -> None:
         info("dashboard 追踪歌曲", d.get("total_songs"))
         info("dashboard 链接数", d.get("tracked_links"))
 
-    # ---- 7) 全站扫描：陈旧场次字面量（59/60/65 等）----
+    # ---- 7) 数据契约：关键 JSON 的必备字段（防生成器改坏结构）----
+    contracts = {
+        "data/cities.json": ["generated_at", "city_count", "show_count", "cities"],
+        "data/setlists.json": ["generated_at", "show_count", "setlists"],
+        "data/calibers.json": ["generated_at", "count", "calibers"],
+        "data/kb/manifest.json": ["facts", "relations", "entities_by_type"],
+        "entity_index.json": ["generated_at", "song_count", "songs"],
+        "dashboard/dashboard_data.json": ["total_songs", "tracked_links", "detail_songs"],
+    }
+    for rel, keys in contracts.items():
+        p = ROOT / rel
+        if not p.exists():
+            problems.append(f"[FAIL] 数据契约缺失文件: {rel}")
+            print(f"[FAIL] 数据契约缺失文件: {rel}")
+            continue
+        try:
+            obj = json.loads(p.read_text(encoding="utf-8"))
+        except Exception as e:
+            problems.append(f"[FAIL] 数据契约无法解析 {rel}: {e}")
+            print(f"[FAIL] 数据契约无法解析 {rel}: {e}")
+            continue
+        missing = [k for k in keys if not isinstance(obj, dict) or k not in obj]
+        ok(f"数据契约 {rel} 必备字段", True, not missing)
+        if missing:
+            print(f"        缺字段: {missing}")
+
+    # ---- 8) 全站扫描：陈旧场次字面量（59/60/65 等）----
     stale = scan_stale_counts(t)
     if stale:
         for s in stale:
