@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>王晰音域实测 | 72 曲录音室专辑 + 人声分离 F0 分析 · 低音主区 B1–D2</title>
+<title>王晰音域实测 | 72 曲录音室专辑 + 人声分离 F0 分析 · 低音主区 B1–F#2</title>
 <meta name="description" content="王晰（华语流行男低音）音域实测：七张录音室专辑 + EP 共 72 首全部完成人声分离 + 逐帧 F0 提取，最低稳定音 B1（61.7Hz），最高 C6（1046.5Hz），跨度中位 2.25 个八度；含音准/颤音/音符密度/声区分布多维指标与录音室 vs 现场对比。">
 <meta name="keywords" content="王晰,男低音,音域,B1,Low C,低音,声乐分析,F0,人声分离">
 <link rel="canonical" href="https://wx409.github.io/voice.html">
-<meta property="og:title" content="王晰音域实测 · 低音主区 B1–D2">
-<meta property="og:description" content="10 首歌人声分离实测：3 首最低音达 B1（低于男低音标志音 Low C），现场同样做得到。附姚峰/廖昌永权威点评。">
+<meta property="og:title" content="王晰音域实测 · 低音主区 B1–F#2">
+<meta property="og:description" content="10 首歌人声分离实测：1 首最低音达 B1（低于男低音标志音 Low C），现场同样做得到。附姚峰/廖昌永权威点评。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wx409.github.io/voice.html">
 <meta property="og:image" content="https://wx409.github.io/assets/voice/range_10songs.png">
@@ -17,9 +17,9 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "王晰音域实测数据集（10 曲人声分离 F0 分析）",
-  "description": "对华语流行男低音王晰 10 首歌曲进行人声分离（demucs htdemucs）与逐帧 F0 音高提取（librosa pYIN），测得最低稳定音主区 B1–D2（60.5–75Hz），其中 3 首达 B1（低于男低音标志音 Low C 65.4Hz）。含录音室与现场版对比。",
+  "description": "对华语流行男低音王晰 10 首歌曲进行人声分离（demucs htdemucs）与逐帧 F0 音高提取（librosa pYIN），测得最低稳定音主区 B1–F#2（61.6–91.0Hz），其中 1 首达 B1（低于男低音标志音 Low C 65.4Hz）。含录音室与现场版对比。",
   "url": "https://wx409.github.io/voice.html",
-  "dateModified": "2026-09-08",
+  "dateModified": "2026-09-09",
   "creator": {
     "@type": "Person",
     "name": "wx409",
@@ -30,7 +30,7 @@
     "name": "王晰",
     "url": "https://wx409.github.io/"
   },
-  "measurementTechnique": "demucs(htdemucs/GPU) 人声分离 + librosa pYIN 逐帧 F0 + voiced 帧稳健统计",
+  "measurementTechnique": "demucs(htdemucs/GPU) 人声分离 + 自研 YIN 逐帧 F0 + 音符切分 + 稳健过滤（时长≥0.15s、HNR≥5dB、强度≥中位−25dB；极值音级需该音符本身 ≥0.2s）",
   "variableMeasured": [
     {
       "@type": "PropertyValue",
@@ -40,23 +40,23 @@
     {
       "@type": "PropertyValue",
       "name": "低音主区",
-      "description": "B1–D2（60.5–75Hz），全部低于一般男低音下限 E2(82.4Hz)"
+      "description": "B1–F#2（61.6–91.0Hz），全部低于一般男低音下限 E2(82.4Hz)"
     },
     {
       "@type": "PropertyValue",
       "name": "B1 复现次数",
-      "description": "3 曲达 B1（渡荆门送别/多听有益/向着太阳）"
+      "description": "1 曲达 B1（多听有益）"
     },
     {
       "@type": "PropertyValue",
       "name": "录音室专辑全量实测",
-      "description": "七张录音室专辑 + EP 共 72 首：最低稳定音 B1（61.7Hz），最高稳定音 C6（1046.5Hz），跨度中位 2.25 个八度；音符内稳定性中位 7 音分，颤音 5.17Hz/86 音分"
+      "description": "七张录音室专辑 + EP 共 72 首：最低稳定音 B1（61.9Hz），最高稳定音 C6（1042.3Hz），跨度中位 2.34 个八度；音符内稳定性中位 7 音分，颤音 5.17Hz/86 音分"
     }
   ],
   "image": {
     "@type": "ImageObject",
     "url": "https://wx409.github.io/assets/voice/acoustic_id_card.png",
-    "caption": "王晰声学身份证：72 首录音室曲目实测音域（最低 B1 61.7Hz，最高 C6 1046.5Hz，跨度中位 2.25 个八度）",
+    "caption": "王晰声学身份证：72 首录音室曲目实测音域（最低 B1 61.9Hz，最高 C6 1042.3Hz，跨度中位 2.34 个八度）",
     "width": 1140,
     "height": 2430
   },
@@ -116,43 +116,49 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <!-- NAV_END -->
 
 <h1>🎼 王晰音域实测</h1>
-<p class="sub">人声分离 F0 分析 · 低音主区 B1–D2（60.5–75Hz） · 更新 2026-09-08</p>
+<p class="sub">人声分离 F0 分析 · 低音主区 B1–F#2（61.6–91.0Hz） · 更新 2026-09-09</p>
 
 <div class="hl">
-<strong>核心结论：</strong>王晰的低音主区在 <strong>B1–D2（60.5–75Hz）</strong>，全部低于一般男低音下限 E2(82.4Hz)。其中 <strong>3 首歌曲（《渡荆门送别》《多听有益》《向着太阳》）最低稳定音达 B1（约 61Hz）</strong>——这是比男低音标志音 Low C（C2，65.4Hz）还低的音。
+<strong>核心结论：</strong>王晰的低音主区在 <strong>B1–F#2（61.6–91.0Hz）</strong>，全部低于一般男低音下限 E2(82.4Hz)。其中 <strong>1 首歌曲（《多听有益》）最低稳定音达 B1（约 61Hz）</strong>——这是比男低音标志音 Low C（C2，65.4Hz）还低的音。
 </div>
 
 <img src="assets/voice/range_10songs.png" alt="王晰10首歌最低音谱">
 
 <h2>一、方法学（可复现）</h2>
 <div class="method">
-<strong>测量流程：</strong>音频/视频 → demucs（htdemucs，GPU）人声分离 → librosa pYIN 逐帧基频（F0）提取（fmin=50Hz, fmax=500Hz, frame=2048, hop=512）→ voiced 帧稳健统计（取 P1/P5/最低稳定音）。<br>
+<strong>测量流程：</strong>音源 → demucs（htdemucs，GPU）人声分离 → <strong>自研 numpy YIN</strong> 逐帧基频（fmin=55Hz, fmax=1100Hz, frame=2048, hop=512）→ 音符切分（稳定段 ≥80ms、抖动 &lt;0.6 半音）→ <strong>稳健过滤</strong>（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音级需该音符本身 ≥0.2s）。<br>
 <strong>数据落盘：</strong>每首歌约 2 万帧逐帧 F0（time/f0/voiced/note/midi）存为 CSV，可复算、可扩展其他维度（颤音/音域跨度/音色）。<br>
 <strong>可信度纪律：</strong>混音版会在 53–57Hz 混入伴奏 bass 残留（伪 A1），<strong>只有人声分离后的 B1 及以上才可信</strong>。
 </div>
 
+<div class="card" style="border-left:4px solid #e0a800">
+<strong>⚠️ 口径变更（2026-09-09）</strong>：本表由"单点最低值（pYIN）"改为"<strong>最低稳定音</strong>（YIN + 音符切分 + 稳健过滤）"。<br>
+原因是旧口径会把 <strong>0.09–0.12 秒</strong>的瞬时低音读数当作"最低音"：《向着太阳》旧记 B1 61.9Hz 实为 0.10s 的瞬时读数、《渡荆门送别》旧记 B1 60.5Hz 实为 0.10s 左右。<br>
+<strong>独立验证</strong>：《渡荆门送别》用 QQ音乐官方版（《经典咏流传》节目音源）与 B站舞台版分别实测，两版最低稳定音<strong>同为 C#2（69.7Hz）</strong>——说明结论不受音源条件影响，旧 B1 属瞬时读数。
+</div>
+
 <h2>二、10 首歌曲最低稳定音（精确数据）</h2>
 <table>
-<tr><th>曲目</th><th>最低稳定音</th><th>频率</th><th>素材来源</th></tr>
-<tr><td>渡荆门送别</td><td class="b1">B1</td><td>60.5 Hz</td><td>央视《经典咏流传》</td></tr>
-<tr><td>多听有益</td><td class="b1">B1</td><td>61.2 Hz</td><td>录音室 MV</td></tr>
-<tr><td>向着太阳</td><td class="b1">B1</td><td>61.9 Hz</td><td>VITAS×王晰合唱</td></tr>
-<tr><td>雾里</td><td>C2（Low C）</td><td>64.5 Hz</td><td>央视网络春晚</td></tr>
-<tr><td>南屏晚钟</td><td>C#2</td><td>67.9 Hz</td><td>录音室</td></tr>
-<tr><td>在路上</td><td>C#2</td><td>69.1 Hz</td><td>录音室</td></tr>
-<tr><td>想游泳的星</td><td>D2</td><td>71.5 Hz</td><td>录音室</td></tr>
-<tr><td>下潜</td><td>D2</td><td>71.9 Hz</td><td>现场</td></tr>
-<tr><td>鹅毛信</td><td>D2</td><td>71.9 Hz</td><td>录音室</td></tr>
-<tr><td>惑许</td><td>D2</td><td>74.5 Hz</td><td>录音室</td></tr>
+<tr><th>曲目</th><th>最低稳定音</th><th>频率</th><th>时长/HNR</th><th>瞬时最低（旧口径）</th><th>素材来源</th></tr>
+<tr><td>多听有益</td><td class="b1">B1</td><td>61.6 Hz</td><td>0.35s / HNR 5.9dB</td><td style="color:#8a7f6d">B1（61.2Hz）</td><td>录音室 MV</td></tr>
+<tr><td>鹅毛信</td><td>C2（Low C）</td><td>65.3 Hz</td><td>0.33s / HNR 6.2dB</td><td style="color:#8a7f6d">D2（71.9Hz）</td><td>录音室</td></tr>
+<tr><td>下潜</td><td>C2（Low C）</td><td>65.7 Hz</td><td>0.21s / HNR 6.5dB</td><td style="color:#8a7f6d">D2（71.9Hz）</td><td>现场（待确认王晰原声）</td></tr>
+<tr><td>渡荆门送别</td><td>C#2</td><td>69.7 Hz</td><td>0.26s / HNR 5.9dB</td><td style="color:#8a7f6d">B1（60.5Hz）</td><td>央视《经典咏流传》</td></tr>
+<tr><td>想游泳的星</td><td>D2</td><td>73.5 Hz</td><td>0.26s / HNR 6.4dB</td><td style="color:#8a7f6d">D2（71.5Hz）</td><td>录音室</td></tr>
+<tr><td>雾里</td><td>D2</td><td>75.5 Hz</td><td>0.16s / HNR 6.6dB</td><td style="color:#8a7f6d">C2（64.5Hz）</td><td>央视网络春晚（三人合唱）</td></tr>
+<tr><td>南屏晚钟</td><td>D#2</td><td>76.9 Hz</td><td>0.19s / HNR 5.2dB</td><td style="color:#8a7f6d">C#2（67.9Hz）</td><td>录音室</td></tr>
+<tr><td>在路上</td><td>D#2</td><td>77.3 Hz</td><td>0.28s / HNR 6.2dB</td><td style="color:#8a7f6d">C#2（69.1Hz）</td><td>录音室</td></tr>
+<tr><td>向着太阳（官方320k）</td><td>D#2</td><td>78.1 Hz</td><td>0.19s / HNR 7.1dB</td><td style="color:#8a7f6d">—（NoneHz）</td><td>VITAS×王晰合唱</td></tr>
+<tr><td>惑许</td><td>F#2</td><td>91.0 Hz</td><td>0.21s / HNR 7.0dB</td><td style="color:#8a7f6d">D2（74.5Hz）</td><td>录音室</td></tr>
 </table>
 
 <h2>三、录音室专辑全量实测（72 曲）</h2>
 <img src="assets/voice/acoustic_id_card.png" alt="王晰声学身份证：72 首录音室曲目的实测音域图，横轴频率、纵轴专辑发行时间，标注 B1/Low C/E2/C4/C6 参考线">
 <div class="hl">
 <strong>七张录音室专辑 + EP《回望》共 72 首，全部完成人声分离 + 逐帧 F0 实测。</strong><br>
-最低稳定音 <strong class="b1">B1（61.7 Hz，《多听有益》）</strong>；
-最高稳定音 <strong>C6（1046.5 Hz，《如梦令》）</strong>；
-音域跨度中位 <strong>2.25 个八度</strong>（最大 3.92）。
+最低稳定音 <strong class="b1">B1（61.9 Hz，《知晓》）</strong>；
+最高稳定音 <strong>C6（1042.3 Hz，《如梦令》）</strong>；
+音域跨度中位 <strong>2.34 个八度</strong>（最大 3.93）。
 </div>
 <div class="card">
 <strong>📐 多维声学指标（全 72 曲中位值）</strong><br>
@@ -165,91 +171,91 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <h3 style="font-size:17px;margin-top:22px">专辑汇总</h3>
 <table>
 <tr><th>专辑</th><th>曲数</th><th>最低音</th><th>出自</th><th>最高音</th><th>出自</th><th>平均跨度（八度）</th></tr>
-<tr><td>不说</td><td>8</td><td class="b1">C2</td><td>勿扰</td><td>F5</td><td>勿扰</td><td>2.62</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>12</td><td class="b1">C2</td><td>多年以后</td><td>C6</td><td>如梦令</td><td>2.61</td></tr>
-<tr><td>重游往昔</td><td>8</td><td class="b1">B1</td><td>静止了的夜晚</td><td>G5</td><td>茕茕</td><td>2.59</td></tr>
-<tr><td>歌颂</td><td>10</td><td class="b1">C2</td><td>偏执</td><td>D#5</td><td>Come to Me</td><td>2.23</td></tr>
-<tr><td>X自选集</td><td>9</td><td class="b1">B1</td><td>多听有益</td><td>B4</td><td>Crystal Store</td><td>2.17</td></tr>
-<tr><td>B面图景</td><td>10</td><td class="b1">C2</td><td>知晓</td><td>C#5</td><td>惑许</td><td>1.97</td></tr>
-<tr><td>回望</td><td>3</td><td class="b1">D#2</td><td>无人岛上</td><td>D5</td><td>不能靠近的朋友</td><td>1.89</td></tr>
-<tr><td>Low C的诱惑</td><td>12</td><td class="b1">D2</td><td>千言万语</td><td>E5</td><td>当爱已成往事</td><td>1.76</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>12</td><td class="b1">C2</td><td>乌兰巴托的夜晚</td><td>C6</td><td>如梦令</td><td>2.63</td></tr>
+<tr><td>不说</td><td>8</td><td class="b1">C2</td><td>勿扰</td><td>F5</td><td>勿扰</td><td>2.63</td></tr>
+<tr><td>重游往昔</td><td>8</td><td class="b1">B1</td><td>静止了的夜晚</td><td>G5</td><td>茕茕</td><td>2.62</td></tr>
+<tr><td>歌颂</td><td>10</td><td class="b1">C2</td><td>偏执</td><td>D#5</td><td>Come to Me</td><td>2.27</td></tr>
+<tr><td>X自选集</td><td>9</td><td class="b1">B1</td><td>多听有益</td><td>B4</td><td>Crystal Store</td><td>2.21</td></tr>
+<tr><td>B面图景</td><td>10</td><td class="b1">B1</td><td>知晓</td><td>C#5</td><td>惑许</td><td>2.02</td></tr>
+<tr><td>回望</td><td>3</td><td class="b1">D#2</td><td>无人岛上</td><td>D5</td><td>不能靠近的朋友</td><td>2.01</td></tr>
+<tr><td>Low C的诱惑</td><td>12</td><td class="b1">B1</td><td>渔光曲</td><td>E5</td><td>当爱已成往事</td><td>1.91</td></tr>
 </table>
 <details style="margin-top:18px">
 <summary style="cursor:pointer;font-weight:600;color:#a8323d">📋 展开逐曲明细（72 首）</summary>
 <table style="font-size:13px">
 <tr><th>专辑</th><th>曲目</th><th>最低音</th><th>Hz</th><th>最高音</th><th>Hz</th><th>跨度</th><th>音符</th><th>密度</th><th>稳定性</th><th>颤音</th></tr>
-<tr><td>B面图景</td><td>知晓</td><td class="b1">C2</td><td>65.4</td><td>E4</td><td>330</td><td>2.33</td><td>417</td><td>1.58</td><td>8</td><td>5.1/83</td></tr>
-<tr><td>B面图景</td><td>悬念</td><td class="b1">E2</td><td>82.4</td><td>C#4</td><td>277</td><td>1.75</td><td>490</td><td>2.40</td><td>8</td><td>5.2/90</td></tr>
-<tr><td>B面图景</td><td>游离</td><td class="b1">E2</td><td>82.4</td><td>D4</td><td>294</td><td>1.83</td><td>655</td><td>2.24</td><td>8</td><td>5.1/99</td></tr>
-<tr><td>B面图景</td><td>分岔</td><td class="b1">F2</td><td>87.3</td><td>B4</td><td>494</td><td>2.50</td><td>478</td><td>1.96</td><td>9</td><td>5.1/95</td></tr>
-<tr><td>B面图景</td><td>哑光</td><td class="b1">F2</td><td>87.3</td><td>C4</td><td>262</td><td>1.58</td><td>510</td><td>2.01</td><td>7</td><td>5.0/79</td></tr>
-<tr><td>B面图景</td><td>玩笑</td><td class="b1">F2</td><td>87.3</td><td>E4</td><td>330</td><td>1.92</td><td>358</td><td>2.20</td><td>7</td><td>5.1/73</td></tr>
-<tr><td>B面图景</td><td>惑许</td><td class="b1">F#2</td><td>92.5</td><td>C#5</td><td>554</td><td>2.58</td><td>477</td><td>2.54</td><td>8</td><td>5.1/95</td></tr>
-<tr><td>B面图景</td><td>时空</td><td class="b1">F#2</td><td>92.5</td><td>C#4</td><td>277</td><td>1.58</td><td>589</td><td>2.45</td><td>8</td><td>4.8/81</td></tr>
-<tr><td>B面图景</td><td>倒叙</td><td class="b1">G2</td><td>98.0</td><td>C#4</td><td>277</td><td>1.50</td><td>459</td><td>2.28</td><td>7</td><td>5.2/87</td></tr>
-<tr><td>B面图景</td><td>轻信</td><td class="b1">A2</td><td>110.0</td><td>B4</td><td>494</td><td>2.17</td><td>395</td><td>2.29</td><td>7</td><td>5.4/72</td></tr>
-<tr><td>Low C的诱惑</td><td>千言万语</td><td class="b1">D2</td><td>73.4</td><td>A3</td><td>220</td><td>1.58</td><td>397</td><td>1.84</td><td>6</td><td>5.4/83</td></tr>
-<tr><td>Low C的诱惑</td><td>夜半歌声</td><td class="b1">D2</td><td>73.4</td><td>A3</td><td>220</td><td>1.58</td><td>319</td><td>1.68</td><td>8</td><td>5.2/110</td></tr>
-<tr><td>Low C的诱惑</td><td>当爱已成往事</td><td class="b1">D2</td><td>73.4</td><td>E5</td><td>659</td><td>3.17</td><td>578</td><td>1.81</td><td>6</td><td>5.2/70</td></tr>
-<tr><td>Low C的诱惑</td><td>我的心里只有你没有他</td><td class="b1">D2</td><td>73.4</td><td>E3</td><td>165</td><td>1.17</td><td>379</td><td>2.07</td><td>5</td><td>5.4/93</td></tr>
-<tr><td>Low C的诱惑</td><td>爱情</td><td class="b1">D2</td><td>73.4</td><td>A#3</td><td>233</td><td>1.67</td><td>466</td><td>1.72</td><td>9</td><td>5.4/97</td></tr>
-<tr><td>Low C的诱惑</td><td>绿岛小夜曲</td><td class="b1">D2</td><td>73.4</td><td>D4</td><td>294</td><td>2.00</td><td>431</td><td>2.06</td><td>6</td><td>5.6/87</td></tr>
-<tr><td>Low C的诱惑</td><td>至少还有你</td><td class="b1">D2</td><td>73.4</td><td>G4</td><td>392</td><td>2.42</td><td>570</td><td>2.02</td><td>6</td><td>5.2/76</td></tr>
-<tr><td>Low C的诱惑</td><td>南屏晚钟</td><td class="b1">D#2</td><td>77.8</td><td>D#4</td><td>311</td><td>2.00</td><td>570</td><td>2.56</td><td>7</td><td>5.2/89</td></tr>
-<tr><td>Low C的诱惑</td><td>渔光曲</td><td class="b1">E2</td><td>82.4</td><td>F#3</td><td>185</td><td>1.17</td><td>414</td><td>1.74</td><td>8</td><td>5.4/93</td></tr>
-<tr><td>Low C的诱惑</td><td>再回首</td><td class="b1">F2</td><td>87.3</td><td>G3</td><td>196</td><td>1.17</td><td>414</td><td>1.91</td><td>8</td><td>5.4/113</td></tr>
-<tr><td>Low C的诱惑</td><td>晚风</td><td class="b1">F2</td><td>87.3</td><td>D4</td><td>294</td><td>1.75</td><td>412</td><td>1.53</td><td>6</td><td>5.4/78</td></tr>
-<tr><td>Low C的诱惑</td><td>忘不了</td><td class="b1">G2</td><td>98.0</td><td>C4</td><td>262</td><td>1.42</td><td>325</td><td>1.21</td><td>5</td><td>5.3/89</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>多年以后</td><td class="b1">C2</td><td>65.4</td><td>A4</td><td>440</td><td>2.75</td><td>703</td><td>2.07</td><td>7</td><td>5.4/87</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>乌兰巴托的夜晚</td><td class="b1">C#2</td><td>69.3</td><td>G3</td><td>196</td><td>1.50</td><td>368</td><td>1.32</td><td>8</td><td>5.4/99</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>几多愁</td><td class="b1">C#2</td><td>69.3</td><td>G5</td><td>784</td><td>3.50</td><td>477</td><td>2.04</td><td>6</td><td>5.0/82</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>葬心</td><td class="b1">C#2</td><td>69.3</td><td>C6</td><td>1046</td><td>3.92</td><td>447</td><td>1.39</td><td>10</td><td>5.4/90</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>贝加尔湖畔</td><td class="b1">C#2</td><td>69.3</td><td>A3</td><td>220</td><td>1.67</td><td>379</td><td>1.78</td><td>8</td><td>5.6/108</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>他不爱我</td><td class="b1">D2</td><td>73.4</td><td>G3</td><td>196</td><td>1.42</td><td>424</td><td>1.85</td><td>7</td><td>5.6/101</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>如梦令</td><td class="b1">D2</td><td>73.4</td><td>C6</td><td>1046</td><td>3.83</td><td>462</td><td>1.92</td><td>8</td><td>5.4/93</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>月光</td><td class="b1">D2</td><td>73.4</td><td>C6</td><td>1046</td><td>3.83</td><td>672</td><td>2.08</td><td>6</td><td>5.4/88</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>月圆花好</td><td class="b1">D2</td><td>73.4</td><td>A3</td><td>220</td><td>1.58</td><td>455</td><td>2.18</td><td>7</td><td>5.4/86</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>重庆野玫瑰</td><td class="b1">D2</td><td>73.4</td><td>G3</td><td>196</td><td>1.42</td><td>408</td><td>1.55</td><td>8</td><td>5.1/85</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>叶塞尼亚</td><td class="b1">D#2</td><td>77.8</td><td>G4</td><td>392</td><td>2.33</td><td>374</td><td>1.41</td><td>8</td><td>5.1/89</td></tr>
-<tr><td>Low C的诱惑Ⅱ</td><td>微风细雨</td><td class="b1">E2</td><td>82.4</td><td>B5</td><td>988</td><td>3.58</td><td>395</td><td>1.88</td><td>6</td><td>5.0/68</td></tr>
-<tr><td>X自选集</td><td>多听有益</td><td class="b1">B1</td><td>61.7</td><td>B4</td><td>494</td><td>3.00</td><td>356</td><td>1.45</td><td>5</td><td>5.1/60</td></tr>
-<tr><td>X自选集</td><td>小河</td><td class="b1">E2</td><td>82.4</td><td>C4</td><td>262</td><td>1.67</td><td>470</td><td>2.05</td><td>8</td><td>5.4/110</td></tr>
-<tr><td>X自选集</td><td>猫模狗样</td><td class="b1">E2</td><td>82.4</td><td>F#4</td><td>370</td><td>2.17</td><td>390</td><td>1.74</td><td>4</td><td>5.1/82</td></tr>
-<tr><td>X自选集</td><td>Crystal Store</td><td class="b1">F2</td><td>87.3</td><td>B4</td><td>494</td><td>2.50</td><td>330</td><td>1.62</td><td>7</td><td>4.8/75</td></tr>
-<tr><td>X自选集</td><td>不需要结果</td><td class="b1">F2</td><td>87.3</td><td>G#4</td><td>415</td><td>2.25</td><td>439</td><td>1.82</td><td>8</td><td>5.3/81</td></tr>
-<tr><td>X自选集</td><td>微醺23点08分</td><td class="b1">F2</td><td>87.3</td><td>C4</td><td>262</td><td>1.58</td><td>379</td><td>1.96</td><td>6</td><td>4.8/60</td></tr>
-<tr><td>X自选集</td><td>是你</td><td class="b1">F2</td><td>87.3</td><td>G#4</td><td>415</td><td>2.25</td><td>479</td><td>1.82</td><td>6</td><td>5.1/74</td></tr>
-<tr><td>X自选集</td><td>朝凤</td><td class="b1">F2</td><td>87.3</td><td>G#4</td><td>415</td><td>2.25</td><td>491</td><td>2.11</td><td>5</td><td>5.3/75</td></tr>
-<tr><td>X自选集</td><td>偏偏</td><td class="b1">F#2</td><td>92.5</td><td>E4</td><td>330</td><td>1.83</td><td>417</td><td>1.84</td><td>6</td><td>5.2/82</td></tr>
-<tr><td>不说</td><td>勿扰</td><td class="b1">C2</td><td>65.4</td><td>F5</td><td>698</td><td>3.42</td><td>353</td><td>1.32</td><td>6</td><td>4.8/80</td></tr>
-<tr><td>不说</td><td>鹅毛信</td><td class="b1">C2</td><td>65.4</td><td>F4</td><td>349</td><td>2.42</td><td>308</td><td>1.44</td><td>7</td><td>4.8/73</td></tr>
-<tr><td>不说</td><td>住口</td><td class="b1">C#2</td><td>69.3</td><td>F#4</td><td>370</td><td>2.42</td><td>456</td><td>2.26</td><td>7</td><td>5.1/84</td></tr>
-<tr><td>不说</td><td>在路上</td><td class="b1">D#2</td><td>77.8</td><td>E5</td><td>659</td><td>3.08</td><td>345</td><td>1.90</td><td>5</td><td>5.1/65</td></tr>
-<tr><td>不说</td><td>无尽的夜里</td><td class="b1">D#2</td><td>77.8</td><td>A#4</td><td>466</td><td>2.58</td><td>435</td><td>1.87</td><td>4</td><td>4.8/92</td></tr>
-<tr><td>不说</td><td>雷美替胺</td><td class="b1">F2</td><td>87.3</td><td>B4</td><td>494</td><td>2.50</td><td>464</td><td>1.83</td><td>8</td><td>5.1/91</td></tr>
-<tr><td>不说</td><td>祝我们随遇而安</td><td class="b1">F#2</td><td>92.5</td><td>A4</td><td>440</td><td>2.25</td><td>587</td><td>2.38</td><td>9</td><td>5.1/104</td></tr>
-<tr><td>不说</td><td>明白</td><td class="b1">G#2</td><td>103.8</td><td>C5</td><td>523</td><td>2.33</td><td>461</td><td>2.15</td><td>6</td><td>5.2/82</td></tr>
-<tr><td>回望</td><td>无人岛上</td><td class="b1">D#2</td><td>77.8</td><td>B3</td><td>247</td><td>1.67</td><td>482</td><td>1.99</td><td>10</td><td>5.1/95</td></tr>
-<tr><td>回望</td><td>不能靠近的朋友</td><td class="b1">G2</td><td>98.0</td><td>D5</td><td>587</td><td>2.58</td><td>612</td><td>1.76</td><td>7</td><td>4.8/67</td></tr>
-<tr><td>回望</td><td>微光之名</td><td class="b1">C#3</td><td>138.6</td><td>F#4</td><td>370</td><td>1.42</td><td>515</td><td>2.35</td><td>8</td><td>5.0/81</td></tr>
-<tr><td>歌颂</td><td>偏执</td><td class="b1">C2</td><td>65.4</td><td>B4</td><td>494</td><td>2.92</td><td>459</td><td>1.94</td><td>5</td><td>5.4/74</td></tr>
-<tr><td>歌颂</td><td>雪地里寄不出的求救信</td><td class="b1">C2</td><td>65.4</td><td>E4</td><td>330</td><td>2.33</td><td>437</td><td>1.80</td><td>7</td><td>5.1/80</td></tr>
-<tr><td>歌颂</td><td>云一定知道</td><td class="b1">D#2</td><td>77.8</td><td>A#4</td><td>466</td><td>2.58</td><td>438</td><td>1.52</td><td>7</td><td>5.1/79</td></tr>
-<tr><td>歌颂</td><td>你</td><td class="b1">D#2</td><td>77.8</td><td>C#4</td><td>277</td><td>1.83</td><td>433</td><td>1.64</td><td>8</td><td>5.2/86</td></tr>
-<tr><td>歌颂</td><td>怂</td><td class="b1">F2</td><td>87.3</td><td>D4</td><td>294</td><td>1.75</td><td>601</td><td>2.20</td><td>7</td><td>5.1/94</td></tr>
-<tr><td>歌颂</td><td>歌颂</td><td class="b1">F2</td><td>87.3</td><td>D5</td><td>587</td><td>2.75</td><td>402</td><td>1.86</td><td>8</td><td>5.1/94</td></tr>
-<tr><td>歌颂</td><td>Come to Me</td><td class="b1">F#2</td><td>92.5</td><td>D#5</td><td>622</td><td>2.75</td><td>388</td><td>1.44</td><td>8</td><td>5.2/88</td></tr>
-<tr><td>歌颂</td><td>王牌就是我</td><td class="b1">G2</td><td>98.0</td><td>G4</td><td>392</td><td>2.00</td><td>373</td><td>1.59</td><td>5</td><td>5.1/68</td></tr>
-<tr><td>歌颂</td><td>等一等昨天</td><td class="b1">A#2</td><td>116.5</td><td>D5</td><td>587</td><td>2.33</td><td>521</td><td>1.90</td><td>5</td><td>5.4/81</td></tr>
-<tr><td>歌颂</td><td>双鱼</td><td class="b1">B2</td><td>123.5</td><td>C4</td><td>262</td><td>1.08</td><td>457</td><td>1.65</td><td>7</td><td>5.4/86</td></tr>
-<tr><td>重游往昔</td><td>静止了的夜晚</td><td class="b1">B1</td><td>61.7</td><td>D4</td><td>294</td><td>2.25</td><td>571</td><td>2.21</td><td>9</td><td>5.1/99</td></tr>
-<tr><td>重游往昔</td><td>晚风暖暖</td><td class="b1">C2</td><td>65.4</td><td>C4</td><td>262</td><td>2.00</td><td>636</td><td>2.31</td><td>7</td><td>5.0/86</td></tr>
-<tr><td>重游往昔</td><td>下沉</td><td class="b1">C#2</td><td>69.3</td><td>E4</td><td>330</td><td>2.25</td><td>240</td><td>1.08</td><td>10</td><td>5.0/104</td></tr>
-<tr><td>重游往昔</td><td>茕茕</td><td class="b1">D2</td><td>73.4</td><td>G5</td><td>784</td><td>3.42</td><td>335</td><td>1.72</td><td>9</td><td>5.2/102</td></tr>
-<tr><td>重游往昔</td><td>重游往昔</td><td class="b1">D2</td><td>73.4</td><td>B4</td><td>494</td><td>2.75</td><td>405</td><td>1.80</td><td>9</td><td>5.1/86</td></tr>
-<tr><td>重游往昔</td><td>你要忘了我</td><td class="b1">E2</td><td>82.4</td><td>C5</td><td>523</td><td>2.67</td><td>454</td><td>1.71</td><td>8</td><td>5.4/86</td></tr>
-<tr><td>重游往昔</td><td>好好说再见</td><td class="b1">F#2</td><td>92.5</td><td>C#5</td><td>554</td><td>2.58</td><td>512</td><td>1.78</td><td>8</td><td>5.2/81</td></tr>
-<tr><td>重游往昔</td><td>带着一颗好心去流浪</td><td class="b1">G2</td><td>98.0</td><td>F5</td><td>698</td><td>2.83</td><td>518</td><td>1.85</td><td>7</td><td>5.2/73</td></tr>
+<tr><td>B面图景</td><td>知晓</td><td class="b1">B1</td><td>61.9</td><td>E4</td><td>329</td><td>2.41</td><td>417</td><td>1.58</td><td>8</td><td>5.1/83</td></tr>
+<tr><td>B面图景</td><td>倒叙</td><td class="b1">D2</td><td>73.4</td><td>C#4</td><td>274</td><td>1.90</td><td>459</td><td>2.28</td><td>7</td><td>5.2/87</td></tr>
+<tr><td>B面图景</td><td>哑光</td><td class="b1">E2</td><td>81.9</td><td>C4</td><td>262</td><td>1.68</td><td>510</td><td>2.01</td><td>7</td><td>5.0/79</td></tr>
+<tr><td>B面图景</td><td>悬念</td><td class="b1">E2</td><td>82.7</td><td>C#4</td><td>284</td><td>1.78</td><td>490</td><td>2.40</td><td>8</td><td>5.2/90</td></tr>
+<tr><td>B面图景</td><td>分岔</td><td class="b1">F2</td><td>86.2</td><td>B4</td><td>497</td><td>2.53</td><td>478</td><td>1.96</td><td>9</td><td>5.1/95</td></tr>
+<tr><td>B面图景</td><td>玩笑</td><td class="b1">F#2</td><td>90.9</td><td>E4</td><td>327</td><td>1.85</td><td>358</td><td>2.20</td><td>7</td><td>5.1/73</td></tr>
+<tr><td>B面图景</td><td>惑许</td><td class="b1">F#2</td><td>91.0</td><td>C#5</td><td>556</td><td>2.61</td><td>477</td><td>2.54</td><td>8</td><td>5.1/95</td></tr>
+<tr><td>B面图景</td><td>时空</td><td class="b1">F#2</td><td>91.2</td><td>C#4</td><td>277</td><td>1.60</td><td>589</td><td>2.45</td><td>8</td><td>4.8/81</td></tr>
+<tr><td>B面图景</td><td>游离</td><td class="b1">F#2</td><td>91.7</td><td>D4</td><td>295</td><td>1.69</td><td>655</td><td>2.24</td><td>8</td><td>5.1/99</td></tr>
+<tr><td>B面图景</td><td>轻信</td><td class="b1">A2</td><td>112.7</td><td>B4</td><td>491</td><td>2.12</td><td>395</td><td>2.29</td><td>7</td><td>5.4/72</td></tr>
+<tr><td>Low C的诱惑</td><td>渔光曲</td><td class="b1">B1</td><td>61.6</td><td>F#3</td><td>187</td><td>1.60</td><td>414</td><td>1.74</td><td>8</td><td>5.4/93</td></tr>
+<tr><td>Low C的诱惑</td><td>夜半歌声</td><td class="b1">D2</td><td>72.3</td><td>A3</td><td>221</td><td>1.61</td><td>319</td><td>1.68</td><td>8</td><td>5.2/110</td></tr>
+<tr><td>Low C的诱惑</td><td>爱情</td><td class="b1">D2</td><td>72.3</td><td>A#3</td><td>234</td><td>1.69</td><td>466</td><td>1.72</td><td>9</td><td>5.4/97</td></tr>
+<tr><td>Low C的诱惑</td><td>千言万语</td><td class="b1">D2</td><td>73.0</td><td>A3</td><td>221</td><td>1.60</td><td>397</td><td>1.84</td><td>6</td><td>5.4/83</td></tr>
+<tr><td>Low C的诱惑</td><td>绿岛小夜曲</td><td class="b1">D2</td><td>73.2</td><td>D4</td><td>291</td><td>1.99</td><td>431</td><td>2.06</td><td>6</td><td>5.6/87</td></tr>
+<tr><td>Low C的诱惑</td><td>当爱已成往事</td><td class="b1">D2</td><td>74.9</td><td>E5</td><td>642</td><td>3.10</td><td>578</td><td>1.81</td><td>6</td><td>5.2/70</td></tr>
+<tr><td>Low C的诱惑</td><td>我的心里只有你没有他</td><td class="b1">D2</td><td>75.2</td><td>G#4</td><td>421</td><td>2.48</td><td>379</td><td>2.07</td><td>5</td><td>5.4/93</td></tr>
+<tr><td>Low C的诱惑</td><td>南屏晚钟</td><td class="b1">D#2</td><td>76.9</td><td>D#4</td><td>311</td><td>2.01</td><td>570</td><td>2.56</td><td>7</td><td>5.2/89</td></tr>
+<tr><td>Low C的诱惑</td><td>至少还有你</td><td class="b1">E2</td><td>82.3</td><td>G4</td><td>396</td><td>2.27</td><td>570</td><td>2.02</td><td>6</td><td>5.2/76</td></tr>
+<tr><td>Low C的诱惑</td><td>晚风</td><td class="b1">F2</td><td>85.6</td><td>D4</td><td>292</td><td>1.77</td><td>412</td><td>1.53</td><td>6</td><td>5.4/78</td></tr>
+<tr><td>Low C的诱惑</td><td>再回首</td><td class="b1">F2</td><td>86.9</td><td>G3</td><td>196</td><td>1.18</td><td>414</td><td>1.91</td><td>8</td><td>5.4/113</td></tr>
+<tr><td>Low C的诱惑</td><td>忘不了</td><td class="b1">G2</td><td>97.3</td><td>D4</td><td>292</td><td>1.59</td><td>325</td><td>1.21</td><td>5</td><td>5.3/89</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>多年以后</td><td class="b1">C2</td><td>65.8</td><td>A4</td><td>435</td><td>2.72</td><td>703</td><td>2.07</td><td>7</td><td>5.4/87</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>乌兰巴托的夜晚</td><td class="b1">C2</td><td>66.3</td><td>G3</td><td>196</td><td>1.57</td><td>368</td><td>1.32</td><td>8</td><td>5.4/99</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>贝加尔湖畔</td><td class="b1">C#2</td><td>68.3</td><td>A3</td><td>220</td><td>1.69</td><td>379</td><td>1.78</td><td>8</td><td>5.6/108</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>葬心</td><td class="b1">C#2</td><td>69.0</td><td>C6</td><td>1055</td><td>3.93</td><td>447</td><td>1.39</td><td>10</td><td>5.4/90</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>几多愁</td><td class="b1">C#2</td><td>69.5</td><td>G5</td><td>802</td><td>3.53</td><td>477</td><td>2.04</td><td>6</td><td>5.0/82</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>月光</td><td class="b1">D2</td><td>72.2</td><td>C6</td><td>1065</td><td>3.88</td><td>672</td><td>2.08</td><td>6</td><td>5.4/88</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>月圆花好</td><td class="b1">D2</td><td>72.2</td><td>A3</td><td>218</td><td>1.59</td><td>455</td><td>2.18</td><td>7</td><td>5.4/86</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>如梦令</td><td class="b1">D2</td><td>72.6</td><td>C6</td><td>1042</td><td>3.84</td><td>462</td><td>1.92</td><td>8</td><td>5.4/93</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>他不爱我</td><td class="b1">D2</td><td>73.5</td><td>A3</td><td>220</td><td>1.58</td><td>424</td><td>1.85</td><td>7</td><td>5.6/101</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>重庆野玫瑰</td><td class="b1">D#2</td><td>76.8</td><td>G3</td><td>196</td><td>1.35</td><td>408</td><td>1.55</td><td>8</td><td>5.1/85</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>叶塞尼亚</td><td class="b1">D#2</td><td>77.6</td><td>G4</td><td>392</td><td>2.34</td><td>374</td><td>1.41</td><td>8</td><td>5.1/89</td></tr>
+<tr><td>Low C的诱惑Ⅱ</td><td>微风细雨</td><td class="b1">E2</td><td>81.6</td><td>B5</td><td>960</td><td>3.56</td><td>395</td><td>1.88</td><td>6</td><td>5.0/68</td></tr>
+<tr><td>X自选集</td><td>多听有益</td><td class="b1">B1</td><td>61.6</td><td>B4</td><td>490</td><td>2.99</td><td>356</td><td>1.45</td><td>5</td><td>5.1/60</td></tr>
+<tr><td>X自选集</td><td>Crystal Store</td><td class="b1">D#2</td><td>77.8</td><td>B4</td><td>491</td><td>2.66</td><td>330</td><td>1.62</td><td>7</td><td>4.8/75</td></tr>
+<tr><td>X自选集</td><td>小河</td><td class="b1">E2</td><td>81.9</td><td>C4</td><td>262</td><td>1.68</td><td>470</td><td>2.05</td><td>8</td><td>5.4/110</td></tr>
+<tr><td>X自选集</td><td>猫模狗样</td><td class="b1">E2</td><td>82.3</td><td>F#4</td><td>369</td><td>2.17</td><td>390</td><td>1.74</td><td>4</td><td>5.1/82</td></tr>
+<tr><td>X自选集</td><td>微醺23点08分</td><td class="b1">F2</td><td>86.5</td><td>C4</td><td>262</td><td>1.60</td><td>379</td><td>1.96</td><td>6</td><td>4.8/60</td></tr>
+<tr><td>X自选集</td><td>不需要结果</td><td class="b1">F2</td><td>87.9</td><td>B4</td><td>493</td><td>2.49</td><td>439</td><td>1.82</td><td>8</td><td>5.3/81</td></tr>
+<tr><td>X自选集</td><td>是你</td><td class="b1">F2</td><td>87.9</td><td>A#4</td><td>463</td><td>2.40</td><td>479</td><td>1.82</td><td>6</td><td>5.1/74</td></tr>
+<tr><td>X自选集</td><td>偏偏</td><td class="b1">F#2</td><td>92.3</td><td>E4</td><td>330</td><td>1.84</td><td>417</td><td>1.84</td><td>6</td><td>5.2/82</td></tr>
+<tr><td>X自选集</td><td>朝凤</td><td class="b1">G2</td><td>98.8</td><td>G#4</td><td>415</td><td>2.07</td><td>491</td><td>2.11</td><td>5</td><td>5.3/75</td></tr>
+<tr><td>不说</td><td>鹅毛信</td><td class="b1">C2</td><td>65.3</td><td>F4</td><td>348</td><td>2.42</td><td>308</td><td>1.44</td><td>7</td><td>4.8/73</td></tr>
+<tr><td>不说</td><td>勿扰</td><td class="b1">C2</td><td>65.6</td><td>F5</td><td>700</td><td>3.41</td><td>353</td><td>1.32</td><td>6</td><td>4.8/80</td></tr>
+<tr><td>不说</td><td>住口</td><td class="b1">C#2</td><td>69.3</td><td>F#4</td><td>368</td><td>2.41</td><td>456</td><td>2.26</td><td>7</td><td>5.1/84</td></tr>
+<tr><td>不说</td><td>在路上</td><td class="b1">D#2</td><td>77.3</td><td>E5</td><td>663</td><td>3.10</td><td>345</td><td>1.90</td><td>5</td><td>5.1/65</td></tr>
+<tr><td>不说</td><td>无尽的夜里</td><td class="b1">D#2</td><td>77.6</td><td>A#4</td><td>465</td><td>2.58</td><td>435</td><td>1.87</td><td>4</td><td>4.8/92</td></tr>
+<tr><td>不说</td><td>祝我们随遇而安</td><td class="b1">F2</td><td>85.3</td><td>A4</td><td>440</td><td>2.37</td><td>587</td><td>2.38</td><td>9</td><td>5.1/104</td></tr>
+<tr><td>不说</td><td>雷美替胺</td><td class="b1">F#2</td><td>94.2</td><td>B4</td><td>493</td><td>2.39</td><td>464</td><td>1.83</td><td>8</td><td>5.1/91</td></tr>
+<tr><td>不说</td><td>明白</td><td class="b1">G#2</td><td>101.3</td><td>C5</td><td>522</td><td>2.36</td><td>461</td><td>2.15</td><td>6</td><td>5.2/82</td></tr>
+<tr><td>回望</td><td>无人岛上</td><td class="b1">D#2</td><td>77.9</td><td>B3</td><td>249</td><td>1.68</td><td>482</td><td>1.99</td><td>10</td><td>5.1/95</td></tr>
+<tr><td>回望</td><td>不能靠近的朋友</td><td class="b1">G2</td><td>96.8</td><td>D5</td><td>586</td><td>2.60</td><td>612</td><td>1.76</td><td>7</td><td>4.8/67</td></tr>
+<tr><td>回望</td><td>微光之名</td><td class="b1">A2</td><td>110.5</td><td>F#4</td><td>368</td><td>1.74</td><td>515</td><td>2.35</td><td>8</td><td>5.0/81</td></tr>
+<tr><td>歌颂</td><td>雪地里寄不出的求救信</td><td class="b1">C2</td><td>65.4</td><td>E4</td><td>331</td><td>2.34</td><td>437</td><td>1.80</td><td>7</td><td>5.1/80</td></tr>
+<tr><td>歌颂</td><td>偏执</td><td class="b1">C2</td><td>65.8</td><td>B4</td><td>494</td><td>2.91</td><td>459</td><td>1.94</td><td>5</td><td>5.4/74</td></tr>
+<tr><td>歌颂</td><td>云一定知道</td><td class="b1">D#2</td><td>75.7</td><td>A#4</td><td>468</td><td>2.63</td><td>438</td><td>1.52</td><td>7</td><td>5.1/79</td></tr>
+<tr><td>歌颂</td><td>Come to Me</td><td class="b1">E2</td><td>83.8</td><td>D#5</td><td>623</td><td>2.89</td><td>388</td><td>1.44</td><td>8</td><td>5.2/88</td></tr>
+<tr><td>歌颂</td><td>歌颂</td><td class="b1">F2</td><td>85.2</td><td>D5</td><td>590</td><td>2.79</td><td>402</td><td>1.86</td><td>8</td><td>5.1/94</td></tr>
+<tr><td>歌颂</td><td>你</td><td class="b1">F2</td><td>86.1</td><td>D#4</td><td>318</td><td>1.88</td><td>433</td><td>1.64</td><td>8</td><td>5.2/86</td></tr>
+<tr><td>歌颂</td><td>怂</td><td class="b1">F2</td><td>88.2</td><td>D4</td><td>296</td><td>1.74</td><td>601</td><td>2.20</td><td>7</td><td>5.1/94</td></tr>
+<tr><td>歌颂</td><td>王牌就是我</td><td class="b1">G2</td><td>97.5</td><td>G4</td><td>398</td><td>2.03</td><td>373</td><td>1.59</td><td>5</td><td>5.1/68</td></tr>
+<tr><td>歌颂</td><td>等一等昨天</td><td class="b1">A#2</td><td>116.1</td><td>D#5</td><td>606</td><td>2.38</td><td>521</td><td>1.90</td><td>5</td><td>5.4/81</td></tr>
+<tr><td>歌颂</td><td>双鱼</td><td class="b1">B2</td><td>125.6</td><td>C4</td><td>263</td><td>1.07</td><td>457</td><td>1.65</td><td>7</td><td>5.4/86</td></tr>
+<tr><td>重游往昔</td><td>静止了的夜晚</td><td class="b1">B1</td><td>61.5</td><td>D4</td><td>294</td><td>2.26</td><td>571</td><td>2.21</td><td>9</td><td>5.1/99</td></tr>
+<tr><td>重游往昔</td><td>晚风暖暖</td><td class="b1">C2</td><td>65.3</td><td>C4</td><td>264</td><td>2.01</td><td>636</td><td>2.31</td><td>7</td><td>5.0/86</td></tr>
+<tr><td>重游往昔</td><td>下沉</td><td class="b1">C#2</td><td>69.2</td><td>E4</td><td>334</td><td>2.27</td><td>240</td><td>1.08</td><td>10</td><td>5.0/104</td></tr>
+<tr><td>重游往昔</td><td>重游往昔</td><td class="b1">D2</td><td>73.1</td><td>B4</td><td>495</td><td>2.76</td><td>405</td><td>1.80</td><td>9</td><td>5.1/86</td></tr>
+<tr><td>重游往昔</td><td>茕茕</td><td class="b1">D2</td><td>73.4</td><td>G5</td><td>787</td><td>3.42</td><td>335</td><td>1.72</td><td>9</td><td>5.2/102</td></tr>
+<tr><td>重游往昔</td><td>你要忘了我</td><td class="b1">E2</td><td>81.4</td><td>C5</td><td>525</td><td>2.69</td><td>454</td><td>1.71</td><td>8</td><td>5.4/86</td></tr>
+<tr><td>重游往昔</td><td>好好说再见</td><td class="b1">F#2</td><td>90.1</td><td>D5</td><td>579</td><td>2.69</td><td>512</td><td>1.78</td><td>8</td><td>5.2/81</td></tr>
+<tr><td>重游往昔</td><td>带着一颗好心去流浪</td><td class="b1">G2</td><td>96.9</td><td>F5</td><td>706</td><td>2.86</td><td>518</td><td>1.85</td><td>7</td><td>5.2/73</td></tr>
 </table>
 </details>
 <div class="method" style="margin-top:16px">
@@ -268,9 +274,9 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 </div>
 <table>
 <tr><th>指标</th><th>王晰主导（中位）</th><th>他人主导（中位）</th><th>差值</th><th>p 值</th><th>效应量 r</th></tr>
-<tr><td>最低稳定音（MIDI，越大越高）</td><td>39.50</td><td>**41.00**</td><td>+1.50</td><td>0.015</td><td>+0.29</td></tr>
-<tr><td>最高稳定音（MIDI）</td><td>66.00</td><td>**76.00**</td><td>+10.00</td><td>0.000</td><td>+0.51</td></tr>
-<tr><td>音域跨度（八度）</td><td>2.25</td><td>**2.75**</td><td>+0.50</td><td>0.001</td><td>+0.41</td></tr>
+<tr><td>最低稳定音（MIDI，越大越高）</td><td>39.00</td><td>39.90</td><td>+0.90</td><td>0.197</td><td>+0.16</td></tr>
+<tr><td>最高稳定音（MIDI）</td><td>66.50</td><td>**76.10**</td><td>+9.60</td><td>0.000</td><td>+0.52</td></tr>
+<tr><td>音域跨度（八度）</td><td>2.31</td><td>**2.95**</td><td>+0.65</td><td>0.000</td><td>+0.43</td></tr>
 <tr><td>音符内稳定性（音分，越小越稳）</td><td>7.25</td><td>**5.60**</td><td>-1.65</td><td>0.000</td><td>-0.52</td></tr>
 <tr><td>颤音速率（Hz）</td><td>5.17</td><td>5.07</td><td>-0.10</td><td>0.441</td><td>-0.09</td></tr>
 <tr><td>颤音幅度（音分）</td><td>86.00</td><td>**73.00**</td><td>-13.00</td><td>0.000</td><td>-0.58</td></tr>
@@ -290,7 +296,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <h2>五、录音室 vs 现场：现场也能到 B1</h2>
 <img src="assets/voice/studio_vs_live.png" alt="录音室vs现场对比">
 <div class="hl">
-多听有益 录音室版最低 <strong class="b1">B1（61.2Hz）</strong>，<strong>现场版（杭州站（肆益巡演））最低 B1（63.4Hz）</strong>——几乎持平。录音室 B1(61.2Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到，不是录音室后期&quot;修&quot;出来的<br>
+多听有益 录音室版最低 <strong class="b1">B1（61.6Hz）</strong>，<strong>现场版（杭州站（肆益巡演））最低 B1（63.4Hz）</strong>——几乎持平。录音室 B1(61.6Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到<br>
 <span style="font-size:13px;color:#8a7f6d">⚠️ 口径：现场验证当前仅基于杭州站 4K 直拍（BV1ArKxe7E8H），其他场次待补充。</span>
 </div>
 
@@ -300,10 +306,10 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 
 <h2>七、公开资料互证</h2>
 <ul>
-<li>豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1，有效极端音域 A1–C5 超三个八度。</li>
+<li>豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1。</li>
 <li>hifi168《65HZ 的男低音》：王晰音域下限大字组 C（Low C，65.406Hz）。</li>
 <li>新浪博客胡颖欣：从 LOW C 以下唱到 HIGH C 以上，歌唱音域超三个八度。</li>
-<li>民歌中国：「流行乐坛&quot;稀有&quot;的男低音歌者」。</li>
+<li>民歌中国：「流行乐坛『稀有』的男低音歌者」。</li>
 </ul>
 
 <p class="caveat">

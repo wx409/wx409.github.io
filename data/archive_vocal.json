@@ -1,95 +1,132 @@
 {
- "schema": 1,
- "generated": "2026-09-08",
- "method": "demucs(htdemucs/GPU) 人声分离 + librosa pYIN 逐帧 F0 + voiced 帧稳健统计",
+ "schema": 2,
+ "generated": "2026-09-09",
+ "method": "demucs(htdemucs/GPU) 人声分离 + 自研 YIN 逐帧 F0 + 音符切分 + 稳健过滤（时长≥0.15s、HNR≥5dB、强度≥中位−25dB；极值音级需该音符本身 ≥0.2s）",
  "count": 10,
  "songs": [
   {
-   "name": "渡荆门送别",
-   "lowest_note": "B1",
-   "lowest_hz": 60.5,
-   "time_s": 465.0,
-   "trust": "人声分离实测(王晰低音段465-480s/615-630s)",
-   "source": "央视《经典咏流传》"
-  },
-  {
    "name": "多听有益",
    "lowest_note": "B1",
-   "lowest_hz": 61.2,
-   "time_s": 153.3,
-   "trust": "人声分离实测",
-   "source": "录音室 MV"
+   "lowest_hz": 61.6,
+   "time_s": 198.2,
+   "dur_s": 0.35,
+   "hnr_db": 5.9,
+   "source": "录音室 MV",
+   "instant_note": "B1",
+   "instant_hz": 61.2
   },
   {
-   "name": "向着太阳",
-   "lowest_note": "B1",
-   "lowest_hz": 61.9,
-   "time_s": 125.0,
-   "trust": "主歌低音段(120-130s)实测,官方版全曲最低D#2",
-   "source": "VITAS×王晰合唱"
-  },
-  {
-   "name": "雾里",
+   "name": "鹅毛信",
    "lowest_note": "C2",
-   "lowest_hz": 64.5,
-   "time_s": 136.5,
-   "trust": "人声分离实测(三人合唱)",
-   "source": "央视网络春晚"
+   "lowest_hz": 65.3,
+   "time_s": 162.1,
+   "dur_s": 0.33,
+   "hnr_db": 6.2,
+   "source": "录音室",
+   "instant_note": "D2",
+   "instant_hz": 71.9
   },
   {
-   "name": "南屏晚钟",
-   "lowest_note": "C#2",
-   "lowest_hz": 67.9,
-   "time_s": 18.8,
-   "trust": "人声分离实测",
-   "source": "录音室"
+   "name": "下潜",
+   "lowest_note": "C2",
+   "lowest_hz": 65.7,
+   "time_s": 81.5,
+   "dur_s": 0.21,
+   "hnr_db": 6.5,
+   "source": "现场（待确认王晰原声）",
+   "instant_note": "D2",
+   "instant_hz": 71.9
   },
   {
-   "name": "在路上",
+   "name": "渡荆门送别",
    "lowest_note": "C#2",
-   "lowest_hz": 69.1,
-   "time_s": 172.1,
-   "trust": "人声分离实测",
-   "source": "录音室"
+   "lowest_hz": 69.7,
+   "time_s": 124.4,
+   "dur_s": 0.26,
+   "hnr_db": 5.9,
+   "source": "央视《经典咏流传》",
+   "instant_note": "B1",
+   "instant_hz": 60.5
   },
   {
    "name": "想游泳的星",
    "lowest_note": "D2",
-   "lowest_hz": 71.5,
-   "time_s": 31.5,
-   "trust": "人声分离实测",
-   "source": "录音室"
+   "lowest_hz": 73.5,
+   "time_s": 31.4,
+   "dur_s": 0.26,
+   "hnr_db": 6.4,
+   "source": "录音室",
+   "instant_note": "D2",
+   "instant_hz": 71.5
   },
   {
-   "name": "下潜",
+   "name": "雾里",
    "lowest_note": "D2",
-   "lowest_hz": 71.9,
-   "time_s": 145.7,
-   "trust": "待确认是否王晰原声",
-   "source": "现场"
+   "lowest_hz": 75.5,
+   "time_s": 164.2,
+   "dur_s": 0.16,
+   "hnr_db": 6.6,
+   "source": "央视网络春晚（三人合唱）",
+   "instant_note": "C2",
+   "instant_hz": 64.5
   },
   {
-   "name": "鹅毛信",
-   "lowest_note": "D2",
-   "lowest_hz": 71.9,
-   "time_s": 16.6,
-   "trust": "人声分离实测",
-   "source": "录音室"
+   "name": "南屏晚钟",
+   "lowest_note": "D#2",
+   "lowest_hz": 76.9,
+   "time_s": 140.9,
+   "dur_s": 0.19,
+   "hnr_db": 5.2,
+   "source": "录音室",
+   "instant_note": "C#2",
+   "instant_hz": 67.9
+  },
+  {
+   "name": "在路上",
+   "lowest_note": "D#2",
+   "lowest_hz": 77.3,
+   "time_s": 10.5,
+   "dur_s": 0.28,
+   "hnr_db": 6.2,
+   "source": "录音室",
+   "instant_note": "C#2",
+   "instant_hz": 69.1
+  },
+  {
+   "name": "向着太阳（官方320k）",
+   "lowest_note": "D#2",
+   "lowest_hz": 78.1,
+   "time_s": 72.2,
+   "dur_s": 0.19,
+   "hnr_db": 7.1,
+   "source": "VITAS×王晰合唱",
+   "instant_note": "—",
+   "instant_hz": null
   },
   {
    "name": "惑许",
-   "lowest_note": "D2",
-   "lowest_hz": 74.5,
-   "time_s": 31.7,
-   "trust": "人声分离实测",
-   "source": "录音室"
+   "lowest_note": "F#2",
+   "lowest_hz": 91.0,
+   "time_s": 32.5,
+   "dur_s": 0.21,
+   "hnr_db": 7.0,
+   "source": "录音室",
+   "instant_note": "D2",
+   "instant_hz": 74.5
   }
  ],
  "conclusion": {
-  "main_range": "B1–D2（60.5–75Hz）",
+  "main_range": "B1–F#2（61.6–91.0Hz）",
   "below_e2": "全部低于一般男低音下限 E2(82.4Hz)",
-  "b1_count": 3,
-  "note": "B1 三次独立复现（多听有益/向着太阳/渡荆门送别），是可稳定到达的低音能力，绝非孤例"
+  "b1_count": 1,
+  "b1_songs": [
+   "多听有益"
+  ],
+  "b1_instant_songs": [
+   "多听有益",
+   "渡荆门送别"
+  ],
+  "note": "严格口径下 1 曲达到 B1（多听有益），均为时长 ≥0.2s、HNR ≥5dB 的稳定音；旧口径另有 2 曲的瞬时最低读数达到 B1（多听有益/渡荆门送别），但其时长仅 0.09–0.12s，按现行口径不计为「稳定音」，仅作追溯。"
  },
  "authority": {
   "姚峰(深圳音协主席)": "「作为 Bass-baritone 的话，在中国本身就不多，这是流行圈内的，恐怕就是孤本了」",
@@ -98,16 +135,16 @@
  },
  "studio_vs_live": {
   "song": "多听有益",
-  "studio_hz": 61.2,
+  "studio_hz": 61.6,
   "live_hz": 63.4,
   "live_note": "杭州站（肆益巡演）",
-  "note": "录音室 B1(61.2Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到，不是录音室后期\"修\"出来的"
+  "note": "录音室 B1(61.6Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到"
  },
  "public_refs": [
-  "豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1，有效极端音域 A1–C5 超三个八度。",
+  "豆瓣「晰晰音域整理帖」（粉丝扒谱）：正式作品最低《葬心》B1、正式现场最低《月光》开口 B1。",
   "hifi168《65HZ 的男低音》：王晰音域下限大字组 C（Low C，65.406Hz）。",
   "新浪博客胡颖欣：从 LOW C 以下唱到 HIGH C 以上，歌唱音域超三个八度。",
-  "民歌中国：「流行乐坛\"稀有\"的男低音歌者」。"
+  "民歌中国：「流行乐坛『稀有』的男低音歌者」。"
  ],
- "full_report": "音域分析/音域白皮书_v1.md 与 多点交叉实测_四曲目.md 与 渡荆门送别点评转写稿.md"
+ "full_report": "音域分析/音域白皮书_v1.md（第十二节：口径统一与双重校验）与 复核_十曲严格口径.md"
 }

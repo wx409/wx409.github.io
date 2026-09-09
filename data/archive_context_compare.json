@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09 14:24",
+ "generated_at": "2026-09-09 15:21",
  "A_self": {
   "label": "王晰主导（录音室专辑）",
   "n": 72
@@ -18,33 +18,33 @@
   {
    "key": "low_stable.midi",
    "label": "最低稳定音（MIDI，越大越高）",
-   "self_median": 39.5,
-   "other_median": 41.0,
-   "delta": 1.5,
-   "p": 0.0153,
-   "r": 0.294,
+   "self_median": 39.0,
+   "other_median": 39.9,
+   "delta": 0.9,
+   "p": 0.1966,
+   "r": 0.158,
    "n_self": 72,
    "n_other": 33
   },
   {
    "key": "high_stable.midi",
    "label": "最高稳定音（MIDI）",
-   "self_median": 66.0,
-   "other_median": 76.0,
-   "delta": 10.0,
+   "self_median": 66.5,
+   "other_median": 76.1,
+   "delta": 9.6,
    "p": 0.0,
-   "r": 0.507,
+   "r": 0.519,
    "n_self": 72,
    "n_other": 33
   },
   {
    "key": "span_octaves",
    "label": "音域跨度（八度）",
-   "self_median": 2.25,
-   "other_median": 2.75,
-   "delta": 0.5,
-   "p": 0.0009,
-   "r": 0.405,
+   "self_median": 2.305,
+   "other_median": 2.95,
+   "delta": 0.645,
+   "p": 0.0004,
+   "r": 0.435,
    "n_self": 72,
    "n_other": 33
   },
@@ -141,31 +141,31 @@
   {
    "key": "low_stable.midi",
    "label": "最低稳定音(MIDI)",
-   "self": 39.5,
-   "all": 41.0,
-   "solo": 41.0,
-   "p_all": 0.015312316647727451,
-   "p_solo": 0.009459741938778618,
-   "robust": "✅ 稳健"
+   "self": 39.0,
+   "all": 39.9,
+   "solo": 39.95,
+   "p_all": 0.19663208989054548,
+   "p_solo": 0.18849850004543423,
+   "robust": "—"
   },
   {
    "key": "high_stable.midi",
    "label": "最高稳定音(MIDI)",
-   "self": 66.0,
-   "all": 76.0,
-   "solo": 76.0,
-   "p_all": 3.231894703545464e-05,
-   "p_solo": 3.159561108013856e-05,
+   "self": 66.5,
+   "all": 76.1,
+   "solo": 76.25,
+   "p_all": 2.1134153690530346e-05,
+   "p_solo": 1.849978159400421e-05,
    "robust": "✅ 稳健"
   },
   {
    "key": "span_octaves",
    "label": "音域跨度(八度)",
-   "self": 2.25,
-   "all": 2.75,
-   "solo": 2.79,
-   "p_all": 0.0008993363259055328,
-   "p_solo": 0.000492244748332659,
+   "self": 2.3049999999999997,
+   "all": 2.95,
+   "solo": 2.95,
+   "p_all": 0.0003679293298155446,
+   "p_solo": 0.00015519197000227194,
    "robust": "✅ 稳健"
   },
   {

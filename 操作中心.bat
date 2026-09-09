@@ -118,6 +118,11 @@ echo    76. 下载他人主导音频（综艺/晚会/商演/饭拍）
 echo    77. 情境对比分析（报告+箱线图+站点数据）
 echo    78. 生成他人主导详细报告（分类明细+长图）
 echo    79. 生成舞台实测页 stage.html
+echo    ---- M组 口径复核与双重校验 ----
+echo    80. 复核十曲严格口径（新旧口径逐曲对照）
+echo    81. 匹配QQ官方版本（舞台素材同曲对照）
+echo    82. 双重校验（舞台版 vs QQ官方版）
+echo    83. 重绘十曲图（按现行口径）
 echo    0. 退出
 echo.
 set "op="
@@ -203,6 +208,10 @@ if "%op%"=="76" goto dl_other
 if "%op%"=="77" goto ctx_compare
 if "%op%"=="78" goto stage_report
 if "%op%"=="79" goto stage_page
+if "%op%"=="80" goto recheck10
+if "%op%"=="81" goto qq_match
+if "%op%"=="82" goto crosscheck
+if "%op%"=="83" goto redraw10
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1234,5 +1243,45 @@ cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_stage_page.py
 python -X utf8 project_b\build_nav.py
 echo  [OK] stage.html 已更新
+pause
+goto menu
+
+:recheck10
+cls
+echo  [复核十曲严格口径] 用现行稳健过滤重测最早 10 曲，输出新旧对照
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 复核十曲严格口径.py
+echo  [OK] 复核_十曲严格口径.md
+pause
+goto menu
+
+:qq_match
+cls
+echo  [匹配QQ官方版本] 为舞台素材找同曲官方录音（双重校验用）
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 匹配QQ官方版本.py --write-extra
+echo  [OK] 他人主导\QQ匹配.json ；已写入待测清单
+echo  下一步: 菜单 69 下载（或 批量下载专辑.py --extra-only）后跑菜单 70
+pause
+goto menu
+
+:crosscheck
+cls
+echo  [双重校验] 同一首歌 舞台版 vs QQ官方版 逐曲对照
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 双重校验舞台vsQQ.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_stage_page.py
+python -X utf8 project_b\build_nav.py
+echo  [OK] 双重校验_舞台vsQQ官方.md ；stage.html 已更新
+pause
+goto menu
+
+:redraw10
+cls
+echo  [重绘十曲图] 按现行「最低稳定音」口径重绘 range_10songs.png
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 重绘十曲图.py
+echo  [OK] assets\voice\range_10songs.png 已更新
 pause
 goto menu

@@ -17,6 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "archive_stage.json"
+CROSS = ROOT / "data" / "archive_crosscheck.json"
 OUT = ROOT / "stage.html"
 
 STYLE = """
@@ -42,6 +43,41 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 def esc(s) -> str:
     return html.escape(str(s if s is not None else ""), quote=True)
 
+
+
+def cross_section() -> str:
+    """双重校验：同一首歌「舞台版 vs QQ音乐官方版」"""
+    if not CROSS.exists():
+        return ""
+    c = json.loads(CROSS.read_text(encoding="utf-8"))
+    rows = []
+    for p in c["pairs"]:
+        f = lambda v, d=2: "—" if v is None else f"{v:.{d}f}"
+        rows.append(f'<tr><td>{esc(p["song"])}</td><td>{esc(p.get("qq_name",""))[:26]}</td>'
+                    f'<td>{esc(p["stage_low_note"])}（{f(p["stage_low"],0)}）</td>'
+                    f'<td class="low">{esc(p["qq_low_note"])}（{f(p["qq_low"],0)}）</td>'
+                    f'<td>{f(p["stage_span"])}</td><td>{f(p["qq_span"])}</td>'
+                    f'<td>{f(p["stage_stab"],1)}</td><td>{f(p["qq_stab"],1)}</td>'
+                    f'<td>{f(p["stage_vib"])}</td><td>{f(p["qq_vib"])}</td>'
+                    f'<td>{esc(p.get("tier",""))[:10]}</td></tr>')
+    table = "\n".join(rows)
+    return f'''<h2>六、双重校验：同一首歌「舞台版 vs QQ音乐官方版」</h2>
+<img src="assets/voice/crosscheck.png" alt="同一首歌舞台版与QQ音乐官方版的最低音、跨度、稳定性散点对照图">
+<div class="hl">
+<strong>结论：测量管线没有系统性偏差。</strong>可配对 <strong>{c["n_pairs"]} 组</strong>同曲：最低稳定音中位差 <strong>0.00 半音</strong>、
+音域跨度 +0.09 八度、音符内稳定性 <strong>0.00 音分</strong>、颤音速率 −0.07Hz（均为中位差）。<br>
+<strong>关键个案《渡荆门送别》</strong>：舞台版 C#2 69.7Hz ↔ QQ官方版（《经典咏流传》节目音源）<strong>C#2 69.7Hz，完全一致</strong>——
+说明该曲的「旧口径 B1」是 0.1 秒级瞬时读数，不是音源条件造成的测量偏差。
+</div>
+<table>
+<tr><th>曲目</th><th>QQ 官方版</th><th>舞台最低音（MIDI）</th><th>QQ 最低音（MIDI）</th><th>舞台跨度</th><th>QQ跨度</th><th>舞台稳定性</th><th>QQ稳定性</th><th>舞台颤音</th><th>QQ颤音</th><th>来源等级</th></tr>
+{table}
+</table>
+<div class="method">
+<strong>怎么读：</strong>① 两侧都是「有损流媒体音源」，差别在录制/播出条件（现场·电视 vs 官方发行或节目官方音源）；
+② 中位差≈0 说明管线稳定；个别曲目差 4–6 个半音，核查后多为<strong>不同场次/不同编配</strong>（并非同一录音）；
+③ 跨来源不做「谁更准/谁更稳」的结论；④ 标注「待核」的 QQ 版本疑为粉丝上传，仅作交叉核对。
+</div>'''
 
 def main() -> None:
     ap = argparse.ArgumentParser()
@@ -70,6 +106,7 @@ def main() -> None:
             f'<td>{x["stability"]:.1f}</td><td>{vib}</td></tr>')
     item_table = "\n".join(item_rows)
 
+    cross_html = cross_section()
     flagged = s.get("lowest_flagged") or []
     flag_html = ""
     if flagged:
@@ -166,7 +203,9 @@ def main() -> None:
 最高音中位 F#4 → E5，跨度 2.25 → {s['span_median']} 个八度；而<strong>颤音速率 5.17 → {s['vibrato_hz_median']} Hz（无显著差异）</strong>，可视作跨情境的「声学指纹」。
 详见 <a href="/voice.html">音域实测</a> 板块四（含统计检验与敏感性分析）。</p>
 
-<h2>五、方法与边界</h2>
+{cross_html}
+
+<h2>七、方法与边界</h2>
 <div class="method">
 <strong>流程：</strong>B站音轨（yt-dlp 取最佳音频）→ 44.1k wav → demucs(htdemucs) 人声分离 → 自研 numpy YIN 逐帧 F0（fmin=55/fmax=1100/frame=2048/hop=512）→ 音符切分（稳定段 ≥80ms、抖动 &lt;0.6 半音）→ 稳健过滤（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音级需累计 ≥0.3s）。<br>
 <strong>边界：</strong>① 素材为现场/电视/饭拍音轨，含观众噪声、伴奏比例差异、可能的修音与和声叠加——「稳定性更高」不能读成「现场唱得更准」；
