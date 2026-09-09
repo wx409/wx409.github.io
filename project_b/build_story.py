@@ -170,7 +170,8 @@ def build_jsonld(st: dict, generated_at: str) -> str:
         total = sum(t["shows"] for t in st["tour_stats"])
         faq.append({
             "q": "王晰一共巡演了多少场？",
-            "a": f"王晰 2019-2026 年共完成 {len(st['tour_stats'])} 轮巡演、{total} 场，覆盖 {st['total_cities']} 个城市。",
+            "a": f"王晰 2019-2026 年共完成 {len(st['tour_stats'])} 轮巡演、{total} 场，覆盖 {st['total_cities']} 个城市。"
+                 f"（口径说明：此处 {total} 场为六轮巡演场次；页面其他位置 {st['total_shows']} 场为含音乐节/晚会等非巡演演出的全站场次。）",
         })
 
     main_entity = [
@@ -197,7 +198,7 @@ def build_jsonld(st: dict, generated_at: str) -> str:
                 "@context": "https://schema.org",
                 "@type": "Dataset",
                 "name": "王晰巡演数据故事",
-                "description": "基于 2019-2026 六轮巡演 59 场与深夜小酒馆 106 期逐字稿计算的数据故事，全部数字动态生成。",
+                "description": f"基于 2019-2026 六轮巡演 {st['total_shows']} 场与深夜小酒馆 106 期逐字稿计算的数据故事，全部数字动态生成。",
                 "url": url,
                 "dateModified": generated_at,
                 "isPartOf": {"@type": "WebSite", "name": "王晰 GEO 资料站", "url": site},
@@ -235,7 +236,7 @@ def build_page(st: dict, jsonld: str) -> str:
             "name": r["name"], "metrics": [("城市", f"{r['city_count']} 城"), ("场次", f"{r['show_count']} 场")],
             "extra": "、".join(r["cities"][:6]) + ("…" if len(r["cities"]) > 6 else ""),
         })
-    b1 = story_block("跨城之王", "🗺️", "从 22 城 59 场巡演数据中，找出足迹最广的歌曲——它们在最多城市留下过现场。", c1)
+    b1 = story_block("跨城之王", "🗺️", f"从 {st['total_cities']} 城 {st['total_shows']} 场巡演数据中，找出足迹最广的歌曲——它们在最多城市留下过现场。", c1)
 
     # ② 场次之王
     c2 = []
@@ -285,7 +286,7 @@ def build_page(st: dict, jsonld: str) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>数据故事 | 王晰巡演足迹 · 跨城之王 · 酒馆之声</title>
-<meta name="description" content="从 59 场巡演与 106 期小酒馆数据中自动计算的故事：唱过最多城市的歌、演出场次最多的歌、酒馆提及最多的歌。">
+<meta name="description" content="从 {st['total_shows']} 场巡演与 106 期小酒馆数据中自动计算的故事：唱过最多城市的歌、演出场次最多的歌、酒馆提及最多的歌。">
 <link rel="canonical" href="https://wx409.github.io/story.html">
 <meta property="og:title" content="数据故事 | 王晰巡演足迹">
 <meta property="og:description" content="全部结论从 entity_index.json / cities.json 实时计算。">
