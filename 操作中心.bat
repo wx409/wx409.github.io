@@ -131,6 +131,9 @@ echo    87. 结构化数据审计（JSON-LD 语法/类型/纪律）
 echo    88. 分享图重新生成 + 版本指纹（长图一致性）
 echo    ---- O组 线上核验（审计线上化） ----
 echo    89. 线上核验（图片200+sha256对指纹+数字一致+黑名单）
+echo    ---- P组 音高交叉校验（CREPE） ----
+echo    90. CREPE 交叉校验（排查 YIN 次谐波错误）
+echo    91. 打开《向着太阳》重测报告
 echo    0. 退出
 echo.
 set "op="
@@ -226,6 +229,8 @@ if "%op%"=="86" goto vocal_sum
 if "%op%"=="87" goto audit_ld
 if "%op%"=="88" goto idcard
 if "%op%"=="89" goto audit_live
+if "%op%"=="90" goto crepe_check
+if "%op%"=="91" goto open_sun_report
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1362,5 +1367,21 @@ echo  提示: 刚 push 完请等 2-3 分钟再跑（Pages 构建/缓存窗口）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\audit_live.py --wait 180
 echo  [OK] exit 0 = 通过或网络不可达 SKIP；exit 1 = 线上不一致，看输出逐条修
+pause
+goto menu
+
+:crepe_check
+cls
+echo  [CREPE 交叉校验] YIN vs CREPE（CNN）时间对齐比对，自动标记次谐波错误
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 CREPE交叉校验.py
+echo  [OK] CREPE交叉校验.md / .json（不一致的曲目会标 ★）
+pause
+goto menu
+
+:open_sun_report
+cls
+echo  [打开重测报告] 《向着太阳》音高重测（D#2 78.1Hz 改为 G2 97.8Hz）
+start "" "E:\wx\论文素材_王晰作传\音域分析\重测_向着太阳_20260909.md"
 pause
 goto menu

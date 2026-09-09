@@ -12,6 +12,7 @@
    "dur_s": 0.35,
    "hnr_db": 5.9,
    "source": "录音室 MV",
+   "manual_review": null,
    "instant_note": "B1",
    "instant_hz": 61.2
   },
@@ -23,6 +24,7 @@
    "dur_s": 0.33,
    "hnr_db": 6.2,
    "source": "录音室",
+   "manual_review": null,
    "instant_note": "D2",
    "instant_hz": 71.9
   },
@@ -34,6 +36,7 @@
    "dur_s": 0.21,
    "hnr_db": 6.5,
    "source": "现场（待确认王晰原声）",
+   "manual_review": null,
    "instant_note": "D2",
    "instant_hz": 71.9
   },
@@ -45,6 +48,7 @@
    "dur_s": 0.26,
    "hnr_db": 5.9,
    "source": "央视《经典咏流传》",
+   "manual_review": null,
    "instant_note": "B1",
    "instant_hz": 60.5
   },
@@ -56,6 +60,7 @@
    "dur_s": 0.26,
    "hnr_db": 6.4,
    "source": "录音室",
+   "manual_review": null,
    "instant_note": "D2",
    "instant_hz": 71.5
   },
@@ -67,6 +72,7 @@
    "dur_s": 0.16,
    "hnr_db": 6.6,
    "source": "央视网络春晚（三人合唱）",
+   "manual_review": null,
    "instant_note": "C2",
    "instant_hz": 64.5
   },
@@ -78,6 +84,7 @@
    "dur_s": 0.19,
    "hnr_db": 5.2,
    "source": "录音室",
+   "manual_review": null,
    "instant_note": "C#2",
    "instant_hz": 67.9
   },
@@ -89,19 +96,9 @@
    "dur_s": 0.28,
    "hnr_db": 6.2,
    "source": "录音室",
+   "manual_review": null,
    "instant_note": "C#2",
    "instant_hz": 69.1
-  },
-  {
-   "name": "向着太阳（官方320k）",
-   "lowest_note": "D#2",
-   "lowest_hz": 78.1,
-   "time_s": 72.2,
-   "dur_s": 0.19,
-   "hnr_db": 7.1,
-   "source": "VITAS×王晰合唱",
-   "instant_note": "—",
-   "instant_hz": null
   },
   {
    "name": "惑许",
@@ -111,8 +108,21 @@
    "dur_s": 0.21,
    "hnr_db": 7.0,
    "source": "录音室",
+   "manual_review": null,
    "instant_note": "D2",
    "instant_hz": 74.5
+  },
+  {
+   "name": "向着太阳（官方320k）",
+   "lowest_note": "G2",
+   "lowest_hz": 97.8,
+   "time_s": 33.4,
+   "dur_s": 0.26,
+   "hnr_db": 9.7,
+   "source": "VITAS×王晰合唱",
+   "manual_review": "YIN 1/3 次谐波错误（真值 A#3≈231Hz）；CREPE 复核得全曲最低人声 G2",
+   "instant_note": "—",
+   "instant_hz": null
   }
  ],
  "conclusion": {
@@ -120,8 +130,8 @@
   "main_range_outliers": [
    "南屏晚钟 D#2",
    "在路上 D#2",
-   "向着太阳（官方320k） D#2",
-   "惑许 F#2"
+   "惑许 F#2",
+   "向着太阳（官方320k） G2"
   ],
   "album_b1_songs": [
    "知晓",
