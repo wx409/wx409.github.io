@@ -65,7 +65,7 @@ echo    38. 预测最终验证 P001
 echo.
 echo  [F · 部署 / Git / 运维]
 echo  ------------------------------------------------------------------------------
-echo    39. 完整部署 deploy_all（25步+commit+IndexNow，末尾自动口径/导航/bat 把关）
+echo    39. 完整部署 deploy_all（全流水线+commit+IndexNow，末尾自动口径/导航/结构化数据/bat 把关）
 echo    40. IndexNow 通知 only
 echo    41. 全链路 auto_update
 echo    42. git 手动 push
@@ -449,7 +449,7 @@ goto menu
 
 cls
 
-echo === 完整部署 deploy_all (25步生成 + 把关 + commit + IndexNow) ===
+echo === 完整部署 deploy_all (全流水线生成 + 把关 + commit + IndexNow) ===
 
 cd /d "D:\wx409.github.io"
 
@@ -998,13 +998,16 @@ goto menu
 
 :vocal_voice_page
 cls
-echo  [更新 voice.html] 重跑音域谱+页面生成
-cd /d E:\wx\论文素材_王晰作传\基线口径
+echo  [更新 voice.html] 重跑音域谱 + 页面 + 首页摘要 + 口径校验
+cd /d "E:\wx\论文素材_王晰作传\基线口径"
 python -X utf8 generate_vocal.py
 python -X utf8 generate_voice_page.py
-echo  [OK] 已生成 data\archive_vocal.json 与 voice.html
-echo  改动后: git add voice.html assets\voice data\archive_vocal.json 后 commit+push
-echo  IndexNow 提交参考 temp\indexnow_batch_all.py 的写法
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\inject_vocal_summary.py
+python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\audit_caliber.py
+echo  [OK] data\archive_vocal.json + voice.html + 首页音域摘要已更新
+echo  发布: 菜单 39 完整部署，或 git push 后跑  python -X utf8 project_b\deploy_all.py --notify-only
 pause
 goto menu
 
@@ -1056,15 +1059,17 @@ goto menu
 
 :gate_all
 cls
-echo  [一键把关] 口径审计 + 口径登记表 + 导航统一 + 导航审计
+echo  [一键把关] 口径 + 登记表 + 导航 + 批处理 + 结构化数据 + sitemap + 指数完整性
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\audit_caliber.py
 python -X utf8 project_b\build_calibers.py
 python -X utf8 project_b\build_nav.py
 python -X utf8 project_b\audit_nav.py
 python -X utf8 project_b\audit_bat.py
+python -X utf8 project_b\audit_jsonld.py
 python -X utf8 project_b\audit_ops_coverage.py
 python -X utf8 project_b\check_index_integrity.py
+python -X utf8 project_b\update_sitemap_lastmod.py --check
 echo.
 echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
 pause
@@ -1166,14 +1171,17 @@ goto menu
 
 :report_albums
 cls
-echo  [生成专辑音域报告] 报告 + 站点数据 + 重渲染 voice.html
+echo  [生成专辑音域报告] 报告 + 站点数据 + 长图指纹 + voice.html + 首页摘要
 cd /d "E:\wx\论文素材_王晰作传\音域分析"
 python -X utf8 生成专辑音域报告.py
+python -X utf8 生成声学身份证.py
 cd /d "E:\wx\论文素材_王晰作传\基线口径"
 python -X utf8 generate_voice_page.py
 cd /d "D:\wx409.github.io"
+python -X utf8 project_b\inject_vocal_summary.py
 python -X utf8 project_b\build_nav.py
-echo  [OK] 报告 专辑音域报告_v1.md ；voice.html 已更新
+python -X utf8 project_b\audit_caliber.py
+echo  [OK] 报告 专辑音域报告_v1.md ；长图+指纹 ；voice.html ；首页音域摘要 均已更新
 pause
 goto menu
 

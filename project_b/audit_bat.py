@@ -64,6 +64,26 @@ def check(path: Path) -> list[str]:
         for m in re.finditer(r"\bgoto\s+:?([A-Za-z_][\w]*)", ln, re.I):
             if m.group(1).lower() not in labels:
                 problems.append(f"第 {i} 行 goto {m.group(1)} —— 找不到对应标签")
+
+    # 5) 引用脚本存在性：`python -X utf8 xxx.py` 必须指向真实文件
+    #    （按前一条 `cd /d` 的工作目录解析；脚本改名/挪目录后菜单会静默失效）
+    cwd = ROOT
+    for i, ln in enumerate(lines, 1):
+        s = ln.strip()
+        m = re.match(r'cd /d "?([^"]+?)"?\s*$', s, re.I)
+        if m:
+            cwd = Path(m.group(1))
+            continue
+        m = re.match(r"python -X utf8 (.+)$", s)
+        if not m:
+            continue
+        arg = m.group(1).strip().strip('"')
+        if arg.startswith("-"):
+            continue
+        script = arg.split()[0].strip('"')
+        path = Path(script) if Path(script).is_absolute() else cwd / script
+        if not path.exists():
+            problems.append(f"第 {i} 行引用脚本不存在: {script}（工作目录 {cwd}）")
     return problems
 
 
