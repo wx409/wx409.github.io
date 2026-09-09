@@ -95,7 +95,7 @@ echo    56. 口径审计（单一事实源一致性自检）
 echo    57. 口径登记表（data/calibers.json+md）
 echo    58. 导航统一（顶部导航+底部全站索引）
 echo    59. 导航与内链审计（孤儿页检查）
-echo    60. 一键全部把关（56+57+58+59）
+echo    60. 一键全部把关（口径+登记表+导航+批处理）
 echo    0. 退出
 echo.
 set "op="
@@ -1001,6 +1001,7 @@ python -X utf8 project_b\audit_caliber.py
 python -X utf8 project_b\build_calibers.py
 python -X utf8 project_b\build_nav.py
 python -X utf8 project_b\audit_nav.py
+python -X utf8 project_b\audit_bat.py
 echo.
 echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
 pause
