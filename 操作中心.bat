@@ -1008,6 +1008,7 @@ python -X utf8 project_b\build_calibers.py
 python -X utf8 project_b\build_nav.py
 python -X utf8 project_b\audit_nav.py
 python -X utf8 project_b\audit_bat.py
+python -X utf8 project_b\audit_ops_coverage.py
 echo.
 echo  [OK] 全部完成（上面两个审计均应为 0 退出码）
 pause
