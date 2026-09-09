@@ -112,6 +112,10 @@ echo    71. 生成专辑音域报告（报告+站点数据+voice.html）
 echo    72. 添加待测曲目（搜索歌名写入待测清单）
 echo    73. 一键音域实测（69到71全流程）
 echo    74. 清理分离人声缓存（释放约2.9GB）
+echo    ---- L组 情境对比（他主导 vs 他人主导） ----
+echo    75. 抓取B站收藏夹清单（王晰综艺现场live）
+echo    76. 下载他人主导音频（综艺/晚会/商演/饭拍）
+echo    77. 情境对比分析（报告+箱线图+站点数据）
 echo    0. 退出
 echo.
 set "op="
@@ -192,6 +196,9 @@ if "%op%"=="71" goto report_albums
 if "%op%"=="72" goto add_song
 if "%op%"=="73" goto one_click_vocal
 if "%op%"=="74" goto clean_stems
+if "%op%"=="75" goto fav_fetch
+if "%op%"=="76" goto dl_other
+if "%op%"=="77" goto ctx_compare
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1173,5 +1180,36 @@ set /p ok=确认删除? 输入 y 继续:
 if /i not "%ok%"=="y" goto menu
 rmdir /s /q "E:\wx\论文素材_王晰作传\音域分析\分离_专辑"
 echo  [OK] 已清理
+pause
+goto menu
+
+:fav_fetch
+cls
+echo  [抓取B站收藏夹] 王晰综艺现场live 清单 + 自动归类
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 抓取B站收藏夹.py
+echo  [OK] 清单 他人主导\清单.json
+pause
+goto menu
+
+:dl_other
+cls
+echo  [下载他人主导音频] 综艺/晚会/商演/饭拍 转 wav
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 下载他人主导音频.py
+echo  [OK] 他人主导 目录下按分类存放
+pause
+goto menu
+
+:ctx_compare
+cls
+echo  [情境对比分析] 专辑(他主导) vs 舞台(他人主导) 报告+箱线图+站点
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 对比情境分析.py
+cd /d "E:\wx\论文素材_王晰作传\基线口径"
+python -X utf8 generate_voice_page.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_nav.py
+echo  [OK] 报告 情境对比报告.md ；voice.html 板块四已更新
 pause
 goto menu

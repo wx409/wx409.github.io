@@ -1,0 +1,213 @@
+{
+ "generated_at": "2026-09-09 14:24",
+ "A_self": {
+  "label": "王晰主导（录音室专辑）",
+  "n": 72
+ },
+ "B_other": {
+  "label": "他人主导（综艺/晚会/商演/饭拍）",
+  "n": 33,
+  "cats": {
+   "晚会": 5,
+   "盛典商演": 4,
+   "综艺": 21,
+   "饭拍直拍": 3
+  }
+ },
+ "metrics": [
+  {
+   "key": "low_stable.midi",
+   "label": "最低稳定音（MIDI，越大越高）",
+   "self_median": 39.5,
+   "other_median": 41.0,
+   "delta": 1.5,
+   "p": 0.0153,
+   "r": 0.294,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "high_stable.midi",
+   "label": "最高稳定音（MIDI）",
+   "self_median": 66.0,
+   "other_median": 76.0,
+   "delta": 10.0,
+   "p": 0.0,
+   "r": 0.507,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "span_octaves",
+   "label": "音域跨度（八度）",
+   "self_median": 2.25,
+   "other_median": 2.75,
+   "delta": 0.5,
+   "p": 0.0009,
+   "r": 0.405,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "stability_cents_median",
+   "label": "音符内稳定性（音分，越小越稳）",
+   "self_median": 7.25,
+   "other_median": 5.6,
+   "delta": -1.65,
+   "p": 0.0,
+   "r": -0.516,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "vibrato_rate_hz_median",
+   "label": "颤音速率（Hz）",
+   "self_median": 5.17,
+   "other_median": 5.07,
+   "delta": -0.1,
+   "p": 0.4405,
+   "r": -0.093,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "vibrato_extent_cents_median",
+   "label": "颤音幅度（音分）",
+   "self_median": 86.0,
+   "other_median": 73.0,
+   "delta": -13.0,
+   "p": 0.0,
+   "r": -0.576,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "note_density_per_s",
+   "label": "音符密度（个/秒）",
+   "self_median": 1.855,
+   "other_median": 1.63,
+   "delta": -0.225,
+   "p": 0.004,
+   "r": -0.351,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "register_share.low_lt_C3",
+   "label": "低音区占比(<C3)",
+   "self_median": 0.228,
+   "other_median": 0.107,
+   "delta": -0.122,
+   "p": 0.0,
+   "r": -0.615,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "register_share.mid_C3_B3",
+   "label": "中音区占比(C3–B3)",
+   "self_median": 0.63,
+   "other_median": 0.659,
+   "delta": 0.029,
+   "p": 0.9945,
+   "r": 0.001,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "register_share.high_ge_C4",
+   "label": "高音区占比(≥C4)",
+   "self_median": 0.042,
+   "other_median": 0.205,
+   "delta": 0.163,
+   "p": 0.0,
+   "r": 0.644,
+   "n_self": 72,
+   "n_other": 33
+  },
+  {
+   "key": "note_dur_median_s",
+   "label": "中位音符时长（秒）",
+   "self_median": 0.21,
+   "other_median": 0.19,
+   "delta": -0.02,
+   "p": 0.265,
+   "r": -0.133,
+   "n_self": 72,
+   "n_other": 33
+  }
+ ],
+ "sensitivity_solo_only": [
+  {
+   "key": "low_stable.midi",
+   "label": "最低稳定音(MIDI)",
+   "self": 39.5,
+   "all": 41.0,
+   "solo": 41.0,
+   "p_all": 0.015312316647727451,
+   "p_solo": 0.009459741938778618,
+   "robust": "✅ 稳健"
+  },
+  {
+   "key": "high_stable.midi",
+   "label": "最高稳定音(MIDI)",
+   "self": 66.0,
+   "all": 76.0,
+   "solo": 76.0,
+   "p_all": 3.231894703545464e-05,
+   "p_solo": 3.159561108013856e-05,
+   "robust": "✅ 稳健"
+  },
+  {
+   "key": "span_octaves",
+   "label": "音域跨度(八度)",
+   "self": 2.25,
+   "all": 2.75,
+   "solo": 2.79,
+   "p_all": 0.0008993363259055328,
+   "p_solo": 0.000492244748332659,
+   "robust": "✅ 稳健"
+  },
+  {
+   "key": "register_share.low_lt_C3",
+   "label": "低音区占比",
+   "self": 0.2285,
+   "all": 0.107,
+   "solo": 0.10350000000000001,
+   "p_all": 4.5939341973628784e-07,
+   "p_solo": 1.7742520874007722e-06,
+   "robust": "✅ 稳健"
+  },
+  {
+   "key": "register_share.high_ge_C4",
+   "label": "高音区占比",
+   "self": 0.0415,
+   "all": 0.205,
+   "solo": 0.2045,
+   "p_all": 1.302000211285297e-07,
+   "p_solo": 9.4013536993437e-07,
+   "robust": "✅ 稳健"
+  },
+  {
+   "key": "note_density_per_s",
+   "label": "音符密度",
+   "self": 1.855,
+   "all": 1.63,
+   "solo": 1.5950000000000002,
+   "p_all": 0.004037266027694179,
+   "p_solo": 0.002274310881396927,
+   "robust": "✅ 稳健"
+  },
+  {
+   "key": "stability_cents_median",
+   "label": "音符内稳定性",
+   "self": 7.25,
+   "all": 5.6,
+   "solo": 5.75,
+   "p_all": 2.3380738884384405e-05,
+   "p_solo": 0.00017868311311053695,
+   "robust": "✅ 稳健"
+  }
+ ],
+ "note": "仅比较分布特征；两组素材条件不同（录音室 vs 现场/电视）；已剔除合唱做敏感性检验，不做能力排名或单曲因果"
+}
