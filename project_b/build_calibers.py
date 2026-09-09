@@ -159,6 +159,38 @@ def collect() -> list[dict]:
     except Exception as e:
         add("shows_tour", "六轮巡演场次", None, "长表不可读", str(e), "")
 
+    # 指数数据覆盖天数（页面"已覆盖 N 天"的唯一事实源）
+    #   口径：以**已发布的指数长表**（music_index_long.csv）的唯一日期数为准，
+    #   因为站点图表读的就是它；原始库文件覆盖数（music_index_raw_coverage.json）
+    #   会少算补充来源的 11 天（2026-07-26~08-05），两者差异已在备忘第三十八节记录。
+    try:
+        import csv as _csv
+        import io as _io
+        from pathlib import Path as _Path
+        csv_p = _Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
+        cov_p = _Path(r"E:\wx\wx_textmine_out\music_index_raw_coverage.json")
+        dates: set[str] = set()
+        if csv_p.exists():
+            with _io.open(csv_p, encoding="utf-8-sig", newline="") as f:
+                for row in _csv.DictReader(f):
+                    v = (row.get("date") or row.get("日期") or "").strip()
+                    if v:
+                        dates.add(v[:10])
+        raw_n = None
+        if cov_p.exists():
+            _c = json.loads(cov_p.read_text(encoding="utf-8"))
+            raw_n = int(_c.get("span_days", 0)) - len(_c.get("missing_days") or [])
+        if dates:
+            note = (f"已发布长表唯一日期；{min(dates)} 至 {max(dates)}"
+                    + (f"；原始库文件覆盖 {raw_n} 天（少算补充来源 11 天）" if raw_n else ""))
+            add("index_days", "指数数据覆盖天数", len(dates),
+                "站点图表所用指数长表的实际覆盖天数", "E:\\wx\\wx_textmine_out\\music_index_long.csv", note)
+        elif raw_n:
+            add("index_days", "指数数据覆盖天数", raw_n,
+                "原始库文件覆盖天数（长表不可读时的回退）", "music_index_raw_coverage.json", "")
+    except Exception as e:
+        add("index_days", "指数数据覆盖天数", None, "数据源不可读", str(e), "")
+
     return [x for x in out if x["value"] is not None]
 
 

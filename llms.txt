@@ -28,7 +28,7 @@
 ## 结构化数据说明
 
 - 所有演出详情页包含 MusicEvent + FAQPage + Person JSON-LD
-- 首页包含 WebPage + Person + FAQPage JSON-LD；音域实测页包含 Dataset JSON-LD
+- 结构化数据（按页面实际 JSON-LD 派生）：首页 Answer + Dataset + FAQPage + MusicEvent + Offer + Organization + PerformingArtsTheater + Person + Place + PostalAddress + Question + WebSite JSON-LD；音域实测页 Answer + Dataset + FAQPage + ImageObject + Person + PropertyValue + Question + ResearchProject JSON-LD；舞台实测页 Answer + Dataset + FAQPage + ImageObject + Person + Question + ResearchProject JSON-LD
 - 图片使用 alt 文本与 ImageObject 标注；视频使用 VideoObject 标注（如有）
 
 ## 信息来源与审核原则
@@ -62,4 +62,4 @@
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-09 16:22:39；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-09 17:00:56；请勿手改数字。）

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-09 16:22",
-  "count": 20,
+  "generated_at": "2026-09-09 17:01",
+  "count": 21,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -161,6 +161,14 @@
       "scope": "长表去重后的曲目名",
       "source": "巡演歌单长表",
       "note": ""
+    },
+    {
+      "id": "index_days",
+      "label": "指数数据覆盖天数",
+      "value": 1282,
+      "scope": "站点图表所用指数长表的实际覆盖天数",
+      "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
+      "note": "已发布长表唯一日期；2023-01-01 至 2026-09-08；原始库文件覆盖 1271 天（少算补充来源 11 天）"
     }
   ]
 }
