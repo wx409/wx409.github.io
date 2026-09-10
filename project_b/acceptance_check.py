@@ -36,7 +36,8 @@ import watchdog_batches as w  # noqa: E402  复用长表扫描/日档案探测
 BM_SRC = Path(r"E:\wx\wx_textmine\00_build_matrix.py")
 SITE_BASELINE = ROOT / "data" / "archive_baseline.json"
 REPORTS = ["更新重启停摆_诊断与加固_20260910.md", "指数长表日期偏移核查_20260910.md",
-           "日期偏移影子验证_20260910.md", "运维备忘_20260907.md"]
+           "日期偏移影子验证_20260910.md", "停摆事故_结案报告_20260910.md",
+           "运维备忘_20260907.md"]
 
 OK, WARN, FAIL = "OK", "WARN", "FAIL"
 rows: list[dict] = []
