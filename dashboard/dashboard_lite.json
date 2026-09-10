@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-09-10 12:19",
- "last_update": "2026-09-10 12:19",
+ "timestamp": "2026-09-10 13:10",
+ "last_update": "2026-09-10 13:10",
  "date_range": "2023-01-01 ~ 2026-09-10",
  "total": 272257,
  "complete_rate": 20.7,
@@ -267,79 +267,79 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 55.6,
-   "trend_pct": -3.4,
-   "trend_label": "flat"
+   "share_pct": 53.9,
+   "trend_pct": -8.2,
+   "trend_label": "down"
   },
   {
    "rank": 2,
-   "song": "在路上",
-   "share_pct": 7.8,
-   "trend_pct": -19.3,
+   "song": "一生中最爱",
+   "share_pct": 7.9,
+   "trend_pct": -20.5,
    "trend_label": "down"
   },
   {
    "rank": 3,
-   "song": "一生中最爱",
-   "share_pct": 6.4,
-   "trend_pct": -34.1,
+   "song": "在路上",
+   "share_pct": 7.5,
+   "trend_pct": -23.9,
    "trend_label": "down"
   },
   {
    "rank": 4,
    "song": "再叙",
-   "share_pct": 5.8,
-   "trend_pct": -14.5,
+   "share_pct": 6.4,
+   "trend_pct": -8.1,
    "trend_label": "down"
   },
   {
    "rank": 5,
    "song": "山楂树",
-   "share_pct": 5.7,
-   "trend_pct": -14.8,
+   "share_pct": 6.3,
+   "trend_pct": -8.2,
    "trend_label": "down"
   },
   {
    "rank": 6,
    "song": "月弯弯",
    "share_pct": 4.7,
-   "trend_pct": -14.0,
+   "trend_pct": -16.0,
    "trend_label": "down"
   },
   {
    "rank": 7,
    "song": "神魂颠倒",
-   "share_pct": 4.2,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
+   "share_pct": 3.5,
+   "trend_pct": -18.4,
+   "trend_label": "down"
   },
   {
    "rank": 8,
    "song": "Sound of Silence",
-   "share_pct": 3.9,
-   "trend_pct": -12.5,
+   "share_pct": 3.4,
+   "trend_pct": -25.0,
    "trend_label": "down"
   },
   {
    "rank": 9,
-   "song": "荒人之歌",
-   "share_pct": 2.4,
-   "trend_pct": -18.5,
-   "trend_label": "down"
-  },
-  {
-   "rank": 10,
    "song": "哭砂",
-   "share_pct": 2.0,
+   "share_pct": 3.0,
    "trend_pct": null,
    "trend_label": "new"
   },
   {
+   "rank": 10,
+   "song": "荒人之歌",
+   "share_pct": 2.6,
+   "trend_pct": -14.8,
+   "trend_label": "down"
+  },
+  {
    "rank": 11,
    "song": "重庆野玫瑰",
-   "share_pct": 1.5,
-   "trend_pct": 40.0,
-   "trend_label": "up"
+   "share_pct": 0.9,
+   "trend_pct": -20.0,
+   "trend_label": "down"
   }
  ],
  "daily_anomalies": [],
@@ -800,6 +800,11 @@
   [
    "2025-10",
    "2025-10-10 央视频《乘着大巴看中国·新疆行》·新疆",
+   "演出"
+  ],
+  [
+   "2025-10",
+   "2025-10-18 《乘着大巴看中国》新疆行（鸿雁）·新疆",
    "演出"
   ],
   [
@@ -10410,6 +10415,42 @@
      "name": "在路上",
      "uplift": 14.7,
      "on_setlist": true
+    }
+   ]
+  },
+  {
+   "date": "2025-10-18",
+   "scene": "《乘着大巴看中国》新疆行（鸿雁）·新疆",
+   "city": "新疆",
+   "content_type": "其他",
+   "tour": "《乘着大巴看中国》新疆行（鸿雁）",
+   "total_uplift": -0.2,
+   "pattern": "单点触发型",
+   "top_songs": [
+    {
+     "name": "神魂颠倒",
+     "uplift": 23.1,
+     "on_setlist": false
+    },
+    {
+     "name": "哭砂",
+     "uplift": 15.5,
+     "on_setlist": false
+    },
+    {
+     "name": "谁",
+     "uplift": 13.4,
+     "on_setlist": false
+    },
+    {
+     "name": "她真漂亮",
+     "uplift": 10.5,
+     "on_setlist": false
+    },
+    {
+     "name": "山楂树",
+     "uplift": 8.6,
+     "on_setlist": false
     }
    ]
   },
