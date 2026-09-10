@@ -240,6 +240,36 @@ def check_preset() -> None:
         (verdict or "无结论行") + (("；" + "；".join(bad[:2])) if bad else ""))
 
 
+def check_tonight() -> None:
+    """今晚就绪检查（2026-09-10 新增）：daemon 在跑且下个批次明确 + 电源不会中途睡眠。"""
+    n = len([p for p in subprocess.run(
+        ["powershell", "-NoProfile", "-Command",
+         "Get-Process pythonw -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Id"],
+        capture_output=True, text=True, timeout=30).stdout.split() if p.strip()])
+    add("I 今晚就绪", "守护进程实例数 = 1", OK if n == 1 else FAIL, "%d 个 pythonw" % n)
+    try:
+        logp = Path(r"E:\wx\qqmusic_dp_edge.log")
+        tail = [x for x in logp.read_text(encoding="utf-8", errors="ignore").splitlines()[-40:]
+                if "等待中" in x or "服务已启动" in x]
+        add("I 今晚就绪", "daemon 下一个批次明确", OK if tail else WARN, (tail[-1][-70:] if tail else "日志未见"))
+    except Exception as e:
+        add("I 今晚就绪", "daemon 日志可读", WARN, str(e)[:80])
+
+    rc, out = run(["powercfg", "/q", "SCHEME_CURRENT", "SUB_SLEEP", "STANDBYIDLE"], timeout=60)
+    ac = dc = None
+    for ln in out.splitlines():
+        if "当前交流" in ln:
+            ac = ln.split(":")[-1].strip()
+        if "当前直流" in ln:
+            dc = ln.split(":")[-1].strip()
+    ac_ok = (ac == "0x00000000")
+    add("I 今晚就绪", "交流电（AC）下不睡眠", OK if ac_ok else FAIL, "AC STANDBYIDLE=%s" % ac)
+    dc_ok = (dc == "0x00000000")
+    add("I 今晚就绪", "电池（DC）下不睡眠 或 今晚接电源",
+        OK if dc_ok else WARN,
+        "DC STANDBYIDLE=%s（%s）" % (dc, "电池下会睡眠，请务必接电源" if not dc_ok else "不睡眠"))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", action="store_true")
@@ -256,6 +286,7 @@ def main() -> int:
     check_tasks()
     check_artifacts()
     check_preset()
+    check_tonight()
 
     n_ok = sum(1 for r in rows if r["status"] == OK)
     n_warn = sum(1 for r in rows if r["status"] == WARN)
