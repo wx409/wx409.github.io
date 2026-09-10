@@ -2,47 +2,64 @@
  "口径": "追踪曲目池日均（非全站；每日最终指数）",
  "源": "music_index_long.csv（QQ音乐指数长表，本地单一事实源，不进公开仓库）",
  "区间": [
-  "2023-01-01",
-  "2026-09-08"
+  "2022-12-31",
+  "2026-09-07"
  ],
  "annual": [
+  {
+   "year": "2022",
+   "cover_days": 1,
+   "valid_days": 1,
+   "mean": 1368.3,
+   "median": 1368.3
+  },
   {
    "year": "2023",
    "cover_days": 353,
    "valid_days": 353,
-   "mean": 1013.1,
+   "mean": 1011.5,
    "median": 809.1
   },
   {
    "year": "2024",
    "cover_days": 356,
    "valid_days": 355,
-   "mean": 880.5,
-   "median": 904.0
+   "mean": 881.1,
+   "median": 905.5
   },
   {
    "year": "2025",
    "cover_days": 332,
    "valid_days": 332,
-   "mean": 862.1,
-   "median": 850.4
+   "mean": 861.5,
+   "median": 850.0
   },
   {
    "year": "2026",
-   "cover_days": 241,
-   "valid_days": 241,
-   "mean": 686.2,
-   "median": 655.7
+   "cover_days": 240,
+   "valid_days": 240,
+   "mean": 685.6,
+   "median": 655.6
   }
  ],
  "effects_sample": [
   {
-   "date": "2023-01-14",
-   "type": "综艺/影视",
-   "title": "王晰参加CCTV网络春晚合唱《雾里》",
+   "date": "2023-01-13",
+   "type": "发歌/专辑",
+   "title": "王晰酷狗首唱会侧拍图发布",
    "baseline": 3632.1,
    "post": 2526.5,
    "effect_pct": -30.4,
+   "flag": "",
+   "source": "LLM抽取待核"
+  },
+  {
+   "date": "2023-01-14",
+   "type": "综艺/影视",
+   "title": "王晰参加CCTV网络春晚合唱《雾里》",
+   "baseline": 3179.5,
+   "post": 2429.3,
+   "effect_pct": -23.6,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -50,9 +67,9 @@
    "date": "2023-01-14",
    "type": "综艺/影视",
    "title": "参加网络春晚",
-   "baseline": 3632.1,
-   "post": 2526.5,
-   "effect_pct": -30.4,
+   "baseline": 3179.5,
+   "post": 2429.3,
+   "effect_pct": -23.6,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -60,9 +77,9 @@
    "date": "2023-01-14",
    "type": "演出",
    "title": "参加《中央广播电视总台2023网络春晚》",
-   "baseline": 3632.1,
-   "post": 2526.5,
-   "effect_pct": -30.4,
+   "baseline": 3179.5,
+   "post": 2429.3,
+   "effect_pct": -23.6,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -70,9 +87,9 @@
    "date": "2023-02-03",
    "type": "综艺/影视",
    "title": "王晰采访即将上线",
-   "baseline": 2147.7,
-   "post": 1259.1,
-   "effect_pct": -41.4,
+   "baseline": 1958.5,
+   "post": 1283.7,
+   "effect_pct": -34.5,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -80,9 +97,9 @@
    "date": "2023-02-05",
    "type": "综艺/影视",
    "title": "王晰采访正片上线",
-   "baseline": 1898.1,
-   "post": 1289.4,
-   "effect_pct": -32.1,
+   "baseline": 1835.2,
+   "post": 1311.2,
+   "effect_pct": -28.6,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -90,9 +107,9 @@
    "date": "2023-02-07",
    "type": "发歌/专辑",
    "title": "王晰新歌《想游泳的星》预告",
-   "baseline": 1534.0,
-   "post": 1312.5,
-   "effect_pct": -14.4,
+   "baseline": 1472.6,
+   "post": 1320.5,
+   "effect_pct": -10.3,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -100,26 +117,6 @@
    "date": "2023-02-08",
    "type": "发歌/专辑",
    "title": "新歌《想游泳的星》发布",
-   "baseline": 1472.6,
-   "post": 1320.5,
-   "effect_pct": -10.3,
-   "flag": "",
-   "source": "LLM抽取待核"
-  },
-  {
-   "date": "2023-02-08",
-   "type": "发歌/专辑",
-   "title": "单曲《想游泳的星》上线",
-   "baseline": 1472.6,
-   "post": 1320.5,
-   "effect_pct": -10.3,
-   "flag": "",
-   "source": "LLM抽取待核"
-  },
-  {
-   "date": "2023-02-09",
-   "type": "综艺/影视",
-   "title": "王晰幕后采访特辑发布",
    "baseline": 1434.7,
    "post": 1324.7,
    "effect_pct": -7.7,
@@ -127,12 +124,32 @@
    "source": "LLM抽取待核"
   },
   {
+   "date": "2023-02-08",
+   "type": "发歌/专辑",
+   "title": "单曲《想游泳的星》上线",
+   "baseline": 1434.7,
+   "post": 1324.7,
+   "effect_pct": -7.7,
+   "flag": "",
+   "source": "LLM抽取待核"
+  },
+  {
+   "date": "2023-02-09",
+   "type": "综艺/影视",
+   "title": "王晰幕后采访特辑发布",
+   "baseline": 1421.8,
+   "post": 1340.7,
+   "effect_pct": -5.7,
+   "flag": "",
+   "source": "LLM抽取待核"
+  },
+  {
    "date": "2023-02-14",
    "type": "演出",
    "title": "王晰生日签唱会官宣",
-   "baseline": 1288.6,
-   "post": 1389.0,
-   "effect_pct": 7.8,
+   "baseline": 1278.0,
+   "post": 1396.2,
+   "effect_pct": 9.2,
    "flag": "",
    "source": "LLM抽取待核"
   },
@@ -140,19 +157,9 @@
    "date": "2023-02-22",
    "type": "综艺/影视",
    "title": "王晰参加翻浪四季歌会",
-   "baseline": 1293.4,
-   "post": 1403.3,
-   "effect_pct": 8.5,
-   "flag": "",
-   "source": "LLM抽取待核"
-  },
-  {
-   "date": "2023-02-22",
-   "type": "综艺/影视",
-   "title": "参加翻浪四季歌会预告",
-   "baseline": 1293.4,
-   "post": 1403.3,
-   "effect_pct": 8.5,
+   "baseline": 1302.0,
+   "post": 1378.4,
+   "effect_pct": 5.9,
    "flag": "",
    "source": "LLM抽取待核"
   }
