@@ -139,7 +139,8 @@ def detect_mapping(day: dt.date, day_files: list[Path]) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--date", required=True, help="目标日期 YYYY-MM-DD")
+    ap.add_argument("--date", required=True,
+                    help="要补的**长表日期** YYYY-MM-DD（例：2026-09-08 表示让长表出现这一天）")
     ap.add_argument("--check-only", action="store_true", help="只预检，不重建长表")
     ap.add_argument("--no-rebuild", action="store_true", help="不重建（长表已重建过）")
     ap.add_argument("--downstream", action="store_true", help="重建后继续跑 compute_baseline_v1")
@@ -149,29 +150,53 @@ def main() -> int:
     args = ap.parse_args()
 
     day = dt.date.fromisoformat(args.date)
-    report: dict = {"date": day.isoformat(), "steps": []}
+    need_day = day + dt.timedelta(days=1)   # 关键：补长表的 D，需要"抓取日 = D+1"的那份文件
+    report: dict = {"date": day.isoformat(), "required_file_day": need_day.isoformat(), "steps": []}
 
     def step(name, ok, detail=""):
         report["steps"].append({"step": name, "ok": bool(ok), "detail": str(detail)[:400]})
         log("  [%s] %s%s" % ("OK " if ok else "!! ", name, (" — " + str(detail)[:200]) if detail else ""))
 
     log("=" * 70)
-    log("按日补录与验收：%s" % day.isoformat())
+    log("按日补录与验收（补长表日期）：%s" % day.isoformat())
     log("=" * 70)
+    log("口径提醒：日档案的「昨日音乐指数」= 抓取日**前一天**的官方值。")
+    log("  要让长表出现 %s，需要的是**抓取日 %s** 的那份文件（其昨日音乐指数 = %s 官方值）。"
+        % (day.isoformat(), need_day.isoformat(), day.isoformat()))
 
-    # 1) 文件落位
-    files = find_day_files(day)
-    step("候选日档案落位", bool(files), ("、".join(p.name for p in files[:3]) if files else
-                                   "未找到 %s*.xlsx（增补数据库/download/指数vs 均无）" % day.strftime("%Y.%m.%d")))
-    if files:
-        addon_hit = [p for p in files if p.parent == ADDON]
-        step("已在增补数据库目录", bool(addon_hit),
-             addon_hit[0].name if addon_hit else "仅在其他目录；建议拷入 %s" % ADDON)
-        v = read_day_values(files[0])
+    # 1) 所需文件（抓取日 = D+1）落位与可用性
+    files = find_day_files(need_day)
+    usable: list[Path] = []
+    for p in files[:6]:
+        try:
+            v = read_day_values(p)
+        except Exception as e:
+            log("      %s → 读取失败: %s" % (p.name, str(e)[:60]))
+            continue
         with_y = sum(1 for _nm, (y, _c) in v.items() if y is not None)
         with_c = sum(1 for _nm, (_y, c) in v.items() if c is not None)
-        step("日档案内容可用", with_y > 0 or with_c > 0,
-             "共 %d 首；有昨日音乐指数 %d 首、有音乐指数 %d 首" % (len(v), with_y, with_c))
+        log("      %s → %d 首；昨日音乐指数 %d、音乐指数 %d" % (p.name, len(v), with_y, with_c))
+        if with_y > 0:
+            usable.append(p)
+
+    step("所需文件（抓取日 %s，且含「昨日音乐指数」列）" % need_day.isoformat(), bool(usable),
+         ("、".join(p.name for p in usable[:2]) if usable else
+          ("命名匹配 %d 个但都无该列（多为极速快照）→ 无法提供 %s 官方值"
+           % (len(files), day.isoformat())) if files else
+          "未找到 %s*.xlsx（增补数据库/download/指数vs 均无）" % need_day.strftime("%Y.%m.%d")))
+    addon_usable = [p for p in usable if p.parent == ADDON]
+    step("可用文件已在增补数据库目录", bool(addon_usable),
+         addon_usable[0].name if addon_usable else
+         "建议把 %s.xlsx 拷入 %s" % (need_day.strftime("%Y.%m.%d"), ADDON))
+    if not usable:
+        log("      → 官方值路径不可用；先用准终值顶上（会标注来源）：")
+        log("        python project_b\\extract_fallback_day.py --date %s --install-as-day %s"
+            % (day.isoformat(), need_day.isoformat()))
+    # 顺带说明：抓取日 D 本天的文件提供的是 D-1
+    own = find_day_files(day)
+    if own:
+        log("      （附：抓取日 %s 自己的文件若存在，它提供的是 %s 的值）"
+            % (day.isoformat(), (day - dt.timedelta(days=1)).isoformat()))
 
     before = long_table_rows(day)
     step("重建前该日在长表", not before.empty,
