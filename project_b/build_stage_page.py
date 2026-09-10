@@ -203,8 +203,14 @@ def main() -> None:
         lst = "；".join(parts)
         flag_html = (f'<div class="card" style="border-color:#e0a800;background:#fffdf3">'
                      f'⚠️ <strong>低音读数复核：</strong>{lst}。<br>'
-                     f'低于 B1 理论值（61.74Hz）的孤立读数一律先列为待复核，'
-                     f'经 CREPE（CNN 音高）+ 频谱谐波列双证后才下结论；未通过者不纳入结论。</div>')
+                     f'<strong>追加（2026-09-10，真 320k/谱峰复测）</strong>：同曲 A#1（58.3–58.6Hz，'
+                     f't=250.98/255.42/267.52s）经同一套复核为<strong>同型误锁</strong>——CREPE 三配置读 '
+                     f'293.0/294.6/173.5Hz（2.98–5.0 倍），谱峰集中在 164–175/293/586Hz，'
+                     f'缺 58.5Hz 的连续谐波列，<strong>同样不计入</strong>。<br>'
+                     f'结论：<strong>《她真漂亮》目前没有通过复核的最低音读数，该曲最低音暂不定案</strong>'
+                     f'（表中的 A1 与交叉校验表的 A#1 均不可用）。<br>'
+                     f'纪律：低于 B1 理论值（61.74Hz）的孤立读数一律先列待复核，'
+                     f'经 CREPE 多配置 + 谱峰清单 + 四轨归属三件套后才下结论；未通过者不纳入结论。</div>')
 
     ld = {
         "@context": "https://schema.org",
