@@ -197,6 +197,8 @@ def main() -> int:
                "cur_post": ec[k]["post"], "fix_post": es[k]["post"], "diff": round(abs(a - b), 2)}
         rows.append(rec)
         if (a > 0) != (b > 0):
+            # 两端效应都达到 5% 才算"实质翻转"；否则属接近噪音的边缘翻转
+            rec["material"] = (max(abs(a), abs(b)) >= 5)
             flips.append(rec)
     if rows:
         diffs = sorted(r["diff"] for r in rows)
@@ -207,7 +209,11 @@ def main() -> int:
             "diff_p90": round(diffs[int(len(diffs) * 0.9)], 2),
             "diff_max": round(diffs[-1], 2),
             "sign_flips": len(flips),
+            "sign_flips_material": sum(1 for r in flips if r.get("material")),
+            "sign_flips_marginal": sum(1 for r in flips if not r.get("material")),
             "flip_rows": sorted(flips, key=lambda r: -r["diff"]),
+            "flip_rows_material": sorted([r for r in flips if r.get("material")],
+                                         key=lambda r: -r["diff"]),
             "top_diff_rows": sorted(rows, key=lambda r: -r["diff"])[:10],
         }
     json.dump(result, open(RESULT_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
@@ -248,8 +254,21 @@ def main() -> int:
         md.write("## 四、事件效应对照\n\n")
         md.write("- 可比事件 **%d** 个；效应%% 绝对差：中位 **%.2f** / 均值 %.2f / P90 %.2f / 最大 %.1f\n"
                  % (ef["comparable"], ef["diff_median"], ef["diff_mean"], ef["diff_p90"], ef["diff_max"]))
-        md.write("- **正负号翻转（结论方向会变）的事件：%d 个**\n\n" % ef["sign_flips"])
+        md.write("- **正负号翻转（结论方向会变）的事件：%d 个**；其中**实质翻转（至少一端 |效应| ≥5%%）：%d 个**、"
+                 "边缘翻转（两端都在 ±5%% 内，噪音级）：%d 个\n\n"
+                 % (ef["sign_flips"], ef.get("sign_flips_material", 0),
+                    ef.get("sign_flips_marginal", 0)))
+        if ef.get("flip_rows_material"):
+            md.write("### ① 实质翻转（论文/传记若引用过必须改）\n\n")
+            md.write("| 日期 | 类型 | 事件 | 现状基线→事后 | 现状效应 | 修正基线→事后 | 修正效应 |\n")
+            md.write("|---|---|---|---|---|---|---|\n")
+            for r in ef["flip_rows_material"]:
+                md.write("| %s | %s | %s | %s→%s | **%+.1f%%** | %s→%s | **%+.1f%%** |\n"
+                         % (r["date"], r["type"], r["title"], r["cur_base"], r["cur_post"], r["cur_eff"],
+                            r["fix_base"], r["fix_post"], r["fix_eff"]))
+            md.write("\n")
         if ef["flip_rows"]:
+            md.write("### ② 全部翻转明细（含边缘）\n\n")
             md.write("| 日期 | 类型 | 事件 | 现状基线→事后 | 现状效应 | 修正基线→事后 | 修正效应 |\n")
             md.write("|---|---|---|---|---|---|---|\n")
             for r in ef["flip_rows"]:

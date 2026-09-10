@@ -143,6 +143,11 @@ echo    96. 更新重启抑制 - 应用（活动时间06:00-23:00 + 暂停更新35天）
 echo    97. 导出 BitLocker 恢复密钥 → D:\Bitlocer.txt
 echo    98. 守护进程任务改 S4U（重启免解锁，先实测）
 echo    99. 指数长表日期偏移核查（三重证据）
+echo    ---- R组 补录与自检（2026-09-10 停摆事故配套） ----
+echo    100. 按日补录与验收（输入日期，预检+重建+验收+口径自查）
+echo    101. 看门狗自测（10 项，不触碰真实状态）
+echo    102. 日期偏移影子验证（复用旁路表，出对照报告）
+echo    103. 自动登录（方案甲）状态查看
 echo    0. 退出
 echo.
 set "op="
@@ -248,6 +253,10 @@ if "%op%"=="96" goto harden_apply
 if "%op%"=="97" goto bitlocker_export
 if "%op%"=="98" goto s4u_task
 if "%op%"=="99" goto date_shift_check
+if "%op%"=="100" goto backfill_day
+if "%op%"=="101" goto watchdog_selftest
+if "%op%"=="102" goto shadow_verify
+if "%op%"=="103" goto autologon_status
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1466,5 +1475,42 @@ goto menu
 cls
 echo  [打开低音复核报告] LowC 及以下曲目复核（16 条通过 / 1 条确认次谐波错误）
 start "" "E:\wx\论文素材_王晰作传\音域分析\低音复核报告_LowC_20260909.md"
+pause
+goto menu
+
+:backfill_day
+cls
+echo  [按日补录与验收] 预检日档案落位 - 重建长表 - 验收该日覆盖 - 自查长表口径
+echo  用途: 2026-09-09 这类「当日批次未跑」的日子，从备份拷回 xlsx 后一键补录
+set /p bd=  输入日期(YYYY-MM-DD，直接回车=2026-09-09): 
+if "%bd%"=="" set "bd=2026-09-09"
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\backfill_day.py --date %bd%
+echo  [OK] exit 0 = 该日已进入长表；报告见 temp\补录验收_*.md
+pause
+goto menu
+
+:watchdog_selftest
+cls
+echo  [看门狗自测] 调度解析/批次匹配/自愈分支，共 10 项，不启动也不补跑真实批次
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\watchdog_selftest.py
+pause
+goto menu
+
+:shadow_verify
+cls
+echo  [日期偏移影子验证] 复用旁路长表出对照报告（不加 --reuse 会重建，约 6 分钟）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\shadow_date_shift_fix.py --reuse
+echo  [OK] 报告: temp\日期偏移影子验证_20260910.md
+pause
+goto menu
+
+:autologon_status
+cls
+echo  [自动登录 方案甲] 只读查看状态；开启请另在 PowerShell 运行 -Mode Enable -IUnderstandRisk
+echo  更安全做法: 用 Sysinternals Autologon（密码存 LSA 机密），见 -Mode ToolInfo
+powershell -ExecutionPolicy Bypass -File "D:\wx409.github.io\tools\autologon_toggle.ps1" -Mode Status
 pause
 goto menu
