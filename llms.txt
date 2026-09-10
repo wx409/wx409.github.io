@@ -15,7 +15,7 @@
 - [演出详情目录](https://wx409.github.io/live/): 各城市场次独立页（含歌单、亮点、视角矩阵、FAQ、Schema.org JSON-LD）
 - [数据复盘｜六巡广州站 2026-08-23](https://wx409.github.io/story-hui-guangzhou-2026.html): 单场数据复盘专题（效应三口径/歌单亮点/现场Talk金句/观众反馈/城市维度，效应数字实时取自 dashboard_data.json）
 - [巡演地图](https://wx409.github.io/map/): 22城64场巡演城市地图（Leaflet + CartoDB），含场馆、日期、巡次与数据效应标记，附 ItemList + MusicEvent JSON-LD
-- [数据大屏](https://wx409.github.io/dashboard/): 383 首追踪歌曲指数趋势、当月榜单、档案层（年度卡/命题卡/音域谱）；指数数据覆盖 1282 天（2022-12-31 至 2026-09-07）
+- [数据大屏](https://wx409.github.io/dashboard/): 383 首追踪歌曲指数趋势、当月榜单、档案层（年度卡/命题卡/音域谱）；指数数据覆盖 1283 天（2022-12-31 至 2026-09-09）
 - [关于本站](https://wx409.github.io/about.html): 维护团队、信息来源、审核原则与更新日志
 - [文化足迹](https://wx409.github.io/culture/): 对外文化交流、城市文旅与官方艺术项目参与记录
 
@@ -62,4 +62,4 @@
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-10 21:01:14；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-11 00:05:32；请勿手改数字。）
