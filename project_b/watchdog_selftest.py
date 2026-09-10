@@ -98,8 +98,10 @@ def run_watchdog(argv, alive, no_catchup_expected):
         w.start_daemon = _start
         w.catch_up = lambda mode, timeout, dry: (calls["catch"].append(mode) or (True, "selftest"))
 
-        def _notify(t, c):
+        def _notify(t, c, desktop=None):
             calls["notify"] += 1
+            if desktop:
+                calls.setdefault("desktop", []).append(desktop)
         w.notify = _notify
 
         old_argv = sys.argv
@@ -130,6 +132,10 @@ def test_selfheal():
     _rc, c3 = run_watchdog(["--quiet"], alive=True, no_catchup_expected=False)
     check("存活分支：不拉起、不补跑", c3["start"] == 0 and len(c3["catch"]) == 0,
           "start=%d catch=%s" % (c3["start"], c3["catch"]))
+
+    # 3b) 桌面告警通道：严重漏批时必须带上 desktop 文案（站内通知之外的第二通道）
+    check("停摆分支：告警带桌面文案（桌面留痕）",
+          bool(c1.get("desktop")), "desktop=%s" % (c1.get("desktop") or [])[:1])
 
     # 4) --check-only → 完全不动手
     _rc, c4 = run_watchdog(["--quiet", "--check-only"], alive=False, no_catchup_expected=False)

@@ -105,7 +105,32 @@ def save_state(st: dict) -> None:
 QUIET = False
 
 
-def notify(title: str, content: str) -> None:
+def desktop_alert(items: list[str]) -> None:
+    """在桌面留一个醒目的告警文件（站内通知之外的第二条通道）。
+
+    为什么：站内通知要用户主动去看 notifications.html 才会发现；桌面文件一定会被看到。
+    没有告警时自动删除该文件；无桌面（无会话/S4U）时静默跳过。
+    """
+    try:
+        desktop = Path(os.environ.get("USERPROFILE", "")) / "Desktop"
+        if not desktop.is_dir():
+            return
+        f = desktop / "⚠️ 数字档案告警.txt"
+        if not items:
+            if f.exists():
+                f.unlink()
+            return
+        f.write_text("生成：%s\n\n%s\n\n处理完并确认无误后，本文件会在下次巡检自动消失，也可手动删除。\n"
+                     % (now().strftime("%Y-%m-%d %H:%M:%S"), "\n".join("- " + x for x in items)),
+                     encoding="utf-8")
+        log("已在桌面写入告警文件：%s" % f)
+    except Exception as e:
+        log("桌面告警写入失败（不影响主流程）: %s" % e)
+
+
+def notify(title: str, content: str, desktop: str | None = None) -> None:
+    if desktop:
+        _DESKTOP_ITEMS.append(desktop)
     if QUIET:
         log("(quiet) 跳过通知: %s" % title)
         return
@@ -115,6 +140,9 @@ def notify(title: str, content: str) -> None:
         nf.send(title, content, category="运维告警")
     except Exception as e:  # 通知失败不影响主流程
         log("notify 失败: %s" % e)
+
+
+_DESKTOP_ITEMS: list[str] = []
 
 
 # ---------------------------------------------------------------- 调度表
@@ -412,6 +440,7 @@ def main() -> int:
 
     global QUIET
     QUIET = args.quiet
+    _DESKTOP_ITEMS.clear()
 
     schedule, src = read_schedule()
     today = dt.date.today()
@@ -483,7 +512,9 @@ def main() -> int:
                    "应当完成但缺产出的批次：\n%s\n\n守护进程判定：%s（%s）\n处置：%s %s\n"
                    "排查：E:\\wx\\qqmusic_dp_edge.log / logs\\watchdog_%s.log"
                    % (detail, alive, alive_why, action, catch_note,
-                      today.strftime("%Y%m%d")))
+                      today.strftime("%Y%m%d")),
+                   desktop="大屏采集漏批 %s：%s（守护进程判定 %s）"
+                           % (today.isoformat(), "、".join("%s %s" % (s, m) for s, m in missing), alive_why))
             alerted[akey] = now().strftime("%Y-%m-%d %H:%M:%S")
         elif missing and not critical:
             log("漏批未达告警门槛（非全量、少于3批、守护进程存活）→ 只记日志")
@@ -499,7 +530,9 @@ def main() -> int:
             notify("⚠️ 指数日档案缺失：%s" % yest.isoformat(),
                    "缺 %s\n说明：该日 23:55 全量批次未执行（多为机器重启后无人登录）。\n"
                    "该日官方指数仍可由次日全量的『昨日音乐指数』列回补，但当日实时收听峰值不可恢复。"
-                   % y_file)
+                   % y_file,
+                   desktop="指数日档案缺失 %s（%s）——当日实时收听峰值不可恢复"
+                           % (yest.isoformat(), y_file.name))
             st["alerts"][akey] = now().strftime("%Y-%m-%d %H:%M:%S")
     else:
         log("✓ 昨日日档案存在: %s" % y_file.name)
@@ -528,7 +561,9 @@ def main() -> int:
                    "原因：deploy_all 步骤里没有指数长表/基线刷新 —— 请运行\n"
                    "  python project_b\\refresh_index_baseline.py --force\n"
                    "（或操作中心 64 → 45/44）"
-                   % (lt.isoformat(), nf.isoformat(), (nf - dt.timedelta(days=1)).isoformat()))
+                   % (lt.isoformat(), nf.isoformat(), (nf - dt.timedelta(days=1)).isoformat()),
+                   desktop="指数长表滞后 %d 天（长表 %s / 日档案 %s）→ 跑 refresh_index_baseline.py --force"
+                           % (lag, lt.isoformat(), nf.isoformat()))
             st["alerts"][akey] = now().strftime("%Y-%m-%d %H:%M:%S")
 
     # 内部空洞（只滞后看不出来：缺的那天在最新日期之前）
@@ -545,13 +580,16 @@ def main() -> int:
                    "   ② 找不到备份时，用准终值备用：\n"
                    "     python project_b\\extract_fallback_day.py --date <缺的日期> --install-as-day <次日日期>\n"
                    "   ③ 之后跑 python project_b\\refresh_index_baseline.py --force"
-                   % (lt.isoformat() if lt else "?", "、".join(gaps)))
+                   % (lt.isoformat() if lt else "?", "、".join(gaps)),
+                   desktop="指数长表有缺口：%s（需真实日档案或准终值备用 + refresh_index_baseline.py --force）"
+                           % "、".join(gaps))
             st["alerts"][akey] = now().strftime("%Y-%m-%d %H:%M:%S")
         fresh_ok = False
     else:
         log("✓ 长表最近窗口无缺口")
 
     save_state(st)
+    desktop_alert(_DESKTOP_ITEMS)   # 有告警→桌面留痕；无告警→自动清除
     out = {"date": today.isoformat(), "schedule_source": src, "due": len(due),
            "missing": [{"slot": s, "mode": m} for s, m in missing],
            "daemon_alive": alive, "daemon_reason": alive_why,
