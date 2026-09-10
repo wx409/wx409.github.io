@@ -37,10 +37,11 @@ def main() -> int:
                 if e.get("bvid"):
                     BAD_BVIDS.add(e["bvid"])
                 if e.get("title_match"):
-                    BAD_TEXT.append(e["title_match"])
-            EXPECT_ITEMS = int((_cfg.get("red_lines") or {}).get("expect_items", EXPECT_ITEMS))
-            BAD_TEXT += [t for t in (_cfg.get("red_lines") or {}).get("forbidden_text", [])
-                         if t not in BAD_TEXT]
+                    globals()['BAD_TEXT'].append(e["title_match"])
+            globals()['EXPECT_ITEMS'] = int((_cfg.get("red_lines") or {}).get("expect_items", EXPECT_ITEMS))
+            for _t in (_cfg.get("red_lines") or {}).get("forbidden_text", []):
+                if _t not in globals()['BAD_TEXT']:
+                    globals()['BAD_TEXT'].append(_t)
         except Exception as ex:
             problems.append(f"排除清单不可读：{ex}")
     else:
