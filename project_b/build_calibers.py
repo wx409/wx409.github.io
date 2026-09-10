@@ -191,6 +191,25 @@ def collect() -> list[dict]:
     except Exception as e:
         add("index_days", "指数数据覆盖天数", None, "数据源不可读", str(e), "")
 
+    # 现场实测（轨迹工程）：按场次入台账的口径，**不并入录音室主口径**
+    try:
+        stage_p = Path(r"E:\wx\论文素材_王晰作传\音域分析\轨迹\让她降落_四版实测.json")
+        if stage_p.exists():
+            sd = json.loads(stage_p.read_text(encoding="utf-8"))
+            rows = sd.get("rows") or []
+            shows = {(r.get("city"), r.get("date")) for r in rows if r.get("date")}
+            add("stage_measured_versions", "现场实测版本数", len(rows),
+                "B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次）",
+                "音域分析\\轨迹\\让她降落_四版实测.json",
+                "口径纪律：现场实测按场次入台账，**不并入录音室主口径**；"
+                "与 recording_studio_vocal_songs 不同范围，禁止相加或混用")
+            add("stage_measured_shows", "现场实测场次数", len(shows),
+                "上述现场版本覆盖的实际演出场次（同场多源只算一场）",
+                "音域分析\\轨迹\\让她降落_四版实测.json",
+                "同场多源仅作一致性互证，不计入场次")
+    except Exception as e:
+        add("stage_measured_versions", "现场实测版本数", None, "实测台账不可读", str(e), "")
+
     return [x for x in out if x["value"] is not None]
 
 

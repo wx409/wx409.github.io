@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10 14:01",
-  "count": 21,
+  "generated_at": "2026-09-10 14:07",
+  "count": 23,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -169,6 +169,22 @@
       "scope": "站点图表所用指数长表的实际覆盖天数",
       "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
       "note": "已发布长表唯一日期；2022-12-31 至 2026-09-07；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+    },
+    {
+      "id": "stage_measured_versions",
+      "label": "现场实测版本数",
+      "value": 11,
+      "scope": "B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次）",
+      "source": "音域分析\\轨迹\\让她降落_四版实测.json",
+      "note": "口径纪律：现场实测按场次入台账，**不并入录音室主口径**；与 recording_studio_vocal_songs 不同范围，禁止相加或混用"
+    },
+    {
+      "id": "stage_measured_shows",
+      "label": "现场实测场次数",
+      "value": 5,
+      "scope": "上述现场版本覆盖的实际演出场次（同场多源只算一场）",
+      "source": "音域分析\\轨迹\\让她降落_四版实测.json",
+      "note": "同场多源仅作一致性互证，不计入场次"
     }
   ]
 }
