@@ -152,6 +152,7 @@ echo    104. ²¹Â¼ºóÈ«Á´Â·ÖØ½¨ÓëÑéÊÕ£¨³¤±í¡ú»ùÏß¡úÄê¶È¿¨¡ú²¿Êğ¡úËÄ²é£©
 echo    105. Ö¸ÊıÈÕÆÚÓ³Éä¿Ú¾¶£¨²é¿´/ÊÔËã/Ó¦ÓÃ/»Ø¹ö£©
 echo    106. È±Ê§ÈÕ±¸ÓÃÊı¾İÔ´£¨ÊØ»¤½ø³Ì×¼ÖÕÖµ£¬¿ÉÉú³ÉÈÕµµ°¸»ØÌî£©
 echo    107. Ö¸Êı³¤±í+»ùÏßË¢ĞÂ£¨ÈÕµµ°¸¸üĞÂºóÅÜ£»ÒÑ½ÓÈëÃ¿ÈÕ auto_update£©
+echo    108. ÊÂ¹ÊÑéÊÕ×Ü¼ì£¨¸ùÒò/×ÔÓú/¿Ú¾¶/Êı¾İ/Õ¾µã/ÈÎÎñ/²úÎï Ò»´ÎĞÔÌå¼ì£©
 echo    0. ÍË³ö
 echo.
 set "op="
@@ -265,6 +266,7 @@ if "%op%"=="104" goto rebuild_chain
 if "%op%"=="105" goto index_mapping
 if "%op%"=="106" goto fallback_day
 if "%op%"=="107" goto refresh_index
+if "%op%"=="108" goto acceptance_check
 echo   [!] ÎŞĞ§Ñ¡Ïî£¬ÇëÖØÊÔ
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1563,5 +1565,16 @@ echo  ËµÃ÷: deploy_all ²½ÖèÀïÃ»ÓĞÕâÒ»²½£¬¹Êµ¥ÁĞ£»auto_update Ã¿ÈÕÒÑ×Ô¶¯µ÷ÓÃ£¨µ±Ì
 echo  ¿ÉÑ¡: ¼Ó --force Ç¿ÖÆ£»--check-only Ö»¿´³¤±íĞÂÏÊ¶È£¨ÖÍºó³¬¹ı1Ìì=Òì³££©
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\refresh_index_baseline.py
+pause
+goto menu
+
+:acceptance_check
+cls
+echo  [ÊÂ¹ÊÑéÊÕ×Ü¼ì] 2026-09-09 Í£°ÚÊÂ¹Ê´¦ÖÃÈ«Ã²: A ¸ùÒòÏû³ı B ×ÔÓú¸æ¾¯ C ¿Ú¾¶ĞŞÕı
+echo                    D Êı¾İ×´Ì¬(º¬ÊÂ¹ÊÁ½Ìì) E Õ¾µãÓë³¤±íÒ»ÖÂĞÔ F ÈÎÎñĞÎÌ¬ G ²úÎï¹¤×÷Çø
+echo  ÅĞ¶¨: ÓĞ FAIL ÔòÍË³öÂë 1£»WARN Îª´ı¹Û²ì/´ıÖ´ĞĞ£¨²»Ó°ÏìÍË³öÂë£©
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\acceptance_check.py
+echo  [OK] ±¨¸æ: temp\ÊÂ¹ÊÑéÊÕ_YYYYMMDD.md
 pause
 goto menu
