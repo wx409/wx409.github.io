@@ -100,9 +100,7 @@ def main() -> None:
         vib = f'{x["vibrato_hz"]:.2f}/{x["vibrato_cents"]:.0f}' if x.get("vibrato_hz") else "—"
         item_rows.append(
             f'<tr><td>{i}</td><td>{esc(x["cat"])}</td>'
-            f'<td><a href="{esc(x["url"])}" rel="noopener nofollow" target="_blank">{esc(x.get("song") or x["title"][:38])}</a>'
-            + (f'<div class="ttl-note">B站原始标题：{esc(x["title"])[:34]}…｜{esc(x.get("song_note", ""))}</div>'
-               if x.get("song") else "") + '</td>'
+            f'<td><a href="{esc(x["url"])}" rel="noopener nofollow" target="_blank">{esc(x.get("song") or x["title"][:38])}</a></td>'
             f'<td class="low">{esc(x["low"])}</td><td>{x["low_hz"]:.1f}</td>'
             f'<td>{esc(x["high"])}</td><td>{x["high_hz"]:.0f}</td>'
             f'<td>{x["span"]:.2f}</td><td>{x["notes"]}</td><td>{x["density"]:.2f}</td>'
