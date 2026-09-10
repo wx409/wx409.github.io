@@ -209,21 +209,43 @@ def newest_dayfile_date() -> dt.date | None:
     return max(days) if days else None
 
 
-def long_table_max_day() -> dt.date | None:
-    """指数长表里最新的日期。"""
+def long_table_scan(window_days: int = 8) -> dict:
+    """扫描长表：返回最新日期 + **最近窗口内的内部空洞**。
+
+    为什么查空洞：只看"最新日期滞后几天"会漏掉**中间缺一天**的情形
+    （例：修正映射下若缺 2026.09.09.xlsx，则 2026-09-08 一直缺，但最新日期照常前进）。
+    """
     if not LONG_CSV.exists():
-        return None
-    latest = None
+        return {"max": None, "gaps": []}
+    dates: set[str] = set()
     try:
         import csv
         with open(LONG_CSV, encoding="utf-8-sig") as f:
             for r in csv.DictReader(f):
                 d = (r.get("date") or "").strip()
-                if d and (latest is None or d > latest):
-                    latest = d
-        return dt.date.fromisoformat(latest) if latest else None
+                if d:
+                    dates.add(d)
     except Exception:
-        return None
+        return {"max": None, "gaps": []}
+    if not dates:
+        return {"max": None, "gaps": []}
+    mx = max(dates)
+    mn = min(dates)
+    mxd = dt.date.fromisoformat(mx)
+    mnd = dt.date.fromisoformat(mn)
+    # 窗口不越过长表起点（否则会把"数据开始之前"误报成缺失）
+    window = []
+    for k in range(1, window_days):
+        d = mxd - dt.timedelta(days=k)
+        if d < mnd:
+            break
+        window.append(d.isoformat())
+    return {"max": mxd, "gaps": [d for d in window if d not in dates]}
+
+
+def long_table_max_day() -> dt.date | None:
+    """指数长表里最新的日期。"""
+    return long_table_scan()["max"]
 
 
 # ---------------------------------------------------------------- 守护进程状态
@@ -486,7 +508,9 @@ def main() -> int:
     # 修正映射口径：长表最新日期 应 == 最新日档案日期 − 1。滞后 >1 天说明
     # "日档案已更新但长表/基线没跟着刷" —— 这正是 deploy_all 步骤里缺的那一环。
     nf = newest_dayfile_date()
-    lt = long_table_max_day()
+    scan = long_table_scan()
+    lt = scan["max"]
+    gaps = scan["gaps"]
     lag = (nf - lt).days if (nf and lt) else None
     fresh_ok = (lag is not None and lag <= 1)
     if lag is None:
@@ -507,6 +531,26 @@ def main() -> int:
                    % (lt.isoformat(), nf.isoformat(), (nf - dt.timedelta(days=1)).isoformat()))
             st["alerts"][akey] = now().strftime("%Y-%m-%d %H:%M:%S")
 
+    # 内部空洞（只滞后看不出来：缺的那天在最新日期之前）
+    if gaps:
+        log("✗ 长表最近窗口内缺 %d 天: %s" % (len(gaps), "、".join(gaps)))
+        akey = "longtable_gap|%s" % today.isoformat()
+        if not st.setdefault("alerts", {}).get(akey):
+            notify("⚠️ 指数长表有缺口：%s" % "、".join(gaps),
+                   "长表最新 %s，但下列日期没有数据：%s\n"
+                   "最常见原因：那一天的日档案缺失（当日 23:55 全量未执行），"
+                   "而修正映射下该天的官方值只能由「次日」日档案提供。\n\n"
+                   "处理：① 若有备份，把对应的 YYYY.MM.DD.xlsx 拷进\n"
+                   "     E:\\wx\\指数数据库\\增补数据库2025.2.22-\\ ；\n"
+                   "   ② 找不到备份时，用准终值备用：\n"
+                   "     python project_b\\extract_fallback_day.py --date <缺的日期> --install-as-day <次日日期>\n"
+                   "   ③ 之后跑 python project_b\\refresh_index_baseline.py --force"
+                   % (lt.isoformat() if lt else "?", "、".join(gaps)))
+            st["alerts"][akey] = now().strftime("%Y-%m-%d %H:%M:%S")
+        fresh_ok = False
+    else:
+        log("✓ 长表最近窗口无缺口")
+
     save_state(st)
     out = {"date": today.isoformat(), "schedule_source": src, "due": len(due),
            "missing": [{"slot": s, "mode": m} for s, m in missing],
@@ -515,12 +559,13 @@ def main() -> int:
            "yesterday_dayfile_ok": y_ok,
            "long_table_max": lt.isoformat() if lt else None,
            "newest_dayfile": nf.isoformat() if nf else None,
-           "long_table_lag_days": lag, "long_table_fresh": fresh_ok}
+           "long_table_lag_days": lag, "long_table_fresh": fresh_ok,
+           "long_table_gaps": gaps}
     if args.json:
         print(json.dumps(out, ensure_ascii=False, indent=1))
     log("结果: %s" % json.dumps({k: out[k] for k in
                                  ("missing", "action", "catch_up_ok", "yesterday_dayfile_ok",
-                                  "long_table_lag_days")},
+                                  "long_table_lag_days", "long_table_gaps")},
                                 ensure_ascii=False))
     return 1 if (missing or not y_ok or not fresh_ok) else 0
 

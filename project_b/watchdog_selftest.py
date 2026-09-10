@@ -234,6 +234,32 @@ def test_multi_signal():
         w._ps_int, w.subprocess.run = orig_ps, orig_run
 
 
+def test_longtable_gap():
+    """长表新鲜度/空洞检查：只滞后看不出"中间缺一天"，必须能识别内部空洞。"""
+    import tempfile as _tf
+    orig = w.LONG_CSV
+    tmp = Path(_tf.mkdtemp()) / "long.csv"
+    try:
+        with open(tmp, "w", encoding="utf-8-sig") as f:
+            f.write("date,song,index\n")
+            for d, songs in (("2026-09-05", 3), ("2026-09-06", 3), ("2026-09-07", 3), ("2026-09-09", 3)):
+                for i in range(songs):
+                    f.write("%s,歌%d,%d\n" % (d, i, 100 + i))
+        w.LONG_CSV = tmp
+        scan = w.long_table_scan()
+        check("长表扫描：最新日期正确", scan["max"] == dt.date(2026, 9, 9), str(scan["max"]))
+        check("长表扫描：识别内部空洞 2026-09-08",
+              scan["gaps"] == ["2026-09-08"], str(scan["gaps"]))
+
+        with open(tmp, "a", encoding="utf-8-sig") as f:
+            for i in range(3):
+                f.write("2026-09-08,歌%d,%d\n" % (i, 200 + i))
+        scan2 = w.long_table_scan()
+        check("补齐后空洞消失", scan2["gaps"] == [], str(scan2["gaps"]))
+    finally:
+        w.LONG_CSV = orig
+
+
 if __name__ == "__main__":
     print("=" * 68)
     print("漏批看门狗自测（不触碰真实状态）")
@@ -249,6 +275,8 @@ if __name__ == "__main__":
     test_liveness()
     test_multi_signal()
     test_start_guard()
+    print("[5] 长表新鲜度与内部空洞（2026-09-10 补缺口后新增）")
+    test_longtable_gap()
     print("-" * 68)
     print("通过 %d 项 / 失败 %d 项" % (len(PASS), len(FAIL)))
     if FAIL:
