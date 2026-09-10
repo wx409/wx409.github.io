@@ -39,6 +39,7 @@ STATE = LOGS / "index_baseline_state.json"
 BM = Path(r"E:\wx\wx_textmine\00_build_matrix.py")
 BASELINE_DIR = Path(r"E:\wx\论文素材_王晰作传\基线口径")
 COMPUTE = BASELINE_DIR / "compute_baseline_v1.py"
+CARDS = BASELINE_DIR / "generate_year_cards.py"   # 年度卡 + data/archive_digest.json（读长表算 index_mean）
 LONG_CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
 ADDON = Path(r"E:\wx\指数数据库\增补数据库2025.2.22-")
 SITE_BASELINE = ROOT / "data" / "archive_baseline.json"
@@ -129,6 +130,8 @@ def main() -> int:
     ap.add_argument("--check-only", action="store_true", help="只报告新鲜度")
     ap.add_argument("--timeout-matrix", type=int, default=2400)
     ap.add_argument("--timeout-baseline", type=int, default=900)
+    ap.add_argument("--timeout-cards", type=int, default=900)
+    ap.add_argument("--no-cards", action="store_true", help="跳过年度卡/摘要重跑")
     args = ap.parse_args()
 
     log("=" * 66)
@@ -159,8 +162,14 @@ def main() -> int:
             log("      请在普通 PowerShell 或操作中心里运行本脚本")
             return 0
 
-    for name, cmd, cwd, to in (("重建指数长表", [sys.executable, "-X", "utf8", str(BM)], BM.parent, args.timeout_matrix),
-                               ("重跑基线", [sys.executable, "-X", "utf8", str(COMPUTE)], BASELINE_DIR, args.timeout_baseline)):
+    steps = [
+        ("重建指数长表", [sys.executable, "-X", "utf8", str(BM)], BM.parent, args.timeout_matrix),
+        ("重跑基线", [sys.executable, "-X", "utf8", str(COMPUTE)], BASELINE_DIR, args.timeout_baseline),
+        ("重跑年度卡/摘要", [sys.executable, "-X", "utf8", str(CARDS)], BASELINE_DIR, args.timeout_cards),
+    ]
+    if args.no_cards:
+        steps = steps[:2]
+    for name, cmd, cwd, to in steps:
         log("-- %s --" % name)
         r = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True,
                            encoding="utf-8", errors="ignore", timeout=to)

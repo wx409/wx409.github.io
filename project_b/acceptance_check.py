@@ -167,6 +167,33 @@ def check_site() -> None:
     add("E 站点", "覆盖不足年份已透明登记", OK if "覆盖不足年份" in site else WARN,
         str(site.get("覆盖不足年份")))
 
+    # 年度卡摘要（archive_digest）——大屏档案层会把它和上面的年度表**并排渲染**，
+    # 两者必须同源同值，否则同一个面板里会出现两套数字（2026-09-10 实际发生过）。
+    dg_p = ROOT / "data" / "archive_digest.json"
+    if not dg_p.exists():
+        add("E 站点", "年度卡摘要存在", WARN, str(dg_p))
+        return
+    try:
+        dg = json.loads(dg_p.read_text(encoding="utf-8"))
+    except Exception as e:
+        add("E 站点", "年度卡摘要可解析", FAIL, str(e))
+        return
+    bm = {a["year"]: a["mean"] for a in site.get("annual", [])}
+    mism2, badmode = [], []
+    for y in dg.get("years", []):
+        k = str(y.get("year"))
+        if k in bm:
+            if y.get("index_mean") != bm[k]:
+                mism2.append("%s 卡表%s≠基线%s" % (k, y.get("index_mean"), bm[k]))
+        elif y.get("index_mean") is not None:
+            badmode.append("%s 无基线却标定量(%s)" % (k, y.get("index_mean")))
+    add("E 站点", "年度卡摘要与基线同值（同一面板两套数字=缺陷）",
+        OK if not mism2 else FAIL, "；".join(mism2) or "全部一致")
+    add("E 站点", "年度卡无「样本不足却定量」年份", OK if not badmode else FAIL,
+        "；".join(badmode) or "无（2022 等单日样本已归为定性）")
+    add("E 站点", "年度卡生成日期为派生值", OK if dg.get("generated") else WARN,
+        "generated=%s ／ data_through=%s" % (dg.get("generated"), dg.get("data_through")))
+
 
 def check_tasks() -> None:
     for name in ("QQMusicDashboardAutoStart", "WangXiArchiveAutoUpdate"):

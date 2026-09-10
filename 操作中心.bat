@@ -1564,7 +1564,7 @@ goto menu
 
 :refresh_index
 cls
-echo  [指数长表+基线刷新] 重建 music_index_long.csv + 重跑基线(含同步站点 archive_baseline.json)
+echo  [指数长表+基线+年度卡刷新] 重建长表 + 重跑基线(同步站点 archive_baseline.json) + 年度卡摘要(archive_digest.json)
 echo  说明: deploy_all 步骤里没有这一步，故单列；auto_update 每日已自动调用（当天只跑一次）
 echo  可选: 加 --force 强制；--check-only 只看长表新鲜度（滞后超过1天=异常）
 cd /d "D:\wx409.github.io"
