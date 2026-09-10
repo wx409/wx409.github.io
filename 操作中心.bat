@@ -148,6 +148,8 @@ echo    100. 按日补录与验收（输入日期，预检+重建+验收+口径自查）
 echo    101. 看门狗自测（10 项，不触碰真实状态）
 echo    102. 日期偏移影子验证（复用旁路表，出对照报告）
 echo    103. 自动登录（方案甲）状态查看
+echo    104. 补录后全链路重建与验收（长表→基线→年度卡→部署→四查）
+echo    105. 指数日期映射口径（查看/试算/应用/回滚）
 echo    0. 退出
 echo.
 set "op="
@@ -257,6 +259,8 @@ if "%op%"=="100" goto backfill_day
 if "%op%"=="101" goto watchdog_selftest
 if "%op%"=="102" goto shadow_verify
 if "%op%"=="103" goto autologon_status
+if "%op%"=="104" goto rebuild_chain
+if "%op%"=="105" goto index_mapping
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1512,5 +1516,26 @@ cls
 echo  [自动登录 方案甲] 只读查看状态；开启请另在 PowerShell 运行 -Mode Enable -IUnderstandRisk
 echo  更安全做法: 用 Sysinternals Autologon（密码存 LSA 机密），见 -Mode ToolInfo
 powershell -ExecutionPolicy Bypass -File "D:\wx409.github.io\tools\autologon_toggle.ps1" -Mode Status
+pause
+goto menu
+
+:rebuild_chain
+cls
+echo  [补录后全链路重建] matrix 长表 - baseline 基线 - cards 年度卡 - deploy 流水线 - audit 四查
+echo  演练(只跑数据层): 手工加 --only matrix,baseline；不部署: 加 --skip-deploy
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\rebuild_after_backfill.py
+echo  [OK] 汇总报告: temp\全链路重建_YYYYMMDD.md（每步 PASS/FAIL）
+pause
+goto menu
+
+:index_mapping
+cls
+echo  [指数日期映射口径] 当前状态 + 试算补丁（只读，不改文件）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\index_date_mapping_toggle.py --status
+echo.
+python -X utf8 project_b\index_date_mapping_toggle.py --dry-run
+echo  [提示] 确认要改: 同命令加 --apply（自动备份+语法校验）；回滚: --revert
 pause
 goto menu

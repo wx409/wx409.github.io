@@ -88,33 +88,53 @@ switch ($Mode) {
     }
 
     "TestHeadless" {
-        Write-Host "=== S4U 无会话实测：跑一次极速采集（约 3-6 分钟）===" -ForegroundColor Cyan
-        $testName = "WX_S4U_HeadlessTest"
-        Unregister-ScheduledTask -TaskName $testName -Confirm:$false -ErrorAction SilentlyContinue
-        $stamp = Get-Date -Format "yyyyMMdd_HHmmss"
-        $outLog = "$REPO\logs\s4u_headless_test_$stamp.log"
-        $action = New-ScheduledTaskAction -Execute $PY -Argument "`"$DAEMON_SRC`" --once --quick" -WorkingDirectory $DAEMON_WD
-        $principal = New-ScheduledTaskPrincipal -UserId $USER_ID -LogonType S4U -RunLevel Limited
-        $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
-            -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew
-        Register-ScheduledTask -TaskName $testName -Action $action -Principal $principal `
-            -Settings $settings -Description "S4U headless 连通性实测（可删除）" -Force | Out-Null
-        Write-Host "[i] 已注册测试任务，启动..." -ForegroundColor Yellow
-        Start-ScheduledTask -TaskName $testName
-        $deadline = (Get-Date).AddMinutes(28)
-        do {
-            Start-Sleep -Seconds 15
-            $i = Get-ScheduledTaskInfo -TaskName $testName
-            Write-Host ("    运行中… 上次结果 {0}" -f $i.LastTaskResult) -ForegroundColor DarkGray
-        } while ((Get-ScheduledTask -TaskName $testName).State -eq "Running" -and (Get-Date) -lt $deadline)
-        $info = Get-ScheduledTaskInfo -TaskName $testName
-        Write-Host ("[结果] LastTaskResult = {0}（0 = 成功）" -f $info.LastTaskResult) -ForegroundColor Green
-        Write-Host "[i] 守护进程日志尾部（应有本次极速批次记录）:" -ForegroundColor Cyan
-        Get-Content "E:\wx\qqmusic_dp_edge.log" -Tail 12 -Encoding UTF8 | ForEach-Object { "    $_" }
-        Unregister-ScheduledTask -TaskName $testName -Confirm:$false
-        Write-Host "[i] 测试任务已删除" -ForegroundColor DarkGray
-        Write-Host "`n判定：若上面出现本次批次成功记录 → S4U 可用，执行 -Mode Apply；" -ForegroundColor Yellow
-        Write-Host "      若失败（浏览器起不来/无网络） → 改用自动登录方案。" -ForegroundColor Yellow
+        Write-Host "=== S4U 无会话实测（安全探针，双跑对照）===" -ForegroundColor Cyan
+        Write-Host "探针只做: 起 headless Edge → 打开 QQ音乐页 → 取数；不写数据、不重建看板、不 push。" -ForegroundColor DarkGray
+        $probe = Join-Path $REPO "tools\s4u_headless_probe.py"
+        if (-not (Test-Path $probe)) { Write-Host "[X] 探针不存在: $probe" -ForegroundColor Red; exit 1 }
+        $probeLog = Join-Path $REPO "logs\s4u_headless_probe.log"
+        if (Test-Path $probeLog) { Remove-Item $probeLog -Force -ErrorAction SilentlyContinue }
+
+        function Invoke-Probe([string]$taskName, [string]$logonType, [string]$label) {
+            Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue
+            $action = New-ScheduledTaskAction -Execute $PY -Argument "`"$probe`"" -WorkingDirectory $REPO
+            $principal = New-ScheduledTaskPrincipal -UserId $USER_ID -LogonType $logonType -RunLevel Limited
+            $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
+                -ExecutionTimeLimit (New-TimeSpan -Minutes 5) -MultipleInstances IgnoreNew
+            Register-ScheduledTask -TaskName $taskName -Action $action -Principal $principal `
+                -Settings $settings -Description "S4U 探针（临时，可删除）" -Force | Out-Null
+            Write-Host ("[i] {0}：以 {1} 运行探针…" -f $label, $logonType) -ForegroundColor Yellow
+            Start-ScheduledTask -TaskName $taskName
+            $deadline = (Get-Date).AddMinutes(4)
+            do {
+                Start-Sleep -Seconds 5
+                $st = (Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue).State
+            } while ($st -eq "Running" -and (Get-Date) -lt $deadline)
+            $info = Get-ScheduledTaskInfo -TaskName $taskName -ErrorAction SilentlyContinue
+            $rc = if ($info) { $info.LastTaskResult } else { "?" }
+            Write-Host ("    {0} 结束：LastTaskResult={1}（0=探针通过）" -f $label, $rc) -ForegroundColor Gray
+            Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue
+            return $rc
+        }
+
+        $rcInteractive = Invoke-Probe "WX_Probe_Interactive" "InteractiveToken" "基线（交互式令牌）"
+        $logA = if (Test-Path $probeLog) { (Get-Content $probeLog -Encoding UTF8 | Select-Object -Last 6) -join "`n    " } else { "（无日志）" }
+        Write-Host "    基线日志尾部:`n    $logA" -ForegroundColor DarkGray
+
+        $rcS4U = Invoke-Probe "WX_Probe_S4U" "S4U" "实测（S4U，无登录）"
+        $logB = if (Test-Path $probeLog) { (Get-Content $probeLog -Encoding UTF8 | Select-Object -Last 10) -join "`n    " } else { "（无日志）" }
+        Write-Host "    S4U 日志尾部:`n    $logB" -ForegroundColor DarkGray
+
+        Write-Host "`n=== 判定 ===" -ForegroundColor Cyan
+        if ($rcInteractive -ne 0 -and $rcS4U -ne 0) {
+            Write-Host "[!] 两次都没通过 —— 探针本身可能有问题（或浏览器被占用），请把上面日志发我，先别切 S4U。" -ForegroundColor Yellow
+        } elseif ($rcS4U -eq 0) {
+            Write-Host "[OK] S4U 可跑通 → 重启后无需解锁即可自动运行。可执行: -Mode Apply" -ForegroundColor Green
+        } else {
+            Write-Host "[X] 交互式能跑、S4U 跑不通 → S4U 方案不可用，请改用自动登录方案：" -ForegroundColor Red
+            Write-Host "    powershell -ExecutionPolicy Bypass -File tools\autologon_toggle.ps1 -Mode ToolInfo" -ForegroundColor Yellow
+        }
+        Write-Host "[i] 完整探针日志: $probeLog" -ForegroundColor DarkGray
     }
 
     "Apply" {
