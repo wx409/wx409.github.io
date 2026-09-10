@@ -32,11 +32,19 @@ def main() -> int:
     problems = []
     if LEDGER.exists():
         try:
-            for e in json.loads(LEDGER.read_text(encoding="utf-8")).get("excluded", []):
+            _cfg = json.loads(LEDGER.read_text(encoding="utf-8"))
+            for e in _cfg.get("excluded", []):
                 if e.get("bvid"):
                     BAD_BVIDS.add(e["bvid"])
+                if e.get("title_match"):
+                    BAD_TEXT.append(e["title_match"])
+            EXPECT_ITEMS = int((_cfg.get("red_lines") or {}).get("expect_items", EXPECT_ITEMS))
+            BAD_TEXT += [t for t in (_cfg.get("red_lines") or {}).get("forbidden_text", [])
+                         if t not in BAD_TEXT]
         except Exception as ex:
-            problems.append(f"台账不可读：{ex}")
+            problems.append(f"排除清单不可读：{ex}")
+    else:
+        problems.append("缺 排除清单.json（SSOT）")
 
     if not STAGE.exists():
         problems.append("缺 data/archive_stage.json")
