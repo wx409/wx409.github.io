@@ -195,30 +195,98 @@ def match_slots(due: list[tuple[str, str]], files: list[dict],
 
 
 # ---------------------------------------------------------------- 守护进程状态
+def _ps_int(cmd: str, timeout: int = 40) -> int | None:
+    """跑一段 PowerShell 并取整数结果；失败/非数字返回 None。"""
+    try:
+        r = subprocess.run(["powershell", "-NoProfile", "-Command", cmd],
+                           capture_output=True, text=True, timeout=timeout)
+        out = (r.stdout or "").strip()
+        return int(out) if out.isdigit() else None
+    except Exception:
+        return None
+
+
+def daemon_process_present() -> tuple[bool | None, str]:
+    """守护进程是否在运行 —— **多信号合成**，任一信号显示"存在"即判存活。
+
+    返回 (True/False/None, 说明)；None = 所有探测手段都不可用。
+
+    信号：
+      1. CIM 查 Win32_Process 命令行含守护进程源码名（最权威，但受限会话可能不完整 —— 
+         沙箱里实测会返回 0 条而不是报错，所以**不能单独采信**）
+      2. Get-Process pythonw 计数（守护进程以 pythonw 常驻；本机仅守护进程用 pythonw）
+      3. tasklist 命中 pythonw
+
+    教训（2026-09-10）：① 日志 mtime 不能当存活判据（守护进程 08:30→11:49 这类空档
+    日志长时间不写）；② 单信号"0 个进程"不能当死亡判据，否则会重复拉起实例
+    （当天真发生过一次：误判 → 起了第二个 pythonw）。
+    """
+    signals: list[tuple[str, bool | None, str]] = []
+
+    n_cim = _ps_int("(Get-CimInstance Win32_Process -Filter \"Name='pythonw.exe' or Name='python.exe'\" "
+                    "-ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -like '*QQ音乐大屏生成器*' } "
+                    "| Measure-Object).Count")
+    n_pw = _ps_int("(Get-Process pythonw -ErrorAction SilentlyContinue | Measure-Object).Count", timeout=30)
+    try:
+        r = subprocess.run(["tasklist", "/fi", "imagename eq pythonw.exe", "/fo", "csv", "/nh"],
+                           capture_output=True, text=True, timeout=20)
+        hit = "pythonw" in (r.stdout or "").lower()
+        n_tl: bool | None = True if hit else (False if r.returncode == 0 else None)
+    except Exception:
+        n_tl = None
+
+    cim = None if n_cim is None else n_cim > 0
+    pw = None if n_pw is None else n_pw > 0
+    signals += [("CIM命令行匹配", cim, "匹配 %s 个" % ("?" if n_cim is None else n_cim)),
+                ("pythonw计数", pw, "pythonw %s 个" % ("?" if n_pw is None else n_pw)),
+                ("tasklist", n_tl, "命中" if n_tl else ("未命中" if n_tl is False else "不可用"))]
+
+    detail = "；".join("%s=%s(%s)" % (k, {True: "在", False: "无", None: "?"}[v], d)
+                       for k, v, d in signals)
+
+    # 任一信号显示"存在" → 存活（保守，避免重复实例）
+    if cim or pw or (n_tl is True):
+        return True, detail
+    # 两个**可靠**信号（CIM 命令行 + pythonw 计数）都判"无" → 认定无进程
+    if cim is False and pw is False:
+        return False, detail
+    # 其余（可靠信号不可用）→ 未知，调用方保守处理
+    return None, detail
+
+
 def daemon_alive(stall_min: int) -> tuple[bool, str]:
-    """守护进程是否在活跃工作：日志 mtime + pythonw 进程双重判据。"""
+    """存活判定：**进程存在 = 存活**（优先）；只有确认无进程时，才用日志新鲜度兜底。"""
     log_age = None
     try:
         if DAEMON_LOG.exists():
             log_age = (now() - dt.datetime.fromtimestamp(DAEMON_LOG.stat().st_mtime)).total_seconds() / 60
     except Exception:
         pass
-    proc = False
-    try:
-        r = subprocess.run(["tasklist", "/fi", "imagename eq pythonw.exe", "/fo", "csv", "/nh"],
-                           capture_output=True, text=True, timeout=20)
-        proc = "pythonw" in (r.stdout or "").lower()
-    except Exception:
-        pass
-    if log_age is not None and log_age <= stall_min:
-        return True, "日志 %.1f 分钟前有写入" % log_age
-    if proc and log_age is not None and log_age <= stall_min * 4:
-        return True, "pythonw 存在且日志 %.1f 分钟前有写入" % log_age
-    return False, "pythonw=%s 日志%s" % (proc, ("%.0f 分钟前" % log_age) if log_age is not None else "不可读")
+    age_txt = ("%.1f 分钟前" % log_age) if log_age is not None else "不可读"
+
+    present, why = daemon_process_present()
+    if present is True:
+        return True, "进程存在（%s）；日志 %s" % (why, age_txt)
+    if present is False:
+        if log_age is not None and log_age <= stall_min:
+            return True, "无进程但日志 %s 刚写过（可能刚退出）" % age_txt
+        return False, "无进程（%s）；日志 %s" % (why, age_txt)
+    # 探测不可用 → 保守视为存活，宁可漏补也不重复拉起实例
+    return True, "探测不可用（%s），保守视为存活；日志 %s" % (why, age_txt)
 
 
-def start_daemon() -> bool:
-    """拉起守护进程：优先走计划任务，失败则直接 pythonw 启动源码。"""
+def start_daemon(allow_direct_spawn: bool = False) -> bool:
+    """拉起守护进程：只走计划任务（Task Scheduler 的 IgnoreNew 天然防重复实例）。
+
+    直接 pythonw 启动仅在前一层失败且显式给出 --allow-direct-spawn 时使用 ——
+    否则在"其实还活着、只是日志没更新"的情况下会造出第二个实例，两边同时抓取、
+    同时重建看板甚至同时 push。
+    """
+    present, why = daemon_process_present()
+    if present is True:
+        log("守护进程已在运行（%s），跳过拉起" % why)
+        return True
+
     try:
         r = subprocess.run(["schtasks", "/Run", "/TN", TASK_NAME],
                            capture_output=True, text=True, timeout=30)
@@ -228,6 +296,15 @@ def start_daemon() -> bool:
         log("schtasks /Run 失败(%s): %s" % (r.returncode, (r.stderr or r.stdout).strip()[:200]))
     except Exception as e:
         log("schtasks /Run 异常: %s" % e)
+
+    if not allow_direct_spawn:
+        log("跳过直接 pythonw 拉起（需要 --allow-direct-spawn 才允许；"
+            "直接拉起不经过计划任务，易造成重复实例）")
+        return False
+    present2, why2 = daemon_process_present()
+    if present2 is not False:
+        log("直接拉起前复查：%s → 放弃（避免重复实例）" % why2)
+        return False
     try:
         pyw = Path(sys.executable).with_name("pythonw.exe")
         exe = str(pyw if pyw.exists() else sys.executable)
@@ -275,6 +352,8 @@ def main() -> int:
     ap.add_argument("--quiet", action="store_true", help="不写站内通知（仅日志）")
     ap.add_argument("--no-catchup", action="store_true",
                     help="只拉起守护进程+告警，不在此进程内补跑（供 auto_update 调用，避免超时）")
+    ap.add_argument("--allow-direct-spawn", action="store_true",
+                    help="计划任务拉起失败时允许直接 pythonw 启动（默认禁止，避免重复实例）")
     args = ap.parse_args()
 
     global QUIET
@@ -314,7 +393,7 @@ def main() -> int:
             % (last_slot, last_mode, alive, alive_why))
         if not alive:
             if not args.check_only:
-                start_daemon()
+                start_daemon(args.allow_direct_spawn)
                 if args.no_catchup:
                     action = "start_daemon"
                     catch_note = "已拉起守护进程；本次不补跑（--no-catchup，交由守护进程自行执行下一批）"

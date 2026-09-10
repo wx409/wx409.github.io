@@ -17,6 +17,7 @@ from __future__ import annotations
 import datetime as dt
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -89,7 +90,12 @@ def run_watchdog(argv, alive, no_catchup_expected):
         w.STATE = tmp
         w.collect_day_outputs = lambda day: []          # 今天所有批次都"缺"
         w.daemon_alive = lambda stall: (alive, "selftest")
-        w.start_daemon = lambda: (calls.__setitem__("start", calls["start"] + 1) or True)
+
+        def _start(allow_direct_spawn=False):
+            calls["start"] += 1
+            calls["start_allow_spawn"] = allow_direct_spawn
+            return True
+        w.start_daemon = _start
         w.catch_up = lambda mode, timeout, dry: (calls["catch"].append(mode) or (True, "selftest"))
 
         def _notify(t, c):
@@ -131,6 +137,103 @@ def test_selfheal():
           "start=%d catch=%s" % (c4["start"], c4["catch"]))
 
 
+def test_liveness():
+    """存活判定矩阵：进程存在优先；探测不可用时保守视为存活（绝不重复拉起）。"""
+    import os
+    import tempfile as _tf
+    tmp = Path(_tf.mkdtemp()) / "fake_daemon.log"
+    tmp.write_text("x", encoding="utf-8")
+    orig_log, orig_present, orig_runs = w.DAEMON_LOG, w.daemon_process_present, w.subprocess.run
+    cases = [
+        # (进程探测, 日志年龄分钟, 期望存活, 说明)
+        (True, 999, True, "进程在、日志很旧（守护进程空档期常态）→ 仍算存活"),
+        (False, 1, True, "无进程但日志刚写过 → 算存活（可能刚退出）"),
+        (False, 999, False, "无进程且日志很旧 → 判停摆"),
+        (None, 999, True, "探测手段不可用 → 保守视为存活"),
+    ]
+    try:
+        for present, age_min, want, label in cases:
+            os.utime(tmp, (time.time() - age_min * 60, time.time() - age_min * 60))
+            w.DAEMON_LOG = tmp
+            w.daemon_process_present = lambda p=present: (p, "selftest")
+            got, why = w.daemon_alive(12)
+            check("存活判定：" + label, got == want, "got=%s（%s）" % (got, why[:60]))
+    finally:
+        w.DAEMON_LOG, w.daemon_process_present, w.subprocess.run = orig_log, orig_present, orig_runs
+
+
+def test_start_guard():
+    """拉起守卫：已有进程不重复拉起；计划任务失败且未授权时不得直接 spawn。"""
+    import subprocess as _sp
+    orig_present, orig_run, orig_popen = w.daemon_process_present, w.subprocess.run, _sp.Popen
+    popen_calls = []
+
+    class _FakeRun:
+        def __init__(self, rc):
+            self.returncode = rc
+            self.stdout = ""
+            self.stderr = "selftest fail"
+
+    try:
+        # A) 进程已存在 → 直接返回 True，且不调用 schtasks / Popen
+        w.daemon_process_present = lambda: (True, "selftest")
+        w.subprocess.run = lambda *a, **k: (_ for _ in ()).throw(AssertionError("不应调用 schtasks"))
+        _sp.Popen = lambda *a, **k: popen_calls.append(a)
+        r = w.start_daemon(allow_direct_spawn=False)
+        check("拉起守卫：已有进程 → 不重复拉起", r is True and not popen_calls,
+              "ret=%s popen=%d" % (r, len(popen_calls)))
+
+        # B) 无进程 + schtasks 失败 + 未授权直接 spawn → 返回 False 且不 spawn
+        calls = {"n": 0}
+        w.daemon_process_present = lambda: (False, "selftest")
+        w.subprocess.run = lambda *a, **k: (calls.__setitem__("n", calls["n"] + 1) or _FakeRun(1))
+        popen_calls.clear()
+        r = w.start_daemon(allow_direct_spawn=False)
+        check("拉起守卫：计划任务失败且未授权 → 不直接 spawn", r is False and not popen_calls,
+              "ret=%s schtasks调用=%d popen=%d" % (r, calls["n"], len(popen_calls)))
+
+        # C) 无进程 + 授权直接 spawn → 允许（复查仍为"无进程"）
+        calls["n"] = 0
+        popen_calls.clear()
+        r = w.start_daemon(allow_direct_spawn=True)
+        check("拉起守卫：显式授权后才允许直接 spawn", r is True and len(popen_calls) == 1,
+              "ret=%s popen=%d" % (r, len(popen_calls)))
+    finally:
+        w.daemon_process_present, w.subprocess.run = orig_present, orig_run
+        _sp.Popen = orig_popen
+
+
+def test_multi_signal():
+    """多信号合成：CIM 说 0（沙箱/受限会话常见）但 pythonw 计数为 1 → 必须判存活。"""
+    orig_ps, orig_run = w._ps_int, w.subprocess.run
+    seq = {"n": 0}
+
+    def fake_ps(cmd, timeout=40):
+        # 第 1 次 = CIM 匹配（沙箱返回 0），第 2 次 = pythonw 计数（1）
+        seq["n"] += 1
+        return 0 if seq["n"] == 1 else 1
+    try:
+        w._ps_int = fake_ps
+        w.subprocess.run = lambda *a, **k: (_ for _ in ()).throw(OSError("tasklist 不可用"))
+        present, why = w.daemon_process_present()
+        check("多信号合成：CIM=0 但 pythonw=1 → 判存活", present is True, why[:100])
+        seq["n"] = 0
+
+        def fake_ps_all_zero(cmd, timeout=40):
+            return 0
+        w._ps_int = fake_ps_all_zero
+        present2, why2 = w.daemon_process_present()
+        check("多信号合成：全部为 0 → 判无进程", present2 is False, why2[:100])
+
+        def fake_ps_none(cmd, timeout=40):
+            return None
+        w._ps_int = fake_ps_none
+        present3, why3 = w.daemon_process_present()
+        check("多信号合成：全部不可用 → 返回 None（保守）", present3 is None, why3[:100])
+    finally:
+        w._ps_int, w.subprocess.run = orig_ps, orig_run
+
+
 if __name__ == "__main__":
     print("=" * 68)
     print("漏批看门狗自测（不触碰真实状态）")
@@ -142,6 +245,10 @@ if __name__ == "__main__":
     test_matching()
     print("[3] 自愈分支")
     test_selfheal()
+    print("[4] 存活判定与拉起守卫（2026-09-10 重复实例事故后新增）")
+    test_liveness()
+    test_multi_signal()
+    test_start_guard()
     print("-" * 68)
     print("通过 %d 项 / 失败 %d 项" % (len(PASS), len(FAIL)))
     if FAIL:
