@@ -150,6 +150,7 @@ echo    102. 日期偏移影子验证（复用旁路表，出对照报告）
 echo    103. 自动登录（方案甲）状态查看
 echo    104. 补录后全链路重建与验收（长表→基线→年度卡→部署→四查）
 echo    105. 指数日期映射口径（查看/试算/应用/回滚）
+echo    106. 缺失日备用数据源（守护进程准终值，可生成日档案回填）
 echo    0. 退出
 echo.
 set "op="
@@ -261,6 +262,7 @@ if "%op%"=="102" goto shadow_verify
 if "%op%"=="103" goto autologon_status
 if "%op%"=="104" goto rebuild_chain
 if "%op%"=="105" goto index_mapping
+if "%op%"=="106" goto fallback_day
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1537,5 +1539,17 @@ python -X utf8 project_b\index_date_mapping_toggle.py --status
 echo.
 python -X utf8 project_b\index_date_mapping_toggle.py --dry-run
 echo  [提示] 确认要改: 同命令加 --apply（自动备份+语法校验）；回滚: --revert
+pause
+goto menu
+
+:fallback_day
+cls
+echo  [缺失日备用数据源] 从守护进程合并快照取该日准终值，可生成「次日」日档案让修正映射归位
+echo  说明: 仅当找不到真实日档案时使用；真实 addon 文件优先级更高，拷回后自动覆盖
+set /p fd=  输入要补的日期(YYYY-MM-DD，直接回车=2026-09-08): 
+if "%fd%"=="" set "fd=2026-09-08"
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\extract_fallback_day.py --date %fd%
+echo  [提示] 真正写入日档案: 同命令加 --install-as-day 2026-09-09（次日日期）
 pause
 goto menu

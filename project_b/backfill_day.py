@@ -143,6 +143,9 @@ def main() -> int:
     ap.add_argument("--check-only", action="store_true", help="只预检，不重建长表")
     ap.add_argument("--no-rebuild", action="store_true", help="不重建（长表已重建过）")
     ap.add_argument("--downstream", action="store_true", help="重建后继续跑 compute_baseline_v1")
+    ap.add_argument("--chain", action="store_true",
+                    help="补录成功后接着跑全链路重建（rebuild_after_backfill.py：长表→基线→年度卡→部署→四查）")
+    ap.add_argument("--chain-skip-deploy", action="store_true", help="配合 --chain：跳过 deploy 步骤")
     args = ap.parse_args()
 
     day = dt.date.fromisoformat(args.date)
@@ -218,7 +221,20 @@ def main() -> int:
                  " | ".join([x for x in (r.stdout or "").splitlines() if x.strip()][-4:]))
         log("  后续请依次执行：操作中心 45/44（基线+档案卡）→ 65/66（原始库长表+诊断）→ 39（完整部署）")
 
-    # 报告
+    # 6) 全链路
+    if args.chain and ok_cover and not args.check_only:
+        log("  -- 接着跑全链路重建 --")
+        chain = [sys.executable, "-X", "utf8", str(ROOT / "project_b" / "rebuild_after_backfill.py")]
+        if args.chain_skip_deploy:
+            chain.append("--skip-deploy")
+        r = subprocess.run(chain, cwd=str(ROOT), capture_output=True, text=True,
+                           encoding="utf-8", errors="ignore", timeout=5400)
+        for ln in [x for x in (r.stdout or "").splitlines() if x.strip()][-10:]:
+            log("    " + ln)
+        step("全链路重建（rebuild_after_backfill）", r.returncode == 0,
+             "returncode=%s" % r.returncode)
+
+    # 7) 报告（放最后，确保 --chain 的结果也在表里）
     TEMP.mkdir(exist_ok=True)
     out_md = TEMP / ("补录验收_%s.md" % day.strftime("%Y%m%d"))
     with open(out_md, "w", encoding="utf-8") as f:
