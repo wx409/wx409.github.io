@@ -510,11 +510,13 @@ def main() -> int:
             detail = "\n".join("缺 %s %s" % (s, m) for s, m in missing)
             notify("⚠️ 大屏采集漏批：%s" % today.isoformat(),
                    "应当完成但缺产出的批次：\n%s\n\n守护进程判定：%s（%s）\n处置：%s %s\n"
+                   "要立刻把它补回来（不必等下个计划批次）：\n"
+                   "  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n"
                    "排查：E:\\wx\\qqmusic_dp_edge.log / logs\\watchdog_%s.log"
                    % (detail, alive, alive_why, action, catch_note,
                       today.strftime("%Y%m%d")),
-                   desktop="大屏采集漏批 %s：%s（守护进程判定 %s）"
-                           % (today.isoformat(), "、".join("%s %s" % (s, m) for s, m in missing), alive_why))
+                   desktop="大屏采集漏批 %s：%s（可用「操作中心 109 / run_batch_now.py」立刻补跑）"
+                           % (today.isoformat(), "、".join("%s %s" % (s, m) for s, m in missing)))
             alerted[akey] = now().strftime("%Y-%m-%d %H:%M:%S")
         elif missing and not critical:
             log("漏批未达告警门槛（非全量、少于3批、守护进程存活）→ 只记日志")
@@ -579,7 +581,8 @@ def main() -> int:
                    "     E:\\wx\\指数数据库\\增补数据库2025.2.22-\\ ；\n"
                    "   ② 找不到备份时，用准终值备用：\n"
                    "     python project_b\\extract_fallback_day.py --date <缺的日期> --install-as-day <次日日期>\n"
-                   "   ③ 之后跑 python project_b\\refresh_index_baseline.py --force"
+                   "   ③ 之后跑 python project_b\\refresh_index_baseline.py --force\n"
+                   "   （或「操作中心 109 立刻补跑一次采集」一步完成抓取+刷新）"
                    % (lt.isoformat() if lt else "?", "、".join(gaps)),
                    desktop="指数长表有缺口：%s（需真实日档案或准终值备用 + refresh_index_baseline.py --force）"
                            % "、".join(gaps))

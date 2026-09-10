@@ -145,7 +145,7 @@ echo    98. 守护进程任务改 S4U（重启免解锁，先实测）
 echo    99. 指数长表日期偏移核查（三重证据）
 echo    ---- R组 补录与自检（2026-09-10 停摆事故配套） ----
 echo    100. 按日补录与验收（输入日期，预检+重建+验收+口径自查）
-echo    101. 看门狗自测（10 项，不触碰真实状态）
+echo    101. 看门狗自测（24 项，不触碰真实状态）
 echo    102. 日期偏移影子验证（复用旁路表，出对照报告）
 echo    103. 自动登录（方案甲）状态查看
 echo    104. 补录后全链路重建与验收（长表→基线→年度卡→部署→四查）
@@ -153,6 +153,7 @@ echo    105. 指数日期映射口径（查看/试算/应用/回滚）
 echo    106. 缺失日备用数据源（守护进程准终值，可生成日档案回填）
 echo    107. 指数长表+基线刷新（日档案更新后跑；已接入每日 auto_update）
 echo    108. 事故验收总检（根因/自愈/口径/数据/站点/任务/产物 一次性体检）
+echo    109. 立刻补跑一次采集（全量/极速）+ 自动刷新长表基线
 echo    0. 退出
 echo.
 set "op="
@@ -267,6 +268,7 @@ if "%op%"=="105" goto index_mapping
 if "%op%"=="106" goto fallback_day
 if "%op%"=="107" goto refresh_index
 if "%op%"=="108" goto acceptance_check
+if "%op%"=="109" goto run_batch_now
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1578,5 +1580,19 @@ echo  判定: 有 FAIL 则退出码 1；WARN 为待观察/待执行（不影响退出码）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\acceptance_check.py
 echo  [OK] 报告: temp\事故验收_YYYYMMDD.md
+pause
+goto menu
+
+:run_batch_now
+cls
+echo  [立刻补跑一次采集] 看门狗报漏批/日档案缺失/长表缺口时用，不必等下个计划批次
+echo  流程: 守护进程 --once 抓一次 - 自动跑 refresh_index_baseline --force 推到长表与站点
+echo  安全: 守护进程正在跑批次(日志10分钟内有写入)时默认拒绝, 需 --force 才强行执行
+echo  模式: full 全量(约5-10分钟, 含昨日音乐指数列) / quick 极速(约4-5分钟)
+set /p bmode=  输入模式(full 或 quick，直接回车=quick): 
+if "%bmode%"=="" set "bmode=quick"
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\run_batch_now.py --mode %bmode%
+echo  [OK] 完成后建议跑 操作中心 108 事故验收总检
 pause
 goto menu
