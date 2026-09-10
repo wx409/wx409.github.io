@@ -137,12 +137,12 @@ echo    91. 打开《向着太阳》重测报告
 echo    92. 低音复核（LowC 及以下曲目：YIN 次谐波排查）
 echo    93. 打开低音复核报告（LowC）
 echo    ---- Q组 运维加固（2026-09-10 停摆事故后） ----
-echo    92. 漏批看门狗（应完成批次 vs 产出，停摆则拉起+补跑）
-echo    93. 更新重启抑制 - 查看状态（只读）
-echo    94. 更新重启抑制 - 应用（活动时间06:00-23:00 + 暂停更新35天）
-echo    95. 导出 BitLocker 恢复密钥 → D:\Bitlocer.txt
-echo    96. 守护进程任务改 S4U（重启免解锁，先实测）
-echo    97. 指数长表日期偏移核查（三重证据）
+echo    94. 漏批看门狗（应完成批次 vs 产出，停摆则拉起+补跑）
+echo    95. 更新重启抑制 - 查看状态（只读）
+echo    96. 更新重启抑制 - 应用（活动时间06:00-23:00 + 暂停更新35天）
+echo    97. 导出 BitLocker 恢复密钥 → D:\Bitlocer.txt
+echo    98. 守护进程任务改 S4U（重启免解锁，先实测）
+echo    99. 指数长表日期偏移核查（三重证据）
 echo    0. 退出
 echo.
 set "op="
@@ -242,12 +242,12 @@ if "%op%"=="90" goto crepe_check
 if "%op%"=="91" goto open_sun_report
 if "%op%"=="92" goto lowc_check
 if "%op%"=="93" goto open_lowc_report
-if "%op%"=="92" goto watchdog
-if "%op%"=="93" goto harden_status
-if "%op%"=="94" goto harden_apply
-if "%op%"=="95" goto bitlocker_export
-if "%op%"=="96" goto s4u_task
-if "%op%"=="97" goto date_shift_check
+if "%op%"=="94" goto watchdog
+if "%op%"=="95" goto harden_status
+if "%op%"=="96" goto harden_apply
+if "%op%"=="97" goto bitlocker_export
+if "%op%"=="98" goto s4u_task
+if "%op%"=="99" goto date_shift_check
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
