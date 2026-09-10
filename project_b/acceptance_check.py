@@ -224,6 +224,21 @@ def check_artifacts() -> None:
     add("G 产物", "未推送提交数", OK if n == "0" else WARN, "%s 个" % n)
 
 
+def check_preset() -> None:
+    """维护者预设（每次对话都会加载的操作说明书）与站点口径是否一致。
+
+    2026-09-10 发现它长期无人审计：指数年度值、口径项数都曾悄悄过期。
+    """
+    rc, out = run([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "audit_preset.py")], timeout=180)
+    lines = [x.strip() for x in out.splitlines() if x.strip()]
+    verdict = next((x for x in reversed(lines) if x.startswith("结论")), "")
+    bad = [x for x in lines if x.startswith("❌")]
+    ok = (rc == 0)
+    add("H 说明书", "维护者预设与站点口径一致（年度值/口径项数/新增自动化）",
+        OK if ok else FAIL,
+        (verdict or "无结论行") + (("；" + "；".join(bad[:2])) if bad else ""))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", action="store_true")
@@ -239,6 +254,7 @@ def main() -> int:
     check_site()
     check_tasks()
     check_artifacts()
+    check_preset()
 
     n_ok = sum(1 for r in rows if r["status"] == OK)
     n_warn = sum(1 for r in rows if r["status"] == WARN)
