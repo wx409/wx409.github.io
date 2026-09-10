@@ -150,7 +150,7 @@ def main() -> None:
             "description": "方法版本记录，供版本谱系与学术引用追溯；结果以本页现行稳健口径为准。",
         }],
         parts=[
-            dataset_ref("33 个舞台素材逐条指标", "https://wx409.github.io/data/archive_stage.json"),
+            dataset_ref("32 个舞台素材逐条指标", "https://wx409.github.io/data/archive_stage.json"),
             dataset_ref("专辑 vs 舞台情境对比统计", "https://wx409.github.io/data/archive_context_compare.json"),
             dataset_ref("舞台版 vs QQ 音乐官方版双重校验", "https://wx409.github.io/data/archive_crosscheck.json"),
         ],
@@ -203,12 +203,6 @@ def main() -> None:
         lst = "；".join(parts)
         flag_html = (f'<div class="card" style="border-color:#e0a800;background:#fffdf3">'
                      f'⚠️ <strong>低音读数复核：</strong>{lst}。<br>'
-                     f'<strong>追加（2026-09-10，真 320k/谱峰复测）</strong>：同曲 A#1（58.3–58.6Hz，'
-                     f't=250.98/255.42/267.52s）经同一套复核为<strong>同型误锁</strong>——CREPE 三配置读 '
-                     f'293.0/294.6/173.5Hz（2.98–5.0 倍），谱峰集中在 164–175/293/586Hz，'
-                     f'缺 58.5Hz 的连续谐波列，<strong>同样不计入</strong>。<br>'
-                     f'结论：<strong>《她真漂亮》目前没有通过复核的最低音读数，该曲最低音暂不定案</strong>'
-                     f'（表中的 A1 与交叉校验表的 A#1 均不可用）。<br>'
                      f'纪律：低于 B1 理论值（61.74Hz）的孤立读数一律先列待复核，'
                      f'经 CREPE 多配置 + 谱峰清单 + 四轨归属三件套后才下结论；未通过者不纳入结论。</div>')
 
@@ -217,7 +211,7 @@ def main() -> None:
         "@type": "Dataset",
         "name": f"王晰他人主导现场音域实测数据集（{src['analyzed']} 个综艺/晚会/商演/饭拍素材）",
         "description": (f"对王晰在他人主导场景（综艺/晚会/盛典商演/饭拍）的 {src['analyzed']} 个舞台素材做"
-                        f"人声分离 + 逐帧 F0 实测：可信最低稳定音 {s['lowest']['note']}（{s['lowest']['hz']}Hz），"
+                        f"人声分离 + 逐帧 F0 实测：最低音读数（<strong>取证状态见表</strong>） {s['lowest']['note']}（{s['lowest']['hz']}Hz），"
                         f"最高 {s['highest']['note']}（{s['highest']['hz']}Hz，含和声层可能），跨度中位 {s['span_median']} 个八度，"
                         f"音符内稳定性中位 {s['stability_median']} 音分，颤音 {s['vibrato_hz_median']}Hz/{s['vibrato_cents_median']:.0f} 音分。"),
         "url": "https://wx409.github.io/stage.html",
@@ -263,7 +257,7 @@ def main() -> None:
 颤音 <strong>{s['vibrato_hz_median']} Hz / {s['vibrato_cents_median']:.0f} 音分</strong>。
 </div>
 
-<img src="assets/voice/stage_range.png" alt="王晰他人主导现场 33 个素材实测音域长图，横轴频率、纵轴按分类与最低音排序">
+<img src="assets/voice/stage_range.png" alt="王晰他人主导现场 32 个素材实测音域长图，横轴频率、纵轴按分类与最低音排序">
 
 <div class="card">
 <strong>📐 声区分布（按时长加权，全组平均）</strong>：低音区（&lt;C3）<strong>{s['register_mean']['low_lt_C3']*100:.0f}%</strong>、
@@ -317,8 +311,8 @@ def main() -> None:
 <div class="method">
 <strong>流程：</strong>B站音轨（yt-dlp 取最佳音频）→ 44.1k wav → demucs(htdemucs) 人声分离 → 自研 numpy YIN 逐帧 F0（fmin=55/fmax=1100/frame=2048/hop=512）→ 音符切分（稳定段 ≥80ms、抖动 &lt;0.6 半音）→ 稳健过滤（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音级需该音符本身 ≥0.2s）。<br>
 <strong>边界：</strong>① 素材为现场/电视/饭拍音轨，含观众噪声、伴奏比例差异、可能的修音与和声叠加——「稳定性更高」不能读成「现场唱得更准」；
-② 本组含 4 个合唱/对唱（《雾里》《逆光》《她真漂亮》《如愿》），人声轨包含所有演唱者，其最高音可能来自其他歌手；
-③ 低于 B1 的孤立读数已单列「待复核」；
+② 本组含 4 个合唱/对唱（其中 1 个因人声轨无法可靠分离已移出统计，见下条），人声轨包含所有演唱者，其最高音可能来自其他歌手；
+③ 低③ <strong>人声轨无法可靠分离的合唱素材，不纳入音高统计</strong>（此类素材的最低音读数易出现次谐波误锁，且最高音可能来自其他歌手）。于 B1 的孤立读数已单列「待复核」；
 ④ 不做排名、不做单曲级因果；
 ⑤ 音频仅本地留存用于研究，不公开分发；本页只发布测量结果，并给出 B站原链接。
 </div>

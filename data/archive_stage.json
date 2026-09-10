@@ -4,10 +4,11 @@
   "fav_title": "王晰综艺现场live",
   "fav_id": 4075783258,
   "fav_count": 44,
-  "analyzed": 33,
+  "analyzed": 32,
   "excluded": {
    "棚版混音": 8,
-   "他人分析/混剪": 3
+   "他人分析/混剪": 3,
+   "人声轨无法可靠分离的合唱": 1
   }
  },
  "summary": {
@@ -17,14 +18,6 @@
    "title": "【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
    "bvid": "BV1tV411p7Ny"
   },
-  "lowest_flagged": [
-   {
-    "note": "A1",
-    "hz": 55.1,
-    "title": "《她真漂亮》王晰and高杨",
-    "bvid": "BV1mT4y117g4"
-   }
-  ],
   "highest": {
    "note": "C6",
    "hz": 1051.5,
@@ -89,28 +82,6 @@
   }
  ],
  "items": [
-  {
-   "cat": "综艺",
-   "title": "《她真漂亮》王晰and高杨",
-   "bvid": "BV1mT4y117g4",
-   "url": "https://www.bilibili.com/video/BV1mT4y117g4",
-   "up": "确定绿豆糕",
-   "low": "A1",
-   "low_hz": 55.1,
-   "high": "C5",
-   "high_hz": 523.2,
-   "span": 3.25,
-   "notes": 351,
-   "density": 1.2,
-   "stability": 4.1,
-   "vibrato_hz": 5.38,
-   "vibrato_cents": 58.0,
-   "register": {
-    "low_lt_C3": 0.178,
-    "mid_C3_B3": 0.455,
-    "high_ge_C4": 0.367
-   }
-  },
   {
    "cat": "综艺",
    "title": "【1080P】【开口跪神级Live现场】尚雯婕 王晰《云与海》",
