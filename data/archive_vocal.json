@@ -1,11 +1,21 @@
 {
- "schema": 2,
+ "schema": 3,
  "generated": "2026-09-09",
  "method": "demucs(htdemucs/GPU) 人声分离 + 自研 YIN 逐帧 F0 + 音符切分 + 稳健过滤（时长≥0.15s、HNR≥5dB、强度≥中位−25dB；极值音级需该音符本身 ≥0.2s）",
  "count": 10,
  "songs": [
   {
    "name": "多听有益",
+   "stable_note": "B1",
+   "stable_hz": 61.6,
+   "stable_time_s": 198.2,
+   "stable_dur_s": 0.35,
+   "stable_hnr_db": 5.9,
+   "reach_note": "B1",
+   "reach_hz": 61.2,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "B1",
    "lowest_hz": 61.6,
    "time_s": 198.2,
@@ -13,11 +23,102 @@
    "hnr_db": 5.9,
    "source": "录音室 MV",
    "manual_review": null,
-   "instant_note": "B1",
-   "instant_hz": 61.2
+   "crepe_verified": false,
+   "versions": [
+    {
+     "场次": "录音室(MV)",
+     "日期": "",
+     "BV": "",
+     "素材质量": "官方音源",
+     "稳定音": "B1",
+     "触达音": "",
+     "可信度": "已测",
+     "状态": "已测"
+    },
+    {
+     "场次": "肆益杭州站",
+     "日期": "2024",
+     "BV": "BV1ArKxe7E8H",
+     "素材质量": "4K 现场",
+     "稳定音": "B1 63.4",
+     "触达音": "",
+     "可信度": "已测",
+     "状态": "已测"
+    },
+    {
+     "场次": "四巡 直拍",
+     "日期": "2023-2024",
+     "BV": "",
+     "素材质量": "直拍",
+     "稳定音": "D2(中)",
+     "触达音": "",
+     "可信度": "已测",
+     "状态": "已测"
+    },
+    {
+     "场次": "肆益收官 武汉琴台",
+     "日期": "2024",
+     "BV": "BV1iWtUefEkm",
+     "素材质量": "现场(失真)",
+     "稳定音": "A2(低,失真)",
+     "触达音": "",
+     "可信度": "已测",
+     "状态": "已测"
+    },
+    {
+     "场次": "玛特·袋鼠音乐盛典(杭州)",
+     "日期": "2024-08-20",
+     "BV": "BV1QwWteUExt",
+     "素材质量": "现场",
+     "稳定音": "",
+     "触达音": "",
+     "可信度": "待测",
+     "状态": "待测"
+    },
+    {
+     "场次": "肆益 七场混剪",
+     "日期": "2023-2024",
+     "BV": "BV1oJmLYwEXh",
+     "素材质量": "混剪(剪接不明)",
+     "稳定音": "",
+     "触达音": "",
+     "可信度": "—",
+     "状态": "排除(混剪)"
+    },
+    {
+     "场次": "巡演现场(待核)",
+     "日期": "2020",
+     "BV": "BV1fK411h7sT",
+     "素材质量": "待核",
+     "稳定音": "",
+     "触达音": "",
+     "可信度": "待核",
+     "状态": "待核"
+    },
+    {
+     "场次": "四巡北京全场",
+     "日期": "2023-11-12",
+     "BV": "BV1PPpfeREvb",
+     "素材质量": "全场(待查是否含此曲)",
+     "稳定音": "",
+     "触达音": "",
+     "可信度": "待查",
+     "状态": "待查"
+    }
+   ]
   },
   {
    "name": "鹅毛信",
+   "stable_note": "C2",
+   "stable_hz": 65.3,
+   "stable_time_s": 162.1,
+   "stable_dur_s": 0.33,
+   "stable_hnr_db": 6.2,
+   "reach_note": "D2",
+   "reach_hz": 71.9,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "C2",
    "lowest_hz": 65.3,
    "time_s": 162.1,
@@ -25,11 +126,21 @@
    "hnr_db": 6.2,
    "source": "录音室",
    "manual_review": null,
-   "instant_note": "D2",
-   "instant_hz": 71.9
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "下潜",
+   "stable_note": "C2",
+   "stable_hz": 65.7,
+   "stable_time_s": 81.5,
+   "stable_dur_s": 0.21,
+   "stable_hnr_db": 6.5,
+   "reach_note": "D2",
+   "reach_hz": 71.9,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "C2",
    "lowest_hz": 65.7,
    "time_s": 81.5,
@@ -37,11 +148,21 @@
    "hnr_db": 6.5,
    "source": "现场（待确认王晰原声）",
    "manual_review": null,
-   "instant_note": "D2",
-   "instant_hz": 71.9
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "渡荆门送别",
+   "stable_note": "C#2",
+   "stable_hz": 69.7,
+   "stable_time_s": 124.4,
+   "stable_dur_s": 0.26,
+   "stable_hnr_db": 5.9,
+   "reach_note": "B1",
+   "reach_hz": 60.5,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "C#2",
    "lowest_hz": 69.7,
    "time_s": 124.4,
@@ -49,11 +170,21 @@
    "hnr_db": 5.9,
    "source": "央视《经典咏流传》",
    "manual_review": null,
-   "instant_note": "B1",
-   "instant_hz": 60.5
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "想游泳的星",
+   "stable_note": "D2",
+   "stable_hz": 73.5,
+   "stable_time_s": 31.4,
+   "stable_dur_s": 0.26,
+   "stable_hnr_db": 6.4,
+   "reach_note": "D2",
+   "reach_hz": 71.5,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "D2",
    "lowest_hz": 73.5,
    "time_s": 31.4,
@@ -61,11 +192,21 @@
    "hnr_db": 6.4,
    "source": "录音室",
    "manual_review": null,
-   "instant_note": "D2",
-   "instant_hz": 71.5
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "雾里",
+   "stable_note": "D2",
+   "stable_hz": 75.5,
+   "stable_time_s": 164.2,
+   "stable_dur_s": 0.16,
+   "stable_hnr_db": 6.6,
+   "reach_note": "C2",
+   "reach_hz": 64.5,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "D2",
    "lowest_hz": 75.5,
    "time_s": 164.2,
@@ -73,11 +214,21 @@
    "hnr_db": 6.6,
    "source": "央视网络春晚（三人合唱）",
    "manual_review": null,
-   "instant_note": "C2",
-   "instant_hz": 64.5
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "南屏晚钟",
+   "stable_note": "D#2",
+   "stable_hz": 76.9,
+   "stable_time_s": 140.9,
+   "stable_dur_s": 0.19,
+   "stable_hnr_db": 5.2,
+   "reach_note": "C#2",
+   "reach_hz": 67.9,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "D#2",
    "lowest_hz": 76.9,
    "time_s": 140.9,
@@ -85,11 +236,21 @@
    "hnr_db": 5.2,
    "source": "录音室",
    "manual_review": null,
-   "instant_note": "C#2",
-   "instant_hz": 67.9
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "在路上",
+   "stable_note": "D#2",
+   "stable_hz": 77.3,
+   "stable_time_s": 10.5,
+   "stable_dur_s": 0.28,
+   "stable_hnr_db": 6.2,
+   "reach_note": "C#2",
+   "reach_hz": 69.1,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "D#2",
    "lowest_hz": 77.3,
    "time_s": 10.5,
@@ -97,11 +258,21 @@
    "hnr_db": 6.2,
    "source": "录音室",
    "manual_review": null,
-   "instant_note": "C#2",
-   "instant_hz": 69.1
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "惑许",
+   "stable_note": "F#2",
+   "stable_hz": 91.0,
+   "stable_time_s": 32.5,
+   "stable_dur_s": 0.21,
+   "stable_hnr_db": 7.0,
+   "reach_note": "D2",
+   "reach_hz": 74.5,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "F#2",
    "lowest_hz": 91.0,
    "time_s": 32.5,
@@ -109,11 +280,21 @@
    "hnr_db": 7.0,
    "source": "录音室",
    "manual_review": null,
-   "instant_note": "D2",
-   "instant_hz": 74.5
+   "crepe_verified": false,
+   "versions": []
   },
   {
    "name": "向着太阳（官方320k）",
+   "stable_note": "G2",
+   "stable_hz": 97.8,
+   "stable_time_s": 33.4,
+   "stable_dur_s": 0.26,
+   "stable_hnr_db": 9.7,
+   "reach_note": "—",
+   "reach_hz": null,
+   "reach_duration": null,
+   "reach_engine": "pYIN(v1)",
+   "reach_status": "时长待补",
    "lowest_note": "G2",
    "lowest_hz": 97.8,
    "time_s": 33.4,
@@ -121,8 +302,8 @@
    "hnr_db": 9.7,
    "source": "VITAS×王晰合唱",
    "manual_review": "YIN 1/3 次谐波错误（真值 A#3≈231Hz）；CREPE 复核得全曲最低人声 G2",
-   "instant_note": "—",
-   "instant_hz": null
+   "crepe_verified": false,
+   "versions": []
   }
  ],
  "conclusion": {
@@ -144,7 +325,7 @@
   "b1_songs": [
    "多听有益"
   ],
-  "b1_instant_songs": [
+  "b1_reach_songs": [
    "多听有益",
    "渡荆门送别"
   ],
