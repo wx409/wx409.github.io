@@ -29,6 +29,8 @@ MANUAL_FEATURES = {
     "project_b\\deploy_all.py": "完整部署（25 步）",
     "project_b\\audit_caliber.py": "口径审计",
     "project_b\\build_calibers.py": "口径登记表",
+    "project_b\\build_facts.py": "事实登记表生成",
+    "project_b\\check_facts_preflight.py": "事实预检（生成前）",
     "project_b\\build_nav.py": "导航统一",
     "project_b\\audit_nav.py": "导航与内链审计",
     "project_b\\audit_bat.py": "批处理体检",

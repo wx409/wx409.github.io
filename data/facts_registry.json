@@ -1,0 +1,162 @@
+{
+ "schema": 1,
+ "generated_at": "2026-09-10 15:16",
+ "note": "反复出错的事实字段登记表（与 calibers.json 并列）。生成文稿/报告/指令前先跑 project_b/check_facts_preflight.py。每条含 value/source/checked/wrong。",
+ "facts": [
+  {
+   "id": "education",
+   "label": "求学履历",
+   "value": "2004 年考入辽宁艺术职业学院（流行演唱专业）→ 2014 年毕业于沈阳音乐学院",
+   "source": "档案卡\\核实记录_求学履历_20260909.md（两家媒体 + 百科三源一致）；已写入 index.html 与论文初稿 1.1 节",
+   "checked": "2026-09-09",
+   "wrong": [
+    "仅写「沈阳音乐学院毕业」而不提辽宁艺术职业学院",
+    "仅写「辽宁艺术职业学院」而不提沈阳音乐学院",
+    "把两校写成同一时期就读"
+   ]
+  },
+  {
+   "id": "institution_line",
+   "label": "机构归属时间线",
+   "value": "海政文工团（2011→2018-09 撤编）→ 乐华娱乐（2019-04-09→2024）→ 中国东方演艺集团（2025→今）",
+   "source": "kb_digest.md 里程碑（含 2018-09 国防部撤编、2019-04-09 生日官宣签约）",
+   "checked": "2026-09-10",
+   "wrong": [
+    "写「2018 年仍在海政文工团在职演出」而不注明撤编",
+    "把乐华签约定在 2018 年"
+   ]
+  },
+  {
+   "id": "awards",
+   "label": "赛事与奖项",
+   "value": "2011 第八届中国音乐金钟奖男子组金奖；2013 第十五届 CCTV 青年歌手电视大奖赛流行唱法总冠军；2016《我是歌手》第四季踢馆夺冠",
+   "source": "百度百科 + 新华网 2016-02-20（《我是歌手》逆袭的低音炮）",
+   "checked": "2026-09-10",
+   "wrong": [
+    "把「踢馆夺冠」写成「补位夺冠」",
+    "把金钟奖写成「金奖第一名（终身）」等加码说法"
+   ]
+  },
+  {
+   "id": "interval_semitone_rule",
+   "label": "音程换算（自测纪律）",
+   "value": "F#2(midi 42) → B1(midi 35) = 7 个半音；B1(约 61.7Hz) 比 Low C(C2 65.4Hz) 低 1 个半音",
+   "source": "本项目实测（numeral 由 midi 差值计算，禁用「感觉像五个半音」类估计）",
+   "checked": "2026-09-10",
+   "wrong": [
+    "F#2 到 B1 说成五个半音",
+    "B1 比 Low C 说成低两个半音"
+   ]
+  },
+  {
+   "id": "index_cutoff",
+   "label": "指数数据截止日",
+   "value": "本年度（2026）指数数据截至 2026-09-08；年度值：2023=1011.5 / 2024=881.1 / 2025=861.5 / 2026=685.6",
+   "source": "data/archive_baseline.json（compute_baseline_v1.py 追踪池日均口径）",
+   "checked": "2026-09-10",
+   "wrong": [
+    "引用年度指数时不注明截止日期",
+    "沿用 1013/880/862/686 旧值（千分位缺陷版）"
+   ]
+  },
+  {
+   "id": "moscow_2025",
+   "label": "2025 莫斯科相关",
+   "value": "2025-09-17 赴莫斯科格涅辛音乐学院参加中国流行音乐艺术交流；2025-09-20 代表中国参加「国际视界」国际音乐大赛（23 国参赛）",
+   "source": "新华社/中新网报道（见 kb_digest.md 里程碑）；具体名次未在本地核实 → 不写名次",
+   "checked": "2026-09-10",
+   "wrong": [
+    "写「获得冠军/亚军」等名次（本地无核实）"
+   ]
+  },
+  {
+   "id": "medal_2013",
+   "label": "2013 随海军赴俄联演",
+   "value": "2013 年随中国海军赴俄罗斯参加中俄海上联演，荣立个人三等功",
+   "source": "kb_digest.md 里程碑（履历条目）；论文初稿沿用",
+   "checked": "2026-09-10",
+   "wrong": [
+    "写成「二等功」或「集体三等功」"
+   ]
+  },
+  {
+   "id": "album_release",
+   "label": "专辑发行年（逐张）",
+   "value": "《不说》2024-12；《X自选集》2022-12；《回望》2021-12；《B面图景》2021-11；《歌颂》2020-08；《重游往昔》2017-11；《Low C的诱惑Ⅱ》2016-05；《Low C的诱惑》2014",
+   "source": "data/albums.json + data/site_search_index.json（自动派生）",
+   "checked": "2026-09-10",
+   "wrong": [
+    "《X自选集》2021",
+    "《不说》2022",
+    "《回望》2024",
+    "回望是 2024 年唯一发行"
+   ],
+   "items": [
+    {
+     "key": "不说",
+     "value": "2024-12",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 8,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "X自选集",
+     "value": "2022-12",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 9,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "回望",
+     "value": "2021-12",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 3,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "B面图景",
+     "value": "2021-11",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 10,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "歌颂",
+     "value": "2020-08",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 10,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "重游往昔",
+     "value": "2017-11",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 8,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "Low C的诱惑Ⅱ",
+     "value": "2016-05",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 12,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    },
+    {
+     "key": "Low C的诱惑",
+     "value": "2014",
+     "earliest_track": null,
+     "latest_track": null,
+     "tracks": 12,
+     "source": "data/albums.json（release）+ data/site_search_index.json（逐曲 release）"
+    }
+   ]
+  }
+ ]
+}

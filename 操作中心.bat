@@ -158,6 +158,7 @@ echo    110. B站轨迹素材采集（同曲多版本，本地零 token）
 echo    111. 导出轨迹素材清单（md 清单 + 待测链接 txt）
 echo    112. 场次音域实测一键（B站音轨到 wav 到 分离测音 到 双标准报告）
 echo    113. 低音读数复核与终裁（CREPE 多配置稳健性 到 谱列解释度 到 四轨归属）
+echo    114. 事实预检（facts_registry：专辑年份/履历/赛事/换算 生成前强制过一遍）
 echo    0. 退出
 echo.
 set "op="
@@ -277,6 +278,7 @@ if "%op%"=="110" goto bili_traj
 if "%op%"=="111" goto bili_traj_export
 if "%op%"=="112" goto stage_vocal_series
 if "%op%"=="113" goto low_note_verify
+if "%op%"=="114" goto facts_preflight
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1646,5 +1648,17 @@ python -X utf8 引擎稳健性复核.py --scope 场次
 python -X utf8 引擎稳健性复核.py --scope 专辑
 python -X utf8 A3终裁.py
 echo  [OK] A3复核交付表.md（可上线状态：双引擎一致 / 已取证 / 待复核 / 次谐波错误）
+pause
+goto menu
+
+:facts_preflight
+cls
+echo  [事实预检] 反复出错的事实字段登记表（与 calibers 并列）：正确值 + 出处 + 核实日期 + 已知错误写法
+echo  生成文稿/报告/指令前先跑：check_facts_preflight.py；更新登记表：build_facts.py
+echo  默认扫描：temp 两份备忘 + E:\wx\论文素材_王晰作传\王晰综合评估报告_20260910.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_facts.py --check
+python -X utf8 project_b\check_facts_preflight.py --scan-default
+echo  [OK] 通过则可继续生成文稿；FAIL 时按提示修正事实后再生成
 pause
 goto menu
