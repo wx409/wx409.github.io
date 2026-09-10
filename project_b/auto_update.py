@@ -60,6 +60,29 @@ def run(cmd, cwd=None):
     return r.returncode == 0
 
 
+def run_watchdog():
+    """漏批巡检 + 自愈（2026-09-09 更新重启导致整夜停摆后新增）。
+
+    watchdog_batches.py 退出码 1 = 存在漏批（属预期结果，不是脚本失败）。
+    """
+    log("-- watchdog_batches（漏批巡检 + 自愈）--")
+    try:
+        r = subprocess.run([sys.executable, str(ROOT / "project_b" / "watchdog_batches.py")],
+                           cwd=ROOT, capture_output=True, text=True,
+                           encoding="utf-8", errors="ignore", timeout=45 * 60,
+                           env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+    except Exception as e:
+        log("   [watchdog] 调用失败: %s" % e)
+        return 2
+    for ln in [x for x in (r.stdout or "").splitlines() if x.strip()][-8:]:
+        log("   " + ln)
+    if r.returncode == 1:
+        log("   [watchdog] 存在漏批（已尝试自愈，详见 logs/watchdog_*.log 与站内通知）")
+    elif r.returncode != 0:
+        log("   [watchdog] 异常退出 %s: %s" % (r.returncode, (r.stderr or "")[-200:]))
+    return r.returncode
+
+
 def notify(title, msg):
     try:
         sys.path.insert(0, str(ROOT / "project_b"))
@@ -139,12 +162,17 @@ def main():
                     help="机器标签（仅日志用）；不再做双机错峰，笔记本每天都执行")
     ap.add_argument("--watch", action="store_true", help="先跑 watch_releases/watch_tavern（只读）")
     ap.add_argument("--no-push", action="store_true", help="只构建不推送（调试）")
+    ap.add_argument("--no-watchdog", action="store_true", help="跳过漏批看门狗（调试）")
     args = ap.parse_args()
 
     # 说明：已取消双机错峰（此前 laptop 周末/desktop 工作日互相跳过）。
     # 现在统一由笔记本每天自动更新 + push + IndexNow，无需换班。
     log("=== 开始自动更新（%s，每天执行）===" % args.machine)
     before = snapshot()
+
+    # 0. 看门狗：漏批巡检 + 自愈（2026-09-09 更新重启停摆事故后新增）
+    if not args.no_watchdog:
+        run_watchdog()
 
     # 1. watch（新歌自动入库；小酒馆节目已结束，不再监测/推送）
     if args.watch:

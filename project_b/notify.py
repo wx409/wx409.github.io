@@ -117,13 +117,15 @@ def email(title, content):
         return False
 
 
-def send(title, content):
+def send(title, content, category="通知"):
     """发送通知；默认留存本地表格，不再使用 Server酱。
 
     如需临时启用 Server酱：设置环境变量 ALLOW_SERVERCHAN=1。
     SMTP 邮件仍为可选；未配置时只写本地表格。
+
+    category：写入本地通知表的分类（如 "运维告警"），供 notifications.html 聚合。
     """
-    ok_local = append_local(title, content)
+    ok_local = append_local(title, content, category=category)
 
     # Server酱默认停用
     ok1 = False
