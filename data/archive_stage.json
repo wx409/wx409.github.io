@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10 17:00",
+ "generated_at": "2026-09-10 17:06",
  "source": {
   "fav_title": "王晰综艺现场live",
   "fav_id": 4075783258,
@@ -7,8 +7,7 @@
   "analyzed": 32,
   "excluded": {
    "棚版混音": 8,
-   "他人分析/混剪": 3,
-   "人声轨无法可靠分离的合唱": 0
+   "他人分析/混剪": 3
   }
  },
  "summary": {
@@ -18,6 +17,14 @@
    "title": "【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
    "bvid": "BV1tV411p7Ny"
   },
+  "lowest_flagged": [
+   {
+    "note": "A1",
+    "hz": 55.1,
+    "title": "《她真漂亮》王晰and高杨",
+    "bvid": "BV1mT4y117g4"
+   }
+  ],
   "highest": {
    "note": "C6",
    "hz": 1051.5,
@@ -125,7 +132,6 @@
     "mid_C3_B3": 0.683,
     "high_ge_C4": 0.194
    },
-   "bilibili_title": "《如愿》王晰 檀健次 马佳",
    "song": "如愿"
   },
   {
@@ -796,6 +802,346 @@
   "robust_filter": "时长≥0.15s 且 HNR≥5dB 且强度≥中位-25dB；极值音级需该音符本身≥0.2s",
   "cross_check": "结论已用独立音源复测互证（同一首《渡荆门送别》的舞台版与 QQ 音乐官方版最低稳定音同为 C#2 69.7Hz）。"
  },
- "note": "现场/电视/饭拍音轨；含修音与和声层可能；不做排名或单曲因果；音频仅本地留存不公开分发｜2026-09-10：《她真漂亮》因「人声轨无法可靠分离的合唱素材」移出统计（32 素材口径），该曲低音读数经复核全部为次谐波误锁，不计入。",
- "excluded": []
+ "note": "现场/电视/饭拍音轨；含修音与和声层可能；不做排名或单曲因果；音频仅本地留存不公开分发",
+ "excluded": [
+  {
+   "duration_s": 292.6,
+   "voiced_ratio": 0.549,
+   "f0_min_hz": 55.1,
+   "f0_max_hz": 1045.3,
+   "filter": {
+    "kept": 196,
+    "total": 351,
+    "rule": "dur>=0.15s & HNR>=5dB & rms>=中位-25dB；极值音级需该音符本身>=0.2s"
+   },
+   "low_stable": {
+    "midi": 33.0,
+    "note": "A1",
+    "hz": 55.1
+   },
+   "high_stable": {
+    "midi": 72.0,
+    "note": "C5",
+    "hz": 523.2
+   },
+   "span_semitones": 39.0,
+   "span_octaves": 3.25,
+   "note_count": 351,
+   "note_density_per_s": 1.2,
+   "note_dur_median_s": 0.21,
+   "short_note_share": 0.339,
+   "pitch_change_median_semi": 2.01,
+   "pitch_change_p95_semi": 20.83,
+   "big_jump_count": 130,
+   "stability_cents_median": 4.1,
+   "intonation_cents_median": 5.8,
+   "vibrato_rate_hz_median": 5.38,
+   "vibrato_extent_cents_median": 58.0,
+   "register_share": {
+    "low_lt_C3": 0.178,
+    "mid_C3_B3": 0.455,
+    "high_ge_C4": 0.367
+   },
+   "rms_db": {
+    "p10": -81.3,
+    "median": -27.6,
+    "p90": -12.1
+   },
+   "note_rms_db_range": 55.0,
+   "spectral_centroid_hz_median": 572.0,
+   "spectral_rolloff85_hz_median": 678.0,
+   "spectral_flatness_median": 0.0033,
+   "zcr_median": 0.0708,
+   "hnr_db_median": 5.5,
+   "semitone_hist": {
+    "C#4": 13.74,
+    "A3": 10.38,
+    "D#4": 9.13,
+    "B3": 7.44,
+    "E3": 6.78,
+    "E4": 6.42,
+    "D4": 6.36,
+    "C5": 6.3,
+    "D#3": 6.11,
+    "C#3": 6.08,
+    "G#4": 6.05,
+    "A#3": 5.61,
+    "C3": 5.22,
+    "A#2": 4.89,
+    "G#3": 4.18,
+    "C4": 4.09,
+    "F3": 3.9,
+    "F#3": 2.96,
+    "G#2": 2.69,
+    "F#4": 2.69,
+    "C#5": 2.46,
+    "G2": 2.31,
+    "C#2": 2.13,
+    "G3": 1.91,
+    "A#1": 1.85,
+    "F4": 1.81,
+    "F#2": 1.71,
+    "B2": 1.62,
+    "A#4": 1.31,
+    "F2": 1.28,
+    "D#5": 1.27,
+    "A1": 1.25,
+    "A2": 1.2,
+    "D3": 1.14,
+    "G4": 0.93,
+    "C2": 0.86,
+    "E5": 0.74,
+    "D#2": 0.68,
+    "D5": 0.39,
+    "B4": 0.36,
+    "A4": 0.3,
+    "E2": 0.28,
+    "F#5": 0.28,
+    "B5": 0.21
+   },
+   "lowest_notes": [
+    {
+     "start_idx": 10227,
+     "end_idx": 10240,
+     "t_start": 237.47047619047618,
+     "dur": 0.3250793650793651,
+     "midi": 33.04643963124598,
+     "note": "A1",
+     "hz": 55.14773326144877,
+     "stability_cents": 0.568315464792235,
+     "intonation_cents": 4.643963124598116,
+     "rms_db": -11.3,
+     "hnr_db": 5.0,
+     "centroid": 317.0
+    },
+    {
+     "start_idx": 11521,
+     "end_idx": 11528,
+     "t_start": 267.5170975056689,
+     "dur": 0.18575963718820862,
+     "midi": 33.997547363141344,
+     "note": "A#1",
+     "hz": 58.26221560511698,
+     "stability_cents": 5.91830414343697,
+     "intonation_cents": 0.24526368586563763,
+     "rms_db": -9.7,
+     "hnr_db": 5.4,
+     "centroid": 266.0
+    },
+    {
+     "start_idx": 10985,
+     "end_idx": 10993,
+     "t_start": 255.07120181405895,
+     "dur": 0.2089795918367347,
+     "midi": 34.04273829462602,
+     "note": "A#1",
+     "hz": 58.41449791424209,
+     "stability_cents": 2.535201418474742,
+     "intonation_cents": 4.273829462601952,
+     "rms_db": -13.1,
+     "hnr_db": 5.6,
+     "centroid": 298.0
+    },
+    {
+     "start_idx": 11000,
+     "end_idx": 11029,
+     "t_start": 255.41950113378684,
+     "dur": 0.6965986394557823,
+     "midi": 34.079843829998374,
+     "note": "A#1",
+     "hz": 58.539831960357475,
+     "stability_cents": 2.409813780829495,
+     "intonation_cents": 7.984382999837436,
+     "rms_db": -15.1,
+     "hnr_db": 5.6,
+     "centroid": 268.0
+    },
+    {
+     "start_idx": 10809,
+     "end_idx": 10829,
+     "t_start": 250.98448979591836,
+     "dur": 0.4876190476190476,
+     "midi": 34.100310424968,
+     "note": "A#1",
+     "hz": 58.609078490697605,
+     "stability_cents": 3.367848530301387,
+     "intonation_cents": 10.031042496800069,
+     "rms_db": -13.1,
+     "hnr_db": 5.2,
+     "centroid": 416.0
+    }
+   ],
+   "highest_notes": [
+    {
+     "start_idx": 12512,
+     "end_idx": 12519,
+     "t_start": 290.52807256235826,
+     "dur": 0.18575963718820862,
+     "midi": 77.64419990291337,
+     "note": "F#5",
+     "hz": 724.9359403556447,
+     "stability_cents": 17.171920481045788,
+     "intonation_cents": 35.580009708662885,
+     "rms_db": -32.0,
+     "hnr_db": 7.2,
+     "centroid": 1225.0
+    },
+    {
+     "start_idx": 47,
+     "end_idx": 238,
+     "t_start": 1.0913378684807256,
+     "dur": 4.458231292517007,
+     "midi": 71.99836106574722,
+     "note": "C5",
+     "hz": 523.2015975175661,
+     "stability_cents": 0.6252181450477678,
+     "intonation_cents": 0.16389342527816098,
+     "rms_db": -35.4,
+     "hnr_db": 23.4,
+     "centroid": 523.0
+    },
+    {
+     "start_idx": 6465,
+     "end_idx": 6487,
+     "t_start": 150.11700680272108,
+     "dur": 0.5340589569160997,
+     "midi": 69.97872580981708,
+     "note": "A#4",
+     "hz": 465.59127014224987,
+     "stability_cents": 6.044224406547016,
+     "intonation_cents": 2.127419018292187,
+     "rms_db": -13.8,
+     "hnr_db": 22.1,
+     "centroid": 482.0
+    },
+    {
+     "start_idx": 6605,
+     "end_idx": 6615,
+     "t_start": 153.36780045351475,
+     "dur": 0.25541950113378686,
+     "midi": 69.84753786405996,
+     "note": "A#4",
+     "hz": 462.0764869987769,
+     "stability_cents": 22.759673572070938,
+     "intonation_cents": 15.246213594004132,
+     "rms_db": -12.0,
+     "hnr_db": 22.0,
+     "centroid": 471.0
+    },
+    {
+     "start_idx": 8459,
+     "end_idx": 8465,
+     "t_start": 196.4175963718821,
+     "dur": 0.16253968253968254,
+     "midi": 68.38818020899765,
+     "note": "G#4",
+     "hz": 424.7219119698187,
+     "stability_cents": 6.2879128176575705,
+     "intonation_cents": 38.818020899765315,
+     "rms_db": -33.8,
+     "hnr_db": 12.7,
+     "centroid": 848.0
+    }
+   ],
+   "lowest_notes_raw": [
+    {
+     "start_idx": 11561,
+     "end_idx": 11564,
+     "t_start": 268.44589569160996,
+     "dur": 0.09287981859410431,
+     "midi": 33.0258340422639,
+     "note": "A1",
+     "hz": 55.08213407014161,
+     "stability_cents": 0.0016077392320568151,
+     "intonation_cents": 2.583404226390229,
+     "rms_db": -11.7,
+     "hnr_db": 4.6,
+     "centroid": 363.0
+    },
+    {
+     "start_idx": 11539,
+     "end_idx": 11542,
+     "t_start": 267.9350566893424,
+     "dur": 0.09287981859410431,
+     "midi": 33.034569912303446,
+     "note": "A1",
+     "hz": 55.10993572934677,
+     "stability_cents": 1.030408157800622,
+     "intonation_cents": 3.4569912303446415,
+     "rms_db": -11.4,
+     "hnr_db": 4.7,
+     "centroid": 335.0
+    },
+    {
+     "start_idx": 10227,
+     "end_idx": 10240,
+     "t_start": 237.47047619047618,
+     "dur": 0.3250793650793651,
+     "midi": 33.04643963124598,
+     "note": "A1",
+     "hz": 55.14773326144877,
+     "stability_cents": 0.568315464792235,
+     "intonation_cents": 4.643963124598116,
+     "rms_db": -11.3,
+     "hnr_db": 5.0,
+     "centroid": 317.0
+    }
+   ],
+   "highest_notes_raw": [
+    {
+     "start_idx": 9400,
+     "end_idx": 9408,
+     "t_start": 218.26757369614512,
+     "dur": 0.2089795918367347,
+     "midi": 83.05545251850687,
+     "note": "B5",
+     "hz": 990.9355537059361,
+     "stability_cents": 3.89858486912118,
+     "intonation_cents": 5.545251850686839,
+     "rms_db": -81.4,
+     "hnr_db": 8.5,
+     "centroid": 1019.0
+    },
+    {
+     "start_idx": 12456,
+     "end_idx": 12459,
+     "t_start": 289.2277551020408,
+     "dur": 0.09287981859410431,
+     "midi": 78.19479891611343,
+     "note": "F#5",
+     "hz": 748.3622400980735,
+     "stability_cents": 0.0,
+     "intonation_cents": 19.479891611342737,
+     "rms_db": -49.2,
+     "hnr_db": 6.0,
+     "centroid": 980.0
+    },
+    {
+     "start_idx": 12512,
+     "end_idx": 12519,
+     "t_start": 290.52807256235826,
+     "dur": 0.18575963718820862,
+     "midi": 77.64419990291337,
+     "note": "F#5",
+     "hz": 724.9359403556447,
+     "stability_cents": 17.171920481045788,
+     "intonation_cents": 35.580009708662885,
+     "rms_db": -32.0,
+     "hnr_db": 7.2,
+     "centroid": 1225.0
+    }
+   ],
+   "album": "综艺",
+   "title": "BV1mT4y117g4_《她真漂亮》王晰and高杨",
+   "file": "BV1mT4y117g4_《她真漂亮》王晰and高杨.wav",
+   "analyzed_at": "2026-09-09 15:14",
+   "bvid": "BV1mT4y117g4",
+   "url": "https://www.bilibili.com/video/BV1mT4y117g4",
+   "up": "确定绿豆糕",
+   "clean_title": "《她真漂亮》王晰and高杨",
+   "cat": "综艺",
+   "excluded": true,
+   "exclude_reason": "人声轨无法可靠分离的合唱素材（次谐波误锁高发）"
+  }
+ ]
 }
