@@ -151,6 +151,7 @@ echo    103. 自动登录（方案甲）状态查看
 echo    104. 补录后全链路重建与验收（长表→基线→年度卡→部署→四查）
 echo    105. 指数日期映射口径（查看/试算/应用/回滚）
 echo    106. 缺失日备用数据源（守护进程准终值，可生成日档案回填）
+echo    107. 指数长表+基线刷新（日档案更新后跑；已接入每日 auto_update）
 echo    0. 退出
 echo.
 set "op="
@@ -263,6 +264,7 @@ if "%op%"=="103" goto autologon_status
 if "%op%"=="104" goto rebuild_chain
 if "%op%"=="105" goto index_mapping
 if "%op%"=="106" goto fallback_day
+if "%op%"=="107" goto refresh_index
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1551,5 +1553,15 @@ if "%fd%"=="" set "fd=2026-09-08"
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\extract_fallback_day.py --date %fd%
 echo  [提示] 真正写入日档案: 同命令加 --install-as-day 2026-09-09（次日日期）
+pause
+goto menu
+
+:refresh_index
+cls
+echo  [指数长表+基线刷新] 重建 music_index_long.csv + 重跑基线(含同步站点 archive_baseline.json)
+echo  说明: deploy_all 步骤里没有这一步，故单列；auto_update 每日已自动调用（当天只跑一次）
+echo  可选: 加 --force 强制；--check-only 只看长表新鲜度（滞后超过1天=异常）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\refresh_index_baseline.py
 pause
 goto menu

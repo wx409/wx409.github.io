@@ -49,6 +49,7 @@ DAEMON_LOG = Path(r"E:\wx\qqmusic_dp_edge.log")
 QUICK_DIR = Path(r"E:\wx\指数vs")                       # 极速/非 23:55 全量产出
 ADDON_DIR = Path(r"E:\wx\指数数据库\增补数据库2025.2.22-")  # 23:55 全量产出（日档案）
 DOWNLOAD_DIR = Path(r"E:\wx\download")                  # 23:55 全量第二落点
+LONG_CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")  # 指数长表（供新鲜度校验）
 TASK_NAME = "QQMusicDashboardAutoStart"
 
 # 守护进程源码解析失败时的兜底（与源码 SCHEDULE 保持一致）
@@ -192,6 +193,37 @@ def match_slots(due: list[tuple[str, str]], files: list[dict],
         res[t_str] = {"ok": True, "file": f["path"]}
         used.add(str(f["path"]))
     return res
+
+
+# ---------------------------------------------------------------- 长表新鲜度
+def newest_dayfile_date() -> dt.date | None:
+    """增补数据库里最新的日档案日期（文件名 YYYY.MM.DD.xlsx）。"""
+    if not ADDON_DIR.is_dir():
+        return None
+    days = []
+    for p in ADDON_DIR.glob("*.xlsx"):
+        try:
+            days.append(dt.date(*[int(x) for x in p.stem.split(".")[:3]]))
+        except Exception:
+            continue
+    return max(days) if days else None
+
+
+def long_table_max_day() -> dt.date | None:
+    """指数长表里最新的日期。"""
+    if not LONG_CSV.exists():
+        return None
+    latest = None
+    try:
+        import csv
+        with open(LONG_CSV, encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                d = (r.get("date") or "").strip()
+                if d and (latest is None or d > latest):
+                    latest = d
+        return dt.date.fromisoformat(latest) if latest else None
+    except Exception:
+        return None
 
 
 # ---------------------------------------------------------------- 守护进程状态
@@ -450,18 +482,47 @@ def main() -> int:
     else:
         log("✓ 昨日日档案存在: %s" % y_file.name)
 
+    # 长表新鲜度校验（2026-09-10 新增）
+    # 修正映射口径：长表最新日期 应 == 最新日档案日期 − 1。滞后 >1 天说明
+    # "日档案已更新但长表/基线没跟着刷" —— 这正是 deploy_all 步骤里缺的那一环。
+    nf = newest_dayfile_date()
+    lt = long_table_max_day()
+    lag = (nf - lt).days if (nf and lt) else None
+    fresh_ok = (lag is not None and lag <= 1)
+    if lag is None:
+        log("长表新鲜度：无法判定（日档案或长表不可读）")
+    elif fresh_ok:
+        log("✓ 长表新鲜度：长表最新 %s ｜ 日档案最新 %s ｜ 滞后 %d 天"
+            % (lt.isoformat(), nf.isoformat(), lag))
+    else:
+        log("✗ 长表滞后 %d 天（长表最新 %s ｜ 日档案最新 %s）→ 需跑指数长表+基线刷新"
+            % (lag, lt.isoformat(), nf.isoformat()))
+        akey = "longtable|%s" % today.isoformat()
+        if not st.setdefault("alerts", {}).get(akey):
+            notify("⚠️ 指数长表滞后 %d 天" % lag,
+                   "长表最新 %s，但日档案最新 %s（期望长表到 %s）。\n"
+                   "原因：deploy_all 步骤里没有指数长表/基线刷新 —— 请运行\n"
+                   "  python project_b\\refresh_index_baseline.py --force\n"
+                   "（或操作中心 64 → 45/44）"
+                   % (lt.isoformat(), nf.isoformat(), (nf - dt.timedelta(days=1)).isoformat()))
+            st["alerts"][akey] = now().strftime("%Y-%m-%d %H:%M:%S")
+
     save_state(st)
     out = {"date": today.isoformat(), "schedule_source": src, "due": len(due),
            "missing": [{"slot": s, "mode": m} for s, m in missing],
            "daemon_alive": alive, "daemon_reason": alive_why,
            "action": action, "catch_up_ok": catch_ok, "catch_up_note": catch_note,
-           "yesterday_dayfile_ok": y_ok}
+           "yesterday_dayfile_ok": y_ok,
+           "long_table_max": lt.isoformat() if lt else None,
+           "newest_dayfile": nf.isoformat() if nf else None,
+           "long_table_lag_days": lag, "long_table_fresh": fresh_ok}
     if args.json:
         print(json.dumps(out, ensure_ascii=False, indent=1))
     log("结果: %s" % json.dumps({k: out[k] for k in
-                                 ("missing", "action", "catch_up_ok", "yesterday_dayfile_ok")},
+                                 ("missing", "action", "catch_up_ok", "yesterday_dayfile_ok",
+                                  "long_table_lag_days")},
                                 ensure_ascii=False))
-    return 1 if (missing or not y_ok) else 0
+    return 1 if (missing or not y_ok or not fresh_ok) else 0
 
 
 if __name__ == "__main__":

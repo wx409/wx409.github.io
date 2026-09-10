@@ -84,6 +84,31 @@ def run_watchdog():
     return r.returncode
 
 
+def run_refresh_index():
+    """指数长表 + 基线 每日刷新（2026-09-10 补缺口）。
+
+    背景：deploy_all 的步骤里没有 00_build_matrix.py / compute_baseline_v1.py，
+    日档案更新后站点基线不会自动跟着变。此步由 refresh_index_baseline.py 承担：
+      · 每天只真跑一次（内部节流），受限会话写不了 E:\\ 时干净跳过
+      · **非致命**：失败也继续后面的构建/发布，只记日志
+    """
+    log("-- refresh_index_baseline（指数长表 + 基线刷新）--")
+    try:
+        r = subprocess.run([sys.executable, "-X", "utf8",
+                            str(ROOT / "project_b" / "refresh_index_baseline.py")],
+                           cwd=ROOT, capture_output=True, text=True,
+                           encoding="utf-8", errors="ignore", timeout=60 * 60,
+                           env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+    except Exception as e:
+        log("   [refresh] 调用失败（非致命）: %s" % e)
+        return 2
+    for ln in [x for x in (r.stdout or "").splitlines() if x.strip()][-8:]:
+        log("   " + ln)
+    if r.returncode != 0:
+        log("   [refresh] 返回 %s（非致命，继续后续流程）" % r.returncode)
+    return r.returncode
+
+
 def notify(title, msg):
     try:
         sys.path.insert(0, str(ROOT / "project_b"))
@@ -164,6 +189,7 @@ def main():
     ap.add_argument("--watch", action="store_true", help="先跑 watch_releases/watch_tavern（只读）")
     ap.add_argument("--no-push", action="store_true", help="只构建不推送（调试）")
     ap.add_argument("--no-watchdog", action="store_true", help="跳过漏批看门狗（调试）")
+    ap.add_argument("--no-index-refresh", action="store_true", help="跳过指数长表+基线刷新（调试）")
     args = ap.parse_args()
 
     # 说明：已取消双机错峰（此前 laptop 周末/desktop 工作日互相跳过）。
@@ -174,6 +200,10 @@ def main():
     # 0. 看门狗：漏批巡检 + 自愈（2026-09-09 更新重启停摆事故后新增）
     if not args.no_watchdog:
         run_watchdog()
+
+    # 0b. 指数长表 + 基线刷新（每日一次；失败非致命）
+    if not args.no_index_refresh:
+        run_refresh_index()
 
     # 1. watch（新歌自动入库；小酒馆节目已结束，不再监测/推送）
     if args.watch:
