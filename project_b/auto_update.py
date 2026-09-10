@@ -67,7 +67,8 @@ def run_watchdog():
     """
     log("-- watchdog_batches（漏批巡检 + 自愈）--")
     try:
-        r = subprocess.run([sys.executable, str(ROOT / "project_b" / "watchdog_batches.py")],
+        r = subprocess.run([sys.executable, str(ROOT / "project_b" / "watchdog_batches.py"),
+                            "--no-catchup"],
                            cwd=ROOT, capture_output=True, text=True,
                            encoding="utf-8", errors="ignore", timeout=45 * 60,
                            env={**os.environ, "PYTHONIOENCODING": "utf-8"})

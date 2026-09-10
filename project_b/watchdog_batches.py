@@ -273,6 +273,8 @@ def main() -> int:
     ap.add_argument("--quick-timeout", type=int, default=20, help="极速补跑超时（分钟）")
     ap.add_argument("--full-timeout", type=int, default=40, help="全量补跑超时（分钟）")
     ap.add_argument("--quiet", action="store_true", help="不写站内通知（仅日志）")
+    ap.add_argument("--no-catchup", action="store_true",
+                    help="只拉起守护进程+告警，不在此进程内补跑（供 auto_update 调用，避免超时）")
     args = ap.parse_args()
 
     global QUIET
@@ -313,17 +315,22 @@ def main() -> int:
         if not alive:
             if not args.check_only:
                 start_daemon()
-                catch_ok, catch_note = catch_up(
-                    last_mode,
-                    args.full_timeout if last_mode == "full" else args.quick_timeout,
-                    dry=args.check_only)
-                action = "start_daemon+%s" % ("full" if last_mode == "full" else "quick")
-                if catch_ok:
-                    st.setdefault("done", {})[key] = now().strftime("%Y-%m-%d %H:%M:%S")
+                if args.no_catchup:
+                    action = "start_daemon"
+                    catch_note = "已拉起守护进程；本次不补跑（--no-catchup，交由守护进程自行执行下一批）"
+                    log(catch_note)
+                else:
+                    catch_ok, catch_note = catch_up(
+                        last_mode,
+                        args.full_timeout if last_mode == "full" else args.quick_timeout,
+                        dry=False)
+                    action = "start_daemon+%s" % ("full" if last_mode == "full" else "quick")
+                    if catch_ok:
+                        st.setdefault("done", {})[key] = now().strftime("%Y-%m-%d %H:%M:%S")
             else:
                 action = "check-only"
                 catch_note = "dry-run"
-        elif args.force and not args.check_only:
+        elif args.force and not args.check_only and not args.no_catchup:
             catch_ok, catch_note = catch_up(
                 last_mode,
                 args.full_timeout if last_mode == "full" else args.quick_timeout,
@@ -332,10 +339,12 @@ def main() -> int:
         else:
             action = "alert-only"
 
-        # 告警（同一天只报一次，避免同一批缺失被反复提醒）
+        # 告警门槛：只在"严重"时打扰 —— 守护进程停摆 / 缺全量批次 / 单日缺≥3批。
+        # 单个极速批次因前一批超时被跳过属正常（如启动重建吃掉 8:05），只写日志。
+        critical = (not alive) or any(m == "full" for _, m in missing) or len(missing) >= 3
         alerted = st.setdefault("alerts", {})
         akey = "missed|%s" % today.isoformat()
-        if not alerted.get(akey):
+        if critical and not alerted.get(akey):
             detail = "\n".join("缺 %s %s" % (s, m) for s, m in missing)
             notify("⚠️ 大屏采集漏批：%s" % today.isoformat(),
                    "应当完成但缺产出的批次：\n%s\n\n守护进程判定：%s（%s）\n处置：%s %s\n"
@@ -343,6 +352,8 @@ def main() -> int:
                    % (detail, alive, alive_why, action, catch_note,
                       today.strftime("%Y%m%d")))
             alerted[akey] = now().strftime("%Y-%m-%d %H:%M:%S")
+        elif missing and not critical:
+            log("漏批未达告警门槛（非全量、少于3批、守护进程存活）→ 只记日志")
 
     # 日终校验：昨天的日档案是否落地（23:55 全量）
     yest = today - dt.timedelta(days=1)

@@ -181,10 +181,28 @@ def main() -> None:
     flagged = s.get("lowest_flagged") or []
     flag_html = ""
     if flagged:
-        lst = "、".join(f'{esc(x["title"])[:22]}（{esc(x["note"])} {x["hz"]}Hz）' for x in flagged)
+        # 复核结论（低音复核_LowC.py 产出）：把「待复核」升级为「已复核判定」
+        verify = {}
+        try:
+            _v = json.loads((ROOT / "data" / "archive_lowc_verify.json").read_text(encoding="utf-8"))
+            verify = {x["name"]: x for x in _v.get("rows", [])}
+        except Exception:
+            verify = {}
+        parts = []
+        for x in flagged:
+            hit = next((v for k, v in verify.items() if k.startswith(x.get("bvid", "")) or x["title"][:8] in k), None)
+            if hit and hit.get("verdict") == "YIN_SUBHARMONIC":
+                parts.append(f'{esc(x["title"])[:24]}（{esc(x["note"])} {x["hz"]}Hz）——'
+                             f'<strong>已复核为「1/3 次谐波错误」</strong>：'
+                             f'CREPE 在同一时刻读到 {hit.get("crepe_at_yin_hz")}Hz，'
+                             f'真值约 {float(x["hz"]) * 3:.0f}Hz，<strong>确认不计入</strong>')
+            else:
+                parts.append(f'{esc(x["title"])[:24]}（{esc(x["note"])} {x["hz"]}Hz）——待人工听辨')
+        lst = "；".join(parts)
         flag_html = (f'<div class="card" style="border-color:#e0a800;background:#fffdf3">'
-                     f'⚠️ <strong>待复核读数：</strong>{lst}——低于 B1 理论值（61.74Hz）的孤立低音读数，'
-                     f'按历史经验多为 demucs 低频残留（伴奏贝斯渗透），<strong>未纳入结论</strong>，需人工听辨复核。</div>')
+                     f'⚠️ <strong>低音读数复核：</strong>{lst}。<br>'
+                     f'低于 B1 理论值（61.74Hz）的孤立读数一律先列为待复核，'
+                     f'经 CREPE（CNN 音高）+ 频谱谐波列双证后才下结论；未通过者不纳入结论。</div>')
 
     ld = {
         "@context": "https://schema.org",

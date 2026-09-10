@@ -134,6 +134,15 @@ echo    89. 线上核验（图片200+sha256对指纹+数字一致+黑名单）
 echo    ---- P组 音高交叉校验（CREPE） ----
 echo    90. CREPE 交叉校验（排查 YIN 次谐波错误）
 echo    91. 打开《向着太阳》重测报告
+echo    92. 低音复核（LowC 及以下曲目：YIN 次谐波排查）
+echo    93. 打开低音复核报告（LowC）
+echo    ---- Q组 运维加固（2026-09-10 停摆事故后） ----
+echo    92. 漏批看门狗（应完成批次 vs 产出，停摆则拉起+补跑）
+echo    93. 更新重启抑制 - 查看状态（只读）
+echo    94. 更新重启抑制 - 应用（活动时间06:00-23:00 + 暂停更新35天）
+echo    95. 导出 BitLocker 恢复密钥 → D:\Bitlocer.txt
+echo    96. 守护进程任务改 S4U（重启免解锁，先实测）
+echo    97. 指数长表日期偏移核查（三重证据）
 echo    0. 退出
 echo.
 set "op="
@@ -231,6 +240,14 @@ if "%op%"=="88" goto idcard
 if "%op%"=="89" goto audit_live
 if "%op%"=="90" goto crepe_check
 if "%op%"=="91" goto open_sun_report
+if "%op%"=="92" goto lowc_check
+if "%op%"=="93" goto open_lowc_report
+if "%op%"=="92" goto watchdog
+if "%op%"=="93" goto harden_status
+if "%op%"=="94" goto harden_apply
+if "%op%"=="95" goto bitlocker_export
+if "%op%"=="96" goto s4u_task
+if "%op%"=="97" goto date_shift_check
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1383,5 +1400,71 @@ goto menu
 cls
 echo  [打开重测报告] 《向着太阳》音高重测（D#2 78.1Hz 改为 G2 97.8Hz）
 start "" "E:\wx\论文素材_王晰作传\音域分析\重测_向着太阳_20260909.md"
+pause
+goto menu
+
+:watchdog
+cls
+echo  [漏批看门狗] 反推应完成批次 vs 实际产出；守护进程停摆则拉起+补跑一次
+echo  说明: 2026-09-09 Windows 更新自动重启后无人登录，整夜批次全停摆
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\watchdog_batches.py
+echo  [OK] exit 0 = 无漏批；exit 1 = 有漏批（已尝试自愈，看 logs\watchdog_*.log）
+pause
+goto menu
+
+:harden_status
+cls
+echo  [更新重启抑制] 只读查看活动时间/暂停更新/相关服务状态
+powershell -ExecutionPolicy Bypass -File "D:\wx409.github.io\tools\harden_windows_update.ps1" -Mode Status
+pause
+goto menu
+
+:harden_apply
+cls
+echo  [更新重启抑制] 应用 Manual 档（活动时间06:00-23:00 + 暂停更新35天 + 重启前弹通知）
+echo  说明: 需管理员（脚本会自提权弹 UAC）；恢复默认用 -Mode Restore
+powershell -ExecutionPolicy Bypass -File "D:\wx409.github.io\tools\harden_windows_update.ps1" -Mode Manual
+pause
+goto menu
+
+:bitlocker_export
+cls
+echo  [导出 BitLocker 恢复密钥] 写入 D:\Bitlocer.txt（敏感文件，勿入 git/网盘）
+powershell -ExecutionPolicy Bypass -File "D:\wx409.github.io\tools\export_bitlocker_key.ps1"
+pause
+goto menu
+
+:s4u_task
+cls
+echo  [守护进程 S4U 改造] 先实测无会话能否跑 headless Edge，再决定是否 Apply
+echo  成功 → 再运行同脚本 -Mode Apply；失败 → 改用自动登录方案
+powershell -ExecutionPolicy Bypass -File "D:\wx409.github.io\tools\switch_tasks_s4u.ps1" -Mode TestHeadless
+pause
+goto menu
+
+:date_shift_check
+cls
+echo  [指数长表日期偏移核查] 列语义 + 守护进程口径 + 影响量化
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\verify_index_date_shift.py
+pause
+goto menu
+
+:lowc_check
+cls
+echo  [低音复核] LowC 及以下曲目：混音谐波列 + CREPE 交叉校验（判定 YIN 次谐波错误）
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 低音复核_LowC.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_stage_page.py
+echo  [OK] 低音复核_LowC.json + 站点 data\archive_lowc_verify.json + stage.html 已更新
+pause
+goto menu
+
+:open_lowc_report
+cls
+echo  [打开低音复核报告] LowC 及以下曲目复核（16 条通过 / 1 条确认次谐波错误）
+start "" "E:\wx\论文素材_王晰作传\音域分析\低音复核报告_LowC_20260909.md"
 pause
 goto menu
