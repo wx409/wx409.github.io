@@ -154,6 +154,8 @@ echo    106. 缺失日备用数据源（守护进程准终值，可生成日档案回填）
 echo    107. 指数长表+基线刷新（日档案更新后跑；已接入每日 auto_update）
 echo    108. 事故验收总检（根因/自愈/口径/数据/站点/任务/产物 一次性体检）
 echo    109. 立刻补跑一次采集（全量/极速）+ 自动刷新长表基线
+echo    110. B站轨迹素材采集（同曲多版本，本地零 token）
+echo    111. 导出轨迹素材清单（md 清单 + 待测链接 txt）
 echo    0. 退出
 echo.
 set "op="
@@ -269,6 +271,8 @@ if "%op%"=="106" goto fallback_day
 if "%op%"=="107" goto refresh_index
 if "%op%"=="108" goto acceptance_check
 if "%op%"=="109" goto run_batch_now
+if "%op%"=="110" goto bili_traj
+if "%op%"=="111" goto bili_traj_export
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1594,5 +1598,26 @@ if "%bmode%"=="" set "bmode=quick"
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\run_batch_now.py --mode %bmode%
 echo  [OK] 完成后建议跑 操作中心 108 事故验收总检
+pause
+goto menu
+
+:bili_traj
+cls
+echo  [B站轨迹素材采集] 本地搜索王晰同曲多版本素材：纯本地网络，零 AI token
+echo  默认温和模式(每曲2词2页)，命中 HTTP 412 自动指数退避并改用本机 cookie
+echo  加深: 手工加 --deep (每曲4词) / --tours (一巡~六巡) / --cities(城市)
+echo  只解析指定 BV: 同命令加 --bv BV1xxxx BV1yyyy
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 搜索B站轨迹素材.py
+echo  [OK] 轨迹素材库.json（增量：已采 BV 跳过、手工标注保留）
+pause
+goto menu
+
+:bili_traj_export
+cls
+echo  [导出轨迹素材清单] JSON → 人读清单(md) + 待测链接(txt，格式同 bilibili链接.txt)
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 导出素材清单.py
+echo  [OK] 轨迹素材清单.md（含跨时期对比类专节）/ 轨迹待测链接.txt（可直接喂既有管道）
 pause
 goto menu
