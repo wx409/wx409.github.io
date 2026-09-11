@@ -80,6 +80,8 @@ STEPS = [
     (ROOT / "project_b" / "audit_jsonld.py", "结构化数据审计（JSON-LD 语法/必备类型/纪律用词）", False),
     (ROOT / "project_b" / "audit_bat.py", "批处理体检（GBK/BEL/双回车/goto 目标）", False),
     (ROOT / "project_b" / "audit_ops_coverage.py", "操作中心覆盖审计（人工功能都有菜单入口）", False),
+    (ROOT / "project_b" / "build_pipeline_views.py", "任务视图刷新（install_tasks.ps1 / 任务登记表 / skill 任务表）", False),
+    (ROOT / "project_b" / "audit_pipeline.py", "任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移告警）", False),
     (ROOT / "project_b" / "check_index_integrity.py", "指数数据源完整性守卫（防回退到缺陷版构建）", True),
     (ROOT / "project_b" / "audit_caliber.py", "口径审计（单一事实源一致性自检，末尾把关）", False),
     (ROOT / "project_b" / "audit_live.py", "线上核验（图片200+sha256对指纹+关键数字+黑名单；未推送/工作区脏自动 SKIP）",

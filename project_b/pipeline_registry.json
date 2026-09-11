@@ -1,0 +1,1135 @@
+{
+ "schema": 1,
+ "generated_at": "2026-09-11 13:49",
+ "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
+ "sources": {
+  "menu_items": 124,
+  "dispatch": 123,
+  "deploy_steps": 42,
+  "scheduled_tasks": 6
+ },
+ "tasks": [
+  {
+   "script": "weibo_proxy_studio.py",
+   "menu": 2,
+   "title": "微博全量 - 王晰工作室",
+   "menu_label": "wb_studio",
+   "in_deploy": false,
+   "path": "E:\\wx\\私有工具\\weibo_proxy\\weibo_proxy_studio.py"
+  },
+  {
+   "script": "weibo_proxy.py",
+   "menu": 3,
+   "title": "微博抓取 - 仅文字图片",
+   "menu_label": "wb_novideo",
+   "in_deploy": false,
+   "path": "E:\\wx\\私有工具\\weibo_proxy\\weibo_proxy.py"
+  },
+  {
+   "script": "run_weibo_snapshot.py",
+   "menu": 4,
+   "title": "微博本地网页快照",
+   "menu_label": "wb_snapshot",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\run_weibo_snapshot.py"
+  },
+  {
+   "script": "sync_weibo_cookie.py",
+   "menu": 5,
+   "title": "同步 wb.txt Cookie",
+   "menu_label": "wb_cookie_sync",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\tools\\sync_weibo_cookie.py"
+  },
+  {
+   "script": "fetch_xhs_user.py",
+   "menu": 6,
+   "title": "小红书全量 - 王晰主页",
+   "menu_label": "xhs_user_full",
+   "in_deploy": false,
+   "path": "E:\\wx\\私有工具\\xhs_proxy\\fetch_xhs_user.py"
+  },
+  {
+   "script": "fetch_xhs_links.py",
+   "menu": 8,
+   "title": "小红书按链接抓取 - 仅文字图片",
+   "menu_label": "xhs_links_novideo",
+   "in_deploy": false,
+   "path": "E:\\wx\\私有工具\\xhs_proxy\\fetch_xhs_links.py"
+  },
+  {
+   "script": "run_xhs_rebuild.py",
+   "menu": 9,
+   "title": "小红书 summary 重建",
+   "menu_label": "xhs_rebuild",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\run_xhs_rebuild.py"
+  },
+  {
+   "script": "build_show_repo.py",
+   "menu": 14,
+   "title": "反馈入库 live 页",
+   "menu_label": "fb_repo",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_show_repo.py"
+  },
+  {
+   "script": "build_repo_setlist_candidates.py",
+   "menu": 15,
+   "title": "歌单候选（反馈反推歌名）",
+   "menu_label": "fb_candidate",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_repo_setlist_candidates.py"
+  },
+  {
+   "script": "feedback_week.py",
+   "menu": 16,
+   "title": "演出反馈一周工作流",
+   "menu_label": "fb_week",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\feedback_week.py"
+  },
+  {
+   "script": "import_tracking_repo.py",
+   "menu": 17,
+   "title": "追踪报告入库",
+   "menu_label": "trk_import",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\import_tracking_repo.py"
+  },
+  {
+   "script": "import_wb_manual.py",
+   "menu": 18,
+   "title": "微博手动正文入库",
+   "menu_label": "wb_manual_import",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\import_wb_manual.py"
+  },
+  {
+   "script": "analyze_audience_comments.py",
+   "menu": 19,
+   "title": "评论多层面分析（默认广州场）",
+   "menu_label": "an_analyze",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\analyze_audience_comments.py"
+  },
+  {
+   "script": "import_xhs_songs.py",
+   "menu": 20,
+   "title": "小红书入库（按歌曲归类）",
+   "menu_label": "xhs_import",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\import_xhs_songs.py"
+  },
+  {
+   "script": "render_gz_quotes.py",
+   "menu": 21,
+   "title": "广州整理摘录重渲染",
+   "menu_label": "gz_render",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\render_gz_quotes.py"
+  },
+  {
+   "script": "update_live_reviews_tourweibo.py",
+   "menu": 22,
+   "title": "更新 live-reviews",
+   "menu_label": "wb_live",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\update_live_reviews_tourweibo.py"
+  },
+  {
+   "script": "collect_show_feedback.py",
+   "menu": 23,
+   "title": "B站翻页补收",
+   "menu_label": "bili_backfill",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\collect_show_feedback.py"
+  },
+  {
+   "script": "build_setlists.py",
+   "in_deploy": true,
+   "deploy_desc": "歌单 data/setlists.json（全站 64 场 = 巡演 59 + 签唱会 5）",
+   "critical": true,
+   "menu": 24,
+   "title": "歌单重建（长表＞setlists.json+页）",
+   "menu_label": "sl_build",
+   "path": "D:\\wx409.github.io\\project_b\\build_setlists.py"
+  },
+  {
+   "script": "update_show_status.py",
+   "menu": 25,
+   "title": "场次标记已举办 + 大屏 rebuild",
+   "menu_label": "sl_status",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\update_show_status.py"
+  },
+  {
+   "script": "menu:27",
+   "menu": 27,
+   "title": "转写加工 - DeepSeek 后处理",
+   "menu_label": "trans_process",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "transcript_pipeline.py",
+   "menu": 29,
+   "title": "转写合并",
+   "menu_label": "trans_merge",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\transcript_pipeline.py"
+  },
+  {
+   "script": "run_map_rebuild.py",
+   "menu": 30,
+   "title": "地图 + 巡演目录重建",
+   "menu_label": "map_rebuild",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\run_map_rebuild.py"
+  },
+  {
+   "script": "build_home.py",
+   "in_deploy": true,
+   "deploy_desc": "首页动态槽（最新场次摘要卡）",
+   "critical": false,
+   "menu": 31,
+   "title": "首页重建 + 动态更新",
+   "menu_label": "home_build",
+   "path": "D:\\wx409.github.io\\project_b\\build_home.py"
+  },
+  {
+   "script": "build_kb_graph.py",
+   "in_deploy": true,
+   "deploy_desc": "知识库三层 data/kb/*.json",
+   "critical": true,
+   "menu": 32,
+   "title": "重建知识库图谱",
+   "menu_label": "kb_build",
+   "path": "D:\\wx409.github.io\\project_b\\build_kb_graph.py"
+  },
+  {
+   "script": "build_kb_vectors.py",
+   "in_deploy": true,
+   "deploy_desc": "知识库语义索引 data/kb/semantic/*（需sentence-transformers，缺依赖仅警告）",
+   "critical": false,
+   "menu": 33,
+   "title": "重建语义索引 (bge-small-zh)",
+   "menu_label": "kb_vectors",
+   "path": "D:\\wx409.github.io\\tools\\build_kb_vectors.py"
+  },
+  {
+   "script": "menu:34",
+   "menu": 34,
+   "title": "打开语义检索页",
+   "menu_label": "kb_semantic_page",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:35",
+   "menu": 35,
+   "title": "打开论文素材索引",
+   "menu_label": "paper_assets",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:36",
+   "menu": 36,
+   "title": "打开论文草稿目录",
+   "menu_label": "paper_drafts",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:37",
+   "menu": 37,
+   "title": "打开预测实验档案",
+   "menu_label": "paper_predictions",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "verify_prediction.py",
+   "menu": 38,
+   "title": "预测最终验证 P001",
+   "menu_label": "pred_verify",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\temp\\预测实验\\verify_prediction.py"
+  },
+  {
+   "script": "deploy_all.py",
+   "menu": 40,
+   "title": "IndexNow 通知 only",
+   "menu_label": "dp_indexnow",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\deploy_all.py"
+  },
+  {
+   "script": "auto_update.py",
+   "menu": 41,
+   "title": "全链路 auto_update",
+   "menu_label": "dp_auto",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\auto_update.py"
+  },
+  {
+   "script": "menu:42",
+   "menu": 42,
+   "title": "git 手动 push",
+   "menu_label": "git_push",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:43",
+   "menu": 43,
+   "title": "git 状态查看",
+   "menu_label": "git_status",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "compute_baseline_v1.py",
+   "menu": 45,
+   "title": "仅重算口径与效应基线（第一张表）",
+   "menu_label": "arch_base",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\compute_baseline_v1.py"
+  },
+  {
+   "script": "generate_year_cards.py",
+   "menu": 46,
+   "title": "仅生成全部年度档案卡",
+   "menu_label": "arch_cards",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_year_cards.py"
+  },
+  {
+   "script": "menu:47",
+   "menu": 47,
+   "title": "重启大屏监测 daemon（改生成器/模板后必做，内存旧模板会覆盖新页面）",
+   "menu_label": "daemon_restart",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "verify_dashboard.py",
+   "menu": 48,
+   "title": "大屏 HTML 三查（发布前结构自检）",
+   "menu_label": "dash_verify",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\tools\\verify_dashboard.py"
+  },
+  {
+   "script": "generate_propositions.py",
+   "menu": 49,
+   "title": "命题卡+宣传词条摘要（data/archive_propositions.json）",
+   "menu_label": "prop_gen",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_propositions.py"
+  },
+  {
+   "script": "矛盾扫描器.py",
+   "menu": 50,
+   "title": "矛盾扫描（event_effects x 年度表 x 微博行为）",
+   "menu_label": "contradiction_scan",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\矛盾扫描器.py"
+  },
+  {
+   "script": "download_bilibili.py",
+   "menu": 51,
+   "title": "音域一键（B站下载→人声分离→落盘F0）",
+   "menu_label": "vocal_one",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\download_bilibili.py"
+  },
+  {
+   "script": "生成分享图文.py",
+   "menu": 53,
+   "title": "生成分享图文（长图+图文版HTML）",
+   "menu_label": "vocal_share",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\生成分享图文.py"
+  },
+  {
+   "script": "generate_vocal.py",
+   "menu": 54,
+   "title": "更新 voice.html 音域数据（含 IndexNow）",
+   "menu_label": "vocal_voice_page",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_vocal.py"
+  },
+  {
+   "script": "menu:55",
+   "menu": 55,
+   "title": "更新 analysis-board 展板",
+   "menu_label": "analysis_board_upd",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "build_calibers.py",
+   "in_deploy": true,
+   "deploy_desc": "口径登记表 data/calibers.json+md（数字字典，禁混用）",
+   "critical": true,
+   "menu": 57,
+   "title": "口径登记表（data/calibers.json+md）",
+   "menu_label": "build_calibers",
+   "path": "D:\\wx409.github.io\\project_b\\build_calibers.py"
+  },
+  {
+   "script": "build_nav.py",
+   "in_deploy": true,
+   "deploy_desc": "导航单一事实源（顶部导航+底部全站索引，幂等）",
+   "critical": true,
+   "menu": 58,
+   "title": "导航统一（顶部导航+底部全站索引）",
+   "menu_label": "build_nav",
+   "path": "D:\\wx409.github.io\\project_b\\build_nav.py"
+  },
+  {
+   "script": "audit_nav.py",
+   "in_deploy": true,
+   "deploy_desc": "导航与内链审计（孤儿页=0 把关）",
+   "critical": false,
+   "menu": 59,
+   "title": "导航与内链审计（孤儿页检查）",
+   "menu_label": "audit_nav",
+   "path": "D:\\wx409.github.io\\project_b\\audit_nav.py"
+  },
+  {
+   "script": "audit_caliber.py",
+   "in_deploy": true,
+   "deploy_desc": "口径审计（单一事实源一致性自检，末尾把关）",
+   "critical": false,
+   "menu": 60,
+   "title": "一键全部把关（口径+登记表+导航+批处理）",
+   "menu_label": "gate_all",
+   "path": "D:\\wx409.github.io\\project_b\\audit_caliber.py"
+  },
+  {
+   "script": "generate_llms.py",
+   "in_deploy": true,
+   "deploy_desc": "llms.txt（计数从各 manifest 自动派生，禁手写）",
+   "critical": true,
+   "menu": 61,
+   "title": "生成 llms.txt（计数从 manifest 派生，禁手写）",
+   "menu_label": "gen_llms",
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_llms.py"
+  },
+  {
+   "script": "事件效应口径修正.py",
+   "menu": 62,
+   "title": "事件效应口径修正（同窗合并+去重叠+FDR）",
+   "menu_label": "fix_event_effect",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\事件效应口径修正.py"
+  },
+  {
+   "script": "menu:63",
+   "menu": 63,
+   "title": "打开核实记录与文献综述",
+   "menu_label": "open_records",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "00_build_matrix.py",
+   "menu": 64,
+   "title": "重建指数长表（00_build_matrix.py，含千分位修复）",
+   "menu_label": "rebuild_matrix",
+   "in_deploy": false,
+   "path": "E:\\wx\\wx_textmine\\00_build_matrix.py"
+  },
+  {
+   "script": "build_index_raw_long.py",
+   "menu": 65,
+   "title": "重建原始库长表（build_index_raw_long.py）",
+   "menu_label": "rebuild_raw_long",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\build_index_raw_long.py"
+  },
+  {
+   "script": "指数数据源诊断.py",
+   "menu": 66,
+   "title": "指数数据源诊断（覆盖率+年度多口径对照）",
+   "menu_label": "diag_index",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\指数数据源诊断.py"
+  },
+  {
+   "script": "check_index_integrity.py",
+   "in_deploy": true,
+   "deploy_desc": "指数数据源完整性守卫（防回退到缺陷版构建）",
+   "critical": true,
+   "menu": 67,
+   "title": "指数数据源完整性守卫（防回退，退出码1=异常）",
+   "menu_label": "index_guard",
+   "path": "D:\\wx409.github.io\\project_b\\check_index_integrity.py"
+  },
+  {
+   "script": "build_academic.py",
+   "in_deploy": true,
+   "deploy_desc": "学术研究页 academic.html（读 data/literature.json）",
+   "critical": false,
+   "menu": 68,
+   "title": "生成学术研究页（data/literature.json 转 academic.html）",
+   "menu_label": "build_academic",
+   "path": "D:\\wx409.github.io\\project_b\\build_academic.py"
+  },
+  {
+   "script": "批量下载专辑.py",
+   "menu": 69,
+   "title": "下载专辑音频（七专辑+回望，QQ音乐320k）",
+   "menu_label": "dl_albums",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\批量下载专辑.py"
+  },
+  {
+   "script": "批量专辑音域.py",
+   "menu": 70,
+   "title": "专辑音域实测（分离+F0+多维指标，约12分钟）",
+   "menu_label": "analyze_albums",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\批量专辑音域.py"
+  },
+  {
+   "script": "生成专辑音域报告.py",
+   "menu": 71,
+   "title": "生成专辑音域报告（报告+站点数据+voice.html）",
+   "menu_label": "report_albums",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\生成专辑音域报告.py"
+  },
+  {
+   "script": "添加待测曲目.py",
+   "menu": 72,
+   "title": "添加待测曲目（搜索歌名写入待测清单）",
+   "menu_label": "add_song",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\添加待测曲目.py"
+  },
+  {
+   "script": "一键音域实测.py",
+   "menu": 73,
+   "title": "一键音域实测（69到71全流程）",
+   "menu_label": "one_click_vocal",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\一键音域实测.py"
+  },
+  {
+   "script": "menu:74",
+   "menu": 74,
+   "title": "清理分离人声缓存（释放约2.9GB）",
+   "menu_label": "clean_stems",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "抓取B站收藏夹.py",
+   "menu": 75,
+   "title": "抓取B站收藏夹清单（王晰综艺现场live）",
+   "menu_label": "fav_fetch",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\抓取B站收藏夹.py"
+  },
+  {
+   "script": "下载他人主导音频.py",
+   "menu": 76,
+   "title": "下载他人主导音频（综艺/晚会/商演/饭拍）",
+   "menu_label": "dl_other",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\下载他人主导音频.py"
+  },
+  {
+   "script": "对比情境分析.py",
+   "menu": 77,
+   "title": "情境对比分析（报告+箱线图+站点数据）",
+   "menu_label": "ctx_compare",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\对比情境分析.py"
+  },
+  {
+   "script": "生成他人主导报告.py",
+   "menu": 78,
+   "title": "生成他人主导详细报告（分类明细+长图）",
+   "menu_label": "stage_report",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\生成他人主导报告.py"
+  },
+  {
+   "script": "build_stage_page.py",
+   "in_deploy": true,
+   "deploy_desc": "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）",
+   "critical": false,
+   "menu": 79,
+   "title": "生成舞台实测页 stage.html",
+   "menu_label": "stage_page",
+   "path": "D:\\wx409.github.io\\project_b\\build_stage_page.py"
+  },
+  {
+   "script": "复核十曲严格口径.py",
+   "menu": 80,
+   "title": "复核十曲严格口径（新旧口径逐曲对照）",
+   "menu_label": "recheck10",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\复核十曲严格口径.py"
+  },
+  {
+   "script": "匹配QQ官方版本.py",
+   "menu": 81,
+   "title": "匹配QQ官方版本（舞台素材同曲对照）",
+   "menu_label": "qq_match",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\匹配QQ官方版本.py"
+  },
+  {
+   "script": "双重校验舞台vsQQ.py",
+   "menu": 82,
+   "title": "双重校验（舞台版 vs QQ官方版）",
+   "menu_label": "crosscheck",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\双重校验舞台vsQQ.py"
+  },
+  {
+   "script": "重绘十曲图.py",
+   "menu": 83,
+   "title": "重绘十曲图（按现行口径）",
+   "menu_label": "redraw10",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\重绘十曲图.py"
+  },
+  {
+   "script": "update_sitemap_lastmod.py",
+   "in_deploy": true,
+   "deploy_desc": "sitemap.xml lastmod 按 git 自动回填（禁手写日期）",
+   "critical": true,
+   "menu": 84,
+   "title": "sitemap lastmod 自动回填（按 git，禁手写）",
+   "menu_label": "sitemap_lm",
+   "path": "D:\\wx409.github.io\\project_b\\update_sitemap_lastmod.py"
+  },
+  {
+   "script": "elevator_definition.py",
+   "in_deploy": true,
+   "deploy_desc": "电梯定义句（首页/问答库/llms/Person 单一事实源）",
+   "critical": true,
+   "menu": 85,
+   "title": "电梯定义句刷新（首页/问答库/llms/Person）",
+   "menu_label": "elev_def",
+   "path": "D:\\wx409.github.io\\project_b\\elevator_definition.py"
+  },
+  {
+   "script": "inject_vocal_summary.py",
+   "in_deploy": true,
+   "deploy_desc": "首页音域摘要块（从实测 JSON 派生，禁手写）",
+   "critical": true,
+   "menu": 86,
+   "title": "首页音域摘要块刷新（从实测 JSON 派生）",
+   "menu_label": "vocal_sum",
+   "path": "D:\\wx409.github.io\\project_b\\inject_vocal_summary.py"
+  },
+  {
+   "script": "audit_jsonld.py",
+   "in_deploy": true,
+   "deploy_desc": "结构化数据审计（JSON-LD 语法/必备类型/纪律用词）",
+   "critical": false,
+   "menu": 87,
+   "title": "结构化数据审计（JSON-LD 语法/类型/纪律）",
+   "menu_label": "audit_ld",
+   "path": "D:\\wx409.github.io\\project_b\\audit_jsonld.py"
+  },
+  {
+   "script": "生成声学身份证.py",
+   "menu": 88,
+   "title": "分享图重新生成 + 版本指纹（长图一致性）",
+   "menu_label": "idcard",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\生成声学身份证.py"
+  },
+  {
+   "script": "audit_live.py",
+   "menu": 89,
+   "title": "线上核验（图片200+sha256对指纹+数字一致+黑名单）",
+   "menu_label": "audit_live",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_live.py"
+  },
+  {
+   "script": "CREPE交叉校验.py",
+   "menu": 90,
+   "title": "CREPE 交叉校验（排查 YIN 次谐波错误）",
+   "menu_label": "crepe_check",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\CREPE交叉校验.py"
+  },
+  {
+   "script": "menu:91",
+   "menu": 91,
+   "title": "打开《向着太阳》重测报告",
+   "menu_label": "open_sun_report",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "低音复核_LowC.py",
+   "menu": 92,
+   "title": "低音复核（LowC 及以下曲目：YIN 次谐波排查）",
+   "menu_label": "lowc_check",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\低音复核_LowC.py"
+  },
+  {
+   "script": "menu:93",
+   "menu": 93,
+   "title": "打开低音复核报告（LowC）",
+   "menu_label": "open_lowc_report",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "watchdog_batches.py",
+   "menu": 94,
+   "title": "漏批看门狗（应完成批次 vs 产出，停摆则拉起+补跑）",
+   "menu_label": "watchdog",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\watchdog_batches.py"
+  },
+  {
+   "script": "menu:95",
+   "menu": 95,
+   "title": "更新重启抑制 - 查看状态（只读）",
+   "menu_label": "harden_status",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:96",
+   "menu": 96,
+   "title": "更新重启抑制 - 应用（活动时间06:00-23:00 + 暂停更新35天）",
+   "menu_label": "harden_apply",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:97",
+   "menu": 97,
+   "title": "导出 BitLocker 恢复密钥 → D:\\Bitlocer.txt",
+   "menu_label": "bitlocker_export",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:98",
+   "menu": 98,
+   "title": "守护进程任务改 S4U（重启免解锁，先实测）",
+   "menu_label": "s4u_task",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "verify_index_date_shift.py",
+   "menu": 99,
+   "title": "指数长表日期偏移核查（三重证据）",
+   "menu_label": "date_shift_check",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\verify_index_date_shift.py"
+  },
+  {
+   "script": "backfill_day.py",
+   "menu": 100,
+   "title": "按日补录与验收（输入日期，预检+重建+验收+口径自查）",
+   "menu_label": "backfill_day",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\backfill_day.py"
+  },
+  {
+   "script": "watchdog_selftest.py",
+   "menu": 101,
+   "title": "看门狗自测（24 项，不触碰真实状态）",
+   "menu_label": "watchdog_selftest",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\watchdog_selftest.py"
+  },
+  {
+   "script": "shadow_date_shift_fix.py",
+   "menu": 102,
+   "title": "日期偏移影子验证（复用旁路表，出对照报告）",
+   "menu_label": "shadow_verify",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\shadow_date_shift_fix.py"
+  },
+  {
+   "script": "menu:103",
+   "menu": 103,
+   "title": "自动登录（方案甲）状态查看",
+   "menu_label": "autologon_status",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "rebuild_after_backfill.py",
+   "menu": 104,
+   "title": "补录后全链路重建与验收（长表→基线→年度卡→部署→四查）",
+   "menu_label": "rebuild_chain",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\rebuild_after_backfill.py"
+  },
+  {
+   "script": "index_date_mapping_toggle.py",
+   "menu": 105,
+   "title": "指数日期映射口径（查看/试算/应用/回滚）",
+   "menu_label": "index_mapping",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\index_date_mapping_toggle.py"
+  },
+  {
+   "script": "extract_fallback_day.py",
+   "menu": 106,
+   "title": "缺失日备用数据源（守护进程准终值，可生成日档案回填）",
+   "menu_label": "fallback_day",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\extract_fallback_day.py"
+  },
+  {
+   "script": "refresh_index_baseline.py",
+   "menu": 107,
+   "title": "指数长表+基线刷新（日档案更新后跑；已接入每日 auto_update）",
+   "menu_label": "refresh_index",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\refresh_index_baseline.py"
+  },
+  {
+   "script": "acceptance_check.py",
+   "menu": 108,
+   "title": "事故验收总检（根因/自愈/口径/数据/站点/任务/产物 一次性体检）",
+   "menu_label": "acceptance_check",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\acceptance_check.py"
+  },
+  {
+   "script": "run_batch_now.py",
+   "menu": 109,
+   "title": "立刻补跑一次采集（全量/极速）+ 自动刷新长表基线",
+   "menu_label": "run_batch_now",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\run_batch_now.py"
+  },
+  {
+   "script": "搜索B站轨迹素材.py",
+   "menu": 110,
+   "title": "B站轨迹素材采集（同曲多版本，本地零 token）",
+   "menu_label": "bili_traj",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\搜索B站轨迹素材.py"
+  },
+  {
+   "script": "导出素材清单.py",
+   "menu": 111,
+   "title": "导出轨迹素材清单（md 清单 + 待测链接 txt）",
+   "menu_label": "bili_traj_export",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\导出素材清单.py"
+  },
+  {
+   "script": "下载场次音频.py",
+   "menu": 112,
+   "title": "场次音域实测一键（B站音轨到 wav 到 分离测音 到 双标准报告）",
+   "menu_label": "stage_vocal_series",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\下载场次音频.py"
+  },
+  {
+   "script": "引擎稳健性复核.py",
+   "menu": 113,
+   "title": "低音读数复核与终裁（CREPE 多配置稳健性 到 谱列解释度 到 四轨归属）",
+   "menu_label": "low_note_verify",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\引擎稳健性复核.py"
+  },
+  {
+   "script": "check_facts_preflight.py",
+   "menu": 114,
+   "title": "事实预检（facts_registry：专辑年份/履历/赛事/换算 生成前强制过一遍）",
+   "menu_label": "facts_preflight",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\check_facts_preflight.py"
+  },
+  {
+   "script": "refresh_vocal_pages.py",
+   "in_deploy": true,
+   "deploy_desc": "音域三页数据同步（输入有变化才跑生产脚本，幂等）",
+   "critical": false,
+   "menu": 115,
+   "title": "音域三页数据同步（输入有变化才跑生产脚本，幂等）",
+   "menu_label": "vocal_sync",
+   "path": "D:\\wx409.github.io\\project_b\\refresh_vocal_pages.py"
+  },
+  {
+   "script": "build_skill_card.py",
+   "in_deploy": true,
+   "deploy_desc": "每日唱功卡片 data/skill_cards.json + 本地传记素材归档",
+   "critical": false,
+   "menu": 116,
+   "title": "每日唱功卡片（生成/回填 + 本地传记素材归档 + 社交短文案）",
+   "menu_label": "skill_card",
+   "path": "D:\\wx409.github.io\\project_b\\build_skill_card.py"
+  },
+  {
+   "script": "每晚增量.py",
+   "menu": 117,
+   "title": "每晚声学增量（新场次素材：下载 到 分离测音 到 回写现场层）",
+   "menu_label": "nightly_vocal",
+   "schedule": {
+    "name": "wx409_vocal_nightly",
+    "script": "每晚增量.py",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
+    "next": "2026/9/11 22:00:00",
+    "type": "Daily",
+    "start": "22:00:00"
+   },
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py"
+  },
+  {
+   "script": "verify_album_dates.py",
+   "in_deploy": true,
+   "deploy_desc": "专辑发行日期 QQ 音乐核验（回写 release_date 精确日期）",
+   "critical": false,
+   "menu": 119,
+   "title": "专辑发行日期核验（QQ音乐 publicTime 到 release_date 精确日期）",
+   "menu_label": "album_dates",
+   "path": "D:\\wx409.github.io\\project_b\\verify_album_dates.py"
+  },
+  {
+   "script": "track_event_lifecycle.py",
+   "in_deploy": true,
+   "deploy_desc": "活动生命周期追踪（官宣/开票/开演的指数前后窗口）",
+   "critical": false,
+   "menu": 120,
+   "title": "活动生命周期追踪（官宣/开票/开演的指数前后窗口，自动回填）",
+   "menu_label": "event_lifecycle",
+   "path": "D:\\wx409.github.io\\project_b\\track_event_lifecycle.py"
+  },
+  {
+   "script": "collect_wx_article.py",
+   "menu": 121,
+   "title": "公众号文章留存 + 离线OCR（原文快照/图片/逐图文本 到 Markdown）",
+   "menu_label": "wx_article",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\collect_wx_article.py"
+  },
+  {
+   "script": "seed_pipeline_registry.py",
+   "menu": 122,
+   "title": "任务登记表重派生（菜单/部署/计划任务 三源合一 到 pipeline_registry.json）",
+   "menu_label": "pipeline_seed",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\seed_pipeline_registry.py"
+  },
+  {
+   "script": "audit_pipeline.py",
+   "in_deploy": true,
+   "deploy_desc": "任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移告警）",
+   "critical": false,
+   "menu": 123,
+   "title": "任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移 exit 1）",
+   "menu_label": "pipeline_audit",
+   "path": "D:\\wx409.github.io\\project_b\\audit_pipeline.py"
+  },
+  {
+   "script": "prune_raw_archive.py",
+   "menu": 124,
+   "title": "raw_archive 保留策略（默认试算；--apply 才删）",
+   "menu_label": "prune_raw",
+   "schedule": {
+    "name": "wx409_prune_raw_archive",
+    "script": "prune_raw_archive.py",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
+    "next": "2026/9/13 10:00:00",
+    "type": "Weekly",
+    "start": "10:00:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\prune_raw_archive.py"
+  },
+  {
+   "script": "_build_episodes.py",
+   "in_deploy": true,
+   "deploy_desc": "小酒馆逐字稿页",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\tavern\\_build_episodes.py"
+  },
+  {
+   "script": "_build_songs_compact.py",
+   "in_deploy": true,
+   "deploy_desc": "小酒馆歌曲索引",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\tavern\\_build_songs_compact.py"
+  },
+  {
+   "script": "audit_bat.py",
+   "in_deploy": true,
+   "deploy_desc": "批处理体检（GBK/BEL/双回车/goto 目标）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_bat.py"
+  },
+  {
+   "script": "audit_ops_coverage.py",
+   "in_deploy": true,
+   "deploy_desc": "操作中心覆盖审计（人工功能都有菜单入口）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_ops_coverage.py"
+  },
+  {
+   "script": "auto_new_song_vocal.py",
+   "in_deploy": true,
+   "deploy_desc": "新歌入声学记录（发现→待测→下载→实测，无新歌秒退）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\auto_new_song_vocal.py"
+  },
+  {
+   "script": "build_entity_index.py",
+   "in_deploy": true,
+   "deploy_desc": "跨站关系 entity_index.json",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\build_entity_index.py"
+  },
+  {
+   "script": "build_feed.py",
+   "in_deploy": true,
+   "deploy_desc": "Atom Feed feed.xml",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_feed.py"
+  },
+  {
+   "script": "build_music_index.py",
+   "in_deploy": true,
+   "deploy_desc": "音乐数据周报",
+   "critical": false,
+   "schedule": {
+    "name": "wx409_music_index_daily",
+    "script": "build_music_index.py",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
+    "next": "2026/9/11 23:58:00",
+    "type": "Daily",
+    "start": "23:58:00"
+   },
+   "path": "D:\\wx409.github.io\\project_b\\build_music_index.py"
+  },
+  {
+   "script": "build_pipeline_views.py",
+   "in_deploy": true,
+   "deploy_desc": "任务视图刷新（install_tasks.ps1 / 任务登记表 / skill 任务表）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_pipeline_views.py"
+  },
+  {
+   "script": "build_qa_page.py",
+   "in_deploy": true,
+   "deploy_desc": "问答库静态页 qa.html（GEO 可引用）",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\tools\\build_qa_page.py"
+  },
+  {
+   "script": "build_setlists_page.py",
+   "in_deploy": true,
+   "deploy_desc": "歌单索引页 live/setlists.html",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\build_setlists_page.py"
+  },
+  {
+   "script": "build_skill_page.py",
+   "in_deploy": true,
+   "deploy_desc": "唱功实测页 skill.html（七维实测 + 今日唱功卡片）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_skill_page.py"
+  },
+  {
+   "script": "build_songs_meta.py",
+   "in_deploy": true,
+   "deploy_desc": "歌曲元数据 data/songs_meta.json",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\build_songs_meta.py"
+  },
+  {
+   "script": "build_songs_page.py",
+   "in_deploy": true,
+   "deploy_desc": "歌曲库页 songs.html",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\build_songs_page.py"
+  },
+  {
+   "script": "build_story.py",
+   "in_deploy": true,
+   "deploy_desc": "数据故事 story.html",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\build_story.py"
+  },
+  {
+   "script": "generate_cities_json.py",
+   "in_deploy": true,
+   "deploy_desc": "地图 cities.json + map/index.html",
+   "critical": true,
+   "path": "E:\\wx\\私有工具\\generate_cities_json.py"
+  },
+  {
+   "script": "generate_city_guides.py",
+   "in_deploy": true,
+   "deploy_desc": "22 城攻略 data/city_guides.json",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\generate_city_guides.py"
+  },
+  {
+   "script": "generate_tour_index.py",
+   "in_deploy": true,
+   "deploy_desc": "巡演目录 live/index.html",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\generate_tour_index.py"
+  },
+  {
+   "script": "generate_voice_page.py",
+   "in_deploy": true,
+   "deploy_desc": "声部·音域页 voice.html（读 data/archive_vocal.json）",
+   "critical": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_voice_page.py"
+  },
+  {
+   "script": "inject_index_facts.py",
+   "in_deploy": true,
+   "deploy_desc": "首页事实块（轮次/城市/覆盖天数/Last updated 派生）",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\inject_index_facts.py"
+  },
+  {
+   "script": "menu:0",
+   "menu": 0,
+   "title": "退出",
+   "menu_label": null,
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "task:wx409_weibo_pipeline_daily",
+   "schedule": {
+    "name": "wx409_weibo_pipeline_daily",
+    "script": "",
+    "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
+    "next": "2026/9/11 16:30:00",
+    "type": "Daily",
+    "start": "21:30:00"
+   },
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "update_index_table.py",
+   "in_deploy": true,
+   "deploy_desc": "首页表格（效应注入）",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\update_index_table.py"
+  }
+ ]
+}

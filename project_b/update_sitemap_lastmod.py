@@ -117,7 +117,8 @@ def main() -> int:
             for u in tree.findall("sm:url", NS)}
     added: list[str] = []
     for page in sorted(ROOT.glob("*.html")):
-        if page.name in ("live_template.html", "404.html", "index.html"):  # 首页的规范 URL 是根路径 /
+        if page.name in ("404.html", "index.html", "kb-semantic.html"):
+            # 首页规范 URL 是根路径 /；kb-semantic 是书签兼容用的跳转页（noindex，不进 sitemap）
             continue
         loc = BASE + page.name
         if loc in have:

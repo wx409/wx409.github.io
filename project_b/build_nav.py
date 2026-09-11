@@ -71,7 +71,7 @@ FOOTER_GROUPS = [
               "robots.txt", "404.html"]),
 ]
 
-SKIP = {"404.html", "live_template.html", "kb-semantic.html", "social_wall.html"}
+SKIP = {"404.html", "kb-semantic.html", "social_wall.html"}
 
 # 底部索引的显示名（未列出的用文件名）
 LABELS = {

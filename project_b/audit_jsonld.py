@@ -45,8 +45,6 @@ def main() -> int:
     stats: dict[str, list[str]] = {}
 
     for html in sorted(ROOT.glob("*.html")):
-        if html.name == "live_template.html":   # 模板含 {{}} 占位符，非发布页
-            continue
         text = io.open(html, encoding="utf-8").read()
         blocks = BLOCK.findall(text)
         types: list[str] = []

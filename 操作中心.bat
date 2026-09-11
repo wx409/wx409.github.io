@@ -166,6 +166,9 @@ echo    117. 每晚声学增量（新场次素材：下载 到 分离测音 到 回写现场层）
 echo    119. 专辑发行日期核验（QQ音乐 publicTime 到 release_date 精确日期）
 echo    120. 活动生命周期追踪（官宣/开票/开演的指数前后窗口，自动回填）
 echo    121. 公众号文章留存 + 离线OCR（原文快照/图片/逐图文本 到 Markdown）
+echo    122. 任务登记表重派生（菜单/部署/计划任务 三源合一 到 pipeline_registry.json）
+echo    123. 任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移 exit 1）
+echo    124. raw_archive 保留策略（默认试算；--apply 才删）
 echo    0. 退出
 echo.
 set "op="
@@ -292,6 +295,9 @@ if "%op%"=="117" goto nightly_vocal
 if "%op%"=="119" goto album_dates
 if "%op%"=="120" goto event_lifecycle
 if "%op%"=="121" goto wx_article
+if "%op%"=="122" goto pipeline_seed
+if "%op%"=="123" goto pipeline_audit
+if "%op%"=="124" goto prune_raw
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1733,5 +1739,32 @@ set /p wxurl=  粘贴微信原文链接后回车:
 if "%wxurl%"=="" goto menu
 python -X utf8 project_b\collect_wx_article.py "%wxurl%"
 echo  [OK] 归档到 E:\wx\论文素材_王晰作传\原始材料\微信文章\^<日期^>_^<标题^>\
+pause
+goto menu
+
+:pipeline_seed
+cls
+echo  [任务登记表重派生] 从 deploy_all STEPS / 操作中心菜单 / Windows 计划任务 派生单一事实源
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\seed_pipeline_registry.py
+python -X utf8 project_b\build_pipeline_views.py
+echo  [OK] project_b\pipeline_registry.json + tools\install_tasks.ps1 + temp\任务登记表.md
+pause
+goto menu
+
+:pipeline_audit
+cls
+echo  [任务一致性审计] 四处描述比对：登记表 / deploy_all / 操作中心 / 计划任务
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_pipeline.py
+pause
+goto menu
+
+:prune_raw
+cls
+echo  [raw_archive 保留策略] 最近 7 天全留 + 更早每日 1 份；默认只试算
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\prune_raw_archive.py
+echo  如需执行：python -X utf8 project_b\prune_raw_archive.py --apply
 pause
 goto menu
