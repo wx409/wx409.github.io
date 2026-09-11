@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 15:07",
+ "generated_at": "2026-09-11 15:20",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,25 +10,26 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 149,
+  "total": 151,
   "by_layer": {
    "studio_album": 72,
    "precision": 19,
    "tour_live": 23,
    "stage_other": 32,
-   "single": 3
+   "single": 5
   },
   "by_verify": {
    "未复核": 113,
-   "双引擎一致": 12,
+   "双引擎一致": 11,
    "待复核（短读<0.12s，未过 CREPE）": 9,
    "已测": 3,
-   "待复核": 3,
-   "已取证": 6,
-   "已核验": 1,
-   "参考": 2
+   "待复核": 4,
+   "已取证": 3,
+   "谐波列复核通过": 5,
+   "参考": 2,
+   "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 109
+  "songs": 111
  },
  "rows": [
   {
@@ -3354,7 +3355,7 @@
     "duration_s": 224.8
    },
    "verify": {
-    "state": "已取证",
+    "state": "谐波列复核通过",
     "engines": {
      "yin_hz": 91.1,
      "crepe_hz": 181.8
@@ -3392,7 +3393,7 @@
     "duration_s": 236.1
    },
    "verify": {
-    "state": "已取证",
+    "state": "待复核",
     "engines": {
      "yin_hz": 91.7,
      "crepe_hz": 181.3
@@ -3430,7 +3431,7 @@
     "duration_s": 236.2
    },
    "verify": {
-    "state": "双引擎一致",
+    "state": "谐波列复核通过",
     "engines": {
      "yin_hz": 92.1,
      "crepe_hz": 90.7
@@ -3468,7 +3469,7 @@
     "duration_s": 239.5
    },
    "verify": {
-    "state": "未复核",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -3538,7 +3539,7 @@
     "duration_s": 124.8
    },
    "verify": {
-    "state": "待复核",
+    "state": "谐波列复核通过",
     "engines": {
      "yin_hz": 89.0,
      "crepe_hz": 177.3
@@ -3652,7 +3653,7 @@
     "duration_s": 453.3
    },
    "verify": {
-    "state": "未复核",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -3677,7 +3678,7 @@
     "low_hz": 63.4
    },
    "verify": {
-    "state": "已核验",
+    "state": "待复核",
     "engines": {
      "yin_hz": 63.4,
      "crepe_hz": 63.4
@@ -3757,8 +3758,8 @@
    "source_ref": "BV1zEJA6xEr2",
    "measure_route": "场次音频实测",
    "metrics": {
-    "low_note": "B1",
-    "low_hz": 61.2,
+    "low_note": "F2",
+    "low_hz": 88.9,
     "high_note": "B4",
     "high_hz": 489.4,
     "span_octaves": 3.0,
@@ -3771,7 +3772,7 @@
     "duration_s": 211.4
    },
    "verify": {
-    "state": "已取证",
+    "state": "谐波列复核通过（同刻三源）",
     "engines": {
      "yin_hz": 61.2,
      "crepe_hz": 61.8
@@ -3795,8 +3796,8 @@
    "source_ref": "BV1hHtU68Eoj",
    "measure_route": "场次音频实测",
    "metrics": {
-    "low_note": "E2",
-    "low_hz": 82.5,
+    "low_note": "G2",
+    "low_hz": 98.0,
     "high_note": "B4",
     "high_hz": 501.4,
     "span_octaves": 2.6,
@@ -4120,6 +4121,60 @@
    "provenance": {
     "measured_by": "批量专辑音域（网易云取源）",
     "legacy": "网易云独有/音频_汇总.json"
+   }
+  },
+  {
+   "id": "single|爱于此生",
+   "song": "爱于此生",
+   "version": "录音室·单曲/OST（上阳赋 电视剧原声专辑）",
+   "layer": "single",
+   "source_ref": "上阳赋 电视剧原声专辑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.3,
+    "high_note": "F#5",
+    "high_hz": 746.9,
+    "span_octaves": 3.35,
+    "stability_cents": 6.5,
+    "intonation_cents": 9.2,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 95.0,
+    "density_per_s": 1.63,
+    "hnr_db": 3.9
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|大江东去",
+   "song": "大江东去",
+   "version": "录音室·单曲/OST（大江东去）",
+   "layer": "single",
+   "source_ref": "大江东去",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 87.2,
+    "high_note": "D5",
+    "high_hz": 582.1,
+    "span_octaves": 2.74,
+    "stability_cents": 6.5,
+    "intonation_cents": 6.2,
+    "vibrato_hz": 5.25,
+    "vibrato_cents": 105.0,
+    "density_per_s": 1.71,
+    "hnr_db": 6.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
    }
   }
  ]

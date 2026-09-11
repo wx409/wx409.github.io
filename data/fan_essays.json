@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 15:07",
+ "generated_at": "2026-09-11 15:20",
  "note": "歌迷赏析（民间评论）索引。全文为作者著作权内容，本站不转载；发表与授权状态待作者确认。曲名解析复用仓库既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库」三级查找；「声学互证」列为本站同一曲目的实测最低稳定音（不含触达音读数）。",
  "source": "歌迷投稿（撰写于 2024-07；整理入档，全文本地留存，未进公开仓库）",
  "rights": {
@@ -10,7 +10,7 @@
  },
  "counts": {
   "total": 23,
-  "with_acoustic": 17,
+  "with_acoustic": 18,
   "total_chars": 75286,
   "resolved_by": {
    "setlist": 10,
@@ -299,7 +299,13 @@
     "matched": "精确"
    },
    "parts": null,
-   "acoustic": null
+   "acoustic": {
+    "song": "爱于此生",
+    "layer": "single",
+    "low_note": "D2",
+    "low_hz": 73.3,
+    "versions": 1
+   }
   },
   {
    "no": 13,

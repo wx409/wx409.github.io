@@ -320,6 +320,37 @@ def rows_from_singles() -> list[dict]:
             "verify": {"state": "未复核"},
             "provenance": {"measured_by": "批量专辑音域（网易云取源）", "legacy": "网易云独有/音频_汇总.json"},
         })
+    # 追加：专辑音域汇总.json 中**不属于 8 张录音室专辑**的条目（OST/单曲，QQ 源补录）→ 同归 single 层。
+    # 排除「舞台对照·QQ官方版」与标题含 Live/现场 的条目（那属于现场/舞台层）。
+    alb = load(DATA / "albums.json", {}) or {}
+    studio = {str(a.get("name")) for a in (alb.get("albums") or []) if a.get("name")}
+    seen = {str(r.get("song")) for r in out}
+    for s in (load(ANA / "专辑音域汇总.json", {}) or {}).get("songs") or []:
+        album = str(s.get("album") or "")
+        title = str(s.get("title") or "")
+        low = s.get("low_stable") or {}
+        if not title or not low.get("hz") or album in studio or title in seen:
+            continue
+        if "舞台对照" in album or re.search(r"\(live\)|（live）|现场", title, re.I):
+            continue
+        high = s.get("high_stable") or {}
+        seen.add(title)
+        out.append({
+            "id": f"single|{title}",
+            "song": title, "version": f"录音室·单曲/OST（{album[:16]}）", "layer": "single",
+            "source_ref": album,
+            "metrics": m(low_note=low.get("note"), low_hz=low.get("hz"),
+                         high_note=high.get("note"), high_hz=high.get("hz"),
+                         span_octaves=s.get("span_octaves"),
+                         stability_cents=s.get("stability_cents_median"),
+                         intonation_cents=s.get("intonation_cents_median"),
+                         vibrato_hz=s.get("vibrato_rate_hz_median"),
+                         vibrato_cents=s.get("vibrato_extent_cents_median"),
+                         density_per_s=s.get("note_density_per_s"),
+                         hnr_db=s.get("hnr_db_median")),
+            "verify": {"state": "未复核"},
+            "provenance": {"measured_by": "批量专辑音域（QQ 源 OST/单曲）", "legacy": "专辑音域汇总.json"},
+        })
     return out
 
 
