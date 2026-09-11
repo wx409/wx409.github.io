@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 21:01",
+ "generated_at": "2026-09-12 00:05",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,11 +9,11 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 20,
-  "n_stage_measured": 17,
+  "n_materials": 30,
+  "n_stage_measured": 27,
   "n_from_precision": 3,
-  "n_songs": 5,
-  "n_tours": 6,
+  "n_songs": 11,
+  "n_tours": 8,
   "n_verified": 11,
   "n_harmonic_reviewed": 6,
   "lowest": {
@@ -26,14 +26,14 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 3.0,
+  "span_median_octaves": 3.06,
   "stability_median_cents": 7.1,
-  "vibrato_rate_hz_median": 5.0,
-  "vibrato_extent_cents_median": 75.0,
+  "vibrato_rate_hz_median": 4.97,
+  "vibrato_extent_cents_median": 74.0,
   "verify_dist": {
+   "未复核": 14,
    "谐波列复核通过": 5,
    "待复核": 3,
-   "未复核": 4,
    "双引擎一致": 5,
    "参考（直拍音质）": 1,
    "仅参考（音质受限）": 1,
@@ -43,9 +43,10 @@
  "by_tour": [
   {
    "tour": "一巡",
-   "n_materials": 5,
+   "n_materials": 6,
    "n_claimable": 3,
    "cities": [
+    "上海",
     "北京",
     "南京",
     "海口"
@@ -57,9 +58,9 @@
    "lowest_note": "F#2",
    "lowest_hz": 91.1,
    "lowest_tag": "一巡南京20190728_BV1Lt411u7qq",
-   "lowest_note_all": "F#2",
-   "lowest_hz_all": 91.1,
-   "lowest_verify_all": "谐波列复核通过",
+   "lowest_note_all": "E2",
+   "lowest_hz_all": 83.1,
+   "lowest_verify_all": "未复核",
    "span_median_octaves": 3.34,
    "stability_median_cents": 6.0,
    "vibrato_rate_hz_median": 5.05
@@ -129,6 +130,29 @@
    "vibrato_rate_hz_median": null
   },
   {
+   "tour": "五巡",
+   "n_materials": 4,
+   "n_claimable": 0,
+   "cities": [
+    "北京",
+    "广州",
+    "杭州"
+   ],
+   "dates": [
+    "2024-12-21",
+    "2025-05-24"
+   ],
+   "lowest_note": null,
+   "lowest_hz": null,
+   "lowest_tag": null,
+   "lowest_note_all": "D2",
+   "lowest_hz_all": 73.9,
+   "lowest_verify_all": "未复核",
+   "span_median_octaves": 2.95,
+   "stability_median_cents": 6.85,
+   "vibrato_rate_hz_median": 4.86
+  },
+  {
    "tour": "六巡",
    "n_materials": 5,
    "n_claimable": 4,
@@ -152,6 +176,57 @@
   }
  ],
  "rows": [
+  {
+   "tag": "上海20191103_BV1FE411B7je",
+   "song": "小毛驴",
+   "tour": "一巡",
+   "city": "上海",
+   "date": "2019-11-03",
+   "bv": "BV1FE411B7je",
+   "owner": "After18丨Elvis王晰",
+   "title": "《小毛驴》上海限定摇滚版 【王晰】【高清4K】【Cherish珍晰巡回演唱会上海站】【20191103】",
+   "bandwidth_kbps": 329,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "E2",
+   "low_hz": 83.1,
+   "low_t_s": 120.44190476190477,
+   "low_dur_s": 0.301859410430839,
+   "high_note": "A#5",
+   "high_hz": 910.8,
+   "span_octaves": 3.45,
+   "stability_cents": 7.9,
+   "intonation_cents": 17.4,
+   "vibrato_hz": 3.92,
+   "vibrato_cents": 80.0,
+   "density_per_s": 0.92,
+   "hnr_db": 0.9,
+   "duration_s": 125.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "E2",
+    "hz": 83.1,
+    "why": "1f0 差 -12.4dB、3f0 在（54.6dB）",
+    "fund_gap_db": -12.4,
+    "floor_db": 27.5,
+    "t_s": 120.442,
+    "dur_s": 0.302,
+    "partials": [
+     47.2,
+     59.6,
+     54.6,
+     46.9,
+     30.0,
+     33.2,
+     23.5,
+     20.8
+    ]
+   }
+  },
   {
    "tag": "一巡南京20190728_BV1Lt411u7qq",
    "song": "让她降落",
@@ -699,6 +774,210 @@
    "source_layer": "十曲精测"
   },
   {
+   "tag": "杭州20241221_BV1RjkYYbEF8",
+   "song": "My Oh My",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "bv": "BV1RjkYYbEF8",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰【My oh My】让人血脉偾张的性感低音炮【4K】吾个人巡回音乐会杭州站20241221",
+   "bandwidth_kbps": 122,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "D2",
+   "low_hz": 73.9,
+   "low_t_s": 194.79219954648525,
+   "low_dur_s": 0.44117913832199546,
+   "high_note": "A5",
+   "high_hz": 889.2,
+   "span_octaves": 3.59,
+   "stability_cents": 7.1,
+   "intonation_cents": 17.1,
+   "vibrato_hz": 4.93,
+   "vibrato_cents": 88.0,
+   "density_per_s": 1.32,
+   "hnr_db": 1.8,
+   "duration_s": 220.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 73.9,
+    "why": "1f0 差 -1.6dB、3f0 在（56.3dB）",
+    "fund_gap_db": -1.6,
+    "floor_db": 38.7,
+    "t_s": 194.792,
+    "dur_s": 0.441,
+    "partials": [
+     56.3,
+     55.0,
+     43.9,
+     57.8,
+     38.7,
+     47.8,
+     56.3,
+     38.1
+    ]
+   }
+  },
+  {
+   "tag": "广州20250524_BV1AxjKzmES3",
+   "song": "你快乐所以我快乐",
+   "tour": "五巡",
+   "city": "广州",
+   "date": "2025-05-24",
+   "bv": "BV1AxjKzmES3",
+   "owner": "不要总是哭唧唧",
+   "title": "【王晰】点歌part【你快乐所以我快乐】唱腔自由切换的魔法师【4K字幕】王晰吾个人巡回演唱会广州站20250524【co",
+   "bandwidth_kbps": 120,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "G2",
+   "low_hz": 96.2,
+   "low_t_s": 14.373151927437641,
+   "low_dur_s": 0.4179591836734694,
+   "high_note": "A5",
+   "high_hz": 889.1,
+   "span_octaves": 3.21,
+   "stability_cents": 5.3,
+   "intonation_cents": 19.1,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 69.0,
+   "density_per_s": 1.28,
+   "hnr_db": 8.0,
+   "duration_s": 132.3,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G2",
+    "hz": 96.2,
+    "why": "1f0 差 -3.6dB、3f0 在（58.6dB）",
+    "fund_gap_db": -3.6,
+    "floor_db": 23.6,
+    "t_s": 14.373,
+    "dur_s": 0.418,
+    "partials": [
+     59.3,
+     62.9,
+     58.6,
+     37.2,
+     48.1,
+     29.2,
+     29.1,
+     25.6
+    ]
+   }
+  },
+  {
+   "tag": "北京20250405_BV1JZdcYEE73",
+   "song": "世界赠予我的",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "bv": "BV1JZdcYEE73",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰【世界赠予我的】王晰吾个人巡回音乐会北京站点歌part【4k】cover王菲20250405",
+   "bandwidth_kbps": 121,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "A2",
+   "low_hz": 110.7,
+   "low_t_s": 38.49868480725623,
+   "low_dur_s": 0.3250793650793651,
+   "high_note": "D4",
+   "high_hz": 291.5,
+   "span_octaves": 1.4,
+   "stability_cents": 8.8,
+   "intonation_cents": 21.6,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 84.0,
+   "density_per_s": 1.28,
+   "hnr_db": 5.3,
+   "duration_s": 111.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A2",
+    "hz": 110.7,
+    "why": "1f0 差 +0.0dB、3f0 在（46.9dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 10.7,
+    "t_s": 38.499,
+    "dur_s": 0.325,
+    "partials": [
+     58.2,
+     52.6,
+     46.9,
+     31.9,
+     16.5,
+     14.6,
+     17.9,
+     8.5
+    ]
+   }
+  },
+  {
+   "tag": "北京20250405_BV1zD5mz9ErQ",
+   "song": "世界赠予我的",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "bv": "BV1zD5mz9ErQ",
+   "owner": "王晰的杂货铺",
+   "title": "与世界温柔相认｜王晰低音演绎《世界赠予我的》（cover：王菲） 【吾个人巡回音乐会北京生日场点歌part】202504",
+   "bandwidth_kbps": 159,
+   "source_verdict": "官方直传",
+   "low_note": "A2",
+   "low_hz": 110.7,
+   "low_t_s": 29.23392290249433,
+   "low_dur_s": 0.34829931972789113,
+   "high_note": "F5",
+   "high_hz": 717.0,
+   "span_octaves": 2.69,
+   "stability_cents": 6.6,
+   "intonation_cents": 25.4,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 66.0,
+   "density_per_s": 1.29,
+   "hnr_db": 4.1,
+   "duration_s": 113.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A2",
+    "hz": 110.7,
+    "why": "1f0 差 +0.0dB、3f0 在（58.0dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 12.6,
+    "t_s": 29.234,
+    "dur_s": 0.348,
+    "partials": [
+     59.7,
+     58.8,
+     58.0,
+     46.8,
+     27.7,
+     32.8,
+     19.9,
+     21.7
+    ]
+   }
+  },
+  {
    "tag": "六巡重庆20260613_BV1zEJA6xEr2",
    "song": "让她降落",
    "tour": "六巡",
@@ -954,6 +1233,210 @@
    }
   },
   {
+   "tag": "签唱会20190414_BV1M4411w735",
+   "song": "静止了的夜晚",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-04-14",
+   "bv": "BV1M4411w735",
+   "owner": "赤影妖刀姬SP",
+   "title": "20190414-王晰-静止了的夜晚",
+   "bandwidth_kbps": 96,
+   "source_verdict": "官方直传",
+   "low_note": "A#1",
+   "low_hz": 58.2,
+   "low_t_s": 193.09714285714287,
+   "low_dur_s": 0.301859410430839,
+   "high_note": "B4",
+   "high_hz": 484.9,
+   "span_octaves": 3.06,
+   "stability_cents": 7.3,
+   "intonation_cents": 21.8,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 79.0,
+   "density_per_s": 1.68,
+   "hnr_db": 6.2,
+   "duration_s": 247.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A#1",
+    "hz": 58.2,
+    "why": "1f0 差 +0.0dB、3f0 在（58.8dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 21.1,
+    "t_s": 193.097,
+    "dur_s": 0.302,
+    "partials": [
+     59.8,
+     45.3,
+     53.2,
+     55.8,
+     58.8,
+     47.3,
+     26.8,
+     51.6
+    ]
+   }
+  },
+  {
+   "tag": "新素材11j7s7_BV19J411j7s7",
+   "song": "一生守候",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "bv": "BV19J411j7s7",
+   "owner": "开心不开心王晰说了算",
+   "title": "我觉得是王晰最好哭版本的一生守候了",
+   "bandwidth_kbps": 316,
+   "source_verdict": "官方直传",
+   "low_note": "C#2",
+   "low_hz": 69.5,
+   "low_t_s": 40.96,
+   "low_dur_s": 0.301859410430839,
+   "high_note": "E4",
+   "high_hz": 324.4,
+   "span_octaves": 2.22,
+   "stability_cents": 5.8,
+   "intonation_cents": 18.1,
+   "vibrato_hz": 5.32,
+   "vibrato_cents": 72.0,
+   "density_per_s": 1.43,
+   "hnr_db": 3.6,
+   "duration_s": 156.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "C#2",
+    "hz": 69.5,
+    "why": "1f0 差 -22.1dB、3f0 在（57.2dB）",
+    "fund_gap_db": -22.1,
+    "floor_db": 23.2,
+    "t_s": 40.96,
+    "dur_s": 0.302,
+    "partials": [
+     40.2,
+     62.3,
+     57.2,
+     56.0,
+     47.6,
+     51.0,
+     47.1,
+     35.5
+    ]
+   }
+  },
+  {
+   "tag": "未知20211127_BV1Ef4y1K7NJ",
+   "song": "小毛驴",
+   "tour": "《B",
+   "city": "杭州",
+   "date": "2021-11-27",
+   "bv": "BV1Ef4y1K7NJ",
+   "owner": "王晰的小仓库",
+   "title": "【王晰】B面王晰超野超A的小毛驴",
+   "bandwidth_kbps": 319,
+   "source_verdict": "官方直传",
+   "low_note": "D2",
+   "low_hz": 72.6,
+   "low_t_s": 37.198367346938774,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "E4",
+   "high_hz": 330.6,
+   "span_octaves": 2.19,
+   "stability_cents": 5.5,
+   "intonation_cents": 5.8,
+   "vibrato_hz": 4.97,
+   "vibrato_cents": 58.0,
+   "density_per_s": 1.33,
+   "hnr_db": 3.8,
+   "duration_s": 177.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 72.6,
+    "why": "1f0 差 -16.7dB、3f0 在（45.2dB）",
+    "fund_gap_db": -16.7,
+    "floor_db": 31.9,
+    "t_s": 37.198,
+    "dur_s": 0.232,
+    "partials": [
+     39.2,
+     55.9,
+     43.5,
+     43.8,
+     45.2,
+     50.3,
+     42.2,
+     33.7
+    ]
+   }
+  },
+  {
+   "tag": "新素材y167VR_BV1Ct4y167VR",
+   "song": "乌兰巴托的夜",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "bv": "BV1Ct4y167VR",
+   "owner": "无尽藏Endless丨王晰",
+   "title": "【4K】男低音LIVE 王晰-乌兰巴托的夜晚 说好听歌的人不许掉眼泪！",
+   "bandwidth_kbps": 319,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "D2",
+   "low_hz": 72.7,
+   "low_t_s": 87.12126984126984,
+   "low_dur_s": 0.4179591836734694,
+   "high_note": "C6",
+   "high_hz": 1020.6,
+   "span_octaves": 3.81,
+   "stability_cents": 6.6,
+   "intonation_cents": 19.3,
+   "vibrato_hz": 4.91,
+   "vibrato_cents": 68.0,
+   "density_per_s": 1.65,
+   "hnr_db": 4.6,
+   "duration_s": 312.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 72.7,
+    "why": "1f0 差 -13.8dB、3f0 在（61.5dB）",
+    "fund_gap_db": -13.8,
+    "floor_db": 19.8,
+    "t_s": 87.121,
+    "dur_s": 0.418,
+    "partials": [
+     49.1,
+     62.9,
+     60.9,
+     49.1,
+     61.5,
+     55.8,
+     33.5,
+     33.2
+    ]
+   }
+  },
+  {
    "tag": "未知20201116_BV1fr4y1F769",
    "song": "花儿为什么这样红",
    "tour": "其他演出",
@@ -1105,9 +1588,181 @@
      10.8
     ]
    }
+  },
+  {
+   "tag": "未知20211127_BV19U4y1K7Yz",
+   "song": "让她降落",
+   "tour": "《B",
+   "city": "杭州",
+   "date": "2021-11-27",
+   "bv": "BV19U4y1K7Yz",
+   "owner": "星期日不是星期天",
+   "title": "【现场混响】 《让她降落》王晰｜戴上耳机",
+   "bandwidth_kbps": 127,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 91.1,
+   "low_t_s": 129.4512471655329,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "B5",
+   "high_hz": 965.6,
+   "span_octaves": 3.41,
+   "stability_cents": 7.2,
+   "intonation_cents": 24.1,
+   "vibrato_hz": 4.88,
+   "vibrato_cents": 74.0,
+   "density_per_s": 1.86,
+   "hnr_db": 7.6,
+   "duration_s": 224.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 91.1,
+    "why": "1f0 差 -13.7dB、3f0 在（52.1dB）",
+    "fund_gap_db": -13.7,
+    "floor_db": 39.1,
+    "t_s": 129.451,
+    "dur_s": 0.209,
+    "partials": [
+     43.0,
+     56.1,
+     52.1,
+     56.6,
+     21.0,
+     51.4,
+     21.5,
+     51.8
+    ]
+   }
   }
  ],
  "by_song": [
+  {
+   "song": "My Oh My",
+   "n_versions": 1,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "D2",
+   "lowest_hz": 73.9,
+   "lowest_tag": "杭州20241221_BV1RjkYYbEF8",
+   "span_median_octaves": 3.59,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "杭州",
+     "date": "2024-12-21",
+     "low_note": "D2",
+     "low_hz": 73.9,
+     "span_octaves": 3.59,
+     "verify": "未复核",
+     "bv": "BV1RjkYYbEF8"
+    }
+   ]
+  },
+  {
+   "song": "一生守候",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "C#2",
+   "lowest_hz": 69.5,
+   "lowest_tag": "新素材11j7s7_BV19J411j7s7",
+   "span_median_octaves": 2.22,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "",
+     "low_note": "C#2",
+     "low_hz": 69.5,
+     "span_octaves": 2.22,
+     "verify": "未复核",
+     "bv": "BV19J411j7s7"
+    }
+   ]
+  },
+  {
+   "song": "世界赠予我的",
+   "n_versions": 2,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "A2",
+   "lowest_hz": 110.7,
+   "lowest_tag": "北京20250405_BV1JZdcYEE73",
+   "span_median_octaves": 2.04,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "北京",
+     "date": "2025-04-05",
+     "low_note": "A2",
+     "low_hz": 110.7,
+     "span_octaves": 1.4,
+     "verify": "未复核",
+     "bv": "BV1JZdcYEE73"
+    },
+    {
+     "tour": "五巡",
+     "city": "北京",
+     "date": "2025-04-05",
+     "low_note": "A2",
+     "low_hz": 110.7,
+     "span_octaves": 2.69,
+     "verify": "未复核",
+     "bv": "BV1zD5mz9ErQ"
+    }
+   ]
+  },
+  {
+   "song": "乌兰巴托的夜",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "D2",
+   "lowest_hz": 72.7,
+   "lowest_tag": "新素材y167VR_BV1Ct4y167VR",
+   "span_median_octaves": 3.81,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "",
+     "low_note": "D2",
+     "low_hz": 72.7,
+     "span_octaves": 3.81,
+     "verify": "未复核",
+     "bv": "BV1Ct4y167VR"
+    }
+   ]
+  },
+  {
+   "song": "你快乐所以我快乐",
+   "n_versions": 1,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "G2",
+   "lowest_hz": 96.2,
+   "lowest_tag": "广州20250524_BV1AxjKzmES3",
+   "span_median_octaves": 3.21,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "广州",
+     "date": "2025-05-24",
+     "low_note": "G2",
+     "low_hz": 96.2,
+     "span_octaves": 3.21,
+     "verify": "未复核",
+     "bv": "BV1AxjKzmES3"
+    }
+   ]
+  },
   {
    "song": "多听有益",
    "n_versions": 3,
@@ -1175,6 +1830,39 @@
    ]
   },
   {
+   "song": "小毛驴",
+   "n_versions": 2,
+   "tours": [
+    "一巡"
+   ],
+   "lowest_note": "D2",
+   "lowest_hz": 72.6,
+   "lowest_tag": "未知20211127_BV1Ef4y1K7NJ",
+   "span_median_octaves": 2.82,
+   "versions": [
+    {
+     "tour": "《B",
+     "city": "杭州",
+     "date": "2021-11-27",
+     "low_note": "D2",
+     "low_hz": 72.6,
+     "span_octaves": 2.19,
+     "verify": "未复核",
+     "bv": "BV1Ef4y1K7NJ"
+    },
+    {
+     "tour": "一巡",
+     "city": "上海",
+     "date": "2019-11-03",
+     "low_note": "E2",
+     "low_hz": 83.1,
+     "span_octaves": 3.45,
+     "verify": "未复核",
+     "bv": "BV1FE411B7je"
+    }
+   ]
+  },
+  {
    "song": "花儿为什么这样红",
    "n_versions": 2,
    "tours": [],
@@ -1207,7 +1895,7 @@
   },
   {
    "song": "让她降落",
-   "n_versions": 12,
+   "n_versions": 13,
    "tours": [
     "一巡",
     "二巡",
@@ -1216,7 +1904,7 @@
    "lowest_note": "F2",
    "lowest_hz": 88.9,
    "lowest_tag": "六巡重庆20260613_BV1zEJA6xEr2",
-   "span_median_octaves": 2.92,
+   "span_median_octaves": 3.0,
    "versions": [
     {
      "tour": "六巡",
@@ -1247,6 +1935,16 @@
      "span_octaves": 3.44,
      "verify": "谐波列复核通过",
      "bv": "BV1Lt411u7qq"
+    },
+    {
+     "tour": "《B",
+     "city": "杭州",
+     "date": "2021-11-27",
+     "low_note": "F#2",
+     "low_hz": 91.1,
+     "span_octaves": 3.41,
+     "verify": "未复核",
+     "bv": "BV19U4y1K7Yz"
     },
     {
      "tour": "一巡",
@@ -1342,15 +2040,25 @@
   },
   {
    "song": "静止了的夜晚",
-   "n_versions": 2,
+   "n_versions": 3,
    "tours": [
     "三巡"
    ],
-   "lowest_note": "D2",
-   "lowest_hz": 73.4,
-   "lowest_tag": "成都首唱会2019_BV1W7411R7Hv",
-   "span_median_octaves": 3.67,
+   "lowest_note": "A#1",
+   "lowest_hz": 58.2,
+   "lowest_tag": "签唱会20190414_BV1M4411w735",
+   "span_median_octaves": 3.51,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2019-04-14",
+     "low_note": "A#1",
+     "low_hz": 58.2,
+     "span_octaves": 3.06,
+     "verify": "未复核",
+     "bv": "BV1M4411w735"
+    },
     {
      "tour": "其他演出",
      "city": "成都",
@@ -1787,7 +2495,7 @@
  ],
  "live_vs_studio_pair_stats": {
   "included": 0,
-  "excluded_pending": 4,
+  "excluded_pending": 5,
   "excluded_detail": [
    {
     "song": "多听有益",
@@ -1809,6 +2517,13 @@
     "note": "A2",
     "hz": 111.6,
     "verify": "仅参考（音质受限）"
+   },
+   {
+    "song": "静止了的夜晚",
+    "tour": "其他演出",
+    "note": "A#1",
+    "hz": 58.2,
+    "verify": "未复核"
    },
    {
     "song": "静止了的夜晚",

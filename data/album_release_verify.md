@@ -1,6 +1,6 @@
 # 专辑发行日期 · QQ 音乐核验
 
-> 核验时间：2026-09-11 21:01 ｜ 接口：QQ音乐专辑搜索 publicTime ｜ 主键：albumMID == data/albums.json 的 qq_mid
+> 核验时间：2026-09-12 00:05 ｜ 接口：QQ音乐专辑搜索 publicTime ｜ 主键：albumMID == data/albums.json 的 qq_mid
 
 | 专辑 | 原 release | QQ 音乐精确日期 | 状态 | albumMID |
 |---|---|---|---|---|

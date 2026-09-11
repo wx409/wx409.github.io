@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 21:01",
+ "generated_at": "2026-09-12 00:05",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,16 +10,16 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 156,
+  "total": 166,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
-   "tour_live": 23,
+   "tour_live": 33,
    "stage_other": 32,
    "single": 6
   },
   "by_verify": {
-   "未复核": 114,
+   "未复核": 124,
    "已取证": 6,
    "已核验": 6,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
@@ -31,7 +31,7 @@
    "参考": 2,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 111
+  "songs": 117
  },
  "rows": [
   {
@@ -3399,6 +3399,41 @@
    }
   },
   {
+   "id": "tour_live|小毛驴|上海20191103_BV1FE411B7je",
+   "song": "小毛驴",
+   "version": "上海20191103_BV1FE411B7je",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "上海",
+   "date": "2019-11-03",
+   "source_ref": "BV1FE411B7je",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 83.1,
+    "high_note": "A#5",
+    "high_hz": 910.8,
+    "span_octaves": 3.45,
+    "stability_cents": 7.9,
+    "intonation_cents": 17.4,
+    "vibrato_hz": 3.92,
+    "vibrato_cents": 80.0,
+    "density_per_s": 0.92,
+    "hnr_db": 0.9,
+    "duration_s": 125.2
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 329
+   }
+  },
+  {
    "id": "tour_live|让她降落|一巡南京20190728_BV1Lt411u7qq",
    "song": "让她降落",
    "version": "一巡南京20190728_BV1Lt411u7qq",
@@ -3816,6 +3851,146 @@
    }
   },
   {
+   "id": "tour_live|My Oh My|杭州20241221_BV1RjkYYbEF8",
+   "song": "My Oh My",
+   "version": "杭州20241221_BV1RjkYYbEF8",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "source_ref": "BV1RjkYYbEF8",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.9,
+    "high_note": "A5",
+    "high_hz": 889.2,
+    "span_octaves": 3.59,
+    "stability_cents": 7.1,
+    "intonation_cents": 17.1,
+    "vibrato_hz": 4.93,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.32,
+    "hnr_db": 1.8,
+    "duration_s": 220.6
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 122
+   }
+  },
+  {
+   "id": "tour_live|你快乐所以我快乐|广州20250524_BV1AxjKzmES3",
+   "song": "你快乐所以我快乐",
+   "version": "广州20250524_BV1AxjKzmES3",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "广州",
+   "date": "2025-05-24",
+   "source_ref": "BV1AxjKzmES3",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 96.2,
+    "high_note": "A5",
+    "high_hz": 889.1,
+    "span_octaves": 3.21,
+    "stability_cents": 5.3,
+    "intonation_cents": 19.1,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 69.0,
+    "density_per_s": 1.28,
+    "hnr_db": 8.0,
+    "duration_s": 132.3
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 120
+   }
+  },
+  {
+   "id": "tour_live|世界赠予我的|北京20250405_BV1JZdcYEE73",
+   "song": "世界赠予我的",
+   "version": "北京20250405_BV1JZdcYEE73",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "source_ref": "BV1JZdcYEE73",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.7,
+    "high_note": "D4",
+    "high_hz": 291.5,
+    "span_octaves": 1.4,
+    "stability_cents": 8.8,
+    "intonation_cents": 21.6,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.28,
+    "hnr_db": 5.3,
+    "duration_s": 111.4
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 121
+   }
+  },
+  {
+   "id": "tour_live|世界赠予我的|北京20250405_BV1zD5mz9ErQ",
+   "song": "世界赠予我的",
+   "version": "北京20250405_BV1zD5mz9ErQ",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "source_ref": "BV1zD5mz9ErQ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.7,
+    "high_note": "F5",
+    "high_hz": 717.0,
+    "span_octaves": 2.69,
+    "stability_cents": 6.6,
+    "intonation_cents": 25.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.29,
+    "hnr_db": 4.1,
+    "duration_s": 113.2
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 159
+   }
+  },
+  {
    "id": "tour_live|让她降落|六巡重庆20260613_BV1zEJA6xEr2",
    "song": "让她降落",
    "version": "六巡重庆20260613_BV1zEJA6xEr2",
@@ -4000,6 +4175,146 @@
    }
   },
   {
+   "id": "tour_live|静止了的夜晚|签唱会20190414_BV1M4411w735",
+   "song": "静止了的夜晚",
+   "version": "签唱会20190414_BV1M4411w735",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-04-14",
+   "source_ref": "BV1M4411w735",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#1",
+    "low_hz": 58.2,
+    "high_note": "B4",
+    "high_hz": 484.9,
+    "span_octaves": 3.06,
+    "stability_cents": 7.3,
+    "intonation_cents": 21.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 79.0,
+    "density_per_s": 1.68,
+    "hnr_db": 6.2,
+    "duration_s": 247.1
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 96
+   }
+  },
+  {
+   "id": "tour_live|一生守候|新素材11j7s7_BV19J411j7s7",
+   "song": "一生守候",
+   "version": "新素材11j7s7_BV19J411j7s7",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "BV19J411j7s7",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.5,
+    "high_note": "E4",
+    "high_hz": 324.4,
+    "span_octaves": 2.22,
+    "stability_cents": 5.8,
+    "intonation_cents": 18.1,
+    "vibrato_hz": 5.32,
+    "vibrato_cents": 72.0,
+    "density_per_s": 1.43,
+    "hnr_db": 3.6,
+    "duration_s": 156.6
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 316
+   }
+  },
+  {
+   "id": "tour_live|小毛驴|未知20211127_BV1Ef4y1K7NJ",
+   "song": "小毛驴",
+   "version": "未知20211127_BV1Ef4y1K7NJ",
+   "layer": "tour_live",
+   "tour": "《B",
+   "city": "杭州",
+   "date": "2021-11-27",
+   "source_ref": "BV1Ef4y1K7NJ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.6,
+    "high_note": "E4",
+    "high_hz": 330.6,
+    "span_octaves": 2.19,
+    "stability_cents": 5.5,
+    "intonation_cents": 5.8,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 58.0,
+    "density_per_s": 1.33,
+    "hnr_db": 3.8,
+    "duration_s": 177.0
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
+   "id": "tour_live|乌兰巴托的夜|新素材y167VR_BV1Ct4y167VR",
+   "song": "乌兰巴托的夜",
+   "version": "新素材y167VR_BV1Ct4y167VR",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "BV1Ct4y167VR",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.7,
+    "high_note": "C6",
+    "high_hz": 1020.6,
+    "span_octaves": 3.81,
+    "stability_cents": 6.6,
+    "intonation_cents": 19.3,
+    "vibrato_hz": 4.91,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.65,
+    "hnr_db": 4.6,
+    "duration_s": 312.1
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
    "id": "tour_live|花儿为什么这样红|未知20201116_BV1fr4y1F769",
    "song": "花儿为什么这样红",
    "version": "未知20201116_BV1fr4y1F769",
@@ -4102,6 +4417,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 289
+   }
+  },
+  {
+   "id": "tour_live|让她降落|未知20211127_BV19U4y1K7Yz",
+   "song": "让她降落",
+   "version": "未知20211127_BV19U4y1K7Yz",
+   "layer": "tour_live",
+   "tour": "《B",
+   "city": "杭州",
+   "date": "2021-11-27",
+   "source_ref": "BV19U4y1K7Yz",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.1,
+    "high_note": "B5",
+    "high_hz": 965.6,
+    "span_octaves": 3.41,
+    "stability_cents": 7.2,
+    "intonation_cents": 24.1,
+    "vibrato_hz": 4.88,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.86,
+    "hnr_db": 7.6,
+    "duration_s": 224.4
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 127
    }
   },
   {
