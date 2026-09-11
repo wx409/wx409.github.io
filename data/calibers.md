@@ -1,14 +1,14 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-11 16:03　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-11 17:01　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
 
 | id | 名称 | 数值 | 范围 | 来源 |
 |---|---|---|---|---|
-| `tracked_songs` | 追踪曲目池 | **383** | 主动追踪并采集指数的曲目清单（池内） | `dashboard/dashboard_data.json` |
-| `tracked_links` | 追踪链接数 | **383** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
+| `tracked_songs` | 追踪曲目池 | **703** | 主动追踪并采集指数的曲目清单（池内） | `dashboard/dashboard_data.json` |
+| `tracked_links` | 追踪链接数 | **10429** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
 | `entity_songs` | 关系图谱曲目 | **435** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
 | `songs_meta` | 歌曲元数据条目 | **588** | 含元信息（时长/专辑/发行等）的曲目 | `data/songs_meta.json` |
 | `song_archive` | 歌曲档案条目 | **748** | 档案库收录的全部曲目条目（含未追踪/无指数） | `data/song_archive.json` |

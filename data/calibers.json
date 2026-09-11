@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-11 16:03",
+  "generated_at": "2026-09-11 17:01",
   "count": 25,
   "calibers": [
     {
       "id": "tracked_songs",
       "label": "追踪曲目池",
-      "value": 383,
+      "value": 703,
       "scope": "主动追踪并采集指数的曲目清单（池内）",
       "source": "dashboard/dashboard_data.json",
       "note": "站内绝大多数'热度'结论的样本范围；池逐年缩小，跨年比较须注意"
@@ -13,7 +13,7 @@
     {
       "id": "tracked_links",
       "label": "追踪链接数",
-      "value": 383,
+      "value": 10429,
       "scope": "同一首歌的多个平台链接（一首歌可有多条链接）",
       "source": "dashboard/dashboard_data.json",
       "note": "与曲目数不同：链接是采集单位，曲目是分析单位"
