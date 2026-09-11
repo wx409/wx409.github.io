@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import statistics
 import sys
 from datetime import date, datetime, timedelta
@@ -152,10 +153,14 @@ def build_pool() -> list[dict]:
     for x in (stg.get("items") or []):
         if not x.get("low_hz"):
             continue
+        # 舞台条目只有 B站标题，没有独立曲名字段 → 从《…》里取曲名，取不到就按时长/分类描述
+        _m = re.search(r"《([^》]{1,24})》", str(x.get("title") or ""))
+        _label = clean(_m.group(1)) if _m else ""
+        _名 = f"《{_label}》" if _label else f"（{x.get('cat')}素材）"
         pool.append({
-            "key": f"stage:{x.get('title')}",
+            "key": f"stage:{x.get('bvid')}",
             "topic": "舞台对照",
-            "title": f"他人主导舞台《{x.get('song') or x.get('title')}》的音域读数",
+            "title": f"他人主导舞台{_名}的音域读数",
             "lines": [
                 f"分类：{x.get('cat')}；最低稳定音 **{hz_note(x.get('low'), x.get('low_hz'))}**，最高 {hz_note(x.get('high'), x.get('high_hz'))}。",
                 f"跨度 **{fmt(x.get('span'),2)} 个八度**，稳定性 {fmt(x.get('stability'),1)} 音分，密度 {fmt(x.get('density'),2)}/s。",
@@ -164,7 +169,7 @@ def build_pool() -> list[dict]:
             "source": "data/archive_stage.json",
             "caliber": "他人主导舞台统一口径；最高音含和声层风险，需听辨。",
             "social": [
-                f"同一副嗓子，在不同的舞台上会呈现完全不同的声学画像——{x.get('cat')}《{x.get('song') or x.get('title')}》就是一例。",
+                f"同一副嗓子，在不同的舞台上会呈现完全不同的声学画像——{x.get('cat')}{_名}就是一例。",
                 "舞台是别人的调，专辑是自己的调。",
             ],
         })
@@ -265,6 +270,10 @@ def render_md(card: dict, day: str) -> str:
 def card_for(day: date, pool: list[dict]) -> dict:
     idx = day.toordinal() % len(pool)
     c = dict(pool[idx])
+    c["title"] = clean(c["title"])
+    c["key"] = clean(c["key"])
+    c["lines"] = [clean(x) for x in c.get("lines") or []]
+    c["social"] = [clean(x) for x in c.get("social") or []]
     c["index"] = idx + 1
     c["pool_size"] = len(pool)
     c["date"] = day.isoformat()
