@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-11 17:16",
-  "count": 26,
+  "generated_at": "2026-09-11 17:47",
+  "count": 28,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -209,6 +209,22 @@
       "scope": "录音室 MV / 念诵段 @80.0s：混音带限自相关 + 外部耳测；属触达级，**不并入稳定音口径**",
       "source": "data\\archive_vocal.json#songs[].reach_*",
       "note": "触达级 归属未定（人声/低音乐器）· 不作稳定音；引擎 混音带限自相关 + 外部耳测（BV16LxczHEYA）；依据 轨迹\\备忘_多听有益现场B1核查_20260911.md 第八节"
+    },
+    {
+      "id": "reach_live_多听有益",
+      "label": "多听有益 现场念诵段低音事件（A1）",
+      "value": 56.5,
+      "scope": "四巡｜北京 2023-11-12（王晰本人号直拍 BV1Ab4y1g7Wj）｜@55.5s（2.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径**",
+      "source": "data\\archive_vocal.json#songs[].live_low_events",
+      "note": "低音成分归属（人声/伴奏）未判定；不作能力主张"
+    },
+    {
+      "id": "reach_live_多听有益",
+      "label": "多听有益 现场念诵段低音事件（A1）",
+      "value": 54.3,
+      "scope": "四巡｜杭州 2024（BV1ArKxe7E8H）｜@57.8s（1.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径**",
+      "source": "data\\archive_vocal.json#songs[].live_low_events",
+      "note": "低音成分归属（人声/伴奏）未判定；不作能力主张"
     }
   ]
 }

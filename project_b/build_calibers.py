@@ -242,6 +242,13 @@ def collect() -> list[dict]:
                     f'属触达级，**不并入稳定音口径**',
                     "data\\archive_vocal.json#songs[].reach_*",
                     f'{s.get("reach_status")}；引擎 {s.get("reach_engine")}；依据 {s.get("reach_evidence")}')
+            for e in (s.get("live_low_events") or []):
+                add("reach_live_" + re.sub(r"\W+", "", str(s.get("name") or "")),
+                    f'{s.get("name")} 现场念诵段低音事件（{e.get("note")}）', e.get("hz"),
+                    f'{e.get("source")}｜@{e.get("t_s")}s（{e.get("dur_s")}s）：{e.get("status")}；'
+                    f'属触达级，**不并入稳定音口径**',
+                    "data\\archive_vocal.json#songs[].live_low_events",
+                    "低音成分归属（人声/伴奏）未判定；不作能力主张")
     except Exception as e:
         add("reach_duotingyouyi", "多听有益 念诵段触达音", None, "archive_vocal.json 不可读", str(e), "")
 
