@@ -50,6 +50,41 @@ def build() -> dict:
         raw_song = re.sub(r"[《》]", "", str(it["song"] or "")).strip()
         r = resolve_song(raw_song)
         a = acoustic_for(r.get("canonical") or raw_song) or acoustic_for(r.get("norm") or raw_song)
+        parts_info = None
+        # 组曲（如二巡钢琴组曲「慢系列」）：展开为组成曲目，逐曲取实测
+        from song_resolver import medley_parts, album_tracks  # noqa: E402
+        mp = medley_parts(raw_song)
+        if mp:
+            parts_info = {"kind": "medley", "parts": [], "with_acoustic": 0}
+            best = None
+            for t in mp:
+                rr = resolve_song(t)
+                aa = acoustic_for(rr.get("canonical") or t) or acoustic_for(rr.get("norm") or t)
+                parts_info["parts"].append({"song": t, "acoustic": aa})
+                if aa:
+                    parts_info["with_acoustic"] += 1
+                    if best is None or aa["low_hz"] < best["low_hz"]:
+                        best = aa
+            r = {"canonical": raw_song, "source": "medley", "kind": "song",
+                 "matched": "组曲展开", "norm": r.get("norm")}
+            a = best
+        else:
+            # 仅当标题明确写「专辑」时才做整专展开（避免《歌颂》这类歌名与专辑同名被误判）
+            tracks = album_tracks(raw_song) if "专辑" in raw_song else []
+            if tracks:
+                parts_info = {"kind": "album", "album": re.sub(r"^专辑", "", raw_song),
+                              "tracks": [], "with_acoustic": 0}
+                best = None
+                for t in tracks:
+                    aa = acoustic_for(t)
+                    parts_info["tracks"].append({"song": t, "acoustic": aa})
+                    if aa:
+                        parts_info["with_acoustic"] += 1
+                        if best is None or aa["low_hz"] < best["low_hz"]:
+                            best = aa
+                r = {"canonical": raw_song, "source": "album", "kind": "album",
+                     "matched": "整张专辑", "norm": r.get("norm")}
+                a = best
         if not a and r.get("source") == "none":
             # 「A+B」合写：拆开逐个解析，取能对上声学实测的那个
             from song_resolver import split_titles  # noqa: E402
@@ -72,6 +107,7 @@ def build() -> dict:
             "rights": o.get("rights") or "待确认（本站未转载全文）",
             "resolved": {"canonical": r.get("canonical"), "source": r.get("source"),
                          "kind": r.get("kind"), "matched": r.get("matched", "精确")},
+            "parts": parts_info,
             "acoustic": a,
         })
     return {

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 14:46",
+ "generated_at": "2026-09-11 15:07",
  "note": "歌迷赏析（民间评论）索引。全文为作者著作权内容，本站不转载；发表与授权状态待作者确认。曲名解析复用仓库既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库」三级查找；「声学互证」列为本站同一曲目的实测最低稳定音（不含触达音读数）。",
  "source": "歌迷投稿（撰写于 2024-07；整理入档，全文本地留存，未进公开仓库）",
  "rights": {
@@ -10,13 +10,14 @@
  },
  "counts": {
   "total": 23,
-  "with_acoustic": 13,
+  "with_acoustic": 17,
   "total_chars": 75286,
   "resolved_by": {
    "setlist": 10,
    "catalog": 6,
    "event": 4,
-   "none": 2,
+   "medley": 1,
+   "album": 1,
    "songinfo": 1
   }
  },
@@ -36,6 +37,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "花儿为什么这样红",
     "layer": "tour_live",
@@ -59,6 +61,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "云一定知道",
     "layer": "studio_album",
@@ -82,6 +85,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": null
   },
   {
@@ -99,6 +103,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "向着太阳（官方320k）",
     "layer": "precision",
@@ -122,11 +127,12 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
-    "song": "望阙台 (Live)",
-    "layer": "studio_album",
+    "song": "望阙台",
+    "layer": "stage_other",
     "low_note": "G2",
-    "low_hz": 97.9,
+    "low_hz": 97.7,
     "versions": 1
    }
   },
@@ -141,9 +147,31 @@
    "rights": "待确认（本站未转载全文）",
    "resolved": {
     "canonical": "“慢系列”",
-    "source": "none",
-    "kind": "series",
-    "matched": "精确"
+    "source": "medley",
+    "kind": "song",
+    "matched": "组曲展开"
+   },
+   "parts": {
+    "kind": "medley",
+    "parts": [
+     {
+      "song": "时光漫旅",
+      "acoustic": null
+     },
+     {
+      "song": "慢慢地",
+      "acoustic": null
+     },
+     {
+      "song": "从前慢",
+      "acoustic": null
+     },
+     {
+      "song": "慢慢喜欢你",
+      "acoustic": null
+     }
+    ],
+    "with_acoustic": 0
    },
    "acoustic": null
   },
@@ -162,11 +190,12 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "歌颂",
     "layer": "studio_album",
     "low_note": "F2",
-    "low_hz": 85.3,
+    "low_hz": 85.2,
     "versions": 1
    }
   },
@@ -185,6 +214,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "茕茕",
     "layer": "studio_album",
@@ -208,6 +238,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": null
   },
   {
@@ -225,11 +256,12 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "盲",
-    "layer": "studio_album",
-    "low_note": "A2",
-    "low_hz": 109.5,
+    "layer": "stage_other",
+    "low_note": "C3",
+    "low_hz": 133.6,
     "versions": 1
    }
   },
@@ -248,6 +280,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": null
   },
   {
@@ -265,6 +298,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": null
   },
   {
@@ -282,7 +316,14 @@
     "kind": "song",
     "matched": "精确"
    },
-   "acoustic": null
+   "parts": null,
+   "acoustic": {
+    "song": "一声阿爸",
+    "layer": "single",
+    "low_note": "F#2",
+    "low_hz": 93.4,
+    "versions": 1
+   }
   },
   {
    "no": 14,
@@ -299,6 +340,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "哑光",
     "layer": "studio_album",
@@ -318,11 +360,124 @@
    "rights": "待确认（本站未转载全文）",
    "resolved": {
     "canonical": "专辑B面图景",
-    "source": "none",
+    "source": "album",
     "kind": "album",
-    "matched": "精确"
+    "matched": "整张专辑"
    },
-   "acoustic": null
+   "parts": {
+    "kind": "album",
+    "album": "B面图景",
+    "tracks": [
+     {
+      "song": "游离",
+      "acoustic": {
+       "song": "游离",
+       "layer": "studio_album",
+       "low_note": "F#2",
+       "low_hz": 91.7,
+       "versions": 1
+      }
+     },
+     {
+      "song": "哑光",
+      "acoustic": {
+       "song": "哑光",
+       "layer": "studio_album",
+       "low_note": "E2",
+       "low_hz": 81.9,
+       "versions": 1
+      }
+     },
+     {
+      "song": "知晓",
+      "acoustic": {
+       "song": "知晓",
+       "layer": "studio_album",
+       "low_note": "B1",
+       "low_hz": 61.9,
+       "versions": 1
+      }
+     },
+     {
+      "song": "时空",
+      "acoustic": {
+       "song": "时空",
+       "layer": "studio_album",
+       "low_note": "F#2",
+       "low_hz": 91.2,
+       "versions": 1
+      }
+     },
+     {
+      "song": "惑许",
+      "acoustic": {
+       "song": "惑许",
+       "layer": "studio_album",
+       "low_note": "F#2",
+       "low_hz": 91.0,
+       "versions": 2
+      }
+     },
+     {
+      "song": "轻信",
+      "acoustic": {
+       "song": "轻信",
+       "layer": "studio_album",
+       "low_note": "A2",
+       "low_hz": 112.7,
+       "versions": 1
+      }
+     },
+     {
+      "song": "倒叙",
+      "acoustic": {
+       "song": "倒叙",
+       "layer": "studio_album",
+       "low_note": "D2",
+       "low_hz": 73.4,
+       "versions": 1
+      }
+     },
+     {
+      "song": "分岔",
+      "acoustic": {
+       "song": "分岔",
+       "layer": "studio_album",
+       "low_note": "F2",
+       "low_hz": 86.2,
+       "versions": 1
+      }
+     },
+     {
+      "song": "悬念",
+      "acoustic": {
+       "song": "悬念",
+       "layer": "studio_album",
+       "low_note": "E2",
+       "low_hz": 82.7,
+       "versions": 1
+      }
+     },
+     {
+      "song": "玩笑",
+      "acoustic": {
+       "song": "玩笑",
+       "layer": "studio_album",
+       "low_note": "F#2",
+       "low_hz": 90.9,
+       "versions": 1
+      }
+     }
+    ],
+    "with_acoustic": 10
+   },
+   "acoustic": {
+    "song": "知晓",
+    "layer": "studio_album",
+    "low_note": "B1",
+    "low_hz": 61.9,
+    "versions": 1
+   }
   },
   {
    "no": 16,
@@ -339,11 +494,12 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "如愿",
-    "layer": "studio_album",
+    "layer": "stage_other",
     "low_note": "C#2",
-    "low_hz": 69.4,
+    "low_hz": 69.3,
     "versions": 1
    }
   },
@@ -362,7 +518,14 @@
     "kind": "song",
     "matched": "精确"
    },
-   "acoustic": null
+   "parts": null,
+   "acoustic": {
+    "song": "三十三",
+    "layer": "single",
+    "low_note": "D2",
+    "low_hz": 73.3,
+    "versions": 1
+   }
   },
   {
    "no": 18,
@@ -379,6 +542,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": null
   },
   {
@@ -396,6 +560,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "不需要结果",
     "layer": "studio_album",
@@ -419,6 +584,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "是你",
     "layer": "studio_album",
@@ -442,12 +608,13 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "渡荆门送别",
     "layer": "precision",
     "low_note": "C#2",
     "low_hz": 69.7,
-    "versions": 1
+    "versions": 2
    }
   },
   {
@@ -465,7 +632,14 @@
     "kind": "song",
     "matched": "精确"
    },
-   "acoustic": null
+   "parts": null,
+   "acoustic": {
+    "song": "夜",
+    "layer": "single",
+    "low_note": "C#2",
+    "low_hz": 69.1,
+    "versions": 1
+   }
   },
   {
    "no": 23,
@@ -482,6 +656,7 @@
     "kind": "song",
     "matched": "精确"
    },
+   "parts": null,
    "acoustic": {
     "song": "朝凤",
     "layer": "studio_album",

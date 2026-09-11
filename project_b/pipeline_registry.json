@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 14:37",
+ "generated_at": "2026-09-11 15:03",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 127,
-  "dispatch": 126,
+  "menu_items": 129,
+  "dispatch": 128,
   "deploy_steps": 45,
   "scheduled_tasks": 7
  },
@@ -486,14 +486,6 @@
    "menu_label": "dl_albums",
    "in_deploy": false,
    "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\批量下载专辑.py"
-  },
-  {
-   "script": "批量专辑音域.py",
-   "menu": 70,
-   "title": "专辑音域实测（分离+F0+多维指标，约12分钟）",
-   "menu_label": "analyze_albums",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\批量专辑音域.py"
   },
   {
    "script": "生成专辑音域报告.py",
@@ -990,6 +982,22 @@
    "path": "D:\\wx409.github.io\\tools\\fan_essays_convert.py"
   },
   {
+   "script": "批量专辑音域.py",
+   "menu": 128,
+   "title": "录音室层重测（人工确认：全新分离重跑 72 曲 + 出报告；默认不自动跑）",
+   "menu_label": "album_remeasure",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\批量专辑音域.py"
+  },
+  {
+   "script": "netease_extra_songs.py",
+   "menu": 129,
+   "title": "网易云独有曲目取源 + 实测（网易云有、QQ 无的曲目）",
+   "menu_label": "netease_extra",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1020,7 +1028,7 @@
   {
    "script": "auto_new_song_vocal.py",
    "in_deploy": true,
-   "deploy_desc": "新歌入声学记录（发现→待测→下载→实测，无新歌秒退）",
+   "deploy_desc": "新歌入声学记录·只检测不改数据（--check；实测需人工确认后手动跑）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\auto_new_song_vocal.py"
   },

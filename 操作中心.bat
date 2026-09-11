@@ -172,6 +172,8 @@ echo    124. raw_archive 保留策略（默认试算；--apply 才删）
 echo    125. 声学长表与复核台账（vocal_measurements + verify_ledger 构建/校验/查询）
 echo    126. 补搜巡演曲目池（按巡次缺口扩池，让五巡等覆盖慢慢补全）
 echo    127. 歌迷赏析入站（本地转Markdown + 索引 + 学术研究页第七节）
+echo    128. 录音室层重测（人工确认：全新分离重跑 72 曲 + 出报告；默认不自动跑）
+echo    129. 网易云独有曲目取源 + 实测（网易云有、QQ 无的曲目）
 echo    0. 退出
 echo.
 set "op="
@@ -304,6 +306,8 @@ if "%op%"=="124" goto prune_raw
 if "%op%"=="125" goto vocal_table
 if "%op%"=="126" goto tour_pool
 if "%op%"=="127" goto fan_essays
+if "%op%"=="128" goto album_remeasure
+if "%op%"=="129" goto netease_extra
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1804,5 +1808,28 @@ python -X utf8 tools\fan_essays_convert.py
 python -X utf8 project_b\build_fan_essays.py
 python -X utf8 project_b\build_academic.py
 echo  [OK] data\fan_essays.json + academic.html；全文未进仓库、未转载
+pause
+goto menu
+
+:album_remeasure
+cls
+echo  [录音室层重测] 人工确认后执行：全新分离重跑 8 专辑 72 曲，再出报告与站点数据
+echo  [注意] 事故提醒（2026-09-11）：录音室层曾被 v22 实验目录的分析结果污染（知晓 B1 61.9 变成 C2 65.8）
+echo         所以本项不接入每日自动链路；重测后必须比对基线并跑 audit_caliber（分享图指纹）
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 批量专辑音域.py --force
+python -X utf8 生成专辑音域报告.py
+echo  [OK] 站点 data\archive_vocal_albums.json 已更新
+echo  下一步：跑 音域分析\生成声学身份证.py 重画分享图与指纹，再跑站点 project_b\audit_caliber.py
+pause
+goto menu
+
+:netease_extra
+cls
+echo  [网易云独有曲目] 网易云有音源、QQ 无（或未测）的曲目，取源后实测
+echo  依据：data\netease_catalog.json（王晰条目）与 专辑音域汇总（已测比对）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\netease_extra_songs.py --list
+echo  取源实测：python -X utf8 project_b\netease_extra_songs.py --limit 5 --measure
 pause
 goto menu

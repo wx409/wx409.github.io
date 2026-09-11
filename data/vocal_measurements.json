@@ -1,23 +1,25 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 14:46",
+ "generated_at": "2026-09-11 15:07",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
+  "single": "网易云独有单曲/OST",
   "precision": "十曲精测（含现场个案）",
   "stage_other": "他人主导舞台（综艺/晚会/商演/饭拍）",
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 146,
+  "total": 149,
   "by_layer": {
    "studio_album": 72,
    "precision": 19,
    "tour_live": 23,
-   "stage_other": 32
+   "stage_other": 32,
+   "single": 3
   },
   "by_verify": {
-   "未复核": 110,
+   "未复核": 113,
    "双引擎一致": 12,
    "待复核（短读<0.12s，未过 CREPE）": 9,
    "已测": 3,
@@ -26,7 +28,7 @@
    "已核验": 1,
    "参考": 2
   },
-  "songs": 112
+  "songs": 109
  },
  "rows": [
   {
@@ -2497,7 +2499,7 @@
   },
   {
    "id": "stage_other|BV1wV411e7xK",
-   "song": "【1080P】【开口跪神级Live现场】尚雯婕 ",
+   "song": "云与海",
    "version": "【1080P】【开口跪神级Live现场】尚雯婕 王晰《云与海》",
    "layer": "stage_other",
    "source_ref": "BV1wV411e7xK",
@@ -2523,7 +2525,7 @@
   },
   {
    "id": "stage_other|《如愿》王晰 檀健次 马佳",
-   "song": "《如愿》王晰 檀健次 马佳",
+   "song": "如愿",
    "version": "《如愿》王晰 檀健次 马佳",
    "layer": "stage_other",
    "source_ref": "《如愿》王晰 檀健次 马佳",
@@ -2549,7 +2551,7 @@
   },
   {
    "id": "stage_other|BV1no4y1K7dP",
-   "song": "经典咏流传《渡荆门送别》歌曲及访谈",
+   "song": "渡荆门送别",
    "version": "经典咏流传《渡荆门送别》歌曲及访谈",
    "layer": "stage_other",
    "source_ref": "BV1no4y1K7dP",
@@ -2575,7 +2577,7 @@
   },
   {
    "id": "stage_other|BV1zmRHBwExo",
-   "song": "王晰汪小敏《偏执》",
+   "song": "偏执",
    "version": "王晰汪小敏《偏执》",
    "layer": "stage_other",
    "source_ref": "BV1zmRHBwExo",
@@ -2627,7 +2629,7 @@
   },
   {
    "id": "stage_other|BV15a4y1i7ym",
-   "song": "【综艺大观园】王晰演唱《谁》《一生守候》",
+   "song": "谁",
    "version": "【综艺大观园】王晰演唱《谁》《一生守候》",
    "layer": "stage_other",
    "source_ref": "BV15a4y1i7ym",
@@ -2653,7 +2655,7 @@
   },
   {
    "id": "stage_other|BV1dM4m197tc",
-   "song": "《凄美地》我晰哥就是魅力一百分！",
+   "song": "凄美地",
    "version": "《凄美地》我晰哥就是魅力一百分！",
    "layer": "stage_other",
    "source_ref": "BV1dM4m197tc",
@@ -2705,7 +2707,7 @@
   },
   {
    "id": "stage_other|BV1HD421N7iP",
-   "song": "歌曲《稳稳的幸福》 演唱：王晰",
+   "song": "稳稳的幸福",
    "version": "歌曲《稳稳的幸福》 演唱：王晰",
    "layer": "stage_other",
    "source_ref": "BV1HD421N7iP",
@@ -2731,7 +2733,7 @@
   },
   {
    "id": "stage_other|BV1eWLczSEX1",
-   "song": "全场第一！这个男人唱起情歌还是如此无敌 _ 王晰",
+   "song": "牵手",
    "version": "全场第一！这个男人唱起情歌还是如此无敌 _ 王晰《牵手》_ 中国情歌大会",
    "layer": "stage_other",
    "source_ref": "BV1eWLczSEX1",
@@ -2757,7 +2759,7 @@
   },
   {
    "id": "stage_other|BV1iV411a7Jt",
-   "song": "怀旧经典《再见我的爱人》，王晰嗓音颇有邓丽君的魅",
+   "song": "再见我的爱人",
    "version": "怀旧经典《再见我的爱人》，王晰嗓音颇有邓丽君的魅力，全场震惊",
    "layer": "stage_other",
    "source_ref": "BV1iV411a7Jt",
@@ -2783,7 +2785,7 @@
   },
   {
    "id": "stage_other|BV1B7411f71j",
-   "song": "经典咏流传 《滚滚长江东逝水》杨洪基 王晰108",
+   "song": "滚滚长江东逝水",
    "version": "经典咏流传 《滚滚长江东逝水》杨洪基 王晰1080P超清重制版",
    "layer": "stage_other",
    "source_ref": "BV1B7411f71j",
@@ -2809,7 +2811,7 @@
   },
   {
    "id": "stage_other|BV1hbjc6cEpe",
-   "song": "王晰《亲密爱人》I Am a Singer 20",
+   "song": "亲密爱人",
    "version": "王晰《亲密爱人》I Am a Singer 2016",
    "layer": "stage_other",
    "source_ref": "BV1hbjc6cEpe",
@@ -2835,7 +2837,7 @@
   },
   {
    "id": "stage_other|BV1Rt411A7p7",
-   "song": "〖王晰 重来〗王晰迷人低音演唱《重来》好听至极，",
+   "song": "重来",
    "version": "〖王晰 重来〗王晰迷人低音演唱《重来》好听至极，唱到心坎里去了！",
    "layer": "stage_other",
    "source_ref": "BV1Rt411A7p7",
@@ -2887,7 +2889,7 @@
   },
   {
    "id": "stage_other|BV15N411o7NQ",
-   "song": "王晰唱响戚继光的《望阙台》，领悟抗倭名将的赤胆忠",
+   "song": "望阙台",
    "version": "王晰唱响戚继光的《望阙台》，领悟抗倭名将的赤胆忠心！【经典咏流传第四季】",
    "layer": "stage_other",
    "source_ref": "BV15N411o7NQ",
@@ -2913,7 +2915,7 @@
   },
   {
    "id": "stage_other|BV1id4y1i7nc",
-   "song": "经典咏流传《节气歌》王晰 朱德恩 1080P超清",
+   "song": "节气歌",
    "version": "经典咏流传《节气歌》王晰 朱德恩 1080P超清重制版",
    "layer": "stage_other",
    "source_ref": "BV1id4y1i7nc",
@@ -2991,7 +2993,7 @@
   },
   {
    "id": "stage_other|BV15SPHe9ErH",
-   "song": "满江和王晰双人合唱演绎《逆光》，二人在坚持不懈地",
+   "song": "逆光",
    "version": "满江和王晰双人合唱演绎《逆光》，二人在坚持不懈地磨合之下，最终呈现效果令人惊艳！",
    "layer": "stage_other",
    "source_ref": "BV15SPHe9ErH",
@@ -3017,7 +3019,7 @@
   },
   {
    "id": "stage_other|BV1PC4y1q7Up",
-   "song": "2024BRTV踏上新征程跨年之夜！王晰 王弦演",
+   "song": "美丽的草原我的家",
    "version": "2024BRTV踏上新征程跨年之夜！王晰 王弦演唱《美丽的草原我的家》 ！",
    "layer": "stage_other",
    "source_ref": "BV1PC4y1q7Up",
@@ -3069,7 +3071,7 @@
   },
   {
    "id": "stage_other|BV1LP4y1k7zv",
-   "song": "舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
+   "song": "雾里",
    "version": "舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
    "layer": "stage_other",
    "source_ref": "BV1LP4y1k7zv",
@@ -3095,7 +3097,7 @@
   },
   {
    "id": "stage_other|BV1jJ411b7zj",
-   "song": "王晰跨年晚会《新不了情》",
+   "song": "新不了情",
    "version": "王晰跨年晚会《新不了情》",
    "layer": "stage_other",
    "source_ref": "BV1jJ411b7zj",
@@ -3121,7 +3123,7 @@
   },
   {
    "id": "stage_other|BV1XJ411b7yd",
-   "song": "【4K字幕】【王晰】《新不了情》2020.01.",
+   "song": "新不了情",
    "version": "【4K字幕】【王晰】《新不了情》2020.01.01跨年晚会",
    "layer": "stage_other",
    "source_ref": "BV1XJ411b7yd",
@@ -3147,7 +3149,7 @@
   },
   {
    "id": "stage_other|BV1tV411p7Ny",
-   "song": "【王晰】乐华十二周年演唱会 《晚风》正面视角想要",
+   "song": "晚风",
    "version": "【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
    "layer": "stage_other",
    "source_ref": "BV1tV411p7Ny",
@@ -3173,7 +3175,7 @@
   },
   {
    "id": "stage_other|BV1Qg4y1H7XH",
-   "song": "FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
+   "song": "晚风",
    "version": "FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
    "layer": "stage_other",
    "source_ref": "BV1Qg4y1H7XH",
@@ -3225,7 +3227,7 @@
   },
   {
    "id": "stage_other|BV1E84y1c79M",
-   "song": "【王晰•0504苏州】山河令温客行人物曲《盲》",
+   "song": "盲",
    "version": "【王晰•0504苏州】山河令温客行人物曲《盲》",
    "layer": "stage_other",
    "source_ref": "BV1E84y1c79M",
@@ -4037,6 +4039,87 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 289
+   }
+  },
+  {
+   "id": "single|一声阿爸",
+   "song": "一声阿爸",
+   "version": "网易云独有·录音室",
+   "layer": "single",
+   "source_ref": "netease:一声阿爸",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 93.4,
+    "high_note": "E4",
+    "high_hz": 328.3,
+    "span_octaves": 1.81,
+    "stability_cents": 5.1,
+    "intonation_cents": 4.7,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 76.0,
+    "density_per_s": 1.68,
+    "hnr_db": 7.9
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（网易云取源）",
+    "legacy": "网易云独有/音频_汇总.json"
+   }
+  },
+  {
+   "id": "single|三十三",
+   "song": "三十三",
+   "version": "网易云独有·录音室",
+   "layer": "single",
+   "source_ref": "netease:三十三",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.3,
+    "high_note": "G4",
+    "high_hz": 396.4,
+    "span_octaves": 2.43,
+    "stability_cents": 6.3,
+    "intonation_cents": 6.4,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.53,
+    "hnr_db": 3.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（网易云取源）",
+    "legacy": "网易云独有/音频_汇总.json"
+   }
+  },
+  {
+   "id": "single|夜",
+   "song": "夜",
+   "version": "网易云独有·录音室",
+   "layer": "single",
+   "source_ref": "netease:夜",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.1,
+    "high_note": "C#5",
+    "high_hz": 556.4,
+    "span_octaves": 3.01,
+    "stability_cents": 7.3,
+    "intonation_cents": 6.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 72.0,
+    "density_per_s": 1.76,
+    "hnr_db": 8.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（网易云取源）",
+    "legacy": "网易云独有/音频_汇总.json"
    }
   }
  ]

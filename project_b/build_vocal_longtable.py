@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -38,6 +39,7 @@ OUT_LEDGER = DATA / "verify_ledger.json"
 
 LAYERS = {
     "studio_album": "录音室专辑（QQ音乐 320k）",
+    "single": "网易云独有单曲/OST",
     "precision": "十曲精测（含现场个案）",
     "stage_other": "他人主导舞台（综艺/晚会/商演/饭拍）",
     "tour_live": "王晰主导巡演现场",
@@ -181,10 +183,14 @@ def _lcs(a: str, b: str) -> int:
 def rows_from_stage() -> list[dict]:
     out = []
     for it in (load(DATA / "archive_stage.json").get("items") or []):
+        # 舞台素材只有 B站标题：优先取《…》里的曲名，取不到再退化为截断标题
+        title = str(it.get("title") or "")
+        mt = re.search(r"《([^》]{1,24})》", title)
+        song = (mt.group(1) if mt else (it.get("song") or title[:24])).strip()
         out.append({
             "id": f"stage_other|{it.get('bvid')}",
-            "song": it.get("song") or (it.get("title") or "")[:24],
-            "version": str(it.get("title") or "")[:40], "layer": "stage_other",
+            "song": song,
+            "version": title[:40], "layer": "stage_other",
             "source_ref": it.get("bvid"), "category": it.get("cat"),
             "metrics": m(low_note=it.get("low"), low_hz=it.get("low_hz"), high_note=it.get("high"),
                          high_hz=it.get("high_hz"), span_octaves=it.get("span"),
@@ -246,8 +252,41 @@ def ledger_entries() -> list[dict]:
     return out
 
 
+def rows_from_singles() -> list[dict]:
+    """网易云独有曲目（单曲/OST）实测 → single 层。
+    数据源：音域分析\\网易云独有\\音频_汇总.json（由 project_b/netease_extra_songs.py 取源实测产出）。"""
+    p = ANA / "网易云独有" / "音频_汇总.json"
+    if not p.exists():
+        return []
+    data = load(p, {}) or {}
+    out = []
+    for s in data.get("songs") or []:
+        low = s.get("low_stable") or {}
+        high = s.get("high_stable") or {}
+        if not low.get("hz"):
+            continue
+        out.append({
+            "id": f"single|{s.get('title')}",
+            "song": s.get("title"), "version": "网易云独有·录音室", "layer": "single",
+            "source_ref": f"netease:{s.get('title')}",
+            "metrics": m(low_note=low.get("note"), low_hz=low.get("hz"),
+                         high_note=high.get("note"), high_hz=high.get("hz"),
+                         span_octaves=s.get("span_octaves"),
+                         stability_cents=s.get("stability_cents_median"),
+                         intonation_cents=s.get("intonation_cents_median"),
+                         vibrato_hz=s.get("vibrato_rate_hz_median"),
+                         vibrato_cents=s.get("vibrato_extent_cents_median"),
+                         density_per_s=s.get("note_density_per_s"),
+                         hnr_db=s.get("hnr_db_median")),
+            "verify": {"state": "未复核"},
+            "provenance": {"measured_by": "批量专辑音域（网易云取源）", "legacy": "网易云独有/音频_汇总.json"},
+        })
+    return out
+
+
 def build() -> dict:
-    rows = rows_from_albums() + rows_from_precision() + rows_from_stage() + rows_from_tour()
+    rows = (rows_from_albums() + rows_from_precision() + rows_from_stage()
+            + rows_from_tour() + rows_from_singles())
     ledger = ledger_entries()
     by_layer, by_verify = {}, {}
     for r in rows:

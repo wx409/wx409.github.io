@@ -41,6 +41,33 @@ ALIAS = {**{k: v for k, v in _TOOLS_ALIAS.items()}, **{
     "soundofsilence": "Sound of Silence",
 }}
 
+# 组曲/串烧（歌迷文章按组曲整体评述）→ 组成曲目。人工核验（2026-09-11 用户确认）：
+#   二巡钢琴组曲「慢系列」= 时光漫旅 + 慢慢地 + 从前慢 + 慢慢喜欢你
+MEDLEY = {
+    "慢系列": ["时光漫旅", "慢慢地", "从前慢", "慢慢喜欢你"],
+}
+
+
+def medley_parts(name: str) -> list[str]:
+    key = re.sub(r"[\"'“”\s]", "", str(name or ""))
+    for k, v in MEDLEY.items():
+        if k in key:
+            return list(v)
+    return []
+
+
+def album_tracks(album_name: str) -> list[str]:
+    """从 data/albums.json 取某专辑的曲目（模糊匹配专辑名）。"""
+    key = re.sub(r"^专辑|[\"'“”\s《》]", "", str(album_name or ""))
+    try:
+        for a in (json.loads((DATA / "albums.json").read_text(encoding="utf-8")).get("albums") or []):
+            nm = str(a.get("name") or "")
+            if nm and (nm == key or nm in key or key in nm):
+                return [str(s.get("title")) for s in (a.get("songs") or []) if s.get("title")]
+    except Exception:
+        pass
+    return []
+
 
 def norm(name: str) -> str:
     """NFKC + 去空白 + 去书名号（与 build_entity_index.norm 同规则）。"""
