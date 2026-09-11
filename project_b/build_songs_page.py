@@ -48,13 +48,52 @@ def build_page(meta: dict) -> str:
             pass
 
     # 歌迷赏析摘录（每曲「赏析」入口；全文仅本地留存）
+    # 匹配规则（前后端一致）：去《》「」与空白、小写 → 精确；再去掉冠词 the → 精确；
+    # 「A+B」型拆成两部分分别挂载。命中不了的（曲库未收录）单列成块，保证一条不丢。
+    import re as _re
     essay_path = ROOT / "data" / "essay_quotes.json"
-    n_essay = 0
+    essay_items, essay_unmatched = [], []
     if essay_path.exists():
         try:
-            n_essay = len(json.loads(essay_path.read_text(encoding="utf-8")).get("items") or [])
+            essay_items = json.loads(essay_path.read_text(encoding="utf-8")).get("items") or []
         except Exception:
-            n_essay = 0
+            essay_items = []
+
+    def _en(s) -> str:
+        return _re.sub(r"\s+", "", _re.sub(r"[《》「」]", "", str(s or ""))).lower()
+
+    _names = set()
+    for v in songs.values():
+        if v.get("name"):
+            _names.add(_en(v["name"]))
+            _names.add(_re.sub(r"^the", "", _en(v["name"])))
+    for it in essay_items:
+        parts = [p for p in _re.split(r"[+＋]", str(it.get("song") or "")) if p.strip()]
+        cands = [_en(it["song"])] + [_en(p) for p in parts]
+        ok = any(c in _names or _re.sub(r"^the", "", c) in _names for c in cands)
+        if not ok:
+            essay_unmatched.append(it)
+    _keys = set()
+    for it in essay_items:
+        for _k in [_en(it.get("song"))] + [_en(x) for x in _re.split(r"[+＋]", str(it.get("song") or ""))]:
+            if _k:
+                _keys.add(_k)
+                _keys.add(_re.sub(r"^the", "", _k))
+    n_essay = sum(1 for v in songs.values()
+                  if v.get("name") and (_en(v["name"]) in _keys
+                                        or _re.sub(r"^the", "", _en(v["name"])) in _keys))
+
+    _rows = []
+    for it in essay_unmatched:
+        _pub = f' · {it["published"]}' if it.get("published") else ""
+        _rows.append(
+            f'<li>《{it["song"]}》—— «{it["quote"]}»<br>'
+            f'<span class="song-essay-src">摘自《{it["source_title"]}》，{it["author"]}{_pub}；全文仅本地留存</span></li>')
+    essay_extra_html = (
+        '<details class="song-essay" style="margin-top:16px;"><summary>📖 曲库未收录曲目的赏析摘录（'
+        + str(len(essay_unmatched)) + ' 条）</summary><ul style="line-height:1.8;">' + "".join(_rows)
+        + '</ul></details>') if essay_unmatched else ''
+
 
     ld = {
         "@context": "https://schema.org",
@@ -161,6 +200,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 </div>
 <div id="playerStatus"></div>
 <div class="song-list" id="songList"></div>
+{essay_extra_html}
 </div>
 </div>
 <p class="footnote">🎧 试听为多平台聚合：先试 QQ音乐（vkey 直链），失败自动切网易云音乐（搜索+直链）——哪个能听用哪个，不写死。VIP 锁曲需本地代理或登录。试听均为公开直链（不下载不托管）。生成时间 {meta["generated_at"]}。</p>
@@ -175,6 +215,13 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
   var ESSAY = {{}};
   function esc(s) {{ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }}
   function norm(s) {{ return String(s == null ? '' : s).replace(/[《》「」]/g,'').replace(/\\s+/g,'').toLowerCase(); }}
+  function regEssay(key, it) {{
+    var k = norm(key);
+    if (!k) return;
+    ESSAY[k] = it;
+    ESSAY[k.replace(/^the/, '')] = it;   // 冠词差异（The sound of silence ↔ Sound of Silence）
+  }}
+  function essayFor(name) {{ return ESSAY[norm(name)] || ESSAY[norm(name).replace(/^the/, '')] || null; }}
   if (window.PlayerEmbed && window.PlayerEmbed.setStatusFn) {{
     window.PlayerEmbed.setStatusFn(function (kind, title) {{
       if (!statusEl) return;
@@ -223,7 +270,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     var meta = [s.attr, s.release !== '-' ? s.release : ''].filter(Boolean).join(' · ');
     /* 歌迷赏析入口（摘录 + 出处；全文仅本地留存，不上站） */
     var essay = '';
-    var eq = ESSAY[norm(s.name)];
+    var eq = essayFor(s.name);
     if (eq) {{
       essay = '<details class="song-essay"><summary>📖 赏析摘录（' + esc(eq.author) + '，全文 ' + eq.chars + ' 字）</summary>' +
         '<blockquote>' + esc(eq.quote) + '</blockquote>' +
@@ -241,7 +288,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
   function eva_norm(t) {{ return (t || '').replace(/[\\s\\W_]+/g, '').toLowerCase(); }}
   function applyFilter(list) {{
     if (filter === 'playable') return list.filter(function (s) {{ return !!s.mid; }});
-    if (filter === 'essay') return list.filter(function (s) {{ return !!ESSAY[norm(s.name)]; }});
+    if (filter === 'essay') return list.filter(function (s) {{ return !!essayFor(s.name); }});
     if (filter === 'lyric') return list.filter(function (s) {{ return (s.lyric_tags && s.lyric_tags.length) || (s.lyric_frags && s.lyric_frags.length); }});
     if (filter === 'tavern') return list.filter(function (s) {{ return s.tavern; }});
     return list;
@@ -335,7 +382,11 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
     var t = res[1];
     var eq = res[2];
     if (eq && eq.items) {{
-      eq.items.forEach(function (it) {{ if (it.song) ESSAY[norm(it.song)] = it; }});
+      eq.items.forEach(function (it) {{
+        if (!it.song) return;
+        regEssay(it.song, it);
+        it.song.split(/[+＋]/).forEach(function (p) {{ regEssay(p, it); }});
+      }});
     }}
     songs = Object.values(j.songs || {{}});
     var byName = {{}};
