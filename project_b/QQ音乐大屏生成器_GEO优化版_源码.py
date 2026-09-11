@@ -1534,7 +1534,8 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=500, min_displ
 def compute_monthly(df_all, month=None):
     """当月（默认最新数据月）榜单：新上榜排行 + 指标排行（2026-09-01 新增 / 2026-09-08 口径修订）
     new_songs: 当月内逐日「昨日无指数/无记录、当日有指数」的歌曲，逐条列出（first_day=首次上榜日，
-               days=当月累计上榜天数, peak_index=当月最高指数）
+               days=当月「新上榜」事件次数（含回流段数）, chart_days=当月有指数天数（回流日也计入）,
+               peak_index=当月最高指数）
     top_index: 当月日均指数 Top15（current_index 均值，指数口径）
     top_listeners: 当月收听峰值 Top15（listeners_eve 口径：每日峰值取 18 点后批次收听，无则当日有收听的最大值）"""
     if df_all is None or df_all.empty:
@@ -1588,8 +1589,10 @@ def compute_monthly(df_all, month=None):
         if idx_col:
             mth_idx = has_df[has_df["d"].dt.strftime("%Y-%m") == m]
             pk_idx = mth_idx.groupby("uid")[idx_col].max()
+            day_cnt = mth_idx.groupby("uid")["d"].nunique()  # 当月真实有指数天数（含回流日）
         else:
             pk_idx = {}
+            day_cnt = {}
         new_songs = []
         for u, fd in sorted(first_day.items(), key=lambda kv: (kv[1], kv[0])):
             _pk = pk_idx.get(u, 0) or 0
@@ -1601,6 +1604,7 @@ def compute_monthly(df_all, month=None):
                 "song": str(uid2disp.get(u, u)),
                 "first_day": fd.strftime("%m-%d"),
                 "days": int(days_cnt[u]),
+                "chart_days": int(day_cnt.get(u, 0)),
                 "peak_index": _pki,
             })
         new_songs.sort(key=lambda x: (x["first_day"], x["song"]))
@@ -3700,9 +3704,10 @@ setTimeout(function(){
       if (!rows || !rows.length) return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div><div style="color:#5a6b8c;font-size:11.5px;padding:6px 0">' + (emptyHint || '本月暂无数据') + '</div></div>';
       var items = rows.slice(0, cap || 12).map(function(x, i){
         var right = '';
-        if (x.peak_index !== undefined && x.peak_index !== null) right = '<span style="color:#e0b64f" title="首榜 ' + (x.first_day || '') + ' · 当月最高指数">峰值 ' + x.peak_index + '</span>';
-        else if (x.days) right = '<span style="color:#5bc2e7">' + x.days + '日</span>';
-        else right = '<span style="color:#e0b64f">' + valFmt(x) + '</span>';
+        if (x.chart_days !== undefined && x.chart_days !== null && x.chart_days > 0) right += '<span style="color:#5bc2e7;margin-right:6px" title="本月有指数天数（含回流日）">本月上榜 ' + x.chart_days + ' 日</span>';
+        if (x.peak_index !== undefined && x.peak_index !== null) right += '<span style="color:#e0b64f" title="首榜 ' + (x.first_day || '') + ' · 当月最高指数">峰值 ' + x.peak_index + '</span>';
+        else if (!right && x.days) right = '<span style="color:#5bc2e7">' + x.days + '日</span>';
+        else if (!right) right = '<span style="color:#e0b64f">' + valFmt(x) + '</span>';
         return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px">' +
           '<span style="color:#8c959f;width:22px">' + (i+1) + '</span>' +
           '<span style="color:#c8cce0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + x.song + ' 首榜' + (x.first_day || '') + '">' + x.song + '</span>' +
