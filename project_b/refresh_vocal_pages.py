@@ -36,9 +36,11 @@ BASE = Path(r"E:\wx\论文素材_王晰作传\基线口径")
 PY = sys.executable
 
 # (生产脚本, 说明, [输入 glob...], 输出 JSON)
+# ⚠ 2026-09-11 事故后纪律：录音室层（archive_vocal_albums.json）**不进自动重算**。
+#   原因：批量专辑音域.py 的默认 out_root 指向 v22 实验目录（分析结果_专辑），
+#   自动重跑会把实验值并入汇总（曾把《知晓》B1 61.9 变成 C2 65.8、B1 由 4 首变 3 首）。
+#   录音室层的重测必须人工确认后显式执行（操作中心 73 一键音域实测 / 71 专辑音域报告）。
 PRODUCERS: list[tuple[Path, str, list[str], Path]] = [
-    (ANA / "生成专辑音域报告.py", "72 曲专辑音域汇总",
-     [str(ANA / "专辑音域汇总.json")], DATA / "archive_vocal_albums.json"),
     (ANA / "生成他人主导报告.py", "他人主导舞台汇总",
      [str(ANA / "他人主导" / "音频_汇总.json"), str(ANA / "他人主导" / "清单.json")], DATA / "archive_stage.json"),
     (ANA / "对比情境分析.py", "专辑 vs 舞台情境对比",
@@ -51,6 +53,11 @@ PRODUCERS: list[tuple[Path, str, list[str], Path]] = [
     (BASE / "generate_vocal.py", "十曲精测音域谱",
      [str(ANA / "复核_十曲严格口径.json"), str(ANA / "轨迹" / "A3复核交付表.json")], DATA / "archive_vocal.json"),
 ]
+
+# 明确不自动重算的生产脚本（人工显式执行，见文件头事故说明）
+MANUAL_ONLY = {
+    "生成专辑音域报告.py": "录音室层（72 曲）——须人工确认后跑 操作中心 71/73，避免 v22 实验目录污染",
+}
 
 
 def newest_mtime(patterns: list[str]) -> float:
@@ -99,6 +106,10 @@ def main() -> int:
     print("音域三页数据同步器（输入变化驱动，幂等）")
     ran = skipped = failed = 0
     for script, desc, inputs, output in PRODUCERS:
+        if script.name in MANUAL_ONLY:
+            print(f"  [MAN ] {desc}：人工执行（{MANUAL_ONLY[script.name]}）")
+            skipped += 1
+            continue
         need, why = (True, "--force") if args.force else stale(inputs, output)
         if not need:
             print(f"  [--  ] {desc}：{why}")

@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 EVENTS_XLSX = Path(r"E:\wx\index_records\王晰演出活动.xlsx")
+SONG_INFO_XLSX = Path(r"E:\wx\index_records\王晰歌曲信息汇总.xlsx")   # OST&单曲 / 专辑 两表（含网易云独有曲目）
 
 # 复用既有别名表（tools/append_point_songs_to_longtable.py）
 try:
@@ -113,6 +114,26 @@ def catalog() -> dict[str, dict]:
         for v in items:
             if isinstance(v, dict):
                 put(v.get("name") or v.get("title"), "catalog")
+    except Exception:
+        pass
+    # L4 歌曲信息汇总.xlsx（OST&单曲 / 专辑 两个工作表；网易云独有音源的曲目在此）
+    try:
+        import pandas as pd
+        xl = pd.ExcelFile(SONG_INFO_XLSX)
+        for sh in xl.sheet_names:
+            df = pd.read_excel(SONG_INFO_XLSX, sheet_name=sh, header=0)
+            for col in ("歌名", "歌曲名称"):
+                if col in df.columns:
+                    for raw in df[col]:
+                        put(raw, "songinfo")
+    except Exception as e:
+        print(f"[WARN] 歌曲信息汇总.xlsx 读取失败（{type(e).__name__}）", file=sys.stderr)
+    # L5 网易云目录（王晰 solo 条目；网易云独有音源）
+    try:
+        nc = json.loads((DATA / "netease_catalog.json").read_text(encoding="utf-8")).get("songs") or {}
+        for k, v in (nc.items() if isinstance(nc, dict) else []):
+            if "王晰" in str(v.get("artists") or ""):
+                put(v.get("name") or k, "netease")
     except Exception:
         pass
     return _CACHE

@@ -61,7 +61,7 @@ STEPS = [
     (ROOT / "project_b" / "build_fan_essays.py", "歌迷赏析索引 data/fan_essays.json（仅元数据，不转载全文）", False),
     (ROOT / "project_b" / "build_academic.py", "学术研究页 academic.html（读 data/literature.json + fan_essays.json）", False),
     (ROOT / "project_b" / "verify_album_dates.py", "专辑发行日期 QQ 音乐核验（回写 release_date 精确日期）", False),
-    (ROOT / "project_b" / "auto_new_song_vocal.py", "新歌入声学记录（发现→待测→下载→实测，无新歌秒退）", False),
+    (ROOT / "project_b" / "auto_new_song_vocal.py", "新歌入声学记录·只检测不改数据（--check；实测需人工确认后手动跑）", False, ["--check"]),
     (ROOT / "project_b" / "refresh_vocal_pages.py", "音域三页数据同步（输入有变化才跑生产脚本，幂等）", False),
     (ROOT / "project_b" / "build_skill_card.py", "每日唱功卡片 data/skill_cards.json + 本地传记素材归档", False),
     (ROOT / "project_b" / "build_stage_page.py", "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）", False),
