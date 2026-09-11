@@ -210,6 +210,33 @@ def collect() -> list[dict]:
     except Exception as e:
         add("stage_measured_versions", "现场实测版本数", None, "实测台账不可读", str(e), "")
 
+    # 现场低音读数复核（2026-09-11 起：原始混音谐波列完整性 + 同场同刻多源一致）
+    try:
+        tour = _load("data/archive_stage_tour.json") or {}
+        ts = tour.get("summary") or {}
+        n_rev = ts.get("n_harmonic_reviewed")
+        n_wd = len(ts.get("withdrawn") or [])
+        lo = ts.get("lowest") or {}
+        if isinstance(n_rev, int):
+            add("stage_low_reviewed", "巡演现场低音读数·谐波列复核通过条数", n_rev,
+                "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
+                "data\\archive_stage_tour.json",
+                "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；"
+                "工具 音域分析\\轨迹\\低音复核_谐波列.py")
+        if n_wd:
+            add("stage_low_withdrawn", "巡演现场已撤销的低音读数条数", n_wd,
+                "经谐波列复核判定为次谐波/两音公共周期、已从能力主张中撤下的读数条数",
+                "data\\archive_stage_tour.json",
+                "撤销明细见 summary.withdrawn；证据 音域分析\\轨迹\\让她降落_B1复核_20260911.md")
+        if lo.get("hz"):
+            add("stage_lowest_hz", "巡演现场最低稳定音（现行）", lo.get("hz"),
+                "王晰主导巡演现场·过复核门槛的最低稳定音（Hz）",
+                "data\\archive_stage_tour.json",
+                f"出处：{lo.get('song')}｜{lo.get('city')} {lo.get('date')}｜复核 {lo.get('verify')}；"
+                "与 recording_studio_vocal_songs 不同范围，禁止混用")
+    except Exception as e:
+        add("stage_low_reviewed", "巡演现场低音读数·谐波列复核通过条数", None, "巡演层数据不可读", str(e), "")
+
     return [x for x in out if x["value"] is not None]
 
 

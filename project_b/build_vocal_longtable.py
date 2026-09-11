@@ -59,6 +59,45 @@ def load(p, default=None):
         return default if default is not None else {}
 
 
+_REVIEW = None
+
+
+def low_review() -> dict:
+    """低音读数终裁表（音域分析\\轨迹\\低音复核_判定_*.json，取最新一份）。
+
+    判据：原始混音谐波列完整性 + 同场同刻多源一致（工具 轨迹/低音复核_谐波列.py）。
+    两引擎对「缺基频」刺激会同向误锁，故 A3 表的「双引擎一致/已取证」不能单独作为定论。
+    """
+    global _REVIEW
+    if _REVIEW is None:
+        files = sorted((ANA / "轨迹").glob("低音复核_判定_*.json"))
+        _REVIEW = {}
+        if files:
+            for v in (load(files[-1]).get("verdicts") or []):
+                if v.get("tag"):
+                    _REVIEW[str(v["tag"])] = v
+    return _REVIEW
+
+
+def apply_review(entry: dict) -> dict:
+    rv = low_review().get(str(entry.get("key")))
+    if not rv:
+        return entry
+    verdict = str(rv.get("verdict") or "")
+    if verdict == "不成立":
+        entry["state"] = "复核撤销（谐波列）"
+        entry["how"] = (f'{rv.get("kind")}｜{rv.get("evidence")}')[:400]
+    elif verdict == "待核":
+        entry["state"] = "待复核"
+        entry["how"] = str(rv.get("kind"))[:400]
+    else:
+        entry["state"] = "谐波列复核通过"
+        entry["how"] = str(rv.get("kind"))[:400]
+    entry["review"] = {"verdict": verdict,
+                       "report": "音域分析\\轨迹\\让她降落_B1复核_20260911.md"}
+    return entry
+
+
 def norm_state(s: str) -> str:
     s = str(s or "").strip()
     for k, v in STATE_MAP:
@@ -249,7 +288,7 @@ def ledger_entries() -> list[dict]:
             "yin_hz": None, "crepe_hz": None, "state": norm_state(s.get("status")),
             "how": str(s.get("how") or "")[:120], "source": "album_verify_status",
         })
-    return out
+    return [apply_review(e) for e in out]
 
 
 def rows_from_singles() -> list[dict]:
