@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 18:08",
+ "generated_at": "2026-09-11 18:35",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 129,
-  "dispatch": 128,
+  "menu_items": 133,
+  "dispatch": 132,
   "deploy_steps": 46,
   "scheduled_tasks": 7
  },
@@ -998,6 +998,40 @@
    "path": "D:\\wx409.github.io\\project_b\\netease_extra_songs.py"
   },
   {
+   "script": "核_伴奏静音窗口扫描.py",
+   "menu": 130,
+   "title": "低音复核工具组（伴奏静音窗口扫描 + 人声轨低频扫描 + 混音终检）",
+   "menu_label": "low_recheck",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\核_伴奏静音窗口扫描.py"
+  },
+  {
+   "script": "低音带音高轨迹.py",
+   "menu": 131,
+   "title": "低音带轨迹（通用：--file/--t0/--t1/--lo/--hi，任意素材/窗口/频带）",
+   "menu_label": "low_band_traj",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\低音带音高轨迹.py"
+  },
+  {
+   "script": "inject_essay_quotes.py",
+   "in_deploy": true,
+   "deploy_desc": "歌迷赏析摘录注入（首页听众说 + 巡演页；数据 data/essay_quotes.json）",
+   "critical": false,
+   "menu": 132,
+   "title": "歌迷赏析摘录入站（首页听众说 + 歌曲库赏析入口 + 巡演页；数据 data/essay_quotes.json）",
+   "menu_label": "essay_quotes",
+   "path": "D:\\wx409.github.io\\project_b\\inject_essay_quotes.py"
+  },
+  {
+   "script": "社媒出图.py",
+   "menu": 133,
+   "title": "社媒出图（低音实测 6 张，含页脚署名，幂等）",
+   "menu_label": "social_figs",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\社媒出图.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1144,13 +1178,6 @@
    "deploy_desc": "声部·音域页 voice.html（读 data/archive_vocal.json）",
    "critical": false,
    "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_voice_page.py"
-  },
-  {
-   "script": "inject_essay_quotes.py",
-   "in_deploy": true,
-   "deploy_desc": "歌迷赏析摘录注入（首页听众说 + 巡演页；数据 data/essay_quotes.json）",
-   "critical": false,
-   "path": "D:\\wx409.github.io\\project_b\\inject_essay_quotes.py"
   },
   {
    "script": "inject_index_facts.py",

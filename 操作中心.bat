@@ -174,6 +174,10 @@ echo    126. 补搜巡演曲目池（按巡次缺口扩池，让五巡等覆盖慢慢补全）
 echo    127. 歌迷赏析入站（本地转Markdown + 索引 + 学术研究页第七节）
 echo    128. 录音室层重测（人工确认：全新分离重跑 72 曲 + 出报告；默认不自动跑）
 echo    129. 网易云独有曲目取源 + 实测（网易云有、QQ 无的曲目）
+echo    130. 低音复核工具组（伴奏静音窗口扫描 + 人声轨低频扫描 + 混音终检）
+echo    131. 低音带轨迹（通用：--file/--t0/--t1/--lo/--hi，任意素材/窗口/频带）
+echo    132. 歌迷赏析摘录入站（首页听众说 + 歌曲库赏析入口 + 巡演页；数据 data/essay_quotes.json）
+echo    133. 社媒出图（低音实测 6 张，含页脚署名，幂等）
 echo    0. 退出
 echo.
 set "op="
@@ -308,6 +312,10 @@ if "%op%"=="126" goto tour_pool
 if "%op%"=="127" goto fan_essays
 if "%op%"=="128" goto album_remeasure
 if "%op%"=="129" goto netease_extra
+if "%op%"=="130" goto low_recheck
+if "%op%"=="131" goto low_band_traj
+if "%op%"=="132" goto essay_quotes
+if "%op%"=="133" goto social_figs
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1831,5 +1839,55 @@ echo  依据：data\netease_catalog.json（王晰条目）与 专辑音域汇总（已测比对）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\netease_extra_songs.py --list
 echo  取源实测：python -X utf8 project_b\netease_extra_songs.py --limit 5 --measure
+pause
+goto menu
+
+:low_recheck
+cls
+echo  [低音复核工具组] 判据与陷阱见 轨迹\备忘_低音实测方法论_v2_20260911.md
+echo  说明：归属最稳的窗口＝「伴奏安静 + 55-70Hz 低音带仍在响」；结论只留结果，理由进备忘
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 核_伴奏静音窗口扫描.py
+python -X utf8 核_归属窗口细节.py
+python -X utf8 核_人声轨低频扫描.py
+python -X utf8 核_B1族混音终检.py
+echo  [OK] 产物：伴奏静音窗口扫描_日期.json / 人声轨低频扫描_日期.json / 听辨片段
+pause
+goto menu
+:low_band_traj
+cls
+echo  [低音带轨迹] 通用：把某素材的低音带单独拎出来，每秒量一次音高
+echo  用法：python -X utf8 低音带音高轨迹.py --file 音频路径 --t0 60 --t1 105 --lo 45 --hi 80
+echo  可选 --whole 全曲；输出与输入同目录的同名_低音带轨迹.json
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+set /p wav=请输入音频路径（wav/mp3，可直接拖入）: 
+if "%wav%"=="" goto menu
+set /p t0=起始秒（如 60）: 
+set /p t1=结束秒（如 105）: 
+python -X utf8 低音带音高轨迹.py --file "%wav%" --t0 %t0% --t1 %t1% --lo 45 --hi 80
+pause
+goto menu
+:essay_quotes
+cls
+echo  [歌迷赏析摘录入站] 全文只留本地；站点只放精选摘录 + 出处（作者授权引用）
+echo  数据源：data\essay_quotes.json（人工精选，含 quote/punch/on_index）
+echo  落点：首页「金句墙·听众说」+ 歌曲库每曲「赏析摘录」+ 巡演页「曲目赏析摘录」
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\inject_essay_quotes.py
+python -X utf8 project_b\build_songs_page.py
+python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\audit_jsonld.py
+python -X utf8 project_b\audit_nav.py
+echo  [OK] 三处已刷新（标记块幂等；重复执行安全）
+pause
+goto menu
+:social_figs
+cls
+echo  [社媒出图] 低音实测行动记录配套 6 张（含页脚署名，幂等）
+echo  输出：E:\wx\论文素材_王晰作传\社媒\图\
+echo  图1 低音尺 / 图2 谐波列真伪 / 图3 基频去哪了 / 图4 MV 低音带轨迹 / 图5-6 低频谱图
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 社媒出图.py
+echo  [OK] 稿件：E:\wx\论文素材_王晰作传\社媒\低音实测行动记录_20260911.md
 pause
 goto menu
