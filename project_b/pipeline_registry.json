@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 15:03",
+ "generated_at": "2026-09-11 18:08",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 129,
   "dispatch": 128,
-  "deploy_steps": 45,
+  "deploy_steps": 46,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -995,7 +995,7 @@
    "title": "网易云独有曲目取源 + 实测（网易云有、QQ 无的曲目）",
    "menu_label": "netease_extra",
    "in_deploy": false,
-   "path": ""
+   "path": "D:\\wx409.github.io\\project_b\\netease_extra_songs.py"
   },
   {
    "script": "_build_episodes.py",
@@ -1146,6 +1146,13 @@
    "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_voice_page.py"
   },
   {
+   "script": "inject_essay_quotes.py",
+   "in_deploy": true,
+   "deploy_desc": "歌迷赏析摘录注入（首页听众说 + 巡演页；数据 data/essay_quotes.json）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\inject_essay_quotes.py"
+  },
+  {
    "script": "inject_index_facts.py",
    "in_deploy": true,
    "deploy_desc": "首页事实块（轮次/城市/覆盖天数/Last updated 派生）",
@@ -1166,7 +1173,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/11 16:30:00",
+    "next": "2026/9/11 21:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },

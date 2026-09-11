@@ -47,6 +47,15 @@ def build_page(meta: dict) -> str:
         except Exception:
             pass
 
+    # 歌迷赏析摘录（每曲「赏析」入口；全文仅本地留存）
+    essay_path = ROOT / "data" / "essay_quotes.json"
+    n_essay = 0
+    if essay_path.exists():
+        try:
+            n_essay = len(json.loads(essay_path.read_text(encoding="utf-8")).get("items") or [])
+        except Exception:
+            n_essay = 0
+
     ld = {
         "@context": "https://schema.org",
         "@type": "MusicGroup",
@@ -81,6 +90,10 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 .search-box input:focus{{border-color:#c41e3a;}}
 .song-list{{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}}
 .song-card{{background:#fafafa;border:1px solid #eee;border-radius:10px;padding:12px 14px;}}
+  .song-essay{{margin-top:8px;font-size:13px;color:#444;}}
+  .song-essay summary{{cursor:pointer;color:#8a6d3b;font-weight:600;}}
+  .song-essay blockquote{{margin:6px 0 4px 0;padding:6px 10px;border-left:3px solid #e8d5a8;background:#fffdf6;color:#333;line-height:1.75;}}
+  .song-essay-src{{font-size:12px;color:#999;}}
 .song-head{{display:flex;align-items:center;justify-content:space-between;gap:8px;}}
 .song-name{{font-size:15px;font-weight:700;color:#1a1a1a;}}
 .song-meta{{font-size:12px;color:#888;margin-top:4px;}}
@@ -144,6 +157,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
 <button type="button" class="chip" id="chipPlayable">🎧 可试听（{n_play}）</button>
 <button type="button" class="chip" id="chipLyric">📝 有歌词（{n_lyr}）</button>
 <button type="button" class="chip" id="chipTavern">🍷 日木斤深夜小酒馆（{n_tavern}）</button>
+<button type="button" class="chip" id="chipEssay">📖 有赏析（{n_essay}）</button>
 </div>
 <div id="playerStatus"></div>
 <div class="song-list" id="songList"></div>
@@ -158,6 +172,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
   var statusEl = document.getElementById('playerStatus');
   var filter = 'all';
   var PLAYABLE = {json.dumps(playable_list, ensure_ascii=False)};
+  var ESSAY = {{}};
   function esc(s) {{ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }}
   function norm(s) {{ return String(s == null ? '' : s).replace(/[《》「」]/g,'').replace(/\\s+/g,'').toLowerCase(); }}
   if (window.PlayerEmbed && window.PlayerEmbed.setStatusFn) {{
@@ -206,16 +221,27 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
       if (cp.length) credits = '<div class="song-credits">' + cp.map(esc).join(' · ') + '</div>';
     }}
     var meta = [s.attr, s.release !== '-' ? s.release : ''].filter(Boolean).join(' · ');
+    /* 歌迷赏析入口（摘录 + 出处；全文仅本地留存，不上站） */
+    var essay = '';
+    var eq = ESSAY[norm(s.name)];
+    if (eq) {{
+      essay = '<details class="song-essay"><summary>📖 赏析摘录（' + esc(eq.author) + '，全文 ' + eq.chars + ' 字）</summary>' +
+        '<blockquote>' + esc(eq.quote) + '</blockquote>' +
+        '<div class="song-essay-src">摘自《' + esc(eq.source_title) + '》'
+        + (eq.published ? '· ' + esc(eq.published) : '· 歌迷赏析（民间评论）')
+        + '；全文仅本地留存，本站不转载</div></details>';
+    }}
     /* 多平台试听：有 mid 用 mid（QQ→网易云），无 mid 用歌名（网易云） */
     var play = '<button type="button" class="pe-btn" data-mid="' + esc(s.mid || '') + '" data-title="' + esc(s.name) + '">▶ 试听</button>';
     return '<div class="song-card" id="song-' + esc(s.name) + '">' +
       '<div class="song-head"><span class="song-name">《' + esc(s.name) + '》</span>' + play + '</div>' +
       (meta ? '<div class="song-meta">' + esc(meta) + tags + '</div>' : '<div class="song-meta">' + tags + '</div>') +
-      credits + lyrics + '</div>';
+      credits + lyrics + essay + '</div>';
   }}
   function eva_norm(t) {{ return (t || '').replace(/[\\s\\W_]+/g, '').toLowerCase(); }}
   function applyFilter(list) {{
     if (filter === 'playable') return list.filter(function (s) {{ return !!s.mid; }});
+    if (filter === 'essay') return list.filter(function (s) {{ return !!ESSAY[norm(s.name)]; }});
     if (filter === 'lyric') return list.filter(function (s) {{ return (s.lyric_tags && s.lyric_tags.length) || (s.lyric_frags && s.lyric_frags.length); }});
     if (filter === 'tavern') return list.filter(function (s) {{ return s.tavern; }});
     return list;
@@ -247,7 +273,7 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
   }}
   function setFilter(f) {{
     filter = f;
-    ['chipAll','chipPlayable','chipLyric','chipTavern'].forEach(function (id) {{
+    ['chipAll','chipPlayable','chipLyric','chipTavern','chipEssay'].forEach(function (id) {{
       var el = document.getElementById(id);
       if (el) el.classList.toggle('on', id === ('chip' + f.charAt(0).toUpperCase() + f.slice(1)));
     }});
@@ -298,13 +324,19 @@ h1{{color:#1a1a1a;border-bottom:3px solid #c41e3a;padding-bottom:10px;}}
   document.getElementById('chipPlayable').addEventListener('click', function () {{ setFilter('playable'); }});
   document.getElementById('chipLyric').addEventListener('click', function () {{ setFilter('lyric'); }});
   document.getElementById('chipTavern').addEventListener('click', function () {{ setFilter('tavern'); }});
+  document.getElementById('chipEssay').addEventListener('click', function () {{ setFilter('essay'); }});
   /* 加载歌曲库 + 小酒馆音频清单，按歌名合并 mid */
   Promise.all([
     fetch('data/songs_meta.json', {{ cache: 'no-store' }}).then(function (r) {{ return r.json(); }}),
-    fetch('data/tavern_audio.json', {{ cache: 'no-store' }}).then(function (r) {{ return r.json(); }}).catch(function () {{ return null; }})
+    fetch('data/tavern_audio.json', {{ cache: 'no-store' }}).then(function (r) {{ return r.json(); }}).catch(function () {{ return null; }}),
+    fetch('data/essay_quotes.json', {{ cache: 'no-store' }}).then(function (r) {{ return r.json(); }}).catch(function () {{ return null; }})
   ]).then(function (res) {{
     var j = res[0];
     var t = res[1];
+    var eq = res[2];
+    if (eq && eq.items) {{
+      eq.items.forEach(function (it) {{ if (it.song) ESSAY[norm(it.song)] = it; }});
+    }}
     songs = Object.values(j.songs || {{}});
     var byName = {{}};
     songs.forEach(function (s) {{ if (s.name) byName[norm(s.name)] = s; }});
