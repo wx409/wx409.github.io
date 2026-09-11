@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 14:38",
- "note": "歌迷赏析（民间评论）索引。全文为作者著作权内容，本站不转载；发表与授权状态待作者确认。「声学互证」列为本站同一曲目的实测读数（最低稳定音口径），用于「文本分析 × 声学数据」交叉参照。",
+ "generated_at": "2026-09-11 14:41",
+ "note": "歌迷赏析（民间评论）索引。全文为作者著作权内容，本站不转载；发表与授权状态待作者确认。曲名解析复用仓库既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库」三级查找；「声学互证」列为本站同一曲目的实测最低稳定音（不含触达音读数）。",
  "source": "歌迷投稿（撰写于 2024-07；整理入档，全文本地留存，未进公开仓库）",
  "rights": {
   "policy": "全文不转载、不提供下载；如作者授权，可另设摘要或全文页",
@@ -10,8 +10,14 @@
  },
  "counts": {
   "total": 23,
-  "with_acoustic": 11,
-  "total_chars": 75286
+  "with_acoustic": 13,
+  "total_chars": 75286,
+  "resolved_by": {
+   "setlist": 10,
+   "catalog": 6,
+   "event": 4,
+   "none": 3
+  }
  },
  "items": [
   {
@@ -23,13 +29,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "花儿为什么这样红",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "花儿为什么这样红",
     "layer": "tour_live",
     "low_note": "D2",
     "low_hz": 72.7,
-    "versions": 2,
-    "matched": "精确"
+    "versions": 2
    }
   },
   {
@@ -41,7 +52,19 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
-   "acoustic": null
+   "resolved": {
+    "canonical": "云一定知道",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
+   "acoustic": {
+    "song": "云一定知道",
+    "layer": "studio_album",
+    "low_note": "D#2",
+    "low_hz": 75.7,
+    "versions": 1
+   }
   },
   {
    "no": 3,
@@ -52,6 +75,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "像雾像雨又像风",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -63,13 +92,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "向着太阳",
+    "source": "catalog",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "向着太阳（官方320k）",
     "layer": "precision",
     "low_note": "G2",
     "low_hz": 97.8,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -81,13 +115,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "望阙台",
+    "source": "event",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "望阙台 (Live)",
     "layer": "studio_album",
     "low_note": "G2",
     "low_hz": 97.9,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -99,6 +138,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "“慢系列”",
+    "source": "none",
+    "kind": "series",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -110,13 +155,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "歌颂",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "歌颂",
     "layer": "studio_album",
     "low_note": "F2",
     "low_hz": 85.3,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -128,13 +178,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "茕茕",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "茕茕",
     "layer": "studio_album",
     "low_note": "D2",
     "low_hz": 73.4,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -146,6 +201,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "Sound of Silence",
+    "source": "catalog",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -157,7 +218,19 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
-   "acoustic": null
+   "resolved": {
+    "canonical": "盲",
+    "source": "event",
+    "kind": "song",
+    "matched": "精确"
+   },
+   "acoustic": {
+    "song": "盲",
+    "layer": "studio_album",
+    "low_note": "A2",
+    "low_hz": 109.5,
+    "versions": 1
+   }
   },
   {
    "no": 11,
@@ -168,6 +241,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "你不要担心",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -179,6 +258,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "爱于此生",
+    "source": "catalog",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -190,6 +275,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "一声阿爸",
+    "source": "catalog",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -201,13 +292,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "哑光",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "哑光",
     "layer": "studio_album",
     "low_note": "E2",
     "low_hz": 81.9,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -219,6 +315,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "专辑B面图景",
+    "source": "none",
+    "kind": "album",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -230,13 +332,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "如愿",
+    "source": "event",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "如愿",
     "layer": "studio_album",
     "low_note": "C#2",
     "low_hz": 69.4,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -248,6 +355,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "三十三",
+    "source": "none",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -259,6 +372,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "信仰之路",
+    "source": "catalog",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -270,13 +389,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "不需要结果",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "不需要结果",
     "layer": "studio_album",
     "low_note": "F2",
     "low_hz": 87.9,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -288,13 +412,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "是你",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "是你",
     "layer": "studio_album",
     "low_note": "F2",
     "low_hz": 87.9,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   },
   {
@@ -306,13 +435,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "渡荆门送别",
+    "source": "event",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "渡荆门送别",
     "layer": "precision",
-    "low_note": "B1",
-    "low_hz": 60.5,
-    "versions": 2,
-    "matched": "精确"
+    "low_note": "C#2",
+    "low_hz": 69.7,
+    "versions": 1
    }
   },
   {
@@ -324,6 +458,12 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "夜",
+    "source": "catalog",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": null
   },
   {
@@ -335,13 +475,18 @@
    "author": "待补",
    "published": "待核（作者确认中）",
    "rights": "待确认（本站未转载全文）",
+   "resolved": {
+    "canonical": "朝凤",
+    "source": "setlist",
+    "kind": "song",
+    "matched": "精确"
+   },
    "acoustic": {
     "song": "朝凤",
     "layer": "studio_album",
     "low_note": "G2",
     "low_hz": 98.8,
-    "versions": 1,
-    "matched": "精确"
+    "versions": 1
    }
   }
  ]

@@ -137,26 +137,34 @@ def render_fan_section() -> str:
     items = d.get("items") or []
     if not items:
         return ""
+    SRC_LABEL = {"setlist": "巡演歌单", "event": "演出活动表", "catalog": "全量曲库", "none": "未命中"}
     rows = []
     for it in items:
         a = it.get("acoustic") or {}
         ac = (f'{esc(a.get("low_note"))} {a.get("low_hz")} Hz'
-              + (f'（{a.get("versions")} 个版本）' if (a.get("versions") or 0) > 1 else "")
-              + ("<sup>近似</sup>" if a.get("matched") == "近似" else "")) if a else "—"
+              + (f'（{a.get("versions")} 个版本）' if (a.get("versions") or 0) > 1 else "")) if a else "—"
+        rs = (it.get("resolved") or {})
+        src = SRC_LABEL.get(rs.get("source"), "—")
+        if rs.get("kind") in ("album", "series"):
+            src += f'（{"整张专辑" if rs["kind"] == "album" else "组曲/系列"}）'
         rows.append(
             f'<tr><td>{it.get("no")}</td><td><strong>{esc(it.get("song"))}</strong></td>'
             f'<td>{esc(it.get("title"))}</td><td>{it.get("chars")} 字</td>'
             f'<td>{esc(it.get("written"))}</td><td>{esc(it.get("author"))}</td>'
-            f'<td>{esc(it.get("published"))}</td><td>{ac}</td></tr>')
+            f'<td>{src}</td><td>{ac}</td></tr>')
     c = d.get("counts") or {}
+    rb = c.get("resolved_by") or {}
     return "\n".join([
         '    <h2 id="fan-essays">七、歌迷赏析（民间评论 · 曲目级文本分析）</h2>',
         f'    <p class="sec-desc">共 <strong>{c.get("total")} 篇 / {c.get("total_chars")} 字</strong>（撰写于 2024-07，2026-09-11 整理入档），'
         f'其中 <strong>{c.get("with_acoustic")} 篇</strong>可与本站声学实测（最低稳定音口径）逐曲互证。'
         '这批文本从听感与编配层面分析具体舞台版本（混响时值、音程跨度、胸腔共鸣、颤音、改编结构），'
         '与本站的逐帧 F0 实测构成「主观听感 × 客观读数」的对照样本。</p>',
+        f'    <p class="sub">曲名解析沿用站内既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库」三级查找：'
+        f'歌单 {rb.get("setlist", 0)} 篇、活动表 {rb.get("event", 0)} 篇、全量曲库 {rb.get("catalog", 0)} 篇；'
+        f'其余 {rb.get("none", 0)} 篇为整张专辑评述、组曲系列，或该曲未进站内曲库（已如实标注，不臆造匹配）。</p>',
         '    <table><tr><th>#</th><th>曲目</th><th>篇名</th><th>篇幅</th><th>撰写</th><th>作者</th>'
-        '<th>发表状态</th><th>本站声学互证（最低稳定音）</th></tr>',
+        '<th>曲名解析来源</th><th>本站声学互证（最低稳定音）</th></tr>',
         "\n".join(rows),
         "    </table>",
         f'    <p class="meta">著作权与授权：全文为作者本人作品，本站<strong>不转载全文、不提供下载</strong>；'
