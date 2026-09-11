@@ -165,6 +165,7 @@ echo    116. 每日唱功卡片（生成/回填 + 本地传记素材归档 + 社交短文案）
 echo    117. 每晚声学增量（新场次素材：下载 到 分离测音 到 回写现场层）
 echo    119. 专辑发行日期核验（QQ音乐 publicTime 到 release_date 精确日期）
 echo    120. 活动生命周期追踪（官宣/开票/开演的指数前后窗口，自动回填）
+echo    121. 公众号文章留存 + 离线OCR（原文快照/图片/逐图文本 到 Markdown）
 echo    0. 退出
 echo.
 set "op="
@@ -290,6 +291,7 @@ if "%op%"=="116" goto skill_card
 if "%op%"=="117" goto nightly_vocal
 if "%op%"=="119" goto album_dates
 if "%op%"=="120" goto event_lifecycle
+if "%op%"=="121" goto wx_article
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1718,5 +1720,18 @@ echo  新活动或新里程碑：编辑 data\event_lifecycle.json 后跑本项，统计自动回填
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\track_event_lifecycle.py
 echo  [OK] data/event_lifecycle.json + data/event_lifecycle.md
+pause
+goto menu
+
+:wx_article
+cls
+echo  [公众号文章留存] 正文常为图片，直抓 HTML 读不到正文；本项把图片抓到本地用离线 OCR 识别
+echo  引擎：GOT-OCR 1-3秒/图（默认，快）；信息密集长图用 --engine mineru（精度更高）
+echo  用法：python -X utf8 project_b\collect_wx_article.py ^<微信原文链接^> [--engine mineru]
+cd /d "D:\wx409.github.io"
+set /p wxurl=  粘贴微信原文链接后回车: 
+if "%wxurl%"=="" goto menu
+python -X utf8 project_b\collect_wx_article.py "%wxurl%"
+echo  [OK] 归档到 E:\wx\论文素材_王晰作传\原始材料\微信文章\^<日期^>_^<标题^>\
 pause
 goto menu
