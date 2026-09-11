@@ -45,7 +45,7 @@ NAV_ITEMS = [
     ("/story.html", "📖 数据故事", ""),
     ("/voice.html", "🎼 音域实测", "color:#a8323d;"),
     ("/skill.html", "🎙️ 唱功实测", "color:#a8323d;"),
-    ("/stage.html", "🎤 舞台实测", ""),
+    ("/stage.html", "🎤 现场实测", ""),
     ("/dashboard/", "数据大屏", ""),
     ("/map/", "巡演地图", ""),
     ("/culture/index.html", "文化足迹", ""),
@@ -77,7 +77,7 @@ SKIP = {"404.html", "live_template.html", "kb-semantic.html", "social_wall.html"
 LABELS = {
     "index.html": "首页", "live-reviews.html": "现场实录", "discography.html": "作品百科",
     "songs.html": "歌曲库", "timeline.html": "生涯时间轴", "data-timeline.html": "数据时间线",
-    "story.html": "数据故事", "notifications.html": "自动通知", "voice.html": "音域实测", "skill.html": "唱功实测", "stage.html": "舞台实测（综艺/晚会/商演）",
+    "story.html": "数据故事", "notifications.html": "自动通知", "voice.html": "音域实测", "skill.html": "唱功实测", "stage.html": "现场音域实测（巡演+综艺晚会）",
     "academic.html": "学术研究", "qa.html": "问答库", "jazz.html": "爵士专题",
     "gallery.html": "视觉记录", "city-guides.html": "城市攻略", "about.html": "关于本站",
     "submit.html": "投稿", "search.html": "全站搜索", "dashboard/": "数据大屏", "map/": "巡演地图",

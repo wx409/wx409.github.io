@@ -110,6 +110,34 @@ def main() -> int:
                     f"<td>{esc(s.get('stable_hnr_db'))} dB</td>"
                     f"<td class='verify'>{esc(s.get('stable_status') or '未复核')}</td></tr>")
 
+    # ── 每日唱功卡片（build_skill_card.py 产出；按日期确定性轮转）──
+    cards = load("data/skill_cards.json")
+    _today = cards.get("today") or {}
+    _recent = cards.get("recent") or []
+
+    def md(t: str) -> str:
+        parts = esc(t).split("**")
+        return "".join(f"<strong>{p}</strong>" if i % 2 else p for i, p in enumerate(parts))
+
+    card_html = ""
+    card_hist = ""
+    if _today:
+        card_html = f'''<div class="hl">
+<div class="sub">📇 <strong>今日唱功卡片</strong> · {esc(_today.get('date'))} · 主题 {esc(_today.get('topic'))} · 编号 {_today.get('index')}/{cards.get('pool_size')}</div>
+<h2 style="margin:6px 0 8px">{esc(_today.get('title'))}</h2>
+<ul>{''.join(f'<li>{md(x)}</li>' for x in _today.get('lines') or [])}</ul>
+<p class="sub"><strong>口径</strong>：{esc(_today.get('caliber'))}　<strong>数据底账</strong>：<code>{esc(_today.get('source'))}</code></p>
+<details><summary>可直接发的社交短文案</summary>
+<ul>{''.join(f'<li>{md(x)}</li>' for x in _today.get('social') or [])}</ul></details>
+</div>'''
+        card_hist = ("<h2>六、每日唱功卡片（历史留存）</h2>\n"
+                     f"<p class=\"sub\">每天一张、按日期确定性轮转，内容各不相同；全部卡片同时留存本地传记素材目录，站点只展示近期。"
+                     f"卡片池 {cards.get('pool_size')} 张，全部取自已落盘实测数据，不使用音乐指数数值。</p>\n"
+                     "<table>\n<tr><th>日期</th><th>主题</th><th>卡片</th></tr>\n"
+                     + "".join(f"<tr><td>{esc(c.get('date'))}</td><td>{esc(c.get('topic'))}</td>"
+                               f"<td>{esc(c.get('title'))}</td></tr>" for c in _recent[:14])
+                     + "\n</table>")
+
     page = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -143,6 +171,8 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 而"低音区的花腔式跑动"是比"低音炮"更难被替代的技术特征。
 </div>
 
+{card_html}
+
 <h2>一、七个维度（实测值）</h2>
 <table>
 <tr><th>维度</th><th>指标</th><th>实测</th><th>参考/说明</th><th>来源与状态</th></tr>
@@ -175,9 +205,10 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 <p class="sub"><strong>复核状态</strong>：✅双引擎一致 ｜ 🟡已取证（谱列解释度 + 四轨归属/谱图支持）｜
 ⚪待复核（不作结论依据，且不进任何汇总计数）。方法细节见<a href="/voice.html">音域实测页</a>的《终裁纪律》。</p>
 
+{card_hist}
+
 <div class="hl">
-<strong>方法与边界（诚实披露）：</strong>① 全部数据来自本地人声分离 + 自研 YIN 逐帧 F0，
-音源为流媒体有损/无损音频，非母带；② 绝对频率存在 ±0.5Hz 量级误差，但不影响音级判定；
+<strong>方法与边界（诚实披露）：</strong>① 全部数据来自本地人声分离 + 自研 YIN 逐帧 F0，音源为流媒体有损/无损音频，非母带；② 绝对频率存在 ±0.5Hz 量级误差，但不影响音级判定；
 ③ 高音侧可能混入伴唱/和声层，需人工听辨，不作"能唱该音"的断言；④ 本页不作排名式结论；
 ⑤ "唱功"一词在本页严格限定为<strong>可测量的发声控制指标</strong>（音域/颤音/稳定性/密度/声区），不涉及艺术评价。
 </div>

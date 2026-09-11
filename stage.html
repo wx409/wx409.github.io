@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>王晰综艺晚会现场音域实测 | 他人主导场景 32 个素材</title>
-<meta name="description" content="王晰在综艺/晚会/盛典商演/饭拍等他人主导场景的 32 个舞台素材人声分离 F0 实测：可信最低稳定音 C2（64.9Hz），最高 C6（含伴唱/和声干扰风险），跨度中位 2.91 个八度，含分类对比与逐条明细。">
+<title>王晰现场音域实测｜巡演现场（能力层）与综艺晚会（对照层）双层实测</title>
+<meta name="description" content="王晰现场音域双层实测：能力层为他本人主导的巡演现场 17 条素材（最低稳定音 B1 61.2Hz）；对照层为综艺/晚会/盛典商演/饭拍 32 个素材（可信最低稳定音 C2 64.9Hz，跨度中位 2.91 个八度）。含巡次汇总、同曲跨巡对比、巡演×专辑对照、逐条明细与分层口径说明。">
 <link rel="canonical" href="https://wx409.github.io/stage.html">
-<meta property="og:title" content="王晰他人主导现场音域实测">
-<meta property="og:description" content="32 个综艺/晚会/商演/饭拍素材：可信最低 C2，最高 C6，跨度中位 2.91 个八度。">
+<meta property="og:title" content="王晰现场音域实测 · 双层">
+<meta property="og:description" content="能力层：巡演现场 17 条素材，最低稳定音 B1 61.2Hz；对照层：他人主导 32 个素材，可信最低 C2，跨度中位 2.91 个八度。">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://wx409.github.io/assets/voice/stage_range.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "name": "王晰他人主导现场音域实测数据集（32 个综艺/晚会/商演/饭拍素材）",
-  "description": "对王晰在他人主导场景（综艺/晚会/盛典商演/饭拍）的 32 个舞台素材做人声分离 + 逐帧 F0 实测：最低音读数（<strong>取证状态见表</strong>） C2（64.9Hz），最高 C6（1051.5Hz，含和声层可能），跨度中位 2.91 个八度，音符内稳定性中位 5.7 音分，颤音 5.07Hz/74 音分。",
+  "name": "王晰现场音域实测数据集（王晰主导巡演现场 17 条 + 他人主导舞台 32 个素材）",
+  "description": "分两层：能力层为王晰本人主导的巡演现场 17 条已实测素材（最低稳定音 B1（61.2Hz））；对照层为他人主导场景（综艺/晚会/盛典商演/饭拍）32 个素材：最低音读数（<strong>取证状态见表</strong>） C2（64.9Hz），最高 C6（1051.5Hz，含和声层可能），跨度中位 2.91 个八度，音符内稳定性中位 5.7 音分，颤音 5.07Hz/74 音分。",
   "url": "https://wx409.github.io/stage.html",
   "dateModified": "2026-09-10 17:12",
   "creator": {
@@ -46,9 +46,9 @@
 {
   "@context": "https://schema.org",
   "@type": "ResearchProject",
-  "name": "王晰声学档案：他人主导场景（综艺/晚会/商演/饭拍）舞台语料实测",
+  "name": "王晰声学档案：现场音域双层实测（王晰主导巡演现场 + 他人主导舞台）",
   "url": "https://wx409.github.io/stage.html",
-  "description": "对王晰在他人主导场景的 32 个舞台素材做统一口径测量（demucs 人声分离 + 逐帧 F0），并与 72 首录音室曲目做 Mann–Whitney U 组间对比，用于区分「能力极限」与「使用模式」两类差异。",
+  "description": "同一测量管线分两层语料：能力层为王晰本人主导的巡演现场（17 条已实测素材，现场最低稳定音 B1（61.2 Hz））；对照层为他人主导场景的 32 个舞台素材，并与 72 首录音室曲目做 Mann–Whitney U 组间对比，用于区分「能力极限」与「使用模式」两类差异。",
   "dateModified": "2026-09-10 17:12",
   "creator": {
     "@type": "Person",
@@ -63,16 +63,22 @@
   "measurementTechnique": "demucs htdemucs（--two-stems=vocals，GPU，本地缓存模型）；自研 numpy YIN（fmin=55.0 fmax=1100.0 frame=2048 hop=512 sr=22050）",
   "keywords": [
     "王晰",
+    "现场音域",
+    "巡演现场",
     "舞台实测",
     "综艺",
     "晚会",
-    "音域",
     "F0",
     "人声分离",
     "情境对比"
   ],
   "license": "https://creativecommons.org/licenses/by-nc/4.0/",
   "hasPart": [
+    {
+      "@type": "Dataset",
+      "name": "王晰主导巡演现场逐素材指标",
+      "url": "https://wx409.github.io/data/archive_stage_tour.json"
+    },
     {
       "@type": "Dataset",
       "name": "32 个舞台素材逐条指标",
@@ -109,6 +115,22 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "王晰在巡演现场唱得到多低？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "以他本人主导的巡演现场语料为准：现行已实测 17 条素材中，最低稳定音为 B1（61.2 Hz），实测于《让她降落》重庆 2026-06-13 场，复核状态为已取证，并做了 CREPE 交叉校验（61.8 Hz）；17 条中 9 条过复核门槛。能力主张只看「最低稳定音」口径（音符本身 ≥0.2s、HNR ≥5dB、强度达标），未过门槛的读数只列不判。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么要把「巡演现场」和「他人主导舞台」分开？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "巡演由他本人主导：选曲、调性、编排与曲目位置由他决定，属于他自己的现场选择；综艺/晚会/商演/饭拍由节目组选曲、电视混音与伴唱叠加共同决定，因此那一层只作互证，不能当作他的现场能力上限。两层使用完全相同的测量管线，差别只在语料归属。"
+      }
+    },
     {
       "@type": "Question",
       "name": "他人主导的综艺/晚会上，王晰的音域会变窄吗？",
@@ -179,7 +201,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
     <a href="/story.html">📖 数据故事</a>
     <a href="/voice.html" style="color:#a8323d;">🎼 音域实测</a>
     <a href="/skill.html" style="color:#a8323d;">🎙️ 唱功实测</a>
-    <a href="/stage.html">🎤 舞台实测</a>
+    <a href="/stage.html">🎤 现场实测</a>
     <a href="/dashboard/">数据大屏</a>
     <a href="/map/">巡演地图</a>
     <a href="/culture/index.html">文化足迹</a>
@@ -194,11 +216,73 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 </div>
 <!-- NAV_END -->
 
-<h1>🎤 他人主导现场 · 音域实测</h1>
-<p class="sub">综艺 / 晚会 / 盛典商演 / 饭拍 · 32 个素材 · 更新 2026-09-10 17:12</p>
+<h1>🎤 现场音域实测 · 双层</h1>
+<p class="sub">能力层：王晰主导巡演现场（17 条已实测素材）｜对照层：他人主导综艺 / 晚会 / 盛典商演 / 饭拍（32 个素材）· 更新 2026-09-10 17:12</p>
+
+<h2>一、王晰主导巡演现场（能力证据层）</h2>
+<div class="hl">
+<strong>现场最低稳定音 B1（61.2 Hz）</strong>——《让她降落》重庆 2026-06-13。
+复核状态：<strong>已取证</strong>，CREPE 交叉校验 61.8 Hz。<br>
+本层已有 17 条已实测素材、覆盖 5 个巡次，其中 9 条过复核门槛（双引擎一致/已取证）；
+跨度中位 3.0 个八度、音符内稳定性中位 7.1 音分、颤音 5.0 Hz / 75.0 音分。
+</div>
+<div class="method">
+<strong>为什么这一层才算「现场能力」：</strong>巡演由他本人主导——选曲、调性、编排、曲目位置由他决定，唱什么、唱到多低是他自己的选择。
+他人主导的舞台（综艺/晚会/商演/饭拍）由节目组选曲、电视混音、伴唱叠加共同决定，<strong>只能作互证，不能当作他的现场能力上限</strong>。
+两层的测量管线完全相同（人声分离 → 逐帧 F0 → 稳健过滤），差别只在语料归属。
+</div>
+<h3>巡次汇总</h3>
+<table>
+<tr><th>巡次</th><th>城市</th><th>实测素材日期</th><th>n</th><th>最低稳定音</th><th>跨度中位</th><th>稳定性(音分)</th><th>颤音(Hz)</th></tr>
+<tr><td>一巡</td><td>北京、南京</td><td>2019-07-28~2020-01-02</td><td>3</td><td class="low">F#2（91.1 Hz）</td><td>3.34</td><td>6.9</td><td>5.05</td></tr>
+<tr><td>二巡</td><td>南京</td><td>2021-04-11~2021-04-11</td><td>3</td><td class="low">F2（89.0 Hz）</td><td>2.83</td><td>7.1</td><td>5.07</td></tr>
+<tr><td>三巡</td><td>深圳</td><td>2023-06-23~2023-06-23</td><td>1</td><td class="low">D#2（79.9 Hz）</td><td>3.51</td><td>5.7</td><td>4.79</td></tr>
+<tr><td>六巡</td><td>广州、重庆</td><td>2026-06-13~2026-08-23</td><td>5</td><td class="low">B1（61.2 Hz）</td><td>2.6</td><td>7.2</td><td>5.0</td></tr>
+</table>
+<h3>花儿为什么这样红｜2 个现场版本</h3><ul><li>其他｜ ：<strong>D2 72.7 Hz</strong>（跨度 3.48 八度，未复核）</li><li>其他｜ ：<strong>D2 73.1 Hz</strong>（跨度 3.0 八度，未复核）</li></ul><h3>让她降落｜12 个现场版本</h3><ul><li>六巡｜重庆 2026-06-13：<strong>B1 61.2 Hz</strong>（跨度 3.0 八度，已取证）</li><li>六巡｜广州 2026-08-23：<strong>E2 82.5 Hz</strong>（跨度 2.6 八度，待复核）</li><li>二巡｜南京 2021-04-11：<strong>F2 89.0 Hz</strong>（跨度 3.11 八度，待复核）</li><li>一巡｜南京 2019-07-28：<strong>F#2 91.1 Hz</strong>（跨度 3.44 八度，已取证）</li><li>一巡｜北京 2020-01-02：<strong>F#2 91.7 Hz</strong>（跨度 3.31 八度，已取证）</li><li>一巡｜北京 2020-01-02：<strong>F#2 92.1 Hz</strong>（跨度 3.34 八度，双引擎一致）</li><li>其他｜ ：<strong>F#2 92.1 Hz</strong>（跨度 3.33 八度，未复核）</li><li>六巡｜重庆 2026-06-13：<strong>G#2 104.3 Hz</strong>（跨度 2.39 八度，双引擎一致）</li><li>六巡｜重庆 2026-06-13：<strong>G#2 106.3 Hz</strong>（跨度 2.2 八度，双引擎一致）</li><li>六巡｜广州 2026-08-23：<strong>A2 107.0 Hz</strong>（跨度 2.65 八度，双引擎一致）</li><li>二巡｜南京 2021-04-11：<strong>A2 107.1 Hz</strong>（跨度 2.83 八度，双引擎一致）</li><li>二巡｜南京 2021-04-11：<strong>A#2 117.8 Hz</strong>（跨度 2.08 八度，双引擎一致）</li></ul><h3>静止了的夜晚｜2 个现场版本</h3><ul><li>其他｜ ：<strong>D2 73.4 Hz</strong>（跨度 3.83 八度，未复核）</li><li>三巡｜深圳 2023-06-23：<strong>D#2 79.9 Hz</strong>（跨度 3.51 八度，未复核）</li></ul>
+<h3>巡演 × 专辑：每巡唱的是什么</h3>
+<p class="sub" style="margin-top:0">「最近发行」= 该巡开始前最近发行的专辑（<code>data/albums.json</code> 为年月精度，同月发行的标「口径待核」并给出上一张专辑作对照）；「属前巡曲目」= 该巡曲目中已在此前巡次出现过的比例。</p>
+<table>
+<tr><th>巡次</th><th>场次</th><th>最近发行专辑</th><th>进歌单</th><th>覆盖率</th><th>上一张对照</th><th>属前巡曲目</th></tr>
+<tr><td>一巡「Cherish珍晰」</td><td>17</td><td>重游往昔（2017-11）</td><td>4/8</td><td>50.0%</td><td>Low C的诱惑Ⅱ 5/12</td><td>0 首（0.0%）</td></tr>
+<tr><td>二巡「2020-2021 个人巡回」</td><td>11</td><td>歌颂（2020-08）</td><td>6/10</td><td>60.0%</td><td>重游往昔 1/8</td><td>5 首（10.4%）</td></tr>
+<tr><td>三巡「图景」</td><td>12</td><td>回望（2021-12）<sup>同月发行·口径待核</sup></td><td>0/3</td><td>0.0%</td><td>B面图景 8/10</td><td>3 首（6.7%）</td></tr>
+<tr><td>四巡「肆益」</td><td>9</td><td>X自选集（2022-12）</td><td>6/9</td><td>66.7%</td><td>回望 0/3</td><td>9 首（17.0%）</td></tr>
+<tr><td>五巡「吾」</td><td>8</td><td>不说（2024-12）<sup>同月发行·口径待核</sup></td><td>8/8</td><td>100.0%</td><td>X自选集 0/9</td><td>3 首（6.7%）</td></tr>
+<tr><td>六巡「回」</td><td>2</td><td>不说（2024-12）</td><td>0/8</td><td>0.0%</td><td>X自选集 0/9</td><td>12 首（66.7%）</td></tr>
+</table>
+<h3>现场 vs 录音室（B1 复现）</h3><ul><li>录音室版（MV）：<strong>B1 61.6 Hz</strong>（可信度 高）</li>
+<li>杭州站现场（4K 直拍）：<strong>B1 63.4 Hz</strong>（可信度 高）</li>
+<li>四巡现场直拍：<strong>D2 74.9 Hz</strong>（可信度 中）</li>
+<li>武汉收官场：<strong>A2 111.6 Hz</strong>（可信度 低）</li></ul>
+<p>同曲对照：录音室 61.6 Hz ↔ 现场 63.4 Hz（杭州站（肆益巡演））——录音室 B1(61.6Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到</p>
+<h3>逐素材明细</h3>
+<table>
+<tr><th>巡次</th><th>城市</th><th>日期</th><th>最低稳定音</th><th>Hz</th><th>最高稳定音</th><th>跨度</th><th>稳定性</th><th>颤音(Hz/音分)</th><th>复核</th><th>来源</th></tr>
+<tr><td>一巡</td><td>南京</td><td>2019-07-28</td><td class="low">F#2</td><td>91.1</td><td>B5</td><td>3.44</td><td>7.6</td><td>4.97/84.0</td><td>已取证</td><td><a href="https://www.bilibili.com/video/BV1Lt411u7qq" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>一巡</td><td>北京</td><td>2020-01-02</td><td class="low">F#2</td><td>91.7</td><td>A#5</td><td>3.31</td><td>6.9</td><td>5.17/68.0</td><td>已取证</td><td><a href="https://www.bilibili.com/video/BV1mw411R7yo" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>一巡</td><td>北京</td><td>2020-01-02</td><td class="low">F#2</td><td>92.1</td><td>A#5</td><td>3.34</td><td>5.9</td><td>5.05/74.0</td><td>双引擎一致</td><td><a href="https://www.bilibili.com/video/BV1KJ41177fC" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>二巡</td><td>南京</td><td>2021-04-11</td><td class="low">F2</td><td>89.0</td><td>G5</td><td>3.11</td><td>7.1</td><td>4.89/88.0</td><td>待复核</td><td><a href="https://www.bilibili.com/video/BV1SZ4y1c7Xb" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>二巡</td><td>南京</td><td>2021-04-11</td><td class="low">A2</td><td>107.1</td><td>G5</td><td>2.83</td><td>8.5</td><td>5.07/91.0</td><td>双引擎一致</td><td><a href="https://www.bilibili.com/video/BV1S54y1b7HW" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>二巡</td><td>南京</td><td>2021-04-11</td><td class="low">A#2</td><td>117.8</td><td>B4</td><td>2.08</td><td>5.8</td><td>5.07/69.0</td><td>双引擎一致</td><td><a href="https://www.bilibili.com/video/BV1pL411n7Ns" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>三巡</td><td>深圳</td><td>2023-06-23</td><td class="low">D#2</td><td>79.9</td><td>A#5</td><td>3.51</td><td>5.7</td><td>4.79/63.0</td><td>未复核</td><td><a href="https://www.bilibili.com/video/BV1QP411v7KR" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>六巡</td><td>重庆</td><td>2026-06-13</td><td class="low">B1</td><td>61.2</td><td>B4</td><td>3.0</td><td>8.1</td><td>5.07/88.0</td><td>已取证</td><td><a href="https://www.bilibili.com/video/BV1zEJA6xEr2" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>六巡</td><td>广州</td><td>2026-08-23</td><td class="low">E2</td><td>82.5</td><td>B4</td><td>2.6</td><td>7.2</td><td>4.94/85.0</td><td>待复核</td><td><a href="https://www.bilibili.com/video/BV1hHtU68Eoj" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>六巡</td><td>重庆</td><td>2026-06-13</td><td class="low">G#2</td><td>104.3</td><td>C#5</td><td>2.39</td><td>7.4</td><td>5.07/76.0</td><td>双引擎一致</td><td><a href="https://www.bilibili.com/video/BV176LR6bE2B" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>六巡</td><td>重庆</td><td>2026-06-13</td><td class="low">G#2</td><td>106.3</td><td>B4</td><td>2.2</td><td>6.1</td><td>4.72/54.0</td><td>双引擎一致</td><td><a href="https://www.bilibili.com/video/BV1SEJP6LEUw" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>六巡</td><td>广州</td><td>2026-08-23</td><td class="low">A2</td><td>107.0</td><td>E5</td><td>2.65</td><td>7.1</td><td>5.0/75.0</td><td>双引擎一致</td><td><a href="https://www.bilibili.com/video/BV13PtB6AEKe" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>其他</td><td></td><td></td><td class="low">D2</td><td>72.7</td><td>G#5</td><td>3.48</td><td>7.5</td><td>4.79/81.0</td><td>未复核</td><td><a href="https://www.bilibili.com/video/BV1fr4y1F769" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>其他</td><td></td><td></td><td class="low">D2</td><td>73.1</td><td>D5</td><td>3.0</td><td>5.8</td><td>4.79/74.0</td><td>未复核</td><td><a href="https://www.bilibili.com/video/BV1z5411H7yg" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>其他</td><td></td><td></td><td class="low">D2</td><td>73.4</td><td>C6</td><td>3.83</td><td>8.9</td><td>5.07/88.0</td><td>未复核</td><td><a href="https://www.bilibili.com/video/BV1W7411R7Hv" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>其他</td><td></td><td></td><td class="low">F#2</td><td>92.1</td><td>A#5</td><td>3.33</td><td>6.0</td><td>5.07/68.0</td><td>未复核</td><td><a href="https://www.bilibili.com/video/BV15K411w7Sj" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+<tr><td>其他</td><td></td><td></td><td class="low">G2</td><td>100.5</td><td>D5</td><td>2.55</td><td>6.9</td><td>4.79/72.0</td><td>未复核</td><td><a href="https://www.bilibili.com/video/BV1wJ411U7Wh" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>
+</table>
+<p class="sub" style="margin-top:0">⚠️ 「待复核」读数只列不判，不作能力依据；现场素材为公开视频音轨，非官方音源。</p>
+
+
 
 <div class="hl">
-<strong>这批素材的声学画像：</strong>可信最低稳定音 <strong>C2（64.9 Hz，《【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！》）</strong>；
+<strong>他人主导层的声学画像：</strong>可信最低稳定音 <strong>C2（64.9 Hz，《【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！》）</strong>；
 最高稳定音 <strong>C6（1051.5 Hz，《王晰汪小敏《偏执》》）</strong>（含和声层可能）；
 音域跨度中位 <strong>2.91 个八度</strong>；音符内稳定性中位 <strong>5.7 音分</strong>；
 颤音 <strong>5.07 Hz / 74 音分</strong>。
@@ -215,7 +299,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 
 
 
-<h2>一、语料来源与筛选</h2>
+<h2>二、他人主导层：语料来源与筛选</h2>
 <p>来源：B站收藏夹「王晰综艺现场live」（fid=4075783258，共 44 条）。
 自动归类 + 逐条人工校准后，纳入实测 <strong>32 个</strong>：
 综艺 20、
@@ -224,7 +308,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 饭拍直拍 3。
 另有棚版混音 8 条（非现场，单列不计入）与他人分析视频/混剪 3 条（非原始音源，排除）。</p>
 
-<h2>二、分类对比</h2>
+<h2>三、分类对比</h2>
 <table>
 <tr><th>分类</th><th>n</th><th>最低音中位(MIDI)</th><th>最高音中位(MIDI)</th><th>跨度中位</th><th>稳定性(音分)</th><th>密度(/s)</th><th>低音区占比</th><th>高音区占比</th></tr>
 <tr><td>综艺</td><td>20</td><td>40</td><td>77</td><td>2.98</td><td>5.8</td><td>1.65</td><td>11%</td><td>19%</td></tr>
@@ -234,7 +318,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 </table>
 <p class="sub" style="margin-top:0">MIDI 参考：C3=48、C4=60、E4=64、C5=72、E5=76、C6=84。</p>
 
-<h2>三、逐条明细（32 个素材）</h2>
+<h2>四、逐条明细（32 个素材）</h2>
 <table>
 <tr><th>#</th><th>分类</th><th>曲目（点击回 B站）</th><th>最低音</th><th>Hz</th><th>最高音</th><th>Hz</th><th>跨度</th><th>音符</th><th>密度</th><th>稳定性</th><th>颤音</th></tr>
 <tr><td>1</td><td>综艺</td><td><a href="https://www.bilibili.com/video/BV1wV411e7xK" rel="noopener nofollow" target="_blank">【1080P】【开口跪神级Live现场】尚雯婕 王晰《云与海》</a></td><td class="low">C#2</td><td>69.2</td><td>A5</td><td>866</td><td>3.65</td><td>517</td><td>2.03</td><td>5.6</td><td>5.65/97</td></tr>
@@ -273,7 +357,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 
 <p class="sub" style="margin-top:0">⚠️ 上表「最高音」列（含 C5 及以上）存在<strong>伴唱/和声干扰风险</strong>，需人工听辨后再引用；「最低音」为 v2 稳健口径的稳定音。</p>
 
-<h2>四、与「王晰主导」的对照</h2>
+<h2>五、与「王晰主导」的对照</h2>
 <div class="hl">
 <strong>⚠️ 注意：</strong>「最低稳定音」的组间差异<strong>不显著</strong>（p=0.197）——两组在低音能力上没有统计意义上的差别。<br>
 <strong>稳健的差异在「使用模式」而非「能力极限」</strong>：低音区（&lt;C3）占比 <strong>23% → 11%（逐曲中位）</strong>、
@@ -344,7 +428,7 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 <strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
 <div style="margin-top:6px;"><b>核心：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
 <div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">全部歌单</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a></div>
-<div style="margin-top:6px;"><b>内容：</b><a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">舞台实测（综艺/晚会/商演）</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a> · <a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a></div>
+<div style="margin-top:6px;"><b>内容：</b><a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测（巡演+综艺晚会）</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a> · <a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a></div>
 <div style="margin-top:6px;"><b>关于：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">全站搜索</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a> · <a href="/robots.txt" style="color:#c41e3a;text-decoration:none;">robots.txt</a> · <a href="/404.html" style="color:#c41e3a;text-decoration:none;">404 页</a></div>
 </footer>
 <!-- FOOTER_NAV_END -->

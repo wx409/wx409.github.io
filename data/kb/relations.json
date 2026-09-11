@@ -11424,6 +11424,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:往前",
+  "type": "belongs_to_album",
+  "target": "album:局中人 电视剧原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:微醺23点08分",
   "type": "belongs_to_album",
   "target": "album:微醺23点08分",
@@ -12470,13 +12477,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:往前",
-  "type": "belongs_to_album",
-  "target": "album:局中人 电视剧原声带",
   "context": "",
   "source_ref": "songs_meta.json"
  },
