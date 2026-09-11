@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 17:13",
+ "generated_at": "2026-09-11 21:01",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,19 +10,19 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 155,
+  "total": 156,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
    "tour_live": 23,
    "stage_other": 32,
-   "single": 5
+   "single": 6
   },
   "by_verify": {
-   "未复核": 113,
+   "未复核": 114,
    "已取证": 6,
    "已核验": 6,
-   "触达级（归属未定：人声/低音乐器；不作稳定音）": 1,
+   "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
    "待复核（legacy 短读，未过 CREPE）": 5,
    "待复核": 7,
@@ -31,7 +31,7 @@
    "参考": 2,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 110
+  "songs": 111
  },
  "rows": [
   {
@@ -2102,7 +2102,7 @@
     "duration_s": 0.5
    },
    "verify": {
-    "state": "触达级（归属未定：人声/低音乐器；不作稳定音）",
+    "state": "触达级 归属未定（人声/低音乐器）· 不作稳定音",
     "engine": "混音带限自相关 + 外部耳测（BV16LxczHEYA）"
    },
    "provenance": {
@@ -2136,7 +2136,7 @@
    "song": "多听有益",
    "version": "四巡 直拍",
    "layer": "tour_live",
-   "source_ref": "",
+   "source_ref": "BV1Ab4y1g7Wj",
    "date": "2023-2024",
    "metrics": {
     "low_note": "D2",
@@ -3760,14 +3760,14 @@
    }
   },
   {
-   "id": "tour_live|多听有益|四巡 直拍_多听有益",
+   "id": "tour_live|多听有益|四巡 直拍_BV1Ab4y1g7Wj",
    "song": "多听有益",
-   "version": "四巡 直拍_多听有益",
+   "version": "四巡 直拍_BV1Ab4y1g7Wj",
    "layer": "tour_live",
    "tour": "四巡",
    "city": "",
    "date": "2023-2024",
-   "source_ref": "",
+   "source_ref": "BV1Ab4y1g7Wj",
    "measure_route": "十曲精测",
    "metrics": {
     "low_note": "D2",
@@ -4230,6 +4230,33 @@
     "vibrato_cents": 105.0,
     "density_per_s": 1.71,
     "hnr_db": 6.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|002Y5kqS2ZL5XH",
+   "song": "002Y5kqS2ZL5XH",
+   "version": "录音室·单曲/OST（龙源之声）",
+   "layer": "single",
+   "source_ref": "龙源之声",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.5,
+    "high_note": "D#5",
+    "high_hz": 622.9,
+    "span_octaves": 2.85,
+    "stability_cents": 6.0,
+    "intonation_cents": 6.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.59,
+    "hnr_db": 9.3
    },
    "verify": {
     "state": "未复核"
