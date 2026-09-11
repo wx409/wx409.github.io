@@ -159,6 +159,10 @@ echo    111. 导出轨迹素材清单（md 清单 + 待测链接 txt）
 echo    112. 场次音域实测一键（B站音轨到 wav 到 分离测音 到 双标准报告）
 echo    113. 低音读数复核与终裁（CREPE 多配置稳健性 到 谱列解释度 到 四轨归属）
 echo    114. 事实预检（facts_registry：专辑年份/履历/赛事/换算 生成前强制过一遍）
+echo   [S 组 声学自动化（已接入每日自动链路，此处仅手动触发）]
+echo    115. 音域三页数据同步（输入有变化才跑生产脚本，幂等）
+echo    116. 每日唱功卡片（生成/回填 + 本地传记素材归档 + 社交短文案）
+echo    117. 每晚声学增量（新场次素材：下载 到 分离测音 到 回写现场层）
 echo    0. 退出
 echo.
 set "op="
@@ -279,6 +283,9 @@ if "%op%"=="111" goto bili_traj_export
 if "%op%"=="112" goto stage_vocal_series
 if "%op%"=="113" goto low_note_verify
 if "%op%"=="114" goto facts_preflight
+if "%op%"=="115" goto vocal_sync
+if "%op%"=="116" goto skill_card
+if "%op%"=="117" goto nightly_vocal
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1660,5 +1667,33 @@ cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_facts.py --check
 python -X utf8 project_b\check_facts_preflight.py --scan-default
 echo  [OK] 通过则可继续生成文稿；FAIL 时按提示修正事实后再生成
+pause
+goto menu
+
+:vocal_sync
+cls
+echo  [音域三页数据同步] 输入有变化才跑生产脚本（voice/skill/stage 三页的数据源）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\refresh_vocal_pages.py
+echo  [OK] 页面重建与推送由每日 deploy_all 链路接管（本项不做页面）
+pause
+goto menu
+
+:skill_card
+cls
+echo  [每日唱功卡片] 今日卡片 + 近 30 天历史 + 本地传记素材归档（含可直接发的短文案）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_skill_card.py --rebuild-history --days 30
+python -X utf8 project_b\build_skill_page.py
+echo  [OK] 站点 data/skill_cards.json 与 skill.html；本地归档 E:\wx\论文素材_王晰作传\传记素材\唱功卡片
+pause
+goto menu
+
+:nightly_vocal
+cls
+echo  [每晚声学增量] 只处理未实测的新场次素材（默认上限 6 条）；串烧/组曲自动跳过等人工切分
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+python -X utf8 轨迹\每晚增量.py --limit 6
+echo  [OK] 已回写 data/archive_stage_tour.json；页面重建由每日 deploy_all 接管
 pause
 goto menu
