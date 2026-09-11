@@ -53,13 +53,16 @@ PUBLISHED: dict[str, dict] = {
         "journal_title": "浅谈王晰《如果云知道》+《云一定知道》的改编艺术",
     },
     "茕茕": {
-        "published": "已发表（国家级核心期刊《乐器》；期号与页码待补）",
-        "authors": "待补",
+        "published": "已发表（国家级核心期刊《乐器》2021 年第 3、4 期同批；期号与页码待补）",
+        "authors": "待补（公开著录未见署名，待核）",
         "platform": "国家乐器信息中心微信平台",
-        "journal_title": "待补",
+        "journal_title": "浅谈王晰《茕茕》的演唱处理与情感表达",
     },
 }
 OVERRIDES: dict[str, dict] = {}
+# 未发表稿件的默认署名（2026-09-11 用户指定）：歌迷赏析系列署笔名「静观」
+DEFAULT_AUTHOR = "静观"
+DEFAULT_PUBLISHED = "待核（发表状态待确认；如已在别处刊出请告知）"
 
 
 def build() -> dict:
@@ -125,8 +128,8 @@ def build() -> dict:
             "song": raw_song,
             "title": re.sub(r"\s+", " ", it.get("title") or "").strip()[:90] or f"《{raw_song}》赏析",
             "chars": it.get("chars"), "written": it.get("mtime", ""),
-            "author": o.get("author") or it.get("author_hint") or pub.get("authors") or "待补",
-            "published": o.get("published") or pub.get("published") or "待核（作者确认中）",
+            "author": o.get("author") or it.get("author_hint") or pub.get("authors") or DEFAULT_AUTHOR,
+            "published": o.get("published") or pub.get("published") or DEFAULT_PUBLISHED,
             "platform": o.get("platform") or pub.get("platform") or "",
             "journal_title": pub.get("journal_title") or "",
             "rights": o.get("rights") or ("已公开发表（著作权归作者与刊物）；本站仍不转载全文"
@@ -140,6 +143,8 @@ def build() -> dict:
         "schema": 1,
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "note": "歌迷赏析（民间评论）索引。全文为作者著作权内容，本站不转载；发表与授权状态待作者确认。"
+                "署名规则（2026-09-11）：已在《乐器》刊出的三篇按公开著录写作者（王童／王玥童、宋子翾／第三篇公开著录未见署名，标待补），"
+                "其余稿件署笔名「静观」。"
                 "曲名解析复用仓库既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库」三级查找；"
                 "「声学互证」列为本站同一曲目的实测最低稳定音（不含触达音读数）。",
         "source": "歌迷投稿（撰写于 2024-07；整理入档，全文本地留存，未进公开仓库）",
