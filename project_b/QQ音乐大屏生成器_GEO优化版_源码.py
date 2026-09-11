@@ -3696,9 +3696,9 @@ setTimeout(function(){
   if (mo) {
     document.getElementById('monthLabel').textContent = mo.month || '--';
     var mb = document.getElementById('monthlyBody');
-    function col(title, rows, valFmt, emptyHint){
+    function col(title, rows, valFmt, emptyHint, cap){
       if (!rows || !rows.length) return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div><div style="color:#5a6b8c;font-size:11.5px;padding:6px 0">' + (emptyHint || '本月暂无数据') + '</div></div>';
-      var items = rows.slice(0, 12).map(function(x, i){
+      var items = rows.slice(0, cap || 12).map(function(x, i){
         var right = '';
         if (x.peak_index !== undefined && x.peak_index !== null) right = '<span style="color:#e0b64f" title="首榜 ' + (x.first_day || '') + ' · 当月最高指数">峰值 ' + x.peak_index + '</span>';
         else if (x.days) right = '<span style="color:#5bc2e7">' + x.days + '日</span>';
@@ -3711,7 +3711,7 @@ setTimeout(function(){
       return '<div><div style="color:#f2d98d;font-weight:600;font-size:12.5px;margin-bottom:6px">' + title + '</div>' + items + '</div>';
     }
     mb.innerHTML =
-      col('🆕 当月新上榜排行', mo.new_songs, function(x){ return x.first_day; }, '本月暂无「昨日无指数→当日出现」的新上榜歌') +
+      col('🆕 当月新上榜排行', mo.new_songs, function(x){ return x.first_day; }, '本月暂无「昨日无指数→当日出现」的新上榜歌', 99) +
       col('📈 当月日均指数 Top', mo.top_index, function(x){ return x.avg_index; }, '本月暂无指数数据') +
       col('👥 当月收听峰值 Top', mo.top_listeners, function(x){ return x.peak; }, '本月暂无收听数据');
   }
