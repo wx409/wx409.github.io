@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 15:31",
+ "generated_at": "2026-09-11 16:03",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -44,6 +44,7 @@
   {
    "tour": "一巡",
    "n_materials": 5,
+   "n_claimable": 3,
    "cities": [
     "北京",
     "南京",
@@ -56,13 +57,17 @@
    "lowest_note": "F#2",
    "lowest_hz": 91.1,
    "lowest_tag": "一巡南京20190728_BV1Lt411u7qq",
-   "span_median_octaves": 3.33,
-   "stability_median_cents": 6.9,
+   "lowest_note_all": "F#2",
+   "lowest_hz_all": 91.1,
+   "lowest_verify_all": "谐波列复核通过",
+   "span_median_octaves": 3.34,
+   "stability_median_cents": 6.0,
    "vibrato_rate_hz_median": 5.05
   },
   {
    "tour": "二巡",
    "n_materials": 3,
+   "n_claimable": 3,
    "cities": [
     "南京"
    ],
@@ -73,6 +78,9 @@
    "lowest_note": "F2",
    "lowest_hz": 89.0,
    "lowest_tag": "二巡南京20210411b_BV1SZ4y1c7Xb",
+   "lowest_note_all": "F2",
+   "lowest_hz_all": 89.0,
+   "lowest_verify_all": "谐波列复核通过",
    "span_median_octaves": 2.83,
    "stability_median_cents": 7.1,
    "vibrato_rate_hz_median": 5.07
@@ -80,6 +88,7 @@
   {
    "tour": "三巡",
    "n_materials": 1,
+   "n_claimable": 1,
    "cities": [
     "深圳"
    ],
@@ -90,6 +99,9 @@
    "lowest_note": "D#2",
    "lowest_hz": 79.9,
    "lowest_tag": "三巡深圳20230623_BV1QP411v7KR",
+   "lowest_note_all": "D#2",
+   "lowest_hz_all": 79.9,
+   "lowest_verify_all": "谐波列复核通过",
    "span_median_octaves": 3.51,
    "stability_median_cents": 5.7,
    "vibrato_rate_hz_median": 4.79
@@ -97,6 +109,7 @@
   {
    "tour": "四巡",
    "n_materials": 3,
+   "n_claimable": 0,
    "cities": [
     "杭州",
     "武汉"
@@ -105,9 +118,12 @@
     "2023-2024",
     "2024"
    ],
-   "lowest_note": "B1",
-   "lowest_hz": 63.4,
-   "lowest_tag": "肆益杭州站_BV1ArKxe7E8H",
+   "lowest_note": null,
+   "lowest_hz": null,
+   "lowest_tag": null,
+   "lowest_note_all": "C2",
+   "lowest_hz_all": 65.2,
+   "lowest_verify_all": "待复核",
    "span_median_octaves": null,
    "stability_median_cents": null,
    "vibrato_rate_hz_median": null
@@ -115,6 +131,7 @@
   {
    "tour": "六巡",
    "n_materials": 5,
+   "n_claimable": 4,
    "cities": [
     "广州",
     "重庆"
@@ -126,9 +143,12 @@
    "lowest_note": "F2",
    "lowest_hz": 88.9,
    "lowest_tag": "六巡重庆20260613_BV1zEJA6xEr2",
-   "span_median_octaves": 2.6,
-   "stability_median_cents": 7.2,
-   "vibrato_rate_hz_median": 5.0
+   "lowest_note_all": "F2",
+   "lowest_hz_all": 88.9,
+   "lowest_verify_all": "谐波列复核通过（同刻三源）",
+   "span_median_octaves": 2.52,
+   "stability_median_cents": 7.25,
+   "vibrato_rate_hz_median": 5.04
   }
  ],
  "rows": [
@@ -602,8 +622,8 @@
    "title": "肆益杭州站",
    "bandwidth_kbps": null,
    "source_verdict": "4K 现场",
-   "low_note": "B1",
-   "low_hz": 63.4,
+   "low_note": "C2",
+   "low_hz": 65.2,
    "high_note": null,
    "high_hz": null,
    "span_octaves": null,
@@ -615,8 +635,8 @@
    "hnr_db": null,
    "duration_s": null,
    "a3_state": "高",
-   "a3_yin_hz": 63.4,
-   "a3_crepe_hz": 63.4,
+   "a3_yin_hz": 65.2,
+   "a3_crepe_hz": 65.2,
    "a3_final_note": "待复核",
    "source_layer": "十曲精测"
   },
@@ -1094,8 +1114,8 @@
    "tours": [
     "四巡"
    ],
-   "lowest_note": "B1",
-   "lowest_hz": 63.4,
+   "lowest_note": "C2",
+   "lowest_hz": 65.2,
    "lowest_tag": "肆益杭州站_BV1ArKxe7E8H",
    "span_median_octaves": null,
    "versions": [
@@ -1103,8 +1123,8 @@
      "tour": "四巡",
      "city": "杭州",
      "date": "2024",
-     "low_note": "B1",
-     "low_hz": 63.4,
+     "low_note": "C2",
+     "low_hz": 65.2,
      "span_octaves": null,
      "verify": "待复核",
      "bv": "BV1ArKxe7E8H"
@@ -1621,9 +1641,11 @@
    "kind": "同曲对照",
    "song": "多听有益",
    "studio_hz": 61.6,
-   "live_hz": 63.4,
+   "live_hz": 65.2,
+   "studio_note": "B1",
+   "live_kind": "C2",
    "live_note": "杭州站（肆益巡演）",
-   "note": "录音室 B1(61.6Hz) 与现场 B1(63.4Hz) 几乎持平，B1 是稳定可控低音区，现场照样唱得到"
+   "note": "录音室 B1(61.6Hz) 与现场 C2(65.2Hz，0.9s 台地) 相差 1.0 半音——低音区在两种语境下都稳定可复现"
   },
   {
    "kind": "B1 复现",
@@ -1638,12 +1660,12 @@
   {
    "kind": "B1 复现",
    "version": "杭州站现场（4K 直拍）",
-   "note": "B1",
-   "hz": 63.4,
-   "time_s": 114.6,
+   "note": "C2",
+   "hz": 65.2,
+   "time_s": 114.7,
    "source": "BV1ArKxe7E8H",
    "trust": "高",
-   "note_text": "与录音室同音级，差 1.8Hz"
+   "note_text": "0.9s 台地；比录音室高 1 个半音；混音谐波列复核 + A3 触达候选 65.1Hz 双引擎一致"
   },
   {
    "kind": "B1 复现",
@@ -1668,70 +1690,6 @@
  ],
  "live_vs_studio_pairs": [
   {
-   "song": "多听有益",
-   "tour": "四巡",
-   "city": "杭州",
-   "date": "2024",
-   "bv": "BV1ArKxe7E8H",
-   "source_layer": "十曲精测",
-   "live_note": "B1",
-   "live_hz": 63.4,
-   "live_verify": "待复核",
-   "studio_album": "X自选集",
-   "studio_note": "B1",
-   "studio_hz": 61.6,
-   "studio_span": 2.99,
-   "delta_semitones": 0.5
-  },
-  {
-   "song": "多听有益",
-   "tour": "四巡",
-   "city": "",
-   "date": "2023-2024",
-   "bv": "",
-   "source_layer": "十曲精测",
-   "live_note": "D2",
-   "live_hz": 74.9,
-   "live_verify": "参考（直拍音质）",
-   "studio_album": "X自选集",
-   "studio_note": "B1",
-   "studio_hz": 61.6,
-   "studio_span": 2.99,
-   "delta_semitones": 3.4
-  },
-  {
-   "song": "多听有益",
-   "tour": "四巡",
-   "city": "武汉",
-   "date": "2024",
-   "bv": "BV1iWtUefEkm",
-   "source_layer": "十曲精测",
-   "live_note": "A2",
-   "live_hz": 111.6,
-   "live_verify": "仅参考（音质受限）",
-   "studio_album": "X自选集",
-   "studio_note": "B1",
-   "studio_hz": 61.6,
-   "studio_span": 2.99,
-   "delta_semitones": 10.3
-  },
-  {
-   "song": "静止了的夜晚",
-   "tour": "其他演出",
-   "city": "成都",
-   "date": "2019",
-   "bv": "BV1W7411R7Hv",
-   "source_layer": "场次音频实测",
-   "live_note": "D2",
-   "live_hz": 73.4,
-   "live_verify": "未复核",
-   "studio_album": "重游往昔",
-   "studio_note": "B1",
-   "studio_hz": 61.5,
-   "studio_span": 2.26,
-   "delta_semitones": 3.1
-  },
-  {
    "song": "静止了的夜晚",
    "tour": "三巡",
    "city": "深圳",
@@ -1747,5 +1705,39 @@
    "studio_span": 2.26,
    "delta_semitones": 4.5
   }
- ]
+ ],
+ "live_vs_studio_pair_stats": {
+  "included": 0,
+  "excluded_pending": 4,
+  "excluded_detail": [
+   {
+    "song": "多听有益",
+    "tour": "四巡",
+    "note": "C2",
+    "hz": 65.2,
+    "verify": "待复核"
+   },
+   {
+    "song": "多听有益",
+    "tour": "四巡",
+    "note": "D2",
+    "hz": 74.9,
+    "verify": "参考（直拍音质）"
+   },
+   {
+    "song": "多听有益",
+    "tour": "四巡",
+    "note": "A2",
+    "hz": 111.6,
+    "verify": "仅参考（音质受限）"
+   },
+   {
+    "song": "静止了的夜晚",
+    "tour": "其他演出",
+    "note": "D2",
+    "hz": 73.4,
+    "verify": "未复核"
+   }
+  ]
+ }
 }

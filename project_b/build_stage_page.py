@@ -67,8 +67,11 @@ def tour_layer_html() -> str:
         f'<tr><td>{esc(x["tour"])}</td><td>{esc("、".join(x.get("cities") or []))}</td>'
         f'<td>{esc((x.get("dates") or ["", ""])[0])}~{esc((x.get("dates") or ["", ""])[1])}</td>'
         f'<td>{x.get("n_materials")}</td>'
-        f'<td class="low">{esc(x.get("lowest_note"))}（{x.get("lowest_hz")} Hz）</td>'
-        f'<td>{dash(x.get("span_median_octaves"))}</td><td>{dash(x.get("stability_median_cents"))}</td>'
+        + (f'<td class="low">{esc(x.get("lowest_note"))}（{x.get("lowest_hz")} Hz）</td>'
+           if x.get("lowest_hz") else
+           f'<td>—（未过复核）<br><span class="sub" title="本巡无过复核门槛的最低音读数">未过者最低 '
+           f'{esc(x.get("lowest_note_all"))} {esc(x.get("lowest_hz_all"))} Hz（{esc(x.get("lowest_verify_all"))}）</span></td>')
+        + f'<td>{dash(x.get("span_median_octaves"))}</td><td>{dash(x.get("stability_median_cents"))}</td>'
         f'<td>{dash(x.get("vibrato_rate_hz_median"))}</td></tr>'
         for x in t.get("by_tour") or [])
     detail_rows = "\n".join(
@@ -135,7 +138,14 @@ def tour_layer_html() -> str:
                      + pair_rows + "</table>"
                      "<p class='sub' style='margin-top:0'>同一首歌的现场版与录音室版由<strong>完全相同</strong>的测量管线得出"
                      "（分离 + 逐帧 F0 + 稳健过滤），因此差值可比：正值=现场比录音室高。"
-                     "差值反映当场的调性/编配选择，不是能力差。两表覆盖范围随后续实测自动扩大。</p>")
+                     "差值反映当场的调性/编配选择，不是能力差。两表覆盖范围随后续实测自动扩大。</p>"
+                     + (lambda ps: (f'<p class="sub" style="margin-top:0">另有 <strong>{ps.get("excluded_pending")} 组</strong>未列入：'
+                                    "现场侧读数未过复核门槛（"
+                                    + esc("；".join(f'{p.get("song")} {p.get("tour")} {p.get("note")} {p.get("hz")}Hz（{p.get("verify")}）'
+                                                    for p in (ps.get("excluded_detail") or [])[:4]))
+                                    + '）——按本页纪律「待复核/未复核/仅参考」不作能力依据。</p>'
+                                    if ps.get("excluded_pending") else "")
+                         )(t.get("live_vs_studio_pair_stats") or {}))
     n_cross_songs = len({r2.get("song") for r2 in (t.get("by_song") or []) if (r2.get("n_versions") or 0) >= 2})
     compare_hint = ""
     if pair_rows or cross_rows:
@@ -304,6 +314,11 @@ def main() -> None:
         _t_ver = (_tj.get("summary") or {}).get("n_verified")
     except Exception:
         tour_n, _t_lo, _t_ver = None, {}, None
+    # 页面更新日期 = 两层数据里较新的那个（原来只取他人主导层，导致日期陈旧）
+    try:
+        page_updated = max(str(d.get("generated_at") or ""), str(_tj.get("generated_at") or "")) or d.get("generated_at")
+    except Exception:
+        page_updated = d.get("generated_at")
 
     _p_low = (reg["low_lt_C3"].get("p") if isinstance(reg.get("low_lt_C3"), dict) else None)
     try:
@@ -319,7 +334,7 @@ def main() -> None:
             f"对照层为他人主导场景的 {src['analyzed']} 个舞台素材，"
             "并与 72 首录音室曲目做 Mann–Whitney U 组间对比，用于区分「能力极限」与「使用模式」两类差异。"
         ),
-        date_modified=d["generated_at"],
+        date_modified=page_updated,
         dataset_url="https://wx409.github.io/data/archive_stage.json",
         based_on=[{
             "@type": "Dataset",
@@ -406,7 +421,7 @@ def main() -> None:
                         f"最高 {s['highest']['note']}（{s['highest']['hz']}Hz，含和声层可能），跨度中位 {s['span_median']} 个八度，"
                         f"音符内稳定性中位 {s['stability_median']} 音分，颤音 {s['vibrato_hz_median']}Hz/{s['vibrato_cents_median']:.0f} 音分。"),
         "url": "https://wx409.github.io/stage.html",
-        "dateModified": d["generated_at"],
+        "dateModified": page_updated,
         "creator": {"@type": "Person", "name": "wx409", "url": "https://wx409.github.io/"},
         "about": {"@type": "Person", "name": "王晰", "url": "https://wx409.github.io/"},
         "measurementTechnique": (d.get("method") or {}).get("separation", "") + "；" + (d.get("method") or {}).get("f0", ""),
@@ -439,7 +454,7 @@ def main() -> None:
 <!-- NAV_START --><!-- NAV_END -->
 
 <h1>🎤 现场音域实测 · 双层</h1>
-<p class="sub">能力层：王晰主导巡演现场（{tour_n if tour_n else '—'} 条已实测素材）｜对照层：他人主导综艺 / 晚会 / 盛典商演 / 饭拍（{src['analyzed']} 个素材）· 更新 {esc(d['generated_at'])}</p>
+<p class="sub">能力层：王晰主导巡演现场（{tour_n if tour_n else '—'} 条已实测素材）｜对照层：他人主导综艺 / 晚会 / 盛典商演 / 饭拍（{src['analyzed']} 个素材）· 更新 {esc(page_updated)}</p>
 
 {tour_html}
 
