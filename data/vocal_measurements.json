@@ -1,0 +1,4043 @@
+{
+ "schema": 1,
+ "generated_at": "2026-09-11 13:51",
+ "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
+ "layers": {
+  "studio_album": "录音室专辑（QQ音乐 320k）",
+  "precision": "十曲精测（含现场个案）",
+  "stage_other": "他人主导舞台（综艺/晚会/商演/饭拍）",
+  "tour_live": "王晰主导巡演现场"
+ },
+ "counts": {
+  "total": 146,
+  "by_layer": {
+   "studio_album": 72,
+   "precision": 19,
+   "tour_live": 23,
+   "stage_other": 32
+  },
+  "by_verify": {
+   "未复核": 110,
+   "双引擎一致": 12,
+   "待复核（短读<0.12s，未过 CREPE）": 9,
+   "已测": 3,
+   "待复核": 3,
+   "已取证": 6,
+   "已核验": 1,
+   "参考": 2
+  },
+  "songs": 112
+ },
+ "rows": [
+  {
+   "id": "studio_album|知晓|B面图景",
+   "song": "知晓",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.9,
+    "high_note": "E4",
+    "high_hz": 329.4,
+    "span_octaves": 2.41,
+    "stability_cents": 7.7,
+    "intonation_cents": 8.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.58,
+    "hnr_db": 5.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|倒叙|B面图景",
+   "song": "倒叙",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.4,
+    "high_note": "C#4",
+    "high_hz": 274.3,
+    "span_octaves": 1.9,
+    "stability_cents": 7.0,
+    "intonation_cents": 12.1,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 87.0,
+    "density_per_s": 2.28,
+    "hnr_db": 7.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|哑光|B面图景",
+   "song": "哑光",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.9,
+    "high_note": "C4",
+    "high_hz": 261.8,
+    "span_octaves": 1.68,
+    "stability_cents": 6.7,
+    "intonation_cents": 9.0,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 79.0,
+    "density_per_s": 2.01,
+    "hnr_db": 6.9
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|悬念|B面图景",
+   "song": "悬念",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.7,
+    "high_note": "C#4",
+    "high_hz": 283.6,
+    "span_octaves": 1.78,
+    "stability_cents": 8.3,
+    "intonation_cents": 14.2,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 90.0,
+    "density_per_s": 2.4,
+    "hnr_db": 6.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|分岔|B面图景",
+   "song": "分岔",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.2,
+    "high_note": "B4",
+    "high_hz": 496.6,
+    "span_octaves": 2.53,
+    "stability_cents": 8.9,
+    "intonation_cents": 10.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 95.0,
+    "density_per_s": 1.96,
+    "hnr_db": 7.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|惑许|B面图景",
+   "song": "惑许",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.0,
+    "high_note": "C#5",
+    "high_hz": 556.4,
+    "span_octaves": 2.61,
+    "stability_cents": 7.7,
+    "intonation_cents": 10.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 95.0,
+    "density_per_s": 2.54,
+    "hnr_db": 6.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|时空|B面图景",
+   "song": "时空",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.2,
+    "high_note": "C#4",
+    "high_hz": 277.2,
+    "span_octaves": 1.6,
+    "stability_cents": 7.8,
+    "intonation_cents": 10.3,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 81.0,
+    "density_per_s": 2.45,
+    "hnr_db": 8.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|游离|B面图景",
+   "song": "游离",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.7,
+    "high_note": "D4",
+    "high_hz": 295.1,
+    "span_octaves": 1.69,
+    "stability_cents": 7.9,
+    "intonation_cents": 12.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 99.0,
+    "density_per_s": 2.24,
+    "hnr_db": 6.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|玩笑|B面图景",
+   "song": "玩笑",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.9,
+    "high_note": "E4",
+    "high_hz": 327.0,
+    "span_octaves": 1.85,
+    "stability_cents": 7.4,
+    "intonation_cents": 9.5,
+    "vibrato_hz": 5.12,
+    "vibrato_cents": 73.0,
+    "density_per_s": 2.2,
+    "hnr_db": 5.9
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|轻信|B面图景",
+   "song": "轻信",
+   "version": "录音室《B面图景》",
+   "layer": "studio_album",
+   "album": "B面图景",
+   "source_ref": "B面图景",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 112.7,
+    "high_note": "B4",
+    "high_hz": 491.3,
+    "span_octaves": 2.12,
+    "stability_cents": 7.2,
+    "intonation_cents": 11.5,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 72.0,
+    "density_per_s": 2.29,
+    "hnr_db": 6.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|渔光曲|Low C的诱惑",
+   "song": "渔光曲",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.6,
+    "high_note": "F#3",
+    "high_hz": 186.9,
+    "span_octaves": 1.6,
+    "stability_cents": 7.8,
+    "intonation_cents": 6.8,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 93.0,
+    "density_per_s": 1.74,
+    "hnr_db": 8.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|千言万语|Low C的诱惑",
+   "song": "千言万语",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.0,
+    "high_note": "A3",
+    "high_hz": 221.4,
+    "span_octaves": 1.6,
+    "stability_cents": 6.2,
+    "intonation_cents": 8.0,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.84,
+    "hnr_db": 9.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|夜半歌声|Low C的诱惑",
+   "song": "夜半歌声",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.3,
+    "high_note": "A3",
+    "high_hz": 221.0,
+    "span_octaves": 1.61,
+    "stability_cents": 7.6,
+    "intonation_cents": 10.5,
+    "vibrato_hz": 5.19,
+    "vibrato_cents": 110.0,
+    "density_per_s": 1.68,
+    "hnr_db": 5.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|当爱已成往事|Low C的诱惑",
+   "song": "当爱已成往事",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.9,
+    "high_note": "E5",
+    "high_hz": 642.1,
+    "span_octaves": 3.1,
+    "stability_cents": 6.4,
+    "intonation_cents": 6.9,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 70.0,
+    "density_per_s": 1.81,
+    "hnr_db": 11.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|我的心里只有你没有他|Low C的诱惑",
+   "song": "我的心里只有你没有他",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 75.2,
+    "high_note": "G#4",
+    "high_hz": 420.8,
+    "span_octaves": 2.48,
+    "stability_cents": 5.4,
+    "intonation_cents": 8.9,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 93.0,
+    "density_per_s": 2.07,
+    "hnr_db": 6.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|爱情|Low C的诱惑",
+   "song": "爱情",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.3,
+    "high_note": "A#3",
+    "high_hz": 233.8,
+    "span_octaves": 1.69,
+    "stability_cents": 9.1,
+    "intonation_cents": 9.5,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 97.0,
+    "density_per_s": 1.72,
+    "hnr_db": 8.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|绿岛小夜曲|Low C的诱惑",
+   "song": "绿岛小夜曲",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.2,
+    "high_note": "D4",
+    "high_hz": 290.6,
+    "span_octaves": 1.99,
+    "stability_cents": 6.0,
+    "intonation_cents": 6.6,
+    "vibrato_hz": 5.62,
+    "vibrato_cents": 87.0,
+    "density_per_s": 2.06,
+    "hnr_db": 10.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|南屏晚钟|Low C的诱惑",
+   "song": "南屏晚钟",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.9,
+    "high_note": "D#4",
+    "high_hz": 310.6,
+    "span_octaves": 2.01,
+    "stability_cents": 6.7,
+    "intonation_cents": 8.8,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 89.0,
+    "density_per_s": 2.56,
+    "hnr_db": 9.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|至少还有你|Low C的诱惑",
+   "song": "至少还有你",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.3,
+    "high_note": "G4",
+    "high_hz": 395.6,
+    "span_octaves": 2.27,
+    "stability_cents": 5.6,
+    "intonation_cents": 6.2,
+    "vibrato_hz": 5.2,
+    "vibrato_cents": 76.0,
+    "density_per_s": 2.02,
+    "hnr_db": 10.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|再回首|Low C的诱惑",
+   "song": "再回首",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.9,
+    "high_note": "G3",
+    "high_hz": 196.4,
+    "span_octaves": 1.18,
+    "stability_cents": 8.2,
+    "intonation_cents": 10.0,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 113.0,
+    "density_per_s": 1.91,
+    "hnr_db": 9.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|晚风|Low C的诱惑",
+   "song": "晚风",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.6,
+    "high_note": "D4",
+    "high_hz": 292.0,
+    "span_octaves": 1.77,
+    "stability_cents": 6.3,
+    "intonation_cents": 6.6,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 78.0,
+    "density_per_s": 1.53,
+    "hnr_db": 9.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|忘不了|Low C的诱惑",
+   "song": "忘不了",
+   "version": "录音室《Low C的诱惑》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑",
+   "source_ref": "Low C的诱惑",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 97.3,
+    "high_note": "D4",
+    "high_hz": 292.0,
+    "span_octaves": 1.59,
+    "stability_cents": 5.2,
+    "intonation_cents": 4.8,
+    "vibrato_hz": 5.29,
+    "vibrato_cents": 89.0,
+    "density_per_s": 1.21,
+    "hnr_db": 9.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|乌兰巴托的夜晚|Low C的诱惑Ⅱ",
+   "song": "乌兰巴托的夜晚",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 66.3,
+    "high_note": "G3",
+    "high_hz": 196.3,
+    "span_octaves": 1.57,
+    "stability_cents": 8.1,
+    "intonation_cents": 10.2,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 99.0,
+    "density_per_s": 1.32,
+    "hnr_db": 3.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|多年以后|Low C的诱惑Ⅱ",
+   "song": "多年以后",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.8,
+    "high_note": "A4",
+    "high_hz": 435.2,
+    "span_octaves": 2.72,
+    "stability_cents": 7.2,
+    "intonation_cents": 10.1,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 87.0,
+    "density_per_s": 2.07,
+    "hnr_db": 9.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|几多愁|Low C的诱惑Ⅱ",
+   "song": "几多愁",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.5,
+    "high_note": "G5",
+    "high_hz": 801.5,
+    "span_octaves": 3.53,
+    "stability_cents": 6.1,
+    "intonation_cents": 13.1,
+    "vibrato_hz": 5.01,
+    "vibrato_cents": 82.0,
+    "density_per_s": 2.04,
+    "hnr_db": 7.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|葬心|Low C的诱惑Ⅱ",
+   "song": "葬心",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.0,
+    "high_note": "C6",
+    "high_hz": 1055.3,
+    "span_octaves": 3.93,
+    "stability_cents": 9.5,
+    "intonation_cents": 11.4,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 90.0,
+    "density_per_s": 1.39,
+    "hnr_db": 9.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|贝加尔湖畔|Low C的诱惑Ⅱ",
+   "song": "贝加尔湖畔",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 68.3,
+    "high_note": "A3",
+    "high_hz": 219.9,
+    "span_octaves": 1.69,
+    "stability_cents": 8.3,
+    "intonation_cents": 10.1,
+    "vibrato_hz": 5.63,
+    "vibrato_cents": 108.0,
+    "density_per_s": 1.78,
+    "hnr_db": 5.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|他不爱我|Low C的诱惑Ⅱ",
+   "song": "他不爱我",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.5,
+    "high_note": "A3",
+    "high_hz": 220.4,
+    "span_octaves": 1.58,
+    "stability_cents": 7.1,
+    "intonation_cents": 9.9,
+    "vibrato_hz": 5.56,
+    "vibrato_cents": 101.0,
+    "density_per_s": 1.85,
+    "hnr_db": 6.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|如梦令|Low C的诱惑Ⅱ",
+   "song": "如梦令",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.6,
+    "high_note": "C6",
+    "high_hz": 1042.3,
+    "span_octaves": 3.84,
+    "stability_cents": 7.8,
+    "intonation_cents": 11.1,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 93.0,
+    "density_per_s": 1.92,
+    "hnr_db": 9.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|月光|Low C的诱惑Ⅱ",
+   "song": "月光",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.2,
+    "high_note": "C6",
+    "high_hz": 1065.0,
+    "span_octaves": 3.88,
+    "stability_cents": 6.3,
+    "intonation_cents": 12.4,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 88.0,
+    "density_per_s": 2.08,
+    "hnr_db": 8.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|月圆花好|Low C的诱惑Ⅱ",
+   "song": "月圆花好",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.2,
+    "high_note": "A3",
+    "high_hz": 218.0,
+    "span_octaves": 1.59,
+    "stability_cents": 7.0,
+    "intonation_cents": 10.5,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 86.0,
+    "density_per_s": 2.18,
+    "hnr_db": 7.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|叶塞尼亚|Low C的诱惑Ⅱ",
+   "song": "叶塞尼亚",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.6,
+    "high_note": "G4",
+    "high_hz": 392.0,
+    "span_octaves": 2.34,
+    "stability_cents": 7.7,
+    "intonation_cents": 9.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 89.0,
+    "density_per_s": 1.41,
+    "hnr_db": 5.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|重庆野玫瑰|Low C的诱惑Ⅱ",
+   "song": "重庆野玫瑰",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.8,
+    "high_note": "G3",
+    "high_hz": 196.1,
+    "span_octaves": 1.35,
+    "stability_cents": 7.6,
+    "intonation_cents": 10.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 85.0,
+    "density_per_s": 1.55,
+    "hnr_db": 6.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|微风细雨|Low C的诱惑Ⅱ",
+   "song": "微风细雨",
+   "version": "录音室《Low C的诱惑Ⅱ》",
+   "layer": "studio_album",
+   "album": "Low C的诱惑Ⅱ",
+   "source_ref": "Low C的诱惑Ⅱ",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.6,
+    "high_note": "B5",
+    "high_hz": 959.9,
+    "span_octaves": 3.56,
+    "stability_cents": 5.9,
+    "intonation_cents": 13.3,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.88,
+    "hnr_db": 4.9
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|多听有益|X自选集",
+   "song": "多听有益",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.6,
+    "high_note": "B4",
+    "high_hz": 490.4,
+    "span_octaves": 2.99,
+    "stability_cents": 4.9,
+    "intonation_cents": 6.3,
+    "vibrato_hz": 5.12,
+    "vibrato_cents": 60.0,
+    "density_per_s": 1.45,
+    "hnr_db": 3.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|Crystal Store|X自选集",
+   "song": "Crystal Store",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.8,
+    "high_note": "B4",
+    "high_hz": 491.1,
+    "span_octaves": 2.66,
+    "stability_cents": 7.3,
+    "intonation_cents": 7.6,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 75.0,
+    "density_per_s": 1.62,
+    "hnr_db": 3.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|小河|X自选集",
+   "song": "小河",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.9,
+    "high_note": "C4",
+    "high_hz": 262.3,
+    "span_octaves": 1.68,
+    "stability_cents": 7.7,
+    "intonation_cents": 7.5,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 110.0,
+    "density_per_s": 2.05,
+    "hnr_db": 7.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|猫模狗样|X自选集",
+   "song": "猫模狗样",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.3,
+    "high_note": "F#4",
+    "high_hz": 369.3,
+    "span_octaves": 2.17,
+    "stability_cents": 4.4,
+    "intonation_cents": 6.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.74,
+    "hnr_db": 4.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|不需要结果|X自选集",
+   "song": "不需要结果",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 87.9,
+    "high_note": "B4",
+    "high_hz": 493.0,
+    "span_octaves": 2.49,
+    "stability_cents": 7.7,
+    "intonation_cents": 8.3,
+    "vibrato_hz": 5.29,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.82,
+    "hnr_db": 9.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|微醺23点08分|X自选集",
+   "song": "微醺23点08分",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.5,
+    "high_note": "C4",
+    "high_hz": 261.6,
+    "span_octaves": 1.6,
+    "stability_cents": 5.7,
+    "intonation_cents": 8.1,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 60.0,
+    "density_per_s": 1.96,
+    "hnr_db": 4.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|是你|X自选集",
+   "song": "是你",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 87.9,
+    "high_note": "A#4",
+    "high_hz": 463.4,
+    "span_octaves": 2.4,
+    "stability_cents": 6.1,
+    "intonation_cents": 5.9,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.82,
+    "hnr_db": 10.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|偏偏|X自选集",
+   "song": "偏偏",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 92.3,
+    "high_note": "E4",
+    "high_hz": 330.3,
+    "span_octaves": 1.84,
+    "stability_cents": 6.5,
+    "intonation_cents": 5.9,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.84,
+    "hnr_db": 9.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|朝凤|X自选集",
+   "song": "朝凤",
+   "version": "录音室《X自选集》",
+   "layer": "studio_album",
+   "album": "X自选集",
+   "source_ref": "X自选集",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 98.8,
+    "high_note": "G#4",
+    "high_hz": 415.4,
+    "span_octaves": 2.07,
+    "stability_cents": 5.4,
+    "intonation_cents": 7.2,
+    "vibrato_hz": 5.28,
+    "vibrato_cents": 75.0,
+    "density_per_s": 2.11,
+    "hnr_db": 7.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|勿扰|不说",
+   "song": "勿扰",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.6,
+    "high_note": "F5",
+    "high_hz": 699.5,
+    "span_octaves": 3.41,
+    "stability_cents": 6.4,
+    "intonation_cents": 8.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.32,
+    "hnr_db": 2.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|鹅毛信|不说",
+   "song": "鹅毛信",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.3,
+    "high_note": "F4",
+    "high_hz": 348.4,
+    "span_octaves": 2.42,
+    "stability_cents": 7.3,
+    "intonation_cents": 10.6,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.44,
+    "hnr_db": 7.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|住口|不说",
+   "song": "住口",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.3,
+    "high_note": "F#4",
+    "high_hz": 367.8,
+    "span_octaves": 2.41,
+    "stability_cents": 6.6,
+    "intonation_cents": 14.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 84.0,
+    "density_per_s": 2.26,
+    "hnr_db": 7.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|在路上|不说",
+   "song": "在路上",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.3,
+    "high_note": "E5",
+    "high_hz": 662.6,
+    "span_octaves": 3.1,
+    "stability_cents": 5.3,
+    "intonation_cents": 8.0,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 65.0,
+    "density_per_s": 1.9,
+    "hnr_db": 4.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|无尽的夜里|不说",
+   "song": "无尽的夜里",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.6,
+    "high_note": "A#4",
+    "high_hz": 465.3,
+    "span_octaves": 2.58,
+    "stability_cents": 4.1,
+    "intonation_cents": 6.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 92.0,
+    "density_per_s": 1.87,
+    "hnr_db": 5.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|祝我们随遇而安|不说",
+   "song": "祝我们随遇而安",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.3,
+    "high_note": "A4",
+    "high_hz": 440.4,
+    "span_octaves": 2.37,
+    "stability_cents": 8.6,
+    "intonation_cents": 16.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 104.0,
+    "density_per_s": 2.38,
+    "hnr_db": 7.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|雷美替胺|不说",
+   "song": "雷美替胺",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 94.2,
+    "high_note": "B4",
+    "high_hz": 492.7,
+    "span_octaves": 2.39,
+    "stability_cents": 8.2,
+    "intonation_cents": 13.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 91.0,
+    "density_per_s": 1.83,
+    "hnr_db": 9.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|明白|不说",
+   "song": "明白",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 101.3,
+    "high_note": "C5",
+    "high_hz": 521.9,
+    "span_octaves": 2.36,
+    "stability_cents": 5.6,
+    "intonation_cents": 9.6,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 82.0,
+    "density_per_s": 2.15,
+    "hnr_db": 7.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|无人岛上|回望",
+   "song": "无人岛上",
+   "version": "录音室《回望》",
+   "layer": "studio_album",
+   "album": "回望",
+   "source_ref": "回望",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.9,
+    "high_note": "B3",
+    "high_hz": 249.1,
+    "span_octaves": 1.68,
+    "stability_cents": 9.7,
+    "intonation_cents": 12.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 95.0,
+    "density_per_s": 1.99,
+    "hnr_db": 9.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|不能靠近的朋友|回望",
+   "song": "不能靠近的朋友",
+   "version": "录音室《回望》",
+   "layer": "studio_album",
+   "album": "回望",
+   "source_ref": "回望",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 96.8,
+    "high_note": "D5",
+    "high_hz": 586.0,
+    "span_octaves": 2.6,
+    "stability_cents": 7.3,
+    "intonation_cents": 7.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 67.0,
+    "density_per_s": 1.76,
+    "hnr_db": 10.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|微光之名|回望",
+   "song": "微光之名",
+   "version": "录音室《回望》",
+   "layer": "studio_album",
+   "album": "回望",
+   "source_ref": "回望",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.5,
+    "high_note": "F#4",
+    "high_hz": 368.0,
+    "span_octaves": 1.74,
+    "stability_cents": 8.1,
+    "intonation_cents": 9.0,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 81.0,
+    "density_per_s": 2.35,
+    "hnr_db": 10.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|偏执|歌颂",
+   "song": "偏执",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.8,
+    "high_note": "B4",
+    "high_hz": 494.5,
+    "span_octaves": 2.91,
+    "stability_cents": 5.0,
+    "intonation_cents": 6.4,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.94,
+    "hnr_db": 7.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|雪地里寄不出的求救信|歌颂",
+   "song": "雪地里寄不出的求救信",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.4,
+    "high_note": "E4",
+    "high_hz": 330.7,
+    "span_octaves": 2.34,
+    "stability_cents": 6.9,
+    "intonation_cents": 4.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.8,
+    "hnr_db": 7.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|云一定知道|歌颂",
+   "song": "云一定知道",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 75.7,
+    "high_note": "A#4",
+    "high_hz": 467.6,
+    "span_octaves": 2.63,
+    "stability_cents": 6.6,
+    "intonation_cents": 6.7,
+    "vibrato_hz": 5.1,
+    "vibrato_cents": 79.0,
+    "density_per_s": 1.52,
+    "hnr_db": 8.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|Come to Me|歌颂",
+   "song": "Come to Me",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 83.8,
+    "high_note": "D#5",
+    "high_hz": 622.8,
+    "span_octaves": 2.89,
+    "stability_cents": 8.2,
+    "intonation_cents": 8.6,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.44,
+    "hnr_db": 8.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|你|歌颂",
+   "song": "你",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.1,
+    "high_note": "D#4",
+    "high_hz": 317.7,
+    "span_octaves": 1.88,
+    "stability_cents": 8.2,
+    "intonation_cents": 9.5,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.64,
+    "hnr_db": 8.9
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|怂|歌颂",
+   "song": "怂",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 88.2,
+    "high_note": "D4",
+    "high_hz": 295.6,
+    "span_octaves": 1.74,
+    "stability_cents": 7.4,
+    "intonation_cents": 7.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 94.0,
+    "density_per_s": 2.2,
+    "hnr_db": 6.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|歌颂|歌颂",
+   "song": "歌颂",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.2,
+    "high_note": "D5",
+    "high_hz": 590.2,
+    "span_octaves": 2.79,
+    "stability_cents": 7.8,
+    "intonation_cents": 8.6,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 94.0,
+    "density_per_s": 1.86,
+    "hnr_db": 8.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|王牌就是我|歌颂",
+   "song": "王牌就是我",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 97.5,
+    "high_note": "G4",
+    "high_hz": 398.1,
+    "span_octaves": 2.03,
+    "stability_cents": 5.3,
+    "intonation_cents": 9.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.59,
+    "hnr_db": 3.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|等一等昨天|歌颂",
+   "song": "等一等昨天",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 116.1,
+    "high_note": "D#5",
+    "high_hz": 606.3,
+    "span_octaves": 2.38,
+    "stability_cents": 5.4,
+    "intonation_cents": 5.9,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.9,
+    "hnr_db": 9.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|双鱼|歌颂",
+   "song": "双鱼",
+   "version": "录音室《歌颂》",
+   "layer": "studio_album",
+   "album": "歌颂",
+   "source_ref": "歌颂",
+   "metrics": {
+    "low_note": "B2",
+    "low_hz": 125.6,
+    "high_note": "C4",
+    "high_hz": 263.0,
+    "span_octaves": 1.07,
+    "stability_cents": 6.8,
+    "intonation_cents": 6.9,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.65,
+    "hnr_db": 8.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|静止了的夜晚|重游往昔",
+   "song": "静止了的夜晚",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.5,
+    "high_note": "D4",
+    "high_hz": 293.7,
+    "span_octaves": 2.26,
+    "stability_cents": 9.3,
+    "intonation_cents": 12.6,
+    "vibrato_hz": 5.13,
+    "vibrato_cents": 99.0,
+    "density_per_s": 2.21,
+    "hnr_db": 9.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|晚风暖暖|重游往昔",
+   "song": "晚风暖暖",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.3,
+    "high_note": "C4",
+    "high_hz": 263.5,
+    "span_octaves": 2.01,
+    "stability_cents": 7.0,
+    "intonation_cents": 11.5,
+    "vibrato_hz": 5.02,
+    "vibrato_cents": 86.0,
+    "density_per_s": 2.31,
+    "hnr_db": 8.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|下沉|重游往昔",
+   "song": "下沉",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.2,
+    "high_note": "E4",
+    "high_hz": 333.6,
+    "span_octaves": 2.27,
+    "stability_cents": 10.1,
+    "intonation_cents": 11.7,
+    "vibrato_hz": 5.04,
+    "vibrato_cents": 104.0,
+    "density_per_s": 1.08,
+    "hnr_db": 5.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|茕茕|重游往昔",
+   "song": "茕茕",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.4,
+    "high_note": "G5",
+    "high_hz": 787.2,
+    "span_octaves": 3.42,
+    "stability_cents": 8.8,
+    "intonation_cents": 9.7,
+    "vibrato_hz": 5.25,
+    "vibrato_cents": 102.0,
+    "density_per_s": 1.72,
+    "hnr_db": 9.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|重游往昔|重游往昔",
+   "song": "重游往昔",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.1,
+    "high_note": "B4",
+    "high_hz": 494.9,
+    "span_octaves": 2.76,
+    "stability_cents": 8.9,
+    "intonation_cents": 14.7,
+    "vibrato_hz": 5.11,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.8,
+    "hnr_db": 7.4
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|你要忘了我|重游往昔",
+   "song": "你要忘了我",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.4,
+    "high_note": "C5",
+    "high_hz": 525.3,
+    "span_octaves": 2.69,
+    "stability_cents": 8.2,
+    "intonation_cents": 8.8,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.71,
+    "hnr_db": 7.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|好好说再见|重游往昔",
+   "song": "好好说再见",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.1,
+    "high_note": "D5",
+    "high_hz": 579.4,
+    "span_octaves": 2.69,
+    "stability_cents": 7.7,
+    "intonation_cents": 8.1,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.78,
+    "hnr_db": 8.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|带着一颗好心去流浪|重游往昔",
+   "song": "带着一颗好心去流浪",
+   "version": "录音室《重游往昔》",
+   "layer": "studio_album",
+   "album": "重游往昔",
+   "source_ref": "重游往昔",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 96.9,
+    "high_note": "F5",
+    "high_hz": 706.0,
+    "span_octaves": 2.86,
+    "stability_cents": 7.1,
+    "intonation_cents": 8.3,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.85,
+    "hnr_db": 6.2
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "precision|多听有益|stable",
+   "song": "多听有益",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室 MV",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.6,
+    "hnr_db": 5.9,
+    "duration_s": 0.35
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "多配置 CREPE 与 YIN 一致"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|多听有益|reach",
+   "song": "多听有益",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "录音室 MV",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.2
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|多听有益|肆益杭州站",
+   "song": "多听有益",
+   "version": "肆益杭州站",
+   "layer": "tour_live",
+   "source_ref": "BV1ArKxe7E8H",
+   "date": "2024",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 63.4
+   },
+   "verify": {
+    "state": "已测"
+   },
+   "provenance": {
+    "measured_by": "十曲精测版本表",
+    "legacy": "archive_vocal.json#versions",
+    "quality": "4K 现场"
+   }
+  },
+  {
+   "id": "precision|多听有益|四巡 直拍",
+   "song": "多听有益",
+   "version": "四巡 直拍",
+   "layer": "tour_live",
+   "source_ref": "",
+   "date": "2023-2024",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.9
+   },
+   "verify": {
+    "state": "已测"
+   },
+   "provenance": {
+    "measured_by": "十曲精测版本表",
+    "legacy": "archive_vocal.json#versions",
+    "quality": "直拍"
+   }
+  },
+  {
+   "id": "precision|多听有益|肆益收官 武汉琴台",
+   "song": "多听有益",
+   "version": "肆益收官 武汉琴台",
+   "layer": "tour_live",
+   "source_ref": "BV1iWtUefEkm",
+   "date": "2024",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 111.6
+   },
+   "verify": {
+    "state": "已测"
+   },
+   "provenance": {
+    "measured_by": "十曲精测版本表",
+    "legacy": "archive_vocal.json#versions",
+    "quality": "现场(失真)"
+   }
+  },
+  {
+   "id": "precision|鹅毛信|stable",
+   "song": "鹅毛信",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.3,
+    "hnr_db": 6.2,
+    "duration_s": 0.33
+   },
+   "verify": {
+    "state": "待复核",
+    "evidence": "谱列解释度接近（YIN 1.00 / CREPE 0.94），无一候选能解释全部谱峰"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|鹅毛信|reach",
+   "song": "鹅毛信",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 71.9
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|下潜|stable",
+   "song": "下潜",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "现场（待确认王晰原声）",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.7,
+    "hnr_db": 6.5,
+    "duration_s": 0.21
+   },
+   "verify": {
+    "state": "已取证",
+    "evidence": "谱列解释度 1.00 vs 0.76"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|下潜|reach",
+   "song": "下潜",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "现场（待确认王晰原声）",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 71.9
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|渡荆门送别|stable",
+   "song": "渡荆门送别",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "央视《经典咏流传》",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.7,
+    "hnr_db": 5.9,
+    "duration_s": 0.26
+   },
+   "verify": {
+    "state": "已取证",
+    "evidence": "谱列解释度 1.00 vs 0.63"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|渡荆门送别|reach",
+   "song": "渡荆门送别",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "央视《经典咏流传》",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 60.5
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|想游泳的星|stable",
+   "song": "想游泳的星",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.5,
+    "hnr_db": 6.4,
+    "duration_s": 0.26
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "多配置 CREPE 与 YIN 一致"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|想游泳的星|reach",
+   "song": "想游泳的星",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 71.5
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|雾里|stable",
+   "song": "雾里",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "央视网络春晚（三人合唱）",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 75.5,
+    "hnr_db": 6.6,
+    "duration_s": 0.16
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "多配置 CREPE 与 YIN 一致"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|雾里|reach",
+   "song": "雾里",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "央视网络春晚（三人合唱）",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 64.5
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|南屏晚钟|stable",
+   "song": "南屏晚钟",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.9,
+    "hnr_db": 5.2,
+    "duration_s": 0.19
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "多配置 CREPE 与 YIN 一致"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|南屏晚钟|reach",
+   "song": "南屏晚钟",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 67.9
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|在路上|stable",
+   "song": "在路上",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.3,
+    "hnr_db": 6.2,
+    "duration_s": 0.28
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "多配置 CREPE 与 YIN 一致"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|在路上|reach",
+   "song": "在路上",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.1
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|惑许|stable",
+   "song": "惑许",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.0,
+    "hnr_db": 7.0,
+    "duration_s": 0.21
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "多配置 CREPE 与 YIN 一致"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|惑许|reach",
+   "song": "惑许",
+   "version": "十曲精测·触达音",
+   "layer": "precision",
+   "source_ref": "录音室",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.5
+   },
+   "verify": {
+    "state": "待复核（短读<0.12s，未过 CREPE）",
+    "engine": "pYIN(v1)"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json",
+    "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|向着太阳（官方320k）|stable",
+   "song": "向着太阳（官方320k）",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "VITAS×王晰合唱",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 97.8,
+    "hnr_db": 9.7,
+    "duration_s": 0.26
+   },
+   "verify": {
+    "state": "已取证",
+    "evidence": "谱列解释度 1.00 vs 0.67"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1wV411e7xK",
+   "song": "【1080P】【开口跪神级Live现场】尚雯婕 ",
+   "version": "【1080P】【开口跪神级Live现场】尚雯婕 王晰《云与海》",
+   "layer": "stage_other",
+   "source_ref": "BV1wV411e7xK",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.2,
+    "high_note": "A5",
+    "high_hz": 866.4,
+    "span_octaves": 3.65,
+    "stability_cents": 5.6,
+    "density_per_s": 2.03,
+    "vibrato_hz": 5.65,
+    "vibrato_cents": 97.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|《如愿》王晰 檀健次 马佳",
+   "song": "《如愿》王晰 檀健次 马佳",
+   "version": "《如愿》王晰 檀健次 马佳",
+   "layer": "stage_other",
+   "source_ref": "《如愿》王晰 檀健次 马佳",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.3,
+    "high_note": "F4",
+    "high_hz": 351.7,
+    "span_octaves": 2.34,
+    "stability_cents": 3.8,
+    "density_per_s": 1.79,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 76.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1no4y1K7dP",
+   "song": "经典咏流传《渡荆门送别》歌曲及访谈",
+   "version": "经典咏流传《渡荆门送别》歌曲及访谈",
+   "layer": "stage_other",
+   "source_ref": "BV1no4y1K7dP",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.7,
+    "high_note": "G#5",
+    "high_hz": 837.5,
+    "span_octaves": 3.59,
+    "stability_cents": 5.0,
+    "density_per_s": 1.2,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 49.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1zmRHBwExo",
+   "song": "王晰汪小敏《偏执》",
+   "version": "王晰汪小敏《偏执》",
+   "layer": "stage_other",
+   "source_ref": "BV1zmRHBwExo",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.8,
+    "high_note": "C6",
+    "high_hz": 1051.5,
+    "span_octaves": 3.91,
+    "stability_cents": 4.7,
+    "density_per_s": 2.03,
+    "vibrato_hz": 5.19,
+    "vibrato_cents": 62.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1vr4y1S7v8",
+   "song": "【追光吧第二季】王晰   小毛驴",
+   "version": "【追光吧第二季】王晰   小毛驴",
+   "layer": "stage_other",
+   "source_ref": "BV1vr4y1S7v8",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.7,
+    "high_note": "E4",
+    "high_hz": 331.1,
+    "span_octaves": 2.19,
+    "stability_cents": 5.3,
+    "density_per_s": 1.23,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 42.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV15a4y1i7ym",
+   "song": "【综艺大观园】王晰演唱《谁》《一生守候》",
+   "version": "【综艺大观园】王晰演唱《谁》《一生守候》",
+   "layer": "stage_other",
+   "source_ref": "BV15a4y1i7ym",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.2,
+    "high_note": "F#4",
+    "high_hz": 365.2,
+    "span_octaves": 2.32,
+    "stability_cents": 6.0,
+    "density_per_s": 1.36,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 75.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1dM4m197tc",
+   "song": "《凄美地》我晰哥就是魅力一百分！",
+   "version": "《凄美地》我晰哥就是魅力一百分！",
+   "layer": "stage_other",
+   "source_ref": "BV1dM4m197tc",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.6,
+    "high_note": "G#5",
+    "high_hz": 814.1,
+    "span_octaves": 3.39,
+    "stability_cents": 5.3,
+    "density_per_s": 1.86,
+    "vibrato_hz": 4.88,
+    "vibrato_cents": 57.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1WF411B7KX",
+   "song": "追光吧 王晰满江 逆光",
+   "version": "追光吧 王晰满江 逆光",
+   "layer": "stage_other",
+   "source_ref": "BV1WF411B7KX",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.3,
+    "high_note": "E5",
+    "high_hz": 674.2,
+    "span_octaves": 3.11,
+    "stability_cents": 5.2,
+    "density_per_s": 1.59,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 60.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1HD421N7iP",
+   "song": "歌曲《稳稳的幸福》 演唱：王晰",
+   "version": "歌曲《稳稳的幸福》 演唱：王晰",
+   "layer": "stage_other",
+   "source_ref": "BV1HD421N7iP",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.6,
+    "high_note": "E4",
+    "high_hz": 329.4,
+    "span_octaves": 2.05,
+    "stability_cents": 6.6,
+    "density_per_s": 1.88,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 65.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1eWLczSEX1",
+   "song": "全场第一！这个男人唱起情歌还是如此无敌 _ 王晰",
+   "version": "全场第一！这个男人唱起情歌还是如此无敌 _ 王晰《牵手》_ 中国情歌大会",
+   "layer": "stage_other",
+   "source_ref": "BV1eWLczSEX1",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 80.3,
+    "high_note": "G5",
+    "high_hz": 787.5,
+    "span_octaves": 3.29,
+    "stability_cents": 6.3,
+    "density_per_s": 1.6,
+    "vibrato_hz": 5.02,
+    "vibrato_cents": 62.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1iV411a7Jt",
+   "song": "怀旧经典《再见我的爱人》，王晰嗓音颇有邓丽君的魅",
+   "version": "怀旧经典《再见我的爱人》，王晰嗓音颇有邓丽君的魅力，全场震惊",
+   "layer": "stage_other",
+   "source_ref": "BV1iV411a7Jt",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.8,
+    "high_note": "A4",
+    "high_hz": 441.2,
+    "span_octaves": 2.43,
+    "stability_cents": 7.7,
+    "density_per_s": 1.82,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 80.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1B7411f71j",
+   "song": "经典咏流传 《滚滚长江东逝水》杨洪基 王晰108",
+   "version": "经典咏流传 《滚滚长江东逝水》杨洪基 王晰1080P超清重制版",
+   "layer": "stage_other",
+   "source_ref": "BV1B7411f71j",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.6,
+    "high_note": "F#5",
+    "high_hz": 729.3,
+    "span_octaves": 3.14,
+    "stability_cents": 7.9,
+    "density_per_s": 1.43,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 78.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1hbjc6cEpe",
+   "song": "王晰《亲密爱人》I Am a Singer 20",
+   "version": "王晰《亲密爱人》I Am a Singer 2016",
+   "layer": "stage_other",
+   "source_ref": "BV1hbjc6cEpe",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 83.0,
+    "high_note": "A4",
+    "high_hz": 444.8,
+    "span_octaves": 2.42,
+    "stability_cents": 5.8,
+    "density_per_s": 1.52,
+    "vibrato_hz": 5.74,
+    "vibrato_cents": 83.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1Rt411A7p7",
+   "song": "〖王晰 重来〗王晰迷人低音演唱《重来》好听至极，",
+   "version": "〖王晰 重来〗王晰迷人低音演唱《重来》好听至极，唱到心坎里去了！",
+   "layer": "stage_other",
+   "source_ref": "BV1Rt411A7p7",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.8,
+    "high_note": "G5",
+    "high_hz": 800.7,
+    "span_octaves": 3.2,
+    "stability_cents": 7.1,
+    "density_per_s": 1.82,
+    "vibrato_hz": 5.15,
+    "vibrato_cents": 75.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1q7411u7xd",
+   "song": "王晰低音我是歌手",
+   "version": "王晰低音我是歌手",
+   "layer": "stage_other",
+   "source_ref": "BV1q7411u7xd",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 87.8,
+    "high_note": "C6",
+    "high_hz": 1042.7,
+    "span_octaves": 3.57,
+    "stability_cents": 5.8,
+    "density_per_s": 1.67,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 73.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV15N411o7NQ",
+   "song": "王晰唱响戚继光的《望阙台》，领悟抗倭名将的赤胆忠",
+   "version": "王晰唱响戚继光的《望阙台》，领悟抗倭名将的赤胆忠心！【经典咏流传第四季】",
+   "layer": "stage_other",
+   "source_ref": "BV15N411o7NQ",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 97.7,
+    "high_note": "D5",
+    "high_hz": 602.5,
+    "span_octaves": 2.62,
+    "stability_cents": 5.7,
+    "density_per_s": 1.58,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 70.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1id4y1i7nc",
+   "song": "经典咏流传《节气歌》王晰 朱德恩 1080P超清",
+   "version": "经典咏流传《节气歌》王晰 朱德恩 1080P超清重制版",
+   "layer": "stage_other",
+   "source_ref": "BV1id4y1i7nc",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 98.0,
+    "high_note": "D5",
+    "high_hz": 588.8,
+    "span_octaves": 2.59,
+    "stability_cents": 5.6,
+    "density_per_s": 2.04,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 77.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1kL4y1M73M",
+   "song": "王晰 凄美地",
+   "version": "王晰 凄美地",
+   "layer": "stage_other",
+   "source_ref": "BV1kL4y1M73M",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 115.6,
+    "high_note": "A5",
+    "high_hz": 893.5,
+    "span_octaves": 2.95,
+    "stability_cents": 6.8,
+    "density_per_s": 1.97,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 72.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1R7411F7AV",
+   "song": "【王晰】深深吻我_Besame Mucho",
+   "version": "【王晰】深深吻我_Besame Mucho",
+   "layer": "stage_other",
+   "source_ref": "BV1R7411F7AV",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "C3",
+    "low_hz": 130.1,
+    "high_note": "C6",
+    "high_hz": 1041.4,
+    "span_octaves": 3.0,
+    "stability_cents": 6.0,
+    "density_per_s": 1.26,
+    "vibrato_hz": 5.12,
+    "vibrato_cents": 66.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV15SPHe9ErH",
+   "song": "满江和王晰双人合唱演绎《逆光》，二人在坚持不懈地",
+   "version": "满江和王晰双人合唱演绎《逆光》，二人在坚持不懈地磨合之下，最终呈现效果令人惊艳！",
+   "layer": "stage_other",
+   "source_ref": "BV15SPHe9ErH",
+   "category": "综艺",
+   "metrics": {
+    "low_note": "D3",
+    "low_hz": 150.8,
+    "high_note": "G#4",
+    "high_hz": 414.0,
+    "span_octaves": 1.46,
+    "stability_cents": 5.0,
+    "density_per_s": 1.63,
+    "vibrato_hz": 5.28,
+    "vibrato_cents": 52.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1PC4y1q7Up",
+   "song": "2024BRTV踏上新征程跨年之夜！王晰 王弦演",
+   "version": "2024BRTV踏上新征程跨年之夜！王晰 王弦演唱《美丽的草原我的家》 ！",
+   "layer": "stage_other",
+   "source_ref": "BV1PC4y1q7Up",
+   "category": "晚会",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.8,
+    "high_note": "D#5",
+    "high_hz": 604.8,
+    "span_octaves": 3.2,
+    "stability_cents": 4.6,
+    "density_per_s": 2.27,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 58.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1Fj411b7D2",
+   "song": "【王晰】共同的向往丨国庆晚会",
+   "version": "【王晰】共同的向往丨国庆晚会",
+   "layer": "stage_other",
+   "source_ref": "BV1Fj411b7D2",
+   "category": "晚会",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.4,
+    "high_note": "D4",
+    "high_hz": 297.6,
+    "span_octaves": 2.02,
+    "stability_cents": 2.2,
+    "density_per_s": 1.25,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 64.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1LP4y1k7zv",
+   "song": "舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
+   "version": "舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
+   "layer": "stage_other",
+   "source_ref": "BV1LP4y1k7zv",
+   "category": "晚会",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 75.5,
+    "high_note": "B5",
+    "high_hz": 993.4,
+    "span_octaves": 3.72,
+    "stability_cents": 4.6,
+    "density_per_s": 2.32,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 86.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1jJ411b7zj",
+   "song": "王晰跨年晚会《新不了情》",
+   "version": "王晰跨年晚会《新不了情》",
+   "layer": "stage_other",
+   "source_ref": "BV1jJ411b7zj",
+   "category": "晚会",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.8,
+    "high_note": "G4",
+    "high_hz": 396.7,
+    "span_octaves": 2.21,
+    "stability_cents": 6.8,
+    "density_per_s": 1.48,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 91.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1XJ411b7yd",
+   "song": "【4K字幕】【王晰】《新不了情》2020.01.",
+   "version": "【4K字幕】【王晰】《新不了情》2020.01.01跨年晚会",
+   "layer": "stage_other",
+   "source_ref": "BV1XJ411b7yd",
+   "category": "晚会",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.1,
+    "high_note": "E5",
+    "high_hz": 664.3,
+    "span_octaves": 2.95,
+    "stability_cents": 5.0,
+    "density_per_s": 1.52,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 60.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1tV411p7Ny",
+   "song": "【王晰】乐华十二周年演唱会 《晚风》正面视角想要",
+   "version": "【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
+   "layer": "stage_other",
+   "source_ref": "BV1tV411p7Ny",
+   "category": "盛典商演",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 64.9,
+    "high_note": "B5",
+    "high_hz": 1013.0,
+    "span_octaves": 3.96,
+    "stability_cents": 5.0,
+    "density_per_s": 1.18,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 74.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1Qg4y1H7XH",
+   "song": "FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
+   "version": "FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
+   "layer": "stage_other",
+   "source_ref": "BV1Qg4y1H7XH",
+   "category": "盛典商演",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 80.7,
+    "high_note": "A#3",
+    "high_hz": 237.7,
+    "span_octaves": 1.56,
+    "stability_cents": 9.6,
+    "density_per_s": 1.86,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 101.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV15K4y1m7eo",
+   "song": "【王晰】首唱【山河令】插曲【盲】 比棚版还绝绝子",
+   "version": "【王晰】首唱【山河令】插曲【盲】 比棚版还绝绝子的LIVE【20210330·O",
+   "layer": "stage_other",
+   "source_ref": "BV15K4y1m7eo",
+   "category": "盛典商演",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 109.2,
+    "high_note": "G4",
+    "high_hz": 393.1,
+    "span_octaves": 1.85,
+    "stability_cents": 10.0,
+    "density_per_s": 2.03,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 92.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1E84y1c79M",
+   "song": "【王晰•0504苏州】山河令温客行人物曲《盲》",
+   "version": "【王晰•0504苏州】山河令温客行人物曲《盲》",
+   "layer": "stage_other",
+   "source_ref": "BV1E84y1c79M",
+   "category": "盛典商演",
+   "metrics": {
+    "low_note": "C3",
+    "low_hz": 133.6,
+    "high_note": "G5",
+    "high_hz": 764.2,
+    "span_octaves": 2.52,
+    "stability_cents": 7.0,
+    "density_per_s": 1.57,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 78.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1t64y117qD",
+   "song": "【王晰】【生来知己】盲 直拍",
+   "version": "【王晰】【生来知己】盲 直拍",
+   "layer": "stage_other",
+   "source_ref": "BV1t64y117qD",
+   "category": "饭拍直拍",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 98.7,
+    "high_note": "F5",
+    "high_hz": 718.1,
+    "span_octaves": 2.86,
+    "stability_cents": 7.6,
+    "density_per_s": 1.51,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 75.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1CP4y1A7Jr",
+   "song": "【神魂颠倒】王晰追光吧决赛饭拍 谁是蛊王谁又在神",
+   "version": "【神魂颠倒】王晰追光吧决赛饭拍 谁是蛊王谁又在神魂颠倒",
+   "layer": "stage_other",
+   "source_ref": "BV1CP4y1A7Jr",
+   "category": "饭拍直拍",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 109.4,
+    "high_note": "E5",
+    "high_hz": 658.0,
+    "span_octaves": 2.59,
+    "stability_cents": 5.2,
+    "density_per_s": 1.75,
+    "vibrato_hz": 6.15,
+    "vibrato_cents": 85.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "stage_other|BV1NR9PYcEJb",
+   "song": "[Hi-res][4K60帧]-[张韶涵 王晰]",
+   "version": "[Hi-res][4K60帧]-[张韶涵 王晰] - 黎明前的黑暗 (Live)",
+   "layer": "stage_other",
+   "source_ref": "BV1NR9PYcEJb",
+   "category": "饭拍直拍",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 112.4,
+    "high_note": "C6",
+    "high_hz": 1051.0,
+    "span_octaves": 3.22,
+    "stability_cents": 2.7,
+    "density_per_s": 1.89,
+    "vibrato_hz": 4.93,
+    "vibrato_cents": 47.0
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "生成他人主导报告",
+    "legacy": "archive_stage.json"
+   }
+  },
+  {
+   "id": "tour_live|让她降落|一巡南京20190728_BV1Lt411u7qq",
+   "song": "让她降落",
+   "version": "一巡南京20190728_BV1Lt411u7qq",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "南京",
+   "date": "2019-07-28",
+   "source_ref": "BV1Lt411u7qq",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.1,
+    "high_note": "B5",
+    "high_hz": 990.3,
+    "span_octaves": 3.44,
+    "stability_cents": 7.6,
+    "intonation_cents": 22.8,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.89,
+    "hnr_db": 8.2,
+    "duration_s": 224.8
+   },
+   "verify": {
+    "state": "已取证",
+    "engines": {
+     "yin_hz": 91.1,
+     "crepe_hz": 181.8
+    },
+    "raw_state": "🟡 已取证（谱图）"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 315
+   }
+  },
+  {
+   "id": "tour_live|让她降落|一巡北京20200102_BV1mw411R7yo",
+   "song": "让她降落",
+   "version": "一巡北京20200102_BV1mw411R7yo",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "北京",
+   "date": "2020-01-02",
+   "source_ref": "BV1mw411R7yo",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.7,
+    "high_note": "A#5",
+    "high_hz": 907.7,
+    "span_octaves": 3.31,
+    "stability_cents": 6.9,
+    "intonation_cents": 19.0,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.6,
+    "hnr_db": 4.7,
+    "duration_s": 236.1
+   },
+   "verify": {
+    "state": "已取证",
+    "engines": {
+     "yin_hz": 91.7,
+     "crepe_hz": 181.3
+    },
+    "raw_state": "🟡 已取证（谱图）"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
+   "id": "tour_live|让她降落|一巡北京20200102b_BV1KJ41177fC",
+   "song": "让她降落",
+   "version": "一巡北京20200102b_BV1KJ41177fC",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "北京",
+   "date": "2020-01-02",
+   "source_ref": "BV1KJ41177fC",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 92.1,
+    "high_note": "A#5",
+    "high_hz": 931.0,
+    "span_octaves": 3.34,
+    "stability_cents": 5.9,
+    "intonation_cents": 20.6,
+    "vibrato_hz": 5.05,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.9,
+    "hnr_db": 5.7,
+    "duration_s": 236.2
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "engines": {
+     "yin_hz": 92.1,
+     "crepe_hz": 90.7
+    },
+    "raw_state": "✅ 双引擎一致"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 132
+   }
+  },
+  {
+   "id": "tour_live|让她降落|北京20200102_BV15K411w7Sj",
+   "song": "让她降落",
+   "version": "北京20200102_BV15K411w7Sj",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "北京",
+   "date": "2020-01-02",
+   "source_ref": "BV15K411w7Sj",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 92.1,
+    "high_note": "A#5",
+    "high_hz": 928.0,
+    "span_octaves": 3.33,
+    "stability_cents": 6.0,
+    "intonation_cents": 20.6,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.91,
+    "hnr_db": 5.6,
+    "duration_s": 239.5
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 132
+   }
+  },
+  {
+   "id": "tour_live|天边|海口20191116_BV1wJ411U7Wh",
+   "song": "天边",
+   "version": "海口20191116_BV1wJ411U7Wh",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "海口",
+   "date": "2019-11-16",
+   "source_ref": "BV1wJ411U7Wh",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 100.5,
+    "high_note": "D5",
+    "high_hz": 586.8,
+    "span_octaves": 2.55,
+    "stability_cents": 6.9,
+    "intonation_cents": 16.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 72.0,
+    "density_per_s": 1.43,
+    "hnr_db": 5.1,
+    "duration_s": 250.5
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 116
+   }
+  },
+  {
+   "id": "tour_live|让她降落|二巡南京20210411b_BV1SZ4y1c7Xb",
+   "song": "让她降落",
+   "version": "二巡南京20210411b_BV1SZ4y1c7Xb",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "南京",
+   "date": "2021-04-11",
+   "source_ref": "BV1SZ4y1c7Xb",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 89.0,
+    "high_note": "G5",
+    "high_hz": 767.9,
+    "span_octaves": 3.11,
+    "stability_cents": 7.1,
+    "intonation_cents": 20.4,
+    "vibrato_hz": 4.89,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.51,
+    "hnr_db": 7.4,
+    "duration_s": 124.8
+   },
+   "verify": {
+    "state": "待复核",
+    "engines": {
+     "yin_hz": 89.0,
+     "crepe_hz": 177.3
+    },
+    "raw_state": "⚪ 待复核"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 316
+   }
+  },
+  {
+   "id": "tour_live|让她降落|二巡南京20210411_串烧窗口_BV1S54y1b7HW",
+   "song": "让她降落",
+   "version": "二巡南京20210411_串烧窗口_BV1S54y1b7HW",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "南京",
+   "date": "2021-04-11",
+   "source_ref": "BV1S54y1b7HW",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 107.1,
+    "high_note": "G5",
+    "high_hz": 763.5,
+    "span_octaves": 2.83,
+    "stability_cents": 8.5,
+    "intonation_cents": 22.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 91.0,
+    "density_per_s": 1.49,
+    "hnr_db": 6.6,
+    "duration_s": 127.5
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "engines": {
+     "yin_hz": 107.1,
+     "crepe_hz": 104.8
+    },
+    "raw_state": "✅ 双引擎一致"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 132
+   }
+  },
+  {
+   "id": "tour_live|让她降落|二巡南京20210411_BV1pL411n7Ns",
+   "song": "让她降落",
+   "version": "二巡南京20210411_BV1pL411n7Ns",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "南京",
+   "date": "2021-04-11",
+   "source_ref": "BV1pL411n7Ns",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 117.8,
+    "high_note": "B4",
+    "high_hz": 496.7,
+    "span_octaves": 2.08,
+    "stability_cents": 5.8,
+    "intonation_cents": 19.6,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 69.0,
+    "density_per_s": 1.74,
+    "hnr_db": 5.0,
+    "duration_s": 119.3
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "engines": {
+     "yin_hz": 117.8,
+     "crepe_hz": 116.5
+    },
+    "raw_state": "✅ 双引擎一致"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 132
+   }
+  },
+  {
+   "id": "tour_live|静止了的夜晚|三巡深圳20230623_BV1QP411v7KR",
+   "song": "静止了的夜晚",
+   "version": "三巡深圳20230623_BV1QP411v7KR",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "深圳",
+   "date": "2023-06-23",
+   "source_ref": "BV1QP411v7KR",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.9,
+    "high_note": "A#5",
+    "high_hz": 913.2,
+    "span_octaves": 3.51,
+    "stability_cents": 5.7,
+    "intonation_cents": 21.8,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 63.0,
+    "density_per_s": 1.63,
+    "hnr_db": 5.5,
+    "duration_s": 453.3
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 200
+   }
+  },
+  {
+   "id": "tour_live|多听有益|肆益杭州站_BV1ArKxe7E8H",
+   "song": "多听有益",
+   "version": "肆益杭州站_BV1ArKxe7E8H",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024",
+   "source_ref": "BV1ArKxe7E8H",
+   "measure_route": "十曲精测",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 63.4
+   },
+   "verify": {
+    "state": "已核验",
+    "engines": {
+     "yin_hz": 63.4,
+     "crepe_hz": 63.4
+    },
+    "raw_state": "高"
+   },
+   "provenance": {
+    "measured_by": "十曲精测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|多听有益|四巡 直拍_多听有益",
+   "song": "多听有益",
+   "version": "四巡 直拍_多听有益",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "",
+   "date": "2023-2024",
+   "source_ref": "",
+   "measure_route": "十曲精测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.9
+   },
+   "verify": {
+    "state": "参考",
+    "engines": {
+     "yin_hz": 74.9,
+     "crepe_hz": 74.9
+    },
+    "raw_state": "中"
+   },
+   "provenance": {
+    "measured_by": "十曲精测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|多听有益|肆益收官 武汉琴台_BV1iWtUefEkm",
+   "song": "多听有益",
+   "version": "肆益收官 武汉琴台_BV1iWtUefEkm",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024",
+   "source_ref": "BV1iWtUefEkm",
+   "measure_route": "十曲精测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 111.6
+   },
+   "verify": {
+    "state": "参考",
+    "engines": {
+     "yin_hz": 111.6,
+     "crepe_hz": 111.6
+    },
+    "raw_state": "低"
+   },
+   "provenance": {
+    "measured_by": "十曲精测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|让她降落|六巡重庆20260613_BV1zEJA6xEr2",
+   "song": "让她降落",
+   "version": "六巡重庆20260613_BV1zEJA6xEr2",
+   "layer": "tour_live",
+   "tour": "六巡",
+   "city": "重庆",
+   "date": "2026-06-13",
+   "source_ref": "BV1zEJA6xEr2",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.2,
+    "high_note": "B4",
+    "high_hz": 489.4,
+    "span_octaves": 3.0,
+    "stability_cents": 8.1,
+    "intonation_cents": 20.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 88.0,
+    "density_per_s": 2.14,
+    "hnr_db": 8.8,
+    "duration_s": 211.4
+   },
+   "verify": {
+    "state": "已取证",
+    "engines": {
+     "yin_hz": 61.2,
+     "crepe_hz": 61.8
+    },
+    "raw_state": "🟡 已取证（谱图）"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 124
+   }
+  },
+  {
+   "id": "tour_live|让她降落|六巡广州20260823b_BV1hHtU68Eoj",
+   "song": "让她降落",
+   "version": "六巡广州20260823b_BV1hHtU68Eoj",
+   "layer": "tour_live",
+   "tour": "六巡",
+   "city": "广州",
+   "date": "2026-08-23",
+   "source_ref": "BV1hHtU68Eoj",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.5,
+    "high_note": "B4",
+    "high_hz": 501.4,
+    "span_octaves": 2.6,
+    "stability_cents": 7.2,
+    "intonation_cents": 21.0,
+    "vibrato_hz": 4.94,
+    "vibrato_cents": 85.0,
+    "density_per_s": 1.76,
+    "hnr_db": 6.7,
+    "duration_s": 236.9
+   },
+   "verify": {
+    "state": "待复核",
+    "engines": {
+     "yin_hz": 82.5,
+     "crepe_hz": 165.5
+    },
+    "raw_state": "⚪ 待复核"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 246
+   }
+  },
+  {
+   "id": "tour_live|让她降落|六巡重庆20260613c_BV176LR6bE2B",
+   "song": "让她降落",
+   "version": "六巡重庆20260613c_BV176LR6bE2B",
+   "layer": "tour_live",
+   "tour": "六巡",
+   "city": "重庆",
+   "date": "2026-06-13",
+   "source_ref": "BV176LR6bE2B",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 104.3,
+    "high_note": "C#5",
+    "high_hz": 545.1,
+    "span_octaves": 2.39,
+    "stability_cents": 7.4,
+    "intonation_cents": 22.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 76.0,
+    "density_per_s": 1.86,
+    "hnr_db": 6.5,
+    "duration_s": 208.6
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "engines": {
+     "yin_hz": 104.3,
+     "crepe_hz": 104.8
+    },
+    "raw_state": "✅ 双引擎一致"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 91
+   }
+  },
+  {
+   "id": "tour_live|让她降落|六巡重庆20260613b_BV1SEJP6LEUw",
+   "song": "让她降落",
+   "version": "六巡重庆20260613b_BV1SEJP6LEUw",
+   "layer": "tour_live",
+   "tour": "六巡",
+   "city": "重庆",
+   "date": "2026-06-13",
+   "source_ref": "BV1SEJP6LEUw",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 106.3,
+    "high_note": "B4",
+    "high_hz": 489.1,
+    "span_octaves": 2.2,
+    "stability_cents": 6.1,
+    "intonation_cents": 17.7,
+    "vibrato_hz": 4.72,
+    "vibrato_cents": 54.0,
+    "density_per_s": 1.48,
+    "hnr_db": 4.4,
+    "duration_s": 204.7
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "engines": {
+     "yin_hz": 106.3,
+     "crepe_hz": 107.4
+    },
+    "raw_state": "✅ 双引擎一致"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 60
+   }
+  },
+  {
+   "id": "tour_live|让她降落|六巡广州20260823_BV13PtB6AEKe",
+   "song": "让她降落",
+   "version": "六巡广州20260823_BV13PtB6AEKe",
+   "layer": "tour_live",
+   "tour": "六巡",
+   "city": "广州",
+   "date": "2026-08-23",
+   "source_ref": "BV13PtB6AEKe",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 107.0,
+    "high_note": "E5",
+    "high_hz": 670.8,
+    "span_octaves": 2.65,
+    "stability_cents": 7.1,
+    "intonation_cents": 20.6,
+    "vibrato_hz": 5.0,
+    "vibrato_cents": 75.0,
+    "density_per_s": 1.93,
+    "hnr_db": 6.6,
+    "duration_s": 239.5
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "engines": {
+     "yin_hz": 107.0,
+     "crepe_hz": 107.2
+    },
+    "raw_state": "✅ 双引擎一致"
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 98
+   }
+  },
+  {
+   "id": "tour_live|花儿为什么这样红|未知20201116_BV1fr4y1F769",
+   "song": "花儿为什么这样红",
+   "version": "未知20201116_BV1fr4y1F769",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-11-16",
+   "source_ref": "BV1fr4y1F769",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 72.7,
+    "high_note": "G#5",
+    "high_hz": 813.5,
+    "span_octaves": 3.48,
+    "stability_cents": 7.5,
+    "intonation_cents": 17.5,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.73,
+    "hnr_db": 6.6,
+    "duration_s": 281.8
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 329
+   }
+  },
+  {
+   "id": "tour_live|花儿为什么这样红|杭州20201226_BV1z5411H7yg",
+   "song": "花儿为什么这样红",
+   "version": "杭州20201226_BV1z5411H7yg",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "杭州",
+   "date": "2020-12-26",
+   "source_ref": "BV1z5411H7yg",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.1,
+    "high_note": "D5",
+    "high_hz": 584.7,
+    "span_octaves": 3.0,
+    "stability_cents": 5.8,
+    "intonation_cents": 14.1,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.39,
+    "hnr_db": 4.2,
+    "duration_s": 263.6
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
+   "id": "tour_live|静止了的夜晚|成都首唱会2019_BV1W7411R7Hv",
+   "song": "静止了的夜晚",
+   "version": "成都首唱会2019_BV1W7411R7Hv",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "成都",
+   "date": "2019",
+   "source_ref": "BV1W7411R7Hv",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.4,
+    "high_note": "C6",
+    "high_hz": 1043.3,
+    "span_octaves": 3.83,
+    "stability_cents": 8.9,
+    "intonation_cents": 21.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.48,
+    "hnr_db": 5.2,
+    "duration_s": 280.8
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 289
+   }
+  }
+ ]
+}

@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 13:49",
+ "generated_at": "2026-09-11 13:51",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 124,
-  "dispatch": 123,
-  "deploy_steps": 42,
+  "menu_items": 125,
+  "dispatch": 124,
+  "deploy_steps": 44,
   "scheduled_tasks": 6
  },
  "tasks": [
@@ -954,6 +954,16 @@
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\prune_raw_archive.py"
+  },
+  {
+   "script": "build_vocal_longtable.py",
+   "in_deploy": true,
+   "deploy_desc": "长表与旧源一致性校验（漂移即告警）",
+   "critical": false,
+   "menu": 125,
+   "title": "声学长表与复核台账（vocal_measurements + verify_ledger 构建/校验/查询）",
+   "menu_label": "vocal_table",
+   "path": "D:\\wx409.github.io\\project_b\\build_vocal_longtable.py"
   },
   {
    "script": "_build_episodes.py",

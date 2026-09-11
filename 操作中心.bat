@@ -169,6 +169,7 @@ echo    121. 公众号文章留存 + 离线OCR（原文快照/图片/逐图文本 到 Markdown）
 echo    122. 任务登记表重派生（菜单/部署/计划任务 三源合一 到 pipeline_registry.json）
 echo    123. 任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移 exit 1）
 echo    124. raw_archive 保留策略（默认试算；--apply 才删）
+echo    125. 声学长表与复核台账（vocal_measurements + verify_ledger 构建/校验/查询）
 echo    0. 退出
 echo.
 set "op="
@@ -298,6 +299,7 @@ if "%op%"=="121" goto wx_article
 if "%op%"=="122" goto pipeline_seed
 if "%op%"=="123" goto pipeline_audit
 if "%op%"=="124" goto prune_raw
+if "%op%"=="125" goto vocal_table
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1766,5 +1768,15 @@ echo  [raw_archive 保留策略] 最近 7 天全留 + 更早每日 1 份；默认只试算
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\prune_raw_archive.py
 echo  如需执行：python -X utf8 project_b\prune_raw_archive.py --apply
+pause
+goto menu
+
+:vocal_table
+cls
+echo  [声学长表] 4 套声学 JSON + 3 处复核状态 归一为 1 长表 + 1 台账（只读旧源，不改旧文件）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_vocal_longtable.py
+python -X utf8 project_b\build_vocal_longtable.py --check
+echo  查询示例：python -X utf8 project_b\build_vocal_longtable.py --query "多听有益"
 pause
 goto menu

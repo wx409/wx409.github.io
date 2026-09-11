@@ -66,6 +66,8 @@ STEPS = [
     (ROOT / "project_b" / "build_stage_page.py", "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）", False),
     (r"E:\wx\论文素材_王晰作传\基线口径\generate_voice_page.py", "声部·音域页 voice.html（读 data/archive_vocal.json）", False),
     (ROOT / "project_b" / "build_skill_page.py", "唱功实测页 skill.html（七维实测 + 今日唱功卡片）", False),
+    (ROOT / "project_b" / "build_vocal_longtable.py", "声学统一长表 + 复核台账（4 套 JSON / 3 处复核状态 归一）", False),
+    (ROOT / "project_b" / "build_vocal_longtable.py", "长表与旧源一致性校验（漂移即告警）", False, ["--check"]),
     (ROOT / "project_b" / "track_event_lifecycle.py", "活动生命周期追踪（官宣/开票/开演的指数前后窗口）", False),
     (ROOT / "project_b" / "elevator_definition.py", "电梯定义句（首页/问答库/llms/Person 单一事实源）", True),
     (ROOT / "project_b" / "build_calibers.py", "口径登记表 data/calibers.json+md（数字字典，禁混用）", True),

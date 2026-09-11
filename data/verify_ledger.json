@@ -1,0 +1,3424 @@
+{
+ "schema": 1,
+ "generated_at": "2026-09-11 13:51",
+ "note": "全站声学复核台账（A3 终裁 + LowC 复核 + 专辑层状态 三源合一）；待复核项不作能力依据",
+ "counts": {
+  "双引擎一致": 81,
+  "已取证": 85,
+  "待复核": 45,
+  "次谐波错误": 2,
+  "未复核": 44
+ },
+ "entries": [
+  {
+   "scope": "stage",
+   "key": "一巡北京20200102_BV1mw411R7yo",
+   "kind": "稳定音",
+   "yin_hz": 91.7,
+   "crepe_hz": 181.3,
+   "state": "已取证",
+   "how": "谱图三签名：列间距约 92Hz：观测谱峰 92/183/275/367/460 均为 92 的整数倍（275=3× 为奇数倍）；92Hz 处有独立局部峰；谐波带平行摆动",
+   "source": "A3复核交付表",
+   "prominence_db": 4.8,
+   "coverage": {
+    "yin": 0.988,
+    "crepe": 0.941
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "一巡北京20200102_BV1mw411R7yo",
+   "kind": "触达候选",
+   "yin_hz": 73.3,
+   "crepe_hz": 219.1,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.84",
+   "source": "A3复核交付表",
+   "prominence_db": -8.8,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.843
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "一巡北京20200102b_BV1KJ41177fC",
+   "kind": "稳定音",
+   "yin_hz": 92.1,
+   "crepe_hz": 90.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 24.3,
+   "coverage": {
+    "yin": 0.994,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "一巡北京20200102b_BV1KJ41177fC",
+   "kind": "触达候选",
+   "yin_hz": 77.9,
+   "crepe_hz": 156.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.63",
+   "source": "A3复核交付表",
+   "prominence_db": 17.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.629
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "一巡南京20190728_BV1Lt411u7qq",
+   "kind": "稳定音",
+   "yin_hz": 91.1,
+   "crepe_hz": 181.8,
+   "state": "已取证",
+   "how": "谱图三签名：列间距约 91Hz（非 182Hz）：观测谱峰 91/182/273/365/455/545/730 均为 91 的整数倍，其中 273(3×)、455(5×) 属奇数倍，若真基频为 182Hz 则这两条无法解释；91Hz 处存",
+   "source": "A3复核交付表",
+   "prominence_db": -5.5,
+   "coverage": {
+    "yin": 0.959,
+    "crepe": 0.884
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "一巡南京20190728_BV1Lt411u7qq",
+   "kind": "触达候选",
+   "yin_hz": 61.3,
+   "crepe_hz": 117.6,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 2.5,
+   "coverage": {
+    "yin": 0.525,
+    "crepe": 0.471
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "二巡南京20210411_BV1pL411n7Ns",
+   "kind": "稳定音",
+   "yin_hz": 117.8,
+   "crepe_hz": 116.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 30.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.74
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "二巡南京20210411_BV1pL411n7Ns",
+   "kind": "触达候选",
+   "yin_hz": 81.2,
+   "crepe_hz": 81.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 19.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "二巡南京20210411_串烧窗口_BV1S54y1b7HW",
+   "kind": "稳定音",
+   "yin_hz": 107.1,
+   "crepe_hz": 104.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 31.4,
+   "coverage": {
+    "yin": 0.963,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "二巡南京20210411_串烧窗口_BV1S54y1b7HW",
+   "kind": "触达候选",
+   "yin_hz": 90.9,
+   "crepe_hz": 177.6,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 16.4,
+   "coverage": {
+    "yin": 0.879,
+    "crepe": 0.88
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "二巡南京20210411b_BV1SZ4y1c7Xb",
+   "kind": "稳定音",
+   "yin_hz": 89.0,
+   "crepe_hz": 177.3,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.88 / CREPE 0.87），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 17.7,
+   "coverage": {
+    "yin": 0.878,
+    "crepe": 0.867
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "二巡南京20210411b_BV1SZ4y1c7Xb",
+   "kind": "触达候选",
+   "yin_hz": 75.2,
+   "crepe_hz": 239.7,
+   "state": "已取证",
+   "how": "谱列解释度 0.90 vs 0.06",
+   "source": "A3复核交付表",
+   "prominence_db": 22.2,
+   "coverage": {
+    "yin": 0.904,
+    "crepe": 0.058
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡广州20260823_BV13PtB6AEKe",
+   "kind": "稳定音",
+   "yin_hz": 107.0,
+   "crepe_hz": 107.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 20.9,
+   "coverage": {
+    "yin": 0.994,
+    "crepe": 0.994
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡广州20260823_BV13PtB6AEKe",
+   "kind": "触达候选",
+   "yin_hz": 61.8,
+   "crepe_hz": 308.4,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.75",
+   "source": "A3复核交付表",
+   "prominence_db": 4.5,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.748
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡广州20260823b_BV1hHtU68Eoj",
+   "kind": "稳定音",
+   "yin_hz": 82.5,
+   "crepe_hz": 165.5,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.94 / CREPE 0.85），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -1.6,
+   "coverage": {
+    "yin": 0.941,
+    "crepe": 0.849
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡广州20260823b_BV1hHtU68Eoj",
+   "kind": "触达候选",
+   "yin_hz": 61.3,
+   "crepe_hz": 58.75,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 30.5,
+   "coverage": {
+    "yin": 0.948,
+    "crepe": 0.048
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡重庆20260613_BV1zEJA6xEr2",
+   "kind": "稳定音",
+   "yin_hz": 61.2,
+   "crepe_hz": 61.8,
+   "state": "已取证",
+   "how": "谱图三签名：列间距 61Hz；61Hz 处有独立小峰；观测谱峰 122/185/245/370/490 全为 61.2 的整数倍（含奇数倍 185=3×、306≈5×）；各次谐波带平行摆动",
+   "source": "A3复核交付表",
+   "prominence_db": 7.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡重庆20260613_BV1zEJA6xEr2",
+   "kind": "触达候选",
+   "yin_hz": 60.4,
+   "crepe_hz": 181.5,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": -1.7,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.909
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡重庆20260613b_BV1SEJP6LEUw",
+   "kind": "稳定音",
+   "yin_hz": 106.3,
+   "crepe_hz": 107.4,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 30.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡重庆20260613b_BV1SEJP6LEUw",
+   "kind": "触达候选",
+   "yin_hz": 61.0,
+   "crepe_hz": 183.3,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.85",
+   "source": "A3复核交付表",
+   "prominence_db": 3.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.849
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡重庆20260613c_BV176LR6bE2B",
+   "kind": "稳定音",
+   "yin_hz": 104.3,
+   "crepe_hz": 104.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 17.7,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "六巡重庆20260613c_BV176LR6bE2B",
+   "kind": "触达候选",
+   "yin_hz": 72.8,
+   "crepe_hz": 221.6,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.81",
+   "source": "A3复核交付表",
+   "prominence_db": -6.7,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.805
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "下潜",
+   "kind": "稳定音",
+   "yin_hz": 65.7,
+   "crepe_hz": 196.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.76",
+   "source": "A3复核交付表",
+   "prominence_db": 2.6,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.756
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "下潜",
+   "kind": "触达候选",
+   "yin_hz": 65.7,
+   "crepe_hz": 196.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.76",
+   "source": "A3复核交付表",
+   "prominence_db": 2.6,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.756
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "南屏晚钟",
+   "kind": "稳定音",
+   "yin_hz": 76.9,
+   "crepe_hz": 77.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 34.7,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "南屏晚钟",
+   "kind": "触达候选",
+   "yin_hz": 70.7,
+   "crepe_hz": 70.0,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 21.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "向着太阳",
+   "kind": "稳定音",
+   "yin_hz": 78.1,
+   "crepe_hz": 233.3,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.67",
+   "source": "A3复核交付表",
+   "prominence_db": -2.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.667
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "向着太阳",
+   "kind": "触达候选",
+   "yin_hz": 61.9,
+   "crepe_hz": 624.6,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.48",
+   "source": "A3复核交付表",
+   "prominence_db": -2.1,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.482
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "在路上",
+   "kind": "稳定音",
+   "yin_hz": 77.3,
+   "crepe_hz": 77.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 28.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "在路上",
+   "kind": "触达候选",
+   "yin_hz": 77.3,
+   "crepe_hz": 77.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 28.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益",
+   "kind": "稳定音",
+   "yin_hz": 61.6,
+   "crepe_hz": 61.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 8.5,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.997
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益",
+   "kind": "触达候选",
+   "yin_hz": 61.6,
+   "crepe_hz": 61.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 8.5,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.997
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "惑许",
+   "kind": "稳定音",
+   "yin_hz": 91.0,
+   "crepe_hz": 89.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 30.8,
+   "coverage": {
+    "yin": 0.952,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "惑许",
+   "kind": "触达候选",
+   "yin_hz": 70.5,
+   "crepe_hz": 218.0,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": -11.2,
+   "coverage": {
+    "yin": 0.464,
+    "crepe": 0.556
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "想游泳的星",
+   "kind": "稳定音",
+   "yin_hz": 73.5,
+   "crepe_hz": 72.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 29.7,
+   "coverage": {
+    "yin": 0.979,
+    "crepe": 0.98
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "想游泳的星",
+   "kind": "触达候选",
+   "yin_hz": 73.5,
+   "crepe_hz": 72.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 29.7,
+   "coverage": {
+    "yin": 0.979,
+    "crepe": 0.98
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "渡荆门送别",
+   "kind": "稳定音",
+   "yin_hz": 69.7,
+   "crepe_hz": 208.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.63",
+   "source": "A3复核交付表",
+   "prominence_db": -0.0,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.634
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "渡荆门送别",
+   "kind": "触达候选",
+   "yin_hz": 64.4,
+   "crepe_hz": 64.6,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 29.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "雾里",
+   "kind": "稳定音",
+   "yin_hz": 75.5,
+   "crepe_hz": 75.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 29.5,
+   "coverage": {
+    "yin": 0.884,
+    "crepe": 0.884
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "雾里",
+   "kind": "触达候选",
+   "yin_hz": 73.5,
+   "crepe_hz": 220.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.83",
+   "source": "A3复核交付表",
+   "prominence_db": 3.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.834
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "鹅毛信",
+   "kind": "稳定音",
+   "yin_hz": 65.3,
+   "crepe_hz": 196.2,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.94），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -4.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.938
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "鹅毛信",
+   "kind": "触达候选",
+   "yin_hz": 65.3,
+   "crepe_hz": 196.2,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.94），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -4.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.938
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "001gW7th0K2rgc",
+   "kind": "稳定音",
+   "yin_hz": 78.1,
+   "crepe_hz": 233.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.67",
+   "source": "A3复核交付表",
+   "prominence_db": -5.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.666
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "001gW7th0K2rgc",
+   "kind": "触达候选",
+   "yin_hz": 61.9,
+   "crepe_hz": 625.4,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.46",
+   "source": "A3复核交付表",
+   "prominence_db": -0.8,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.46
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_七场混剪",
+   "kind": "稳定音",
+   "yin_hz": 65.4,
+   "crepe_hz": 195.9,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 1.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.861
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_七场混剪",
+   "kind": "触达候选",
+   "yin_hz": 65.3,
+   "crepe_hz": 262.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.60",
+   "source": "A3复核交付表",
+   "prominence_db": 0.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.596
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_四巡直拍",
+   "kind": "稳定音",
+   "yin_hz": 97.6,
+   "crepe_hz": 193.7,
+   "state": "已取证",
+   "how": "谱列解释度 0.99 vs 0.83",
+   "source": "A3复核交付表",
+   "prominence_db": 1.2,
+   "coverage": {
+    "yin": 0.989,
+    "crepe": 0.831
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_四巡直拍",
+   "kind": "触达候选",
+   "yin_hz": 84.2,
+   "crepe_hz": 335.1,
+   "state": "已取证",
+   "how": "谱列解释度 0.93 vs 0.78",
+   "source": "A3复核交付表",
+   "prominence_db": 26.7,
+   "coverage": {
+    "yin": 0.929,
+    "crepe": 0.776
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_杭州站",
+   "kind": "稳定音",
+   "yin_hz": 96.2,
+   "crepe_hz": 95.9,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 21.6,
+   "coverage": {
+    "yin": 0.953,
+    "crepe": 0.953
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_杭州站",
+   "kind": "触达候选",
+   "yin_hz": 65.1,
+   "crepe_hz": 64.9,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 16.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_武汉收官",
+   "kind": "稳定音",
+   "yin_hz": 116.4,
+   "crepe_hz": 467.5,
+   "state": "已取证",
+   "how": "谱列解释度 0.99 vs 0.43",
+   "source": "A3复核交付表",
+   "prominence_db": 1.3,
+   "coverage": {
+    "yin": 0.991,
+    "crepe": 0.432
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益_武汉收官",
+   "kind": "触达候选",
+   "yin_hz": 115.6,
+   "crepe_hz": 231.2,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.98 / CREPE 0.85），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -16.6,
+   "coverage": {
+    "yin": 0.982,
+    "crepe": 0.854
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "知晓",
+   "kind": "稳定音",
+   "yin_hz": 61.9,
+   "crepe_hz": 185.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.82",
+   "source": "A3复核交付表",
+   "prominence_db": 0.1,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.82
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "知晓",
+   "kind": "触达候选",
+   "yin_hz": 61.9,
+   "crepe_hz": 185.5,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.82",
+   "source": "A3复核交付表",
+   "prominence_db": 0.1,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.82
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "渔光曲",
+   "kind": "稳定音",
+   "yin_hz": 61.6,
+   "crepe_hz": 122.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.81",
+   "source": "A3复核交付表",
+   "prominence_db": 24.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.809
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "渔光曲",
+   "kind": "触达候选",
+   "yin_hz": 61.6,
+   "crepe_hz": 122.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.81",
+   "source": "A3复核交付表",
+   "prominence_db": 24.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.809
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益",
+   "kind": "稳定音",
+   "yin_hz": 61.6,
+   "crepe_hz": 61.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 8.5,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.997
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多听有益",
+   "kind": "触达候选",
+   "yin_hz": 61.6,
+   "crepe_hz": 61.9,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 8.5,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.997
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "静止了的夜晚",
+   "kind": "稳定音",
+   "yin_hz": 61.5,
+   "crepe_hz": 183.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.77",
+   "source": "A3复核交付表",
+   "prominence_db": 6.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.767
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "静止了的夜晚",
+   "kind": "触达候选",
+   "yin_hz": 61.5,
+   "crepe_hz": 183.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.77",
+   "source": "A3复核交付表",
+   "prominence_db": 6.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.767
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "乌兰巴托的夜晚",
+   "kind": "稳定音",
+   "yin_hz": 66.3,
+   "crepe_hz": 65.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 31.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "乌兰巴托的夜晚",
+   "kind": "触达候选",
+   "yin_hz": 64.5,
+   "crepe_hz": 64.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 21.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多年以后",
+   "kind": "稳定音",
+   "yin_hz": 65.8,
+   "crepe_hz": 332.1,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.53",
+   "source": "A3复核交付表",
+   "prominence_db": 2.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.527
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "多年以后",
+   "kind": "触达候选",
+   "yin_hz": 58.7,
+   "crepe_hz": 350.4,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.83",
+   "source": "A3复核交付表",
+   "prominence_db": 1.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.831
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "勿扰",
+   "kind": "稳定音",
+   "yin_hz": 65.6,
+   "crepe_hz": 129.9,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.89），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 2.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.894
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "勿扰",
+   "kind": "触达候选",
+   "yin_hz": 65.4,
+   "crepe_hz": 130.0,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.96 / CREPE 0.96），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 1.4,
+   "coverage": {
+    "yin": 0.961,
+    "crepe": 0.96
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "鹅毛信",
+   "kind": "稳定音",
+   "yin_hz": 65.3,
+   "crepe_hz": 196.4,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.94），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -4.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.938
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "鹅毛信",
+   "kind": "触达候选",
+   "yin_hz": 65.3,
+   "crepe_hz": 195.8,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.94），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -4.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.938
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "偏执",
+   "kind": "稳定音",
+   "yin_hz": 65.8,
+   "crepe_hz": 132.0,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.65",
+   "source": "A3复核交付表",
+   "prominence_db": 0.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.649
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "偏执",
+   "kind": "触达候选",
+   "yin_hz": 55.4,
+   "crepe_hz": 165.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.73",
+   "source": "A3复核交付表",
+   "prominence_db": 2.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.729
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "雪地里寄不出的求救信",
+   "kind": "稳定音",
+   "yin_hz": 65.4,
+   "crepe_hz": 196.9,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 9.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.861
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "雪地里寄不出的求救信",
+   "kind": "触达候选",
+   "yin_hz": 65.4,
+   "crepe_hz": 196.7,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 9.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.861
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "晚风暖暖",
+   "kind": "稳定音",
+   "yin_hz": 65.3,
+   "crepe_hz": 195.9,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -3.5,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.857
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "晚风暖暖",
+   "kind": "触达候选",
+   "yin_hz": 58.3,
+   "crepe_hz": 233.4,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.85",
+   "source": "A3复核交付表",
+   "prominence_db": 5.1,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.848
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "倒叙",
+   "kind": "稳定音",
+   "yin_hz": 73.4,
+   "crepe_hz": 221.1,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.85",
+   "source": "A3复核交付表",
+   "prominence_db": 7.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.846
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "倒叙",
+   "kind": "触达候选",
+   "yin_hz": 73.4,
+   "crepe_hz": 220.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.85",
+   "source": "A3复核交付表",
+   "prominence_db": 7.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.846
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "千言万语",
+   "kind": "稳定音",
+   "yin_hz": 73.0,
+   "crepe_hz": 71.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 30.6,
+   "coverage": {
+    "yin": 0.996,
+    "crepe": 0.996
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "千言万语",
+   "kind": "触达候选",
+   "yin_hz": 70.2,
+   "crepe_hz": 69.6,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 26.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "夜半歌声",
+   "kind": "稳定音",
+   "yin_hz": 72.3,
+   "crepe_hz": 71.9,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 24.8,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "夜半歌声",
+   "kind": "触达候选",
+   "yin_hz": 70.8,
+   "crepe_hz": 70.4,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 20.5,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "当爱已成往事",
+   "kind": "稳定音",
+   "yin_hz": 74.9,
+   "crepe_hz": 76.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 22.2,
+   "coverage": {
+    "yin": 0.859,
+    "crepe": 0.859
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "当爱已成往事",
+   "kind": "触达候选",
+   "yin_hz": 73.3,
+   "crepe_hz": 76.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 26.3,
+   "coverage": {
+    "yin": 0.965,
+    "crepe": 0.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "重游往昔",
+   "kind": "稳定音",
+   "yin_hz": 73.1,
+   "crepe_hz": 220.0,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.70",
+   "source": "A3复核交付表",
+   "prominence_db": 2.0,
+   "coverage": {
+    "yin": 0.996,
+    "crepe": 0.701
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "重游往昔",
+   "kind": "触达候选",
+   "yin_hz": 72.8,
+   "crepe_hz": 367.1,
+   "state": "已取证",
+   "how": "谱列解释度 0.96 vs 0.65",
+   "source": "A3复核交付表",
+   "prominence_db": 2.4,
+   "coverage": {
+    "yin": 0.96,
+    "crepe": 0.649
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "轻信",
+   "kind": "稳定音",
+   "yin_hz": 112.7,
+   "crepe_hz": 111.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 36.7,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.863
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "轻信",
+   "kind": "触达候选",
+   "yin_hz": 58.2,
+   "crepe_hz": 116.3,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 9.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.945
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "他不爱我",
+   "kind": "稳定音",
+   "yin_hz": 73.5,
+   "crepe_hz": 75.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 31.3,
+   "coverage": {
+    "yin": 0.981,
+    "crepe": 0.056
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "他不爱我",
+   "kind": "触达候选",
+   "yin_hz": 65.4,
+   "crepe_hz": 64.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 26.4,
+   "coverage": {
+    "yin": 0.995,
+    "crepe": 0.995
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "时空",
+   "kind": "稳定音",
+   "yin_hz": 91.2,
+   "crepe_hz": 89.9,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 38.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "时空",
+   "kind": "触达候选",
+   "yin_hz": 69.1,
+   "crepe_hz": 208.6,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 2.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.951
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "忘不了",
+   "kind": "稳定音",
+   "yin_hz": 97.3,
+   "crepe_hz": 97.4,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 38.2,
+   "coverage": {
+    "yin": 0.992,
+    "crepe": 0.992
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "忘不了",
+   "kind": "触达候选",
+   "yin_hz": 84.8,
+   "crepe_hz": 84.0,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 26.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "Come to Me",
+   "kind": "稳定音",
+   "yin_hz": 83.8,
+   "crepe_hz": 82.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 31.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.999
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "Come to Me",
+   "kind": "触达候选",
+   "yin_hz": 59.7,
+   "crepe_hz": 110.9,
+   "state": "待复核",
+   "how": "谱列解释度 YIN 0.62 > CREPE 0.00 → YIN 成立，CREPE 锁了 2 次谐波",
+   "source": "A3复核交付表",
+   "prominence_db": -4.2,
+   "coverage": {
+    "yin": 0.624,
+    "crepe": 0.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "葬心",
+   "kind": "稳定音",
+   "yin_hz": 69.0,
+   "crepe_hz": 68.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 27.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "葬心",
+   "kind": "触达候选",
+   "yin_hz": 69.0,
+   "crepe_hz": 68.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 27.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "你",
+   "kind": "稳定音",
+   "yin_hz": 86.1,
+   "crepe_hz": 86.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 42.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "你",
+   "kind": "触达候选",
+   "yin_hz": 68.5,
+   "crepe_hz": 68.0,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 27.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "月圆花好",
+   "kind": "稳定音",
+   "yin_hz": 72.2,
+   "crepe_hz": 71.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 16.5,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "月圆花好",
+   "kind": "触达候选",
+   "yin_hz": 72.2,
+   "crepe_hz": 71.4,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 16.5,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "无尽的夜里",
+   "kind": "稳定音",
+   "yin_hz": 77.6,
+   "crepe_hz": 232.5,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.87），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 3.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.87
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "无尽的夜里",
+   "kind": "触达候选",
+   "yin_hz": 69.1,
+   "crepe_hz": 208.1,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": -3.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.882
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1Fj411b7D2_【王晰】共同的向往丨国庆晚会",
+   "kind": "稳定音",
+   "yin_hz": 73.4,
+   "crepe_hz": 294.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.67",
+   "source": "A3复核交付表",
+   "prominence_db": -0.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.665
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1Fj411b7D2_【王晰】共同的向往丨国庆晚会",
+   "kind": "触达候选",
+   "yin_hz": 73.4,
+   "crepe_hz": 294.3,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.55",
+   "source": "A3复核交付表",
+   "prominence_db": 1.2,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.551
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1jJ411b7zj_王晰跨年晚会《新不了情》",
+   "kind": "稳定音",
+   "yin_hz": 85.8,
+   "crepe_hz": 85.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 24.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1jJ411b7zj_王晰跨年晚会《新不了情》",
+   "kind": "触达候选",
+   "yin_hz": 63.3,
+   "crepe_hz": 123.4,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.86 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 1.9,
+   "coverage": {
+    "yin": 0.864,
+    "crepe": 0.864
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1LP4y1k7zv_舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
+   "kind": "稳定音",
+   "yin_hz": 75.5,
+   "crepe_hz": 75.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 28.7,
+   "coverage": {
+    "yin": 0.888,
+    "crepe": 0.888
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1LP4y1k7zv_舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
+   "kind": "触达候选",
+   "yin_hz": 73.4,
+   "crepe_hz": 220.3,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.85），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 4.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.853
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1PC4y1q7Up_2024BRTV踏上新征程跨年之夜！王晰 王弦演唱《美丽的草原我的家》 ！",
+   "kind": "稳定音",
+   "yin_hz": 65.8,
+   "crepe_hz": 330.3,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.83",
+   "source": "A3复核交付表",
+   "prominence_db": -3.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.831
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1PC4y1q7Up_2024BRTV踏上新征程跨年之夜！王晰 王弦演唱《美丽的草原我的家》 ！",
+   "kind": "触达候选",
+   "yin_hz": 62.6,
+   "crepe_hz": 249.7,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 8.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.933
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1XJ411b7yd_【4K字幕】【王晰】《新不了情》2020.01.01跨年晚会",
+   "kind": "稳定音",
+   "yin_hz": 86.1,
+   "crepe_hz": 86.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 23.4,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1XJ411b7yd_【4K字幕】【王晰】《新不了情》2020.01.01跨年晚会",
+   "kind": "触达候选",
+   "yin_hz": 71.3,
+   "crepe_hz": 140.3,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": -15.8,
+   "coverage": {
+    "yin": 0.73,
+    "crepe": 0.73
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15K4y1m7eo_【王晰】首唱【山河令】插曲【盲】 比棚版还绝绝子的LIVE【20210330·OK精彩盛典】",
+   "kind": "稳定音",
+   "yin_hz": 109.2,
+   "crepe_hz": 321.2,
+   "state": "已取证",
+   "how": "谱列解释度 0.88 vs 0.54",
+   "source": "A3复核交付表",
+   "prominence_db": 4.9,
+   "coverage": {
+    "yin": 0.881,
+    "crepe": 0.539
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15K4y1m7eo_【王晰】首唱【山河令】插曲【盲】 比棚版还绝绝子的LIVE【20210330·OK精彩盛典】",
+   "kind": "触达候选",
+   "yin_hz": 66.6,
+   "crepe_hz": 266.4,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.52",
+   "source": "A3复核交付表",
+   "prominence_db": 3.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.521
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1E84y1c79M_【王晰•0504苏州】山河令温客行人物曲《盲》",
+   "kind": "稳定音",
+   "yin_hz": 133.6,
+   "crepe_hz": 268.6,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.98 / CREPE 0.85），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 14.6,
+   "coverage": {
+    "yin": 0.977,
+    "crepe": 0.849
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1E84y1c79M_【王晰•0504苏州】山河令温客行人物曲《盲》",
+   "kind": "触达候选",
+   "yin_hz": 86.6,
+   "crepe_hz": 173.0,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": -5.8,
+   "coverage": {
+    "yin": 0.855,
+    "crepe": 0.753
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1Qg4y1H7XH_FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
+   "kind": "稳定音",
+   "yin_hz": 80.7,
+   "crepe_hz": 81.4,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 22.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1Qg4y1H7XH_FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
+   "kind": "触达候选",
+   "yin_hz": 66.9,
+   "crepe_hz": 66.3,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 6.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1tV411p7Ny_【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
+   "kind": "稳定音",
+   "yin_hz": 64.9,
+   "crepe_hz": 196.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.68",
+   "source": "A3复核交付表",
+   "prominence_db": -2.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.683
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1tV411p7Ny_【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
+   "kind": "触达候选",
+   "yin_hz": 64.9,
+   "crepe_hz": 195.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.68",
+   "source": "A3复核交付表",
+   "prominence_db": -2.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.683
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15a4y1i7ym_【综艺大观园】王晰演唱《谁》《一生守候》",
+   "kind": "稳定音",
+   "yin_hz": 73.2,
+   "crepe_hz": 73.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 27.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15a4y1i7ym_【综艺大观园】王晰演唱《谁》《一生守候》",
+   "kind": "触达候选",
+   "yin_hz": 57.1,
+   "crepe_hz": 174.6,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 1.9,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.892
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15N411o7NQ_王晰唱响戚继光的《望阙台》，领悟抗倭名将的赤胆忠心！【经典咏流传第四季】",
+   "kind": "稳定音",
+   "yin_hz": 97.7,
+   "crepe_hz": 97.7,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 33.7,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.999
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15N411o7NQ_王晰唱响戚继光的《望阙台》，领悟抗倭名将的赤胆忠心！【经典咏流传第四季】",
+   "kind": "触达候选",
+   "yin_hz": 88.5,
+   "crepe_hz": 174.3,
+   "state": "已取证",
+   "how": "谱列解释度 0.98 vs 0.69",
+   "source": "A3复核交付表",
+   "prominence_db": 0.1,
+   "coverage": {
+    "yin": 0.98,
+    "crepe": 0.69
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15SPHe9ErH_满江和王晰双人合唱演绎《逆光》，二人在坚持不懈地磨合之下，最终呈现效果令人惊艳！",
+   "kind": "稳定音",
+   "yin_hz": 150.8,
+   "crepe_hz": 150.2,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 1.00），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 23.4,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV15SPHe9ErH_满江和王晰双人合唱演绎《逆光》，二人在坚持不懈地磨合之下，最终呈现效果令人惊艳！",
+   "kind": "触达候选",
+   "yin_hz": 82.3,
+   "crepe_hz": 245.8,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.89），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -4.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.893
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1B7411f71j_经典咏流传 《滚滚长江东逝水》杨洪基 王晰1080P超清重制版",
+   "kind": "稳定音",
+   "yin_hz": 82.6,
+   "crepe_hz": 82.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 7.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1B7411f71j_经典咏流传 《滚滚长江东逝水》杨洪基 王晰1080P超清重制版",
+   "kind": "触达候选",
+   "yin_hz": 82.6,
+   "crepe_hz": 82.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 7.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1dM4m197tc_《凄美地》我晰哥就是魅力一百分！",
+   "kind": "稳定音",
+   "yin_hz": 77.6,
+   "crepe_hz": 234.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.84",
+   "source": "A3复核交付表",
+   "prominence_db": 8.9,
+   "coverage": {
+    "yin": 0.996,
+    "crepe": 0.838
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1dM4m197tc_《凄美地》我晰哥就是魅力一百分！",
+   "kind": "触达候选",
+   "yin_hz": 58.2,
+   "crepe_hz": 175.0,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.83",
+   "source": "A3复核交付表",
+   "prominence_db": 7.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.826
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1eWLczSEX1_全场第一！这个男人唱起情歌还是如此无敌 _ 王晰《牵手》_ 中国情歌大会",
+   "kind": "稳定音",
+   "yin_hz": 80.3,
+   "crepe_hz": 80.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 28.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1eWLczSEX1_全场第一！这个男人唱起情歌还是如此无敌 _ 王晰《牵手》_ 中国情歌大会",
+   "kind": "触达候选",
+   "yin_hz": 61.9,
+   "crepe_hz": 185.4,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.73",
+   "source": "A3复核交付表",
+   "prominence_db": 11.2,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.728
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1hbjc6cEpe_王晰《亲密爱人》I Am a Singer 2016",
+   "kind": "稳定音",
+   "yin_hz": 83.0,
+   "crepe_hz": 82.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 18.9,
+   "coverage": {
+    "yin": 0.998,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1hbjc6cEpe_王晰《亲密爱人》I Am a Singer 2016",
+   "kind": "触达候选",
+   "yin_hz": 81.3,
+   "crepe_hz": 167.6,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 1.00），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 6.1,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.996
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1HD421N7iP_歌曲《稳稳的幸福》 演唱：王晰",
+   "kind": "稳定音",
+   "yin_hz": 79.6,
+   "crepe_hz": 79.6,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 27.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1HD421N7iP_歌曲《稳稳的幸福》 演唱：王晰",
+   "kind": "触达候选",
+   "yin_hz": 77.7,
+   "crepe_hz": 77.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 31.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1id4y1i7nc_经典咏流传《节气歌》王晰 朱德恩 1080P超清重制版",
+   "kind": "稳定音",
+   "yin_hz": 98.0,
+   "crepe_hz": 98.2,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 33.2,
+   "coverage": {
+    "yin": 0.996,
+    "crepe": 0.996
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1id4y1i7nc_经典咏流传《节气歌》王晰 朱德恩 1080P超清重制版",
+   "kind": "触达候选",
+   "yin_hz": 58.3,
+   "crepe_hz": 233.6,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.80",
+   "source": "A3复核交付表",
+   "prominence_db": 7.4,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.798
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1iV411a7Jt_怀旧经典《再见我的爱人》，王晰嗓音颇有邓丽君的魅力，全场震惊",
+   "kind": "稳定音",
+   "yin_hz": 81.8,
+   "crepe_hz": 81.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 13.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1iV411a7Jt_怀旧经典《再见我的爱人》，王晰嗓音颇有邓丽君的魅力，全场震惊",
+   "kind": "触达候选",
+   "yin_hz": 75.8,
+   "crepe_hz": 75.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 7.5,
+   "coverage": {
+    "yin": 0.991,
+    "crepe": 0.991
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1kL4y1M73M_王晰 凄美地",
+   "kind": "稳定音",
+   "yin_hz": 115.6,
+   "crepe_hz": 343.0,
+   "state": "已取证",
+   "how": "谱列解释度 0.99 vs 0.70",
+   "source": "A3复核交付表",
+   "prominence_db": 1.7,
+   "coverage": {
+    "yin": 0.995,
+    "crepe": 0.703
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1kL4y1M73M_王晰 凄美地",
+   "kind": "触达候选",
+   "yin_hz": 60.6,
+   "crepe_hz": 183.8,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.85），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 2.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.854
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1mT4y117g4_《她真漂亮》王晰and高杨",
+   "kind": "稳定音",
+   "yin_hz": 55.1,
+   "crepe_hz": 163.8,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.51",
+   "source": "A3复核交付表",
+   "prominence_db": 6.7,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.511
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1mT4y117g4_《她真漂亮》王晰and高杨",
+   "kind": "触达候选",
+   "yin_hz": 55.1,
+   "crepe_hz": 163.9,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.74",
+   "source": "A3复核交付表",
+   "prominence_db": 6.8,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.737
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1no4y1K7dP_经典咏流传《渡荆门送别》歌曲及访谈",
+   "kind": "稳定音",
+   "yin_hz": 69.7,
+   "crepe_hz": 208.0,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.65",
+   "source": "A3复核交付表",
+   "prominence_db": 1.5,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.652
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1no4y1K7dP_经典咏流传《渡荆门送别》歌曲及访谈",
+   "kind": "触达候选",
+   "yin_hz": 64.4,
+   "crepe_hz": 64.6,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 30.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1q7411u7xd_王晰低音我是歌手",
+   "kind": "稳定音",
+   "yin_hz": 87.8,
+   "crepe_hz": 350.1,
+   "state": "已取证",
+   "how": "谱列解释度 0.98 vs 0.51",
+   "source": "A3复核交付表",
+   "prominence_db": -5.9,
+   "coverage": {
+    "yin": 0.985,
+    "crepe": 0.509
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1q7411u7xd_王晰低音我是歌手",
+   "kind": "触达候选",
+   "yin_hz": 62.1,
+   "crepe_hz": 247.9,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 0.98 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": -10.2,
+   "coverage": {
+    "yin": 0.979,
+    "crepe": 0.861
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1R7411F7AV_【王晰】深深吻我_Besame Mucho",
+   "kind": "稳定音",
+   "yin_hz": 130.1,
+   "crepe_hz": 129.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 35.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1R7411F7AV_【王晰】深深吻我_Besame Mucho",
+   "kind": "触达候选",
+   "yin_hz": 109.9,
+   "crepe_hz": 221.0,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 2.4,
+   "coverage": {
+    "yin": 0.991,
+    "crepe": 0.954
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1Rt411A7p7_〖王晰 重来〗王晰迷人低音演唱《重来》好听至极，唱到心坎里去了！",
+   "kind": "稳定音",
+   "yin_hz": 86.8,
+   "crepe_hz": 86.5,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 22.0,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.999
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1Rt411A7p7_〖王晰 重来〗王晰迷人低音演唱《重来》好听至极，唱到心坎里去了！",
+   "kind": "触达候选",
+   "yin_hz": 85.5,
+   "crepe_hz": 172.6,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.85",
+   "source": "A3复核交付表",
+   "prominence_db": 5.6,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.848
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1vr4y1S7v8_【追光吧第二季】王晰   小毛驴",
+   "kind": "稳定音",
+   "yin_hz": 72.7,
+   "crepe_hz": 147.7,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.91），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 14.0,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.91
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1vr4y1S7v8_【追光吧第二季】王晰   小毛驴",
+   "kind": "触达候选",
+   "yin_hz": 72.7,
+   "crepe_hz": 147.4,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.91），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 14.0,
+   "coverage": {
+    "yin": 0.997,
+    "crepe": 0.91
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1WF411B7KX_追光吧 王晰满江 逆光",
+   "kind": "稳定音",
+   "yin_hz": 78.3,
+   "crepe_hz": 312.0,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.61",
+   "source": "A3复核交付表",
+   "prominence_db": 7.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.608
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1WF411B7KX_追光吧 王晰满江 逆光",
+   "kind": "触达候选",
+   "yin_hz": 78.3,
+   "crepe_hz": 311.9,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.61",
+   "source": "A3复核交付表",
+   "prominence_db": 7.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.608
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1wuKt6YEWv_【我的爱对你说】王晰檀健次马佳神仙合唱，万般美好《如愿》而至",
+   "kind": "稳定音",
+   "yin_hz": 69.3,
+   "crepe_hz": 276.7,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.61",
+   "source": "A3复核交付表",
+   "prominence_db": -0.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.606
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1wuKt6YEWv_【我的爱对你说】王晰檀健次马佳神仙合唱，万般美好《如愿》而至",
+   "kind": "触达候选",
+   "yin_hz": 69.3,
+   "crepe_hz": 276.6,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.61",
+   "source": "A3复核交付表",
+   "prominence_db": -0.2,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.606
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1wV411e7xK_【1080P】【开口跪神级Live现场】尚雯婕 王晰《云与海》",
+   "kind": "稳定音",
+   "yin_hz": 69.2,
+   "crepe_hz": 346.9,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.28",
+   "source": "A3复核交付表",
+   "prominence_db": 9.7,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.282
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1wV411e7xK_【1080P】【开口跪神级Live现场】尚雯婕 王晰《云与海》",
+   "kind": "触达候选",
+   "yin_hz": 69.2,
+   "crepe_hz": 346.9,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.28",
+   "source": "A3复核交付表",
+   "prominence_db": 9.7,
+   "coverage": {
+    "yin": 0.999,
+    "crepe": 0.282
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1zmRHBwExo_王晰汪小敏《偏执》",
+   "kind": "稳定音",
+   "yin_hz": 69.8,
+   "crepe_hz": 139.6,
+   "state": "已取证",
+   "how": "谱列解释度 0.99 vs 0.41",
+   "source": "A3复核交付表",
+   "prominence_db": 17.1,
+   "coverage": {
+    "yin": 0.994,
+    "crepe": 0.415
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1zmRHBwExo_王晰汪小敏《偏执》",
+   "kind": "触达候选",
+   "yin_hz": 58.8,
+   "crepe_hz": 175.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.63",
+   "source": "A3复核交付表",
+   "prominence_db": 0.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.633
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1CP4y1A7Jr_【神魂颠倒】王晰追光吧决赛饭拍 谁是蛊王谁又在神魂颠倒",
+   "kind": "稳定音",
+   "yin_hz": 109.4,
+   "crepe_hz": 110.0,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 31.0,
+   "coverage": {
+    "yin": 0.99,
+    "crepe": 0.99
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1CP4y1A7Jr_【神魂颠倒】王晰追光吧决赛饭拍 谁是蛊王谁又在神魂颠倒",
+   "kind": "触达候选",
+   "yin_hz": 83.5,
+   "crepe_hz": 166.4,
+   "state": "待复核",
+   "how": "新规：短读一律待复核",
+   "source": "A3复核交付表",
+   "prominence_db": 11.9,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.862
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1NR9PYcEJb_[Hi-res][4K60帧]-[张韶涵 王晰] - 黎明前的黑暗 (Live)",
+   "kind": "稳定音",
+   "yin_hz": 112.3,
+   "crepe_hz": 220.7,
+   "state": "次谐波错误",
+   "how": "谱列解释度 CREPE 0.88 > YIN 0.26 → YIN 锁次谐波，真值更接近 220.7Hz",
+   "source": "A3复核交付表",
+   "prominence_db": 23.6,
+   "coverage": {
+    "yin": 0.264,
+    "crepe": 0.875
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1NR9PYcEJb_[Hi-res][4K60帧]-[张韶涵 王晰] - 黎明前的黑暗 (Live)",
+   "kind": "触达候选",
+   "yin_hz": 75.6,
+   "crepe_hz": 74.8,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "A3复核交付表",
+   "prominence_db": 15.0,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 1.0
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1t64y117qD_【王晰】【生来知己】盲 直拍",
+   "kind": "稳定音",
+   "yin_hz": 98.7,
+   "crepe_hz": 294.8,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 1.00），无一候选能解释全部谱峰",
+   "source": "A3复核交付表",
+   "prominence_db": 3.3,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.998
+   }
+  },
+  {
+   "scope": "stage",
+   "key": "BV1t64y117qD_【王晰】【生来知己】盲 直拍",
+   "kind": "触达候选",
+   "yin_hz": 64.8,
+   "crepe_hz": 191.2,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.80",
+   "source": "A3复核交付表",
+   "prominence_db": -4.1,
+   "coverage": {
+    "yin": 1.0,
+    "crepe": 0.799
+   }
+  },
+  {
+   "scope": "studio",
+   "key": "B面图景·知晓",
+   "kind": "低音候选",
+   "yin_hz": 61.9,
+   "crepe_hz": 104.3,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "Low C的诱惑·渔光曲",
+   "kind": "低音候选",
+   "yin_hz": 61.6,
+   "crepe_hz": 81.7,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "Low C的诱惑Ⅱ·乌兰巴托的夜晚",
+   "kind": "低音候选",
+   "yin_hz": 66.3,
+   "crepe_hz": 64.1,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "Low C的诱惑Ⅱ·多年以后",
+   "kind": "低音候选",
+   "yin_hz": 65.8,
+   "crepe_hz": 83.0,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "X自选集·多听有益",
+   "kind": "低音候选",
+   "yin_hz": 61.6,
+   "crepe_hz": 62.0,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "不说·勿扰",
+   "kind": "低音候选",
+   "yin_hz": 65.6,
+   "crepe_hz": 71.9,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "不说·鹅毛信",
+   "kind": "低音候选",
+   "yin_hz": 65.3,
+   "crepe_hz": 73.6,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "歌颂·偏执",
+   "kind": "低音候选",
+   "yin_hz": 65.8,
+   "crepe_hz": 95.4,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "歌颂·雪地里寄不出的求救信",
+   "kind": "低音候选",
+   "yin_hz": 65.4,
+   "crepe_hz": 108.8,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "重游往昔·晚风暖暖",
+   "kind": "低音候选",
+   "yin_hz": 65.3,
+   "crepe_hz": 96.1,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "重游往昔·静止了的夜晚",
+   "kind": "低音候选",
+   "yin_hz": 61.5,
+   "crepe_hz": 73.6,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "None·鹅毛信",
+   "kind": "低音候选",
+   "yin_hz": 65.3,
+   "crepe_hz": 73.6,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "None·BV1mT4y117g4_《她真漂亮》王晰and高杨",
+   "kind": "低音候选",
+   "yin_hz": 55.1,
+   "crepe_hz": 76.3,
+   "state": "次谐波错误",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "None·BV1Qg4y1H7XH_FineLIVE翻浪四季歌会｜王晰《晚风》纯享版",
+   "kind": "低音候选",
+   "yin_hz": 80.7,
+   "crepe_hz": 71.7,
+   "state": "待复核",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "None·BV1tV411p7Ny_【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！",
+   "kind": "低音候选",
+   "yin_hz": 64.9,
+   "crepe_hz": 86.3,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "None·BV1PC4y1q7Up_2024BRTV踏上新征程跨年之夜！王晰 王弦演唱《美丽的草原我的家》 ！",
+   "kind": "低音候选",
+   "yin_hz": 65.8,
+   "crepe_hz": 73.1,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "None·BV1LP4y1k7zv_舞台氛围感拉满！ 么红王晰黄霄雲合唱《雾里》",
+   "kind": "低音候选",
+   "yin_hz": 75.5,
+   "crepe_hz": 82.4,
+   "state": "已取证",
+   "how": "LowC 谐波列复核（E1/E2/E3/E4 + CREPE）",
+   "source": "archive_lowc_verify"
+  },
+  {
+   "scope": "studio",
+   "key": "Come to Me",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "Crystal Store",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "下沉",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "不能靠近的朋友",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "不需要结果",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "乌兰巴托的夜晚",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "云一定知道",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "他不爱我",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "住口",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "你",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "你要忘了我",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "倒叙",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.85",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "偏偏",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "偏执",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.65",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "再回首",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "几多愁",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "分岔",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "勿扰",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.89），无一候选能解释全部谱峰",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "千言万语",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "南屏晚钟",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "双鱼",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "叶塞尼亚",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "哑光",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "在路上",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "多听有益",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "多年以后",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.53",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "夜半歌声",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "好好说再见",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "如梦令",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "小河",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "带着一颗好心去流浪",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "当爱已成往事",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "微光之名",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "微醺23点08分",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "微风细雨",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "忘不了",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "怂",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "悬念",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "惑许",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "我的心里只有你没有他",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "无人岛上",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "无尽的夜里",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.87），无一候选能解释全部谱峰",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "时空",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "明白",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "是你",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "晚风",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "晚风暖暖",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "月光",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "月圆花好",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "朝凤",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "歌颂",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "渔光曲",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.81",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "游离",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "爱情",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "猫模狗样",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "王牌就是我",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "玩笑",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "知晓",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.82",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "祝我们随遇而安",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "等一等昨天",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "绿岛小夜曲",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "至少还有你",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "茕茕",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "葬心",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "贝加尔湖畔",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "轻信",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "双引擎一致",
+   "how": "多配置 CREPE 与 YIN 一致",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "重庆野玫瑰",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "重游往昔",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.70",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "雪地里寄不出的求救信",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.86），无一候选能解释全部谱峰",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "雷美替胺",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "未复核",
+   "how": "",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "静止了的夜晚",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "已取证",
+   "how": "谱列解释度 1.00 vs 0.77",
+   "source": "album_verify_status"
+  },
+  {
+   "scope": "studio",
+   "key": "鹅毛信",
+   "kind": "曲目终裁",
+   "yin_hz": null,
+   "crepe_hz": null,
+   "state": "待复核",
+   "how": "谱列解释度接近（YIN 1.00 / CREPE 0.94），无一候选能解释全部谱峰",
+   "source": "album_verify_status"
+  }
+ ]
+}
