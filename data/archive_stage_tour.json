@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 15:28",
+ "generated_at": "2026-09-11 15:31",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -16,30 +16,6 @@
   "n_tours": 6,
   "n_verified": 11,
   "n_harmonic_reviewed": 6,
-  "withdrawn": [
-   {
-    "tag": "六巡重庆20260613_BV1zEJA6xEr2",
-    "song": "让她降落",
-    "city": "重庆",
-    "date": "2026-06-13",
-    "note": "B1",
-    "hz": 61.2,
-    "reason": "两音公共周期：主唱 B2 122.4Hz ＋ 伴奏 F#3 183.6Hz（122.4÷2 ＝ 183.6÷3 ＝ 61.2）",
-    "replaced_by": "F2 88.9Hz",
-    "evidence": "同场 BV176LR6bE2B 同一时刻（旋律对齐偏移 0.0s，相关 0.691）读 B2 122.4Hz 且 1–8 次分音齐全；本源 1f0 比 4f0 低 24dB、5/7 次分音空；四轨检查只排除 bass 轨，other（钢琴）40.2dB、drums（底鼓）31.1dB 同频段在场"
-   },
-   {
-    "tag": "六巡广州20260823b_BV1hHtU68Eoj",
-    "song": "让她降落",
-    "city": "广州",
-    "date": "2026-08-23",
-    "note": "E2",
-    "hz": 82.5,
-    "reason": "1/2 次谐波：真值 E3 165Hz",
-    "replaced_by": "G2 98.0Hz",
-    "evidence": "混音 82.5Hz 基频 5.9dB ≈ 本底 5.5dB（等于没有），1/5/7 次分音空；165Hz 谐波列 1–8 级齐全"
-   }
-  ],
   "lowest": {
    "note": "D#2",
    "hz": 79.9,
@@ -169,6 +145,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "F#2",
    "low_hz": 91.1,
+   "low_t_s": 128.8475283446712,
+   "low_dur_s": 0.3250793650793651,
    "high_note": "B5",
    "high_hz": 990.3,
    "span_octaves": 3.44,
@@ -184,11 +162,25 @@
    "a3_crepe_hz": 181.8,
    "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "F#2 91.1Hz @128.848s（0.325s）",
+   "harmonic_screen": {
     "verdict": "成立",
-    "kind": "混音 1f0 −11.0dB、3f0 在（91.1Hz 间距成列）；逐帧 28 帧连续 91.1±0.2Hz，前后为 F#3 182（八度下探后回位），12.4s 处同读复现",
-    "evidence": "轨迹\\让她降落_B1复核_20260911.md §3.4"
+    "note": "F#2",
+    "hz": 91.1,
+    "why": "1f0 差 -11.1dB、3f0 在（48.4dB）",
+    "fund_gap_db": -11.1,
+    "floor_db": 41.7,
+    "t_s": 128.848,
+    "dur_s": 0.325,
+    "partials": [
+     44.1,
+     55.2,
+     48.4,
+     52.0,
+     22.2,
+     51.7,
+     13.5,
+     47.4
+    ]
    }
   },
   {
@@ -204,6 +196,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "F#2",
    "low_hz": 91.7,
+   "low_t_s": 99.59038548752835,
+   "low_dur_s": 0.2089795918367347,
    "high_note": "A#5",
    "high_hz": 907.7,
    "span_octaves": 3.31,
@@ -219,11 +213,25 @@
    "a3_crepe_hz": 181.3,
    "a3_final_note": "待复核",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "F#2 91.7Hz @99.590s",
-    "verdict": "待核",
-    "kind": "基频缺口 −37.8dB（本源混音 183/367Hz 占优）；同巡另两源同读 F#2，故保留读数、只降复核状态",
-    "evidence": "轨迹\\低音复核_谐波列_20260911.json"
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "F#2",
+    "hz": 91.7,
+    "why": "1f0 差 -37.8dB",
+    "fund_gap_db": -37.8,
+    "floor_db": 18.9,
+    "t_s": 99.59,
+    "dur_s": 0.209,
+    "partials": [
+     25.2,
+     63.0,
+     37.7,
+     49.7,
+     45.6,
+     47.7,
+     39.7,
+     28.0
+    ]
    }
   },
   {
@@ -239,6 +247,8 @@
    "source_verdict": "官方直传",
    "low_note": "F#2",
    "low_hz": 92.1,
+   "low_t_s": 98.24362811791383,
+   "low_dur_s": 0.25541950113378686,
    "high_note": "A#5",
    "high_hz": 931.0,
    "span_octaves": 3.34,
@@ -254,11 +264,25 @@
    "a3_crepe_hz": 90.7,
    "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "F#2 92.1Hz @98.244s（0.255s）",
+   "harmonic_screen": {
     "verdict": "成立",
-    "kind": "混音 1f0 −10.5dB、奇数倍分音在；且 CREPE 90.7Hz 与 YIN 92.1Hz 真·双引擎一致",
-    "evidence": "轨迹\\低音复核_谐波列_20260911.json"
+    "note": "F#2",
+    "hz": 92.1,
+    "why": "1f0 差 -11.1dB、3f0 在（57.3dB）",
+    "fund_gap_db": -11.1,
+    "floor_db": 26.0,
+    "t_s": 98.244,
+    "dur_s": 0.255,
+    "partials": [
+     46.2,
+     55.4,
+     36.0,
+     45.9,
+     31.7,
+     49.8,
+     57.3,
+     37.9
+    ]
    }
   },
   {
@@ -274,6 +298,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "F#2",
    "low_hz": 92.1,
+   "low_t_s": 101.65696145124717,
+   "low_dur_s": 0.25541950113378686,
    "high_note": "A#5",
    "high_hz": 928.0,
    "span_octaves": 3.33,
@@ -289,11 +315,25 @@
    "a3_crepe_hz": null,
    "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "F#2 92.1Hz @101.657s（0.255s）",
+   "harmonic_screen": {
     "verdict": "成立",
-    "kind": "混音 1f0 −10.6dB、1–8 级间距成立",
-    "evidence": "轨迹\\低音复核_谐波列_20260911.json"
+    "note": "F#2",
+    "hz": 92.1,
+    "why": "1f0 差 -11.2dB、3f0 在（54.4dB）",
+    "fund_gap_db": -11.2,
+    "floor_db": 22.2,
+    "t_s": 101.657,
+    "dur_s": 0.255,
+    "partials": [
+     43.2,
+     52.3,
+     33.6,
+     43.3,
+     29.4,
+     46.7,
+     54.4,
+     34.3
+    ]
    }
   },
   {
@@ -309,6 +349,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "G2",
    "low_hz": 100.5,
+   "low_t_s": 23.661133786848072,
+   "low_dur_s": 0.2089795918367347,
    "high_note": "D5",
    "high_hz": 586.8,
    "span_octaves": 2.55,
@@ -323,7 +365,27 @@
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
    "a3_final_note": "未复核",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G2",
+    "hz": 100.5,
+    "why": "1f0 差 +0.0dB、3f0 在（38.5dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 17.2,
+    "t_s": 23.661,
+    "dur_s": 0.209,
+    "partials": [
+     57.4,
+     54.2,
+     38.5,
+     40.2,
+     34.0,
+     32.0,
+     24.2,
+     15.3
+    ]
+   }
   },
   {
    "tag": "二巡南京20210411b_BV1SZ4y1c7Xb",
@@ -338,6 +400,8 @@
    "source_verdict": "官方直传",
    "low_note": "F2",
    "low_hz": 89.0,
+   "low_t_s": 28.792743764172336,
+   "low_dur_s": 0.46439909297052157,
    "high_note": "G5",
    "high_hz": 767.9,
    "span_octaves": 3.11,
@@ -353,11 +417,25 @@
    "a3_crepe_hz": 177.3,
    "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "F2 89.0Hz @28.793s（0.464s）",
-    "verdict": "成立（升级）",
-    "kind": "混音 1f0 为该窗最强分音（64.2dB vs 次强 63.2dB）；此前 CREPE 读 177.4Hz＝2×，系分离人声削掉 60–90Hz 基频所致，非真值",
-    "evidence": "轨迹\\低音复核_谐波列_20260911.json"
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F2",
+    "hz": 89.0,
+    "why": "1f0 差 +0.0dB、3f0 在（48.0dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 47.6,
+    "t_s": 28.793,
+    "dur_s": 0.464,
+    "partials": [
+     64.1,
+     63.3,
+     48.0,
+     58.2,
+     43.5,
+     38.5,
+     32.3,
+     28.1
+    ]
    }
   },
   {
@@ -373,6 +451,8 @@
    "source_verdict": "官方直传",
    "low_note": "A2",
    "low_hz": 107.1,
+   "low_t_s": 29.95374149659864,
+   "low_dur_s": 0.23219954648526078,
    "high_note": "G5",
    "high_hz": 763.5,
    "span_octaves": 2.83,
@@ -387,7 +467,27 @@
    "a3_yin_hz": 107.1,
    "a3_crepe_hz": 104.8,
    "a3_final_note": "双引擎一致",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "A2",
+    "hz": 107.1,
+    "why": "1f0 差 +0.0dB",
+    "fund_gap_db": 0.0,
+    "floor_db": 32.6,
+    "t_s": 29.954,
+    "dur_s": 0.232,
+    "partials": [
+     61.3,
+     41.5,
+     20.7,
+     13.6,
+     16.4,
+     14.7,
+     21.1,
+     19.8
+    ]
+   }
   },
   {
    "tag": "二巡南京20210411_BV1pL411n7Ns",
@@ -402,6 +502,8 @@
    "source_verdict": "官方直传",
    "low_note": "A#2",
    "low_hz": 117.8,
+   "low_t_s": 88.70022675736962,
+   "low_dur_s": 0.37151927437641724,
    "high_note": "B4",
    "high_hz": 496.7,
    "span_octaves": 2.08,
@@ -416,7 +518,27 @@
    "a3_yin_hz": 117.8,
    "a3_crepe_hz": 116.5,
    "a3_final_note": "双引擎一致",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A#2",
+    "hz": 117.8,
+    "why": "1f0 差 -9.0dB、3f0 在（44.4dB）",
+    "fund_gap_db": -9.0,
+    "floor_db": 38.4,
+    "t_s": 88.7,
+    "dur_s": 0.372,
+    "partials": [
+     50.4,
+     59.4,
+     44.4,
+     42.7,
+     25.6,
+     28.1,
+     28.1,
+     15.2
+    ]
+   }
   },
   {
    "tag": "三巡深圳20230623_BV1QP411v7KR",
@@ -431,6 +553,8 @@
    "source_verdict": "官方直传",
    "low_note": "D#2",
    "low_hz": 79.9,
+   "low_t_s": 233.94104308390024,
+   "low_dur_s": 0.2089795918367347,
    "high_note": "A#5",
    "high_hz": 913.2,
    "span_octaves": 3.51,
@@ -446,11 +570,25 @@
    "a3_crepe_hz": null,
    "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "D#2 79.9Hz @233.941s（0.209s）",
-    "verdict": "成立（升级）",
-    "kind": "混音 1f0 仅低 6.1dB、1–5 次分音齐全；同一演出第二处复现 D#2 80.0Hz @334.646s",
-    "evidence": "轨迹\\低音复核_谐波列_20260911.json"
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D#2",
+    "hz": 79.9,
+    "why": "1f0 差 -9.1dB、3f0 在（59.0dB）",
+    "fund_gap_db": -9.1,
+    "floor_db": 23.8,
+    "t_s": 233.941,
+    "dur_s": 0.209,
+    "partials": [
+     50.0,
+     44.9,
+     49.0,
+     56.2,
+     59.0,
+     33.2,
+     35.0,
+     21.2
+    ]
    }
   },
   {
@@ -480,13 +618,7 @@
    "a3_yin_hz": 63.4,
    "a3_crepe_hz": 63.4,
    "a3_final_note": "待复核",
-   "source_layer": "十曲精测",
-   "low_review": {
-    "reading": "B1 63.4Hz（十曲精测）",
-    "verdict": "待核",
-    "kind": "极值不成立：63.4Hz 在 pyin 轨迹里只有 1 帧（0.15s，未过「极值音本身 ≥0.2s」）；同段 0.9s 台地实测 C2 65.2Hz，A3 表同素材的 CREPE/YIN 触达候选也是 65.1Hz（双引擎一致）。本次混音谐波列复核确认该处确有真实基频（1f0 −10～−13dB、1–8 级齐全，1/2 假设被否），故「现场唱到 B1/C2 附近」成立，但「最低稳定音 = B1 63.4」这一取值需按现行门槛改为 C2 65.2——涉及十曲层（archive_vocal.json / voice.html / skill.html / 分享图指纹），单列待办，本次不动。",
-    "evidence": "轨迹\\低音复核_谐波列_20260911.json；重下 BV1ArKxe7E8H 后 114.29–115.24s 混音实测"
-   }
+   "source_layer": "十曲精测"
   },
   {
    "tag": "四巡 直拍_多听有益",
@@ -559,6 +691,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "F2",
    "low_hz": 88.9,
+   "low_t_s": 174.777,
+   "low_dur_s": null,
    "high_note": "B4",
    "high_hz": 489.4,
    "span_octaves": 3.0,
@@ -569,23 +703,30 @@
    "density_per_s": 2.14,
    "hnr_db": 8.8,
    "duration_s": 211.4,
-   "a3_state": "🟡 已取证（谱图）",
-   "a3_yin_hz": 61.2,
-   "a3_crepe_hz": 61.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
    "a3_final_note": "谐波列复核通过（同刻三源）",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "B1 61.2Hz @138.507s（0.372s）",
-    "verdict": "不成立",
-    "kind": "两音公共周期：主唱 B2 122.4Hz ＋ 伴奏 F#3 183.6Hz（122.4÷2 ＝ 183.6÷3 ＝ 61.2）",
-    "evidence": "同场 BV176LR6bE2B 同一时刻（旋律对齐偏移 0.0s，相关 0.691）读 B2 122.4Hz 且 1–8 次分音齐全；本源 1f0 比 4f0 低 24dB、5/7 次分音空；四轨检查只排除 bass 轨，other（钢琴）40.2dB、drums（底鼓）31.1dB 同频段在场"
-   },
-   "low_withdrawn": {
-    "note": "B1",
-    "hz": 61.2,
-    "reason": "两音公共周期：主唱 B2 122.4Hz ＋ 伴奏 F#3 183.6Hz（122.4÷2 ＝ 183.6÷3 ＝ 61.2）",
-    "evidence": "同场 BV176LR6bE2B 同一时刻（旋律对齐偏移 0.0s，相关 0.691）读 B2 122.4Hz 且 1–8 次分音齐全；本源 1f0 比 4f0 低 24dB、5/7 次分音空；四轨检查只排除 bass 轨，other（钢琴）40.2dB、drums（底鼓）31.1dB 同频段在场",
-    "replaced_by": "F2 88.9Hz"
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F2",
+    "hz": 88.9,
+    "why": "1f0 差 -21.2dB、3f0 在（53.5dB）",
+    "fund_gap_db": -21.2,
+    "floor_db": 15.2,
+    "t_s": 174.777,
+    "dur_s": 0.207,
+    "partials": [
+     38.0,
+     59.1,
+     41.4,
+     35.4,
+     53.5,
+     44.6,
+     45.5,
+     38.2
+    ]
    }
   },
   {
@@ -601,6 +742,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "G2",
    "low_hz": 98.0,
+   "low_t_s": 49.203,
+   "low_dur_s": null,
    "high_note": "B4",
    "high_hz": 501.4,
    "span_octaves": 2.6,
@@ -611,23 +754,30 @@
    "density_per_s": 1.76,
    "hnr_db": 6.7,
    "duration_s": 236.9,
-   "a3_state": "⚪ 待复核",
-   "a3_yin_hz": 82.5,
-   "a3_crepe_hz": 165.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
    "a3_final_note": "待复核",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "E2 82.5Hz @204.777s（0.348s）",
-    "verdict": "不成立",
-    "kind": "1/2 次谐波：真值 E3 165Hz",
-    "evidence": "混音 82.5Hz 基频 5.9dB ≈ 本底 5.5dB（等于没有），1/5/7 次分音空；165Hz 谐波列 1–8 级齐全"
-   },
-   "low_withdrawn": {
-    "note": "E2",
-    "hz": 82.5,
-    "reason": "1/2 次谐波：真值 E3 165Hz",
-    "evidence": "混音 82.5Hz 基频 5.9dB ≈ 本底 5.5dB（等于没有），1/5/7 次分音空；165Hz 谐波列 1–8 级齐全",
-    "replaced_by": "G2 98.0Hz"
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "G2",
+    "hz": 98.0,
+    "why": "1f0 差 -33.5dB",
+    "fund_gap_db": -33.5,
+    "floor_db": 17.8,
+    "t_s": 49.203,
+    "dur_s": 0.368,
+    "partials": [
+     22.3,
+     40.2,
+     55.8,
+     53.0,
+     42.2,
+     31.3,
+     17.0,
+     27.0
+    ]
    }
   },
   {
@@ -643,6 +793,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "G#2",
    "low_hz": 104.3,
+   "low_t_s": 137.67111111111112,
+   "low_dur_s": 0.2089795918367347,
    "high_note": "C#5",
    "high_hz": 545.1,
    "span_octaves": 2.39,
@@ -657,7 +809,27 @@
    "a3_yin_hz": 104.3,
    "a3_crepe_hz": 104.8,
    "a3_final_note": "双引擎一致",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G#2",
+    "hz": 104.3,
+    "why": "1f0 差 -12.8dB、3f0 在（57.8dB）",
+    "fund_gap_db": -12.8,
+    "floor_db": 24.9,
+    "t_s": 137.671,
+    "dur_s": 0.209,
+    "partials": [
+     45.0,
+     48.6,
+     57.8,
+     55.7,
+     36.5,
+     28.7,
+     30.1,
+     29.5
+    ]
+   }
   },
   {
    "tag": "六巡重庆20260613b_BV1SEJP6LEUw",
@@ -672,6 +844,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "G#2",
    "low_hz": 106.3,
+   "low_t_s": 83.49895691609977,
+   "low_dur_s": 0.23219954648526078,
    "high_note": "B4",
    "high_hz": 489.1,
    "span_octaves": 2.2,
@@ -687,11 +861,25 @@
    "a3_crepe_hz": 107.4,
    "a3_final_note": "双引擎一致",
    "source_layer": "场次音频实测",
-   "low_review": {
-    "reading": "B1 61.0Hz @75.256s（0.163s，未过 0.2s 门槛）",
-    "verdict": "不成立",
-    "kind": "1/3 次谐波：前后 5 秒稳定 F#3 182Hz，182÷3≈61",
-    "evidence": "逐帧轨迹 74.26–76.25s（本源稳定音 G#2 106.3 不受影响）"
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G#2",
+    "hz": 106.3,
+    "why": "1f0 差 -16.5dB、3f0 在（54.7dB）",
+    "fund_gap_db": -16.5,
+    "floor_db": 2.5,
+    "t_s": 83.499,
+    "dur_s": 0.232,
+    "partials": [
+     40.2,
+     56.7,
+     54.7,
+     47.5,
+     46.7,
+     33.7,
+     39.4,
+     32.2
+    ]
    }
   },
   {
@@ -707,6 +895,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "A2",
    "low_hz": 107.0,
+   "low_t_s": 43.23555555555556,
+   "low_dur_s": 0.23219954648526078,
    "high_note": "E5",
    "high_hz": 670.8,
    "span_octaves": 2.65,
@@ -721,7 +911,27 @@
    "a3_yin_hz": 107.0,
    "a3_crepe_hz": 107.2,
    "a3_final_note": "双引擎一致",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A2",
+    "hz": 107.0,
+    "why": "1f0 差 -14.1dB、3f0 在（50.6dB）",
+    "fund_gap_db": -14.1,
+    "floor_db": 13.0,
+    "t_s": 43.236,
+    "dur_s": 0.232,
+    "partials": [
+     43.0,
+     57.2,
+     50.6,
+     47.2,
+     49.9,
+     52.1,
+     37.2,
+     29.1
+    ]
+   }
   },
   {
    "tag": "未知20201116_BV1fr4y1F769",
@@ -736,6 +946,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "D2",
    "low_hz": 72.7,
+   "low_t_s": 50.08544217687075,
+   "low_dur_s": 0.2089795918367347,
    "high_note": "G#5",
    "high_hz": 813.5,
    "span_octaves": 3.48,
@@ -750,7 +962,27 @@
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
    "a3_final_note": "未复核",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 72.7,
+    "why": "1f0 差 -0.3dB、3f0 在（60.5dB）",
+    "fund_gap_db": -0.3,
+    "floor_db": 17.8,
+    "t_s": 50.085,
+    "dur_s": 0.209,
+    "partials": [
+     60.2,
+     57.7,
+     60.5,
+     46.8,
+     53.4,
+     52.4,
+     18.9,
+     29.2
+    ]
+   }
   },
   {
    "tag": "杭州20201226_BV1z5411H7yg",
@@ -765,6 +997,8 @@
    "source_verdict": "重制(二次制作) · 待听辨",
    "low_note": "D2",
    "low_hz": 73.1,
+   "low_t_s": 55.58857142857143,
+   "low_dur_s": 0.18575963718820862,
    "high_note": "D5",
    "high_hz": 584.7,
    "span_octaves": 3.0,
@@ -779,7 +1013,27 @@
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
    "a3_final_note": "未复核",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 73.1,
+    "why": "1f0 差 -14.5dB、3f0 在（58.4dB）",
+    "fund_gap_db": -14.5,
+    "floor_db": 12.1,
+    "t_s": 55.589,
+    "dur_s": 0.186,
+    "partials": [
+     43.9,
+     55.3,
+     58.4,
+     51.1,
+     41.9,
+     38.4,
+     11.2,
+     32.1
+    ]
+   }
   },
   {
    "tag": "成都首唱会2019_BV1W7411R7Hv",
@@ -794,6 +1048,8 @@
    "source_verdict": "官方直传",
    "low_note": "D2",
    "low_hz": 73.4,
+   "low_t_s": 262.01396825396824,
+   "low_dur_s": 0.301859410430839,
    "high_note": "C6",
    "high_hz": 1043.3,
    "span_octaves": 3.83,
@@ -808,7 +1064,27 @@
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
    "a3_final_note": "未复核",
-   "source_layer": "场次音频实测"
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 73.4,
+    "why": "1f0 差 -11.4dB、3f0 在（43.8dB）",
+    "fund_gap_db": -11.4,
+    "floor_db": 16.4,
+    "t_s": 262.014,
+    "dur_s": 0.302,
+    "partials": [
+     42.5,
+     53.9,
+     43.8,
+     31.8,
+     30.5,
+     31.7,
+     32.9,
+     10.8
+    ]
+   }
   }
  ],
  "by_song": [

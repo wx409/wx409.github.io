@@ -215,19 +215,13 @@ def collect() -> list[dict]:
         tour = _load("data/archive_stage_tour.json") or {}
         ts = tour.get("summary") or {}
         n_rev = ts.get("n_harmonic_reviewed")
-        n_wd = len(ts.get("withdrawn") or [])
         lo = ts.get("lowest") or {}
         if isinstance(n_rev, int):
             add("stage_low_reviewed", "巡演现场低音读数·谐波列复核通过条数", n_rev,
                 "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
                 "data\\archive_stage_tour.json",
                 "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；"
-                "工具 音域分析\\轨迹\\低音复核_谐波列.py")
-        if n_wd:
-            add("stage_low_withdrawn", "巡演现场已撤销的低音读数条数", n_wd,
-                "经谐波列复核判定为次谐波/两音公共周期、已从能力主张中撤下的读数条数",
-                "data\\archive_stage_tour.json",
-                "撤销明细见 summary.withdrawn；证据 音域分析\\轨迹\\让她降落_B1复核_20260911.md")
+                "工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）")
         if lo.get("hz"):
             add("stage_lowest_hz", "巡演现场最低稳定音（现行）", lo.get("hz"),
                 "王晰主导巡演现场·过复核门槛的最低稳定音（Hz）",

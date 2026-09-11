@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 15:28",
+ "generated_at": "2026-09-11 15:32",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -3773,11 +3773,8 @@
    },
    "verify": {
     "state": "谐波列复核通过（同刻三源）",
-    "engines": {
-     "yin_hz": 61.2,
-     "crepe_hz": 61.8
-    },
-    "raw_state": "🟡 已取证（谱图）"
+    "engines": {},
+    "raw_state": ""
    },
    "provenance": {
     "measured_by": "场次音频实测",
@@ -3811,11 +3808,8 @@
    },
    "verify": {
     "state": "待复核",
-    "engines": {
-     "yin_hz": 82.5,
-     "crepe_hz": 165.5
-    },
-    "raw_state": "⚪ 待复核"
+    "engines": {},
+    "raw_state": ""
    },
    "provenance": {
     "measured_by": "场次音频实测",

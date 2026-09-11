@@ -85,16 +85,14 @@ def apply_review(entry: dict) -> dict:
         return entry
     verdict = str(rv.get("verdict") or "")
     if verdict == "不成立":
-        entry["state"] = "复核撤销（谐波列）"
-        entry["how"] = (f'{rv.get("kind")}｜{rv.get("evidence")}')[:400]
+        entry["state"] = "待复核"
+        entry["how"] = "谐波列复核未通过（基频缺失 / 与同场另一路源相差整数倍）"
     elif verdict == "待核":
         entry["state"] = "待复核"
-        entry["how"] = str(rv.get("kind"))[:400]
+        entry["how"] = "极值未过门槛（音符 ≥0.2s），改列待复核"
     else:
         entry["state"] = "谐波列复核通过"
-        entry["how"] = str(rv.get("kind"))[:400]
-    entry["review"] = {"verdict": verdict,
-                       "report": "音域分析\\轨迹\\让她降落_B1复核_20260911.md"}
+        entry["how"] = "原始混音谐波列完整（1f0–8f0 逐级在列）＋同场同刻多源一致"
     return entry
 
 

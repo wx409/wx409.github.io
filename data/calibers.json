@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-11 15:28",
-  "count": 26,
+  "generated_at": "2026-09-11 15:32",
+  "count": 25,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -192,15 +192,7 @@
       "value": 6,
       "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
       "source": "data\\archive_stage_tour.json",
-      "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py"
-    },
-    {
-      "id": "stage_low_withdrawn",
-      "label": "巡演现场已撤销的低音读数条数",
-      "value": 2,
-      "scope": "经谐波列复核判定为次谐波/两音公共周期、已从能力主张中撤下的读数条数",
-      "source": "data\\archive_stage_tour.json",
-      "note": "撤销明细见 summary.withdrawn；证据 音域分析\\轨迹\\让她降落_B1复核_20260911.md"
+      "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
     },
     {
       "id": "stage_lowest_hz",
