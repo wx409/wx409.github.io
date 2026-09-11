@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -82,16 +83,41 @@ def tour_layer_html() -> str:
            if r.get("bv") else "<td>—</td>")
         + '</tr>'
         for r in rows)
-    song_blocks = []
+    # 同曲跨巡对比：曲目 × 版本，Δ 相对该曲最早的现场版本
+    cross_rows = []
     for sg in t.get("by_song") or []:
         if (sg.get("n_versions") or 0) < 2:
             continue
-        items = "".join(
-            f'<li>{esc(v["tour"])}｜{esc(v["city"])} {esc(v["date"])}：'
-            f'<strong>{esc(v["low_note"])} {v.get("low_hz")} Hz</strong>'
-            f'（{("跨度 " + str(v.get("span_octaves")) + " 八度，") if v.get("span_octaves") else ""}{esc(v.get("verify"))}）</li>'
-            for v in sg.get("versions") or [])
-        song_blocks.append(f'<h3>{esc(sg["song"])}｜{sg["n_versions"]} 个现场版本</h3><ul>{items}</ul>')
+        vers = [v for v in (sg.get("versions") or []) if v.get("low_hz")]
+        full = [v for v in vers if re.match(r"^\d{4}-\d{2}-\d{2}$", str(v.get("date") or ""))]
+        base = (min(full, key=lambda v: str(v["date"])) if full else (vers[0] if vers else None))
+        for v in vers:
+            d = ""
+            if base is not None and v is base:
+                d = "0.0（基线）"
+            elif base and base.get("low_hz"):
+                try:
+                    import math as _m
+                    d = f'{12 * _m.log2(float(v["low_hz"]) / float(base["low_hz"])):+.1f}'
+                except Exception:
+                    d = "—"
+            cross_rows.append(
+                f'<tr><td>{esc(sg["song"])}</td><td>{esc(v.get("tour"))}｜{esc(v.get("city"))} {esc(v.get("date"))}</td>'
+                f'<td class="low">{esc(v.get("low_note"))} {v.get("low_hz")} Hz</td><td>{d}</td>'
+                f'<td>{esc(v.get("verify"))}</td>'
+                + (f'<td><a href="https://www.bilibili.com/video/{esc(v.get("bv"))}" rel="noopener nofollow" target="_blank">B站原链接</a></td>'
+                   if v.get("bv") else "<td>—</td>") + '</tr>')
+    cross_html = ""
+    if cross_rows:
+        n_songs = len({r.split("</td>")[0] for r in cross_rows})
+        cross_html = ("<h3>同曲对照 B：现场 ↔ 现场（跨巡同一首歌）</h3>"
+                      "<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th>"
+                      "<th>与最早版本差(半音)</th><th>复核</th><th>来源</th></tr>"
+                      + "\n".join(cross_rows) + "</table>"
+                      "<p class='sub' style='margin-top:0'>同一首歌在不同巡次/城市的现场读数，"
+                      "差值相对该曲<strong>最早的现场版本</strong>（半音，正=比最早版本高）。"
+                      "不同场次的调性、编配、录音条件都会影响读数，差值用于观察版本差异，不作能力排序。</p>")
+    song_blocks = []
     pair_rows = "\n".join(
         f'<tr><td>{esc(p["song"])}</td>'
         f'<td>{esc(p["tour"])}｜{esc(p["city"])} {esc(p["date"])}</td>'
@@ -102,22 +128,41 @@ def tour_layer_html() -> str:
         for p in (t.get("live_vs_studio_pairs") or []))
     pair_html = ""
     if pair_rows:
-        pair_html = ("<h3>同曲配对：现场版 ↔ 录音室版（自动配对）</h3>"
+        n_pair_songs = len({p.get("song") for p in (t.get("live_vs_studio_pairs") or [])})
+        pair_html = (f"<h3>同曲对照 A：现场 ↔ 录音室（{len(t.get('live_vs_studio_pairs') or [])} 组 / {n_pair_songs} 首）</h3>"
                      "<table><tr><th>曲目</th><th>现场（巡次·城市）</th><th>现场最低稳定音</th>"
                      "<th>录音室专辑</th><th>录音室最低稳定音</th><th>差(半音)</th></tr>"
                      + pair_rows + "</table>"
                      "<p class='sub' style='margin-top:0'>同一首歌的现场版与录音室版由<strong>完全相同</strong>的测量管线得出"
                      "（分离 + 逐帧 F0 + 稳健过滤），因此差值可比：正值=现场比录音室高。"
-                     "差值反映当场的调性/编配选择，不是能力差。</p>")
+                     "差值反映当场的调性/编配选择，不是能力差。两表覆盖范围随后续实测自动扩大。</p>")
+    n_cross_songs = len({r2.get("song") for r2 in (t.get("by_song") or []) if (r2.get("n_versions") or 0) >= 2})
+    compare_hint = ""
+    if pair_rows or cross_rows:
+        compare_hint = (f"<div class='card'><strong>本层另有两条同曲对照（就在下方）：</strong>"
+                        f"<a href='#cmp-a'>A 现场 ↔ 录音室</a>（{len(t.get('live_vs_studio_pairs') or [])} 组） · "
+                        f"<a href='#cmp-b'>B 现场 ↔ 现场</a>（{n_cross_songs} 首有多个现场版本）</div>")
+    # 巡演 × 专辑：备注列（EP 提示 / 唱前巡曲目及其中的原唱）
+    for a in (t.get("album_tour_sync") or []):
+        note = []
+        if a.get("album_kind") == "EP":
+            note.append("该发行是 EP，无同名巡演")
+        if a.get("earlier_tour_songs"):
+            note.append(f"唱前巡曲目 {a['earlier_tour_songs']} 首（{a.get('earlier_tour_share_pct')}%）")
+        if a.get("earlier_tour_originals"):
+            note.append("其中原唱：" + "、".join(a["earlier_tour_originals"]))
+        a["sync_note"] = "；".join(note) or "—"
     sync_rows = "\n".join(
         f'<tr><td>{esc(a["tour"])}「{esc(a.get("theme"))}」</td><td>{a.get("shows")}</td>'
+        f'<td>{esc((a.get("date_range") or ["", ""])[0])}~{esc((a.get("date_range") or ["", ""])[1])}</td>'
         f'<td>{esc(a.get("album"))}（{esc(a.get("album_ym"))}）'
+        + (f'<sup>{esc(a.get("album_kind"))}</sup>' if a.get("album_kind") == "EP" else "")
         + ("<sup>同月发行·口径待核</sup>" if a.get("album_same_month") else "")
         + f'</td><td>{a.get("album_songs_in_setlist")}/{a.get("album_songs_total")}</td>'
         f'<td>{a.get("coverage_pct")}%</td>'
-        f'<td>{esc(a.get("album_prev"))} {a.get("album_prev_hits")}/{a.get("album_prev_total")}</td>'
-        f'<td>{a.get("earlier_tour_songs")} 首（{a.get("earlier_tour_share_pct")}%）</td></tr>'
-        for a in t.get("album_tour_sync") or [])
+        f'<td class="low">{a.get("originals_count")}/{a.get("originals_total")}（{a.get("originals_pct")}%）</td>'
+        f'<td>{esc(a.get("sync_note"))}</td></tr>'
+        for a in (t.get("album_tour_sync") or []))
     live_rows = "\n".join(
         f'<li>{esc(r.get("version"))}：<strong>{esc(r.get("note"))} {r.get("hz")} Hz</strong>'
         f'（可信度 {esc(r.get("trust"))}）</li>'
@@ -140,16 +185,22 @@ def tour_layer_html() -> str:
 <tr><th>巡次</th><th>城市</th><th>实测素材日期</th><th>n</th><th>最低稳定音</th><th>跨度中位</th><th>稳定性(音分)</th><th>颤音(Hz)</th></tr>
 {tour_rows}
 </table>
-{"".join(song_blocks)}
-<h3>巡演 × 专辑：每巡唱的是什么</h3>
-<p class="sub" style="margin-top:0">「最近发行」= 该巡开始前最近发行的专辑（发行日期为 QQ 音乐核验的精确日期，见 <code>data/album_release_verify.md</code>）；「属前巡曲目」= 该巡曲目中已在此前巡次出现过的比例。</p>
-<table>
-<tr><th>巡次</th><th>场次</th><th>最近发行专辑</th><th>进歌单</th><th>覆盖率</th><th>上一张对照</th><th>属前巡曲目</th></tr>
-{sync_rows}
-</table>
+{compare_hint}
+<span id="cmp-a"></span>
+{pair_html}
+<span id="cmp-b"></span>
+{cross_html}
 {"<h3>现场 vs 录音室（B1 复现）</h3><ul>" + live_rows + "</ul>" if live_rows else ""}
 {f'<p>同曲对照：录音室 {sv.get("studio_hz")} Hz ↔ 现场 {sv.get("live_hz")} Hz（{esc(sv.get("live_note"))}）——{esc(sv.get("note"))}</p>' if sv else ""}
-{pair_html}
+<h3>巡演 × 专辑：每巡唱的是什么</h3>
+<p class="sub" style="margin-top:0">「最近发行」= 该巡开始前最近发行的专辑（发行日期为 QQ 音乐核验的精确日期，见 <code>data/album_release_verify.md</code>）；带 <sup>EP</sup> 标记的是 EP（如《回望》3 首，无同名巡演，勿与巡演主题混淆）。</p>
+<table>
+<tr><th>巡次</th><th>场次</th><th>起止</th><th>该巡前最近发行</th><th>新专辑曲目进歌单</th><th>覆盖率</th><th>王晰原唱</th><th>备注</th></tr>
+{sync_rows}
+</table>
+<p class="sub" style="margin-top:0"><strong>「王晰原唱」口径（下限）</strong>：录音室专辑曲目（72 首）∪ 网易云目录中「演唱者=王晰（独唱）」且非 Live/综艺/合辑 的曲目（合计 118 首）。
+部分原唱以<strong>单曲/影视歌</strong>形式发行、未进上述目录（如《让她降落》《天边》），故实际原唱占比只会更高。
+「备注」列的「唱前巡曲目」只有六巡《回》显著（66.7%），其中原唱即《平凡又美好的晚上》。</p>
 <h3>逐素材明细</h3>
 <table>
 <tr><th>巡次</th><th>城市</th><th>日期</th><th>最低稳定音</th><th>Hz</th><th>最高稳定音</th><th>跨度</th><th>稳定性</th><th>颤音(Hz/音分)</th><th>复核</th><th>测量入口</th><th>来源</th></tr>

@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 13:51",
+ "generated_at": "2026-09-11 14:02",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 125,
-  "dispatch": 124,
+  "menu_items": 126,
+  "dispatch": 125,
   "deploy_steps": 44,
-  "scheduled_tasks": 6
+  "scheduled_tasks": 7
  },
  "tasks": [
   {
@@ -964,6 +964,22 @@
    "title": "声学长表与复核台账（vocal_measurements + verify_ledger 构建/校验/查询）",
    "menu_label": "vocal_table",
    "path": "D:\\wx409.github.io\\project_b\\build_vocal_longtable.py"
+  },
+  {
+   "script": "补搜巡演曲目.py",
+   "menu": 126,
+   "title": "补搜巡演曲目池（按巡次缺口扩池，让五巡等覆盖慢慢补全）",
+   "menu_label": "tour_pool",
+   "schedule": {
+    "name": "wx409_tour_pool_daily",
+    "script": "补搜巡演曲目.py",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
+    "next": "2026/9/12 10:00:00",
+    "type": "Daily",
+    "start": "10:00:00"
+   },
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py"
   },
   {
    "script": "_build_episodes.py",

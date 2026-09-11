@@ -170,6 +170,7 @@ echo    122. 任务登记表重派生（菜单/部署/计划任务 三源合一 到 pipeline_registry.
 echo    123. 任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移 exit 1）
 echo    124. raw_archive 保留策略（默认试算；--apply 才删）
 echo    125. 声学长表与复核台账（vocal_measurements + verify_ledger 构建/校验/查询）
+echo    126. 补搜巡演曲目池（按巡次缺口扩池，让五巡等覆盖慢慢补全）
 echo    0. 退出
 echo.
 set "op="
@@ -300,6 +301,7 @@ if "%op%"=="122" goto pipeline_seed
 if "%op%"=="123" goto pipeline_audit
 if "%op%"=="124" goto prune_raw
 if "%op%"=="125" goto vocal_table
+if "%op%"=="126" goto tour_pool
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1778,5 +1780,15 @@ cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_vocal_longtable.py
 python -X utf8 project_b\build_vocal_longtable.py --check
 echo  查询示例：python -X utf8 project_b\build_vocal_longtable.py --query "多听有益"
+pause
+goto menu
+
+:tour_pool
+cls
+echo  [补搜巡演曲目池] 从 64 场歌单反推各巡曲目，找出素材库缺的曲目去 B 站补搜（扩池）
+echo  为什么需要：巡演层五巡 0 条的根因是"池子没覆盖五巡曲目"，不是排序问题
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 补搜巡演曲目.py --tour 五巡 --limit 8
+echo  不指定 --tour 则按实测覆盖最少的巡次优先；--dry 只看缺口
 pause
 goto menu
