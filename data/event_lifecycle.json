@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "note": "活动生命周期登记表：官宣/开票/开演等里程碑 + 自动回填的指数窗口统计（track_event_lifecycle.py）",
+ "events": [
+  {
+   "id": "chenxiang-yu-changge-2026",
+   "title": "《沉响与长歌》演唱会（王晰 & 傲日其愣）",
+   "organizer": "中国东方演艺集团",
+   "venue": "北京天桥艺术中心",
+   "city": "北京",
+   "show_date": "2026-10-09",
+   "show_date_note": "2026年10月9-10日 两场（官宣文案）",
+   "note": "中国东方演艺集团倾力打造，主打「声音质感」：民族经典 / 华语热歌 / 影视金曲 / 现场乐队 / 沉浸式体验；官宣文案定位王晰声部为「用低频振动引发心灵的回响」。",
+   "source_url": "https://mp.weixin.qq.com/s/B5bB371JfnjAQQVGEI9ybQ",
+   "milestones": [
+    {
+     "kind": "官宣",
+     "date": "2026-09-10",
+     "date_note": "微信公众号发布 2026-09-10 22:02",
+     "source": "https://mp.weixin.qq.com/s/B5bB371JfnjAQQVGEI9ybQ",
+     "source_label": "中国东方演艺集团公众号",
+     "stats": {
+      "date": "2026-09-10",
+      "windows": {
+       "pre7": {
+        "n_days": 7,
+        "mean_index": 702.3,
+        "median_index": 674.9,
+        "avg_tracked_songs": 19.1,
+        "complete": true
+       },
+       "pre3": {
+        "n_days": 3,
+        "mean_index": 674.5,
+        "median_index": 674.9,
+        "avg_tracked_songs": 19,
+        "complete": true
+       },
+       "d0": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post3": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post7": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       }
+      },
+      "n_days": 1284,
+      "delta_pct_post7_vs_pre7": null,
+      "delta_pct_post3_vs_pre3": null
+     }
+    }
+   ],
+   "future": [
+    {
+     "kind": "开票",
+     "date": "待公布"
+    },
+    {
+     "kind": "开演",
+     "date": "2026-10-09"
+    }
+   ]
+  }
+ ],
+ "generated_at": "2026-09-11 12:46",
+ "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
+ "index_days_local": 1284
+}

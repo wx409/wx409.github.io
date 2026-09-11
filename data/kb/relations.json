@@ -164,14 +164,14 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t023",
-  "context": "tour",
+  "context": "album",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t024",
-  "context": "album",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
@@ -199,14 +199,14 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t028",
-  "context": "tour",
+  "context": "album",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t029",
-  "context": "album",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
@@ -241,14 +241,14 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t034",
-  "context": "award",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t035",
-  "context": "career",
+  "context": "award",
   "source_ref": "timeline.json"
  },
  {
@@ -277,6 +277,13 @@
   "type": "has_event",
   "target": "event:t039",
   "context": "tour",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t040",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {

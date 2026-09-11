@@ -163,6 +163,8 @@ echo   [S ×é ÉùÑ§×Ô¶¯»¯£¨ÒÑ½ÓÈëÃ¿ÈÕ×Ô¶¯Á´Â·£¬´Ë´¦½öÊÖ¶¯´¥·¢£©]
 echo    115. ÒôÓòÈıÒ³Êı¾İÍ¬²½£¨ÊäÈëÓĞ±ä»¯²ÅÅÜÉú²ú½Å±¾£¬ÃİµÈ£©
 echo    116. Ã¿ÈÕ³ª¹¦¿¨Æ¬£¨Éú³É/»ØÌî + ±¾µØ´«¼ÇËØ²Ä¹éµµ + Éç½»¶ÌÎÄ°¸£©
 echo    117. Ã¿ÍíÉùÑ§ÔöÁ¿£¨ĞÂ³¡´ÎËØ²Ä£ºÏÂÔØ µ½ ·ÖÀë²âÒô µ½ »ØĞ´ÏÖ³¡²ã£©
+echo    119. ×¨¼­·¢ĞĞÈÕÆÚºËÑé£¨QQÒôÀÖ publicTime µ½ release_date ¾«È·ÈÕÆÚ£©
+echo    120. »î¶¯ÉúÃüÖÜÆÚ×·×Ù£¨¹ÙĞû/¿ªÆ±/¿ªÑİµÄÖ¸ÊıÇ°ºó´°¿Ú£¬×Ô¶¯»ØÌî£©
 echo    0. ÍË³ö
 echo.
 set "op="
@@ -286,6 +288,8 @@ if "%op%"=="114" goto facts_preflight
 if "%op%"=="115" goto vocal_sync
 if "%op%"=="116" goto skill_card
 if "%op%"=="117" goto nightly_vocal
+if "%op%"=="119" goto album_dates
+if "%op%"=="120" goto event_lifecycle
 echo   [!] ÎŞĞ§Ñ¡Ïî£¬ÇëÖØÊÔ
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1695,5 +1699,24 @@ echo  [Ã¿ÍíÉùÑ§ÔöÁ¿] Ö»´¦ÀíÎ´Êµ²âµÄĞÂ³¡´ÎËØ²Ä£¨Ä¬ÈÏÉÏÏŞ 6 Ìõ£©£»´®ÉÕ/×éÇú×Ô¶¯Ìø¹
 cd /d "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\ÒôÓò·ÖÎö"
 python -X utf8 ¹ì¼£\Ã¿ÍíÔöÁ¿.py --limit 6
 echo  [OK] ÒÑ»ØĞ´ data/archive_stage_tour.json£»Ò³ÃæÖØ½¨ÓÉÃ¿ÈÕ deploy_all ½Ó¹Ü
+pause
+goto menu
+
+:album_dates
+cls
+echo  [×¨¼­·¢ĞĞÈÕÆÚºËÑé] ÓÃ QQÒôÀÖ×¨¼­ËÑË÷ publicTime °Ñ albums.json µÄÄêÔÂ¾«¶ÈÉı¼¶Îª¾«È·ÈÕÆÚ
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\verify_album_dates.py
+echo  [OK] ±¨¸æ data/album_release_verify.md£»release_date ¹©¡¸Ñ²Ñİ x ×¨¼­¡¹Ê±ĞòÅĞ¶¨
+pause
+goto menu
+
+:event_lifecycle
+cls
+echo  [»î¶¯ÉúÃüÖÜÆÚ×·×Ù] ¹ÙĞû/¿ªÆ±/¿ªÑİµÄÖ¸ÊıÇ°ºó´°¿Ú£¨Ç°7ÈÕ/Ç°3ÈÕ/µ±ÈÕ/ºó3ÈÕ/ºó7ÈÕ£©
+echo  ĞÂ»î¶¯»òĞÂÀï³Ì±®£º±à¼­ data\event_lifecycle.json ºóÅÜ±¾Ïî£¬Í³¼Æ×Ô¶¯»ØÌî
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\track_event_lifecycle.py
+echo  [OK] data/event_lifecycle.json + data/event_lifecycle.md
 pause
 goto menu

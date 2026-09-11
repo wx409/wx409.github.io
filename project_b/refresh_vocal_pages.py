@@ -46,7 +46,8 @@ PRODUCERS: list[tuple[Path, str, list[str], Path]] = [
     (ANA / "双重校验舞台vsQQ.py", "舞台版 vs QQ 官方版双重校验",
      [str(ANA / "他人主导" / "音频_汇总.json"), str(ANA / "舞台对照QQ_汇总.json")], DATA / "archive_crosscheck.json"),
     (ANA / "轨迹" / "生成巡演现场报告.py", "王晰主导巡演现场层",
-     [str(ANA / "场次音频" / "wav_分析" / "**" / "*_stats.json"), str(ANA / "轨迹" / "A3复核交付表.json")], DATA / "archive_stage_tour.json"),
+     [str(ANA / "场次音频" / "wav_分析" / "**" / "*_stats.json"), str(ANA / "轨迹" / "A3复核交付表.json"),
+      str(DATA / "albums.json"), str(DATA / "setlists.json")], DATA / "archive_stage_tour.json"),
     (BASE / "generate_vocal.py", "十曲精测音域谱",
      [str(ANA / "复核_十曲严格口径.json"), str(ANA / "轨迹" / "A3复核交付表.json")], DATA / "archive_vocal.json"),
 ]

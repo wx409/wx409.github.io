@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-09-11 11:59",
- "entity_count": 1417,
+ "generated_at": "2026-09-11 12:45",
+ "entity_count": 1418,
  "entities": {
   "person:wangxi": {
    "type": "person",
@@ -233,20 +233,20 @@
   },
   "event:t023": {
    "type": "event",
-   "name": "三巡「图景」首场·广州（中山纪念堂）",
-   "aliases": [],
-   "attrs": {
-    "date": "2021-12-04",
-    "type": "tour"
-   }
-  },
-  "event:t024": {
-   "type": "event",
    "name": "专辑《回望》发行",
    "aliases": [],
    "attrs": {
     "date": "2021-12",
     "type": "album"
+   }
+  },
+  "event:t024": {
+   "type": "event",
+   "name": "三巡「图景」首场·广州（中山纪念堂）",
+   "aliases": [],
+   "attrs": {
+    "date": "2021-12-04",
+    "type": "tour"
    }
   },
   "event:t025": {
@@ -278,15 +278,6 @@
   },
   "event:t028": {
    "type": "event",
-   "name": "五巡「吾」首场·杭州（杭州剧院）",
-   "aliases": [],
-   "attrs": {
-    "date": "2024-12-21",
-    "type": "tour"
-   }
-  },
-  "event:t029": {
-   "type": "event",
    "name": "专辑《不说》发行",
    "aliases": [],
    "attrs": {
@@ -294,7 +285,25 @@
     "type": "album"
    }
   },
+  "event:t029": {
+   "type": "event",
+   "name": "五巡「吾」首场·杭州（杭州剧院）",
+   "aliases": [],
+   "attrs": {
+    "date": "2024-12-21",
+    "type": "tour"
+   }
+  },
   "event:t030": {
+   "type": "event",
+   "name": "加入中国东方演艺集团（乐华+东演双轨并进）",
+   "aliases": [],
+   "attrs": {
+    "date": "2025",
+    "type": "career"
+   }
+  },
+  "event:t031": {
    "type": "event",
    "name": "网友首次在社交媒体提及王晰与中国东方演艺集团的关联（加入东演时间锚点）",
    "aliases": [],
@@ -303,7 +312,7 @@
     "type": "career"
    }
   },
-  "event:t031": {
+  "event:t032": {
    "type": "event",
    "name": "纪念抗战胜利80周年「九三」文艺晚会独唱《啊，朋友再见》（国家级晚会，东演时期）",
    "aliases": [],
@@ -312,7 +321,7 @@
     "type": "career"
    }
   },
-  "event:t032": {
+  "event:t033": {
    "type": "event",
    "name": "中国流行音乐艺术交流活动在莫斯科举行，王晰赴格涅辛音乐学院交流（新华社/中新网报道）",
    "aliases": [],
@@ -321,7 +330,7 @@
     "type": "career"
    }
   },
-  "event:t033": {
+  "event:t034": {
    "type": "event",
    "name": "俄罗斯「国际视界」国际音乐大赛代表中国参赛（莫斯科，普京致欢迎辞，23国参赛）",
    "aliases": [],
@@ -330,7 +339,7 @@
     "type": "career"
    }
   },
-  "event:t034": {
+  "event:t035": {
    "type": "event",
    "name": "第十五届中国音乐金钟奖金钟之星音乐会（演唱《天边》《万物可爱》）",
    "aliases": [],
@@ -339,21 +348,12 @@
     "type": "award"
    }
   },
-  "event:t035": {
+  "event:t036": {
    "type": "event",
    "name": "2025年国际艺术体操邀请赛暨北京艺术体操公开赛开幕式（与拉格达·海尼耶夫合唱《贝加尔湖畔》）",
    "aliases": [],
    "attrs": {
     "date": "2025-11-12",
-    "type": "career"
-   }
-  },
-  "event:t036": {
-   "type": "event",
-   "name": "加入中国东方演艺集团（乐华+东演双轨并进）",
-   "aliases": [],
-   "attrs": {
-    "date": "2025",
     "type": "career"
    }
   },
@@ -382,6 +382,15 @@
    "attrs": {
     "date": "2026-08-23",
     "type": "tour"
+   }
+  },
+  "event:t040": {
+   "type": "event",
+   "name": "中国东方演艺集团官宣：王晰、傲日其愣演唱会《沉响与长歌》（2026-10-09/10 · 北京天桥艺术中心，即将开票）",
+   "aliases": [],
+   "attrs": {
+    "date": "2026-09-10",
+    "type": "career"
    }
   },
   "show:2019-06-07-hangzhou": {

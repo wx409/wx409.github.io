@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 12:00",
+ "generated_at": "2026-09-11 12:46",
  "pool_size": 142,
  "policy": {
   "rotation": "按日期序数取模（确定性：同一天任意次运行结果一致）",
@@ -26,7 +26,7 @@
   "index": 51,
   "pool_size": 142,
   "date": "2026-09-11",
-  "generated_at": "2026-09-11 12:00"
+  "generated_at": "2026-09-11 12:46"
  },
  "recent": [
   {
@@ -47,7 +47,7 @@
    "index": 51,
    "pool_size": 142,
    "date": "2026-09-11",
-   "generated_at": "2026-09-11 12:00"
+   "generated_at": "2026-09-11 12:46"
   },
   {
    "key": "toursync:五巡",
@@ -581,7 +581,7 @@
    "index": 51,
    "pool_size": 142,
    "date": "2026-09-11",
-   "generated_at": "2026-09-11 12:00"
+   "generated_at": "2026-09-11 12:46"
   }
  ]
 }
