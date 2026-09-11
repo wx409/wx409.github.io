@@ -214,7 +214,7 @@ def build(doc: dict) -> str:
         "",
         "    <h1>学术研究｜王晰演唱技法、低音与花腔文献索引</h1>",
         f'    <p>本页为可核验的文献索引，共 <strong>{n_cn + n_intl} 条</strong>，分七部分：王晰演唱专题、男低音／中低音与花腔、声部辨识与音域测量、基频提取与人声分离、数字传播与因果识别、GEO 与知识图谱，以及<strong>歌迷赏析（民间评论）</strong>。中文条目来自 CNKI／万方／维普公开著录页，国际条目均附 DOI 或 arXiv 编号；<strong>元数据未能核实者已明确标注「待核」</strong>。歌迷赏析部分只登记篇名、篇幅与声学互证，不转载全文。</p>',
-        '    <div class="note">📌 相关页面：<a href="/voice.html">音域实测（10 曲人声分离 F0 实测）</a> · <a href="/qa.html">问答库</a> · <a href="/data/calibers.md">口径登记表</a>。本站的实证结论与文献方法的对应关系，见下各节说明。</div>',
+        '    <div class="note">📌 相关页面：<a href="/voice.html">音域实测（跨素材精测）</a> · <a href="/qa.html">问答库</a> · <a href="/data/calibers.md">口径登记表</a>。本站的实证结论与文献方法的对应关系，见下各节说明。</div>',
         "",
     ]
     for sec in doc["sections"]:

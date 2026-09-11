@@ -2,7 +2,7 @@
 """生成「唱功实测」页 (skill.html)：七维全部由本地实测数据派生，不写死数字。
 
 数据源：
-  data/archive_vocal.json          10 曲精测（稳定音/触达音/颤音/稳定度/密度/跨度）
+  data/archive_vocal.json          跨素材精测（稳定音/触达音/颤音/稳定度/密度/跨度）
   data/archive_vocal_albums.json   72 曲全量（跨度/音准/分布/HNR/密度）
   data/archive_context_compare.json 王晰主导 vs 他人主导 六项指标对照
 用法：python -X utf8 project_b/build_skill_page.py
@@ -43,20 +43,20 @@ def main() -> int:
     if songs:
         lows = sorted(songs, key=lambda s: s.get("lowest_hz") or 999)
         dims.append(("低音能力", "最低音曲目", f"{lows[0].get('name')}（{lows[0].get('stable_note')} "
-                                            f"{lows[0].get('stable_hz')}Hz）", "", "10 曲精测"))
+                                            f"{lows[0].get('stable_hz')}Hz）", "", "跨素材精测"))
     if asum:
         dims.append(("音域跨度", "跨度中位", f"{asum.get('span_median_octaves')} 个八度",
                      f"最大 {asum.get('span_max_octaves')}", "72 曲全量"))
     vib = [s.get("vibrato_rate_hz_median") for s in (v.get("songs") or []) if s.get("vibrato_rate_hz_median")]
     if vib:
-        dims.append(("颤音", "速率中位", f"{sorted(vib)[len(vib)//2]} Hz", "专业常见 4.5–6.5Hz", "10 曲精测"))
+        dims.append(("颤音", "速率中位", f"{sorted(vib)[len(vib)//2]} Hz", "专业常见 4.5–6.5Hz", "跨素材精测"))
     vc = [s.get("vibrato_extent_cents_median") for s in (v.get("songs") or []) if s.get("vibrato_extent_cents_median")]
     if vc:
-        dims.append(("颤音", "幅度中位", f"{sorted(vc)[len(vc)//2]} 音分", "专业常见 50–100 音分", "10 曲精测"))
+        dims.append(("颤音", "幅度中位", f"{sorted(vc)[len(vc)//2]} 音分", "专业常见 50–100 音分", "跨素材精测"))
     st = [s.get("stability_cents_median") for s in (v.get("songs") or []) if s.get("stability_cents_median")]
     if st:
         dims.append(("长音控制", "音符内稳定性中位", f"{sorted(st)[len(st)//2]} 音分",
-                     "越小越稳（同一音内 F0 抖动）", "10 曲精测"))
+                     "越小越稳（同一音内 F0 抖动）", "跨素材精测"))
     if asum:
         dims.append(("长音控制", "音准偏差中位", f"{asum.get('intonation_cents_median', '—')} 音分",
                      "与十二平均律最近半音之差", "72 曲全量"))
@@ -67,7 +67,7 @@ def main() -> int:
     dens = [s.get("note_density_per_s") for s in songs if s.get("note_density_per_s")]
     if dens:
         dims.append(("咬字与跑动", "精测曲密度区间",
-                     f"{min(dens)}–{max(dens)} 个/秒", "跨曲差异反映编曲而非能力", "10 曲精测"))
+                     f"{min(dens)}–{max(dens)} 个/秒", "跨曲差异反映编曲而非能力", "跨素材精测"))
     if asum:
         dims.append(("声区使用", "按时长加权",
                      f"低音区 {asum.get('register_low_share', '约 30%')}／中音区 "
@@ -76,7 +76,7 @@ def main() -> int:
     hnr = [s.get("hnr_db_median") for s in songs if s.get("hnr_db_median")]
     if hnr:
         dims.append(("音色与控制", "谐噪比中位", f"{sorted(hnr)[len(hnr)//2]} dB",
-                     "分离人声轨的谐噪比（近似）", "10 曲精测"))
+                     "分离人声轨的谐噪比（近似）", "跨素材精测"))
     rows = "\n".join(
         f"<tr><td>{esc(a)}</td><td>{esc(b)}</td><td><strong>{esc(c)}</strong></td>"
         f"<td>{esc(d)}</td><td class='verify'>{esc(e)}</td></tr>" for a, b, c, d, e in dims)
@@ -197,7 +197,7 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 </table>
 <p class="sub">对照只说明"使用模式差异"，不指向能力排序——两组曲目库与编曲条件不同。</p>
 
-<h2>五、十曲精测与取证状态（可追溯）</h2>
+<h2>五、跨素材精测与取证状态（可追溯）</h2>
 <table>
 <tr><th>曲目</th><th>最低稳定音</th><th>频率</th><th>时长</th><th>HNR</th><th>复核状态</th></tr>
 {st_rows}
