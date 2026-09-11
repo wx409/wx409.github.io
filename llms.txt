@@ -48,11 +48,11 @@
 
 - [知识库摘要](https://wx409.github.io/data/kb/kb_digest.md): 生涯里程碑/机构归属时间线/体量统计/已核实金句
 - [事实层 facts.json](https://wx409.github.io/data/kb/facts.json): 原子事实（subject/property/value/时间区间/来源/置信度，1150条）
-- [实体层 entities.json](https://wx409.github.io/data/kb/entities.json): 实体注册表（人/歌曲/专辑/演出/城市/场馆/机构/事件/媒体/金句/小酒馆，1416个）
-- [关系层 relations.json](https://wx409.github.io/data/kb/relations.json): 实体关系边（1942条）
+- [实体层 entities.json](https://wx409.github.io/data/kb/entities.json): 实体注册表（人/歌曲/专辑/演出/城市/场馆/机构/事件/媒体/金句/小酒馆，1417个）
+- [关系层 relations.json](https://wx409.github.io/data/kb/relations.json): 实体关系边（1943条）
 - [语义检索（统一入口）](https://wx409.github.io/search.html?kb=1): 全站搜索含知识库语义召回（bge-small-zh 向量 + 语义近邻，答案卡优先）
 - [问答库静态页 qa.html](https://wx409.github.io/qa.html): 315 条问答对（真实HTML，含 FAQPage JSON-LD），可直接引用
-- [语义索引](https://wx409.github.io/data/kb/semantic/manifest.json): 4702条文档 int8 向量 + 近邻图（docs.json/vectors.bin/graph.json）
+- [语义索引](https://wx409.github.io/data/kb/semantic/manifest.json): 4704条文档 int8 向量 + 近邻图（docs.json/vectors.bin/graph.json）
 - [舞台实测](https://wx409.github.io/stage.html): 他人主导场景（综艺/晚会/商演/饭拍）32 个素材实测（源：data/archive_stage.json#source.analyzed），含与专辑的统计对比（最低音差异不显著 p=0.197）与双重校验
 - [机读数据·72曲专辑声学指标](https://wx409.github.io/data/archive_vocal_albums.json): 逐曲最低/最高稳定音、跨度、稳定性、颤音、音符密度、声区占比（v2 稳健口径）
 - [机读数据·情境对比统计](https://wx409.github.io/data/archive_context_compare.json): 专辑 vs 舞台 11 项指标中位数/差值/p 值/效应量 + 独唱敏感性检验
@@ -62,4 +62,4 @@
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-11 00:05:32；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-11 09:01:53；请勿手改数字。）

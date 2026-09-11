@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-11 00:03:03",
+ "updated_at": "2026-09-11 09:00:27",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -525,6 +525,26 @@
    "title": "⚠️ 指数长表滞后 3 天",
    "content": "长表最新 2026-09-07，但日档案最新 2026-09-10（期望长表到 2026-09-09）。\n原因：deploy_all 步骤里没有指数长表/基线刷新 —— 请运行\n  python project_b\\refresh_index_baseline.py --force\n（或操作中心 64 → 45/44）",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-09-11 09:00:04",
+   "title": "⚠️ 指数长表有缺口：2026-09-08",
+   "content": "长表最新 2026-09-09，但下列日期没有数据：2026-09-08\n最常见原因：那一天的日档案缺失（当日 23:55 全量未执行），而修正映射下该天的官方值只能由「次日」日档案提供。\n\n处理：① 若有备份，把对应的 YYYY.MM.DD.xlsx 拷进\n     E:\\wx\\指数数据库\\增补数据库2025.2.22-\\ ；\n   ② 找不到备份时，用准终值备用：\n     python project_b\\extract_fallback_day.py --date <缺的日期> --install-as-day <次日日期>\n   ③ 之后跑 python project_b\\refresh_index_baseline.py --force\n   （或「操作中心 109 立刻补跑一次采集」一步完成抓取+刷新）",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-09-11 09:00:27",
+   "title": "🎵 QQ新歌 · 往前",
+   "content": "专辑/单曲：局中人 电视剧原声带\n已写入候选清单，后续自动补歌词/班底。",
+   "category": "QQ新歌",
+   "source": "QQ音乐"
+  },
+  {
+   "time": "2026-09-11 09:00:27",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 1 首 / 网易云 0 首 / 全网动态 0 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }

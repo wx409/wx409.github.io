@@ -12474,6 +12474,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:往前",
+  "type": "belongs_to_album",
+  "target": "album:局中人 电视剧原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "media:2019-06-15-01",
   "type": "covers",
   "target": "show:2019-06-15-wuhan",
