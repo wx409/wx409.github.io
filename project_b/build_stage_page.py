@@ -92,6 +92,23 @@ def tour_layer_html() -> str:
             f'（{("跨度 " + str(v.get("span_octaves")) + " 八度，") if v.get("span_octaves") else ""}{esc(v.get("verify"))}）</li>'
             for v in sg.get("versions") or [])
         song_blocks.append(f'<h3>{esc(sg["song"])}｜{sg["n_versions"]} 个现场版本</h3><ul>{items}</ul>')
+    pair_rows = "\n".join(
+        f'<tr><td>{esc(p["song"])}</td>'
+        f'<td>{esc(p["tour"])}｜{esc(p["city"])} {esc(p["date"])}</td>'
+        f'<td class="low">{esc(p["live_note"])} {p["live_hz"]} Hz</td>'
+        f'<td>{esc(p["studio_album"])}</td>'
+        f'<td>{esc(p["studio_note"])} {p["studio_hz"]} Hz</td>'
+        f'<td>{p["delta_semitones"]:+.1f}</td></tr>'
+        for p in (t.get("live_vs_studio_pairs") or []))
+    pair_html = ""
+    if pair_rows:
+        pair_html = ("<h3>同曲配对：现场版 ↔ 录音室版（自动配对）</h3>"
+                     "<table><tr><th>曲目</th><th>现场（巡次·城市）</th><th>现场最低稳定音</th>"
+                     "<th>录音室专辑</th><th>录音室最低稳定音</th><th>差(半音)</th></tr>"
+                     + pair_rows + "</table>"
+                     "<p class='sub' style='margin-top:0'>同一首歌的现场版与录音室版由<strong>完全相同</strong>的测量管线得出"
+                     "（分离 + 逐帧 F0 + 稳健过滤），因此差值可比：正值=现场比录音室高。"
+                     "差值反映当场的调性/编配选择，不是能力差。</p>")
     sync_rows = "\n".join(
         f'<tr><td>{esc(a["tour"])}「{esc(a.get("theme"))}」</td><td>{a.get("shows")}</td>'
         f'<td>{esc(a.get("album"))}（{esc(a.get("album_ym"))}）'
@@ -132,6 +149,7 @@ def tour_layer_html() -> str:
 </table>
 {"<h3>现场 vs 录音室（B1 复现）</h3><ul>" + live_rows + "</ul>" if live_rows else ""}
 {f'<p>同曲对照：录音室 {sv.get("studio_hz")} Hz ↔ 现场 {sv.get("live_hz")} Hz（{esc(sv.get("live_note"))}）——{esc(sv.get("note"))}</p>' if sv else ""}
+{pair_html}
 <h3>逐素材明细</h3>
 <table>
 <tr><th>巡次</th><th>城市</th><th>日期</th><th>最低稳定音</th><th>Hz</th><th>最高稳定音</th><th>跨度</th><th>稳定性</th><th>颤音(Hz/音分)</th><th>复核</th><th>测量入口</th><th>来源</th></tr>
