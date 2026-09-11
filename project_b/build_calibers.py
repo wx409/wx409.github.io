@@ -231,6 +231,20 @@ def collect() -> list[dict]:
     except Exception as e:
         add("stage_low_reviewed", "巡演现场低音读数·谐波列复核通过条数", None, "巡演层数据不可读", str(e), "")
 
+    # 跨素材精测层的人工登记「触达音」（2026-09-11 起：有证据的"到过的最低音"，不作稳定音）
+    try:
+        voc = _load("data/archive_vocal.json") or {}
+        for s in (voc.get("songs") or []):
+            if s.get("reach_evidence") and s.get("reach_hz"):
+                cid = "reach_" + re.sub(r"\W+", "", str(s.get("name") or ""))
+                add(cid, f'{s.get("name")} 念诵段触达音（{s.get("reach_note")}）', s.get("reach_hz"),
+                    f'录音室 MV / 念诵段 @{s.get("reach_time_s")}s：混音带限自相关 + 外部耳测；'
+                    f'属触达级，**不并入稳定音口径**',
+                    "data\\archive_vocal.json#songs[].reach_*",
+                    f'{s.get("reach_status")}；引擎 {s.get("reach_engine")}；依据 {s.get("reach_evidence")}')
+    except Exception as e:
+        add("reach_duotingyouyi", "多听有益 念诵段触达音", None, "archive_vocal.json 不可读", str(e), "")
+
     return [x for x in out if x["value"] is not None]
 
 

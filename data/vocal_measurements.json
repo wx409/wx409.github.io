@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 17:01",
+ "generated_at": "2026-09-11 17:13",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -22,8 +22,9 @@
    "未复核": 113,
    "已取证": 6,
    "已核验": 6,
-   "待复核（legacy 短读，未过 CREPE）": 6,
+   "触达级（归属未定：人声/低音乐器；不作稳定音）": 1,
    "已测": 3,
+   "待复核（legacy 短读，未过 CREPE）": 5,
    "待复核": 7,
    "双引擎一致": 6,
    "谐波列复核通过": 5,
@@ -2096,12 +2097,13 @@
    "layer": "precision",
    "source_ref": "录音室 MV",
    "metrics": {
-    "low_note": "B1",
-    "low_hz": 61.2
+    "low_note": "G#1",
+    "low_hz": 51.9,
+    "duration_s": 0.5
    },
    "verify": {
-    "state": "待复核（legacy 短读，未过 CREPE）",
-    "engine": "pYIN(v1)"
+    "state": "触达级（归属未定：人声/低音乐器；不作稳定音）",
+    "engine": "混音带限自相关 + 外部耳测（BV16LxczHEYA）"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",

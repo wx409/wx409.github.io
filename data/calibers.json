@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-11 17:01",
-  "count": 25,
+  "generated_at": "2026-09-11 17:13",
+  "count": 26,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -201,6 +201,14 @@
       "scope": "王晰主导巡演现场·过复核门槛的最低稳定音（Hz）",
       "source": "data\\archive_stage_tour.json",
       "note": "出处：静止了的夜晚｜深圳 2023-06-23｜复核 谐波列复核通过；与 recording_studio_vocal_songs 不同范围，禁止混用"
+    },
+    {
+      "id": "reach_多听有益",
+      "label": "多听有益 念诵段触达音（G#1）",
+      "value": 51.9,
+      "scope": "录音室 MV / 念诵段 @80.0s：混音带限自相关 + 外部耳测；属触达级，**不并入稳定音口径**",
+      "source": "data\\archive_vocal.json#songs[].reach_*",
+      "note": "触达级（归属未定：人声/低音乐器；不作稳定音）；引擎 混音带限自相关 + 外部耳测（BV16LxczHEYA）；依据 轨迹\\备忘_多听有益现场B1核查_20260911.md 第八节"
     }
   ]
 }
