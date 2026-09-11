@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-11 12:45",
+ "generated_at": "2026-09-11 12:54",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,10 +9,12 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 17,
-  "n_songs": 4,
-  "n_tours": 5,
-  "n_verified": 9,
+  "n_materials": 20,
+  "n_stage_measured": 17,
+  "n_from_precision": 3,
+  "n_songs": 5,
+  "n_tours": 6,
+  "n_verified": 10,
   "lowest": {
    "note": "B1",
    "hz": 61.2,
@@ -31,7 +33,10 @@
    "已取证": 3,
    "双引擎一致": 6,
    "待复核": 2,
-   "未复核": 6
+   "未复核": 6,
+   "已核验（十曲精测）": 1,
+   "参考（直拍音质）": 1,
+   "仅参考（音质受限）": 1
   }
  },
  "by_tour": [
@@ -88,6 +93,24 @@
    "vibrato_rate_hz_median": 4.79
   },
   {
+   "tour": "四巡",
+   "n_materials": 3,
+   "cities": [
+    "杭州",
+    "武汉"
+   ],
+   "dates": [
+    "2023-2024",
+    "2024"
+   ],
+   "lowest_note": "B1",
+   "lowest_hz": 63.4,
+   "lowest_tag": "肆益杭州站_BV1ArKxe7E8H",
+   "span_median_octaves": null,
+   "stability_median_cents": null,
+   "vibrato_rate_hz_median": null
+  },
+  {
    "tour": "六巡",
    "n_materials": 5,
    "cities": [
@@ -133,7 +156,8 @@
    "a3_state": "🟡 已取证（谱图）",
    "a3_yin_hz": 91.1,
    "a3_crepe_hz": 181.8,
-   "a3_final_note": "已取证"
+   "a3_final_note": "已取证",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "一巡北京20200102_BV1mw411R7yo",
@@ -161,7 +185,8 @@
    "a3_state": "🟡 已取证（谱图）",
    "a3_yin_hz": 91.7,
    "a3_crepe_hz": 181.3,
-   "a3_final_note": "已取证"
+   "a3_final_note": "已取证",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "一巡北京20200102b_BV1KJ41177fC",
@@ -189,7 +214,8 @@
    "a3_state": "✅ 双引擎一致",
    "a3_yin_hz": 92.1,
    "a3_crepe_hz": 90.7,
-   "a3_final_note": "双引擎一致"
+   "a3_final_note": "双引擎一致",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "二巡南京20210411b_BV1SZ4y1c7Xb",
@@ -217,7 +243,8 @@
    "a3_state": "⚪ 待复核",
    "a3_yin_hz": 89.0,
    "a3_crepe_hz": 177.3,
-   "a3_final_note": "待复核"
+   "a3_final_note": "待复核",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "二巡南京20210411_串烧窗口_BV1S54y1b7HW",
@@ -245,7 +272,8 @@
    "a3_state": "✅ 双引擎一致",
    "a3_yin_hz": 107.1,
    "a3_crepe_hz": 104.8,
-   "a3_final_note": "双引擎一致"
+   "a3_final_note": "双引擎一致",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "二巡南京20210411_BV1pL411n7Ns",
@@ -273,7 +301,8 @@
    "a3_state": "✅ 双引擎一致",
    "a3_yin_hz": 117.8,
    "a3_crepe_hz": 116.5,
-   "a3_final_note": "双引擎一致"
+   "a3_final_note": "双引擎一致",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "三巡深圳20230623_BV1QP411v7KR",
@@ -301,7 +330,95 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核"
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测"
+  },
+  {
+   "tag": "肆益杭州站_BV1ArKxe7E8H",
+   "song": "多听有益",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024",
+   "bv": "BV1ArKxe7E8H",
+   "owner": "",
+   "title": "肆益杭州站",
+   "bandwidth_kbps": null,
+   "source_verdict": "4K 现场",
+   "low_note": "B1",
+   "low_hz": 63.4,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
+   "stability_cents": null,
+   "intonation_cents": null,
+   "vibrato_hz": null,
+   "vibrato_cents": null,
+   "density_per_s": null,
+   "hnr_db": null,
+   "duration_s": null,
+   "a3_state": "高",
+   "a3_yin_hz": 63.4,
+   "a3_crepe_hz": 63.4,
+   "a3_final_note": "已核验（十曲精测）",
+   "source_layer": "十曲精测"
+  },
+  {
+   "tag": "四巡 直拍_多听有益",
+   "song": "多听有益",
+   "tour": "四巡",
+   "city": "",
+   "date": "2023-2024",
+   "bv": "",
+   "owner": "",
+   "title": "四巡 直拍",
+   "bandwidth_kbps": null,
+   "source_verdict": "直拍",
+   "low_note": "D2",
+   "low_hz": 74.9,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
+   "stability_cents": null,
+   "intonation_cents": null,
+   "vibrato_hz": null,
+   "vibrato_cents": null,
+   "density_per_s": null,
+   "hnr_db": null,
+   "duration_s": null,
+   "a3_state": "中",
+   "a3_yin_hz": 74.9,
+   "a3_crepe_hz": 74.9,
+   "a3_final_note": "参考（直拍音质）",
+   "source_layer": "十曲精测"
+  },
+  {
+   "tag": "肆益收官 武汉琴台_BV1iWtUefEkm",
+   "song": "多听有益",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024",
+   "bv": "BV1iWtUefEkm",
+   "owner": "",
+   "title": "肆益收官 武汉琴台",
+   "bandwidth_kbps": null,
+   "source_verdict": "现场(失真)",
+   "low_note": "A2",
+   "low_hz": 111.6,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
+   "stability_cents": null,
+   "intonation_cents": null,
+   "vibrato_hz": null,
+   "vibrato_cents": null,
+   "density_per_s": null,
+   "hnr_db": null,
+   "duration_s": null,
+   "a3_state": "低",
+   "a3_yin_hz": 111.6,
+   "a3_crepe_hz": 111.6,
+   "a3_final_note": "仅参考（音质受限）",
+   "source_layer": "十曲精测"
   },
   {
    "tag": "六巡重庆20260613_BV1zEJA6xEr2",
@@ -329,7 +446,8 @@
    "a3_state": "🟡 已取证（谱图）",
    "a3_yin_hz": 61.2,
    "a3_crepe_hz": 61.8,
-   "a3_final_note": "已取证"
+   "a3_final_note": "已取证",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "六巡广州20260823b_BV1hHtU68Eoj",
@@ -357,7 +475,8 @@
    "a3_state": "⚪ 待复核",
    "a3_yin_hz": 82.5,
    "a3_crepe_hz": 165.5,
-   "a3_final_note": "待复核"
+   "a3_final_note": "待复核",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "六巡重庆20260613c_BV176LR6bE2B",
@@ -385,7 +504,8 @@
    "a3_state": "✅ 双引擎一致",
    "a3_yin_hz": 104.3,
    "a3_crepe_hz": 104.8,
-   "a3_final_note": "双引擎一致"
+   "a3_final_note": "双引擎一致",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "六巡重庆20260613b_BV1SEJP6LEUw",
@@ -413,7 +533,8 @@
    "a3_state": "✅ 双引擎一致",
    "a3_yin_hz": 106.3,
    "a3_crepe_hz": 107.4,
-   "a3_final_note": "双引擎一致"
+   "a3_final_note": "双引擎一致",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "六巡广州20260823_BV13PtB6AEKe",
@@ -441,7 +562,8 @@
    "a3_state": "✅ 双引擎一致",
    "a3_yin_hz": 107.0,
    "a3_crepe_hz": 107.2,
-   "a3_final_note": "双引擎一致"
+   "a3_final_note": "双引擎一致",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "未知20201116_BV1fr4y1F769",
@@ -469,7 +591,8 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核"
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "杭州20201226_BV1z5411H7yg",
@@ -497,7 +620,8 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核"
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "成都首唱会2019_BV1W7411R7Hv",
@@ -525,7 +649,8 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核"
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "北京20200102_BV15K411w7Sj",
@@ -553,7 +678,8 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核"
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测"
   },
   {
    "tag": "海口20191116_BV1wJ411U7Wh",
@@ -581,10 +707,54 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核"
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测"
   }
  ],
  "by_song": [
+  {
+   "song": "多听有益",
+   "n_versions": 3,
+   "tours": [
+    "四巡"
+   ],
+   "lowest_note": "B1",
+   "lowest_hz": 63.4,
+   "lowest_tag": "肆益杭州站_BV1ArKxe7E8H",
+   "span_median_octaves": null,
+   "versions": [
+    {
+     "tour": "四巡",
+     "city": "杭州",
+     "date": "2024",
+     "low_note": "B1",
+     "low_hz": 63.4,
+     "span_octaves": null,
+     "verify": "已核验（十曲精测）",
+     "bv": "BV1ArKxe7E8H"
+    },
+    {
+     "tour": "四巡",
+     "city": "",
+     "date": "2023-2024",
+     "low_note": "D2",
+     "low_hz": 74.9,
+     "span_octaves": null,
+     "verify": "参考（直拍音质）",
+     "bv": ""
+    },
+    {
+     "tour": "四巡",
+     "city": "武汉",
+     "date": "2024",
+     "low_note": "A2",
+     "low_hz": 111.6,
+     "span_octaves": null,
+     "verify": "仅参考（音质受限）",
+     "bv": "BV1iWtUefEkm"
+    }
+   ]
+  },
   {
    "song": "天边",
    "n_versions": 1,

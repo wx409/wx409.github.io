@@ -59,21 +59,28 @@ def tour_layer_html() -> str:
     lo = s["lowest"]
     n = s.get("n_materials")
     ver = s.get("n_verified")
+    def dash(v):
+        return "—" if v is None or v == "" else v
+
     tour_rows = "\n".join(
         f'<tr><td>{esc(x["tour"])}</td><td>{esc("、".join(x.get("cities") or []))}</td>'
         f'<td>{esc((x.get("dates") or ["", ""])[0])}~{esc((x.get("dates") or ["", ""])[1])}</td>'
         f'<td>{x.get("n_materials")}</td>'
         f'<td class="low">{esc(x.get("lowest_note"))}（{x.get("lowest_hz")} Hz）</td>'
-        f'<td>{x.get("span_median_octaves")}</td><td>{x.get("stability_median_cents")}</td>'
-        f'<td>{x.get("vibrato_rate_hz_median")}</td></tr>'
+        f'<td>{dash(x.get("span_median_octaves"))}</td><td>{dash(x.get("stability_median_cents"))}</td>'
+        f'<td>{dash(x.get("vibrato_rate_hz_median"))}</td></tr>'
         for x in t.get("by_tour") or [])
     detail_rows = "\n".join(
         f'<tr><td>{esc(r["tour"])}</td><td>{esc(r["city"])}</td><td>{esc(r["date"])}</td>'
         f'<td class="low">{esc(r["low_note"])}</td><td>{r.get("low_hz")}</td>'
-        f'<td>{esc(r["high_note"])}</td><td>{r.get("span_octaves")}</td>'
-        f'<td>{r.get("stability_cents")}</td><td>{r.get("vibrato_hz")}/{r.get("vibrato_cents")}</td>'
+        f'<td>{esc(dash(r.get("high_note")))}</td><td>{dash(r.get("span_octaves"))}</td>'
+        f'<td>{dash(r.get("stability_cents"))}</td>'
+        f'<td>{str(r.get("vibrato_hz")) + "/" + str(r.get("vibrato_cents")) if r.get("vibrato_hz") else "—"}</td>'
         f'<td>{esc(r.get("a3_final_note"))}</td>'
-        f'<td><a href="https://www.bilibili.com/video/{esc(r.get("bv"))}" rel="noopener nofollow" target="_blank">B站原链接</a></td></tr>'
+        f'<td>{esc(dash(r.get("source_layer")))}</td>'
+        + (f'<td><a href="https://www.bilibili.com/video/{esc(r.get("bv"))}" rel="noopener nofollow" target="_blank">B站原链接</a></td>'
+           if r.get("bv") else "<td>—</td>")
+        + '</tr>'
         for r in rows)
     song_blocks = []
     for sg in t.get("by_song") or []:
@@ -82,7 +89,7 @@ def tour_layer_html() -> str:
         items = "".join(
             f'<li>{esc(v["tour"])}｜{esc(v["city"])} {esc(v["date"])}：'
             f'<strong>{esc(v["low_note"])} {v.get("low_hz")} Hz</strong>'
-            f'（跨度 {v.get("span_octaves")} 八度，{esc(v.get("verify"))}）</li>'
+            f'（{("跨度 " + str(v.get("span_octaves")) + " 八度，") if v.get("span_octaves") else ""}{esc(v.get("verify"))}）</li>'
             for v in sg.get("versions") or [])
         song_blocks.append(f'<h3>{esc(sg["song"])}｜{sg["n_versions"]} 个现场版本</h3><ul>{items}</ul>')
     sync_rows = "\n".join(
@@ -103,8 +110,8 @@ def tour_layer_html() -> str:
 <div class="hl">
 <strong>现场最低稳定音 {esc(lo["note"])}（{lo["hz"]} Hz）</strong>——《{esc(lo["song"])}》{esc(lo["city"])} {esc(lo["date"])}。
 复核状态：<strong>{esc(lo["verify"])}</strong>{f'，CREPE 交叉校验 {lo["crepe_hz"]} Hz' if lo.get("crepe_hz") else ""}。<br>
-本层已有 {n} 条已实测素材、覆盖 {s.get("n_tours")} 个巡次，其中 {ver} 条过复核门槛（双引擎一致/已取证）；
-跨度中位 {s.get("span_median_octaves")} 个八度、音符内稳定性中位 {s.get("stability_median_cents")} 音分、颤音 {s.get("vibrato_rate_hz_median")} Hz / {s.get("vibrato_extent_cents_median")} 音分。
+本层已有 {n} 条素材（场次音频实测 {s.get("n_stage_measured")} + 十曲精测并入 {s.get("n_from_precision")}），覆盖 {s.get("n_tours")} 个巡次、{s.get("n_songs")} 首曲目，其中 {ver} 条过复核门槛；
+跨度中位 {s.get("span_median_octaves")} 个八度、音符内稳定性中位 {s.get("stability_median_cents")} 音分、颤音 {s.get("vibrato_rate_hz_median")} Hz / {s.get("vibrato_extent_cents_median")} 音分（仅场次音频实测口径的指标参与该项统计）。
 </div>
 <div class="method">
 <strong>为什么这一层才算「现场能力」：</strong>巡演由他本人主导——选曲、调性、编排、曲目位置由他决定，唱什么、唱到多低是他自己的选择。
@@ -118,7 +125,7 @@ def tour_layer_html() -> str:
 </table>
 {"".join(song_blocks)}
 <h3>巡演 × 专辑：每巡唱的是什么</h3>
-<p class="sub" style="margin-top:0">「最近发行」= 该巡开始前最近发行的专辑（<code>data/albums.json</code> 为年月精度，同月发行的标「口径待核」并给出上一张专辑作对照）；「属前巡曲目」= 该巡曲目中已在此前巡次出现过的比例。</p>
+<p class="sub" style="margin-top:0">「最近发行」= 该巡开始前最近发行的专辑（发行日期为 QQ 音乐核验的精确日期，见 <code>data/album_release_verify.md</code>）；「属前巡曲目」= 该巡曲目中已在此前巡次出现过的比例。</p>
 <table>
 <tr><th>巡次</th><th>场次</th><th>最近发行专辑</th><th>进歌单</th><th>覆盖率</th><th>上一张对照</th><th>属前巡曲目</th></tr>
 {sync_rows}
@@ -127,10 +134,12 @@ def tour_layer_html() -> str:
 {f'<p>同曲对照：录音室 {sv.get("studio_hz")} Hz ↔ 现场 {sv.get("live_hz")} Hz（{esc(sv.get("live_note"))}）——{esc(sv.get("note"))}</p>' if sv else ""}
 <h3>逐素材明细</h3>
 <table>
-<tr><th>巡次</th><th>城市</th><th>日期</th><th>最低稳定音</th><th>Hz</th><th>最高稳定音</th><th>跨度</th><th>稳定性</th><th>颤音(Hz/音分)</th><th>复核</th><th>来源</th></tr>
+<tr><th>巡次</th><th>城市</th><th>日期</th><th>最低稳定音</th><th>Hz</th><th>最高稳定音</th><th>跨度</th><th>稳定性</th><th>颤音(Hz/音分)</th><th>复核</th><th>测量入口</th><th>来源</th></tr>
 {detail_rows}
 </table>
-<p class="sub" style="margin-top:0">⚠️ 「待复核」读数只列不判，不作能力依据；现场素材为公开视频音轨，非官方音源。</p>
+<p class="sub" style="margin-top:0">本层两个测量入口、同一口径：<strong>场次音频实测</strong>（巡演现场音轨 → 人声分离 → 逐帧 F0，含跨度/颤音等全指标）与
+<strong>十曲精测</strong>（早前逐曲核验的现场个案，只有最低稳定音读数，相应列显示 —）。两者都按「最低稳定音」口径引用。</p>
+<p class="sub" style="margin-top:0">⚠️ 标「待复核」「仅参考」的读数只列不判，不作能力依据；现场素材为公开视频音轨，非官方音源。</p>
 
 '''
 
