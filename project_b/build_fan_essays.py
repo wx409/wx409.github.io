@@ -37,6 +37,28 @@ from song_resolver import resolve as resolve_song, acoustic_for  # noqa: E402  �
 LOCAL_INDEX = Path(r"E:\wx\论文素材_王晰作传\歌迷文章（含已发表）\_转换_markdown\_index.json")
 OUT = DATA / "fan_essays.json"
 # 人工确认字段（作者/发表/授权）：按曲名覆盖默认值
+# 2026-09-11 用户确认：以下三篇已在**国家级核心期刊《乐器》**刊出，并在**国家乐器信息中心微信平台**推送。
+# 其中两篇的正式著录已存在于 data/literature.json（作者/期号/页码），此处复用，并在页面上与文献索引互链。
+PUBLISHED: dict[str, dict] = {
+    "向着太阳": {
+        "published": "已发表（国家级核心期刊《乐器》2021 第03期，69-71）",
+        "authors": "王玥童、宋子翾",
+        "platform": "国家乐器信息中心微信平台",
+        "journal_title": "浅谈王晰&Vitas《向着太阳》歌曲合作中的差异化音色美学",
+    },
+    "如果云知道+云一定知道": {
+        "published": "已发表（国家级核心期刊《乐器》2021 第04期，72-73）",
+        "authors": "王童",
+        "platform": "国家乐器信息中心微信平台",
+        "journal_title": "浅谈王晰《如果云知道》+《云一定知道》的改编艺术",
+    },
+    "茕茕": {
+        "published": "已发表（国家级核心期刊《乐器》；期号与页码待补）",
+        "authors": "待补",
+        "platform": "国家乐器信息中心微信平台",
+        "journal_title": "待补",
+    },
+}
 OVERRIDES: dict[str, dict] = {}
 
 
@@ -97,14 +119,18 @@ def build() -> dict:
                     break
         by_source[r["source"]] = by_source.get(r["source"], 0) + 1
         o = OVERRIDES.get(raw_song, {})
+        pub = PUBLISHED.get(raw_song, {})
         items.append({
             "no": i,
             "song": raw_song,
             "title": re.sub(r"\s+", " ", it.get("title") or "").strip()[:90] or f"《{raw_song}》赏析",
             "chars": it.get("chars"), "written": it.get("mtime", ""),
-            "author": o.get("author") or it.get("author_hint") or "待补",
-            "published": o.get("published") or "待核（作者确认中）",
-            "rights": o.get("rights") or "待确认（本站未转载全文）",
+            "author": o.get("author") or it.get("author_hint") or pub.get("authors") or "待补",
+            "published": o.get("published") or pub.get("published") or "待核（作者确认中）",
+            "platform": o.get("platform") or pub.get("platform") or "",
+            "journal_title": pub.get("journal_title") or "",
+            "rights": o.get("rights") or ("已公开发表（著作权归作者与刊物）；本站仍不转载全文"
+                                          if pub else "待确认（本站未转载全文）"),
             "resolved": {"canonical": r.get("canonical"), "source": r.get("source"),
                          "kind": r.get("kind"), "matched": r.get("matched", "精确")},
             "parts": parts_info,

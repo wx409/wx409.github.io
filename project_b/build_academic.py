@@ -137,8 +137,10 @@ def render_fan_section() -> str:
     items = d.get("items") or []
     if not items:
         return ""
-    SRC_LABEL = {"setlist": "巡演歌单", "event": "演出活动表", "catalog": "全量曲库", "none": "未命中"}
+    SRC_LABEL = {"setlist": "巡演歌单", "event": "演出活动表", "catalog": "全量曲库", "none": "未命中",
+                 "songinfo": "歌曲信息汇总", "netease": "网易云目录", "medley": "组曲展开", "album": "整张专辑"}
     rows = []
+    n_pub = 0
     for it in items:
         a = it.get("acoustic") or {}
         ac = (f'{esc(a.get("low_note"))} {a.get("low_hz")} Hz'
@@ -147,11 +149,17 @@ def render_fan_section() -> str:
         src = SRC_LABEL.get(rs.get("source"), "—")
         if rs.get("kind") in ("album", "series"):
             src += f'（{"整张专辑" if rs["kind"] == "album" else "组曲/系列"}）'
+        pub = esc(it.get("published") or "")
+        if "已发表" in str(it.get("published") or ""):
+            n_pub += 1
+            pub = f'<strong style="color:#a8323d">{pub}</strong>'
+            if it.get("platform"):
+                pub += f'<br><span class="sub">＋ {esc(it["platform"])}</span>'
         rows.append(
             f'<tr><td>{it.get("no")}</td><td><strong>{esc(it.get("song"))}</strong></td>'
             f'<td>{esc(it.get("title"))}</td><td>{it.get("chars")} 字</td>'
             f'<td>{esc(it.get("written"))}</td><td>{esc(it.get("author"))}</td>'
-            f'<td>{src}</td><td>{ac}</td></tr>')
+            f'<td>{pub}</td><td>{src}</td><td>{ac}</td></tr>')
     c = d.get("counts") or {}
     rb = c.get("resolved_by") or {}
     return "\n".join([
@@ -160,11 +168,14 @@ def render_fan_section() -> str:
         f'其中 <strong>{c.get("with_acoustic")} 篇</strong>可与本站声学实测（最低稳定音口径）逐曲互证。'
         '这批文本从听感与编配层面分析具体舞台版本（混响时值、音程跨度、胸腔共鸣、颤音、改编结构），'
         '与本站的逐帧 F0 实测构成「主观听感 × 客观读数」的对照样本。</p>',
-        f'    <p class="sub">曲名解析沿用站内既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库」三级查找：'
+        f'    <p class="sub">曲名解析沿用站内既有归一化与别名表，按「巡演歌单 → 演出活动表 → 全量曲库 → 歌曲信息汇总 → 网易云目录」查找：'
         f'歌单 {rb.get("setlist", 0)} 篇、活动表 {rb.get("event", 0)} 篇、全量曲库 {rb.get("catalog", 0)} 篇；'
-        f'其余 {rb.get("none", 0)} 篇为整张专辑评述、组曲系列，或该曲未进站内曲库（已如实标注，不臆造匹配）。</p>',
+        f'其余 {rb.get("none", 0)} 篇为整张专辑评述或组曲系列（已如实标注，不臆造匹配）。</p>',
+        f'    <p class="sec-desc"><strong>其中 {n_pub} 篇已正式发表</strong>：刊于<strong>国家级核心期刊《乐器》</strong>'
+        f'（2021 年第 3、4 期，见本页第一节文献著录），并在<strong>国家乐器信息中心微信平台</strong>推送 —— '
+        f'即这批赏析已从「乐迷写作」进入「可引用的公开出版物」，对「王晰演唱具有学术评析价值」构成第三方书面证据。</p>',
         '    <table><tr><th>#</th><th>曲目</th><th>篇名</th><th>篇幅</th><th>撰写</th><th>作者</th>'
-        '<th>曲名解析来源</th><th>本站声学互证（最低稳定音）</th></tr>',
+        '<th>发表 / 出处</th><th>曲名解析来源</th><th>本站声学互证（最低稳定音）</th></tr>',
         "\n".join(rows),
         "    </table>",
         f'    <p class="meta">著作权与授权：全文为作者本人作品，本站<strong>不转载全文、不提供下载</strong>；'
