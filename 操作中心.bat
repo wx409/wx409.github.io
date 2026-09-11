@@ -171,6 +171,7 @@ echo    123. 任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移 exit 1）
 echo    124. raw_archive 保留策略（默认试算；--apply 才删）
 echo    125. 声学长表与复核台账（vocal_measurements + verify_ledger 构建/校验/查询）
 echo    126. 补搜巡演曲目池（按巡次缺口扩池，让五巡等覆盖慢慢补全）
+echo    127. 歌迷赏析入站（本地转Markdown + 索引 + 学术研究页第七节）
 echo    0. 退出
 echo.
 set "op="
@@ -302,6 +303,7 @@ if "%op%"=="123" goto pipeline_audit
 if "%op%"=="124" goto prune_raw
 if "%op%"=="125" goto vocal_table
 if "%op%"=="126" goto tour_pool
+if "%op%"=="127" goto fan_essays
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1790,5 +1792,17 @@ echo  为什么需要：巡演层五巡 0 条的根因是"池子没覆盖五巡曲目"，不是排序问题
 cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
 python -X utf8 补搜巡演曲目.py --tour 五巡 --limit 8
 echo  不指定 --tour 则按实测覆盖最少的巡次优先；--dry 只看缺口
+pause
+goto menu
+
+:fan_essays
+cls
+echo  [歌迷赏析入站] 全文只留本地，站点只放元数据（篇名/篇幅/发表与授权状态 + 声学互证）
+echo  步骤：源目录 docx/wps 到 Markdown（本地）到 索引 data\fan_essays.json 到 academic.html 第七节
+cd /d "D:\wx409.github.io"
+python -X utf8 tools\fan_essays_convert.py
+python -X utf8 project_b\build_fan_essays.py
+python -X utf8 project_b\build_academic.py
+echo  [OK] data\fan_essays.json + academic.html；全文未进仓库、未转载
 pause
 goto menu

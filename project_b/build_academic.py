@@ -128,6 +128,46 @@ def render_list_section(sec: dict) -> str:
     return "\n".join(h)
 
 
+def render_fan_section() -> str:
+    """歌迷赏析（民间评论）——只登记元数据与声学互证，**不转载全文**（第三方著作权）。"""
+    p = ROOT / "data" / "fan_essays.json"
+    if not p.exists():
+        return ""
+    d = json.loads(p.read_text(encoding="utf-8"))
+    items = d.get("items") or []
+    if not items:
+        return ""
+    rows = []
+    for it in items:
+        a = it.get("acoustic") or {}
+        ac = (f'{esc(a.get("low_note"))} {a.get("low_hz")} Hz'
+              + (f'（{a.get("versions")} 个版本）' if (a.get("versions") or 0) > 1 else "")
+              + ("<sup>近似</sup>" if a.get("matched") == "近似" else "")) if a else "—"
+        rows.append(
+            f'<tr><td>{it.get("no")}</td><td><strong>{esc(it.get("song"))}</strong></td>'
+            f'<td>{esc(it.get("title"))}</td><td>{it.get("chars")} 字</td>'
+            f'<td>{esc(it.get("written"))}</td><td>{esc(it.get("author"))}</td>'
+            f'<td>{esc(it.get("published"))}</td><td>{ac}</td></tr>')
+    c = d.get("counts") or {}
+    return "\n".join([
+        '    <h2 id="fan-essays">七、歌迷赏析（民间评论 · 曲目级文本分析）</h2>',
+        f'    <p class="sec-desc">共 <strong>{c.get("total")} 篇 / {c.get("total_chars")} 字</strong>（撰写于 2024-07，2026-09-11 整理入档），'
+        f'其中 <strong>{c.get("with_acoustic")} 篇</strong>可与本站声学实测（最低稳定音口径）逐曲互证。'
+        '这批文本从听感与编配层面分析具体舞台版本（混响时值、音程跨度、胸腔共鸣、颤音、改编结构），'
+        '与本站的逐帧 F0 实测构成「主观听感 × 客观读数」的对照样本。</p>',
+        '    <table><tr><th>#</th><th>曲目</th><th>篇名</th><th>篇幅</th><th>撰写</th><th>作者</th>'
+        '<th>发表状态</th><th>本站声学互证（最低稳定音）</th></tr>',
+        "\n".join(rows),
+        "    </table>",
+        f'    <p class="meta">著作权与授权：全文为作者本人作品，本站<strong>不转载全文、不提供下载</strong>；'
+        f'发表状态与授权状态均标注「{esc((d.get("rights") or {}).get("status"))}」，由作者确认后更新。'
+        f'{esc((d.get("rights") or {}).get("contact") or "")}</p>',
+        '    <p class="meta">数据源 <code>data/fan_essays.json</code>（元数据索引）；全文仅本地留存，未进入公开仓库。'
+        '互证列取该曲录音室或现场实测的最低稳定音（≥0.2s、HNR≥5dB 稳健口径）。</p>',
+        "",
+    ])
+
+
 def build(doc: dict) -> str:
     jsonld = render_jsonld(doc)
     n_cn = sum(len(s["items"]) for s in doc["sections"] if s["style"] == "paper")
@@ -139,7 +179,7 @@ def build(doc: dict) -> str:
         '    <meta charset="UTF-8">',
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         "    <title>王晰学术研究索引 | 低音与花腔文献、声部声学与国际方法学</title>",
-        f'    <meta name="description" content="王晰演唱专题研究、男低音与中低音花腔技法、声部辨识与音域测量、人声分离与基频提取、数字传播因果识别、GEO 与知识图谱——共 {n_cn + n_intl} 条可核验文献索引，逐条附出处。">',
+        f'    <meta name="description" content="王晰演唱专题研究、男低音与中低音花腔技法、声部辨识与音域测量、人声分离与基频提取、数字传播因果识别、GEO 与知识图谱，以及歌迷赏析（民间评论）——共 {n_cn + n_intl} 条可核验文献索引 + 歌迷赏析索引，逐条附出处。">',
         "    <style>" + STYLE + "    </style>",
         '    <script type="application/ld+json">',
         jsonld,
@@ -154,7 +194,7 @@ def build(doc: dict) -> str:
         "<!-- NAV_START --><!-- NAV_END -->",
         "",
         "    <h1>学术研究｜王晰演唱技法、低音与花腔文献索引</h1>",
-        f'    <p>本页为可核验的文献索引，共 <strong>{n_cn + n_intl} 条</strong>，分六部分：王晰演唱专题、男低音／中低音与花腔、声部辨识与音域测量、基频提取与人声分离、数字传播与因果识别、GEO 与知识图谱。中文条目来自 CNKI／万方／维普公开著录页，国际条目均附 DOI 或 arXiv 编号；<strong>元数据未能核实者已明确标注「待核」</strong>。</p>',
+        f'    <p>本页为可核验的文献索引，共 <strong>{n_cn + n_intl} 条</strong>，分七部分：王晰演唱专题、男低音／中低音与花腔、声部辨识与音域测量、基频提取与人声分离、数字传播与因果识别、GEO 与知识图谱，以及<strong>歌迷赏析（民间评论）</strong>。中文条目来自 CNKI／万方／维普公开著录页，国际条目均附 DOI 或 arXiv 编号；<strong>元数据未能核实者已明确标注「待核」</strong>。歌迷赏析部分只登记篇名、篇幅与声学互证，不转载全文。</p>',
         '    <div class="note">📌 相关页面：<a href="/voice.html">音域实测（10 曲人声分离 F0 实测）</a> · <a href="/qa.html">问答库</a> · <a href="/data/calibers.md">口径登记表</a>。本站的实证结论与文献方法的对应关系，见下各节说明。</div>',
         "",
     ]
@@ -169,6 +209,9 @@ def build(doc: dict) -> str:
             parts.append(render_list_section(sec))
         parts.append("")
 
+    fan = render_fan_section()
+    if fan:
+        parts.append(fan)
     parts.append("    <h2>研究价值总结</h2>")
     parts.append("    <ul>")
     for s in doc.get("summary", []):
