@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-12 21:01",
+ "generated_at": "2026-09-13 00:05",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,16 +10,16 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 166,
+  "total": 172,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
-   "tour_live": 33,
+   "tour_live": 39,
    "stage_other": 32,
    "single": 6
   },
   "by_verify": {
-   "未复核": 124,
+   "未复核": 130,
    "已取证": 6,
    "已核验": 6,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
@@ -31,7 +31,7 @@
    "参考": 2,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 117
+  "songs": 118
  },
  "rows": [
   {
@@ -4420,6 +4420,146 @@
    }
   },
   {
+   "id": "tour_live|南屏晚钟|未知20190914_BV1SJ411w72G",
+   "song": "南屏晚钟",
+   "version": "未知20190914_BV1SJ411w72G",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-09-14",
+   "source_ref": "BV1SJ411w72G",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 80.4,
+    "high_note": "F5",
+    "high_hz": 698.7,
+    "span_octaves": 3.12,
+    "stability_cents": 7.3,
+    "intonation_cents": 26.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.61,
+    "hnr_db": 4.2,
+    "duration_s": 89.9
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
+   }
+  },
+  {
+   "id": "tour_live|Your Man|北京20190818_BV1N4411o7Ld",
+   "song": "Your Man",
+   "version": "北京20190818_BV1N4411o7Ld",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2019-08-18",
+   "source_ref": "BV1N4411o7Ld",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 88.9,
+    "high_note": "A#4",
+    "high_hz": 471.1,
+    "span_octaves": 2.41,
+    "stability_cents": 7.5,
+    "intonation_cents": 22.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 94.0,
+    "density_per_s": 1.43,
+    "hnr_db": 3.0,
+    "duration_s": 219.8
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 315
+   }
+  },
+  {
+   "id": "tour_live|让她降落|太原20191229_BV1WJ411a7zj",
+   "song": "让她降落",
+   "version": "太原20191229_BV1WJ411a7zj",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "太原",
+   "date": "2019-12-29",
+   "source_ref": "BV1WJ411a7zj",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.3,
+    "high_note": "D5",
+    "high_hz": 573.3,
+    "span_octaves": 2.67,
+    "stability_cents": 7.2,
+    "intonation_cents": 19.8,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 77.0,
+    "density_per_s": 2.05,
+    "hnr_db": 6.1,
+    "duration_s": 229.6
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 314
+   }
+  },
+  {
+   "id": "tour_live|Your Man|南京20190731_BV1qt411c7Sm",
+   "song": "Your Man",
+   "version": "南京20190731_BV1qt411c7Sm",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-31",
+   "source_ref": "BV1qt411c7Sm",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.4,
+    "high_note": "A#4",
+    "high_hz": 475.8,
+    "span_octaves": 2.4,
+    "stability_cents": 6.5,
+    "intonation_cents": 23.7,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 72.0,
+    "density_per_s": 1.7,
+    "hnr_db": 4.0,
+    "duration_s": 188.0
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 316
+   }
+  },
+  {
    "id": "tour_live|让她降落|未知20211127_BV19U4y1K7Yz",
    "song": "让她降落",
    "version": "未知20211127_BV19U4y1K7Yz",
@@ -4452,6 +4592,76 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 127
+   }
+  },
+  {
+   "id": "tour_live|晚风|三亚20230225_BV1UX4y197Lu",
+   "song": "晚风",
+   "version": "三亚20230225_BV1UX4y197Lu",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "三亚",
+   "date": "2023-02-25",
+   "source_ref": "BV1UX4y197Lu",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 93.6,
+    "high_note": "G#5",
+    "high_hz": 848.4,
+    "span_octaves": 3.18,
+    "stability_cents": 8.9,
+    "intonation_cents": 20.5,
+    "vibrato_hz": 4.61,
+    "vibrato_cents": 98.0,
+    "density_per_s": 1.46,
+    "hnr_db": 2.4,
+    "duration_s": 281.8
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
+   }
+  },
+  {
+   "id": "tour_live|多听有益|未知20240418_BV11u4m1F7tL",
+   "song": "多听有益",
+   "version": "未知20240418_BV11u4m1F7tL",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-04-18",
+   "source_ref": "BV11u4m1F7tL",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 95.2,
+    "high_note": "A#5",
+    "high_hz": 925.8,
+    "span_octaves": 3.28,
+    "stability_cents": 6.5,
+    "intonation_cents": 17.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.65,
+    "hnr_db": 3.9,
+    "duration_s": 243.0
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 120
    }
   },
   {

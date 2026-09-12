@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-12 14:00:23",
+ "updated_at": "2026-09-13 00:03:02",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -657,6 +657,12 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-09-13 00:03:02",
+   "title": "⚠️ 指数长表滞后 2 天",
+   "content": "长表最新 2026-09-10，但日档案最新 2026-09-12（期望长表到 2026-09-11）。\n原因：deploy_all 步骤里没有指数长表/基线刷新 —— 请运行\n  python project_b\\refresh_index_baseline.py --force\n（或操作中心 64 → 45/44）",
+   "category": "运维告警"
   }
  ]
 }

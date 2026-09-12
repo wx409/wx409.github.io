@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-12 21:01",
+ "generated_at": "2026-09-13 00:05",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,10 +9,10 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 30,
-  "n_stage_measured": 27,
+  "n_materials": 36,
+  "n_stage_measured": 33,
   "n_from_precision": 3,
-  "n_songs": 11,
+  "n_songs": 14,
   "n_tours": 8,
   "n_verified": 11,
   "n_harmonic_reviewed": 6,
@@ -29,9 +29,9 @@
   "span_median_octaves": 3.06,
   "stability_median_cents": 7.1,
   "vibrato_rate_hz_median": 4.97,
-  "vibrato_extent_cents_median": 74.0,
+  "vibrato_extent_cents_median": 76.0,
   "verify_dist": {
-   "未复核": 14,
+   "未复核": 20,
    "谐波列复核通过": 5,
    "待复核": 3,
    "双引擎一致": 5,
@@ -1590,6 +1590,210 @@
    }
   },
   {
+   "tag": "未知20190914_BV1SJ411w72G",
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-09-14",
+   "bv": "BV1SJ411w72G",
+   "owner": "王晰全球砝码制造",
+   "title": "【专辑《LowC的诱惑》】王晰 | 南屏晚钟 Live 双语字幕",
+   "bandwidth_kbps": 130,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "E2",
+   "low_hz": 80.4,
+   "low_t_s": 17.39174603174603,
+   "low_dur_s": 0.44117913832199546,
+   "high_note": "F5",
+   "high_hz": 698.7,
+   "span_octaves": 3.12,
+   "stability_cents": 7.3,
+   "intonation_cents": 26.7,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 82.0,
+   "density_per_s": 1.61,
+   "hnr_db": 4.2,
+   "duration_s": 89.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "E2",
+    "hz": 80.4,
+    "why": "1f0 差 -23.2dB、3f0 在（51.0dB）",
+    "fund_gap_db": -23.2,
+    "floor_db": 3.1,
+    "t_s": 17.392,
+    "dur_s": 0.441,
+    "partials": [
+     28.6,
+     47.9,
+     41.4,
+     40.6,
+     51.0,
+     51.8,
+     32.9,
+     33.9
+    ]
+   }
+  },
+  {
+   "tag": "北京20190818_BV1N4411o7Ld",
+   "song": "Your Man",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2019-08-18",
+   "bv": "BV1N4411o7Ld",
+   "owner": "开心不开心王晰说了算",
+   "title": "记得要打二四拍不要打一三不然会很土的Your Man 王晰 北京",
+   "bandwidth_kbps": 315,
+   "source_verdict": "官方直传",
+   "low_note": "F2",
+   "low_hz": 88.9,
+   "low_t_s": 51.525079365079364,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "A#4",
+   "high_hz": 471.1,
+   "span_octaves": 2.41,
+   "stability_cents": 7.5,
+   "intonation_cents": 22.5,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 94.0,
+   "density_per_s": 1.43,
+   "hnr_db": 3.0,
+   "duration_s": 219.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F2",
+    "hz": 88.9,
+    "why": "1f0 差 -6.8dB、3f0 在（55.6dB）",
+    "fund_gap_db": -6.8,
+    "floor_db": 25.2,
+    "t_s": 51.525,
+    "dur_s": 0.209,
+    "partials": [
+     51.0,
+     57.8,
+     55.6,
+     51.6,
+     48.6,
+     38.8,
+     41.2,
+     25.7
+    ]
+   }
+  },
+  {
+   "tag": "太原20191229_BV1WJ411a7zj",
+   "song": "让她降落",
+   "tour": "其他演出",
+   "city": "太原",
+   "date": "2019-12-29",
+   "bv": "BV1WJ411a7zj",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 这是什么禁欲派般的让她降落啊啊啊 太原",
+   "bandwidth_kbps": 314,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 90.3,
+   "low_t_s": 115.54249433106575,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "D5",
+   "high_hz": 573.3,
+   "span_octaves": 2.67,
+   "stability_cents": 7.2,
+   "intonation_cents": 19.8,
+   "vibrato_hz": 5.17,
+   "vibrato_cents": 77.0,
+   "density_per_s": 2.05,
+   "hnr_db": 6.1,
+   "duration_s": 229.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "F#2",
+    "hz": 90.3,
+    "why": "1f0 差 -7.5dB",
+    "fund_gap_db": -7.5,
+    "floor_db": 42.6,
+    "t_s": 115.542,
+    "dur_s": 0.209,
+    "partials": [
+     50.9,
+     49.3,
+     29.7,
+     58.4,
+     32.9,
+     55.3,
+     15.3,
+     44.3
+    ]
+   }
+  },
+  {
+   "tag": "南京20190731_BV1qt411c7Sm",
+   "song": "Your Man",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-31",
+   "bv": "BV1qt411c7Sm",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 南京 Your Man 字幕版",
+   "bandwidth_kbps": 316,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "F#2",
+   "low_hz": 90.4,
+   "low_t_s": 19.458321995464853,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "A#4",
+   "high_hz": 475.8,
+   "span_octaves": 2.4,
+   "stability_cents": 6.5,
+   "intonation_cents": 23.7,
+   "vibrato_hz": 5.38,
+   "vibrato_cents": 72.0,
+   "density_per_s": 1.7,
+   "hnr_db": 4.0,
+   "duration_s": 188.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 90.4,
+    "why": "1f0 差 -18.9dB、3f0 在（55.7dB）",
+    "fund_gap_db": -18.9,
+    "floor_db": 21.7,
+    "t_s": 19.458,
+    "dur_s": 0.279,
+    "partials": [
+     47.1,
+     66.0,
+     55.7,
+     37.5,
+     39.8,
+     39.1,
+     28.9,
+     26.9
+    ]
+   }
+  },
+  {
    "tag": "未知20211127_BV19U4y1K7Yz",
    "song": "让她降落",
    "tour": "《B",
@@ -1639,6 +1843,108 @@
      51.8
     ]
    }
+  },
+  {
+   "tag": "三亚20230225_BV1UX4y197Lu",
+   "song": "晚风",
+   "tour": "其他演出",
+   "city": "三亚",
+   "date": "2023-02-25",
+   "bv": "BV1UX4y197Lu",
+   "owner": "After18丨Elvis王晰",
+   "title": "《晚风》【4K 60fps】【王晰】FineLive 翻浪四季歌会 in 三亚【20230225】",
+   "bandwidth_kbps": 130,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "F#2",
+   "low_hz": 93.6,
+   "low_t_s": null,
+   "low_dur_s": null,
+   "high_note": "G#5",
+   "high_hz": 848.4,
+   "span_octaves": 3.18,
+   "stability_cents": 8.9,
+   "intonation_cents": 20.5,
+   "vibrato_hz": 4.61,
+   "vibrato_cents": 98.0,
+   "density_per_s": 1.46,
+   "hnr_db": 2.4,
+   "duration_s": 281.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 93.6,
+    "why": "1f0 差 -9.7dB、3f0 在（30.1dB）",
+    "fund_gap_db": -9.7,
+    "floor_db": 7.5,
+    "t_s": 106.44,
+    "dur_s": 0.115,
+    "partials": [
+     32.3,
+     42.0,
+     19.8,
+     36.3,
+     30.1,
+     23.4,
+     17.6,
+     17.0
+    ]
+   }
+  },
+  {
+   "tag": "未知20240418_BV11u4m1F7tL",
+   "song": "多听有益",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-04-18",
+   "bv": "BV11u4m1F7tL",
+   "owner": "开心不开心王晰说了算",
+   "title": "讲道理平时听多听有益是好听但是现场听王晰超华丽男低音念经的震撼是所有耳机都感受不到的快乐",
+   "bandwidth_kbps": 120,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 95.2,
+   "low_t_s": 169.0877097505669,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "A#5",
+   "high_hz": 925.8,
+   "span_octaves": 3.28,
+   "stability_cents": 6.5,
+   "intonation_cents": 17.4,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 81.0,
+   "density_per_s": 1.65,
+   "hnr_db": 3.9,
+   "duration_s": 243.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 95.2,
+    "why": "1f0 差 -15.1dB、3f0 在（51.9dB）",
+    "fund_gap_db": -15.1,
+    "floor_db": 19.7,
+    "t_s": 169.088,
+    "dur_s": 0.232,
+    "partials": [
+     36.9,
+     47.0,
+     51.9,
+     49.3,
+     45.0,
+     29.7,
+     26.4,
+     24.8
+    ]
+   }
   }
  ],
  "by_song": [
@@ -1662,6 +1968,37 @@
      "span_octaves": 3.59,
      "verify": "未复核",
      "bv": "BV1RjkYYbEF8"
+    }
+   ]
+  },
+  {
+   "song": "Your Man",
+   "n_versions": 2,
+   "tours": [],
+   "lowest_note": "F2",
+   "lowest_hz": 88.9,
+   "lowest_tag": "北京20190818_BV1N4411o7Ld",
+   "span_median_octaves": 2.41,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "北京",
+     "date": "2019-08-18",
+     "low_note": "F2",
+     "low_hz": 88.9,
+     "span_octaves": 2.41,
+     "verify": "未复核",
+     "bv": "BV1N4411o7Ld"
+    },
+    {
+     "tour": "其他演出",
+     "city": "南京",
+     "date": "2019-07-31",
+     "low_note": "F#2",
+     "low_hz": 90.4,
+     "span_octaves": 2.4,
+     "verify": "未复核",
+     "bv": "BV1qt411c7Sm"
     }
    ]
   },
@@ -1764,15 +2101,36 @@
    ]
   },
   {
+   "song": "南屏晚钟",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "E2",
+   "lowest_hz": 80.4,
+   "lowest_tag": "未知20190914_BV1SJ411w72G",
+   "span_median_octaves": 3.12,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2019-09-14",
+     "low_note": "E2",
+     "low_hz": 80.4,
+     "span_octaves": 3.12,
+     "verify": "未复核",
+     "bv": "BV1SJ411w72G"
+    }
+   ]
+  },
+  {
    "song": "多听有益",
-   "n_versions": 3,
+   "n_versions": 4,
    "tours": [
     "四巡"
    ],
    "lowest_note": "C2",
    "lowest_hz": 65.2,
    "lowest_tag": "肆益杭州站_BV1ArKxe7E8H",
-   "span_median_octaves": null,
+   "span_median_octaves": 3.28,
    "versions": [
     {
      "tour": "四巡",
@@ -1793,6 +2151,16 @@
      "span_octaves": null,
      "verify": "参考（直拍音质）",
      "bv": "BV1Ab4y1g7Wj"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2024-04-18",
+     "low_note": "F#2",
+     "low_hz": 95.2,
+     "span_octaves": 3.28,
+     "verify": "未复核",
+     "bv": "BV11u4m1F7tL"
     },
     {
      "tour": "四巡",
@@ -1863,6 +2231,27 @@
    ]
   },
   {
+   "song": "晚风",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "F#2",
+   "lowest_hz": 93.6,
+   "lowest_tag": "三亚20230225_BV1UX4y197Lu",
+   "span_median_octaves": 3.18,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "三亚",
+     "date": "2023-02-25",
+     "low_note": "F#2",
+     "low_hz": 93.6,
+     "span_octaves": 3.18,
+     "verify": "未复核",
+     "bv": "BV1UX4y197Lu"
+    }
+   ]
+  },
+  {
    "song": "花儿为什么这样红",
    "n_versions": 2,
    "tours": [],
@@ -1895,7 +2284,7 @@
   },
   {
    "song": "让她降落",
-   "n_versions": 13,
+   "n_versions": 14,
    "tours": [
     "一巡",
     "二巡",
@@ -1904,7 +2293,7 @@
    "lowest_note": "F2",
    "lowest_hz": 88.9,
    "lowest_tag": "六巡重庆20260613_BV1zEJA6xEr2",
-   "span_median_octaves": 3.0,
+   "span_median_octaves": 2.92,
    "versions": [
     {
      "tour": "六巡",
@@ -1925,6 +2314,16 @@
      "span_octaves": 3.11,
      "verify": "谐波列复核通过",
      "bv": "BV1SZ4y1c7Xb"
+    },
+    {
+     "tour": "其他演出",
+     "city": "太原",
+     "date": "2019-12-29",
+     "low_note": "F#2",
+     "low_hz": 90.3,
+     "span_octaves": 2.67,
+     "verify": "未复核",
+     "bv": "BV1WJ411a7zj"
     },
     {
      "tour": "一巡",
@@ -2495,7 +2894,7 @@
  ],
  "live_vs_studio_pair_stats": {
   "included": 0,
-  "excluded_pending": 5,
+  "excluded_pending": 8,
   "excluded_detail": [
    {
     "song": "多听有益",
@@ -2530,6 +2929,27 @@
     "tour": "其他演出",
     "note": "D2",
     "hz": 73.4,
+    "verify": "未复核"
+   },
+   {
+    "song": "南屏晚钟",
+    "tour": "其他演出",
+    "note": "E2",
+    "hz": 80.4,
+    "verify": "未复核"
+   },
+   {
+    "song": "晚风",
+    "tour": "其他演出",
+    "note": "F#2",
+    "hz": 93.6,
+    "verify": "未复核"
+   },
+   {
+    "song": "多听有益",
+    "tour": "其他演出",
+    "note": "F#2",
+    "hz": 95.2,
     "verify": "未复核"
    }
   ]
