@@ -146,14 +146,26 @@ def check_llms(net: Net) -> None:
         problems.append(f"llms.txt 抓取失败（{st}）")
         return
     text = data.decode("utf-8", "replace")
-    want = {
-        f"最低稳定音 {alb['lowest']['note']} {alb['lowest']['hz']}Hz": alb["lowest"]["hz"],
-        f"音符内稳定性中位 {alb['stability_cents_median']:.0f} 音分": alb["stability_cents_median"],
-        f"跨度中位 {alb['span_median_octaves']:.2f} 个八度": alb["span_median_octaves"],
-        f"指数数据覆盖 {cal['index_days']} 天": cal["index_days"],
-    }
-    for label in want:
-        check(f"llms.txt 含「{label}」", True, label in text)
+
+    # 2026-09-13 瘦身 2.0：llms.txt 首屏改为 Markdown 表格（| 分隔），
+    # 因此「标签 + 数值」不再相邻成句——改为在同一行内验证（允许 | 分隔与空白）。
+    def row_has(label: str, value: str) -> bool:
+        for line in text.split("\n"):
+            if label in line and value in line:
+                return True
+        return False
+
+    wants = [
+        ("最低稳定音", f"{alb['lowest']['note']} {alb['lowest']['hz']}Hz"),
+        ("音符内稳定性中位", f"{alb['stability_cents_median']:.0f} 音分"),
+        ("跨度中位", f"{alb['span_median_octaves']:.2f}"),
+        ("指数覆盖", f"{cal['index_days']} 天"),
+    ]
+    for label, val in wants:
+        check(f"llms.txt 硬数据表「{label}」= {val}", True, row_has(label, val))
+    # 纪律段必须在（引用音域数字前必读）
+    for must in ("三级读数制度", "局限性声明"):
+        check(f"llms.txt 含「{must}」", True, must in text)
 
 
 def check_sitemap(net: Net) -> None:
