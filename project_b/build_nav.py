@@ -33,58 +33,70 @@ FOOT_START = "<!-- FOOTER_NAV_START -->"
 FOOT_END = "<!-- FOOTER_NAV_END -->"
 
 # 顶部导航（顺序即优先级）；href 一律用站点根绝对路径，根页/子页通用
+#
+# 2026-09-13 瘦身 2.0 第三阶段：主导航**只保留精简版 7 页**（每页只回答一个问题）。
+# 旧页（discography/songs/live-reviews/stage/voice/skill/timeline/culture/academic/
+# gallery/submit/search 等）不再进主导航，但文件一律原地保留、内容不删，
+# 由私密索引页 archive-index.html 统一挂入口（该页不进导航、不进 sitemap、不提交 IndexNow）。
 NAV_ITEMS = [
     ("/index.html", "🏠 首页", ""),
-    ("/live-reviews.html", "现场实录", ""),
-    ("/live/", "演出详情", ""),
-    ("/discography.html", "作品百科", ""),
-    ("/songs.html", "歌曲库", ""),
-    ("/live/setlists.html", "全部歌单", ""),
-    ("/timeline.html", "生涯时间轴", ""),
-    ("/data-timeline.html", "📈 数据时间线", ""),
-    ("/story.html", "📖 数据故事", ""),
-    ("/voice.html", "🎼 音域实测", "color:#a8323d;"),
-    ("/skill.html", "🎙️ 唱功实测", "color:#a8323d;"),
-    ("/stage.html", "🎤 现场实测", ""),
-    ("/dashboard/", "数据大屏", ""),
-    ("/map/", "巡演地图", ""),
-    ("/culture/index.html", "文化足迹", ""),
-    ("/tavern/", "深夜小酒馆", ""),
-    ("/city-guides.html", "城市攻略", ""),
-    ("/academic.html", "学术研究", ""),
-    ("/qa.html", "问答库", ""),
-    ("/gallery.html", "视觉记录", ""),
-    ("/notifications.html", "📋 自动通知", ""),
-    ("/submit.html", "📮 投稿", "background:#c9a227;color:#fff;padding:4px 12px;border-radius:16px;"),
-    ("/search.html", "🔍 全站搜索", "background:#c41e3a;color:#fff;padding:4px 12px;border-radius:16px;"),
+    ("/works.html", "🎵 作品", ""),
+    ("/live.html", "🎤 现场", ""),
+    ("/vocal.html", "🎼 声音数据", "color:#a8323d;"),
+    ("/history.html", "📅 生涯", ""),
+    ("/research.html", "📚 研究", ""),
+    ("/community.html", "💬 参与", ""),
 ]
 
 # 底部全站索引分组（(分组名, [路径])）；路径必须存在才会输出
+#
+# 2026-09-13 瘦身 2.0：底部索引同样只列精简版 7 页 + 工具页 + 数据源，
+# 旧页一律不在此列出（其入口在 archive-index.html，保持"旧页退场、快照仍在"）。
 FOOTER_GROUPS = [
-    ("核心", ["index.html", "live-reviews.html", "discography.html", "songs.html", "timeline.html",
-              "data-timeline.html", "story.html", "notifications.html"]),
-    ("数据", ["dashboard/", "map/", "data-timeline.html", "live/", "live/setlists.html",
-              "data/music-index.html", "data/calibers.md", "data/kb/kb_digest.md"]),
-    ("内容", ["voice.html", "skill.html", "stage.html", "academic.html", "qa.html", "jazz.html", "gallery.html", "city-guides.html",
-              "culture/index.html", "tavern/", "live-reviews.html"]),
-    ("关于", ["about.html", "submit.html", "search.html", "feed.xml", "sitemap.xml", "llms.txt",
-              "robots.txt", "404.html"]),
+    ("精简版入口", ["index.html", "works.html", "live.html", "vocal.html",
+                    "history.html", "research.html", "community.html"]),
+    ("数据源（机器可读）", ["dashboard/", "live/", "map/", "data/music-index.html",
+                            "data/calibers.md", "data/kb/kb_digest.md"]),
+    ("工具", ["qa.html", "notifications.html", "search.html", "about.html",
+              "feed.xml", "sitemap.xml", "llms.txt", "robots.txt", "404.html"]),
 ]
 
-SKIP = {"404.html", "kb-semantic.html", "social_wall.html"}
+# 顶部/底部导航不处理的页面：
+#   - 404/kb-semantic/social_wall：无完整骨架或无导航需求
+#   - archive-index.html：私密索引页，刻意不加入任何导航（其自身仍有 GA/样式）
+SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html"}
+
+# 旧页清单（2026-09-13 瘦身 2.0 第二阶段）：这些页面进 noindex, follow，
+# 但内容一律原地保留、URL 不变。放在这里是为了让 noindex 成为**幂等派生结果**——
+# 否则 map/dashboard/tavern 等由生成器重写的页面会在下次 deploy 时丢掉 noindex。
+LEGACY_NOINDEX = {
+    "discography.html", "songs.html", "live-reviews.html", "live/setlists.html",
+    "stage.html", "map/index.html", "city-guides.html", "voice.html", "skill.html",
+    "timeline.html", "culture/index.html", "academic.html", "dashboard/index.html",
+    "tavern/index.html", "gallery.html", "submit.html", "search.html",
+}
+ROBOTS_NOINDEX = '<meta name="robots" content="noindex, follow">'
 
 # 底部索引的显示名（未列出的用文件名）
 LABELS = {
-    "index.html": "首页", "live-reviews.html": "现场实录", "discography.html": "作品百科",
-    "songs.html": "歌曲库", "timeline.html": "生涯时间轴", "data-timeline.html": "数据时间线",
-    "story.html": "数据故事", "notifications.html": "自动通知", "voice.html": "音域实测", "skill.html": "唱功实测", "stage.html": "现场音域实测（巡演+综艺晚会）",
-    "academic.html": "学术研究", "qa.html": "问答库", "jazz.html": "爵士专题",
-    "gallery.html": "视觉记录", "city-guides.html": "城市攻略", "about.html": "关于本站",
-    "submit.html": "投稿", "search.html": "全站搜索", "dashboard/": "数据大屏", "map/": "巡演地图",
-    "live/": "演出详情目录", "live/setlists.html": "全部歌单", "data/music-index.html": "音乐数据周报",
-    "data/kb/kb_digest.md": "知识库摘要", "data/calibers.md": "口径登记表（数字字典）", "culture/index.html": "文化足迹", "tavern/": "深夜小酒馆",
+    "index.html": "首页", "works.html": "作品", "live.html": "现场",
+    "vocal.html": "声音数据", "history.html": "生涯", "research.html": "研究",
+    "community.html": "参与",
+    "qa.html": "问答库", "notifications.html": "自动通知", "about.html": "关于本站",
+    "search.html": "全站搜索", "dashboard/": "数据大屏", "map/": "巡演地图",
+    "live/": "演出详情目录", "data/music-index.html": "音乐数据周报",
+    "data/kb/kb_digest.md": "知识库摘要", "data/calibers.md": "口径登记表（数字字典）",
     "feed.xml": "RSS 订阅", "sitemap.xml": "站点地图", "llms.txt": "AI 摘要（llms.txt）",
     "robots.txt": "robots.txt", "404.html": "404 页",
+    # 旧页显示名（仍保留，供 archive-index.html 与调试引用）
+    "live-reviews.html": "现场实录（归档）", "discography.html": "作品百科（归档）",
+    "songs.html": "歌曲库（归档）", "timeline.html": "生涯时间轴（归档）",
+    "data-timeline.html": "数据时间线（归档）", "story.html": "数据故事（归档）",
+    "voice.html": "音域实测（归档）", "skill.html": "唱功实测（归档）",
+    "stage.html": "现场音域实测（归档）", "academic.html": "学术研究（归档）",
+    "jazz.html": "爵士专题（归档）", "gallery.html": "视觉记录（归档）",
+    "city-guides.html": "城市攻略（归档）", "submit.html": "投稿（归档）",
+    "culture/index.html": "文化足迹（归档）", "tavern/": "深夜小酒馆（归档）",
 }
 
 # 处理范围（相对仓库根）：根页面 + 有统一导航的内容子目录；dashboard/map 为应用页（自带布局）不处理
@@ -135,6 +147,30 @@ def render_footer() -> str:
     return "\n".join(parts)
 
 
+_HEAD_RE = re.compile(r"<head[^>]*>", re.I)
+_ROBOTS_RE = re.compile(r'<meta[^>]+name=["\']robots["\'][^>]*>', re.I)
+
+
+def apply_legacy_noindex(rel: str, html: str) -> str:
+    """旧页 noindex 派生：LEGACY_NOINDEX 里的页面强制 `noindex, follow`。
+
+    为什么放在导航生成器里：map/dashboard/tavern 等页面的 robots 标签由各自的生成器写出，
+    手改会被下一次 deploy 覆盖；而本脚本在 deploy 末尾运行且幂等，
+    因此"哪些页已退场"这件事只有一个事实源（LEGACY_NOINDEX），不会被重建冲掉。
+    """
+    if rel not in LEGACY_NOINDEX:
+        return html
+    m = _HEAD_RE.search(html)
+    if not m:
+        return html
+    old = _ROBOTS_RE.search(html)
+    if old:
+        if old.group(0) == ROBOTS_NOINDEX:
+            return html
+        return html[:old.start()] + ROBOTS_NOINDEX + html[old.end():]
+    return html[:m.end()] + "\n" + ROBOTS_NOINDEX + html[m.end():]
+
+
 def update_page(path: Path, html: str) -> tuple[str, bool]:
     nav = render_nav()
     foot = render_footer()
@@ -155,6 +191,8 @@ def update_page(path: Path, html: str) -> tuple[str, bool]:
         html = re.sub(re.escape(FOOT_START) + r".*?" + re.escape(FOOT_END), lambda m: foot, html, flags=re.S)
     elif "</body>" in html:
         html = html.replace("</body>", foot + "\n</body>", 1)
+
+    html = apply_legacy_noindex(path.relative_to(ROOT).as_posix(), html)
 
     return html, html != orig
 
