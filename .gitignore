@@ -53,3 +53,8 @@ dsh-config-portable.zip
 logs/
 # 本机 DSH 项目级 skill（含本地绝对路径 D:\ E:\，不公开）
 .dsh/
+
+# 分析管线素材与中间产物（7.5）：永不入库、不二次分发
+tmp/
+tmp/analysis/
+

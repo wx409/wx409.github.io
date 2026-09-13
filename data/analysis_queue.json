@@ -1,0 +1,39 @@
+{
+ "schema": "analysis_queue v1",
+ "note": "新增分析对象 = 往本文件 items 加一条记录。管线：tools/queue_run.py（fetch→analyze→回写）。素材只落 tmp/（gitignore），不入库、不二次分发。status: pending→fetched→analyzed（失败 failed + reason）。",
+ "discipline": [
+  "仅用于个人研究；不绕过付费或访问权限，只使用公开可访问链接。",
+  "结果进入对外表格前须过复核门槛（稳定音口径 + 原始混音谐波列判定）。",
+  "未复核读数不得进入能力结论；条件不匹配的样本不得混入横向对比。"
+ ],
+ "items": [
+  {
+   "id": "zhaopeng-01",
+   "url": "",
+   "singer": "赵鹏",
+   "title": "待选定曲目",
+   "year": null,
+   "kind": "录音室",
+   "age_band": "待标注",
+   "status": "pending",
+   "reason": "待人工选定公开可访问音源后填入 url"
+  },
+  {
+   "id": "selftest-01",
+   "url": "",
+   "singer": "_selftest",
+   "title": "本地合成音（管线自检，非歌手样本）",
+   "year": null,
+   "kind": "自检",
+   "age_band": "—",
+   "status": "analyzed",
+   "result": "tmp/analysis/selftest-01.json",
+   "summary": {
+    "lowest_stable_note": "见结果文件",
+    "lowest_stable_hz": null,
+    "span_octaves": null,
+    "caliber": "自检样本：仅验证管线连通性，不构成任何歌手结论"
+   }
+  }
+ ]
+}

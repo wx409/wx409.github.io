@@ -1,0 +1,107 @@
+name: analysis-pipeline
+
+# 自动化分析管线（7.5）：
+#   每周一次 + 手动触发 —— 把 data/analysis_queue.json 里 status=pending 且已填 url 的条目
+#   跑完 fetch → analyze，并把结果 JSON 回写提交。
+#
+# 合规边界（与 tools/README.md 一致）：
+#   · 音视频仅用于个人研究；素材只落 tmp/（gitignore），**永不以任何形式入库或分发**。
+#   · 只提交「结果数据」（逐曲指标 / 复核状态 / 口径说明）。
+#   · 不绕过付费或访问权限限制，只处理公开可访问链接。
+
+on:
+  schedule:
+    - cron: "17 3 * * 1"        # 每周一 03:17 UTC（= 北京时间 11:17）
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "只跑某一个 id（留空=全部 pending）"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analysis-pipeline
+  cancel-in-progress: false
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 先判断有没有活：无待办直接结束，不浪费环境安装时间
+      - name: 检查队列
+        id: gate
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path("data/analysis_queue.json")
+          doc = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {"items": []}
+          todo = [i for i in doc.get("items", []) if i.get("status") == "pending" and i.get("url")]
+          out = os.environ.get("GITHUB_OUTPUT")
+          with open(out, "a", encoding="utf-8") as f:
+              f.write("todo=%d\n" % len(todo))
+          print("pending 且有 url 的条目：", len(todo))
+          PY
+
+      - name: 无待办则跳过
+        if: steps.gate.outputs.todo == '0'
+        run: echo "队列无待办，跳过（不安装环境）"
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.todo != '0'
+        with:
+          python-version: "3.10"
+
+      - name: 安装 ffmpeg
+        if: steps.gate.outputs.todo != '0'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: 安装依赖（CPU 版 torch，足够跑 htdemucs）
+        if: steps.gate.outputs.todo != '0'
+        run: |
+          python -m pip install --upgrade pip
+          pip install "torch==2.*" --index-url https://download.pytorch.org/whl/cpu
+          pip install demucs soundfile numpy scipy imageio-ffmpeg yt-dlp
+
+      - name: 缓存 demucs 模型
+        if: steps.gate.outputs.todo != '0'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/torch/hub/checkpoints
+          key: demucs-htdemucs-${{ runner.os }}
+
+      - name: 运行管线
+        if: steps.gate.outputs.todo != '0'
+        env:
+          # CI 无 GPU；不设 HF_HUB_OFFLINE（需联网拉模型）
+          FORCE_CPU: "1"
+        run: |
+          set +e
+          if [ -n "${{ github.event.inputs.only }}" ]; then
+            python tools/queue_run.py --only "${{ github.event.inputs.only }}"
+          else
+            python tools/queue_run.py
+          fi
+          code=$?
+          echo "exit=$code"
+          # 2 = 无活；其余非零（含下载/分析失败）也不阻塞结果提交
+          exit 0
+
+      - name: 提交结果数据（只提交结果，不提交素材）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/analysis_queue.json
+          if git diff --cached --quiet; then
+            echo "无结果变化"
+          else
+            git commit -m "analysis-pipeline: 分析队列结果更新 ($(date -u +%Y-%m-%d))"
+            git push
+          fi
