@@ -5336,7 +5336,9 @@ def build_geo_content(payload):
 
     meta_tags = f"""<meta name="description" content="{desc}">
 <meta name="keywords" content="{ARTIST_NAME},音乐指数,QQ音乐,数据大屏,巡演带动,新歌发行,歌曲热度,数据分析">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="noindex, follow">
+<!-- 2026-09-13 瘦身 2.0：dashboard/ 已退场（从主导航与 sitemap 撤出），改为 noindex, follow。
+     这是本生成器唯一事实源；project_b/build_nav.py 的 LEGACY_NOINDEX 守卫会做同样的事（幂等双保险）。 -->
 <meta name="author" content="{escape(AUTHOR_NAME)}">
 <link rel="canonical" href="{SITE_URL}/">
 <meta property="og:type" content="website">
