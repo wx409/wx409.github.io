@@ -1,0 +1,67 @@
+{
+ "schema": "authority_voices v1",
+ "note": "外部权威点评与已发表来源的著录层。**与本站测量结论严格分开**：本文件只记录「外部怎么说」，不转写成本站结论，不做排名或唯一性断言。",
+ "display_discipline": [
+  "只著录可核实信息；方法未公开的读数一律标注「测量方法未公开」。",
+  "原文只做摘要与著录，不全文转载。",
+  "刊物定级以可核实信息为准：曾入选核心目录 ≠ 现为核心期刊。"
+ ],
+ "items": [
+  {
+   "id": "voice-yaofeng-guben",
+   "kind": "权威点评",
+   "who": "姚峰（深圳音协主席）",
+   "text": "「作为 Bass-baritone 的话，在中国本身就不多，这是流行圈内的，恐怕就是孤本了」",
+   "date": "",
+   "source": "节目访谈（原话记录）",
+   "source_url": "",
+   "nature": "外部定性表述",
+   "handling": "本站直接引用为档案记录；不据此做排名或唯一性断言。",
+   "related_page": "vocal.html",
+   "status": "recorded"
+  },
+  {
+   "id": "voice-liaochangyong",
+   "kind": "权威点评",
+   "who": "廖昌永（上海音乐学院院长）",
+   "text": "「男生就像一座高山一样，稳稳地……这个用男低音是特别好的」",
+   "date": "",
+   "source": "节目点评（原话记录）",
+   "source_url": "",
+   "nature": "外部点评表述",
+   "handling": "作档案记录；本站不替代、不改写。",
+   "related_page": "vocal.html",
+   "status": "recorded"
+  },
+  {
+   "id": "cctv-classic-xiangzhe",
+   "kind": "媒体点评",
+   "who": "央视《经典咏流传》",
+   "text": "节目点评（与《向着太阳》相关）",
+   "date": "",
+   "source": "央视《经典咏流传》",
+   "source_url": "",
+   "nature": "媒体节目点评",
+   "handling": "与姚峰「孤本」评价、廖昌永点评并列展示；具体点评原文待补录。",
+   "related_page": "vocal.html",
+   "status": "待补录原文"
+  },
+  {
+   "id": "yueqi-2021-03-xiangzhe",
+   "kind": "已发表来源（刊物）",
+   "title": "《乐器》杂志 2021 年第 3 期——赏析文章（论及《向着太阳》的最低音读数）",
+   "journal": "《乐器》",
+   "issue": "2021 年第 3 期",
+   "publisher": "中国轻工业联合会",
+   "indexing": "知网收录",
+   "tier_note": "该刊曾于 1992、1996 两版入选北大核心目录；现通行定级为部级期刊，目前不是核心期刊。著录以可核实信息为准。",
+   "reading_summary": "该文给出低于本站严格口径的读数（本站对《向着太阳》的最低稳定音实测为 G2 97.8Hz）。",
+   "method_status": "测量方法未公开，无法复算；是否区分「持续稳定音」与「触达即算」未知。",
+   "handling": "原文只做摘要与著录，不全文转载；读数仅作档案记录，不转写成本站测量结论。口径分歧的结构化陈列见 debate/。",
+   "source_url": "",
+   "nature": "已发表来源（方法未公开）",
+   "related_page": "research.html",
+   "status": "著录完成；原文摘要待补入"
+  }
+ ]
+}

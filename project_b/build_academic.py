@@ -231,6 +231,9 @@ def build(doc: dict) -> str:
     fan = render_fan_section()
     if fan:
         parts.append(fan)
+    auth = render_authority_section()
+    if auth:
+        parts.append(auth)
     parts.append("    <h2>研究价值总结</h2>")
     parts.append("    <ul>")
     for s in doc.get("summary", []):
@@ -245,6 +248,43 @@ def build(doc: dict) -> str:
     parts.append("</html>")
     parts.append("")
     return "\n".join(parts)
+
+
+def render_authority_section() -> str:
+    """权威点评 / 已发表来源著录（7.4）：读 data/authority.json，与文献索引并列展示。
+
+    纪律：本区只记录「外部怎么说」，方法未公开的读数一律标注，不转写成本站结论。
+    """
+    try:
+        doc = json.loads((ROOT / "data" / "authority.json").read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    items = doc.get("items") or []
+    if not items:
+        return ""
+    out = ["    <h2>权威点评与已发表来源（外部表述 · 非本站测量结论）</h2>",
+           '    <p class="meta">本区与上表文献索引并列：只记录外部表述与著录信息，'
+           '不做排名或唯一性断言；方法未公开的读数一律标注。</p>',
+           "    <table>",
+           "      <tr><th>类型</th><th>来源</th><th>内容与著录</th></tr>"]
+    for it in items:
+        who = it.get("who") or it.get("journal") or ""
+        if it.get("kind") == "已发表来源（刊物）":
+            body = (f'<strong>{esc(it.get("title"))}</strong><br>'
+                    f'<span class="meta">主管单位：{esc(it.get("publisher"))}｜{esc(it.get("indexing"))}｜'
+                    f'{esc(it.get("tier_note"))}</span><br>{esc(it.get("reading_summary"))}<br>'
+                    f'<span class="meta">方法状态：{esc(it.get("method_status"))}</span><br>'
+                    f'<span class="meta">本站处理：{esc(it.get("handling"))}</span>')
+            if it.get("status") not in (None, "recorded"):
+                body += f'<br><span class="meta">状态：{esc(it.get("status"))}</span>'
+        else:
+            body = (f'{esc(it.get("text"))}<br>'
+                    f'<span class="meta">来源：{esc(it.get("source"))}｜性质：{esc(it.get("nature"))}｜'
+                    f'{esc(it.get("status"))}</span><br>'
+                    f'<span class="meta">本站处理：{esc(it.get("handling"))}</span>')
+        out.append(f'      <tr><td>{esc(it.get("kind"))}</td><td>{esc(who)}</td><td>{body}</td></tr>')
+    out += ["    </table>", ""]
+    return "\n".join(out)
 
 
 def main() -> None:

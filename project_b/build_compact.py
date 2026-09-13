@@ -268,6 +268,35 @@ def quote_block(limit=3, themes=None, title="他说过"):
     return f"<h2>{esc(title)}</h2>\n" + "\n".join(rows)
 
 
+def _authority_block():
+    """权威点评 / 已发表来源著录（读 data/authority.json；与本站测量结论严格分开）。"""
+    doc = jload("data/authority.json", {})
+    items = doc.get("items") or []
+    if not items:
+        return ""
+    rows = []
+    for it in items:
+        who = it.get("who") or it.get("journal") or it.get("title") or ""
+        if it.get("kind") == "已发表来源（刊物）":
+            body = (f'<strong>{esc(it.get("title"))}</strong><br>'
+                    f'<span class="src">主管单位：{esc(it.get("publisher"))}｜{esc(it.get("indexing"))}｜'
+                    f'{esc(it.get("tier_note"))}</span><br>'
+                    f'{esc(it.get("reading_summary"))}<br>'
+                    f'<span class="src">方法状态：{esc(it.get("method_status"))}</span><br>'
+                    f'<span class="src">本站处理：{esc(it.get("handling"))}</span>'
+                    + (f'<br><span class="src">状态：{esc(it.get("status"))}</span>'
+                       if it.get("status") not in (None, "recorded") else ""))
+        else:
+            body = (f'{esc(it.get("text"))}<br>'
+                    f'<span class="src">来源：{esc(it.get("source"))}｜性质：{esc(it.get("nature"))}｜'
+                    f'{esc(it.get("status"))}</span><br>'
+                    f'<span class="src">本站处理：{esc(it.get("handling"))}</span>')
+        rows.append(f'<tr><td class="n">{esc(it.get("kind"))}</td><td>{esc(who)}</td><td>{body}</td></tr>')
+    return ('<table>\n<tr><th>类型</th><th>来源</th><th>内容与著录</th></tr>\n'
+            + "\n".join(rows) + "\n</table>\n"
+            '<p class="src">纪律：本表为<strong>外部表述的档案记录</strong>，与本站测量结论分开引用；方法未公开的读数一律标注，不转写成本站结论。</p>')
+
+
 def _cmp_block():
     """7.2 同管线对照（精简版扩展位）：只列已实测维度；未测歌手标「未测·已登记」。"""
     sch = jload("data/comparison_schema.json", {})
@@ -872,15 +901,12 @@ def build_research():
 <p class="src">完整清单与著录信息见 <a href="/academic.html">学术研究（旧页，完整存档）</a>；
 数据源 <a href="/data/literature.json">data/literature.json</a>。</p>
 
-<h2>二、权威点评</h2>
-<div class="card">{esc((VOCAL.get("authority") or {}).get("姚峰(深圳音协主席)", ""))}
-<div class="src">—— 姚峰（深圳音协主席）</div></div>
-<div class="card">{esc((VOCAL.get("authority") or {}).get("廖昌永(上音院长)", ""))}
-<div class="src">—— 廖昌永（上海音乐学院院长）</div></div>
+<h2>二、权威点评与已发表来源</h2>
+{_authority_block()}
 <p class="warn"><strong>外部媒体的更低读数（档案记录，非本站测量结论）：</strong>
 《乐器》杂志 2021 年第 3 期曾刊出对《向着太阳》最低音的赏析读数，低于本站严格口径的 G2（97.8Hz）。
 两者依据不同标准——持续稳定音 vs 触达即算。外部出版物读数的方法不透明，本站仅作档案记录并标注来源，
-不转写成本站测量结论。<span class="src">（该文著录信息补入中）</span></p>
+不转写成本站测量结论。完整的口径分歧陈列见 <a href="/debate/xiangzhe-taiyang-lowest.html">争议案例（实验区）</a>。</p>
 
 <h2>三、本站数据证据</h2>
 <ul>
