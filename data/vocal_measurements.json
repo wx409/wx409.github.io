@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-13 21:01",
+ "generated_at": "2026-09-14 00:05",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,16 +10,16 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 172,
+  "total": 178,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
-   "tour_live": 39,
+   "tour_live": 45,
    "stage_other": 32,
    "single": 6
   },
   "by_verify": {
-   "未复核": 130,
+   "未复核": 136,
    "已取证": 6,
    "已核验": 6,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
@@ -31,7 +31,7 @@
    "参考": 2,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 118
+  "songs": 120
  },
  "rows": [
   {
@@ -4350,6 +4350,41 @@
    }
   },
   {
+   "id": "tour_live|一生守候|未知20200517_BV1Re411p7XL",
+   "song": "一生守候",
+   "version": "未知20200517_BV1Re411p7XL",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-05-17",
+   "source_ref": "BV1Re411p7XL",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.0,
+    "high_note": "A3",
+    "high_hz": 219.0,
+    "span_octaves": 1.58,
+    "stability_cents": 7.3,
+    "intonation_cents": 7.8,
+    "vibrato_hz": 5.32,
+    "vibrato_cents": 89.0,
+    "density_per_s": 1.35,
+    "hnr_db": 11.7,
+    "duration_s": 151.0
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 323
+   }
+  },
+  {
    "id": "tour_live|花儿为什么这样红|杭州20201226_BV1z5411H7yg",
    "song": "花儿为什么这样红",
    "version": "杭州20201226_BV1z5411H7yg",
@@ -4420,6 +4455,41 @@
    }
   },
   {
+   "id": "tour_live|南屏晚钟|南京20190731_BV1Mt411w7cx",
+   "song": "南屏晚钟",
+   "version": "南京20190731_BV1Mt411w7cx",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-31",
+   "source_ref": "BV1Mt411w7cx",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.2,
+    "high_note": "A3",
+    "high_hz": 215.3,
+    "span_octaves": 1.48,
+    "stability_cents": 9.9,
+    "intonation_cents": 27.5,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 85.0,
+    "density_per_s": 2.23,
+    "hnr_db": 6.8,
+    "duration_s": 104.2
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 317
+   }
+  },
+  {
    "id": "tour_live|南屏晚钟|未知20190914_BV1SJ411w72G",
    "song": "南屏晚钟",
    "version": "未知20190914_BV1SJ411w72G",
@@ -4452,6 +4522,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 130
+   }
+  },
+  {
+   "id": "tour_live|像雾像雨又像风|未知20201127_BV1nZ4y1G7Zq",
+   "song": "像雾像雨又像风",
+   "version": "未知20201127_BV1nZ4y1G7Zq",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-11-27",
+   "source_ref": "BV1nZ4y1G7Zq",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.9,
+    "high_note": "C4",
+    "high_hz": 266.8,
+    "span_octaves": 1.7,
+    "stability_cents": 7.2,
+    "intonation_cents": 18.5,
+    "vibrato_hz": 4.92,
+    "vibrato_cents": 70.0,
+    "density_per_s": 1.86,
+    "hnr_db": 5.9,
+    "duration_s": 212.8
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 313
    }
   },
   {
@@ -4630,6 +4735,41 @@
    }
   },
   {
+   "id": "tour_live|南屏晚钟|未知20190818_BV1x4411f7i9",
+   "song": "南屏晚钟",
+   "version": "未知20190818_BV1x4411f7i9",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-08-18",
+   "source_ref": "BV1x4411f7i9",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 94.3,
+    "high_note": "E4",
+    "high_hz": 325.0,
+    "span_octaves": 1.78,
+    "stability_cents": 8.6,
+    "intonation_cents": 24.5,
+    "vibrato_hz": 4.46,
+    "vibrato_cents": 91.0,
+    "density_per_s": 1.84,
+    "hnr_db": 6.2,
+    "duration_s": 46.7
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 316
+   }
+  },
+  {
    "id": "tour_live|多听有益|未知20240418_BV11u4m1F7tL",
    "song": "多听有益",
    "version": "未知20240418_BV11u4m1F7tL",
@@ -4662,6 +4802,76 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 120
+   }
+  },
+  {
+   "id": "tour_live|像雾像雨又像风|未知20201118_BV1er4y1F7Nr",
+   "song": "像雾像雨又像风",
+   "version": "未知20201118_BV1er4y1F7Nr",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-11-18",
+   "source_ref": "BV1er4y1F7Nr",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 109.5,
+    "high_note": "C4",
+    "high_hz": 266.8,
+    "span_octaves": 1.28,
+    "stability_cents": 7.4,
+    "intonation_cents": 22.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 77.0,
+    "density_per_s": 2.01,
+    "hnr_db": 5.5,
+    "duration_s": 211.6
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 305
+   }
+  },
+  {
+   "id": "tour_live|敕勒歌|未知20250413_BV14kouYsEhY",
+   "song": "敕勒歌",
+   "version": "未知20250413_BV14kouYsEhY",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2025-04-13",
+   "source_ref": "BV14kouYsEhY",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "B2",
+    "low_hz": 122.8,
+    "high_note": "D#5",
+    "high_hz": 632.7,
+    "span_octaves": 2.37,
+    "stability_cents": 9.7,
+    "intonation_cents": 23.4,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 85.0,
+    "density_per_s": 2.01,
+    "hnr_db": 8.2,
+    "duration_s": 111.4
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 204
    }
   },
   {

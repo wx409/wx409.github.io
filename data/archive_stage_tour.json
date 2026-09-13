@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-13 21:01",
+ "generated_at": "2026-09-14 00:05",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,10 +9,10 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 36,
-  "n_stage_measured": 33,
+  "n_materials": 42,
+  "n_stage_measured": 39,
   "n_from_precision": 3,
-  "n_songs": 14,
+  "n_songs": 16,
   "n_tours": 8,
   "n_verified": 11,
   "n_harmonic_reviewed": 6,
@@ -26,12 +26,12 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 3.06,
-  "stability_median_cents": 7.1,
+  "span_median_octaves": 2.83,
+  "stability_median_cents": 7.2,
   "vibrato_rate_hz_median": 4.97,
-  "vibrato_extent_cents_median": 76.0,
+  "vibrato_extent_cents_median": 77.0,
   "verify_dist": {
-   "未复核": 20,
+   "未复核": 26,
    "谐波列复核通过": 5,
    "待复核": 3,
    "双引擎一致": 5,
@@ -1488,6 +1488,57 @@
    }
   },
   {
+   "tag": "未知20200517_BV1Re411p7XL",
+   "song": "一生守候",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-05-17",
+   "bv": "BV1Re411p7XL",
+   "owner": "王磊_半瓶醋",
+   "title": "王晰《一生守候》混音师版本",
+   "bandwidth_kbps": 323,
+   "source_verdict": "官方直传",
+   "low_note": "D2",
+   "low_hz": 73.0,
+   "low_t_s": 29.41968253968254,
+   "low_dur_s": 0.3250793650793651,
+   "high_note": "A3",
+   "high_hz": 219.0,
+   "span_octaves": 1.58,
+   "stability_cents": 7.3,
+   "intonation_cents": 7.8,
+   "vibrato_hz": 5.32,
+   "vibrato_cents": 89.0,
+   "density_per_s": 1.35,
+   "hnr_db": 11.7,
+   "duration_s": 151.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D2",
+    "hz": 73.0,
+    "why": "1f0 差 -9.2dB、3f0 在（53.5dB）",
+    "fund_gap_db": -9.2,
+    "floor_db": 18.1,
+    "t_s": 29.42,
+    "dur_s": 0.325,
+    "partials": [
+     50.3,
+     59.5,
+     49.7,
+     50.8,
+     53.5,
+     50.0,
+     41.1,
+     36.1
+    ]
+   }
+  },
+  {
    "tag": "杭州20201226_BV1z5411H7yg",
    "song": "花儿为什么这样红",
    "tour": "其他演出",
@@ -1590,6 +1641,57 @@
    }
   },
   {
+   "tag": "南京20190731_BV1Mt411w7cx",
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-31",
+   "bv": "BV1Mt411w7cx",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 南屏晚钟 清唱 南京场",
+   "bandwidth_kbps": 317,
+   "source_verdict": "官方直传",
+   "low_note": "D#2",
+   "low_hz": 77.2,
+   "low_t_s": 19.806621315192743,
+   "low_dur_s": 0.4876190476190476,
+   "high_note": "A3",
+   "high_hz": 215.3,
+   "span_octaves": 1.48,
+   "stability_cents": 9.9,
+   "intonation_cents": 27.5,
+   "vibrato_hz": 5.17,
+   "vibrato_cents": 85.0,
+   "density_per_s": 2.23,
+   "hnr_db": 6.8,
+   "duration_s": 104.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D#2",
+    "hz": 77.2,
+    "why": "1f0 差 -5.0dB、3f0 在（51.0dB）",
+    "fund_gap_db": -5.0,
+    "floor_db": 29.6,
+    "t_s": 19.807,
+    "dur_s": 0.488,
+    "partials": [
+     58.8,
+     63.8,
+     51.0,
+     47.1,
+     43.3,
+     47.1,
+     35.2,
+     37.8
+    ]
+   }
+  },
+  {
    "tag": "未知20190914_BV1SJ411w72G",
    "song": "南屏晚钟",
    "tour": "其他演出",
@@ -1637,6 +1739,57 @@
      51.8,
      32.9,
      33.9
+    ]
+   }
+  },
+  {
+   "tag": "未知20201127_BV1nZ4y1G7Zq",
+   "song": "像雾像雨又像风",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-11-27",
+   "bv": "BV1nZ4y1G7Zq",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰你就可劲儿撩吧谁怕谁啊像雾像雨又像风",
+   "bandwidth_kbps": 313,
+   "source_verdict": "官方直传",
+   "low_note": "E2",
+   "low_hz": 81.9,
+   "low_t_s": 93.80861678004536,
+   "low_dur_s": 0.3947392290249433,
+   "high_note": "C4",
+   "high_hz": 266.8,
+   "span_octaves": 1.7,
+   "stability_cents": 7.2,
+   "intonation_cents": 18.5,
+   "vibrato_hz": 4.92,
+   "vibrato_cents": 70.0,
+   "density_per_s": 1.86,
+   "hnr_db": 5.9,
+   "duration_s": 212.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "E2",
+    "hz": 81.9,
+    "why": "1f0 差 -25.5dB",
+    "fund_gap_db": -25.5,
+    "floor_db": 29.4,
+    "t_s": 93.809,
+    "dur_s": 0.395,
+    "partials": [
+     36.5,
+     38.5,
+     62.0,
+     57.1,
+     32.5,
+     53.4,
+     22.9,
+     33.5
     ]
    }
   },
@@ -1896,6 +2049,57 @@
    }
   },
   {
+   "tag": "未知20190818_BV1x4411f7i9",
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-08-18",
+   "bv": "BV1x4411f7i9",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 坐地升调的南屏晚钟！",
+   "bandwidth_kbps": 316,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 94.3,
+   "low_t_s": 15.673469387755102,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "E4",
+   "high_hz": 325.0,
+   "span_octaves": 1.78,
+   "stability_cents": 8.6,
+   "intonation_cents": 24.5,
+   "vibrato_hz": 4.46,
+   "vibrato_cents": 91.0,
+   "density_per_s": 1.84,
+   "hnr_db": 6.2,
+   "duration_s": 46.7,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 94.3,
+    "why": "1f0 差 -18.7dB、3f0 在（45.1dB）",
+    "fund_gap_db": -18.7,
+    "floor_db": 30.8,
+    "t_s": 15.673,
+    "dur_s": 0.209,
+    "partials": [
+     40.7,
+     52.3,
+     39.9,
+     59.4,
+     45.1,
+     30.9,
+     26.5,
+     20.4
+    ]
+   }
+  },
+  {
    "tag": "未知20240418_BV11u4m1F7tL",
    "song": "多听有益",
    "tour": "其他演出",
@@ -1943,6 +2147,108 @@
      29.7,
      26.4,
      24.8
+    ]
+   }
+  },
+  {
+   "tag": "未知20201118_BV1er4y1F7Nr",
+   "song": "像雾像雨又像风",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-11-18",
+   "bv": "BV1er4y1F7Nr",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰这是我配听的歌吗啊啊啊啊这不是像雾像雨又像风这是要心要魂还要命啊啊啊给你给你都拿去",
+   "bandwidth_kbps": 305,
+   "source_verdict": "官方直传",
+   "low_note": "A2",
+   "low_hz": 109.5,
+   "low_t_s": 127.36145124716553,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "C4",
+   "high_hz": 266.8,
+   "span_octaves": 1.28,
+   "stability_cents": 7.4,
+   "intonation_cents": 22.4,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 77.0,
+   "density_per_s": 2.01,
+   "hnr_db": 5.5,
+   "duration_s": 211.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A2",
+    "hz": 109.5,
+    "why": "1f0 差 -3.4dB、3f0 在（48.4dB）",
+    "fund_gap_db": -3.4,
+    "floor_db": 15.3,
+    "t_s": 127.361,
+    "dur_s": 0.232,
+    "partials": [
+     54.1,
+     57.6,
+     48.4,
+     38.3,
+     29.9,
+     37.9,
+     18.0,
+     39.5
+    ]
+   }
+  },
+  {
+   "tag": "未知20250413_BV14kouYsEhY",
+   "song": "敕勒歌",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2025-04-13",
+   "bv": "BV14kouYsEhY",
+   "owner": "王晰的杂货铺",
+   "title": "王晰《敕勒歌》户外Live版「4k字幕」 | 风起时，天地都是和声 【临平艺尚音乐节点歌 20250413】",
+   "bandwidth_kbps": 204,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "B2",
+   "low_hz": 122.8,
+   "low_t_s": 66.47873015873016,
+   "low_dur_s": 0.18575963718820862,
+   "high_note": "D#5",
+   "high_hz": 632.7,
+   "span_octaves": 2.37,
+   "stability_cents": 9.7,
+   "intonation_cents": 23.4,
+   "vibrato_hz": 4.97,
+   "vibrato_cents": 85.0,
+   "density_per_s": 2.01,
+   "hnr_db": 8.2,
+   "duration_s": 111.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "B2",
+    "hz": 122.8,
+    "why": "1f0 差 +0.0dB、3f0 在（49.9dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 5.8,
+    "t_s": 66.479,
+    "dur_s": 0.186,
+    "partials": [
+     62.4,
+     43.9,
+     49.9,
+     44.9,
+     26.7,
+     31.1,
+     15.0,
+     25.2
     ]
    }
   }
@@ -2004,12 +2310,12 @@
   },
   {
    "song": "一生守候",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [],
    "lowest_note": "C#2",
    "lowest_hz": 69.5,
    "lowest_tag": "新素材11j7s7_BV19J411j7s7",
-   "span_median_octaves": 2.22,
+   "span_median_octaves": 1.9,
    "versions": [
     {
      "tour": "其他演出",
@@ -2020,6 +2326,16 @@
      "span_octaves": 2.22,
      "verify": "未复核",
      "bv": "BV19J411j7s7"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2020-05-17",
+     "low_note": "D2",
+     "low_hz": 73.0,
+     "span_octaves": 1.58,
+     "verify": "未复核",
+     "bv": "BV1Re411p7XL"
     }
    ]
   },
@@ -2101,14 +2417,55 @@
    ]
   },
   {
-   "song": "南屏晚钟",
-   "n_versions": 1,
+   "song": "像雾像雨又像风",
+   "n_versions": 2,
    "tours": [],
    "lowest_note": "E2",
-   "lowest_hz": 80.4,
-   "lowest_tag": "未知20190914_BV1SJ411w72G",
-   "span_median_octaves": 3.12,
+   "lowest_hz": 81.9,
+   "lowest_tag": "未知20201127_BV1nZ4y1G7Zq",
+   "span_median_octaves": 1.49,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2020-11-27",
+     "low_note": "E2",
+     "low_hz": 81.9,
+     "span_octaves": 1.7,
+     "verify": "未复核",
+     "bv": "BV1nZ4y1G7Zq"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2020-11-18",
+     "low_note": "A2",
+     "low_hz": 109.5,
+     "span_octaves": 1.28,
+     "verify": "未复核",
+     "bv": "BV1er4y1F7Nr"
+    }
+   ]
+  },
+  {
+   "song": "南屏晚钟",
+   "n_versions": 3,
+   "tours": [],
+   "lowest_note": "D#2",
+   "lowest_hz": 77.2,
+   "lowest_tag": "南京20190731_BV1Mt411w7cx",
+   "span_median_octaves": 1.78,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "南京",
+     "date": "2019-07-31",
+     "low_note": "D#2",
+     "low_hz": 77.2,
+     "span_octaves": 1.48,
+     "verify": "未复核",
+     "bv": "BV1Mt411w7cx"
+    },
     {
      "tour": "其他演出",
      "city": "",
@@ -2118,6 +2475,16 @@
      "span_octaves": 3.12,
      "verify": "未复核",
      "bv": "BV1SJ411w72G"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2019-08-18",
+     "low_note": "F#2",
+     "low_hz": 94.3,
+     "span_octaves": 1.78,
+     "verify": "未复核",
+     "bv": "BV1x4411f7i9"
     }
    ]
   },
@@ -2227,6 +2594,27 @@
      "span_octaves": 3.45,
      "verify": "未复核",
      "bv": "BV1FE411B7je"
+    }
+   ]
+  },
+  {
+   "song": "敕勒歌",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "B2",
+   "lowest_hz": 122.8,
+   "lowest_tag": "未知20250413_BV14kouYsEhY",
+   "span_median_octaves": 2.37,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2025-04-13",
+     "low_note": "B2",
+     "low_hz": 122.8,
+     "span_octaves": 2.37,
+     "verify": "未复核",
+     "bv": "BV14kouYsEhY"
     }
    ]
   },
@@ -2894,7 +3282,7 @@
  ],
  "live_vs_studio_pair_stats": {
   "included": 0,
-  "excluded_pending": 8,
+  "excluded_pending": 10,
   "excluded_detail": [
    {
     "song": "多听有益",
@@ -2934,6 +3322,13 @@
    {
     "song": "南屏晚钟",
     "tour": "其他演出",
+    "note": "D#2",
+    "hz": 77.2,
+    "verify": "未复核"
+   },
+   {
+    "song": "南屏晚钟",
+    "tour": "其他演出",
     "note": "E2",
     "hz": 80.4,
     "verify": "未复核"
@@ -2943,6 +3338,13 @@
     "tour": "其他演出",
     "note": "F#2",
     "hz": 93.6,
+    "verify": "未复核"
+   },
+   {
+    "song": "南屏晚钟",
+    "tour": "其他演出",
+    "note": "F#2",
+    "hz": 94.3,
     "verify": "未复核"
    },
    {
