@@ -23,7 +23,8 @@ sys.path.insert(0, str(ROOT / "project_b"))
 from build_nav import NAV_ITEMS, target_pages  # noqa: E402
 
 # 应用页/工作文件：自带布局或无完整 HTML 骨架，不参与导航一致性检查
-NAV_CHECK_SKIP_DIRS = {"project_b", "temp", "dashboard", "map"}
+# debate/ 为实验区（noindex、刻意不进主导航），同样不参与导航一致性检查
+NAV_CHECK_SKIP_DIRS = {"project_b", "temp", "dashboard", "map", "debate"}
 
 
 def nav_hrefs(html: str) -> list[str]:
