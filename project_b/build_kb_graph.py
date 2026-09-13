@@ -28,6 +28,18 @@ CITY_PY = {"重庆": "chongqing", "北京": "beijing", "上海": "shanghai", "�
 ALIASES = {"person:wangxi": ["王晰Elvis", "低音炮", "Low C", "晰哥", "王晰老师", "王晰"],
            "person:studio": ["晰息相关Elvis", "王晰工作室"]}
 
+# 来源登记表（2026-09-13 第八阶段）：facts.json 每条事实的 source 字段在此登记
+# 对应的公开 URL 与来源类型，使单条事实可被外部读者/爬虫直接追溯。
+SITE = "https://wx409.github.io"
+SOURCE_REGISTRY = {
+    "timeline.json": (SITE + "/history.html", "站内数据·生涯时间轴"),
+    "songs_meta.json": (SITE + "/works.html", "站内数据·作品元数据"),
+    "live_repos.json": (SITE + "/live.html", "站内数据·现场repo"),
+    "albums.json": (SITE + "/data/albums.json", "站内数据·专辑发行核验"),
+    "quotes.json": (SITE + "/history.html", "站内数据·语录档案"),
+    "analyze_audience_comments": (SITE + "/live-reviews.html", "站内数据·观众评论分析"),
+}
+
 
 def load(p, fb=None):
     try:
@@ -58,9 +70,13 @@ class KB:
 
     def fact(self, subject, prop, value, valid_from="", valid_to="", source="", conf=0.7):
         self.fact_n += 1
+        # 2026-09-13 瘦身 2.0 第八阶段：每条原子事实补 source_url + source_type，
+        # 使 facts.json 单条即可追溯（此前只有 source 文件名，外部读者无法定位）。
+        s_url, s_type = SOURCE_REGISTRY.get(source, ("", "站内数据"))
         self.facts.append({"id": "f%04d" % self.fact_n, "subject": subject, "property": prop,
                            "value": value, "valid_from": valid_from, "valid_to": valid_to,
-                           "source": source, "confidence": round(conf, 2)})
+                           "source": source, "source_url": s_url, "source_type": s_type,
+                           "confidence": round(conf, 2)})
 
     def rel(self, src, rtype, tgt, context="", ref=""):
         self.relations.append({"source": src, "type": rtype, "target": tgt,

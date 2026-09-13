@@ -79,6 +79,7 @@ STEPS = [
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
     (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),
     # 2026-09-13 瘦身 2.0：精简版 7 页（对外主入口）由单一生成器派生，禁止手写数字
+    (ROOT / "project_b" / "build_golden_quotes.py", "金句档案 golden_quotes 图层（跨来源，带证据级别）", True),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
     (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),
@@ -104,32 +105,24 @@ INDEXNOW_URLS = [
     "https://wx409.github.io/sitemap.xml",
     "https://wx409.github.io/feed.xml",
     "https://wx409.github.io/entity_index.json",
-    "https://wx409.github.io/search.html",
-    # 常更新内容入口页（巡演讯息/反馈/新歌/新专辑）
-    "https://wx409.github.io/live-reviews.html",
+    # 2026-09-13 瘦身 2.0：只提交精简版 7 页（对外主入口）。
+    # 旧页不再通知删除、不做 301，自然淡出（URL 全部保留可用）。
+    "https://wx409.github.io/index.html",
+    "https://wx409.github.io/works.html",
+    "https://wx409.github.io/live.html",
+    "https://wx409.github.io/vocal.html",
+    "https://wx409.github.io/history.html",
+    "https://wx409.github.io/research.html",
+    "https://wx409.github.io/community.html",
+    # 常更新内容入口页（现场详情 / 歌单 / 问答 / 知识库）
     "https://wx409.github.io/live/",
-    "https://wx409.github.io/discography.html",
-    "https://wx409.github.io/songs.html",
-    "https://wx409.github.io/timeline.html",
-    "https://wx409.github.io/data-timeline.html",
-    "https://wx409.github.io/kb-semantic.html",
+    "https://wx409.github.io/search.html",
     "https://wx409.github.io/qa.html",
     "https://wx409.github.io/data/kb/kb_digest.md",
-    "https://wx409.github.io/city-guides.html",
-    # 声学实测页（voice/stage：数据类页，改动后单独推送）
-    "https://wx409.github.io/voice.html",
-    "https://wx409.github.io/stage.html",
     # 其他固定入口页
-    "https://wx409.github.io/story.html",
     "https://wx409.github.io/about.html",
-    "https://wx409.github.io/academic.html",
-    "https://wx409.github.io/gallery.html",
-    "https://wx409.github.io/jazz.html",
-    "https://wx409.github.io/submit.html",
-    "https://wx409.github.io/tavern/",
     "https://wx409.github.io/map/",
     "https://wx409.github.io/dashboard/",
-    "https://wx409.github.io/culture/",
 ]
 
 

@@ -243,6 +243,25 @@ def tier_block():
 </div>"""
 
 
+def quote_block(limit=3, themes=None, title="他说过"):
+    """「他说过」区块：跨来源金句档案（带来源与证据级别，待核实单列）。"""
+    gq = QUOTES.get("golden_quotes") or []
+    if themes:
+        gq = [q for q in gq if q.get("theme") in themes]
+    if not gq:
+        return ""
+    rows = []
+    for q in gq[:limit]:
+        lvl = q.get("evidence_level") or ""
+        src = q.get("source") or ""
+        d = q.get("date") or ""
+        meta = " ｜ ".join(x for x in [d, src, ("证据级别：" + lvl) if lvl else ""] if x)
+        warn = "" if lvl != "待核实" else '<span class="src">（待核实，不作对外引用）</span>'
+        rows.append(f'<div class="card">「{esc(q.get("text"))}」'
+                    f'<div class="src">—— {esc(meta)} {warn}</div></div>')
+    return f"<h2>{esc(title)}</h2>\n" + "\n".join(rows)
+
+
 def stat_cards():
     facts = ELEV.get("facts") or {}
     items = [
@@ -480,6 +499,7 @@ def build_live():
 <li><a href="/data/music-index.html">音乐数据周报</a>：指数趋势与当月榜单。</li>
 </ul>
 {source_caveat()}
+{quote_block(3, themes=["媒体表述"], title="他说过 / 别人怎么说")}
 """
     ld = jsonld(
         {"@context": "https://schema.org", "@type": "ItemList",
@@ -622,6 +642,7 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
  f'机读数据见 <a href="/data/archive_vocal_albums.json">archive_vocal_albums.json</a>。</p>' if True else ''}
 
 {source_caveat()}
+{quote_block(3, themes=["低音自述", "权威定性"], title="他说过 / 别人怎么说")}
 """
     ds = {
         "@context": "https://schema.org", "@type": "Dataset",
@@ -680,10 +701,30 @@ def build_history():
 
     gq = (QUOTES.get("golden_quotes") or [])
     if gq:
-        qrows = "\n".join(
-            f'<tr><td class="n">{esc(q.get("date"))}</td><td>{esc(q.get("text"))}</td>'
-            f'<td class="src">{esc(q.get("source"))}</td></tr>' for q in gq)
-        qblock = ('<table>\n<tr><th>时间</th><th>原话</th><th>来源</th></tr>\n' + qrows + "\n</table>")
+        # 待核实条目单列，不混入可引用区（诚实披露纪律）
+        solid = [q for q in gq if (q.get("evidence_level") or "") != "待核实"]
+        pending = [q for q in gq if (q.get("evidence_level") or "") == "待核实"]
+
+        def _qrows(rows):
+            out = []
+            for q in rows:
+                src = q.get("source") or ""
+                url = q.get("source_url") or ""
+                if url:
+                    src = f'<a href="{esc(url)}" rel="noopener nofollow" target="_blank">{esc(src)}</a>'
+                else:
+                    src = esc(src)
+                out.append(f'<tr><td class="n">{esc(q.get("date") or "—")}</td>'
+                           f'<td>「{esc(q.get("text"))}」<div class="src">{esc(q.get("context"))}</div></td>'
+                           f'<td class="src">{src}<br>证据级别：{esc(q.get("evidence_level"))}</td></tr>')
+            return "\n".join(out)
+
+        qblock = ('<table>\n<tr><th>时间</th><th>原话（附语境）</th><th>来源 / 证据级别</th></tr>\n'
+                  + _qrows(solid) + "\n</table>")
+        if pending:
+            qblock += ('<h3>待核实（不作对外引用）</h3>\n<table>\n'
+                       '<tr><th>时间</th><th>原话（附语境）</th><th>来源 / 证据级别</th></tr>\n'
+                       + _qrows(pending) + "\n</table>")
     else:
         lq = (QUOTES.get("quotes") or [])[:6]
         qrows = "\n".join(
