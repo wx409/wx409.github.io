@@ -262,6 +262,30 @@ def quote_block(limit=3, themes=None, title="他说过"):
     return f"<h2>{esc(title)}</h2>\n" + "\n".join(rows)
 
 
+def _dr_table():
+    """7.1 低音区动态范围表（读 data/archive_dynamic_range.json；A1 类不出现）。"""
+    doc = jload("data/archive_dynamic_range.json", {})
+    classes = doc.get("classes") or []
+    if not classes:
+        return '<p class="sub">（动态范围数据待生成）</p>'
+    rows = []
+    for c in classes:
+        d = c.get("dynamic_range_db") or {}
+        status = {"measured": "已实测", "insufficient_sample": "样本不足（不作结论）",
+                  "no_sample": "无样本"}.get(d.get("status"), "待实测")
+        rows.append(
+            f'<tr><td>{esc(c.get("note"))}</td>'
+            f'<td class="n">{"—" if d.get("pp_dbfs") is None else d.get("pp_dbfs")}</td>'
+            f'<td class="n">{"—" if d.get("mf_dbfs") is None else d.get("mf_dbfs")}</td>'
+            f'<td class="n"><strong>{"—" if d.get("range_db") is None else d.get("range_db")}</strong></td>'
+            f'<td class="n">{c.get("n", 0)}</td>'
+            f'<td class="n">{len(c.get("songs") or [])}</td>'
+            f'<td class="src">{esc(status)}</td></tr>')
+    return ('<table>\n<tr><th>音级</th><th>最弱 P5(dBFS)</th><th>最强 P95(dBFS)</th>'
+            '<th>动态范围(dB)</th><th>出现次数</th><th>曲目数</th><th>状态</th></tr>\n'
+            + "\n".join(rows) + "\n</table>")
+
+
 def stat_cards():
     facts = ELEV.get("facts") or {}
     items = [
@@ -643,6 +667,12 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 
 {source_caveat()}
 {quote_block(3, themes=["低音自述", "权威定性"], title="他说过 / 别人怎么说")}
+<h2>附：低音区动态范围（已实测）</h2>
+<p>对<strong>已过复核门槛</strong>的音级（A1/A#1 未复核，不进此表），复用已测素材的人声分离轨逐音符短时 RMS，
+按音级聚合全部出现、取 P5/P95 作 pp/mf 端点：</p>
+{_dr_table()}
+<p class="src">口径说明：这是「同一音级在不同语境下的音量跨度」，不是单音的教科书 pp/mf；n&lt;3 的音级标「样本不足」，不作对外结论。
+数据源 <a href="/data/archive_dynamic_range.json">archive_dynamic_range.json</a>。</p>
 """
     ds = {
         "@context": "https://schema.org", "@type": "Dataset",
