@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-13 14:01",
+ "generated_at": "2026-09-13 17:01",
  "pool_size": 168,
  "policy": {
   "rotation": "按日期序数取模（确定性：同一天任意次运行结果一致）",
@@ -26,7 +26,7 @@
   "index": 1,
   "pool_size": 168,
   "date": "2026-09-13",
-  "generated_at": "2026-09-13 14:01"
+  "generated_at": "2026-09-13 17:01"
  },
  "recent": [
   {
@@ -47,7 +47,7 @@
    "index": 1,
    "pool_size": 168,
    "date": "2026-09-13",
-   "generated_at": "2026-09-13 14:01"
+   "generated_at": "2026-09-13 17:01"
   },
   {
    "key": "b1:四巡现场直拍",
@@ -659,7 +659,7 @@
    "index": 1,
    "pool_size": 168,
    "date": "2026-09-13",
-   "generated_at": "2026-09-13 14:01"
+   "generated_at": "2026-09-13 17:01"
   }
  ]
 }
