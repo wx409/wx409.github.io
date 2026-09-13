@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-13 17:01",
-  "count": 28,
+  "generated_at": "2026-09-13 18:43",
+  "count": 35,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -225,6 +225,62 @@
       "scope": "四巡｜杭州 2024（BV1ArKxe7E8H）｜@57.8s（1.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径**",
       "source": "data\\archive_vocal.json#songs[].live_low_events",
       "note": "低音成分归属（人声/伴奏）未判定；不作能力主张"
+    },
+    {
+      "id": "dynamic_range_B1",
+      "label": "B1 低音区动态范围（P95−P5）",
+      "value": 11.4,
+      "scope": "已过复核门槛的音级 B1（）：pp -22.0 dBFS → mf -10.6 dBFS，n=8 次出现 / 5 曲",
+      "source": "data\\archive_dynamic_range.json#classes[]",
+      "note": "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；measured；A1/A#1 未复核，不入本口径"
+    },
+    {
+      "id": "dynamic_range_C2",
+      "label": "C2 低音区动态范围（P95−P5）",
+      "value": 21.3,
+      "scope": "已过复核门槛的音级 C2（）：pp -35.0 dBFS → mf -13.7 dBFS，n=38 次出现 / 16 曲",
+      "source": "data\\archive_dynamic_range.json#classes[]",
+      "note": "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；measured；A1/A#1 未复核，不入本口径"
+    },
+    {
+      "id": "dynamic_range_Cs2",
+      "label": "C#2 低音区动态范围（P95−P5）",
+      "value": 15.7,
+      "scope": "已过复核门槛的音级 C#2（）：pp -31.6 dBFS → mf -15.9 dBFS，n=35 次出现 / 16 曲",
+      "source": "data\\archive_dynamic_range.json#classes[]",
+      "note": "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；measured；A1/A#1 未复核，不入本口径"
+    },
+    {
+      "id": "dynamic_range_D2",
+      "label": "D2 低音区动态范围（P95−P5）",
+      "value": 16.4,
+      "scope": "已过复核门槛的音级 D2（）：pp -31.1 dBFS → mf -14.7 dBFS，n=106 次出现 / 43 曲",
+      "source": "data\\archive_dynamic_range.json#classes[]",
+      "note": "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；measured；A1/A#1 未复核，不入本口径"
+    },
+    {
+      "id": "dynamic_range_Ds2",
+      "label": "D#2 低音区动态范围（P95−P5）",
+      "value": 18.9,
+      "scope": "已过复核门槛的音级 D#2（）：pp -29.9 dBFS → mf -11.0 dBFS，n=75 次出现 / 32 曲",
+      "source": "data\\archive_dynamic_range.json#classes[]",
+      "note": "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；measured；A1/A#1 未复核，不入本口径"
+    },
+    {
+      "id": "dynamic_range_E2",
+      "label": "E2 低音区动态范围（P95−P5）",
+      "value": 19.0,
+      "scope": "已过复核门槛的音级 E2（）：pp -32.4 dBFS → mf -13.4 dBFS，n=123 次出现 / 44 曲",
+      "source": "data\\archive_dynamic_range.json#classes[]",
+      "note": "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；measured；A1/A#1 未复核，不入本口径"
+    },
+    {
+      "id": "analysis_queue_items",
+      "label": "自动化分析管线队列条目数",
+      "value": 2,
+      "scope": "data/analysis_queue.json：新增分析对象（含横向对比候选歌手）的唯一入口",
+      "source": "data\\analysis_queue.json#items",
+      "note": "状态流转 pending→fetched→analyzed；未测歌手不填估计值，只登记"
     }
   ]
 }

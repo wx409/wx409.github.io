@@ -252,6 +252,35 @@ def collect() -> list[dict]:
     except Exception as e:
         add("reach_duotingyouyi", "多听有益 念诵段触达音", None, "archive_vocal.json 不可读", str(e), "")
 
+    # 7.1 低音区动态范围（2026-09-13）：已过复核门槛的音级聚合，P5/P95 稳健分位
+    try:
+        dr = _load("data/archive_dynamic_range.json") or {}
+        for c in (dr.get("classes") or []):
+            d = c.get("dynamic_range_db") or {}
+            if d.get("range_db") is None:
+                continue
+            add("dynamic_range_" + str(c.get("note")).replace("#", "s"),
+                f'{c.get("note")} 低音区动态范围（P95−P5）', d.get("range_db"),
+                f'已过复核门槛的音级 {c.get("note")}（{c.get("hz") or ""}）：'
+                f'pp {d.get("pp_dbfs")} dBFS → mf {d.get("mf_dbfs")} dBFS，n={c.get("n")} 次出现 / '
+                f'{len(c.get("songs") or [])} 曲',
+                "data\\archive_dynamic_range.json#classes[]",
+                "复用人声分离轨逐音符短时 RMS 的稳健分位，**不是单音教科书 pp/mf**；"
+                f'{d.get("status")}；A1/A#1 未复核，不入本口径')
+    except Exception as e:
+        add("dynamic_range_B1", "B1 低音区动态范围", None, "archive_dynamic_range.json 不可读", str(e), "")
+
+    # 7.5 自动化分析管线队列规模
+    try:
+        aq = _load("data/analysis_queue.json") or {}
+        items = aq.get("items") or []
+        add("analysis_queue_items", "自动化分析管线队列条目数", len(items),
+            "data/analysis_queue.json：新增分析对象（含横向对比候选歌手）的唯一入口",
+            "data\\analysis_queue.json#items",
+            "状态流转 pending→fetched→analyzed；未测歌手不填估计值，只登记")
+    except Exception as e:
+        add("analysis_queue_items", "自动化分析管线队列条目数", None, str(e), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 

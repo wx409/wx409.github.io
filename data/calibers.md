@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-13 17:01　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-13 18:43　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -35,6 +35,13 @@
 | `reach_多听有益` | 多听有益 念诵段触达音（G#1） | **51.9** | 录音室 MV / 念诵段 @80.0s：混音带限自相关 + 外部耳测；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].reach_*` |
 | `reach_live_多听有益` | 多听有益 现场念诵段低音事件（A1） | **56.5** | 四巡｜北京 2023-11-12（王晰本人号直拍 BV1Ab4y1g7Wj）｜@55.5s（2.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].live_low_events` |
 | `reach_live_多听有益` | 多听有益 现场念诵段低音事件（A1） | **54.3** | 四巡｜杭州 2024（BV1ArKxe7E8H）｜@57.8s（1.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].live_low_events` |
+| `dynamic_range_B1` | B1 低音区动态范围（P95−P5） | **11.4** | 已过复核门槛的音级 B1（）：pp -22.0 dBFS → mf -10.6 dBFS，n=8 次出现 / 5 曲 | `data\archive_dynamic_range.json#classes[]` |
+| `dynamic_range_C2` | C2 低音区动态范围（P95−P5） | **21.3** | 已过复核门槛的音级 C2（）：pp -35.0 dBFS → mf -13.7 dBFS，n=38 次出现 / 16 曲 | `data\archive_dynamic_range.json#classes[]` |
+| `dynamic_range_Cs2` | C#2 低音区动态范围（P95−P5） | **15.7** | 已过复核门槛的音级 C#2（）：pp -31.6 dBFS → mf -15.9 dBFS，n=35 次出现 / 16 曲 | `data\archive_dynamic_range.json#classes[]` |
+| `dynamic_range_D2` | D2 低音区动态范围（P95−P5） | **16.4** | 已过复核门槛的音级 D2（）：pp -31.1 dBFS → mf -14.7 dBFS，n=106 次出现 / 43 曲 | `data\archive_dynamic_range.json#classes[]` |
+| `dynamic_range_Ds2` | D#2 低音区动态范围（P95−P5） | **18.9** | 已过复核门槛的音级 D#2（）：pp -29.9 dBFS → mf -11.0 dBFS，n=75 次出现 / 32 曲 | `data\archive_dynamic_range.json#classes[]` |
+| `dynamic_range_E2` | E2 低音区动态范围（P95−P5） | **19.0** | 已过复核门槛的音级 E2（）：pp -32.4 dBFS → mf -13.4 dBFS，n=123 次出现 / 44 曲 | `data\archive_dynamic_range.json#classes[]` |
+| `analysis_queue_items` | 自动化分析管线队列条目数 | **2** | data/analysis_queue.json：新增分析对象（含横向对比候选歌手）的唯一入口 | `data\analysis_queue.json#items` |
 
 ## 常见误用
 
