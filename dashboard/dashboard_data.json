@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-13 12:19",
+  "timestamp": "2026-09-13 13:10",
   "total": 273016,
   "success": 56463,
   "complete_rate": 20.7,
@@ -198085,7 +198085,7 @@
         31.8,
         31.0,
         33.3,
-        40.2,
+        40.8,
         25.1,
         32.5,
         25.2,
@@ -198387,8 +198387,8 @@
       "在路上"
     ],
     "values": [
-      151.1,
-      126.9
+      151.5,
+      126.4
     ],
     "spring": [
       true,
@@ -205883,15 +205883,86 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 9,
+    "active_count": 10,
     "total_tracked": 383,
-    "concentration_top3": 74.0,
+    "concentration_top3": 71.6,
     "as_of": "2026-09-13",
-    "too_small": true
+    "too_small": false
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 56.1,
+      "trend_pct": 28.1,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "在路上",
+      "share_pct": 8.3,
+      "trend_pct": 162.1,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "一生中最爱",
+      "share_pct": 7.1,
+      "trend_pct": 75.7,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "山楂树",
+      "share_pct": 6.7,
+      "trend_pct": 110.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "再叙",
+      "share_pct": 6.4,
+      "trend_pct": 100.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
+      "song": "月弯弯",
+      "share_pct": 4.9,
+      "trend_pct": 28.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "亲密爱人",
+      "share_pct": 3.6,
+      "trend_pct": 50.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 8,
+      "song": "神魂颠倒",
+      "share_pct": 3.3,
+      "trend_pct": 87.5,
+      "trend_label": "up"
+    },
+    {
+      "rank": 9,
+      "song": "Sound of Silence",
+      "share_pct": 2.3,
+      "trend_pct": -8.7,
+      "trend_label": "down"
+    },
+    {
+      "rank": 10,
+      "song": "一生守候",
+      "share_pct": 1.2,
+      "trend_pct": 0.0,
+      "trend_label": "flat"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-09-13 12:19",
+  "last_update": "2026-09-13 13:10",
   "today_batches": 1229,
   "daily_new_records": 0,
   "recent_7days": [
@@ -205953,13 +206024,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 3567,
-      "success": 3567,
+      "total": 3568,
+      "success": 3568,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1531574,
+      "before": 1531827,
       "after": 283576
     },
     "index_calibration": {
@@ -206224,7 +206295,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-09-13 12:19",
+    "generated_at": "2026-09-13 13:10",
     "overview": "共 87 场活动 / 3066 个歌曲观测，正涨幅 1292（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.1%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
