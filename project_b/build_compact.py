@@ -232,15 +232,21 @@ def citable_table():
 
 
 def tier_block():
-    """三级读数制度（全站声学页统一文本块；逐页复制，不用 Jekyll include）。"""
-    return """<div class="warn">
+    """三级读数制度（全站声学页统一文本块；逐页复制，不用 Jekyll include）。
+
+    标记与旧页生成器（generate_voice_page.py / build_stage_page.py / build_skill_page.py）
+    使用同一对注释标记，便于跨页核对「四页都插入了同一段」。
+    """
+    return """<!-- TIER-CALIBER:START（三级读数制度统一文本块，勿手改）-->
+<div class="warn">
 <strong>三级读数制度（本站声学数据统一口径）</strong>
 <ul>
 <li><strong>稳定音（能力口径）</strong>：过复核门槛的最低音，可作能力结论，可进标题和对外引用句。</li>
 <li><strong>触达音</strong>：实际到过的最低 F0，但未满足持续时长/复核门槛——展示但<strong>不作能力依据</strong>，不进汇总计数、不进标题。</li>
 <li><strong>低音带读数</strong>：归属未完全确认（人声/乐器/念诵），标<strong>仅供参考</strong>，三不许：不进汇总、不进统计、不进对外引用句。</li>
 </ul>
-</div>"""
+</div>
+<!-- TIER-CALIBER:END -->"""
 
 
 def quote_block(limit=3, themes=None, title="他说过"):
@@ -291,6 +297,16 @@ def _cmp_block():
             + "\n".join(rows) + "\n</table>\n"
             '<p class="src">纪律：只呈现数值与测量条件，不排名、不做主观结论；'
             '未测歌手写「未测·已登记」，不填估计值或二手说法。</p>')
+
+
+def _dr_block():
+    """7.1 低音区动态范围（结论段落 + 表），放到 vocal.html 首屏（结论之后）。"""
+    return """<h2>低音区动态范围实测</h2>
+<p>对<strong>已过复核门槛</strong>的音级（A1/A#1 未复核，不进此表），复用已测素材的人声分离轨逐音符短时 RMS，
+按音级聚合全部出现、取 P5/P95 作 pp/mf 端点：</p>
+""" + _dr_table() + """
+<p class="src">口径说明：这是「同一音级在不同语境下的音量跨度」，不是单音的教科书 pp/mf；n&lt;3 的音级标「样本不足」，不作对外结论。
+数据源 <a href="/data/archive_dynamic_range.json">archive_dynamic_range.json</a>。</p>"""
 
 
 def _dr_table():
@@ -658,6 +674,8 @@ def build_vocal():
 
 {tier_block()}
 
+{_dr_block()}
+
 <h2>一、方法学（可复现）</h2>
 <div class="card">
 <strong>测量流程：</strong>音源 → demucs（htdemucs，GPU）人声分离 → 自研 numpy YIN 逐帧基频
@@ -698,12 +716,6 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 
 {source_caveat()}
 {quote_block(3, themes=["低音自述", "权威定性"], title="他说过 / 别人怎么说")}
-<h2>附：低音区动态范围（已实测）</h2>
-<p>对<strong>已过复核门槛</strong>的音级（A1/A#1 未复核，不进此表），复用已测素材的人声分离轨逐音符短时 RMS，
-按音级聚合全部出现、取 P5/P95 作 pp/mf 端点：</p>
-{_dr_table()}
-<p class="src">口径说明：这是「同一音级在不同语境下的音量跨度」，不是单音的教科书 pp/mf；n&lt;3 的音级标「样本不足」，不作对外结论。
-数据源 <a href="/data/archive_dynamic_range.json">archive_dynamic_range.json</a>。</p>
 <h2>附二：同管线对照（扩展位）</h2>
 {_cmp_block()}
 <p class="src">完整对照框架（控制变量 + 8 个维度记录要求）见

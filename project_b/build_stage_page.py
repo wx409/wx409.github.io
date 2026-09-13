@@ -43,6 +43,27 @@ img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid
 """
 
 
+_TIER_BLOCK = '''<!-- TIER-CALIBER:START（三级读数制度统一文本块，勿手改）-->
+<div style="margin:14px 0;padding:12px 16px;background:#fff8f0;border:1px solid #eddcc0;border-radius:8px;font-size:14px;line-height:1.9">
+<strong>三级读数制度（本站声学数据统一口径，全站一致）</strong>
+<ul style="margin:6px 0 0;padding-left:22px">
+<li><strong>稳定音（能力口径）</strong>：过复核门槛的最低音，可作能力结论，可进标题和对外引用句。</li>
+<li><strong>触达音</strong>：实际到过的最低 F0，但未满足持续时长/复核门槛——展示但<strong>不作能力依据</strong>，不进汇总计数、不进标题。</li>
+<li><strong>低音带读数</strong>：归属未完全确认（人声/乐器/念诵），标<strong>仅供参考</strong>，三不许：不进汇总、不进统计、不进对外引用句。</li>
+</ul>
+</div>
+<!-- TIER-CALIBER:END -->'''
+
+
+def _note(text, tag) -> str:
+    """归档提示（瘦身 2.0 第六阶段）：旧页表格保留为完整快照，只加提示链接。"""
+    return (f'<!-- {tag}:START（归档提示，勿手改）-->\n'
+            f'<div style="margin:8px 0;padding:8px 14px;background:#faf6ee;'
+            f'border-left:3px solid #b8912e;border-radius:6px;font-size:13px;color:#6b5b3a">'
+            f'📌 <strong>内容已归档</strong>：{text}。<em>本页表格一律保留为完整快照，不删内容。</em></div>\n'
+            f'<!-- {tag}:END -->')
+
+
 def esc(s) -> str:
     return html.escape(str(s if s is not None else ""), quote=True)
 
@@ -132,7 +153,8 @@ def tour_layer_html() -> str:
     pair_html = ""
     if pair_rows:
         n_pair_songs = len({p.get("song") for p in (t.get("live_vs_studio_pairs") or [])})
-        pair_html = (f"<h3>同曲对照 A：现场 ↔ 录音室（{len(t.get('live_vs_studio_pairs') or [])} 组 / {n_pair_songs} 首）</h3>"
+        pair_html = (_note("现场↔录音室同曲对照的最新版本见 live.html", "NOTE-SVL-LIVE-STAGE") + "\n"
+                     + f"<h3>同曲对照 A：现场 ↔ 录音室（{len(t.get('live_vs_studio_pairs') or [])} 组 / {n_pair_songs} 首）</h3>"
                      "<table><tr><th>曲目</th><th>现场（巡次·城市）</th><th>现场最低稳定音</th>"
                      "<th>录音室专辑</th><th>录音室最低稳定音</th><th>差(半音)</th></tr>"
                      + pair_rows + "</table>"
@@ -455,6 +477,8 @@ def main() -> None:
 
 <h1>🎤 现场音域实测 · 双层</h1>
 <p class="sub">能力层：王晰主导巡演现场（{tour_n if tour_n else '—'} 条已实测素材）｜对照层：他人主导综艺 / 晚会 / 盛典商演 / 饭拍（{src['analyzed']} 个素材）· 更新 {esc(page_updated)}</p>
+
+{_TIER_BLOCK}
 
 {tour_html}
 

@@ -14,6 +14,7 @@ import io
 import json
 from datetime import datetime
 from pathlib import Path
+from statistics import median
 
 ROOT = Path(__file__).resolve().parent.parent
 esc = lambda s: H.escape(str(s if s is not None else ""))
@@ -25,6 +26,18 @@ def load(rel, default=None):
         return json.loads(p.read_text(encoding="utf-8"))
     except Exception:
         return default if default is not None else {}
+
+
+_TIER_BLOCK = '''<!-- TIER-CALIBER:START（三级读数制度统一文本块，勿手改）-->
+<div style="margin:14px 0;padding:12px 16px;background:#fff8f0;border:1px solid #eddcc0;border-radius:8px;font-size:14px;line-height:1.9">
+<strong>三级读数制度（本站声学数据统一口径，全站一致）</strong>
+<ul style="margin:6px 0 0;padding-left:22px">
+<li><strong>稳定音（能力口径）</strong>：过复核门槛的最低音，可作能力结论，可进标题和对外引用句。</li>
+<li><strong>触达音</strong>：实际到过的最低 F0，但未满足持续时长/复核门槛——展示但<strong>不作能力依据</strong>，不进汇总计数、不进标题。</li>
+<li><strong>低音带读数</strong>：归属未完全确认（人声/乐器/念诵），标<strong>仅供参考</strong>，三不许：不进汇总、不进统计、不进对外引用句。</li>
+</ul>
+</div>
+<!-- TIER-CALIBER:END -->'''
 
 
 def comparison_block() -> str:
@@ -83,16 +96,18 @@ def main() -> int:
     if asum:
         dims.append(("音域跨度", "跨度中位", f"{asum.get('span_median_octaves')} 个八度",
                      f"最大 {asum.get('span_max_octaves')}", "72 曲全量"))
-    vib = [s.get("vibrato_rate_hz_median") for s in (v.get("songs") or []) if s.get("vibrato_rate_hz_median")]
-    if vib:
-        dims.append(("颤音", "速率中位", f"{sorted(vib)[len(vib)//2]} Hz", "专业常见 4.5–6.5Hz", "跨素材精测"))
-    vc = [s.get("vibrato_extent_cents_median") for s in (v.get("songs") or []) if s.get("vibrato_extent_cents_median")]
-    if vc:
-        dims.append(("颤音", "幅度中位", f"{sorted(vc)[len(vc)//2]} 音分", "专业常见 50–100 音分", "跨素材精测"))
-    st = [s.get("stability_cents_median") for s in (v.get("songs") or []) if s.get("stability_cents_median")]
-    if st:
-        dims.append(("长音控制", "音符内稳定性中位", f"{sorted(st)[len(st)//2]} 音分",
-                     "越小越稳（同一音内 F0 抖动）", "跨素材精测"))
+    # 2026-09-13 修正：archive_vocal.json 的逐曲字段不含 stability/vibrato（那是专辑层 stats 的指标），
+    # 原代码读逐曲字段恒为空 → 七维表与结论句长期显示「—」。改从 archive_vocal_albums.summary 取（72 曲全量口径）。
+    st = asum.get("stability_cents_median")
+    if st is not None:
+        dims.append(("长音控制", "音符内稳定性中位", f"{st} 音分",
+                     "越小越稳（同一音内 F0 抖动）", "72 曲全量"))
+    if asum.get("vibrato_rate_hz_median") is not None:
+        dims.append(("颤音", "速率中位", f"{asum.get('vibrato_rate_hz_median')} Hz",
+                     "专业常见 4.5–6.5Hz", "72 曲全量"))
+    if asum.get("vibrato_extent_cents_median") is not None:
+        dims.append(("颤音", "幅度中位", f"{asum.get('vibrato_extent_cents_median')} 音分",
+                     "专业常见 50–100 音分", "72 曲全量"))
     if asum:
         dims.append(("长音控制", "音准偏差中位", f"{asum.get('intonation_cents_median', '—')} 音分",
                      "与十二平均律最近半音之差", "72 曲全量"))
@@ -202,13 +217,14 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 
 <div class="hl">
 <strong>一句话结论：</strong>可测量的唱功证据里，他最突出的不是"能唱多低"，而是
-<strong>低音区的长音控制</strong>（音符内稳定性中位 {esc(sorted(st)[len(st)//2] if st else '—')} 音分）与
-<strong>颤音的长期一致性</strong>（跨七年 4.89–5.17Hz，极差 &lt;0.3Hz）；
-低音能力本身（最低稳定音 <strong>{esc(concl.get('main_range','—'))}</strong>）是"稀缺性锚点"，
+<strong>低音区的长音控制</strong>（音符内稳定性中位 {esc(asum.get('stability_cents_median', '—'))} 音分）与
+<strong>颤音的长期一致性</strong>（跨七年 4.89–5.17Hz，极差 &lt;0.3Hz）；低音能力本身（最低稳定音 <strong>{esc(concl.get('main_range','—'))}</strong>）是"稀缺性锚点"，
 而"低音区的花腔式跑动"是比"低音炮"更难被替代的技术特征。
 </div>
 
 {card_html}
+
+{_TIER_BLOCK}
 
 <h2>一、七个维度（实测值）</h2>
 <table>
@@ -235,6 +251,10 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 <p class="sub">对照只说明"使用模式差异"，不指向能力排序——两组曲目库与编曲条件不同。</p>
 
 <h2>五、跨素材精测与取证状态（可追溯）</h2>
+<!-- NOTE-STRICT-VOCAL:START（归档提示，勿手改）-->
+<div style="margin:8px 0;padding:8px 14px;background:#faf6ee;border-left:3px solid #b8912e;border-radius:6px;font-size:13px;color:#6b5b3a">
+📌 <strong>内容已归档</strong>：跨素材精测与取证状态表的最新版本见 vocal.html。<em>本页表格一律保留为完整快照，不删内容。</em></div>
+<!-- NOTE-STRICT-VOCAL:END -->
 <table>
 <tr><th>曲目</th><th>最低稳定音</th><th>频率</th><th>时长</th><th>HNR</th><th>复核状态</th></tr>
 {st_rows}
