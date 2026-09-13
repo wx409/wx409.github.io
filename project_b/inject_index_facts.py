@@ -24,7 +24,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TARGET = ROOT / "index.html"
+TARGET = ROOT / "archive-index.html"   # 2026-09-13 瘦身 2.0：事实块随完整版首页迁至私密入口页
 COVERAGE_JSON = Path(r"E:\wx\wx_textmine_out\music_index_raw_coverage.json")
 LONG_CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
 

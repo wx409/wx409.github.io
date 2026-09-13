@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TARGET = ROOT / "index.html"
+TARGET = ROOT / "archive-index.html"   # 2026-09-13 瘦身 2.0：音域摘要块随完整版首页迁至私密入口页
 START = "<!-- VOCAL-SUMMARY:START（由 project_b/inject_vocal_summary.py 生成，勿手改）-->"
 END = "<!-- VOCAL-SUMMARY:END -->"
 
@@ -34,7 +34,8 @@ def build_block() -> str:
     c = vocal["conclusion"]
     sm = alb["summary"]
 
-    b1_songs = [s["name"] for s in vocal["songs"] if (s.get("lowest_note") or "").startswith("B1")]
+    # 2026-09-13 修正：archive_vocal.json 的曲目字段是 stable_note（旧代码读 lowest_note，恒为空）
+    b1_songs = [s["name"] for s in vocal["songs"] if str(s.get("stable_note") or "").startswith("B1")]
     album_b1 = [s["title"] for s in alb["songs"] if str(s.get("low") or "").startswith("B1")]
 
     body = (

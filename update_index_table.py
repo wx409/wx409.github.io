@@ -165,7 +165,7 @@ def update_index(index_path: Path, entries: list[dict], effects: dict | None = N
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="更新首页演出动态表格")
-    parser.add_argument("--index", default="index.html")
+    parser.add_argument("--index", default="archive-index.html")  # 瘦身 2.0：动态表格随完整版首页迁至私密入口页
     parser.add_argument("--live-dir", default="./live/")
     args = parser.parse_args()
 

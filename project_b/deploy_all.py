@@ -78,6 +78,8 @@ STEPS = [
     (ROOT / "tavern" / "_build_songs_compact.py", "小酒馆歌曲索引", False),
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
     (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),
+    # 2026-09-13 瘦身 2.0：精简版 7 页（对外主入口）由单一生成器派生，禁止手写数字
+    (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
     (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),
     (ROOT / "project_b" / "audit_nav.py", "导航与内链审计（孤儿页=0 把关）", False),

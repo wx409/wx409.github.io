@@ -18,7 +18,7 @@ from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 ROOT = Path(r'D:\wx409.github.io')
-INDEX = ROOT / 'index.html'
+INDEX = ROOT / 'archive-index.html'   # 2026-09-13 瘦身 2.0：完整版首页快照迁至私密入口页
 DASH = ROOT / 'dashboard' / 'dashboard_data.json'
 SETLISTS = ROOT / 'data' / 'setlists.json'
 LIVE_DIR = ROOT / 'live'

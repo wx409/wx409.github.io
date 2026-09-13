@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王晰声音数据实测 | 最低稳定音 B1 61.5Hz · 72 首全量</title>
+<meta name="description" content="王晰音域实测：72 首录音室曲目全部完成人声分离 + 逐帧 F0，最低稳定音 B1（61.5Hz），跨度中位 2.30 个八度；三级读数制度 + 方法学 + 与他人同管线对照。">
+<meta name="keywords" content="王晰,音域,最低稳定音,B1,Low C,F0,人声分离,声学实测">
+<link rel="canonical" href="https://wx409.github.io/vocal.html">
+<meta property="og:title" content="王晰声音数据实测 · 最低稳定音 B1 61.5Hz">
+<meta property="og:description" content="王晰音域实测：72 首录音室曲目全部完成人声分离 + 逐帧 F0，最低稳定音 B1（61.5Hz），跨度中位 2.30 个八度；三级读数制度 + 方法学 + 与他人同管线对照。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wx409.github.io/vocal.html">
+<meta property="og:site_name" content="王晰 GEO 数字档案站">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "王晰音域实测数据集（72 首录音室曲目 + 17 首跨素材精测）",
+  "description": "对王晰 72 首录音室曲目做 demucs 人声分离与逐帧 F0 提取（自研 YIN），最低稳定音 B1 61.5Hz，跨度中位 2.30 个八度；最高音 C6 含伴唱/和声干扰风险，需听辨。",
+  "url": "https://wx409.github.io/vocal.html",
+  "creator": {
+    "@type": "Organization",
+    "name": "王晰 GEO 数字档案站"
+  },
+  "measurementTechnique": "demucs htdemucs 人声分离 + 自研 numpy YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）+ CREPE 交叉校验",
+  "variableMeasured": [
+    "最低稳定音",
+    "最高稳定音",
+    "音域跨度",
+    "音符内稳定性",
+    "十二平均律偏差",
+    "颤音速率与幅度",
+    "音符密度"
+  ],
+  "license": "https://wx409.github.io/about.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchProject",
+  "name": "王晰声学实测（人声分离 + 逐帧 F0）",
+  "description": "对王晰录音室与现场素材做统一管线声学实测，产出可复算的逐帧 F0 与逐曲指标；当前口径 72 首录音室曲目 + 17 首跨素材精测 + 32 个他人主导舞台素材。",
+  "url": "https://wx409.github.io/vocal.html",
+  "isBasedOn": [
+    "data/archive_vocal.json",
+    "data/archive_vocal_albums.json",
+    "data/archive_stage.json",
+    "data/archive_context_compare.json"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "王晰的最低音到底是多少？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "按稳定音口径（音符时长 ≥0.15s、HNR ≥5dB、极值音本身 ≥0.2s），72 首录音室曲目实测最低稳定音为 B1（61.5Hz，《静止了的夜晚》），低音主区 B1–D2（61.5–75.5Hz）。另有触达音读数更低，但未过复核门槛，不作能力依据。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "网上说王晰能唱 Low C，Low C 是多低？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Low C 就是 C2（约 65.4Hz）。本站实测的 B1 比 Low C 还低一个半音；实测低音主区 B1–D2 全部低于一般男低音的常用下限 E2（82.4Hz）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这些音域数据是怎么测出来的？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "音源先用 demucs htdemucs 做人声分离，再用自研 numpy YIN 做逐帧基频提取（55–1100Hz），经音符切分与稳健过滤后得到稳定音，并以 CREPE 与原始混音谐波列做交叉校验。逐帧 F0 全部落盘可复算。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么不同页面的最低音读数不一样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "因为口径与样本范围不同：稳定音是能力口径，触达音是「到过」的记录，低音带读数是限带中位值。本站对三类读数实行三级制度，并与 data/calibers.md 口径登记表对应，禁止混用。"
+      }
+    }
+  ]
+}
+</script>
+<style>
+:root{--red:#c41e3a;--gold:#b8912e;--ink:#222;--sub:#6b6b6b;--line:#e6e2da;--bg:#fffdf8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+line-height:1.85;font-size:16px}
+.wrap{max-width:900px;margin:0 auto;padding:20px 18px 8px}
+.nav{background:#fff;border-bottom:1px solid var(--line);padding:10px 18px;display:flex;flex-wrap:wrap;gap:14px;
+font-size:14px}
+.nav a{color:#444;text-decoration:none}
+.nav a:hover{color:var(--red)}
+h1{font-size:25px;line-height:1.5;margin:18px 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-left:10px;border-left:4px solid var(--gold)}
+h3{font-size:16px;margin:20px 0 6px;color:#3a3a3a}
+p{margin:8px 0}
+.sub{color:var(--sub);font-size:13.5px}
+.answer{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:8px;
+padding:14px 16px;margin:14px 0;font-size:15.5px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;background:#fff}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#faf6ee;font-weight:600}
+td.n{white-space:nowrap}
+.src{font-size:12.5px;color:var(--sub)}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+a{color:var(--red)}
+footer.site-index{max-width:900px;margin:36px auto;padding:16px 18px;border-top:1px solid var(--line);
+font-size:13px;color:#666;line-height:2}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:12px 0}
+.warn{background:#fff8f0;border:1px solid #eddcc0;border-radius:8px;padding:12px 16px;font-size:14px}
+</style>
+</head>
+<body>
+<!-- NAV_START -->
+<div class="nav">
+    <a href="/index.html">🏠 首页</a>
+    <a href="/works.html">🎵 作品</a>
+    <a href="/live.html">🎤 现场</a>
+    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
+    <a href="/history.html">📅 生涯</a>
+    <a href="/research.html">📚 研究</a>
+    <a href="/community.html">💬 参与</a>
+</div>
+<!-- NAV_END -->
+<div class="wrap">
+<h1>他的声音数据是什么</h1>
+<p class="sub">72 首录音室曲目全量实测 ｜ 人声分离 + 逐帧 F0 ｜ 更新 2026-09-13</p>
+
+<div class="answer"><strong>核心结论（稳定音口径）：</strong>王晰录音室作品的最低稳定音为
+<strong>B1（61.5Hz，《静止了的夜晚》）</strong>，低于男低音标志音 Low C（C2，65.4Hz）；
+低音主区为 B1–D2（61.5–75.5Hz），
+全部低于一般男低音下限 E2(82.4Hz)。跨度中位 2.30 个八度。</div>
+
+<div class="warn">
+<strong>三级读数制度（本站声学数据统一口径）</strong>
+<ul>
+<li><strong>稳定音（能力口径）</strong>：过复核门槛的最低音，可作能力结论，可进标题和对外引用句。</li>
+<li><strong>触达音</strong>：实际到过的最低 F0，但未满足持续时长/复核门槛——展示但<strong>不作能力依据</strong>，不进汇总计数、不进标题。</li>
+<li><strong>低音带读数</strong>：归属未完全确认（人声/乐器/念诵），标<strong>仅供参考</strong>，三不许：不进汇总、不进统计、不进对外引用句。</li>
+</ul>
+</div>
+
+<h2>一、方法学（可复现）</h2>
+<div class="card">
+<strong>测量流程：</strong>音源 → demucs（htdemucs，GPU）人声分离 → 自研 numpy YIN 逐帧基频
+（fmin=55Hz, fmax=1100Hz, frame=2048, hop=512, sr=22050）→ 音符切分（稳定段 ≥80ms、抖动 &lt;0.6 半音）
+→ 稳健过滤（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音级需该音符本身 ≥0.2s）。<br>
+<strong>交叉校验：</strong>YIN 结果以 CREPE（CNN 音高估计）复核；低音读数另做<strong>原始混音谐波列</strong>判定
+（2f0/4f0 有峰＝真音；只有 3f0/6f0＝次谐波错误）。<br>
+<strong>数据落盘：</strong>逐帧 F0（time/f0/voiced/note/midi）存为 CSV，可复算、可扩展其他维度。<br>
+<strong>已知限制：</strong>源为有损流媒体音源（非母带），绝对频率有 ±0.5Hz 量级误差，不影响音级判定。
+</div>
+
+<h2>二、七维度实测值</h2>
+<table>
+<tr><th>维度</th><th>实测值</th><th>说明</th></tr>
+<tr><td>最低稳定音（全量录音室）</td><td class="n"><strong>B1 61.5Hz</strong></td><td class="src">《静止了的夜晚》</td></tr>
+<tr><td>最高稳定音（全量录音室）</td><td class="n"><strong>C6 1065.0Hz</strong></td><td class="src">《月光》（含伴唱/和声风险，需听辨）</td></tr>
+<tr><td>跨度中位</td><td class="n"><strong>2.30 个八度</strong></td><td class="src">最大 3.93 个八度</td></tr>
+<tr><td>音符内稳定性中位</td><td class="n"><strong>7 音分</strong></td><td class="src">同一音符内抖动</td></tr>
+<tr><td>十二平均律偏差中位</td><td class="n"><strong>9 音分</strong></td><td class="src">非 A440 定音，仅参考</td></tr>
+<tr><td>颤音速率 / 幅度中位</td><td class="n"><strong>5.17Hz / 86 音分</strong></td><td class="src">录音室曲目</td></tr>
+<tr><td>音符密度中位</td><td class="n"><strong>1.85/秒</strong></td><td class="src">每秒可辨识音符数</td></tr>
+</table>
+
+<h2>三、跨素材精测层：17 首曲目最低稳定音</h2>
+<p class="sub">本层由规则从数据派生（极值集 / 跨语境对照集 / 复核特例集），曲目随素材增减自动进出，不是手挑名单。
+17 曲中共 3 首最低稳定音达 B1；全量录音室 72 首中为 4 首
+（知晓、渔光曲、多听有益、静止了的夜晚）。两处统计对象不同，请勿混读。</p>
+<table>
+<tr><th>曲目</th><th>最低稳定音</th><th>Hz</th><th>复核状态</th><th>触达音（不作能力依据）</th><th>语境</th></tr>
+<tr><td>静止了的夜晚</td><td class="n"><strong>B1</strong></td><td class="n">61.5</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
+<tr><td>多听有益</td><td class="n"><strong>B1</strong></td><td class="n">61.6</td><td class="n">已核验（严格口径复测）</td><td>G#1 51.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">录音室、现场混剪、巡演现场</td></tr>
+<tr><td>知晓</td><td class="n"><strong>B1</strong></td><td class="n">61.9</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>晚风</td><td class="n"><strong>C2</strong></td><td class="n">64.9</td><td class="n">YIN_OK</td><td>—</td><td class="src">录音室、他人主导舞台</td></tr>
+<tr><td>鹅毛信</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">已核验（严格口径复测）</td><td>D2 71.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">录音室</td></tr>
+<tr><td>忘不了</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>晚风暖暖</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>雪地里寄不出的求救信</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>勿扰</td><td class="n"><strong>C2</strong></td><td class="n">65.6</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>下潜</td><td class="n"><strong>C2</strong></td><td class="n">65.7</td><td class="n">已核验（严格口径复测）</td><td>D2 71.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">现场</td></tr>
+<tr><td>偏执</td><td class="n"><strong>C2</strong></td><td class="n">65.8</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、他人主导舞台</td></tr>
+<tr><td>美丽的草原我的家</td><td class="n"><strong>C2</strong></td><td class="n">65.8</td><td class="n">YIN_OK</td><td>—</td><td class="src">他人主导舞台</td></tr>
+<tr><td>乌兰巴托的夜晚</td><td class="n"><strong>C2</strong></td><td class="n">66.3</td><td class="n">✅ 双引擎一致</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>渡荆门送别</td><td class="n"><strong>C#2</strong></td><td class="n">69.7</td><td class="n">已核验（严格口径复测）</td><td>B1 60.5Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视、他人主导舞台</td></tr>
+<tr><td>雾里</td><td class="n"><strong>D2</strong></td><td class="n">75.5</td><td class="n">YIN_OK</td><td>C2 64.5Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视、他人主导舞台</td></tr>
+<tr><td>渔光曲</td><td class="n"><strong>D#2</strong></td><td class="n">79.2</td><td class="n">已核验（人工复核）</td><td>—</td><td class="src"></td></tr>
+<tr><td>向着太阳</td><td class="n"><strong>G2</strong></td><td class="n">97.8</td><td class="n">已核验（人工复核）</td><td>B1 61.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视/晚会</td></tr>
+</table>
+
+<h2>四、低音现场复现（取证状态）</h2>
+<table>
+<tr><th>版本</th><th>音级</th><th>Hz</th><th>时间点</th><th>素材</th><th>说明</th></tr>
+<tr><td>录音室版（MV）</td><td class="n">B1</td><td class="n">61.6</td><td class="n">153.3s</td><td>BV1zG411f72T</td><td class="src">官方音源 + 人声分离实测</td></tr>
+<tr><td>杭州站现场（4K 直拍）</td><td class="n">C2</td><td class="n">65.2</td><td class="n">114.7s</td><td>BV1ArKxe7E8H</td><td class="src">0.9s 台地；比录音室高 1 个半音；混音谐波列复核 + A3 触达候选 65.1Hz 双引擎一致</td></tr>
+<tr><td>四巡现场直拍</td><td class="n">D2</td><td class="n">74.9</td><td class="n">237.3s</td><td>BV1Ab4y1g7Wj</td><td class="src">手机直拍，音质受限</td></tr>
+<tr><td>武汉收官场</td><td class="n">A2</td><td class="n">111.6</td><td class="n">35.7s</td><td>BV1iWtUefEkm</td><td class="src">音频处理失真，仅作参考</td></tr>
+</table>
+<p class="src">同一首《多听有益》在录音室与现场的稳定音读数不同音级（B1 / C2），是语境差异而非矛盾；
+表中「中/低」可信度条目为手机直拍或音频处理失真素材，仅作参考。</p>
+
+<h2>五、与他人对照（同管线同口径）</h2>
+<p class="sub">仅呈现数值与测量条件，不做主观结论。两组曲目不同，差异同时包含曲目与使用方式，
+因此不做单曲级因果或能力排名。</p>
+<table>
+<tr><th>指标</th><th>专辑层中位</th><th>他人主导舞台中位</th><th>差值</th><th>p 值</th><th>n（专辑/舞台）</th></tr>
+<tr><td>最低稳定音（MIDI，越大越高）</td><td class="n">39.85</td><td class="n">39.90</td><td class="n">0.05</td><td class="n">0.266</td><td class="n">102 / 33</td></tr>
+<tr><td>最高稳定音（MIDI）</td><td class="n">67.65</td><td class="n">76.10</td><td class="n">8.45</td><td class="n">0.000</td><td class="n">102 / 33</td></tr>
+<tr><td>音域跨度（八度）</td><td class="n">2.35</td><td class="n">2.95</td><td class="n">0.60</td><td class="n">0.003</td><td class="n">102 / 33</td></tr>
+<tr><td>音符内稳定性（音分，越小越稳）</td><td class="n">6.85</td><td class="n">5.60</td><td class="n">-1.25</td><td class="n">0.001</td><td class="n">102 / 33</td></tr>
+<tr><td>颤音速率（Hz）</td><td class="n">5.17</td><td class="n">5.07</td><td class="n">-0.10</td><td class="n">0.320</td><td class="n">102 / 33</td></tr>
+<tr><td>颤音幅度（音分）</td><td class="n">83.00</td><td class="n">73.00</td><td class="n">-10.00</td><td class="n">0.000</td><td class="n">102 / 33</td></tr>
+<tr><td>音符密度（个/秒）</td><td class="n">1.85</td><td class="n">1.63</td><td class="n">-0.23</td><td class="n">0.014</td><td class="n">102 / 33</td></tr>
+<tr><td>低音区占比(&lt;C3)</td><td class="n">0.21</td><td class="n">0.11</td><td class="n">-0.10</td><td class="n">0.000</td><td class="n">102 / 33</td></tr>
+<tr><td>中音区占比(C3–B3)</td><td class="n">0.62</td><td class="n">0.66</td><td class="n">0.04</td><td class="n">0.810</td><td class="n">102 / 33</td></tr>
+<tr><td>高音区占比(≥C4)</td><td class="n">0.07</td><td class="n">0.20</td><td class="n">0.13</td><td class="n">0.000</td><td class="n">102 / 33</td></tr>
+<tr><td>中位音符时长（秒）</td><td class="n">0.21</td><td class="n">0.19</td><td class="n">-0.02</td><td class="n">0.132</td><td class="n">102 / 33</td></tr>
+</table>
+<p class="src">专辑层 72 首录音室曲目 vs 他人主导舞台 32 个素材；
+p 值为组间检验结果，差值列的符号含义见各行指标名（"越大越高"类指标方向相反）。</p>
+
+<h2>六、专辑层逐曲明细</h2><p class="sub">共 72 首，完整表见 <a href="/works.html">作品页</a>；机读数据见 <a href="/data/archive_vocal_albums.json">archive_vocal_albums.json</a>。</p>
+
+<p class="src">局限性声明：本站音域数据基于已获取的录音室与现场素材，受素材音质限制；触达音与低音带读数不作能力依据；外部来源读数口径未核实，仅作档案记录。结构化的第三方表述（论坛/粉丝扒谱/媒体宣发）一律标注来源与性质，不转写成本站测量结论。</p>
+
+</div>
+<!-- FOOTER_NAV_START -->
+<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
+<strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
+<div style="margin-top:6px;"><b>精简版入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
+<div style="margin-top:6px;"><b>数据源（机器可读）：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a></div>
+<div style="margin-top:6px;"><b>工具：</b><a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">全站搜索</a> · <a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a> · <a href="/robots.txt" style="color:#c41e3a;text-decoration:none;">robots.txt</a> · <a href="/404.html" style="color:#c41e3a;text-decoration:none;">404 页</a></div>
+</footer>
+<!-- FOOTER_NAV_END -->
+</body>
+</html>

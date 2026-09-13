@@ -48,10 +48,21 @@ def main() -> None:
         hrefs[rel] = set(nav_hrefs(html))
         for h in re.findall(r'href="([^"#?]+)', html):
             all_targets.add(h.strip())
+            # 子目录页用 ../x.html / ./x.html 相对路径引用根页时归一化，
+            # 否则会误判为孤儿页（2026-09-13 瘦身 2.0 排查 story-hui-… 时发现）
+            if h.startswith("../") or h.startswith("./"):
+                all_targets.add(re.sub(r'^(?:\.\./|\./)+', '/', h.strip()))
 
     sitemap = ""
     if (ROOT / "sitemap.xml").exists():
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8", errors="ignore")
+
+    # 0) 私密索引页的链接计入"可达性"：旧页已从主导航/sitemap 撤出（2026-09-13 瘦身 2.0），
+    #    但由 archive-index.html 统一挂入口，因此不算孤儿页。该页自身不进导航、不在 sitemap。
+    priv = ROOT / "archive-index.html"
+    if priv.exists():
+        for h in re.findall(r'href="([^"#?]+)', priv.read_text(encoding="utf-8", errors="ignore")):
+            all_targets.add(h.strip())
 
     print("=" * 68)
     print("导航与内链审计")

@@ -212,6 +212,22 @@ def main() -> None:
             if not args.check:
                 p.write_text(new, encoding="utf-8")
 
+    # 应用页（自带布局、不进统一导航）仍需要旧页 noindex 守卫：
+    # dashboard/index.html 由外部大屏生成器重写 robots，手改会被覆盖。
+    guarded = []
+    for rel in sorted(LEGACY_NOINDEX):
+        if any(p.relative_to(ROOT).as_posix() == rel for p in pages):
+            continue                      # 已在上面按 NAV 流程处理
+        p = ROOT / rel
+        if not p.exists():
+            continue
+        html = p.read_text(encoding="utf-8", errors="ignore")
+        new = apply_legacy_noindex(rel, html)
+        if new != html:
+            guarded.append(rel)
+            if not args.check:
+                p.write_text(new, encoding="utf-8")
+
     print("=" * 68)
     print("导航单一事实源（build_nav.py）")
     print("=" * 68)
@@ -222,7 +238,9 @@ def main() -> None:
             print("  -", c)
     else:
         print("全部已一致 ✅")
-    if args.check and changed:
+    if guarded:
+        print(f"{'待更新' if args.check else '已补'} noindex 守卫 {len(guarded)} 个应用页：" + ", ".join(guarded))
+    if args.check and (changed or guarded):
         sys.exit(1)
 
 
