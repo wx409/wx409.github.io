@@ -1,0 +1,110 @@
+{
+ "schema": "comparison_singer v1",
+ "id": "wangxi",
+ "name": "王晰",
+ "role": "基准（本站主口径）",
+ "age_band": "30–40 岁（主口径样本期）",
+ "note": "数据源为本站既有实测，见 archive_vocal.json / archive_vocal_albums.json",
+ "pipeline": "demucs htdemucs 人声分离 + 自研 numpy YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）+ 稳健过滤",
+ "dimensions": {
+  "lowest_stable_note": {
+   "value": "B1 61.5Hz",
+   "unit": "音名 + Hz",
+   "n": 72,
+   "songs": [
+    "静止了的夜晚"
+   ],
+   "source": "data/archive_vocal_albums.json",
+   "confidence": "主口径（全量录音室）",
+   "status": "measured",
+   "note": "过复核门槛（该音符本身 ≥0.2s、HNR ≥5dB），并做谐波列/CREPE 交叉校验"
+  },
+  "lowest_reach_note": {
+   "value": null,
+   "unit": "音名 + Hz + 时长",
+   "n": 6,
+   "songs": [
+    "多听有益",
+    "鹅毛信",
+    "下潜",
+    "渡荆门送别",
+    "雾里",
+    "向着太阳"
+   ],
+   "source": "data/archive_vocal.json（各曲 reach_* 字段）",
+   "confidence": "触达音口径（展示但不作能力依据）",
+   "status": "measured_per_song",
+   "note": "触达音为逐曲字段而非单一值：请见 data/archive_vocal.json 每曲 reach_note/reach_hz/reach_duration；仅展示，不作能力依据"
+  },
+  "dynamic_range_db": {
+   "value": 11.4,
+   "unit": "dB（mf − pp）",
+   "n": 8,
+   "songs": [
+    "不需要结果",
+    "多听有益",
+    "渔光曲",
+    "知晓",
+    "静止了的夜晚"
+   ],
+   "source": "data/archive_dynamic_range.json（B1 音级）",
+   "confidence": "低音带读数聚合",
+   "status": "measured",
+   "note": "同音级聚合，P5/P95 稳健分位；n<3 标 insufficient_sample"
+  },
+  "vibrato_rate_hz": {
+   "value": 5.17,
+   "unit": "Hz",
+   "n": 72,
+   "songs": [],
+   "source": "data/archive_vocal_albums.json",
+   "confidence": "中位（录音室）",
+   "status": "measured",
+   "note": "中位数；须同管线（同一音符切分与估计器）"
+  },
+  "vibrato_extent_cents": {
+   "value": 86.0,
+   "unit": "音分",
+   "n": 72,
+   "songs": [],
+   "source": "data/archive_vocal_albums.json",
+   "confidence": "中位（录音室）",
+   "status": "measured",
+   "note": "中位数"
+  },
+  "stability_cents": {
+   "value": 7.0,
+   "unit": "音分",
+   "n": 72,
+   "songs": [],
+   "source": "data/archive_vocal_albums.json",
+   "confidence": "中位（录音室）",
+   "status": "measured",
+   "note": "中位数（越低越稳）"
+  },
+  "span_octaves": {
+   "value": 2.3,
+   "unit": "八度",
+   "n": 72,
+   "songs": [],
+   "source": "data/archive_vocal_albums.json",
+   "confidence": "逐曲跨度中位；最大 3.93 个八度",
+   "status": "measured",
+   "note": "逐曲跨度中位数，并单独给最大跨度；不可把「个体曲目跨度」当「音域」"
+  },
+  "studio_vs_live_delta": {
+   "value": null,
+   "unit": "半音",
+   "n": 11,
+   "songs": [],
+   "source": "data/archive_context_compare.json",
+   "confidence": "同曲对照 + 组间检验（11 项指标，含 p 值）",
+   "status": "measured_per_metric",
+   "note": "为 11 项指标的对照集合而非单一值：见 data/archive_context_compare.json"
+  }
+ },
+ "caveats": [
+  "不同歌手的素材可得性不同（音源/码率/语境），跨歌手比较必须先对齐语境。",
+  "本表不排名、不评优劣；只提供同一标准下的数值与条件。"
+ ]
+}

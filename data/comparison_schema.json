@@ -1,0 +1,85 @@
+{
+ "schema": "comparison_schema v1",
+ "purpose": "在同一标准下比较王晰与常被宣传「低音」的流行歌手；只呈现数据与测量条件，不写主观结论。",
+ "discipline": [
+  "条件不匹配的样本必须标注，不得混入。",
+  "未测歌手写 null + status=pending，不填估计值或二手说法。",
+  "外部读数（论坛/媒体/粉丝扒谱）只作档案记录，标注来源与方法状态。"
+ ],
+ "controls": [
+  "年龄段：优先取 30–40 岁样本（与本项目主口径可比）；超出范围须标注年龄段并单列",
+  "同曲目优先：有共同曲目时优先比较共同曲目，避免风格差异混入",
+  "语境对齐：现场对现场、录音室对录音室，不跨语境直接比",
+  "同管线同口径：demucs htdemucs 人声分离 + 自研 YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）+ 稳健过滤；不同管线产出不得混表",
+  "素材条件：标明音源（官方音源/现场直拍/综艺音轨）与码率；有损音源须标注",
+  "样本量：每维度记录 n（出现次数）与曲目数；n 不足即标 insufficient_sample",
+  "地域与语言：注明语种与唱法（流行/美声/通俗），跨唱法比较须标注"
+ ],
+ "dimensions": [
+  {
+   "key": "lowest_stable_note",
+   "label": "最低稳定音",
+   "unit": "音名 + Hz",
+   "must": "过复核门槛（该音符本身 ≥0.2s、HNR ≥5dB），并做谐波列/CREPE 交叉校验"
+  },
+  {
+   "key": "lowest_reach_note",
+   "label": "触达音",
+   "unit": "音名 + Hz + 时长",
+   "must": "须标时长与引擎；不作能力依据，与稳定音分列"
+  },
+  {
+   "key": "dynamic_range_db",
+   "label": "低音区动态范围",
+   "unit": "dB（mf − pp）",
+   "must": "同音级聚合，P5/P95 稳健分位；n<3 标 insufficient_sample"
+  },
+  {
+   "key": "vibrato_rate_hz",
+   "label": "颤音速率",
+   "unit": "Hz",
+   "must": "中位数；须同管线（同一音符切分与估计器）"
+  },
+  {
+   "key": "vibrato_extent_cents",
+   "label": "颤音幅度",
+   "unit": "音分",
+   "must": "中位数"
+  },
+  {
+   "key": "stability_cents",
+   "label": "音符内稳定性",
+   "unit": "音分",
+   "must": "中位数（越低越稳）"
+  },
+  {
+   "key": "span_octaves",
+   "label": "音域跨度",
+   "unit": "八度",
+   "must": "逐曲跨度中位数，并单独给最大跨度；不可把「个体曲目跨度」当「音域」"
+  },
+  {
+   "key": "studio_vs_live_delta",
+   "label": "现场 vs 录音室差值",
+   "unit": "半音",
+   "must": "同曲优先；现场对现场、录音室对录音室"
+  }
+ ],
+ "singers": [
+  {
+   "id": "wangxi",
+   "name": "王晰",
+   "role": "基准（本站主口径）",
+   "age_band": "30–40 岁（主口径样本期）",
+   "note": "数据源为本站既有实测，见 archive_vocal.json / archive_vocal_albums.json"
+  },
+  {
+   "id": "zhaopeng",
+   "name": "赵鹏",
+   "role": "对照候选（常与王晰并提的低音男声）",
+   "age_band": "待标注",
+   "note": "本站尚未测；已登记入 data/analysis_queue.json，待 tools/ 管线跑出结果后回填"
+  }
+ ],
+ "output": "data/comparison/<歌手id>.json，结构与 data/archive_vocal.json 同构"
+}

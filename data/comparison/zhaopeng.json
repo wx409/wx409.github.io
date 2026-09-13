@@ -1,0 +1,95 @@
+{
+ "schema": "comparison_singer v1",
+ "id": "zhaopeng",
+ "name": "赵鹏",
+ "role": "对照候选（常与王晰并提的低音男声）",
+ "age_band": "待标注",
+ "note": "本站尚未测；已登记入 data/analysis_queue.json，待 tools/ 管线跑出结果后回填",
+ "pipeline": "demucs htdemucs 人声分离 + 自研 numpy YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）+ 稳健过滤",
+ "dimensions": {
+  "lowest_stable_note": {
+   "value": null,
+   "unit": "音名 + Hz",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "过复核门槛（该音符本身 ≥0.2s、HNR ≥5dB），并做谐波列/CREPE 交叉校验"
+  },
+  "lowest_reach_note": {
+   "value": null,
+   "unit": "音名 + Hz + 时长",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "须标时长与引擎；不作能力依据，与稳定音分列"
+  },
+  "dynamic_range_db": {
+   "value": null,
+   "unit": "dB（mf − pp）",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "同音级聚合，P5/P95 稳健分位；n<3 标 insufficient_sample"
+  },
+  "vibrato_rate_hz": {
+   "value": null,
+   "unit": "Hz",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "中位数；须同管线（同一音符切分与估计器）"
+  },
+  "vibrato_extent_cents": {
+   "value": null,
+   "unit": "音分",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "中位数"
+  },
+  "stability_cents": {
+   "value": null,
+   "unit": "音分",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "中位数（越低越稳）"
+  },
+  "span_octaves": {
+   "value": null,
+   "unit": "八度",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "逐曲跨度中位数，并单独给最大跨度；不可把「个体曲目跨度」当「音域」"
+  },
+  "studio_vs_live_delta": {
+   "value": null,
+   "unit": "半音",
+   "n": 0,
+   "songs": [],
+   "source": "",
+   "confidence": "",
+   "status": "pending",
+   "note": "同曲优先；现场对现场、录音室对录音室"
+  }
+ },
+ "caveats": [
+  "不同歌手的素材可得性不同（音源/码率/语境），跨歌手比较必须先对齐语境。",
+  "本表不排名、不评优劣；只提供同一标准下的数值与条件。"
+ ]
+}

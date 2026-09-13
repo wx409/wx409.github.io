@@ -262,6 +262,37 @@ def quote_block(limit=3, themes=None, title="他说过"):
     return f"<h2>{esc(title)}</h2>\n" + "\n".join(rows)
 
 
+def _cmp_block():
+    """7.2 同管线对照（精简版扩展位）：只列已实测维度；未测歌手标「未测·已登记」。"""
+    sch = jload("data/comparison_schema.json", {})
+    base = jload("data/comparison/wangxi.json", {})
+    zhao = jload("data/comparison/zhaopeng.json", {})
+    dims = sch.get("dimensions") or []
+    if not dims:
+        return ""
+    bd = base.get("dimensions") or {}
+    zd = zhao.get("dimensions") or {}
+    rows = []
+    for d in dims:
+        k = d["key"]
+        b = bd.get(k) or {}
+        z = zd.get(k) or {}
+        bv = b.get("value")
+        if isinstance(bv, (int, float)):
+            bv = f"{bv:.2f}"
+        btxt = (f'<strong>{esc(bv)}</strong>' if bv is not None
+                else '<span class="src">—</span>')
+        ztxt = ('<span class="src">未测·已登记</span>'
+                if (z.get("value") is None) else f'<strong>{esc(z.get("value"))}</strong>')
+        rows.append(f'<tr><td>{esc(d.get("label"))}</td><td class="n">{btxt}</td>'
+                    f'<td class="n">{ztxt}</td><td class="src">{esc(d.get("unit"))}</td></tr>')
+    return ('<table>\n<tr><th>对比维度</th><th>王晰（本站主口径）</th>'
+            '<th>赵鹏（常被并提的低音男声）</th><th>单位</th></tr>\n'
+            + "\n".join(rows) + "\n</table>\n"
+            '<p class="src">纪律：只呈现数值与测量条件，不排名、不做主观结论；'
+            '未测歌手写「未测·已登记」，不填估计值或二手说法。</p>')
+
+
 def _dr_table():
     """7.1 低音区动态范围表（读 data/archive_dynamic_range.json；A1 类不出现）。"""
     doc = jload("data/archive_dynamic_range.json", {})
@@ -673,6 +704,10 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 {_dr_table()}
 <p class="src">口径说明：这是「同一音级在不同语境下的音量跨度」，不是单音的教科书 pp/mf；n&lt;3 的音级标「样本不足」，不作对外结论。
 数据源 <a href="/data/archive_dynamic_range.json">archive_dynamic_range.json</a>。</p>
+<h2>附二：同管线对照（扩展位）</h2>
+{_cmp_block()}
+<p class="src">完整对照框架（控制变量 + 8 个维度记录要求）见
+<a href="/skill.html">唱功实测（声乐实验区）</a> 与 <a href="/data/comparison_schema.json">comparison_schema.json</a>。</p>
 """
     ds = {
         "@context": "https://schema.org", "@type": "Dataset",

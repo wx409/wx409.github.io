@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta name="robots" content="noindex, follow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>王晰唱功实测｜七个维度的可测量证据</title>
@@ -19,17 +18,8 @@ th{background:#f4efe4;font-weight:600} .verify{color:#8a7f6d;font-size:12.5px}
 </style>
 </head>
 <body>
-<!-- NAV_START -->
-<div class="nav">
-    <a href="/index.html">🏠 首页</a>
-    <a href="/works.html">🎵 作品</a>
-    <a href="/live.html">🎤 现场</a>
-    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
-    <a href="/history.html">📅 生涯</a>
-    <a href="/research.html">📚 研究</a>
-    <a href="/community.html">💬 参与</a>
-</div>
-<!-- NAV_END -->
+<div class="nav"><a href="/">首页</a><a href="/voice.html">音域实测</a><a href="/stage.html">舞台实测</a>
+<a href="/skill.html">唱功实测</a><a href="/dashboard/">数据大屏</a></div>
 <h1>🎙️ 王晰唱功实测</h1>
 <p class="sub">七个维度 · 全部由人声分离（demucs）+ 逐帧 F0 实测派生 · 生成 2026-09-13</p>
 
@@ -94,18 +84,26 @@ th{background:#f4efe4;font-weight:600} .verify{color:#8a7f6d;font-size:12.5px}
 <tr><td>2026-09-13</td><td>录音室低音</td><td>《知晓》的最低稳定音 B1</td></tr><tr><td>2026-09-12</td><td>B1 复现</td><td>四巡现场直拍：B1 级低音的实测读数</td></tr><tr><td>2026-09-11</td><td>巡演现场</td><td>其他演出成都现场《静止了的夜晚》最低稳定音 D2</td></tr><tr><td>2026-09-10</td><td>巡演结构</td><td>五巡「吾」：巡演与专辑的关系</td></tr><tr><td>2026-09-09</td><td>舞台对照</td><td>他人主导舞台《【追光吧第二季】王晰   小毛驴》的音域读数</td></tr><tr><td>2026-09-08</td><td>巡演现场</td><td>二巡南京现场《让她降落》最低稳定音 A2</td></tr><tr><td>2026-09-07</td><td>控制力</td><td>《想游泳的星》：一个音的稳定性</td></tr><tr><td>2026-09-06</td><td>录音室低音</td><td>《分岔》的最低稳定音 F2</td></tr><tr><td>2026-09-05</td><td>巡演结构</td><td>四巡「肆益」：巡演与专辑的关系</td></tr><tr><td>2026-09-04</td><td>B1 复现</td><td>武汉收官场：B1 级低音的实测读数</td></tr><tr><td>2026-09-03</td><td>舞台对照</td><td>他人主导舞台《王晰汪小敏《偏执》》的音域读数</td></tr><tr><td>2026-09-02</td><td>巡演现场</td><td>二巡南京现场《让她降落》最低稳定音 F2</td></tr><tr><td>2026-09-01</td><td>控制力</td><td>《渡荆门送别》：一个音的稳定性</td></tr><tr><td>2026-08-31</td><td>录音室低音</td><td>《悬念》的最低稳定音 E2</td></tr>
 </table>
 
+<h2>六、同管线横向对照（同一标准）</h2>
+<table>
+<tr><th>对比维度</th><th>王晰（本站主口径）</th><th>赵鹏（常被并提的低音男声）</th><th>单位</th></tr>
+<tr><td>最低稳定音</td><td><b>B1 61.5Hz</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">音名 + Hz</td></tr>
+<tr><td>触达音</td><td><b>见 archive_vocal.json 各曲 reach_* 字段（不作能力依据）</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">音名 + Hz + 时长</td></tr>
+<tr><td>低音区动态范围</td><td><b>11.40</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">dB（mf − pp）</td></tr>
+<tr><td>颤音速率</td><td><b>5.17</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">Hz</td></tr>
+<tr><td>颤音幅度</td><td><b>86.00</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">音分</td></tr>
+<tr><td>音符内稳定性</td><td><b>7.00</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">音分</td></tr>
+<tr><td>音域跨度</td><td><b>2.30</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">八度</td></tr>
+<tr><td>现场 vs 录音室差值</td><td><b>见 data/archive_context_compare.json（11 项指标，含 p 值）</b></td><td><span class="sub">未测·已登记（pending）</span></td><td class="sub">半音</td></tr></table>
+<p class="sub"><strong>只呈现数据与测量条件，不做主观结论、不排名。</strong>
+条件不匹配的样本一律标注、不得混入；未测歌手写「未测·已登记」，<strong>不填估计值或二手说法</strong>。
+框架与控制变量：<code>data/comparison_schema.json</code>；逐歌手数据：<code>data/comparison/&lt;歌手id&gt;.json</code>。</p>
+<details><summary>控制变量（条件对齐规则）</summary><ul><li>年龄段：优先取 30–40 岁样本（与本项目主口径可比）；超出范围须标注年龄段并单列</li><li>同曲目优先：有共同曲目时优先比较共同曲目，避免风格差异混入</li><li>语境对齐：现场对现场、录音室对录音室，不跨语境直接比</li><li>同管线同口径：demucs htdemucs 人声分离 + 自研 YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）+ 稳健过滤；不同管线产出不得混表</li><li>素材条件：标明音源（官方音源/现场直拍/综艺音轨）与码率；有损音源须标注</li><li>样本量：每维度记录 n（出现次数）与曲目数；n 不足即标 insufficient_sample</li><li>地域与语言：注明语种与唱法（流行/美声/通俗），跨唱法比较须标注</li></ul></details>
+
 <div class="hl">
 <strong>方法与边界（诚实披露）：</strong>① 全部数据来自本地人声分离 + 自研 YIN 逐帧 F0，音源为流媒体有损/无损音频，非母带；② 绝对频率存在 ±0.5Hz 量级误差，但不影响音级判定；
 ③ 高音侧可能混入伴唱/和声层，需人工听辨，不作"能唱该音"的断言；④ 本页不作排名式结论；
 ⑤ "唱功"一词在本页严格限定为<strong>可测量的发声控制指标</strong>（音域/颤音/稳定性/密度/声区），不涉及艺术评价。
 </div>
 <p class="sub">生成器：<code>project_b/build_skill_page.py</code>（数据全部派生自站点 JSON，无手写数字）。</p>
-<!-- FOOTER_NAV_START -->
-<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
-<strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
-<div style="margin-top:6px;"><b>精简版入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
-<div style="margin-top:6px;"><b>数据源（机器可读）：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a></div>
-<div style="margin-top:6px;"><b>工具：</b><a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">全站搜索</a> · <a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a> · <a href="/robots.txt" style="color:#c41e3a;text-decoration:none;">robots.txt</a> · <a href="/404.html" style="color:#c41e3a;text-decoration:none;">404 页</a></div>
-</footer>
-<!-- FOOTER_NAV_END -->
 </body></html>

@@ -27,6 +27,42 @@ def load(rel, default=None):
         return default if default is not None else {}
 
 
+def comparison_block() -> str:
+    """7.2 同管线横向对照（同一标准下比较；未测歌手写「未测·已登记」，不填估计值）。"""
+    sch = load("data/comparison_schema.json", {})
+    dims = sch.get("dimensions") or []
+    if not dims:
+        return ""
+    base = load("data/comparison/wangxi.json", {})
+    zhao = load("data/comparison/zhaopeng.json", {})
+    bd = base.get("dimensions") or {}
+    zd = zhao.get("dimensions") or {}
+
+    def cell(v):
+        if not isinstance(v, dict) or v.get("value") is None:
+            st = (v or {}).get("status") or "pending"
+            return f'<span class="sub">未测·已登记（{esc(st)}）</span>' if st == "pending" else "—"
+        val = v["value"]
+        if isinstance(val, (int, float)):
+            val = f"{val:.2f}"
+        return f'<b>{esc(val)}</b>'
+
+    rows = []
+    for d in dims:
+        k = d["key"]
+        rows.append(f'<tr><td>{esc(d["label"])}</td><td>{cell(bd.get(k))}</td>'
+                    f'<td>{cell(zd.get(k))}</td><td class="sub">{esc(d["unit"])}</td></tr>')
+    controls = "".join(f"<li>{esc(x)}</li>" for x in (sch.get("controls") or []))
+    return ('''<h2>六、同管线横向对照（同一标准）</h2>
+<table>
+<tr><th>对比维度</th><th>王晰（本站主口径）</th><th>赵鹏（常被并提的低音男声）</th><th>单位</th></tr>
+''' + "\n".join(rows) + '''</table>
+<p class="sub"><strong>只呈现数据与测量条件，不做主观结论、不排名。</strong>
+条件不匹配的样本一律标注、不得混入；未测歌手写「未测·已登记」，<strong>不填估计值或二手说法</strong>。
+框架与控制变量：<code>data/comparison_schema.json</code>；逐歌手数据：<code>data/comparison/&lt;歌手id&gt;.json</code>。</p>
+<details><summary>控制变量（条件对齐规则）</summary><ul>''' + controls + "</ul></details>")
+
+
 def main() -> int:
     v = load("data/archive_vocal.json")
     alb = load("data/archive_vocal_albums.json")
@@ -121,6 +157,7 @@ def main() -> int:
 
     card_html = ""
     card_hist = ""
+    cmp_html = comparison_block()
     if _today:
         card_html = f'''<div class="hl">
 <div class="sub">📇 <strong>今日唱功卡片</strong> · {esc(_today.get('date'))} · 主题 {esc(_today.get('topic'))} · 编号 {_today.get('index')}/{cards.get('pool_size')}</div>
@@ -206,6 +243,8 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 ⚪待复核（不作结论依据，且不进任何汇总计数）。方法细节见<a href="/voice.html">音域实测页</a>的《终裁纪律》。</p>
 
 {card_hist}
+
+{cmp_html}
 
 <div class="hl">
 <strong>方法与边界（诚实披露）：</strong>① 全部数据来自本地人声分离 + 自研 YIN 逐帧 F0，音源为流媒体有损/无损音频，非母带；② 绝对频率存在 ±0.5Hz 量级误差，但不影响音级判定；
