@@ -50,32 +50,42 @@ NAV_ITEMS = [
 
 # 底部全站索引分组（(分组名, [路径])）；路径必须存在才会输出
 #
-# 2026-09-13 瘦身 2.0：底部索引同样只列精简版 7 页 + 工具页 + 数据源，
-# 旧页一律不在此列出（其入口在 archive-index.html，保持"旧页退场、快照仍在"）。
+# 2026-09-13（晚，据用户决策更正）：顶部主导航只放精简版 7 页；**底部全站索引恢复全量**，
+# 让「完整档案」页仍有站内直连入口（人点得到、爬虫也走得到）。
 FOOTER_GROUPS = [
-    ("精简版入口", ["index.html", "works.html", "live.html", "vocal.html",
-                    "history.html", "research.html", "community.html"]),
-    ("数据源（机器可读）", ["dashboard/", "live/", "map/", "data/music-index.html",
-                            "data/calibers.md", "data/kb/kb_digest.md"]),
-    ("工具", ["qa.html", "notifications.html", "search.html", "about.html",
-              "feed.xml", "sitemap.xml", "llms.txt", "robots.txt", "404.html"]),
+    ("主入口", ["index.html", "works.html", "live.html", "vocal.html",
+                "history.html", "research.html", "community.html"]),
+    ("核心内容", ["live-reviews.html", "discography.html", "songs.html", "timeline.html",
+                  "data-timeline.html", "story.html", "story-hui-guangzhou-2026.html",
+                  "notifications.html"]),
+    ("数据", ["dashboard/", "map/", "live/", "live/setlists.html", "data/music-index.html",
+              "data/calibers.md", "data/kb/kb_digest.md"]),
+    ("声学·内容", ["voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
+                    "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
+                    "tavern/"]),
+    ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
+                    "feed.xml", "sitemap.xml", "llms.txt", "robots.txt", "404.html"]),
 ]
 
 # 顶部/底部导航不处理的页面：
 #   - 404/kb-semantic/social_wall：无完整骨架或无导航需求
-#   - archive-index.html：私密索引页，刻意不加入任何导航（其自身仍有 GA/样式）
+#   - archive-index.html：完整档案索引页（仍是私密页，不进主导航）
 SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html"}
 
-# 旧页清单（2026-09-13 瘦身 2.0 第二阶段）：这些页面进 noindex, follow，
-# 但内容一律原地保留、URL 不变。放在这里是为了让 noindex 成为**幂等派生结果**——
-# 否则 map/dashboard/tavern 等由生成器重写的页面会在下次 deploy 时丢掉 noindex。
-LEGACY_NOINDEX = {
+# 「完整档案」页清单（2026-09-13 瘦身 2.0）。**已更正 2026-09-13 晚**：
+#   旧页不是"退场"，而是「不占主导航位、但仍对外可见」——
+#   它们继续被索引（index, follow）、继续进 sitemap、继续提交 IndexNow，
+#   并由底部全站索提供直连入口。放在这里是为了让 robots 成为**幂等派生结果**：
+#   否则 map/dashboard/tavern 等由各自生成器重写的页面会丢掉这个设定。
+ARCHIVE_PAGES = {
     "discography.html", "songs.html", "live-reviews.html", "live/setlists.html",
     "stage.html", "map/index.html", "city-guides.html", "voice.html", "skill.html",
-    "timeline.html", "culture/index.html", "academic.html", "dashboard/index.html",
+    "timeline.html", "data-timeline.html", "story.html", "jazz.html",
+    "culture/index.html", "academic.html", "dashboard/index.html",
     "tavern/index.html", "gallery.html", "submit.html", "search.html",
+    "story-hui-guangzhou-2026.html",
 }
-ROBOTS_NOINDEX = '<meta name="robots" content="noindex, follow">'
+ROBOTS_INDEX = '<meta name="robots" content="index, follow">'
 
 # 底部索引的显示名（未列出的用文件名）
 LABELS = {
@@ -88,15 +98,17 @@ LABELS = {
     "data/kb/kb_digest.md": "知识库摘要", "data/calibers.md": "口径登记表（数字字典）",
     "feed.xml": "RSS 订阅", "sitemap.xml": "站点地图", "llms.txt": "AI 摘要（llms.txt）",
     "robots.txt": "robots.txt", "404.html": "404 页",
-    # 旧页显示名（仍保留，供 archive-index.html 与调试引用）
-    "live-reviews.html": "现场实录（归档）", "discography.html": "作品百科（归档）",
-    "songs.html": "歌曲库（归档）", "timeline.html": "生涯时间轴（归档）",
-    "data-timeline.html": "数据时间线（归档）", "story.html": "数据故事（归档）",
-    "voice.html": "音域实测（归档）", "skill.html": "唱功实测（归档）",
-    "stage.html": "现场音域实测（归档）", "academic.html": "学术研究（归档）",
-    "jazz.html": "爵士专题（归档）", "gallery.html": "视觉记录（归档）",
-    "city-guides.html": "城市攻略（归档）", "submit.html": "投稿（归档）",
-    "culture/index.html": "文化足迹（归档）", "tavern/": "深夜小酒馆（归档）",
+    # 完整档案页显示名（底部索引直连用）
+    "live-reviews.html": "现场实录", "discography.html": "作品百科",
+    "songs.html": "歌曲库", "timeline.html": "生涯时间轴",
+    "data-timeline.html": "数据时间线", "story.html": "数据故事",
+    "voice.html": "音域实测", "skill.html": "唱功实测",
+    "stage.html": "现场音域实测", "academic.html": "学术研究",
+    "jazz.html": "爵士专题", "gallery.html": "视觉记录",
+    "city-guides.html": "城市攻略", "submit.html": "投稿",
+    "culture/index.html": "文化足迹", "tavern/": "深夜小酒馆",
+    "story-hui-guangzhou-2026.html": "六巡广州站数据复盘",
+    "archive-index.html": "🔒 完整档案索引",
 }
 
 # 处理范围（相对仓库根）：根页面 + 有统一导航的内容子目录；dashboard/map 为应用页（自带布局）不处理
@@ -152,23 +164,26 @@ _ROBOTS_RE = re.compile(r'<meta[^>]+name=["\']robots["\'][^>]*>', re.I)
 
 
 def apply_legacy_noindex(rel: str, html: str) -> str:
-    """旧页 noindex 派生：LEGACY_NOINDEX 里的页面强制 `noindex, follow`。
+    """「完整档案」页 robots 派生：ARCHIVE_PAGES 里的页面强制 `index, follow`。
 
-    为什么放在导航生成器里：map/dashboard/tavern 等页面的 robots 标签由各自的生成器写出，
+    为什么放在导航生成器里：map/dashboard/tavern 等页面的 robots 标签由各自生成器写出，
     手改会被下一次 deploy 覆盖；而本脚本在 deploy 末尾运行且幂等，
-    因此"哪些页已退场"这件事只有一个事实源（LEGACY_NOINDEX），不会被重建冲掉。
+    因此「完整档案页仍然对外可见、可被索引」这件事只有一个事实源（ARCHIVE_PAGES）。
+
+    2026-09-13 晚更正：这些页面**不占主导航位，但仍要被抓取与收录**（进 sitemap、提交 IndexNow），
+    所以 robots 是 index,follow —— 不是 noindex。
     """
-    if rel not in LEGACY_NOINDEX:
+    if rel not in ARCHIVE_PAGES:
         return html
     m = _HEAD_RE.search(html)
     if not m:
         return html
     old = _ROBOTS_RE.search(html)
     if old:
-        if old.group(0) == ROBOTS_NOINDEX:
+        if old.group(0) == ROBOTS_INDEX:
             return html
-        return html[:old.start()] + ROBOTS_NOINDEX + html[old.end():]
-    return html[:m.end()] + "\n" + ROBOTS_NOINDEX + html[m.end():]
+        return html[:old.start()] + ROBOTS_INDEX + html[old.end():]
+    return html[:m.end()] + "\n" + ROBOTS_INDEX + html[m.end():]
 
 
 def update_page(path: Path, html: str) -> tuple[str, bool]:
@@ -212,10 +227,11 @@ def main() -> None:
             if not args.check:
                 p.write_text(new, encoding="utf-8")
 
-    # 应用页（自带布局、不进统一导航）仍需要旧页 noindex 守卫：
-    # dashboard/index.html 由外部大屏生成器重写 robots，手改会被覆盖。
+    # 应用页（自带布局、不进统一导航）也要有 robots 守卫：
+    # dashboard/index.html 由外部大屏生成器重写 robots，手改会被覆盖；
+    # 统一在这里落成 index, follow（完整档案页仍然对外可见、可被收录）。
     guarded = []
-    for rel in sorted(LEGACY_NOINDEX):
+    for rel in sorted(ARCHIVE_PAGES):
         if any(p.relative_to(ROOT).as_posix() == rel for p in pages):
             continue                      # 已在上面按 NAV 流程处理
         p = ROOT / rel
@@ -239,7 +255,7 @@ def main() -> None:
     else:
         print("全部已一致 ✅")
     if guarded:
-        print(f"{'待更新' if args.check else '已补'} noindex 守卫 {len(guarded)} 个应用页：" + ", ".join(guarded))
+        print(f"{'待更新' if args.check else '已补'} index,follow 守卫 {len(guarded)} 个应用页：" + ", ".join(guarded))
     if args.check and (changed or guarded):
         sys.exit(1)
 

@@ -1,149 +1,191 @@
 # -*- coding: utf-8 -*-
-"""私密入口 archive-index.html 生成器（瘦身 2.0 · 第四阶段）
+"""完整档案索引页 + 本地链接登记（2026-09-13 重写）
 
-archive-index.html = 瘦身前完整首页（`index.html@<快照引用>`）的**完整快照**
-   + 头部一份「完整档案索引」目录（17 个旧页入口，保证旧页不退化为孤儿页）
-   + `noindex, nofollow`（不进任何导航、不进 sitemap、不提交 IndexNow、不进 llms.txt）。
+产出两件东西：
 
-为什么从 git 快照取而不是复制当前 index.html：
-  瘦身 2.0 之后 index.html 已是精简版，完整首页只存在于备份快照里。
-  快照引用默认 `v1.0-full-20260913`（瘦身执行前打的标签），可用 --src 覆盖。
+1. `archive-index.html`（站点）——**纯分类链接索引**，不内嵌任何页面正文副本。
+   机器人策略：`noindex, nofollow`（私密索引页，不进 sitemap、不提交 IndexNow、不进主导航）。
+   旧版是「瘦身前首页整页快照」（151KB，含整页正文与统计表），维护两份内容本身就是隐患；
+   现改为 <15KB 的纯链接页——正文只此一份、在原页。
+
+2. `docs/链接登记.md`（本地）——**全部链接留在本地**，每个 URL 附用途与收录状态，
+   以后知道链接也能直接查看。
 
 用法：
   python -X utf8 project_b/build_archive_index.py            # 生成/更新
   python -X utf8 project_b/build_archive_index.py --check     # 只检查
-  python -X utf8 project_b/build_archive_index.py --src HEAD  # 换快照来源
 """
 from __future__ import annotations
 
 import argparse
+import html
 import io
 import os
-import re
-import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "archive-index.html")
-DEFAULT_SRC = "v1.0-full-20260913"
+sys.path.insert(0, os.path.join(ROOT, "project_b"))
+from build_nav import render_nav, render_footer  # noqa: E402  导航单一事实源
 
-START = "<!-- ARCHIVE-INDEX:START（由 project_b/build_archive_index.py 生成，勿手改）-->"
-END = "<!-- ARCHIVE-INDEX:END -->"
+SITE = "https://wx409.github.io"
+OUT = os.path.join(ROOT, "archive-index.html")
+REGISTRY = os.path.join(ROOT, "docs", "链接登记.md")
 ROBOTS = '<meta name="robots" content="noindex, nofollow">'
 TITLE = "完整档案索引（仅自己可见）| 王晰 GEO 数字档案站"
-DESC = ("完整档案索引（仅本人查看）：旧页完整快照目录，不加入导航、不提交 IndexNow、"
-        "不写入 sitemap。旧页内容一律保留完整快照，不删内容。")
+DESC = ("完整档案索引（仅本人查看）：全部页面的分类链接，"
+        "不加入主导航、不提交 IndexNow、不写入 sitemap。")
 
+# (分类, [(路径, 一句说明)])
 GROUPS = [
-    ("作品与歌曲", [
-        ("discography.html", "作品百科：专辑/曲目/署名与试听线索（完整版）"),
-        ("songs.html", "歌曲库：全量曲目与元数据（完整版）"),
+    ("对外主入口（精简版 7 页 · 有主导航位）", [
+        ("index.html", "王晰是谁 + 全站检索入口 + 可引用统计表"),
+        ("works.html", "他发布了什么作品（72 首逐曲稳定音/跨度/稳定性/颤音）"),
+        ("live.html", "他在哪里唱过什么、唱得怎么样（场次/城市/三层现场实测）"),
+        ("vocal.html", "他的声音数据是什么（最低稳定音、方法学、动态范围、同管线对照）"),
+        ("history.html", "按时间顺序发生了什么（生涯时间轴 + 语录档案）"),
+        ("research.html", "外部研究 + 数据证据（文献、权威点评、口径登记表）"),
+        ("community.html", "访客参与入口（投稿、勘误、观感索引、问答库入口）"),
     ]),
-    ("现场与演出", [
-        ("live-reviews.html", "现场实录：逐场观感与反馈（体量最大，完整版）"),
-        ("live/setlists.html", "全部歌单：逐场歌单明细（完整版）"),
-        ("stage.html", "🎤 现场实测（声乐实验区）：巡演/综艺双层现场音域实测"),
-        ("map/index.html", "巡演地图：22 城 64 场交互地图（完整版）"),
-        ("city-guides.html", "城市攻略：22 城观演指南（完整版）"),
-        ("story-hui-guangzhou-2026.html", "六巡广州站单场数据复盘专题（完整版）"),
+    ("内容档案（仍对外可见、仍被索引与推送）", [
+        ("live-reviews.html", "现场实录：逐场观感与反馈（体量最大）"),
+        ("discography.html", "作品百科：专辑/曲目/署名与试听线索"),
+        ("songs.html", "歌曲库：全量曲目与元数据"),
+        ("live/setlists.html", "全部歌单：逐场歌单明细"),
+        ("live/", "演出详情目录：各城市场次独立页"),
+        ("city-guides.html", "城市攻略：22 城观演指南"),
+        ("map/", "巡演地图：22 城 64 场交互地图"),
+        ("culture/index.html", "文化足迹：对外交流/文旅/官方项目"),
+        ("timeline.html", "生涯时间轴"),
+        ("data-timeline.html", "数据时间线"),
+        ("story.html", "数据故事"),
+        ("story-hui-guangzhou-2026.html", "六巡广州站单场数据复盘专题"),
+        ("notifications.html", "自动通知"),
+        ("gallery.html", "视觉记录：逐站图片记录"),
+        ("jazz.html", "爵士专题"),
+        ("tavern/", "深夜小酒馆：现场逐字稿"),
+        ("submit.html", "投稿入口"),
     ]),
     ("声学实测（声乐实验区）", [
-        ("voice.html", "🎼 音域实测（声乐实验区）：72 曲录音室全量 + 跨素材精测"),
-        ("skill.html", "🎙️ 唱功实测（声乐实验区）：七维实测 + 每日唱功卡片"),
-        ("debate/index.html", "⚖️ 争议案例（实验区）：口径分歧的结构化陈列"),
+        ("voice.html", "音域实测：72 曲录音室全量 + 跨素材精测"),
+        ("stage.html", "现场实测：王晰主导巡演 + 他人主导舞台双层"),
+        ("skill.html", "唱功实测：七维实测 + 每日唱功卡片 + 同管线横向对照"),
+        ("dashboard/index.html", "数据大屏：指数趋势/当月榜单/档案层"),
     ]),
-    ("生涯与文化", [
-        ("timeline.html", "生涯时间轴（完整版）"),
-        ("data-timeline.html", "数据时间线（完整版）"),
-        ("culture/index.html", "文化足迹：对外交流/文旅/官方项目（完整版）"),
-        ("academic.html", "学术研究：可核验文献（完整版）"),
-        ("jazz.html", "爵士专题（完整版）"),
+    ("可引用资产", [
+        ("qa.html", "问答库：315 条问答对（真实 HTML + FAQPage，GEO 可引用）"),
+        ("academic.html", "学术研究：46 条可核验文献 + 权威点评著录"),
+        ("data/calibers.md", "口径登记表：全站数字字典（引用任何数字前必查）"),
+        ("data/kb/kb_digest.md", "知识库摘要"),
+        ("llms.txt", "面向 AI 的摘要文件"),
+        ("feed.xml", "RSS 订阅"),
     ]),
-    ("数据与工具", [
-        ("dashboard/index.html", "数据大屏：指数趋势/当月榜单/档案层（完整版）"),
-        ("tavern/index.html", "深夜小酒馆：现场逐字稿（完整版）"),
-        ("gallery.html", "视觉记录：逐站图片记录（完整版）"),
-        ("submit.html", "投稿入口（完整版）"),
-        ("search.html", "全站检索（完整版，含知识库语义召回）"),
-        ("notifications.html", "自动通知（完整版）"),
+    ("实验区与工具（noindex，刻意不收录）", [
+        ("debate/index.html", "争议案例索引：口径分歧的结构化陈列"),
+        ("debate/xiangzhe-taiyang-lowest.html", "案例 1：《向着太阳》最低音之争"),
+        ("search.html", "全站检索（含知识库语义召回，支持 ?q= 直达）"),
+        ("kb-semantic.html", "知识库语义检索旧入口（noindex，保书签兼容）"),
+        ("about.html", "关于本站"),
     ]),
 ]
 
+# 本地登记表补充：站点级文件
+REG_EXTRA = [
+    ("archive-index.html", "完整档案索引（本页，私密）", "不推送"),
+    ("sitemap.xml", "站点地图（对外页全量）", "推送"),
+    ("robots.txt", "爬虫规则", "—"),
+    ("404.html", "404 页", "不收录"),
+]
 
-def get_src(ref):
-    r = subprocess.run(["git", "show", ref + ":index.html"], cwd=ROOT, capture_output=True)
-    if r.returncode != 0:
-        raise SystemExit("无法从 git 取出 %s:index.html —— %s" %
-                         (ref, r.stderr.decode("utf-8", "replace")[:200]))
-    return r.stdout.decode("utf-8")
+
+def esc(s):
+    return html.escape(str(s if s is not None else ""), quote=True)
 
 
-def build_directory():
-    parts = [START,
-             '<div style="max-width:1000px;margin:0 auto;padding:18px 20px;">',
-             '<h1 style="font-size:22px;margin:6px 0 4px;">完整档案索引（仅自己可见）</h1>',
-             '<p style="font-size:13.5px;color:#666;line-height:1.8;margin:6px 0">'
-             '本页是<strong>私密入口</strong>：不加入任何导航、不提交 IndexNow、不写入 sitemap，'
-             '仅供作者本人查看。<br>旧页内容一律保留<strong>完整快照</strong>，不删内容；'
-             '精简版 7 页为对外主入口。日常通过书签访问本页。</p>']
+def page_html():
+    parts = ['<!DOCTYPE html>', '<html lang="zh-CN">', '<head>', '<meta charset="UTF-8">',
+             '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+             f'<title>{esc(TITLE)}</title>', ROBOTS,
+             f'<meta name="description" content="{esc(DESC)}">',
+             '<style>',
+             ':root{--red:#c41e3a;--gold:#b8912e;--ink:#222;--sub:#6b6b6b;--line:#e6e2da;--bg:#fffdf8}',
+             'body{margin:0;background:var(--bg);color:var(--ink);line-height:1.8;font-size:15px;'
+             "font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}",
+             '.wrap{max-width:900px;margin:0 auto;padding:18px 20px 8px}',
+             'h1{font-size:21px;margin:8px 0 4px}',
+             'h2{font-size:15px;margin:18px 0 6px;padding-left:8px;border-left:3px solid var(--gold)}',
+             'ul{margin:4px 0;padding-left:20px}li{margin:3px 0}',
+             'a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}',
+             '.sub{color:var(--sub);font-size:13px}',
+             'code{background:#f5f0e6;padding:1px 5px;border-radius:3px;font-size:13px}',
+             'footer.site-index{max-width:900px;margin:28px auto;padding:16px 18px;'
+             'border-top:1px solid var(--line);font-size:13px;color:#666;line-height:2}',
+             '</style>', '</head>', '<body>', render_nav(), '<div class="wrap">',
+             '<h1>完整档案索引（仅自己可见）</h1>',
+             '<p class="sub">本页是<b>私密索引页</b>：不加入主导航、不提交 IndexNow、不写入 sitemap。<br>'
+             '全部页面的正文都在各自原页，本页<b>不复制任何正文</b>——只有链接与一句说明。<br>'
+             '页面本身仍对外可达（不做访问限制），但 noindex：搜索引擎不会收录本索引页。</p>']
     for gname, items in GROUPS:
-        lis = "".join(f'<li style="margin:3px 0"><a href="/{p}">{p}</a> — {d}</li>' for p, d in items)
-        parts.append(f'<h2 style="font-size:16px;margin:16px 0 6px;padding-left:8px;'
-                     f'border-left:3px solid #b8912e;">{gname}</h2>')
-        parts.append('<ul style="margin:4px 0;padding-left:22px;font-size:14px;line-height:1.9">'
-                     + lis + "</ul>")
-    parts.append('<p style="font-size:13px;color:#888;margin-top:16px">'
-                 '对外主入口（精简版 7 页）：<a href="/index.html">首页</a> · '
-                 '<a href="/works.html">作品</a> · <a href="/live.html">现场</a> · '
-                 '<a href="/vocal.html">声音数据</a> · <a href="/history.html">生涯</a> · '
-                 '<a href="/research.html">研究</a> · <a href="/community.html">参与</a></p>')
-    parts.append("</div>")
-    parts.append(END)
+        parts.append(f'<h2>{esc(gname)}</h2>')
+        parts.append('<ul>')
+        for path, desc in items:
+            parts.append(f'<li><a href="/{esc(path)}">{esc(path)}</a> — {esc(desc)}</li>')
+        parts.append('</ul>')
+    parts.append('<p class="sub">维护：本页由 <code>project_b/build_archive_index.py</code> 生成；'
+                 '本地链接登记见 <code>docs/链接登记.md</code>（含收录状态与用途）。</p>')
+    parts += ['</div>', render_footer(), '</body>', '</html>', '']
     return "\n".join(parts)
 
 
-def transform(src):
-    txt = re.sub(r'<meta[^>]+name=["\']robots["\'][^>]*>\s*', "", src, flags=re.I)
-    m = re.search(r"<head[^>]*>", txt, re.I)
-    if not m:
-        raise SystemExit("源页面没有 <head>")
-    txt = txt[:m.end()] + "\n" + ROBOTS + txt[m.end():]
-    txt = re.sub(r"<title>.*?</title>", "<title>" + TITLE + "</title>", txt, count=1,
-                 flags=re.S | re.I)
-    if re.search(r'<meta[^>]+name=["\']description["\'][^>]*>', txt, re.I):
-        txt = re.sub(r'<meta[^>]+name=["\']description["\'][^>]*>',
-                     '<meta name="description" content="' + DESC + '">', txt, count=1, flags=re.I)
-    block = build_directory()
-    if START in txt and END in txt:
-        txt = re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _m: block, txt,
-                     count=1, flags=re.S)
-    else:
-        anchor = "<!-- NAV_END -->"
-        if anchor in txt:
-            i = txt.index(anchor) + len(anchor)
-            txt = txt[:i] + "\n" + block + txt[i:]
+def registry_md():
+    out = ['# 链接登记（本地）', '',
+           '> 全部链接留在本地，以后知道链接也能直接查看。',
+           '> 由 `project_b/build_archive_index.py` 生成，与 `archive-index.html` 同源。', '',
+           '站点根：`' + SITE + '/`', '',
+           '| 分类 | 路径 | 完整 URL | 用途 | 收录 / 推送 |', '|---|---|---|---|---|']
+    for gname, items in GROUPS:
+        if '主入口' in gname:
+            push = 'index,follow · 在 sitemap · 推送 IndexNow（有主导航位）'
+        elif '实验区' in gname:
+            push = '不推送（noindex / 私密）'
         else:
-            b = re.search(r"<body[^>]*>", txt, re.I)
-            txt = txt[:b.end()] + "\n" + block + txt[b.end():]
-    return txt
+            push = 'index,follow · 在 sitemap · 推送 IndexNow'
+        for path, desc in items:
+            out.append(f'| {gname} | `{path}` | {SITE}/{path} | {desc} | {push} |')
+    for path, desc, push in REG_EXTRA:
+        url = f'{SITE}/{path}'
+        out.append(f'| 站点级 | `{path}` | {url} | {desc} | {push} |')
+    out += ['', '## 刻意不收录的两类', '',
+            '- `archive-index.html`（本索引页）：私密页，noindex,nofollow，不进 sitemap、不推送。',
+            '- `debate/`（实验区）与 `kb-semantic.html`：noindex，成熟后再迁入可索引区。', '',
+            '## 说明', '',
+            '- 「不展示」≠「不收录」：完整档案页不占主导航位，但**仍被索引、仍在 sitemap、仍推送 IndexNow**，',
+            '  并在每页底部全站索引里有直连入口（人点得到、爬虫也走得到）。',
+            '- 站点级文件 `data/calibers.md`、`data/kb/kb_digest.md`、`llms.txt` 同时进 sitemap 与推送。', '']
+    return "\n".join(out)
 
 
 def main():
-    ap = argparse.ArgumentParser(description="私密入口 archive-index.html 生成器")
+    ap = argparse.ArgumentParser(description="完整档案索引页 + 本地链接登记")
     ap.add_argument("--check", action="store_true")
-    ap.add_argument("--src", default=DEFAULT_SRC, help="git 快照引用（默认 %s）" % DEFAULT_SRC)
     args = ap.parse_args()
-
-    out = transform(get_src(args.src))
-    old = io.open(OUT, encoding="utf-8").read() if os.path.exists(OUT) else ""
-    if old == out:
-        print("[OK] archive-index.html 已一致（%d 字节，源 index.html@%s）" % (len(out), args.src))
-        return 0
-    if args.check:
-        print("[FAIL] archive-index.html 需重建（当前 %d → 目标 %d 字节）" % (len(old), len(out)))
+    targets = [(OUT, page_html()), (REGISTRY, registry_md())]
+    drift = []
+    for path, content in targets:
+        old = io.open(path, encoding="utf-8").read() if os.path.exists(path) else ""
+        if old == content:
+            print("  %-30s 已一致 ✅ (%d 字节)" % (os.path.relpath(path, ROOT), len(content.encode("utf-8"))))
+            continue
+        drift.append(os.path.relpath(path, ROOT))
+        if args.check:
+            print("  %-30s 需更新" % os.path.relpath(path, ROOT))
+        else:
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            io.open(path, "w", encoding="utf-8").write(content)
+            print("  %-30s 已生成 (%d 字节)" % (os.path.relpath(path, ROOT), len(content.encode("utf-8"))))
+    if args.check and drift:
+        print("\n[FAIL] %d 个文件漂移：%s" % (len(drift), ", ".join(drift)))
         return 1
-    io.open(OUT, "w", encoding="utf-8").write(out)
-    print("[OK] 已生成 archive-index.html（%d 字节，源 index.html@%s）" % (len(out), args.src))
+    print("\n[OK] 完成")
     return 0
 
 

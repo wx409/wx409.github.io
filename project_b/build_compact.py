@@ -22,6 +22,7 @@
 from __future__ import annotations
 
 import argparse
+import glob
 import html as _html
 import io
 import json
@@ -854,7 +855,7 @@ def build_history():
 现场 Talk 原话来自现场录音转写，带时间戳与素材链接。</p>
 
 <h2>三、文化足迹</h2>
-<p>对外文化交流、城市文旅与官方艺术项目参与记录，见 <a href="/culture/">文化足迹</a>（旧页，完整存档）。</p>
+<p>对外文化交流、城市文旅与官方艺术项目参与记录，见 <a href="/culture/">文化足迹</a>（完整档案）。</p>
 
 {source_caveat()}
 """
@@ -898,7 +899,7 @@ def build_research():
 
 <h2>一、外部文献（{N_LIT} 条）</h2>
 {lit_table}
-<p class="src">完整清单与著录信息见 <a href="/academic.html">学术研究（旧页，完整存档）</a>；
+<p class="src">完整清单与著录信息见 <a href="/academic.html">学术研究（完整档案）</a>；
 数据源 <a href="/data/literature.json">data/literature.json</a>。</p>
 
 <h2>二、权威点评与已发表来源</h2>
@@ -963,17 +964,17 @@ def build_community():
 
 <h2>一、投稿与勘误</h2>
 <ul>
-<li><a href="/submit.html">投稿入口</a>（旧页，完整功能保留）：现场repo、观感、素材线索。</li>
+<li><a href="/submit.html">投稿入口</a>（完整档案，完整功能保留）：现场repo、观感、素材线索。</li>
 <li>勘误：站内每个数字都附数据源；发现与数据源不符，欢迎附证据指出，本站按「先核事实、再改表述」处理。</li>
 </ul>
 
 <h2>二、现场观感与赏析（只收录元数据与索引）</h2>
 <p>本站收录歌迷赏析与现场短评的<strong>标题、日期与信源级别</strong>，不转载全文；全文仅本地留存。
-相关索引见 <a href="/gallery.html">视觉记录</a> 与 <a href="/live-reviews.html">现场实录</a>（均为旧页，完整存档）。</p>
+相关索引见 <a href="/gallery.html">视觉记录</a> 与 <a href="/live-reviews.html">现场实录</a>（均为完整档案）。</p>
 
 <h2>三、深夜小酒馆（现场逐字稿）</h2>
 <p>现场聊天逐字稿整理，含金句与歌曲推荐；数据层 <a href="/data/tavern_audio.json">tavern_audio.json</a>，
-入口 <a href="/tavern/">深夜小酒馆</a>（旧页，完整存档）。</p>
+入口 <a href="/tavern/">深夜小酒馆</a>（完整档案）。</p>
 
 <h2>四、问答库（{N_QA} 条）</h2>
 <p>可直接引用的问答对（真实 HTML + FAQPage 结构化数据）：<a href="/qa.html">问答库</a>。</p>
@@ -1019,26 +1020,49 @@ BUILDERS = [
 ]
 
 
-def build_sitemap():
-    """站点地图：只含精简版 7 页（旧页与 archive-index.html 一概不入）。
+def sitemap_pages():
+    """sitemap 收录清单（单一事实源）：全部对外页 + 站点级文件。
 
-    旧页进 noindex 后若仍留在 sitemap 会自相矛盾（sitemap 是「请收录」的信号）；
-    archive-index.html 是私密页，刻意不入。旧页的爬虫可达性由 archive-index.html 的
-    内链保证（audit_nav 的孤儿页检查据此通过）。
+    2026-09-13（晚，按用户决策更正）：完整档案页**仍然对外可见、仍要收录与推送**，
+    所以 sitemap 恢复全量（此前只留 7 页是误判）。
+    排除：archive-index.html（私密索引页）、kb-semantic.html（noindex）、debate/（实验区 noindex）。
     """
-    pri = {"index.html": "1.0", "works.html": "0.9", "live.html": "0.9", "vocal.html": "0.9",
-           "history.html": "0.8", "research.html": "0.8", "community.html": "0.6"}
-    freq = {"index.html": "weekly", "works.html": "monthly", "live.html": "weekly",
-            "vocal.html": "monthly", "history.html": "monthly", "research.html": "monthly",
-            "community.html": "monthly"}
+    skip_names = {"archive-index.html", "kb-semantic.html", "404.html",
+                  "live_template.html", "social_wall.html"}
+    globs = ["*.html", "live/index.html", "live/setlists.html", "culture/index.html",
+             "data/music-index.html", "map/index.html", "tavern/index.html",
+             "dashboard/index.html"]
+    seen, out = set(), []
+    for g in globs:
+        for p in sorted(glob.glob(os.path.join(ROOT, g))):
+            rel = os.path.relpath(p, ROOT).replace(os.sep, "/")
+            if os.path.basename(rel) in skip_names or rel in seen:
+                continue
+            seen.add(rel)
+            out.append(rel)
+    # 站点级文件
+    for extra in ("data/calibers.md", "data/kb/kb_digest.md", "llms.txt"):
+        if os.path.exists(os.path.join(ROOT, extra.replace("/", os.sep))):
+            out.append(extra)
+    return out
+
+
+def build_sitemap():
+    """站点地图：对外页全量（完整档案页仍收录）+ 站点级文件。"""
+    pri = {"index.html": "1.0"}
+    freq = {"index.html": "weekly"}
+    for fn, _ in BUILDERS:
+        pri.setdefault(fn, "0.9" if fn in ("works.html", "live.html", "vocal.html") else "0.8")
+        freq.setdefault(fn, "weekly" if fn in ("live.html", "qa.html") else "monthly")
+    default_pri, default_freq = "0.7", "monthly"
     out = ["<?xml version='1.0' encoding='utf-8'?>",
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for fn, _ in BUILDERS:
+    for rel in sitemap_pages():
         out += ["  <url>",
-                f"    <loc>{SITE}/{fn}</loc>",
+                f"    <loc>{SITE}/{rel}</loc>",
                 f"    <lastmod>{UPDATED}</lastmod>",
-                f"    <changefreq>{freq[fn]}</changefreq>",
-                f"    <priority>{pri[fn]}</priority>",
+                f"    <changefreq>{freq.get(rel, default_freq)}</changefreq>",
+                f"    <priority>{pri.get(rel, default_pri)}</priority>",
                 "  </url>"]
     out.append("</urlset>")
     return "\n".join(out) + "\n"

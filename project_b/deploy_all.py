@@ -105,8 +105,7 @@ INDEXNOW_URLS = [
     "https://wx409.github.io/sitemap.xml",
     "https://wx409.github.io/feed.xml",
     "https://wx409.github.io/entity_index.json",
-    # 2026-09-13 瘦身 2.0：只提交精简版 7 页（对外主入口）。
-    # 旧页不再通知删除、不做 301，自然淡出（URL 全部保留可用）。
+    # 对外主入口（精简版 7 页，2026-09-13 瘦身 2.0）
     "https://wx409.github.io/index.html",
     "https://wx409.github.io/works.html",
     "https://wx409.github.io/live.html",
@@ -114,15 +113,36 @@ INDEXNOW_URLS = [
     "https://wx409.github.io/history.html",
     "https://wx409.github.io/research.html",
     "https://wx409.github.io/community.html",
-    # 常更新内容入口页（现场详情 / 歌单 / 问答 / 知识库）
-    "https://wx409.github.io/live/",
-    "https://wx409.github.io/search.html",
+    # 完整档案页：**不占主导航位，但仍要被抓取与收录**（2026-09-13 晚更正 → 恢复推送）
+    "https://wx409.github.io/live-reviews.html",
+    "https://wx409.github.io/discography.html",
+    "https://wx409.github.io/songs.html",
+    "https://wx409.github.io/timeline.html",
+    "https://wx409.github.io/data-timeline.html",
+    "https://wx409.github.io/story.html",
+    "https://wx409.github.io/story-hui-guangzhou-2026.html",
+    "https://wx409.github.io/notifications.html",
+    "https://wx409.github.io/voice.html",
+    "https://wx409.github.io/stage.html",
+    "https://wx409.github.io/skill.html",
+    "https://wx409.github.io/academic.html",
     "https://wx409.github.io/qa.html",
-    "https://wx409.github.io/data/kb/kb_digest.md",
-    # 其他固定入口页
+    "https://wx409.github.io/jazz.html",
+    "https://wx409.github.io/gallery.html",
+    "https://wx409.github.io/city-guides.html",
+    "https://wx409.github.io/submit.html",
+    "https://wx409.github.io/search.html",
     "https://wx409.github.io/about.html",
+    "https://wx409.github.io/live/",
+    "https://wx409.github.io/live/setlists.html",
+    "https://wx409.github.io/culture/",
     "https://wx409.github.io/map/",
     "https://wx409.github.io/dashboard/",
+    "https://wx409.github.io/tavern/",
+    "https://wx409.github.io/data/music-index.html",
+    "https://wx409.github.io/data/calibers.md",
+    "https://wx409.github.io/data/kb/kb_digest.md",
+    # 刻意不推送：archive-index.html（完整档案索引，私密页）、kb-semantic.html（noindex）、debate/（实验区）
 ]
 
 
