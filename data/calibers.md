@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 17:59　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 18:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -58,6 +58,8 @@
 | `voice_corpus_items` | 声音素材转写条目数 | **72** | 已下载并完成转写的音频/视频单集数，跨 16 个系列 | `data\voice_corpus.json#items` |
 | `voice_corpus_chars` | 声音素材转写全文字数 | **51488** | 全部转写稿字符数（可检索语料规模） | `data\voice_corpus.json#items[].text` |
 | `voice_corpus_minutes` | 声音素材总时长（分钟） | **305.8** | 已下载音频/视频的总时长 | `data\voice_corpus.json#counts` |
+| `media_library_files` | 声音素材库已下载媒体文件数 | **72** | 本地留存的音频/视频文件数（跨 20 个条目，16 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
+| `media_library_pending` | 声音素材库待采条目数 | **4** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 
 ## 常见误用
 

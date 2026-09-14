@@ -422,6 +422,25 @@ def collect() -> list[dict]:
     except Exception as e:
         add("voice_corpus_items", "声音素材转写条目数", None, str(e), "", "")
 
+    # 声音素材库媒体清册（本地留存，不入 git）
+    try:
+        mm = _load_abs(os.path.join(r"E:\wx\声音素材库", "manifest", "media_manifest.json")) or {}
+        items = mm.get("items") or []
+        n_files = sum(len(x.get("local_files") or []) for x in items)
+        n_dl = sum(1 for x in items if x.get("status") == "downloaded")
+        if n_files:
+            add("media_library_files", "声音素材库已下载媒体文件数", n_files,
+                "本地留存的音频/视频文件数（跨 %d 个条目，%d 个条目已下载）" % (len(items), n_dl),
+                "E:\\wx\\声音素材库\\manifest\\media_manifest.json",
+                "**媒体原件不入 git、不公开**；下载器见 project_b\\download_media.py 等")
+            add("media_library_pending", "声音素材库待采条目数",
+                sum(1 for x in items if x.get("status") != "downloaded"),
+                "因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等）",
+                "E:\\wx\\声音素材库\\manifest\\media_manifest.json",
+                "原因逐条记在 blocked_reason；需人工浏览器协助")
+    except Exception as e:
+        add("media_library_files", "声音素材库已下载媒体文件数", None, str(e), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 

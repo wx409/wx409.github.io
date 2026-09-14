@@ -84,7 +84,9 @@ def main():
         }
         if not t.get('src'):
             x['status'] = 'no_direct_url'
-            print('⏭ %-20s 无直链（节目形态，需另找单集）: %s'
+            x['blocked_reason'] = ('平台未返回直链：该条目为节目形态或付费专辑曲目 '
+                                   '（专辑曲目列表接口返回 0 首，需喜马拉雅登录态）')
+            print('⏭ %-20s 无直链（需登录/付费）: %s'
                   % (x['id'], str(t.get('trackName'))[:40]))
             continue
         outdir = os.path.join(MEDIA, x['id'])

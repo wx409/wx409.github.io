@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14 17:59",
-  "count": 51,
+  "generated_at": "2026-09-14 18:08",
+  "count": 53,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -409,6 +409,22 @@
       "scope": "已下载音频/视频的总时长",
       "source": "data\\voice_corpus.json#counts",
       "note": ""
+    },
+    {
+      "id": "media_library_files",
+      "label": "声音素材库已下载媒体文件数",
+      "value": 72,
+      "scope": "本地留存的音频/视频文件数（跨 20 个条目，16 个条目已下载）",
+      "source": "E:\\wx\\声音素材库\\manifest\\media_manifest.json",
+      "note": "**媒体原件不入 git、不公开**；下载器见 project_b\\download_media.py 等"
+    },
+    {
+      "id": "media_library_pending",
+      "label": "声音素材库待采条目数",
+      "value": 4,
+      "scope": "因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等）",
+      "source": "E:\\wx\\声音素材库\\manifest\\media_manifest.json",
+      "note": "原因逐条记在 blocked_reason；需人工浏览器协助"
     }
   ]
 }

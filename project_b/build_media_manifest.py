@@ -132,18 +132,47 @@ def main():
     for d in DIRS:
         os.makedirs(os.path.join(LIB, d), exist_ok=True)
 
+    # 保留上一轮已有的下载记录（local_files/status/blocked_reason）——
+    # 2026-09-14 踩坑：重建 manifest 会把下载记录抹掉，导致"下过了却显示未下载"。
+    old_doc = {}
+    _p = os.path.join(LIB, 'manifest', 'media_manifest.json')
+    if os.path.exists(_p):
+        try:
+            old_doc = json.loads(io.open(_p, encoding='utf-8').read())
+        except Exception:
+            old_doc = {}
+    old_by_id = {x.get('id'): x for x in (old_doc.get('items') or []) if isinstance(x, dict)}
+
+    media_dir = os.path.join(LIB, 'media')
     out = []
     for it in ITEMS:
         rec = dict(it)
         rec.setdefault('status', 'pending')
         rec['verified'] = {}
+        prev = old_by_id.get(it['id']) or {}
+        for k in ('local_files', 'downloaded_at', 'status', 'blocked_reason'):
+            if prev.get(k):
+                rec[k] = prev[k]
+        # 从磁盘回扫（目录名 = item id），确保 manifest 与磁盘一致
+        d = os.path.join(media_dir, it['id'])
+        if os.path.isdir(d):
+            files = []
+            for root, _dirs, fs in os.walk(d):
+                for f in fs:
+                    p2 = os.path.join(root, f)
+                    files.append({'file': os.path.relpath(p2, LIB).replace('\\', '/'),
+                                  'size_mb': round(os.path.getsize(p2) / 1e6, 1)})
+            if files:
+                rec['local_files'] = sorted(files, key=lambda z: z['file'])
+                if rec.get('status') in (None, 'pending', 'verified'):
+                    rec['status'] = 'downloaded'
         if it['platform'] == 'bilibili' and it['url']:
             v = verify_bilibili(it['url'])
             rec['verified'] = v
             if v.get('title'):
-                rec['status'] = 'verified'
                 rec['title_official'] = v['title']
-                # 分P 展开成子项，便于逐P下载
+                if not rec.get('local_files'):
+                    rec['status'] = 'verified'
                 rec['subitems'] = [
                     dict(id='%s_p%02d' % (it['id'], p['index']),
                          title=p['title'], page=p['index'], duration_s=p['duration_s'])
