@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 14:06　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 15:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -45,6 +45,12 @@
 | `songs_shows_rows` | 歌曲×场次索引记录数 | **1249** | 全站 64 场歌单展开：289 首歌曲 × 场次 | `data\songs_shows_index.json` |
 | `songs_shows_songs` | 歌曲×场次索引·歌曲数 | **289** | 同表口径：出现在已收录歌单中的不同歌曲数 | `data\songs_shows_index.json` |
 | `jazz_repertoire_songs` | 爵士/Bossa Nova 曲目线条目数 | **12** | 站内歌单中判定为爵士/Bossa Nova 的曲目数（依据：歌单备注 + 曲目风格归属） | `project_b\build_jazz_page.py` |
+| `weibo_all_posts` | 四源统一微博帖数 | **1722** | 工作室微博 + 百家号 + 本人微博（统一表，本地档案不进 git） | `E:\wx\私有工具\weibo_merged\weibo_all_posts.json` |
+| `weibo_personal_visible` | 本人微博当前可见帖数 | **33** | 王晰本人账号（1292815744）经 API 抓取到的全部可见帖 —— **实测确认已抓完**：末页无下一页游标、增量新增 0 条 | `E:\wx\私有工具\weibo_archive\index.json` |
+| `weibo_studio_archived` | 工作室微博已归档帖数 | **2206** | 王晰工作室（7215995153）2019-08-08 ~ 2026-09-04 逐条归档 | `E:\wx\私有工具\weibo_archive_studio\index.json` |
+| `weibo_book_posts` | 微博书 OCR 基准帖数 | **770** | 微博书（3 册）OCR 帖 —— 2014-2018 本人原话的主干来源 | `E:\wx\私有工具\weibo_merged\weibo_book_posts.json` |
+| `shaocheng_wangxi_posts` | 少城时代官博·王晰相关帖数 | **172** | 少城时代（UID 1629398873）2016-08-12 ~ 2021-03-11 的王晰相关帖，含转发 | `E:\wx\私有工具\weibo_merged\shaocheng_posts_wangxi.json` |
+| `shaocheng_union_posts` | 少城时代官博·23词搜索并集（含其他艺人） | **1563** | 同账号 23 个关键词并集（多艺人厂牌号：张靓颖/王铮亮/赵露思…） | `E:\wx\私有工具\weibo_merged\shaocheng_posts.json` |
 
 ## 常见误用
 

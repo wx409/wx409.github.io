@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from datetime import datetime
@@ -37,6 +38,17 @@ def _load(rel: str):
     if not p.exists():
         return None
     try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _load_abs(path: str):
+    """读仓库外的绝对路径（微博语料在 E:\\wx\\...，不进 git）。不可用则返回 None。"""
+    try:
+        p = Path(path)
+        if not p.exists():
+            return None
         return json.loads(p.read_text(encoding="utf-8"))
     except Exception:
         return None
@@ -304,6 +316,58 @@ def collect() -> list[dict]:
                 "project_b\\build_jazz_page.py", "非声学判定；只统计已收录进歌单的场次")
     except Exception as e:
         add("jazz_repertoire_songs", "爵士/Bossa Nova 曲目线条目数", None, str(e), "", "")
+
+    # 微博语料分层（2026-09-14 第三批盘点：如实登记，避免"哪个数是真的"）
+    # 数据源在仓库外（E:\wx\...），不可用时跳过，不阻塞部署。
+    _WB = r"E:\wx\私有工具\weibo_merged"
+    try:
+        _ap = os.path.join(_WB, "weibo_all_posts.json")
+        _bk = os.path.join(_WB, "weibo_book_posts.json")
+        _n_ap = len((_load_abs(_ap) or {}).get("posts") or [])
+        _n_bk = len((_load_abs(_bk) or {}).get("posts") or [])
+        if _n_ap:
+            add("weibo_all_posts", "四源统一微博帖数", _n_ap,
+                "工作室微博 + 百家号 + 本人微博（统一表，本地档案不进 git）",
+                "E:\\wx\\私有工具\\weibo_merged\\weibo_all_posts.json",
+                "注意：其 source=本人微博 那批仅 2024-12 之后；2014-2018 由微博书承载")
+        # 各账号「可见内容」实数（2026-09-14 实测确认，非 API 计数器）
+        add("weibo_personal_visible", "本人微博当前可见帖数", 33,
+            "王晰本人账号（1292815744）经 API 抓取到的全部可见帖 —— "
+            "**实测确认已抓完**：末页无下一页游标、增量新增 0 条",
+            "E:\\wx\\私有工具\\weibo_archive\\index.json",
+            "半年可见所致：仅 2024-12-16 ~ 2026-09-10；API 的 total 1936 是账号计数器，非可抓条数；"
+            "2014–2023 的个人原话由微博书承载（871 条）")
+        add("weibo_studio_archived", "工作室微博已归档帖数", 2206,
+            "王晰工作室（7215995153）2019-08-08 ~ 2026-09-04 逐条归档",
+            "E:\\wx\\私有工具\\weibo_archive_studio\\index.json",
+            "API total 2225，差 19 条属增量（2019-08 ~ 2026-09-04 区间已全）")
+        if _n_bk:
+            add("weibo_book_posts", "微博书 OCR 基准帖数", _n_bk,
+                "微博书（3 册）OCR 帖 —— 2014-2018 本人原话的主干来源",
+                "E:\\wx\\私有工具\\weibo_merged\\weibo_book_posts.json",
+                "⚠️ 其 date 字段是从页面页脚推的月桶，做年代统计须改用 corpus 文件名日期")
+    except Exception as e:
+        add("weibo_all_posts", "四源统一微博帖数", None, str(e), "", "")
+
+    try:
+        _sc = os.path.join(_WB, "shaocheng_posts_wangxi.json")
+        _sc_all = os.path.join(_WB, "shaocheng_posts.json")
+        _d = _load_abs(_sc) or {}
+        _n = len(_d.get("posts") or [])
+        if _n:
+            add("shaocheng_wangxi_posts", "少城时代官博·王晰相关帖数", _n,
+                "少城时代（UID 1629398873）2016-08-12 ~ 2021-03-11 的王晰相关帖，含转发",
+                "E:\\wx\\私有工具\\weibo_merged\\shaocheng_posts_wangxi.json",
+                "来源：searchProfile 定向搜索（非全量时间线）；含转发是刻意的——本人微博半年可见会丢转发可见性")
+        _da = _load_abs(_sc_all) or {}
+        _na = len(_da.get("posts") or [])
+        if _na:
+            add("shaocheng_union_posts", "少城时代官博·23词搜索并集（含其他艺人）", _na,
+                "同账号 23 个关键词并集（多艺人厂牌号：张靓颖/王铮亮/赵露思…）",
+                "E:\\wx\\私有工具\\weibo_merged\\shaocheng_posts.json",
+                "**不可当王晰语料用**（王晰相关仅 %d 条）；王晰子集见 shaocheng_wangxi_posts" % _n)
+    except Exception as e:
+        add("shaocheng_wangxi_posts", "少城时代官博·王晰相关帖数", None, str(e), "", "")
 
     return [x for x in out if x["value"] is not None]
 
