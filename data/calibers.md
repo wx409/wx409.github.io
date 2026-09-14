@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 16:28　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 17:26　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -52,6 +52,9 @@
 | `shaocheng_wangxi_posts` | 少城时代官博·王晰相关帖数 | **172** | 少城时代（UID 1629398873）2016-08-12 ~ 2021-03-11 的王晰相关帖，含转发 | `E:\wx\私有工具\weibo_merged\shaocheng_posts_wangxi.json` |
 | `shaocheng_union_posts` | 少城时代官博·23词搜索并集（含其他艺人） | **1563** | 同账号 23 个关键词并集（多艺人厂牌号：张靓颖/王铮亮/赵露思…） | `E:\wx\私有工具\weibo_merged\shaocheng_posts.json` |
 | `baijiahao_articles` | 王晰百家号帖数 | **625** | 百家号（另一账号，非本人微博）：2019-10-28 12:55 ~ 2026-09-10 19:00 | `E:\wx\私有工具\weibo_baijiahao_archive\baijiahao_archive.json` |
+| `radio_episodes_archived` | 电台节目已著录单集数 | **68** | 已逐集著录（标题/日期/时长/平台）的单集数，跨 7 个系列 | `data\radio_archive.json#series[].episodes` |
+| `radio_singles_archived` | 电台/读诗单条已著录数 | **9** | 单集/读诗/读信类条目（含音乐图书馆专访、好梦时刻第11期等） | `data\radio_archive.json#singles` |
+| `radio_unverified_items` | 电台档案·待核项数 | **11** | 无法核验、已单列的条目（含荔枝 63 集清单、ELLE 8 条微博、城市漫行 25 周等） | `data\radio_archive.json#unverified` |
 
 ## 常见误用
 

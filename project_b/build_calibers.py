@@ -383,6 +383,27 @@ def collect() -> list[dict]:
     except Exception as e:
         add("baijiahao_articles", "王晰百家号帖数", None, str(e), "", "")
 
+    # 电台/音频节目（2026-09-14 建档：只著录元数据，不下载音频）
+    try:
+        ra = _load("data/radio_archive.json") or {}
+        eps = sum(len(x.get("episodes") or []) for x in (ra.get("series") or []))
+        ser = ra.get("series") or []
+        if eps or ser:
+            add("radio_episodes_archived", "电台节目已著录单集数", eps,
+                "已逐集著录（标题/日期/时长/平台）的单集数，跨 %d 个系列" % len(ser),
+                "data\\radio_archive.json#series[].episodes",
+                "**全部来自粉丝二手存档**（B站饭制合集 + 网易云 DJ 电台）；官方平台（荔枝FM 63 集 / "
+                "QQ音乐城市漫行 25 周）为客户端渲染 + 接口签名保护，纯 HTTP 不可得，未著录")
+            add("radio_singles_archived", "电台/读诗单条已著录数", len(ra.get("singles") or []),
+                "单集/读诗/读信类条目（含音乐图书馆专访、好梦时刻第11期等）",
+                "data\\radio_archive.json#singles", "")
+            add("radio_unverified_items", "电台档案·待核项数", len(ra.get("unverified") or []),
+                "无法核验、已单列的条目（含荔枝 63 集清单、ELLE 8 条微博、城市漫行 25 周等）",
+                "data\\radio_archive.json#unverified",
+                "**不可当既成事实引用**；官方期数 63/25/7 均属此类")
+    except Exception as e:
+        add("radio_episodes_archived", "电台节目已著录单集数", None, str(e), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 

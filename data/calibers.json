@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14 16:28",
-  "count": 45,
+  "generated_at": "2026-09-14 17:26",
+  "count": 48,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -361,6 +361,30 @@
       "scope": "百家号（另一账号，非本人微博）：2019-10-28 12:55 ~ 2026-09-10 19:00",
       "source": "E:\\wx\\私有工具\\weibo_baijiahao_archive\\baijiahao_archive.json",
       "note": "2026-09-14 补齐 8~9 月（619→625）；语料目录 wx_textmine_corpus\\百家号 同步为同等条数"
+    },
+    {
+      "id": "radio_episodes_archived",
+      "label": "电台节目已著录单集数",
+      "value": 68,
+      "scope": "已逐集著录（标题/日期/时长/平台）的单集数，跨 7 个系列",
+      "source": "data\\radio_archive.json#series[].episodes",
+      "note": "**全部来自粉丝二手存档**（B站饭制合集 + 网易云 DJ 电台）；官方平台（荔枝FM 63 集 / QQ音乐城市漫行 25 周）为客户端渲染 + 接口签名保护，纯 HTTP 不可得，未著录"
+    },
+    {
+      "id": "radio_singles_archived",
+      "label": "电台/读诗单条已著录数",
+      "value": 9,
+      "scope": "单集/读诗/读信类条目（含音乐图书馆专访、好梦时刻第11期等）",
+      "source": "data\\radio_archive.json#singles",
+      "note": ""
+    },
+    {
+      "id": "radio_unverified_items",
+      "label": "电台档案·待核项数",
+      "value": 11,
+      "scope": "无法核验、已单列的条目（含荔枝 63 集清单、ELLE 8 条微博、城市漫行 25 周等）",
+      "source": "data\\radio_archive.json#unverified",
+      "note": "**不可当既成事实引用**；官方期数 63/25/7 均属此类"
     }
   ]
 }

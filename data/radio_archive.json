@@ -1,0 +1,772 @@
+{
+  "schema": "radio_archive v1",
+  "generated_at": "2026-09-14T17:25:04",
+  "note": "王晰电台/音频节目元数据（音频本身不下载，仅著录）",
+  "series": [
+    {
+      "id": "diyin_shijian",
+      "name": "王晰的低音时间",
+      "platform": "荔枝FM",
+      "url": "https://www.lizhi.fm/user/2519182403760091180",
+      "date_range": [
+        "2016-09",
+        "2017-10"
+      ],
+      "count": 63,
+      "episodes": [
+        {
+          "episode": 1,
+          "title": "王晰的低音时间第一期",
+          "url": "http://www.lizhifm.com/voice/2522739339121256454",
+          "date": null,
+          "status": "verified_episode_page_title"
+        },
+        {
+          "episode": 19,
+          "title": "王晰的低音时间第十九期——《Don't Know Why》",
+          "url": "http://www.lizhifm.com/voice/2555898219666283014",
+          "date": null,
+          "status": "verified_episode_page_title"
+        }
+      ],
+      "status": "homepage_403_client_rendered_episode_list_unavailable",
+      "note": "用户提供的 https://www.lizhi.fm/user/2519182403760091180 以普通浏览器 UA 直取返回 HTTP 403；镜像 www.lizhifm.com/user/band?band=1377632 返回 200（标题「歌手王晰」）但列表由 Next.js 客户端二次请求填充，纯 HTTP 拿不到剧集数组；www.lizhi.fm/band/1377632 返回 403；api.lizhi.fm 域名 DNS/连接不可达；archive.org（Wayback）连接超时。63 集清单**未**枚举，仅逐集页面可验 2 集标题。",
+      "scope_note": "只含荔枝FM「王晰的低音时间」本体；不含其后来的喜马拉雅/网易云转载（见 ne_diyin_dj 与 singles）。"
+    },
+    {
+      "id": "yinyue_tushuguan",
+      "name": "王晰的音乐图书馆",
+      "platform": "喜马拉雅（原）/ B站饭制合集",
+      "url": "https://www.bilibili.com/video/BV1nt411D7FQ/",
+      "date_range": [
+        "2017-12",
+        "2018-12"
+      ],
+      "count": 8,
+      "episodes": [
+        {
+          "episode": 1,
+          "title": "01歌手：带着一颗好心去流浪",
+          "duration_s": 398,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=1",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 2,
+          "title": "02父亲：爱的反义词是遗忘",
+          "duration_s": 930,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=2",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 3,
+          "title": "03游子：无数次在梦里，重游往昔",
+          "duration_s": 493,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=3",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 4,
+          "title": "04儿子：一纸家书万里牵挂",
+          "duration_s": 570,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=4",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 5,
+          "title": "05恋人：爱你就像心沉入大海",
+          "duration_s": 696,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=5",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 6,
+          "title": "06老师：公益是盏永不熄灭的灯",
+          "duration_s": 669,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=6",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 7,
+          "title": "07丈夫：嫁给爱情，你快乐所以我快乐",
+          "duration_s": 857,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=7",
+          "status": "verified_bilibili_fan_compilation"
+        },
+        {
+          "episode": 8,
+          "title": "08朋友：与友人，一生一起走",
+          "duration_s": 721,
+          "url": "https://www.bilibili.com/video/BV1nt411D7FQ/?p=8",
+          "status": "verified_bilibili_fan_compilation"
+        }
+      ],
+      "status": "official_ximalaya_upload_status_unknown_fan_compilation_verified",
+      "note": "bilibili 饭制合集「【王晰】王晰的音乐图书馆（合集）」（UP：多艾红，av37228161，20:00 合集总长 5334s）已通过 public view API 核验：分 8 个 P，标题与单集时长见 episodes。用户称 7 期、2017-12；B 站合集为 8 P，上传/发布时间 2018-12-02（pubdate 1543723283，UTC+8）。字节跳动/微博头条文章核实到「声音图书馆是王晰在喜马拉雅FM上一档节目」，但**未能**确认期数。",
+      "scope_note": "包含饭制合集的 8 个分 P（含 1 个疑似序/篇外）；不含原喜马拉雅上传页（已下架或不可达，URL 未获得）。"
+    },
+    {
+      "id": "ne_diyin_dj",
+      "name": "王晰的低音时间（网易云音乐 DJ 电台存档）",
+      "platform": "网易云音乐（饭制存档）",
+      "url": "https://music.163.com/djradio?id=792978415",
+      "date_range": [
+        "2019-03-23",
+        "2019-05-12"
+      ],
+      "count": 31,
+      "episodes": [
+        {
+          "episode": 1,
+          "title": "追光之外的追光者",
+          "date": "2019-03-23T21:30:28",
+          "duration": "PT58S",
+          "url": "https://music.163.com/program?id=2060247646",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 2,
+          "title": "王晰老师的自我介绍",
+          "date": "2019-03-25T22:50:49",
+          "duration": "PT8S",
+          "url": "https://music.163.com/program?id=2060304885",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 3,
+          "title": "撩粉名场面",
+          "date": "2019-03-25T22:50:49",
+          "duration": "PT11S",
+          "url": "https://music.163.com/program?id=2060304886",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 4,
+          "title": "来自王晰老师的祝愿",
+          "date": "2019-03-25T22:50:51",
+          "duration": "PT10S",
+          "url": "https://music.163.com/program?id=2060304887",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 5,
+          "title": "清唱福利",
+          "date": "2019-03-25T22:50:51",
+          "duration": "PT1M",
+          "url": "https://music.163.com/program?id=2060304888",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 6,
+          "title": "这辈子都不会忘了你",
+          "date": "2019-04-08T08:58:37",
+          "duration": "PT9S",
+          "url": "https://music.163.com/program?id=2060531179",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 7,
+          "title": "带着一颗好心去流浪",
+          "date": "2019-04-11T20:28:40",
+          "duration": "PT1M42S",
+          "url": "https://music.163.com/program?id=2060592866",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 8,
+          "title": "爱的反义词是遗忘",
+          "date": "2019-04-11T20:52:14",
+          "duration": "PT2M36S",
+          "url": "https://music.163.com/program?id=2060582862",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 9,
+          "title": "无数次在梦里重游往昔",
+          "date": "2019-04-11T20:52:15",
+          "duration": "PT1M28S",
+          "url": "https://music.163.com/program?id=2060582863",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 10,
+          "title": "一纸家书万里牵挂",
+          "date": "2019-04-11T20:57:54",
+          "duration": "PT2M54S",
+          "url": "https://music.163.com/program?id=2060602907",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 11,
+          "title": "爱你就像心沉入大海",
+          "date": "2019-04-11T20:57:54",
+          "duration": "PT3M41S",
+          "url": "https://music.163.com/program?id=2060602908",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 12,
+          "title": "公益是盏永不熄灭的灯",
+          "date": "2019-04-11T20:57:54",
+          "duration": "PT3M56S",
+          "url": "https://music.163.com/program?id=2060602909",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 13,
+          "title": "嫁给爱情",
+          "date": "2019-04-11T20:57:56",
+          "duration": "PT8M41S",
+          "url": "https://music.163.com/program?id=2060602910",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 14,
+          "title": "与友人，一生一起走",
+          "date": "2019-04-11T20:57:58",
+          "duration": "PT2M9S",
+          "url": "https://music.163.com/program?id=2060602911",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 15,
+          "title": "沈从文情书片段",
+          "date": "2019-04-11T21:45:07",
+          "duration": "PT1M33S",
+          "url": "https://music.163.com/program?id=2060606891",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 16,
+          "title": "一个叫夏令营的旅馆和一只叫粽子的猫",
+          "date": "2019-04-11T21:45:08",
+          "duration": "PT8M37S",
+          "url": "https://music.163.com/program?id=2060606892",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 17,
+          "title": "北京，北京",
+          "date": "2019-04-11T21:45:09",
+          "duration": "PT6M15S",
+          "url": "https://music.163.com/program?id=2060606893",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 18,
+          "title": "当你老了",
+          "date": "2019-04-11T21:45:11",
+          "duration": "PT1M57S",
+          "url": "https://music.163.com/program?id=2060606894",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 19,
+          "title": "秋日",
+          "date": "2019-04-11T21:45:12",
+          "duration": "PT1M5S",
+          "url": "https://music.163.com/program?id=2060606895",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 20,
+          "title": "在森林中沉睡",
+          "date": "2019-04-11T21:45:13",
+          "duration": "PT1M42S",
+          "url": "https://music.163.com/program?id=2060606896",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 21,
+          "title": "伏夜物语",
+          "date": "2019-04-12T21:54:53",
+          "duration": "PT2M48S",
+          "url": "https://music.163.com/program?id=2060612561",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 22,
+          "title": "诺许四季",
+          "date": "2019-04-17T08:32:16",
+          "duration": "PT2M19S",
+          "url": "https://music.163.com/program?id=2060684143",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 23,
+          "title": "这个世界",
+          "date": "2019-04-19T22:03:39",
+          "duration": "PT2M40S",
+          "url": "https://music.163.com/program?id=2060744979",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 24,
+          "title": "百年孤寂",
+          "date": "2019-04-22T18:10:38",
+          "duration": "PT1M27S",
+          "url": "https://music.163.com/program?id=2060794192",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 25,
+          "title": "身体的星座",
+          "date": "2019-04-24T09:07:27",
+          "duration": "PT8M6S",
+          "url": "https://music.163.com/program?id=2060810225",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 26,
+          "title": "从你的全世界路过",
+          "date": "2019-04-25T18:50:16",
+          "duration": "PT21S",
+          "url": "https://music.163.com/program?id=2060819787",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 27,
+          "title": "面朝大海春暖花开",
+          "date": "2019-04-30T08:35:59",
+          "duration": "PT1M15S",
+          "url": "https://music.163.com/program?id=2060906388",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 28,
+          "title": "读诗",
+          "date": "2019-05-03T18:19:04",
+          "duration": "PT3M5S",
+          "url": "https://music.163.com/program?id=2060971994",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 29,
+          "title": "你是人间四月天",
+          "date": "2019-05-11T10:06:53",
+          "duration": "PT15S",
+          "url": "https://music.163.com/program?id=2061087218",
+          "status": "verified_netease_fan_archive"
+        },
+        {
+          "episode": 30,
+          "title": "读诗",
+          "date": "2019-05-12T00:45:30",
+          "duration": "PT2M36S",
+          "url": "https://music.163.com/program?id=2061098703",
+          "status": "verified_netease_fan_archive"
+        }
+      ],
+      "status": "verified_netease_fan_archive_30_episodes_enumerated",
+      "note": "JSON-LD（PodcastSeries）直读：name=「王晰的低音时间」，description 为「lowc诱惑，为你发声…在这里你可以听到他读的诗，他说的话，他讲过的故事~」，author=「王晰的小电台」（饭制账号），numberOfEpisodes=31、dateModified=2019-05-14，页面实际列出 30 集。其中第 7–14 集标题（带着一颗好心去流浪 / 爱的反义词是遗忘 / 无数次在梦里重游往昔 / 一纸家书万里牵挂 / 爱你就像心沉入大海 / 公益是盏永不熄灭的灯 / 嫁给爱情 / 与友人，一生一起走）与「王晰的音乐图书馆」8 个分 P 标题一一对应，可视为该系列的重发/转载。",
+      "scope_note": "网易云侧 30 集全量枚举（含时长）；「荔枝FM 63 集」本体不在此列，仅内容有重叠。此为饭制存档，非官方账号，引用时须标注。"
+    },
+    {
+      "id": "chengshi_manxing",
+      "name": "城市漫行",
+      "platform": "QQ音乐（电台）",
+      "url": "https://3g.y.qq.com/n/ryqq/albumDetail/003tbIDl16Y0XE",
+      "date_range": [
+        "2021-02",
+        ""
+      ],
+      "count": 25,
+      "episodes": [],
+      "status": "url_provided_unverified_js_rendered",
+      "note": "用户提供的专辑页 https://3g.y.qq.com/n/ryqq/albumDetail/003tbIDl16Y0XE 直取被 302 到 https://y.qq.com 首页（status 200、最终 URL 为站点首页），拿不到专辑数据；曲目/期数需走 QQ 音乐客户端接口（本次不采集）。另有 B 站饭制转载「王晰Q音电台城市漫行第11期 | 从暂停到重启 能听见的江城烟火气」（https://www.bilibili.com/video/BV1k54y1j7cN/）可作第 11 期存在的旁证，未逐一核验。25 周为声称值。",
+      "scope_note": "QQ 音乐电台本体；不含 B 站饭制逐期转载。"
+    },
+    {
+      "id": "elle_wanan_tushuguan",
+      "name": "ELLE007 王晰的晚安图书馆",
+      "platform": "微信/ELLE（微博发布渠道）",
+      "url": "https://weibo.com/2827620084/4693045729824142",
+      "date_range": [
+        "",
+        ""
+      ],
+      "count": 7,
+      "episodes": [
+        {
+          "episode": "发刊词",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/4693045729824142",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第1期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/4695935270257911",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第2期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/4708598360051220",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第3期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/4722751702567391",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第4期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/4746303512512402",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第5期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/5258305620151102",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第6期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/5266261169672160",
+          "status": "url_provided_unverified"
+        },
+        {
+          "episode": "第7期",
+          "title": null,
+          "date": null,
+          "url": "https://weibo.com/2827620084/5287004691764499",
+          "status": "url_provided_unverified"
+        }
+      ],
+      "status": "url_provided_unverified",
+      "note": "用户提供 8 条微博（发刊词 + 第1~7期）。全部微博 URL 需登录/访客验证，纯 HTTP 直取被跳转到 Sina Visitor System → 8 条均未线上核验，标题与日期一律留 null，不推算。",
+      "scope_note": "只含微博侧发布帖；不含 ELLE 微信原文（未获得链接）。"
+    },
+    {
+      "id": "xiwang_ni_tingjian",
+      "name": "晰望你听见（深夜晚安电台）",
+      "platform": "快手（原）/ B站饭制合集",
+      "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/",
+      "date_range": [
+        "2022-07-10",
+        "2022-07-10"
+      ],
+      "count": 20,
+      "episodes": [
+        {
+          "page": 1,
+          "title": "【王晰】晰望你听见",
+          "duration_s": 85,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=1",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 2,
+          "title": "第2段",
+          "duration_s": 94,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=2",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 3,
+          "title": "第3段",
+          "duration_s": 88,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=3",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 4,
+          "title": "第4段",
+          "duration_s": 98,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=4",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 5,
+          "title": "第5段",
+          "duration_s": 143,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=5",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 6,
+          "title": "第6段",
+          "duration_s": 70,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=6",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 7,
+          "title": "第7段",
+          "duration_s": 77,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=7",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 8,
+          "title": "第8段",
+          "duration_s": 106,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=8",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 9,
+          "title": "第9段",
+          "duration_s": 64,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=9",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 10,
+          "title": "第10段",
+          "duration_s": 112,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=10",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 11,
+          "title": "第11段",
+          "duration_s": 86,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=11",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 12,
+          "title": "第12段",
+          "duration_s": 77,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=12",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 13,
+          "title": "第13段",
+          "duration_s": 97,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=13",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 14,
+          "title": "第14段",
+          "duration_s": 90,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=14",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 15,
+          "title": "第15段",
+          "duration_s": 63,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=15",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 16,
+          "title": "第16段",
+          "duration_s": 74,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=16",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 17,
+          "title": "第17段",
+          "duration_s": 98,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=17",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 18,
+          "title": "第18段",
+          "duration_s": 95,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=18",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 19,
+          "title": "第19段",
+          "duration_s": 81,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=19",
+          "status": "verified_bilibili_page_duration_title_generic"
+        },
+        {
+          "page": 20,
+          "title": "第20段",
+          "duration_s": 93,
+          "url": "https://www.bilibili.com/video/BV1KB4y1v7Au/?p=20",
+          "status": "verified_bilibili_page_duration_title_generic"
+        }
+      ],
+      "status": "verified_bilibili_fan_compilation_kuaishou_origin_unverified",
+      "note": "bilibili 饭制合集「【王晰】晰望你听见丨深夜晚安电台」（BV1KB4y1v7Au，UP：王晰的小仓库）经 public view API 核验：20 个 P、总长 1791s、pubdate 1657444789（2022-07-10 UTC+8）。P2–P20 的 part 名在源站即仅为「2」…「20」，无正式单集标题 → 标题留通用标记，不编造。快手原始节目账号/期数未核实。",
+      "scope_note": "仅 B 站饭制合集的 20 段；快手本体（账号、期数、发布节奏）未著录。"
+    },
+    {
+      "id": "kugou_rimujin_xiaojiuguan",
+      "name": "日木斤深夜小酒馆｜王晰哄你入睡",
+      "platform": "酷狗听书（第三方）",
+      "url": "https://www.kugou.com/ts/album/yredd08/",
+      "date_range": [
+        "",
+        ""
+      ],
+      "count": 0,
+      "episodes": [],
+      "status": "third_party_aggregator_page_unverified",
+      "note": "web_search 发现的两条单集页：第4期02《活着》（https://www.kugou.com/ts/album/yredd08/71cst109.html）、第2期01《玛格丽特的初恋》（https://www.kugou.com/ts/album/yredd08/6z0gd766.html）。专辑页为 JS 渲染（抓取到 16KB 空壳，无曲目数据），无法确认期数与日期；疑为聚合站转载，非官方发布，故 count=0、episodes 为空。",
+      "scope_note": "仅登记专辑壳 URL 与两条单集 URL；不视为官方节目，不并入 63 集/7 集口径。"
+    }
+  ],
+  "singles": [
+    {
+      "id": "xmly_xiangnianxue",
+      "title": "想念雪",
+      "date": "2022-06-18",
+      "platform": "喜马拉雅",
+      "source_url": "https://www.ximalaya.com/sound/544193351",
+      "kind": "读诗/读信/节目",
+      "description": "用户提供的喜马拉雅单集；页面为 JS 渲染，纯 HTTP 抓取只得到平台通用标题，标题与日期未线上复核。",
+      "status": "url_provided_unverified"
+    },
+    {
+      "id": "xmly_shijianwanwu",
+      "title": "世间万物千景，一生恍惚而过",
+      "date": "2020-04-14",
+      "platform": "喜马拉雅",
+      "source_url": "https://www.ximalaya.com/sound/283181641",
+      "kind": "读诗/读信/节目",
+      "description": "用户提供的喜马拉雅单集；同上未线上复核。同日（2020-04-14）微博有 #我们的好梦时刻# 第11期宣传帖，指向喜马拉雅「我们的好梦时刻」节目，疑为同批内容，待核。",
+      "status": "url_provided_unverified"
+    },
+    {
+      "id": "xmly_luojis3",
+      "title": "三体·黑暗森林 第四季第16集 片尾人物曲《罗辑》",
+      "date": "2021-02-03",
+      "platform": "喜马拉雅",
+      "source_url": "https://www.ximalaya.com/sound/382124733",
+      "kind": "节目",
+      "description": "科幻广播剧《三体》片尾人物曲；用户提供，未线上复核。",
+      "status": "url_provided_unverified"
+    },
+    {
+      "id": "xmly_congqianman",
+      "title": "从前慢 / 哪有你这样你（低音炮朗读）",
+      "date": "2023-04-03",
+      "platform": "喜马拉雅",
+      "source_url": "https://www.ximalaya.com/sound/623231068",
+      "kind": "读诗/读信/节目",
+      "description": "用户提供的喜马拉雅朗读合集单集，含两首诗；未线上复核。",
+      "status": "url_provided_unverified"
+    },
+    {
+      "id": "wb_kangyi_jiashu",
+      "title": "抗疫家书（朗读）",
+      "date": "2020-03-08",
+      "platform": "微博",
+      "source_url": "https://weibo.com/6315203766/4480190744624874",
+      "kind": "读信",
+      "description": "王晰工作室微博发布的抗疫家书朗读。微博需登录，未线上复核。",
+      "status": "url_provided_unverified"
+    },
+    {
+      "id": "wb_shencongwen_520",
+      "title": "我行过许多地方的桥…（沈从文情书片段，520）",
+      "date": "2020-05-20",
+      "platform": "微博视频",
+      "source_url": "https://video.weibo.com/show?fid=1034:4506697763586114",
+      "kind": "读信",
+      "description": "工作室微博视频，读沈从文情书片段。视频页需登录，未线上复核。旁证：网易云电台第 15 集标题即「沈从文情书片段」（2019-04-11，PT1M33S），且第三方播客目录 podtail 收录「致地球上的你 – 我说晚安的方式」标注 2020-05-19（https://podtail.se/podcast/ee95d355/--2020-05-19-17/），与该微博视频日期相邻，待核。",
+      "status": "url_provided_unverified"
+    },
+    {
+      "id": "wb_elle_musiclibrary",
+      "title": "王晰：音乐图书馆（ELLE 2019年3月号专访，含音乐图书馆节目描述）",
+      "date": "2019-01-31",
+      "platform": "微博头条文章",
+      "source_url": "https://weibo.com/ttarticle/p/show?id=2309404334581980474699",
+      "kind": "节目",
+      "description": "已抓取全文并核验标题「王晰：音乐图书馆」，作者 Kiko，标注 2019-01-31、阅读数 96 万+。文中确认：「声音图书馆，是王晰在喜马拉雅FM上一档节目的名字。每一期，都由一个故事或一首诗开始」，并说明《ELLE世界时装之苑》2019年3月号刊载。该文只提到节目、不列期数，故不能作为 7 集清单的证据。",
+      "status": "verified_weibo_article"
+    },
+    {
+      "id": "xmly_haomeng_ep11",
+      "title": "我们的好梦时刻 第11期：白落梅《不败于岁月，不输于山河》",
+      "date": "2020-04-14",
+      "platform": "喜马拉雅",
+      "source_url": "https://weibo.com/2304129841/4493717517393856",
+      "kind": "读诗/读信/节目",
+      "description": "由微博「我们的街拍时刻」（20-04-14 21:00）发布的节目宣传，明确写「在@喜马拉雅 App首页搜索［我们的好梦时刻］」。新浪转载页可读到全文（https://www.sina.cn/news/detail/4493717517393856.html）。喜马拉雅原节目页 URL 未获得 → unverified。",
+      "status": "verified_weibo_promo_episode_page_unknown"
+    },
+    {
+      "id": "netease_ship_ge",
+      "title": "船歌 王晰&王晨",
+      "date": "2019-02-26",
+      "platform": "网易云音乐",
+      "source_url": "https://music.163.com/program?id=2059737801",
+      "kind": "节目",
+      "description": "网易云音乐电台节目（PodcastEpisode，JSON-LD 直读）：时长 PT3M18S，第 5 集，所属电台「王晰◇Elvis Wang」（https://music.163.com/djradio?id=792815365，饭制）。含王晰与王晨对唱歌词全文。",
+      "status": "verified_netease"
+    }
+  ],
+  "unverified": [
+    {
+      "what": "荔枝FM「王晰的低音时间」63 集完整清单（标题+日期）",
+      "why": "用户主页 lizhi.fm/user/2519182403760091180 直取 HTTP 403；镜像 lizhifm.com/user/band?band=1377632 为 Next.js 客户端渲染，剧集数组不在首屏 HTML；api.lizhi.fm 不可达；archive.org 连接超时。仅逐集页面（voice/<id>）可读到标题，本次仅命中第 1 期与第 19 期两个 id。63 集数字与 2016-09~2017-10 区间均为用户声称值，未线上复核。",
+      "source_url": "https://www.lizhi.fm/user/2519182403760091180"
+    },
+    {
+      "what": "荔枝FM 镜像「歌手王晰」band 页（band=1377632）的剧集列表",
+      "why": "页面 200 且标题「歌手王晰」可读，但列表由客户端请求填充；未找到可用的公开列表接口。",
+      "source_url": "http://www.lizhifm.com/user/band?band=1377632"
+    },
+    {
+      "what": "「王晰的音乐图书馆」原喜马拉雅上传页（是否确实下架、原期数/期号）",
+      "why": "未获得原喜马拉雅专辑 URL，无法判断状态；仅能确认 B 站饭制合集为 8 个 P，以及 ELLE 专访文字确认节目存在。用户称 7 期、2017-12。",
+      "source_url": "https://www.bilibili.com/video/BV1nt411D7FQ/"
+    },
+    {
+      "what": "网易云电台「王晰的低音时间」第 31 集（JSON-LD 声明 31，页面仅列 30）",
+      "why": "LD numberOfEpisodes=31 但 episode 数组只有 30 条；缺哪一集无从判断，不猜测。",
+      "source_url": "https://music.163.com/djradio?id=792978415"
+    },
+    {
+      "what": "QQ音乐「城市漫行」曲目/期数与确切起止日期（用户称 25 周、2021-02）",
+      "why": "专辑页 3g.y.qq.com 被 302 到 y.qq.com 首页，无服务端数据；需 QQ 音乐客户端接口（本次未采集）。",
+      "source_url": "https://3g.y.qq.com/n/ryqq/albumDetail/003tbIDl16Y0XE"
+    },
+    {
+      "what": "ELLE007「王晰的晚安图书馆」8 条微博的正文、单期标题、确切发布日期与音频链接",
+      "why": "全部跳转 Sina Visitor System（需登录/访客 Cookie），403/跳转；try 微博 post id 解码推算日期也失败——(id>>22)+1288834974657 与「头十位 base36」两种算法都无法复现同批次已直读的已知日期（4493717517393856 = 2020-04-14、4480190744624874 = 2020-03-08），故日期不做推算、一律留空。",
+      "source_url": "https://weibo.com/2827620084/4693045729824142"
+    },
+    {
+      "what": "快手节目「晰望你听见」原始账号、期数与发布日期",
+      "why": "未获得快手本体链接；B 站饭制合集 20 段可核（2022-07-10 上传），但只能作为二手证据。",
+      "source_url": "https://www.bilibili.com/video/BV1KB4y1v7Au/"
+    },
+    {
+      "what": "4 条喜马拉雅单集的标题/日期/时长线上复核",
+      "why": "www.ximalaya.com/sound/<id> 为 JS 渲染，纯 HTTP 抓取只回平台通用 title（19663 字节同一模板）；mobile 接口 ret=-1。标题与日期为用户提供值，标记 url_provided_unverified。",
+      "source_url": "https://www.ximalaya.com/sound/544193351"
+    },
+    {
+      "what": "「我们的好梦时刻」第 11 期在喜马拉雅的节目页 URL 与全系列期数",
+      "why": "仅拿到微博宣传帖（2020-04-14，可读全文）指向喜马拉雅 App 内搜索；未获得节目页链接。",
+      "source_url": "https://weibo.com/2304129841/4493717517393856"
+    },
+    {
+      "what": "「日木斤深夜小酒馆｜王晰哄你入睡」的期数、日期与官方来源",
+      "why": "酷狗听书专辑页 JS 渲染无曲目数据；疑为第三方聚合转载，不确认为官方节目。",
+      "source_url": "https://www.kugou.com/ts/album/yredd08/"
+    },
+    {
+      "what": "微博两条音频/视频（抗疫家书、沈从文情书 520）的可播放状态",
+      "why": "weibo.com / video.weibo.com 需登录，未线上核验；仅登记用户提供的 URL。",
+      "source_url": "https://video.weibo.com/show?fid=1034:4506697763586114"
+    }
+  ]
+}
