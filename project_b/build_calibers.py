@@ -320,6 +320,7 @@ def collect() -> list[dict]:
     # 微博语料分层（2026-09-14 第三批盘点：如实登记，避免"哪个数是真的"）
     # 数据源在仓库外（E:\wx\...），不可用时跳过，不阻塞部署。
     _WB = r"E:\wx\私有工具\weibo_merged"
+    _BJH = r"E:\wx\私有工具\weibo_baijiahao_archive"
     try:
         _ap = os.path.join(_WB, "weibo_all_posts.json")
         _bk = os.path.join(_WB, "weibo_book_posts.json")
@@ -368,6 +369,19 @@ def collect() -> list[dict]:
                 "**不可当王晰语料用**（王晰相关仅 %d 条）；王晰子集见 shaocheng_wangxi_posts" % _n)
     except Exception as e:
         add("shaocheng_wangxi_posts", "少城时代官博·王晰相关帖数", None, str(e), "", "")
+
+    # 百家号（2026-09-14 补齐 8~9 月缺口后）
+    try:
+        _bj = _load_abs(os.path.join(_BJH, "baijiahao_archive.json")) or {}
+        _ba = _bj.get("articles") or []
+        if _ba:
+            _dr = _bj.get("date_range") or ["", ""]
+            add("baijiahao_articles", "王晰百家号帖数", len(_ba),
+                "百家号（另一账号，非本人微博）：%s ~ %s" % (_dr[0], _dr[1]),
+                "E:\\wx\\私有工具\\weibo_baijiahao_archive\\baijiahao_archive.json",
+                "2026-09-14 补齐 8~9 月（619→625）；语料目录 wx_textmine_corpus\\百家号 同步为同等条数")
+    except Exception as e:
+        add("baijiahao_articles", "王晰百家号帖数", None, str(e), "", "")
 
     return [x for x in out if x["value"] is not None]
 

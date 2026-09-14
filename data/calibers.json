@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14 15:08",
-  "count": 44,
+  "generated_at": "2026-09-14 16:28",
+  "count": 45,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -353,6 +353,14 @@
       "scope": "同账号 23 个关键词并集（多艺人厂牌号：张靓颖/王铮亮/赵露思…）",
       "source": "E:\\wx\\私有工具\\weibo_merged\\shaocheng_posts.json",
       "note": "**不可当王晰语料用**（王晰相关仅 172 条）；王晰子集见 shaocheng_wangxi_posts"
+    },
+    {
+      "id": "baijiahao_articles",
+      "label": "王晰百家号帖数",
+      "value": 625,
+      "scope": "百家号（另一账号，非本人微博）：2019-10-28 12:55 ~ 2026-09-10 19:00",
+      "source": "E:\\wx\\私有工具\\weibo_baijiahao_archive\\baijiahao_archive.json",
+      "note": "2026-09-14 补齐 8~9 月（619→625）；语料目录 wx_textmine_corpus\\百家号 同步为同等条数"
     }
   ]
 }

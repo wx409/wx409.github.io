@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 15:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 16:28　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -51,6 +51,7 @@
 | `weibo_book_posts` | 微博书 OCR 基准帖数 | **770** | 微博书（3 册）OCR 帖 —— 2014-2018 本人原话的主干来源 | `E:\wx\私有工具\weibo_merged\weibo_book_posts.json` |
 | `shaocheng_wangxi_posts` | 少城时代官博·王晰相关帖数 | **172** | 少城时代（UID 1629398873）2016-08-12 ~ 2021-03-11 的王晰相关帖，含转发 | `E:\wx\私有工具\weibo_merged\shaocheng_posts_wangxi.json` |
 | `shaocheng_union_posts` | 少城时代官博·23词搜索并集（含其他艺人） | **1563** | 同账号 23 个关键词并集（多艺人厂牌号：张靓颖/王铮亮/赵露思…） | `E:\wx\私有工具\weibo_merged\shaocheng_posts.json` |
+| `baijiahao_articles` | 王晰百家号帖数 | **625** | 百家号（另一账号，非本人微博）：2019-10-28 12:55 ~ 2026-09-10 19:00 | `E:\wx\私有工具\weibo_baijiahao_archive\baijiahao_archive.json` |
 
 ## 常见误用
 
