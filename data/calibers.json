@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14 18:23",
+  "generated_at": "2026-09-14 18:51",
   "count": 53,
   "calibers": [
     {
@@ -101,7 +101,7 @@
     {
       "id": "kb_facts",
       "label": "知识库事实条数",
-      "value": 1506,
+      "value": 1686,
       "scope": "结构化事实",
       "source": "data/kb/manifest.json",
       "note": ""
@@ -109,7 +109,7 @@
     {
       "id": "kb_entities",
       "label": "知识库实体数",
-      "value": 1538,
+      "value": 1598,
       "scope": "人/歌/专辑/演出/城市等实体",
       "source": "data/kb/manifest.json",
       "note": ""
@@ -117,7 +117,7 @@
     {
       "id": "kb_relations",
       "label": "知识库关系数",
-      "value": 2101,
+      "value": 2220,
       "scope": "实体间关系",
       "source": "data/kb/manifest.json",
       "note": ""
@@ -125,7 +125,7 @@
     {
       "id": "semantic_docs",
       "label": "语义索引文档数",
-      "value": 5040,
+      "value": 5399,
       "scope": "可语义检索的文档块",
       "source": "data/kb/semantic/manifest.json",
       "note": ""
@@ -389,15 +389,15 @@
     {
       "id": "voice_corpus_items",
       "label": "声音素材转写条目数",
-      "value": 98,
-      "scope": "已下载并完成转写的音频/视频单集数，跨 17 个系列",
+      "value": 157,
+      "scope": "已下载并完成转写的音频/视频单集数，跨 18 个系列",
       "source": "data\\voice_corpus.json#items",
       "note": "媒体原件在 E:\\wx\\声音素材库（不入 git）；转写稿由 faster-whisper large-v3-turbo 本地生成（vad_filter=False —— 开关会滤掉低音人声）"
     },
     {
       "id": "voice_corpus_chars",
       "label": "声音素材转写全文字数",
-      "value": 129907,
+      "value": 171098,
       "scope": "全部转写稿字符数（可检索语料规模）",
       "source": "data\\voice_corpus.json#items[].text",
       "note": ""
@@ -405,7 +405,7 @@
     {
       "id": "voice_corpus_minutes",
       "label": "声音素材总时长（分钟）",
-      "value": 682.6,
+      "value": 926.1,
       "scope": "已下载音频/视频的总时长",
       "source": "data\\voice_corpus.json#counts",
       "note": ""
@@ -413,15 +413,15 @@
     {
       "id": "media_library_files",
       "label": "声音素材库已下载媒体文件数",
-      "value": 98,
-      "scope": "本地留存的音频/视频文件数（跨 20 个条目，17 个条目已下载）",
+      "value": 157,
+      "scope": "本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载）",
       "source": "E:\\wx\\声音素材库\\manifest\\media_manifest.json",
       "note": "**媒体原件不入 git、不公开**；下载器见 project_b\\download_media.py 等"
     },
     {
       "id": "media_library_pending",
       "label": "声音素材库待采条目数",
-      "value": 3,
+      "value": 2,
       "scope": "因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等）",
       "source": "E:\\wx\\声音素材库\\manifest\\media_manifest.json",
       "note": "原因逐条记在 blocked_reason；需人工浏览器协助"

@@ -40,6 +40,7 @@ SERIES_META = {
     'xmly_623231068': ('从前慢 / 哪有你这样你', '喜马拉雅读诗', '本人朗读', '高'),
     'weibo_kangyi_jiashu': ('爸爸坚信我们能取得胜利（抗疫家书）', '微博（王晰）', '本人朗读', '高'),
     'weibo_520_shencongwen': ('520 沈从文情书片段', '微博（工作室）', '本人朗读', '高'),
+    'lizhi_diyin': ('王晰的低音时间（荔枝FM）', '荔枝FM（官方）', '本人原话', '高'),
     'qq_citywalk': ('王晰 | 城市漫行', 'QQ音乐电台（官方）', '本人原话', '高'),
     'elle_wanan': ('ELLE007 晚安图书馆', 'ELLE / 微博', '本人原话', '高'),
     'elle_p1': ('ELLE007 晚安图书馆', 'ELLE / 微博', '本人原话', '高'),
@@ -99,6 +100,21 @@ SERIES_DATE = {
 }
 
 
+def lizhi_dates():
+    """荔枝「低音时间」逐期日期（来自 vodapi，已核验）。"""
+    p = os.path.join(ROOT, 'data', 'radio_lizhi.json')
+    if not os.path.exists(p):
+        return {}
+    d = json.loads(io.open(p, encoding='utf-8').read())
+    out = {}
+    for v in d.get('voices') or []:
+        t = str(v.get('title') or '')
+        m = re.search(r'第([零一二三四五六七八九十百]+)期', t)
+        if m and v.get('createTime'):
+            out[m.group(1)] = v['createTime'][:10]
+    return out
+
+
 def elle_dates():
     """ELLE 8 期发布日期（来自微博平台 upload_date，由 fetch_elle_dates.py 落盘）。
     **不推算**：取不到就留空。"""
@@ -132,6 +148,7 @@ def main():
     by_id = {x['id']: x for x in man['items']}
     NE_DATES = netease_dates()
     ELLE_DATES = elle_dates()
+    LZ_DATES = lizhi_dates()
 
     items = []
     for series in sorted(os.listdir(TRANS)):
@@ -152,6 +169,11 @@ def main():
             date = (by_id.get(series, {}).get('verified') or {}).get('createTime', '')
             if not date and ep is not None:
                 date = NE_DATES.get(ep, '') if series == 'netease_dj_792978415' else ''
+            if not date and series == 'lizhi_diyin':
+                # 从标题里的中文期号匹配（如「第六十三期」）
+                m2 = re.search(r'第([零一二三四五六七八九十百]+)期', str(base))
+                if m2:
+                    date = LZ_DATES.get(m2.group(1), '')
             if not date:
                 date = ELLE_DATES.get(series, '')
             if not date:

@@ -153,6 +153,7 @@ font-size:13px;color:#666;line-height:2}
 <table>
 <tr><th>系列</th><th>条目</th><th>字数</th><th>时长(分)</th></tr>
 <tr><td>王晰 | 城市漫行</td><td class="n">26</td><td class="n">78419</td><td class="n">376.8</td></tr>
+<tr><td>王晰的低音时间（荔枝FM）</td><td class="n">59</td><td class="n">41191</td><td class="n">243.4</td></tr>
 <tr><td>ELLE007 晚安图书馆</td><td class="n">8</td><td class="n">17084</td><td class="n">86.7</td></tr>
 <tr><td>王晰的音乐图书馆</td><td class="n">8</td><td class="n">13445</td><td class="n">88.8</td></tr>
 <tr><td>王晰的低音时间（DJ 电台存档）</td><td class="n">31</td><td class="n">11902</td><td class="n">76.3</td></tr>
@@ -163,17 +164,17 @@ font-size:13px;color:#666;line-height:2}
 <tr><td>想念雪</td><td class="n">1</td><td class="n">232</td><td class="n">2.2</td></tr>
 <tr><td>520 沈从文情书片段</td><td class="n">1</td><td class="n">59</td><td class="n">0.9</td></tr>
 </table>
-<p class="src">合计 <strong>98 条 / 129907 字 / 682.6 分钟</strong>，
-跨 <strong>10</strong> 个系列。每条带出处 URL、时长与逐句时间戳；媒体原件仅本地留存（不公开发布）。<br>
+<p class="src">合计 <strong>157 条 / 171098 字 / 926.1 分钟</strong>，
+跨 <strong>11</strong> 个系列。每条带出处 URL、时长与逐句时间戳；媒体原件仅本地留存（不公开发布）。<br>
 ⚠️ 口径：其中相当比例为<strong>他朗读的文本</strong>（文学/诗歌/歌词），<strong>不等于「他说的原话」</strong>——
 数据层用 <code>语料性质</code> 字段区分，引用前须核对。</p>
 <h3>文本分析初步结论</h3>
 <ul>
-<li><strong>他选择读什么</strong>（主题按字数）：时间与年华(125760字) > 家与亲情(124408字) > 夜与睡(123050字) > 爱情(115560字) > 音乐与歌唱(112181字) > 诗与远方(101690字)</li>
-<li><strong>他面向谁说话</strong>（人称频次）：我们 559 / 你们 43 / 大家 118 / 朋友 141 / 孩子 67 / 父亲 17 / 母亲 30 / 爱人 12 / 你 1142 / 我 1786 —— 单人对话式，而非宣讲式</li>
-<li><strong>夜间电台的基调</strong>：情感词命中 正 963 / 负 104
+<li><strong>他选择读什么</strong>（主题按字数）：时间与年华(164671字) > 家与亲情(164167字) > 夜与睡(154854字) > 音乐与歌唱(150616字) > 爱情(149378字) > 诗与远方(106061字)</li>
+<li><strong>他面向谁说话</strong>（人称频次）：我们 707 / 你们 92 / 大家 313 / 朋友 167 / 孩子 81 / 父亲 18 / 母亲 39 / 爱人 25 / 你 1453 / 我 2245 —— 单人对话式，而非宣讲式</li>
+<li><strong>夜间电台的基调</strong>：情感词命中 正 1502 / 负 135
 → <strong>偏暖</strong></li>
-<li><strong>高频词</strong>：这里(281) 看到(189) 建筑(157) 没有(153) 城市(132) 朋友(127) 大家(115) 王晰(115) 音乐(111) 今天(102) 一起(102) 希望(99)</li>
+<li><strong>高频词</strong>：这里(321) 大家(310) 看到(198) 王晰(195) 没有(182) 今天(179) 时间(179) 这个(165) 建筑(157) 朋友(152) 音乐(150) 非常(145)</li>
 </ul>
 <p class="src">方法：faster-whisper large-v3-turbo 本地 GPU 转写（关闭 VAD —— 实测会把低音人声判成静音）；
 jieba 分词 + 规则筛选做主题标注；情感为<strong>词表命中</strong>而非模型判定。
@@ -195,7 +196,7 @@ jieba 分词 + 规则筛选做主题标注；情感为<strong>词表命中</stro
 <tr><th>现场复现</th><td class="n"><strong>专辑与舞台实测最低稳定音差异不显著（p=0.197）</strong></td><td>专辑层 vs 他人主导舞台 32 个素材，同管线同口径</td><td class="src">data/archive_context_compare.json</td></tr>
 <tr><th>巡演规模</th><td class="n"><strong>59 场（全站 64 场）/ 22 城</strong></td><td>六轮个人巡回音乐会；全站含签唱会等非巡演场次</td><td class="src">data/calibers.md</td></tr>
 <tr><th>指数覆盖</th><td class="n"><strong>1287 天</strong></td><td>追踪曲目池日均指数（每日最终指数）</td><td class="src">data/calibers.md</td></tr>
-<tr><th>知识库规模</th><td class="n"><strong>1511 实体 / 1425 原子事实 / 2074 关系</strong></td><td>机器可读三层，每条事实带来源</td><td class="src">data/kb/manifest.json</td></tr>
+<tr><th>知识库规模</th><td class="n"><strong>1538 实体 / 1506 原子事实 / 2101 关系</strong></td><td>机器可读三层，每条事实带来源</td><td class="src">data/kb/manifest.json</td></tr>
 </table>
 
 <p class="src">局限性声明：本站音域数据基于已获取的录音室与现场素材，受素材音质限制；触达音与低音带读数不作能力依据；外部来源读数口径未核实，仅作档案记录。结构化的第三方表述（论坛/粉丝扒谱/媒体宣发）一律标注来源与性质，不转写成本站测量结论。</p>

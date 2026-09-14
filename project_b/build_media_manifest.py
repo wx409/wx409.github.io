@@ -71,9 +71,12 @@ ITEMS = [
     dict(id='weibo_520_shencongwen', title='520 沈从文情书片段朗读（「我行过许多地方的桥…」）', platform='weibo',
          url='https://video.weibo.com/show?fid=1034:4506697763586114', kind='video',
          series='散落读诗', note='2020-05-20 工作室微博'),
-    dict(id='lizhi_diyin', title='王晰的低音时间（荔枝FM 63 集）', platform='lizhi',
+    dict(id='lizhi_diyin', title='王晰的低音时间（荔枝FM，59 期）', platform='lizhi',
          url='https://www.lizhi.fm/user/2519182403760091180', kind='audio',
-         series='王晰的低音时间', note='需浏览器 console 取接口（Next.js + 签名）；纯 HTTP 不可得'),
+         series='王晰的低音时间',
+         note=('**已全量采集**：vodapi 免登录接口（`m.lizhi.fm/vodapi/user/<uid>`）；'
+               '实际 **59 期**（平台 voiceCount=59；标题期号到第六十三期，即 4 期已下架）；'
+               '2016-03-14 ~ 2017-10-20；共 243 分钟；收听 297.6 万 / 粉丝 2.86 万')),
     dict(id='qq_citywalk', title='王晰 | 城市漫行（QQ音乐电台，26 期）', platform='qqmusic',
          url='https://y.qq.com/n/ryqq/albumDetail/003tbIDl16Y0XE', kind='audio',
          series='城市漫行',

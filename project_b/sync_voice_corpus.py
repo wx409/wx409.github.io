@@ -31,6 +31,7 @@ SHORT = {
     'xmly_623231068': '喜马拉雅从前慢',
     'weibo_kangyi_jiashu': '微博抗疫家书',
     'weibo_520_shencongwen': '微博520情书',
+    'lizhi_diyin': '低音时间荔枝',
     'qq_citywalk': '城市漫行',
     'elle_wanan': 'ELLE晚安图书馆发刊词',
 }

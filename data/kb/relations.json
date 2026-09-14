@@ -13785,6 +13785,839 @@
  {
   "source": "person:wangxi",
   "type": "has_voice_series",
+  "target": "voice_series:lizhi_diyin",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__01_王晰的低音时间第六十三期_Become_My_Dream_",
+  "context": "01_王晰的低音时间第六十三期——《Become My Dream》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__01_王晰的低音时间第六十三期_Become_My_Dream_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__02_王晰的低音时间第六十二期_I_Feel_It_Coming_",
+  "context": "02_王晰的低音时间第六十二期——《I Feel It Coming》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__02_王晰的低音时间第六十二期_I_Feel_It_Coming_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__03_王晰的低音时间第六十一期_月半小夜曲_",
+  "context": "03_王晰的低音时间第六十一期——《月半小夜曲》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__03_王晰的低音时间第六十一期_月半小夜曲_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__04_王晰的低音时间第六十期_Home_",
+  "context": "04_王晰的低音时间第六十期——《Home》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__04_王晰的低音时间第六十期_Home_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__05_王晰的低音时间第五十九期_Humble_And_Kind_",
+  "context": "05_王晰的低音时间第五十九期——《Humble And Kind》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__05_王晰的低音时间第五十九期_Humble_And_Kind_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__06_王晰的低音时间第五十八期_This_Is_Not_A_Love_Song_",
+  "context": "06_王晰的低音时间第五十八期——《This Is Not A Love Song》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__06_王晰的低音时间第五十八期_This_Is_Not_A_Love_Song_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__07_王晰的低音时间第五十七期_I_Don_t_Miss_You_Anymore_",
+  "context": "07_王晰的低音时间第五十七期——《 I Don't Miss You Anymore》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__07_王晰的低音时间第五十七期_I_Don_t_Miss_You_Anymore_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__08_王晰的低音时间第五十六期_Sensitive_Kind_",
+  "context": "08_王晰的低音时间第五十六期——《Sensitive Kind》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__08_王晰的低音时间第五十六期_Sensitive_Kind_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__09_王晰的低音时间第五十五期_世界が终るまでは_",
+  "context": "09_王晰的低音时间第五十五期——《世界が终るまでは》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__09_王晰的低音时间第五十五期_世界が终るまでは_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__10_王晰的低音时间第五十四期_Let_s_Do_It_",
+  "context": "10_王晰的低音时间第五十四期——《Let's Do It》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__10_王晰的低音时间第五十四期_Let_s_Do_It_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__11_王晰的低音时间第五十三期_I_Bet_She_Knows_",
+  "context": "11_王晰的低音时间第五十三期——《I Bet She Knows》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__11_王晰的低音时间第五十三期_I_Bet_She_Knows_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__12_王晰的低音时间第五十二期_Evergreen_",
+  "context": "12_王晰的低音时间第五十二期——《Evergreen》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__12_王晰的低音时间第五十二期_Evergreen_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__13_王晰的低音时间第五十一期_Rock_With_You_",
+  "context": "13_王晰的低音时间第五十一期——《Rock With You》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__13_王晰的低音时间第五十一期_Rock_With_You_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__14_王晰的低音时间第五十期_Somebody_Like_You_",
+  "context": "14_王晰的低音时间第五十期——《Somebody Like You》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__14_王晰的低音时间第五十期_Somebody_Like_You_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__15_王晰的低音时间第四十九期_Three_Butterflies_",
+  "context": "15_王晰的低音时间第四十九期——《Three Butterflies》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__15_王晰的低音时间第四十九期_Three_Butterflies_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__16_王晰的低音时间第四十八期_Lost_",
+  "context": "16_王晰的低音时间第四十八期——《Lost》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__16_王晰的低音时间第四十八期_Lost_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__17_王晰的低音时间第四十七期_Thinking_Out_Loud_",
+  "context": "17_王晰的低音时间第四十七期——《Thinking Out Loud》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__17_王晰的低音时间第四十七期_Thinking_Out_Loud_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__18_王晰的低音时间第四十六期_Golden_Leaves_",
+  "context": "18_王晰的低音时间第四十六期——《Golden Leaves》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__18_王晰的低音时间第四十六期_Golden_Leaves_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__19_王晰的低音时间第四十五期_She_Will_Be_Loved_",
+  "context": "19_王晰的低音时间第四十五期——《She Will Be Loved》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__19_王晰的低音时间第四十五期_She_Will_Be_Loved_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__20_王晰的低音时间第四十四期_Fall_Again_",
+  "context": "20_王晰的低音时间第四十四期——《Fall Again》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__20_王晰的低音时间第四十四期_Fall_Again_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__21_王晰的低音时间第四十三期_Roving_Gambler_",
+  "context": "21_王晰的低音时间第四十三期——《Roving Gambler》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__21_王晰的低音时间第四十三期_Roving_Gambler_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__22_王晰的低音时间第四十二期_Be_Honest_",
+  "context": "22_王晰的低音时间第四十二期——《Be Honest》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__22_王晰的低音时间第四十二期_Be_Honest_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__23_王晰的低音时间第四十期_You_ve_Got_a_Friend_",
+  "context": "23_王晰的低音时间第四十期——《You've Got a Friend》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__23_王晰的低音时间第四十期_You_ve_Got_a_Friend_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__24_王晰的低音时间第三十九期_City_of_Stars_",
+  "context": "24_王晰的低音时间第三十九期——《City of Stars》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__24_王晰的低音时间第三十九期_City_of_Stars_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__25_王晰的低音时间第三十七期_Too_Darn_Hot_",
+  "context": "25_王晰的低音时间第三十七期——《Too Darn Hot》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__25_王晰的低音时间第三十七期_Too_Darn_Hot_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__26_王晰的低音时间第三十六期_I_Can_Take_It_From_There_",
+  "context": "26_王晰的低音时间第三十六期——《I Can Take It From There》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__26_王晰的低音时间第三十六期_I_Can_Take_It_From_There_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__27_王晰的低音时间第三十五期_沉思_",
+  "context": "27_王晰的低音时间第三十五期——《沉思》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__27_王晰的低音时间第三十五期_沉思_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__28_王晰的低音时间第三十四期_Close_Your_Eyes_",
+  "context": "28_王晰的低音时间第三十四期——《Close Your Eyes》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__28_王晰的低音时间第三十四期_Close_Your_Eyes_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__29_王晰的低音时间第三十三期_Sous_Le_Ciel_De_Paris_",
+  "context": "29_王晰的低音时间第三十三期——《Sous Le Ciel De Paris》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__29_王晰的低音时间第三十三期_Sous_Le_Ciel_De_Paris_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__30_王晰的低音时间第三十二期_I_ll_Be_Home_For_Christmas_",
+  "context": "30_王晰的低音时间第三十二期——《I'll Be Home For Christmas》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__30_王晰的低音时间第三十二期_I_ll_Be_Home_For_Christmas_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__31_王晰的低音时间第三十期_Cuando_Me_Enamoro_",
+  "context": "31_王晰的低音时间第三十期——《Cuando Me Enamoro》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__31_王晰的低音时间第三十期_Cuando_Me_Enamoro_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__32_王晰的低音时间第二十九期_You_Needed_Me_",
+  "context": "32_王晰的低音时间第二十九期——《You Needed Me》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__32_王晰的低音时间第二十九期_You_Needed_Me_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__33_王晰的低音时间第二十八期_Monody_",
+  "context": "33_王晰的低音时间第二十八期——《Monody》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__33_王晰的低音时间第二十八期_Monody_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__34_王晰的低音时间第二十七期_You_ll_Be_In_My_Heart_",
+  "context": "34_王晰的低音时间第二十七期——《You'll Be In My Heart》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__34_王晰的低音时间第二十七期_You_ll_Be_In_My_Heart_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__35_王晰的低音时间第二十六期_Outlaws_of_Love_",
+  "context": "35_王晰的低音时间第二十六期——《Outlaws of Love》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__35_王晰的低音时间第二十六期_Outlaws_of_Love_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__36_王晰的低音时间第二十五期_Better_Together_",
+  "context": "36_王晰的低音时间第二十五期——《Better Together》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__36_王晰的低音时间第二十五期_Better_Together_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__37_王晰的低音时间第二十四期_夢のつづき_",
+  "context": "37_王晰的低音时间第二十四期——《夢のつづき》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__37_王晰的低音时间第二十四期_夢のつづき_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__38_王晰的低音时间第二十三期_Mme_Motswadi_婆婆_",
+  "context": "38_王晰的低音时间第二十三期——《Mme Motswadi 婆婆》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__38_王晰的低音时间第二十三期_Mme_Motswadi_婆婆_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__39_王晰的低音时间第二十二期_Roda_Vida_",
+  "context": "39_王晰的低音时间第二十二期——《Roda Vida》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__39_王晰的低音时间第二十二期_Roda_Vida_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__40_王晰的低音时间第二十一期_Autumn_Leaves_",
+  "context": "40_王晰的低音时间第二十一期——《Autumn Leaves》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__40_王晰的低音时间第二十一期_Autumn_Leaves_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__41_王晰的低音时间第二十期_Dream_a_Little_Dream_",
+  "context": "41_王晰的低音时间第二十期——《Dream a Little Dream》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__41_王晰的低音时间第二十期_Dream_a_Little_Dream_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__42_王晰的低音时间第十九期_Don_t_Know_Why_",
+  "context": "42_王晰的低音时间第十九期——《Don't Know Why》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__42_王晰的低音时间第十九期_Don_t_Know_Why_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__43_王晰的低音时间第十八期_Lady_",
+  "context": "43_王晰的低音时间第十八期——《Lady》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__43_王晰的低音时间第十八期_Lady_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__44_王晰的低音时间第十七期_Almost_Lover_",
+  "context": "44_王晰的低音时间第十七期——《Almost Lover》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__44_王晰的低音时间第十七期_Almost_Lover_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__45_王晰的低音时间第十五期_只差一步_",
+  "context": "45_王晰的低音时间第十五期——《只差一步》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__45_王晰的低音时间第十五期_只差一步_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__46_王晰的低音时间第十四期_Almost_Blue_",
+  "context": "46_王晰的低音时间第十四期——《Almost Blue》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__46_王晰的低音时间第十四期_Almost_Blue_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__47_王晰的低音时间第十三期_魔兽旅馆",
+  "context": "47_王晰的低音时间第十三期——魔兽旅馆",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__47_王晰的低音时间第十三期_魔兽旅馆",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__48_王晰的低音时间第十二期_以后_",
+  "context": "48_王晰的低音时间第十二期——《以后》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__48_王晰的低音时间第十二期_以后_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__49_王晰的低音时间第十一期_Standing_Around_Me_",
+  "context": "49_王晰的低音时间第十一期——《Standing Around Me》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__49_王晰的低音时间第十一期_Standing_Around_Me_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__50_王晰的低音时间第十期_突如其来的爱情故事_",
+  "context": "50_王晰的低音时间第十期——《突如其来的爱情故事》",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__50_王晰的低音时间第十期_突如其来的爱情故事_",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__51_王晰的低音时间第九期",
+  "context": "51_王晰的低音时间第九期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__51_王晰的低音时间第九期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__52_王晰的低音时间第八期_青春",
+  "context": "52_王晰的低音时间第八期——青春",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__52_王晰的低音时间第八期_青春",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__53_王晰的低音时间第七期",
+  "context": "53_王晰的低音时间第七期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__53_王晰的低音时间第七期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__54_王晰低音时间第六期",
+  "context": "54_王晰低音时间第六期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__54_王晰低音时间第六期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__55_王晰低音时间第五期",
+  "context": "55_王晰低音时间第五期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__55_王晰低音时间第五期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__56_王晰的低音时间第四期",
+  "context": "56_王晰的低音时间第四期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__56_王晰的低音时间第四期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__57_王晰低音时间第三期",
+  "context": "57_王晰低音时间第三期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__57_王晰低音时间第三期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__58_王晰低音时间第二期",
+  "context": "58_王晰低音时间第二期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__58_王晰低音时间第二期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_series:lizhi_diyin",
+  "type": "has_episode",
+  "target": "voice_ep:lizhi_diyin__59_王晰的低音时间第一期",
+  "context": "59_王晰的低音时间第一期",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "voice_ep:lizhi_diyin__59_王晰的低音时间第一期",
+  "type": "published_on",
+  "target": "org:lizhi",
+  "context": "荔枝FM（官方）",
+  "source_ref": "voice_corpus.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_voice_series",
   "target": "voice_series:netease_dj_792978415",
   "context": "网易云音乐饭制存档",
   "source_ref": "voice_corpus.json"
