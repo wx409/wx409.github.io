@@ -117,8 +117,10 @@ def main() -> int:
             for u in tree.findall("sm:url", NS)}
     added: list[str] = []
     for page in sorted(ROOT.glob("*.html")):
-        if page.name in ("404.html", "index.html", "kb-semantic.html"):
-            # 首页规范 URL 是根路径 /；kb-semantic 是书签兼容用的跳转页（noindex，不进 sitemap）
+        if page.name in ("404.html", "index.html", "kb-semantic.html", "archive-index.html"):
+            # 首页规范 URL 是根路径 /；kb-semantic 是书签兼容用的跳转页（noindex，不进 sitemap）；
+            # archive-index.html 是**私密索引页**（noindex,nofollow，刻意不进 sitemap）——
+            # 2026-09-13 曾因本脚本的「补登记遗漏页」把它加回去，故在此显式排除。
             continue
         loc = BASE + page.name
         if loc in have:

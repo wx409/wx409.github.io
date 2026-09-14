@@ -1028,7 +1028,8 @@ def sitemap_pages():
     排除：archive-index.html（私密索引页）、kb-semantic.html（noindex）、debate/（实验区 noindex）。
     """
     skip_names = {"archive-index.html", "kb-semantic.html", "404.html",
-                  "live_template.html", "social_wall.html"}
+                  "live_template.html"}
+    # 说明：social_wall.html 是首页「社交动态墙」入口的落地页，**保留收录**（2026-09-11 备忘已纠正它不是僵尸页）。
     globs = ["*.html", "live/index.html", "live/setlists.html", "culture/index.html",
              "data/music-index.html", "map/index.html", "tavern/index.html",
              "dashboard/index.html"]
