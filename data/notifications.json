@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-14 09:10:00",
+ "updated_at": "2026-09-14 14:00:29",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -178,7 +178,7 @@
   {
    "time": "2026-09-06 17:01:18",
    "title": "⚠️ 自动更新失败：git push 未成功",
-   "content": "请手动执行 cd D:\\wx409.github.io && git push origin main",
+   "content": "请手动执行 cd （仓库根） && git push origin main",
    "category": "通知"
   },
   {
@@ -207,19 +207,19 @@
   {
    "time": "2026-09-06 21:01:30",
    "title": "⚠️ 自动更新失败：git push 未成功",
-   "content": "请手动执行 cd D:\\wx409.github.io && git push origin main",
+   "content": "请手动执行 cd （仓库根） && git push origin main",
    "category": "通知"
   },
   {
    "time": "2026-09-07 00:04:40",
    "title": "⚠️ 自动更新失败：git push 未成功",
-   "content": "请手动执行 cd D:\\wx409.github.io && git push origin main",
+   "content": "请手动执行 cd （仓库根） && git push origin main",
    "category": "通知"
   },
   {
    "time": "2026-09-07 09:08:38",
    "title": "⚠️ 自动更新失败：git push 未成功",
-   "content": "请手动执行 cd D:\\wx409.github.io && git push origin main",
+   "content": "请手动执行 cd （仓库根） && git push origin main",
    "category": "通知"
   },
   {
@@ -479,7 +479,7 @@
   {
    "time": "2026-09-10 08:20:34",
    "title": "⚠️ 指数日档案缺失：2026-09-09",
-   "content": "缺 E:\\wx\\指数数据库\\增补数据库2025.2.22-\\2026.09.09.xlsx\n说明：该日 23:55 全量批次未执行（多为机器重启后无人登录）。\n该日官方指数仍可由次日全量的『昨日音乐指数』列回补，但当日实时收听峰值不可恢复。",
+   "content": "缺 （指数日档案目录）\n说明：该日 23:55 全量批次未执行（多为机器重启后无人登录）。\n该日官方指数仍可由次日全量的『昨日音乐指数』列回补，但当日实时收听峰值不可恢复。",
    "category": "通知"
   },
   {
@@ -529,7 +529,7 @@
   {
    "time": "2026-09-11 09:00:04",
    "title": "⚠️ 指数长表有缺口：2026-09-08",
-   "content": "长表最新 2026-09-09，但下列日期没有数据：2026-09-08\n最常见原因：那一天的日档案缺失（当日 23:55 全量未执行），而修正映射下该天的官方值只能由「次日」日档案提供。\n\n处理：① 若有备份，把对应的 YYYY.MM.DD.xlsx 拷进\n     E:\\wx\\指数数据库\\增补数据库2025.2.22-\\ ；\n   ② 找不到备份时，用准终值备用：\n     python project_b\\extract_fallback_day.py --date <缺的日期> --install-as-day <次日日期>\n   ③ 之后跑 python project_b\\refresh_index_baseline.py --force\n   （或「操作中心 109 立刻补跑一次采集」一步完成抓取+刷新）",
+   "content": "长表最新 2026-09-09，但下列日期没有数据：2026-09-08\n最常见原因：那一天的日档案缺失（当日 23:55 全量未执行），而修正映射下该天的官方值只能由「次日」日档案提供。\n\n处理：① 若有备份，把对应的 YYYY.MM.DD.xlsx 拷进\n     （指数日档案目录） ；\n   ② 找不到备份时，用准终值备用：\n     python project_b\\extract_fallback_day.py --date <缺的日期> --install-as-day <次日日期>\n   ③ 之后跑 python project_b\\refresh_index_baseline.py --force\n   （或「操作中心 109 立刻补跑一次采集」一步完成抓取+刷新）",
    "category": "运维告警"
   },
   {
@@ -742,8 +742,14 @@
   {
    "time": "2026-09-14 09:10:00",
    "title": "⚠️ 大屏采集漏批：2026-09-14",
-   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 1.7 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：E:\\wx\\qqmusic_dp_edge.log / logs\\watchdog_20260914.log",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 1.7 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260914.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-09-14 14:00:29",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
   }
  ]
 }

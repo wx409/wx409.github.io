@@ -1,0 +1,83 @@
+{
+ "schema": "qa_factoids v1",
+ "note": "这些条目原先是 qa_bank 里的『一问一答短答』。按第一性原理：常识性短答（出生地/奖项/何时加入某团/专辑有哪些）不需要问答形式，AI 直接取结构化事实更可靠。故迁出为结构化事实，由 build_kb_graph.py 注入 facts.json，并从 qa_bank 的自动生成集中移除。",
+ "discipline": [
+  "每条必须有 source_file 与 source_url，可追溯。",
+  "value 用陈述式事实，不写成问句。",
+  "日期区间用 valid_from / valid_to（空 = 至今）。"
+ ],
+ "factoids": [
+  {
+   "subject": "person:wangxi",
+   "property": "birth",
+   "value": "1985-04-09 出生于辽宁省营口市",
+   "valid_from": "1985-04-09",
+   "valid_to": "",
+   "source_file": "timeline.json",
+   "source_url": "https://wx409.github.io/history.html",
+   "source_type": "站内数据·生涯时间轴",
+   "confidence": 0.95,
+   "replaces_question": "王晰出生于哪里？"
+  },
+  {
+   "subject": "person:wangxi",
+   "property": "award",
+   "value": "获第八届中国音乐金钟奖男子组金奖",
+   "valid_from": "2011",
+   "valid_to": "",
+   "source_file": "timeline.json",
+   "source_url": "https://wx409.github.io/history.html",
+   "source_type": "站内数据·生涯时间轴",
+   "confidence": 0.95,
+   "replaces_question": "王晰获得过哪些奖项？"
+  },
+  {
+   "subject": "person:wangxi",
+   "property": "member_of",
+   "value": "海政文工团",
+   "valid_from": "2011",
+   "valid_to": "2018",
+   "source_file": "timeline.json",
+   "source_url": "https://wx409.github.io/history.html",
+   "source_type": "站内数据·生涯时间轴",
+   "confidence": 0.95,
+   "replaces_question": "王晰何时加入海政文工团？"
+  },
+  {
+   "subject": "person:wangxi",
+   "property": "member_of",
+   "value": "乐华娱乐",
+   "valid_from": "2019-04-09",
+   "valid_to": "2024",
+   "source_file": "timeline.json",
+   "source_url": "https://wx409.github.io/history.html",
+   "source_type": "站内数据·生涯时间轴",
+   "confidence": 0.95,
+   "replaces_question": "王晰何时加入乐华娱乐？"
+  },
+  {
+   "subject": "person:wangxi",
+   "property": "member_of",
+   "value": "中国东方演艺集团",
+   "valid_from": "2025",
+   "valid_to": "",
+   "source_file": "timeline.json",
+   "source_url": "https://wx409.github.io/history.html",
+   "source_type": "站内数据·生涯时间轴",
+   "confidence": 0.95,
+   "replaces_question": "王晰何时加入中国东方演艺集团？"
+  },
+  {
+   "subject": "person:wangxi",
+   "property": "released_album_set",
+   "value": "B面图景；Low C的诱惑；Low C的诱惑Ⅱ；X自选集；不说；回望；歌颂；重游往昔（8 张，发行日期见 data/albums.json）",
+   "valid_from": "2014-09-26",
+   "valid_to": "",
+   "source_file": "albums.json",
+   "source_url": "https://wx409.github.io/data/albums.json",
+   "source_type": "站内数据·专辑发行核验",
+   "confidence": 0.9,
+   "replaces_question": "王晰的专辑有哪些？"
+  }
+ ]
+}

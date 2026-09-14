@@ -97,6 +97,24 @@ def build():
     kb.ent("person:studio", "person", "王晰Elvis-晰息相关")
     kb.fact("person:wangxi", "birth", "1985-04-09 出生于辽宁省营口市", "1985-04-09", "", "timeline.json", 0.95)
 
+    # ---- 0) qa_factoids.json：由「问答短答」迁入的结构化事实（2026-09-14）----
+    # 迁移理由：常识性短答（出生地/奖项/何时加入某团/专辑有哪些）不需要问答形式，
+    # AI 直接取结构化事实更可靠。注入后，expand_qa 会把这些问句从自动生成集中移除。
+    factoid_qs = []
+    for fo in (load(DATA / "qa_factoids.json", {}) or {}).get("factoids", []):
+        kb.facts.append({
+            "id": "f%04d" % (kb.fact_n + 1), "subject": fo["subject"], "property": fo["property"],
+            "value": fo["value"], "valid_from": fo.get("valid_from", ""),
+            "valid_to": fo.get("valid_to", ""), "source": fo.get("source_file", ""),
+            "source_url": fo.get("source_url", ""), "source_type": fo.get("source_type", ""),
+            "confidence": fo.get("confidence", 0.9),
+        })
+        kb.fact_n += 1
+        if fo.get("replaces_question"):
+            factoid_qs.append(fo["replaces_question"])
+    if factoid_qs:
+        print("[facts] 由问答迁入结构化事实 %d 条" % len(factoid_qs))
+
     # ---- 1) timeline.json → 生涯事实 + event 实体 ----
     tl = load(DATA / "timeline.json", [])
     for i, e in enumerate(tl):
@@ -300,6 +318,11 @@ def expand_qa(kb):
     qa = load(DATA / "qa_bank.json", {"items": []})
     # 幂等自愈：清除上一轮自动生成条目后重建（人工条目保留）
     items = [i for i in qa.get("items", []) if i.get("category") != "知识库自动生成"]
+    # 2026-09-14：人工条目答案里若残留 markdown 星号，在 HTML 里会原样显示
+    # （如「王晰**未开过个人演唱会**」）——统一在此净化，避免逐条手改。
+    for _it in items:
+        if isinstance(_it.get("answer"), str) and "**" in _it["answer"]:
+            _it["answer"] = _it["answer"].replace("**", "")
     seen = {i.get("question") for i in items}
     new = []
     facts = kb.facts
@@ -315,24 +338,36 @@ def expand_qa(kb):
     albums = sorted({f["value"] for f in facts if f["property"] == "released_album"})
     if albums:
         new.append(("王晰的专辑有哪些？", "；".join(albums)))
+    # 2026-09-14（方案 A 全做）：不再生成 289 条「某歌在哪些演出唱过」问答。
+    # 理由（第一性原理）：场次列表天然是**表**（行=歌，列=日期/城市/巡次），
+    # 套上「问+答」不增加信息，只增加模板风险，且 78/289 答案不足 20 字。
+    # 原数据一条不丢，改由 data/songs_shows_index.json + /songs-shows.html 承载
+    # （生成器 project_b/build_songs_shows.py，数据源同为 data/setlists.json）。
     rel = kb.relations
     ents = kb.entities
-    for e in ents.values():
-        if e["type"] == "song":
-            shows = [ents.get(r["target"], {}).get("name", r["target"])
-                     for r in rel if r["source"] == "song:%s" % e["name"] and r["type"] == "performed_in"]
-            if shows:
-                new.append(("王晰的歌曲《%s》在哪些演出唱过？" % e["name"], "；".join(sorted(set(shows))[:8])))
+    _ = (rel, ents)   # 保留引用，供后续其他规则使用
     shows_by_tour = {}
     for e in kb.entities.values():
         if e["type"] == "show" and e["attrs"].get("tour"):
             shows_by_tour.setdefault(e["attrs"]["tour"], []).append(e["name"])
-    for tour, lst in shows_by_tour.items():
+    # 2026-09-14：只对真正的巡次（一巡…六巡）生成「有哪些场次」问答。
+    # 「签唱会」「其他」不是巡次，硬套「X王晰巡演有哪些场次？」模板会产生
+    # 「签唱会王晰巡演有哪些场次？」这类错误问题；它们的场次改由
+    # songs_shows（歌曲×场次索引表）与 tour 分组表承载。
+    for tour, lst in sorted(shows_by_tour.items()):
+        if not re.match(r"^(一巡|二巡|三巡|四巡|五巡|六巡)$", str(tour)):
+            continue
         new.append(("%s王晰巡演有哪些场次？" % tour, "；".join(sorted(lst))))
     added = 0
+    # 已被 data/qa_factoids.json 迁为结构化事实的问句，不再作为「问答」生成
+    migrated = {fo.get("replaces_question") for fo in
+                (load(DATA / "qa_factoids.json", {}) or {}).get("factoids", [])
+                if fo.get("replaces_question")}
     for q, a in new:
-        if q in seen:
+        if q in seen or q in migrated:
             continue
+        # 答案里残留的 markdown 星号在 HTML 里会原样显示（如「王晰**未开过个人演唱会**」）
+        a = str(a).replace("**", "")
         items.append({"question": q, "answer": a,
                       "category": "知识库自动生成", "source": "data/kb/facts.json",
                       "generated_at": datetime.now().strftime("%Y-%m-%d")})

@@ -3,6 +3,53 @@
 > 只记**结构性变更**（站点架构、口径、数据层、生成器、纪律）。
 > 逐日运维细节见 `temp/运维备忘_20260907.md`；数字变更见 `data/calibers.md`。
 
+## 2026-09-14 — qa.html 方案 A（全做）+ jazz.html 补厚
+
+### 修了一个一直没被发现的数据 bug（巡次截断）
+- **根因**：长表里除六轮巡演外还有 5 场「签唱会」（巡次值形如 `《歌颂》签唱会`、
+  `《B面图景》签唱会`…），`build_setlists.py` 用 `tour_raw[:2]` 兜底，
+  把它们截成了 `《歌`/`《B`/`《X`/`《不`。脏巡次一路传到 cities / 知识库 / 问答库，
+  生成了「`《歌王晰巡演有哪些场次？`」这类**乱码问题**（4 条）。
+- **修复**：改为显式归一 —— 六轮巡演 → 一巡…六巡；含「签唱会」→ **签唱会**；其余 → 其他。
+- **连带收益**：全站场次口径第一次在数据里自洽：一巡 17 + 二巡 11 + 三巡 12 + 四巡 9 +
+  五巡 8 + 六巡 2 = **59**，+ 签唱会 5 = **64**。
+
+### qa.html：问答形态与索引形态分开（方案 A 全做）
+- **取消 289 条「某歌在哪些演出唱过」问答**（`build_kb_graph.expand_qa`）；
+  原数据一条不丢，改由新增的 `data/songs_shows_index.json` + `songs-shows.html` 承载
+  （**289 首 × 64 场 = 1249 条「歌×场」记录**，生成器 `project_b/build_songs_shows.py`）。
+  理由：场次列表天然是**表**，套「问+答」不增加信息，只增加模板风险（其中 78 条答案 <20 字）。
+- **6 条常识性短答迁为结构化事实**：新增 `data/qa_factoids.json`（出生/奖项/三次机构归属/专辑集），
+  由 `build_kb_graph` 注入 `facts.json`（**1151 → 1157 条**）并从问答集中移除。
+- **人工条目答案去 markdown 星号**（`王晰**未开过个人演唱会**` 在 HTML 里原样显示星号）。
+- **补 FAQPage JSON-LD**：此前 `qa.html` 的 JSON-LD **缺 `@type: FAQPage`**
+  （与 llms.txt 的声明不符）——现已修正，16 条问答全部进 FAQPage。
+- `qa.html`：**151KB → 24.8KB**，16 条**有出处、有论证**的问答（每条附数据源链接）。
+- 生成器 `tools/build_qa_page.py` 重写：带 NAV/FOOTER 标记（`build_nav` 可幂等接管）+ 来源链接。
+
+### jazz.html：补厚（独立页保留，不并入 research）
+- 由 8.7KB → **18.1KB**；`project_b/build_jazz_page.py`（新生成器，数据全派生）。
+- **曲目表扩到 12 首**（按演唱场次排序）：Your Man 19 / Besame Mucho 13 / Close to You 13 /
+  像雾像雨又像风 13 / 月半弯 13 / City of Stars 12 / Autumn Leaves 6 / Yesterday Once More 2 /
+  情网 2 / 女人花 1 / 晚风 1 / 水中花 1。
+- 新增「**跨巡演延续性**」：这条线从 2019 一巡延续到 2026 六巡。
+- 新增「**声学实测（低音区爵士）**」：《晚风》F2 85.6Hz / 跨度 1.77 / 颤音 5.38Hz。
+- 新增「**试听与第三方语境**」4 条（现场录像 / 改编讨论 / 器材试听 / 发烧圈帖），逐条标性质与用途。
+- 新增 **Dataset + FAQPage**（原只有 BreadcrumbList）。
+- ⚠️ **口径澄清**：《晚风》（爵士改编，1 场，《Low C的诱惑》F2 85.6Hz）与
+  《晚风暖暖》（王晰原唱，17 场，《重游往昔》C2 65.3Hz）是**两首不同的作品**，
+  后者不并入爵士线（此前检索用子串匹配，把两首混在一起过）。
+
+### 口径登记表 38 项（+3）
+- 新增 `songs_shows_rows`(1249) / `songs_shows_songs`(289) / `jazz_repertoire_songs`(12)；
+  `qa_pairs` 315 → **16**（只计实质问答）；`kb_facts` 1151 → **1157**。
+
+### 验证
+- `audit_nav`（孤儿 0/漂移 0/死锚点 0）、`audit_jsonld`、`audit_caliber`、`audit_pipeline`、
+  `check_index_integrity` 全绿；第一批 49/49、第二批 60/60。
+- sitemap **38 条**（含 songs-shows.html、jazz.html）；IndexNow 同步新增两页。
+
+
 ## 2026-09-13（晚）— 展示策略更正 + 第一批修补
 
 ### 更正：完整档案页「不展示」≠「不收录」
@@ -55,7 +102,7 @@
 - **7.5 自动化管线**：`tools/{fetch,analyze,queue_run}.py` + `README.md` + `.github/workflows/analysis.yml`
   + `data/analysis_queue.json`；测量链自检跑通。
 - 金句档案：`quotes.json` 增 `golden_quotes`（带证据级别，"待核实"单列）。
-- 口径登记：28 → **35 项**（补 7.1/7.5 新计数）；`data/calibers.md` 定位为可重建产物，单一事实源 = 脚本。
+- 口径登记：28 → **38 项**（补 7.1/7.5 新计数）；`data/calibers.md` 定位为可重建产物，单一事实源 = 脚本。
 - 修 `build_skill_page.py`：七维表 stability/vibrato 读逐曲字段恒为空（→ 改从 72 曲 summary 派生），
   并把 `sorted(x)[len(x)//2]` 换成 `statistics.median`。
 

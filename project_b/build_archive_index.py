@@ -72,7 +72,9 @@ GROUPS = [
         ("dashboard/index.html", "数据大屏：指数趋势/当月榜单/档案层"),
     ]),
     ("可引用资产", [
-        ("qa.html", "问答库：315 条问答对（真实 HTML + FAQPage，GEO 可引用）"),
+        ("qa.html", "问答库：16 条有出处、有论证的问答（含 FAQPage，GEO 可引用）"),
+        ("songs-shows.html", "歌曲×场次索引：289 首 × 64 场，1249 条「歌×场」记录"),
+        ("jazz.html", "爵士 / Bossa Nova 曲目专区：12 首曲目的场次/巡次/年份跨度 + 实测"),
         ("academic.html", "学术研究：46 条可核验文献 + 权威点评著录"),
         ("data/calibers.md", "口径登记表：全站数字字典（引用任何数字前必查）"),
         ("data/kb/kb_digest.md", "知识库摘要"),

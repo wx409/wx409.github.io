@@ -54,8 +54,8 @@
 | `kb/facts.json` | **原子事实 1151 条**，每条带 `source_url`+`source_type` | `[]{id,subject,property,value,valid_from,valid_to,source,source_url,source_type,confidence}` | `build_kb_graph.py` |
 | `kb/entities.json` / `kb/relations.json` / `kb/manifest.json` | 实体 1419 / 关系 1945 / 清单 | — | `build_kb_graph.py` |
 | `kb/semantic/*` | 语义向量索引（4709 文档） | `docs.json`/`vectors.bin`/`graph.json`/`manifest.json` | `tools/build_kb_vectors.py` |
-| `qa_bank.json` | 问答库 315 条 | `items[]{id,question,aliases,category,keywords,answer,sources,verified,confidence}` | `build_kb_graph.py` + 人工 |
-| `calibers.json` | **口径登记表（35 项）** | `count`；`calibers[]{id,label,value,scope,source,note}` | `build_calibers.py` |
+| `qa_bank.json` | 问答库 **16 条实质问答**（原 289 条场次问答已改形为 `songs_shows_index.json`） | `items[]{id,question,aliases,category,keywords,answer,sources,verified,confidence}` | `build_kb_graph.py` + 人工 |
+| `calibers.json` | **口径登记表（38 项）** | `count`；`calibers[]{id,label,value,scope,source,note}` | `build_calibers.py` |
 | `literature.json` | 文献索引 46 条 / 6 板块 | `sections[]{title,desc,items[]}` | 人工维护 |
 | `authority.json` | 权威点评 + 已发表来源著录 | `items[]{kind,who,text/journal,publisher,indexing,tier_note,method_status,handling}` | 人工维护 |
 | `elevator_definition.json` | 电梯定义句（单一事实源） | `full`/`short`/`html`/`facts` | `elevator_definition.py` |

@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-13 18:43",
+ "generated_at": "2026-09-14 14:09",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 133,
   "dispatch": 132,
-  "deploy_steps": 48,
+  "deploy_steps": 51,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -878,7 +878,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/9/13 22:00:00",
+    "next": "2026/9/14 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -966,7 +966,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/9/14 10:00:00",
+    "next": "2026/9/15 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1102,6 +1102,13 @@
    "path": "D:\\wx409.github.io\\project_b\\build_golden_quotes.py"
   },
   {
+   "script": "build_jazz_page.py",
+   "in_deploy": true,
+   "deploy_desc": "爵士/Bossa Nova 曲目专区 jazz.html（读 setlists + 专辑实测）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_jazz_page.py"
+  },
+  {
    "script": "build_music_index.py",
    "in_deploy": true,
    "deploy_desc": "音乐数据周报",
@@ -1110,7 +1117,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/9/13 23:58:00",
+    "next": "2026/9/14 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -1126,7 +1133,7 @@
   {
    "script": "build_qa_page.py",
    "in_deploy": true,
-   "deploy_desc": "问答库静态页 qa.html（GEO 可引用）",
+   "deploy_desc": "问答库静态页 qa.html（实质问答 + FAQPage；需 build_kb_graph 先跑）",
    "critical": true,
    "path": "D:\\wx409.github.io\\tools\\build_qa_page.py"
   },
@@ -1157,6 +1164,13 @@
    "deploy_desc": "歌曲库页 songs.html",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\build_songs_page.py"
+  },
+  {
+   "script": "build_songs_shows.py",
+   "in_deploy": true,
+   "deploy_desc": "歌曲×场次索引 songs-shows.html + data/songs_shows_index.json",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\build_songs_shows.py"
   },
   {
    "script": "build_story.py",
@@ -1209,12 +1223,19 @@
    "path": ""
   },
   {
+   "script": "redact_local_paths.py",
+   "in_deploy": true,
+   "deploy_desc": "公开文件本机路径净化（notifications/calibers/essay_quotes）",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\redact_local_paths.py"
+  },
+  {
    "script": "task:wx409_weibo_pipeline_daily",
    "schedule": {
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/13 21:30:00",
+    "next": "2026/9/14 16:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },

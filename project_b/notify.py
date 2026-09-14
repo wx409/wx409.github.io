@@ -19,6 +19,7 @@ SMTP 邮件仍为可选通道；若未配置则只写本地表格。
 """
 import json
 import os
+import re
 import ssl
 import smtplib
 import urllib.parse
@@ -31,6 +32,32 @@ from pathlib import Path
 CONFIG_PATH = r"E:\wx\私有工具\notify_config.json"
 LOCAL_JSON = Path(r"D:\wx409.github.io\data\notifications.json")
 _CONFIG = None
+
+# 2026-09-14：notifications.json 是**公开文件**（notifications.html 直接展示），
+# 但运维告警正文里含本机绝对路径（D:\wx409.github.io、E:\wx\…）。
+# 纪律：公开 JSON 不得含本地绝对路径。这里在**写入处**净化（治本），
+# 既保持通知可读可执行，又不泄露本机路径。
+_REDACT_RULES = [
+    (re.compile(r"[A-Za-z]:\\wx409\.github\.io", re.I), "（仓库根）"),
+    (re.compile(r"[A-Za-z]:\\wx409\.github\.io\\(project_b|tools|data|temp)\\", re.I), r"（仓库根）/\1/"),
+    (re.compile(r"[A-Za-z]:\\[^\"\s]*wx_textmine_out", re.I), "（文本挖掘产物目录）"),
+    (re.compile(r"[A-Za-z]:\\[^\"\s]*指数数据库[^\"\s]*", re.I), "（指数日档案目录）"),
+    (re.compile(r"[A-Za-z]:\\[^\"\s]*论文素材_王晰作传[^\"\s]*", re.I), "（论文素材目录）"),
+    (re.compile(r"[A-Za-z]:\\[A-Za-z0-9_\-\\]*\.log", re.I), "（本机日志）"),
+    (re.compile(r"[A-Za-z]:\\wx\\", re.I), "（本机 E 盘）"),
+    (re.compile(r"[A-Za-z]:\\DSH\\", re.I), "（本机 DSH 目录）"),
+    (re.compile(r"[A-Za-z]:\\", re.I), "（本机盘符）"),
+]
+
+
+def redact(text):
+    """把本机绝对路径净化成可读占位（公开文件纪律）。"""
+    if not isinstance(text, str):
+        return text
+    for pat, rep in _REDACT_RULES:
+        text = pat.sub(rep, text)
+    return text
+
 
 
 def _cfg():
@@ -54,8 +81,8 @@ def append_local(title, content, category="通知", source="", url="", extra=Non
         items = data.get("items", [])
         item = {
             "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "title": str(title)[:200],
-            "content": str(content)[:4000],
+            "title": redact(str(title))[:200],
+            "content": redact(str(content))[:4000],
             "category": str(category or "通知")[:30],
         }
         if source:

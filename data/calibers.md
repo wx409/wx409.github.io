@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 09:12　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 14:06　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -19,11 +19,11 @@
 | `shows_setlists` | 有歌单记录的场次 | **64** | 长表中至少有 1 条曲目记录的场次 | `data/setlists.json` |
 | `cities` | 巡演城市数 | **22** | 去重城市 | `data/cities.json` |
 | `live_songs` | 有现场记录的曲目 | **302** | 至少在一个场次歌单中出现过的曲目 | `entity_index.json` |
-| `kb_facts` | 知识库事实条数 | **1151** | 结构化事实 | `data/kb/manifest.json` |
-| `kb_entities` | 知识库实体数 | **1419** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
+| `kb_facts` | 知识库事实条数 | **1157** | 结构化事实 | `data/kb/manifest.json` |
+| `kb_entities` | 知识库实体数 | **1416** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
 | `kb_relations` | 知识库关系数 | **1945** | 实体间关系 | `data/kb/manifest.json` |
 | `semantic_docs` | 语义索引文档数 | **4709** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
-| `qa_pairs` | 问答对数量 | **315** | 可引用问答（GEO 资产） | `data/qa_bank.json` |
+| `qa_pairs` | 问答对数量 | **16** | 可引用问答（GEO 资产） | `data/qa_bank.json` |
 | `shows_tour` | 六轮巡演场次 | **59** | 一巡~六巡的巡演场次（不含签唱会） | `巡演歌单长表（单一事实源）` |
 | `setlist_rows` | 歌单曲目记录行 | **1249** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
 | `setlist_songs_unique` | 歌单唯一曲目（数据层归一名） | **289** | 长表去重后的曲目名 | `巡演歌单长表` |
@@ -42,6 +42,9 @@
 | `dynamic_range_Ds2` | D#2 低音区动态范围（P95−P5） | **18.9** | 已过复核门槛的音级 D#2（）：pp -29.9 dBFS → mf -11.0 dBFS，n=75 次出现 / 32 曲 | `data\archive_dynamic_range.json#classes[]` |
 | `dynamic_range_E2` | E2 低音区动态范围（P95−P5） | **19.0** | 已过复核门槛的音级 E2（）：pp -32.4 dBFS → mf -13.4 dBFS，n=123 次出现 / 44 曲 | `data\archive_dynamic_range.json#classes[]` |
 | `analysis_queue_items` | 自动化分析管线队列条目数 | **2** | data/analysis_queue.json：新增分析对象（含横向对比候选歌手）的唯一入口 | `data\analysis_queue.json#items` |
+| `songs_shows_rows` | 歌曲×场次索引记录数 | **1249** | 全站 64 场歌单展开：289 首歌曲 × 场次 | `data\songs_shows_index.json` |
+| `songs_shows_songs` | 歌曲×场次索引·歌曲数 | **289** | 同表口径：出现在已收录歌单中的不同歌曲数 | `data\songs_shows_index.json` |
+| `jazz_repertoire_songs` | 爵士/Bossa Nova 曲目线条目数 | **12** | 站内歌单中判定为爵士/Bossa Nova 的曲目数（依据：歌单备注 + 曲目风格归属） | `project_b\build_jazz_page.py` |
 
 ## 常见误用
 

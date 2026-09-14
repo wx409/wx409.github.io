@@ -281,6 +281,30 @@ def collect() -> list[dict]:
     except Exception as e:
         add("analysis_queue_items", "自动化分析管线队列条目数", None, str(e), "", "")
 
+    # 歌曲×场次索引（2026-09-14：原 289 条场次问答改形为表，数据一条不丢）
+    try:
+        ss = _load("data/songs_shows_index.json") or {}
+        add("songs_shows_rows", "歌曲×场次索引记录数", ss.get("row_count"),
+            '全站 %s 场歌单展开：%s 首歌曲 × 场次' % (ss.get("show_count"), ss.get("song_count")),
+            "data\\songs_shows_index.json",
+            "一场演出同一首歌只计 1 次；原「某歌在哪些演出唱过」289 条问答改形为此表")
+        add("songs_shows_songs", "歌曲×场次索引·歌曲数", ss.get("song_count"),
+            "同表口径：出现在已收录歌单中的不同歌曲数",
+            "data\\songs_shows_index.json", "")
+    except Exception as e:
+        add("songs_shows_rows", "歌曲×场次索引记录数", None, str(e), "", "")
+
+    # 爵士 / Bossa Nova 曲目线（2026-09-14 独立成页）
+    try:
+        jz = _load("data/jazz_repertoire.json") or {}
+        _jn = len(jz.get("rows") or [])
+        if _jn:
+            add("jazz_repertoire_songs", "爵士/Bossa Nova 曲目线条目数", _jn,
+                "站内歌单中判定为爵士/Bossa Nova 的曲目数（依据：歌单备注 + 曲目风格归属）",
+                "project_b\\build_jazz_page.py", "非声学判定；只统计已收录进歌单的场次")
+    except Exception as e:
+        add("jazz_repertoire_songs", "爵士/Bossa Nova 曲目线条目数", None, str(e), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 

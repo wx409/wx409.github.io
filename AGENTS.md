@@ -28,7 +28,7 @@
 
 1. **不写死数字**：动态数值由脚本计算注入；禁止手写统计数字进 HTML/JSON/llms.txt。
 2. **单一事实源**：`dashboard/dashboard_data.json` 是数据出口；基线以 `compute_baseline_v1.py` 为准；
-   音域以 `generate_vocal.py` 为准；`data/calibers.md` 是数字字典（引用前必查，当前 35 项口径）。
+   音域以 `generate_vocal.py` 为准；`data/calibers.md` 是数字字典（引用前必查，当前 38 项口径）。
 3. **完整档案页是内容源，不删内容、不删表格**。它们不占主导航位，但**仍对外可见、仍被收录、仍推送**。
 4. **诚实披露**：缺失标「待补」，不确定标「待核」，**绝不伪造**。外部读数标来源与方法状态。
 5. **过程稿不上线**：全站不得出现「旧口径/已作废/结论修正/瞬时最低」，版本谱系只留 JSON-LD `isBasedOn`。
@@ -37,7 +37,7 @@
 ## 三、仓库结构
 
 - **对外主入口 8 个公开页**：`index.html` `works.html` `live.html` `vocal.html` `history.html`
-  `research.html` `community.html`（精简版 7 页）+ `qa.html`（问答库，**待扶正**）
+  `research.html` `community.html`（精简版 7 页）+ `qa.html`（问答库 16 条实质问答，**已按方案 A 扶正为第 8 个公开页**）
 - **完整档案页 25 个**：`index,follow`、在 sitemap、推送 IndexNow，**只在底部全站索引有入口**
   （`voice/stage/skill/academic/dashboard/live-reviews/discography/songs/timeline/…`）
 - **私密/实验区（noindex，不推送）**：`archive-index.html`（完整档案索引）、`kb-semantic.html`、
@@ -93,7 +93,7 @@
 - `docs/CALIBER.md` — 三级读数制度完整定义 + 引用前检查清单
 - `docs/CHANGELOG.md` — 重大变更
 - `docs/链接登记.md` — 全部链接（本地留存，含收录/推送状态）
-- `docs/qa抽查_20260913.md` — qa.html 抽查结论（暂不扶正）
+- `docs/qa抽查_20260913.md` — qa.html 抽查结论（**方案 A 已执行**：16 条实质问答 + 歌曲×场次索引表）
 - `docs/计划外页面清单_20260913.md` — 8 个边界页面报告
 - `temp/运维备忘_20260907.md` — 逐日运维备忘（2611 行，**重大操作前查最近章节**）
 - `操作中心.bat` — 133 项运维命令（GBK 编码）

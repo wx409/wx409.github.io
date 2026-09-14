@@ -118,8 +118,18 @@ def main():
         for _, r in df[(df["日期"].astype(str).str[:10] == date) & (df["场次"].astype(str).str.strip() == scene)].iterrows():
             tour_raw = str(r["巡次"])
             break
+        # 2026-09-14 修复：长表里除了六轮巡演，还有 5 场「签唱会」（巡次值形如
+        # 「《歌颂》签唱会」「《B面图景》签唱会」…）。旧代码只做 `tour_raw[:2]` 兜底，
+        # 把这些值截成了「《歌」「《B」「《X」「《不」——脏巡次会一路传到 cities/知识库/问答库，
+        # 生成「《歌王晰巡演有哪些场次？」这类乱码问题。这里改为显式归一：
+        # 六轮巡演 → 一巡…六巡；含「签唱会」→ 签唱会；其余 → 其他（不再截断）。
         m = re.match(r"^(一巡|二巡|三巡|四巡|五巡|六巡)", tour_raw)
-        tour = m.group(1) if m else tour_raw[:2]
+        if m:
+            tour = m.group(1)
+        elif "签唱会" in tour_raw:
+            tour = "签唱会"
+        else:
+            tour = "其他"
         setlists[date] = {
             "date": date,
             "scene": scene,
