@@ -109,11 +109,16 @@ def main():
         log('[%d/%d] %s / %s' % (i, len(todo), s, os.path.basename(f)))
         try:
             ts = time.time()
+            # 热词：人名/专有名词纠正。2026-09-14 实测 faster-whisper 把「王晰」听成
+            # 「王熙」63 次（低音人声 + 背景乐下的生僻字人名是典型弱点）。
+            HOTWORDS = ('王晰，晰哥，王晰Elvis，Low C，男低音，声入人心，'
+                        '音乐图书馆，晰望你听见，晚安图书馆')
             # 2026-09-14 实测教训：这批素材（低音人声 + 背景乐）用 vad_filter=True 会被
             # 判成静音而滤掉正文 —— 133 秒音频只出 3 段/21 字；关闭 VAD 后 28 段/205 字。
             # 故全库统一 **vad_filter=False**，靠 faster-whisper 自身的静音切分。
             segs, info = model.transcribe(
                 f, language='zh', beam_size=5, vad_filter=False,
+                initial_prompt=HOTWORDS,
                 condition_on_previous_text=False)
             rows = []
             for seg in segs:
