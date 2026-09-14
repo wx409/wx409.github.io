@@ -1,6 +1,6 @@
 {
  "schema": "voice_analysis v1",
- "generated_at": "2026-09-14 17:51",
+ "generated_at": "2026-09-14 17:59",
  "source": "data/voice_corpus.json",
  "note": "声音素材语料的文本分析：高频词/主题/情感倾向/人称/系列对比/金句候选。情感为**词表命中**，非模型判定；金句为规则筛选，引用前须复核原文。",
  "corpus": {
@@ -280,7 +280,7 @@
  "series_compare": [
   {
    "series": "elle_p1",
-   "name": "ELLE007 晚安图书馆 第1期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 3231,
    "minutes": 16.6,
@@ -306,7 +306,7 @@
   },
   {
    "series": "elle_p2",
-   "name": "ELLE007 晚安图书馆 第2期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 2580,
    "minutes": 14.1,
@@ -333,7 +333,7 @@
   },
   {
    "series": "elle_p3",
-   "name": "ELLE007 晚安图书馆 第3期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 2705,
    "minutes": 13.4,
@@ -358,7 +358,7 @@
   },
   {
    "series": "elle_p4",
-   "name": "ELLE007 晚安图书馆 第4期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 823,
    "minutes": 4.9,
@@ -384,7 +384,7 @@
   },
   {
    "series": "elle_p5",
-   "name": "ELLE007 晚安图书馆 第5期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 2838,
    "minutes": 13.3,
@@ -410,7 +410,7 @@
   },
   {
    "series": "elle_p6",
-   "name": "ELLE007 晚安图书馆 第6期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 2555,
    "minutes": 11.8,
@@ -435,7 +435,7 @@
   },
   {
    "series": "elle_p7",
-   "name": "ELLE007 晚安图书馆 第7期",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 1978,
    "minutes": 10.0,
@@ -460,7 +460,7 @@
   },
   {
    "series": "elle_wanan",
-   "name": "ELLE007 晚安图书馆（发刊词）",
+   "name": "ELLE007 晚安图书馆",
    "items": 1,
    "chars": 374,
    "minutes": 2.6,
@@ -684,17 +684,17 @@
  "quote_candidates": [
   {
    "text": "年轻的一代,思想活跃,性情激扬,早已不再将老家伙的门敲响,他们闯进屋子,坐到我们的宝座上,空气中满是他们的嚷嚷",
-   "series": "ELLE007 晚安图书馆 第6期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "[CH⧸EN]王晰丨晚安图书馆06 [5266261169672160]",
-   "date": "",
+   "date": "2026-02-14",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
   {
    "text": "现在,战争降临,新的思想也踏步而来,年轻人转向我们过去不曾了解的神明,而且心里明白,他们这些后来者要去向哪里",
-   "series": "ELLE007 晚安图书馆 第6期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "[CH⧸EN]王晰丨晚安图书馆06 [5266261169672160]",
-   "date": "",
+   "date": "2026-02-14",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
@@ -708,9 +708,9 @@
   },
   {
    "text": "这天晚上,家人机灶网,从一擦嗨儿鞭炮就响起来,随着炮声把灶网的指向焚化",
-   "series": "ELLE007 晚安图书馆 第2期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "Elvis Wang - ELLE 007 Chapter 02 [4708598360051220]",
-   "date": "",
+   "date": "2021-11-28",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
@@ -788,17 +788,17 @@
   },
   {
    "text": "清晰描绘了我们每个人都会经历的相爱之路",
-   "series": "ELLE007 晚安图书馆 第3期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "Elvis Wang - Good Night Library Chapter3 [4722751702567391]",
-   "date": "",
+   "date": "2022-01-06",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
   {
    "text": "而不成熟的爱与年龄大小并不是绝对的关系",
-   "series": "ELLE007 晚安图书馆 第3期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "Elvis Wang - Good Night Library Chapter3 [4722751702567391]",
-   "date": "",
+   "date": "2022-01-06",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
@@ -820,33 +820,33 @@
   },
   {
    "text": "这是一部令人回味无穷的恋爱过程全记录",
-   "series": "ELLE007 晚安图书馆 第3期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "Elvis Wang - Good Night Library Chapter3 [4722751702567391]",
-   "date": "",
+   "date": "2022-01-06",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
   {
    "text": "这种区别可被分为成熟的爱和不成熟的爱",
-   "series": "ELLE007 晚安图书馆 第3期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "Elvis Wang - Good Night Library Chapter3 [4722751702567391]",
-   "date": "",
+   "date": "2022-01-06",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
   {
    "text": "一种狂喜幸福与溺斃般和无比憎恶的感受",
-   "series": "ELLE007 晚安图书馆 第3期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "Elvis Wang - Good Night Library Chapter3 [4722751702567391]",
-   "date": "",
+   "date": "2022-01-06",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },
   {
    "text": "比如希望某个电影解答我某个疑惑之类的",
-   "series": "ELLE007 晚安图书馆 第6期",
+   "series": "ELLE007 晚安图书馆",
    "episode": "[CH⧸EN]王晰丨晚安图书馆06 [5266261169672160]",
-   "date": "",
+   "date": "2026-02-14",
    "kind": "本人原话",
    "语料性质": "朗读文本（非本人原话）"
   },

@@ -94,6 +94,16 @@ SERIES_DATE = {
 }
 
 
+def elle_dates():
+    """ELLE 8 期发布日期（来自微博平台 upload_date，由 fetch_elle_dates.py 落盘）。
+    **不推算**：取不到就留空。"""
+    p = os.path.join(LIB, 'manifest', 'elle_dates.json')
+    if not os.path.exists(p):
+        return {}
+    d = json.loads(io.open(p, encoding='utf-8').read())
+    return {k: (v.get('date') or '') for k, v in d.items()}
+
+
 def media_dates():
     """从已下载媒体的文件创建/修改时间兜底取日期（微博视频无公开 API 日期时用）。
     注意：这是**下载时间**的近似，仅当文件系统时间可信时才用；否则留空。"""
@@ -116,6 +126,7 @@ def main():
     man = json.loads(io.open(MANIFEST, encoding='utf-8').read())
     by_id = {x['id']: x for x in man['items']}
     NE_DATES = netease_dates()
+    ELLE_DATES = elle_dates()
 
     items = []
     for series in sorted(os.listdir(TRANS)):
@@ -136,6 +147,8 @@ def main():
             date = (by_id.get(series, {}).get('verified') or {}).get('createTime', '')
             if not date and ep is not None:
                 date = NE_DATES.get(ep, '') if series == 'netease_dj_792978415' else ''
+            if not date:
+                date = ELLE_DATES.get(series, '')
             if not date:
                 date = SERIES_DATE.get(series, '')
             items.append({

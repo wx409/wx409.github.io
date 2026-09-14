@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14 17:56",
+  "generated_at": "2026-09-14 17:59",
   "count": 51,
   "calibers": [
     {
@@ -101,7 +101,7 @@
     {
       "id": "kb_facts",
       "label": "知识库事实条数",
-      "value": 1417,
+      "value": 1425,
       "scope": "结构化事实",
       "source": "data/kb/manifest.json",
       "note": ""
@@ -125,7 +125,7 @@
     {
       "id": "semantic_docs",
       "label": "语义索引文档数",
-      "value": 4897,
+      "value": 4905,
       "scope": "可语义检索的文档块",
       "source": "data/kb/semantic/manifest.json",
       "note": ""

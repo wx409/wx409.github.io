@@ -1,0 +1,342 @@
+{
+ "schema": "cross_voice_market v1",
+ "generated_at": "2026-09-14 17:59",
+ "note": "声音素材 × 指数 × 声学 的时间线交叉。三条主线为传记服务；**结论受素材可得性限制，不作因果断言**。",
+ "sources": [
+  "data/voice_corpus.json",
+  "data/archive_baseline.json",
+  "data/archive_vocal_albums.json",
+  "data/timeline.json"
+ ],
+ "index_year_values": {
+  "2023": 1011.5,
+  "2024": 881.1,
+  "2025": 861.5,
+  "2026": 685.7
+ },
+ "index_caliber": "追踪曲目池日均（唯一口径，见 data/calibers.md）",
+ "timeline": [
+  {
+   "year": "2014",
+   "voice_items": 0,
+   "voice_chars": 0,
+   "voice_minutes": 0,
+   "voice_series": [],
+   "market_index": null,
+   "albums": [
+    "Low C的诱惑"
+   ],
+   "events": 1
+  },
+  {
+   "year": "2016",
+   "voice_items": 0,
+   "voice_chars": 0,
+   "voice_minutes": 0,
+   "voice_series": [],
+   "market_index": null,
+   "albums": [
+    "Low C的诱惑Ⅱ"
+   ],
+   "events": 3
+  },
+  {
+   "year": "2017",
+   "voice_items": 0,
+   "voice_chars": 0,
+   "voice_minutes": 0,
+   "voice_series": [],
+   "market_index": null,
+   "albums": [
+    "重游往昔"
+   ],
+   "events": 3
+  },
+  {
+   "year": "2018",
+   "voice_items": 8,
+   "voice_chars": 13445,
+   "voice_minutes": 88.8,
+   "voice_series": [
+    "王晰的音乐图书馆"
+   ],
+   "market_index": null,
+   "albums": [],
+   "events": 2
+  },
+  {
+   "year": "2019",
+   "voice_items": 31,
+   "voice_chars": 11902,
+   "voice_minutes": 76.6,
+   "voice_series": [
+    "王晰的低音时间（DJ 电台存档）"
+   ],
+   "market_index": null,
+   "albums": [],
+   "events": 2
+  },
+  {
+   "year": "2020",
+   "voice_items": 3,
+   "voice_chars": 3061,
+   "voice_minutes": 19.7,
+   "voice_series": [
+    "520 沈从文情书片段",
+    "世间万物千景，一生恍惚而过",
+    "爸爸坚信我们能取得胜利（抗疫家书）"
+   ],
+   "market_index": null,
+   "albums": [
+    "歌颂"
+   ],
+   "events": 2
+  },
+  {
+   "year": "2021",
+   "voice_items": 3,
+   "voice_chars": 6185,
+   "voice_minutes": 33.3,
+   "voice_series": [
+    "ELLE007 晚安图书馆"
+   ],
+   "market_index": null,
+   "albums": [
+    "回望",
+    "B面图景"
+   ],
+   "events": 3
+  },
+  {
+   "year": "2022",
+   "voice_items": 23,
+   "voice_chars": 9274,
+   "voice_minutes": 50.3,
+   "voice_series": [
+    "ELLE007 晚安图书馆",
+    "想念雪",
+    "晰望你听见（深夜晚安电台）"
+   ],
+   "market_index": null,
+   "albums": [
+    "X自选集"
+   ],
+   "events": 1
+  },
+  {
+   "year": "2023",
+   "voice_items": 1,
+   "voice_chars": 250,
+   "voice_minutes": 2.3,
+   "voice_series": [
+    "从前慢 / 哪有你这样你"
+   ],
+   "market_index": 1011.5,
+   "albums": [],
+   "events": 1
+  },
+  {
+   "year": "2024",
+   "voice_items": 0,
+   "voice_chars": 0,
+   "voice_minutes": 0,
+   "voice_series": [],
+   "market_index": 881.1,
+   "albums": [
+    "不说"
+   ],
+   "events": 3
+  },
+  {
+   "year": "2025",
+   "voice_items": 0,
+   "voice_chars": 0,
+   "voice_minutes": 0,
+   "voice_series": [],
+   "market_index": 861.5,
+   "albums": [],
+   "events": 7
+  },
+  {
+   "year": "2026",
+   "voice_items": 3,
+   "voice_chars": 7371,
+   "voice_minutes": 35.1,
+   "voice_series": [
+    "ELLE007 晚安图书馆"
+   ],
+   "market_index": 685.7,
+   "albums": [],
+   "events": 4
+  }
+ ],
+ "biography_lines": {
+  "A_能力-市场": {
+   "question": "唱得好，市场看见了吗？",
+   "data_points": [
+    {
+     "year": "2024",
+     "albums": [
+      "不说"
+     ],
+     "index": 881.1
+    }
+   ],
+   "finding": "专辑发行年与指数年度值可对齐比较；**但指数是追踪曲目池日均，受曲目池构成影响，不等于「专辑带来的市场反应」**—— 结论需按曲目级联动再做，不可用年度均值直接归因。"
+  },
+  "B_市场-情绪": {
+   "question": "他如何面对被看见/不被看见？",
+   "index_coverage_years": [
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+   ],
+   "voice_coverage_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2026"
+   ],
+   "overlap_years": [
+    "2023",
+    "2026"
+   ],
+   "data_points": [
+    {
+     "year": "2023",
+     "voice_items": 1,
+     "voice_chars": 250,
+     "voice_minutes": 2.3,
+     "voice_series": [
+      "从前慢 / 哪有你这样你"
+     ],
+     "market_index": 1011.5,
+     "albums": [],
+     "events": 1
+    },
+    {
+     "year": "2026",
+     "voice_items": 3,
+     "voice_chars": 7371,
+     "voice_minutes": 35.1,
+     "voice_series": [
+      "ELLE007 晚安图书馆"
+     ],
+     "market_index": 685.7,
+     "albums": [],
+     "events": 4
+    }
+   ],
+   "finding": "⚠️ **交叉窗口严重受限，不足以判定**：QQ音乐指数只覆盖 2023/2024/2025/2026，而声音素材集中在 2018/2019/2020/2021/2022/2023/2026 —— 两者重叠仅 2023/2026，重叠年内素材 4 条。**在补齐 2018–2022 指数或 2023+ 素材之前，不得就「市场冷热与表达密度」下任何结论。** 可注意的一处观察（**不构成结论**）：2026 是指数最低年（685.7），却是自 2022 以来素材最密的一年（3 条，全部为 ELLE 晚安图书馆复更）；且该系列在 2022-03 → 2026-01 之间停了近 4 年。「市场最冷时重启音频栏目」是可写进传记的现象描述，但需要更多证据（如栏目邀约来源）才能谈动机。"
+  },
+  "C_情绪-能力": {
+   "question": "状态如何影响产出？",
+   "data_points": [
+    {
+     "year": "2014",
+     "voice_series": [],
+     "albums": [
+      "Low C的诱惑"
+     ],
+     "events": 1
+    },
+    {
+     "year": "2016",
+     "voice_series": [],
+     "albums": [
+      "Low C的诱惑Ⅱ"
+     ],
+     "events": 3
+    },
+    {
+     "year": "2017",
+     "voice_series": [],
+     "albums": [
+      "重游往昔"
+     ],
+     "events": 3
+    },
+    {
+     "year": "2018",
+     "voice_series": [
+      "王晰的音乐图书馆"
+     ],
+     "albums": [],
+     "events": 2
+    },
+    {
+     "year": "2019",
+     "voice_series": [
+      "王晰的低音时间（DJ 电台存档）"
+     ],
+     "albums": [],
+     "events": 2
+    },
+    {
+     "year": "2020",
+     "voice_series": [
+      "520 沈从文情书片段",
+      "世间万物千景，一生恍惚而过",
+      "爸爸坚信我们能取得胜利（抗疫家书）"
+     ],
+     "albums": [
+      "歌颂"
+     ],
+     "events": 2
+    },
+    {
+     "year": "2021",
+     "voice_series": [
+      "ELLE007 晚安图书馆"
+     ],
+     "albums": [
+      "回望",
+      "B面图景"
+     ],
+     "events": 3
+    },
+    {
+     "year": "2022",
+     "voice_series": [
+      "ELLE007 晚安图书馆",
+      "想念雪",
+      "晰望你听见（深夜晚安电台）"
+     ],
+     "albums": [
+      "X自选集"
+     ],
+     "events": 1
+    },
+    {
+     "year": "2023",
+     "voice_series": [
+      "从前慢 / 哪有你这样你"
+     ],
+     "albums": [],
+     "events": 1
+    },
+    {
+     "year": "2024",
+     "voice_series": [],
+     "albums": [
+      "不说"
+     ],
+     "events": 3
+    },
+    {
+     "year": "2026",
+     "voice_series": [
+      "ELLE007 晚安图书馆"
+     ],
+     "albums": [],
+     "events": 4
+    }
+   ],
+   "finding": "可观察到的形态：声音素材在时间上分层明显 —— 2016–2017 低音时间（电台期）→ 2018 音乐图书馆（读书信期）→ 2019 低音时间存档（读诗密集期）→ 2020–2026 晚安图书馆/读诗（公众号期）。**这是\"内容形态随职业阶段变化\"的证据，但不能直接推导因果关系**（素材可得性本身受平台存留影响）。"
+  }
+ }
+}
