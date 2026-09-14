@@ -329,7 +329,7 @@ def _voice_block():
     topw = " ".join(f'{esc(w.get("word"))}({w.get("count")})' for w in tw[:12])
     themes = " > ".join(f"{esc(k)}({v}字)" for k, v in list(th.items())[:6])
     ppl = " / ".join(f"{esc(k)} {v}" for k, v in person.items() if v)
-    return f"""<h2>五、声音素材语料（他选择读什么、面向谁说）</h2>
+    return f"""<h2>四、声音素材语料（他选择读什么、面向谁说）</h2>
 <p>本站下载并<strong>本地转写</strong>了王晰的电台/读诗/读信类声音素材，转写成文字后纳入知识库。
 这批语料回答的是<strong>声学实测与指数都答不了的问题</strong>：他选择读什么、以什么语气说、面向谁。</p>
 <table>
@@ -978,7 +978,7 @@ def build_research():
 
 {_voice_block()}
 
-<h2>四、口径登记表（引用数字前必查）</h2>
+<h2>五、口径登记表（引用数字前必查）</h2>
 <p>全站每个计数有唯一口径与来源，登记在 <a href="/data/calibers.md">data/calibers.md</a>（机读版
 <a href="/data/calibers.json">calibers.json</a>），当前 {len(CAL)} 项。
 <strong>不同范围的数字不是矛盾，混用才是错误。</strong></p>
