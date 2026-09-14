@@ -1,26 +1,28 @@
 {
- "generated_at": "2026-09-14 09:11:55",
+ "generated_at": "2026-09-14 17:56:31",
  "model": "BAAI/bge-small-zh-v1.5",
  "dim": 512,
  "quant": "int8 scale=127",
- "doc_count": 4709,
+ "doc_count": 4897,
  "topk": 8,
- "size_bytes": 2411008,
+ "size_bytes": 2507264,
  "types": {
   "album": 8,
   "city": 22,
   "event": 41,
-  "fact": 1151,
+  "fact": 1417,
   "media": 485,
-  "org": 3,
+  "org": 10,
   "person": 2,
-  "qa": 315,
+  "qa": 16,
   "quote": 7,
-  "relation": 1824,
+  "relation": 1953,
   "show": 64,
   "song": 633,
   "tavern": 106,
-  "tour": 11,
-  "venue": 37
+  "tour": 8,
+  "venue": 37,
+  "voice_episode": 72,
+  "voice_series": 16
  }
 }

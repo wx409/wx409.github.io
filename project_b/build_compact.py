@@ -298,6 +298,62 @@ def _authority_block():
             '<p class="src">纪律：本表为<strong>外部表述的档案记录</strong>，与本站测量结论分开引用；方法未公开的读数一律标注，不转写成本站结论。</p>')
 
 
+def _voice_block():
+    """声音素材语料摘要（读 voice_corpus + voice_analysis；只放汇总，不放全文）。
+
+    这是"他选择读什么、面向谁说、什么基调"的证据层——
+    与声学实测（他能做到什么）、指数（市场怎么看他）并列。
+    """
+    vc = jload("data/voice_corpus.json", {})
+    va = jload("data/voice_analysis.json", {})
+    c = vc.get("counts") or {}
+    if not c.get("items"):
+        return ""
+    # 按 series_name 归并（ELLE 8 期同属一个系列，按 series key 会拆成 8 行）
+    agg = {}
+    for s in (vc.get("series_summary") or []):
+        k = s.get("name") or s.get("series")
+        a = agg.setdefault(k, {"name": k, "items": 0, "chars": 0, "duration_minutes": 0})
+        a["items"] += s.get("items") or 0
+        a["chars"] += s.get("chars") or 0
+        a["duration_minutes"] = round(a["duration_minutes"] + (s.get("duration_minutes") or 0), 1)
+    series = sorted(agg.values(), key=lambda s: -(s.get("chars") or 0))
+    rows = "\n".join(
+        f'<tr><td>{esc(s.get("name"))}</td><td class="n">{s.get("items")}</td>'
+        f'<td class="n">{s.get("chars")}</td><td class="n">{s.get("duration_minutes")}</td></tr>'
+        for s in series)
+    sent = va.get("sentiment") or {}
+    tw = va.get("top_words") or []
+    th = va.get("theme_chars") or {}
+    person = va.get("person_usage") or {}
+    topw = " ".join(f'{esc(w.get("word"))}({w.get("count")})' for w in tw[:12])
+    themes = " > ".join(f"{esc(k)}({v}字)" for k, v in list(th.items())[:6])
+    ppl = " / ".join(f"{esc(k)} {v}" for k, v in person.items() if v)
+    return f"""<h2>五、声音素材语料（他选择读什么、面向谁说）</h2>
+<p>本站下载并<strong>本地转写</strong>了王晰的电台/读诗/读信类声音素材，转写成文字后纳入知识库。
+这批语料回答的是<strong>声学实测与指数都答不了的问题</strong>：他选择读什么、以什么语气说、面向谁。</p>
+<table>
+<tr><th>系列</th><th>条目</th><th>字数</th><th>时长(分)</th></tr>
+{rows}
+</table>
+<p class="src">合计 <strong>{c.get('items')} 条 / {c.get('chars')} 字 / {c.get('duration_minutes')} 分钟</strong>，
+跨 <strong>{len(series)}</strong> 个系列。每条带出处 URL、时长与逐句时间戳；媒体原件仅本地留存（不公开发布）。<br>
+⚠️ 口径：其中相当比例为<strong>他朗读的文本</strong>（文学/诗歌/歌词），<strong>不等于「他说的原话」</strong>——
+数据层用 <code>语料性质</code> 字段区分，引用前须核对。</p>
+<h3>文本分析初步结论</h3>
+<ul>
+<li><strong>他选择读什么</strong>（主题按字数）：{themes}</li>
+<li><strong>他面向谁说话</strong>（人称频次）：{ppl} —— 单人对话式，而非宣讲式</li>
+<li><strong>夜间电台的基调</strong>：情感词命中 正 {sent.get('positive_hits')} / 负 {sent.get('negative_hits')}
+→ <strong>{esc(sent.get('tone'))}</strong></li>
+<li><strong>高频词</strong>：{topw}</li>
+</ul>
+<p class="src">方法：faster-whisper large-v3-turbo 本地 GPU 转写（关闭 VAD —— 实测会把低音人声判成静音）；
+jieba 分词 + 规则筛选做主题标注；情感为<strong>词表命中</strong>而非模型判定。
+机读数据见 <a href="/data/voice_corpus.json">voice_corpus.json</a> 与
+<a href="/data/voice_analysis.json">voice_analysis.json</a>。</p>"""
+
+
 def _cmp_block():
     """7.2 同管线对照（精简版扩展位）：只列已实测维度；未测歌手标「未测·已登记」。"""
     sch = jload("data/comparison_schema.json", {})
@@ -919,6 +975,8 @@ def build_research():
 <a href="/data/archive_stage.json">archive_stage.json</a>、
 <a href="/data/archive_context_compare.json">archive_context_compare.json</a>。</li>
 </ul>
+
+{_voice_block()}
 
 <h2>四、口径登记表（引用数字前必查）</h2>
 <p>全站每个计数有唯一口径与来源，登记在 <a href="/data/calibers.md">data/calibers.md</a>（机读版

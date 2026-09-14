@@ -50,6 +50,8 @@ STEPS = [
     (ROOT / "project_b" / "inject_index_facts.py", "首页事实块（轮次/城市/覆盖天数/Last updated 派生）", True),
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
     (ROOT / "project_b" / "build_kb_graph.py", "知识库三层 data/kb/*.json", True),
+    # 必须紧跟 build_kb_graph 之后：后者每次重建 KB，会抹掉声音素材并入的部分
+    (ROOT / "project_b" / "integrate_voice_kb.py", "声音素材并入知识库（voice_series/voice_episode + 事实关系）", False),
     (ROOT / "tools" / "build_kb_vectors.py", "知识库语义索引 data/kb/semantic/*（需sentence-transformers，缺依赖仅警告）", False),
     (ROOT / "project_b" / "build_setlists.py", "歌单 data/setlists.json（全站 64 场 = 巡演 59 + 签唱会 5）", True),
     (ROOT / "project_b" / "build_songs_shows.py", "歌曲×场次索引 songs-shows.html + data/songs_shows_index.json", True),

@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-14 14:09",
+ "generated_at": "2026-09-14 17:55",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 133,
   "dispatch": 132,
-  "deploy_steps": 51,
+  "deploy_steps": 52,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1215,6 +1215,13 @@
    "path": "D:\\wx409.github.io\\project_b\\inject_index_facts.py"
   },
   {
+   "script": "integrate_voice_kb.py",
+   "in_deploy": true,
+   "deploy_desc": "声音素材并入知识库（voice_series/voice_episode + 事实关系）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\integrate_voice_kb.py"
+  },
+  {
    "script": "menu:0",
    "menu": 0,
    "title": "退出",
@@ -1235,7 +1242,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/14 16:30:00",
+    "next": "2026/9/14 21:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },

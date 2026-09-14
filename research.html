@@ -147,9 +147,41 @@ font-size:13px;color:#666;line-height:2}
 <a href="/data/archive_context_compare.json">archive_context_compare.json</a>。</li>
 </ul>
 
+<h2>五、声音素材语料（他选择读什么、面向谁说）</h2>
+<p>本站下载并<strong>本地转写</strong>了王晰的电台/读诗/读信类声音素材，转写成文字后纳入知识库。
+这批语料回答的是<strong>声学实测与指数都答不了的问题</strong>：他选择读什么、以什么语气说、面向谁。</p>
+<table>
+<tr><th>系列</th><th>条目</th><th>字数</th><th>时长(分)</th></tr>
+<tr><td>ELLE007 晚安图书馆</td><td class="n">8</td><td class="n">17084</td><td class="n">86.7</td></tr>
+<tr><td>王晰的音乐图书馆</td><td class="n">8</td><td class="n">13445</td><td class="n">88.8</td></tr>
+<tr><td>王晰的低音时间（DJ 电台存档）</td><td class="n">31</td><td class="n">11902</td><td class="n">76.3</td></tr>
+<tr><td>晰望你听见（深夜晚安电台）</td><td class="n">20</td><td class="n">5514</td><td class="n">29.6</td></tr>
+<tr><td>世间万物千景，一生恍惚而过</td><td class="n">1</td><td class="n">1972</td><td class="n">13.1</td></tr>
+<tr><td>爸爸坚信我们能取得胜利（抗疫家书）</td><td class="n">1</td><td class="n">1030</td><td class="n">5.7</td></tr>
+<tr><td>从前慢 / 哪有你这样你</td><td class="n">1</td><td class="n">250</td><td class="n">2.3</td></tr>
+<tr><td>想念雪</td><td class="n">1</td><td class="n">232</td><td class="n">2.2</td></tr>
+<tr><td>520 沈从文情书片段</td><td class="n">1</td><td class="n">59</td><td class="n">0.9</td></tr>
+</table>
+<p class="src">合计 <strong>72 条 / 51488 字 / 305.8 分钟</strong>，
+跨 <strong>9</strong> 个系列。每条带出处 URL、时长与逐句时间戳；媒体原件仅本地留存（不公开发布）。<br>
+⚠️ 口径：其中相当比例为<strong>他朗读的文本</strong>（文学/诗歌/歌词），<strong>不等于「他说的原话」</strong>——
+数据层用 <code>语料性质</code> 字段区分，引用前须核对。</p>
+<h3>文本分析初步结论</h3>
+<ul>
+<li><strong>他选择读什么</strong>（主题按字数）：时间与年华(47341字) > 家与亲情(45989字) > 夜与睡(45228字) > 爱情(44368字) > 诗与远方(41122字) > 音乐与歌唱(37172字)</li>
+<li><strong>他面向谁说话</strong>（人称频次）：我们 225 / 你们 29 / 大家 92 / 朋友 76 / 孩子 52 / 父亲 17 / 母亲 29 / 爱人 11 / 你 616 / 我 1140 —— 单人对话式，而非宣讲式</li>
+<li><strong>夜间电台的基调</strong>：情感词命中 正 640 / 负 79
+→ <strong>偏暖</strong></li>
+<li><strong>高频词</strong>：希望(93) 大家(90) 没有(77) 朋友(71) 王晰(63) 不是(53) 一样(52) 听见(50) 一起(49) 孩子(49) 生活(48) 音乐(43)</li>
+</ul>
+<p class="src">方法：faster-whisper large-v3-turbo 本地 GPU 转写（关闭 VAD —— 实测会把低音人声判成静音）；
+jieba 分词 + 规则筛选做主题标注；情感为<strong>词表命中</strong>而非模型判定。
+机读数据见 <a href="/data/voice_corpus.json">voice_corpus.json</a> 与
+<a href="/data/voice_analysis.json">voice_analysis.json</a>。</p>
+
 <h2>四、口径登记表（引用数字前必查）</h2>
 <p>全站每个计数有唯一口径与来源，登记在 <a href="/data/calibers.md">data/calibers.md</a>（机读版
-<a href="/data/calibers.json">calibers.json</a>），当前 37 项。
+<a href="/data/calibers.json">calibers.json</a>），当前 50 项。
 <strong>不同范围的数字不是矛盾，混用才是错误。</strong></p>
 <table>
 <tr><th>指标</th><th>数值</th><th>口径说明</th><th>数据源</th></tr>
