@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-14 00:03:03",
+ "updated_at": "2026-09-14 09:10:00",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -737,6 +737,12 @@
    "time": "2026-09-14 00:03:03",
    "title": "⚠️ 指数长表滞后 2 天",
    "content": "长表最新 2026-09-11，但日档案最新 2026-09-13（期望长表到 2026-09-12）。\n原因：deploy_all 步骤里没有指数长表/基线刷新 —— 请运行\n  python project_b\\refresh_index_baseline.py --force\n（或操作中心 64 → 45/44）",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-09-14 09:10:00",
+   "title": "⚠️ 大屏采集漏批：2026-09-14",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 1.7 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：E:\\wx\\qqmusic_dp_edge.log / logs\\watchdog_20260914.log",
    "category": "运维告警"
   }
  ]
