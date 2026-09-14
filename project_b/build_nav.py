@@ -64,7 +64,7 @@ FOOTER_GROUPS = [
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
                     "tavern/"]),
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
-                    "feed.xml", "sitemap.xml", "llms.txt", "robots.txt", "404.html"]),
+                    "feed.xml", "sitemap.xml", "llms.txt"]),
 ]
 
 # 顶部/底部导航不处理的页面：
