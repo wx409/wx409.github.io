@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 17:26　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 17:48　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -55,6 +55,9 @@
 | `radio_episodes_archived` | 电台节目已著录单集数 | **68** | 已逐集著录（标题/日期/时长/平台）的单集数，跨 7 个系列 | `data\radio_archive.json#series[].episodes` |
 | `radio_singles_archived` | 电台/读诗单条已著录数 | **9** | 单集/读诗/读信类条目（含音乐图书馆专访、好梦时刻第11期等） | `data\radio_archive.json#singles` |
 | `radio_unverified_items` | 电台档案·待核项数 | **11** | 无法核验、已单列的条目（含荔枝 63 集清单、ELLE 8 条微博、城市漫行 25 周等） | `data\radio_archive.json#unverified` |
+| `voice_corpus_items` | 声音素材转写条目数 | **72** | 已下载并完成转写的音频/视频单集数，跨 16 个系列 | `data\voice_corpus.json#items` |
+| `voice_corpus_chars` | 声音素材转写全文字数 | **51488** | 全部转写稿字符数（可检索语料规模） | `data\voice_corpus.json#items[].text` |
+| `voice_corpus_minutes` | 声音素材总时长（分钟） | **305.8** | 已下载音频/视频的总时长 | `data\voice_corpus.json#counts` |
 
 ## 常见误用
 

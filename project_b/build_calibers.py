@@ -404,6 +404,24 @@ def collect() -> list[dict]:
     except Exception as e:
         add("radio_episodes_archived", "电台节目已著录单集数", None, str(e), "", "")
 
+    # 声音素材库（2026-09-14：下载 + 转写全链路；媒体只本地留存，转写稿入库）
+    try:
+        vc = _load("data/voice_corpus.json") or {}
+        c = vc.get("counts") or {}
+        if c.get("items"):
+            add("voice_corpus_items", "声音素材转写条目数", c.get("items"),
+                "已下载并完成转写的音频/视频单集数，跨 %s 个系列" % c.get("series"),
+                "data\\voice_corpus.json#items",
+                "媒体原件在 E:\\wx\\声音素材库（不入 git）；转写稿由 faster-whisper large-v3-turbo 本地生成"
+                "（vad_filter=False —— 开关会滤掉低音人声）")
+            add("voice_corpus_chars", "声音素材转写全文字数", c.get("chars"),
+                "全部转写稿字符数（可检索语料规模）",
+                "data\\voice_corpus.json#items[].text", "")
+            add("voice_corpus_minutes", "声音素材总时长（分钟）", c.get("duration_minutes"),
+                "已下载音频/视频的总时长", "data\\voice_corpus.json#counts", "")
+    except Exception as e:
+        add("voice_corpus_items", "声音素材转写条目数", None, str(e), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 

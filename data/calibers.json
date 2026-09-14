@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14 17:26",
-  "count": 48,
+  "generated_at": "2026-09-14 17:48",
+  "count": 51,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -385,6 +385,30 @@
       "scope": "无法核验、已单列的条目（含荔枝 63 集清单、ELLE 8 条微博、城市漫行 25 周等）",
       "source": "data\\radio_archive.json#unverified",
       "note": "**不可当既成事实引用**；官方期数 63/25/7 均属此类"
+    },
+    {
+      "id": "voice_corpus_items",
+      "label": "声音素材转写条目数",
+      "value": 72,
+      "scope": "已下载并完成转写的音频/视频单集数，跨 16 个系列",
+      "source": "data\\voice_corpus.json#items",
+      "note": "媒体原件在 E:\\wx\\声音素材库（不入 git）；转写稿由 faster-whisper large-v3-turbo 本地生成（vad_filter=False —— 开关会滤掉低音人声）"
+    },
+    {
+      "id": "voice_corpus_chars",
+      "label": "声音素材转写全文字数",
+      "value": 51488,
+      "scope": "全部转写稿字符数（可检索语料规模）",
+      "source": "data\\voice_corpus.json#items[].text",
+      "note": ""
+    },
+    {
+      "id": "voice_corpus_minutes",
+      "label": "声音素材总时长（分钟）",
+      "value": 305.8,
+      "scope": "已下载音频/视频的总时长",
+      "source": "data\\voice_corpus.json#counts",
+      "note": ""
     }
   ]
 }
