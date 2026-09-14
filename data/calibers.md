@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-14 18:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-14 18:23　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -19,10 +19,10 @@
 | `shows_setlists` | 有歌单记录的场次 | **64** | 长表中至少有 1 条曲目记录的场次 | `data/setlists.json` |
 | `cities` | 巡演城市数 | **22** | 去重城市 | `data/cities.json` |
 | `live_songs` | 有现场记录的曲目 | **302** | 至少在一个场次歌单中出现过的曲目 | `entity_index.json` |
-| `kb_facts` | 知识库事实条数 | **1425** | 结构化事实 | `data/kb/manifest.json` |
-| `kb_entities` | 知识库实体数 | **1511** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
-| `kb_relations` | 知识库关系数 | **2074** | 实体间关系 | `data/kb/manifest.json` |
-| `semantic_docs` | 语义索引文档数 | **4905** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
+| `kb_facts` | 知识库事实条数 | **1506** | 结构化事实 | `data/kb/manifest.json` |
+| `kb_entities` | 知识库实体数 | **1538** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
+| `kb_relations` | 知识库关系数 | **2101** | 实体间关系 | `data/kb/manifest.json` |
+| `semantic_docs` | 语义索引文档数 | **5040** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
 | `qa_pairs` | 问答对数量 | **16** | 可引用问答（GEO 资产） | `data/qa_bank.json` |
 | `shows_tour` | 六轮巡演场次 | **59** | 一巡~六巡的巡演场次（不含签唱会） | `巡演歌单长表（单一事实源）` |
 | `setlist_rows` | 歌单曲目记录行 | **1249** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
@@ -55,11 +55,11 @@
 | `radio_episodes_archived` | 电台节目已著录单集数 | **68** | 已逐集著录（标题/日期/时长/平台）的单集数，跨 7 个系列 | `data\radio_archive.json#series[].episodes` |
 | `radio_singles_archived` | 电台/读诗单条已著录数 | **9** | 单集/读诗/读信类条目（含音乐图书馆专访、好梦时刻第11期等） | `data\radio_archive.json#singles` |
 | `radio_unverified_items` | 电台档案·待核项数 | **11** | 无法核验、已单列的条目（含荔枝 63 集清单、ELLE 8 条微博、城市漫行 25 周等） | `data\radio_archive.json#unverified` |
-| `voice_corpus_items` | 声音素材转写条目数 | **72** | 已下载并完成转写的音频/视频单集数，跨 16 个系列 | `data\voice_corpus.json#items` |
-| `voice_corpus_chars` | 声音素材转写全文字数 | **51488** | 全部转写稿字符数（可检索语料规模） | `data\voice_corpus.json#items[].text` |
-| `voice_corpus_minutes` | 声音素材总时长（分钟） | **305.8** | 已下载音频/视频的总时长 | `data\voice_corpus.json#counts` |
-| `media_library_files` | 声音素材库已下载媒体文件数 | **72** | 本地留存的音频/视频文件数（跨 20 个条目，16 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
-| `media_library_pending` | 声音素材库待采条目数 | **4** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
+| `voice_corpus_items` | 声音素材转写条目数 | **98** | 已下载并完成转写的音频/视频单集数，跨 17 个系列 | `data\voice_corpus.json#items` |
+| `voice_corpus_chars` | 声音素材转写全文字数 | **129907** | 全部转写稿字符数（可检索语料规模） | `data\voice_corpus.json#items[].text` |
+| `voice_corpus_minutes` | 声音素材总时长（分钟） | **682.6** | 已下载音频/视频的总时长 | `data\voice_corpus.json#counts` |
+| `media_library_files` | 声音素材库已下载媒体文件数 | **98** | 本地留存的音频/视频文件数（跨 20 个条目，17 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
+| `media_library_pending` | 声音素材库待采条目数 | **3** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 
 ## 常见误用
 

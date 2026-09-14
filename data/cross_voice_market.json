@@ -1,6 +1,6 @@
 {
  "schema": "cross_voice_market v1",
- "generated_at": "2026-09-14 17:59",
+ "generated_at": "2026-09-14 18:22",
  "note": "声音素材 × 指数 × 声学 的时间线交叉。三条主线为传记服务；**结论受素材可得性限制，不作因果断言**。",
  "sources": [
   "data/voice_corpus.json",
@@ -94,11 +94,12 @@
   },
   {
    "year": "2021",
-   "voice_items": 3,
-   "voice_chars": 6185,
-   "voice_minutes": 33.3,
+   "voice_items": 29,
+   "voice_chars": 84604,
+   "voice_minutes": 410.1,
    "voice_series": [
-    "ELLE007 晚安图书馆"
+    "ELLE007 晚安图书馆",
+    "王晰 | 城市漫行"
    ],
    "market_index": null,
    "albums": [
@@ -291,7 +292,8 @@
     {
      "year": "2021",
      "voice_series": [
-      "ELLE007 晚安图书馆"
+      "ELLE007 晚安图书馆",
+      "王晰 | 城市漫行"
      ],
      "albums": [
       "回望",

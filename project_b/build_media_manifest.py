@@ -74,9 +74,11 @@ ITEMS = [
     dict(id='lizhi_diyin', title='王晰的低音时间（荔枝FM 63 集）', platform='lizhi',
          url='https://www.lizhi.fm/user/2519182403760091180', kind='audio',
          series='王晰的低音时间', note='需浏览器 console 取接口（Next.js + 签名）；纯 HTTP 不可得'),
-    dict(id='qq_citywalk', title='城市漫行（QQ音乐电台 25 周）', platform='qqmusic',
+    dict(id='qq_citywalk', title='王晰 | 城市漫行（QQ音乐电台，26 期）', platform='qqmusic',
          url='https://y.qq.com/n/ryqq/albumDetail/003tbIDl16Y0XE', kind='audio',
-         series='城市漫行', note='2021-02；专辑页 302，需用户 console 或 QQ音乐客户端接口'),
+         series='城市漫行',
+         note='2021-01-29 发行 / 2021-02-14 开播；7 城 25 周（第0期+第1~25期共 26 期）；'
+              '**已全量下载**（公开专辑接口 + vkey 直链，免登录）'),
     dict(id='elle_wanan', title='ELLE007 王晰的晚安图书馆（7 期）', platform='weibo',
          url='https://weibo.com/2827620084/4693045729824142', kind='audio',
          series='ELLE007 晚安图书馆',

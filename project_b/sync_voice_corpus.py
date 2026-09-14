@@ -31,6 +31,7 @@ SHORT = {
     'xmly_623231068': '喜马拉雅从前慢',
     'weibo_kangyi_jiashu': '微博抗疫家书',
     'weibo_520_shencongwen': '微博520情书',
+    'qq_citywalk': '城市漫行',
     'elle_wanan': 'ELLE晚安图书馆发刊词',
 }
 for i in range(1, 8):
@@ -46,13 +47,26 @@ def main():
     items = doc.get('items') or []
     os.makedirs(CORPUS, exist_ok=True)
     exist = set(os.listdir(CORPUS))
+    # ⚠️ 必须**按内容判重**：早先按"下一个可用序号"判重会每次都新建 _002/_003…
+    # （2026-09-14 踩过：连跑两次把 98 个文件变成 196 个）。
+    # 这里用「正文前 120 字去空白」做指纹，指纹相同即视为已入库。
+    def fp(t):
+        return re.sub(r'\s+', '', str(t or ''))[:120]
+
+    existing_fp = {}
     used = defaultdict(int)
     for f in exist:
-        m = re.match(r'^(\d{4}-\d{2}-\d{2})_(\d{4})_', f)
+        m = re.match(r'^(\d{4}-\d{2}-\d{2})_(\d{4})_(.+)_(\d{3})\.txt$', f)
         if m:
-            used[(m.group(1), m.group(2))] += 1
+            used[(m.group(1), m.group(2), m.group(3))] = max(
+                used[(m.group(1), m.group(2), m.group(3))], int(m.group(4)))
+        try:
+            existing_fp[fp(io.open(os.path.join(CORPUS, f), encoding='utf-8').read())] = f
+        except Exception:
+            pass
 
     added = []
+    skipped_dup = 0
     for x in sorted(items, key=lambda z: (z.get('series') or '', z.get('episode') or 0)):
         series = x.get('series') or 'unknown'
         short = SHORT.get(series, re.sub(r'[\\/:*?"<>|\s]+', '_', x.get('series_name') or series)[:14])
@@ -60,14 +74,17 @@ def main():
         if not re.match(r'\d{4}-\d{2}-\d{2}$', date):
             date = '1900-01-01'          # 未知日期用占位，便于后续补
         hm = '0000'
-        used[(date, hm)] += 1
-        fn = '%s_%s_%s_%03d.txt' % (date, hm, short, used[(date, hm)])
-        if fn in exist:
-            continue
         text = x.get('text') or ''
         if not text.strip():
             continue
+        if fp(text) in existing_fp:
+            skipped_dup += 1
+            continue
+        key = (date, hm, short)
+        used[key] += 1
+        fn = '%s_%s_%s_%03d.txt' % (date, hm, short, used[key])
         added.append((fn, text))
+        existing_fp[fp(text)] = fn
         exist.add(fn)
 
     print('语料条目 %d ｜ 目录已有 %d ｜ 需新增 %d' % (len(items), len(exist) - len(added), len(added)))
