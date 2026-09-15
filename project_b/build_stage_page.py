@@ -127,7 +127,10 @@ def tour_layer_html() -> str:
                     d = "—"
             cross_rows.append(
                 f'<tr><td>{esc(sg["song"])}</td><td>{esc(v.get("tour"))}｜{esc(v.get("city"))} {esc(v.get("date"))}</td>'
-                f'<td class="low">{esc(v.get("low_note"))} {v.get("low_hz")} Hz</td><td>{d}</td>'
+                f'<td class="low">{esc(v.get("low_note"))} {v.get("low_hz")} Hz</td>'
+                f'<td class="high">{esc(v.get("high_note"))} {v.get("high_hz")} Hz'
+                + (' <span class="lv">人耳确认</span>' if v.get("high_listen_verified") else '')
+                + f'</td><td>{d}</td>'
                 f'<td>{esc(v.get("verify"))}</td>'
                 + (f'<td><a href="https://www.bilibili.com/video/{esc(v.get("bv"))}" rel="noopener nofollow" target="_blank">B站原链接</a></td>'
                    if v.get("bv") else "<td>—</td>") + '</tr>')
@@ -135,7 +138,7 @@ def tour_layer_html() -> str:
     if cross_rows:
         n_songs = len({r.split("</td>")[0] for r in cross_rows})
         cross_html = ("<h3>同曲对照 B：现场 ↔ 现场（跨巡同一首歌）</h3>"
-                      "<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th>"
+                      "<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th><th>最高音</th>"
                       "<th>与最早版本差(半音)</th><th>复核</th><th>来源</th></tr>"
                       + "\n".join(cross_rows) + "</table>"
                       "<p class='sub' style='margin-top:0'>同一首歌在不同巡次/城市的现场读数，"
