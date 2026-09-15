@@ -7,9 +7,20 @@
   而人工按需触发的功能（口径审计、登记表、llms.txt、音域、事件效应修正…）
   必须在 `操作中心.bat` 里有稳定入口，否则下次要翻备忘找命令——这就是"知识没留下"。
 
-本脚本检查两类：
+本脚本检查三类：
   A. deploy_all.py 的关键步骤脚本 → 必须能被操作中心调用（直接引用，或由 39 号一键部署覆盖）
   B. 明确列为"人工功能"的脚本清单 → 必须在操作中心里有独立菜单项
+  C. **反向检查（2026-09-15 新增）**：扫描 project_b/ · tools/ · 根目录下所有
+     **带 `if __name__ == "__main__"` 的可运行脚本**，凡不属于
+     「菜单 ∪ 部署链 ∪ 计划任务 ∪ 被其他脚本引用」的就报警。
+     —— 起因：2026-09-14/15 新增 15 个声音素材脚本，**一个都没进菜单**，
+     而 A/B 两类只校验"已登记项"，查不出"脚本在盘上却没入口"。
+
+C 类分三档（默认全部只报警、不影响退出码，避免阻断每日发布）：
+  · ALLOWLIST  —— 永久豁免（一次性修复脚本 / 被 import 的库 / 已被取代的迁移脚本）
+  · BACKLOG    —— 已知应接入但尚未接入（显式登记，便于排期）
+  · UNREGISTERED —— 既不在上面两档、也未登记的新脚本（**这才是真正要警觉的**）
+加 `--strict` 时，只要三档里出现 UNREGISTERED 就退出码 1。
 
 用法：
   python project_b/audit_ops_coverage.py
@@ -17,6 +28,7 @@
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -77,8 +89,147 @@ MANUAL_FEATURES = {
     "音域分析\\轨迹\\伴奏调性闭合.py": "伴奏调性闭合",
 }
 
+# ── C 类反向检查：永久豁免（脚本可运行，但按设计不需要菜单入口） ─────────────
+ORPHAN_ALLOWLIST = {
+    "dsh_llm.py": "被 import 的库（DSH 本地模型调用助手），__main__ 仅自测",
+    "project_b\\data_pipeline.py": "遗留原型（自建 01_原始数据/02_清洗数据 旧目录），已被现行流水线取代",
+    "project_b\\build_legacy_notes.py": "一次性迁移脚本 —— 页面生成器（generate_voice_page 等）已原生包含 NOTE 块",
+    "project_b\\fix_songs_meta.py": "一次性数据修复（补 21 首歌词+班底），已执行完毕",
+    "tools\\fix_activity_table_corrections.py": "一次性数据修复（按 2026-09-04 校对结果修正活动表），已执行完毕",
+}
+
+# ── C 类反向检查：已知应接入但尚未接入（显式登记，便于排期） ────────────────
+ORPHAN_BACKLOG = {
+    "project_b\\append_tavern_quotes.py": "小酒馆金句并入首页金句墙 —— 待接菜单",
+    "project_b\\audit_audio_bitrate.py": "存量音源码率审计（逐文件算真实码率） —— 待接菜单",
+    "project_b\\audit_stage_exclusions.py": "排除项回归审计（防已排除素材被回吞上线） —— 待接菜单",
+    "project_b\\build_album_verify.py": "专辑层复核状态生成（A3 终裁 → 站点 per-song 状态） —— 待接部署链",
+    "project_b\\build_tavern_summary.py": "小酒馆「有价值摘要」提取（DeepSeek API） —— 待接菜单",
+    "project_b\\rebuild_tavern_ep_summary.py": "小酒馆摘要版 ep 页重建 —— 待接菜单",
+}
+
+
+def _under_git(p: Path) -> bool:
+    """判断是否落在 .git 内。
+
+    ⚠️ 只能对**相对路径**判断 —— 本仓库根目录叫 `wx409.github.io`，
+    它本身含 `.git` 子串；若写成 `'.git' in str(绝对路径)` 会把**每个文件**都跳过
+    （2026-09-15 踩过：扫描文件数恒为 0）。
+    """
+    try:
+        parts = p.relative_to(ROOT).parts
+    except ValueError:
+        return True
+    return any(x == ".git" for x in parts)
+
+
+def _collect_runnable() -> list:
+    """可运行脚本 = project_b/ · tools/ · 根目录下带 __main__ 入口的 .py。"""
+    entry = re.compile(r'if\s+__name__\s*==\s*[\'"]__main__[\'"]')
+    out = []
+    for d in ("project_b", "tools", ""):
+        base = ROOT / d if d else ROOT
+        if not base.is_dir():
+            continue
+        for f in sorted(base.glob("*.py")):
+            if _under_git(f):
+                continue
+            try:
+                if entry.search(f.read_text(encoding="utf-8", errors="replace")):
+                    out.append(f)
+            except Exception:
+                continue
+    return out
+
+
+def _registered_names() -> set:
+    """pipeline_registry（菜单 ∪ 部署 ∪ 计划任务）里的脚本名/路径。"""
+    reg_p = ROOT / "project_b" / "pipeline_registry.json"
+    names = set()
+    try:
+        reg = json.loads(reg_p.read_text(encoding="utf-8"))
+    except Exception:
+        return names
+    for t in reg.get("tasks") or []:
+        for k in ("script", "path", "file", "cmd"):
+            v = t.get(k)
+            if isinstance(v, str) and v.endswith(".py"):
+                names.add(Path(v).name.lower())
+                names.add(v.replace("/", "\\").lower())
+    return names
+
+
+def _reference_blob() -> list:
+    """全仓库 .py/.bat/.md 文本（用于判断"是否被别的脚本调用/提到"）。
+
+    ⚠️ 只在开头调用**一次**并复用 —— 若放进候选循环里就变成
+    「候选数 × 全仓文件数」次读取（150 × 830 ≈ 12 万次），白拖慢每日部署。
+    """
+    blob = []
+    for pat in ("**/*.py", "**/*.bat", "*.md", "docs/*.md"):
+        for f in ROOT.glob(pat):
+            if _under_git(f):
+                continue
+            enc = "gbk" if f.suffix.lower() == ".bat" else "utf-8"
+            try:
+                blob.append((f.resolve(), f.read_text(encoding=enc, errors="replace")))
+            except Exception:
+                continue
+    return blob
+
+
+def reverse_check(strict: bool) -> list:
+    """C 类反向检查：可运行脚本是否可达。返回"真正未登记"的清单。"""
+    print("-" * 68)
+    print("反向检查：可运行脚本是否都有去处（菜单/部署/计划任务/被引用）")
+    registered = _registered_names()
+    cands = _collect_runnable()
+    blob = _reference_blob()          # ← 只读一次，循环内复用
+    allow = {k.lower() for k in ORPHAN_ALLOWLIST}
+    back = {k.lower() for k in ORPHAN_BACKLOG}
+    unreg, n_allow, n_back, n_ref = [], 0, 0, 0
+    for f in cands:
+        rel = str(f.relative_to(ROOT)).replace("/", "\\")
+        low = rel.lower()
+        if Path(rel).name.lower() in registered or low in registered:
+            continue
+        if low in allow:
+            n_allow += 1
+            continue
+        if low in back:
+            n_back += 1
+            continue
+        name, stem, me = f.name, f.stem, f.resolve()
+        hit = False
+        for gpath, txt in blob:
+            if gpath == me:
+                continue
+            if name in txt or (len(stem) > 6 and stem in txt):
+                hit = True
+                break
+        if hit:
+            n_ref += 1
+            continue
+        unreg.append(rel)
+    print(f"  可运行脚本 {len(cands)} 个｜豁免 {n_allow}｜待接入 {n_back}"
+          f"｜被引用 {n_ref}｜**未登记 {len(unreg)}**")
+    if ORPHAN_BACKLOG:
+        print("  [待接入清单]（已知、待排期，见脚本内 ORPHAN_BACKLOG）")
+        for k, why in ORPHAN_BACKLOG.items():
+            print(f"    · {k} —— {why}")
+    if unreg:
+        print("  [未登记] 这些脚本可运行却没有任何入口，请补菜单/部署链或登记豁免：")
+        for u in unreg:
+            print(f"    ✗ {u}")
+    else:
+        print("  [未登记] 无 ✅")
+    if strict and unreg:
+        return [f"可运行脚本未登记 {len(unreg)} 个：{', '.join(unreg)}"]
+    return []
+
 
 def main() -> None:
+    strict = "--strict" in sys.argv
     if not BAT.exists():
         print(f"[FAIL] 找不到 {BAT}")
         sys.exit(1)
@@ -118,6 +269,11 @@ def main() -> None:
             print("  -", m)
         sys.exit(1)
     print("结论：全部人工功能均有菜单入口 ✅")
+
+    # ── C 类反向检查（默认只报警，不阻断每日发布；--strict 时才算失败）──
+    extra = reverse_check(strict)
+    if extra:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

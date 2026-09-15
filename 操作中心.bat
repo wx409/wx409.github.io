@@ -195,6 +195,7 @@ echo    146. 并入知识库（voice_series/voice_episode + 事实关系）
 echo    147. ASR 人名错字校正（王熙到王晰等，只改确证错字）
 echo    148. 维护者预设审计（说明书与站点口径一致）
 echo    149. 声音素材全链路一键（134到146 依次执行）
+echo    150. 操作中心覆盖审计（含反向检查：可运行脚本无入口则报警；--strict 严格）
 echo    0. 退出
 echo.
 set "op="
@@ -349,6 +350,7 @@ if "%op%"=="146" goto media_kb
 if "%op%"=="147" goto media_asrfix
 if "%op%"=="148" goto audit_preset
 if "%op%"=="149" goto media_all
+if "%op%"=="150" goto audit_ops
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2078,5 +2080,18 @@ python -X utf8 project_b\analyze_voice_corpus.py
 python -X utf8 project_b\cross_voice_market.py
 python -X utf8 project_b\integrate_voice_kb.py
 echo  [OK] 全链路完成。建议接着跑 操作中心 39 完整部署 与 108 验收总检
+pause
+goto menu
+
+
+:audit_ops
+cls
+echo  [操作中心覆盖审计] A 部署链关键步骤是否可调 / B 人工功能是否有菜单
+echo                      C 反向检查: project_b / tools / 根目录 下带 __main__ 的可运行脚本
+echo                        凡不属于「菜单 ∪ 部署链 ∪ 计划任务 ∪ 被引用」即报警
+echo  三档: 豁免(一次性修复/库) / 待接入(已知待排期) / 未登记(需警觉)
+set /p strict=  严格模式? 输入 s 则 --strict（有未登记即退出码1），直接回车=只报警:
+cd /d "D:\wx409.github.io"
+if /i "%strict%"=="s" (python -X utf8 project_b\audit_ops_coverage.py --strict) else (python -X utf8 project_b\audit_ops_coverage.py)
 pause
 goto menu

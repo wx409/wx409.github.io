@@ -1,5 +1,38 @@
 # CHANGELOG.md — 重大变更
 
+## 2026-09-15（续）audit_ops_coverage 新增反向检查
+
+**起因**：2026-09-14/15 新增 15 个声音素材脚本，**一个都没进菜单**，而
+`audit_ops_coverage` / `audit_pipeline` 全绿 —— 因为它们只校验"**已登记项**"的一致性，
+**查不出"脚本在盘上却没入口"**。
+
+**新增 C 类反向检查**（`python project_b/audit_ops_coverage.py [--strict]`）：
+- 扫描 `project_b/` · `tools/` · 根目录下所有带 `if __name__ == "__main__"` 的**可运行脚本**
+- 判据：属于「菜单 ∪ 部署链 ∪ 计划任务 ∪ 被其他脚本/bat 引用」即视为可达
+- 三档输出：
+  - `ORPHAN_ALLOWLIST` 永久豁免（一次性修复 / 被 import 的库 / 已被生成器取代的迁移脚本）
+  - `ORPHAN_BACKLOG` 已知应接入但未接入（显式登记便于排期）
+  - **未登记** —— 既不在上面两档也没入口（真正要警觉的）
+- **默认只报警不阻断**（`audit_ops_coverage` 在每日部署链里，硬失败会卡住发布）；
+  `--strict` 时出现"未登记"即退出码 1。菜单新增 **150** 号（可交互选择严格模式）。
+
+**验证**：造探针脚本 `project_b/_zzz_orphan_probe.py` →
+默认模式报「未登记 1」且 exit 0；`--strict` 报同一项且 **exit 1**；删除后回到「未登记 0」。
+
+**踩坑**：判断文件是否在 `.git` 内时写成 `'.git' in str(绝对路径)` ——
+本仓库根目录名 `wx409.github.io` **本身含 `.git` 子串**，导致**每个文件都被跳过**、
+扫描数恒为 0。已改为对**相对路径**逐段比较（`_under_git()`）。
+
+**同时发现的 13 个孤儿脚本**（首次跑反向检查即暴露）：
+- 已修/已豁免 7：`build_debate`/`build_comparison`（产物已上线）、`build_legacy_notes`
+  （页面生成器已原生包含 NOTE 块）、`dsh_llm`（库）、`data_pipeline`（遗留原型）、
+  `fix_songs_meta`、`tools/fix_activity_table_corrections`（一次性修复）
+- 待接入 6（已登记 BACKLOG）：`append_tavern_quotes` / `audit_audio_bitrate` /
+  `audit_stage_exclusions` / `build_album_verify` / `build_tavern_summary` /
+  `rebuild_tavern_ep_summary`
+
+**项数同步**：操作中心 149 → **150**（AGENTS.md / wangxi-ops SKILL / 维护者预设）
+
 ## 2026-09-15 运维梗阻修复（deploy 中止 / 假告警 / 漏批不自愈）
 
 - **deploy_all 连续两天中止**（站点停止更新）：`update_index_table.py` 因首页改版后
