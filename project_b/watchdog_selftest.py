@@ -77,7 +77,13 @@ def run_watchdog(argv, alive, no_catchup_expected, few_missing=False):
     """在打桩环境下跑一次 main()，返回调用记录。
 
     few_missing=True  → 只模拟"漏 1 批"（< CATCHUP_MIN_MISSING，走 alert-only）
-    few_missing=False → 模拟"漏 3 批"（≥ CATCHUP_MIN_MISSING，存活也立刻补跑）
+    few_missing=False → 模拟"全部漏批"（≥ CATCHUP_MIN_MISSING，存活也立刻补跑）
+
+    ⚠️ 必须**与时钟无关**：早期版本只把 due[0] 标为 ok，于是"漏批数 = 已过时段数 − 1"，
+    早上跑（已过 3 个时段 → 漏 2）通过、中午跑（已过 6 个 → 漏 5 ≥ 3）就失败。
+    2026-09-15 12:25 实际踩到。现在统一：
+      · 桩掉 slot_time → 所有时段恒为"已过"，due 数量固定 = SCHEDULE 长度
+      · few_missing=True → 只留最后一个缺失（=1 < 3）
     """
     calls = {"start": 0, "catch": [], "notify": 0}
     orig = {
@@ -86,6 +92,7 @@ def run_watchdog(argv, alive, no_catchup_expected, few_missing=False):
         "catch_up": w.catch_up,
         "collect_day_outputs": w.collect_day_outputs,
         "match_slots": getattr(w, "match_slots", None),
+        "slot_time": getattr(w, "slot_time", None),
         "notify": w.notify,
         "STATE": w.STATE,
         "QUIET": w.QUIET,
@@ -95,14 +102,19 @@ def run_watchdog(argv, alive, no_catchup_expected, few_missing=False):
         w.STATE = tmp
         w.collect_day_outputs = lambda day: []          # 今天所有批次都"缺"
         w.daemon_alive = lambda stall: (alive, "selftest")
-        if few_missing and orig.get("match_slots"):
-            # 让「8:05」这一批命中文件（ok=True），其余仍缺 → 缺失数 = 应完成数 − 1
+        if orig.get("slot_time"):
+            # 让所有时段都判定为"已过" → due 集合固定，不受运行时刻影响
+            import datetime as _dt
+            w.slot_time = lambda t_str, day: _dt.datetime.now() - _dt.timedelta(minutes=1)
+        if orig.get("match_slots"):
             _orig_match = orig["match_slots"]
 
             def _match(due, files):
                 m = _orig_match(due, files)
-                if due:
-                    m[due[0][0]] = {"ok": True, "file": None}
+                if few_missing and due:
+                    # 除最后一个外全部标记为"已产出" → 缺失数恒为 1（< CATCHUP_MIN_MISSING）
+                    for t_str, _mode in due[:-1]:
+                        m[t_str] = {"ok": True, "file": None}
                 return m
             w.match_slots = _match
 
