@@ -89,3 +89,18 @@
 3. **带口径**：声学读数必须有稳定音/触达音/低音带读数的归属（见 `CALIBER.md`）。
 4. **不带本地路径**：公开 JSON 不得含 `E:\` / `D:\` 绝对路径。
 5. **不改既有字段语义**：要改名就同时改所有读取方（生成器、审计、页面）。
+
+### 声音素材与电台（2026-09-14/15 新增）
+
+| 文件 | 用途 | 关键字段 |
+|---|---|---|
+| `data/voice_corpus.json` | 声音素材转写稿语料（可检索/可引用） | `counts`、`series_summary`、`items[]`（series/series_name/episode/title/date/duration_s/chars/themes/text/kind/confidence/source_url/media_ref/transcript_ref） |
+| `data/voice_analysis.json` | 语料文本分析 | `top_words`、`theme_chars`、`sentiment`、`person_usage`、`series_compare`、`quote_candidates[]`（含 `语料性质`：朗读文本 vs 本人原话） |
+| `data/cross_voice_market.json` | 声音×指数×声学时间线交叉 | `timeline[]`、`biography_lines`（A 能力-市场 / B 市场-情绪 / C 情绪-能力，各带限制条件） |
+| `data/radio_lizhi.json` | 荔枝FM「低音时间」清单 | `declared_voice_count`=59、`voices[]`（voiceId/title/createTime/duration_s/audioUrl） |
+| `data/radio_citywalk.json` | QQ音乐「城市漫行」清单 | `release_date`=2021-01-29、`tracks[]`（index/name/duration_s/songmid） |
+| `data/radio_netease_dj_792978415.json` | 网易云 DJ 电台清单 | `programs[]`（serialNum/name/duration_ms/createTime） |
+| `data/radio_archive.json` | 电台元数据档案（前述汇总，含 unverified） | `series[]`、`singles[]`、`unverified[]` |
+
+> 媒体原件（音频/视频）**只留本地** `E:\wx\声音素材库\`，不入 git、不上线；
+> 只有转写稿与元数据进仓库。生成/采集脚本见 `操作中心.bat` 的 T 组（134–149）。

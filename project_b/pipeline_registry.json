@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-14 17:55",
+ "generated_at": "2026-09-15 10:34",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 133,
-  "dispatch": 132,
+  "menu_items": 149,
+  "dispatch": 148,
   "deploy_steps": 52,
   "scheduled_tasks": 7
  },
@@ -878,7 +878,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/9/14 22:00:00",
+    "next": "2026/9/15 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -966,7 +966,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/9/15 10:00:00",
+    "next": "2026/9/16 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1030,6 +1030,120 @@
    "menu_label": "social_figs",
    "in_deploy": false,
    "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\社媒出图.py"
+  },
+  {
+   "script": "download_media.py",
+   "menu": 135,
+   "title": "下载 B站/微博 媒体（yt-dlp，音频轨）",
+   "menu_label": "media_dl",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\download_media.py"
+  },
+  {
+   "script": "download_ximalaya.py",
+   "menu": 136,
+   "title": "下载 喜马拉雅 读诗（公开直链接口）",
+   "menu_label": "media_xmly",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\download_ximalaya.py"
+  },
+  {
+   "script": "collect_netease_dj.py",
+   "menu": 137,
+   "title": "采集 网易云 DJ 电台（31 期，可选下载）",
+   "menu_label": "media_netease",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\collect_netease_dj.py"
+  },
+  {
+   "script": "collect_qq_album.py",
+   "menu": 138,
+   "title": "采集 QQ音乐「城市漫行」（26 期，含音频直链）",
+   "menu_label": "media_qq",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\collect_qq_album.py"
+  },
+  {
+   "script": "collect_lizhi.py",
+   "menu": 139,
+   "title": "采集 荔枝FM「低音时间」（59 期，含音频直链）",
+   "menu_label": "media_lizhi",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\collect_lizhi.py"
+  },
+  {
+   "script": "fetch_elle_dates.py",
+   "menu": 140,
+   "title": "补齐 ELLE007 发布日期（微博 upload_date，不推算）",
+   "menu_label": "media_elle",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\fetch_elle_dates.py"
+  },
+  {
+   "script": "build_voice_corpus.py",
+   "menu": 142,
+   "title": "声音语料整合（到 data/voice_corpus.json）",
+   "menu_label": "media_corpus",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_voice_corpus.py"
+  },
+  {
+   "script": "sync_voice_corpus.py",
+   "menu": 143,
+   "title": "语料同步进 textmine 语料库（按正文指纹判重，幂等）",
+   "menu_label": "media_sync",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\sync_voice_corpus.py"
+  },
+  {
+   "script": "analyze_voice_corpus.py",
+   "menu": 144,
+   "title": "语料文本分析（主题/情感/人称/金句）",
+   "menu_label": "media_analyze",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\analyze_voice_corpus.py"
+  },
+  {
+   "script": "cross_voice_market.py",
+   "menu": 145,
+   "title": "声音 × 指数 × 声学 交叉分析（传记三主线）",
+   "menu_label": "media_cross",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\cross_voice_market.py"
+  },
+  {
+   "script": "integrate_voice_kb.py",
+   "in_deploy": true,
+   "deploy_desc": "声音素材并入知识库（voice_series/voice_episode + 事实关系）",
+   "critical": false,
+   "menu": 146,
+   "title": "并入知识库（voice_series/voice_episode + 事实关系）",
+   "menu_label": "media_kb",
+   "path": "D:\\wx409.github.io\\project_b\\integrate_voice_kb.py"
+  },
+  {
+   "script": "transcribe_media.py",
+   "menu": 147,
+   "title": "ASR 人名错字校正（王熙到王晰等，只改确证错字）",
+   "menu_label": "media_asrfix",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\transcribe_media.py"
+  },
+  {
+   "script": "audit_preset.py",
+   "menu": 148,
+   "title": "维护者预设审计（说明书与站点口径一致）",
+   "menu_label": "audit_preset",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_preset.py"
+  },
+  {
+   "script": "build_media_manifest.py",
+   "menu": 149,
+   "title": "声音素材全链路一键（134到146 依次执行）",
+   "menu_label": "media_all",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_media_manifest.py"
   },
   {
    "script": "_build_episodes.py",
@@ -1117,7 +1231,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/9/14 23:58:00",
+    "next": "2026/9/15 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -1215,13 +1329,6 @@
    "path": "D:\\wx409.github.io\\project_b\\inject_index_facts.py"
   },
   {
-   "script": "integrate_voice_kb.py",
-   "in_deploy": true,
-   "deploy_desc": "声音素材并入知识库（voice_series/voice_episode + 事实关系）",
-   "critical": false,
-   "path": "D:\\wx409.github.io\\project_b\\integrate_voice_kb.py"
-  },
-  {
    "script": "menu:0",
    "menu": 0,
    "title": "退出",
@@ -1242,7 +1349,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/14 21:30:00",
+    "next": "2026/9/15 16:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },

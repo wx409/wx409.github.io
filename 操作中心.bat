@@ -178,6 +178,23 @@ echo    130. µÍÒô¸´ºË¹¤¾ß×é£¨°é×à¾²Òô´°¿ÚÉ¨Ãè + ÈËÉù¹ìµÍÆµÉ¨Ãè + »ìÒôÖÕ¼ì£©
 echo    131. µÍÒô´ø¹ì¼££¨Í¨ÓÃ£º--file/--t0/--t1/--lo/--hi£¬ÈÎÒâËØ²Ä/´°¿Ú/Æµ´ø£©
 echo    132. ¸èÃÔÉÍÎöÕªÂ¼ÈëÕ¾£¨Ê×Ò³ÌıÖÚËµ + ¸èÇú¿âÉÍÎöÈë¿Ú + Ñ²ÑİÒ³£»Êı¾İ data/essay_quotes.json£©
 echo    133. ÉçÃ½³öÍ¼£¨µÍÒôÊµ²â 6 ÕÅ£¬º¬Ò³½ÅÊğÃû£¬ÃİµÈ£©
+echo    ---- T×é ÉùÒôËØ²Ä¿â£¨ÏÂÔØ/×ªĞ´/ÓïÁÏ/·ÖÎö£¬Ã½Ìå½ö±¾µØÁô´æ£© ----
+echo    134. ÉùÒôËØ²Ä¿â×ÜÀÀ£¨Ã½ÌåÇåµ¥ + ³ö´¦/URL ºËÑé£¬ÃİµÈ£©
+echo    135. ÏÂÔØ BÕ¾/Î¢²© Ã½Ìå£¨yt-dlp£¬ÒôÆµ¹ì£©
+echo    136. ÏÂÔØ Ï²ÂíÀ­ÑÅ ¶ÁÊ«£¨¹«¿ªÖ±Á´½Ó¿Ú£©
+echo    137. ²É¼¯ ÍøÒ×ÔÆ DJ µçÌ¨£¨31 ÆÚ£¬¿ÉÑ¡ÏÂÔØ£©
+echo    138. ²É¼¯ QQÒôÀÖ¡¸³ÇÊĞÂşĞĞ¡¹£¨26 ÆÚ£¬º¬ÒôÆµÖ±Á´£©
+echo    139. ²É¼¯ ÀóÖ¦FM¡¸µÍÒôÊ±¼ä¡¹£¨59 ÆÚ£¬º¬ÒôÆµÖ±Á´£©
+echo    140. ²¹Æë ELLE007 ·¢²¼ÈÕÆÚ£¨Î¢²© upload_date£¬²»ÍÆËã£©
+echo    141. ÅúÁ¿×ªĞ´£¨faster-whisper large-v3 ±¾µØ GPU£©
+echo    142. ÉùÒôÓïÁÏÕûºÏ£¨µ½ data/voice_corpus.json£©
+echo    143. ÓïÁÏÍ¬²½½ø textmine ÓïÁÏ¿â£¨°´ÕıÎÄÖ¸ÎÆÅĞÖØ£¬ÃİµÈ£©
+echo    144. ÓïÁÏÎÄ±¾·ÖÎö£¨Ö÷Ìâ/Çé¸Ğ/ÈË³Æ/½ğ¾ä£©
+echo    145. ÉùÒô ¡Á Ö¸Êı ¡Á ÉùÑ§ ½»²æ·ÖÎö£¨´«¼ÇÈıÖ÷Ïß£©
+echo    146. ²¢ÈëÖªÊ¶¿â£¨voice_series/voice_episode + ÊÂÊµ¹ØÏµ£©
+echo    147. ASR ÈËÃû´í×ÖĞ£Õı£¨ÍõÎõµ½ÍõÎúµÈ£¬Ö»¸ÄÈ·Ö¤´í×Ö£©
+echo    148. Î¬»¤ÕßÔ¤ÉèÉó¼Æ£¨ËµÃ÷ÊéÓëÕ¾µã¿Ú¾¶Ò»ÖÂ£©
+echo    149. ÉùÒôËØ²ÄÈ«Á´Â·Ò»¼ü£¨134µ½146 ÒÀ´ÎÖ´ĞĞ£©
 echo    0. ÍË³ö
 echo.
 set "op="
@@ -316,6 +333,22 @@ if "%op%"=="130" goto low_recheck
 if "%op%"=="131" goto low_band_traj
 if "%op%"=="132" goto essay_quotes
 if "%op%"=="133" goto social_figs
+if "%op%"=="134" goto media_manifest
+if "%op%"=="135" goto media_dl
+if "%op%"=="136" goto media_xmly
+if "%op%"=="137" goto media_netease
+if "%op%"=="138" goto media_qq
+if "%op%"=="139" goto media_lizhi
+if "%op%"=="140" goto media_elle
+if "%op%"=="141" goto media_trans
+if "%op%"=="142" goto media_corpus
+if "%op%"=="143" goto media_sync
+if "%op%"=="144" goto media_analyze
+if "%op%"=="145" goto media_cross
+if "%op%"=="146" goto media_kb
+if "%op%"=="147" goto media_asrfix
+if "%op%"=="148" goto audit_preset
+if "%op%"=="149" goto media_all
 echo   [!] ÎŞĞ§Ñ¡Ïî£¬ÇëÖØÊÔ
 timeout /t 1 /nobreak >nul
 goto menu
@@ -1889,5 +1922,161 @@ echo  Í¼1 µÍÒô³ß / Í¼2 Ğ³²¨ÁĞÕæÎ± / Í¼3 »ùÆµÈ¥ÄÄÁË / Í¼4 MV µÍÒô´ø¹ì¼£ / Í¼5-6 µ
 cd /d "E:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\ÒôÓò·ÖÎö"
 python -X utf8 ÉçÃ½³öÍ¼.py
 echo  [OK] ¸å¼ş£ºE:\wx\ÂÛÎÄËØ²Ä_ÍõÎú×÷´«\ÉçÃ½\µÍÒôÊµ²âĞĞ¶¯¼ÇÂ¼_20260911.md
+pause
+goto menu
+
+
+:media_manifest
+cls
+echo  [ÉùÒôËØ²Ä¿â×ÜÀÀ] É¨Ãè E:\wx\ÉùÒôËØ²Ä¿â ²¢ºËÑé¸÷Æ½Ì¨ URL/Ê±³¤£¬Ğ´»ØÇå²á
+echo  ²ú³ö: E:\wx\ÉùÒôËØ²Ä¿â\manifest\media_manifest.json£¨±£ÁôÒÑÓĞÏÂÔØ¼ÇÂ¼£©
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_media_manifest.py
+pause
+goto menu
+
+:media_dl
+cls
+echo  [ÏÂÔØ BÕ¾/Î¢²© Ã½Ìå] yt-dlp È¡ÒôÆµ¹ì£»ÒÑÍê³ÉµÄ²»ÖØ¸´ÏÂ
+echo  ¸²¸Ç: ÒôÀÖÍ¼Êé¹İ 8P / ÎúÍûÄãÌı¼û 20P / ELLE007 8ÆÚ / ¿¹Òß¼ÒÊé / 520 ÇéÊé
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\download_media.py --all
+pause
+goto menu
+
+:media_xmly
+cls
+echo  [Ï²ÂíÀ­ÑÅ¶ÁÊ«] ×ß revision/play/tracks ¹«¿ª½Ó¿ÚÈ¡Ö±Á´
+echo  ×¢Òâ: ¸¶·Ñ/½ÚÄ¿ĞÎÌ¬ÌõÄ¿ÎŞÖ±Á´£¬½Å±¾»áÈçÊµ¼ÇÂ¼ blocked_reason
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\download_ximalaya.py
+pause
+goto menu
+
+:media_netease
+cls
+echo  [ÍøÒ×ÔÆ DJ µçÌ¨] music.163.com ¹«¿ª api È¡ 31 ÆÚÇåµ¥£¨¶ÁÊ«/¶ÁĞÅºÏ¼¯£©
+set /p ndl=  ÊÇ·ñÏÂÔØÒôÆµ? ÊäÈë y ÏÂÔØ£¬Ö±½Ó»Ø³µ=Ö»È¡Çåµ¥:
+cd /d "D:\wx409.github.io"
+if /i "%ndl%"=="y" (python -X utf8 project_b\collect_netease_dj.py --download) else (python -X utf8 project_b\collect_netease_dj.py)
+pause
+goto menu
+
+:media_qq
+cls
+echo  [QQÒôÀÖ ³ÇÊĞÂşĞĞ] ×¨¼­½Ó¿ÚÈ¡ 26 ÆÚÇåµ¥ + musicu vkey È¡ÒôÆµÖ±Á´£¨ÃâµÇÂ¼£©
+echo  ²ú³ö: data\radio_citywalk.json Óë E:\wx\ÉùÒôËØ²Ä¿â\media\qq_citywalk\
+set /p qdl=  ÊÇ·ñÏÂÔØÒôÆµ? ÊäÈë y ÏÂÔØ£¬Ö±½Ó»Ø³µ=Ö»È¡Çåµ¥:
+cd /d "D:\wx409.github.io"
+if /i "%qdl%"=="y" (python -X utf8 project_b\collect_qq_album.py --download) else (python -X utf8 project_b\collect_qq_album.py)
+pause
+goto menu
+
+:media_lizhi
+cls
+echo  [ÀóÖ¦FM µÍÒôÊ±¼ä] ´Ó Next.js JS °üÍÚ³öµÄ vodapi ½Ó¿Ú£¨ÃâµÇÂ¼£©
+echo  ²ú³ö: data\radio_lizhi.json Óë E:\wx\ÉùÒôËØ²Ä¿â\media\lizhi_diyin\
+set /p ldl=  ÊÇ·ñÏÂÔØÒôÆµ? ÊäÈë y ÏÂÔØ£¨59ÆÚÔ¼240MB£©£¬Ö±½Ó»Ø³µ=Ö»È¡Çåµ¥:
+cd /d "D:\wx409.github.io"
+if /i "%ldl%"=="y" (python -X utf8 project_b\collect_lizhi.py --download) else (python -X utf8 project_b\collect_lizhi.py)
+pause
+goto menu
+
+:media_elle
+cls
+echo  [ELLE007 ·¢²¼ÈÕÆÚ] ÓÃ yt-dlp ¶ÁÎ¢²© upload_date£¨Æ½Ì¨×ÔÉíÔªÊı¾İ£¬²»ÍÆËã£©
+echo  ²ú³ö: E:\wx\ÉùÒôËØ²Ä¿â\manifest\elle_dates.json
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\fetch_elle_dates.py
+pause
+goto menu
+
+:media_trans
+cls
+echo  [ÅúÁ¿×ªĞ´] faster-whisper large-v3-turbo ±¾µØ GPU£»ÃİµÈ£¨ÒÑ×ªĞ´ÔòÌø¹ı£©
+echo  ×¢Òâ: È«¿âÍ³Ò» vad_filter=False ¡ª¡ª ¿ª VAD »á°ÑµÍÒôÈËÉùÅĞ³É¾²ÒôÂËµô£¨Êµ²â 133ÃëÖ»³ö21×Ö£©
+echo  ²ú³ö: E:\wx\ÉùÒôËØ²Ä¿â\transcripts ÏÂ ÖğÌõ .txt Óë .segments.json
+set /p tser=  Ö»×ªĞ´Ä³ÏµÁĞ? ÊäÈëÏµÁĞÃû(Èç lizhi_diyin)£¬Ö±½Ó»Ø³µ=È«²¿:
+cd /d "D:\wx409.github.io"
+if "%tser%"=="" (python -X utf8 project_b\transcribe_media.py --all) else (python -X utf8 project_b\transcribe_media.py --only %tser% --all)
+pause
+goto menu
+
+:media_corpus
+cls
+echo  [ÉùÒôÓïÁÏÕûºÏ] ×ªĞ´¸å + Çå²á µ½ data/voice_corpus.json£¨º¬³ö´¦/¿ÉÒıÓÃ¼¶±ğ/Ö÷Ìâ£©
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_voice_corpus.py
+pause
+goto menu
+
+:media_sync
+cls
+echo  [ÓïÁÏÍ¬²½] Ğ´½ø E:\wx\wx_textmine_corpus\ÉùÒôËØ²Ä\£¨°´ÕıÎÄÖ¸ÎÆÅĞÖØ£¬ÃİµÈ£©
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\sync_voice_corpus.py
+pause
+goto menu
+
+:media_analyze
+cls
+echo  [ÓïÁÏÎÄ±¾·ÖÎö] ¸ßÆµ´Ê/Ö÷Ìâ·Ö²¼/Çé¸ĞÇãÏò/ÈË³Æ/½ğ¾äºòÑ¡ µ½ data/voice_analysis.json
+echo  ¿Ú¾¶: Çé¸ĞÎª´Ê±íÃüÖĞ·ÇÄ£ĞÍÅĞ¶¨£»½ğ¾ä±ê×¢¡¸ÀÊ¶ÁÎÄ±¾ vs ±¾ÈËÔ­»°¡¹
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\analyze_voice_corpus.py
+pause
+goto menu
+
+:media_cross
+cls
+echo  [ÉùÒô ¡Á Ö¸Êı ¡Á ÉùÑ§ ½»²æ] µ½ data/cross_voice_market.json£¨´«¼ÇÈıÖ÷Ïß£©
+echo  Ã¿Ìõ½áÂÛ´øÏŞÖÆÌõ¼ş£»´°¿Ú²»×ãÊ±Ã÷È·±ê×¢¡¸²»µÃÏÂ½áÂÛ¡¹
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\cross_voice_market.py
+pause
+goto menu
+
+:media_kb
+cls
+echo  [²¢ÈëÖªÊ¶¿â] voice_series/voice_episode ÊµÌå + ÊÂÊµ + ¹ØÏµ£¨ÃİµÈ£©
+echo  ×¢Òâ: ±ØĞëÅÅÔÚ deploy_all µÄ build_kb_graph Ö®ºó£¨ºóÕßÖØ½¨»áÄ¨µô²¢Èë²¿·Ö£©
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\integrate_voice_kb.py
+pause
+goto menu
+
+:media_asrfix
+cls
+echo  [ASR ÈËÃû´í×ÖĞ£Õı] Ö»¸ÄÈ·Ö¤´í×Ö£¨ÍõÎõµ½ÍõÎú¡¢Î÷¸çµ½Îú¸ç£©£¬²»×öÄ£ºıÆ¥Åä
+echo  ÖÎ±¾´ëÊ©: transcribe_media.py ÒÑ¼Ó initial_prompt ÈÈ´Ê
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\fix_asr_names.py
+pause
+goto menu
+
+:audit_preset
+cls
+echo  [Î¬»¤ÕßÔ¤ÉèÉó¼Æ] Ã¿´Î¶Ô»°¼ÓÔØµÄËµÃ÷Êé vs Õ¾µãÊµ¼Ê¿Ú¾¶£¨Äê¶ÈÖµ/¿Ú¾¶ÏîÊı/×Ô¶¯»¯£©
+echo  Æ¯ÒÆ±ØĞëĞŞ ¡ª¡ª ·ñÔò»á°Ñ¹ıÆÚÊı×Öµ±ÊÂÊµ´ø½øºóĞø¶Ô»°
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_preset.py
+pause
+goto menu
+
+:media_all
+cls
+echo  [ÉùÒôËØ²ÄÈ«Á´Â·Ò»¼ü] 134µ½146 ÒÀ´ÎÖ´ĞĞ£¨Ã½Ìå½ö±¾µØÁô´æ£¬²»Èë git£©
+echo  1/7 Çå²á  2/7 ×ªĞ´  3/7 ÓïÁÏÕûºÏ  4/7 ÓïÁÏÍ¬²½  5/7 ÎÄ±¾·ÖÎö  6/7 ½»²æ·ÖÎö  7/7 ²¢ÈëÖªÊ¶¿â
+set /p ok2=  È·ÈÏÖ´ĞĞ? ÊäÈë y ¼ÌĞø£¬Ö±½Ó»Ø³µÍË³ö:
+if /i not "%ok2%"=="y" goto menu
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_media_manifest.py
+python -X utf8 project_b\transcribe_media.py --all
+python -X utf8 project_b\build_voice_corpus.py
+python -X utf8 project_b\sync_voice_corpus.py
+python -X utf8 project_b\analyze_voice_corpus.py
+python -X utf8 project_b\cross_voice_market.py
+python -X utf8 project_b\integrate_voice_kb.py
+echo  [OK] È«Á´Â·Íê³É¡£½¨Òé½Ó×ÅÅÜ ²Ù×÷ÖĞĞÄ 39 ÍêÕû²¿Êğ Óë 108 ÑéÊÕ×Ü¼ì
 pause
 goto menu
