@@ -185,6 +185,33 @@ TRAJ_EXEMPT = {
     "锚点复核.py"
 }
 
+
+# ── 其它工作目录覆盖（2026-09-15 再扩）──────────────────────────────
+# 同「轨迹」的教训：检查不覆盖的目录 = 无人报警的盲区。
+# 这里纳入 E:\wx\wx_textmine（文本挖掘管线）与 基线口径（口径生成器）。
+EXTRA_DIRS = [
+    r"E:\wx\wx_textmine",
+    r"E:\wx\论文素材_王晰作传\基线口径",
+]
+EXTRA_EXEMPT = {
+    "00_build_corpus.py",
+    "00_build_corpus_from_csv.py",
+    "01_ingest.py",
+    "02_events.py",
+    "03_align.py",
+    "04_link_music.py",
+    "05_topics.py",
+    "06_phases.py",
+    "07_narrate.py",
+    "run_pipeline.py",
+    "wm_common.py",
+    "_patch_voice_album_badges.py",
+    "_patch_voice_badge.py",
+    "_patch_voice_desc.py",
+    "_patch_voice_dual.py",
+    "事件去重影响.py"
+}
+
 def _under_git(p: Path) -> bool:
     """判断是否落在 .git 内。
 
@@ -269,6 +296,15 @@ def reverse_check(strict: bool) -> list:
                     cands.append(Path(TRAJ_DIR) / _f)
     except Exception as _e:
         print(f"  [WARN] 轨迹目录扫描失败：{type(_e).__name__}")
+    for _d in EXTRA_DIRS:
+        try:
+            if not os.path.isdir(_d):
+                continue
+            for _f in sorted(os.listdir(_d)):
+                if _f.endswith(".py") and _f not in EXTRA_EXEMPT:
+                    cands.append(Path(_d) / _f)
+        except Exception as _e:
+            print(f"  [WARN] 扫描 {_d} 失败：{type(_e).__name__}")
     blob = _reference_blob()          # ← 只读一次，循环内复用
     allow = {k.lower() for k in ORPHAN_ALLOWLIST}
     back = {k.lower() for k in ORPHAN_BACKLOG}
