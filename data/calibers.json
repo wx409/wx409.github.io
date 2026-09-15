@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-15 12:57",
-  "count": 53,
+  "generated_at": "2026-09-15 13:46",
+  "count": 56,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -173,7 +173,7 @@
     {
       "id": "stage_measured_versions",
       "label": "现场实测版本数",
-      "value": 11,
+      "value": 14,
       "scope": "B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次）",
       "source": "音域分析\\轨迹\\让她降落_四版实测.json",
       "note": "口径纪律：现场实测按场次入台账，**不并入录音室主口径**；与 recording_studio_vocal_songs 不同范围，禁止相加或混用"
@@ -409,6 +409,30 @@
       "scope": "已下载音频/视频的总时长",
       "source": "data\\voice_corpus.json#counts",
       "note": ""
+    },
+    {
+      "id": "textmine_corpus",
+      "label": "文本挖掘语料条数",
+      "value": 2653,
+      "scope": "wx_textmine 管线的 corpus.jsonl 条数，来自 6 个来源",
+      "source": "E:\\wx\\wx_textmine_out\\corpus.jsonl",
+      "note": "来源分布：studio_weibo 1042、wx_weibo 807、baijiahao 450、shaocheng_weibo 172、voice_media 156、baike 26"
+    },
+    {
+      "id": "textmine_events",
+      "label": "文本挖掘抽取事件数",
+      "value": 2442,
+      "scope": "从语料抽取的带日期事件（LLM 抽取，未经人工复核）",
+      "source": "E:\\wx\\wx_textmine_out\\master_timeline.json",
+      "note": "**不得直接当站内事实引用**；站内精选时间轴另计（data/timeline.json）"
+    },
+    {
+      "id": "event_effects_edges",
+      "label": "事件×歌曲 效应边数",
+      "value": 22215,
+      "scope": "事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant）",
+      "source": "E:\\wx\\wx_textmine_out\\event_effects.json",
+      "note": "口径注意：该项目文档旧值记为 19698，2026-09-15 管线重跑后为现值；引用时须与「84场×2960观测」区分，不可混用"
     },
     {
       "id": "media_library_files",

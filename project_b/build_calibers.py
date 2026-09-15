@@ -422,6 +422,43 @@ def collect() -> list[dict]:
     except Exception as e:
         add("voice_corpus_items", "声音素材转写条目数", None, str(e), "", "")
 
+    # 文本挖掘管线产出（E:\wx\wx_textmine_out，本地；2026-09-15 补登记）
+    try:
+        _TM = r"E:\wx\wx_textmine_out"
+        _corpus = 0
+        _cp = os.path.join(_TM, "corpus.jsonl")
+        if os.path.exists(_cp):
+            import collections as _c
+            _src = _c.Counter()
+            for _line in Path(_cp).read_text(encoding="utf-8").splitlines():
+                try:
+                    _src[json.loads(_line)["source"]] += 1
+                    _corpus += 1
+                except Exception:
+                    pass
+            if _corpus:
+                add("textmine_corpus", "文本挖掘语料条数", _corpus,
+                    "wx_textmine 管线的 corpus.jsonl 条数，来自 %d 个来源" % len(_src),
+                    "E:\wx\wx_textmine_out\corpus.jsonl",
+                    "来源分布：" + "、".join("%s %d" % kv for kv in _src.most_common()))
+        _mt = _load_abs(os.path.join(_TM, "master_timeline.json")) or []
+        _mev = _mt if isinstance(_mt, list) else (_mt.get("events") or [])
+        if _mev:
+            add("textmine_events", "文本挖掘抽取事件数", len(_mev),
+                "从语料抽取的带日期事件（LLM 抽取，未经人工复核）",
+                "E:\wx\wx_textmine_out\master_timeline.json",
+                "**不得直接当站内事实引用**；站内精选时间轴另计（data/timeline.json）")
+        _ee = _load_abs(os.path.join(_TM, "event_effects.json")) or {}
+        _eev = _ee if isinstance(_ee, list) else (_ee.get("effects") or [])
+        if _eev:
+            add("event_effects_edges", "事件×歌曲 效应边数", len(_eev),
+                "事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant）",
+                "E:\wx\wx_textmine_out\event_effects.json",
+                "口径注意：该项目文档旧值记为 19698，2026-09-15 管线重跑后为现值；"
+                "引用时须与「84场×2960观测」区分，不可混用")
+    except Exception as e:
+        add("event_effects_edges", "事件×歌曲 效应边数", None, str(e), "", "")
+
     # 声音素材库媒体清册（本地留存，不入 git）
     try:
         mm = _load_abs(os.path.join(r"E:\wx\声音素材库", "manifest", "media_manifest.json")) or {}

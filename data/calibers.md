@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-15 12:57　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-15 13:46　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -28,7 +28,7 @@
 | `setlist_rows` | 歌单曲目记录行 | **1249** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
 | `setlist_songs_unique` | 歌单唯一曲目（数据层归一名） | **289** | 长表去重后的曲目名 | `巡演歌单长表` |
 | `index_days` | 指数数据覆盖天数 | **1289** | 站点图表所用指数长表的实际覆盖天数 | `E:\wx\wx_textmine_out\music_index_long.csv` |
-| `stage_measured_versions` | 现场实测版本数 | **11** | B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次） | `音域分析\轨迹\让她降落_四版实测.json` |
+| `stage_measured_versions` | 现场实测版本数 | **14** | B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次） | `音域分析\轨迹\让她降落_四版实测.json` |
 | `stage_measured_shows` | 现场实测场次数 | **5** | 上述现场版本覆盖的实际演出场次（同场多源只算一场） | `音域分析\轨迹\让她降落_四版实测.json` |
 | `stage_low_reviewed` | 巡演现场低音读数·谐波列复核通过条数 | **6** | archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数 | `data\archive_stage_tour.json` |
 | `stage_lowest_hz` | 巡演现场最低稳定音（现行） | **79.9** | 王晰主导巡演现场·过复核门槛的最低稳定音（Hz） | `data\archive_stage_tour.json` |
@@ -58,6 +58,9 @@
 | `voice_corpus_items` | 声音素材转写条目数 | **157** | 已下载并完成转写的音频/视频单集数，跨 18 个系列 | `data\voice_corpus.json#items` |
 | `voice_corpus_chars` | 声音素材转写全文字数 | **171098** | 全部转写稿字符数（可检索语料规模） | `data\voice_corpus.json#items[].text` |
 | `voice_corpus_minutes` | 声音素材总时长（分钟） | **926.1** | 已下载音频/视频的总时长 | `data\voice_corpus.json#counts` |
+| `textmine_corpus` | 文本挖掘语料条数 | **2653** | wx_textmine 管线的 corpus.jsonl 条数，来自 6 个来源 | `E:\wx\wx_textmine_out\corpus.jsonl` |
+| `textmine_events` | 文本挖掘抽取事件数 | **2442** | 从语料抽取的带日期事件（LLM 抽取，未经人工复核） | `E:\wx\wx_textmine_out\master_timeline.json` |
+| `event_effects_edges` | 事件×歌曲 效应边数 | **22215** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
 | `media_library_files` | 声音素材库已下载媒体文件数 | **157** | 本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 | `media_library_pending` | 声音素材库待采条目数 | **2** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 
