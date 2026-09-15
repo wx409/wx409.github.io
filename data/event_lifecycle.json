@@ -44,23 +44,23 @@
         "complete": true
        },
        "post3": {
-        "n_days": 2,
-        "mean_index": 695.7,
-        "median_index": 695.7,
-        "avg_tracked_songs": 18.5,
-        "complete": false
+        "n_days": 3,
+        "mean_index": 683.6,
+        "median_index": 659.3,
+        "avg_tracked_songs": 18.7,
+        "complete": true
        },
        "post7": {
-        "n_days": 2,
-        "mean_index": 695.7,
-        "median_index": 695.7,
-        "avg_tracked_songs": 18.5,
+        "n_days": 4,
+        "mean_index": 983.6,
+        "median_index": 696.7,
+        "avg_tracked_songs": 15.2,
         "complete": false
        }
       },
-      "n_days": 1287,
-      "delta_pct_post7_vs_pre7": -0.9,
-      "delta_pct_post3_vs_pre3": 3.1
+      "n_days": 1289,
+      "delta_pct_post7_vs_pre7": 40.1,
+      "delta_pct_post3_vs_pre3": 1.3
      }
     }
    ],
@@ -76,7 +76,7 @@
    ]
   }
  ],
- "generated_at": "2026-09-14 09:12",
+ "generated_at": "2026-09-15 09:37",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
- "index_days_local": 1287
+ "index_days_local": 1289
 }

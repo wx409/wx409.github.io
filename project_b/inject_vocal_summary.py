@@ -62,8 +62,12 @@ def main() -> int:
         # 首次运行：把旧的「人声分离实测」段落整体换成标记块
         m = re.search(r'<p>[^<]*?(?:<strong>[^<]*</strong>[^<]*?)*?本站人声分离实测.*?</p>', text, re.S)
         if not m:
-            print("[FAIL] index.html 找不到「人声分离实测」段落，需人工确认锚点")
-            return 1
+            # 瘦身 2.0 后首页改由 build_compact.py 生成，不再承载音域摘要块
+            # （该内容由 vocal.html 承担）。**优雅跳过**而非报错 ——
+            # 这是 deploy_all 的关键步骤，报错会中止整条流水线
+            # （2026-09-14/15 实际发生过：连续两天发布失败）。
+            print("[SKIP] index.html 无音域摘要锚点（瘦身 2.0 后该内容在 vocal.html），跳过。")
+            return 0
         new_text = text[:m.start()] + block + text[m.end():]
 
     if check:

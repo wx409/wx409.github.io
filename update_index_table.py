@@ -127,7 +127,8 @@ def build_row(entry: dict, effect: dict | None = None) -> str:
     )
 
 
-def update_index(index_path: Path, entries: list[dict], effects: dict | None = None) -> None:
+def update_index(index_path: Path, entries: list[dict], effects: dict | None = None) -> bool:
+    """返回 True 表示确实写入；False 表示因无锚点而优雅跳过。"""
     if not entries:
         print("[!] live 目录无演出记录，跳过")
         return
@@ -150,7 +151,7 @@ def update_index(index_path: Path, entries: list[dict], effects: dict | None = N
         before, rest = content.split(TABLE_START, 1)
         _, after = rest.split(TABLE_END, 1)
         index_path.write_text(before + table_block + after, encoding="utf-8")
-        return
+        return True
 
     pattern = re.compile(
         r"(<h2>最新演出动态</h2>\s*<p>此板块实时更新.*?</p>\s*)<table>.*?</table>",
@@ -159,8 +160,15 @@ def update_index(index_path: Path, entries: list[dict], effects: dict | None = N
     replacement = r"\1" + table_block
     new_content, count = pattern.subn(replacement, content, count=1)
     if count == 0:
-        raise RuntimeError("未找到首页「最新演出动态」表格")
+        # 瘦身 2.0 后首页与私密索引页都不再承载「最新演出动态」表格
+        # （该板块由 live.html 的「演出详情与歌单」承担）。
+        # 这里**优雅跳过**而不是抛错 —— 否则 deploy_all 会因这一关键步骤中止整条流水线
+        # （2026-09-14/15 实际发生过：连续两天发布失败）。
+        print("[SKIP] %s 无「最新演出动态」表格锚点（瘦身 2.0 后该板块移至 live.html），跳过注入。"
+              % index_path.name)
+        return False
     index_path.write_text(new_content, encoding="utf-8")
+    return True
 
 
 def main() -> None:
@@ -185,9 +193,12 @@ def main() -> None:
 
     entries = load_manifest(live_dir)
     effects = load_effects(ROOT / "dashboard")
-    update_index(index_path, entries, effects)
+    wrote = update_index(index_path, entries, effects)
     matched = len({e["date"] for e in entries} & set(effects.keys()))
-    print(f"[OK] 已更新 {len(entries)} 条演出记录 -> {index_path}（数据效应匹配 {matched} 场）")
+    if wrote:
+        print(f"[OK] 已更新 {len(entries)} 条演出记录 -> {index_path}（数据效应匹配 {matched} 场）")
+    else:
+        print(f"[SKIP] 未注入（{index_path.name} 无锚点）；演出数据仍在 live.html，未丢失。")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-14 09:12",
+ "generated_at": "2026-09-15 09:37",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,16 +10,16 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 178,
+  "total": 184,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
-   "tour_live": 45,
+   "tour_live": 51,
    "stage_other": 32,
    "single": 6
   },
   "by_verify": {
-   "未复核": 136,
+   "未复核": 142,
    "已取证": 6,
    "已核验": 6,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
@@ -31,7 +31,7 @@
    "参考": 2,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 120
+  "songs": 121
  },
  "rows": [
   {
@@ -4249,7 +4249,7 @@
    "song": "小毛驴",
    "version": "未知20211127_BV1Ef4y1K7NJ",
    "layer": "tour_live",
-   "tour": "《B",
+   "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
    "source_ref": "BV1Ef4y1K7NJ",
@@ -4455,6 +4455,41 @@
    }
   },
   {
+   "id": "tour_live|亲密爱人|未知20191229_BV1TJ411a7Kk",
+   "song": "亲密爱人",
+   "version": "未知20191229_BV1TJ411a7Kk",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-12-29",
+   "source_ref": "BV1TJ411a7Kk",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.8,
+    "high_note": "G5",
+    "high_hz": 802.0,
+    "span_octaves": 3.38,
+    "stability_cents": 4.9,
+    "intonation_cents": 24.1,
+    "vibrato_hz": 5.1,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.46,
+    "hnr_db": 3.1,
+    "duration_s": 109.9
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
    "id": "tour_live|南屏晚钟|南京20190731_BV1Mt411w7cx",
    "song": "南屏晚钟",
    "version": "南京20190731_BV1Mt411w7cx",
@@ -4560,6 +4595,76 @@
    }
   },
   {
+   "id": "tour_live|亲密爱人|未知20240202_BV1UJ4m1t7m5",
+   "song": "亲密爱人",
+   "version": "未知20240202_BV1UJ4m1t7m5",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-02-02",
+   "source_ref": "BV1UJ4m1t7m5",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.2,
+    "high_note": "F#5",
+    "high_hz": 733.9,
+    "span_octaves": 3.16,
+    "stability_cents": 6.4,
+    "intonation_cents": 6.1,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.76,
+    "hnr_db": 7.4,
+    "duration_s": 277.2
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 143
+   }
+  },
+  {
+   "id": "tour_live|哭砂|未知20200904_BV1of4y1Q73V",
+   "song": "哭砂",
+   "version": "未知20200904_BV1of4y1Q73V",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-09-04",
+   "source_ref": "BV1of4y1Q73V",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.4,
+    "high_note": "A4",
+    "high_hz": 441.4,
+    "span_octaves": 2.37,
+    "stability_cents": 8.1,
+    "intonation_cents": 7.6,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.67,
+    "hnr_db": 7.0,
+    "duration_s": 253.7
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
+   }
+  },
+  {
    "id": "tour_live|Your Man|北京20190818_BV1N4411o7Ld",
    "song": "Your Man",
    "version": "北京20190818_BV1N4411o7Ld",
@@ -4592,6 +4697,76 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 315
+   }
+  },
+  {
+   "id": "tour_live|祝我们随遇而安|上海20250501_BV1Tr5KzSEMT",
+   "song": "祝我们随遇而安",
+   "version": "上海20250501_BV1Tr5KzSEMT",
+   "layer": "tour_live",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2025-05-01",
+   "source_ref": "BV1Tr5KzSEMT",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 89.4,
+    "high_note": "F#5",
+    "high_hz": 719.5,
+    "span_octaves": 3.01,
+    "stability_cents": 6.5,
+    "intonation_cents": 23.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.99,
+    "hnr_db": 5.8,
+    "duration_s": 246.4
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 97
+   }
+  },
+  {
+   "id": "tour_live|祝我们随遇而安|上海20250501_BV1QWVzzjEnM",
+   "song": "祝我们随遇而安",
+   "version": "上海20250501_BV1QWVzzjEnM",
+   "layer": "tour_live",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2025-05-01",
+   "source_ref": "BV1QWVzzjEnM",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 89.9,
+    "high_note": "F5",
+    "high_hz": 703.0,
+    "span_octaves": 2.97,
+    "stability_cents": 6.6,
+    "intonation_cents": 25.5,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 77.0,
+    "density_per_s": 1.57,
+    "hnr_db": 3.0,
+    "duration_s": 259.8
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 112
    }
   },
   {
@@ -4665,11 +4840,46 @@
    }
   },
   {
+   "id": "tour_live|Your Man|未知20191222_BV1sJ411s7hj",
+   "song": "Your Man",
+   "version": "未知20191222_BV1sJ411s7hj",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-12-22",
+   "source_ref": "BV1sJ411s7hj",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.9,
+    "high_note": "B5",
+    "high_hz": 992.5,
+    "span_octaves": 3.45,
+    "stability_cents": 5.4,
+    "intonation_cents": 25.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 70.0,
+    "density_per_s": 1.65,
+    "hnr_db": 2.7,
+    "duration_s": 203.9
+   },
+   "verify": {
+    "state": "未复核",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 313
+   }
+  },
+  {
    "id": "tour_live|让她降落|未知20211127_BV19U4y1K7Yz",
    "song": "让她降落",
    "version": "未知20211127_BV19U4y1K7Yz",
    "layer": "tour_live",
-   "tour": "《B",
+   "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
    "source_ref": "BV19U4y1K7Yz",

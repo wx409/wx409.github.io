@@ -32,6 +32,7 @@
 from __future__ import annotations
 
 import argparse
+CATCHUP_MIN_MISSING = 3
 import datetime as dt
 import json
 import os
@@ -448,8 +449,17 @@ def main() -> int:
     due = [(t, m) for t, m in schedule if slot_time(t, today) <= n]
     files = collect_day_outputs(today)
     matched = match_slots(due, files)
+    # 已补跑的批次记在 state["done"] 里，据此免重复告警/重复补跑。
+    # （迟到补跑产生的文件名匹配不上原时段，若不读 state 会每次巡检重复补跑 —— 2026-09-15 修）
+    _st0 = load_state()
+    _done0 = _st0.get("done") or {}
     results, missing = [], []
     for t_str, mode in due:
+        key0 = "%s|%s" % (today.isoformat(), t_str)
+        if key0 in _done0:
+            results.append({"slot": t_str, "mode": mode, "ok": True, "file": None,
+                            "note": "已补跑 %s" % _done0[key0]})
+            continue
         hit = matched.get(t_str, {"ok": False, "file": None})
         results.append({"slot": t_str, "mode": mode, "ok": hit["ok"],
                         "file": (hit["file"].name if hit["file"] else None)})
@@ -498,12 +508,28 @@ def main() -> int:
                 args.full_timeout if last_mode == "full" else args.quick_timeout,
                 dry=False)
             action = "force+%s" % ("full" if last_mode == "full" else "quick")
+        elif (not args.check_only) and (not args.no_catchup) and len(missing) >= CATCHUP_MIN_MISSING:
+            # 守护进程活着、却漏了 ≥CATCHUP_MIN_MISSING 个批次 —— 典型场景：
+            # 守护进程是「登录时启动」（LogonTrigger），机器早上才开机，
+            # 8:05/8:15/8:25 三个早间批次已经过点 → 只能等到 11:49 才有下一批。
+            # 2026-09-15 实际发生过。这里**立刻补跑**而不是只告警。
+            catch_ok, catch_note = catch_up(
+                last_mode,
+                args.full_timeout if last_mode == "full" else args.quick_timeout,
+                dry=False)
+            action = "live-catchup+%s" % ("full" if last_mode == "full" else "quick")
+            if catch_ok:
+                # 一次补跑已把「当前」数据抓齐，覆盖当日所有缺失时段 →
+                # 全部标记为已补跑，避免后续巡检重复补跑（每次约 3-5 分钟）。
+                for _t, _m in missing:
+                    st.setdefault("done", {})["%s|%s" % (today.isoformat(), _t)] = \
+                        now().strftime("%Y-%m-%d %H:%M:%S")
         else:
             action = "alert-only"
 
         # 告警门槛：只在"严重"时打扰 —— 守护进程停摆 / 缺全量批次 / 单日缺≥3批。
         # 单个极速批次因前一批超时被跳过属正常（如启动重建吃掉 8:05），只写日志。
-        critical = (not alive) or any(m == "full" for _, m in missing) or len(missing) >= 3
+        critical = (not alive) or any(m == "full" for _, m in missing) or len(missing) >= CATCHUP_MIN_MISSING
         alerted = st.setdefault("alerts", {})
         akey = "missed|%s" % today.isoformat()
         if critical and not alerted.get(akey):
