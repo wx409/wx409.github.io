@@ -143,7 +143,12 @@ def tour_layer_html() -> str:
                       + "\n".join(cross_rows) + "</table>"
                       "<p class='sub' style='margin-top:0'>同一首歌在不同巡次/城市的现场读数，"
                       "差值相对该曲<strong>最早的现场版本</strong>（半音，正=比最早版本高）。"
-                      "不同场次的调性、编配、录音条件都会影响读数，差值用于观察版本差异，不作能力排序。</p>")
+                      "不同场次的调性、编配、录音条件都会影响读数，差值用于观察版本差异，不作能力排序。</p>"
+                      "<p class='sub' style='margin-top:0'><strong>关于「同一场出现两行」</strong>："
+                      "当同一位歌手的同一场演出存在<strong>多份独立录音</strong>（不同 UP 的现场录像）时，"
+                      "本项目会<strong>分别测量并并列列出</strong> —— 这是<strong>有意为之的双源互证</strong>："
+                      "两路独立音源若得出同一结论，可信度高于任何单一来源（复核判据②：同场同刻多源一致）。"
+                      "因此「巡次·城市·日期」相同、而来源/BV 不同的两行，<strong>不是重复录入</strong>。</p>")
     song_blocks = []
     pair_rows = "\n".join(
         f'<tr><td>{esc(p["song"])}</td>'

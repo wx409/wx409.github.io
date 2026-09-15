@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-15 15:18",
+ "generated_at": "2026-09-15 15:41",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -14,15 +14,15 @@
   "n_from_precision": 3,
   "n_songs": 20,
   "n_tours": 8,
-  "n_verified": 11,
-  "n_harmonic_reviewed": 6,
+  "n_verified": 39,
+  "n_harmonic_reviewed": 34,
   "lowest": {
-   "note": "D#2",
-   "hz": 79.9,
-   "tag": "三巡深圳20230623_BV1QP411v7KR",
+   "note": "A#1",
+   "hz": 58.2,
+   "tag": "签唱会20190414_BV1M4411w735",
    "song": "静止了的夜晚",
-   "date": "2023-06-23",
-   "city": "深圳",
+   "date": "2019-04-14",
+   "city": "",
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
@@ -31,11 +31,11 @@
   "vibrato_rate_hz_median": 5.0,
   "vibrato_extent_cents_median": 77.0,
   "verify_dist": {
-   "未复核": 34,
-   "谐波列复核通过": 5,
+   "谐波列复核通过": 33,
    "待复核": 3,
    "双引擎一致": 5,
    "参考（直拍音质）": 1,
+   "待复核（谐波列待判）": 6,
    "仅参考（音质受限）": 1,
    "谐波列复核通过（同刻三源）": 1
   }
@@ -44,7 +44,7 @@
   {
    "tour": "一巡",
    "n_materials": 6,
-   "n_claimable": 3,
+   "n_claimable": 5,
    "cities": [
     "上海",
     "北京",
@@ -55,15 +55,15 @@
     "2019-07-28",
     "2020-01-02"
    ],
-   "lowest_note": "F#2",
-   "lowest_hz": 91.1,
-   "lowest_tag": "一巡南京20190728_BV1Lt411u7qq",
+   "lowest_note": "E2",
+   "lowest_hz": 83.1,
+   "lowest_tag": "上海20191103_BV1FE411B7je",
    "lowest_note_all": "E2",
    "lowest_hz_all": 83.1,
-   "lowest_verify_all": "未复核",
+   "lowest_verify_all": "谐波列复核通过",
    "span_median_octaves": 3.35,
-   "stability_median_cents": 6.0,
-   "vibrato_rate_hz_median": 5.07
+   "stability_median_cents": 6.9,
+   "vibrato_rate_hz_median": 5.02
   },
   {
    "tour": "二巡",
@@ -133,7 +133,7 @@
   {
    "tour": "五巡",
    "n_materials": 4,
-   "n_claimable": 0,
+   "n_claimable": 4,
    "cities": [
     "北京",
     "广州",
@@ -143,12 +143,12 @@
     "2024-12-21",
     "2025-05-24"
    ],
-   "lowest_note": null,
-   "lowest_hz": null,
-   "lowest_tag": null,
+   "lowest_note": "D2",
+   "lowest_hz": 73.9,
+   "lowest_tag": "杭州20241221_BV1RjkYYbEF8",
    "lowest_note_all": "D2",
    "lowest_hz_all": 73.9,
-   "lowest_verify_all": "未复核",
+   "lowest_verify_all": "谐波列复核通过",
    "span_median_octaves": 2.95,
    "stability_median_cents": 6.85,
    "vibrato_rate_hz_median": 4.86
@@ -205,7 +205,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -226,7 +226,8 @@
      23.5,
      20.8
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "一巡南京20190728_BV1Lt411u7qq",
@@ -460,7 +461,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -481,7 +482,8 @@
      24.2,
      15.3
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "二巡南京20210411b_BV1SZ4y1c7Xb",
@@ -773,7 +775,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "待复核（谐波列待判）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -795,6 +797,7 @@
      25.1
     ]
    },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "high_rejected": [
     {
      "note": "C6",
@@ -836,7 +839,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "待复核（谐波列待判）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -858,6 +861,7 @@
      19.6
     ]
    },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "high_rejected": [
     {
      "note": "C6",
@@ -928,7 +932,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -949,7 +953,8 @@
      56.3,
      38.1
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "广州20250524_BV1AxjKzmES3",
@@ -979,7 +984,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1000,7 +1005,8 @@
      29.1,
      25.6
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "北京20250405_BV1JZdcYEE73",
@@ -1030,7 +1036,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1051,7 +1057,8 @@
      17.9,
      8.5
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "北京20250405_BV1zD5mz9ErQ",
@@ -1081,7 +1088,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1102,7 +1109,8 @@
      19.9,
      21.7
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "六巡广州20260823_BV13PtB6AEKe",
@@ -1387,7 +1395,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1408,7 +1416,8 @@
      26.8,
      51.6
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "新素材11j7s7_BV19J411j7s7",
@@ -1438,7 +1447,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1459,7 +1468,8 @@
      47.1,
      35.5
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20211127_BV1Ef4y1K7NJ",
@@ -1489,7 +1499,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1510,7 +1520,8 @@
      42.2,
      33.7
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "新素材y167VR_BV1Ct4y167VR",
@@ -1540,7 +1551,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1561,7 +1572,8 @@
      33.5,
      33.2
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20201116_BV1fr4y1F769",
@@ -1591,7 +1603,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1612,7 +1624,8 @@
      18.9,
      29.2
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20200517_BV1Re411p7XL",
@@ -1642,7 +1655,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1663,7 +1676,8 @@
      41.1,
      36.1
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "杭州20201226_BV1z5411H7yg",
@@ -1693,7 +1707,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1714,7 +1728,8 @@
      11.2,
      32.1
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "成都首唱会2019_BV1W7411R7Hv",
@@ -1744,7 +1759,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1765,7 +1780,8 @@
      32.9,
      10.8
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20191229_BV1TJ411a7Kk",
@@ -1795,7 +1811,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "待复核（谐波列待判）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -1816,7 +1832,8 @@
      29.8,
      33.7
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
   },
   {
    "tag": "南京20190731_BV1Mt411w7cx",
@@ -1846,7 +1863,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1867,7 +1884,8 @@
      35.2,
      37.8
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20190914_BV1SJ411w72G",
@@ -1897,7 +1915,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -1918,7 +1936,8 @@
      32.9,
      33.9
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20201127_BV1nZ4y1G7Zq",
@@ -1948,7 +1967,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "待复核（谐波列待判）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -1969,7 +1988,8 @@
      22.9,
      33.5
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
   },
   {
    "tag": "未知20240202_BV1UJ4m1t7m5",
@@ -1999,7 +2019,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2020,7 +2040,8 @@
      24.8,
      32.9
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20200904_BV1of4y1Q73V",
@@ -2050,7 +2071,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2071,7 +2092,8 @@
      55.3,
      42.4
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "北京20190818_BV1N4411o7Ld",
@@ -2101,7 +2123,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2122,7 +2144,8 @@
      41.2,
      25.7
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "上海20250501_BV1Tr5KzSEMT",
@@ -2152,7 +2175,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2173,7 +2196,8 @@
      12.1,
      3.9
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "上海20250501_BV1QWVzzjEnM",
@@ -2203,7 +2227,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "待复核（谐波列待判）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -2224,7 +2248,8 @@
      12.6,
      7.2
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
   },
   {
    "tag": "太原20191229_BV1WJ411a7zj",
@@ -2254,7 +2279,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "待复核（谐波列待判）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -2275,7 +2300,8 @@
      15.3,
      44.3
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
   },
   {
    "tag": "南京20190731_BV1qt411c7Sm",
@@ -2305,7 +2331,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2326,7 +2352,8 @@
      28.9,
      26.9
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20191222_BV1sJ411s7hj",
@@ -2356,7 +2383,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2377,7 +2404,8 @@
      22.7,
      31.0
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20211127_BV19U4y1K7Yz",
@@ -2407,7 +2435,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2428,7 +2456,8 @@
      21.5,
      51.8
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "三亚20230225_BV1UX4y197Lu",
@@ -2458,7 +2487,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2479,7 +2508,8 @@
      17.6,
      17.0
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20190818_BV1x4411f7i9",
@@ -2509,7 +2539,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2530,7 +2560,8 @@
      26.5,
      20.4
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20240418_BV11u4m1F7tL",
@@ -2560,7 +2591,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2581,7 +2612,8 @@
      26.4,
      24.8
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20201118_BV1er4y1F7Nr",
@@ -2611,7 +2643,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2632,7 +2664,8 @@
      18.0,
      39.5
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "未知20250413_BV14kouYsEhY",
@@ -2662,7 +2695,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "未复核",
+   "a3_final_note": "谐波列复核通过",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -2683,7 +2716,8 @@
      15.0,
      25.2
     ]
-   }
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   }
  ],
  "by_song": [
@@ -2710,7 +2744,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.59,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1RjkYYbEF8"
     }
    ]
@@ -2736,7 +2770,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.41,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1N4411o7Ld"
     },
     {
@@ -2751,7 +2785,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.4,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1qt411c7Sm"
     },
     {
@@ -2766,7 +2800,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.45,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1sJ411s7hj"
     }
    ]
@@ -2792,7 +2826,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.22,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV19J411j7s7"
     },
     {
@@ -2807,7 +2841,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.58,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1Re411p7XL"
     }
    ]
@@ -2835,7 +2869,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.4,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1JZdcYEE73"
     },
     {
@@ -2850,7 +2884,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.69,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1zD5mz9ErQ"
     }
    ]
@@ -2876,7 +2910,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.81,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1Ct4y167VR"
     }
    ]
@@ -2902,7 +2936,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.38,
-     "verify": "未复核",
+     "verify": "待复核（谐波列待判）",
      "bv": "BV1TJ411a7Kk"
     },
     {
@@ -2917,7 +2951,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.16,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1UJ4m1t7m5"
     }
    ]
@@ -2945,7 +2979,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.21,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1AxjKzmES3"
     }
    ]
@@ -2971,7 +3005,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.7,
-     "verify": "未复核",
+     "verify": "待复核（谐波列待判）",
      "bv": "BV1nZ4y1G7Zq"
     },
     {
@@ -2986,7 +3020,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.28,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1er4y1F7Nr"
     }
    ]
@@ -3012,7 +3046,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.48,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1Mt411w7cx"
     },
     {
@@ -3027,7 +3061,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.12,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1SJ411w72G"
     },
     {
@@ -3042,7 +3076,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.78,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1x4411f7i9"
     }
    ]
@@ -3070,7 +3104,7 @@
      "high_dur_s": 4.0,
      "high_listen_verified": true,
      "span_octaves": 3.28,
-     "verify": "未复核",
+     "verify": "待复核（谐波列待判）",
      "bv": "BV1qy421a7FR"
     },
     {
@@ -3085,7 +3119,7 @@
      "high_dur_s": 4.0,
      "high_listen_verified": true,
      "span_octaves": 3.27,
-     "verify": "未复核",
+     "verify": "待复核（谐波列待判）",
      "bv": "BV1pc411v7gU"
     }
    ]
@@ -3111,7 +3145,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.37,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1of4y1Q73V"
     }
    ]
@@ -3169,7 +3203,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.28,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV11u4m1F7tL"
     },
     {
@@ -3212,7 +3246,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.55,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1wJ411U7Wh"
     }
    ]
@@ -3240,7 +3274,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.19,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1Ef4y1K7NJ"
     },
     {
@@ -3255,7 +3289,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.45,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1FE411B7je"
     }
    ]
@@ -3281,7 +3315,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.37,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV14kouYsEhY"
     }
    ]
@@ -3307,7 +3341,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.18,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1UX4y197Lu"
     }
    ]
@@ -3333,7 +3367,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.01,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1Tr5KzSEMT"
     },
     {
@@ -3348,7 +3382,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.97,
-     "verify": "未复核",
+     "verify": "待复核（谐波列待判）",
      "bv": "BV1QWVzzjEnM"
     }
    ]
@@ -3374,7 +3408,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.48,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1fr4y1F769"
     },
     {
@@ -3389,7 +3423,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.0,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1z5411H7yg"
     }
    ]
@@ -3464,7 +3498,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.67,
-     "verify": "未复核",
+     "verify": "待复核（谐波列待判）",
      "bv": "BV1WJ411a7zj"
     },
     {
@@ -3494,7 +3528,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.41,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV19U4y1K7Yz"
     },
     {
@@ -3642,7 +3676,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.06,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1M4411w735"
     },
     {
@@ -3657,7 +3691,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.83,
-     "verify": "未复核",
+     "verify": "谐波列复核通过",
      "bv": "BV1W7411R7Hv"
     },
     {
@@ -4073,6 +4107,134 @@
  ],
  "live_vs_studio_pairs": [
   {
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-31",
+   "bv": "BV1Mt411w7cx",
+   "source_layer": "场次音频实测",
+   "live_note": "D#2",
+   "live_hz": 77.2,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "Low C的诱惑",
+   "studio_note": "D#2",
+   "studio_hz": 76.9,
+   "studio_span": 2.02,
+   "delta_semitones": 0.1
+  },
+  {
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-09-14",
+   "bv": "BV1SJ411w72G",
+   "source_layer": "场次音频实测",
+   "live_note": "E2",
+   "live_hz": 80.4,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "Low C的诱惑",
+   "studio_note": "D#2",
+   "studio_hz": 76.9,
+   "studio_span": 2.02,
+   "delta_semitones": 0.8
+  },
+  {
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-08-18",
+   "bv": "BV1x4411f7i9",
+   "source_layer": "场次音频实测",
+   "live_note": "F#2",
+   "live_hz": 94.3,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "Low C的诱惑",
+   "studio_note": "D#2",
+   "studio_hz": 76.9,
+   "studio_span": 2.02,
+   "delta_semitones": 3.5
+  },
+  {
+   "song": "多听有益",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-04-18",
+   "bv": "BV11u4m1F7tL",
+   "source_layer": "场次音频实测",
+   "live_note": "F#2",
+   "live_hz": 95.2,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "X自选集",
+   "studio_note": "B1",
+   "studio_hz": 61.7,
+   "studio_span": 2.97,
+   "delta_semitones": 7.5
+  },
+  {
+   "song": "晚风",
+   "tour": "其他演出",
+   "city": "三亚",
+   "date": "2023-02-25",
+   "bv": "BV1UX4y197Lu",
+   "source_layer": "场次音频实测",
+   "live_note": "F#2",
+   "live_hz": 93.6,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "Low C的诱惑",
+   "studio_note": "F2",
+   "studio_hz": 85.6,
+   "studio_span": 1.78,
+   "delta_semitones": 1.5
+  },
+  {
+   "song": "祝我们随遇而安",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2025-05-01",
+   "bv": "BV1Tr5KzSEMT",
+   "source_layer": "场次音频实测",
+   "live_note": "F2",
+   "live_hz": 89.4,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "不说",
+   "studio_note": "D2",
+   "studio_hz": 73.1,
+   "studio_span": 2.59,
+   "delta_semitones": 3.5
+  },
+  {
+   "song": "静止了的夜晚",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-04-14",
+   "bv": "BV1M4411w735",
+   "source_layer": "场次音频实测",
+   "live_note": "A#1",
+   "live_hz": 58.2,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "重游往昔",
+   "studio_note": "B1",
+   "studio_hz": 61.5,
+   "studio_span": 2.26,
+   "delta_semitones": -1.0
+  },
+  {
+   "song": "静止了的夜晚",
+   "tour": "其他演出",
+   "city": "成都",
+   "date": "2019",
+   "bv": "BV1W7411R7Hv",
+   "source_layer": "场次音频实测",
+   "live_note": "D2",
+   "live_hz": 73.4,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "重游往昔",
+   "studio_note": "B1",
+   "studio_hz": 61.5,
+   "studio_span": 2.26,
+   "delta_semitones": 3.1
+  },
+  {
    "song": "静止了的夜晚",
    "tour": "三巡",
    "city": "深圳",
@@ -4091,7 +4253,7 @@
  ],
  "live_vs_studio_pair_stats": {
   "included": 0,
-  "excluded_pending": 12,
+  "excluded_pending": 4,
   "excluded_detail": [
    {
     "song": "多听有益",
@@ -4115,67 +4277,11 @@
     "verify": "仅参考（音质受限）"
    },
    {
-    "song": "静止了的夜晚",
-    "tour": "其他演出",
-    "note": "A#1",
-    "hz": 58.2,
-    "verify": "未复核"
-   },
-   {
-    "song": "静止了的夜晚",
-    "tour": "其他演出",
-    "note": "D2",
-    "hz": 73.4,
-    "verify": "未复核"
-   },
-   {
-    "song": "南屏晚钟",
-    "tour": "其他演出",
-    "note": "D#2",
-    "hz": 77.2,
-    "verify": "未复核"
-   },
-   {
-    "song": "南屏晚钟",
-    "tour": "其他演出",
-    "note": "E2",
-    "hz": 80.4,
-    "verify": "未复核"
-   },
-   {
-    "song": "祝我们随遇而安",
-    "tour": "签唱会",
-    "note": "F2",
-    "hz": 89.4,
-    "verify": "未复核"
-   },
-   {
     "song": "祝我们随遇而安",
     "tour": "签唱会",
     "note": "F#2",
     "hz": 89.9,
-    "verify": "未复核"
-   },
-   {
-    "song": "晚风",
-    "tour": "其他演出",
-    "note": "F#2",
-    "hz": 93.6,
-    "verify": "未复核"
-   },
-   {
-    "song": "南屏晚钟",
-    "tour": "其他演出",
-    "note": "F#2",
-    "hz": 94.3,
-    "verify": "未复核"
-   },
-   {
-    "song": "多听有益",
-    "tour": "其他演出",
-    "note": "F#2",
-    "hz": 95.2,
-    "verify": "未复核"
+    "verify": "待复核（谐波列待判）"
    }
   ]
  }
