@@ -52,14 +52,14 @@
        },
        "post7": {
         "n_days": 4,
-        "mean_index": 983.6,
-        "median_index": 696.7,
-        "avg_tracked_songs": 15.2,
+        "mean_index": 668.6,
+        "median_index": 658.3,
+        "avg_tracked_songs": 19,
         "complete": false
        }
       },
       "n_days": 1289,
-      "delta_pct_post7_vs_pre7": 40.1,
+      "delta_pct_post7_vs_pre7": -4.8,
       "delta_pct_post3_vs_pre3": 1.3
      }
     }
@@ -76,7 +76,7 @@
    ]
   }
  ],
- "generated_at": "2026-09-15 21:01",
+ "generated_at": "2026-09-16 00:06",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
  "index_days_local": 1289
 }

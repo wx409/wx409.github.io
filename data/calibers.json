@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15 21:01",
+ "generated_at": "2026-09-16 00:06",
  "count": 56,
  "calibers": [
   {
@@ -189,7 +189,7 @@
   {
    "id": "stage_low_reviewed",
    "label": "巡演现场低音读数·谐波列复核通过条数",
-   "value": 50,
+   "value": 55,
    "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
    "source": "data\\archive_stage_tour.json",
    "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
