@@ -1,5 +1,31 @@
 # CHANGELOG.md — 重大变更
 
+## 2026-09-15（续）6 个孤儿脚本全部接入流水线
+
+反向检查暴露的 6 个 BACKLOG 脚本已全部接入，`ORPHAN_BACKLOG` 清空：
+
+| 脚本 | 去处 | 理由 |
+|---|---|---|
+| `audit_stage_exclusions.py` | **部署链**（跟 audit_ops_coverage 之后） | 守卫类：防生成器把已排除素材/错误曲名回吞上线 |
+| `build_album_verify.py` | **部署链**（跟 build_vocal_longtable 之后） | 生成站点数据 `data/album_verify_status.json` |
+| `audit_audio_bitrate.py` | 菜单 **152** | 逐文件算真实码率，核对「QQ音乐320k」这类元数据声明 |
+| `append_tavern_quotes.py` | 菜单 **154** | 小酒馆金句并首页 |
+| `build_tavern_summary.py` | 菜单 **155** | ⚠️ 调 DeepSeek API 有成本 → 必须人工触发，不进部署链 |
+| `rebuild_tavern_ep_summary.py` | 菜单 **156** | 摘要版 ep 页重建 |
+
+新增 **U 组「审计与内容补齐」**（151–156），操作中心 150 → **156**。
+
+**顺带修一个静默失效**：`append_tavern_quotes.py` 的插入锚点是 `<h2>历史巡演回顾` ——
+瘦身 2.0 后首页由 `build_compact.py` 生成，**该板块已不存在**，脚本每次都打印
+「[!] 未找到插入锚点」然后静默返回（不报错、也不生效）。
+→ 改**自适应锚点**：`历史巡演回顾` → `<!-- FOOTER_NAV_START -->` → `<footer>` 依次回退，
+并打印实际使用的锚点。
+另注：其上游 `tavern/tavern_summaries.json` 当前为空（0 条），故插 0 条属正常，
+需先跑菜单 155 生成摘要。
+
+**验证**：`audit_bat` / `audit_ops_coverage`（待接入 0 · 未登记 0）/ `audit_pipeline`
+（registry 168 条 = 菜单 156 · 分派 155 · 部署 54 · 计划任务 7）/ `audit_caliber` 全绿。
+
 ## 2026-09-15（续）audit_ops_coverage 新增反向检查
 
 **起因**：2026-09-14/15 新增 15 个声音素材脚本，**一个都没进菜单**，而

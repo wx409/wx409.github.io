@@ -99,14 +99,7 @@ ORPHAN_ALLOWLIST = {
 }
 
 # ── C 类反向检查：已知应接入但尚未接入（显式登记，便于排期） ────────────────
-ORPHAN_BACKLOG = {
-    "project_b\\append_tavern_quotes.py": "小酒馆金句并入首页金句墙 —— 待接菜单",
-    "project_b\\audit_audio_bitrate.py": "存量音源码率审计（逐文件算真实码率） —— 待接菜单",
-    "project_b\\audit_stage_exclusions.py": "排除项回归审计（防已排除素材被回吞上线） —— 待接菜单",
-    "project_b\\build_album_verify.py": "专辑层复核状态生成（A3 终裁 → 站点 per-song 状态） —— 待接部署链",
-    "project_b\\build_tavern_summary.py": "小酒馆「有价值摘要」提取（DeepSeek API） —— 待接菜单",
-    "project_b\\rebuild_tavern_ep_summary.py": "小酒馆摘要版 ep 页重建 —— 待接菜单",
-}
+ORPHAN_BACKLOG = {}   # 2026-09-15：原 6 项已全部接入（见 CHANGELOG）
 
 
 def _under_git(p: Path) -> bool:

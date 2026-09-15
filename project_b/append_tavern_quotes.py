@@ -52,12 +52,16 @@ def main():
         + '\n' + MARKER + '\n'
     )
     idx = INDEX.read_text(encoding='utf-8')
-    # 插入到「历史巡演回顾」之前（金句墙末尾）
-    anchor = '<h2>历史巡演回顾'
-    pos = idx.find(anchor)
+    # 锚点自适应（2026-09-15）：瘦身 2.0 后 index.html 由 build_compact.py 生成，
+    # 已无「历史巡演回顾」板块 → 依次回退到其他可用锚点。
+    for anchor in ('<h2>历史巡演回顾', '<!-- FOOTER_NAV_START -->', '<footer'):
+        pos = idx.find(anchor)
+        if pos >= 0:
+            break
     if pos < 0:
-        print("[!] 未找到插入锚点")
+        print("[!] 未找到插入锚点（新版首页无 历史巡演回顾 / FOOTER_NAV_START / footer）")
         return
+    print("[i] 使用锚点: %s" % anchor)
     new_html = idx[:pos] + insert_block + idx[pos:]
     INDEX.write_text(new_html, encoding='utf-8')
     print(f"[完成] 已插入 {len(quotes)} 条小酒馆金句到 index.html 金句墙")

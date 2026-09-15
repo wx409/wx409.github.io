@@ -196,6 +196,13 @@ echo    147. ASR 人名错字校正（王熙到王晰等，只改确证错字）
 echo    148. 维护者预设审计（说明书与站点口径一致）
 echo    149. 声音素材全链路一键（134到146 依次执行）
 echo    150. 操作中心覆盖审计（含反向检查：可运行脚本无入口则报警；--strict 严格）
+echo    ---- U组 审计与内容补齐（2026-09-15 接入原孤儿脚本） ----
+echo    151. 舞台排除项回归审计（防已排除素材/错误曲名被生成器回吞上线）
+echo    152. 存量音源码率审计（逐文件算真实码率，不信标称）
+echo    153. 专辑层复核状态生成（A3 终裁到 data/album_verify_status.json）
+echo    154. 小酒馆金句并入首页金句墙（锚点自适应，幂等）
+echo    155. 小酒馆「有价值摘要」提取（?? 调 DeepSeek API，按量计费）
+echo    156. 小酒馆摘要版 ep 页重建（全文页换摘要版，全文已备份本地）
 echo    0. 退出
 echo.
 set "op="
@@ -351,6 +358,12 @@ if "%op%"=="147" goto media_asrfix
 if "%op%"=="148" goto audit_preset
 if "%op%"=="149" goto media_all
 if "%op%"=="150" goto audit_ops
+if "%op%"=="151" goto audit_stage_exc
+if "%op%"=="152" goto audit_bitrate
+if "%op%"=="153" goto album_verify
+if "%op%"=="154" goto tavern_quotes
+if "%op%"=="155" goto tavern_summary
+if "%op%"=="156" goto tavern_ep
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2093,5 +2106,67 @@ echo  三档: 豁免(一次性修复/库) / 待接入(已知待排期) / 未登记(需警觉)
 set /p strict=  严格模式? 输入 s 则 --strict（有未登记即退出码1），直接回车=只报警:
 cd /d "D:\wx409.github.io"
 if /i "%strict%"=="s" (python -X utf8 project_b\audit_ops_coverage.py --strict) else (python -X utf8 project_b\audit_ops_coverage.py)
+pause
+goto menu
+
+
+:audit_stage_exc
+cls
+echo  [舞台排除项回归审计] 防止生成器把已排除素材/错误曲名/旧样本数"回吞"上线
+echo  黑名单与红线需同步 他人主导\_excluded.json 台账；该审计已进部署链（每次部署自动跑）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_stage_exclusions.py
+pause
+goto menu
+
+:audit_bitrate
+cls
+echo  [存量音源码率审计] 不信标称，逐文件算真实码率（字节数×8 ÷ 时长）
+echo  默认只扫前若干文件（--limit 控制）；用于核对"QQ音乐320k"这类元数据声明是否属实
+set /p blim=  扫描条数（直接回车=默认）:
+cd /d "D:\wx409.github.io"
+if "%blim%"=="" (python -X utf8 project_b\audit_audio_bitrate.py) else (python -X utf8 project_b\audit_audio_bitrate.py --limit %blim%)
+pause
+goto menu
+
+:album_verify
+cls
+echo  [专辑层复核状态] 把 A3 终裁（含低音层/QA 抽样）转成站点 per-song / per-album 状态
+echo  产出: data\album_verify_status.json（? 待复核读数展示但三不许）
+echo  该步骤已进部署链；此处供数据更新后手动重跑
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_album_verify.py
+pause
+goto menu
+
+:tavern_quotes
+cls
+echo  [小酒馆金句并入首页] 从 tavern\tavern_summaries.json 取 quotes 追加到 index.html
+echo  幂等: 已有标记则跳过；无金句则提示"无金句可插入"
+echo  注意: 上游需先跑 155 生成摘要，否则本步无数据可插
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\append_tavern_quotes.py
+pause
+goto menu
+
+:tavern_summary
+cls
+echo  [小酒馆摘要提取] 从本地全文库逐期提取 主题/个人喜好/金句/关键词
+echo  ?? 调用 DeepSeek API，按量计费；建议先 --limit 试跑
+set /p tlim=  试跑期数（直接回车=全部106期）:
+cd /d "D:\wx409.github.io"
+if "%tlim%"=="" (python -X utf8 project_b\build_tavern_summary.py --all) else (python -X utf8 project_b\build_tavern_summary.py --limit %tlim%)
+echo  [OK] 完成后可跑 154 把金句并入首页
+pause
+goto menu
+
+:tavern_ep
+cls
+echo  [小酒馆摘要版 ep 页重建] 用干净模板替换站内逐字稿全文页
+echo  保留 head/标题/导航/合规标注；正文改为 摘要+喜好+金句+本期歌单+官方外链
+echo  全文已备份本地全文库，站内不再放全文（合规）
+set /p elim=  试跑期数（直接回车=全部106期）:
+cd /d "D:\wx409.github.io"
+if "%elim%"=="" (python -X utf8 project_b\rebuild_tavern_ep_summary.py --all) else (python -X utf8 project_b\rebuild_tavern_ep_summary.py --limit %elim%)
 pause
 goto menu

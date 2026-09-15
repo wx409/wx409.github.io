@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-15 11:14",
+ "generated_at": "2026-09-15 12:17",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 150,
-  "dispatch": 149,
-  "deploy_steps": 52,
+  "menu_items": 156,
+  "dispatch": 155,
+  "deploy_steps": 54,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1154,6 +1154,58 @@
    "title": "操作中心覆盖审计（含反向检查：可运行脚本无入口则报警；--strict 严格）",
    "menu_label": "audit_ops",
    "path": "D:\\wx409.github.io\\project_b\\audit_ops_coverage.py"
+  },
+  {
+   "script": "audit_stage_exclusions.py",
+   "in_deploy": true,
+   "deploy_desc": "排除项回归审计（防已排除素材/错误曲名被生成器回吞上线）",
+   "critical": false,
+   "menu": 151,
+   "title": "舞台排除项回归审计（防已排除素材/错误曲名被生成器回吞上线）",
+   "menu_label": "audit_stage_exc",
+   "path": "D:\\wx409.github.io\\project_b\\audit_stage_exclusions.py"
+  },
+  {
+   "script": "audit_audio_bitrate.py",
+   "menu": 152,
+   "title": "存量音源码率审计（逐文件算真实码率，不信标称）",
+   "menu_label": "audit_bitrate",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_audio_bitrate.py"
+  },
+  {
+   "script": "build_album_verify.py",
+   "in_deploy": true,
+   "deploy_desc": "专辑层复核状态 data/album_verify_status.json（A3 终裁 → per-song/album）",
+   "critical": false,
+   "menu": 153,
+   "title": "专辑层复核状态生成（A3 终裁到 data/album_verify_status.json）",
+   "menu_label": "album_verify",
+   "path": "D:\\wx409.github.io\\project_b\\build_album_verify.py"
+  },
+  {
+   "script": "append_tavern_quotes.py",
+   "menu": 154,
+   "title": "小酒馆金句并入首页金句墙（锚点自适应，幂等）",
+   "menu_label": "tavern_quotes",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\append_tavern_quotes.py"
+  },
+  {
+   "script": "build_tavern_summary.py",
+   "menu": 155,
+   "title": "小酒馆「有价值摘要」提取（?? 调 DeepSeek API，按量计费）",
+   "menu_label": "tavern_summary",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_tavern_summary.py"
+  },
+  {
+   "script": "rebuild_tavern_ep_summary.py",
+   "menu": 156,
+   "title": "小酒馆摘要版 ep 页重建（全文页换摘要版，全文已备份本地）",
+   "menu_label": "tavern_ep",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\rebuild_tavern_ep_summary.py"
   },
   {
    "script": "_build_episodes.py",
