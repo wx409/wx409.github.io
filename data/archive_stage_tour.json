@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-15 17:01",
+ "generated_at": "2026-09-15 17:25",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,10 +9,10 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 68,
-  "n_stage_measured": 65,
+  "n_materials": 88,
+  "n_stage_measured": 85,
   "n_from_precision": 3,
-  "n_songs": 31,
+  "n_songs": 33,
   "n_tours": 8,
   "n_verified": 55,
   "n_harmonic_reviewed": 50,
@@ -26,10 +26,10 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 2.99,
-  "stability_median_cents": 7.3,
+  "span_median_octaves": 2.92,
+  "stability_median_cents": 7.5,
   "vibrato_rate_hz_median": 4.97,
-  "vibrato_extent_cents_median": 80.0,
+  "vibrato_extent_cents_median": 82.0,
   "verify_dist": {
    "谐波列复核通过": 49,
    "待复核": 3,
@@ -38,7 +38,8 @@
    "人耳确认（听辨）": 6,
    "仅参考（音质受限）": 1,
    "待复核（谐波列待判）": 2,
-   "谐波列复核通过（同刻三源）": 1
+   "谐波列复核通过（同刻三源）": 1,
+   "未复核": 20
   }
  },
  "by_tour": [
@@ -2359,6 +2360,42 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
+   "tag": "六巡广州微博_3_Autumn_Leaves",
+   "song": "Autumn Leaves",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "C2",
+   "low_hz": 67.0,
+   "low_t_s": 15.27873015873016,
+   "low_dur_s": 0.603718820861678,
+   "high_note": "G#3",
+   "high_hz": 209.9,
+   "span_octaves": 1.65,
+   "stability_cents": 10.5,
+   "intonation_cents": 24.0,
+   "vibrato_hz": 5.17,
+   "vibrato_cents": 104.0,
+   "density_per_s": 1.4,
+   "hnr_db": 2.5,
+   "duration_s": 274.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "C2",
+    "hz": 67.0
+   }
+  },
+  {
    "tag": "新素材11j7s7_BV19J411j7s7",
    "song": "一生守候",
    "tour": "其他演出",
@@ -2409,6 +2446,78 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "六巡广州微博_1_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "C#2",
+   "low_hz": 69.7,
+   "low_t_s": 48.01886621315193,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "D5",
+   "high_hz": 600.2,
+   "span_octaves": 3.11,
+   "stability_cents": 8.0,
+   "intonation_cents": 22.5,
+   "vibrato_hz": 4.97,
+   "vibrato_cents": 93.0,
+   "density_per_s": 2.14,
+   "hnr_db": 8.0,
+   "duration_s": 194.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "C#2",
+    "hz": 69.7
+   }
+  },
+  {
+   "tag": "六巡广州微博_上半场_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "C#2",
+   "low_hz": 69.7,
+   "low_t_s": 48.01886621315193,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "D5",
+   "high_hz": 600.1,
+   "span_octaves": 3.11,
+   "stability_cents": 8.0,
+   "intonation_cents": 21.0,
+   "vibrato_hz": 4.94,
+   "vibrato_cents": 94.0,
+   "density_per_s": 2.12,
+   "hnr_db": 8.1,
+   "duration_s": 192.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "C#2",
+    "hz": 69.7
+   }
   },
   {
    "tag": "未知20211127_BV1Ef4y1K7NJ",
@@ -2619,6 +2728,42 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
+   "tag": "六巡广州微博_2_Close_to_You",
+   "song": "Close to You",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "D2",
+   "low_hz": 73.0,
+   "low_t_s": 114.31183673469388,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "A5",
+   "high_hz": 865.8,
+   "span_octaves": 3.57,
+   "stability_cents": 8.4,
+   "intonation_cents": 24.7,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 90.0,
+   "density_per_s": 1.89,
+   "hnr_db": 6.5,
+   "duration_s": 218.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "D2",
+    "hz": 73.0
+   }
+  },
+  {
    "tag": "杭州20201226_BV1z5411H7yg",
    "song": "花儿为什么这样红",
    "tour": "其他演出",
@@ -2776,6 +2921,42 @@
    "listen_verified": true
   },
   {
+   "tag": "六巡广州微博_4_再见我的爱人",
+   "song": "再见我的爱人",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "D#2",
+   "low_hz": 77.0,
+   "low_t_s": 178.23637188208616,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "F5",
+   "high_hz": 701.6,
+   "span_octaves": 3.19,
+   "stability_cents": 9.5,
+   "intonation_cents": 25.8,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 95.0,
+   "density_per_s": 1.94,
+   "hnr_db": 6.4,
+   "duration_s": 198.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "D#2",
+    "hz": 77.0
+   }
+  },
+  {
    "tag": "南京20190731_BV1Mt411w7cx",
    "song": "南屏晚钟",
    "tour": "其他演出",
@@ -2826,6 +3007,150 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "六巡广州微博_6_女人花＋水中花",
+   "song": "女人花＋水中花",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "D#2",
+   "low_hz": 77.6,
+   "low_t_s": 83.28997732426303,
+   "low_dur_s": 0.3250793650793651,
+   "high_note": "B4",
+   "high_hz": 486.6,
+   "span_octaves": 2.65,
+   "stability_cents": 8.7,
+   "intonation_cents": 21.3,
+   "vibrato_hz": 4.88,
+   "vibrato_cents": 79.0,
+   "density_per_s": 1.87,
+   "hnr_db": 6.0,
+   "duration_s": 445.3,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "D#2",
+    "hz": 77.6
+   }
+  },
+  {
+   "tag": "六巡广州微博_6_一生守候",
+   "song": "一生守候",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "D#2",
+   "low_hz": 78.4,
+   "low_t_s": 215.22575963718822,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "A3",
+   "high_hz": 220.8,
+   "span_octaves": 1.49,
+   "stability_cents": 9.1,
+   "intonation_cents": 24.8,
+   "vibrato_hz": 4.98,
+   "vibrato_cents": 87.0,
+   "density_per_s": 1.68,
+   "hnr_db": 9.2,
+   "duration_s": 228.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "D#2",
+    "hz": 78.4
+   }
+  },
+  {
+   "tag": "六巡广州微博_3_月半弯",
+   "song": "月半弯",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "D#2",
+   "low_hz": 79.5,
+   "low_t_s": 52.8021768707483,
+   "low_dur_s": 0.34829931972789113,
+   "high_note": "D#4",
+   "high_hz": 304.0,
+   "span_octaves": 1.93,
+   "stability_cents": 7.7,
+   "intonation_cents": 22.1,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 73.0,
+   "density_per_s": 1.63,
+   "hnr_db": 5.4,
+   "duration_s": 209.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "D#2",
+    "hz": 79.5
+   }
+  },
+  {
+   "tag": "六巡广州微博_5_平凡又美好的晚上",
+   "song": "平凡又美好的晚上",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "E2",
+   "low_hz": 80.3,
+   "low_t_s": 37.10548752834467,
+   "low_dur_s": 0.16253968253968254,
+   "high_note": "D#4",
+   "high_hz": 307.5,
+   "span_octaves": 1.94,
+   "stability_cents": 8.2,
+   "intonation_cents": 24.6,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 87.0,
+   "density_per_s": 2.24,
+   "hnr_db": 7.8,
+   "duration_s": 257.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "E2",
+    "hz": 80.3
+   }
   },
   {
    "tag": "未知20190914_BV1SJ411w72G",
@@ -2985,6 +3310,78 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
+   "tag": "六巡广州微博_1_Yesterday_Once_More",
+   "song": "Yesterday Once More",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "E2",
+   "low_hz": 83.3,
+   "low_t_s": 25.727709750566895,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "G4",
+   "high_hz": 390.3,
+   "span_octaves": 2.23,
+   "stability_cents": 7.3,
+   "intonation_cents": 17.7,
+   "vibrato_hz": 4.88,
+   "vibrato_cents": 73.0,
+   "density_per_s": 1.54,
+   "hnr_db": 4.8,
+   "duration_s": 249.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "E2",
+    "hz": 83.3
+   }
+  },
+  {
+   "tag": "六巡广州微博_中段_Yesterday_Once_More",
+   "song": "Yesterday Once More",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "E2",
+   "low_hz": 83.3,
+   "low_t_s": 25.727709750566895,
+   "low_dur_s": 0.301859410430839,
+   "high_note": "A4",
+   "high_hz": 440.9,
+   "span_octaves": 2.4,
+   "stability_cents": 7.4,
+   "intonation_cents": 17.8,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 72.0,
+   "density_per_s": 1.63,
+   "hnr_db": 5.1,
+   "duration_s": 249.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "E2",
+    "hz": 83.3
+   }
+  },
+  {
    "tag": "未知20200904_BV1of4y1Q73V",
    "song": "哭砂",
    "tour": "其他演出",
@@ -3035,6 +3432,42 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "六巡广州微博_3_像雾像雨又像风",
+   "song": "像雾像雨又像风",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "F2",
+   "low_hz": 87.9,
+   "low_t_s": 145.63555555555556,
+   "low_dur_s": 0.25541950113378686,
+   "high_note": "E4",
+   "high_hz": 326.2,
+   "span_octaves": 1.89,
+   "stability_cents": 8.8,
+   "intonation_cents": 21.5,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 85.0,
+   "density_per_s": 2.04,
+   "hnr_db": 6.6,
+   "duration_s": 218.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "F2",
+    "hz": 87.9
+   }
   },
   {
    "tag": "北京20190818_BV1N4411o7Ld",
@@ -3299,6 +3732,42 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
+   "tag": "六巡广州微博_7_Your_Man",
+   "song": "Your Man",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "F#2",
+   "low_hz": 90.6,
+   "low_t_s": 69.93850340136055,
+   "low_dur_s": 0.18575963718820862,
+   "high_note": "G5",
+   "high_hz": 763.6,
+   "span_octaves": 3.08,
+   "stability_cents": 8.7,
+   "intonation_cents": 20.9,
+   "vibrato_hz": 5.17,
+   "vibrato_cents": 95.0,
+   "density_per_s": 1.83,
+   "hnr_db": 3.8,
+   "duration_s": 183.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "F#2",
+    "hz": 90.6
+   }
+  },
+  {
    "tag": "未知20191222_BV1sJ411s7hj",
    "song": "Your Man",
    "tour": "其他演出",
@@ -3401,6 +3870,78 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "六巡广州微博_1_让她降落",
+   "song": "让她降落",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "F#2",
+   "low_hz": 91.9,
+   "low_t_s": 8.266303854875284,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "G5",
+   "high_hz": 777.6,
+   "span_octaves": 3.08,
+   "stability_cents": 8.4,
+   "intonation_cents": 20.1,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 99.0,
+   "density_per_s": 2.16,
+   "hnr_db": 9.6,
+   "duration_s": 221.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "F#2",
+    "hz": 91.9
+   }
+  },
+  {
+   "tag": "六巡广州微博_下半场_让她降落",
+   "song": "让她降落",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "F#2",
+   "low_hz": 92.3,
+   "low_t_s": 8.266303854875284,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "B4",
+   "high_hz": 498.9,
+   "span_octaves": 2.43,
+   "stability_cents": 8.6,
+   "intonation_cents": 19.5,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 100.0,
+   "density_per_s": 2.15,
+   "hnr_db": 9.5,
+   "duration_s": 221.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "F#2",
+    "hz": 92.3
+   }
   },
   {
    "tag": "三亚20230225_BV1UX4y197Lu",
@@ -3559,6 +4100,78 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
+   "tag": "六巡广州微博_5_心动",
+   "song": "心动",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "G2",
+   "low_hz": 97.1,
+   "low_t_s": 41.05287981859411,
+   "low_dur_s": 0.5340589569160997,
+   "high_note": "C#4",
+   "high_hz": 281.2,
+   "span_octaves": 1.53,
+   "stability_cents": 8.0,
+   "intonation_cents": 24.7,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 90.0,
+   "density_per_s": 1.63,
+   "hnr_db": 8.7,
+   "duration_s": 221.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "G2",
+    "hz": 97.1
+   }
+  },
+  {
+   "tag": "六巡广州微博_2_橄榄树",
+   "song": "橄榄树",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "G#2",
+   "low_hz": 103.3,
+   "low_t_s": 189.63736961451247,
+   "low_dur_s": 0.7430385487528345,
+   "high_note": "A5",
+   "high_hz": 859.3,
+   "span_octaves": 3.06,
+   "stability_cents": 8.6,
+   "intonation_cents": 20.1,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 83.0,
+   "density_per_s": 1.89,
+   "hnr_db": 9.0,
+   "duration_s": 195.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "G#2",
+    "hz": 103.3
+   }
+  },
+  {
    "tag": "未知20201118_BV1er4y1F7Nr",
    "song": "像雾像雨又像风",
    "tour": "其他演出",
@@ -3609,6 +4222,114 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "六巡广州微博_4_情网",
+   "song": "情网",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "A2",
+   "low_hz": 110.9,
+   "low_t_s": 196.13895691609977,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "F4",
+   "high_hz": 346.8,
+   "span_octaves": 1.64,
+   "stability_cents": 8.5,
+   "intonation_cents": 25.7,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 88.0,
+   "density_per_s": 1.85,
+   "hnr_db": 10.1,
+   "duration_s": 256.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "A2",
+    "hz": 110.9
+   }
+  },
+  {
+   "tag": "六巡广州微博_2_Bésame_Mucho",
+   "song": "Bésame Mucho",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "B2",
+   "low_hz": 122.5,
+   "low_t_s": 171.64190476190475,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "G5",
+   "high_hz": 791.6,
+   "span_octaves": 2.69,
+   "stability_cents": 9.4,
+   "intonation_cents": 17.1,
+   "vibrato_hz": 4.92,
+   "vibrato_cents": 93.0,
+   "density_per_s": 1.6,
+   "hnr_db": 8.4,
+   "duration_s": 197.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "B2",
+    "hz": 122.5
+   }
+  },
+  {
+   "tag": "六巡广州微博_8_夜色",
+   "song": "夜色",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "",
+   "bv": "",
+   "owner": "",
+   "title": "",
+   "bandwidth_kbps": null,
+   "source_verdict": "",
+   "low_note": "B2",
+   "low_hz": 122.6,
+   "low_t_s": 2.414875283446712,
+   "low_dur_s": 0.301859410430839,
+   "high_note": "D#4",
+   "high_hz": 316.0,
+   "span_octaves": 1.37,
+   "stability_cents": 7.6,
+   "intonation_cents": 24.5,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 80.0,
+   "density_per_s": 1.89,
+   "hnr_db": 8.9,
+   "duration_s": 168.6,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "无法复核（缺混音或时间）",
+    "note": "B2",
+    "hz": 122.6
+   }
   },
   {
    "tag": "未知20250413_BV14kouYsEhY",
@@ -3666,15 +4387,30 @@
  "by_song": [
   {
    "song": "Autumn Leaves",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
-   "lowest_note": "D2",
-   "lowest_hz": 73.0,
-   "lowest_tag": "六巡广州20260823_12_Autumn Leaves",
-   "span_median_octaves": 2.86,
+   "lowest_note": "C2",
+   "lowest_hz": 67.0,
+   "lowest_tag": "六巡广州微博_3_Autumn_Leaves",
+   "span_median_octaves": 2.25,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "C2",
+     "low_hz": 67.0,
+     "high_note": "G#3",
+     "high_hz": 209.9,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.65,
+     "verify": "未复核",
+     "bv": ""
+    },
     {
      "tour": "六巡",
      "city": "广州",
@@ -3694,14 +4430,14 @@
   },
   {
    "song": "Bésame Mucho",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
    "lowest_note": "B2",
    "lowest_hz": 121.8,
    "lowest_tag": "六巡广州20260823_11_Bésame Mucho",
-   "span_median_octaves": 2.71,
+   "span_median_octaves": 2.7,
    "versions": [
     {
      "tour": "六巡",
@@ -3717,20 +4453,50 @@
      "span_octaves": 2.71,
      "verify": "待复核（谐波列待判）",
      "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "B2",
+     "low_hz": 122.5,
+     "high_note": "G5",
+     "high_hz": 791.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.69,
+     "verify": "未复核",
+     "bv": ""
     }
    ]
   },
   {
    "song": "Close to You",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
    "lowest_note": "D2",
-   "lowest_hz": 74.8,
-   "lowest_tag": "六巡广州20260823_5_Close to You",
-   "span_median_octaves": 3.78,
+   "lowest_hz": 73.0,
+   "lowest_tag": "六巡广州微博_2_Close_to_You",
+   "span_median_octaves": 3.67,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "D2",
+     "low_hz": 73.0,
+     "high_note": "A5",
+     "high_hz": 865.8,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.57,
+     "verify": "未复核",
+     "bv": ""
+    },
     {
      "tour": "六巡",
      "city": "广州",
@@ -3778,15 +4544,45 @@
   },
   {
    "song": "Yesterday Once More",
-   "n_versions": 1,
+   "n_versions": 3,
    "tours": [
     "六巡"
    ],
-   "lowest_note": "F2",
-   "lowest_hz": 84.9,
-   "lowest_tag": "六巡广州20260823_4_Yesterday Once More",
-   "span_median_octaves": 2.92,
+   "lowest_note": "E2",
+   "lowest_hz": 83.3,
+   "lowest_tag": "六巡广州微博_1_Yesterday_Once_More",
+   "span_median_octaves": 2.4,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "E2",
+     "low_hz": 83.3,
+     "high_note": "G4",
+     "high_hz": 390.3,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.23,
+     "verify": "未复核",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "E2",
+     "low_hz": 83.3,
+     "high_note": "A4",
+     "high_hz": 440.9,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.4,
+     "verify": "未复核",
+     "bv": ""
+    },
     {
      "tour": "六巡",
      "city": "广州",
@@ -3806,14 +4602,14 @@
   },
   {
    "song": "Your Man",
-   "n_versions": 5,
+   "n_versions": 6,
    "tours": [
     "六巡"
    ],
    "lowest_note": "F2",
    "lowest_hz": 88.9,
    "lowest_tag": "北京20190818_BV1N4411o7Ld",
-   "span_median_octaves": 2.93,
+   "span_median_octaves": 3.0,
    "versions": [
     {
      "tour": "其他演出",
@@ -3862,6 +4658,21 @@
     },
     {
      "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "F#2",
+     "low_hz": 90.6,
+     "high_note": "G5",
+     "high_hz": 763.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.08,
+     "verify": "未复核",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
      "city": "",
      "date": "2019-12-22",
      "low_note": "F#2",
@@ -3894,14 +4705,14 @@
   },
   {
    "song": "一生守候",
-   "n_versions": 3,
+   "n_versions": 4,
    "tours": [
     "六巡"
    ],
    "lowest_note": "C#2",
    "lowest_hz": 69.5,
    "lowest_tag": "新素材11j7s7_BV19J411j7s7",
-   "span_median_octaves": 2.22,
+   "span_median_octaves": 1.9,
    "versions": [
     {
      "tour": "其他演出",
@@ -3946,6 +4757,21 @@
      "high_listen_verified": null,
      "span_octaves": 3.52,
      "verify": "谐波列复核通过",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "D#2",
+     "low_hz": 78.4,
+     "high_note": "A3",
+     "high_hz": 220.8,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.49,
+     "verify": "未复核",
      "bv": ""
     }
    ]
@@ -4090,14 +4916,14 @@
   },
   {
    "song": "像雾像雨又像风",
-   "n_versions": 3,
+   "n_versions": 4,
    "tours": [
     "六巡"
    ],
    "lowest_note": "E2",
    "lowest_hz": 81.9,
    "lowest_tag": "未知20201127_BV1nZ4y1G7Zq",
-   "span_median_octaves": 1.7,
+   "span_median_octaves": 1.79,
    "versions": [
     {
      "tour": "其他演出",
@@ -4113,6 +4939,21 @@
      "span_octaves": 1.7,
      "verify": "人耳确认（听辨）",
      "bv": "BV1nZ4y1G7Zq"
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "F2",
+     "low_hz": 87.9,
+     "high_note": "E4",
+     "high_hz": 326.2,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.89,
+     "verify": "未复核",
+     "bv": ""
     },
     {
      "tour": "其他演出",
@@ -4148,14 +4989,14 @@
   },
   {
    "song": "再见我的爱人",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
    "lowest_note": "D#2",
    "lowest_hz": 76.5,
    "lowest_tag": "六巡广州20260823_7_再见我的爱人",
-   "span_median_octaves": 2.58,
+   "span_median_octaves": 2.88,
    "versions": [
     {
      "tour": "六巡",
@@ -4170,6 +5011,21 @@
      "high_listen_verified": null,
      "span_octaves": 2.58,
      "verify": "谐波列复核通过",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "D#2",
+     "low_hz": 77.0,
+     "high_note": "F5",
+     "high_hz": 701.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.19,
+     "verify": "未复核",
      "bv": ""
     }
    ]
@@ -4374,14 +5230,14 @@
   },
   {
    "song": "夜色",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
    "lowest_note": "D#2",
    "lowest_hz": 76.0,
    "lowest_tag": "六巡广州20260823_19_夜色",
-   "span_median_octaves": 2.2,
+   "span_median_octaves": 1.79,
    "versions": [
     {
      "tour": "六巡",
@@ -4396,6 +5252,21 @@
      "high_listen_verified": null,
      "span_octaves": 2.2,
      "verify": "谐波列复核通过",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "B2",
+     "low_hz": 122.6,
+     "high_note": "D#4",
+     "high_hz": 316.0,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.37,
+     "verify": "未复核",
      "bv": ""
     }
    ]
@@ -4457,6 +5328,32 @@
    ]
   },
   {
+   "song": "女人花＋水中花",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "D#2",
+   "lowest_hz": 77.6,
+   "lowest_tag": "六巡广州微博_6_女人花＋水中花",
+   "span_median_octaves": 2.65,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "D#2",
+     "low_hz": 77.6,
+     "high_note": "B4",
+     "high_hz": 486.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.65,
+     "verify": "未复核",
+     "bv": ""
+    }
+   ]
+  },
+  {
    "song": "小毛驴",
    "n_versions": 2,
    "tours": [
@@ -4501,14 +5398,14 @@
   },
   {
    "song": "平凡又美好的晚上",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
    "lowest_note": "D#2",
    "lowest_hz": 79.1,
    "lowest_tag": "六巡广州20260823_14_平凡又美好的晚上",
-   "span_median_octaves": 2.72,
+   "span_median_octaves": 2.33,
    "versions": [
     {
      "tour": "六巡",
@@ -4524,19 +5421,60 @@
      "span_octaves": 2.72,
      "verify": "谐波列复核通过",
      "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "E2",
+     "low_hz": 80.3,
+     "high_note": "D#4",
+     "high_hz": 307.5,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.94,
+     "verify": "未复核",
+     "bv": ""
+    }
+   ]
+  },
+  {
+   "song": "心动",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "G2",
+   "lowest_hz": 97.1,
+   "lowest_tag": "六巡广州微博_5_心动",
+   "span_median_octaves": 1.53,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "G2",
+     "low_hz": 97.1,
+     "high_note": "C#4",
+     "high_hz": 281.2,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.53,
+     "verify": "未复核",
+     "bv": ""
     }
    ]
   },
   {
    "song": "情网",
-   "n_versions": 2,
+   "n_versions": 3,
    "tours": [
     "六巡"
    ],
    "lowest_note": "D#2",
    "lowest_hz": 76.1,
    "lowest_tag": "六巡广州20260823_18_情网",
-   "span_median_octaves": 2.7,
+   "span_median_octaves": 2.21,
    "versions": [
     {
      "tour": "六巡",
@@ -4566,6 +5504,21 @@
      "high_listen_verified": null,
      "span_octaves": 3.18,
      "verify": "谐波列复核通过",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "A2",
+     "low_hz": 110.9,
+     "high_note": "F4",
+     "high_hz": 346.8,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.64,
+     "verify": "未复核",
      "bv": ""
     }
    ]
@@ -4624,15 +5577,30 @@
   },
   {
    "song": "月半弯",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
-   "lowest_note": "G2",
-   "lowest_hz": 98.6,
-   "lowest_tag": "六巡广州20260823_6_月半弯",
-   "span_median_octaves": 3.07,
+   "lowest_note": "D#2",
+   "lowest_hz": 79.5,
+   "lowest_tag": "六巡广州微博_3_月半弯",
+   "span_median_octaves": 2.5,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "D#2",
+     "low_hz": 79.5,
+     "high_note": "D#4",
+     "high_hz": 304.0,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.93,
+     "verify": "未复核",
+     "bv": ""
+    },
     {
      "tour": "六巡",
      "city": "广州",
@@ -4652,14 +5620,14 @@
   },
   {
    "song": "橄榄树",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "六巡"
    ],
    "lowest_note": "G2",
    "lowest_hz": 100.3,
    "lowest_tag": "六巡广州20260823_2_橄榄树",
-   "span_median_octaves": 3.13,
+   "span_median_octaves": 3.09,
    "versions": [
     {
      "tour": "六巡",
@@ -4674,6 +5642,21 @@
      "high_listen_verified": null,
      "span_octaves": 3.13,
      "verify": "谐波列复核通过",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "G#2",
+     "low_hz": 103.3,
+     "high_note": "A5",
+     "high_hz": 859.3,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.06,
+     "verify": "未复核",
      "bv": ""
     }
    ]
@@ -4721,15 +5704,45 @@
   },
   {
    "song": "花儿为什么这样红",
-   "n_versions": 3,
+   "n_versions": 5,
    "tours": [
     "六巡"
    ],
-   "lowest_note": "D2",
-   "lowest_hz": 72.2,
-   "lowest_tag": "六巡广州20260823_1_花儿为什么这样红",
-   "span_median_octaves": 3.05,
+   "lowest_note": "C#2",
+   "lowest_hz": 69.7,
+   "lowest_tag": "六巡广州微博_1_花儿为什么这样红",
+   "span_median_octaves": 3.11,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "C#2",
+     "low_hz": 69.7,
+     "high_note": "D5",
+     "high_hz": 600.2,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.11,
+     "verify": "未复核",
+     "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "C#2",
+     "low_hz": 69.7,
+     "high_note": "D5",
+     "high_hz": 600.1,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.11,
+     "verify": "未复核",
+     "bv": ""
+    },
     {
      "tour": "六巡",
      "city": "广州",
@@ -4779,7 +5792,7 @@
   },
   {
    "song": "让她降落",
-   "n_versions": 15,
+   "n_versions": 17,
    "tours": [
     "一巡",
     "二巡",
@@ -4911,6 +5924,21 @@
      "bv": "BV1mw411R7yo"
     },
     {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "F#2",
+     "low_hz": 91.9,
+     "high_note": "G5",
+     "high_hz": 777.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.08,
+     "verify": "未复核",
+     "bv": ""
+    },
+    {
      "tour": "一巡",
      "city": "北京",
      "date": "2020-01-02",
@@ -4939,6 +5967,21 @@
      "span_octaves": 3.33,
      "verify": "谐波列复核通过",
      "bv": "BV15K411w7Sj"
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "",
+     "low_note": "F#2",
+     "low_hz": 92.3,
+     "high_note": "B4",
+     "high_hz": 498.9,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.43,
+     "verify": "未复核",
+     "bv": ""
     },
     {
      "tour": "六巡",

@@ -134,6 +134,35 @@ def tour_layer_html() -> str:
                 f'<td>{esc(v.get("verify"))}</td>'
                 + (f'<td><a href="https://www.bilibili.com/video/{esc(v.get("bv"))}" rel="noopener nofollow" target="_blank">B站原链接</a></td>'
                    if v.get("bv") else "<td>—</td>") + '</tr>')
+    # 单版本素材：只有 1 个现场版本的曲目（不进跨巡对比表，但必须可见）
+    solo_rows = []
+    for sg in t.get("by_song") or []:
+        if (sg.get("n_versions") or 0) != 1:
+            continue
+        v = (sg.get("versions") or [{}])[0]
+        if not v.get("low_hz"):
+            continue
+        bv = v.get("bv") or ""
+        link = (f'<a href="https://www.bilibili.com/video/{esc(bv)}" rel="noopener nofollow"'
+                f' target="_blank">来源</a>' if bv else "—")
+        hi = (f'{esc(v.get("high_note"))} {v.get("high_hz")} Hz'
+              + (' <span class="lv">人耳确认</span>' if v.get("high_listen_verified") else '')
+              ) if v.get("high_hz") else "—"
+        solo_rows.append(
+            f'<tr><td>{esc(sg.get("song"))}</td>'
+            f'<td>{esc(v.get("tour"))}｜{esc(v.get("city"))} {esc(v.get("date"))}</td>'
+            f'<td class="low">{esc(v.get("low_note"))} {v.get("low_hz")} Hz</td>'
+            f'<td class="high">{hi}</td>'
+            f'<td>{esc(v.get("verify"))}</td><td>{link}</td></tr>')
+    solo_html = ""
+    if solo_rows:
+        solo_html = ("<h3>单版本素材（目前仅 1 个现场版本，暂无可比对象）</h3>"
+                     "<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th>"
+                     "<th>最高音</th><th>复核</th><th>来源</th></tr>"
+                     + "\n".join(solo_rows) + "</table>"
+                     f"<p class='sub' style='margin-top:0'>共 <strong>{len(solo_rows)} 条</strong>。"
+                     "这些曲目目前只有一次现场实测记录，因此没有跨版本差值可比；"
+                     "一旦补录同曲第二场，会自动升入上表参与对照。</p>")
     cross_html = ""
     if cross_rows:
         n_songs = len({r.split("</td>")[0] for r in cross_rows})
@@ -230,6 +259,7 @@ def tour_layer_html() -> str:
 {pair_html}
 <span id="cmp-b"></span>
 {cross_html}
+{solo_html}
 {"<h3>现场 vs 录音室（B1 复现）</h3><ul>" + live_rows + "</ul>" if live_rows else ""}
 {f'<p>同曲对照：录音室 {sv.get("studio_hz")} Hz ↔ 现场 {sv.get("live_hz")} Hz（{esc(sv.get("live_note"))}）——{esc(sv.get("note"))}</p>' if sv else ""}
 <h3>巡演 × 专辑：每巡唱的是什么</h3>
