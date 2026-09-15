@@ -501,6 +501,105 @@
      "meta": "DOI: 10.3233/SW-223034"
     }
    ]
+  },
+  {
+   "id": "methods",
+   "title": "七、方法与工具（本站所用的国际成熟方案）",
+   "desc": "本站声学测量**不是从零自研**：人声分离、音高估计、语音转写三环均采用国际上被广泛验证的开源方案；仅在无可用库的一环（低音区逐帧 F0 的鲁棒过滤）自研并公开方法。以下逐项著录，并如实说明**未采用**者及原因。",
+   "style": "paper",
+   "items": [
+    {
+     "title": "Voice Range Profile（声域图）测量建议 —— 声乐临床的金标准",
+     "authors": "Schutte HK, Seidner W",
+     "venue": "欧洲嗓音医师联盟（Union of European Phoniatricians）",
+     "year": "1983",
+     "pages": "",
+     "tags": [
+      "临床标准",
+      "VRP",
+      "方法学"
+     ],
+     "abstract": "VRP（phonetogram）在每个音级上记录最弱与最强的可持续发声，形成「基频 × 声压级」的二维能力图，并区分生理音域与惯用音域。**本站做的是「从录音素材重建 VRP」**：以稳定音近似 habitual f0min、以触达音近似生理极限的零星证据、以低音区动态范围近似各音级 ΔSPL。差异与局限：临床 VRP 是主动控制变量（指定音级/强弱、≥2 秒持续、2dB 容差复测），本站被动利用现成素材，结论精度受素材约束——**是「重建」不是「测量」**。"
+    },
+    {
+     "title": "Parselmouth: A Python interface to Praat",
+     "authors": "Jadoul Y, Thompson B, de Boer B",
+     "venue": "Journal of Phonetics",
+     "year": "2018",
+     "pages": "1–15",
+     "tags": [
+      "DOI:10.1016/j.wocn.2018.07.001",
+      "Praat",
+      "工具"
+     ],
+     "abstract": "把声学分析领域最通用的 Praat 引擎接入 Python。**本站状态：未采用。**原因：本机存在应用程序控制策略，会拦截同类编译扩展（已验证 numba/llvmlite.dll、sphn 的 .pyd 均被拦，WinError 4551），因此以「自研 YIN + CREPE + 混音谐波列」三路交叉替代 Praat 一路。"
+    },
+    {
+     "title": "CREPE: A Convolutional Representation for Pitch Estimation",
+     "authors": "Kim JW, Salamon J, Li P, Bello JP",
+     "venue": "ICASSP 2018（IEEE 国际声学、语音与信号处理会议）",
+     "year": "2018",
+     "pages": "",
+     "tags": [
+      "arXiv:1802.06182",
+      "音高估计",
+      "已采用"
+     ],
+     "abstract": "以 CNN 直接从波形估计音高，对自相关类方法的次谐波错误不敏感。**本站已采用**（PyTorch 实现 `torchcrepe`），用于对自研 YIN 的最低音读数做交叉校验。**并已实测出其双向失效**：前向——真·缺失基频时会误报；反向——它自身会锁到3 次谐波而把正确读数误判为「次谐波错误」（《无人岛上》比值 3.00 的实例）。故本站规定：任何「次谐波错误」判定**必须经谐波列复核后方可采信**。"
+    },
+    {
+     "title": "Demucs: Music Source Separation in the Waveform Domain（htdemucs）",
+     "authors": "Défossez A, Usunier N, Bottou L, Bach F",
+     "venue": "arXiv / Meta AI (facebookresearch)",
+     "year": "2019",
+     "pages": "",
+     "tags": [
+      "arXiv:1911.13254",
+      "MIT",
+      "人声分离",
+      "已采用"
+     ],
+     "abstract": "混合时域/频域的音乐源分离模型。**本站已采用**（htdemucs 4 轨 / htdemucs_6s 6 轨）作为测量管线第一步：把人声与伴奏分离后再测 F0。6 轨版本可将 bass 单独成轨，是**判定低音归属**（人声 or 低音乐器）的关键手段——据此确认《向着太阳》43–75Hz 的超低能量来自伴奏低音乐器而非本人声（人声轨该频段能量占比仅 0.1497%）。原仓库已归档只读，社区分支维护。"
+    },
+    {
+     "title": "OpenSMILE: The Munich Versatile and Fast Open-Source Audio Feature Extractor",
+     "authors": "Eyben F, Wöllmer M, Schuller B",
+     "venue": "ACM Multimedia 2010",
+     "year": "2010",
+     "pages": "1459–1462",
+     "tags": [
+      "DOI:10.1145/1873951.1874246",
+      "声学特征集",
+      "未采用"
+     ],
+     "abstract": "情感/声学特征集事实标准（含 eGeMAPS、IS09 等参数集）。**本站状态：未采用。**原因：其 Python 封装亦为编译扩展，与本机应用控制策略冲突；本站以自研的六项指标（最低/最高稳定音、跨度、音符内稳定性、颤音速率与幅度、音符密度）替代。"
+    },
+    {
+     "title": "librosa: Audio and Music Signal Analysis in Python",
+     "authors": "McFee B, Raffel C, Liang D, Ellis DPW, McVicar M, Battenberg E, Nieto O",
+     "venue": "SciPy 2015",
+     "year": "2015",
+     "pages": "18–25",
+     "tags": [
+      "音频分析",
+      "受限于本机"
+     ],
+     "abstract": "Python 音频分析基础库。**本站状态：已安装（0.11.0）但不可用。**原因：其 pyin 依赖 numba/llvmlite，而该 .dll 被本机应用程序控制策略拦截（WinError 4551）。因此本站低音区逐帧 F0 改用**自研 numpy YIN**（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050），并另设「复用原始混音谐波列」的复核闸门，以补其鲁棒性。"
+    },
+    {
+     "title": "faster-whisper（CTranslate2 实现的 OpenAI Whisper）",
+     "authors": "SYSTRAN / Radford A 等（Whisper 原模型）",
+     "venue": "开源实现",
+     "year": "2022",
+     "pages": "",
+     "tags": [
+      "ASR",
+      "已采用",
+      "large-v3-turbo"
+     ],
+     "abstract": "语音识别。**本站已采用**（large-v3 local，GPU float16）用于 157 件声音素材的全文转写（171,098 字）与 B 站评议视频的字幕重建。方法学注记：**关闭 VAD 过滤**（vad_filter=False）——实测开启 VAD 会把低音人声整段丢弃（133 秒音频仅留 3 段 21 字），并须注入 hotwords 修正专名（「王晰」曾被误识为「王熙」63 处）。"
+    }
+   ]
   }
  ],
  "summary": [
@@ -508,6 +607,7 @@
   "<strong>男低音／中低音与花腔（6 篇中文）</strong>：<em>《试论男中低音声部训练花腔技巧的必要性及其演唱体会》</em>（臧云扬，《艺术科技》2020）是「低音区花腔」最直接的中文学术依据；另有男中音花腔学位论文、男低音音色训练、Fach 声部划分等文献。",
   "<strong>方法论（17 篇国际）</strong>：声部辨识与音域测量、pYIN/CREPE 基频提取、Demucs 人声分离与 BSS Eval 评测——本站 <a href=\"/voice.html\">音域实测</a> 的完整方法链均有文献支撑。",
   "<strong>数据边界（9 篇国际）</strong>：搜索指数研究、中断时间序列、合成控制与因果推断——解释为什么本站只主张「相关」并主动披露同窗共享归因。",
-  "<strong>GEO 与知识图谱（7 篇国际）</strong>：本站结构化数据、llms.txt 与三层知识库的学术依据。"
+  "<strong>GEO 与知识图谱（7 篇国际）</strong>：本站结构化数据、llms.txt 与三层知识库的学术依据。",
+  "<strong>方法与工具（7 条）</strong>：本站声学管线所用国际成熟方案（demucs 人声分离、CREPE 音高交叉校验、faster-whisper 转写）与临床金标准（VRP，Schutte & Seidner 1983）著录，并**如实说明未采用者及原因**（Praat/Parselmouth 与 openSMILE 因本机应用程序控制策略拦截编译扩展；librosa 已装但其 pyin 依赖 numba 不可用）。"
  ]
 }
