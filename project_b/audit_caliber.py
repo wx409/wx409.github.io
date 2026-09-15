@@ -305,6 +305,35 @@ def main() -> None:
             rel = rel.split("?")[0].split("#")[0]
             ok(f"{page} 引用资产存在 {rel}", True, (ROOT / rel).exists())
 
+    # ---------- 声学值防回退守卫（2026-09-15）----------
+    # 为什么需要：archive_vocal_albums.json 由 批量专辑音域.py 的重算结果派生，
+    # 而该重算**非确定性**（回望《无人岛上》三次跑出 D#2 77.9 / D2 74.2 / D2 75.4）。
+    # 人工复核结论若只存在于派生产物里，跑一次重算就会**静默回退**。
+    # 因此这里对**已在生成器输入层锁定（PIN / MANUAL_REVIEW）的关键值**做硬校验：
+    # 一旦站点值与锁定值不符，立即 FAIL —— 让回退必须被人看见，而不是悄悄上线。
+    try:
+        _alb = json.loads((ROOT / "data" / "archive_vocal_albums.json").read_text(encoding="utf-8"))
+        _rows = {a.get("album"): a for a in (_alb.get("albums") or [])}
+        _songs = {(s.get("album"), s.get("title")): s for s in (_alb.get("songs") or [])}
+        # (取值, 期望, 说明)：albums 汇总行只有音名；Hz 在 songs 行上
+        for _got, _exp, _why in (
+            ((_rows.get("回望") or {}).get("low"), "D2",
+             "《无人岛上》最低音名（PIN 于 生成专辑音域报告.py；重测谐波列 1f0 最强）"),
+            ((_songs.get(("回望", "无人岛上")) or {}).get("low_hz"), 75.4,
+             "《无人岛上》最低音 Hz（锁定 75.4；曾漂移 D#2 77.9 / D2 74.2）"),
+        ):
+            if isinstance(_exp, float) and isinstance(_got, (int, float)):
+                _same = abs(float(_got) - _exp) < 0.05
+            else:
+                _same = _got == _exp
+            ok(f"声学防回退 {_exp}", True, _same)
+            if not _same:
+                problems.append(f"[FAIL] 声学值回退: 期望 {_exp} / 实际 {_got}｜{_why}")
+                print(f"[FAIL] 声学值回退: 期望 {_exp} / 实际 {_got}｜{_why}")
+    except Exception as _e:
+        problems.append(f"[FAIL] 声学防回退检查无法执行: {type(_e).__name__}: {_e}")
+        print(f"[FAIL] 声学防回退检查无法执行: {type(_e).__name__}: {_e}")
+
     print("-" * 68)
     if problems:
         print(f"结论：发现 {len(problems)} 处口径不一致 —— 必须修，禁止对外引用。")
