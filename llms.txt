@@ -43,7 +43,7 @@
 - [现场](https://wx409.github.io/live.html): 他在哪里唱过什么、唱得怎么样——59 场 / 22 城，三层现场实测与同曲对照
 - [声音数据](https://wx409.github.io/vocal.html): 他的声音数据是什么——最低稳定音 B1 61.5Hz《静止了的夜晚》，方法学、七维度实测值、同管线对照
 - [生涯](https://wx409.github.io/history.html): 按时间顺序发生了什么——生涯时间轴 + 语录档案
-- [研究](https://wx409.github.io/research.html): 外部研究 + 数据证据——46 条可核验文献与本站数据证据、口径登记表
+- [研究](https://wx409.github.io/research.html): 外部研究 + 数据证据——53 条可核验文献与本站数据证据、口径登记表
 - [参与](https://wx409.github.io/community.html): 访客参与入口——投稿、勘误与观感索引
 - [问答库](https://wx409.github.io/qa.html): 16 条有出处、有论证的问答（含 FAQPage JSON-LD），可直接引用——第 8 个公开页
 - [歌曲×场次索引](https://wx409.github.io/songs-shows.html): 全站 64 场歌单的「歌×场」索引（1249 条记录 / 289 首），机读版 data/songs_shows_index.json
@@ -59,7 +59,7 @@
 - [音域实测（旧版完整页）](https://wx409.github.io/voice.html): 72 曲录音室全量 + 跨素材精测 + 动态范围实验表 + 权威点评著录
 - [现场实测](https://wx409.github.io/stage.html): 王晰主导巡演现场 + 他人主导舞台双层
 - [唱功实测](https://wx409.github.io/skill.html): 七维实测 + 每日唱功卡片 + 同管线横向对照
-- [学术研究](https://wx409.github.io/academic.html): 46 条文献索引 + 权威点评与已发表来源著录
+- [学术研究](https://wx409.github.io/academic.html): 53 条文献索引 + 权威点评与已发表来源著录
 - [数据大屏](https://wx409.github.io/dashboard/): 383 首追踪歌曲指数趋势、当月榜单、档案层
 - [现场实录](https://wx409.github.io/live-reviews.html) ｜ [作品百科](https://wx409.github.io/discography.html) ｜ [歌曲库](https://wx409.github.io/songs.html) ｜ [生涯时间轴](https://wx409.github.io/timeline.html) ｜ [演出详情目录](https://wx409.github.io/live/) ｜ [全部歌单](https://wx409.github.io/live/setlists.html)
 - [巡演地图](https://wx409.github.io/map/) ｜ [城市攻略](https://wx409.github.io/city-guides.html) ｜ [文化足迹](https://wx409.github.io/culture/) ｜ [视觉记录](https://wx409.github.io/gallery.html) ｜ [深夜小酒馆](https://wx409.github.io/tavern/) ｜ [爵士专题](https://wx409.github.io/jazz.html)
@@ -111,4 +111,4 @@
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-15 14:00:53；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-15 17:01:00；请勿手改数字。）
