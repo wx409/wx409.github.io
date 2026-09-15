@@ -250,7 +250,39 @@ font-size:13px;color:#666;line-height:2}
 <p class="src">专辑层 72 首录音室曲目 vs 他人主导舞台 32 个素材；
 p 值为组间检验结果，差值列的符号含义见各行指标名（"越大越高"类指标方向相反）。</p>
 
-<h2>六、专辑层逐曲明细</h2><p class="sub">共 72 首，完整表见 <a href="/works.html">作品页</a>；机读数据见 <a href="/data/archive_vocal_albums.json">archive_vocal_albums.json</a>。</p>
+<h2>六、音域脉络：谁说到了哪</h2>
+<p class="sub">把<strong>不同来源对同一件事的说法并列</strong>，不合并成单一数字 ——
+脉络的价值恰恰在于显示各来源的差异与收敛。共 19 条
+（本站实测 6 ／ 外部来源 11）。</p>
+<table>
+<tr><th>端点</th><th>范围</th><th>读数</th><th>曲目／场景</th><th>来源</th><th>状态</th><th>说明</th></tr>
+<tr><td>最低·稳定音</td><td>录音室</td><td><strong>B1 <span class="hz">61.5 Hz</span></strong></td><td>静止了的夜晚</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">全站主口径的能力下限；B1 稳定音共 4 首（知晓/渔光曲/多听有益/静止了的夜晚）</td></tr>
+<tr><td>最高·稳定音</td><td>录音室</td><td><strong>C6 <span class="hz">1067.5 Hz</span></strong></td><td>月光</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">非头声；为《Low C的诱惑Ⅱ》录音室曲目</td></tr>
+<tr><td>跨度·最大</td><td>录音室</td><td><strong>3.94 八度</strong></td><td>—</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">中位 2.27 八度；最大值为单曲最宽</td></tr>
+<tr><td>最低·触达音</td><td>录音室</td><td><strong>B1 <span class="hz">61.6 Hz</span></strong></td><td>渔光曲</td><td>本站实测（已降级）</td><td class="lv-warn">⚠️ 已降为触达级</td><td class="src">真 320k 复测稳定音为 D#2 79.2Hz；B1 时刻谱峰在位但未达稳定门槛</td></tr>
+<tr><td>最低·练声场景</td><td>练声</td><td><strong>A1（触达） <span class="hz">55.1 Hz</span></strong></td><td>练声（Low C 下面的 A）</td><td>喜马拉雅练声音频；现存唯一可访问副本为 B站转载</td><td class="lv-pend">⏳ 已精测·触达级</td><td class="src">全曲仅 6 帧约 0.1s，未过「极值音 ≥0.2s」门槛；同素材稳定音为 B1 62.0Hz。原始发布渠道与时间待考</td></tr>
+<tr><td>最低·现场稳定音</td><td>现场</td><td><strong>A2 <span class="hz">109.9 Hz</span></strong></td><td>友谊地久天长（四巡·肆益 南京 2024-01-27）</td><td>B站现场录像（主源）</td><td class="lv-ok">✅ 已复核</td><td class="src">同场备份源另测到 F#2 91.4Hz（0.186s，谐波列成立）为候选；主源 G#2 101.0Hz 亦成立。一条 A2 111.1Hz 读数为 1/2 次谐波已排除</td></tr>
+<tr><td>最高·现场</td><td>现场</td><td><strong>C5（HighC） <span class="hz">523.2 Hz</span></strong></td><td>友谊地久天长（四巡·肆益 南京 2024-01-27）</td><td>B站现场录像（主源 + 备份源双源）</td><td class="lv-ok">✅ 已复核</td><td class="src">t=218.4~222.4s 连续约 4.0s；高音区基频弱、2 次谐波强，YIN 原报 C6 1069Hz 为倍频锁错（工具 high_stable 尚未纳入此闸门）</td></tr>
+<tr><td>现场 vs 他人主导</td><td>现场</td><td><strong>差异不显著</strong></td><td>—</td><td>本站现场双层统计</td><td class="lv-ok">✅ 已复核</td><td class="src">p=0.197</td></tr>
+<tr><td>最低·外部记载</td><td>外部·扒谱</td><td><strong>A1 / Ab1 <span class="hz">55.0 Hz</span></strong></td><td>喜马拉雅练声音频（帖内记载）</td><td>豆瓣小组《晰晰音域整理帖》2019-02-07</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">帖内称「A1 只在喜马拉雅练声音频中出现过；Ab1 没有视频可考证」，与本站精测的出处一致</td></tr>
+<tr><td>最低·外部记载</td><td>外部·扒谱</td><td><strong>B1 <span class="hz">61.6 Hz</span></strong></td><td>葬心（《Low C的诱惑Ⅱ》）</td><td>同上豆瓣帖</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">本站 72 曲实测可核对该曲最低稳定音是否亦为 B1（待办）</td></tr>
+<tr><td>最低·自述</td><td>自述</td><td><strong>「最低能唱 A」</strong></td><td>—</td><td>金钟奖采访（帖内转引）</td><td class="lv-ext">📌 转引自外部来源</td><td class="src">另有别名「王降A」（据帖内称由谷峰所取）</td></tr>
+<tr><td>跨度·外部</td><td>外部·扒谱</td><td><strong>A1–C5，超过三个八度</strong></td><td>—</td><td>同上豆瓣帖</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">与本站 span_max 3.94 八度方向一致</td></tr>
+<tr><td>歌曲层·最低（非王晰个人）</td><td>外部·耳测</td><td><strong>D#2 <span class="hz">78.0 Hz</span></strong></td><td>向着太阳（VITAS×王晰）</td><td>B站《【音高测量43】…》一摸提纳-耳测音高，2025-11-02</td><td class="lv-ext">📌 外部来源·**对象不同**</td><td class="src">该视频测的是**整首歌（混音+两位歌手+伴奏）**。78Hz 在 6 轨分离中落在 bass 轨（伴奏低音器乐），非王晰人声（人声轨 60–100Hz 能量占比仅 0.15%）</td></tr>
+<tr><td>歌曲层·最高（非王晰个人）</td><td>外部·耳测</td><td><strong>G6 <span class="hz">1568.0 Hz</span></strong></td><td>向着太阳（VITAS×王晰）</td><td>同上</td><td class="lv-ext">📌 外部来源·**对象不同**</td><td class="src">G6 属 VITAS 的头声；与 78Hz 相除得 20.1×（标题「接近20倍赫兹」）</td></tr>
+<tr><td>跨度·歌曲层</td><td>外部·耳测</td><td><strong>4.33 八度</strong></td><td>向着太阳</td><td>同上</td><td class="lv-ext">📌 外部来源·**歌曲层**</td><td class="src">**不可与王晰个人音域混读**：该数含伴奏低音器乐与 VITAS 高音</td></tr>
+<tr><td>声部定性</td><td>权威评议</td><td><strong>「Bass-baritone…流行圈内恐怕就是孤本」</strong></td><td>—</td><td>姚峰（深圳市音乐家协会主席）</td><td class="lv-ext">📌 外部评议</td><td class="src"></td></tr>
+<tr><td>声部定性</td><td>权威评议</td><td><strong>「男低音像高山稳稳地」</strong></td><td>—</td><td>廖昌永（上海音乐学院院长）</td><td class="lv-ext">📌 外部评议</td><td class="src"></td></tr>
+<tr><td>技术定性·低音区花腔</td><td>乐评</td><td><strong>「花腔难低音…还真的没有听到过」</strong></td><td>向着太阳</td><td>B站乐评（UP 周恩灿，2026-07-21）</td><td class="lv-ext">📌 外部评议</td><td class="src">同视频另称「超高的头声」（VITAS）×「拉到极致的胸声」（王晰），指该曲的碰撞是音色/声部对撞；与本站「低音上雕花」判断独立吻合</td></tr>
+<tr><td>艺术主张</td><td>乐评</td><td><strong>「并非刻意出头和炫技」</strong></td><td>—</td><td>豆瓣帖 2019-02-07</td><td class="lv-ext">📌 外部评议</td><td class="src">与上一条相隔七年、来源独立，指向同一判断</td></tr>
+</table>
+<p class="src"><strong>读表须知</strong>：① 标 <strong>📌</strong> 者为<strong>外部来源</strong>
+（多为听音扒谱或耳测，方法未公开），不转写为本站测量结论；
+② 标「歌曲层」者<strong>含伴奏与他人声部，不可与「王晰个人」混读</strong>；
+③ 标 <strong>✅</strong> 者已过本站复核门槛（音符时长／HNR／谐波列），可作能力依据；
+④ 机读数据 <a href="/data/vocal_lineage.json">vocal_lineage.json</a>。</p>
+
+<h2>七、专辑层逐曲明细</h2><p class="sub">共 72 首，完整表见 <a href="/works.html">作品页</a>；机读数据见 <a href="/data/archive_vocal_albums.json">archive_vocal_albums.json</a>。</p>
 
 <p class="src">局限性声明：本站音域数据基于已获取的录音室与现场素材，受素材音质限制；触达音与低音带读数不作能力依据；外部来源读数口径未核实，仅作档案记录。结构化的第三方表述（论坛/粉丝扒谱/媒体宣发）一律标注来源与性质，不转写成本站测量结论。</p>
 <h2>他说过 / 别人怎么说</h2>

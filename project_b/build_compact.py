@@ -56,6 +56,7 @@ ELEV = jload("data/elevator_definition.json", {})
 CAL = {c["id"]: c for c in jload("data/calibers.json", {}).get("calibers", [])}
 VOCAL = jload("data/archive_vocal.json", {})
 ALBUMS = jload("data/archive_vocal_albums.json", {})
+LINEAGE = jload("data/vocal_lineage.json", {})
 CTX = jload("data/archive_context_compare.json", {})
 STAGE = jload("data/archive_stage.json", {})
 TIMELINE = jload("data/timeline.json", [])
@@ -797,7 +798,9 @@ def build_vocal():
 <p class="src">专辑层 {N_ALBUM_SONGS} 首录音室曲目 vs 他人主导舞台 {STAGE_N} 个素材；
 p 值为组间检验结果，差值列的符号含义见各行指标名（"越大越高"类指标方向相反）。</p>
 
-{f'<h2>六、专辑层逐曲明细</h2><p class="sub">共 {N_ALBUM_SONGS} 首，完整表见 <a href="/works.html">作品页</a>；'
+{_lineage_block()}
+
+{f'<h2>七、专辑层逐曲明细</h2><p class="sub">共 {N_ALBUM_SONGS} 首，完整表见 <a href="/works.html">作品页</a>；'
  f'机读数据见 <a href="/data/archive_vocal_albums.json">archive_vocal_albums.json</a>。</p>' if True else ''}
 
 {source_caveat()}
@@ -853,6 +856,44 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 
 
 # ---------------------------------------------------------------- 页面 5：history
+def _lineage_block() -> str:
+    """音域脉络：把不同来源对王晰音域的说法并列，显示差异与收敛（不合并成单一数字）。"""
+    items = LINEAGE.get("items") or []
+    if not items:
+        return ""
+    rows = []
+    for x in items:
+        st = str(x.get("status") or "")
+        cls = ("lv-ok" if st.startswith("✅") else
+               "lv-pend" if st.startswith("⏳") else
+               "lv-warn" if st.startswith("⚠️") else "lv-ext")
+        hz = x.get("hz")
+        val = esc(x.get("value"))
+        if hz:
+            val += f' <span class="hz">{num(hz,1)} Hz</span>'
+        song = esc(x.get("song") or "—")
+        rows.append(
+            f'<tr><td>{esc(x.get("kind"))}</td><td>{esc(x.get("scope"))}</td>'
+            f'<td><strong>{val}</strong></td><td>{song}</td>'
+            f'<td>{esc(x.get("source"))}</td>'
+            f'<td class="{cls}">{esc(st)}</td>'
+            f'<td class="src">{esc(x.get("note") or "")}</td></tr>')
+    cnt = LINEAGE.get("counts") or {}
+    return f"""<h2>六、音域脉络：谁说到了哪</h2>
+<p class="sub">把<strong>不同来源对同一件事的说法并列</strong>，不合并成单一数字 ——
+脉络的价值恰恰在于显示各来源的差异与收敛。共 {cnt.get('total', len(items))} 条
+（本站实测 {cnt.get('本站实测', '—')} ／ 外部来源 {cnt.get('外部来源', '—')}）。</p>
+<table>
+<tr><th>端点</th><th>范围</th><th>读数</th><th>曲目／场景</th><th>来源</th><th>状态</th><th>说明</th></tr>
+{chr(10).join(rows)}
+</table>
+<p class="src"><strong>读表须知</strong>：① 标 <strong>📌</strong> 者为<strong>外部来源</strong>
+（多为听音扒谱或耳测，方法未公开），不转写为本站测量结论；
+② 标「歌曲层」者<strong>含伴奏与他人声部，不可与「王晰个人」混读</strong>；
+③ 标 <strong>✅</strong> 者已过本站复核门槛（音符时长／HNR／谐波列），可作能力依据；
+④ 机读数据 <a href="/data/vocal_lineage.json">vocal_lineage.json</a>。</p>"""
+
+
 def build_history():
     items = TIMELINE if isinstance(TIMELINE, list) else (TIMELINE.get("items") or [])
     rows = "\n".join(
