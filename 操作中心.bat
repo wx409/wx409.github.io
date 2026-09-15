@@ -203,6 +203,8 @@ echo    153. 专辑层复核状态生成（A3 终裁到 data/album_verify_status.json）
 echo    154. 小酒馆金句并入首页金句墙（锚点自适应，幂等）
 echo    155. 小酒馆「有价值摘要」提取（?? 调 DeepSeek API，按量计费）
 echo    156. 小酒馆摘要版 ep 页重建（全文页换摘要版，全文已备份本地）
+echo    157. 低音谐波列复核（原始混音谐波列；1f0/3f0 缺失即判次谐波）
+echo    158. 高音区倍频复核（对称闸门：抓 YIN 锁 2 次谐波"报高八度"）
 echo    0. 退出
 echo.
 set "op="
@@ -364,6 +366,8 @@ if "%op%"=="153" goto album_verify
 if "%op%"=="154" goto tavern_quotes
 if "%op%"=="155" goto tavern_summary
 if "%op%"=="156" goto tavern_ep
+if "%op%"=="157" goto low_harmonic
+if "%op%"=="158" goto high_harmonic
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2168,5 +2172,27 @@ echo  全文已备份本地全文库，站内不再放全文（合规）
 set /p elim=  试跑期数（直接回车=全部106期）:
 cd /d "D:\wx409.github.io"
 if "%elim%"=="" (python -X utf8 project_b\rebuild_tavern_ep_summary.py --all) else (python -X utf8 project_b\rebuild_tavern_ep_summary.py --limit %elim%)
+pause
+goto menu
+
+
+:low_harmonic
+cls
+echo  [低音谐波列复核] 原始混音谐波列完整性判定
+echo  1f0/3f0 缺失即判次谐波；区分「1/2 次谐波」「1/3 次谐波」「基频缺失（待判）」
+echo  输出：轨迹\低音复核_谐波列_^<日期^>.json / .md
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 低音复核_谐波列.py --write
+pause
+goto menu
+
+:high_harmonic
+cls
+echo  [高音区倍频复核] 对称于低音区的闸门
+echo  动机：高音区基频常弱、2 次谐波强，YIN 会锁 2 次谐波「报高一个八度」
+echo        （《友谊地久天长》真 C5 523Hz 曾报成 C6 1069Hz）
+echo  做法：复用 低音复核_谐波列.py 的 ladder/judge，只把目标换成最高音
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 高音区倍频复核.py --write
 pause
 goto menu

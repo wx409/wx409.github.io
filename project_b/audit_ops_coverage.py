@@ -29,6 +29,7 @@ C 类分三档（默认全部只报警、不影响退出码，避免阻断每日
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -101,6 +102,88 @@ ORPHAN_ALLOWLIST = {
 # ── C 类反向检查：已知应接入但尚未接入（显式登记，便于排期） ────────────────
 ORPHAN_BACKLOG = {}   # 2026-09-15：原 6 项已全部接入（见 CHANGELOG）
 
+
+
+# ── 音域分析\轨迹 目录覆盖（2026-09-15 新增）──────────────────────────
+# 背景：反向检查原先只扫 project_b/*.py，而「音域分析\轨迹」下有 96 个脚本
+# （音高复核/谐波列/终裁/诊断），完全不在覆盖范围 —— 于是新增的
+# 高音区倍频复核.py、低音复核_谐波列.py 两个真工具没进菜单也无人报警。
+TRAJ_DIR = r"E:\wx\论文素材_王晰作传\音域分析\轨迹"
+TRAJ_EXEMPT = {
+    "B1终裁_同场两源.py",
+    "B1终裁_让她降落.py",
+    "_band.py",
+    "_calib_band.py",
+    "_dump_low.py",
+    "_partials.py",
+    "_trace.py",
+    "_trace2.py",
+    "_修bat特殊字符.py",
+    "_修社媒出图.py",
+    "_候选成色检查.py",
+    "_写鸿雁复测结果.py",
+    "_列B1族事件.py",
+    "_列B1清单.py",
+    "_列B1清单2.py",
+    "_列复核表.py",
+    "_列文献索引.py",
+    "_列歌迷赏析索引.py",
+    "_对比新视频与录音室.py",
+    "_扩studio_vs_live.py",
+    "_探索精测集合.py",
+    "_查A3表.py",
+    "_查LowC曲目缺口.py",
+    "_查核验台账.py",
+    "_查看站点数据.py",
+    "_查语料低音史.py",
+    "_校订社媒稿.py",
+    "_核对站点数据.py",
+    "_核赏析匹配2.py",
+    "_核赏析曲名匹配.py",
+    "_登记操作中心.py",
+    "_看录音室B1上下文.py",
+    "_补C2旁证行.py",
+    "_补songs页赏析.py",
+    "_补songs页赏析2.py",
+    "_补songs页赏析3.py",
+    "_补songs页赏析4.py",
+    "_赏析与巡演交集.py",
+    "下载QQ单曲校验音质.py",
+    "单曲低音终裁.py",
+    "导出B1候选听辨.py",
+    "录入人工线索.py",
+    "抽赏析精彩句.py",
+    "核_MV极低音段.py",
+    "核_低音带与喉音同步性.py",
+    "核_低音带音高轨迹.py",
+    "核_低频谐波栈扫描.py",
+    "核_低频谐波栈扫描_v2.py",
+    "核_多听有益_B1读数清单.py",
+    "核_多听有益_各版本.py",
+    "核_多听有益_念诵段B1.py",
+    "核_念诵整段最低点.py",
+    "核_念诵段定点核查.py",
+    "核_念诵段对齐核查.py",
+    "核_念诵段谐波栈旋律.py",
+    "核_新视频极低音核对.py",
+    "核_百字明窗口低音.py",
+    "核_直拍45-78秒.py",
+    "核_识别新视频音源.py",
+    "核_锚点三路对照.py",
+    "核_颤音指纹归属.py",
+    "核实与鉴源.py",
+    "生成巡演现场报告.py",
+    "画_直拍45-78谱图.py",
+    "社媒配图.py",
+    "社媒配图_图1重做.py",
+    "社媒配图_图2重做.py",
+    "社媒配图_图4重做.py",
+    "社媒配图_收尾.py",
+    "结构化轨迹清单.py",
+    "网易云取源复测.py",
+    "锚点320k检查点.py",
+    "锚点复核.py"
+}
 
 def _under_git(p: Path) -> bool:
     """判断是否落在 .git 内。
@@ -177,12 +260,24 @@ def reverse_check(strict: bool) -> list:
     print("反向检查：可运行脚本是否都有去处（菜单/部署/计划任务/被引用）")
     registered = _registered_names()
     cands = _collect_runnable()
+    # 2026-09-15 起把「音域分析\轨迹」也纳入（此前只扫 project_b/tools/根目录，
+    # 导致该目录下新增的真工具无人报警——高音区倍频复核.py 就是这么漏的）
+    try:
+        if os.path.isdir(TRAJ_DIR):
+            for _f in sorted(os.listdir(TRAJ_DIR)):
+                if _f.endswith(".py") and _f not in TRAJ_EXEMPT:
+                    cands.append(Path(TRAJ_DIR) / _f)
+    except Exception as _e:
+        print(f"  [WARN] 轨迹目录扫描失败：{type(_e).__name__}")
     blob = _reference_blob()          # ← 只读一次，循环内复用
     allow = {k.lower() for k in ORPHAN_ALLOWLIST}
     back = {k.lower() for k in ORPHAN_BACKLOG}
     unreg, n_allow, n_back, n_ref = [], 0, 0, 0
     for f in cands:
-        rel = str(f.relative_to(ROOT)).replace("/", "\\")
+        try:
+            rel = str(f.relative_to(ROOT)).replace("/", "\\")
+        except ValueError:
+            rel = str(f)          # 站外（如 音域分析\\轨迹）直接用绝对路径显示
         low = rel.lower()
         if Path(rel).name.lower() in registered or low in registered:
             continue
