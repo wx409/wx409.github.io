@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-15 12:18",
+ "generated_at": "2026-09-15 14:01",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,10 +9,10 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 48,
-  "n_stage_measured": 45,
+  "n_materials": 50,
+  "n_stage_measured": 47,
   "n_from_precision": 3,
-  "n_songs": 19,
+  "n_songs": 20,
   "n_tours": 8,
   "n_verified": 11,
   "n_harmonic_reviewed": 6,
@@ -31,7 +31,7 @@
   "vibrato_rate_hz_median": 5.0,
   "vibrato_extent_cents_median": 77.0,
   "verify_dist": {
-   "未复核": 32,
+   "未复核": 34,
    "谐波列复核通过": 5,
    "待复核": 3,
    "双引擎一致": 5,
@@ -109,15 +109,16 @@
   },
   {
    "tour": "四巡",
-   "n_materials": 3,
+   "n_materials": 5,
    "n_claimable": 0,
    "cities": [
+    "南京",
     "杭州",
     "武汉"
    ],
    "dates": [
     "2023-2024",
-    "2024"
+    "2024-01-27"
    ],
    "lowest_note": null,
    "lowest_hz": null,
@@ -125,9 +126,9 @@
    "lowest_note_all": "C2",
    "lowest_hz_all": 65.2,
    "lowest_verify_all": "待复核",
-   "span_median_octaves": null,
-   "stability_median_cents": null,
-   "vibrato_rate_hz_median": null
+   "span_median_octaves": 3.27,
+   "stability_median_cents": 6.7,
+   "vibrato_rate_hz_median": 4.93
   },
   {
    "tour": "五巡",
@@ -743,6 +744,108 @@
    "a3_crepe_hz": 74.9,
    "a3_final_note": "参考（直拍音质）",
    "source_layer": "十曲精测"
+  },
+  {
+   "tag": "四巡南京20240127b_BV1qy421a7FR",
+   "song": "友谊地久天长",
+   "tour": "四巡",
+   "city": "南京",
+   "date": "2024-01-27",
+   "bv": "BV1qy421a7FR",
+   "owner": "Betty_xc",
+   "title": "【王晰】南京场友谊地久天长，晰晰的高音地久天长！",
+   "bandwidth_kbps": 158,
+   "source_verdict": "官方直传",
+   "low_note": "G#2",
+   "low_hz": 103.6,
+   "low_t_s": 8.614603174603175,
+   "low_dur_s": 0.2786394557823129,
+   "high_note": "B5",
+   "high_hz": 1005.1,
+   "span_octaves": 3.28,
+   "stability_cents": 6.6,
+   "intonation_cents": 21.7,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 69.0,
+   "density_per_s": 1.62,
+   "hnr_db": 6.5,
+   "duration_s": 248.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "G#2",
+    "hz": 103.6,
+    "why": "1f0 差 -17.9dB",
+    "fund_gap_db": -17.9,
+    "floor_db": 17.2,
+    "t_s": 8.615,
+    "dur_s": 0.279,
+    "partials": [
+     47.8,
+     65.7,
+     40.0,
+     45.7,
+     32.5,
+     30.4,
+     26.7,
+     25.1
+    ]
+   }
+  },
+  {
+   "tag": "四巡南京20240127_BV1pc411v7gU",
+   "song": "友谊地久天长",
+   "tour": "四巡",
+   "city": "南京",
+   "date": "2024-01-27",
+   "bv": "BV1pc411v7gU",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰【友谊地久天长】【4k】最后的highC弥补了五年前决赛的缺憾·肆益巡回音乐会南京站20240127",
+   "bandwidth_kbps": 119,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "A2",
+   "low_hz": 109.9,
+   "low_t_s": 60.55764172335601,
+   "low_dur_s": 0.37151927437641724,
+   "high_note": "C6",
+   "high_hz": 1059.3,
+   "span_octaves": 3.27,
+   "stability_cents": 6.8,
+   "intonation_cents": 18.9,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 76.0,
+   "density_per_s": 1.86,
+   "hnr_db": 7.7,
+   "duration_s": 262.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "未复核",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "A2",
+    "hz": 109.9,
+    "why": "1f0 差 -32.2dB",
+    "fund_gap_db": -32.2,
+    "floor_db": -6.8,
+    "t_s": 60.558,
+    "dur_s": 0.372,
+    "partials": [
+     26.1,
+     58.3,
+     18.7,
+     36.4,
+     50.5,
+     46.5,
+     21.7,
+     19.6
+    ]
+   }
   },
   {
    "tag": "肆益收官 武汉琴台_BV1iWtUefEkm",
@@ -2832,6 +2935,39 @@
      "span_octaves": 1.78,
      "verify": "未复核",
      "bv": "BV1x4411f7i9"
+    }
+   ]
+  },
+  {
+   "song": "友谊地久天长",
+   "n_versions": 2,
+   "tours": [
+    "四巡"
+   ],
+   "lowest_note": "G#2",
+   "lowest_hz": 103.6,
+   "lowest_tag": "四巡南京20240127b_BV1qy421a7FR",
+   "span_median_octaves": 3.27,
+   "versions": [
+    {
+     "tour": "四巡",
+     "city": "南京",
+     "date": "2024-01-27",
+     "low_note": "G#2",
+     "low_hz": 103.6,
+     "span_octaves": 3.28,
+     "verify": "未复核",
+     "bv": "BV1qy421a7FR"
+    },
+    {
+     "tour": "四巡",
+     "city": "南京",
+     "date": "2024-01-27",
+     "low_note": "A2",
+     "low_hz": 109.9,
+     "span_octaves": 3.27,
+     "verify": "未复核",
+     "bv": "BV1pc411v7gU"
     }
    ]
   },
