@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-15 15:41",
+ "generated_at": "2026-09-15 16:25",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -35,7 +35,7 @@
    "待复核": 3,
    "双引擎一致": 5,
    "参考（直拍音质）": 1,
-   "待复核（谐波列待判）": 6,
+   "人耳确认（听辨）": 6,
    "仅参考（音质受限）": 1,
    "谐波列复核通过（同刻三源）": 1
   }
@@ -775,7 +775,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -797,7 +797,8 @@
      25.1
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "verify_channel": "人耳听辨终裁（证据级别最高）",
+   "listen_verified": true,
    "high_rejected": [
     {
      "note": "C6",
@@ -839,7 +840,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -861,7 +862,8 @@
      19.6
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "verify_channel": "人耳听辨终裁（证据级别最高）",
+   "listen_verified": true,
    "high_rejected": [
     {
      "note": "C6",
@@ -1811,7 +1813,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -1833,7 +1835,8 @@
      33.7
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "人耳听辨终裁（证据级别最高）",
+   "listen_verified": true
   },
   {
    "tag": "南京20190731_BV1Mt411w7cx",
@@ -1967,7 +1970,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -1989,7 +1992,8 @@
      33.5
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "人耳听辨终裁（证据级别最高）",
+   "listen_verified": true
   },
   {
    "tag": "未知20240202_BV1UJ4m1t7m5",
@@ -2227,7 +2231,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -2249,7 +2253,8 @@
      7.2
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "人耳听辨终裁（证据级别最高）",
+   "listen_verified": true
   },
   {
    "tag": "太原20191229_BV1WJ411a7zj",
@@ -2279,7 +2284,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -2301,7 +2306,8 @@
      44.3
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "人耳听辨终裁（证据级别最高）",
+   "listen_verified": true
   },
   {
    "tag": "南京20190731_BV1qt411c7Sm",
@@ -2936,7 +2942,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.38,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1TJ411a7Kk"
     },
     {
@@ -3005,7 +3011,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.7,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1nZ4y1G7Zq"
     },
     {
@@ -3104,7 +3110,7 @@
      "high_dur_s": 4.0,
      "high_listen_verified": true,
      "span_octaves": 3.28,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1qy421a7FR"
     },
     {
@@ -3119,7 +3125,7 @@
      "high_dur_s": 4.0,
      "high_listen_verified": true,
      "span_octaves": 3.27,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1pc411v7gU"
     }
    ]
@@ -3382,7 +3388,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.97,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1QWVzzjEnM"
     }
    ]
@@ -3498,7 +3504,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.67,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1WJ411a7zj"
     },
     {
@@ -4281,7 +4287,7 @@
     "tour": "签唱会",
     "note": "F#2",
     "hz": 89.9,
-    "verify": "待复核（谐波列待判）"
+    "verify": "人耳确认（听辨）"
    }
   ]
  }

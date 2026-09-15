@@ -205,6 +205,8 @@ echo    155. 小酒馆「有价值摘要」提取（?? 调 DeepSeek API，按量计费）
 echo    156. 小酒馆摘要版 ep 页重建（全文页换摘要版，全文已备份本地）
 echo    157. 低音谐波列复核（原始混音谐波列；1f0/3f0 缺失即判次谐波）
 echo    158. 高音区倍频复核（对称闸门：抓 YIN 锁 2 次谐波"报高八度"）
+echo    159. 听辨台账回填（人耳定案写回 data/listening_verdicts.json）
+echo    160. 听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）
 echo    0. 退出
 echo.
 set "op="
@@ -368,6 +370,8 @@ if "%op%"=="155" goto tavern_summary
 if "%op%"=="156" goto tavern_ep
 if "%op%"=="157" goto low_harmonic
 if "%op%"=="158" goto high_harmonic
+if "%op%"=="159" goto listen_ledger
+if "%op%"=="160" goto listen_rebuild
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2194,5 +2198,29 @@ echo        （《友谊地久天长》真 C5 523Hz 曾报成 C6 1069Hz）
 echo  做法：复用 低音复核_谐波列.py 的 ladder/judge，只把目标换成最高音
 cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
 python -X utf8 高音区倍频复核.py --write
+pause
+goto menu
+
+:listen_ledger
+cls
+echo  [听辨台账回填] 人耳听辨是证据级别最高的裁决（高于 谐波列、高于 双引擎）
+echo  台账：D:\wx409.github.io\data\listening_verdicts.json
+echo  样本目录：E:\wx\论文素材_王晰作传\音域分析\听辨样本\
+echo  回填字段：tag / song / aspect / verdict / verdict_hz / t_s / listener / date
+type "D:\wx409.github.io\data\listening_verdicts.json"
+pause
+goto menu
+
+:listen_rebuild
+cls
+echo  [听辨定案后重建] 让定案上站
+echo  1) 巡演报告（读台账 → 覆盖机器判定）  2) stage.html  3) 导航
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 生成巡演现场报告.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_stage_page.py
+python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\update_sitemap_lastmod.py
+python -X utf8 project_b\audit_caliber.py
 pause
 goto menu
