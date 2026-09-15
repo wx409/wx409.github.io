@@ -73,14 +73,19 @@ def test_matching():
           m["23:55"]["ok"] and not m["23:15"]["ok"])
 
 
-def run_watchdog(argv, alive, no_catchup_expected):
-    """在打桩环境下跑一次 main()，返回调用记录。"""
+def run_watchdog(argv, alive, no_catchup_expected, few_missing=False):
+    """在打桩环境下跑一次 main()，返回调用记录。
+
+    few_missing=True  → 只模拟"漏 1 批"（< CATCHUP_MIN_MISSING，走 alert-only）
+    few_missing=False → 模拟"漏 3 批"（≥ CATCHUP_MIN_MISSING，存活也立刻补跑）
+    """
     calls = {"start": 0, "catch": [], "notify": 0}
     orig = {
         "daemon_alive": w.daemon_alive,
         "start_daemon": w.start_daemon,
         "catch_up": w.catch_up,
         "collect_day_outputs": w.collect_day_outputs,
+        "match_slots": getattr(w, "match_slots", None),
         "notify": w.notify,
         "STATE": w.STATE,
         "QUIET": w.QUIET,
@@ -90,6 +95,16 @@ def run_watchdog(argv, alive, no_catchup_expected):
         w.STATE = tmp
         w.collect_day_outputs = lambda day: []          # 今天所有批次都"缺"
         w.daemon_alive = lambda stall: (alive, "selftest")
+        if few_missing and orig.get("match_slots"):
+            # 让「8:05」这一批命中文件（ok=True），其余仍缺 → 缺失数 = 应完成数 − 1
+            _orig_match = orig["match_slots"]
+
+            def _match(due, files):
+                m = _orig_match(due, files)
+                if due:
+                    m[due[0][0]] = {"ok": True, "file": None}
+                return m
+            w.match_slots = _match
 
         def _start(allow_direct_spawn=False):
             calls["start"] += 1
@@ -128,10 +143,18 @@ def test_selfheal():
     check("--no-catchup：拉起但不补跑", c2["start"] == 1 and len(c2["catch"]) == 0,
           "start=%d catch=%s" % (c2["start"], c2["catch"]))
 
-    # 3) 守护进程存活 → 既不拉起也不补跑（避免双实例抢抓）
-    _rc, c3 = run_watchdog(["--quiet"], alive=True, no_catchup_expected=False)
-    check("存活分支：不拉起、不补跑", c3["start"] == 0 and len(c3["catch"]) == 0,
+    # 3) 守护进程存活 + 漏批 < CATCHUP_MIN_MISSING → 既不拉起也不补跑（避免双实例抢抓）
+    #    2026-09-15 策略更新：漏批 ≥3 时**即使存活也立刻补跑**（早间登录晚于 8:05/8:15/8:25
+    #    会稳定漏 3 批，只告警会一直等到 11:49）。所以这里断言的是"少量漏批"分支。
+    _rc, c3 = run_watchdog(["--quiet"], alive=True, no_catchup_expected=False, few_missing=True)
+    check("存活+少量漏批：不拉起、不补跑", c3["start"] == 0 and len(c3["catch"]) == 0,
           "start=%d catch=%s" % (c3["start"], c3["catch"]))
+
+    # 3c) 守护进程存活 + 漏批 ≥ CATCHUP_MIN_MISSING → 立刻补跑（不拉起，避免双实例）
+    _rc, c3b = run_watchdog(["--quiet"], alive=True, no_catchup_expected=False, few_missing=False)
+    check("存活+多批漏批：立刻补跑但不拉起",
+          c3b["start"] == 0 and len(c3b["catch"]) == 1,
+          "start=%d catch=%s" % (c3b["start"], c3b["catch"]))
 
     # 3b) 桌面告警通道：严重漏批时必须带上 desktop 文案（站内通知之外的第二通道）
     check("停摆分支：告警带桌面文案（桌面留痕）",
