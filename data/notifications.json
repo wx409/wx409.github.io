@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-16 00:05:03",
+ "updated_at": "2026-09-16 09:00:05",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -958,6 +958,12 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 4 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-09-16 09:00:05",
+   "title": "⚠️ 大屏采集漏批：2026-09-16",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 4.4 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260916.log",
+   "category": "运维告警"
   }
  ]
 }
