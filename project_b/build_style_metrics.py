@@ -9,6 +9,9 @@
 
 两个指标（口径写死，引用前必看）：
   ① 极端交替（"打两份工"）：相邻音符音高差 ≥12 半音且间隔 ≤0.5s 的处数 ÷ 时长（次/分钟）
+     ★ **两端必须都是人声**（2026-09-16 加）—— 用户指出旧口径把乐器的高音当成了他的高音跳。
+     人声判据 = 分离人声轨在该音符时刻有能量（> 自身噪声底 +8dB）。
+     ★ 安全阀：人声轨整体不可用/未对齐 → alt_status="不可用"，不出数字（宁缺勿错）。
      —— 用户定义：「高音后马上接低音、低音后马上升高」，**不是全曲跨度**
   ② 低音亮度（"低的要高唱"）：低音区（f0 50–110Hz）与中音区（150–350Hz）
      的**频谱质心中位之比**。常态男低音应 ≪1（低音暗）；他接近 1。
@@ -47,6 +50,71 @@ MID_BAND = (150, 350)    # 中音区
 ALT_SEMI = 12.0          # 极端交替的音高差门槛（一个八度）
 ALT_GAP = 0.5            # 极端交替的时间间隔门槛（秒）
 
+
+
+STEM_ROOT = os.path.join(AN, "分离_专辑")
+
+
+def find_stem(album, title):
+    """定位分离人声轨（递归，避免命名差异导致漏找）。"""
+    base = os.path.join(STEM_ROOT, album, title)
+    if not os.path.isdir(base):
+        return None
+    for dp, _, fs in os.walk(base):
+        if "vocals.wav" in fs:
+            return os.path.join(dp, "vocals.wav")
+    return None
+
+
+def stem_energy_db(stem_y, sr, t, dur=0.20, sr_ref=22050):
+    """取人声轨在 [t, t+dur] 的宽带能量（dBFS）。"""
+    a = int(t * sr)
+    b = a + int(dur * sr)
+    if a < 0 or b > len(stem_y):
+        return None
+    seg = stem_y[a:b]
+    if len(seg) < 32:
+        return None
+    return 20.0 * math.log10(float(np.sqrt(np.mean(seg ** 2))) + 1e-12)
+
+
+def mark_vocal(notes, stem_path):
+    """给每个音符打「人声轨有能量」标记。返回 (标记列表, 状态)。
+       状态: ok / 无人声轨 / 人声轨不可用(过静或近恒定)"""
+    if not stem_path or not os.path.exists(stem_path):
+        return None, "无人声轨"
+    y, sr = sf.read(stem_path)
+    if y.ndim > 1:
+        y = y.mean(1)
+    y = np.asarray(y, dtype=np.float32)
+    if len(y) < 1000:
+        return None, "人声轨不可用"
+    # 安全阀①：整体是否过静（近噪声底）
+    overall = 20.0 * math.log10(float(np.sqrt(np.mean(y ** 2))) + 1e-12)
+    if overall < -50:
+        return None, "人声轨不可用(整体%s dBFS)" % round(overall, 1)
+    # 安全阀②：是否近恒定（RMS = 峰值 = 常量 → DC/静音，说明分离或对齐失败）
+    if float(np.max(np.abs(y))) < 1e-6:
+        return None, "人声轨不可用(近恒定)"
+    db = [stem_energy_db(y, sr, (a + b) / 2.0) for a, b, _ in notes]
+    vals = [d for d in db if d is not None]
+    if len(vals) < max(5, len(notes) // 2):
+        return None, "人声轨不可用(取样不足)"
+    floor = float(np.percentile(vals, 20))
+    return [1 if (d is not None and d > floor + 8.0) else 0 for d in db], "ok"
+
+
+def alt_rate_vocal(notes, vocal_flags, duration_s):
+    """极端交替（要求两端均为人声）。"""
+    n = 0
+    for i in range(len(notes) - 1):
+        a1, b1, h1 = notes[i]
+        a2, b2, h2 = notes[i + 1]
+        if not (vocal_flags[i] and vocal_flags[i + 1]):
+            continue
+        if abs(12 * math.log2(h2 / h1)) >= ALT_SEMI and (a2 - b1) <= ALT_GAP:
+            n += 1
+    return n, (n / (duration_s / 60.0) if duration_s > 0 else 0.0)
 
 def load_csv(f):
     rr = list(csv.DictReader(io.open(f, encoding="utf-8", errors="replace")))
@@ -147,13 +215,23 @@ def main() -> int:
             dur = frames[-1][0] - frames[0][0]
             notes = notes_of(frames)
             cnt, rate = alt_rate(notes, dur)
+            vflags, vstatus = mark_vocal(notes, find_stem(f, title))
+            if vstatus == "ok":
+                vcnt, vrate = alt_rate_vocal(notes, vflags, dur)
+            else:
+                vcnt, vrate = None, None
             br = brightness(os.path.join(AUDIO_ROOT, f, title + ".mp3"), frames)
             songs.append({"title": title, "album": f, "duration_s": round(dur, 1),
-                          "n_notes": len(notes), "alt_count": cnt,
-                          "alt_rate_per_min": round(rate, 2),
+                          "n_notes": len(notes),
+                          "alt_count_raw": cnt,
+                          "alt_rate_raw": round(rate, 2),
+                          "alt_status": vstatus,
+                          "alt_count": vcnt,
+                          "alt_rate_per_min": round(vrate, 2) if vrate is not None else None,
                           "brightness": br})
 
-    rates = [s["alt_rate_per_min"] for s in songs]
+    ok_songs = [s for s in songs if s["alt_status"] == "ok"]
+    rates = [s["alt_rate_per_min"] for s in ok_songs]
     ratios = [s["brightness"]["ratio"] for s in songs if s["brightness"]]
     payload = {
         "schema": "style-metrics/v1",
@@ -170,14 +248,16 @@ def main() -> int:
         "params": {"alt_semi": ALT_SEMI, "alt_gap_s": ALT_GAP,
                    "lo_band": LO_BAND, "mid_band": MID_BAND},
         "counts": {"songs": len(songs),
-                   "with_brightness": len([s for s in songs if s["brightness"]])},
+                   "with_brightness": len([s for s in songs if s["brightness"]]),
+                   "alt_verified": len(ok_songs),
+                   "alt_unavailable": len(songs) - len(ok_songs)},
         "summary": {
             "alt_rate_median": round(st.median(rates), 2) if rates else None,
             "alt_rate_max": round(max(rates), 2) if rates else None,
             "brightness_ratio_median": round(st.median(ratios), 3) if ratios else None,
             "brightness_ratio_max": round(max(ratios), 3) if ratios else None,
         },
-        "top_alt": sorted([s for s in songs if s["n_notes"] >= 30],
+        "top_alt": sorted([s for s in ok_songs if s["n_notes"] >= 30],
                           key=lambda x: -x["alt_rate_per_min"])[:12],
         "top_bright": sorted([s for s in songs if s["brightness"]],
                              key=lambda x: -x["brightness"]["ratio"])[:12],
@@ -186,6 +266,8 @@ def main() -> int:
     io.open(OUT, "w", encoding="utf-8").write(json.dumps(payload, ensure_ascii=False, indent=1))
     print("[OK] %s" % OUT)
     print("     曲目 %d ｜ 有亮度数据 %d" % (len(songs), payload["counts"]["with_brightness"]))
+    print("     极端交替已过人声验证 %d ｜ 不可用(不出数字) %d"
+          % (payload["counts"]["alt_verified"], payload["counts"]["alt_unavailable"]))
     print("     极端交替 中位 %.2f / 最高 %.2f 次/分钟"
           % (payload["summary"]["alt_rate_median"], payload["summary"]["alt_rate_max"]))
     print("     低音亮度比 中位 %.3f / 最高 %.3f"
