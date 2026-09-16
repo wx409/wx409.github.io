@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 14:36",
+ "generated_at": "2026-09-16 14:49",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -5010,8 +5010,9 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
-   "c6_status": "混合（段内含王晰声音，极值归属待定）",
-   "high_verdict": "段内含王晰声音，但极值归属待定（含伴奏/他人）",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1059.3,
+   "high_note_unconfirmed": "C6",
    "high_rejected": [
     {
      "note": "C6",
