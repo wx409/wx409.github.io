@@ -11,7 +11,7 @@
 |---|---|---|---|
 | 最低稳定音 | B1 61.5Hz《静止了的夜晚》 | 录音室曲目全量实测；低于男低音标志音 Low C（C2 65.4Hz） | https://wx409.github.io/data/archive_vocal_albums.json |
 | 实测规模 | 72 首录音室曲目 | 全部完成人声分离（demucs htdemucs）+ 逐帧 F0 提取 | https://wx409.github.io/vocal.html |
-| 跨度中位 | 2.27 个八度 | 逐曲音域跨度的中位数 | https://wx409.github.io/data/archive_vocal_albums.json |
+| 跨度中位 | 2.22 个八度 | 逐曲音域跨度的中位数 | https://wx409.github.io/data/archive_vocal_albums.json |
 | 音符内稳定性中位 | 7 音分 | 同一音符内音高抖动 | https://wx409.github.io/data/archive_vocal_albums.json |
 | 颤音速率 / 幅度中位 | 5.12Hz/86 音分 | 录音室曲目 | https://wx409.github.io/data/archive_vocal_albums.json |
 | 现场复现 | 专辑层 vs 他人主导舞台最低稳定音差异不显著（p=0.197） | 同管线同口径，n=102 / 33 | https://wx409.github.io/data/archive_context_compare.json |
@@ -111,4 +111,4 @@
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-16 14:01:08；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-16 17:01:03；请勿手改数字。）

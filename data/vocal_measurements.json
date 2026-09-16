@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 14:02",
+ "generated_at": "2026-09-16 17:01",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -19,17 +19,17 @@
    "single": 6
   },
   "by_verify": {
-   "未复核": 112,
+   "未复核": 111,
    "已取证": 6,
    "已核验": 6,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
    "待复核（legacy 短读，未过 CREPE）": 5,
-   "待复核": 6,
+   "待复核": 4,
    "双引擎一致": 6,
-   "人耳确认（听辨）": 29,
-   "待复核（谐波列待判）": 28,
-   "谐波列复核通过": 155,
+   "人耳确认（听辨）": 46,
+   "待复核（谐波列待判）": 15,
+   "谐波列复核通过": 154,
    "谐波列复核通过（同刻三源）": 1
   },
   "songs": 212
@@ -157,9 +157,6 @@
    "metrics": {
     "low_note": "F2",
     "low_hz": 86.2,
-    "high_note": "B5",
-    "high_hz": 997.3,
-    "span_octaves": 3.53,
     "stability_cents": 8.4,
     "intonation_cents": 9.5,
     "vibrato_hz": 5.07,
@@ -185,9 +182,6 @@
    "metrics": {
     "low_note": "F#2",
     "low_hz": 91.0,
-    "high_note": "A5",
-    "high_hz": 887.0,
-    "span_octaves": 3.28,
     "stability_cents": 7.8,
     "intonation_cents": 11.4,
     "vibrato_hz": 5.07,
@@ -689,9 +683,6 @@
    "metrics": {
     "low_note": "C#2",
     "low_hz": 69.5,
-    "high_note": "G#5",
-    "high_hz": 816.4,
-    "span_octaves": 3.55,
     "stability_cents": 5.9,
     "intonation_cents": 14.0,
     "vibrato_hz": 5.07,
@@ -717,9 +708,6 @@
    "metrics": {
     "low_note": "C#2",
     "low_hz": 68.9,
-    "high_note": "C6",
-    "high_hz": 1054.2,
-    "span_octaves": 3.94,
     "stability_cents": 9.0,
     "intonation_cents": 12.0,
     "vibrato_hz": 5.38,
@@ -801,9 +789,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 72.6,
-    "high_note": "C6",
-    "high_hz": 1042.8,
-    "span_octaves": 3.84,
     "stability_cents": 8.0,
     "intonation_cents": 11.2,
     "vibrato_hz": 5.24,
@@ -829,9 +814,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 72.2,
-    "high_note": "C6",
-    "high_hz": 1067.5,
-    "span_octaves": 3.89,
     "stability_cents": 6.2,
     "intonation_cents": 12.6,
     "vibrato_hz": 5.38,
@@ -941,9 +923,6 @@
    "metrics": {
     "low_note": "E2",
     "low_hz": 81.6,
-    "high_note": "B5",
-    "high_hz": 959.8,
-    "span_octaves": 3.56,
     "stability_cents": 5.8,
     "intonation_cents": 13.2,
     "vibrato_hz": 5.07,
@@ -1361,9 +1340,6 @@
    "metrics": {
     "low_note": "D#2",
     "low_hz": 77.3,
-    "high_note": "E5",
-    "high_hz": 659.8,
-    "span_octaves": 3.09,
     "stability_cents": 5.6,
     "intonation_cents": 7.8,
     "vibrato_hz": 5.07,
@@ -1921,9 +1897,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 73.4,
-    "high_note": "G5",
-    "high_hz": 787.2,
-    "span_octaves": 3.42,
     "stability_cents": 8.8,
     "intonation_cents": 9.7,
     "vibrato_hz": 5.25,
@@ -3552,9 +3525,6 @@
    "metrics": {
     "low_note": "C#2",
     "low_hz": 68.2,
-    "high_note": "C6",
-    "high_hz": 1050.6,
-    "span_octaves": 3.94,
     "stability_cents": 8.2,
     "intonation_cents": 23.0,
     "vibrato_hz": 4.97,
@@ -3704,7 +3674,7 @@
     "duration_s": 299.2
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -3727,9 +3697,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 73.3,
-    "high_note": "C6",
-    "high_hz": 1047.9,
-    "span_octaves": 3.84,
     "stability_cents": 7.8,
     "intonation_cents": 19.8,
     "vibrato_hz": 4.79,
@@ -3832,9 +3799,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 74.0,
-    "high_note": "C6",
-    "high_hz": 1048.0,
-    "span_octaves": 3.82,
     "stability_cents": 7.8,
     "intonation_cents": 20.3,
     "vibrato_hz": 5.17,
@@ -3972,8 +3936,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 74.7,
-    "high_note": "B5",
-    "high_hz": 1008.1,
     "span_octaves": 3.75,
     "stability_cents": 8.5,
     "intonation_cents": 24.5,
@@ -4077,9 +4039,6 @@
    "metrics": {
     "low_note": "D#2",
     "low_hz": 77.2,
-    "high_note": "B5",
-    "high_hz": 1004.9,
-    "span_octaves": 3.7,
     "stability_cents": 7.8,
     "intonation_cents": 25.3,
     "vibrato_hz": 5.22,
@@ -4170,41 +4129,6 @@
    }
   },
   {
-   "id": "tour_live|云一定知道|一巡北京收官20200102_p21_云一定知道",
-   "song": "云一定知道",
-   "version": "一巡北京收官20200102_p21_云一定知道",
-   "layer": "tour_live",
-   "tour": "一巡",
-   "city": "北京收官",
-   "date": "2020-01-02",
-   "source_ref": "",
-   "measure_route": "场次音频实测",
-   "metrics": {
-    "low_note": "D#2",
-    "low_hz": 78.7,
-    "high_note": "C#5",
-    "high_hz": 570.2,
-    "span_octaves": 2.86,
-    "stability_cents": 6.8,
-    "intonation_cents": 15.7,
-    "vibrato_hz": 4.79,
-    "vibrato_cents": 79.0,
-    "density_per_s": 1.73,
-    "hnr_db": 7.5,
-    "duration_s": 272.9
-   },
-   "verify": {
-    "state": "待复核（谐波列待判）",
-    "engines": {},
-    "raw_state": ""
-   },
-   "provenance": {
-    "measured_by": "场次音频实测",
-    "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": null
-   }
-  },
-  {
    "id": "tour_live|钢铁小毛驴|一巡北京收官20200102_p16_钢铁小毛驴",
    "song": "钢铁小毛驴",
    "version": "一巡北京收官20200102_p16_钢铁小毛驴",
@@ -4217,9 +4141,6 @@
    "metrics": {
     "low_note": "E2",
     "low_hz": 80.1,
-    "high_note": "C6",
-    "high_hz": 1046.4,
-    "span_octaves": 3.71,
     "stability_cents": 8.2,
     "intonation_cents": 24.9,
     "vibrato_hz": 4.31,
@@ -4439,7 +4360,7 @@
     "duration_s": 268.9
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -4547,7 +4468,7 @@
     "duration_s": 236.1
    },
    "verify": {
-    "state": "待复核",
+    "state": "人耳确认（听辨）",
     "engines": {
      "yin_hz": 91.7,
      "crepe_hz": 181.3
@@ -4681,8 +4602,6 @@
    "metrics": {
     "low_note": "F#2",
     "low_hz": 92.7,
-    "high_note": "C6",
-    "high_hz": 1051.2,
     "span_octaves": 3.5,
     "stability_cents": 8.5,
     "intonation_cents": 17.2,
@@ -5031,9 +4950,6 @@
    "metrics": {
     "low_note": "G#2",
     "low_hz": 103.0,
-    "high_note": "C6",
-    "high_hz": 1030.2,
-    "span_octaves": 3.32,
     "stability_cents": 9.2,
     "intonation_cents": 28.8,
     "vibrato_hz": 4.64,
@@ -5369,6 +5285,39 @@
    }
   },
   {
+   "id": "tour_live|云一定知道|一巡北京收官20200102_p21_云一定知道",
+   "song": "云一定知道",
+   "version": "一巡北京收官20200102_p21_云一定知道",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "北京收官",
+   "date": "2020-01-02",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "high_note": "C#5",
+    "high_hz": 570.2,
+    "span_octaves": 2.86,
+    "stability_cents": 6.8,
+    "intonation_cents": 15.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 79.0,
+    "density_per_s": 1.73,
+    "hnr_db": 7.5,
+    "duration_s": 272.9
+   },
+   "verify": {
+    "state": "人耳确认（听辨）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|让她降落|二巡南京20210411b_BV1SZ4y1c7Xb",
    "song": "让她降落",
    "version": "二巡南京20210411b_BV1SZ4y1c7Xb",
@@ -5565,9 +5514,6 @@
    "metrics": {
     "low_note": "C2",
     "low_hz": 65.0,
-    "high_note": "B5",
-    "high_hz": 1015.3,
-    "span_octaves": 3.97,
     "stability_cents": 9.1,
     "intonation_cents": 18.9,
     "vibrato_hz": 4.53,
@@ -5698,9 +5644,6 @@
    "metrics": {
     "low_note": "C#2",
     "low_hz": 69.4,
-    "high_note": "B5",
-    "high_hz": 1007.0,
-    "span_octaves": 3.86,
     "stability_cents": 8.0,
     "intonation_cents": 18.6,
     "vibrato_hz": 5.07,
@@ -5815,7 +5758,7 @@
     "duration_s": 364.5
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -6533,7 +6476,6 @@
     "low_hz": 103.6,
     "high_note": "C5",
     "high_hz": 523.25,
-    "span_octaves": 3.28,
     "stability_cents": 6.6,
     "intonation_cents": 21.7,
     "vibrato_hz": 4.79,
@@ -6578,7 +6520,7 @@
     "duration_s": 85.6
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -6603,7 +6545,6 @@
     "low_hz": 109.9,
     "high_note": "C5",
     "high_hz": 523.25,
-    "span_octaves": 3.27,
     "stability_cents": 6.8,
     "intonation_cents": 18.9,
     "vibrato_hz": 5.07,
@@ -6816,7 +6757,7 @@
     "duration_s": 464.2
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -6944,9 +6885,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 74.8,
-    "high_note": "C6",
-    "high_hz": 1026.8,
-    "span_octaves": 3.78,
     "stability_cents": 8.1,
     "intonation_cents": 22.6,
     "vibrato_hz": 5.07,
@@ -7376,7 +7314,7 @@
     "duration_s": 240.4
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -7411,7 +7349,7 @@
     "duration_s": 240.2
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -7624,7 +7562,7 @@
     "duration_s": 224.0
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -7694,7 +7632,7 @@
     "duration_s": 238.1
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -7869,7 +7807,7 @@
     "duration_s": 236.9
    },
    "verify": {
-    "state": "待复核",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -8038,9 +7976,6 @@
    "metrics": {
     "low_note": "A2",
     "low_hz": 109.1,
-    "high_note": "C6",
-    "high_hz": 1039.3,
-    "span_octaves": 3.25,
     "stability_cents": 7.8,
     "intonation_cents": 24.0,
     "vibrato_hz": 5.38,
@@ -8073,9 +8008,6 @@
    "metrics": {
     "low_note": "A2",
     "low_hz": 110.4,
-    "high_note": "C6",
-    "high_hz": 1050.8,
-    "span_octaves": 3.25,
     "stability_cents": 7.6,
     "intonation_cents": 23.9,
     "vibrato_hz": 4.92,
@@ -8143,9 +8075,6 @@
    "metrics": {
     "low_note": "A2",
     "low_hz": 111.9,
-    "high_note": "C6",
-    "high_hz": 1038.4,
-    "span_octaves": 3.21,
     "stability_cents": 7.7,
     "intonation_cents": 23.3,
     "vibrato_hz": 5.07,
@@ -8248,9 +8177,6 @@
    "metrics": {
     "low_note": "B2",
     "low_hz": 124.9,
-    "high_note": "C6",
-    "high_hz": 1057.1,
-    "span_octaves": 3.08,
     "stability_cents": 6.7,
     "intonation_cents": 18.7,
     "vibrato_hz": 5.07,
@@ -8295,7 +8221,7 @@
     "duration_s": 247.1
    },
    "verify": {
-    "state": "谐波列复核通过",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -8470,7 +8396,7 @@
     "duration_s": 274.8
    },
    "verify": {
-    "state": "未复核",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -8633,9 +8559,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 72.1,
-    "high_note": "C6",
-    "high_hz": 1028.3,
-    "span_octaves": 3.84,
     "stability_cents": 3.9,
     "intonation_cents": 15.5,
     "vibrato_hz": 4.79,
@@ -8913,9 +8836,6 @@
    "metrics": {
     "low_note": "D2",
     "low_hz": 73.4,
-    "high_note": "C6",
-    "high_hz": 1043.3,
-    "span_octaves": 3.83,
     "stability_cents": 8.9,
     "intonation_cents": 21.7,
     "vibrato_hz": 5.07,
@@ -8960,7 +8880,7 @@
     "duration_s": 164.7
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -10453,9 +10373,6 @@
    "metrics": {
     "low_note": "G2",
     "low_hz": 97.7,
-    "high_note": "C6",
-    "high_hz": 1020.9,
-    "span_octaves": 3.39,
     "stability_cents": 4.2,
     "intonation_cents": 12.2,
     "vibrato_hz": 5.07,
@@ -10500,7 +10417,7 @@
     "duration_s": 222.9
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
@@ -10535,7 +10452,7 @@
     "duration_s": 232.3
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "人耳确认（听辨）",
     "engines": {},
     "raw_state": ""
    },
