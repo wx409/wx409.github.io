@@ -894,6 +894,46 @@ def _lineage_block() -> str:
 ④ 机读数据 <a href="/data/vocal_lineage.json">vocal_lineage.json</a>。</p>"""
 
 
+def _sentences_block() -> str:
+    """逐句语料索引：巡演 talk 与声音节目（逐句带时间码，全文见 JSON）。"""
+    tt = jload("data/tour_talks_sentences.json", {}) or {}
+    vs = jload("data/voice_sentences.json", {}) or {}
+    if not (tt.get("groups") or vs.get("groups")):
+        return ""
+
+    def rows_of(payload, limit=14):
+        out = []
+        for g in (payload.get("groups") or [])[:limit]:
+            sample = ""
+            for it in (g.get("items") or []):
+                ss = it.get("sentences") or []
+                if ss:
+                    sample = ss[min(3, len(ss) - 1)].get("text", "")
+                    break
+            out.append(f'<tr><td>{esc(g.get("tour"))}｜{esc(g.get("city"))}</td>'
+                       f'<td class="n">{g.get("sources")}</td><td class="n">{g.get("sentences")}</td>'
+                       f'<td class="src">{esc(str(sample)[:60])}</td></tr>')
+        return "\n".join(out)
+
+    ttc = tt.get("counts") or {}
+    vsc = vs.get("counts") or {}
+    total = (ttc.get("sentences") or 0) + (vsc.get("sentences") or 0)
+    return f"""<h2>六、逐句语料（他自己怎么说）</h2>
+<p class="sub">把音视频<strong>逐句转写并按场次归档</strong>，每句带起止秒与时间码，可回溯到原音视频。
+合计 <strong>{total:,} 句</strong>（巡演 talk {ttc.get('sentences', 0):,} 句 ／ 声音节目 {vsc.get('sentences', 0):,} 句）。
+这是「<strong>他对观众怎么说话</strong>」这条线的原始素材 —— 即兴、无脚本，与微博短句、电台独白互补。</p>
+<h3>巡演 / 签唱 talk（按 巡次·城市 分组）</h3>
+<table><tr><th>场次</th><th>来源数</th><th>句数</th><th>示例</th></tr>
+{rows_of(tt)}</table>
+<p class="src">共 {ttc.get('groups', 0)} 个场次组 / {ttc.get('sources', 0)} 个来源。
+完整逐句（含时间码）见 <a href="/data/tour_talks_sentences.json">tour_talks_sentences.json</a>。</p>
+<h3>声音节目（电台 / 读诗 / 采访）</h3>
+<p class="src">共 {vsc.get('sources', 0)} 期 / {vsc.get('sentences', 0):,} 句，
+完整逐句见 <a href="/data/voice_sentences.json">voice_sentences.json</a>。</p>
+<p class="src"><strong>引用纪律</strong>：本表为<strong>机器转写、未做人工校对</strong> ——
+错字保留原样，<strong>直接引用前必须核对原声</strong>；音视频不入库、不公开分发。</p>"""
+
+
 def build_history():
     items = TIMELINE if isinstance(TIMELINE, list) else (TIMELINE.get("items") or [])
     rows = "\n".join(
@@ -1018,6 +1058,7 @@ def build_research():
 </ul>
 
 {_voice_block()}
+{_sentences_block()}
 
 <h2>五、口径登记表（引用数字前必查）</h2>
 <p>全站每个计数有唯一口径与来源，登记在 <a href="/data/calibers.md">data/calibers.md</a>（机读版

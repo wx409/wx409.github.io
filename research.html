@@ -181,6 +181,33 @@ font-size:13px;color:#666;line-height:2}
 jieba 分词 + 规则筛选做主题标注；情感为<strong>词表命中</strong>而非模型判定。
 机读数据见 <a href="/data/voice_corpus.json">voice_corpus.json</a> 与
 <a href="/data/voice_analysis.json">voice_analysis.json</a>。</p>
+<h2>六、逐句语料（他自己怎么说）</h2>
+<p class="sub">把音视频<strong>逐句转写并按场次归档</strong>，每句带起止秒与时间码，可回溯到原音视频。
+合计 <strong>65,142 句</strong>（巡演 talk 46,705 句 ／ 声音节目 18,437 句）。
+这是「<strong>他对观众怎么说话</strong>」这条线的原始素材 —— 即兴、无脚本，与微博短句、电台独白互补。</p>
+<h3>巡演 / 签唱 talk（按 巡次·城市 分组）</h3>
+<table><tr><th>场次</th><th>来源数</th><th>句数</th><th>示例</th></tr>
+<tr><td>一巡｜上海</td><td class="n">1</td><td class="n">785</td><td class="src">不怕了那你伤胎长吧</td></tr>
+<tr><td>一巡｜南京</td><td class="n">16</td><td class="n">1157</td><td class="src">天空 若自由 无尽多</td></tr>
+<tr><td>一巡｜太原</td><td class="n">24</td><td class="n">1217</td><td class="src">灵魂如既有无尽</td></tr>
+<tr><td>一巡｜广州</td><td class="n">4</td><td class="n">1361</td><td class="src">随意的细所 还能守住我</td></tr>
+<tr><td>一巡｜杭州</td><td class="n">16</td><td class="n">693</td><td class="src">再抱緊呼吸整個失明的圍繞</td></tr>
+<tr><td>一巡｜武汉</td><td class="n">26</td><td class="n">795</td><td class="src">人天下的脚落 沉默</td></tr>
+<tr><td>一巡｜海口</td><td class="n">30</td><td class="n">1111</td><td class="src">永远是要穿</td></tr>
+<tr><td>一巡｜长沙</td><td class="n">11</td><td class="n">1983</td><td class="src">不過是 芳芳</td></tr>
+<tr><td>五巡｜未标注城市</td><td class="n">4</td><td class="n">4672</td><td class="src">哎呀,来之前就有无数个夜晚我都在想</td></tr>
+<tr><td>四巡｜未标注城市</td><td class="n">1</td><td class="n">525</td><td class="src">我们大家又再一次地抱断取暖</td></tr>
+<tr><td>未标注巡次｜上海</td><td class="n">1</td><td class="n">936</td><td class="src">Zither Harp</td></tr>
+<tr><td>未标注巡次｜南宁</td><td class="n">1</td><td class="n">956</td><td class="src">我记得上次来到男帝王的时候应该是大概三年前的左右</td></tr>
+<tr><td>未标注巡次｜太原</td><td class="n">1</td><td class="n">1008</td><td class="src">谢谢大家</td></tr>
+<tr><td>未标注巡次｜广州</td><td class="n">1</td><td class="n">999</td><td class="src">其实大家都知道,前一段时间我刚从美丽的新疆回来</td></tr></table>
+<p class="src">共 21 个场次组 / 166 个来源。
+完整逐句（含时间码）见 <a href="/data/tour_talks_sentences.json">tour_talks_sentences.json</a>。</p>
+<h3>声音节目（电台 / 读诗 / 采访）</h3>
+<p class="src">共 175 期 / 18,437 句，
+完整逐句见 <a href="/data/voice_sentences.json">voice_sentences.json</a>。</p>
+<p class="src"><strong>引用纪律</strong>：本表为<strong>机器转写、未做人工校对</strong> ——
+错字保留原样，<strong>直接引用前必须核对原声</strong>；音视频不入库、不公开分发。</p>
 
 <h2>五、口径登记表（引用数字前必查）</h2>
 <p>全站每个计数有唯一口径与来源，登记在 <a href="/data/calibers.md">data/calibers.md</a>（机读版
