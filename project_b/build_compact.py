@@ -968,6 +968,50 @@ def _sentences_block() -> str:
 错字保留原样，<strong>直接引用前必须核对原声</strong>；音视频不入库、不公开分发。</p>"""
 
 
+
+def _style_block() -> str:
+    """演唱风格量化（读 data/archive_style.json）——「打两份工」与「低的要高唱」。"""
+    st_ = jload("data/archive_style.json", {}) or {}
+    if not st_.get("songs"):
+        return ""
+    c = st_.get("summary") or {}
+    alt = st_.get("top_alt") or []
+    bri = st_.get("top_bright") or []
+    r1 = "".join(
+        f'<tr><td>{esc(x.get("title"))}</td><td class="n">{x.get("alt_rate_per_min")}</td>'
+        f'<td class="n">{x.get("alt_count")}</td></tr>' for x in alt[:8])
+    r2 = "".join(
+        f'<tr><td>{esc(x.get("title"))}</td><td class="n">{x["brightness"]["ratio"]}</td>'
+        f'<td class="n">{x["brightness"]["lo_centroid"]}</td>'
+        f'<td class="n">{x["brightness"]["mid_centroid"]}</td></tr>' for x in bri[:8])
+    return (f'<h2>演唱风格量化（可复算的两个特征）</h2>'
+            f'<p class="sub">这两个不是形容，是<b>可测量的行为</b> —— '
+            f'由听感提出、经实测验证，随数据自动更新。'
+            f'共 <b>{st_.get("counts", {}).get("songs", 0)} 首</b>曲目。</p>'
+            f'<h3>一、「打两份工」—— 极端音区快速交替</h3>'
+            f'<p class="src">定义：<b>高音后马上接低音、低音后马上升高</b> —— '
+            f'相邻音符音高差 ≥12 半音且间隔 ≤0.5 秒记一次，'
+            f'除以时长得<b>次/分钟</b>。<b>不是全曲跨度。</b></p>'
+            f'<p class="src">全体中位 <b>{c.get("alt_rate_median")}</b> ／ '
+            f'最高 <b>{c.get("alt_rate_max")}</b> 次/分钟。下表为前列曲目：</p>'
+            f'<table><tr><th>曲目</th><th>次/分钟</th><th>次数</th></tr>{r1}</table>'
+            f'<p class="src">⚠️ 本指标<b>只用于从百余首里挑候选</b>，最终判定须人耳 —— '
+            f'经用户听辨，指标排序与"真正的过山车"并不完全一致；'
+            f'区分二者的是音色、声区与咬字的转换，不是音高差。</p>'
+            f'<h3>二、「低的要高唱」—— 低音反而很亮</h3>'
+            f'<p class="src">人耳判断"低不低"主要依据<b>频谱重心</b>而非基频。'
+            f'在<b>原始混音</b>上分别测低音区（50–110Hz）与中音区（150–350Hz）的'
+            f'频谱质心，取比值。</p>'
+            f'<p class="src"><b>常态参照</b>：男低音唱 95Hz 时能量绝大多数压在基频，'
+            f'低音区质心应<b>显著低于</b>中音区（比值远小于 1）。<br>'
+            f'<b>实测</b>：全体中位 <b>{c.get("brightness_ratio_median")}</b>'
+            f'（最高 {c.get("brightness_ratio_max")}）—— <b>他没有暗下来。</b></p>'
+            f'<table><tr><th>曲目</th><th>比值</th><th>低音区质心Hz</th><th>中音区质心Hz</th></tr>'
+            f'{r2}</table>'
+            f'<p class="src">对照试验：改用分离人声测亦同向，且混音口径更保守 —— '
+            f'排除了"是分离算法副作用"这一解释。'
+            f'机读：<a href="/data/archive_style.json">archive_style.json</a>。</p>')
+
 def build_history():
     items = TIMELINE if isinstance(TIMELINE, list) else (TIMELINE.get("items") or [])
     rows = "\n".join(
@@ -1093,6 +1137,7 @@ def build_research():
 
 {_voice_block()}
 {_sentences_block()}
+{_style_block()}
 
 <h2>五、口径登记表（引用数字前必查）</h2>
 <p>全站每个计数有唯一口径与来源，登记在 <a href="/data/calibers.md">data/calibers.md</a>（机读版

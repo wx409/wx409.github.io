@@ -1,6 +1,7 @@
 @echo off
 title 王晰档案站 · 操作中心 (v3)
 setlocal EnableExtensions
+if "%op%"=="165" goto build_style_metrics
 :menu
 cls
 echo ================================================================
@@ -211,6 +212,7 @@ echo    161. 汇总明细一致性审计（防未复核值被当结论）
 echo    162. 听辨样本切制（待复核读数切 6~8 秒小段送人耳）
 echo    163. 辩音总档生成（传记素材：前史+正本+裁决台账合并）
 echo    164. 专辑层高音区复核（极值读数必须过人耳）
+echo    165. 风格指标生成（打两份工 / 低音亮度，可复算）
 echo    0. 退出
 echo.
 set "op="
@@ -2272,5 +2274,16 @@ echo        实际最高为 F5 706.0Hz《带着一颗好心去流浪》。
 echo  生成器内 HIGH_REJECT 表为抗回退登记；复核请用 162 切样本。
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\make_review_clips.py --list --mode high
+pause
+goto menu
+
+:build_style_metrics
+cls
+echo  [风格指标生成] 生成 data/archive_style.json
+echo   指标一「打两份工」：极端音区快速交替（次/分钟）
+echo   指标二「低的要高唱」：低音区/中音区 频谱质心比
+echo   口径写死在脚本 docstring，引用前必看
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_style_metrics.py
 pause
 goto menu

@@ -1,0 +1,2006 @@
+{
+ "schema": "style-metrics/v1",
+ "generated_at": "2026-09-16 18:22",
+ "what": "演唱风格量化指标（由用户听感提出、经实测验证的两个可测行为）",
+ "why": "把『打两份工/过山车』与『低的要高唱/低音亮度』从听感变成可复现、可挑战的数字",
+ "discipline": [
+  "① 极端交替：用户定义『高音后马上接低音、低音后马上升高』，**不是全曲跨度**",
+  "② 低音亮度：在**原始混音**上测（对照试验证明比分离轨更保守，且排除 demucs artifact）",
+  "③ 常态参照：男低音唱 95Hz 时能量压在基频，低音区质心应显著低于中音区（比值 ≪1）",
+  "④ 极端交替指标**只能用于从百余首里挑候选**，最终判定须人耳（用户的 3 个否决样本指标也高）",
+  "⑤ 质心测量含『质心不得低于基频』的合理性检查，防时间轴错位静默产出垃圾"
+ ],
+ "params": {
+  "alt_semi": 12.0,
+  "alt_gap_s": 0.5,
+  "lo_band": [
+   50,
+   110
+  ],
+  "mid_band": [
+   150,
+   350
+  ]
+ },
+ "counts": {
+  "songs": 107,
+  "with_brightness": 107
+ },
+ "summary": {
+  "alt_rate_median": 2.04,
+  "alt_rate_max": 8.49,
+  "brightness_ratio_median": 0.996,
+  "brightness_ratio_max": 1.268
+ },
+ "top_alt": [
+  {
+   "title": "美丽的草原我的家 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 219.0,
+   "n_notes": 318,
+   "alt_count": 31,
+   "alt_rate_per_min": 8.49,
+   "brightness": {
+    "lo_centroid": 433.8,
+    "mid_centroid": 929.6,
+    "ratio": 0.467,
+    "lo_n": 311,
+    "mid_n": 1179
+   }
+  },
+  {
+   "title": "雾里 (2023中央广播电视总台网络春晚现场)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 276.2,
+   "n_notes": 445,
+   "alt_count": 36,
+   "alt_rate_per_min": 7.82,
+   "brightness": {
+    "lo_centroid": 1675.2,
+    "mid_centroid": 1678.0,
+    "ratio": 0.998,
+    "lo_n": 205,
+    "mid_n": 1368
+   }
+  },
+  {
+   "title": "她真漂亮 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 277.2,
+   "n_notes": 239,
+   "alt_count": 36,
+   "alt_rate_per_min": 7.79,
+   "brightness": {
+    "lo_centroid": 498.1,
+    "mid_centroid": 499.1,
+    "ratio": 0.998,
+    "lo_n": 372,
+    "mid_n": 1906
+   }
+  },
+  {
+   "title": "不能靠近的朋友",
+   "album": "回望",
+   "duration_s": 335.5,
+   "n_notes": 360,
+   "alt_count": 43,
+   "alt_rate_per_min": 7.69,
+   "brightness": {
+    "lo_centroid": 169.0,
+    "mid_centroid": 181.9,
+    "ratio": 0.929,
+    "lo_n": 73,
+    "mid_n": 645
+   }
+  },
+  {
+   "title": "凄美地 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 251.0,
+   "n_notes": 301,
+   "alt_count": 31,
+   "alt_rate_per_min": 7.41,
+   "brightness": {
+    "lo_centroid": 903.3,
+    "mid_centroid": 755.7,
+    "ratio": 1.195,
+    "lo_n": 115,
+    "mid_n": 1996
+   }
+  },
+  {
+   "title": "云与海",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 237.9,
+   "n_notes": 358,
+   "alt_count": 29,
+   "alt_rate_per_min": 7.31,
+   "brightness": {
+    "lo_centroid": 501.3,
+    "mid_centroid": 591.6,
+    "ratio": 0.847,
+    "lo_n": 49,
+    "mid_n": 1848
+   }
+  },
+  {
+   "title": "无尽的夜里",
+   "album": "不说",
+   "duration_s": 218.1,
+   "n_notes": 283,
+   "alt_count": 25,
+   "alt_rate_per_min": 6.88,
+   "brightness": {
+    "lo_centroid": 395.6,
+    "mid_centroid": 653.9,
+    "ratio": 0.605,
+    "lo_n": 257,
+    "mid_n": 1578
+   }
+  },
+  {
+   "title": "歌颂",
+   "album": "歌颂",
+   "duration_s": 206.7,
+   "n_notes": 233,
+   "alt_count": 22,
+   "alt_rate_per_min": 6.39,
+   "brightness": {
+    "lo_centroid": 348.3,
+    "mid_centroid": 346.8,
+    "ratio": 1.005,
+    "lo_n": 211,
+    "mid_n": 1670
+   }
+  },
+  {
+   "title": "渡荆门送别 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 227.8,
+   "n_notes": 254,
+   "alt_count": 24,
+   "alt_rate_per_min": 6.32,
+   "brightness": {
+    "lo_centroid": 4347.0,
+    "mid_centroid": 4264.6,
+    "ratio": 1.019,
+    "lo_n": 365,
+    "mid_n": 1168
+   }
+  },
+  {
+   "title": "小毛驴",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 92.5,
+   "n_notes": 126,
+   "alt_count": 9,
+   "alt_rate_per_min": 5.84,
+   "brightness": {
+    "lo_centroid": 497.1,
+    "mid_centroid": 497.6,
+    "ratio": 0.999,
+    "lo_n": 125,
+    "mid_n": 511
+   }
+  },
+  {
+   "title": "猫模狗样",
+   "album": "X自选集",
+   "duration_s": 216.1,
+   "n_notes": 268,
+   "alt_count": 21,
+   "alt_rate_per_min": 5.83,
+   "brightness": {
+    "lo_centroid": 437.1,
+    "mid_centroid": 446.0,
+    "ratio": 0.98,
+    "lo_n": 559,
+    "mid_n": 803
+   }
+  },
+  {
+   "title": "微风细雨",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 206.1,
+   "n_notes": 259,
+   "alt_count": 20,
+   "alt_rate_per_min": 5.82,
+   "brightness": {
+    "lo_centroid": 423.7,
+    "mid_centroid": 456.6,
+    "ratio": 0.928,
+    "lo_n": 814,
+    "mid_n": 462
+   }
+  }
+ ],
+ "top_bright": [
+  {
+   "title": "谁 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 211.8,
+   "n_notes": 197,
+   "alt_count": 4,
+   "alt_rate_per_min": 1.13,
+   "brightness": {
+    "lo_centroid": 1038.5,
+    "mid_centroid": 819.0,
+    "ratio": 1.268,
+    "lo_n": 307,
+    "mid_n": 2451
+   }
+  },
+  {
+   "title": "悬念",
+   "album": "B面图景",
+   "duration_s": 198.3,
+   "n_notes": 272,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.61,
+   "brightness": {
+    "lo_centroid": 385.1,
+    "mid_centroid": 304.4,
+    "ratio": 1.265,
+    "lo_n": 824,
+    "mid_n": 852
+   }
+  },
+  {
+   "title": "好好说再见",
+   "album": "重游往昔",
+   "duration_s": 280.5,
+   "n_notes": 354,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.5,
+   "brightness": {
+    "lo_centroid": 558.0,
+    "mid_centroid": 448.6,
+    "ratio": 1.244,
+    "lo_n": 44,
+    "mid_n": 2439
+   }
+  },
+  {
+   "title": "凄美地 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 251.0,
+   "n_notes": 301,
+   "alt_count": 31,
+   "alt_rate_per_min": 7.41,
+   "brightness": {
+    "lo_centroid": 903.3,
+    "mid_centroid": 755.7,
+    "ratio": 1.195,
+    "lo_n": 115,
+    "mid_n": 1996
+   }
+  },
+  {
+   "title": "重来",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 28.7,
+   "n_notes": 29,
+   "alt_count": 0,
+   "alt_rate_per_min": 0.0,
+   "brightness": {
+    "lo_centroid": 1018.2,
+    "mid_centroid": 885.1,
+    "ratio": 1.15,
+    "lo_n": 41,
+    "mid_n": 182
+   }
+  },
+  {
+   "title": "偏执",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 221.5,
+   "n_notes": 293,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.35,
+   "brightness": {
+    "lo_centroid": 569.9,
+    "mid_centroid": 501.3,
+    "ratio": 1.137,
+    "lo_n": 157,
+    "mid_n": 1734
+   }
+  },
+  {
+   "title": "带着一颗好心去流浪",
+   "album": "重游往昔",
+   "duration_s": 275.8,
+   "n_notes": 333,
+   "alt_count": 21,
+   "alt_rate_per_min": 4.57,
+   "brightness": {
+    "lo_centroid": 377.2,
+    "mid_centroid": 334.7,
+    "ratio": 1.127,
+    "lo_n": 128,
+    "mid_n": 2139
+   }
+  },
+  {
+   "title": "月光",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 318.4,
+   "n_notes": 480,
+   "alt_count": 26,
+   "alt_rate_per_min": 4.9,
+   "brightness": {
+    "lo_centroid": 2341.5,
+    "mid_centroid": 2079.6,
+    "ratio": 1.126,
+    "lo_n": 706,
+    "mid_n": 1953
+   }
+  },
+  {
+   "title": "叶塞尼亚",
+   "album": "赵鹏",
+   "duration_s": 241.1,
+   "n_notes": 190,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.5,
+   "brightness": {
+    "lo_centroid": 681.8,
+    "mid_centroid": 614.2,
+    "ratio": 1.11,
+    "lo_n": 483,
+    "mid_n": 452
+   }
+  },
+  {
+   "title": "偏执",
+   "album": "歌颂",
+   "duration_s": 222.4,
+   "n_notes": 288,
+   "alt_count": 6,
+   "alt_rate_per_min": 1.62,
+   "brightness": {
+    "lo_centroid": 554.7,
+    "mid_centroid": 503.3,
+    "ratio": 1.102,
+    "lo_n": 147,
+    "mid_n": 1732
+   }
+  },
+  {
+   "title": "节气歌 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 275.5,
+   "n_notes": 385,
+   "alt_count": 14,
+   "alt_rate_per_min": 3.05,
+   "brightness": {
+    "lo_centroid": 1533.1,
+    "mid_centroid": 1417.3,
+    "ratio": 1.082,
+    "lo_n": 71,
+    "mid_n": 3301
+   }
+  },
+  {
+   "title": "时空",
+   "album": "B面图景",
+   "duration_s": 234.7,
+   "n_notes": 347,
+   "alt_count": 11,
+   "alt_rate_per_min": 2.81,
+   "brightness": {
+    "lo_centroid": 403.0,
+    "mid_centroid": 374.7,
+    "ratio": 1.075,
+    "lo_n": 101,
+    "mid_n": 2096
+   }
+  }
+ ],
+ "songs": [
+  {
+   "title": "002Y5kqS2ZL5XH",
+   "album": "龙源之声",
+   "duration_s": 189.5,
+   "n_notes": 211,
+   "alt_count": 8,
+   "alt_rate_per_min": 2.53,
+   "brightness": {
+    "lo_centroid": 95.2,
+    "mid_centroid": 184.7,
+    "ratio": 0.515,
+    "lo_n": 413,
+    "mid_n": 145
+   }
+  },
+  {
+   "title": "Bésame Mucho (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 293.7,
+   "n_notes": 328,
+   "alt_count": 10,
+   "alt_rate_per_min": 2.04,
+   "brightness": {
+    "lo_centroid": 632.8,
+    "mid_centroid": 1522.6,
+    "ratio": 0.416,
+    "lo_n": 105,
+    "mid_n": 2860
+   }
+  },
+  {
+   "title": "Come to Me",
+   "album": "歌颂",
+   "duration_s": 263.0,
+   "n_notes": 226,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.6,
+   "brightness": {
+    "lo_centroid": 317.9,
+    "mid_centroid": 299.5,
+    "ratio": 1.061,
+    "lo_n": 282,
+    "mid_n": 1858
+   }
+  },
+  {
+   "title": "Crystal Store",
+   "album": "X自选集",
+   "duration_s": 199.4,
+   "n_notes": 193,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.3,
+   "brightness": {
+    "lo_centroid": 96.0,
+    "mid_centroid": 1331.7,
+    "ratio": 0.072,
+    "lo_n": 391,
+    "mid_n": 162
+   }
+  },
+  {
+   "title": "一生守候 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 137.7,
+   "n_notes": 143,
+   "alt_count": 5,
+   "alt_rate_per_min": 2.18,
+   "brightness": {
+    "lo_centroid": 435.5,
+    "mid_centroid": 433.4,
+    "ratio": 1.005,
+    "lo_n": 97,
+    "mid_n": 1188
+   }
+  },
+  {
+   "title": "下沉",
+   "album": "重游往昔",
+   "duration_s": 213.0,
+   "n_notes": 135,
+   "alt_count": 9,
+   "alt_rate_per_min": 2.54,
+   "brightness": {
+    "lo_centroid": 253.6,
+    "mid_centroid": 254.5,
+    "ratio": 0.996,
+    "lo_n": 224,
+    "mid_n": 1058
+   }
+  },
+  {
+   "title": "不能靠近的朋友",
+   "album": "回望",
+   "duration_s": 335.5,
+   "n_notes": 360,
+   "alt_count": 43,
+   "alt_rate_per_min": 7.69,
+   "brightness": {
+    "lo_centroid": 169.0,
+    "mid_centroid": 181.9,
+    "ratio": 0.929,
+    "lo_n": 73,
+    "mid_n": 645
+   }
+  },
+  {
+   "title": "不需要结果",
+   "album": "X自选集",
+   "duration_s": 228.9,
+   "n_notes": 295,
+   "alt_count": 10,
+   "alt_rate_per_min": 2.62,
+   "brightness": {
+    "lo_centroid": 1236.4,
+    "mid_centroid": 1234.4,
+    "ratio": 1.002,
+    "lo_n": 337,
+    "mid_n": 1792
+   }
+  },
+  {
+   "title": "乌兰巴托的夜晚",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 271.2,
+   "n_notes": 258,
+   "alt_count": 8,
+   "alt_rate_per_min": 1.77,
+   "brightness": {
+    "lo_centroid": 271.7,
+    "mid_centroid": 271.7,
+    "ratio": 1.0,
+    "lo_n": 741,
+    "mid_n": 628
+   }
+  },
+  {
+   "title": "乌兰巴托的夜晚",
+   "album": "低音共鸣",
+   "duration_s": 323.6,
+   "n_notes": 259,
+   "alt_count": 8,
+   "alt_rate_per_min": 1.48,
+   "brightness": {
+    "lo_centroid": 288.5,
+    "mid_centroid": 377.3,
+    "ratio": 0.765,
+    "lo_n": 791,
+    "mid_n": 545
+   }
+  },
+  {
+   "title": "云一定知道",
+   "album": "歌颂",
+   "duration_s": 281.4,
+   "n_notes": 296,
+   "alt_count": 12,
+   "alt_rate_per_min": 2.56,
+   "brightness": {
+    "lo_centroid": 499.1,
+    "mid_centroid": 499.1,
+    "ratio": 1.0,
+    "lo_n": 184,
+    "mid_n": 2952
+   }
+  },
+  {
+   "title": "云与海",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 237.9,
+   "n_notes": 358,
+   "alt_count": 29,
+   "alt_rate_per_min": 7.31,
+   "brightness": {
+    "lo_centroid": 501.3,
+    "mid_centroid": 591.6,
+    "ratio": 0.847,
+    "lo_n": 49,
+    "mid_n": 1848
+   }
+  },
+  {
+   "title": "亲密爱人 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 265.1,
+   "n_notes": 349,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.13,
+   "brightness": {
+    "lo_centroid": 377.1,
+    "mid_centroid": 585.9,
+    "ratio": 0.644,
+    "lo_n": 385,
+    "mid_n": 1793
+   }
+  },
+  {
+   "title": "他不爱我",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 219.5,
+   "n_notes": 276,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.55,
+   "brightness": {
+    "lo_centroid": 466.7,
+    "mid_centroid": 461.3,
+    "ratio": 1.012,
+    "lo_n": 830,
+    "mid_n": 532
+   }
+  },
+  {
+   "title": "住口",
+   "album": "不说",
+   "duration_s": 195.0,
+   "n_notes": 285,
+   "alt_count": 4,
+   "alt_rate_per_min": 1.23,
+   "brightness": {
+    "lo_centroid": 132.7,
+    "mid_centroid": 252.6,
+    "ratio": 0.525,
+    "lo_n": 73,
+    "mid_n": 310
+   }
+  },
+  {
+   "title": "你",
+   "album": "歌颂",
+   "duration_s": 257.8,
+   "n_notes": 292,
+   "alt_count": 4,
+   "alt_rate_per_min": 0.93,
+   "brightness": {
+    "lo_centroid": 537.4,
+    "mid_centroid": 537.8,
+    "ratio": 0.999,
+    "lo_n": 198,
+    "mid_n": 2107
+   }
+  },
+  {
+   "title": "你要忘了我",
+   "album": "重游往昔",
+   "duration_s": 256.2,
+   "n_notes": 290,
+   "alt_count": 12,
+   "alt_rate_per_min": 2.81,
+   "brightness": {
+    "lo_centroid": 266.0,
+    "mid_centroid": 258.8,
+    "ratio": 1.028,
+    "lo_n": 134,
+    "mid_n": 1757
+   }
+  },
+  {
+   "title": "倒叙",
+   "album": "B面图景",
+   "duration_s": 196.0,
+   "n_notes": 288,
+   "alt_count": 6,
+   "alt_rate_per_min": 1.84,
+   "brightness": {
+    "lo_centroid": 403.3,
+    "mid_centroid": 389.9,
+    "ratio": 1.034,
+    "lo_n": 154,
+    "mid_n": 1608
+   }
+  },
+  {
+   "title": "偏偏",
+   "album": "X自选集",
+   "duration_s": 219.1,
+   "n_notes": 311,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.92,
+   "brightness": {
+    "lo_centroid": 465.1,
+    "mid_centroid": 479.3,
+    "ratio": 0.971,
+    "lo_n": 200,
+    "mid_n": 2092
+   }
+  },
+  {
+   "title": "偏执",
+   "album": "歌颂",
+   "duration_s": 222.4,
+   "n_notes": 288,
+   "alt_count": 6,
+   "alt_rate_per_min": 1.62,
+   "brightness": {
+    "lo_centroid": 554.7,
+    "mid_centroid": 503.3,
+    "ratio": 1.102,
+    "lo_n": 147,
+    "mid_n": 1732
+   }
+  },
+  {
+   "title": "偏执",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 221.5,
+   "n_notes": 293,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.35,
+   "brightness": {
+    "lo_centroid": 569.9,
+    "mid_centroid": 501.3,
+    "ratio": 1.137,
+    "lo_n": 157,
+    "mid_n": 1734
+   }
+  },
+  {
+   "title": "共同的向往 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 223.8,
+   "n_notes": 196,
+   "alt_count": 6,
+   "alt_rate_per_min": 1.61,
+   "brightness": {
+    "lo_centroid": 237.0,
+    "mid_centroid": 301.1,
+    "ratio": 0.787,
+    "lo_n": 105,
+    "mid_n": 1450
+   }
+  },
+  {
+   "title": "再回首",
+   "album": "Low C的诱惑",
+   "duration_s": 207.4,
+   "n_notes": 249,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.58,
+   "brightness": {
+    "lo_centroid": 370.8,
+    "mid_centroid": 2025.5,
+    "ratio": 0.183,
+    "lo_n": 383,
+    "mid_n": 630
+   }
+  },
+  {
+   "title": "再回首",
+   "album": "月光森林 (赵鹏人声低音炮2)",
+   "duration_s": 296.4,
+   "n_notes": 290,
+   "alt_count": 4,
+   "alt_rate_per_min": 0.81,
+   "brightness": {
+    "lo_centroid": 899.2,
+    "mid_centroid": 910.2,
+    "ratio": 0.988,
+    "lo_n": 508,
+    "mid_n": 618
+   }
+  },
+  {
+   "title": "再见，我的爱人 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 313.2,
+   "n_notes": 436,
+   "alt_count": 8,
+   "alt_rate_per_min": 1.53,
+   "brightness": {
+    "lo_centroid": 454.9,
+    "mid_centroid": 479.4,
+    "ratio": 0.949,
+    "lo_n": 475,
+    "mid_n": 2719
+   }
+  },
+  {
+   "title": "凄美地 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 251.0,
+   "n_notes": 301,
+   "alt_count": 31,
+   "alt_rate_per_min": 7.41,
+   "brightness": {
+    "lo_centroid": 903.3,
+    "mid_centroid": 755.7,
+    "ratio": 1.195,
+    "lo_n": 115,
+    "mid_n": 1996
+   }
+  },
+  {
+   "title": "几多愁",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 216.0,
+   "n_notes": 329,
+   "alt_count": 16,
+   "alt_rate_per_min": 4.44,
+   "brightness": {
+    "lo_centroid": 6692.1,
+    "mid_centroid": 6678.4,
+    "ratio": 1.002,
+    "lo_n": 968,
+    "mid_n": 820
+   }
+  },
+  {
+   "title": "分岔",
+   "album": "B面图景",
+   "duration_s": 235.3,
+   "n_notes": 263,
+   "alt_count": 3,
+   "alt_rate_per_min": 0.77,
+   "brightness": {
+    "lo_centroid": 402.4,
+    "mid_centroid": 397.0,
+    "ratio": 1.014,
+    "lo_n": 261,
+    "mid_n": 2094
+   }
+  },
+  {
+   "title": "勿扰",
+   "album": "不说",
+   "duration_s": 255.4,
+   "n_notes": 218,
+   "alt_count": 19,
+   "alt_rate_per_min": 4.46,
+   "brightness": {
+    "lo_centroid": 439.4,
+    "mid_centroid": 437.1,
+    "ratio": 1.005,
+    "lo_n": 527,
+    "mid_n": 907
+   }
+  },
+  {
+   "title": "千言万语",
+   "album": "Low C的诱惑",
+   "duration_s": 207.0,
+   "n_notes": 264,
+   "alt_count": 7,
+   "alt_rate_per_min": 2.03,
+   "brightness": {
+    "lo_centroid": 448.3,
+    "mid_centroid": 446.5,
+    "ratio": 1.004,
+    "lo_n": 643,
+    "mid_n": 1026
+   }
+  },
+  {
+   "title": "南屏晚钟",
+   "album": "Low C的诱惑",
+   "duration_s": 210.1,
+   "n_notes": 310,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.57,
+   "brightness": {
+    "lo_centroid": 3769.8,
+    "mid_centroid": 4118.6,
+    "ratio": 0.915,
+    "lo_n": 842,
+    "mid_n": 1617
+   }
+  },
+  {
+   "title": "南屏晚钟",
+   "album": "闪亮的日子 (赵鹏人声低音炮1)",
+   "duration_s": 233.7,
+   "n_notes": 235,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.26,
+   "brightness": {
+    "lo_centroid": 1061.9,
+    "mid_centroid": 1038.0,
+    "ratio": 1.023,
+    "lo_n": 613,
+    "mid_n": 1117
+   }
+  },
+  {
+   "title": "双鱼",
+   "album": "歌颂",
+   "duration_s": 272.9,
+   "n_notes": 343,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.44,
+   "brightness": {
+    "lo_centroid": 246.0,
+    "mid_centroid": 276.2,
+    "ratio": 0.89,
+    "lo_n": 13,
+    "mid_n": 2622
+   }
+  },
+  {
+   "title": "叶塞尼亚",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 256.9,
+   "n_notes": 222,
+   "alt_count": 3,
+   "alt_rate_per_min": 0.7,
+   "brightness": {
+    "lo_centroid": 182.6,
+    "mid_centroid": 188.3,
+    "ratio": 0.97,
+    "lo_n": 549,
+    "mid_n": 627
+   }
+  },
+  {
+   "title": "叶塞尼亚",
+   "album": "赵鹏",
+   "duration_s": 241.1,
+   "n_notes": 190,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.5,
+   "brightness": {
+    "lo_centroid": 681.8,
+    "mid_centroid": 614.2,
+    "ratio": 1.11,
+    "lo_n": 483,
+    "mid_n": 452
+   }
+  },
+  {
+   "title": "哑光",
+   "album": "B面图景",
+   "duration_s": 242.0,
+   "n_notes": 329,
+   "alt_count": 9,
+   "alt_rate_per_min": 2.23,
+   "brightness": {
+    "lo_centroid": 113.6,
+    "mid_centroid": 330.7,
+    "ratio": 0.344,
+    "lo_n": 169,
+    "mid_n": 207
+   }
+  },
+  {
+   "title": "在路上",
+   "album": "不说",
+   "duration_s": 176.8,
+   "n_notes": 213,
+   "alt_count": 16,
+   "alt_rate_per_min": 5.43,
+   "brightness": {
+    "lo_centroid": 296.6,
+    "mid_centroid": 295.1,
+    "ratio": 1.005,
+    "lo_n": 356,
+    "mid_n": 374
+   }
+  },
+  {
+   "title": "多听有益",
+   "album": "X自选集",
+   "duration_s": 233.6,
+   "n_notes": 235,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.8,
+   "brightness": {
+    "lo_centroid": 395.8,
+    "mid_centroid": 411.3,
+    "ratio": 0.962,
+    "lo_n": 167,
+    "mid_n": 655
+   }
+  },
+  {
+   "title": "多年以后",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 327.4,
+   "n_notes": 449,
+   "alt_count": 29,
+   "alt_rate_per_min": 5.31,
+   "brightness": {
+    "lo_centroid": 1082.3,
+    "mid_centroid": 1972.4,
+    "ratio": 0.549,
+    "lo_n": 721,
+    "mid_n": 792
+   }
+  },
+  {
+   "title": "夜半歌声",
+   "album": "Low C的诱惑",
+   "duration_s": 171.2,
+   "n_notes": 169,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.7,
+   "brightness": {
+    "lo_centroid": 400.8,
+    "mid_centroid": 490.4,
+    "ratio": 0.817,
+    "lo_n": 375,
+    "mid_n": 422
+   }
+  },
+  {
+   "title": "大江东去",
+   "album": "大江东去",
+   "duration_s": 218.3,
+   "n_notes": 235,
+   "alt_count": 10,
+   "alt_rate_per_min": 2.75,
+   "brightness": {
+    "lo_centroid": 631.1,
+    "mid_centroid": 665.5,
+    "ratio": 0.948,
+    "lo_n": 293,
+    "mid_n": 805
+   }
+  },
+  {
+   "title": "她真漂亮 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 277.2,
+   "n_notes": 239,
+   "alt_count": 36,
+   "alt_rate_per_min": 7.79,
+   "brightness": {
+    "lo_centroid": 498.1,
+    "mid_centroid": 499.1,
+    "ratio": 0.998,
+    "lo_n": 372,
+    "mid_n": 1906
+   }
+  },
+  {
+   "title": "好好说再见",
+   "album": "重游往昔",
+   "duration_s": 280.5,
+   "n_notes": 354,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.5,
+   "brightness": {
+    "lo_centroid": 558.0,
+    "mid_centroid": 448.6,
+    "ratio": 1.244,
+    "lo_n": 44,
+    "mid_n": 2439
+   }
+  },
+  {
+   "title": "如愿",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 259.9,
+   "n_notes": 304,
+   "alt_count": 16,
+   "alt_rate_per_min": 3.69,
+   "brightness": {
+    "lo_centroid": 673.2,
+    "mid_centroid": 683.1,
+    "ratio": 0.986,
+    "lo_n": 161,
+    "mid_n": 2082
+   }
+  },
+  {
+   "title": "如梦令",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 232.6,
+   "n_notes": 303,
+   "alt_count": 13,
+   "alt_rate_per_min": 3.35,
+   "brightness": {
+    "lo_centroid": 4451.4,
+    "mid_centroid": 4433.1,
+    "ratio": 1.004,
+    "lo_n": 789,
+    "mid_n": 1092
+   }
+  },
+  {
+   "title": "小毛驴",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 92.5,
+   "n_notes": 126,
+   "alt_count": 9,
+   "alt_rate_per_min": 5.84,
+   "brightness": {
+    "lo_centroid": 497.1,
+    "mid_centroid": 497.6,
+    "ratio": 0.999,
+    "lo_n": 125,
+    "mid_n": 511
+   }
+  },
+  {
+   "title": "小河",
+   "album": "X自选集",
+   "duration_s": 226.1,
+   "n_notes": 296,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.27,
+   "brightness": {
+    "lo_centroid": 3328.3,
+    "mid_centroid": 3299.8,
+    "ratio": 1.009,
+    "lo_n": 369,
+    "mid_n": 1407
+   }
+  },
+  {
+   "title": "带着一颗好心去流浪",
+   "album": "重游往昔",
+   "duration_s": 275.8,
+   "n_notes": 333,
+   "alt_count": 21,
+   "alt_rate_per_min": 4.57,
+   "brightness": {
+    "lo_centroid": 377.2,
+    "mid_centroid": 334.7,
+    "ratio": 1.127,
+    "lo_n": 128,
+    "mid_n": 2139
+   }
+  },
+  {
+   "title": "当爱已成往事",
+   "album": "Low C的诱惑",
+   "duration_s": 312.2,
+   "n_notes": 376,
+   "alt_count": 20,
+   "alt_rate_per_min": 3.84,
+   "brightness": {
+    "lo_centroid": 644.3,
+    "mid_centroid": 630.1,
+    "ratio": 1.022,
+    "lo_n": 540,
+    "mid_n": 2458
+   }
+  },
+  {
+   "title": "微光之名",
+   "album": "回望",
+   "duration_s": 209.9,
+   "n_notes": 300,
+   "alt_count": 0,
+   "alt_rate_per_min": 0.0,
+   "brightness": {
+    "lo_centroid": 1620.7,
+    "mid_centroid": 3895.3,
+    "ratio": 0.416,
+    "lo_n": 11,
+    "mid_n": 2276
+   }
+  },
+  {
+   "title": "微醺23点08分",
+   "album": "X自选集",
+   "duration_s": 189.0,
+   "n_notes": 254,
+   "alt_count": 9,
+   "alt_rate_per_min": 2.86,
+   "brightness": {
+    "lo_centroid": 336.0,
+    "mid_centroid": 330.9,
+    "ratio": 1.015,
+    "lo_n": 427,
+    "mid_n": 593
+   }
+  },
+  {
+   "title": "微风细雨",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 206.1,
+   "n_notes": 259,
+   "alt_count": 20,
+   "alt_rate_per_min": 5.82,
+   "brightness": {
+    "lo_centroid": 423.7,
+    "mid_centroid": 456.6,
+    "ratio": 0.928,
+    "lo_n": 814,
+    "mid_n": 462
+   }
+  },
+  {
+   "title": "忘不了",
+   "album": "Low C的诱惑",
+   "duration_s": 249.8,
+   "n_notes": 201,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.24,
+   "brightness": {
+    "lo_centroid": 631.7,
+    "mid_centroid": 632.2,
+    "ratio": 0.999,
+    "lo_n": 111,
+    "mid_n": 1891
+   }
+  },
+  {
+   "title": "怂",
+   "album": "歌颂",
+   "duration_s": 262.6,
+   "n_notes": 404,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.14,
+   "brightness": {
+    "lo_centroid": 134.4,
+    "mid_centroid": 404.8,
+    "ratio": 0.332,
+    "lo_n": 57,
+    "mid_n": 1044
+   }
+  },
+  {
+   "title": "悬念",
+   "album": "B面图景",
+   "duration_s": 198.3,
+   "n_notes": 272,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.61,
+   "brightness": {
+    "lo_centroid": 385.1,
+    "mid_centroid": 304.4,
+    "ratio": 1.265,
+    "lo_n": 824,
+    "mid_n": 852
+   }
+  },
+  {
+   "title": "惑许",
+   "album": "B面图景",
+   "duration_s": 185.7,
+   "n_notes": 305,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.62,
+   "brightness": {
+    "lo_centroid": 268.2,
+    "mid_centroid": 351.8,
+    "ratio": 0.762,
+    "lo_n": 265,
+    "mid_n": 1200
+   }
+  },
+  {
+   "title": "我的心里只有你没有他",
+   "album": "Low C的诱惑",
+   "duration_s": 174.2,
+   "n_notes": 238,
+   "alt_count": 9,
+   "alt_rate_per_min": 3.1,
+   "brightness": {
+    "lo_centroid": 716.0,
+    "mid_centroid": 697.0,
+    "ratio": 1.027,
+    "lo_n": 660,
+    "mid_n": 364
+   }
+  },
+  {
+   "title": "新不了情",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 136.4,
+   "n_notes": 201,
+   "alt_count": 6,
+   "alt_rate_per_min": 2.64,
+   "brightness": {
+    "lo_centroid": 667.2,
+    "mid_centroid": 769.4,
+    "ratio": 0.867,
+    "lo_n": 202,
+    "mid_n": 1323
+   }
+  },
+  {
+   "title": "无人岛上",
+   "album": "回望",
+   "duration_s": 232.8,
+   "n_notes": 305,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.26,
+   "brightness": {
+    "lo_centroid": 4298.1,
+    "mid_centroid": 4295.1,
+    "ratio": 1.001,
+    "lo_n": 328,
+    "mid_n": 1779
+   }
+  },
+  {
+   "title": "无尽的夜里",
+   "album": "不说",
+   "duration_s": 218.1,
+   "n_notes": 283,
+   "alt_count": 25,
+   "alt_rate_per_min": 6.88,
+   "brightness": {
+    "lo_centroid": 395.6,
+    "mid_centroid": 653.9,
+    "ratio": 0.605,
+    "lo_n": 257,
+    "mid_n": 1578
+   }
+  },
+  {
+   "title": "时空",
+   "album": "B面图景",
+   "duration_s": 234.7,
+   "n_notes": 347,
+   "alt_count": 11,
+   "alt_rate_per_min": 2.81,
+   "brightness": {
+    "lo_centroid": 403.0,
+    "mid_centroid": 374.7,
+    "ratio": 1.075,
+    "lo_n": 101,
+    "mid_n": 2096
+   }
+  },
+  {
+   "title": "明白",
+   "album": "不说",
+   "duration_s": 206.5,
+   "n_notes": 320,
+   "alt_count": 6,
+   "alt_rate_per_min": 1.74,
+   "brightness": {
+    "lo_centroid": 341.9,
+    "mid_centroid": 332.9,
+    "ratio": 1.027,
+    "lo_n": 55,
+    "mid_n": 2190
+   }
+  },
+  {
+   "title": "是你",
+   "album": "X自选集",
+   "duration_s": 255.5,
+   "n_notes": 284,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.23,
+   "brightness": {
+    "lo_centroid": 234.1,
+    "mid_centroid": 246.2,
+    "ratio": 0.951,
+    "lo_n": 161,
+    "mid_n": 2400
+   }
+  },
+  {
+   "title": "晚风",
+   "album": "Low C的诱惑",
+   "duration_s": 261.1,
+   "n_notes": 275,
+   "alt_count": 0,
+   "alt_rate_per_min": 0.0,
+   "brightness": {
+    "lo_centroid": 265.2,
+    "mid_centroid": 267.1,
+    "ratio": 0.993,
+    "lo_n": 568,
+    "mid_n": 1298
+   }
+  },
+  {
+   "title": "晚风",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 261.2,
+   "n_notes": 286,
+   "alt_count": 0,
+   "alt_rate_per_min": 0.0,
+   "brightness": {
+    "lo_centroid": 265.9,
+    "mid_centroid": 267.0,
+    "ratio": 0.996,
+    "lo_n": 565,
+    "mid_n": 1292
+   }
+  },
+  {
+   "title": "晚风暖暖",
+   "album": "重游往昔",
+   "duration_s": 260.6,
+   "n_notes": 415,
+   "alt_count": 8,
+   "alt_rate_per_min": 1.84,
+   "brightness": {
+    "lo_centroid": 332.8,
+    "mid_centroid": 348.0,
+    "ratio": 0.956,
+    "lo_n": 321,
+    "mid_n": 2285
+   }
+  },
+  {
+   "title": "月光",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 318.4,
+   "n_notes": 480,
+   "alt_count": 26,
+   "alt_rate_per_min": 4.9,
+   "brightness": {
+    "lo_centroid": 2341.5,
+    "mid_centroid": 2079.6,
+    "ratio": 1.126,
+    "lo_n": 706,
+    "mid_n": 1953
+   }
+  },
+  {
+   "title": "月圆花好",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 207.5,
+   "n_notes": 274,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.58,
+   "brightness": {
+    "lo_centroid": 752.1,
+    "mid_centroid": 765.1,
+    "ratio": 0.983,
+    "lo_n": 1230,
+    "mid_n": 230
+   }
+  },
+  {
+   "title": "望阙台 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 232.5,
+   "n_notes": 287,
+   "alt_count": 12,
+   "alt_rate_per_min": 3.1,
+   "brightness": {
+    "lo_centroid": 230.1,
+    "mid_centroid": 309.1,
+    "ratio": 0.744,
+    "lo_n": 51,
+    "mid_n": 1542
+   }
+  },
+  {
+   "title": "朝凤",
+   "album": "X自选集",
+   "duration_s": 228.6,
+   "n_notes": 315,
+   "alt_count": 20,
+   "alt_rate_per_min": 5.25,
+   "brightness": {
+    "lo_centroid": 582.3,
+    "mid_centroid": 549.2,
+    "ratio": 1.06,
+    "lo_n": 162,
+    "mid_n": 2034
+   }
+  },
+  {
+   "title": "歌颂",
+   "album": "歌颂",
+   "duration_s": 206.7,
+   "n_notes": 233,
+   "alt_count": 22,
+   "alt_rate_per_min": 6.39,
+   "brightness": {
+    "lo_centroid": 348.3,
+    "mid_centroid": 346.8,
+    "ratio": 1.005,
+    "lo_n": 211,
+    "mid_n": 1670
+   }
+  },
+  {
+   "title": "渔光曲",
+   "album": "Low C的诱惑",
+   "duration_s": 229.4,
+   "n_notes": 282,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.52,
+   "brightness": {
+    "lo_centroid": 318.9,
+    "mid_centroid": 317.4,
+    "ratio": 1.005,
+    "lo_n": 961,
+    "mid_n": 1222
+   }
+  },
+  {
+   "title": "渡荆门送别 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 227.8,
+   "n_notes": 254,
+   "alt_count": 24,
+   "alt_rate_per_min": 6.32,
+   "brightness": {
+    "lo_centroid": 4347.0,
+    "mid_centroid": 4264.6,
+    "ratio": 1.019,
+    "lo_n": 365,
+    "mid_n": 1168
+   }
+  },
+  {
+   "title": "游离",
+   "album": "B面图景",
+   "duration_s": 285.2,
+   "n_notes": 414,
+   "alt_count": 9,
+   "alt_rate_per_min": 1.89,
+   "brightness": {
+    "lo_centroid": 545.6,
+    "mid_centroid": 587.6,
+    "ratio": 0.928,
+    "lo_n": 549,
+    "mid_n": 1779
+   }
+  },
+  {
+   "title": "滚滚长江东逝水 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 296.6,
+   "n_notes": 253,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.42,
+   "brightness": {
+    "lo_centroid": 112.9,
+    "mid_centroid": 589.1,
+    "ratio": 0.192,
+    "lo_n": 82,
+    "mid_n": 358
+   }
+  },
+  {
+   "title": "爱于此生",
+   "album": "上阳赋 电视剧原声专辑",
+   "duration_s": 262.4,
+   "n_notes": 289,
+   "alt_count": 8,
+   "alt_rate_per_min": 1.83,
+   "brightness": {
+    "lo_centroid": 6272.4,
+    "mid_centroid": 6266.7,
+    "ratio": 1.001,
+    "lo_n": 635,
+    "mid_n": 1126
+   }
+  },
+  {
+   "title": "爱情",
+   "album": "Low C的诱惑",
+   "duration_s": 264.1,
+   "n_notes": 286,
+   "alt_count": 14,
+   "alt_rate_per_min": 3.18,
+   "brightness": {
+    "lo_centroid": 918.0,
+    "mid_centroid": 892.1,
+    "ratio": 1.029,
+    "lo_n": 618,
+    "mid_n": 1186
+   }
+  },
+  {
+   "title": "牵手 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 242.9,
+   "n_notes": 310,
+   "alt_count": 11,
+   "alt_rate_per_min": 2.72,
+   "brightness": {
+    "lo_centroid": 687.4,
+    "mid_centroid": 656.2,
+    "ratio": 1.048,
+    "lo_n": 96,
+    "mid_n": 2422
+   }
+  },
+  {
+   "title": "猫模狗样",
+   "album": "X自选集",
+   "duration_s": 216.1,
+   "n_notes": 268,
+   "alt_count": 21,
+   "alt_rate_per_min": 5.83,
+   "brightness": {
+    "lo_centroid": 437.1,
+    "mid_centroid": 446.0,
+    "ratio": 0.98,
+    "lo_n": 559,
+    "mid_n": 803
+   }
+  },
+  {
+   "title": "王牌就是我",
+   "album": "歌颂",
+   "duration_s": 228.6,
+   "n_notes": 237,
+   "alt_count": 13,
+   "alt_rate_per_min": 3.41,
+   "brightness": {
+    "lo_centroid": 1792.5,
+    "mid_centroid": 2008.1,
+    "ratio": 0.893,
+    "lo_n": 35,
+    "mid_n": 1701
+   }
+  },
+  {
+   "title": "玩笑",
+   "album": "B面图景",
+   "duration_s": 155.2,
+   "n_notes": 236,
+   "alt_count": 6,
+   "alt_rate_per_min": 2.32,
+   "brightness": {
+    "lo_centroid": 1398.9,
+    "mid_centroid": 1408.4,
+    "ratio": 0.993,
+    "lo_n": 235,
+    "mid_n": 1376
+   }
+  },
+  {
+   "title": "盲",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 239.0,
+   "n_notes": 266,
+   "alt_count": 11,
+   "alt_rate_per_min": 2.76,
+   "brightness": {
+    "lo_centroid": 568.9,
+    "mid_centroid": 531.3,
+    "ratio": 1.071,
+    "lo_n": 26,
+    "mid_n": 2590
+   }
+  },
+  {
+   "title": "知晓",
+   "album": "B面图景",
+   "duration_s": 261.8,
+   "n_notes": 249,
+   "alt_count": 17,
+   "alt_rate_per_min": 3.9,
+   "brightness": {
+    "lo_centroid": 99.2,
+    "mid_centroid": 5397.1,
+    "ratio": 0.018,
+    "lo_n": 223,
+    "mid_n": 234
+   }
+  },
+  {
+   "title": "祝我们随遇而安",
+   "album": "不说",
+   "duration_s": 236.0,
+   "n_notes": 376,
+   "alt_count": 14,
+   "alt_rate_per_min": 3.56,
+   "brightness": {
+    "lo_centroid": 526.7,
+    "mid_centroid": 510.4,
+    "ratio": 1.032,
+    "lo_n": 391,
+    "mid_n": 1630
+   }
+  },
+  {
+   "title": "神魂颠倒",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 202.0,
+   "n_notes": 279,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.49,
+   "brightness": {
+    "lo_centroid": 341.0,
+    "mid_centroid": 336.4,
+    "ratio": 1.014,
+    "lo_n": 380,
+    "mid_n": 1348
+   }
+  },
+  {
+   "title": "稳稳的幸福 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 185.7,
+   "n_notes": 246,
+   "alt_count": 4,
+   "alt_rate_per_min": 1.29,
+   "brightness": {
+    "lo_centroid": 930.1,
+    "mid_centroid": 1356.7,
+    "ratio": 0.686,
+    "lo_n": 153,
+    "mid_n": 1940
+   }
+  },
+  {
+   "title": "等一等昨天",
+   "album": "歌颂",
+   "duration_s": 266.2,
+   "n_notes": 326,
+   "alt_count": 2,
+   "alt_rate_per_min": 0.45,
+   "brightness": {
+    "lo_centroid": 499.7,
+    "mid_centroid": 514.6,
+    "ratio": 0.971,
+    "lo_n": 35,
+    "mid_n": 3332
+   }
+  },
+  {
+   "title": "绿岛小夜曲",
+   "album": "Low C的诱惑",
+   "duration_s": 201.2,
+   "n_notes": 282,
+   "alt_count": 3,
+   "alt_rate_per_min": 0.89,
+   "brightness": {
+    "lo_centroid": 814.6,
+    "mid_centroid": 865.7,
+    "ratio": 0.941,
+    "lo_n": 460,
+    "mid_n": 865
+   }
+  },
+  {
+   "title": "美丽的草原我的家 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 219.0,
+   "n_notes": 318,
+   "alt_count": 31,
+   "alt_rate_per_min": 8.49,
+   "brightness": {
+    "lo_centroid": 433.8,
+    "mid_centroid": 929.6,
+    "ratio": 0.467,
+    "lo_n": 311,
+    "mid_n": 1179
+   }
+  },
+  {
+   "title": "至少还有你",
+   "album": "Low C的诱惑",
+   "duration_s": 279.2,
+   "n_notes": 382,
+   "alt_count": 19,
+   "alt_rate_per_min": 4.08,
+   "brightness": {
+    "lo_centroid": 281.3,
+    "mid_centroid": 305.1,
+    "ratio": 0.922,
+    "lo_n": 963,
+    "mid_n": 994
+   }
+  },
+  {
+   "title": "节气歌 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 275.5,
+   "n_notes": 385,
+   "alt_count": 14,
+   "alt_rate_per_min": 3.05,
+   "brightness": {
+    "lo_centroid": 1533.1,
+    "mid_centroid": 1417.3,
+    "ratio": 1.082,
+    "lo_n": 71,
+    "mid_n": 3301
+   }
+  },
+  {
+   "title": "茕茕",
+   "album": "重游往昔",
+   "duration_s": 176.2,
+   "n_notes": 179,
+   "alt_count": 17,
+   "alt_rate_per_min": 5.79,
+   "brightness": {
+    "lo_centroid": 347.3,
+    "mid_centroid": 393.0,
+    "ratio": 0.884,
+    "lo_n": 268,
+    "mid_n": 608
+   }
+  },
+  {
+   "title": "葬心",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 308.1,
+   "n_notes": 297,
+   "alt_count": 15,
+   "alt_rate_per_min": 2.92,
+   "brightness": {
+    "lo_centroid": 4991.4,
+    "mid_centroid": 5029.5,
+    "ratio": 0.992,
+    "lo_n": 1047,
+    "mid_n": 560
+   }
+  },
+  {
+   "title": "谁 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 211.8,
+   "n_notes": 197,
+   "alt_count": 4,
+   "alt_rate_per_min": 1.13,
+   "brightness": {
+    "lo_centroid": 1038.5,
+    "mid_centroid": 819.0,
+    "ratio": 1.268,
+    "lo_n": 307,
+    "mid_n": 2451
+   }
+  },
+  {
+   "title": "贝加尔湖畔",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 199.8,
+   "n_notes": 225,
+   "alt_count": 5,
+   "alt_rate_per_min": 1.5,
+   "brightness": {
+    "lo_centroid": 1862.2,
+    "mid_centroid": 1886.0,
+    "ratio": 0.987,
+    "lo_n": 1006,
+    "mid_n": 327
+   }
+  },
+  {
+   "title": "贝加尔湖畔",
+   "album": "震撼2020",
+   "duration_s": 238.4,
+   "n_notes": 214,
+   "alt_count": 11,
+   "alt_rate_per_min": 2.77,
+   "brightness": {
+    "lo_centroid": 146.8,
+    "mid_centroid": 167.7,
+    "ratio": 0.876,
+    "lo_n": 488,
+    "mid_n": 274
+   }
+  },
+  {
+   "title": "轻信",
+   "album": "B面图景",
+   "duration_s": 172.1,
+   "n_notes": 271,
+   "alt_count": 4,
+   "alt_rate_per_min": 1.39,
+   "brightness": {
+    "lo_centroid": 134.8,
+    "mid_centroid": 295.4,
+    "ratio": 0.456,
+    "lo_n": 38,
+    "mid_n": 602
+   }
+  },
+  {
+   "title": "逆光 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 263.2,
+   "n_notes": 309,
+   "alt_count": 12,
+   "alt_rate_per_min": 2.74,
+   "brightness": {
+    "lo_centroid": 442.2,
+    "mid_centroid": 451.2,
+    "ratio": 0.98,
+    "lo_n": 129,
+    "mid_n": 1594
+   }
+  },
+  {
+   "title": "重庆野玫瑰",
+   "album": "Low C的诱惑Ⅱ",
+   "duration_s": 253.1,
+   "n_notes": 190,
+   "alt_count": 1,
+   "alt_rate_per_min": 0.24,
+   "brightness": {
+    "lo_centroid": 622.4,
+    "mid_centroid": 595.1,
+    "ratio": 1.046,
+    "lo_n": 710,
+    "mid_n": 1070
+   }
+  },
+  {
+   "title": "重来",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 28.7,
+   "n_notes": 29,
+   "alt_count": 0,
+   "alt_rate_per_min": 0.0,
+   "brightness": {
+    "lo_centroid": 1018.2,
+    "mid_centroid": 885.1,
+    "ratio": 1.15,
+    "lo_n": 41,
+    "mid_n": 182
+   }
+  },
+  {
+   "title": "重游往昔",
+   "album": "重游往昔",
+   "duration_s": 220.1,
+   "n_notes": 242,
+   "alt_count": 7,
+   "alt_rate_per_min": 1.91,
+   "brightness": {
+    "lo_centroid": 154.2,
+    "mid_centroid": 161.3,
+    "ratio": 0.956,
+    "lo_n": 669,
+    "mid_n": 969
+   }
+  },
+  {
+   "title": "雪地里寄不出的求救信",
+   "album": "歌颂",
+   "duration_s": 236.7,
+   "n_notes": 315,
+   "alt_count": 13,
+   "alt_rate_per_min": 3.3,
+   "brightness": {
+    "lo_centroid": 347.9,
+    "mid_centroid": 354.7,
+    "ratio": 0.981,
+    "lo_n": 89,
+    "mid_n": 2448
+   }
+  },
+  {
+   "title": "雷美替胺",
+   "album": "不说",
+   "duration_s": 247.5,
+   "n_notes": 287,
+   "alt_count": 12,
+   "alt_rate_per_min": 2.91,
+   "brightness": {
+    "lo_centroid": 566.5,
+    "mid_centroid": 552.4,
+    "ratio": 1.026,
+    "lo_n": 139,
+    "mid_n": 2604
+   }
+  },
+  {
+   "title": "雾里 (2023中央广播电视总台网络春晚现场)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 276.2,
+   "n_notes": 445,
+   "alt_count": 36,
+   "alt_rate_per_min": 7.82,
+   "brightness": {
+    "lo_centroid": 1675.2,
+    "mid_centroid": 1678.0,
+    "ratio": 0.998,
+    "lo_n": 205,
+    "mid_n": 1368
+   }
+  },
+  {
+   "title": "静止了的夜晚",
+   "album": "重游往昔",
+   "duration_s": 252.3,
+   "n_notes": 268,
+   "alt_count": 13,
+   "alt_rate_per_min": 3.09,
+   "brightness": {
+    "lo_centroid": 680.0,
+    "mid_centroid": 655.1,
+    "ratio": 1.038,
+    "lo_n": 578,
+    "mid_n": 2302
+   }
+  },
+  {
+   "title": "鹅毛信",
+   "album": "不说",
+   "duration_s": 204.1,
+   "n_notes": 183,
+   "alt_count": 7,
+   "alt_rate_per_min": 2.06,
+   "brightness": {
+    "lo_centroid": 219.3,
+    "mid_centroid": 240.2,
+    "ratio": 0.913,
+    "lo_n": 305,
+    "mid_n": 1117
+   }
+  },
+  {
+   "title": "黎明前的黑暗 (Live)",
+   "album": "舞台对照·QQ官方版",
+   "duration_s": 238.6,
+   "n_notes": 336,
+   "alt_count": 19,
+   "alt_rate_per_min": 4.78,
+   "brightness": {
+    "lo_centroid": 322.7,
+    "mid_centroid": 314.3,
+    "ratio": 1.027,
+    "lo_n": 78,
+    "mid_n": 1628
+   }
+  }
+ ]
+}
