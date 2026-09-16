@@ -1,6 +1,6 @@
 {
  "schema": "song-requests/v1",
- "generated_at": "2026-09-16 11:57",
+ "generated_at": "2026-09-16 12:42",
  "what": "点歌留存 —— 歌迷主动要求演唱的曲目（含现场对话与曲目线索）",
  "why": "点歌 = 「听众想听他唱什么」的直接证据，是能力-市场线的关键一手材料",
  "discipline": [
@@ -10,8 +10,8 @@
   "音视频不入库、不公开分发"
  ],
  "counts": {
-  "sources": 5,
-  "sentences": 269
+  "sources": 11,
+  "sentences": 336
  },
  "by_tour": {
   "一巡": {
@@ -22,16 +22,30 @@
     "海口",
     "长沙"
    ]
+  },
+  "二巡": {
+   "sources": 5,
+   "sentences": 57,
+   "cities": [
+    "上海"
+   ]
+  },
+  "四巡": {
+   "sources": 1,
+   "sentences": 10,
+   "cities": [
+    "上海"
+   ]
   }
  },
  "items": [
   {
-   "tour": "一巡",
-   "city": "太原",
    "source": "一巡·Che_太原_22_BV1kJ411a79x_p22.m4a",
    "bv": "BV1kJ411a79x",
    "part": 22,
    "part_title": "点歌1",
+   "tour": "一巡",
+   "city": "太原",
    "n_sentences": 105,
    "sentences": [
     {
@@ -664,16 +678,15 @@
      "timecode": "21:35",
      "text": "因为我就对我的歌儿笑"
     }
-   ],
-   "speech_ratio": 0.305
+   ]
   },
   {
-   "tour": "一巡",
-   "city": "太原",
    "source": "一巡·Che_太原_23_BV1kJ411a79x_p23.m4a",
    "bv": "BV1kJ411a79x",
    "part": 23,
    "part_title": "点歌2",
+   "tour": "一巡",
+   "city": "太原",
    "n_sentences": 85,
    "sentences": [
     {
@@ -1186,16 +1199,15 @@
      "timecode": "13:21",
      "text": "当作最后的礼物送给你们"
     }
-   ],
-   "speech_ratio": 0.401
+   ]
   },
   {
-   "tour": "一巡",
-   "city": "海口",
    "source": "一巡·Che_海口_28_BV1xJ41127TP_p28.m4a",
    "bv": "BV1xJ41127TP",
    "part": 28,
    "part_title": "“点歌吧~”",
+   "tour": "一巡",
+   "city": "海口",
    "n_sentences": 3,
    "sentences": [
     {
@@ -1216,16 +1228,15 @@
      "timecode": "00:08",
      "text": "接下来让我们点歌吧 好吧"
     }
-   ],
-   "speech_ratio": 0.75
+   ]
   },
   {
-   "tour": "一巡",
-   "city": "海口",
    "source": "一巡·Che_海口_29_BV1xJ41127TP_p29.m4a",
    "bv": "BV1xJ41127TP",
    "part": 29,
    "part_title": "点歌环节+大合照环节",
+   "tour": "一巡",
+   "city": "海口",
    "n_sentences": 47,
    "sentences": [
     {
@@ -1510,16 +1521,15 @@
      "timecode": "13:49",
      "text": "好 谢谢"
     }
-   ],
-   "speech_ratio": 0.207
+   ]
   },
   {
-   "tour": "一巡",
-   "city": "长沙",
    "source": "一巡·Che_长沙_10_BV1uJ411678L_p10.m4a",
    "bv": "BV1uJ411678L",
    "part": 10,
    "part_title": "10 点歌《慢慢喜欢你》《Besame Mucho》《心恋》一句《着魔》《在水一方》",
+   "tour": "一巡",
+   "city": "长沙",
    "n_sentences": 29,
    "sentences": [
     {
@@ -1696,8 +1706,475 @@
      "timecode": "10:12",
      "text": "二樓三樓的朋友"
     }
-   ],
-   "speech_ratio": 0.186
+   ]
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p33.m4a",
+   "bv": "BV1nZ4y1P7GU",
+   "part": 33,
+   "part_title": "18.点歌-《着魔+talk》3.7",
+   "tour": "二巡",
+   "city": "上海",
+   "n_sentences": 15,
+   "sentences": [
+    {
+     "start_s": 2.0,
+     "end_s": 8.0,
+     "timecode": "00:02",
+     "text": "然后我今天唱这首歌可能会有一点点紧张"
+    },
+    {
+     "start_s": 19.0,
+     "end_s": 22.0,
+     "timecode": "00:19",
+     "text": "后来想一想我觉得这样"
+    },
+    {
+     "start_s": 25.0,
+     "end_s": 27.0,
+     "timecode": "00:25",
+     "text": "就是你答应大家了那就唱吧"
+    },
+    {
+     "start_s": 27.0,
+     "end_s": 31.0,
+     "timecode": "00:27",
+     "text": "對,因為最近要學的歌很多"
+    },
+    {
+     "start_s": 60.2,
+     "end_s": 62.2,
+     "timecode": "01:00",
+     "text": "所以確實是"
+    },
+    {
+     "start_s": 62.2,
+     "end_s": 67.6,
+     "timecode": "01:02",
+     "text": "我努力把它唱好 好不好"
+    },
+    {
+     "start_s": 68.9,
+     "end_s": 71.0,
+     "timecode": "01:08",
+     "text": "如果我今天唱得不是特別好的話"
+    },
+    {
+     "start_s": 71.0,
+     "end_s": 74.6,
+     "timecode": "01:10",
+     "text": "我明天可以再唱一遍"
+    },
+    {
+     "start_s": 130.2,
+     "end_s": 133.7,
+     "timecode": "02:10",
+     "text": "又会怎么做"
+    },
+    {
+     "start_s": 186.8,
+     "end_s": 192.7,
+     "timecode": "03:06",
+     "text": "没选择怎么快乐"
+    },
+    {
+     "start_s": 226.5,
+     "end_s": 229.1,
+     "timecode": "03:46",
+     "text": "就很感谢大家喜欢"
+    },
+    {
+     "start_s": 229.1,
+     "end_s": 231.1,
+     "timecode": "03:49",
+     "text": "非常感谢大家"
+    },
+    {
+     "start_s": 231.1,
+     "end_s": 234.1,
+     "timecode": "03:51",
+     "text": "好,接下来"
+    },
+    {
+     "start_s": 234.1,
+     "end_s": 236.1,
+     "timecode": "03:54",
+     "text": "这首歌,然后点歌的这首歌"
+    },
+    {
+     "start_s": 236.1,
+     "end_s": 239.1,
+     "timecode": "03:56",
+     "text": "我听到这首歌是在"
+    }
+   ]
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p34.m4a",
+   "bv": "BV1nZ4y1P7GU",
+   "part": 34,
+   "part_title": "18.点歌-《其实你不懂我的心》3.7",
+   "tour": "二巡",
+   "city": "上海",
+   "n_sentences": 4,
+   "sentences": [
+    {
+     "start_s": 0.0,
+     "end_s": 13.6,
+     "timecode": "00:00",
+     "text": "詞曲 李宗盛 詞曲 李宗盛 曲 李宗盛"
+    },
+    {
+     "start_s": 73.8,
+     "end_s": 79.8,
+     "timecode": "01:13",
+     "text": "所以我不敢靠你太近"
+    },
+    {
+     "start_s": 117.8,
+     "end_s": 119.8,
+     "timecode": "01:57",
+     "text": "接下來就是我們的"
+    },
+    {
+     "start_s": 128.8,
+     "end_s": 130.8,
+     "timecode": "02:08",
+     "text": "也希望大家亮起"
+    }
+   ]
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p35.m4a",
+   "bv": "BV1nZ4y1P7GU",
+   "part": 35,
+   "part_title": "18.点歌-《美酒加咖啡+月圆花好+talk》3.8",
+   "tour": "二巡",
+   "city": "上海",
+   "n_sentences": 22,
+   "sentences": [
+    {
+     "start_s": 0.0,
+     "end_s": 6.2,
+     "timecode": "00:00",
+     "text": "我相信不是大家非常期待 这是点歌环境"
+    },
+    {
+     "start_s": 6.2,
+     "end_s": 9.2,
+     "timecode": "00:06",
+     "text": "大家今天 唱好了吗?"
+    },
+    {
+     "start_s": 9.2,
+     "end_s": 14.6,
+     "timecode": "00:09",
+     "text": "好 今天点歌 第一首歌 他说是送给爸爸妈妈的"
+    },
+    {
+     "start_s": 14.6,
+     "end_s": 19.2,
+     "timecode": "00:14",
+     "text": "他说爸爸妈妈从想让他运用更好的未来"
+    },
+    {
+     "start_s": 19.2,
+     "end_s": 22.2,
+     "timecode": "00:19",
+     "text": "所以把最好的都给了他"
+    },
+    {
+     "start_s": 26.6,
+     "end_s": 31.4,
+     "timecode": "00:26",
+     "text": "然後不捨得多給自己一些享受生活"
+    },
+    {
+     "start_s": 31.4,
+     "end_s": 35.8,
+     "timecode": "00:31",
+     "text": "然後他把父母的一點點都記在心裡"
+    },
+    {
+     "start_s": 38.3,
+     "end_s": 43.8,
+     "timecode": "00:38",
+     "text": "他記得爸媽都很喜歡等一軍小姐的歌"
+    },
+    {
+     "start_s": 55.7,
+     "end_s": 58.2,
+     "timecode": "00:55",
+     "text": "希望能借着这个机会"
+    },
+    {
+     "start_s": 60.6,
+     "end_s": 62.8,
+     "timecode": "01:00",
+     "text": "也希望在工作以后"
+    },
+    {
+     "start_s": 155.6,
+     "end_s": 157.6,
+     "timecode": "02:35",
+     "text": "今天来到了上海"
+    },
+    {
+     "start_s": 158.6,
+     "end_s": 160.6,
+     "timecode": "02:38",
+     "text": "上海就是"
+    },
+    {
+     "start_s": 163.6,
+     "end_s": 166.6,
+     "timecode": "02:43",
+     "text": "所以特别把这个歌"
+    },
+    {
+     "start_s": 170.6,
+     "end_s": 173.6,
+     "timecode": "02:50",
+     "text": "就用這個鬼經話叫小字兒,是不是?"
+    },
+    {
+     "start_s": 174.6,
+     "end_s": 176.6,
+     "timecode": "02:54",
+     "text": "小字小字,OK"
+    },
+    {
+     "start_s": 179.6,
+     "end_s": 182.6,
+     "timecode": "02:59",
+     "text": "送給這位點歌的朋友"
+    },
+    {
+     "start_s": 182.6,
+     "end_s": 185.6,
+     "timecode": "03:02",
+     "text": "然後希望好好的工作"
+    },
+    {
+     "start_s": 189.6,
+     "end_s": 192.6,
+     "timecode": "03:09",
+     "text": "也送給在場的每一位朋友"
+    },
+    {
+     "start_s": 192.6,
+     "end_s": 195.6,
+     "timecode": "03:12",
+     "text": "也希望你們能工作順利"
+    },
+    {
+     "start_s": 213.6,
+     "end_s": 217.6,
+     "timecode": "03:33",
+     "text": "以外碰到另一位姿勢、音響、發燒友"
+    },
+    {
+     "start_s": 217.6,
+     "end_s": 219.6,
+     "timecode": "03:37",
+     "text": "就是他的大表哥"
+    },
+    {
+     "start_s": 241.6,
+     "end_s": 244.6,
+     "timecode": "04:01",
+     "text": "所以特意點了這麼一首歌"
+    }
+   ]
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p36.m4a",
+   "bv": "BV1nZ4y1P7GU",
+   "part": 36,
+   "part_title": "18.点歌中途talk+生日快乐歌 3.8",
+   "tour": "二巡",
+   "city": "上海",
+   "n_sentences": 8,
+   "sentences": [
+    {
+     "start_s": 0.0,
+     "end_s": 3.3,
+     "timecode": "00:00",
+     "text": "她跟我说她的女儿活我一天的生日"
+    },
+    {
+     "start_s": 5.5,
+     "end_s": 6.5,
+     "timecode": "00:05",
+     "text": "可以可以"
+    },
+    {
+     "start_s": 8.2,
+     "end_s": 10.3,
+     "timecode": "00:08",
+     "text": "我今天问一下有没有人过生日"
+    },
+    {
+     "start_s": 18.5,
+     "end_s": 20.3,
+     "timecode": "00:18",
+     "text": "啊 真的啊"
+    },
+    {
+     "start_s": 34.2,
+     "end_s": 35.6,
+     "timecode": "00:34",
+     "text": "真的有没有声"
+    },
+    {
+     "start_s": 69.0,
+     "end_s": 70.0,
+     "timecode": "01:09",
+     "text": "他真的會這樣"
+    },
+    {
+     "start_s": 89.0,
+     "end_s": 94.0,
+     "timecode": "01:29",
+     "text": "哎呀 还有一个为您 这个男士 是不是"
+    },
+    {
+     "start_s": 99.0,
+     "end_s": 104.0,
+     "timecode": "01:39",
+     "text": "最好 这个永远忘不了"
+    }
+   ]
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p37.m4a",
+   "bv": "BV1nZ4y1P7GU",
+   "part": 37,
+   "part_title": "18.点歌-《红豆》3.8",
+   "tour": "二巡",
+   "city": "上海",
+   "n_sentences": 8,
+   "sentences": [
+    {
+     "start_s": 0.0,
+     "end_s": 4.5,
+     "timecode": "00:00",
+     "text": "不太想把这首歌唱得太过温暖"
+    },
+    {
+     "start_s": 4.5,
+     "end_s": 8.0,
+     "timecode": "00:04",
+     "text": "我们轻松一点,好不好?继续的播撒一下好不好?"
+    },
+    {
+     "start_s": 8.0,
+     "end_s": 11.0,
+     "timecode": "00:08",
+     "text": "好,来吧,我们来乐队老师啊"
+    },
+    {
+     "start_s": 37.1,
+     "end_s": 45.9,
+     "timecode": "00:37",
+     "text": "我们一起沉默 会明白我什么是缘绕"
+    },
+    {
+     "start_s": 45.9,
+     "end_s": 53.8,
+     "timecode": "00:45",
+     "text": "爱你愿意牵着手 走过荒芒的沙丘"
+    },
+    {
+     "start_s": 53.8,
+     "end_s": 63.8,
+     "timecode": "00:53",
+     "text": "若能坐在遗坡 卻會衝襲天長的宇宙"
+    },
+    {
+     "start_s": 63.8,
+     "end_s": 72.8,
+     "timecode": "01:03",
+     "text": "有時候 有時候 我會相信一切都知道"
+    },
+    {
+     "start_s": 125.4,
+     "end_s": 129.4,
+     "timecode": "02:05",
+     "text": "進入另外一個環節就是大合照"
+    }
+   ]
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p23.m4a",
+   "bv": "BV1DC411V7rB",
+   "part": 23,
+   "part_title": "点歌小作文朗诵-我称之为耳膜顶级SPA",
+   "tour": "四巡",
+   "city": "上海",
+   "n_sentences": 10,
+   "sentences": [
+    {
+     "start_s": 0.9,
+     "end_s": 4.2,
+     "timecode": "00:00",
+     "text": "然後有我们哥哥姐姐们 非常喜欢的歌"
+    },
+    {
+     "start_s": 5.0,
+     "end_s": 6.1,
+     "timecode": "00:05",
+     "text": "音乐朋友们?"
+    },
+    {
+     "start_s": 14.6,
+     "end_s": 17.4,
+     "timecode": "00:14",
+     "text": "首先点击女朋友说"
+    },
+    {
+     "start_s": 18.2,
+     "end_s": 21.7,
+     "timecode": "00:18",
+     "text": "作为南方人 我没有见识过 北方的冰天雪地"
+    },
+    {
+     "start_s": 21.7,
+     "end_s": 27.3,
+     "timecode": "00:21",
+     "text": "却因为一首歌对生机勃发的北地心声向往"
+    },
+    {
+     "start_s": 27.3,
+     "end_s": 32.2,
+     "timecode": "00:27",
+     "text": "这首歌是我童年最熟悉的旋律"
+    },
+    {
+     "start_s": 32.2,
+     "end_s": 40.3,
+     "timecode": "00:32",
+     "text": "在我最寒冷又神奇的南方小镇上岁月静静流淌"
+    },
+    {
+     "start_s": 40.3,
+     "end_s": 43.8,
+     "timecode": "00:40",
+     "text": "每当我闭上眼睛耳边总能挥荡起"
+    },
+    {
+     "start_s": 51.1,
+     "end_s": 54.4,
+     "timecode": "00:51",
+     "text": "将温暖与希望注入我的灵魂"
+    },
+    {
+     "start_s": 64.3,
+     "end_s": 67.3,
+     "timecode": "01:04",
+     "text": "当我听到这首歌的旋律时候"
+    }
+   ]
   }
  ]
 }

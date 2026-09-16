@@ -1,6 +1,6 @@
 {
  "schema": "sentences/v1",
- "generated_at": "2026-09-16 11:56",
+ "generated_at": "2026-09-16 12:42",
  "what": "巡演/签唱 talk 逐句（**按分P题目判定**，非音频猜测）",
  "method": "B站 API pages[].part（分P标题）；命中「串场/小串场/感谢/回答/合照…」者判为 talk，其余（多为歌名）判为唱段",
  "discipline": [
@@ -13,1861 +13,1748 @@
   "「点歌」类来源已拆出至 data/song_requests.json（点歌是曲目不是 talk）"
  ],
  "counts": {
-  "sources": 31,
-  "sentences": 933,
-  "groups": 7,
-  "excluded_sources": 92,
-  "unknown_sources": 76
+  "sources": 66,
+  "sentences": 1344,
+  "groups": 11,
+  "excluded_sources": 220,
+  "request_sources": 11
  },
  "excluded_sources": [
   {
    "source": "一巡·Che_南京_01_BV1rt411K7wc_p1.m4a",
    "part_title": "让她降落",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_02_BV1rt411K7wc_p2.m4a",
    "part_title": "玛莲娜",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_03_BV1rt411K7wc_p3.m4a",
    "part_title": "花样年华",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_04_BV1rt411K7wc_p4.m4a",
    "part_title": "跟着你到天边",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_05_BV1rt411K7wc_p5.m4a",
    "part_title": "晚风暖暖",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_06_BV1rt411K7wc_p6.m4a",
    "part_title": "your man",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_07_BV1rt411K7wc_p7.m4a",
    "part_title": "再见我的爱人",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_08_BV1rt411K7wc_p8.m4a",
    "part_title": "一生守候",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_09_BV1rt411K7wc_p9.m4a",
    "part_title": "贝加尔湖畔",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_10_BV1rt411K7wc_p10.m4a",
    "part_title": "autumn leaves",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_11_BV1rt411K7wc_p11.m4a",
    "part_title": "谁",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_12_BV1rt411K7wc_p12.m4a",
    "part_title": "你不要担心",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_14_BV1rt411K7wc_p14.m4a",
    "part_title": "云一定知道+亲爱的中国我的爱",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_15_BV1rt411K7wc_p15.m4a",
    "part_title": "返场 我的太阳",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_南京_16_BV1rt411K7wc_p16.m4a",
    "part_title": "彩蛋2 合唱 只要有你",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_01_BV1kJ411a79x_p1.m4a",
    "part_title": "让她降落",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_02_BV1kJ411a79x_p2.m4a",
    "part_title": "玛莲娜",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_04_BV1kJ411a79x_p4.m4a",
    "part_title": "跟着你到天边",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_05_BV1kJ411a79x_p5.m4a",
    "part_title": "晚风暖暖",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_06_BV1kJ411a79x_p6.m4a",
    "part_title": "再见我的爱人",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_07_BV1kJ411a79x_p7.m4a",
    "part_title": "心动",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_08_BV1kJ411a79x_p8.m4a",
    "part_title": "贝加尔湖畔",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_09_BV1kJ411a79x_p9.m4a",
    "part_title": "一生守候",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_10_BV1kJ411a79x_p10.m4a",
    "part_title": "come to me",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_12_BV1kJ411a79x_p12.m4a",
    "part_title": "天哥滴答滴",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_14_BV1kJ411a79x_p14.m4a",
    "part_title": "天哥你眼里的星光",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_16_BV1kJ411a79x_p16.m4a",
    "part_title": "她来听我的演唱会",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_17_BV1kJ411a79x_p17.m4a",
    "part_title": "谁",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_19_BV1kJ411a79x_p19.m4a",
    "part_title": "你不要担心",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_20_BV1kJ411a79x_p20.m4a",
    "part_title": "云一定知道",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_21_BV1kJ411a79x_p21.m4a",
    "part_title": "亲爱的中国我的爱",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_太原_24_BV1kJ411a79x_p24.m4a",
    "part_title": "我的太阳",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_广州_1_BV1z4411R7DL_p1.m4a",
    "part_title": "P1",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_广州_2_BV1z4411R7DL_p2.m4a",
    "part_title": "P2",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_广州_3_BV1z4411R7DL_p3.m4a",
    "part_title": "P3",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_广州_4_BV1z4411R7DL_p4.m4a",
    "part_title": "返场",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_01_BV184411P7rh_p1.m4a",
    "part_title": "晚风暖暖",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_02_BV184411P7rh_p2.m4a",
    "part_title": "Your Man",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_03_BV184411P7rh_p3.m4a",
    "part_title": "心动",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_05_BV184411P7rh_p5.m4a",
    "part_title": "贝加尔湖畔（突出人声版）",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_07_BV184411P7rh_p7.m4a",
    "part_title": "一生守候",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_10_BV184411P7rh_p10.m4a",
    "part_title": "Autumn Leaves",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_11_BV184411P7rh_p11.m4a",
    "part_title": "你不要担心",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_12_BV184411P7rh_p12.m4a",
    "part_title": "谁",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_13_BV184411P7rh_p13.m4a",
    "part_title": "云一定知道",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_14_BV184411P7rh_p14.m4a",
    "part_title": "非常开心地大合影",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_杭州_15_BV184411P7rh_p15.m4a",
    "part_title": "鼓手solo+我的太阳前奏",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_01_BV1G441137Sj_p1.m4a",
    "part_title": "让她降落",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_02_BV1G441137Sj_p2.m4a",
    "part_title": "玛莲娜",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_03_BV1G441137Sj_p3.m4a",
    "part_title": "花样年华",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_05_BV1G441137Sj_p5.m4a",
    "part_title": "跟着你到天边",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_07_BV1G441137Sj_p7.m4a",
    "part_title": "晚风暖暖",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_09_BV1G441137Sj_p9.m4a",
    "part_title": "Your Man",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_11_BV1G441137Sj_p11.m4a",
    "part_title": "你不要担心",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_12_BV1G441137Sj_p12.m4a",
    "part_title": "心动",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_13_BV1G441137Sj_p13.m4a",
    "part_title": "贝加尔湖畔（突出人声版）",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_15_BV1G441137Sj_p15.m4a",
    "part_title": "一生守候",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_18_BV1G441137Sj_p18.m4a",
    "part_title": "Autumn Leaves",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_20_BV1G441137Sj_p20.m4a",
    "part_title": "谁",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_22_BV1G441137Sj_p22.m4a",
    "part_title": "云一定知道",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_武汉_24_BV1G441137Sj_p24.m4a",
    "part_title": "亲爱的中国，我的爱",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_01_BV1xJ41127TP_p1.m4a",
    "part_title": "让她降落",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_02_BV1xJ41127TP_p2.m4a",
    "part_title": "玛莲娜",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_03_BV1xJ41127TP_p3.m4a",
    "part_title": "花样年华",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_04_BV1xJ41127TP_p4.m4a",
    "part_title": "“海口的朋友，大家好~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_05_BV1xJ41127TP_p5.m4a",
    "part_title": "跟着你到天边",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_06_BV1xJ41127TP_p6.m4a",
    "part_title": "“我就说这个意思，不用那么认真儿...”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_07_BV1xJ41127TP_p7.m4a",
    "part_title": "晚风暖暖",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_08_BV1xJ41127TP_p8.m4a",
    "part_title": "“Your Man 送给海口的朋友~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_09_BV1xJ41127TP_p9.m4a",
    "part_title": "Your Man",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_10_BV1xJ41127TP_p10.m4a",
    "part_title": "“我竟然无言以对...”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_11_BV1xJ41127TP_p11.m4a",
    "part_title": "再见我的爱人",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_12_BV1xJ41127TP_p12.m4a",
    "part_title": "心动",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_13_BV1xJ41127TP_p13.m4a",
    "part_title": "“我的声音就是我的灵魂~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_14_BV1xJ41127TP_p14.m4a",
    "part_title": "贝加尔湖畔",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_15_BV1xJ41127TP_p15.m4a",
    "part_title": "一生守候",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_17_BV1xJ41127TP_p17.m4a",
    "part_title": "“我一定要跟我的小爹爹一起，之后出一首歌~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_19_BV1xJ41127TP_p19.m4a",
    "part_title": "她来听我的演唱会",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_20_BV1xJ41127TP_p20.m4a",
    "part_title": "她来听我的演唱会 唱后分析",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_21_BV1xJ41127TP_p21.m4a",
    "part_title": "谁",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_22_BV1xJ41127TP_p22.m4a",
    "part_title": "“今天唱得有点儿激动啊~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_23_BV1xJ41127TP_p23.m4a",
    "part_title": "你不要担心",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_24_BV1xJ41127TP_p24.m4a",
    "part_title": "“比爱更重要的是需要~你需要我~我需要你~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_25_BV1xJ41127TP_p25.m4a",
    "part_title": "云一定知道",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_26_BV1xJ41127TP_p26.m4a",
    "part_title": "“阿姨旁边的叔叔，挥个手~”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_海口_27_BV1xJ41127TP_p27.m4a",
    "part_title": "亲爱的中国，我的爱",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_长沙_01_BV1uJ411678L_p1.m4a",
    "part_title": "1 《让她降落》《玛莲娜》",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_长沙_05_BV1uJ411678L_p5.m4a",
    "part_title": "5 石凯弟弟单口相声+晰哥&琳宝宝的相声“雅俗共赏”“我们亲一下？”",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_长沙_07_BV1uJ411678L_p7.m4a",
    "part_title": "7 晰&琳《浏阳河》，《她来听我的演唱会》《你不要担心》",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_长沙_08_BV1uJ411678L_p8.m4a",
    "part_title": "8 单口相声“距离产生美vs近水楼台先得月”+《云一定知道》《亲爱的中国我的爱》",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_长沙_09_BV1uJ411678L_p9.m4a",
    "part_title": "9 “重回梅溪湖”VCR+《谁》",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   },
   {
    "source": "一巡·Che_长沙_11_BV1uJ411678L_p11.m4a",
    "part_title": "11 晰&琳&石《光之心》+晰《被遗忘的时光》+石《炸星星》bushi+琳《嘴巴嘟嘟》戏腔结尾！+合影+《o sole mio》",
-   "why": "题目为歌曲/整条无 talk 关键词 → 判为唱段，不进 talk 表"
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p1.m4a",
+   "part_title": "让她降落",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p11.m4a",
+   "part_title": "往日时光 by 王晰、简弘亦",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p12.m4a",
+   "part_title": "心动+被吐槽的 我只在乎你",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p13.m4a",
+   "part_title": "贝加尔湖",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p14.m4a",
+   "part_title": "一生守候+很长一段内心独白",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p15.m4a",
+   "part_title": "她来听我的演唱会",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p16.m4a",
+   "part_title": "钢铁小毛驴",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p18.m4a",
+   "part_title": "笑之歌 by 廖佳琳",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p19.m4a",
+   "part_title": "Come to me",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p2.m4a",
+   "part_title": "玛莲娜",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p20.m4a",
+   "part_title": "你不要担心",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p21.m4a",
+   "part_title": "云一定知道",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p22.m4a",
+   "part_title": "告别语+友谊地久天长 by 王晰、简弘亦、廖佳琳、李彦锋",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p23.m4a",
+   "part_title": "mxh兄弟们的祝福",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p24.m4a",
+   "part_title": "同门的祝福",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p3.m4a",
+   "part_title": "花样年华",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p4.m4a",
+   "part_title": "问候（妆容和打光所有场最美！）",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p5.m4a",
+   "part_title": "跟着你到天边",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p6.m4a",
+   "part_title": "晚风暖暖",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p7.m4a",
+   "part_title": "Your man",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p9.m4a",
+   "part_title": "心脏 by 李彦锋",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p1.m4a",
+   "part_title": "玛莲娜",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p10.m4a",
+   "part_title": "李彦锋2",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p13.m4a",
+   "part_title": "山楂",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p14.m4a",
+   "part_title": "山楂2",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p16.m4a",
+   "part_title": "云一定知道",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p17.m4a",
+   "part_title": "你不要担心",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p18.m4a",
+   "part_title": "暖风",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p19.m4a",
+   "part_title": "谁",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p2.m4a",
+   "part_title": "跟着你到天边",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p20.m4a",
+   "part_title": "她来听我的演唱会",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p21.m4a",
+   "part_title": "亲爱的中国，我的爱",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p22.m4a",
+   "part_title": "come to me",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p23.m4a",
+   "part_title": "your man",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p24.m4a",
+   "part_title": "痒1",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p25.m4a",
+   "part_title": "痒2",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p26.m4a",
+   "part_title": "野狼disco+青藏高原",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p27.m4a",
+   "part_title": "直到世界尽头",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p28.m4a",
+   "part_title": "迷迭香+人间",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p29.m4a",
+   "part_title": "山楂树",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p3.m4a",
+   "part_title": "花样年华",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p30.m4a",
+   "part_title": "日语歌 恋人哟",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p31.m4a",
+   "part_title": "忘词版海阔天空",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p32.m4a",
+   "part_title": "我的太阳",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p33.m4a",
+   "part_title": "吃播",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p4.m4a",
+   "part_title": "再见我的爱人",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p5.m4a",
+   "part_title": "心动",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p6.m4a",
+   "part_title": "贝加尔湖畔",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p7.m4a",
+   "part_title": "一生守候",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p9.m4a",
+   "part_title": "李彦锋《红眼睛》",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p1.m4a",
+   "part_title": "1.《花儿为什么这样红》 3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p10.m4a",
+   "part_title": "5.《后会无期》3.7 手机渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p11.m4a",
+   "part_title": "5.《后会无期》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p12.m4a",
+   "part_title": "5.《后会无期》3.8 手机渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p13.m4a",
+   "part_title": "6.《别离的预感》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p14.m4a",
+   "part_title": "7.《怂》3.7 手机渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p15.m4a",
+   "part_title": "7.《怂》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p16.m4a",
+   "part_title": "8.《哭砂》 3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p17.m4a",
+   "part_title": "8.《哭砂》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p2.m4a",
+   "part_title": "1.《花儿为什么这样红》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p20.m4a",
+   "part_title": "9.《雪地里寄不出的求救信》3.7 手机渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p21.m4a",
+   "part_title": "10.《雪孩子》 3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p22.m4a",
+   "part_title": "11.《爱情》3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p23.m4a",
+   "part_title": "11.《爱情》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p24.m4a",
+   "part_title": "12.《慢系列》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p25.m4a",
+   "part_title": "13.《如果云知道+云一定知道》3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p27.m4a",
+   "part_title": "14.《像雾像雨又像风》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p28.m4a",
+   "part_title": "15.《Dear friend》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p3.m4a",
+   "part_title": "1.《花儿为什么这样红》3.8 手机渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p31.m4a",
+   "part_title": "16.《追幸福的人》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p32.m4a",
+   "part_title": "17.《歌颂》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p38.m4a",
+   "part_title": "19.《王牌就是我》3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p39.m4a",
+   "part_title": "19.《王牌就是我》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p4.m4a",
+   "part_title": "2.《city of star》3.7 手机渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p40.m4a",
+   "part_title": "20.《你》3.7 手机制渣画质",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p41.m4a",
+   "part_title": "20.《你》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p42.m4a",
+   "part_title": "21.《等一等昨天》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p5.m4a",
+   "part_title": "2.《city of star》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p6.m4a",
+   "part_title": "3.《茕茕》 3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p7.m4a",
+   "part_title": "3.《茕茕》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p8.m4a",
+   "part_title": "4.《匆匆》 3.7",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p9.m4a",
+   "part_title": "4.《匆匆》3.8",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p1.m4a",
+   "part_title": "花儿为什么这样红",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p10.m4a",
+   "part_title": "让她降落",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p11.m4a",
+   "part_title": "Besame mucho",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p12.m4a",
+   "part_title": "Autumn leaves",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p13.m4a",
+   "part_title": "情网",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p14.m4a",
+   "part_title": "平凡又美好的晚上",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p15.m4a",
+   "part_title": "女人花+水中花",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p16.m4a",
+   "part_title": "Your man",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p17.m4a",
+   "part_title": "Your man②",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p18.m4a",
+   "part_title": "情网②",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p19.m4a",
+   "part_title": "夜色",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p2.m4a",
+   "part_title": "橄榄树",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p3.m4a",
+   "part_title": "像雾像雨又像风",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p4.m4a",
+   "part_title": "Yesterday once more",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p5.m4a",
+   "part_title": "Close to you",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p6.m4a",
+   "part_title": "月半弯",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p7.m4a",
+   "part_title": "再见我的爱人",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p8.m4a",
+   "part_title": "心动",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p9.m4a",
+   "part_title": "一生守候",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p1.m4a",
+   "part_title": "多听有益",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p10.m4a",
+   "part_title": "永不失联的爱",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p12.m4a",
+   "part_title": "友谊地久天长",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p13.m4a",
+   "part_title": "海然海然+嘎达梅林",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p14.m4a",
+   "part_title": "追梦人",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p15.m4a",
+   "part_title": "矜持+难以抗拒你的容颜+为你我受冷风吹",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p16.m4a",
+   "part_title": "爱的箴言",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p17.m4a",
+   "part_title": "想游泳的星",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p18.m4a",
+   "part_title": "人世间",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p19.m4a",
+   "part_title": "剧院刮刮乐",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p2.m4a",
+   "part_title": "迷雾",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p21.m4a",
+   "part_title": "猫模狗样",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p22.m4a",
+   "part_title": "甩啦甩啦",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p24.m4a",
+   "part_title": "北国之春",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p25.m4a",
+   "part_title": "梦醒时分",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p26.m4a",
+   "part_title": "着魔",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p27.m4a",
+   "part_title": "生日part",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p28.m4a",
+   "part_title": "绝美玫瑰雨",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p29.m4a",
+   "part_title": "有点小害羞的应援观后感",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p30.m4a",
+   "part_title": "生日快乐歌",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p31.m4a",
+   "part_title": "Besame Mucho",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p33.m4a",
+   "part_title": "崇拜",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p4.m4a",
+   "part_title": "也许",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p5.m4a",
+   "part_title": "小河",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p6.m4a",
+   "part_title": "朝凤-柳腰轻摆与麦架缠绵",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p8.m4a",
+   "part_title": "crystal store-摇曳生姿的老板娘",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
+  },
+  {
+   "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p9.m4a",
+   "part_title": "关于妖娆-40岁的男人才是顶级性感你根本不懂（",
+   "why": "题目为歌名 → 唱段，不进 talk 表"
   }
  ],
  "groups": [
   {
    "tour": "一巡",
-   "city": "上海",
-   "sources": 1,
-   "sentences": 228,
-   "sample": "那,讲了这么多,讲到快歌,其实我也在做专辑的时候,其实我也在想,什么样的场合适合快歌,我希望自己明年或者是后年,到大一点的体育馆或者是体育场的时候,为什么,其实在场的每一位老师都是非常优秀的音乐家,其实他们都非常清楚,",
+   "city": "北京",
+   "sources": 3,
+   "sentences": 99,
+   "sample": "希望我们这个红毅能够越来越幸福",
    "items": [
     {
-     "source": "一巡·Che_上海__BV1fJ411x7nV.m4a",
-     "bv": "BV1fJ411x7nV",
-     "part": null,
-     "part_title": "【王晰】20191103 上海站 全程 live 自剪【  Cherish珍晰个人巡回演唱会（ talk较全",
+     "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p10.m4a",
+     "bv": "BV1xJ411j7Hs",
+     "part": 10,
+     "part_title": "深夜酒馆 by 简弘亦（含晰哥介绍嘉宾）",
      "tour": "一巡",
-     "city": "上海",
-     "n_sentences": 228,
+     "city": "北京",
+     "n_sentences": 35,
      "sentences": [
       {
-       "start_s": 0.9,
-       "end_s": 8.0,
+       "start_s": 0.0,
+       "end_s": 4.0,
        "timecode": "00:00",
-       "text": "我要把滚烫的晚饭的青春都给你"
+       "text": "那接下来呢 我会邀请我的第二位嘉宾"
       },
       {
-       "start_s": 23.0,
-       "end_s": 30.0,
-       "timecode": "00:23",
-       "text": "我 忍一 為了你在太陽下夢會清醒"
+       "start_s": 4.0,
+       "end_s": 8.0,
+       "timecode": "00:04",
+       "text": "今天嘉宾很多 我慢慢来体会"
       },
       {
-       "start_s": 239.1,
-       "end_s": 241.4,
-       "timecode": "03:59",
-       "text": "谢谢 终于来到上海"
+       "start_s": 10.0,
+       "end_s": 15.0,
+       "timecode": "00:10",
+       "text": "就是在9月27号"
       },
       {
-       "start_s": 241.4,
-       "end_s": 243.6,
-       "timecode": "04:01",
-       "text": "开自己的这个巡回"
+       "start_s": 15.0,
+       "end_s": 22.0,
+       "timecode": "00:15",
+       "text": "他也是刚刚就是在我们同一个场地做自己的演唱会"
       },
       {
-       "start_s": 243.6,
-       "end_s": 244.6,
-       "timecode": "04:03",
-       "text": "谢谢大家"
+       "start_s": 22.0,
+       "end_s": 26.0,
+       "timecode": "00:22",
+       "text": "然后前两天 啊 也上热搜了"
       },
       {
-       "start_s": 244.6,
-       "end_s": 247.6,
-       "timecode": "04:04",
-       "text": "也感谢大家今天的公民"
+       "start_s": 29.0,
+       "end_s": 31.0,
+       "timecode": "00:29",
+       "text": "啊,就非常恭喜"
       },
       {
-       "start_s": 251.6,
-       "end_s": 253.6,
-       "timecode": "04:11",
-       "text": "然后刚才在唱的"
+       "start_s": 36.0,
+       "end_s": 38.0,
+       "timecode": "00:36",
+       "text": "也是我們大家非常喜歡的朋友"
       },
       {
-       "start_s": 253.6,
-       "end_s": 258.8,
-       "timecode": "04:13",
-       "text": "我其实一直也有看下面的我们的朋友们"
+       "start_s": 38.0,
+       "end_s": 40.0,
+       "timecode": "00:38",
+       "text": "姐弘毅,來,恭喜"
       },
       {
-       "start_s": 269.2,
-       "end_s": 275.1,
-       "timecode": "04:29",
-       "text": "其实我这两天我一直在想一个词"
+       "start_s": 43.0,
+       "end_s": 45.0,
+       "timecode": "00:43",
+       "text": "來,恭喜,恭喜"
       },
       {
-       "start_s": 275.1,
-       "end_s": 278.1,
-       "timecode": "04:35",
-       "text": "你说什么是爱"
+       "start_s": 54.0,
+       "end_s": 59.3,
+       "timecode": "00:54",
+       "text": "这个像我现在身份的人还是很少的"
       },
       {
-       "start_s": 282.8,
-       "end_s": 284.8,
-       "timecode": "04:42",
-       "text": "其实在我们小的时候就是"
+       "start_s": 59.3,
+       "end_s": 61.0,
+       "timecode": "00:59",
+       "text": "欢迎你加入"
       },
       {
-       "start_s": 284.8,
-       "end_s": 287.8,
-       "timecode": "04:44",
-       "text": "如果小时候回答就是"
+       "start_s": 61.0,
+       "end_s": 64.4,
+       "timecode": "01:01",
+       "text": "其实这也是正事"
       },
       {
-       "start_s": 289.8,
-       "end_s": 291.8,
-       "timecode": "04:49",
-       "text": "这就是一种爱的表达"
+       "start_s": 66.6,
+       "end_s": 69.4,
+       "timecode": "01:06",
+       "text": "因为遇到一个爱的人真的很不容易"
       },
       {
-       "start_s": 292.8,
-       "end_s": 294.8,
-       "timecode": "04:52",
-       "text": "然后再长大了一点点"
+       "start_s": 69.4,
+       "end_s": 73.1,
+       "timecode": "01:09",
+       "text": "希望我们这个红毅能够越来越幸福"
       },
       {
-       "start_s": 294.8,
-       "end_s": 295.8,
-       "timecode": "04:54",
-       "text": "我觉得你就是我的"
+       "start_s": 73.1,
+       "end_s": 75.8,
+       "timecode": "01:13",
+       "text": "然后能够早生贵子"
       },
       {
-       "start_s": 295.8,
-       "end_s": 296.8,
-       "timecode": "04:55",
-       "text": "我就是你的"
+       "start_s": 75.8,
+       "end_s": 79.3,
+       "timecode": "01:15",
+       "text": "我今天跟大家讲"
       },
       {
-       "start_s": 296.8,
-       "end_s": 297.8,
-       "timecode": "04:56",
-       "text": "这就是爱"
+       "start_s": 79.3,
+       "end_s": 83.1,
+       "timecode": "01:19",
+       "text": "如果是红毅要是在北京办婚礼的话"
       },
       {
-       "start_s": 297.8,
-       "end_s": 299.8,
-       "timecode": "04:57",
-       "text": "当我这个年龄"
+       "start_s": 91.6,
+       "end_s": 96.0,
+       "timecode": "01:31",
+       "text": "这个提升日程"
       },
       {
-       "start_s": 302.8,
-       "end_s": 305.8,
-       "timecode": "05:02",
-       "text": "爱是什么"
+       "start_s": 99.2,
+       "end_s": 100.9,
+       "timecode": "01:39",
+       "text": "你知道为什么"
       },
       {
-       "start_s": 310.8,
-       "end_s": 313.1,
-       "timecode": "05:10",
-       "text": "我觉得是我们"
+       "start_s": 103.8,
+       "end_s": 111.1,
+       "timecode": "01:43",
+       "text": "虽然今天是我的音乐会"
       },
       {
-       "start_s": 313.1,
-       "end_s": 317.9,
-       "timecode": "05:13",
-       "text": "虽然我觉得我们没有血缘关系"
+       "start_s": 114.8,
+       "end_s": 116.8,
+       "timecode": "01:54",
+       "text": "你们看着吧"
       },
       {
-       "start_s": 321.2,
-       "end_s": 337.8,
-       "timecode": "05:21",
-       "text": "但是我觉得我们享受的是"
+       "start_s": 116.8,
+       "end_s": 120.8,
+       "timecode": "01:56",
+       "text": "就是如果说宏毅的婚礼"
       },
       {
-       "start_s": 337.8,
-       "end_s": 341.8,
-       "timecode": "05:37",
-       "text": "就是同一条精神的河流"
+       "start_s": 120.8,
+       "end_s": 122.8,
+       "timecode": "02:00",
+       "text": "就是反而基本上"
       },
       {
-       "start_s": 344.0,
-       "end_s": 350.4,
-       "timecode": "05:44",
-       "text": "所以我觉得我们是一家人"
+       "start_s": 124.8,
+       "end_s": 126.8,
+       "timecode": "02:04",
+       "text": "这个事情我们到时候考虑"
       },
       {
-       "start_s": 362.4,
-       "end_s": 364.4,
-       "timecode": "06:02",
-       "text": "什么是一路同行呢"
+       "start_s": 126.8,
+       "end_s": 128.8,
+       "timecode": "02:06",
+       "text": "但我估计这个应该"
       },
       {
-       "start_s": 367.1,
-       "end_s": 370.9,
-       "timecode": "06:07",
-       "text": "如果说能力能力那是什么呢"
+       "start_s": 138.8,
+       "end_s": 140.8,
+       "timecode": "02:18",
+       "text": "然后也说是"
       },
       {
-       "start_s": 383.3,
-       "end_s": 386.2,
-       "timecode": "06:23",
-       "text": "我为什么说这么多呢"
+       "start_s": 150.8,
+       "end_s": 151.8,
+       "timecode": "02:30",
+       "text": "这个日子定下来了"
       },
       {
-       "start_s": 386.2,
-       "end_s": 388.3,
-       "timecode": "06:26",
-       "text": "我觉得就是我刚才在唱这首"
+       "start_s": 151.8,
+       "end_s": 153.8,
+       "timecode": "02:31",
+       "text": "一定要在我们那个大群里"
       },
       {
-       "start_s": 390.2,
-       "end_s": 392.8,
-       "timecode": "06:30",
-       "text": "然后以及让我回顾的之前"
+       "start_s": 153.8,
+       "end_s": 155.8,
+       "timecode": "02:33",
+       "text": "跟我们大家分享一下"
       },
       {
-       "start_s": 397.4,
-       "end_s": 398.9,
-       "timecode": "06:37",
-       "text": "其实有很多我的朋友"
+       "start_s": 159.8,
+       "end_s": 160.8,
+       "timecode": "02:39",
+       "text": "所以接下来"
       },
       {
-       "start_s": 400.8,
-       "end_s": 402.5,
-       "timecode": "06:40",
-       "text": "然后以及其实也有很多"
+       "start_s": 160.8,
+       "end_s": 163.8,
+       "timecode": "02:40",
+       "text": "就让我们的红衣给大家取得"
       },
       {
-       "start_s": 404.9,
-       "end_s": 406.4,
-       "timecode": "06:44",
-       "text": "来为大家唱歌的朋友"
+       "start_s": 164.8,
+       "end_s": 166.8,
+       "timecode": "02:44",
+       "text": "伴郎有投机起来 真的"
       },
       {
-       "start_s": 406.4,
-       "end_s": 408.2,
-       "timecode": "06:46",
-       "text": "真的发自内心感谢"
+       "start_s": 166.8,
+       "end_s": 169.8,
+       "timecode": "02:46",
+       "text": "今天给大家带来一首"
       },
       {
-       "start_s": 408.2,
-       "end_s": 409.6,
-       "timecode": "06:48",
-       "text": "感谢你们一位"
+       "start_s": 169.8,
+       "end_s": 172.8,
+       "timecode": "02:49",
+       "text": "这个我刚刚发现的专辑中的一首歌曲"
       },
       {
-       "start_s": 415.5,
-       "end_s": 418.7,
-       "timecode": "06:55",
-       "text": "接下来把这首歌送给大家"
-      },
-      {
-       "start_s": 492.1,
-       "end_s": 499.1,
-       "timecode": "08:12",
-       "text": "I need to 一色的美惡還是捨不得睡到"
-      },
-      {
-       "start_s": 500.1,
-       "end_s": 507.1,
-       "timecode": "08:20",
-       "text": "想念 你 躲在我懷裡天靜的想一起"
-      },
-      {
-       "start_s": 507.1,
-       "end_s": 516.1,
-       "timecode": "08:27",
-       "text": "在抱紧 呼吸 牽著詩餘的味道"
-      },
-      {
-       "start_s": 534.1,
-       "end_s": 543.1,
-       "timecode": "08:54",
-       "text": "不能再多秒 你都很深刻 最需要"
-      },
-      {
-       "start_s": 551.1,
-       "end_s": 558.1,
-       "timecode": "09:11",
-       "text": "你都可以 代替你夜里亮明"
-      },
-      {
-       "start_s": 584.5,
-       "end_s": 591.5,
-       "timecode": "09:44",
-       "text": "任誰都不可以 代替你 愛無敏"
-      },
-      {
-       "start_s": 601.5,
-       "end_s": 609.5,
-       "timecode": "10:01",
-       "text": "在那幾年臨時 中心還要在他身邊"
-      },
-      {
-       "start_s": 643.5,
-       "end_s": 648.9,
-       "timecode": "10:43",
-       "text": "为什么呢?因为音乐是讲着硬性的"
-      },
-      {
-       "start_s": 648.9,
-       "end_s": 654.5,
-       "timecode": "10:48",
-       "text": "东岸酒吧,就是每周日我都会像一个小学生一样买一杯课"
-      },
-      {
-       "start_s": 654.5,
-       "end_s": 666.1,
-       "timecode": "10:54",
-       "text": "躲在角落里面去听,因为有很多真的是我们都叫不出来名字的大师来到中国来去享受这本音乐"
-      },
-      {
-       "start_s": 666.1,
-       "end_s": 670.1,
-       "timecode": "11:06",
-       "text": "所以我觉得上海音乐这个氛围也是非常非常的好"
-      },
-      {
-       "start_s": 670.1,
-       "end_s": 699.4,
-       "timecode": "11:10",
-       "text": "那,讲了这么多,讲到快歌,其实我也在做专辑的时候,其实我也在想,什么样的场合适合快歌,我希望自己明年或者是后年,到大一点的体育馆或者是体育场的时候,为什么,其实在场的每一位老师都是非常优秀的音乐家,其实他们都非常清楚,"
-      },
-      {
-       "start_s": 700.1,
-       "end_s": 706.5,
-       "timecode": "11:40",
-       "text": "只有一种音乐形式,特别适合再大一点的场观"
-      },
-      {
-       "start_s": 706.5,
-       "end_s": 708.5,
-       "timecode": "11:46",
-       "text": "五万人,十万人"
-      },
-      {
-       "start_s": 710.0,
-       "end_s": 712.5,
-       "timecode": "11:49",
-       "text": "不是,我会努力啊"
-      },
-      {
-       "start_s": 720.4,
-       "end_s": 722.6,
-       "timecode": "12:00",
-       "text": "只有一种音乐,标棍"
-      },
-      {
-       "start_s": 725.6,
-       "end_s": 727.6,
-       "timecode": "12:05",
-       "text": "是不是?"
-      },
-      {
-       "start_s": 728.9,
-       "end_s": 731.6,
-       "timecode": "12:08",
-       "text": "我们也能感受得到那种氛围"
-      },
-      {
-       "start_s": 737.2,
-       "end_s": 738.9,
-       "timecode": "12:17",
-       "text": "今天说了点多哈"
-      },
-      {
-       "start_s": 742.0,
-       "end_s": 744.5,
-       "timecode": "12:21",
-       "text": "其实今天我讲到摇滚的时候"
-      },
-      {
-       "start_s": 744.5,
-       "end_s": 746.2,
-       "timecode": "12:24",
-       "text": "我其实在下半场的时候"
-      },
-      {
-       "start_s": 752.8,
-       "end_s": 755.0,
-       "timecode": "12:32",
-       "text": "在听这个摇滚之前"
-      },
-      {
-       "start_s": 755.0,
-       "end_s": 756.3,
-       "timecode": "12:35",
-       "text": "我们一点一点来"
-      },
-      {
-       "start_s": 757.1,
-       "end_s": 759.5,
-       "timecode": "12:37",
-       "text": "给我们一点点尝 好不好"
-      },
-      {
-       "start_s": 759.5,
-       "end_s": 763.1,
-       "timecode": "12:39",
-       "text": "先尝 接下来的这首歌 《湘村》"
-      },
-      {
-       "start_s": 770.8,
-       "end_s": 773.9,
-       "timecode": "12:50",
-       "text": "让我们和一老师一起啊"
-      },
-      {
-       "start_s": 877.2,
-       "end_s": 907.2,
-       "timecode": "14:37",
-       "text": "字幕視聴ありがとうございました"
-      },
-      {
-       "start_s": 975.2,
-       "end_s": 978.2,
-       "timecode": "16:15",
-       "text": "上一场我相信有很多我们的朋友去过"
-      },
-      {
-       "start_s": 989.2,
-       "end_s": 991.2,
-       "timecode": "16:29",
-       "text": "就是接下来要为大家唱这首歌"
-      },
-      {
-       "start_s": 991.2,
-       "end_s": 995.6,
-       "timecode": "16:31",
-       "text": "然后唱完这首歌,让我们先休息一下"
-      },
-      {
-       "start_s": 995.6,
-       "end_s": 999.0,
-       "timecode": "16:35",
-       "text": "下个场有什么,我们开始聊什么,好不好?"
-      },
-      {
-       "start_s": 1001.0,
-       "end_s": 1003.0,
-       "timecode": "16:41",
-       "text": "你觉得我今天衣服怎么样?"
-      },
-      {
-       "start_s": 1004.0,
-       "end_s": 1006.0,
-       "timecode": "16:44",
-       "text": "我就知道你们一定会问,知道吗?"
-      },
-      {
-       "start_s": 1007.0,
-       "end_s": 1010.0,
-       "timecode": "16:47",
-       "text": "是不是以为我就从酒店就这么出来了,是不是?"
-      },
-      {
-       "start_s": 1011.0,
-       "end_s": 1013.0,
-       "timecode": "16:51",
-       "text": "其实不是啊,对"
-      },
-      {
-       "start_s": 1013.0,
-       "end_s": 1015.0,
-       "timecode": "16:53",
-       "text": "如果说我要把这个衣服呀"
-      },
-      {
-       "start_s": 1016.0,
-       "end_s": 1017.0,
-       "timecode": "16:56",
-       "text": "不是,不是"
-      },
-      {
-       "start_s": 1021.2,
-       "end_s": 1024.9,
-       "timecode": "17:01",
-       "text": "其实记上还真就不太下了闹"
-      },
-      {
-       "start_s": 1024.9,
-       "end_s": 1026.4,
-       "timecode": "17:04",
-       "text": "因为我上台的时候"
-      },
-      {
-       "start_s": 1026.4,
-       "end_s": 1027.8,
-       "timecode": "17:06",
-       "text": "其实我也非常纠结"
-      },
-      {
-       "start_s": 1028.8,
-       "end_s": 1034.9,
-       "timecode": "17:08",
-       "text": "我记上我觉得很好"
-      },
-      {
-       "start_s": 1059.4,
-       "end_s": 1061.4,
-       "timecode": "17:39",
-       "text": "上海真的是热"
-      },
-      {
-       "start_s": 1069.4,
-       "end_s": 1071.4,
-       "timecode": "17:49",
-       "text": "唱完它让我们休息一下"
-      },
-      {
-       "start_s": 1077.4,
-       "end_s": 1081.9,
-       "timecode": "17:57",
-       "text": "然后嘉宾也非常非常的嗨"
-      },
-      {
-       "start_s": 1083.0,
-       "end_s": 1085.4,
-       "timecode": "18:03",
-       "text": "把这首歌送给大家"
-      },
-      {
-       "start_s": 1137.4,
-       "end_s": 1140.4,
-       "timecode": "18:57",
-       "text": "我愛你,我愛你"
-      },
-      {
-       "start_s": 1306.2,
-       "end_s": 1313.2,
-       "timecode": "21:46",
-       "text": "这世间的什么"
-      },
-      {
-       "start_s": 1391.5,
-       "end_s": 1394.3,
-       "timecode": "23:11",
-       "text": "让大家听到了我接下来要唱的这首歌"
-      },
-      {
-       "start_s": 1399.8,
-       "end_s": 1401.8,
-       "timecode": "23:19",
-       "text": "就是非常非常的深刻"
-      },
-      {
-       "start_s": 1402.5,
-       "end_s": 1404.8,
-       "timecode": "23:22",
-       "text": "因为我记得我们三个月"
-      },
-      {
-       "start_s": 1407.0,
-       "end_s": 1409.3,
-       "timecode": "23:27",
-       "text": "因为录制节目真的非常非常的辛苦"
-      },
-      {
-       "start_s": 1424.3,
-       "end_s": 1425.3,
-       "timecode": "23:44",
-       "text": "谢谢 谢谢"
-      },
-      {
-       "start_s": 1427.3,
-       "end_s": 1429.3,
-       "timecode": "23:47",
-       "text": "我觉得真的是很幸福"
-      },
-      {
-       "start_s": 1431.3,
-       "end_s": 1432.3,
-       "timecode": "23:51",
-       "text": "把这首歌送给大家"
-      },
-      {
-       "start_s": 1432.3,
-       "end_s": 1434.3,
-       "timecode": "23:52",
-       "text": "上海的朋友"
-      },
-      {
-       "start_s": 1450.4,
-       "end_s": 1456.9,
-       "timecode": "24:10",
-       "text": "管别人心怎么想"
-      },
-      {
-       "start_s": 1456.9,
-       "end_s": 1459.9,
-       "timecode": "24:16",
-       "text": "连人怎么敢"
-      },
-      {
-       "start_s": 1459.9,
-       "end_s": 1463.8,
-       "timecode": "24:19",
-       "text": "不话怎么说"
-      },
-      {
-       "start_s": 1529.8,
-       "end_s": 1531.8,
-       "timecode": "25:29",
-       "text": "接下来的时间交给他们"
-      },
-      {
-       "start_s": 1539.8,
-       "end_s": 1541.8,
-       "timecode": "25:39",
-       "text": "但今天呢"
-      },
-      {
-       "start_s": 1543.8,
-       "end_s": 1545.8,
-       "timecode": "25:43",
-       "text": "这个节目上面唱过一首"
-      },
-      {
-       "start_s": 1547.8,
-       "end_s": 1549.8,
-       "timecode": "25:47",
-       "text": "原因就是很简单"
-      },
-      {
-       "start_s": 1549.8,
-       "end_s": 1551.8,
-       "timecode": "25:49",
-       "text": "这个版权的问题"
-      },
-      {
-       "start_s": 1554.9,
-       "end_s": 1558.7,
-       "timecode": "25:54",
-       "text": "因为我脑子里面我一直我在想"
-      },
-      {
-       "start_s": 1560.7,
-       "end_s": 1563.7,
-       "timecode": "26:00",
-       "text": "我觉得就来一次彻底的纯粹的"
-      },
-      {
-       "start_s": 1575.4,
-       "end_s": 1580.0,
-       "timecode": "26:15",
-       "text": "单独为了要合作的这首歌"
-      },
-      {
-       "start_s": 1580.0,
-       "end_s": 1588.0,
-       "timecode": "26:20",
-       "text": "就是,当我要唱的这首歌呢,我会借鉴的,一提到摇滚,大家都互相熟,你们熟悉摇滚吗?"
-      },
-      {
-       "start_s": 1590.0,
-       "end_s": 1594.0,
-       "timecode": "26:30",
-       "text": "就行,好,就假装熟悉,好吧"
-      },
-      {
-       "start_s": 1595.0,
-       "end_s": 1599.0,
-       "timecode": "26:35",
-       "text": "就是有一支乐队叫做《德国展车》"
-      },
-      {
-       "start_s": 1600.0,
-       "end_s": 1603.0,
-       "timecode": "26:40",
-       "text": "大家都听过是吧,就是特别的嗨"
-      },
-      {
-       "start_s": 1604.0,
-       "end_s": 1609.0,
-       "timecode": "26:44",
-       "text": "所以说,今天我会结合他的那种风格,唱一首"
-      },
-      {
-       "start_s": 1610.0,
-       "end_s": 1613.0,
-       "timecode": "26:50",
-       "text": "那时候我相信你们一定会非常惊艳"
-      },
-      {
-       "start_s": 1613.0,
-       "end_s": 1615.0,
-       "timecode": "26:53",
-       "text": "因为我从来没有唱过"
-      },
-      {
-       "start_s": 1619.0,
-       "end_s": 1624.0,
-       "timecode": "26:59",
-       "text": "所以接下来把时间交给我们的"
-      },
-      {
-       "start_s": 1624.0,
-       "end_s": 1627.0,
-       "timecode": "27:04",
-       "text": "一起约队吧的朋友们"
-      },
-      {
-       "start_s": 1631.0,
-       "end_s": 1634.0,
-       "timecode": "27:11",
-       "text": "你们是不是要上来先"
-      },
-      {
-       "start_s": 1636.0,
-       "end_s": 1639.0,
-       "timecode": "27:16",
-       "text": "来 我们先掌声有请"
-      },
-      {
-       "start_s": 1643.0,
-       "end_s": 1647.0,
-       "timecode": "27:23",
-       "text": "哈喽 大家好 我是桑田"
-      },
-      {
-       "start_s": 1647.0,
-       "end_s": 1651.0,
-       "timecode": "27:27",
-       "text": "大家好 我是舞手 胡亦彭"
-      },
-      {
-       "start_s": 1651.0,
-       "end_s": 1655.0,
-       "timecode": "27:31",
-       "text": "哈喽 大家好 我是主唱 王向南"
-      },
-      {
-       "start_s": 1657.0,
-       "end_s": 1659.0,
-       "timecode": "27:37",
-       "text": "大家好 我是贝斯 小志"
-      },
-      {
-       "start_s": 1659.0,
-       "end_s": 1663.0,
-       "timecode": "27:39",
-       "text": "大家好 我是Vero 贝子林"
-      },
-      {
-       "start_s": 1663.0,
-       "end_s": 1668.2,
-       "timecode": "27:43",
-       "text": "接下来你们需要几分钟的时间"
-      },
-      {
-       "start_s": 1669.9,
-       "end_s": 1672.7,
-       "timecode": "27:49",
-       "text": "我要跟大家讲点什么"
-      },
-      {
-       "start_s": 1672.7,
-       "end_s": 1674.2,
-       "timecode": "27:52",
-       "text": "就是需要让你们准备准备"
-      },
-      {
-       "start_s": 1674.2,
-       "end_s": 1676.3,
-       "timecode": "27:54",
-       "text": "还是说你们就直接就来"
-      },
-      {
-       "start_s": 1687.1,
-       "end_s": 1688.9,
-       "timecode": "28:07",
-       "text": "接下来时间叫回他们"
-      },
-      {
-       "start_s": 1689.4,
-       "end_s": 1699.4,
-       "timecode": "28:09",
-       "text": "来一次纯粹的了好不好"
-      },
-      {
-       "start_s": 1705.4,
-       "end_s": 1707.4,
-       "timecode": "28:25",
-       "text": "让我们吃饭"
-      },
-      {
-       "start_s": 1709.4,
-       "end_s": 1711.4,
-       "timecode": "28:29",
-       "text": "让我们吃饭"
-      },
+       "start_s": 291.9,
+       "end_s": 295.2,
+       "timecode": "04:51",
+       "text": "用故事换酒然后说着话"
+      }
+     ]
+    },
+    {
+     "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p17.m4a",
+     "bv": "BV1xJ411j7Hs",
+     "part": 17,
+     "part_title": "盘它 by 廖佳琳（含晰哥嘉宾介绍）",
+     "tour": "一巡",
+     "city": "北京",
+     "n_sentences": 31,
+     "sentences": [
       {
-       "start_s": 1717.1,
-       "end_s": 1719.2,
-       "timecode": "28:37",
-       "text": "让我们出发"
+       "start_s": 29.6,
+       "end_s": 32.6,
+       "timecode": "00:29",
+       "text": "我太喜欢我们的家里人"
       },
       {
-       "start_s": 1764.4,
-       "end_s": 1774.4,
-       "timecode": "29:24",
-       "text": "我手裡拿著小屁邊 我心裡真的硬"
+       "start_s": 32.6,
+       "end_s": 34.1,
+       "timecode": "00:32",
+       "text": "就是什么都能买"
       },
       {
-       "start_s": 1852.9,
-       "end_s": 1855.9,
-       "timecode": "30:52",
-       "text": "下次給你們改一個什麼好不好"
+       "start_s": 40.6,
+       "end_s": 42.6,
+       "timecode": "00:40",
+       "text": "然后这个花鼓戏啊"
       },
       {
-       "start_s": 1867.9,
-       "end_s": 1873.1,
-       "timecode": "31:07",
-       "text": "我上次就让我们出发了"
+       "start_s": 42.6,
+       "end_s": 44.3,
+       "timecode": "00:42",
+       "text": "这个明月 然后美声"
       },
       {
-       "start_s": 1873.1,
-       "end_s": 1874.7,
-       "timecode": "31:13",
-       "text": "来 让我们回家再来一次"
+       "start_s": 44.3,
+       "end_s": 46.1,
+       "timecode": "00:44",
+       "text": "然后流行 然后鼓声弄买"
       },
       {
-       "start_s": 1882.0,
-       "end_s": 1888.8,
-       "timecode": "31:21",
-       "text": "我们灯光老师来回家吧"
+       "start_s": 54.1,
+       "end_s": 55.5,
+       "timecode": "00:54",
+       "text": "然后也非常开心"
       },
       {
-       "start_s": 1927.9,
-       "end_s": 1930.9,
-       "timecode": "32:07",
-       "text": "我希望你全都已"
+       "start_s": 55.5,
+       "end_s": 57.6,
+       "timecode": "00:55",
+       "text": "因为我们昨天是在那个"
       },
       {
-       "start_s": 2026.1,
-       "end_s": 2029.4,
-       "timecode": "33:46",
-       "text": "怎么样算成功了"
+       "start_s": 63.6,
+       "end_s": 65.6,
+       "timecode": "01:03",
+       "text": "我觉得就是又在这边"
       },
       {
-       "start_s": 2029.4,
-       "end_s": 2035.8,
-       "timecode": "33:49",
-       "text": "算是我的这个"
+       "start_s": 66.6,
+       "end_s": 68.6,
+       "timecode": "01:06",
+       "text": "希望我们2020年继续的"
       },
       {
-       "start_s": 2037.3,
-       "end_s": 2038.7,
-       "timecode": "33:57",
-       "text": "因为我觉得能够跟"
+       "start_s": 73.6,
+       "end_s": 75.6,
+       "timecode": "01:13",
+       "text": "接下来呢"
       },
       {
-       "start_s": 2038.7,
-       "end_s": 2040.2,
-       "timecode": "33:58",
+       "start_s": 76.6,
+       "end_s": 77.6,
+       "timecode": "01:16",
        "text": "我们的这个"
       },
       {
-       "start_s": 2042.1,
-       "end_s": 2044.7,
-       "timecode": "34:02",
-       "text": "我希望在未来"
+       "start_s": 85.6,
+       "end_s": 86.6,
+       "timecode": "01:25",
+       "text": "这个歌名叫"
       },
       {
-       "start_s": 2046.5,
-       "end_s": 2048.0,
-       "timecode": "34:06",
-       "text": "因为我觉得他们"
+       "start_s": 104.3,
+       "end_s": 105.8,
+       "timecode": "01:44",
+       "text": "哇 你們今天好High啊"
       },
       {
-       "start_s": 2050.8,
-       "end_s": 2051.8,
-       "timecode": "34:10",
-       "text": "其实他们跟我们"
+       "start_s": 116.0,
+       "end_s": 122.5,
+       "timecode": "01:56",
+       "text": "那今天呢 我就把那个参加园的圆哥谈他 献给大家"
       },
       {
-       "start_s": 2051.8,
-       "end_s": 2053.3,
-       "timecode": "34:11",
-       "text": "在节目当中其实是一样的"
+       "start_s": 122.5,
+       "end_s": 125.5,
+       "timecode": "02:02",
+       "text": "然后以后呢 人手一对核桃"
       },
       {
-       "start_s": 2053.3,
-       "end_s": 2055.1,
-       "timecode": "34:13",
-       "text": "就是拍摄时间很晚"
+       "start_s": 125.5,
+       "end_s": 129.7,
+       "timecode": "02:05",
+       "text": "对了 那么还是老规矩 我唱到上去就"
       },
       {
-       "start_s": 2055.1,
-       "end_s": 2057.7,
-       "timecode": "34:15",
-       "text": "然后一直为自己的音乐"
+       "start_s": 185.4,
+       "end_s": 187.4,
+       "timecode": "03:05",
+       "text": "所有人觉得满大"
       },
       {
-       "start_s": 2059.8,
-       "end_s": 2061.4,
-       "timecode": "34:19",
-       "text": "其实他们都在"
+       "start_s": 263.4,
+       "end_s": 265.4,
+       "timecode": "04:23",
+       "text": "什么两句都叛叛"
       },
       {
-       "start_s": 2069.0,
-       "end_s": 2069.7,
-       "timecode": "34:29",
-       "text": "但是我觉得"
+       "start_s": 340.4,
+       "end_s": 342.4,
+       "timecode": "05:40",
+       "text": "其实我没想到真的是"
       },
       {
-       "start_s": 2069.7,
-       "end_s": 2071.3,
-       "timecode": "34:29",
-       "text": "他们这个态度"
+       "start_s": 348.4,
+       "end_s": 350.8,
+       "timecode": "05:48",
+       "text": "你们就说些好话吧"
       },
       {
-       "start_s": 2073.8,
-       "end_s": 2075.3,
-       "timecode": "34:33",
-       "text": "对,谢谢她们,谢谢"
+       "start_s": 357.5,
+       "end_s": 359.0,
+       "timecode": "05:57",
+       "text": "我就会吃什么牛筋啊"
       },
       {
-       "start_s": 2245.2,
-       "end_s": 2249.9,
-       "timecode": "37:25",
-       "text": "其实每次唱25岁的时候"
+       "start_s": 363.9,
+       "end_s": 365.6,
+       "timecode": "06:03",
+       "text": "以后我得改善一下这个女士"
       },
       {
-       "start_s": 2249.9,
-       "end_s": 2253.0,
-       "timecode": "37:29",
-       "text": "我就在想台下的你们此刻在想些什么"
+       "start_s": 374.2,
+       "end_s": 381.2,
+       "timecode": "06:14",
+       "text": "在演唱12首歌之前,我不老用的習慣嗎?"
       },
       {
-       "start_s": 2256.7,
-       "end_s": 2258.7,
-       "timecode": "37:36",
-       "text": "哎呀我说的不是这个意思"
+       "start_s": 381.2,
+       "end_s": 384.2,
+       "timecode": "06:21",
+       "text": "就是青少一小首歌,你們想聽一下"
       },
       {
-       "start_s": 2258.7,
-       "end_s": 2262.5,
-       "timecode": "37:38",
-       "text": "对其实在"
+       "start_s": 404.2,
+       "end_s": 406.2,
+       "timecode": "06:44",
+       "text": "那我清唱一小單好不好"
       },
       {
-       "start_s": 2266.1,
-       "end_s": 2267.8,
-       "timecode": "37:46",
-       "text": "就是特别希望能够"
+       "start_s": 407.2,
+       "end_s": 411.2,
+       "timecode": "06:47",
+       "text": "因為我覺得今天是希哥的收官對不對"
       },
       {
-       "start_s": 2267.8,
-       "end_s": 2270.7,
-       "timecode": "37:47",
-       "text": "自己20岁的时候唱"
+       "start_s": 418.2,
+       "end_s": 420.2,
+       "timecode": "06:58",
+       "text": "沒錯希哥就是我的真愛"
       },
       {
-       "start_s": 2270.7,
-       "end_s": 2273.5,
-       "timecode": "37:50",
-       "text": "30岁的时候唱40 50"
+       "start_s": 423.2,
+       "end_s": 425.2,
+       "timecode": "07:03",
+       "text": "真的是非常不一般"
       },
       {
-       "start_s": 2273.5,
-       "end_s": 2275.5,
-       "timecode": "37:53",
-       "text": "然后我们就一直都听下去"
+       "start_s": 433.2,
+       "end_s": 436.2,
+       "timecode": "07:13",
+       "text": "At last 唱一首再寄給大家好不好"
       },
       {
-       "start_s": 2275.5,
-       "end_s": 2277.5,
-       "timecode": "37:55",
-       "text": "我觉得这个真的是"
+       "start_s": 438.2,
+       "end_s": 441.2,
+       "timecode": "07:18",
+       "text": "身體健康 然後呢 事業甚至日常"
       },
       {
-       "start_s": 2277.5,
-       "end_s": 2279.5,
-       "timecode": "37:57",
-       "text": "我希望吧"
-      },
-      {
-       "start_s": 2283.5,
-       "end_s": 2285.5,
-       "timecode": "38:03",
-       "text": "像到了四十岁的时候"
-      },
-      {
-       "start_s": 2285.5,
-       "end_s": 2287.5,
-       "timecode": "38:05",
-       "text": "我在开音乐会的时候"
-      },
-      {
-       "start_s": 2287.5,
-       "end_s": 2289.5,
-       "timecode": "38:07",
-       "text": "你们还在"
-      },
-      {
-       "start_s": 2293.5,
-       "end_s": 2295.5,
-       "timecode": "38:13",
-       "text": "到时候你们可以带个孩子来"
-      },
-      {
-       "start_s": 2301.5,
-       "end_s": 2307.5,
-       "timecode": "38:21",
-       "text": "如果身边的男人 如果要是睡小的话 记得交请他"
-      },
-      {
-       "start_s": 2307.5,
-       "end_s": 2315.5,
-       "timecode": "38:27",
-       "text": "因为 攒了半年的心绪 才买的门票就对了"
-      },
-      {
-       "start_s": 2315.5,
-       "end_s": 2320.5,
-       "timecode": "38:35",
-       "text": "好 说说笑笑 接下来的三位"
-      },
-      {
-       "start_s": 2324.5,
-       "end_s": 2326.5,
-       "timecode": "38:44",
-       "text": "昨天什么日子来当的?"
-      },
-      {
-       "start_s": 2329.5,
-       "end_s": 2332.5,
-       "timecode": "38:49",
-       "text": "好 接下来把这个声音送给大家"
-      },
-      {
-       "start_s": 2451.0,
-       "end_s": 2463.0,
-       "timecode": "40:51",
-       "text": "在不同的歲月裡 同樣去問著自己"
-      },
-      {
-       "start_s": 2548.0,
-       "end_s": 2559.8,
-       "timecode": "42:28",
-       "text": "今天在上海当中有歌是这样的感受"
-      },
-      {
-       "start_s": 2560.9,
-       "end_s": 2562.4,
-       "timecode": "42:40",
-       "text": "真的每场都不一样"
-      },
-      {
-       "start_s": 2562.4,
-       "end_s": 2566.1,
-       "timecode": "42:42",
-       "text": "我觉得今天从前来说还是很幸福"
-      },
-      {
-       "start_s": 2570.4,
-       "end_s": 2572.5,
-       "timecode": "42:50",
-       "text": "因为在很多场"
-      },
-      {
-       "start_s": 2572.5,
-       "end_s": 2573.7,
-       "timecode": "42:52",
-       "text": "然后唱就不得就是"
-      },
-      {
-       "start_s": 2573.7,
-       "end_s": 2576.3,
-       "timecode": "42:53",
-       "text": "台下的你们就哭的"
-      },
-      {
-       "start_s": 2588.2,
-       "end_s": 2590.2,
-       "timecode": "43:08",
-       "text": "然后也感谢大家"
-      },
-      {
-       "start_s": 2591.5,
-       "end_s": 2593.3,
-       "timecode": "43:11",
-       "text": "陪伴着我们"
-      },
-      {
-       "start_s": 2602.4,
-       "end_s": 2603.9,
-       "timecode": "43:22",
-       "text": "接下来再送给大家"
-      },
-      {
-       "start_s": 2603.9,
-       "end_s": 2605.5,
-       "timecode": "43:23",
-       "text": "就是你不要担心"
-      },
-      {
-       "start_s": 2631.5,
-       "end_s": 2636.5,
-       "timecode": "43:51",
-       "text": "唱出 我们曾经是爱过"
-      },
-      {
-       "start_s": 2698.5,
-       "end_s": 2705.5,
-       "timecode": "44:58",
-       "text": "大声唱出我们一起追过的梦"
-      },
-      {
-       "start_s": 2730.5,
-       "end_s": 2739.5,
-       "timecode": "45:30",
-       "text": "大声唱出 我们一起追过"
-      },
-      {
-       "start_s": 2801.1,
-       "end_s": 2802.6,
-       "timecode": "46:41",
-       "text": "在唱AE的时候"
-      },
-      {
-       "start_s": 2802.6,
-       "end_s": 2804.1,
-       "timecode": "46:42",
-       "text": "就是第一段的时候"
-      },
-      {
-       "start_s": 2804.1,
-       "end_s": 2805.6,
-       "timecode": "46:44",
-       "text": "真的是唱没你们"
-      },
-      {
-       "start_s": 2806.4,
-       "end_s": 2808.8,
-       "timecode": "46:46",
-       "text": "你们回去可以好好看个字"
-      },
-      {
-       "start_s": 2985.9,
-       "end_s": 2996.6,
-       "timecode": "49:45",
-       "text": "我 懂了 你那思念 也痛哭的随时"
-      },
-      {
-       "start_s": 2996.6,
-       "end_s": 3007.6,
-       "timecode": "49:56",
-       "text": "剩下一条片 暗色犹豫 与无踪影"
-      },
-      {
-       "start_s": 3082.9,
-       "end_s": 3084.0,
-       "timecode": "51:22",
-       "text": "对 因为"
-      },
-      {
-       "start_s": 3084.0,
-       "end_s": 3086.7,
-       "timecode": "51:23",
-       "text": "其实作为歌手来说真的"
-      },
-      {
-       "start_s": 3087.8,
-       "end_s": 3090.6,
-       "timecode": "51:27",
-       "text": "只希望能够把歌好好地唱好"
-      },
-      {
-       "start_s": 3090.6,
-       "end_s": 3093.2,
-       "timecode": "51:30",
-       "text": "然后多唱一些歌给大家听"
-      },
-      {
-       "start_s": 3095.2,
-       "end_s": 3097.9,
-       "timecode": "51:35",
-       "text": "也希望自己能够"
-      },
-      {
-       "start_s": 3097.9,
-       "end_s": 3099.6,
-       "timecode": "51:37",
-       "text": "在你们的生活当中"
-      },
-      {
-       "start_s": 3099.6,
-       "end_s": 3102.0,
-       "timecode": "51:39",
-       "text": "能够让你们快、幸福"
-      },
-      {
-       "start_s": 3106.5,
-       "end_s": 3110.3,
-       "timecode": "51:46",
-       "text": "所以我就继续地唱会了"
-      },
-      {
-       "start_s": 3117.6,
-       "end_s": 3119.8,
-       "timecode": "51:57",
-       "text": "没关系,节目单的最会是我们"
-      },
-      {
-       "start_s": 3124.2,
-       "end_s": 3128.4,
-       "timecode": "52:04",
-       "text": "但送给我们伟大的祖国,亲爱的中国,我的爱子"
-      },
-      {
-       "start_s": 3419.8,
-       "end_s": 3420.8,
-       "timecode": "56:59",
-       "text": "当初的怎么样?"
-      },
-      {
-       "start_s": 3420.8,
-       "end_s": 3422.4,
-       "timecode": "57:00",
-       "text": "当初的。"
-      },
-      {
-       "start_s": 3426.0,
-       "end_s": 3436.7,
-       "timecode": "57:06",
-       "text": "我也想过,我想一定会演这首歌,但是我想我这个月还有后面还有几场演出,然后其中"
-      },
-      {
-       "start_s": 3440.3,
-       "end_s": 3446.4,
-       "timecode": "57:20",
-       "text": "其中这个月的应该是,我记不太清楚了,应该是27号在成都吧。"
-      },
-      {
-       "start_s": 3446.4,
-       "end_s": 3451.2,
-       "timecode": "57:26",
-       "text": "对,然后是新歌首唱会"
-      },
-      {
-       "start_s": 3451.2,
-       "end_s": 3456.5,
-       "timecode": "57:31",
-       "text": "对,然后到时候应该会唱下午月"
-      },
-      {
-       "start_s": 3458.0,
-       "end_s": 3462.9,
-       "timecode": "57:37",
-       "text": "所以说留一下"
-      },
-      {
-       "start_s": 3468.8,
-       "end_s": 3472.1,
-       "timecode": "57:48",
-       "text": "其实我们昨天也在一起开会"
-      },
-      {
-       "start_s": 3479.0,
-       "end_s": 3480.2,
-       "timecode": "57:59",
-       "text": "就比如说今天"
-      },
-      {
-       "start_s": 3490.1,
-       "end_s": 3492.5,
-       "timecode": "58:10",
-       "text": "我觉得会给我2019年一个"
-      },
-      {
-       "start_s": 3495.5,
-       "end_s": 3496.8,
-       "timecode": "58:15",
-       "text": "然后也感谢大家"
-      },
-      {
-       "start_s": 3499.6,
-       "end_s": 3501.9,
-       "timecode": "58:19",
-       "text": "所以说北京上的会做得更好"
-      },
-      {
-       "start_s": 3596.9,
-       "end_s": 3598.9,
-       "timecode": "59:56",
-       "text": "给楼上我们的朋友"
-      },
-      {
-       "start_s": 3653.6,
-       "end_s": 3655.6,
-       "timecode": "60:53",
-       "text": "什么在前"
-      },
-      {
-       "start_s": 3662.5,
-       "end_s": 3664.0,
-       "timecode": "61:02",
-       "text": "你们发现我进步了没"
-      },
-      {
-       "start_s": 3671.4,
-       "end_s": 3672.3,
-       "timecode": "61:11",
-       "text": "我今天心情好"
-      },
-      {
-       "start_s": 3672.3,
-       "end_s": 3673.5,
-       "timecode": "61:12",
-       "text": "再给你们唱一首宝贝"
-      },
-      {
-       "start_s": 3673.5,
-       "end_s": 3682.7,
-       "timecode": "61:13",
-       "text": "我们的传统是宝贝"
-      },
-      {
-       "start_s": 3682.7,
-       "end_s": 3694.6,
-       "timecode": "61:22",
-       "text": "对 我们就把他死掉了"
-      },
-      {
-       "start_s": 3703.5,
-       "end_s": 3715.9,
-       "timecode": "61:43",
-       "text": "我的宝贝 宝贝 给你一点甜甜"
-      },
-      {
-       "start_s": 3723.8,
-       "end_s": 3727.9,
-       "timecode": "62:03",
-       "text": "让你喜欢这个世界"
-      },
-      {
-       "start_s": 3727.9,
-       "end_s": 3733.5,
-       "timecode": "62:07",
-       "text": "我的宝贝 觉得是活动"
-      },
-      {
-       "start_s": 3931.5,
-       "end_s": 3932.0,
-       "timecode": "65:31",
-       "text": "谢谢大家"
-      },
-      {
-       "start_s": 3932.0,
-       "end_s": 3934.6,
-       "timecode": "65:31",
-       "text": "接下来我们给大家介绍一下"
-      },
-      {
-       "start_s": 3934.6,
-       "end_s": 3936.9,
-       "timecode": "65:34",
-       "text": "我们现场的乐队老师们"
-      },
-      {
-       "start_s": 3943.1,
-       "end_s": 3944.6,
-       "timecode": "65:43",
-       "text": "我们的鼓手"
-      },
-      {
-       "start_s": 3946.1,
-       "end_s": 3950.5,
-       "timecode": "65:46",
-       "text": "我们呢 接韩首 金英来老师"
-      },
-      {
-       "start_s": 3954.4,
-       "end_s": 3960.1,
-       "timecode": "65:54",
-       "text": "何宁 丁香 刘雪莲 吕中训老师"
-      },
-      {
-       "start_s": 3960.1,
-       "end_s": 3963.7,
-       "timecode": "66:00",
-       "text": "以及我们金海音乐 弦乐团的四位老师们"
-      },
-      {
-       "start_s": 3963.7,
-       "end_s": 3964.9,
-       "timecode": "66:03",
-       "text": "谢谢大家"
-      },
-      {
-       "start_s": 3964.9,
-       "end_s": 3968.4,
-       "timecode": "66:04",
-       "text": "谢谢所有的辛苦"
-      },
-      {
-       "start_s": 3968.4,
-       "end_s": 3972.0,
-       "timecode": "66:08",
-       "text": "也感谢今天所有上来的朋友"
-      },
-      {
-       "start_s": 3972.0,
-       "end_s": 3973.4,
-       "timecode": "66:12",
-       "text": "谢谢你们"
+       "start_s": 441.2,
+       "end_s": 445.2,
+       "timecode": "07:21",
+       "text": "最主要 我們的希哥 越來越紅紅"
       }
-     ],
-     "speech_ratio": 0.29
+     ]
+    },
+    {
+     "source": "一巡北京收官20200102_p%(playlist_index)s_BV1xJ411j7Hs_p8.m4a",
+     "bv": "BV1xJ411j7Hs",
+     "part": 8,
+     "part_title": "红眼睛 by 李彦锋（含晰哥介绍嘉宾）",
+     "tour": "一巡",
+     "city": "北京",
+     "n_sentences": 33,
+     "sentences": [
+      {
+       "start_s": 5.0,
+       "end_s": 9.0,
+       "timecode": "00:05",
+       "text": "就是人家上热搜啊不是靠什么"
+      },
+      {
+       "start_s": 10.0,
+       "end_s": 12.0,
+       "timecode": "00:10",
+       "text": "很多人是不是"
+      },
+      {
+       "start_s": 25.0,
+       "end_s": 27.0,
+       "timecode": "00:25",
+       "text": "我2022年我真的有加油"
+      },
+      {
+       "start_s": 41.6,
+       "end_s": 45.8,
+       "timecode": "00:41",
+       "text": "前两天我们在这个下面来玩"
+      },
+      {
+       "start_s": 47.7,
+       "end_s": 49.9,
+       "timecode": "00:47",
+       "text": "我们聊了好多好多"
+      },
+      {
+       "start_s": 52.1,
+       "end_s": 54.4,
+       "timecode": "00:52",
+       "text": "今天我也是非常的有幸"
+      },
+      {
+       "start_s": 56.1,
+       "end_s": 58.1,
+       "timecode": "00:56",
+       "text": "我们的这一场"
+      },
+      {
+       "start_s": 58.1,
+       "end_s": 60.0,
+       "timecode": "00:58",
+       "text": "我们也邀请过来"
+      },
+      {
+       "start_s": 70.3,
+       "end_s": 71.5,
+       "timecode": "01:10",
+       "text": "私有朋友"
+      },
+      {
+       "start_s": 71.5,
+       "end_s": 74.2,
+       "timecode": "01:11",
+       "text": "可能我们的"
+      },
+      {
+       "start_s": 74.2,
+       "end_s": 75.3,
+       "timecode": "01:14",
+       "text": "年轻的朋友"
+      },
+      {
+       "start_s": 75.3,
+       "end_s": 78.0,
+       "timecode": "01:15",
+       "text": "就是都熟知"
+      },
+      {
+       "start_s": 79.2,
+       "end_s": 81.6,
+       "timecode": "01:19",
+       "text": "来现场听歌的"
+      },
+      {
+       "start_s": 81.6,
+       "end_s": 83.6,
+       "timecode": "01:21",
+       "text": "我们的前辈们"
+      },
+      {
+       "start_s": 83.6,
+       "end_s": 85.8,
+       "timecode": "01:23",
+       "text": "年纪大一点的这些朋友"
+      },
+      {
+       "start_s": 85.8,
+       "end_s": 88.2,
+       "timecode": "01:25",
+       "text": "我们待会儿延峰一上堂"
+      },
+      {
+       "start_s": 89.6,
+       "end_s": 90.8,
+       "timecode": "01:29",
+       "text": "看你像不像好不好"
+      },
+      {
+       "start_s": 90.8,
+       "end_s": 92.9,
+       "timecode": "01:30",
+       "text": "来 用最热烈的掌声"
+      },
+      {
+       "start_s": 100.3,
+       "end_s": 103.3,
+       "timecode": "01:40",
+       "text": "这个是没办法"
+      },
+      {
+       "start_s": 103.3,
+       "end_s": 105.3,
+       "timecode": "01:43",
+       "text": "这个就是靠脸吃饭"
+      },
+      {
+       "start_s": 107.5,
+       "end_s": 108.9,
+       "timecode": "01:47",
+       "text": "接下来把时间交给你"
+      },
+      {
+       "start_s": 111.6,
+       "end_s": 122.0,
+       "timecode": "01:51",
+       "text": "今天先给大家带来一首《红眼睛》这首歌"
+      },
+      {
+       "start_s": 122.0,
+       "end_s": 128.5,
+       "timecode": "02:02",
+       "text": "这首歌其实它还蛮有音乐剧的一些特色"
+      },
+      {
+       "start_s": 130.9,
+       "end_s": 133.2,
+       "timecode": "02:10",
+       "text": "因为这个歌还蛮有意思的"
+      },
+      {
+       "start_s": 133.2,
+       "end_s": 135.1,
+       "timecode": "02:13",
+       "text": "它其实分为很多段落"
+      },
+      {
+       "start_s": 143.6,
+       "end_s": 145.8,
+       "timecode": "02:23",
+       "text": "然后呢 还有木马骑兵"
+      },
+      {
+       "start_s": 145.8,
+       "end_s": 149.0,
+       "timecode": "02:25",
+       "text": "然后呢 还有城堡王子"
+      },
+      {
+       "start_s": 149.0,
+       "end_s": 152.8,
+       "timecode": "02:29",
+       "text": "然后还有满天乌云的这个大环境"
+      },
+      {
+       "start_s": 152.8,
+       "end_s": 155.4,
+       "timecode": "02:32",
+       "text": "这首歌讲的呢 其实是一个梦"
+      },
+      {
+       "start_s": 159.7,
+       "end_s": 163.0,
+       "timecode": "02:39",
+       "text": "也可能是真的是只是一场梦"
+      },
+      {
+       "start_s": 163.0,
+       "end_s": 164.7,
+       "timecode": "02:42",
+       "text": "接下来这首红眼睛"
+      },
+      {
+       "start_s": 166.5,
+       "end_s": 196.5,
+       "timecode": "02:46",
+       "text": "感谢观看"
+      },
+      {
+       "start_s": 438.0,
+       "end_s": 454.5,
+       "timecode": "07:18",
+       "text": "不如你一生,你一生,你一生,你一生,我一生,我一生"
+      }
+     ]
     }
    ]
   },
@@ -1876,7 +1763,7 @@
    "city": "南京",
    "sources": 1,
    "sentences": 164,
-   "sample": "来 我们一楼朋友安静一下好不好",
+   "sample": "所以我们要感谢",
    "items": [
     {
      "source": "一巡·Che_南京_13_BV1rt411K7wc_p13.m4a",
@@ -2871,8 +2758,888 @@
        "timecode": "28:54",
        "text": "男朋友真的是"
       }
-     ],
-     "speech_ratio": 0.292
+     ]
+    }
+   ]
+  },
+  {
+   "tour": "一巡",
+   "city": "厦门",
+   "sources": 4,
+   "sentences": 138,
+   "sample": "我跟你们讲,真的,原定是,就是昨天,我跟我的朋友都讲好了,然后,下班之后,然后去喝酒,但是今天酒是喝不上的,我下了班之后,我可能会喝点点滴,然后我会带上,接下来要上场的这个朋友。",
+   "items": [
+    {
+     "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p11.m4a",
+     "bv": "BV1xJ411s7yH",
+     "part": 11,
+     "part_title": "晰哥唠嗑2",
+     "tour": "一巡",
+     "city": "厦门",
+     "n_sentences": 45,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 9.4,
+       "timecode": "00:00",
+       "text": "真的难搞眼,突破一下自己,很好,但是我觉得失败了"
+      },
+      {
+       "start_s": 9.4,
+       "end_s": 21.6,
+       "timecode": "00:09",
+       "text": "开开笑,真的很难,因为昨天我跟这个杨凤聊了很久,我发现他是在这一年当中,我觉得自己收获还是蛮大的"
+      },
+      {
+       "start_s": 29.8,
+       "end_s": 35.3,
+       "timecode": "00:29",
+       "text": "昨天,就是发的一首歌,就是他刚刚唱的第二首歌"
+      },
+      {
+       "start_s": 35.3,
+       "end_s": 38.4,
+       "timecode": "00:35",
+       "text": "然后缩滚也是自己完成的"
+      },
+      {
+       "start_s": 38.4,
+       "end_s": 41.0,
+       "timecode": "00:38",
+       "text": "我觉得真的非常非常的棒"
+      },
+      {
+       "start_s": 41.0,
+       "end_s": 48.0,
+       "timecode": "00:41",
+       "text": "然后昨天我心高采烈的去被他转发,然后屏蔽了"
+      },
+      {
+       "start_s": 53.7,
+       "end_s": 57.3,
+       "timecode": "00:53",
+       "text": "也希望大家多多的支持我们"
+      },
+      {
+       "start_s": 57.3,
+       "end_s": 58.8,
+       "timecode": "00:57",
+       "text": "这些人好不好"
+      },
+      {
+       "start_s": 68.7,
+       "end_s": 70.1,
+       "timecode": "01:08",
+       "text": "这个人就非常好"
+      },
+      {
+       "start_s": 70.1,
+       "end_s": 74.3,
+       "timecode": "01:10",
+       "text": "后来呢就是这个在我那个大群里面"
+      },
+      {
+       "start_s": 74.3,
+       "end_s": 78.2,
+       "timecode": "01:14",
+       "text": "就是改,改称呼了,叫小渣男。"
+      },
+      {
+       "start_s": 80.6,
+       "end_s": 83.8,
+       "timecode": "01:20",
+       "text": "然后觉得他也很可爱啊,也非常非常可爱。"
+      },
+      {
+       "start_s": 83.8,
+       "end_s": 85.0,
+       "timecode": "01:23",
+       "text": "来吧,刘明昂。"
+      },
+      {
+       "start_s": 92.5,
+       "end_s": 95.9,
+       "timecode": "01:32",
+       "text": "哥呀,今天没有别的要求。"
+      },
+      {
+       "start_s": 95.9,
+       "end_s": 99.7,
+       "timecode": "01:35",
+       "text": "就是别夸哥夸得太狠了就行了。"
+      },
+      {
+       "start_s": 99.7,
+       "end_s": 103.9,
+       "timecode": "01:39",
+       "text": "真的是我们每次见习哥的乐友"
+      },
+      {
+       "start_s": 112.5,
+       "end_s": 114.1,
+       "timecode": "01:52",
+       "text": "你们是不是那么觉得"
+      },
+      {
+       "start_s": 116.3,
+       "end_s": 119.0,
+       "timecode": "01:56",
+       "text": "听我们这个刘编昂的声音"
+      },
+      {
+       "start_s": 119.0,
+       "end_s": 120.7,
+       "timecode": "01:59",
+       "text": "就是他也非常非常辛苦"
+      },
+      {
+       "start_s": 120.7,
+       "end_s": 124.0,
+       "timecode": "02:00",
+       "text": "他是总用座飞机刚从无息过来的"
+      },
+      {
+       "start_s": 128.3,
+       "end_s": 140.3,
+       "timecode": "02:08",
+       "text": "后面的休息室里面,两个人非常的有默契,两人一起咳嗽,很不容易,前几天也是因为是拍戏,是不是?"
+      },
+      {
+       "start_s": 140.3,
+       "end_s": 147.3,
+       "timecode": "02:20",
+       "text": "是有一个戏里客串,然后非常非常冷,然后是拍夏天的戏,是不是?"
+      },
+      {
+       "start_s": 147.3,
+       "end_s": 153.3,
+       "timecode": "02:27",
+       "text": "对,短袖短裤,然后在SWAB,有什么想看?"
+      },
+      {
+       "start_s": 155.3,
+       "end_s": 157.3,
+       "timecode": "02:35",
+       "text": "来篮球的戏是不是"
+      },
+      {
+       "start_s": 157.3,
+       "end_s": 159.3,
+       "timecode": "02:37",
+       "text": "到时候要播的话"
+      },
+      {
+       "start_s": 159.3,
+       "end_s": 161.3,
+       "timecode": "02:39",
+       "text": "笑能播好不好"
+      },
+      {
+       "start_s": 167.3,
+       "end_s": 171.3,
+       "timecode": "02:47",
+       "text": "因为我记得之前"
+      },
+      {
+       "start_s": 171.3,
+       "end_s": 173.3,
+       "timecode": "02:51",
+       "text": "我们的巧儿"
+      },
+      {
+       "start_s": 173.3,
+       "end_s": 175.3,
+       "timecode": "02:53",
+       "text": "巧儿在节目的时候"
+      },
+      {
+       "start_s": 175.3,
+       "end_s": 177.3,
+       "timecode": "02:55",
+       "text": "其实我就说"
+      },
+      {
+       "start_s": 179.3,
+       "end_s": 181.3,
+       "timecode": "02:59",
+       "text": "因为他也是"
+      },
+      {
+       "start_s": 181.3,
+       "end_s": 186.3,
+       "timecode": "03:01",
+       "text": "我的老家,然后我就瞧人家,结果坏事了"
+      },
+      {
+       "start_s": 186.3,
+       "end_s": 190.3,
+       "timecode": "03:06",
+       "text": "她的事是演戏,好不好?"
+      },
+      {
+       "start_s": 190.3,
+       "end_s": 195.3,
+       "timecode": "03:10",
+       "text": "演戏,我觉得,可能行"
+      },
+      {
+       "start_s": 195.3,
+       "end_s": 202.3,
+       "timecode": "03:15",
+       "text": "但是这个话,其实我从来都没有跟我们这个六位好讲"
+      },
+      {
+       "start_s": 202.3,
+       "end_s": 206.3,
+       "timecode": "03:22",
+       "text": "因为,起码我们唱的歌还是很好听的,是不是?"
+      },
+      {
+       "start_s": 206.3,
+       "end_s": 219.8,
+       "timecode": "03:26",
+       "text": "我当时就跟乔儿说,来到我的音乐会员,说我拍了什么戏,"
+      },
+      {
+       "start_s": 219.8,
+       "end_s": 223.3,
+       "timecode": "03:39",
+       "text": "我说,杭州在杭州,是不是?"
+      },
+      {
+       "start_s": 223.3,
+       "end_s": 233.3,
+       "timecode": "03:43",
+       "text": "我发自内心地说,乔儿,真的是希望你所有演的戏都能播。"
+      },
+      {
+       "start_s": 233.3,
+       "end_s": 235.3,
+       "timecode": "03:53",
+       "text": "今天同样的"
+      },
+      {
+       "start_s": 237.3,
+       "end_s": 239.3,
+       "timecode": "03:57",
+       "text": "祝你们好运"
+      },
+      {
+       "start_s": 239.3,
+       "end_s": 240.3,
+       "timecode": "03:59",
+       "text": "因为什么呢"
+      },
+      {
+       "start_s": 258.3,
+       "end_s": 259.3,
+       "timecode": "04:18",
+       "text": "就是好多年前"
+      },
+      {
+       "start_s": 259.3,
+       "end_s": 261.3,
+       "timecode": "04:19",
+       "text": "就是也是客串了一下"
+      },
+      {
+       "start_s": 262.3,
+       "end_s": 292.3,
+       "timecode": "04:22",
+       "text": "我是觉得是这样的,就是,我为什么去的原因是因为,真的,就是那些点,给你哥哥的舞台没有,几乎都没有,我只是迂回了一下,我想探索一下,会不会让我喜欢表演这个行业,后来我发现,真不行,真不行,但是呢,我觉得年轻人可以多尝试,因为尝试尝试,你就会发现,可能从自己的这个舒服圈里面跳出来,"
+      }
+     ]
+    },
+    {
+     "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p12.m4a",
+     "bv": "BV1xJ411s7yH",
+     "part": 12,
+     "part_title": "晰哥唠嗑3",
+     "tour": "一巡",
+     "city": "厦门",
+     "n_sentences": 12,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 9.2,
+       "timecode": "00:00",
+       "text": "我非常喜欢 然后16年的时候 歌手完了之后 也是一个非常好的女巧的 然后就开始做电台"
+      },
+      {
+       "start_s": 9.2,
+       "end_s": 17.7,
+       "timecode": "00:09",
+       "text": "啊 做得我非常的开心 啊 做电台一定是要 就是心很静"
+      },
+      {
+       "start_s": 17.7,
+       "end_s": 26.4,
+       "timecode": "00:17",
+       "text": "你知道就是那几百期低音的时间 是我一个人写完 一个人录 一个人剪辑 一个人上传"
+      },
+      {
+       "start_s": 26.4,
+       "end_s": 33.6,
+       "timecode": "00:26",
+       "text": "那个时候我"
+      },
+      {
+       "start_s": 46.2,
+       "end_s": 49.0,
+       "timecode": "00:46",
+       "text": "所以说我希望我们的"
+      },
+      {
+       "start_s": 54.0,
+       "end_s": 54.7,
+       "timecode": "00:54",
+       "text": "什么生渣"
+      },
+      {
+       "start_s": 58.3,
+       "end_s": 60.8,
+       "timecode": "00:58",
+       "text": "然后好好的演戏"
+      },
+      {
+       "start_s": 60.8,
+       "end_s": 64.4,
+       "timecode": "01:00",
+       "text": "因为我觉得任何一个艺术行业"
+      },
+      {
+       "start_s": 72.8,
+       "end_s": 75.3,
+       "timecode": "01:12",
+       "text": "希望能够在未来的日子里"
+      },
+      {
+       "start_s": 75.3,
+       "end_s": 77.1,
+       "timecode": "01:15",
+       "text": "能够在我们这个影品"
+      },
+      {
+       "start_s": 78.8,
+       "end_s": 80.7,
+       "timecode": "01:18",
+       "text": "看到我们有病行"
+      },
+      {
+       "start_s": 83.0,
+       "end_s": 85.3,
+       "timecode": "01:23",
+       "text": "接下来把时间稍微拦掉"
+      }
+     ]
+    },
+    {
+     "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p15.m4a",
+     "bv": "BV1xJ411s7yH",
+     "part": 15,
+     "part_title": "晰哥唠嗑4",
+     "tour": "一巡",
+     "city": "厦门",
+     "n_sentences": 47,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 9.4,
+       "timecode": "00:00",
+       "text": "一段时间我在做专访的时候,我真的就是这么想,我希望我2020年能做一个,继续做一个单纯善良的歌手"
+      },
+      {
+       "start_s": 11.4,
+       "end_s": 14.4,
+       "timecode": "00:11",
+       "text": "笑什么呢?我在煽情!"
+      },
+      {
+       "start_s": 19.0,
+       "end_s": 24.0,
+       "timecode": "00:19",
+       "text": "不是,我34岁了,然后你说我特别单纯,其实我觉得你在骂我"
+      },
+      {
+       "start_s": 28.9,
+       "end_s": 34.6,
+       "timecode": "00:28",
+       "text": "因为我前段时间跟朋友聊天"
+      },
+      {
+       "start_s": 34.6,
+       "end_s": 39.1,
+       "timecode": "00:34",
+       "text": "其实随时年龄慢慢的长大"
+      },
+      {
+       "start_s": 39.1,
+       "end_s": 41.6,
+       "timecode": "00:39",
+       "text": "可能你们也会有这样的感受"
+      },
+      {
+       "start_s": 41.6,
+       "end_s": 45.9,
+       "timecode": "00:41",
+       "text": "我觉得尤其是跟家人或者是跟朋友"
+      },
+      {
+       "start_s": 45.9,
+       "end_s": 50.3,
+       "timecode": "00:45",
+       "text": "你会愿意用最简单的方式来去相处"
+      },
+      {
+       "start_s": 50.3,
+       "end_s": 55.0,
+       "timecode": "00:50",
+       "text": "所以我觉得并不是我简单"
+      },
+      {
+       "start_s": 55.0,
+       "end_s": 58.6,
+       "timecode": "00:54",
+       "text": "而是说我愿意用最简单的方式对大家"
+      },
+      {
+       "start_s": 60.6,
+       "end_s": 63.2,
+       "timecode": "01:00",
+       "text": "因为我觉得我是值得的"
+      },
+      {
+       "start_s": 63.2,
+       "end_s": 65.8,
+       "timecode": "01:03",
+       "text": "怎么样,大家也是值得的"
+      },
+      {
+       "start_s": 67.9,
+       "end_s": 71.9,
+       "timecode": "01:07",
+       "text": "最简单的方式就是好好地唱歌给大家听"
+      },
+      {
+       "start_s": 73.3,
+       "end_s": 76.6,
+       "timecode": "01:13",
+       "text": "然后尽量的不要包衣"
+      },
+      {
+       "start_s": 76.6,
+       "end_s": 89.6,
+       "timecode": "01:16",
+       "text": "你知道我在2019年,我为什么会明媚我的忧伤?"
+      },
+      {
+       "start_s": 89.6,
+       "end_s": 101.6,
+       "timecode": "01:29",
+       "text": "我真的是需要时间去思考,去想很多关于现在,以及未来"
+      },
+      {
+       "start_s": 101.6,
+       "end_s": 105.6,
+       "timecode": "01:41",
+       "text": "可能有很多人就觉得想那么多,没有用"
+      },
+      {
+       "start_s": 105.6,
+       "end_s": 109.4,
+       "timecode": "01:45",
+       "text": "我特别希望我自己的思想"
+      },
+      {
+       "start_s": 109.4,
+       "end_s": 114.7,
+       "timecode": "01:49",
+       "text": "跟我现在此时此刻的状态成正立"
+      },
+      {
+       "start_s": 121.7,
+       "end_s": 125.5,
+       "timecode": "02:01",
+       "text": "我2019年真的对我来说"
+      },
+      {
+       "start_s": 132.9,
+       "end_s": 134.8,
+       "timecode": "02:12",
+       "text": "同样我希望进步"
+      },
+      {
+       "start_s": 134.8,
+       "end_s": 139.7,
+       "timecode": "02:14",
+       "text": "所以说昨天晚上我跟阳峰也聊得好玩好玩"
+      },
+      {
+       "start_s": 143.3,
+       "end_s": 145.2,
+       "timecode": "02:23",
+       "text": "因为他要去发歌嘛"
+      },
+      {
+       "start_s": 145.2,
+       "end_s": 147.6,
+       "timecode": "02:25",
+       "text": "他要去什么发微博什么的"
+      },
+      {
+       "start_s": 148.1,
+       "end_s": 150.4,
+       "timecode": "02:28",
+       "text": "然后下个飞机我们就在聊"
+      },
+      {
+       "start_s": 152.4,
+       "end_s": 156.7,
+       "timecode": "02:32",
+       "text": "就是对于一个歌手来说能够突破瓶颈"
+      },
+      {
+       "start_s": 156.7,
+       "end_s": 158.9,
+       "timecode": "02:36",
+       "text": "然后尤其是在这种声乐当中"
+      },
+      {
+       "start_s": 158.9,
+       "end_s": 162.8,
+       "timecode": "02:38",
+       "text": "我相信明年会看到一个崭新的我"
+      },
+      {
+       "start_s": 162.8,
+       "end_s": 168.8,
+       "timecode": "02:42",
+       "text": "因为前几天的时候,我真的就是对自己的声乐,我又有了新的感觉。"
+      },
+      {
+       "start_s": 168.8,
+       "end_s": 172.8,
+       "timecode": "02:48",
+       "text": "可能有的人,你们愿意听我去跟大家分享吗?"
+      },
+      {
+       "start_s": 176.8,
+       "end_s": 188.8,
+       "timecode": "02:56",
+       "text": "其实,之前很多朋友都在聊,都在听我唱歌,我觉得无论是清歌赛,金钟奖,"
+      },
+      {
+       "start_s": 188.8,
+       "end_s": 200.8,
+       "timecode": "03:08",
+       "text": "前几天我的朋友发了我一个,好像你们去捡的一个东西,十年前的我跟十年之后的我,哇,太吓人了。"
+      },
+      {
+       "start_s": 200.8,
+       "end_s": 207.8,
+       "timecode": "03:20",
+       "text": "幸好你们十几年前没有认识我,非常好,非常好,对。"
+      },
+      {
+       "start_s": 207.8,
+       "end_s": 212.8,
+       "timecode": "03:27",
+       "text": "我觉得这十年真的就是我一直在变声。"
+      },
+      {
+       "start_s": 212.8,
+       "end_s": 215.3,
+       "timecode": "03:32",
+       "text": "我为什么一直在编声呢"
+      },
+      {
+       "start_s": 215.3,
+       "end_s": 217.2,
+       "timecode": "03:35",
+       "text": "我觉得这个可能就是我对自己"
+      },
+      {
+       "start_s": 220.7,
+       "end_s": 222.9,
+       "timecode": "03:40",
+       "text": "要有我自己的这个要求"
+      },
+      {
+       "start_s": 227.3,
+       "end_s": 229.4,
+       "timecode": "03:47",
+       "text": "在场的人有没有学习声乐"
+      },
+      {
+       "start_s": 230.9,
+       "end_s": 233.2,
+       "timecode": "03:50",
+       "text": "其实有很多人呢"
+      },
+      {
+       "start_s": 237.2,
+       "end_s": 239.3,
+       "timecode": "03:57",
+       "text": "就是很过"
+      },
+      {
+       "start_s": 239.3,
+       "end_s": 241.9,
+       "timecode": "03:59",
+       "text": "但是我觉得对于男低音来说"
+      },
+      {
+       "start_s": 246.0,
+       "end_s": 247.7,
+       "timecode": "04:06",
+       "text": "你们好好去想一想"
+      },
+      {
+       "start_s": 247.7,
+       "end_s": 249.8,
+       "timecode": "04:07",
+       "text": "我们一直在"
+      },
+      {
+       "start_s": 252.4,
+       "end_s": 253.9,
+       "timecode": "04:12",
+       "text": "美声这个圈子里面去"
+      },
+      {
+       "start_s": 277.1,
+       "end_s": 279.1,
+       "timecode": "04:37",
+       "text": "我昨天我在跟这个"
+      },
+      {
+       "start_s": 282.1,
+       "end_s": 283.1,
+       "timecode": "04:42",
+       "text": "因为他的那个嗓音很高"
+      },
+      {
+       "start_s": 286.1,
+       "end_s": 287.1,
+       "timecode": "04:46",
+       "text": "我就觉得"
+      }
+     ]
+    },
+    {
+     "source": "一巡厦门20191221_p%(playlist_index)s_BV1xJ411s7yH_p8.m4a",
+     "bv": "BV1xJ411s7yH",
+     "part": 8,
+     "part_title": "晰哥唠嗑",
+     "tour": "一巡",
+     "city": "厦门",
+     "n_sentences": 34,
+     "sentences": [
+      {
+       "start_s": 5.4,
+       "end_s": 9.6,
+       "timecode": "00:05",
+       "text": "其实在两年前我发行的那张《重游广西》里面"
+      },
+      {
+       "start_s": 9.6,
+       "end_s": 15.6,
+       "timecode": "00:09",
+       "text": "写这首歌的朋友也写了其他的歌叫做《静止了的夜晚》"
+      },
+      {
+       "start_s": 15.6,
+       "end_s": 19.0,
+       "timecode": "00:15",
+       "text": "所以我觉得这个是我非常非常喜欢的一首风格"
+      },
+      {
+       "start_s": 19.0,
+       "end_s": 22.4,
+       "timecode": "00:19",
+       "text": "就很舒服,我觉得也非常的下酒"
+      },
+      {
+       "start_s": 22.4,
+       "end_s": 23.4,
+       "timecode": "00:22",
+       "text": "你们觉得呢?"
+      },
+      {
+       "start_s": 23.4,
+       "end_s": 48.9,
+       "timecode": "00:23",
+       "text": "我跟你们讲,真的,原定是,就是昨天,我跟我的朋友都讲好了,然后,下班之后,然后去喝酒,但是今天酒是喝不上的,我下了班之后,我可能会喝点点滴,然后我会带上,接下来要上场的这个朋友。"
+      },
+      {
+       "start_s": 53.4,
+       "end_s": 65.0,
+       "timecode": "00:53",
+       "text": "对,我跟你讲啊,接下来要登场这位我们的非常熟悉的朋友,他非常的厉害,非常非常的厉害"
+      },
+      {
+       "start_s": 65.0,
+       "end_s": 75.8,
+       "timecode": "01:05",
+       "text": "因为什么,在我们36个人里,唯一一个热搜第一名,带了一天"
+      },
+      {
+       "start_s": 75.8,
+       "end_s": 83.2,
+       "timecode": "01:15",
+       "text": "然后我们所有人都在蹭,很开心,非常开心,然后人也非常的好"
+      },
+      {
+       "start_s": 83.2,
+       "end_s": 96.0,
+       "timecode": "01:23",
+       "text": "就是他可能让我们熟悉的,他可能除了绝大多数是在穿着黑色的西装,表情什么的,是不是?"
+      },
+      {
+       "start_s": 101.5,
+       "end_s": 109.8,
+       "timecode": "01:41",
+       "text": "我昨天我们两个人在我的房间里面聊了很久,聊了这一年的变化,然后这一年的心态"
+      },
+      {
+       "start_s": 109.8,
+       "end_s": 115.2,
+       "timecode": "01:49",
+       "text": "然后也是我觉得她是一个非常要强的人"
+      },
+      {
+       "start_s": 115.2,
+       "end_s": 119.4,
+       "timecode": "01:55",
+       "text": "因为可能在整个节目当中真的压力太大了"
+      },
+      {
+       "start_s": 119.4,
+       "end_s": 123.9,
+       "timecode": "01:59",
+       "text": "能够让我像昨天晚上那种聊天的方式真的很少很少"
+      },
+      {
+       "start_s": 127.1,
+       "end_s": 131.6,
+       "timecode": "02:07",
+       "text": "聊聊对此时此刻自己对声乐的感悟"
+      },
+      {
+       "start_s": 131.6,
+       "end_s": 135.2,
+       "timecode": "02:11",
+       "text": "然后对自己对生活的感悟"
+      },
+      {
+       "start_s": 139.6,
+       "end_s": 145.6,
+       "timecode": "02:19",
+       "text": "所以说,接下来,让我们用最热烈的掌声,有请我们的"
+      },
+      {
+       "start_s": 152.6,
+       "end_s": 156.6,
+       "timecode": "02:32",
+       "text": "李安峰,来,登场"
+      },
+      {
+       "start_s": 160.6,
+       "end_s": 165.6,
+       "timecode": "02:40",
+       "text": "你今天穿了这双鞋,是不是我们在录样片的时候"
+      },
+      {
+       "start_s": 165.6,
+       "end_s": 168.6,
+       "timecode": "02:45",
+       "text": "我们这双鞋不仅是录样片的时候"
+      },
+      {
+       "start_s": 168.6,
+       "end_s": 171.6,
+       "timecode": "02:48",
+       "text": "其实就是我们录正业的时候都经常有这种情绪"
+      },
+      {
+       "start_s": 171.6,
+       "end_s": 172.6,
+       "timecode": "02:51",
+       "text": "真的真的"
+      },
+      {
+       "start_s": 175.6,
+       "end_s": 176.6,
+       "timecode": "02:55",
+       "text": "然后他们说"
+      },
+      {
+       "start_s": 181.6,
+       "end_s": 183.6,
+       "timecode": "03:01",
+       "text": "没有就是"
+      },
+      {
+       "start_s": 189.6,
+       "end_s": 193.6,
+       "timecode": "03:09",
+       "text": "接下来把时间交给我们的联工"
+      },
+      {
+       "start_s": 193.6,
+       "end_s": 195.6,
+       "timecode": "03:13",
+       "text": "因为下午在彩排的时候我听了一下"
+      },
+      {
+       "start_s": 195.6,
+       "end_s": 198.8,
+       "timecode": "03:15",
+       "text": "因为你嗓子也是感觉不舒服"
+      },
+      {
+       "start_s": 204.0,
+       "end_s": 205.6,
+       "timecode": "03:23",
+       "text": "然后后面还有一位呢"
+      },
+      {
+       "start_s": 207.0,
+       "end_s": 209.4,
+       "timecode": "03:26",
+       "text": "接下来就是我在那个下午的时候听他唱"
+      },
+      {
+       "start_s": 209.4,
+       "end_s": 212.6,
+       "timecode": "03:29",
+       "text": "我说严冬你为什么要唱这么大的一首歌啊"
+      },
+      {
+       "start_s": 212.6,
+       "end_s": 214.0,
+       "timecode": "03:32",
+       "text": "就是很开心"
+      },
+      {
+       "start_s": 215.9,
+       "end_s": 219.6,
+       "timecode": "03:35",
+       "text": "尤其是这个下午也是你的母校是不是"
+      },
+      {
+       "start_s": 221.7,
+       "end_s": 223.7,
+       "timecode": "03:41",
+       "text": "对有没有李延峰的同学"
+      },
+      {
+       "start_s": 225.6,
+       "end_s": 228.6,
+       "timecode": "03:45",
+       "text": "真乖好 接下来到新职位了"
+      }
+     ]
     }
    ]
   },
@@ -2881,7 +3648,7 @@
    "city": "太原",
    "sources": 5,
    "sentences": 121,
-   "sample": "就是,我,我觉得,就是之前啊,每年的这个演出其实很多,因为可能熟,这个熟悉我的朋友,都知道我以前在海郑国公团,我每年的这个,微微演出,我们团里面,一百场,就是KTI,你知道吗?",
+   "sample": "我写这首歌的朋友,也是山西的,非常非常的好,我觉得有猜谎,你们山西人也有猜谎,对。",
    "items": [
     {
      "source": "一巡·Che_太原_03_BV1kJ411a79x_p3.m4a",
@@ -3198,8 +3965,7 @@
        "timecode": "09:34",
        "text": "接下来我想送给大家的"
       }
-     ],
-     "speech_ratio": 0.425
+     ]
     },
     {
      "source": "一巡·Che_太原_11_BV1kJ411a79x_p11.m4a",
@@ -3354,8 +4120,7 @@
        "timecode": "01:40",
        "text": "谢谢大家"
       }
-     ],
-     "speech_ratio": 0.6
+     ]
     },
     {
      "source": "一巡·Che_太原_13_BV1kJ411a79x_p13.m4a",
@@ -3378,8 +4143,7 @@
        "timecode": "00:23",
        "text": "在你的时候"
       }
-     ],
-     "speech_ratio": 0.2
+     ]
     },
     {
      "source": "一巡·Che_太原_15_BV1kJ411a79x_p15.m4a",
@@ -3624,8 +4388,7 @@
        "timecode": "04:30",
        "text": "你的反應可能稍微的強烈了一些"
       }
-     ],
-     "speech_ratio": 0.448
+     ]
     },
     {
      "source": "一巡·Che_太原_18_BV1kJ411a79x_p18.m4a",
@@ -3666,8 +4429,7 @@
        "timecode": "00:34",
        "text": "唱给我也唱给你们"
       }
-     ],
-     "speech_ratio": 0.455
+     ]
     }
    ]
   },
@@ -4143,8 +4905,7 @@
        "timecode": "11:24",
        "text": "掌声尽叫声到时候该给给他"
       }
-     ],
-     "speech_ratio": 0.281
+     ]
     },
     {
      "source": "一巡·Che_杭州_06_BV184411P7rh_p6.m4a",
@@ -4305,8 +5066,7 @@
        "timecode": "02:29",
        "text": "就把这位置送给你们"
       }
-     ],
-     "speech_ratio": 0.5
+     ]
     },
     {
      "source": "一巡·Che_杭州_08_BV184411P7rh_p8.m4a",
@@ -4425,8 +5185,7 @@
        "timecode": "02:48",
        "text": "舞台交给我们的舞台"
       }
-     ],
-     "speech_ratio": 0.321
+     ]
     },
     {
      "source": "一巡·Che_杭州_09_BV184411P7rh_p9.m4a",
@@ -4479,8 +5238,7 @@
        "timecode": "00:21",
        "text": "呀,你所有的情,都能播,好不好"
       }
-     ],
-     "speech_ratio": 0.28
+     ]
     },
     {
      "source": "一巡·Che_杭州_16_BV184411P7rh_p16.m4a",
@@ -4521,8 +5279,7 @@
        "timecode": "02:50",
        "text": "祝大家喜歡的朋友"
       }
-     ],
-     "speech_ratio": 0.2
+     ]
     }
    ]
   },
@@ -4596,8 +5353,7 @@
        "timecode": "01:25",
        "text": "所以说,我接下来就在伦伦教育上,跟着你到天面。"
       }
-     ],
-     "speech_ratio": 0.3
+     ]
     },
     {
      "source": "一巡·Che_武汉_06_BV1G441137Sj_p6.m4a",
@@ -4626,8 +5382,7 @@
        "timecode": "00:26",
        "text": "我在压体,啊,我压了"
       }
-     ],
-     "speech_ratio": 0.5
+     ]
     },
     {
      "source": "一巡·Che_武汉_08_BV1G441137Sj_p8.m4a",
@@ -4668,8 +5423,7 @@
        "timecode": "00:27",
        "text": "在今天晚上的 show,"
       }
-     ],
-     "speech_ratio": 0.556
+     ]
     },
     {
      "source": "一巡·Che_武汉_10_BV1G441137Sj_p10.m4a",
@@ -4776,8 +5530,7 @@
        "timecode": "01:12",
        "text": "接下来把这首歌送给你们"
       }
-     ],
-     "speech_ratio": 0.485
+     ]
     },
     {
      "source": "一巡·Che_武汉_14_BV1G441137Sj_p14.m4a",
@@ -4884,8 +5637,7 @@
        "timecode": "02:40",
        "text": "好吧,一生守候"
       }
-     ],
-     "speech_ratio": 0.302
+     ]
     },
     {
      "source": "一巡·Che_武汉_16_BV1G441137Sj_p16.m4a",
@@ -4962,8 +5714,7 @@
        "timecode": "01:48",
        "text": "有请我们的最可爱的赞金圣权"
       }
-     ],
-     "speech_ratio": 0.367
+     ]
     },
     {
      "source": "一巡·Che_武汉_17_BV1G441137Sj_p17.m4a",
@@ -5046,8 +5797,7 @@
        "timecode": "00:51",
        "text": "我觉得有点凄美"
       }
-     ],
-     "speech_ratio": 0.8
+     ]
     },
     {
      "source": "一巡·Che_武汉_19_BV1G441137Sj_p19.m4a",
@@ -5088,8 +5838,7 @@
        "timecode": "00:41",
        "text": "所以說今天我就想把這首歌"
       }
-     ],
-     "speech_ratio": 0.455
+     ]
     },
     {
      "source": "一巡·Che_武汉_21_BV1G441137Sj_p21.m4a",
@@ -5142,8 +5891,7 @@
        "timecode": "00:31",
        "text": "接下来我祝大家"
       }
-     ],
-     "speech_ratio": 0.7
+     ]
     },
     {
      "source": "一巡·Che_武汉_23_BV1G441137Sj_p23.m4a",
@@ -5250,8 +5998,7 @@
        "timecode": "01:59",
        "text": "所以大家都有刺激過的"
       }
-     ],
-     "speech_ratio": 0.364
+     ]
     },
     {
      "source": "一巡·Che_武汉_25_BV1G441137Sj_p25.m4a",
@@ -5334,8 +6081,7 @@
        "timecode": "02:31",
        "text": "谢谢谢谢"
       }
-     ],
-     "speech_ratio": 0.2
+     ]
     },
     {
      "source": "一巡·Che_武汉_26_BV1G441137Sj_p26.m4a",
@@ -5412,8 +6158,7 @@
        "timecode": "04:32",
        "text": "最後,我要感謝每一位工作人員"
       }
-     ],
-     "speech_ratio": 0.186
+     ]
     }
    ]
   },
@@ -5559,8 +6304,7 @@
        "timecode": "02:00",
        "text": "今天日子"
       }
-     ],
-     "speech_ratio": 0.333
+     ]
     },
     {
      "source": "一巡·Che_海口_18_BV1xJ41127TP_p18.m4a",
@@ -5577,8 +6321,7 @@
        "timecode": "00:00",
        "text": "我很早很早就是很小的时候吧就特别想唱这首歌然后也是小的时候也买过他的磁带我觉得分手是我们的歌手张水游的一首歌他来听我的演唱歌"
       }
-     ],
-     "speech_ratio": 1.0
+     ]
     },
     {
      "source": "一巡·Che_海口_30_BV1xJ41127TP_p30.m4a",
@@ -5667,8 +6410,7 @@
        "timecode": "03:30",
        "text": "谢谢大家"
       }
-     ],
-     "speech_ratio": 0.289
+     ]
     }
    ]
   },
@@ -5826,8 +6568,7 @@
        "timecode": "09:44",
        "text": "我们离去 从中心满掉在那"
       }
-     ],
-     "speech_ratio": 0.261
+     ]
     },
     {
      "source": "一巡·Che_长沙_03_BV1uJ411678L_p3.m4a",
@@ -6036,8 +6777,7 @@
        "timecode": "09:17",
        "text": "我们还会再见"
       }
-     ],
-     "speech_ratio": 0.226
+     ]
     },
     {
      "source": "一巡·Che_长沙_04_BV1uJ411678L_p4.m4a",
@@ -6228,8 +6968,7 @@
        "timecode": "15:46",
        "text": "感谢观看"
       }
-     ],
-     "speech_ratio": 0.16
+     ]
     },
     {
      "source": "一巡·Che_长沙_06_BV1uJ411678L_p6.m4a",
@@ -6510,8 +7249,2765 @@
        "timecode": "15:09",
        "text": "怎么情况"
       }
-     ],
-     "speech_ratio": 0.146
+     ]
+    }
+   ]
+  },
+  {
+   "tour": "二巡",
+   "city": "上海",
+   "sources": 5,
+   "sentences": 82,
+   "sample": "嗯,其实有太久的老歌真的是非常非常的好听",
+   "items": [
+    {
+     "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p18.m4a",
+     "bv": "BV1nZ4y1P7GU",
+     "part": 18,
+     "part_title": "talk-红蕾丝衬衣 3.7",
+     "tour": "二巡",
+     "city": "上海",
+     "n_sentences": 17,
+     "sentences": [
+      {
+       "start_s": 2.6,
+       "end_s": 4.6,
+       "timecode": "00:02",
+       "text": "好,欢迎!"
+      },
+      {
+       "start_s": 4.6,
+       "end_s": 10.6,
+       "timecode": "00:04",
+       "text": "嗯,其实有太久的老歌真的是非常非常的好听"
+      },
+      {
+       "start_s": 10.6,
+       "end_s": 16.6,
+       "timecode": "00:10",
+       "text": "很优秀,一辈一辈的歌手他都在演唱"
+      },
+      {
+       "start_s": 16.6,
+       "end_s": 19.6,
+       "timecode": "00:16",
+       "text": "希望大家能够喜欢这首歌吧"
+      },
+      {
+       "start_s": 19.6,
+       "end_s": 28.2,
+       "timecode": "00:19",
+       "text": "呃,接下来唱完接下来的这一首歌可能我们中场是要休息一下"
+      },
+      {
+       "start_s": 28.2,
+       "end_s": 31.3,
+       "timecode": "00:28",
+       "text": "然后我再换身这个衣服"
+      },
+      {
+       "start_s": 37.0,
+       "end_s": 39.5,
+       "timecode": "00:36",
+       "text": "因为什么呢"
+      },
+      {
+       "start_s": 39.5,
+       "end_s": 42.3,
+       "timecode": "00:39",
+       "text": "就是我在穿的时候"
+      },
+      {
+       "start_s": 42.3,
+       "end_s": 44.0,
+       "timecode": "00:42",
+       "text": "其实我还挺"
+      },
+      {
+       "start_s": 45.7,
+       "end_s": 47.2,
+       "timecode": "00:45",
+       "text": "就是穿这样的衣服的"
+      },
+      {
+       "start_s": 47.2,
+       "end_s": 51.3,
+       "timecode": "00:47",
+       "text": "你知道为什么吗"
+      },
+      {
+       "start_s": 53.4,
+       "end_s": 54.9,
+       "timecode": "00:53",
+       "text": "它其实好看"
+      },
+      {
+       "start_s": 59.9,
+       "end_s": 68.3,
+       "timecode": "00:59",
+       "text": "就是为什么呢"
+      },
+      {
+       "start_s": 68.3,
+       "end_s": 72.8,
+       "timecode": "01:08",
+       "text": "就是我跟我们的服装师说"
+      },
+      {
+       "start_s": 78.0,
+       "end_s": 80.4,
+       "timecode": "01:17",
+       "text": "然后他就给我找了一下"
+      },
+      {
+       "start_s": 108.1,
+       "end_s": 109.7,
+       "timecode": "01:48",
+       "text": "接下来唱这首歌"
+      },
+      {
+       "start_s": 109.7,
+       "end_s": 111.3,
+       "timecode": "01:49",
+       "text": "让我们一起休息一下"
+      }
+     ]
+    },
+    {
+     "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p19.m4a",
+     "bv": "BV1nZ4y1P7GU",
+     "part": 19,
+     "part_title": "9.talk脱衣服+《雪地里寄不出的求救信》3.8",
+     "tour": "二巡",
+     "city": "上海",
+     "n_sentences": 24,
+     "sentences": [
+      {
+       "start_s": 2.2,
+       "end_s": 4.9,
+       "timecode": "00:02",
+       "text": "好吧。 忍一下"
+      },
+      {
+       "start_s": 4.9,
+       "end_s": 8.4,
+       "timecode": "00:04",
+       "text": "因为,下面唱这首歌"
+      },
+      {
+       "start_s": 8.4,
+       "end_s": 11.3,
+       "timecode": "00:08",
+       "text": "我们就可以短暂的休息一下"
+      },
+      {
+       "start_s": 11.3,
+       "end_s": 16.4,
+       "timecode": "00:11",
+       "text": "然后呢,我也换一身衣服"
+      },
+      {
+       "start_s": 17.8,
+       "end_s": 18.9,
+       "timecode": "00:17",
+       "text": "啊,什么?"
+      },
+      {
+       "start_s": 26.6,
+       "end_s": 40.2,
+       "timecode": "00:26",
+       "text": "我懂你们的意思"
+      },
+      {
+       "start_s": 46.0,
+       "end_s": 51.0,
+       "timecode": "00:46",
+       "text": "因为熟悉我的朋友都知道"
+      },
+      {
+       "start_s": 51.8,
+       "end_s": 55.3,
+       "timecode": "00:51",
+       "text": "我天生就是一个盼望的一个人"
+      },
+      {
+       "start_s": 55.3,
+       "end_s": 58.6,
+       "timecode": "00:55",
+       "text": "然后那天有个朋友问我"
+      },
+      {
+       "start_s": 58.6,
+       "end_s": 59.9,
+       "timecode": "00:58",
+       "text": "哎 谢谢你真是"
+      },
+      {
+       "start_s": 59.9,
+       "end_s": 61.0,
+       "timecode": "00:59",
+       "text": "你怎么这么怕冷"
+      },
+      {
+       "start_s": 70.6,
+       "end_s": 74.9,
+       "timecode": "01:10",
+       "text": "如果是我的好朋友"
+      },
+      {
+       "start_s": 79.6,
+       "end_s": 82.6,
+       "timecode": "01:19",
+       "text": "不用你们"
+      },
+      {
+       "start_s": 84.4,
+       "end_s": 87.4,
+       "timecode": "01:24",
+       "text": "如果说夏天我觉得是可以的"
+      },
+      {
+       "start_s": 94.4,
+       "end_s": 98.4,
+       "timecode": "01:34",
+       "text": "今天这个衣服呢"
+      },
+      {
+       "start_s": 98.4,
+       "end_s": 100.4,
+       "timecode": "01:38",
+       "text": "其实还行啊"
+      },
+      {
+       "start_s": 139.4,
+       "end_s": 156.4,
+       "timecode": "02:19",
+       "text": "我們在上海就是一場高雅的音樂會"
+      },
+      {
+       "start_s": 156.4,
+       "end_s": 160.4,
+       "timecode": "02:36",
+       "text": "請大家別忘記了好不好"
+      },
+      {
+       "start_s": 318.4,
+       "end_s": 320.4,
+       "timecode": "05:18",
+       "text": "我们在一起"
+      },
+      {
+       "start_s": 320.4,
+       "end_s": 324.4,
+       "timecode": "05:20",
+       "text": "如果我们想了解"
+      },
+      {
+       "start_s": 330.4,
+       "end_s": 334.4,
+       "timecode": "05:30",
+       "text": "我们在一起"
+      },
+      {
+       "start_s": 334.4,
+       "end_s": 336.4,
+       "timecode": "05:34",
+       "text": "我们在一起"
+      },
+      {
+       "start_s": 336.4,
+       "end_s": 338.4,
+       "timecode": "05:36",
+       "text": "我们在一起"
+      },
+      {
+       "start_s": 338.4,
+       "end_s": 340.4,
+       "timecode": "05:38",
+       "text": "我们在一起"
+      }
+     ]
+    },
+    {
+     "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p26.m4a",
+     "bv": "BV1nZ4y1P7GU",
+     "part": 26,
+     "part_title": "14.《像雾像雨又像风+talk》3.7",
+     "tour": "二巡",
+     "city": "上海",
+     "n_sentences": 15,
+     "sentences": [
+      {
+       "start_s": 1.6,
+       "end_s": 3.5,
+       "timecode": "00:01",
+       "text": "然后我觉得作为一个歌手来说"
+      },
+      {
+       "start_s": 11.9,
+       "end_s": 13.5,
+       "timecode": "00:11",
+       "text": "然后来重新演绎"
+      },
+      {
+       "start_s": 13.5,
+       "end_s": 18.4,
+       "timecode": "00:13",
+       "text": "然后让更多年轻的朋友知道它 了解它"
+      },
+      {
+       "start_s": 18.4,
+       "end_s": 21.0,
+       "timecode": "00:18",
+       "text": "就把这首歌送给伤害的朋友"
+      },
+      {
+       "start_s": 263.0,
+       "end_s": 265.0,
+       "timecode": "04:23",
+       "text": "就是在唱到這首歌的時候"
+      },
+      {
+       "start_s": 294.6,
+       "end_s": 296.9,
+       "timecode": "04:54",
+       "text": "因為就是"
+      },
+      {
+       "start_s": 297.9,
+       "end_s": 299.7,
+       "timecode": "04:57",
+       "text": "有很多好朋友"
+      },
+      {
+       "start_s": 302.4,
+       "end_s": 303.6,
+       "timecode": "05:02",
+       "text": "所以大家都要誤會"
+      },
+      {
+       "start_s": 307.6,
+       "end_s": 311.6,
+       "timecode": "05:07",
+       "text": "好,我接下來為大家演唱"
+      },
+      {
+       "start_s": 319.6,
+       "end_s": 321.6,
+       "timecode": "05:19",
+       "text": "就是日本音樂家"
+      },
+      {
+       "start_s": 327.6,
+       "end_s": 329.6,
+       "timecode": "05:27",
+       "text": "然後呢熟悉我的朋友都知道"
+      },
+      {
+       "start_s": 329.6,
+       "end_s": 331.6,
+       "timecode": "05:29",
+       "text": "就是我接下來為大家"
+      },
+      {
+       "start_s": 337.2,
+       "end_s": 341.1,
+       "timecode": "05:37",
+       "text": "它是一首可以講很多"
+      },
+      {
+       "start_s": 341.1,
+       "end_s": 344.5,
+       "timecode": "05:41",
+       "text": "就是講述故事的一首歌"
+      },
+      {
+       "start_s": 344.5,
+       "end_s": 347.9,
+       "timecode": "05:44",
+       "text": "我想送給今天上海的朋友們"
+      }
+     ]
+    },
+    {
+     "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p29.m4a",
+     "bv": "BV1nZ4y1P7GU",
+     "part": 29,
+     "part_title": "talk-山河令相关 3.8",
+     "tour": "二巡",
+     "city": "上海",
+     "n_sentences": 21,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 0.3,
+       "timecode": "00:00",
+       "text": "王晰，晰 英雄"
+      },
+      {
+       "start_s": 17.9,
+       "end_s": 24.0,
+       "timecode": "00:17",
+       "text": "然後最近應該在播的有一首當孤小賬戶"
+      },
+      {
+       "start_s": 25.2,
+       "end_s": 27.6,
+       "timecode": "00:25",
+       "text": "不是,不是,不是說那意思啊"
+      },
+      {
+       "start_s": 56.4,
+       "end_s": 58.0,
+       "timecode": "00:56",
+       "text": "對 大家可以去聽那首歌"
+      },
+      {
+       "start_s": 62.0,
+       "end_s": 64.0,
+       "timecode": "01:02",
+       "text": "因为这个剧呢"
+      },
+      {
+       "start_s": 64.0,
+       "end_s": 66.0,
+       "timecode": "01:04",
+       "text": "就是作为一个歌者来说"
+      },
+      {
+       "start_s": 66.0,
+       "end_s": 68.0,
+       "timecode": "01:06",
+       "text": "就是先拿到"
+      },
+      {
+       "start_s": 72.0,
+       "end_s": 74.0,
+       "timecode": "01:12",
+       "text": "他到底是唱的这个歌是什么意思"
+      },
+      {
+       "start_s": 78.0,
+       "end_s": 80.0,
+       "timecode": "01:18",
+       "text": "就是想表达的是一种什么样的感情"
+      },
+      {
+       "start_s": 84.0,
+       "end_s": 86.0,
+       "timecode": "01:24",
+       "text": "其实挺费时间的"
+      },
+      {
+       "start_s": 88.0,
+       "end_s": 90.0,
+       "timecode": "01:28",
+       "text": "也就是特别费时间"
+      },
+      {
+       "start_s": 93.0,
+       "end_s": 95.0,
+       "timecode": "01:33",
+       "text": "在录这首歌的时候"
+      },
+      {
+       "start_s": 102.0,
+       "end_s": 104.0,
+       "timecode": "01:42",
+       "text": "到了路线的时候"
+      },
+      {
+       "start_s": 104.0,
+       "end_s": 105.0,
+       "timecode": "01:44",
+       "text": "然后我就"
+      },
+      {
+       "start_s": 131.0,
+       "end_s": 133.0,
+       "timecode": "02:11",
+       "text": "就是心涵"
+      },
+      {
+       "start_s": 142.0,
+       "end_s": 144.0,
+       "timecode": "02:22",
+       "text": "就是说到那个演示剧"
+      },
+      {
+       "start_s": 144.0,
+       "end_s": 146.0,
+       "timecode": "02:24",
+       "text": "我接下来为大家唱"
+      },
+      {
+       "start_s": 146.0,
+       "end_s": 148.0,
+       "timecode": "02:26",
+       "text": "我在去年的时候"
+      },
+      {
+       "start_s": 151.0,
+       "end_s": 152.0,
+       "timecode": "02:31",
+       "text": "年底的时候"
+      },
+      {
+       "start_s": 165.0,
+       "end_s": 167.0,
+       "timecode": "02:45",
+       "text": "然后其中的一首歌"
+      },
+      {
+       "start_s": 171.0,
+       "end_s": 173.0,
+       "timecode": "02:51",
+       "text": "希望大家都能够成为"
+      }
+     ]
+    },
+    {
+     "source": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p30.m4a",
+     "bv": "BV1nZ4y1P7GU",
+     "part": 30,
+     "part_title": "16.《追幸福的人+talk》3.7",
+     "tour": "二巡",
+     "city": "上海",
+     "n_sentences": 5,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 6.0,
+       "timecode": "00:00",
+       "text": "我希望你们以后能够有机会再给大家唱吧"
+      },
+      {
+       "start_s": 6.0,
+       "end_s": 13.0,
+       "timecode": "00:06",
+       "text": "因为《迷雾》也是我非常非常喜欢的一首作品"
+      },
+      {
+       "start_s": 13.0,
+       "end_s": 23.0,
+       "timecode": "00:13",
+       "text": "那接下来我要给大家唱的同样也是我非常非常喜欢的一首歌叫做《追幸福的人》"
+      },
+      {
+       "start_s": 29.0,
+       "end_s": 32.0,
+       "timecode": "00:29",
+       "text": "把這首歌送回上來的朋友"
+      },
+      {
+       "start_s": 92.0,
+       "end_s": 100.0,
+       "timecode": "01:32",
+       "text": "歲月唱著的我們 代價不值得贊"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tour": "六巡",
+   "city": "广州",
+   "sources": 19,
+   "sentences": 268,
+   "sample": "然后,呃,因为我是,我是什么时候才知道,就是我们在英尼演那个《草原之乐》的时候,其实英尼大剧院其实是允许那个雪花飞过来,但是乌鲁木齐就,对,原因就是因为这个,对,太,太费劲了,对,我今天,呃,这个,呃,在这个傍晚的时候,我们去拍这个,就是去在外面去拍照,",
+   "items": [
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p20.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 20,
+     "part_title": "talk①",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 23,
+     "sentences": [
+      {
+       "start_s": 16.5,
+       "end_s": 18.8,
+       "timecode": "00:16",
+       "text": "我觉得要再不见的话我就快匀了"
+      },
+      {
+       "start_s": 24.8,
+       "end_s": 26.4,
+       "timecode": "00:24",
+       "text": "其实大家都知道前段时间"
+      },
+      {
+       "start_s": 30.0,
+       "end_s": 38.0,
+       "timecode": "00:30",
+       "text": "新疆值的美,还有一个小撮,还有一个小撮的朋友"
+      },
+      {
+       "start_s": 40.0,
+       "end_s": 49.0,
+       "timecode": "00:40",
+       "text": "当我刚刚演唱完这首歌,我觉得仿佛我像刚从美丽的新疆来到广州一样"
+      },
+      {
+       "start_s": 49.0,
+       "end_s": 55.0,
+       "timecode": "00:49",
+       "text": "新疆值得取这个案例给我们广州的朋友"
+      },
+      {
+       "start_s": 55.0,
+       "end_s": 61.5,
+       "timecode": "00:55",
+       "text": "因为新疆除了有美丽的风景,还有非常非常多的音乐。"
+      },
+      {
+       "start_s": 61.5,
+       "end_s": 69.0,
+       "timecode": "01:01",
+       "text": "那么一提到新疆的音乐,就一定会想到王罗宾先生。"
+      },
+      {
+       "start_s": 69.0,
+       "end_s": 85.0,
+       "timecode": "01:09",
+       "text": "你知道我这次去新疆之前,我以为我非常了解草原之夜这首歌本身。"
+      },
+      {
+       "start_s": 85.0,
+       "end_s": 93.0,
+       "timecode": "01:25",
+       "text": "那么,写这首歌的是我们田哥先生,那王洛斌先生跟田哥先生的最大区别,你们知道吗?"
+      },
+      {
+       "start_s": 95.0,
+       "end_s": 101.0,
+       "timecode": "01:35",
+       "text": "王洛斌先生是以这个大量的剧在一起,民间的音乐,然后整理。"
+      },
+      {
+       "start_s": 101.0,
+       "end_s": 109.0,
+       "timecode": "01:41",
+       "text": "那么田哥先生是写了很多让我们非常熟悉的《草原之谊》东方小野曲。"
+      },
+      {
+       "start_s": 115.0,
+       "end_s": 118.0,
+       "timecode": "01:55",
+       "text": "才知道这个萨贝尼说的那个话"
+      },
+      {
+       "start_s": 120.0,
+       "end_s": 123.0,
+       "timecode": "02:00",
+       "text": "真的就是没有去过科科达达的话"
+      },
+      {
+       "start_s": 123.0,
+       "end_s": 125.0,
+       "timecode": "02:03",
+       "text": "真的是你是听不懂的"
+      },
+      {
+       "start_s": 125.0,
+       "end_s": 126.0,
+       "timecode": "02:05",
+       "text": "这个萨贝尔职业"
+      },
+      {
+       "start_s": 126.0,
+       "end_s": 130.0,
+       "timecode": "02:06",
+       "text": "所以这次去新疆"
+      },
+      {
+       "start_s": 130.0,
+       "end_s": 134.0,
+       "timecode": "02:10",
+       "text": "其实对我来说也是有非常非常多的收复"
+      },
+      {
+       "start_s": 134.0,
+       "end_s": 142.2,
+       "timecode": "02:14",
+       "text": "如果未来能够经济自由的时候"
+      },
+      {
+       "start_s": 142.2,
+       "end_s": 145.5,
+       "timecode": "02:22",
+       "text": "希望能够去到美丽的毅力"
+      },
+      {
+       "start_s": 145.5,
+       "end_s": 148.3,
+       "timecode": "02:25",
+       "text": "然后开一间民宿"
+      },
+      {
+       "start_s": 148.3,
+       "end_s": 149.4,
+       "timecode": "02:28",
+       "text": "然后被大家服务"
+      },
+      {
+       "start_s": 153.7,
+       "end_s": 154.1,
+       "timecode": "02:33",
+       "text": "真的是没有"
+      },
+      {
+       "start_s": 163.5,
+       "end_s": 189.5,
+       "timecode": "02:43",
+       "text": "就是一定会想到另外一位,我们中国的奇名字,就是三毛,对,所以我接着来唱这首歌,是三毛先生当年见到王后宾先生,为他唱的这首歌,叫做《橄榄树》送给你们,也是广州家的这首歌。"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p21.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 21,
+     "part_title": "talk②",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 22,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 29.0,
+       "timecode": "00:00",
+       "text": "威力的一礼,那天在叫做琴湖石台,山上,那天下午特别理解王晰比先生,能够留在那边生活,真的非常的幸福,特别羡慕我们的哈萨克族的生活状态,特别的简单。"
+      },
+      {
+       "start_s": 30.0,
+       "end_s": 37.0,
+       "timecode": "00:30",
+       "text": "小孩子也是非常勤劳,非常开朗,"
+      },
+      {
+       "start_s": 37.0,
+       "end_s": 44.0,
+       "timecode": "00:37",
+       "text": "小的时候就帮助家人干动活,放牛,放羊。"
+      },
+      {
+       "start_s": 44.0,
+       "end_s": 48.0,
+       "timecode": "00:44",
+       "text": "他们非常快乐。"
+      },
+      {
+       "start_s": 48.0,
+       "end_s": 51.0,
+       "timecode": "00:48",
+       "text": "他们的游乐场就是草原,"
+      },
+      {
+       "start_s": 51.0,
+       "end_s": 57.0,
+       "timecode": "00:51",
+       "text": "这个玩伴就是他们养了马,养了小羊。"
+      },
+      {
+       "start_s": 57.0,
+       "end_s": 68.0,
+       "timecode": "00:57",
+       "text": "我想过这个问题,只有一点我可能隔绝了,就是在草原上用水的问题。"
+      },
+      {
+       "start_s": 68.0,
+       "end_s": 78.0,
+       "timecode": "01:08",
+       "text": "对,然后我回到北京我就在想,我没想的时候好像也是一个星期时间才去一趟澡堂的。"
+      },
+      {
+       "start_s": 78.0,
+       "end_s": 84.0,
+       "timecode": "01:18",
+       "text": "对,然后去的洗手间也没有觉得那么好。"
+      },
+      {
+       "start_s": 90.0,
+       "end_s": 94.0,
+       "timecode": "01:30",
+       "text": "呃...相當於我坐在馬屁前面"
+      },
+      {
+       "start_s": 100.0,
+       "end_s": 102.0,
+       "timecode": "01:40",
+       "text": "對,六歲的馬屁"
+      },
+      {
+       "start_s": 110.0,
+       "end_s": 112.0,
+       "timecode": "01:50",
+       "text": "朋友們他們"
+      },
+      {
+       "start_s": 112.0,
+       "end_s": 124.0,
+       "timecode": "01:52",
+       "text": "我听了一门生意,就是招揽游客骑他的马,然后他们会牵着走,但是接待我的生六岁的孩子,"
+      },
+      {
+       "start_s": 124.0,
+       "end_s": 131.0,
+       "timecode": "02:04",
+       "text": "然后我就实在是很不忍心,让他在这个小路上说:\"你上来!\""
+      },
+      {
+       "start_s": 131.0,
+       "end_s": 137.0,
+       "timecode": "02:11",
+       "text": "对,然后骑了一下,我觉得真的是马背上的地方,这不一样。"
+      },
+      {
+       "start_s": 137.0,
+       "end_s": 144.0,
+       "timecode": "02:17",
+       "text": "就跟我们小的时候孩子学习自行车一样,骑得太好了,太流了。"
+      },
+      {
+       "start_s": 144.0,
+       "end_s": 147.0,
+       "timecode": "02:24",
+       "text": "慢慢聊,慢慢聊。"
+      },
+      {
+       "start_s": 147.0,
+       "end_s": 151.0,
+       "timecode": "02:27",
+       "text": "今天真的是有太多话讲的大家说。"
+      },
+      {
+       "start_s": 151.0,
+       "end_s": 160.0,
+       "timecode": "02:31",
+       "text": "其实在第一场的时候,其实就是为了我们这个流逊,就准备了很多东西。"
+      },
+      {
+       "start_s": 160.0,
+       "end_s": 164.0,
+       "timecode": "02:40",
+       "text": "麦克风,然后服装。"
+      },
+      {
+       "start_s": 178.0,
+       "end_s": 180.0,
+       "timecode": "02:58",
+       "text": "对 这个歌包满"
+      },
+      {
+       "start_s": 186.0,
+       "end_s": 188.0,
+       "timecode": "03:06",
+       "text": "接下来我想"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p22.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 22,
+     "part_title": "talk③",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 28,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 17.6,
+       "timecode": "00:00",
+       "text": "我接下来要为大家唱这首歌,大家也都知道,这是很多我们深深学子的青春,很多70后,80后,90后,我觉得可能听这首歌的人可能会少一些"
+      },
+      {
+       "start_s": 20.6,
+       "end_s": 26.6,
+       "timecode": "00:20",
+       "text": "也是我非常喜欢的这个美国的这个兄弟组合,叫卡彭特"
+      },
+      {
+       "start_s": 26.6,
+       "end_s": 35.0,
+       "timecode": "00:26",
+       "text": "其实很多国内外的歌手都翻唱过他们的作品"
+      },
+      {
+       "start_s": 35.0,
+       "end_s": 48.6,
+       "timecode": "00:35",
+       "text": "其实我们大家都知道,可能唱的三好也没办法代替你第一次听这首歌时候的那个样子"
+      },
+      {
+       "start_s": 48.6,
+       "end_s": 52.7,
+       "timecode": "00:48",
+       "text": "所以我这次来到广州"
+      },
+      {
+       "start_s": 52.7,
+       "end_s": 60.3,
+       "timecode": "00:52",
+       "text": "因为我知道广州的朋友对音质在全国来说"
+      },
+      {
+       "start_s": 64.0,
+       "end_s": 72.3,
+       "timecode": "01:04",
+       "text": "因为我之前也参加过广州的发烧友的聚会"
+      },
+      {
+       "start_s": 72.3,
+       "end_s": 76.3,
+       "timecode": "01:12",
+       "text": "所以其实什么对我来讲"
+      },
+      {
+       "start_s": 76.3,
+       "end_s": 78.5,
+       "timecode": "01:16",
+       "text": "什么是最重要的?"
+      },
+      {
+       "start_s": 78.5,
+       "end_s": 108.4,
+       "timecode": "01:18",
+       "text": "不是,其实阴四的是排在第二位,其实排在第一位的我觉得是你的厂商,然后西四是阴四,阴四其实是像这个人的这个外衣一样,你是这个宰库提衣,你是场摇棍,还是西装隔离,还是穿,还是说是穿这种,"
+      },
+      {
+       "start_s": 108.5,
+       "end_s": 111.5,
+       "timecode": "01:48",
+       "text": "非常非常舒服的那种Hip-Hop的东西"
+      },
+      {
+       "start_s": 111.5,
+       "end_s": 113.5,
+       "timecode": "01:51",
+       "text": "音色是这个"
+      },
+      {
+       "start_s": 113.5,
+       "end_s": 120.5,
+       "timecode": "01:53",
+       "text": "两方面之后其实才是你唱歌的能力"
+      },
+      {
+       "start_s": 120.5,
+       "end_s": 122.5,
+       "timecode": "02:00",
+       "text": "我个人觉得是这样的"
+      },
+      {
+       "start_s": 122.5,
+       "end_s": 124.5,
+       "timecode": "02:02",
+       "text": "就是所谓的唱功"
+      },
+      {
+       "start_s": 124.5,
+       "end_s": 129.5,
+       "timecode": "02:04",
+       "text": "那如果说你有了唱伤,你有了音色,再加上唱功的话"
+      },
+      {
+       "start_s": 129.5,
+       "end_s": 133.5,
+       "timecode": "02:09",
+       "text": "那真的是非常非常好"
+      },
+      {
+       "start_s": 133.5,
+       "end_s": 135.5,
+       "timecode": "02:13",
+       "text": "不是,不是,不是"
+      },
+      {
+       "start_s": 137.5,
+       "end_s": 139.9,
+       "timecode": "02:17",
+       "text": "附近就是心海科学院"
+      },
+      {
+       "start_s": 139.9,
+       "end_s": 147.8,
+       "timecode": "02:19",
+       "text": "我不知道今天有多少是学习音乐,学习声乐的朋友"
+      },
+      {
+       "start_s": 147.8,
+       "end_s": 155.2,
+       "timecode": "02:27",
+       "text": "光有唱功其实是不对的"
+      },
+      {
+       "start_s": 155.2,
+       "end_s": 159.4,
+       "timecode": "02:35",
+       "text": "一定要适合,要有非常好的审美"
+      },
+      {
+       "start_s": 159.4,
+       "end_s": 167.4,
+       "timecode": "02:39",
+       "text": "再加上好的因子,再加上后天努力的唱歌的能力"
+      },
+      {
+       "start_s": 167.4,
+       "end_s": 175.4,
+       "timecode": "02:47",
+       "text": "所以,當我們聽到很多人在翻唱卡登諾這首歌的時候,"
+      },
+      {
+       "start_s": 175.4,
+       "end_s": 181.4,
+       "timecode": "02:55",
+       "text": "我個人覺得我還是喜歡原汁人們的他唱的那個版本。"
+      },
+      {
+       "start_s": 181.4,
+       "end_s": 182.4,
+       "timecode": "03:01",
+       "text": "我個人都喜歡你的版本。"
+      },
+      {
+       "start_s": 182.4,
+       "end_s": 184.4,
+       "timecode": "03:02",
+       "text": "謝謝,謝謝,謝謝。"
+      },
+      {
+       "start_s": 184.4,
+       "end_s": 195.4,
+       "timecode": "03:04",
+       "text": "所以,在廣州把這首歌也是我們很多朋友的青春送給大家,會上我們一起把它完成。"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p23.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 23,
+     "part_title": "talk④",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 3,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 5.0,
+       "timecode": "00:00",
+       "text": "卡布特有很多非常非常好听的歌"
+      },
+      {
+       "start_s": 5.0,
+       "end_s": 11.0,
+       "timecode": "00:05",
+       "text": "这个时代听他的歌也是非常的阳气很舒服"
+      },
+      {
+       "start_s": 11.0,
+       "end_s": 18.0,
+       "timecode": "00:11",
+       "text": "所以接下来我想再唱一首他的歌"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p24.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 24,
+     "part_title": "talk⑤",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 15,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 14.0,
+       "timecode": "00:00",
+       "text": "在所有的,无论是舞剧,音乐剧,音乐会,演唱会,你们身边有没有那种看一看睡着的学朋友?"
+      },
+      {
+       "start_s": 14.0,
+       "end_s": 17.0,
+       "timecode": "00:14",
+       "text": "其实有很多,是吧?"
+      },
+      {
+       "start_s": 17.0,
+       "end_s": 20.0,
+       "timecode": "00:17",
+       "text": "其实我觉得状态特别好"
+      },
+      {
+       "start_s": 20.0,
+       "end_s": 24.0,
+       "timecode": "00:20",
+       "text": "对,就是因为能放松"
+      },
+      {
+       "start_s": 24.0,
+       "end_s": 27.0,
+       "timecode": "00:24",
+       "text": "因为好的音乐其实是可以让人放松的"
+      },
+      {
+       "start_s": 27.0,
+       "end_s": 57.0,
+       "timecode": "00:27",
+       "text": "如果说,在今天,你们身边要是很疲惫,或者是很累,去找枪架打扰他,好,我会找机会叫醒他们的,好吧,OK,接下来呢,送给大家这首歌,是一首,其实是日本,这个我非常非常喜欢的,就是玉池浩尔先生的一首歌,但是,这个张旭有,我们的,"
+      },
+      {
+       "start_s": 57.0,
+       "end_s": 59.3,
+       "timecode": "00:56",
+       "text": "这个歌神"
+      },
+      {
+       "start_s": 59.3,
+       "end_s": 61.3,
+       "timecode": "00:59",
+       "text": "这个唱歌的首歌叫做《鱼斑斑》"
+      },
+      {
+       "start_s": 61.3,
+       "end_s": 62.4,
+       "timecode": "01:01",
+       "text": "然后赠给我们"
+      },
+      {
+       "start_s": 64.3,
+       "end_s": 65.3,
+       "timecode": "01:04",
+       "text": "这个广灯吗"
+      },
+      {
+       "start_s": 65.3,
+       "end_s": 67.3,
+       "timecode": "01:05",
+       "text": "哎 楼上他们到底有多少人让我看一下"
+      },
+      {
+       "start_s": 71.2,
+       "end_s": 72.6,
+       "timecode": "01:11",
+       "text": "为什么没下来啊"
+      },
+      {
+       "start_s": 81.0,
+       "end_s": 83.0,
+       "timecode": "01:20",
+       "text": "就是买这个下面的条啊"
+      },
+      {
+       "start_s": 100.1,
+       "end_s": 105.5,
+       "timecode": "01:40",
+       "text": "你们别闹"
+      },
+      {
+       "start_s": 111.2,
+       "end_s": 140.2,
+       "timecode": "01:51",
+       "text": "因为了解王熙的朋友们,其实大家都知道,我绝大多数的歌曲都非常的重点,就很慢,很舒服,所以说如果大家累了的话,想睡觉,即将睡,然后我希望用我的这个声音,能够让大家在短暂的一个小时,然后有一个非常好的这个充电时间,也是非常非常好的,好吗?"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p25.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 25,
+     "part_title": "talk⑥",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 5,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 9.0,
+       "timecode": "00:00",
+       "text": "来自我们大家都非常喜欢的 邓丽俊小姐的一首歌"
+      },
+      {
+       "start_s": 9.0,
+       "end_s": 13.0,
+       "timecode": "00:09",
+       "text": "有没有某人不喜欢邓丽俊小姐?"
+      },
+      {
+       "start_s": 13.0,
+       "end_s": 20.0,
+       "timecode": "00:13",
+       "text": "也对,不是所有人都应该喜欢一个人"
+      },
+      {
+       "start_s": 20.0,
+       "end_s": 27.0,
+       "timecode": "00:20",
+       "text": "所以我非常喜欢她,因为她所有的作品也影响了我"
+      },
+      {
+       "start_s": 27.0,
+       "end_s": 48.0,
+       "timecode": "00:27",
+       "text": "影响了我对音乐的审美,然后处理等等,对,所以我现在我想翻唱他的这首歌,那么这首歌也是在十年前,这个湖南卫视的《我是歌手》上面,我唱的一首歌叫做《再见,多大人,送给你》。"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p26.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 26,
+     "part_title": "talk⑦",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 16,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 8.0,
+       "timecode": "00:00",
+       "text": "暑假的时候突然翻到了这个曾经一位朋友送给我的"
+      },
+      {
+       "start_s": 8.0,
+       "end_s": 14.0,
+       "timecode": "00:08",
+       "text": "啊 这个灯太亮了是吧"
+      },
+      {
+       "start_s": 14.0,
+       "end_s": 19.0,
+       "timecode": "00:14",
+       "text": "后面这个吗"
+      },
+      {
+       "start_s": 25.0,
+       "end_s": 30.0,
+       "timecode": "00:25",
+       "text": "你腦不住,你腦不住,你腦不住"
+      },
+      {
+       "start_s": 30.0,
+       "end_s": 31.0,
+       "timecode": "00:30",
+       "text": "这样可以吗?"
+      },
+      {
+       "start_s": 31.0,
+       "end_s": 34.0,
+       "timecode": "00:31",
+       "text": "你腦不住,你腦不住"
+      },
+      {
+       "start_s": 35.0,
+       "end_s": 38.0,
+       "timecode": "00:35",
+       "text": "突然找到了这个"
+      },
+      {
+       "start_s": 38.0,
+       "end_s": 42.0,
+       "timecode": "00:38",
+       "text": "突然找到了这个曾经,这个多年以前"
+      },
+      {
+       "start_s": 42.0,
+       "end_s": 45.0,
+       "timecode": "00:42",
+       "text": "这个我的一个朋友送给我的一本"
+      },
+      {
+       "start_s": 45.0,
+       "end_s": 48.0,
+       "timecode": "00:45",
+       "text": "有关于这个邓丽君小姐的这个"
+      },
+      {
+       "start_s": 48.0,
+       "end_s": 50.0,
+       "timecode": "00:48",
+       "text": "所有的这个资料和影响"
+      },
+      {
+       "start_s": 50.0,
+       "end_s": 54.0,
+       "timecode": "00:50",
+       "text": "所以这次也是拿出来"
+      },
+      {
+       "start_s": 54.0,
+       "end_s": 61.0,
+       "timecode": "00:54",
+       "text": "看着它,这让我觉得对于我的青春影响也是非常大。"
+      },
+      {
+       "start_s": 61.0,
+       "end_s": 69.0,
+       "timecode": "01:01",
+       "text": "所以在演唱它的作品的时候,也让我回忆了很多。"
+      },
+      {
+       "start_s": 69.0,
+       "end_s": 77.0,
+       "timecode": "01:09",
+       "text": "我接着来讲,我为大家唱这首歌,我相信有很多人都知道,"
+      },
+      {
+       "start_s": 77.0,
+       "end_s": 83.0,
+       "timecode": "01:17",
+       "text": "因为在我议训的时候,演唱过的一首歌,叫做《心动》。"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p27.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 27,
+     "part_title": "talk⑧",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 14,
+     "sentences": [
+      {
+       "start_s": 8.1,
+       "end_s": 10.1,
+       "timecode": "00:08",
+       "text": "感谢卡达尼哈"
+      },
+      {
+       "start_s": 32.0,
+       "end_s": 36.0,
+       "timecode": "00:32",
+       "text": "我接下来要唱的这首歌"
+      },
+      {
+       "start_s": 36.0,
+       "end_s": 42.0,
+       "timecode": "00:36",
+       "text": "其实可能有很多朋友是通过这首歌认识我的"
+      },
+      {
+       "start_s": 42.0,
+       "end_s": 44.0,
+       "timecode": "00:42",
+       "text": "我其实特别恨我自己"
+      },
+      {
+       "start_s": 46.0,
+       "end_s": 48.0,
+       "timecode": "00:46",
+       "text": "恨我自己的原因是什么"
+      },
+      {
+       "start_s": 48.0,
+       "end_s": 52.0,
+       "timecode": "00:48",
+       "text": "在我年轻的时候你们都还小"
+      },
+      {
+       "start_s": 52.0,
+       "end_s": 67.0,
+       "timecode": "00:52",
+       "text": "然后当你长大的时候,我已经老了,但是非常幸运的是,我们在同一时间遇见了,非常非常开心。"
+      },
+      {
+       "start_s": 67.0,
+       "end_s": 77.1,
+       "timecode": "01:07",
+       "text": "其实有很多我们的朋友是从零几年开始认识的"
+      },
+      {
+       "start_s": 77.1,
+       "end_s": 82.4,
+       "timecode": "01:17",
+       "text": "然后后来有的是在新歌赛,有的是在金钟奖,"
+      },
+      {
+       "start_s": 82.4,
+       "end_s": 87.0,
+       "timecode": "01:22",
+       "text": "然后也有的是在歌手,然后也有的是在很多节目上认识的"
+      },
+      {
+       "start_s": 87.0,
+       "end_s": 95.0,
+       "timecode": "01:27",
+       "text": "所以接下来的这首歌是在1918年"
+      },
+      {
+       "start_s": 95.0,
+       "end_s": 99.2,
+       "timecode": "01:35",
+       "text": "有很多朋友通过这首歌认识很新的"
+      },
+      {
+       "start_s": 99.2,
+       "end_s": 102.6,
+       "timecode": "01:39",
+       "text": "所以今天我将把这首歌送给大家"
+      },
+      {
+       "start_s": 102.6,
+       "end_s": 105.0,
+       "timecode": "01:42",
+       "text": "一声声红送给你们"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p28.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 28,
+     "part_title": "talk⑨",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 40,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 8.6,
+       "timecode": "00:00",
+       "text": "好 我们请大家聊聊 说一下"
+      },
+      {
+       "start_s": 8.6,
+       "end_s": 13.4,
+       "timecode": "00:08",
+       "text": "啊 什么"
+      },
+      {
+       "start_s": 43.4,
+       "end_s": 45.4,
+       "timecode": "00:43",
+       "text": "其实我们的这个"
+      },
+      {
+       "start_s": 51.4,
+       "end_s": 81.4,
+       "timecode": "00:51",
+       "text": "然后,呃,因为我是,我是什么时候才知道,就是我们在英尼演那个《草原之乐》的时候,其实英尼大剧院其实是允许那个雪花飞过来,但是乌鲁木齐就,对,原因就是因为这个,对,太,太费劲了,对,我今天,呃,这个,呃,在这个傍晚的时候,我们去拍这个,就是去在外面去拍照,"
+      },
+      {
+       "start_s": 81.4,
+       "end_s": 91.6,
+       "timecode": "01:21",
+       "text": "然后又路过了19路军牌坊,就让我想起了零几年的时候,广州是我第一次去外来的地方。"
+      },
+      {
+       "start_s": 91.6,
+       "end_s": 104.7,
+       "timecode": "01:31",
+       "text": "那个时候真的坐了三天两晚的火车,然后想起怎么坐下来的,硬座了,硬座。"
+      },
+      {
+       "start_s": 104.7,
+       "end_s": 117.3,
+       "timecode": "01:44",
+       "text": "我那时候是从沈阳记得非常非常清楚,就是以前的记忆真的是,就只能记住以前的事情,三天两晚,然后从沈阳"
+      },
+      {
+       "start_s": 117.3,
+       "end_s": 129.5,
+       "timecode": "01:57",
+       "text": "然后那个时候我觉得就是一点都不觉得为什么,因为那个时候我心里想了这两个字,理想,就是有那个理想来拖着你走,你会觉得嗯,对"
+      },
+      {
+       "start_s": 129.5,
+       "end_s": 133.6,
+       "timecode": "02:09",
+       "text": "然后从水上上升之后,终于到了广州,然后一下子就"
+      },
+      {
+       "start_s": 135.4,
+       "end_s": 139.3,
+       "timecode": "02:15",
+       "text": "哇,这个就是这个以前没有来过的时间"
+      },
+      {
+       "start_s": 140.0,
+       "end_s": 142.1,
+       "timecode": "02:20",
+       "text": "真的非常非常的热,然后第一次"
+      },
+      {
+       "start_s": 142.9,
+       "end_s": 145.9,
+       "timecode": "02:22",
+       "text": "吃了这个很多,哇,这个广州的这个"
+      },
+      {
+       "start_s": 146.2,
+       "end_s": 148.5,
+       "timecode": "02:26",
+       "text": "这个水果真的很好吃,这个荔枝"
+      },
+      {
+       "start_s": 149.3,
+       "end_s": 151.8,
+       "timecode": "02:29",
+       "text": "这个吃了一斤,第二天的嗓子发炎"
+      },
+      {
+       "start_s": 153.3,
+       "end_s": 154.6,
+       "timecode": "02:33",
+       "text": "嗓子发炎怎么办"
+      },
+      {
+       "start_s": 155.1,
+       "end_s": 158.5,
+       "timecode": "02:35",
+       "text": "我知道很多朋友,这个本地的朋友应该都知道"
+      },
+      {
+       "start_s": 162.1,
+       "end_s": 164.2,
+       "timecode": "02:42",
+       "text": "哎呀就是"
+      },
+      {
+       "start_s": 166.4,
+       "end_s": 167.2,
+       "timecode": "02:46",
+       "text": "北京的朋友"
+      },
+      {
+       "start_s": 170.4,
+       "end_s": 173.5,
+       "timecode": "02:50",
+       "text": "然后那个时候就是住在十九路军"
+      },
+      {
+       "start_s": 173.5,
+       "end_s": 176.0,
+       "timecode": "02:53",
+       "text": "然后离那个新海远远非常非常近"
+      },
+      {
+       "start_s": 177.5,
+       "end_s": 178.4,
+       "timecode": "02:57",
+       "text": "然后早餐"
+      },
+      {
+       "start_s": 178.4,
+       "end_s": 179.8,
+       "timecode": "02:58",
+       "text": "这个成分"
+      },
+      {
+       "start_s": 179.8,
+       "end_s": 182.1,
+       "timecode": "02:59",
+       "text": "很多的这个好吃的"
+      },
+      {
+       "start_s": 182.1,
+       "end_s": 184.9,
+       "timecode": "03:02",
+       "text": "广州真的好吃的太多太多了"
+      },
+      {
+       "start_s": 186.2,
+       "end_s": 187.8,
+       "timecode": "03:06",
+       "text": "这个我觉得就是在"
+      },
+      {
+       "start_s": 187.8,
+       "end_s": 194.8,
+       "timecode": "03:07",
+       "text": "在所有的生物,人类,在没有任何的理想,吃是最重要的。"
+      },
+      {
+       "start_s": 194.8,
+       "end_s": 197.8,
+       "timecode": "03:14",
+       "text": "解决了吃,就是解决了一些问题。"
+      },
+      {
+       "start_s": 197.8,
+       "end_s": 203.8,
+       "timecode": "03:17",
+       "text": "从这个角度上,让我分析一下,"
+      },
+      {
+       "start_s": 203.8,
+       "end_s": 209.8,
+       "timecode": "03:23",
+       "text": "我觉得广州的朋友懂得人生的意义是什么,就是吃。"
+      },
+      {
+       "start_s": 209.8,
+       "end_s": 212.8,
+       "timecode": "03:29",
+       "text": "其实除了吃,就是睡。"
+      },
+      {
+       "start_s": 212.8,
+       "end_s": 242.8,
+       "timecode": "03:32",
+       "text": "还有看我的演唱,哎呀,压上了啊,真的,真的,好吧,像这样刚刚开始,感谢大家这个,其实自己做这个巡演从2019年,是不是,2019年到2026年的那个七年的时间,非常感谢大家一路的这个陪伴,我们在这个剧院来了几次,三次四次,三次啊,我知道其实有很多朋友就是从,"
+      },
+      {
+       "start_s": 242.8,
+       "end_s": 251.8,
+       "timecode": "04:02",
+       "text": "从第一次,基本上每一场,都是,好,谢谢你的求证。"
+      },
+      {
+       "start_s": 251.8,
+       "end_s": 264.8,
+       "timecode": "04:11",
+       "text": "所以,自己的心愿也是,从业以来我觉得是自己的一部分,希望能够越做越好。"
+      },
+      {
+       "start_s": 264.8,
+       "end_s": 267.3,
+       "timecode": "04:24",
+       "text": "对,做到大做强"
+      },
+      {
+       "start_s": 267.3,
+       "end_s": 272.3,
+       "timecode": "04:27",
+       "text": "如果未来我们现在叫什么线下"
+      },
+      {
+       "start_s": 272.3,
+       "end_s": 276.6,
+       "timecode": "04:32",
+       "text": "这个实在是见面的机会"
+      },
+      {
+       "start_s": 278.3,
+       "end_s": 280.1,
+       "timecode": "04:38",
+       "text": "那我们再想尽办法"
+      },
+      {
+       "start_s": 281.5,
+       "end_s": 284.1,
+       "timecode": "04:41",
+       "text": "但是我真的非常享受站在舞台上"
+      },
+      {
+       "start_s": 291.7,
+       "end_s": 293.8,
+       "timecode": "04:51",
+       "text": "好,那么接下来"
+      },
+      {
+       "start_s": 293.8,
+       "end_s": 300.6,
+       "timecode": "04:53",
+       "text": "唱歌,唱给大家几首歌也是在十年前歌手上面"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p29.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 29,
+     "part_title": "talk⑩",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 15,
+     "sentences": [
+      {
+       "start_s": 2.0,
+       "end_s": 5.0,
+       "timecode": "00:02",
+       "text": "就是没有十年前那么蠢"
+      },
+      {
+       "start_s": 5.0,
+       "end_s": 9.0,
+       "timecode": "00:05",
+       "text": "就是十年前在唱这首歌的时候"
+      },
+      {
+       "start_s": 9.0,
+       "end_s": 12.0,
+       "timecode": "00:09",
+       "text": "骨子里面就是鹰"
+      },
+      {
+       "start_s": 14.0,
+       "end_s": 19.0,
+       "timecode": "00:14",
+       "text": "但是十年之后想的其实并不是鹰吧"
+      },
+      {
+       "start_s": 19.0,
+       "end_s": 23.0,
+       "timecode": "00:19",
+       "text": "可能更多的就是对这首歌的历史"
+      },
+      {
+       "start_s": 23.0,
+       "end_s": 30.5,
+       "timecode": "00:23",
+       "text": "后来也是好好地去读了一下作者写这首歌的场景"
+      },
+      {
+       "start_s": 30.5,
+       "end_s": 37.0,
+       "timecode": "00:30",
+       "text": "所以我觉得当时因为是在那种清晰的舞台上"
+      },
+      {
+       "start_s": 37.0,
+       "end_s": 40.0,
+       "timecode": "00:37",
+       "text": "我觉得我当时想的也对"
+      },
+      {
+       "start_s": 40.0,
+       "end_s": 43.0,
+       "timecode": "00:40",
+       "text": "对,就是对"
+      },
+      {
+       "start_s": 43.0,
+       "end_s": 46.0,
+       "timecode": "00:43",
+       "text": "哎呀,想"
+      },
+      {
+       "start_s": 46.0,
+       "end_s": 51.0,
+       "timecode": "00:46",
+       "text": "但是回归到我们剧院舞台里面"
+      },
+      {
+       "start_s": 51.0,
+       "end_s": 55.6,
+       "timecode": "00:51",
+       "text": "我觉得还是要服务于歌的本身"
+      },
+      {
+       "start_s": 58.4,
+       "end_s": 61.5,
+       "timecode": "00:58",
+       "text": "好,继续给大家唱歌"
+      },
+      {
+       "start_s": 61.5,
+       "end_s": 67.5,
+       "timecode": "01:01",
+       "text": "那这首歌也是在歌手上面唱过的一首歌"
+      },
+      {
+       "start_s": 74.3,
+       "end_s": 75.7,
+       "timecode": "01:14",
+       "text": "《秋雨》送给你们"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p30.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 30,
+     "part_title": "talk①①",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 2,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 30.0,
+       "timecode": "00:00",
+       "text": "我相信会有第一次来听王晰音乐会的朋友听完这一场场的话,其实大家对我都会有些了解这个在音乐会上,我会选择一些我认为比较经典的一些好听的歌曲唱给大家听然后接下来呢,这首歌也是一首老歌而重新改变的,来自这个"
+      },
+      {
+       "start_s": 31.6,
+       "end_s": 35.2,
+       "timecode": "00:31",
+       "text": "这个做做的是吴世凯先生"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p31.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 31,
+     "part_title": "talk①②",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 29,
+     "sentences": [
+      {
+       "start_s": 10.4,
+       "end_s": 22.9,
+       "timecode": "00:10",
+       "text": "在演唱这首歌的时候我也是在想到底该如何的去把它 尝出心理 然后又不破坏它"
+      },
+      {
+       "start_s": 22.9,
+       "end_s": 28.6,
+       "timecode": "00:22",
+       "text": "所以歌曲的改编是需要花费很多的精力。"
+      },
+      {
+       "start_s": 28.6,
+       "end_s": 33.7,
+       "timecode": "00:28",
+       "text": "因为有很多改的特别夸张,"
+      },
+      {
+       "start_s": 33.7,
+       "end_s": 41.6,
+       "timecode": "00:33",
+       "text": "你会把原本的味道和对歌曲本身也是不太好的。"
+      },
+      {
+       "start_s": 41.6,
+       "end_s": 47.6,
+       "timecode": "00:41",
+       "text": "尤其是一些经典的歌,或者是一些老歌,或者是红歌,"
+      },
+      {
+       "start_s": 47.6,
+       "end_s": 51.0,
+       "timecode": "00:47",
+       "text": "如果改的特别夸张,我觉得是一种亵渎。"
+      },
+      {
+       "start_s": 51.0,
+       "end_s": 65.0,
+       "timecode": "00:51",
+       "text": "所以在唱老河,其实对于我跟我们的这个团队,崔迪老师,我们真的是每一首歌都花费了很多的心思,掌声送给我们的崔迪老师。"
+      },
+      {
+       "start_s": 68.0,
+       "end_s": 76.0,
+       "timecode": "01:08",
+       "text": "我已经一路走了,所以大家都非常的熟悉,知道我演唱什么样的风格是游刃有余的。"
+      },
+      {
+       "start_s": 76.0,
+       "end_s": 81.0,
+       "timecode": "01:16",
+       "text": "当然,我也不是说所有的曲风都可以加油。"
+      },
+      {
+       "start_s": 81.0,
+       "end_s": 85.0,
+       "timecode": "01:21",
+       "text": "不是,不是,不是,没有,没有,没有,没有。"
+      },
+      {
+       "start_s": 85.0,
+       "end_s": 91.0,
+       "timecode": "01:25",
+       "text": "就比如说,像很多民族音乐,我作为汉族,我只能是学习,"
+      },
+      {
+       "start_s": 91.0,
+       "end_s": 96.0,
+       "timecode": "01:31",
+       "text": "因为有很多的音乐是刻在人家民族鼓子里面的东西。"
+      },
+      {
+       "start_s": 96.0,
+       "end_s": 99.0,
+       "timecode": "01:36",
+       "text": "所以我们只能是借鉴,去学习。"
+      },
+      {
+       "start_s": 99.0,
+       "end_s": 106.4,
+       "timecode": "01:39",
+       "text": "那么我们在《草原之夜》的后台,我们在一起交流过中,在彩排的时候,"
+      },
+      {
+       "start_s": 106.4,
+       "end_s": 111.8,
+       "timecode": "01:46",
+       "text": "其实我也特别喜欢跟我们这个优秀的团员们来去分享,"
+      },
+      {
+       "start_s": 111.8,
+       "end_s": 119.2,
+       "timecode": "01:51",
+       "text": "因为有很多时候在《草原之夜》里面演出的其实并不是这个本营组,"
+      },
+      {
+       "start_s": 119.2,
+       "end_s": 123.0,
+       "timecode": "01:59",
+       "text": "因为里面有一些什么蒙古族啊,火查的贺族啊,"
+      },
+      {
+       "start_s": 123.0,
+       "end_s": 128.4,
+       "timecode": "02:03",
+       "text": "那么有一些我们汉族的这些歌者,干人不合的去演,"
+      },
+      {
+       "start_s": 128.4,
+       "end_s": 132.4,
+       "timecode": "02:08",
+       "text": "我们经常在一起交流。"
+      },
+      {
+       "start_s": 132.4,
+       "end_s": 136.4,
+       "timecode": "02:12",
+       "text": "所以我觉得这个也是非常有意思的一个事情。"
+      },
+      {
+       "start_s": 136.4,
+       "end_s": 140.4,
+       "timecode": "02:16",
+       "text": "希望今年吧,"
+      },
+      {
+       "start_s": 140.4,
+       "end_s": 148.4,
+       "timecode": "02:20",
+       "text": "然后还会有新的音乐会的产品。"
+      },
+      {
+       "start_s": 148.4,
+       "end_s": 160.4,
+       "timecode": "02:28",
+       "text": "然后应该会去跟民族的小伙伴们一起去交流学习"
+      },
+      {
+       "start_s": 162.8,
+       "end_s": 164.9,
+       "timecode": "02:42",
+       "text": "没有,后面的事,等通知,好吧"
+      },
+      {
+       "start_s": 164.9,
+       "end_s": 167.6,
+       "timecode": "02:44",
+       "text": "那这个要通知啊"
+      },
+      {
+       "start_s": 167.6,
+       "end_s": 172.6,
+       "timecode": "02:47",
+       "text": "我接下来呢,我要给大家唱的这首歌是我自己的歌"
+      },
+      {
+       "start_s": 172.6,
+       "end_s": 176.8,
+       "timecode": "02:52",
+       "text": "也是我自己很多年前发表的一首歌"
+      },
+      {
+       "start_s": 178.7,
+       "end_s": 179.6,
+       "timecode": "02:58",
+       "text": "当然就是不红"
+      },
+      {
+       "start_s": 187.0,
+       "end_s": 190.4,
+       "timecode": "03:07",
+       "text": "送给我们的广州的朋友"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p32.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 32,
+     "part_title": "talk①③",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 2,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 30.0,
+       "timecode": "00:00",
+       "text": "接下来的这首歌是两首歌,揉在一起的,没说完的,揉在一起的,因为我为什么想唱这样的歌,哎,似是一句话啊,但是我觉得这两首歌是送给大家的,而大家呢,对这个下下一首歌,我觉得那首歌才能这个送给我们的啊,"
+      },
+      {
+       "start_s": 35.6,
+       "end_s": 37.3,
+       "timecode": "00:35",
+       "text": "那我就把这首歌送给大家"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p33.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 33,
+     "part_title": "talk①④",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 3,
+     "sentences": [
+      {
+       "start_s": 2.9,
+       "end_s": 8.2,
+       "timecode": "00:02",
+       "text": "在上一场的时候我说这首歌是送给大家的"
+      },
+      {
+       "start_s": 8.2,
+       "end_s": 10.7,
+       "timecode": "00:08",
+       "text": "他说不 接下来这首歌才是"
+      },
+      {
+       "start_s": 14.6,
+       "end_s": 22.3,
+       "timecode": "00:14",
+       "text": "把这首 杰斯特的这首非常这个大家都非常熟悉的一首作品送给大家"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p34.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 34,
+     "part_title": "talk①⑤",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 7,
+     "sentences": [
+      {
+       "start_s": 5.4,
+       "end_s": 8.6,
+       "timecode": "00:05",
+       "text": "正说大家的这个建议"
+      },
+      {
+       "start_s": 8.6,
+       "end_s": 12.0,
+       "timecode": "00:08",
+       "text": "就是因为那需要刚刚在唱《情娃》的时候"
+      },
+      {
+       "start_s": 12.0,
+       "end_s": 14.2,
+       "timecode": "00:12",
+       "text": "女朋友到件明天"
+      },
+      {
+       "start_s": 29.0,
+       "end_s": 31.0,
+       "timecode": "00:29",
+       "text": "他是为什么的人"
+      },
+      {
+       "start_s": 37.0,
+       "end_s": 41.0,
+       "timecode": "00:37",
+       "text": "确实来一趟真的很不容易啊"
+      },
+      {
+       "start_s": 49.0,
+       "end_s": 51.0,
+       "timecode": "00:49",
+       "text": "我们再唱一遍这首歌"
+      },
+      {
+       "start_s": 51.0,
+       "end_s": 53.0,
+       "timecode": "00:51",
+       "text": "然后唱完结果之后"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p35.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 35,
+     "part_title": "talk①⑥",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 7,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 7.7,
+       "timecode": "00:00",
+       "text": "因为他需要这个特别很厚重的男生来唱"
+      },
+      {
+       "start_s": 7.7,
+       "end_s": 14.5,
+       "timecode": "00:07",
+       "text": "因为这个很久没有唱 下午唱了在彩排的时候唱的有点多"
+      },
+      {
+       "start_s": 14.5,
+       "end_s": 17.3,
+       "timecode": "00:14",
+       "text": "嗓的又有点 这个就唱开了"
+      },
+      {
+       "start_s": 17.3,
+       "end_s": 22.1,
+       "timecode": "00:17",
+       "text": "其实放在前面会更好听"
+      },
+      {
+       "start_s": 22.1,
+       "end_s": 26.6,
+       "timecode": "00:22",
+       "text": "对 他需要书香的比例会更多点"
+      },
+      {
+       "start_s": 26.6,
+       "end_s": 30.2,
+       "timecode": "00:26",
+       "text": "- 你站在前面唱吗?- 站在前面唱一遍,后面唱一遍"
+      },
+      {
+       "start_s": 31.2,
+       "end_s": 39.2,
+       "timecode": "00:31",
+       "text": "- 好,这样啊,那个,我们的提斯奇老师,你再帮我们翻译一下,请忘"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p36.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 36,
+     "part_title": "talk①⑦",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 12,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 12.2,
+       "timecode": "00:00",
+       "text": "亲爱的家人们,也能感受得到,然后也会有一些第一次来听王心音乐会的朋友"
+      },
+      {
+       "start_s": 12.2,
+       "end_s": 29.4,
+       "timecode": "00:12",
+       "text": "可能跟其他歌手相比,我最大的诚意就是能够尽量把每一首歌唱好,把好的音乐送给你们"
+      },
+      {
+       "start_s": 31.4,
+       "end_s": 33.4,
+       "timecode": "00:31",
+       "text": "谢谢 来"
+      },
+      {
+       "start_s": 39.4,
+       "end_s": 41.4,
+       "timecode": "00:39",
+       "text": "来 有没有我们八月份"
+      },
+      {
+       "start_s": 41.4,
+       "end_s": 43.4,
+       "timecode": "00:41",
+       "text": "今天过生日啊"
+      },
+      {
+       "start_s": 47.4,
+       "end_s": 49.4,
+       "timecode": "00:47",
+       "text": "明天 啊真的吗"
+      },
+      {
+       "start_s": 53.4,
+       "end_s": 55.4,
+       "timecode": "00:53",
+       "text": "那这个 按照我们"
+      },
+      {
+       "start_s": 55.4,
+       "end_s": 57.4,
+       "timecode": "00:55",
+       "text": "这个成为惯例啊"
+      },
+      {
+       "start_s": 58.9,
+       "end_s": 60.9,
+       "timecode": "00:58",
+       "text": "然后祝祝你乐长要好看"
+      },
+      {
+       "start_s": 62.5,
+       "end_s": 64.5,
+       "timecode": "01:02",
+       "text": "来吧 我们乐老师"
+      },
+      {
+       "start_s": 72.5,
+       "end_s": 74.5,
+       "timecode": "01:12",
+       "text": "我们大家可以一起唱吗"
+      },
+      {
+       "start_s": 110.4,
+       "end_s": 112.5,
+       "timecode": "01:50",
+       "text": "邀请我们的乐队老师们"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p37.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 37,
+     "part_title": "talk①⑧",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 24,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 5.0,
+       "timecode": "00:00",
+       "text": "我其实也非常想念大家"
+      },
+      {
+       "start_s": 5.0,
+       "end_s": 17.0,
+       "timecode": "00:05",
+       "text": "今天是周日,明天就要上班了"
+      },
+      {
+       "start_s": 17.0,
+       "end_s": 24.0,
+       "timecode": "00:17",
+       "text": "其实明天也是孩子上学的开学了"
+      },
+      {
+       "start_s": 24.0,
+       "end_s": 26.0,
+       "timecode": "00:24",
+       "text": "这个时间真的很快"
+      },
+      {
+       "start_s": 26.0,
+       "end_s": 30.0,
+       "timecode": "00:26",
+       "text": "我们知道黄州的这个小学是"
+      },
+      {
+       "start_s": 34.0,
+       "end_s": 36.0,
+       "timecode": "00:34",
+       "text": "主要是我们放的早"
+      },
+      {
+       "start_s": 48.0,
+       "end_s": 52.0,
+       "timecode": "00:48",
+       "text": "希望回到自己的生活工作的这个"
+      },
+      {
+       "start_s": 52.0,
+       "end_s": 57.0,
+       "timecode": "00:52",
+       "text": "然后大家一定要多想念着"
+      },
+      {
+       "start_s": 60.0,
+       "end_s": 63.0,
+       "timecode": "01:00",
+       "text": "然后我觉得这次"
+      },
+      {
+       "start_s": 63.0,
+       "end_s": 68.0,
+       "timecode": "01:03",
+       "text": "这个短暂的相继是对未来的一次非常好的充电"
+      },
+      {
+       "start_s": 75.0,
+       "end_s": 79.0,
+       "timecode": "01:15",
+       "text": "我明天我也会带着大家对我的爱"
+      },
+      {
+       "start_s": 79.0,
+       "end_s": 82.0,
+       "timecode": "01:19",
+       "text": "然后再回到我生活工作的北京"
+      },
+      {
+       "start_s": 82.0,
+       "end_s": 85.0,
+       "timecode": "01:22",
+       "text": "然后,对,我也会时常想念着呢"
+      },
+      {
+       "start_s": 90.0,
+       "end_s": 94.0,
+       "timecode": "01:30",
+       "text": "对,一定会去深圳的,对"
+      },
+      {
+       "start_s": 94.0,
+       "end_s": 99.0,
+       "timecode": "01:34",
+       "text": "好吧,亲爱的问题,我觉得"
+      },
+      {
+       "start_s": 101.0,
+       "end_s": 103.0,
+       "timecode": "01:41",
+       "text": "把这首歌送给大家吧"
+      },
+      {
+       "start_s": 106.0,
+       "end_s": 115.0,
+       "timecode": "01:46",
+       "text": "但是,确实想说得非常非常多,但我觉得时间有限,还是留给这个歌呢?"
+      },
+      {
+       "start_s": 119.0,
+       "end_s": 121.0,
+       "timecode": "01:59",
+       "text": "谢谢,谢谢!"
+      },
+      {
+       "start_s": 122.0,
+       "end_s": 130.0,
+       "timecode": "02:02",
+       "text": "今晚的最后的一首歌,感谢每一位楼上楼下的朋友,我希望能够多一点的机会,"
+      },
+      {
+       "start_s": 130.0,
+       "end_s": 137.0,
+       "timecode": "02:10",
+       "text": "然后为大家唱歌,唱好听的歌,然后分享音乐,分享声音,好吗?"
+      },
+      {
+       "start_s": 137.0,
+       "end_s": 147.0,
+       "timecode": "02:17",
+       "text": "对,然后我也希望学习音乐的朋友,然后也可以我们多多找机会,也可以多聊一些。"
+      },
+      {
+       "start_s": 147.0,
+       "end_s": 155.0,
+       "timecode": "02:27",
+       "text": "因为可能对于我而言,我觉得实战的这种经验还是有一些的。"
+      },
+      {
+       "start_s": 155.0,
+       "end_s": 163.6,
+       "timecode": "02:35",
+       "text": "我也想有机会,如果要分享这个条件的话,我会跟大家做一些分享,好吗?"
+      },
+      {
+       "start_s": 163.6,
+       "end_s": 167.0,
+       "timecode": "02:43",
+       "text": "今晚的最后一首歌,非常舍不得"
+      }
+     ]
+    },
+    {
+     "source": "六巡广州20260823_回_p%(playlist_index)s_BV1Rx8Y6bEBb_p38.m4a",
+     "bv": "BV1Rx8Y6bEBb",
+     "part": 38,
+     "part_title": "talk①⑨",
+     "tour": "六巡",
+     "city": "广州",
+     "n_sentences": 1,
+     "sentences": [
+      {
+       "start_s": 9.8,
+       "end_s": 12.8,
+       "timecode": "00:09",
+       "text": "希望你qua整早地舞好是"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tour": "四巡",
+   "city": "上海",
+   "sources": 5,
+   "sentences": 52,
+   "sample": "接下来把这首歌送给我们上海的朋友",
+   "items": [
+    {
+     "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p11.m4a",
+     "bv": "BV1DC411V7rB",
+     "part": 11,
+     "part_title": "talk-声入人心",
+     "tour": "四巡",
+     "city": "上海",
+     "n_sentences": 8,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 9.8,
+       "timecode": "00:00",
+       "text": "有很多朋友都是在神无人心上面所知道的我 了解的我"
+      },
+      {
+       "start_s": 9.8,
+       "end_s": 18.2,
+       "timecode": "00:09",
+       "text": "所以呢其实我非常的怀念那几个月在一起生活的日子"
+      },
+      {
+       "start_s": 21.0,
+       "end_s": 27.2,
+       "timecode": "00:21",
+       "text": "所以通过大家所有人的努力呈现出一台非常好的节目"
+      },
+      {
+       "start_s": 27.2,
+       "end_s": 30.0,
+       "timecode": "00:27",
+       "text": "我觉得这个是值得骄傲的一件事情"
+      },
+      {
+       "start_s": 30.0,
+       "end_s": 35.4,
+       "timecode": "00:30",
+       "text": "希望我们继续怀抱希望吧"
+      },
+      {
+       "start_s": 36.9,
+       "end_s": 41.5,
+       "timecode": "00:36",
+       "text": "接下来把这首歌送给我们上海的朋友"
+      },
+      {
+       "start_s": 41.5,
+       "end_s": 46.0,
+       "timecode": "00:41",
+       "text": "然后也让我们一起追忆一下"
+      },
+      {
+       "start_s": 46.0,
+       "end_s": 51.4,
+       "timecode": "00:46",
+       "text": "曾经把这首《幼仪地久天长》送给大家"
+      }
+     ]
+    },
+    {
+     "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p20.m4a",
+     "bv": "BV1DC411V7rB",
+     "part": 20,
+     "part_title": "一小段talk-加量不加价",
+     "tour": "四巡",
+     "city": "上海",
+     "n_sentences": 9,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 5.0,
+       "timecode": "00:00",
+       "text": "大家都知道第一场跟后面可能也有一些舞台一样"
+      },
+      {
+       "start_s": 5.0,
+       "end_s": 12.4,
+       "timecode": "00:05",
+       "text": "把之前的歌替换掉,然后把想唱的歌放进去,或者大家喜欢的歌放进去"
+      },
+      {
+       "start_s": 12.4,
+       "end_s": 16.4,
+       "timecode": "00:12",
+       "text": "这一场其实是没有剪一首歌,是在加歌"
+      },
+      {
+       "start_s": 16.4,
+       "end_s": 20.8,
+       "timecode": "00:16",
+       "text": "对,表达一下我的诚意"
+      },
+      {
+       "start_s": 23.0,
+       "end_s": 29.8,
+       "timecode": "00:23",
+       "text": "好的,接下来我想为大家唱一首我自己非常喜欢的歌"
+      },
+      {
+       "start_s": 29.8,
+       "end_s": 36.1,
+       "timecode": "00:29",
+       "text": "这首歌也是来自一部非常好看的一部电视剧,"
+      },
+      {
+       "start_s": 36.1,
+       "end_s": 42.1,
+       "timecode": "00:36",
+       "text": "讲我们东北,曾经我们父北的那个年代,"
+      },
+      {
+       "start_s": 42.1,
+       "end_s": 45.2,
+       "timecode": "00:42",
+       "text": "叫做《人世间》里面的主题曲,"
+      },
+      {
+       "start_s": 45.2,
+       "end_s": 49.3,
+       "timecode": "00:45",
+       "text": "《人世间》送给大家,希望大家喜欢,谢谢。"
+      }
+     ]
+    },
+    {
+     "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p3.m4a",
+     "bv": "BV1DC411V7rB",
+     "part": 3,
+     "part_title": "开场talk“最远的你是我最近的爱”",
+     "tour": "四巡",
+     "city": "上海",
+     "n_sentences": 14,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 7.4,
+       "timecode": "00:00",
+       "text": "- 感谢大家今天能够来听我的音乐会"
+      },
+      {
+       "start_s": 7.4,
+       "end_s": 11.9,
+       "timecode": "00:07",
+       "text": "- 谢谢大家,来让我看一下你们,好不好?"
+      },
+      {
+       "start_s": 11.9,
+       "end_s": 15.5,
+       "timecode": "00:11",
+       "text": "- 哈喽,一楼的朋友!"
+      },
+      {
+       "start_s": 15.5,
+       "end_s": 20.1,
+       "timecode": "00:15",
+       "text": "- 哎,你们好,你们好,辛苦了啊!"
+      },
+      {
+       "start_s": 20.1,
+       "end_s": 23.1,
+       "timecode": "00:20",
+       "text": "- 谢谢,谢谢!"
+      },
+      {
+       "start_s": 23.1,
+       "end_s": 27.2,
+       "timecode": "00:23",
+       "text": "- 还有二楼的朋友,你们好!"
+      },
+      {
+       "start_s": 27.2,
+       "end_s": 28.7,
+       "timecode": "00:27",
+       "text": "是不是还有三楼的朋友"
+      },
+      {
+       "start_s": 30.5,
+       "end_s": 32.1,
+       "timecode": "00:30",
+       "text": "啊 你们好 你们好"
+      },
+      {
+       "start_s": 41.3,
+       "end_s": 42.0,
+       "timecode": "00:41",
+       "text": "谢谢大家"
+      },
+      {
+       "start_s": 42.3,
+       "end_s": 44.4,
+       "timecode": "00:42",
+       "text": "感谢大家能够再一次的"
+      },
+      {
+       "start_s": 47.9,
+       "end_s": 50.0,
+       "timecode": "00:47",
+       "text": "我知道其实在刚刚不久"
+      },
+      {
+       "start_s": 50.2,
+       "end_s": 51.8,
+       "timecode": "00:50",
+       "text": "就是在重庆其实"
+      },
+      {
+       "start_s": 52.0,
+       "end_s": 53.6,
+       "timecode": "00:52",
+       "text": "有很多的这个朋友"
+      },
+      {
+       "start_s": 54.1,
+       "end_s": 55.6,
+       "timecode": "00:54",
+       "text": "已经听过这个"
+      }
+     ]
+    },
+    {
+     "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p32.m4a",
+     "bv": "BV1DC411V7rB",
+     "part": 32,
+     "part_title": "talk-雨露均沾地打招呼",
+     "tour": "四巡",
+     "city": "上海",
+     "n_sentences": 7,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 2.5,
+       "timecode": "00:00",
+       "text": "知足是行乐,好吗?"
+      },
+      {
+       "start_s": 2.5,
+       "end_s": 8.9,
+       "timecode": "00:02",
+       "text": "想想我们后边的朋友,想想二楼,三楼的朋友"
+      },
+      {
+       "start_s": 8.9,
+       "end_s": 17.3,
+       "timecode": "00:08",
+       "text": "我……我特别……啊?什么?上来!"
+      },
+      {
+       "start_s": 17.3,
+       "end_s": 25.7,
+       "timecode": "00:17",
+       "text": "我好想上来,好想上来,但是这个实在是不太方便啊"
+      },
+      {
+       "start_s": 36.7,
+       "end_s": 38.7,
+       "timecode": "00:36",
+       "text": "来 来 让我看看我们"
+      },
+      {
+       "start_s": 38.7,
+       "end_s": 42.7,
+       "timecode": "00:38",
+       "text": "还有我们的这个男同胞们"
+      },
+      {
+       "start_s": 46.7,
+       "end_s": 48.7,
+       "timecode": "00:46",
+       "text": "你们好 你们好"
+      }
+     ]
+    },
+    {
+     "source": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p7.m4a",
+     "bv": "BV1DC411V7rB",
+     "part": 7,
+     "part_title": "talk-年龄焦虑的晰哥絮絮念",
+     "tour": "四巡",
+     "city": "上海",
+     "n_sentences": 14,
+     "sentences": [
+      {
+       "start_s": 0.0,
+       "end_s": 3.0,
+       "timecode": "00:00",
+       "text": "我拍这个R&B的一首歌"
+      },
+      {
+       "start_s": 3.0,
+       "end_s": 7.4,
+       "timecode": "00:03",
+       "text": "然后其实了解我的朋友其实都知道"
+      },
+      {
+       "start_s": 7.4,
+       "end_s": 10.4,
+       "timecode": "00:07",
+       "text": "就是我很少去演唱这样的这个曲风"
+      },
+      {
+       "start_s": 10.4,
+       "end_s": 13.2,
+       "timecode": "00:10",
+       "text": "然后其实我这一次在演唱的时候"
+      },
+      {
+       "start_s": 13.2,
+       "end_s": 16.2,
+       "timecode": "00:13",
+       "text": "哎我记得是不是签唱会的时候唱过是吧"
+      },
+      {
+       "start_s": 16.2,
+       "end_s": 18.4,
+       "timecode": "00:16",
+       "text": "是不是也在这啊"
+      },
+      {
+       "start_s": 18.4,
+       "end_s": 23.4,
+       "timecode": "00:18",
+       "text": "哎呀你看一下子就让我想起了这个好多好多啊"
+      },
+      {
+       "start_s": 30.6,
+       "end_s": 31.6,
+       "timecode": "00:30",
+       "text": "你在想什么"
+      },
+      {
+       "start_s": 36.6,
+       "end_s": 38.6,
+       "timecode": "00:36",
+       "text": "这个人年纪大了"
+      },
+      {
+       "start_s": 42.6,
+       "end_s": 46.6,
+       "timecode": "00:42",
+       "text": "哎呀我多么希望是去年的年纪啊"
+      },
+      {
+       "start_s": 64.6,
+       "end_s": 66.6,
+       "timecode": "01:04",
+       "text": "什么时候都美"
+      },
+      {
+       "start_s": 74.6,
+       "end_s": 76.6,
+       "timecode": "01:14",
+       "text": "其实大家在我的眼里"
+      },
+      {
+       "start_s": 80.6,
+       "end_s": 82.6,
+       "timecode": "01:20",
+       "text": "你们最美"
+      },
+      {
+       "start_s": 84.6,
+       "end_s": 90.8,
+       "timecode": "01:24",
+       "text": "我刚刚也唱了这首歌"
+      }
+     ]
     }
    ]
   }
