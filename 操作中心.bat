@@ -209,6 +209,7 @@ echo    159. 听辨台账回填（人耳定案写回 data/listening_verdicts.json）
 echo    160. 听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）
 echo    161. 汇总明细一致性审计（防未复核值被当结论）
 echo    162. 听辨样本切制（待复核读数切 6~8 秒小段送人耳）
+echo    163. 辩音总档生成（传记素材：前史+正本+裁决台账合并）
 echo    0. 退出
 echo.
 set "op="
@@ -376,6 +377,7 @@ if "%op%"=="159" goto listen_ledger
 if "%op%"=="160" goto listen_rebuild
 if "%op%"=="161" goto audit_consistency
 if "%op%"=="162" goto make_review_clips
+if "%op%"=="163" goto build_debate_archive
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2245,5 +2247,17 @@ echo  先 --list 看待复核；--song + --hz 可单条精确定位
 echo  纪律：同名曲目必须按 tag 精确匹配；高音时刻不可用低音的 t_s
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\make_review_clips.py --list --mode all
+pause
+goto menu
+
+:build_debate_archive
+cls
+echo  [辩音总档生成] 把 09-09 起全部复核与听辨记录汇成一份传记素材
+echo  纳入：前史 6 份（十曲口径/LowC/引擎稳健性/让她降落B1/复核备忘）
+echo        + 辩音全记录正本 + data/listening_verdicts.json 裁决台账
+echo  产出：E:\wx\论文素材_王晰作传\辩音总档_王晰音域.md
+echo  注：这是**生成器**，上游变了重跑即刷新，勿手改产出
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_debate_archive.py
 pause
 goto menu
