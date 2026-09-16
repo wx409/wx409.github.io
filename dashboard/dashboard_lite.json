@@ -1,13 +1,13 @@
 {
- "timestamp": "2026-09-16 08:53",
- "last_update": "2026-09-16 08:53",
- "date_range": "2023-01-01 ~ 2026-09-15",
- "total": 273522,
- "complete_rate": 20.7,
+ "timestamp": "2026-09-16 11:50",
+ "last_update": "2026-09-16 11:50",
+ "date_range": "2023-01-01 ~ 2026-09-16",
+ "total": 273775,
+ "complete_rate": 20.6,
  "total_songs": 383,
  "active_songs": 244,
  "active_rate": 63.7,
- "batch_count": 1231,
+ "batch_count": 1232,
  "time_labels": [
   "2023-01",
   "2023-02",
@@ -199,12 +199,12 @@
   3.0,
   8.2,
   36.6,
-  19.4
+  20.0
  ],
  "top_songs": [
   {
    "name": "一生守候",
-   "trend": 21.4,
+   "trend": 21.9,
    "score": 60,
    "tag": "飙升"
   },
@@ -216,235 +216,59 @@
   },
   {
    "name": "一生中最爱",
-   "trend": 134.8,
+   "trend": 130.1,
    "score": 55,
    "tag": "飙升"
   },
   {
    "name": "山楂树",
-   "trend": 17.4,
+   "trend": 17.7,
    "score": 53,
    "tag": "上涨"
   },
   {
    "name": "相思",
-   "trend": 25.1,
+   "trend": 23.4,
    "score": 50,
    "tag": "飙升"
   },
   {
    "name": "在路上",
-   "trend": 35.6,
+   "trend": 34.9,
    "score": 48,
    "tag": "飙升"
   },
   {
    "name": "月弯弯",
-   "trend": 15.3,
+   "trend": 16.1,
    "score": 45,
    "tag": "上涨"
   },
   {
    "name": "Over the Rainbow",
-   "trend": 10.5,
+   "trend": 9.4,
    "score": 45,
    "tag": "上涨"
   },
   {
    "name": "亲密爱人",
-   "trend": 15.9,
+   "trend": 15.8,
    "score": 45,
    "tag": "上涨"
   },
   {
    "name": "荒人之歌",
-   "trend": 28.8,
+   "trend": 29.7,
    "score": 40,
    "tag": "飙升"
   }
  ],
- "daily_listen_trend": [
-  {
-   "rank": 1,
-   "song": "黎明前的黑暗",
-   "share_pct": 47.4,
-   "trend_pct": 3.4,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 2,
-   "song": "在路上",
-   "share_pct": 6.4,
-   "trend_pct": -31.8,
-   "trend_label": "down"
-  },
-  {
-   "rank": 3,
-   "song": "山楂树",
-   "share_pct": 4.4,
-   "trend_pct": 10.7,
-   "trend_label": "up"
-  },
-  {
-   "rank": 4,
-   "song": "月弯弯",
-   "share_pct": 4.3,
-   "trend_pct": -6.2,
-   "trend_label": "down"
-  },
-  {
-   "rank": 5,
-   "song": "一生中最爱",
-   "share_pct": 4.3,
-   "trend_pct": -30.2,
-   "trend_label": "down"
-  },
-  {
-   "rank": 6,
-   "song": "她真漂亮",
-   "share_pct": 3.4,
-   "trend_pct": 20.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 7,
-   "song": "Sound of Silence",
-   "share_pct": 3.1,
-   "trend_pct": 37.5,
-   "trend_label": "up"
-  },
-  {
-   "rank": 8,
-   "song": "神魂颠倒",
-   "share_pct": 2.8,
-   "trend_pct": 42.9,
-   "trend_label": "up"
-  },
-  {
-   "rank": 9,
-   "song": "再叙",
-   "share_pct": 2.8,
-   "trend_pct": 25.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 10,
-   "song": "亲密爱人",
-   "share_pct": 2.6,
-   "trend_pct": 38.5,
-   "trend_label": "up"
-  },
-  {
-   "rank": 11,
-   "song": "好好说再见",
-   "share_pct": 2.1,
-   "trend_pct": 50.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 12,
-   "song": "谁",
-   "share_pct": 2.1,
-   "trend_pct": -25.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 13,
-   "song": "南屏晚钟",
-   "share_pct": 1.8,
-   "trend_pct": 30.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 14,
-   "song": "一生守候",
-   "share_pct": 1.7,
-   "trend_pct": 71.4,
-   "trend_label": "up"
-  },
-  {
-   "rank": 15,
-   "song": "相思",
-   "share_pct": 1.7,
-   "trend_pct": -7.7,
-   "trend_label": "down"
-  },
-  {
-   "rank": 16,
-   "song": "Over the Rainbow",
-   "share_pct": 1.7,
-   "trend_pct": -25.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 17,
-   "song": "晚风暖暖",
-   "share_pct": 1.6,
-   "trend_pct": -21.4,
-   "trend_label": "down"
-  },
-  {
-   "rank": 18,
-   "song": "小河",
-   "share_pct": 1.4,
-   "trend_pct": 66.7,
-   "trend_label": "up"
-  },
-  {
-   "rank": 19,
-   "song": "哭砂",
-   "share_pct": 1.3,
-   "trend_pct": -10.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 20,
-   "song": "荒人之歌",
-   "share_pct": 1.1,
-   "trend_pct": -20.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 21,
-   "song": "重庆野玫瑰",
-   "share_pct": 1.1,
-   "trend_pct": 33.3,
-   "trend_label": "up"
-  },
-  {
-   "rank": 22,
-   "song": "爱于此生",
-   "share_pct": 0.9,
-   "trend_pct": null,
-   "trend_label": "new"
-  }
- ],
- "daily_anomalies": [
-  {
-   "song": "山楂树",
-   "type": "🔥 指数突增",
-   "metric": "指数",
-   "change_pct": 0.33,
-   "desc": "指数较7日均值 +33.0%"
-  },
-  {
-   "song": "哭砂",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 7,474 位"
-  }
- ],
- "latest_anomaly": {
-  "song": "山楂树",
-  "type": "🔥 指数突增",
-  "metric": "指数",
-  "change_pct": 0.33,
-  "desc": "指数较7日均值 +33.0%"
- },
+ "daily_listen_trend": [],
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   434.0,
-  446.0
+  445.0
  ],
  "tour_events": [
   [
@@ -8493,12 +8317,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-09-09",
-   "avg_index": 567.6,
-   "total_songs": 253,
-   "complete": true
-  },
-  {
    "date": "2026-09-10",
    "avg_index": 636.7,
    "total_songs": 253,
@@ -8531,6 +8349,12 @@
   {
    "date": "2026-09-15",
    "avg_index": 586.7,
+   "total_songs": 253,
+   "complete": true
+  },
+  {
+   "date": "2026-09-16",
+   "avg_index": null,
    "total_songs": 253,
    "complete": true
   }
