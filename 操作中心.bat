@@ -208,6 +208,7 @@ echo    158. 高音区倍频复核（对称闸门：抓 YIN 锁 2 次谐波"报高八度"）
 echo    159. 听辨台账回填（人耳定案写回 data/listening_verdicts.json）
 echo    160. 听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）
 echo    161. 汇总明细一致性审计（防未复核值被当结论）
+echo    162. 听辨样本切制（待复核读数切 6~8 秒小段送人耳）
 echo    0. 退出
 echo.
 set "op="
@@ -374,6 +375,7 @@ if "%op%"=="158" goto high_harmonic
 if "%op%"=="159" goto listen_ledger
 if "%op%"=="160" goto listen_rebuild
 if "%op%"=="161" goto audit_consistency
+if "%op%"=="162" goto make_review_clips
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2233,5 +2235,15 @@ echo  [汇总 vs 明细一致性审计] 防"未复核读数被当结论"与"汇总隐去更低值"
 echo  源：data/*.json → 页面；退出码 1 = 需修
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\audit_consistency.py
+pause
+goto menu
+
+:make_review_clips
+cls
+echo  [听辨样本切制] 把待复核读数切成 6~8 秒小段（人声轨 + 混音）送人耳
+echo  先 --list 看待复核；--song + --hz 可单条精确定位
+echo  纪律：同名曲目必须按 tag 精确匹配；高音时刻不可用低音的 t_s
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\make_review_clips.py --list --mode all
 pause
 goto menu

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 14:49",
+ "generated_at": "2026-09-16 14:54",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -7476,7 +7476,9 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "ear_verdict": "人耳确认为王晰本人",
    "c6_status": "混合（段内含王晰声音，极值归属待定）",
-   "high_verdict": "段内含王晰声音，但极值归属待定（含伴奏/他人）"
+   "high_verdict": "段内含王晰声音，但极值归属待定（含伴奏/他人）",
+   "high_hz_original": 1057.1,
+   "high_note_original": "C6"
   },
   {
    "tag": "签唱会20190414_BV1M4411w735",
