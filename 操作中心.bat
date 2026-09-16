@@ -207,6 +207,7 @@ echo    157. 低音谐波列复核（原始混音谐波列；1f0/3f0 缺失即判次谐波）
 echo    158. 高音区倍频复核（对称闸门：抓 YIN 锁 2 次谐波"报高八度"）
 echo    159. 听辨台账回填（人耳定案写回 data/listening_verdicts.json）
 echo    160. 听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）
+echo    161. 汇总明细一致性审计（防未复核值被当结论）
 echo    0. 退出
 echo.
 set "op="
@@ -372,6 +373,7 @@ if "%op%"=="157" goto low_harmonic
 if "%op%"=="158" goto high_harmonic
 if "%op%"=="159" goto listen_ledger
 if "%op%"=="160" goto listen_rebuild
+if "%op%"=="161" goto audit_consistency
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2222,5 +2224,14 @@ python -X utf8 project_b\build_stage_page.py
 python -X utf8 project_b\build_nav.py
 python -X utf8 project_b\update_sitemap_lastmod.py
 python -X utf8 project_b\audit_caliber.py
+pause
+goto menu
+
+:audit_consistency
+cls
+echo  [汇总 vs 明细一致性审计] 防"未复核读数被当结论"与"汇总隐去更低值"
+echo  源：data/*.json → 页面；退出码 1 = 需修
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_consistency.py
 pause
 goto menu
