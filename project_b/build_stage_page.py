@@ -69,7 +69,8 @@ def _highlights_block() -> str:
         return f'{esc(r.get(k + "_note"))} {r.get(k + "_hz")} Hz'
     lo = min(rows, key=lambda r: r["low_hz"])
     hi = max((r for r in rows if r.get("high_hz")), key=lambda r: r["high_hz"], default=None)
-    sp = max((r for r in rows if r.get("span_octaves")), key=lambda r: r["span_octaves"], default=None)
+    sp = max((r for r in rows if r.get("span_octaves") and r.get("high_hz")),
+             key=lambda r: r["span_octaves"], default=None)
     newest = [r for r in rows if str(r.get("tag", "")).startswith(
         ("六巡广州20260823_回", "二巡上海2021", "一巡厦门", "一巡北京收官", "四巡上海生日"))]
     parts = [
@@ -175,8 +176,9 @@ def tour_layer_html() -> str:
             cross_rows.append(
                 f'<tr><td>{esc(sg["song"])}</td><td>{esc(v.get("tour"))}｜{esc(v.get("city"))} {esc(v.get("date"))}</td>'
                 f'<td class="low">{esc(v.get("low_note"))} {v.get("low_hz")} Hz</td>'
-                f'<td class="high">{esc(v.get("high_note"))} {v.get("high_hz")} Hz'
+                f'<td class="high">' + (f'{esc(v.get("high_note"))} {v.get("high_hz")} Hz'
                 + (' <span class="lv">人耳确认</span>' if v.get("high_listen_verified") else '')
+                if v.get("high_hz") else '<span class="src">—（人耳判定非王晰）</span>')
                 + f'</td><td>{d}</td>'
                 f'<td>{esc(v.get("verify"))}</td>'
                 + (f'<td><a href="https://www.bilibili.com/video/{esc(v.get("bv"))}" rel="noopener nofollow" target="_blank">B站原链接</a></td>'

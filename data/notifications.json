@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-16 09:00:05",
+ "updated_at": "2026-09-16 14:02:15",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -964,6 +964,35 @@
    "title": "⚠️ 大屏采集漏批：2026-09-16",
    "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 4.4 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260916.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-09-16 14:00:25",
+   "title": "📣 【加油，王晰】快男史上最重低音 - 王晰音视频专楼【快乐 ...",
+   "content": "1 天前&ensp;&#0183;&ensp;王晰本人对这一“生日礼物”的看法是，如果没有那次不通过，也许就没有他后来在广州得到包小柏、丁薇、王东三位老师赏识 …\n链接：https://tieba.baidu.com/p/924089645",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://tieba.baidu.com/p/924089645"
+  },
+  {
+   "time": "2026-09-16 14:00:25",
+   "title": "📣 王晰 _ 百科",
+   "content": "王晰（Elvis Wang），1985年4月9日出生于辽宁营口，毕业于沈阳音乐学院， 中国内地流行乐男低音歌手。 他参加“第十五届全国青 …\n链接：https://baike.sogou.com/m/fullLemma?lid=62982728",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.sogou.com/m/fullLemma?lid=62982728"
+  },
+  {
+   "time": "2026-09-16 14:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-16 14:02:15",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
   }
  ]
 }

@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-16 09:02　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-16 14:02　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -9,7 +9,7 @@
 |---|---|---|---|---|
 | `tracked_songs` | 追踪曲目池 | **383** | 主动追踪并采集指数的曲目清单（池内） | `dashboard/dashboard_data.json` |
 | `tracked_links` | 追踪链接数 | **383** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
-| `entity_songs` | 关系图谱曲目 | **435** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
+| `entity_songs` | 关系图谱曲目 | **434** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
 | `songs_meta` | 歌曲元数据条目 | **588** | 含元信息（时长/专辑/发行等）的曲目 | `data/songs_meta.json` |
 | `song_archive` | 歌曲档案条目 | **748** | 档案库收录的全部曲目条目（含未追踪/无指数） | `data/song_archive.json` |
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
@@ -30,7 +30,7 @@
 | `index_days` | 指数数据覆盖天数 | **1289** | 站点图表所用指数长表的实际覆盖天数 | `E:\wx\wx_textmine_out\music_index_long.csv` |
 | `stage_measured_versions` | 现场实测版本数 | **14** | B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次） | `音域分析\轨迹\让她降落_四版实测.json` |
 | `stage_measured_shows` | 现场实测场次数 | **5** | 上述现场版本覆盖的实际演出场次（同场多源只算一场） | `音域分析\轨迹\让她降落_四版实测.json` |
-| `stage_low_reviewed` | 巡演现场低音读数·谐波列复核通过条数 | **55** | archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数 | `data\archive_stage_tour.json` |
+| `stage_low_reviewed` | 巡演现场低音读数·谐波列复核通过条数 | **156** | archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数 | `data\archive_stage_tour.json` |
 | `stage_lowest_hz` | 巡演现场最低稳定音（现行） | **58.2** | 王晰主导巡演现场·过复核门槛的最低稳定音（Hz） | `data\archive_stage_tour.json` |
 | `reach_多听有益` | 多听有益 念诵段触达音（G#1） | **51.9** | 录音室 MV / 念诵段 @80.0s：混音带限自相关 + 外部耳测；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].reach_*` |
 | `reach_live_多听有益` | 多听有益 现场念诵段低音事件（A1） | **56.5** | 四巡｜北京 2023-11-12（王晰本人号直拍 BV1Ab4y1g7Wj）｜@55.5s（2.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].live_low_events` |

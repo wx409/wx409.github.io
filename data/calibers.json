@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16 09:02",
+ "generated_at": "2026-09-16 14:02",
  "count": 56,
  "calibers": [
   {
@@ -21,7 +21,7 @@
   {
    "id": "entity_songs",
    "label": "关系图谱曲目",
-   "value": 435,
+   "value": 434,
    "scope": "至少有一条关系（现场/小酒馆/专辑）的曲目",
    "source": "entity_index.json",
    "note": "歌曲↔城市↔场馆↔逐字稿的聚合图谱节点数"
@@ -189,7 +189,7 @@
   {
    "id": "stage_low_reviewed",
    "label": "巡演现场低音读数·谐波列复核通过条数",
-   "value": 55,
+   "value": 156,
    "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
    "source": "data\\archive_stage_tour.json",
    "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
