@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 14:04",
+ "generated_at": "2026-09-16 14:17",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -26,7 +26,7 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 2.93,
+  "span_median_octaves": 2.9,
   "stability_median_cents": 7.5,
   "vibrato_rate_hz_median": 4.94,
   "vibrato_extent_cents_median": 81.0,
@@ -64,7 +64,7 @@
    "lowest_hz_all": 61.2,
    "lowest_verify_all": "人耳确认（听辨）",
    "lowest_pending_under": false,
-   "span_median_octaves": 2.98,
+   "span_median_octaves": 2.91,
    "stability_median_cents": 7.45,
    "vibrato_rate_hz_median": 4.79
   },
@@ -134,7 +134,7 @@
    "lowest_hz_all": 65.0,
    "lowest_verify_all": "谐波列复核通过",
    "lowest_pending_under": false,
-   "span_median_octaves": 2.85,
+   "span_median_octaves": 2.81,
    "stability_median_cents": 7.85,
    "vibrato_rate_hz_median": 4.79
   },
@@ -682,9 +682,9 @@
    "low_hz": 73.3,
    "low_t_s": 249.42875283446713,
    "low_dur_s": 0.301859410430839,
-   "high_note": "C6",
-   "high_hz": 1047.9,
-   "span_octaves": 3.84,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
    "stability_cents": 7.8,
    "intonation_cents": 19.8,
    "vibrato_hz": 4.79,
@@ -718,7 +718,10 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "ear_verdict": "人耳确认为王晰本人"
+   "ear_verdict": "人耳确认为王晰本人",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1047.9,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "一巡厦门20191221_p16_云一定知道",
@@ -839,9 +842,9 @@
    "low_hz": 74.0,
    "low_t_s": 29.60544217687075,
    "low_dur_s": 0.18575963718820862,
-   "high_note": "C6",
-   "high_hz": 1048.0,
-   "span_octaves": 3.82,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
    "stability_cents": 7.8,
    "intonation_cents": 20.3,
    "vibrato_hz": 5.17,
@@ -875,7 +878,10 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
-   "performer": "合唱（含王晰与他人）"
+   "performer": "合唱（含王晰与他人）",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1048.0,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "一巡北京收官20200102_p20_你不要担心",
@@ -2638,9 +2644,9 @@
    "low_hz": 103.0,
    "low_t_s": 142.59374149659865,
    "low_dur_s": 0.34829931972789113,
-   "high_note": "C6",
-   "high_hz": 1030.2,
-   "span_octaves": 3.32,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
    "stability_cents": 9.2,
    "intonation_cents": 28.8,
    "vibrato_hz": 4.64,
@@ -2674,7 +2680,10 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "performer": "他人演唱（嘉宾）"
+   "performer": "他人演唱（嘉宾）",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1030.2,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "一巡厦门20191221_p28_迷迭香+人间",
@@ -3609,9 +3618,9 @@
    "low_hz": 69.4,
    "low_t_s": 47.50802721088435,
    "low_dur_s": 0.16253968253968254,
-   "high_note": "B5",
-   "high_hz": 1007.0,
-   "span_octaves": 3.86,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
    "stability_cents": 8.0,
    "intonation_cents": 18.6,
    "vibrato_hz": 5.07,
@@ -3645,7 +3654,10 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
-   "ear_verdict": "人耳确认为王晰本人"
+   "ear_verdict": "人耳确认为王晰本人",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1007.0,
+   "high_note_unconfirmed": "B5"
   },
   {
    "tag": "四巡上海生日20240406_p19_剧院刮刮乐",
@@ -4838,7 +4850,7 @@
    "low_dur_s": 0.2786394557823129,
    "high_note": "C5",
    "high_hz": 523.25,
-   "span_octaves": 3.28,
+   "span_octaves": null,
    "stability_cents": 6.6,
    "intonation_cents": 21.7,
    "vibrato_hz": 4.79,
@@ -4873,6 +4885,9 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1005.1,
+   "high_note_unconfirmed": "B5",
    "high_rejected": [
     {
      "note": "C6",
@@ -4957,7 +4972,7 @@
    "low_dur_s": 0.37151927437641724,
    "high_note": "C5",
    "high_hz": 523.25,
-   "span_octaves": 3.27,
+   "span_octaves": null,
    "stability_cents": 6.8,
    "intonation_cents": 18.9,
    "vibrato_hz": 5.07,
@@ -4992,6 +5007,9 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1059.3,
+   "high_note_unconfirmed": "C6",
    "high_rejected": [
     {
      "note": "C6",
@@ -6610,7 +6628,8 @@
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
    "high_verdict": "人耳确认为王晰本人",
-   "high_listen_verified": true
+   "high_listen_verified": true,
+   "c6_status": "人耳确认（可作能力依据）"
   },
   {
    "tag": "六巡重庆20260613_BV1zEJA6xEr2",
@@ -7416,9 +7435,9 @@
    "low_hz": 124.9,
    "low_t_s": 189.79990929705215,
    "low_dur_s": 0.4179591836734694,
-   "high_note": "C6",
-   "high_hz": 1057.1,
-   "span_octaves": 3.08,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
    "stability_cents": 6.7,
    "intonation_cents": 18.7,
    "vibrato_hz": 5.07,
@@ -7452,7 +7471,10 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "ear_verdict": "人耳确认为王晰本人"
+   "ear_verdict": "人耳确认为王晰本人",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1057.1,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "签唱会20190414_BV1M4411w735",
@@ -8190,7 +8212,8 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "high_verdict": "人耳确认为王晰本人",
-   "high_listen_verified": true
+   "high_listen_verified": true,
+   "c6_status": "人耳确认（可作能力依据）"
   },
   {
    "tag": "未知20201116_BV1fr4y1F769",
@@ -9501,7 +9524,8 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "high_verdict": "人耳确认为王晰本人",
-   "high_listen_verified": true
+   "high_listen_verified": true,
+   "c6_status": "人耳确认（可作能力依据）"
   },
   {
    "tag": "二巡上海2021_全程_p40_你3.7手机制渣画质",
@@ -11351,9 +11375,9 @@
    "low_hz": 117.1,
    "low_t_s": 140.2485260770975,
    "low_dur_s": 0.2089795918367347,
-   "high_note": "C6",
-   "high_hz": 1060.8,
-   "span_octaves": 3.18,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
    "stability_cents": 3.1,
    "intonation_cents": 18.2,
    "vibrato_hz": 5.17,
@@ -11387,7 +11411,10 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "ear_verdict": "人耳确认为王晰本人"
+   "ear_verdict": "人耳确认为王晰本人",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1060.8,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "二巡上海2021_全程_p31_追幸福的人",
@@ -11889,7 +11916,7 @@
    "lowest_note": "C#2",
    "lowest_hz": 69.4,
    "lowest_tag": "四巡上海生日20240406_p31_BesameMucho",
-   "span_median_octaves": 3.47,
+   "span_median_octaves": null,
    "versions": [
     {
      "tour": "四巡",
@@ -11897,12 +11924,12 @@
      "date": "2024-04-06",
      "low_note": "C#2",
      "low_hz": 69.4,
-     "high_note": "B5",
-     "high_hz": 1007.0,
+     "high_note": null,
+     "high_hz": null,
      "high_t_s": null,
      "high_dur_s": null,
      "high_listen_verified": null,
-     "span_octaves": 3.86,
+     "span_octaves": null,
      "verify": "人耳确认（听辨）",
      "bv": ""
     },
@@ -11912,12 +11939,12 @@
      "date": "2026-08-23",
      "low_note": "B2",
      "low_hz": 124.9,
-     "high_note": "C6",
-     "high_hz": 1057.1,
+     "high_note": null,
+     "high_hz": null,
      "high_t_s": null,
      "high_dur_s": null,
      "high_listen_verified": null,
-     "span_octaves": 3.08,
+     "span_octaves": null,
      "verify": "人耳确认（听辨）",
      "bv": ""
     }
@@ -13295,7 +13322,7 @@
    "lowest_note": "A#2",
    "lowest_hz": 117.1,
    "lowest_tag": "二巡上海2021_全程_p13_别离的预感",
-   "span_median_octaves": 3.18,
+   "span_median_octaves": null,
    "versions": [
     {
      "tour": "其他演出",
@@ -13303,12 +13330,12 @@
      "date": "2021",
      "low_note": "A#2",
      "low_hz": 117.1,
-     "high_note": "C6",
-     "high_hz": 1060.8,
+     "high_note": null,
+     "high_hz": null,
      "high_t_s": null,
      "high_dur_s": null,
      "high_listen_verified": null,
-     "span_octaves": 3.18,
+     "span_octaves": null,
      "verify": "人耳确认（听辨）",
      "bv": ""
     }
@@ -13476,7 +13503,7 @@
    "lowest_note": "E2",
    "lowest_hz": 84.3,
    "lowest_tag": "四巡上海生日20240406_p12_友谊地久天长",
-   "span_median_octaves": 3.27,
+   "span_median_octaves": 2.94,
    "versions": [
     {
      "tour": "四巡",
@@ -13504,7 +13531,7 @@
      "high_t_s": 220.0,
      "high_dur_s": 4.0,
      "high_listen_verified": true,
-     "span_octaves": 3.28,
+     "span_octaves": null,
      "verify": "人耳确认（听辨）",
      "bv": "BV1qy421a7FR"
     },
@@ -13519,7 +13546,7 @@
      "high_t_s": 220.0,
      "high_dur_s": 4.0,
      "high_listen_verified": true,
-     "span_octaves": 3.27,
+     "span_octaves": null,
      "verify": "人耳确认（听辨）",
      "bv": "BV1pc411v7gU"
     }
@@ -13668,7 +13695,7 @@
    "lowest_note": "D2",
    "lowest_hz": 74.0,
    "lowest_tag": "一巡北京收官20200102_p22_告别语+友谊地久天长",
-   "span_median_octaves": 3.82,
+   "span_median_octaves": null,
    "versions": [
     {
      "tour": "一巡",
@@ -13676,12 +13703,12 @@
      "date": "2020-01-02",
      "low_note": "D2",
      "low_hz": 74.0,
-     "high_note": "C6",
-     "high_hz": 1048.0,
+     "high_note": null,
+     "high_hz": null,
      "high_t_s": null,
      "high_dur_s": null,
      "high_listen_verified": null,
-     "span_octaves": 3.82,
+     "span_octaves": null,
      "verify": "待复核（谐波列待判）",
      "bv": ""
     }
@@ -14407,7 +14434,7 @@
    "lowest_note": "D2",
    "lowest_hz": 73.3,
    "lowest_tag": "一巡北京收官20200102_p12_心动+被吐槽的我只在乎你",
-   "span_median_octaves": 3.84,
+   "span_median_octaves": null,
    "versions": [
     {
      "tour": "一巡",
@@ -14415,12 +14442,12 @@
      "date": "2020-01-02",
      "low_note": "D2",
      "low_hz": 73.3,
-     "high_note": "C6",
-     "high_hz": 1047.9,
+     "high_note": null,
+     "high_hz": null,
      "high_t_s": null,
      "high_dur_s": null,
      "high_listen_verified": null,
-     "span_octaves": 3.84,
+     "span_octaves": null,
      "verify": "人耳确认（听辨）",
      "bv": ""
     }
@@ -15646,7 +15673,7 @@
    "lowest_note": "G#2",
    "lowest_hz": 103.0,
    "lowest_tag": "一巡北京收官20200102_p18_笑之歌",
-   "span_median_octaves": 3.32,
+   "span_median_octaves": null,
    "versions": [
     {
      "tour": "一巡",
@@ -15654,12 +15681,12 @@
      "date": "2020-01-02",
      "low_note": "G#2",
      "low_hz": 103.0,
-     "high_note": "C6",
-     "high_hz": 1030.2,
+     "high_note": null,
+     "high_hz": null,
      "high_t_s": null,
      "high_dur_s": null,
      "high_listen_verified": null,
-     "span_octaves": 3.32,
+     "span_octaves": null,
      "verify": "谐波列复核通过",
      "bv": ""
     }
