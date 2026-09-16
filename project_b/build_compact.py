@@ -904,14 +904,17 @@ def _sentences_block() -> str:
     def rows_of(payload, limit=14):
         out = []
         for g in (payload.get("groups") or [])[:limit]:
-            sample = ""
-            for it in (g.get("items") or []):
-                ss = it.get("sentences") or []
-                if ss:
-                    sample = ss[min(3, len(ss) - 1)].get("text", "")
-                    break
+            # 用各组预算好的「最像说话」示例（此前取第 4 句，恰好常撞歌词）
+            sample = g.get("sample") or ""
+            if not sample:
+                for it in (g.get("items") or []):
+                    ss = it.get("sentences") or []
+                    if ss:
+                        sample = ss[0].get("text", "")
+                        break
             out.append(f'<tr><td>{esc(g.get("tour"))}｜{esc(g.get("city"))}</td>'
                        f'<td class="n">{g.get("sources")}</td><td class="n">{g.get("sentences")}</td>'
+                       f'<td class="n">{g.get("speech_ratio_avg", 0):.2f}</td>'
                        f'<td class="src">{esc(str(sample)[:60])}</td></tr>')
         return "\n".join(out)
 
@@ -923,7 +926,7 @@ def _sentences_block() -> str:
 合计 <strong>{total:,} 句</strong>（巡演 talk {ttc.get('sentences', 0):,} 句 ／ 声音节目 {vsc.get('sentences', 0):,} 句）。
 这是「<strong>他对观众怎么说话</strong>」这条线的原始素材 —— 即兴、无脚本，与微博短句、电台独白互补。</p>
 <h3>巡演 / 签唱 talk（按 巡次·城市 分组）</h3>
-<table><tr><th>场次</th><th>来源数</th><th>句数</th><th>示例</th></tr>
+<table><tr><th>场次</th><th>来源数</th><th>句数</th><th>说话句占比</th><th>示例</th></tr>
 {rows_of(tt)}</table>
 <p class="src">共 {ttc.get('groups', 0)} 个场次组 / {ttc.get('sources', 0)} 个来源。
 完整逐句（含时间码）见 <a href="/data/tour_talks_sentences.json">tour_talks_sentences.json</a>。</p>
