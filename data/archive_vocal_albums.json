@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16 16:09",
+ "generated_at": "2026-09-16 16:46",
  "source": "录音室专辑实测（QQ音乐 320k → demucs → YIN）",
  "method": {
   "separation": "demucs htdemucs（--two-stems=vocals，GPU，本地缓存模型）",
@@ -22,8 +22,8 @@
    "song": "带着一颗好心去流浪",
    "album": "重游往昔"
   },
-  "span_median_octaves": 2.27,
-  "span_max_octaves": 3.94,
+  "span_median_octaves": 2.22,
+  "span_max_octaves": 3.41,
   "stability_cents_median": 7.0,
   "intonation_cents_median": 9.0,
   "vibrato_rate_hz_median": 5.12,
@@ -38,7 +38,7 @@
    "low_song": "鹅毛信",
    "high": null,
    "high_song": "在路上",
-   "span_mean": 2.65
+   "span_mean": 2.59
   },
   {
    "album": "重游往昔",
@@ -47,16 +47,7 @@
    "low_song": "静止了的夜晚",
    "high": null,
    "high_song": "茕茕",
-   "span_mean": 2.62
-  },
-  {
-   "album": "Low C的诱惑Ⅱ",
-   "n": 12,
-   "low": "C2",
-   "low_song": "乌兰巴托的夜晚",
-   "high": null,
-   "high_song": "几多愁",
-   "span_mean": 2.6
+   "span_mean": 2.51
   },
   {
    "album": "X自选集",
@@ -66,15 +57,6 @@
    "high": "B4",
    "high_song": "不需要结果",
    "span_mean": 2.21
-  },
-  {
-   "album": "B面图景",
-   "n": 10,
-   "low": "B1",
-   "low_song": "知晓",
-   "high": null,
-   "high_song": "分岔",
-   "span_mean": 2.2
   },
   {
    "album": "歌颂",
@@ -102,6 +84,24 @@
    "high": "E5",
    "high_song": "当爱已成往事",
    "span_mean": 2.0
+  },
+  {
+   "album": "B面图景",
+   "n": 10,
+   "low": "B1",
+   "low_song": "知晓",
+   "high": null,
+   "high_song": "分岔",
+   "span_mean": 1.91
+  },
+  {
+   "album": "Low C的诱惑Ⅱ",
+   "n": 12,
+   "low": "C2",
+   "low_song": "乌兰巴托的夜晚",
+   "high": null,
+   "high_song": "几多愁",
+   "span_mean": 1.78
   }
  ],
  "songs": [
@@ -196,7 +196,7 @@
    "low_hz": 86.2,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.53,
+   "span_octaves": null,
    "notes": 490,
    "density": 2.01,
    "stability_cents": 8.4,
@@ -217,7 +217,7 @@
    "low_hz": 91.0,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.28,
+   "span_octaves": null,
    "notes": 470,
    "density": 2.5,
    "stability_cents": 7.8,
@@ -595,7 +595,7 @@
    "low_hz": 69.5,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.55,
+   "span_octaves": null,
    "notes": 471,
    "density": 2.01,
    "stability_cents": 5.9,
@@ -616,7 +616,7 @@
    "low_hz": 68.9,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.94,
+   "span_octaves": null,
    "notes": 438,
    "density": 1.37,
    "stability_cents": 9.0,
@@ -679,7 +679,7 @@
    "low_hz": 72.6,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.84,
+   "span_octaves": null,
    "notes": 448,
    "density": 1.86,
    "stability_cents": 8.0,
@@ -700,7 +700,7 @@
    "low_hz": 72.2,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.89,
+   "span_octaves": null,
    "notes": 679,
    "density": 2.1,
    "stability_cents": 6.2,
@@ -784,7 +784,7 @@
    "low_hz": 81.6,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.56,
+   "span_octaves": null,
    "notes": 401,
    "density": 1.91,
    "stability_cents": 5.8,
@@ -1099,7 +1099,7 @@
    "low_hz": 77.3,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.09,
+   "span_octaves": null,
    "notes": 343,
    "density": 1.89,
    "stability_cents": 5.6,
@@ -1519,7 +1519,7 @@
    "low_hz": 73.4,
    "high": null,
    "high_hz": null,
-   "span_octaves": 3.42,
+   "span_octaves": null,
    "notes": 335,
    "density": 1.72,
    "stability_cents": 8.8,
