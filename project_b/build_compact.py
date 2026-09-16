@@ -894,10 +894,32 @@ def _lineage_block() -> str:
 ④ 机读数据 <a href="/data/vocal_lineage.json">vocal_lineage.json</a>。</p>"""
 
 
+def _requests_block() -> str:
+    """点歌区块：听众主动要求演唱的曲目（含现场对话）。"""
+    rq = jload("data/song_requests.json", {}) or {}
+    if not rq.get("items"):
+        return ""
+    c = rq.get("counts") or {}
+    rows = []
+    for t, v in (rq.get("by_tour") or {}).items():
+        rows.append(f'<tr><td>{esc(t)}</td><td class="n">{v.get("sources")}</td>'
+                    f'<td class="n">{v.get("sentences")}</td>'
+                    f'<td class="src">{esc("、".join((v.get("cities") or [])[:8]))}</td></tr>')
+    return (f'<p class="sub">点歌 = <strong>听众主动要求听他唱什么</strong>，是「能力-市场线」的直接一手材料。'
+            f'共 {c.get("sources", 0)} 个来源 / {c.get("sentences", 0)} 句。'
+            f'曲目以<strong>巡演歌单长表为权威</strong>（长表备注含「点歌」者 164 行）。</p>'
+            '<table><tr><th>巡次</th><th>来源数</th><th>句数</th><th>城市</th></tr>'
+            + "\n".join(rows) + '</table>'
+            '<p class="src">分布特征：<strong>一巡点歌最散（1–12 首/场）</strong>；'
+            '二巡 1–5 首；三巡多为 3 首；<strong>五巡每场固定 3 首</strong>（提前征集）。'
+            '完整逐句见 <a href="/data/song_requests.json">song_requests.json</a>。</p>')
+
+
 def _sentences_block() -> str:
     """逐句语料索引：巡演 talk 与声音节目（逐句带时间码，全文见 JSON）。"""
     tt = jload("data/tour_talks_sentences.json", {}) or {}
     vs = jload("data/voice_sentences.json", {}) or {}
+    lk = jload("data/talk_links_registry.json", {}) or {}
     if not (tt.get("groups") or vs.get("groups")):
         return ""
 
@@ -933,6 +955,15 @@ def _sentences_block() -> str:
 <h3>声音节目（电台 / 读诗 / 采访）</h3>
 <p class="src">共 {vsc.get('sources', 0)} 期 / {vsc.get('sentences', 0):,} 句，
 完整逐句见 <a href="/data/voice_sentences.json">voice_sentences.json</a>。</p>
+<h3>点歌（听众主动要求演唱的曲目）</h3>
+{_requests_block()}
+<h3>链接台账（本地留存）</h3>
+<p class="src">talk 来源链接逐条留档（含分P标题与 talk 分P数）：
+共 {lk.get('counts', {}).get('total', 0)} 条，其中
+<strong>{lk.get('counts', {}).get('with_talk_parts', 0)} 条</strong>含 talk 分P
+（用户清单 {lk.get('counts', {}).get('from_user_list', 0)} ／ 搜索补充 {lk.get('counts', {}).get('from_search', 0)}）。
+机读：<a href="/data/talk_links_registry.json">talk_links_registry.json</a>。
+<strong>为什么留台账</strong>：链接是最易失的资产（平台可能下架），本地留存才可随时重下与核验。</p>
 <p class="src"><strong>引用纪律</strong>：本表为<strong>机器转写、未做人工校对</strong> ——
 错字保留原样，<strong>直接引用前必须核对原声</strong>；音视频不入库、不公开分发。</p>"""
 
