@@ -210,6 +210,7 @@ echo    160. 听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）
 echo    161. 汇总明细一致性审计（防未复核值被当结论）
 echo    162. 听辨样本切制（待复核读数切 6~8 秒小段送人耳）
 echo    163. 辩音总档生成（传记素材：前史+正本+裁决台账合并）
+echo    164. 专辑层高音区复核（极值读数必须过人耳）
 echo    0. 退出
 echo.
 set "op="
@@ -378,6 +379,7 @@ if "%op%"=="160" goto listen_rebuild
 if "%op%"=="161" goto audit_consistency
 if "%op%"=="162" goto make_review_clips
 if "%op%"=="163" goto build_debate_archive
+if "%op%"=="164" goto make_review_clips
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2259,5 +2261,16 @@ echo  产出：E:\wx\论文素材_王晰作传\辩音总档_王晰音域.md
 echo  注：这是**生成器**，上游变了重跑即刷新，勿手改产出
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_debate_archive.py
+pause
+goto menu
+
+:extreme_note_review
+cls
+echo  [极值读数人耳核验] 纪律：最低/最高音无论在哪一层，都必须过人耳才可对外
+echo  背景：专辑层"最高音 C6 1067.5Hz"从未人耳核验，经查实为女和声 —— 已作废，
+echo        实际最高为 F5 706.0Hz《带着一颗好心去流浪》。
+echo  生成器内 HIGH_REJECT 表为抗回退登记；复核请用 162 切样本。
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\make_review_clips.py --list --mode high
 pause
 goto menu
