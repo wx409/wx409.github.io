@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 12:39",
+ "generated_at": "2026-09-16 12:47",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -65,6 +65,7 @@
    "lowest_note_all": "B1",
    "lowest_hz_all": 61.2,
    "lowest_verify_all": "未复核",
+   "lowest_pending_under": true,
    "span_median_octaves": 3.35,
    "stability_median_cents": 6.9,
    "vibrato_rate_hz_median": 5.02
@@ -86,6 +87,7 @@
    "lowest_note_all": "F2",
    "lowest_hz_all": 88.6,
    "lowest_verify_all": "谐波列复核通过",
+   "lowest_pending_under": false,
    "span_median_octaves": 2.81,
    "stability_median_cents": 6.3,
    "vibrato_rate_hz_median": 4.97
@@ -108,6 +110,7 @@
    "lowest_note_all": "D#2",
    "lowest_hz_all": 79.9,
    "lowest_verify_all": "谐波列复核通过",
+   "lowest_pending_under": false,
    "span_median_octaves": 2.81,
    "stability_median_cents": 6.7,
    "vibrato_rate_hz_median": 4.79
@@ -132,6 +135,7 @@
    "lowest_note_all": "C2",
    "lowest_hz_all": 65.0,
    "lowest_verify_all": "未复核",
+   "lowest_pending_under": false,
    "span_median_octaves": 2.85,
    "stability_median_cents": 8.0,
    "vibrato_rate_hz_median": 4.79
@@ -155,6 +159,7 @@
    "lowest_note_all": "D2",
    "lowest_hz_all": 73.9,
    "lowest_verify_all": "谐波列复核通过",
+   "lowest_pending_under": false,
    "span_median_octaves": 2.95,
    "stability_median_cents": 6.85,
    "vibrato_rate_hz_median": 4.86
@@ -177,6 +182,7 @@
    "lowest_note_all": "C#2",
    "lowest_hz_all": 69.8,
    "lowest_verify_all": "未复核",
+   "lowest_pending_under": true,
    "span_median_octaves": 2.92,
    "stability_median_cents": 7.6,
    "vibrato_rate_hz_median": 4.79

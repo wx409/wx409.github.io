@@ -55,6 +55,41 @@ _TIER_BLOCK = '''<!-- TIER-CALIBER:START（三级读数制度统一文本块，�
 <!-- TIER-CALIBER:END -->'''
 
 
+
+def _highlights_block() -> str:
+    """本页要点：把最低/最高/最宽等关键发现提到首屏（此前埋在对照表里）。"""
+    try:
+        t = json.loads(TOUR.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    rows = [r for r in (t.get("rows") or []) if r.get("low_hz")]
+    if not rows:
+        return ""
+    def nm(r, k):
+        return f'{esc(r.get(k + "_note"))} {r.get(k + "_hz")} Hz'
+    lo = min(rows, key=lambda r: r["low_hz"])
+    hi = max((r for r in rows if r.get("high_hz")), key=lambda r: r["high_hz"], default=None)
+    sp = max((r for r in rows if r.get("span_octaves")), key=lambda r: r["span_octaves"], default=None)
+    newest = [r for r in rows if str(r.get("tag", "")).startswith(
+        ("六巡广州20260823_回", "二巡上海2021", "一巡厦门", "一巡北京收官", "四巡上海生日"))]
+    parts = [
+        f'<li><strong>现场最低稳定音</strong>：{nm(lo, "low")}'
+        f'（《{esc(lo.get("song"))}》{esc(lo.get("tour"))}｜{esc(lo.get("city"))}）</li>',
+    ]
+    if hi:
+        parts.append(f'<li><strong>现场最高稳定音</strong>：{nm(hi, "high")}'
+                     f'（《{esc(hi.get("song"))}》{esc(hi.get("tour"))}｜{esc(hi.get("city"))}）</li>')
+    if sp:
+        parts.append(f'<li><strong>最宽跨度</strong>：<strong>{sp.get("span_octaves")} 个八度</strong>'
+                     f'（《{esc(sp.get("song"))}》{esc(sp.get("tour"))}｜{esc(sp.get("city"))}：'
+                     f'{nm(sp, "low")} → {nm(sp, "high")}）</li>')
+    parts.append(f'<li><strong>实测规模</strong>：{len(rows)} 条素材'
+                 f'（其中本轮新增 {len(newest)} 首来自分P单曲源）｜'
+                 f'{"、".join(sorted({esc(r.get("tour")) for r in rows if r.get("tour")}))}</li>')
+    return ('<div class="hl" style="border-left:4px solid #a8323d">'
+            '<strong>📌 本页要点</strong><ul style="margin:6px 0 0 18px">'
+            + "".join(parts) + '</ul></div>')
+
 def _note(text, tag) -> str:
     """归档提示（瘦身 2.0 第六阶段）：旧页表格保留为完整快照，只加提示链接。"""
     return (f'<!-- {tag}:START（归档提示，勿手改）-->\n'
@@ -84,14 +119,26 @@ def tour_layer_html() -> str:
     def dash(v):
         return "—" if v is None or v == "" else v
 
+    def _tour_low_cell(x):
+        """最低稳定音单元格：已复核值为主；若未复核里存在更低读数，透明标注（防汇总与明细矛盾）。"""
+        note = x.get("lowest_note")
+        if not note:
+            return ('<td>—（未过复核）<br><span class="sub">未过者最低 '
+                    + str(x.get("lowest_note_all")) + " " + str(x.get("lowest_hz_all"))
+                    + " Hz（" + str(x.get("lowest_verify_all")) + "）</span></td>")
+        extra = ""
+        if x.get("lowest_pending_under"):
+            extra = ('<br><span class="sub">未复核中另有更低 '
+                     + str(x.get("lowest_note_all")) + " " + str(x.get("lowest_hz_all"))
+                     + " Hz（" + str(x.get("lowest_verify_all")) + "）</span>")
+        return ('<td class="low">' + esc(note) + "（" + str(x.get("lowest_hz"))
+                + " Hz）" + extra + "</td>")
+
     tour_rows = "\n".join(
         f'<tr><td>{esc(x["tour"])}</td><td>{esc("、".join(x.get("cities") or []))}</td>'
         f'<td>{esc((x.get("dates") or ["", ""])[0])}~{esc((x.get("dates") or ["", ""])[1])}</td>'
         f'<td>{x.get("n_materials")}</td>'
-        + (f'<td class="low">{esc(x.get("lowest_note"))}（{x.get("lowest_hz")} Hz）</td>'
-           if x.get("lowest_hz") else
-           f'<td>—（未过复核）<br><span class="sub" title="本巡无过复核门槛的最低音读数">未过者最低 '
-           f'{esc(x.get("lowest_note_all"))} {esc(x.get("lowest_hz_all"))} Hz（{esc(x.get("lowest_verify_all"))}）</span></td>')
+        + _tour_low_cell(x)
         + f'<td>{dash(x.get("span_median_octaves"))}</td><td>{dash(x.get("stability_median_cents"))}</td>'
         f'<td>{dash(x.get("vibrato_rate_hz_median"))}</td></tr>'
         for x in t.get("by_tour") or [])
@@ -515,6 +562,8 @@ def main() -> None:
 
 <h1>🎤 现场音域实测 · 双层</h1>
 <p class="sub">能力层：王晰主导巡演现场（{tour_n if tour_n else '—'} 条已实测素材）｜对照层：他人主导综艺 / 晚会 / 盛典商演 / 饭拍（{src['analyzed']} 个素材）· 更新 {esc(page_updated)}</p>
+
+{_highlights_block()}
 
 {_TIER_BLOCK}
 
