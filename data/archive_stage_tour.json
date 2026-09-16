@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 12:52",
+ "generated_at": "2026-09-16 13:14",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -14,8 +14,8 @@
   "n_from_precision": 3,
   "n_songs": 126,
   "n_tours": 8,
-  "n_verified": 169,
-  "n_harmonic_reviewed": 164,
+  "n_verified": 190,
+  "n_harmonic_reviewed": 156,
   "lowest": {
    "note": "A#1",
    "hz": 58.2,
@@ -31,22 +31,20 @@
   "vibrato_rate_hz_median": 4.94,
   "vibrato_extent_cents_median": 81.0,
   "verify_dist": {
-   "待复核（谐波列待判）": 40,
-   "谐波列复核通过": 163,
-   "待复核": 3,
+   "人耳确认（听辨）": 29,
+   "待复核（谐波列待判）": 28,
+   "谐波列复核通过": 155,
+   "待复核": 2,
    "双引擎一致": 5,
-   "参考（直拍音质）": 1,
    "未复核": 2,
-   "人耳确认（听辨）": 6,
-   "仅参考（音质受限）": 1,
    "谐波列复核通过（同刻三源）": 1
   }
  },
  "by_tour": [
   {
    "tour": "一巡",
-   "n_materials": 56,
-   "n_claimable": 34,
+   "n_materials": 50,
+   "n_claimable": 36,
    "cities": [
     "上海",
     "北京",
@@ -59,14 +57,14 @@
     "2019-07-28",
     "2020-01-02"
    ],
-   "lowest_note": "D2",
-   "lowest_hz": 72.9,
-   "lowest_tag": "一巡厦门20191221_p7_一生守候",
+   "lowest_note": "B1",
+   "lowest_hz": 61.2,
+   "lowest_tag": "一巡厦门20191221_p2_跟着你到天边",
    "lowest_note_all": "B1",
    "lowest_hz_all": 61.2,
-   "lowest_verify_all": "待复核（谐波列待判）",
-   "lowest_pending_under": true,
-   "span_median_octaves": 3.04,
+   "lowest_verify_all": "人耳确认（听辨）",
+   "lowest_pending_under": false,
+   "span_median_octaves": 2.98,
    "stability_median_cents": 7.45,
    "vibrato_rate_hz_median": 4.79
   },
@@ -118,7 +116,7 @@
   {
    "tour": "四巡",
    "n_materials": 32,
-   "n_claimable": 23,
+   "n_claimable": 29,
    "cities": [
     "上海生日",
     "南京",
@@ -136,8 +134,8 @@
    "lowest_hz_all": 65.0,
    "lowest_verify_all": "谐波列复核通过",
    "lowest_pending_under": false,
-   "span_median_octaves": 2.83,
-   "stability_median_cents": 8.2,
+   "span_median_octaves": 2.9,
+   "stability_median_cents": 7.85,
    "vibrato_rate_hz_median": 4.79
   },
   {
@@ -167,7 +165,7 @@
   {
    "tour": "六巡",
    "n_materials": 42,
-   "n_claimable": 33,
+   "n_claimable": 35,
    "cities": [
     "广州",
     "重庆"
@@ -183,7 +181,7 @@
    "lowest_hz_all": 69.8,
    "lowest_verify_all": "待复核（谐波列待判）",
    "lowest_pending_under": true,
-   "span_median_octaves": 3.05,
+   "span_median_octaves": 3.0,
    "stability_median_cents": 7.7,
    "vibrato_rate_hz_median": 4.92
   }
@@ -217,7 +215,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -239,7 +237,8 @@
      43.2
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "一巡厦门20191221_p19_谁",
@@ -269,7 +268,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -291,7 +290,8 @@
      57.7
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "一巡厦门20191221_p14_山楂2",
@@ -321,7 +321,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -343,7 +343,8 @@
      9.0
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "一巡厦门20191221_p9_李彦锋红眼睛",
@@ -395,7 +396,8 @@
      12.9
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "performer": "他人演唱（嘉宾）"
   },
   {
    "tag": "一巡北京收官20200102_p14_一生守候+很长一段内心独白",
@@ -477,7 +479,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -499,7 +501,8 @@
      42.6
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "一巡厦门20191221_p7_一生守候",
@@ -685,7 +688,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -707,7 +710,8 @@
      31.7
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "一巡厦门20191221_p16_云一定知道",
@@ -863,7 +867,8 @@
      7.4
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "performer": "合唱（含王晰与他人）"
   },
   {
    "tag": "一巡北京收官20200102_p20_你不要担心",
@@ -1071,7 +1076,9 @@
      6.6
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "performer": "他人演唱（嘉宾）",
+   "ear_verdict": "人耳判定非王晰"
   },
   {
    "tag": "一巡北京收官20200102_p13_贝加尔湖",
@@ -1487,7 +1494,8 @@
      22.0
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "performer": "合唱（含王晰与他人）"
   },
   {
    "tag": "上海20191103_BV1FE411B7je",
@@ -2107,7 +2115,9 @@
      22.3
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "performer": "他人演唱（嘉宾）",
+   "ear_verdict": "人耳判定非王晰"
   },
   {
    "tag": "一巡厦门20191221_p1_玛莲娜",
@@ -2345,7 +2355,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -2367,7 +2377,8 @@
      21.9
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "一巡厦门20191221_p18_暖风",
@@ -2627,7 +2638,8 @@
      18.4
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "performer": "他人演唱（嘉宾）"
   },
   {
    "tag": "一巡厦门20191221_p28_迷迭香+人间",
@@ -3043,7 +3055,8 @@
      20.6
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "performer": "他人演唱（嘉宾）"
   },
   {
    "tag": "一巡北京收官20200102_p9_心脏",
@@ -3095,7 +3108,8 @@
      8.8
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "performer": "他人演唱（嘉宾）"
   },
   {
    "tag": "二巡南京20210411b_BV1SZ4y1c7Xb",
@@ -3433,7 +3447,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -3455,7 +3469,8 @@
      34.4
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "肆益杭州站_BV1ArKxe7E8H",
@@ -3483,8 +3498,9 @@
    "a3_state": "高",
    "a3_yin_hz": 65.2,
    "a3_crepe_hz": 65.2,
-   "a3_final_note": "待复核",
-   "source_layer": "十曲精测"
+   "a3_final_note": "人耳确认（听辨）",
+   "source_layer": "十曲精测",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "四巡上海生日20240406_p9_关于妖娆",
@@ -3566,7 +3582,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -3588,7 +3604,8 @@
      28.1
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "四巡上海生日20240406_p19_剧院刮刮乐",
@@ -3980,8 +3997,9 @@
    "a3_state": "中",
    "a3_yin_hz": 74.9,
    "a3_crepe_hz": 74.9,
-   "a3_final_note": "参考（直拍音质）",
-   "source_layer": "十曲精测"
+   "a3_final_note": "人耳确认（听辨）",
+   "source_layer": "十曲精测",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "四巡上海生日20240406_p33_崇拜",
@@ -4967,8 +4985,9 @@
    "a3_state": "低",
    "a3_yin_hz": 111.6,
    "a3_crepe_hz": 111.6,
-   "a3_final_note": "仅参考（音质受限）",
-   "source_layer": "十曲精测"
+   "a3_final_note": "人耳确认（听辨）",
+   "source_layer": "十曲精测",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "杭州20241221_BV1RjkYYbEF8",
@@ -6245,7 +6264,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -6267,7 +6286,8 @@
      28.8
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "六巡广州20260823_回_p4_Yesterdayoncemore",
@@ -6660,7 +6680,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -6682,7 +6702,8 @@
      20.4
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "六巡广州20260823_回_p19_夜色",
@@ -7281,7 +7302,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -7303,7 +7324,8 @@
      21.3
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "六巡广州20260823_回_p11_Besamemucho",
@@ -7333,7 +7355,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -7355,7 +7377,8 @@
      27.0
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "签唱会20190414_BV1M4411w735",
@@ -7437,7 +7460,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -7459,7 +7482,8 @@
      20.2
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "二巡上海2021_全程_p10_后会无期3.7手机渣画质",
@@ -7489,7 +7513,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -7511,7 +7535,8 @@
      10.9
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "二巡上海2021_全程_p12_后会无期3.8手机渣画质",
@@ -7541,7 +7566,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -7563,7 +7588,8 @@
      10.7
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "二巡上海2021_全程_p17_哭砂",
@@ -7956,7 +7982,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "待复核（谐波列待判）",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "待判",
@@ -7978,7 +8004,8 @@
      36.1
     ]
    },
-   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "未知20211127_BV1Ef4y1K7NJ",
@@ -10508,7 +10535,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -10530,7 +10557,8 @@
      24.8
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "六巡广州微博_5_心动",
@@ -10560,7 +10588,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -10582,7 +10610,8 @@
      11.1
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "二巡上海2021_全程_p38_王牌就是我",
@@ -11236,7 +11265,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -11258,7 +11287,8 @@
      39.2
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "二巡上海2021_全程_p31_追幸福的人",
@@ -11444,7 +11474,7 @@
    "a3_state": "",
    "a3_yin_hz": null,
    "a3_crepe_hz": null,
-   "a3_final_note": "谐波列复核通过",
+   "a3_final_note": "人耳确认（听辨）",
    "source_layer": "场次音频实测",
    "harmonic_screen": {
     "verdict": "成立",
@@ -11466,7 +11496,8 @@
      28.9
     ]
    },
-   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "ear_verdict": "人耳确认为王晰本人"
   },
   {
    "tag": "六巡广州微博_8_夜色",
@@ -11744,7 +11775,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.26,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -11773,7 +11804,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.86,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     },
     {
@@ -11788,7 +11819,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.08,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -11816,7 +11847,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.71,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     },
     {
@@ -11831,7 +11862,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.69,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -13179,7 +13210,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.18,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -13472,7 +13503,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.27,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -13498,7 +13529,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.58,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -13524,7 +13555,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.49,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -13636,7 +13667,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.01,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     },
     {
@@ -13651,7 +13682,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": null,
-     "verify": "待复核",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1ArKxe7E8H"
     },
     {
@@ -13666,7 +13697,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": null,
-     "verify": "参考（直拍音质）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1Ab4y1g7Wj"
     },
     {
@@ -13681,7 +13712,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.28,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": "BV11u4m1F7tL"
     },
     {
@@ -13696,7 +13727,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": null,
-     "verify": "仅参考（音质受限）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1iWtUefEkm"
     }
    ]
@@ -14047,7 +14078,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.73,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -14218,7 +14249,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.73,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": "BV1H7411r745"
     },
     {
@@ -14233,7 +14264,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.25,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     },
     {
@@ -14248,7 +14279,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 1.53,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     },
     {
@@ -14263,7 +14294,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.05,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -14291,7 +14322,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.84,
-     "verify": "谐波列复核通过",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -16155,7 +16186,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 2.16,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -16239,7 +16270,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.28,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     },
     {
@@ -16254,7 +16285,7 @@
      "high_dur_s": null,
      "high_listen_verified": null,
      "span_octaves": 3.53,
-     "verify": "待复核（谐波列待判）",
+     "verify": "人耳确认（听辨）",
      "bv": ""
     }
    ]
@@ -17073,12 +17104,44 @@
    "source_layer": "场次音频实测",
    "live_note": "C2",
    "live_hz": 65.2,
-   "live_verify": "谐波列复核通过",
+   "live_verify": "人耳确认（听辨）",
    "studio_album": "X自选集",
    "studio_note": "B1",
    "studio_hz": 61.7,
    "studio_span": 2.97,
    "delta_semitones": 1.0
+  },
+  {
+   "song": "多听有益",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024",
+   "bv": "BV1ArKxe7E8H",
+   "source_layer": "十曲精测",
+   "live_note": "C2",
+   "live_hz": 65.2,
+   "live_verify": "人耳确认（听辨）",
+   "studio_album": "X自选集",
+   "studio_note": "B1",
+   "studio_hz": 61.7,
+   "studio_span": 2.97,
+   "delta_semitones": 1.0
+  },
+  {
+   "song": "多听有益",
+   "tour": "四巡",
+   "city": "",
+   "date": "2023-2024",
+   "bv": "BV1Ab4y1g7Wj",
+   "source_layer": "十曲精测",
+   "live_note": "D2",
+   "live_hz": 74.9,
+   "live_verify": "人耳确认（听辨）",
+   "studio_album": "X自选集",
+   "studio_note": "B1",
+   "studio_hz": 61.7,
+   "studio_span": 2.97,
+   "delta_semitones": 3.4
   },
   {
    "song": "多听有益",
@@ -17089,12 +17152,28 @@
    "source_layer": "场次音频实测",
    "live_note": "F#2",
    "live_hz": 95.2,
-   "live_verify": "谐波列复核通过",
+   "live_verify": "人耳确认（听辨）",
    "studio_album": "X自选集",
    "studio_note": "B1",
    "studio_hz": 61.7,
    "studio_span": 2.97,
    "delta_semitones": 7.5
+  },
+  {
+   "song": "多听有益",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024",
+   "bv": "BV1iWtUefEkm",
+   "source_layer": "十曲精测",
+   "live_note": "A2",
+   "live_hz": 111.6,
+   "live_verify": "人耳确认（听辨）",
+   "studio_album": "X自选集",
+   "studio_note": "B1",
+   "studio_hz": 61.7,
+   "studio_span": 2.97,
+   "delta_semitones": 10.3
   },
   {
    "song": "小河",
@@ -17257,6 +17336,22 @@
    "delta_semitones": 3.5
   },
   {
+   "song": "祝我们随遇而安",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2025-05-01",
+   "bv": "BV1QWVzzjEnM",
+   "source_layer": "场次音频实测",
+   "live_note": "F#2",
+   "live_hz": 89.9,
+   "live_verify": "人耳确认（听辨）",
+   "studio_album": "不说",
+   "studio_note": "D2",
+   "studio_hz": 73.1,
+   "studio_span": 2.59,
+   "delta_semitones": 3.6
+  },
+  {
    "song": "等一等昨天",
    "tour": "其他演出",
    "city": "上海",
@@ -17371,7 +17466,7 @@
  ],
  "live_vs_studio_pair_stats": {
   "included": 0,
-  "excluded_pending": 8,
+  "excluded_pending": 4,
   "excluded_detail": [
    {
     "song": "贝加尔湖畔",
@@ -17395,39 +17490,11 @@
     "verify": "待复核（谐波列待判）"
    },
    {
-    "song": "多听有益",
-    "tour": "四巡",
-    "note": "C2",
-    "hz": 65.2,
-    "verify": "待复核"
-   },
-   {
-    "song": "多听有益",
-    "tour": "四巡",
-    "note": "D2",
-    "hz": 74.9,
-    "verify": "参考（直拍音质）"
-   },
-   {
-    "song": "多听有益",
-    "tour": "四巡",
-    "note": "A2",
-    "hz": 111.6,
-    "verify": "仅参考（音质受限）"
-   },
-   {
     "song": "爱情",
     "tour": "其他演出",
     "note": "D2",
     "hz": 73.6,
     "verify": "待复核（谐波列待判）"
-   },
-   {
-    "song": "祝我们随遇而安",
-    "tour": "签唱会",
-    "note": "F#2",
-    "hz": 89.9,
-    "verify": "人耳确认（听辨）"
    }
   ]
  }
