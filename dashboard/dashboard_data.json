@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-16 12:00",
+  "timestamp": "2026-09-16 12:19",
   "total": 273775,
   "success": 56527,
   "complete_rate": 20.6,
@@ -175,7 +175,7 @@
     3.0,
     8.2,
     36.6,
-    20.0
+    20.1
   ],
   "listener_labels": [
     "2024-10",
@@ -202437,7 +202437,7 @@
         30.3,
         27.7,
         37.1,
-        40.8,
+        39.3,
         28.6,
         30.2,
         23.1,
@@ -202736,8 +202736,8 @@
       "在路上"
     ],
     "values": [
-      144.7,
-      128.5
+      144.0,
+      127.6
     ],
     "spring": [
       false,
@@ -210241,15 +210241,15 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 8,
+    "active_count": 9,
     "total_tracked": 383,
-    "concentration_top3": 76.2,
+    "concentration_top3": 71.4,
     "as_of": "2026-09-16",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-09-16 12:00",
+  "last_update": "2026-09-16 12:19",
   "today_batches": 1232,
   "daily_new_records": 0,
   "recent_7days": [
@@ -210311,13 +210311,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 3620,
-      "success": 3620,
+      "total": 3621,
+      "success": 3621,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1544983,
+      "before": 1545236,
       "after": 284335
     },
     "index_calibration": {
@@ -210582,7 +210582,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-09-16 12:00",
+    "generated_at": "2026-09-16 12:19",
     "overview": "共 87 场活动 / 3066 个歌曲观测，正涨幅 1292（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.1%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
