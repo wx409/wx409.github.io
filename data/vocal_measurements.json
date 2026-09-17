@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-16 17:01",
+ "generated_at": "2026-09-17 00:06",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,16 +10,16 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 358,
+  "total": 369,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
-   "tour_live": 225,
+   "tour_live": 231,
    "stage_other": 32,
-   "single": 6
+   "single": 11
   },
   "by_verify": {
-   "未复核": 111,
+   "未复核": 116,
    "已取证": 6,
    "已核验": 6,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
@@ -27,12 +27,12 @@
    "待复核（legacy 短读，未过 CREPE）": 5,
    "待复核": 4,
    "双引擎一致": 6,
-   "人耳确认（听辨）": 46,
+   "人耳确认（听辨）": 47,
    "待复核（谐波列待判）": 15,
-   "谐波列复核通过": 154,
+   "谐波列复核通过": 159,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 212
+  "songs": 213
  },
  "rows": [
   {
@@ -9101,6 +9101,76 @@
    }
   },
   {
+   "id": "tour_live|我要你|未知20181221_BV1nt411Y7aj",
+   "song": "我要你",
+   "version": "未知20181221_BV1nt411Y7aj",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2018-12-21",
+   "source_ref": "BV1nt411Y7aj",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.1,
+    "high_note": "B3",
+    "high_hz": 250.5,
+    "span_octaves": 1.68,
+    "stability_cents": 11.0,
+    "intonation_cents": 23.3,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 118.0,
+    "density_per_s": 2.14,
+    "hnr_db": 6.6,
+    "duration_s": 200.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 127
+   }
+  },
+  {
+   "id": "tour_live|我要你|未知20190111_BV1At411W7V8",
+   "song": "我要你",
+   "version": "未知20190111_BV1At411W7V8",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-01-11",
+   "source_ref": "BV1At411W7V8",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.1,
+    "high_note": "G#5",
+    "high_hz": 819.2,
+    "span_octaves": 3.39,
+    "stability_cents": 9.9,
+    "intonation_cents": 22.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 114.0,
+    "density_per_s": 2.19,
+    "hnr_db": 6.4,
+    "duration_s": 201.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 65
+   }
+  },
+  {
    "id": "tour_live|一生守候|六巡广州微博_6_一生守候",
    "song": "一生守候",
    "version": "六巡广州微博_6_一生守候",
@@ -9133,6 +9203,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|我要你|成都20191128_BV1HJ411978y",
+   "song": "我要你",
+   "version": "成都20191128_BV1HJ411978y",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "成都",
+   "date": "2019-11-28",
+   "source_ref": "BV1HJ411978y",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.4,
+    "high_note": "C#4",
+    "high_hz": 282.4,
+    "span_octaves": 2.83,
+    "stability_cents": 8.7,
+    "intonation_cents": 28.0,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.93,
+    "hnr_db": 7.8,
+    "duration_s": 69.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 309
    }
   },
   {
@@ -9801,6 +9906,41 @@
    }
   },
   {
+   "id": "tour_live|Your Man|未知20191230_BV1TJ411Y7MH",
+   "song": "Your Man",
+   "version": "未知20191230_BV1TJ411Y7MH",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-12-30",
+   "source_ref": "BV1TJ411Y7MH",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 89.9,
+    "high_note": "A5",
+    "high_hz": 891.2,
+    "span_octaves": 3.31,
+    "stability_cents": 6.7,
+    "intonation_cents": 28.6,
+    "vibrato_hz": 5.28,
+    "vibrato_cents": 62.0,
+    "density_per_s": 1.6,
+    "hnr_db": 2.8,
+    "duration_s": 211.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 317
+   }
+  },
+  {
    "id": "tour_live|祝我们随遇而安|上海20250501_BV1QWVzzjEnM",
    "song": "祝我们随遇而安",
    "version": "上海20250501_BV1QWVzzjEnM",
@@ -10043,6 +10183,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 127
+   }
+  },
+  {
+   "id": "tour_live|Your Man|未知20190610_BV1X4411N7gs",
+   "song": "Your Man",
+   "version": "未知20190610_BV1X4411N7gs",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-06-10",
+   "source_ref": "BV1X4411N7gs",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.5,
+    "high_note": "F5",
+    "high_hz": 714.5,
+    "span_octaves": 2.97,
+    "stability_cents": 7.7,
+    "intonation_cents": 21.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.35,
+    "hnr_db": 2.5,
+    "duration_s": 254.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 312
    }
   },
   {
@@ -10495,6 +10670,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|心动|南京20190730_BV1Mt411c7hz",
+   "song": "心动",
+   "version": "南京20190730_BV1Mt411c7hz",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-30",
+   "source_ref": "BV1Mt411c7hz",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 100.4,
+    "high_note": "G5",
+    "high_hz": 763.7,
+    "span_octaves": 2.93,
+    "stability_cents": 9.0,
+    "intonation_cents": 21.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 90.0,
+    "density_per_s": 1.91,
+    "hnr_db": 8.3,
+    "duration_s": 225.6
+   },
+   "verify": {
+    "state": "人耳确认（听辨）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 317
    }
   },
   {
@@ -11201,6 +11411,33 @@
    }
   },
   {
+   "id": "single|乌兰巴托的夜晚",
+   "song": "乌兰巴托的夜晚",
+   "version": "录音室·单曲/OST（低音共鸣）",
+   "layer": "single",
+   "source_ref": "低音共鸣",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 71.8,
+    "high_note": "C5",
+    "high_hz": 520.2,
+    "span_octaves": 2.86,
+    "stability_cents": 4.0,
+    "intonation_cents": 6.9,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 56.0,
+    "density_per_s": 1.11,
+    "hnr_db": 3.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
    "id": "single|大江东去",
    "song": "大江东去",
    "version": "录音室·单曲/OST（大江东去）",
@@ -11218,6 +11455,114 @@
     "vibrato_cents": 105.0,
     "density_per_s": 1.71,
     "hnr_db": 6.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|再回首",
+   "song": "再回首",
+   "version": "录音室·单曲/OST（月光森林 (赵鹏人声低音炮2)）",
+   "layer": "single",
+   "source_ref": "月光森林 (赵鹏人声低音炮2)",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 75.1,
+    "high_note": "A3",
+    "high_hz": 217.4,
+    "span_octaves": 1.53,
+    "stability_cents": 6.9,
+    "intonation_cents": 9.4,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.4,
+    "hnr_db": 3.8
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|叶塞尼亚",
+   "song": "叶塞尼亚",
+   "version": "录音室·单曲/OST（赵鹏）",
+   "layer": "single",
+   "source_ref": "赵鹏",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 70.8,
+    "high_note": "G3",
+    "high_hz": 196.6,
+    "span_octaves": 1.47,
+    "stability_cents": 9.1,
+    "intonation_cents": 15.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.3,
+    "hnr_db": 3.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|南屏晚钟",
+   "song": "南屏晚钟",
+   "version": "录音室·单曲/OST（闪亮的日子 (赵鹏人声低音炮1)）",
+   "layer": "single",
+   "source_ref": "闪亮的日子 (赵鹏人声低音炮1)",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.0,
+    "high_note": "G#3",
+    "high_hz": 209.0,
+    "span_octaves": 1.5,
+    "stability_cents": 8.4,
+    "intonation_cents": 12.6,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.44,
+    "hnr_db": 3.7
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|贝加尔湖畔",
+   "song": "贝加尔湖畔",
+   "version": "录音室·单曲/OST（震撼2020）",
+   "layer": "single",
+   "source_ref": "震撼2020",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.7,
+    "high_note": "D5",
+    "high_hz": 572.2,
+    "span_octaves": 2.88,
+    "stability_cents": 6.4,
+    "intonation_cents": 14.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.37,
+    "hnr_db": 2.5
    },
    "verify": {
     "state": "未复核"
