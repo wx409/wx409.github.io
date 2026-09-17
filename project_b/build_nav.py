@@ -94,7 +94,7 @@ LABELS = {
     "community.html": "参与",
     "qa.html": "问答库", "notifications.html": "自动通知", "about.html": "关于本站",
     "search.html": "全站搜索", "dashboard/": "数据大屏", "map/": "巡演地图",
-    "live/": "演出详情目录", "data/music-index.html": "音乐数据周报",
+    "live/": "演出详情目录", "live.html#即将开演": "🎫 已开票：沉响与长歌（10/9-10/10）", "data/music-index.html": "音乐数据周报",
     "data/kb/kb_digest.md": "知识库摘要", "data/calibers.md": "口径登记表（数字字典）",
     "feed.xml": "RSS 订阅", "sitemap.xml": "站点地图", "llms.txt": "AI 摘要（llms.txt）",
     "robots.txt": "robots.txt", "404.html": "404 页",

@@ -651,6 +651,17 @@ def build_live():
 {_svl_table()}
 
 <h2>四、演出详情与歌单</h2>
+<h3 id="即将开演">已开票 · 即将开演</h3>
+<ul>
+<li><strong>《沉响与长歌》演唱会</strong> —— 王晰 × 傲日其愣
+    ｜ <strong>2026-10-09、10-10（两场）</strong>
+    ｜ 北京天桥艺术中心
+    ｜ <strong>已开票</strong>
+    ｜ 主办：中国东方演艺集团
+    <br><span class="src">来源：中国东方演艺集团官宣（微博）+ 豆瓣活动页；
+    票价与购票平台<b>待补</b>。</span></li>
+</ul>
+<h3>历次巡演</h3>
 <ul>
 <li><a href="/live/">各城市场次独立页</a>：含歌单、亮点、视角矩阵与 FAQ。</li>
 <li><a href="/map/">巡演地图</a>：{N_CITY} 城 {SHOWS_ALL} 场城市分布。</li>
