@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-17 09:02　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-17 15:10　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -14,19 +14,19 @@
 | `song_archive` | 歌曲档案条目 | **748** | 档案库收录的全部曲目条目（含未追踪/无指数） | `data/song_archive.json` |
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
 | `playable_songs` | 可试听曲目 | **117** | 站内提供试听入口的曲目 | `data/playable_songs.json` |
-| `netease_songs` | 网易云曲库曲目 | **123** | 网易云音乐侧可核验曲目 | `data/netease_catalog.json` |
+| `netease_songs` | 网易云曲库曲目 | **124** | 网易云音乐侧可核验曲目 | `data/netease_catalog.json` |
 | `shows_all` | 全站场次 | **64** | 六轮巡演 + 签唱会等非巡演演出 | `data/cities.json（长表派生）` |
 | `shows_setlists` | 有歌单记录的场次 | **64** | 长表中至少有 1 条曲目记录的场次 | `data/setlists.json` |
 | `cities` | 巡演城市数 | **22** | 去重城市 | `data/cities.json` |
 | `live_songs` | 有现场记录的曲目 | **302** | 至少在一个场次歌单中出现过的曲目 | `entity_index.json` |
-| `kb_facts` | 知识库事实条数 | **1688** | 结构化事实 | `data/kb/manifest.json` |
-| `kb_entities` | 知识库实体数 | **1599** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
+| `kb_facts` | 知识库事实条数 | **1686** | 结构化事实 | `data/kb/manifest.json` |
+| `kb_entities` | 知识库实体数 | **1598** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
 | `kb_relations` | 知识库关系数 | **2220** | 实体间关系 | `data/kb/manifest.json` |
-| `semantic_docs` | 语义索引文档数 | **5402** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
+| `semantic_docs` | 语义索引文档数 | **5399** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
 | `qa_pairs` | 问答对数量 | **16** | 可引用问答（GEO 资产） | `data/qa_bank.json` |
-| `shows_tour` | 六轮巡演场次 | **59** | 一巡~六巡的巡演场次（不含签唱会） | `巡演歌单长表（单一事实源）` |
-| `setlist_rows` | 歌单曲目记录行 | **1249** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
-| `setlist_songs_unique` | 歌单唯一曲目（数据层归一名） | **289** | 长表去重后的曲目名 | `巡演歌单长表` |
+| `shows_tour` | 六轮巡演场次 | **60** | 一巡~六巡的巡演场次（不含签唱会） | `巡演歌单长表（单一事实源）` |
+| `setlist_rows` | 歌单曲目记录行 | **1254** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
+| `setlist_songs_unique` | 歌单唯一曲目（数据层归一名） | **293** | 长表去重后的曲目名 | `巡演歌单长表` |
 | `index_days` | 指数数据覆盖天数 | **1290** | 站点图表所用指数长表的实际覆盖天数 | `E:\wx\wx_textmine_out\music_index_long.csv` |
 | `stage_measured_versions` | 现场实测版本数 | **14** | B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次） | `音域分析\轨迹\让她降落_四版实测.json` |
 | `stage_measured_shows` | 现场实测场次数 | **5** | 上述现场版本覆盖的实际演出场次（同场多源只算一场） | `音域分析\轨迹\让她降落_四版实测.json` |

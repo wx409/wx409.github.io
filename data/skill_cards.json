@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-17 09:02",
+ "generated_at": "2026-09-17 14:04",
  "pool_size": 359,
  "policy": {
   "rotation": "按日期序数取模（确定性：同一天任意次运行结果一致）",
@@ -26,7 +26,7 @@
   "index": 337,
   "pool_size": 359,
   "date": "2026-09-17",
-  "generated_at": "2026-09-17 09:02"
+  "generated_at": "2026-09-17 14:04"
  },
  "recent": [
   {
@@ -47,7 +47,7 @@
    "index": 337,
    "pool_size": 359,
    "date": "2026-09-17",
-   "generated_at": "2026-09-17 09:02"
+   "generated_at": "2026-09-17 14:04"
   },
   {
    "key": "tour:六巡广州微博_4_情网",
@@ -817,7 +817,7 @@
    "index": 337,
    "pool_size": 359,
    "date": "2026-09-17",
-   "generated_at": "2026-09-17 09:02"
+   "generated_at": "2026-09-17 14:04"
   }
  ]
 }
