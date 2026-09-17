@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-17 12:21",
+  "timestamp": "2026-09-17 13:10",
   "total": 274028,
   "success": 56548,
   "complete_rate": 20.6,
@@ -202523,7 +202523,7 @@
         27.7,
         37.1,
         31.2,
-        41.8,
+        35.5,
         30.2,
         23.1,
         25.2,
@@ -202821,7 +202821,7 @@
       "在路上"
     ],
     "values": [
-      145.4,
+      144.8,
       126.9
     ],
     "spring": [
@@ -210320,15 +210320,86 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 8,
+    "active_count": 10,
     "total_tracked": 383,
-    "concentration_top3": 75.5,
+    "concentration_top3": 74.3,
     "as_of": "2026-09-17",
-    "too_small": true
+    "too_small": false
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 57.3,
+      "trend_pct": 61.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "在路上",
+      "share_pct": 8.7,
+      "trend_pct": 58.7,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "一生中最爱",
+      "share_pct": 8.3,
+      "trend_pct": 137.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "山楂树",
+      "share_pct": 5.4,
+      "trend_pct": 45.2,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "月弯弯",
+      "share_pct": 4.3,
+      "trend_pct": -10.0,
+      "trend_label": "down"
+    },
+    {
+      "rank": 6,
+      "song": "Sound of Silence",
+      "share_pct": 4.1,
+      "trend_pct": 17.2,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "再叙",
+      "share_pct": 3.8,
+      "trend_pct": 39.1,
+      "trend_label": "up"
+    },
+    {
+      "rank": 8,
+      "song": "亲密爱人",
+      "share_pct": 3.1,
+      "trend_pct": -3.7,
+      "trend_label": "flat"
+    },
+    {
+      "rank": 9,
+      "song": "谁",
+      "share_pct": 2.8,
+      "trend_pct": 91.7,
+      "trend_label": "up"
+    },
+    {
+      "rank": 10,
+      "song": "晚风暖暖",
+      "share_pct": 2.3,
+      "trend_pct": 111.1,
+      "trend_label": "up"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-09-17 12:21",
+  "last_update": "2026-09-17 13:10",
   "today_batches": 1233,
   "daily_new_records": 0,
   "recent_7days": [
@@ -210390,13 +210461,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 3641,
-      "success": 3641,
+      "total": 3642,
+      "success": 3642,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1550296,
+      "before": 1550549,
       "after": 284588
     },
     "index_calibration": {
@@ -210668,7 +210739,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-09-17 12:21",
+    "generated_at": "2026-09-17 13:10",
     "overview": "共 87 场活动 / 3066 个歌曲观测，正涨幅 1292（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.1%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
