@@ -45,6 +45,7 @@ N = 2048
 RMS_DROP_DB = 4.0      # RMS 下降阈值
 HRATIO_TOL_DB = 3.0    # 谐波占比允许的变化（超过则视为"真的弱唱"）
 MIN_NOTE = 0.4         # 音符最短时长
+RECOVER_DB = 2.0       # ★ 判据 B：拉麦必有来回 —— RMS 降到最低后须回升 ≥2dB
 
 
 def load(p):
@@ -124,12 +125,19 @@ def analyse(wav, f0csv):
         head = fr_list[:max(3, len(fr_list) // 4)]
         base_rms = st.median([x[1] for x in head])
         base_h = st.median([x[2] for x in head])
-        for t, rms, h in fr_list:
-            d_rms = rms - base_rms
-            d_h = h - base_h
-            if d_rms <= -RMS_DROP_DB and abs(d_h) <= HRATIO_TOL_DB:
-                events.append({"t": round(t, 2), "note_hz": round(f0, 1),
-                               "rms_drop_db": round(d_rms, 1), "hratio_delta_db": round(d_h, 1)})
+        # ★ 判据 B：找 RMS 谷底，再确认其后有回升（拉远→推近）
+        d_series = [x[1] - base_rms for x in fr_list]
+        i_min = int(np.argmin(d_series))
+        drop = d_series[i_min]
+        if drop <= -RMS_DROP_DB:
+            after = d_series[i_min:]
+            recov = (max(after) - drop) if after else 0.0
+            inside = abs(fr_list[i_min][2] - base_h) <= HRATIO_TOL_DB
+            if recov >= RECOVER_DB and inside:
+                events.append({"t": round(fr_list[i_min][0], 2), "note_hz": round(f0, 1),
+                               "rms_drop_db": round(drop, 1),
+                               "recover_db": round(recov, 1),
+                               "hratio_delta_db": round(fr_list[i_min][2] - base_h, 1)})
     dur = P[-1][0] - P[0][0] if P else 0
     return {"note_count": len(notes), "duration_s": round(dur, 1),
             "pull_events": len(events), "events": events[:60],
