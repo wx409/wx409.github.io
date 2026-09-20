@@ -157,28 +157,30 @@ def main() -> int:
                     for c in mv.get("rows", [])[:20]],
                    ["曲目", "现场版本数", "最低音中位 Hz", "四分位差", "极差", "版本间变异系数"], "mv")
 
-    # ---- 覆盖：两个口径（有实测入库 vs 有本地素材）----
+    # ---- 覆盖：多方匹配结果（L1 精确 → L4 弱）----
     ci = load("coverage_index.json")
     cst = ci.get("stat", {})
     crows = ci.get("shows", [])
+    lv_txt = {1: "① 精确（BV映射/该场日期）", 2: "② 强（台账·表直接给出该场）",
+              3: "③ 中（城市+年月）", 4: "④ 弱（仅巡次+城市）"}
+    located = cst.get("L1_精确", 0) + cst.get("L2_强", 0)
     coverage_html = (
-        f'<p class="lead">同一件事有两个口径，<b>不能混读</b>：</p>'
-        f'<div class="kpis">'
-        f'<div class="kpi"><b>{cst.get("measured_shows","—")}/{cst.get("shows_total","—")}</b>'
-        f'<span>已有实测数据入库（站点现场层，可进结论）</span></div>'
-        f'<div class="kpi"><b>{cst.get("local_shows","—")}/{cst.get("shows_total","—")}</b>'
-        f'<span>已有本地素材（已下载，含未实测）</span></div>'
-        f'<div class="kpi"><b>{cst.get("no_material","—")}</b><span>完全无素材（待采）</span></div>'
-        f'<div class="kpi"><b>{cst.get("files_scanned","—")}</b><span>本地扫到的素材文件数</span></div>'
+        f'<p class="lead">同一件事必须分口径看，<b>不能混读</b>：</p><div class="kpis">'
+        f'<div class="kpi"><b>{located}/{cst.get("shows_total","—")}</b>'
+        f'<span>已定位到具体场次（L1+L2，可进结论）</span></div>'
+        f'<div class="kpi"><b>{cst.get("covered","—")}</b><span>有本地素材（含证据较弱者）</span></div>'
+        f'<div class="kpi"><b>{cst.get("missing","—")}</b><span>完全无素材（待采）</span></div>'
+        f'<div class="kpi"><b>{cst.get("L1_精确","—")}</b><span>其中①精确（BV 映射或该场日期）</span></div>'
+        f'<div class="kpi"><b>{cst.get("bv_mapped","—")}</b><span>BV 已映射到场次的视频数</span></div>'
+        f'<div class="kpi"><b>{cst.get("files_scanned","—")}</b><span>扫到的本地素材文件数</span></div>'
         f'</div>'
-        f'<p class="lead">本地素材的证据强度：<b>强（巡次+城市+年月）{cst.get("strong",0)}</b>｜'
-        f'中（城市+年月）{cst.get("mid",0)}｜<b>弱（仅巡次+城市，需人工确认到具体场次）{cst.get("weak",0)}</b>。'
-        f'证据弱的那些「有素材」不能直接写成"该场已测"，只能写"该巡该城有素材"。</p>'
-        + table([[esc(r["date"]), esc(r["city"]), esc(r["tour"]), r["songs"],
-                  (f'✔ {r["measured_materials"]}' if r["measured_materials"] else "—"),
-                  esc(r["local_evidence"]) or "—", esc(r["strength"]) or "—"]
-                 for r in crows],
-                ["日期", "城市", "巡次", "歌单曲数", "已实测条数", "本地素材来源", "证据强度"], "cover"))
+        f'<p class="lead">匹配用了 <b>多方证据</b>：BV 视频号映射（<code>_tour_parts_index</code>/来源台账/站点现场层）、'
+        f'路径里的精确日期、<code>shows_tour</code> 与历年巡演目录表、以及「巡次+城市」兜底。'
+        f'证据弱的场次只能写"该巡该城有素材"，<b>不能写"该场已测"</b>。</p>'
+        + table([[esc(r["date"]), esc(r["city"]), esc(r["tour"]), r["songs"], lv_txt.get(r["level"], "—"),
+                  (esc(r["evidence"][0]["detail"]) if r.get("evidence") else "—")]
+                 for r in sorted(crows, key=lambda x: (x["level"], x["date"]))],
+                ["日期", "城市", "巡次", "歌单曲数", "证据等级", "首要证据"], "cover"))
     coverage_html += ("<h3>完全无素材的场次（待采清单）</h3><p class='lead'>"
                       + "、".join(f'{esc(m["city"])}{m["date"][5:]}' for m in ci.get("missing", [])) + "</p>")
 

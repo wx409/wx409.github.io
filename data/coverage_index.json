@@ -1,14 +1,16 @@
 {
  "stat": {
-  "generated_at": "2026-09-20T17:01:55",
+  "generated_at": "2026-09-20T17:21:44",
   "shows_total": 64,
-  "measured_shows": 16,
-  "local_shows": 41,
-  "strong": 0,
-  "mid": 0,
-  "weak": 41,
-  "no_material": 20,
-  "files_scanned": 4591
+  "covered": 56,
+  "missing": 8,
+  "L1_精确": 31,
+  "L2_强": 12,
+  "L3_中": 0,
+  "L4_弱": 13,
+  "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
+  "files_scanned": 6421,
+  "bv_mapped": 35
  },
  "shows": [
   {
@@ -16,578 +18,1560 @@
    "city": "杭州",
    "tour": "一巡",
    "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（85 文件）",
-   "strength": "弱"
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "巡演目录",
+     "detail": "一巡·“Cherish珍晰”王晰｜杭州"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2019-06-15",
    "city": "武汉",
    "tour": "一巡",
    "songs": 18,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（130 文件）",
-   "strength": "弱"
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "156 文件"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2019-07-20",
+   "city": "大连",
+   "tour": "一巡",
+   "songs": 19,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "1 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2019-07-28",
    "city": "南京",
    "tour": "一巡",
    "songs": 25,
-   "measured_materials": 1,
-   "local_evidence": "仅巡次+城市（107 文件）",
-   "strength": "弱"
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Lt411u7qq｜让她降落｜一巡南京20190728"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡南京20190728_BV1Lt411u7qq｜让她降落"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Lt411u7qq"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡南京20190728_BV1Lt411u7qq.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Lt411u7qq"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡南京20190728_BV1Lt411u7qq_f0.csv"
+    }
+   ],
+   "n_evidence": 17
   },
   {
    "date": "2019-08-04",
    "city": "广州",
    "tour": "一巡",
    "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（33 文件）",
-   "strength": "弱"
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "37 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2019-08-16",
    "city": "北京",
    "tour": "一巡",
    "songs": 27,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（242 文件）",
-   "strength": "弱"
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡北京20190816__BV1F4411f7my_p1.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡北京20190816__BV1F4411f7my_p1.m4a"
+    }
+   ],
+   "n_evidence": 4
   },
   {
    "date": "2019-09-08",
    "city": "深圳",
    "tour": "一巡",
    "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（5 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2019-10-19",
-   "city": "重庆",
-   "tour": "一巡",
-   "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（3 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2019-11-03",
-   "city": "上海",
-   "tour": "一巡",
-   "songs": 18,
-   "measured_materials": 1,
-   "local_evidence": "仅巡次+城市（10 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2019-11-16",
-   "city": "海口",
-   "tour": "一巡",
-   "songs": 20,
-   "measured_materials": 1,
-   "local_evidence": "仅巡次+城市（148 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2019-12-15",
-   "city": "长沙",
-   "tour": "一巡",
-   "songs": 26,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（55 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2019-12-21",
-   "city": "厦门",
-   "tour": "一巡",
-   "songs": 29,
-   "measured_materials": 29,
-   "local_evidence": "仅巡次+城市（310 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2019-12-28",
-   "city": "太原",
-   "tour": "一巡",
-   "songs": 36,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（120 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-01-02",
-   "city": "北京",
-   "tour": "一巡",
-   "songs": 25,
-   "measured_materials": 3,
-   "local_evidence": "仅巡次+城市（242 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-10-07",
-   "city": "杭州",
-   "tour": "签唱会",
-   "songs": 5,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（50 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-10-17",
-   "city": "北京",
-   "tour": "签唱会",
-   "songs": 6,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（45 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-11-14",
-   "city": "杭州",
-   "tour": "二巡",
-   "songs": 18,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（3 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-11-29",
-   "city": "北京",
-   "tour": "二巡",
-   "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（76 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-12-05",
-   "city": "广州",
-   "tour": "二巡",
-   "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（3 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2020-12-19",
-   "city": "南宁",
-   "tour": "二巡",
-   "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（3 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2021-01-09",
-   "city": "长沙",
-   "tour": "二巡",
-   "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（3 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2021-01-10",
-   "city": "武汉",
-   "tour": "二巡",
-   "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（3 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2021-03-07",
-   "city": "上海",
-   "tour": "二巡",
-   "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（370 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2021-03-08",
-   "city": "上海",
-   "tour": "二巡",
-   "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（370 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2021-04-11",
-   "city": "南京",
-   "tour": "二巡",
-   "songs": 24,
-   "measured_materials": 3,
-   "local_evidence": "仅巡次+城市（48 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2021-11-27",
-   "city": "杭州",
-   "tour": "签唱会",
-   "songs": 5,
-   "measured_materials": 2,
-   "local_evidence": "仅巡次+城市（50 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2022-04-09",
-   "city": "北京",
-   "tour": "三巡",
-   "songs": 18,
-   "measured_materials": 1,
-   "local_evidence": "",
-   "strength": ""
-  },
-  {
-   "date": "2022-07-17",
-   "city": "鄂尔多斯",
-   "tour": "三巡",
-   "songs": 23,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（15 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2022-09-17",
-   "city": "武汉",
-   "tour": "三巡",
-   "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（88 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2023-06-23",
-   "city": "深圳",
-   "tour": "三巡",
-   "songs": 21,
-   "measured_materials": 1,
-   "local_evidence": "仅巡次+城市（6 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2023-11-12",
-   "city": "北京",
-   "tour": "四巡",
-   "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（114 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2023-12-31",
-   "city": "上海",
-   "tour": "四巡",
-   "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（418 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2024-01-27",
-   "city": "南京",
-   "tour": "四巡",
-   "songs": 14,
-   "measured_materials": 2,
-   "local_evidence": "仅巡次+城市（12 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2024-04-06",
-   "city": "上海",
-   "tour": "四巡",
-   "songs": 18,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（418 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2024-05-25",
-   "city": "杭州",
-   "tour": "四巡",
-   "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（6 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2024-08-16",
-   "city": "北京",
-   "tour": "四巡",
-   "songs": 18,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（114 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2024-12-21",
-   "city": "杭州",
-   "tour": "五巡",
-   "songs": 19,
-   "measured_materials": 1,
-   "local_evidence": "仅巡次+城市（98 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2025-04-05",
-   "city": "北京",
-   "tour": "五巡",
-   "songs": 20,
-   "measured_materials": 2,
-   "local_evidence": "仅巡次+城市（27 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2025-05-01",
-   "city": "上海",
-   "tour": "签唱会",
-   "songs": 6,
-   "measured_materials": 2,
-   "local_evidence": "",
-   "strength": ""
-  },
-  {
-   "date": "2025-05-24",
-   "city": "广州",
-   "tour": "五巡",
-   "songs": 20,
-   "measured_materials": 1,
-   "local_evidence": "",
-   "strength": ""
-  },
-  {
-   "date": "2025-11-21",
-   "city": "上海",
-   "tour": "五巡",
-   "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（94 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2026-01-31",
-   "city": "杭州",
-   "tour": "五巡",
-   "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（98 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2026-04-10",
-   "city": "北京",
-   "tour": "五巡",
-   "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "仅巡次+城市（27 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2026-06-13",
-   "city": "重庆",
-   "tour": "六巡",
-   "songs": 17,
-   "measured_materials": 3,
-   "local_evidence": "仅巡次+城市（30 文件）",
-   "strength": "弱"
-  },
-  {
-   "date": "2026-08-23",
-   "city": "广州",
-   "tour": "六巡",
-   "songs": 20,
-   "measured_materials": 39,
-   "local_evidence": "仅巡次+城市（520 文件）",
-   "strength": "弱"
-  }
- ],
- "missing": [
-  {
-   "date": "2019-07-20",
-   "city": "大连",
-   "tour": "一巡",
-   "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "6 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2019-10-12",
    "city": "南宁",
    "tour": "一巡",
    "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "1 文件"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2019-10-19",
+   "city": "重庆",
+   "tour": "一巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡重庆20191019__BV1nE411r7BY_p1.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡重庆20191019__BV1nE411r7BY_p1.m4a"
+    }
+   ],
+   "n_evidence": 4
+  },
+  {
+   "date": "2019-11-03",
+   "city": "上海",
+   "tour": "一巡",
+   "songs": 18,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1FE411B7je｜小毛驴｜上海20191103"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "上海20191103_BV1FE411B7je｜小毛驴"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1FE411B7je"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20191103_BV1FE411B7je.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1FE411B7je"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20191103_BV1FE411B7je_f0.csv"
+    }
+   ],
+   "n_evidence": 14
+  },
+  {
+   "date": "2019-11-16",
+   "city": "海口",
+   "tour": "一巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1wJ411U7Wh｜天边｜海口20191116"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "海口20191116_BV1wJ411U7Wh｜天边"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1wJ411U7Wh"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "海口20191116_BV1wJ411U7Wh.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1wJ411U7Wh"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "海口20191116_BV1wJ411U7Wh_f0.csv"
+    }
+   ],
+   "n_evidence": 14
   },
   {
    "date": "2019-11-29",
    "city": "珠海",
    "tour": "一巡",
    "songs": 24,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "1 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2019-12-01",
    "city": "佛山",
    "tour": "一巡",
    "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡佛山20191201__BV16J411q7ZK_p1.m4a"
+    }
+   ],
+   "n_evidence": 1
   },
   {
-   "date": "2020-11-21",
-   "city": "佛山",
+   "date": "2019-12-15",
+   "city": "长沙",
+   "tour": "一巡",
+   "songs": 26,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "66 文件"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2019-12-21",
+   "city": "厦门",
+   "tour": "一巡",
+   "songs": 29,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡厦门20191221_p2_跟着你到天边｜跟着你到天边"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡厦门20191221_p19_谁｜谁"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡厦门20191221_p14_山楂2｜山楂2"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡厦门20191221_p9_李彦锋红眼睛｜李彦锋红眼睛"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡厦门20191221_p7_一生守候｜一生守候"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡厦门20191221_p31_忘词版海阔天空｜忘词版海阔天空"
+    }
+   ],
+   "n_evidence": 372
+  },
+  {
+   "date": "2019-12-28",
+   "city": "太原",
+   "tour": "一巡",
+   "songs": 36,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "144 文件"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2020-01-02",
+   "city": "北京",
+   "tour": "一巡",
+   "songs": 25,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1mw411R7yo｜让她降落｜一巡北京20200102"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1KJ41177fC｜让她降落｜一巡北京20200102b"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV15K411w7Sj｜让她降落｜北京20200102"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡北京收官20200102_p14_一生守候+很长一段内心独白｜一生守候+很长一段内心独白"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡北京收官20200102_p5_跟着你到天边｜跟着你到天边"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "一巡北京收官20200102_p12_心动+被吐槽的我只在乎你｜心动+被吐槽的我只在乎你"
+    }
+   ],
+   "n_evidence": 318
+  },
+  {
+   "date": "2020-10-07",
+   "city": "杭州",
+   "tour": "签唱会",
+   "songs": 5,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P01_全程.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P02_《云一定知道》.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P03_《怂》.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》.w"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P05_《歌颂》.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P06_《王牌就是我》.wav"
+    }
+   ],
+   "n_evidence": 36
+  },
+  {
+   "date": "2020-10-17",
+   "city": "北京",
+   "tour": "签唱会",
+   "songs": 6,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "54 文件"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2020-11-14",
+   "city": "杭州",
+   "tour": "二巡",
+   "songs": 18,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡杭州20201114__BV1Va411w74z.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡杭州20201114__BV1Va411w74z.m4a"
+    }
+   ],
+   "n_evidence": 4
+  },
+  {
+   "date": "2020-11-29",
+   "city": "北京",
+   "tour": "二巡",
+   "songs": 19,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡北京20201129__BV1sK4y1f7n2.segments.json"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡北京20201129__BV1sK4y1f7n2.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡北京20201129__BV1sK4y1f7n2_f0.csv"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡北京20201129__BV1sK4y1f7n2_stats.json"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    }
+   ],
+   "n_evidence": 7
+  },
+  {
+   "date": "2020-12-05",
+   "city": "广州",
+   "tour": "二巡",
+   "songs": 21,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡广州20201205__BV1Xa4y1W7eR.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡广州20201205__BV1Xa4y1W7eR.m4a"
+    }
+   ],
+   "n_evidence": 4
+  },
+  {
+   "date": "2020-12-19",
+   "city": "南宁",
+   "tour": "二巡",
+   "songs": 21,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡南宁20201219__BV1Cp4y1q7xi.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡南宁20201219__BV1Cp4y1q7xi.m4a"
+    }
+   ],
+   "n_evidence": 4
+  },
+  {
+   "date": "2021-01-09",
+   "city": "长沙",
+   "tour": "二巡",
+   "songs": 19,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡长沙20210109__BV1Ez4y167ce.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡长沙20210109__BV1Ez4y167ce.m4a"
+    }
+   ],
+   "n_evidence": 4
+  },
+  {
+   "date": "2021-01-10",
+   "city": "武汉",
    "tour": "二巡",
    "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "4 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
-   "date": "2021-03-27",
-   "city": "宁波",
-   "tour": "二巡",
-   "songs": 23,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
-  },
-  {
-   "date": "2021-12-04",
-   "city": "广州",
-   "tour": "三巡",
-   "songs": 17,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
-  },
-  {
-   "date": "2022-01-09",
-   "city": "无锡",
-   "tour": "三巡",
-   "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
-  },
-  {
-   "date": "2022-01-10",
+   "date": "2021-03-07",
    "city": "上海",
-   "tour": "三巡",
-   "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "tour": "二巡",
+   "songs": 22,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "412 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
-   "date": "2022-06-24",
-   "city": "长沙",
-   "tour": "三巡",
-   "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "date": "2021-03-08",
+   "city": "上海",
+   "tour": "二巡",
+   "songs": 22,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "412 文件"
+    }
+   ],
+   "n_evidence": 1
   },
   {
-   "date": "2022-07-15",
-   "city": "太原",
+   "date": "2021-04-11",
+   "city": "南京",
+   "tour": "二巡",
+   "songs": 24,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "BV映射",
+     "detail": "BV1sh411U72A｜20210411 王晰二巡南京收官站全场"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1pL411n7Ns｜让她降落｜二巡南京20210411"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1SZ4y1c7Xb｜让她降落｜二巡南京20210411b"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1S54y1b7HW｜让她降落｜二巡南京20210411_串烧"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1iB4y1w7uN｜让她降落｜二巡南京20210411_串烧b"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡南京20210411b_BV1SZ4y1c7Xb｜让她降落"
+    }
+   ],
+   "n_evidence": 107
+  },
+  {
+   "date": "2021-11-27",
+   "city": "杭州",
+   "tour": "签唱会",
+   "songs": 5,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "BV映射",
+     "detail": "BV1YF411b7G5｜王晰B面图景杭州签售自录存档 20211127"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Ef4y1K7NJ｜小毛驴｜未知20211127"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV19U4y1K7Yz｜让她降落｜未知20211127"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20211127_BV1Ef4y1K7NJ｜小毛驴"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20211127_BV19U4y1K7Yz｜让她降落"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Ef4y1K7NJ"
+    }
+   ],
+   "n_evidence": 111
+  },
+  {
+   "date": "2022-04-09",
+   "city": "北京",
    "tour": "三巡",
    "songs": 18,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Au411v7ia｜光阴的故事｜北京20220409"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "北京20220409_BV1Au411v7ia｜光阴的故事"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Au411v7ia"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "北京20220409_BV1Au411v7ia.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Au411v7ia"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "北京20220409_BV1Au411v7ia_f0.csv"
+    }
+   ],
+   "n_evidence": 14
   },
   {
-   "date": "2023-04-09",
-   "city": "上海",
-   "tour": "签唱会",
-   "songs": 7,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "date": "2022-07-17",
+   "city": "鄂尔多斯",
+   "tour": "三巡",
+   "songs": 23,
+   "level": 4,
+   "evidence": [
+    {
+     "level": 4,
+     "src": "巡次+城市",
+     "detail": "20 文件"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2022-09-17",
+   "city": "武汉",
+   "tour": "三巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "BV映射",
+     "detail": "BV1MW4y1q7hr｜【王晰三巡·图景】20220917 武汉全程"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1MW4y1q7hr"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1MW4y1q7hr"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡武汉20220917__BV1MW4y1q7hr.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1MW4y1q7hr"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1MW4y1q7hr"
+    }
+   ],
+   "n_evidence": 166
   },
   {
    "date": "2023-05-01",
    "city": "郑州",
    "tour": "三巡",
    "songs": 21,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "郑州｜三巡·王晰2021-2022“图景”"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2023-05-03",
    "city": "昆明",
    "tour": "三巡",
    "songs": 17,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "昆明｜三巡·王晰2021-2022“图景”"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2023-05-20",
    "city": "南宁",
    "tour": "三巡",
    "songs": 22,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "南宁｜三巡·王晰2021-2022“图景”"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2023-06-23",
+   "city": "深圳",
+   "tour": "三巡",
+   "songs": 21,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1QP411v7KR｜静止了的夜晚｜三巡深圳20230623"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "深圳｜三巡·王晰2021-2022“图景”"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "三巡深圳20230623_BV1QP411v7KR｜静止了的夜晚"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1QP411v7KR"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡深圳20230623_BV1QP411v7KR.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1QP411v7KR"
+    }
+   ],
+   "n_evidence": 15
+  },
+  {
+   "date": "2023-11-12",
+   "city": "北京",
+   "tour": "四巡",
+   "songs": 19,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV15c411X71m｜多听有益｜四巡北京20231112d_BV15c411X71m"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Ja4y1S7eN｜多听有益｜四巡北京20231112e_BV1Ja4y1S7eN"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1kN4y1D7U8｜多听有益｜四巡北京20231112f_BV1kN4y1D7U8"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "北京｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV15c411X71m"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV15c411X71m"
+    }
+   ],
+   "n_evidence": 60
   },
   {
    "date": "2023-12-10",
    "city": "广州",
    "tour": "四巡",
    "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "广州｜四巡·\"肆益\"个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2023-12-31",
+   "city": "上海",
+   "tour": "四巡",
+   "songs": 21,
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "上海｜四巡·\"肆益\"个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2024-01-27",
+   "city": "南京",
+   "tour": "四巡",
+   "songs": 14,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1pc411v7gU｜友谊地久天长｜四巡南京20240127"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1qy421a7FR｜友谊地久天长｜四巡南京20240127b"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "南京｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡南京20240127b_BV1qy421a7FR｜友谊地久天长"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡南京20240127_BV1pc411v7gU｜友谊地久天长"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1qy421a7FR"
+    }
+   ],
+   "n_evidence": 29
   },
   {
    "date": "2024-03-30",
    "city": "重庆",
    "tour": "四巡",
    "songs": 20,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "重庆｜四巡·\"肆益\"个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2024-04-06",
+   "city": "上海",
+   "tour": "四巡",
+   "songs": 18,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "上海｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡上海生日20240406_p6_朝凤｜朝凤"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡上海生日20240406_p1_多听有益｜多听有益"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡上海生日20240406_p9_关于妖娆｜关于妖娆"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡上海生日20240406_p31_BesameMucho｜Besamemucho"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "四巡上海生日20240406_p19_剧院刮刮乐｜剧院刮刮乐"
+    }
+   ],
+   "n_evidence": 365
+  },
+  {
+   "date": "2024-05-25",
+   "city": "杭州",
+   "tour": "四巡",
+   "songs": 20,
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "杭州｜四巡·\"肆益\"个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2024-08-16",
+   "city": "北京",
+   "tour": "四巡",
+   "songs": 18,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "北京｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "四巡北京20240816__BV17hWtefEra.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "vocals.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "四巡北京20240816__BV17hWtefEra.m4a"
+    }
+   ],
+   "n_evidence": 5
   },
   {
    "date": "2024-09-16",
    "city": "武汉",
    "tour": "四巡",
    "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "武汉｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "BV1iWtUefEkm_【王晰】《多听有益》【4K字幕】最后再被低音菩萨超度一次_『肆"
+    }
+   ],
+   "n_evidence": 2
+  },
+  {
+   "date": "2024-12-21",
+   "city": "杭州",
+   "tour": "五巡",
+   "songs": 19,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "BV映射",
+     "detail": "BV12Nk8YgEqX｜【王晰】五巡首场杭州 全部歌曲 自录20241221"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1RjkYYbEF8｜My Oh My｜杭州20241221"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "杭州20241221_BV1RjkYYbEF8｜My Oh My"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1RjkYYbEF8"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "杭州20241221_BV1RjkYYbEF8.m4a"
+    }
+   ],
+   "n_evidence": 104
   },
   {
    "date": "2024-12-29",
    "city": "南昌",
    "tour": "五巡",
    "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "南昌｜五巡·王晰吾个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
   },
   {
    "date": "2025-01-01",
    "city": "长沙",
    "tour": "五巡",
    "songs": 19,
-   "measured_materials": 0,
-   "local_evidence": "",
-   "strength": ""
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "长沙｜五巡·王晰吾个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2025-04-05",
+   "city": "北京",
+   "tour": "五巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1JZdcYEE73｜世界赠予我的｜北京20250405"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1zD5mz9ErQ｜世界赠予我的｜北京20250405"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "北京｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "北京20250405_BV1JZdcYEE73｜世界赠予我的"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "北京20250405_BV1zD5mz9ErQ｜世界赠予我的"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1JZdcYEE73"
+    }
+   ],
+   "n_evidence": 33
+  },
+  {
+   "date": "2025-05-01",
+   "city": "上海",
+   "tour": "签唱会",
+   "songs": 6,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1QWVzzjEnM｜祝我们随遇而安｜上海20250501"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Tr5KzSEMT｜祝我们随遇而安｜上海20250501"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "上海20250501_BV1Tr5KzSEMT｜祝我们随遇而安"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "上海20250501_BV1QWVzzjEnM｜祝我们随遇而安"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1QWVzzjEnM"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20250501_BV1QWVzzjEnM.wav"
+    }
+   ],
+   "n_evidence": 28
+  },
+  {
+   "date": "2025-05-24",
+   "city": "广州",
+   "tour": "五巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1AxjKzmES3｜你快乐所以我快乐｜广州20250524"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "广州｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "广州20250524_BV1AxjKzmES3｜你快乐所以我快乐"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1AxjKzmES3"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "广州20250524_BV1AxjKzmES3.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1AxjKzmES3"
+    }
+   ],
+   "n_evidence": 15
+  },
+  {
+   "date": "2025-11-21",
+   "city": "上海",
+   "tour": "五巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "上海｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "wav_五巡上海20251121_汇总.json"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20251121193244 Westway+Wellerman 我很好 My Oh M"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20251121194832 0026 talk1.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20251121194904 0027 玫瑰人生（La Vie en Rose）.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20251121195344 0028 床前明月光 暗潮涌动 我真的受伤了.wav"
+    }
+   ],
+   "n_evidence": 95
+  },
+  {
+   "date": "2026-01-31",
+   "city": "杭州",
+   "tour": "五巡",
+   "songs": 19,
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
+    }
+   ],
+   "n_evidence": 1
+  },
+  {
+   "date": "2026-04-10",
+   "city": "北京",
+   "tour": "五巡",
+   "songs": 20,
+   "level": 2,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "北京｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 2,
+     "src": "巡演目录",
+     "detail": "五巡·王晰吾个人巡回音乐会｜北京"
+    }
+   ],
+   "n_evidence": 2
+  },
+  {
+   "date": "2026-06-13",
+   "city": "重庆",
+   "tour": "六巡",
+   "songs": 17,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 1,
+     "src": "BV映射",
+     "detail": "BV1KwJx6iEza｜王晰「回×重庆」20260613 回溯之巡 重逢之庆（全场纯享）"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1zEJA6xEr2｜让她降落｜六巡重庆20260613"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1SEJP6LEUw｜让她降落｜六巡重庆20260613b"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV176LR6bE2B｜让她降落｜六巡重庆20260613c"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "重庆｜六巡·王晰回个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "六巡重庆20260613_BV1zEJA6xEr2｜让她降落"
+    }
+   ],
+   "n_evidence": 250
+  },
+  {
+   "date": "2026-08-23",
+   "city": "广州",
+   "tour": "六巡",
+   "songs": 20,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV13PtB6AEKe｜让她降落｜六巡广州20260823"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1hHtU68Eoj｜让她降落｜六巡广州20260823b"
+    },
+    {
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "广州｜六巡·王晰回个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "六巡广州20260823_回_p15_女人花+水中花｜女人花+水中花"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "六巡广州20260823_1_花儿为什么这样红｜花儿为什么这样红"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "六巡广州20260823_12_Autumn Leaves｜Autumn Leaves"
+    }
+   ],
+   "n_evidence": 1054
+  }
+ ],
+ "missing": [
+  {
+   "date": "2020-11-21",
+   "city": "佛山",
+   "tour": "二巡",
+   "songs": 22
+  },
+  {
+   "date": "2021-03-27",
+   "city": "宁波",
+   "tour": "二巡",
+   "songs": 23
+  },
+  {
+   "date": "2021-12-04",
+   "city": "广州",
+   "tour": "三巡",
+   "songs": 17
+  },
+  {
+   "date": "2022-01-09",
+   "city": "无锡",
+   "tour": "三巡",
+   "songs": 21
+  },
+  {
+   "date": "2022-01-10",
+   "city": "上海",
+   "tour": "三巡",
+   "songs": 19
+  },
+  {
+   "date": "2022-06-24",
+   "city": "长沙",
+   "tour": "三巡",
+   "songs": 21
+  },
+  {
+   "date": "2022-07-15",
+   "city": "太原",
+   "tour": "三巡",
+   "songs": 18
+  },
+  {
+   "date": "2023-04-09",
+   "city": "上海",
+   "tour": "签唱会",
+   "songs": 7
   }
  ]
 }
