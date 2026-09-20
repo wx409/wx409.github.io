@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-15 12:17",
+ "generated_at": "2026-09-20 16:15",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 156,
-  "dispatch": 155,
-  "deploy_steps": 54,
+  "menu_items": 165,
+  "dispatch": 164,
+  "deploy_steps": 55,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -878,7 +878,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/9/15 22:00:00",
+    "next": "2026/9/20 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -940,7 +940,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
-    "next": "2026/9/20 10:00:00",
+    "next": "2026/9/27 10:00:00",
     "type": "Weekly",
     "start": "10:00:00"
    },
@@ -966,7 +966,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/9/16 10:00:00",
+    "next": "2026/9/21 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1208,6 +1208,64 @@
    "path": "D:\\wx409.github.io\\project_b\\rebuild_tavern_ep_summary.py"
   },
   {
+   "script": "低音复核_谐波列.py",
+   "menu": 158,
+   "title": "高音区倍频复核（对称闸门：抓 YIN 锁 2 次谐波\"报高八度\"）",
+   "menu_label": "high_harmonic",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\低音复核_谐波列.py"
+  },
+  {
+   "script": "menu:159",
+   "menu": 159,
+   "title": "听辨台账回填（人耳定案写回 data/listening_verdicts.json）",
+   "menu_label": "listen_ledger",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "生成巡演现场报告.py",
+   "menu": 160,
+   "title": "听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）",
+   "menu_label": "listen_rebuild",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\生成巡演现场报告.py"
+  },
+  {
+   "script": "audit_consistency.py",
+   "in_deploy": true,
+   "deploy_desc": "汇总 vs 明细一致性审计（防未复核值被当结论）",
+   "critical": false,
+   "menu": 161,
+   "title": "汇总明细一致性审计（防未复核值被当结论）",
+   "menu_label": "audit_consistency",
+   "path": "D:\\wx409.github.io\\project_b\\audit_consistency.py"
+  },
+  {
+   "script": "build_debate_archive.py",
+   "menu": 163,
+   "title": "辩音总档生成（传记素材：前史+正本+裁决台账合并）",
+   "menu_label": "build_debate_archive",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_debate_archive.py"
+  },
+  {
+   "script": "make_review_clips.py",
+   "menu": 164,
+   "title": "专辑层高音区复核（极值读数必须过人耳）",
+   "menu_label": "make_review_clips",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\make_review_clips.py"
+  },
+  {
+   "script": "build_style_metrics.py",
+   "menu": 165,
+   "title": "风格指标生成（打两份工 / 低音亮度，可复算）",
+   "menu_label": "build_style_metrics",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_style_metrics.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1286,7 +1344,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/9/15 23:58:00",
+    "next": "2026/9/20 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -1404,7 +1462,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/15 16:30:00",
+    "next": "2026/9/20 16:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },
