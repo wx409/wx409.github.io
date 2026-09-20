@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-09-20T17:21:44",
+  "generated_at": "2026-09-20T17:25:22",
   "shows_total": 64,
   "covered": 56,
   "missing": 8,
@@ -10,7 +10,7 @@
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
   "files_scanned": 6421,
-  "bv_mapped": 35
+  "bv_mapped": 36
  },
  "shows": [
   {
@@ -432,36 +432,36 @@
    "evidence": [
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P01_全程.wav"
+     "src": "站点实测",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P05_《歌颂》｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P02_《云一定知道》.wav"
+     "src": "站点实测",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P01_全程｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P03_《怂》.wav"
+     "src": "站点实测",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P02_《云一定知道》｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》.w"
+     "src": "站点实测",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P03_《怂》｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P05_《歌颂》.wav"
+     "src": "站点实测",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P06_《王牌就是我》.wav"
+     "src": "站点实测",
+     "detail": "【王晰】20201007杭州签唱会 现场live__P06_《王牌就是我》｜"
     }
    ],
-   "n_evidence": 36
+   "n_evidence": 42
   },
   {
    "date": "2020-10-17",
@@ -517,36 +517,36 @@
    "evidence": [
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "二巡北京20201129__BV1sK4y1f7n2｜"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1sK4y1f7n2"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1sK4y1f7n2"
+    },
+    {
+     "level": 1,
      "src": "路径日期",
      "detail": "二巡北京20201129__BV1sK4y1f7n2.segments.json"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "二巡北京20201129__BV1sK4y1f7n2.wav"
+     "src": "BV命中",
+     "detail": "BV1sK4y1f7n2"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "二巡北京20201129__BV1sK4y1f7n2_f0.csv"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡北京20201129__BV1sK4y1f7n2_stats.json"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "input_ascii.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "vocals.wav"
+     "src": "BV命中",
+     "detail": "BV1sK4y1f7n2"
     }
    ],
-   "n_evidence": 7
+   "n_evidence": 64
   },
   {
    "date": "2020-12-05",
@@ -718,10 +718,10 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "二巡南京20210411b_BV1SZ4y1c7Xb｜让她降落"
+     "detail": "20210411 王晰二巡南京收官站全场__BV__P01_20210411 王晰二巡南京收官站上半场｜"
     }
    ],
-   "n_evidence": 107
+   "n_evidence": 110
   },
   {
    "date": "2021-11-27",
@@ -748,20 +748,20 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "未知20211127_BV1Ef4y1K7NJ｜小毛驴"
+     "detail": "王晰B面图景杭州签售自录存档 20211127___P05_游离｜"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "未知20211127_BV19U4y1K7Yz｜让她降落"
+     "detail": "B面图景杭州签唱20211127__BV1YF411b7G5｜"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Ef4y1K7NJ"
+     "src": "站点实测",
+     "detail": "王晰B面图景杭州签售自录存档 20211127___P03_哑光｜"
     }
    ],
-   "n_evidence": 111
+   "n_evidence": 120
   },
   {
    "date": "2022-04-09",
@@ -832,31 +832,31 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1MW4y1q7hr"
+     "src": "站点实测",
+     "detail": "【王晰三巡·图景】20220917 武汉全程____P01_送别 moonriver 知晓｜"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1MW4y1q7hr"
+     "src": "站点实测",
+     "detail": "【王晰三巡·图景】20220917 武汉全程____P13_为爱痴狂 牵手 可爱的一朵玫瑰花｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "三巡武汉20220917__BV1MW4y1q7hr.wav"
+     "src": "站点实测",
+     "detail": "【王晰三巡·图景】20220917 武汉全程____P03_惑许 达尔文 车站 橄榄树｜"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1MW4y1q7hr"
+     "src": "站点实测",
+     "detail": "【王晰三巡·图景】20220917 武汉全程____P17_爱你｜"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1MW4y1q7hr"
+     "src": "站点实测",
+     "detail": "【王晰三巡·图景】20220917 武汉全程____P05_一生中最爱｜"
     }
    ],
-   "n_evidence": 166
+   "n_evidence": 183
   },
   {
    "date": "2023-05-01",
@@ -1382,31 +1382,31 @@
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "wav_五巡上海20251121_汇总.json"
+     "src": "站点实测",
+     "detail": "20251121203939 0034 住口6 talk 在路上 talk 勿扰 talk｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "20251121193244 Westway+Wellerman 我很好 My Oh M"
+     "src": "站点实测",
+     "detail": "20251121211941 0038 talk 雷美替胺｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "20251121194832 0026 talk1.wav"
+     "src": "站点实测",
+     "detail": "20251121193244 Westway+Wellerman 我很好 My Oh My｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "20251121194904 0027 玫瑰人生（La Vie en Rose）.wav"
+     "src": "站点实测",
+     "detail": "20251121212548 0039 好久不见 你怎么值得我难过 约定｜"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "20251121195344 0028 床前明月光 暗潮涌动 我真的受伤了.wav"
+     "src": "站点实测",
+     "detail": "20251121210423 0037 talk 明白 talk 鹅毛信｜"
     }
    ],
-   "n_evidence": 95
+   "n_evidence": 110
   },
   {
    "date": "2026-01-31",
@@ -1478,10 +1478,10 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "六巡重庆20260613_BV1zEJA6xEr2｜让她降落"
+     "detail": "六巡重庆20260613__BV1KwJx6iEza｜"
     }
    ],
-   "n_evidence": 250
+   "n_evidence": 270
   },
   {
    "date": "2026-08-23",
@@ -1508,20 +1508,20 @@
     {
      "level": 1,
      "src": "站点实测",
+     "detail": "六巡广州20260823_5338418712415061_上半场_花｜"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
      "detail": "六巡广州20260823_回_p15_女人花+水中花｜女人花+水中花"
     },
     {
      "level": 1,
      "src": "站点实测",
      "detail": "六巡广州20260823_1_花儿为什么这样红｜花儿为什么这样红"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "六巡广州20260823_12_Autumn Leaves｜Autumn Leaves"
     }
    ],
-   "n_evidence": 1054
+   "n_evidence": 1057
   }
  ],
  "missing": [
