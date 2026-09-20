@@ -70,6 +70,7 @@ STEPS = [
     (ROOT / "project_b" / "refresh_vocal_pages.py", "音域三页数据同步（输入有变化才跑生产脚本，幂等）", False),
     (ROOT / "project_b" / "build_skill_card.py", "每日唱功卡片 data/skill_cards.json + 本地传记素材归档", False),
     (ROOT / "project_b" / "build_stage_page.py", "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）", False),
+    (ROOT / "project_b" / "build_acoustic_report.py", "粉丝声学全量报告 acoustic-report.html（理论+实测+台账+图表，随数据自动刷新）", False),
     (r"E:\wx\论文素材_王晰作传\基线口径\generate_voice_page.py", "声部·音域页 voice.html（读 data/archive_vocal.json）", False),
     (ROOT / "project_b" / "build_skill_page.py", "唱功实测页 skill.html（七维实测 + 今日唱功卡片）", False),
     (ROOT / "project_b" / "build_vocal_longtable.py", "声学统一长表 + 复核台账（4 套 JSON / 3 处复核状态 归一）", False),

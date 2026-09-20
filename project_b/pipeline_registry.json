@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-20 16:17",
+ "generated_at": "2026-09-20 16:22",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 172,
   "dispatch": 171,
-  "deploy_steps": 58,
+  "deploy_steps": 59,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1355,6 +1355,13 @@
    "deploy_desc": "新歌入声学记录·只检测不改数据（--check；实测需人工确认后手动跑）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\auto_new_song_vocal.py"
+  },
+  {
+   "script": "build_acoustic_report.py",
+   "in_deploy": true,
+   "deploy_desc": "粉丝声学全量报告 acoustic-report.html（理论+实测+台账+图表，随数据自动刷新）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_acoustic_report.py"
   },
   {
    "script": "build_compact.py",
