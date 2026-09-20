@@ -157,6 +157,31 @@ def main() -> int:
                     for c in mv.get("rows", [])[:20]],
                    ["曲目", "现场版本数", "最低音中位 Hz", "四分位差", "极差", "版本间变异系数"], "mv")
 
+    # ---- 覆盖：两个口径（有实测入库 vs 有本地素材）----
+    ci = load("coverage_index.json")
+    cst = ci.get("stat", {})
+    crows = ci.get("shows", [])
+    coverage_html = (
+        f'<p class="lead">同一件事有两个口径，<b>不能混读</b>：</p>'
+        f'<div class="kpis">'
+        f'<div class="kpi"><b>{cst.get("measured_shows","—")}/{cst.get("shows_total","—")}</b>'
+        f'<span>已有实测数据入库（站点现场层，可进结论）</span></div>'
+        f'<div class="kpi"><b>{cst.get("local_shows","—")}/{cst.get("shows_total","—")}</b>'
+        f'<span>已有本地素材（已下载，含未实测）</span></div>'
+        f'<div class="kpi"><b>{cst.get("no_material","—")}</b><span>完全无素材（待采）</span></div>'
+        f'<div class="kpi"><b>{cst.get("files_scanned","—")}</b><span>本地扫到的素材文件数</span></div>'
+        f'</div>'
+        f'<p class="lead">本地素材的证据强度：<b>强（巡次+城市+年月）{cst.get("strong",0)}</b>｜'
+        f'中（城市+年月）{cst.get("mid",0)}｜<b>弱（仅巡次+城市，需人工确认到具体场次）{cst.get("weak",0)}</b>。'
+        f'证据弱的那些「有素材」不能直接写成"该场已测"，只能写"该巡该城有素材"。</p>'
+        + table([[esc(r["date"]), esc(r["city"]), esc(r["tour"]), r["songs"],
+                  (f'✔ {r["measured_materials"]}' if r["measured_materials"] else "—"),
+                  esc(r["local_evidence"]) or "—", esc(r["strength"]) or "—"]
+                 for r in crows],
+                ["日期", "城市", "巡次", "歌单曲数", "已实测条数", "本地素材来源", "证据强度"], "cover"))
+    coverage_html += ("<h3>完全无素材的场次（待采清单）</h3><p class='lead'>"
+                      + "、".join(f'{esc(m["city"])}{m["date"][5:]}' for m in ci.get("missing", [])) + "</p>")
+
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
@@ -283,9 +308,8 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <div class="scroll">{v_tbl}</div>
 </section>
 
-<section id="coverage"><h2>场次覆盖地图（{n_cov}/{len(cov)}）</h2>
-<p class="lead">✅ 表示该场次已有声学素材入库（按同城同日匹配）。空白场次是<b>待采</b>，不是"没问题"。</p>
-<div class="scroll">{table(cov, ["日期", "城市", "巡次", "歌单曲数", "已有声学素材"])}</div>
+<section id="coverage"><h2>场次覆盖地图（两个口径，别混读）</h2>
+{coverage_html}
 </section>
 
 <section id="cover"><h2>选曲与翻唱 · 无指数数据的那 {cstat.get('no_index_data','—')} 首</h2>

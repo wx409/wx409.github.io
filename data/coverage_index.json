@@ -1,0 +1,593 @@
+{
+ "stat": {
+  "generated_at": "2026-09-20T16:54:38",
+  "shows_total": 64,
+  "measured_shows": 16,
+  "local_shows": 41,
+  "strong": 0,
+  "mid": 0,
+  "weak": 41,
+  "no_material": 20,
+  "files_scanned": 4591
+ },
+ "shows": [
+  {
+   "date": "2019-06-07",
+   "city": "杭州",
+   "tour": "一巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（85 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-06-15",
+   "city": "武汉",
+   "tour": "一巡",
+   "songs": 18,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（130 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-07-28",
+   "city": "南京",
+   "tour": "一巡",
+   "songs": 25,
+   "measured_materials": 1,
+   "local_evidence": "仅巡次+城市（107 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-08-04",
+   "city": "广州",
+   "tour": "一巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（33 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-08-16",
+   "city": "北京",
+   "tour": "一巡",
+   "songs": 27,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（242 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-09-08",
+   "city": "深圳",
+   "tour": "一巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（5 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-10-19",
+   "city": "重庆",
+   "tour": "一巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（3 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-11-03",
+   "city": "上海",
+   "tour": "一巡",
+   "songs": 18,
+   "measured_materials": 1,
+   "local_evidence": "仅巡次+城市（10 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-11-16",
+   "city": "海口",
+   "tour": "一巡",
+   "songs": 20,
+   "measured_materials": 1,
+   "local_evidence": "仅巡次+城市（148 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-12-15",
+   "city": "长沙",
+   "tour": "一巡",
+   "songs": 26,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（55 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-12-21",
+   "city": "厦门",
+   "tour": "一巡",
+   "songs": 29,
+   "measured_materials": 29,
+   "local_evidence": "仅巡次+城市（310 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2019-12-28",
+   "city": "太原",
+   "tour": "一巡",
+   "songs": 36,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（120 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-01-02",
+   "city": "北京",
+   "tour": "一巡",
+   "songs": 25,
+   "measured_materials": 3,
+   "local_evidence": "仅巡次+城市（242 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-10-07",
+   "city": "杭州",
+   "tour": "签唱会",
+   "songs": 5,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（50 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-10-17",
+   "city": "北京",
+   "tour": "签唱会",
+   "songs": 6,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（45 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-11-14",
+   "city": "杭州",
+   "tour": "二巡",
+   "songs": 18,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（3 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-11-29",
+   "city": "北京",
+   "tour": "二巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（76 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-12-05",
+   "city": "广州",
+   "tour": "二巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（3 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2020-12-19",
+   "city": "南宁",
+   "tour": "二巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（3 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2021-01-09",
+   "city": "长沙",
+   "tour": "二巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（3 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2021-01-10",
+   "city": "武汉",
+   "tour": "二巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（3 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2021-03-07",
+   "city": "上海",
+   "tour": "二巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（370 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2021-03-08",
+   "city": "上海",
+   "tour": "二巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（370 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2021-04-11",
+   "city": "南京",
+   "tour": "二巡",
+   "songs": 24,
+   "measured_materials": 3,
+   "local_evidence": "仅巡次+城市（48 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2021-11-27",
+   "city": "杭州",
+   "tour": "签唱会",
+   "songs": 5,
+   "measured_materials": 2,
+   "local_evidence": "仅巡次+城市（50 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2022-04-09",
+   "city": "北京",
+   "tour": "三巡",
+   "songs": 18,
+   "measured_materials": 1,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2022-07-17",
+   "city": "鄂尔多斯",
+   "tour": "三巡",
+   "songs": 23,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（15 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2022-09-17",
+   "city": "武汉",
+   "tour": "三巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（88 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2023-06-23",
+   "city": "深圳",
+   "tour": "三巡",
+   "songs": 21,
+   "measured_materials": 1,
+   "local_evidence": "仅巡次+城市（6 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2023-11-12",
+   "city": "北京",
+   "tour": "四巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（114 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2023-12-31",
+   "city": "上海",
+   "tour": "四巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（418 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2024-01-27",
+   "city": "南京",
+   "tour": "四巡",
+   "songs": 14,
+   "measured_materials": 2,
+   "local_evidence": "仅巡次+城市（12 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2024-04-06",
+   "city": "上海",
+   "tour": "四巡",
+   "songs": 18,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（418 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2024-05-25",
+   "city": "杭州",
+   "tour": "四巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（6 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2024-08-16",
+   "city": "北京",
+   "tour": "四巡",
+   "songs": 18,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（114 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2024-12-21",
+   "city": "杭州",
+   "tour": "五巡",
+   "songs": 19,
+   "measured_materials": 1,
+   "local_evidence": "仅巡次+城市（98 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2025-04-05",
+   "city": "北京",
+   "tour": "五巡",
+   "songs": 20,
+   "measured_materials": 2,
+   "local_evidence": "仅巡次+城市（27 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2025-05-01",
+   "city": "上海",
+   "tour": "签唱会",
+   "songs": 6,
+   "measured_materials": 2,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2025-05-24",
+   "city": "广州",
+   "tour": "五巡",
+   "songs": 20,
+   "measured_materials": 1,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2025-11-21",
+   "city": "上海",
+   "tour": "五巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（94 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2026-01-31",
+   "city": "杭州",
+   "tour": "五巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（98 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2026-04-10",
+   "city": "北京",
+   "tour": "五巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "仅巡次+城市（27 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2026-06-13",
+   "city": "重庆",
+   "tour": "六巡",
+   "songs": 17,
+   "measured_materials": 3,
+   "local_evidence": "仅巡次+城市（30 文件）",
+   "strength": "弱"
+  },
+  {
+   "date": "2026-08-23",
+   "city": "广州",
+   "tour": "六巡",
+   "songs": 20,
+   "measured_materials": 39,
+   "local_evidence": "仅巡次+城市（520 文件）",
+   "strength": "弱"
+  }
+ ],
+ "missing": [
+  {
+   "date": "2019-07-20",
+   "city": "大连",
+   "tour": "一巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2019-10-12",
+   "city": "南宁",
+   "tour": "一巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2019-11-29",
+   "city": "珠海",
+   "tour": "一巡",
+   "songs": 24,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2019-12-01",
+   "city": "佛山",
+   "tour": "一巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2020-11-21",
+   "city": "佛山",
+   "tour": "二巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2021-03-27",
+   "city": "宁波",
+   "tour": "二巡",
+   "songs": 23,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2021-12-04",
+   "city": "广州",
+   "tour": "三巡",
+   "songs": 17,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2022-01-09",
+   "city": "无锡",
+   "tour": "三巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2022-01-10",
+   "city": "上海",
+   "tour": "三巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2022-06-24",
+   "city": "长沙",
+   "tour": "三巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2022-07-15",
+   "city": "太原",
+   "tour": "三巡",
+   "songs": 18,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2023-04-09",
+   "city": "上海",
+   "tour": "签唱会",
+   "songs": 7,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2023-05-01",
+   "city": "郑州",
+   "tour": "三巡",
+   "songs": 21,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2023-05-03",
+   "city": "昆明",
+   "tour": "三巡",
+   "songs": 17,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2023-05-20",
+   "city": "南宁",
+   "tour": "三巡",
+   "songs": 22,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2023-12-10",
+   "city": "广州",
+   "tour": "四巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2024-03-30",
+   "city": "重庆",
+   "tour": "四巡",
+   "songs": 20,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2024-09-16",
+   "city": "武汉",
+   "tour": "四巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2024-12-29",
+   "city": "南昌",
+   "tour": "五巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  },
+  {
+   "date": "2025-01-01",
+   "city": "长沙",
+   "tour": "五巡",
+   "songs": 19,
+   "measured_materials": 0,
+   "local_evidence": "",
+   "strength": ""
+  }
+ ]
+}
