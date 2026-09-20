@@ -640,7 +640,7 @@ def main() -> None:
 
 <p class="caveat">数据底账：<code>data/archive_stage.json</code>（逐条指标）｜逐帧 F0 与逐曲统计存于本地音域分析目录｜
 生成脚本：<code>音域分析/生成他人主导报告.py</code> + <code>project_b/build_stage_page.py</code>。</p>
-<script src="/qa_engine.js"></script>
+<!-- 问答助手已统一到 /search.html（2026-09-20 合并） -->
 <!-- FOOTER_NAV_START --><!-- FOOTER_NAV_END -->
 </body>
 </html>

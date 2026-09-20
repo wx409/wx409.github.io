@@ -85,8 +85,8 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 </div>
 <!-- NAV_END -->
 
-<h1>🔍 全站搜索</h1>
-<p style="color:#666;font-size:14px;">检索歌曲、巡演城市、演出、深夜小酒馆逐字稿、观演指南与站内页面。数据来源：<code>data/site_search_index.json</code>（纯前端，零后端）。</p>
+<h1>🔍 查询与问答</h1>
+<p style="color:#666;font-size:14px;">一站三用：<b>① 全站搜索</b>（歌曲 / 城市 / 演出 / 小酒馆 / 指南）<b>② 问答助手</b>（离线问答库 + 语义检索）<b>③ 数据集直查</b>（挑数据集 → 选维度与指标 → 出图出表）。纯前端、零后端、零 key。</p>
 
 <div class="search-box" role="search">
 <input type="search" id="searchInput" placeholder="搜索歌曲 / 城市 / 演出 / 小酒馆 / 指南…（支持空格多词）" autocomplete="off" aria-label="全站搜索">
@@ -105,7 +105,39 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 <div id="kbResults"></div>
 <div id="searchResults"></div>
 
-<p class="footnote">站内结果来自 <code>data/site_search_index.json</code>；知识库结果来自 <code>data/kb/semantic/</code>（bge-small-zh 语义向量，自动生成）；AI 问答助手在右下角。歌曲结果可跳转数据大屏对应查询。</p>
+<h2 style="margin-top:34px;font-size:20px;">🤖 问答助手</h2>
+<p style="color:#666;font-size:14px;">离线预生成问答 + 前端语义检索，与上面的搜索共用本页（<b>不再有右下角浮动窗</b>）。</p>
+<div id="qaInline"></div>
+
+<h2 style="margin-top:34px;font-size:20px;">📊 数据集直查</h2>
+<p style="color:#666;font-size:14px;">选数据集 → 选维度(X)与指标(Y) → 聚合出图 + 明细表 + 导出 CSV。数据来自站点公开 JSON，随每日部署自动更新。</p>
+<style>
+.dq{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.dq select,.dq input{padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:13px;background:#fff}
+.dq input{flex:1;min-width:180px}
+.dq button{padding:8px 14px;border:none;border-radius:8px;background:#c41e3a;color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+.dq button.sec{background:#fff;color:#a31832;border:1px solid #e0c0c6}
+#dqChart{height:340px;border:1px solid #eee;border-radius:10px;margin:6px 0 12px}
+#dqTable{overflow:auto;max-height:420px;border:1px solid #eee;border-radius:10px}
+#dqTable table{border-collapse:collapse;width:100%;font-size:13px}
+#dqTable th,#dqTable td{border-bottom:1px solid #f0f0f0;padding:6px 10px;text-align:left;white-space:nowrap}
+#dqTable th{background:#fafafa;position:sticky;top:0}
+#dqMeta{font-size:12px;color:#888;margin:4px 0}
+</style>
+<div class="dq">
+<select id="dqSet" aria-label="数据集"></select>
+<select id="dqX" aria-label="维度"></select>
+<select id="dqY" aria-label="指标"></select>
+<select id="dqAgg" aria-label="聚合"><option value="count">计数</option><option value="sum">求和</option><option value="mean">平均</option><option value="median">中位</option></select>
+<input id="dqFilter" placeholder="过滤（可选；逗号=任一命中，如：多听有益,哭砂）">
+<button type="button" id="dqRun">查询</button>
+<button type="button" class="sec" id="dqCsv">导出 CSV</button>
+</div>
+<div id="dqMeta"></div>
+<div id="dqChart"></div>
+<div id="dqTable"></div>
+
+<p class="footnote">本页是**查询与问答的统一入口**：站内结果来自 <code>data/site_search_index.json</code>，知识库结果来自 <code>data/kb/semantic/</code>（bge-small-zh 语义向量），问答来自 <code>data/qa_bank.json</code>，直查来自站点公开数据集。歌曲结果可跳转数据大屏对应查询。</p>
 <script src="assets/player_embed.js?v=3"></script>
 <script src="site_search_engine.js"></script>
 <script src="kb_semantic.js"></script>
@@ -203,6 +235,162 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
   }
 })();
 </script>
+<script>
+/* 数据集直查：纯前端读站点 JSON → 自动发现表 → 分组聚合 → 图 + 表 + CSV */
+(function () {
+  var SETS = [
+    ['大屏实时数据', 'dashboard/dashboard_lite.json'],
+    ['现场音域实测', 'data/archive_stage_tour.json'],
+    ['专辑音域实测', 'data/archive_vocal_albums.json'],
+    ['他人主导舞台', 'data/archive_stage.json'],
+    ['唱功卡片', 'data/skill_cards.json'],
+    ['巡演歌单', 'data/setlists.json'],
+    ['生涯时间轴', 'data/timeline.json'],
+    ['口径登记表', 'data/calibers.json']
+  ];
+  var cache = {}, current = null, rows = [], chart = null;
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  function tablesOf(obj, prefix, out, depth) {           // 自动发现 list[dict] → 表
+    out = out || []; depth = depth || 0;
+    if (Array.isArray(obj)) {
+      if (obj.length && obj[0] && typeof obj[0] === 'object' && !Array.isArray(obj[0])) out.push([prefix, obj]);
+      return out;
+    }
+    if (obj && typeof obj === 'object' && depth < 3) {
+      Object.keys(obj).forEach(function (k) {
+        var v = obj[k];
+        if (Array.isArray(v) || (v && typeof v === 'object')) tablesOf(v, prefix ? prefix + '.' + k : k, out, depth + 1);
+      });
+    }
+    return out;
+  }
+
+  function load(ds, cb) {
+    var key = ds[1];
+    if (cache[key]) return cb(cache[key]);
+    fetch(key, { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) {
+      cache[key] = tablesOf(j, ds[0]);
+      cb(cache[key]);
+    }).catch(function () { cb([]); });
+  }
+
+  function fillTables(ds) {
+    load(ds, function (tabs) {
+      $('dqSet').innerHTML = tabs.map(function (t, i) { return '<option value="' + i + '">' + esc(t[0]) + '（' + t[1].length + ' 行）</option>'; }).join('') || '<option>无可用表</option>';
+      pickTable();
+    });
+  }
+
+  function pickTable() {
+    var ds = SETS[+$('dqSet').dataset.setIdx];
+    var tabs = cache[ds[1]] || [];
+    var t = tabs[+$('dqSet').value];
+    if (!t) { current = null; return; }
+    current = t;
+    rows = t[1];
+    var cols = Object.keys(rows[0] || {});
+    var xs = [], ys = [];
+    cols.forEach(function (c) {
+      var vals = rows.map(function (r) { return r[c]; }).filter(function (v) { return v != null && v !== ''; });
+      var nums = vals.filter(function (v) { return typeof v === 'number'; });
+      if (nums.length === vals.length && nums.length) ys.push(c);
+      var uniq = {};
+      vals.slice(0, 400).forEach(function (v) { uniq[v] = 1; });
+      if (Object.keys(uniq).length <= 80) xs.push(c);
+    });
+    $('dqX').innerHTML = xs.map(function (c) { return '<option>' + esc(c) + '</option>'; }).join('');
+    $('dqY').innerHTML = ys.map(function (c) { return '<option>' + esc(c) + '</option>'; }).join('') || '<option value="">（无数字列，仅计数）</option>';
+    $('dqMeta').textContent = '当前表：' + t[0] + '｜' + rows.length + ' 行｜' + cols.length + ' 列';
+    run();
+  }
+
+  function agg(vals, how) {
+    if (how === 'count') return vals.length;
+    var n = vals.filter(function (v) { return typeof v === 'number'; });
+    if (!n.length) return null;
+    if (how === 'sum') return n.reduce(function (a, b) { return a + b; }, 0);
+    if (how === 'mean') return n.reduce(function (a, b) { return a + b; }, 0) / n.length;
+    n.sort(function (a, b) { return a - b; });
+    var m = n.length >> 1;
+    return n.length % 2 ? n[m] : (n[m - 1] + n[m]) / 2;   // 偶数取中位（与全站口径一致）
+  }
+
+  function run() {
+    if (!current) return;
+    var X = $('dqX').value, Y = $('dqY').value, how = $('dqAgg').value;
+    var kw = $('dqFilter').value.split(/[,，]/).map(function (s) { return s.trim(); }).filter(Boolean);
+    var src = rows;
+    if (kw.length) {
+      src = rows.filter(function (r) {
+        var s = Object.keys(r).map(function (k) { return r[k]; }).join(' ');
+        return kw.some(function (k) { return s.indexOf(k) >= 0; });
+      });
+    }
+    var groups = {};
+    src.forEach(function (r) {
+      var k = X ? (r[X] == null ? '—' : String(r[X])) : '全部';
+      (groups[k] = groups[k] || []).push(r[Y]);
+    });
+    var data = Object.keys(groups).map(function (k) { return { k: k, v: agg(groups[k], how) }; })
+      .sort(function (a, b) { return (b.v || 0) - (a.v || 0); });
+    var top = data.slice(0, 30);
+    $('dqMeta').textContent = '命中 ' + src.length + ' 行 → ' + data.length + ' 组（图只画前 30）｜X=' + X + ' Y=' + (Y || '—') + ' 聚合=' + how;
+    draw(top, Y || '行数');
+    table(data.slice(0, 200));
+  }
+
+  function draw(d, label) {
+    var el = $('dqChart');
+    if (!window.echarts) { el.innerHTML = '<p style="padding:12px;color:#999;font-size:13px;">图表库未加载，仅显示表格。</p>'; return; }
+    chart = chart || echarts.init(el);
+    chart.setOption({
+      grid: { left: 60, right: 20, top: 30, bottom: 70 },
+      tooltip: { trigger: 'axis' },
+      xAxis: { type: 'category', data: d.map(function (x) { return x.k; }), axisLabel: { rotate: 35, fontSize: 10 } },
+      yAxis: { type: 'value' },
+      series: [{ type: 'bar', data: d.map(function (x) { return x.v == null ? 0 : +x.v.toFixed(2); }), itemStyle: { color: '#c41e3a' }, name: label }]
+    }, true);
+    chart.resize();
+  }
+
+  function table(d) {
+    var cols = current ? Object.keys(rows[0] || {}).slice(0, 8) : [];
+    var head = '<tr><th>分组</th><th>值</th></tr>';
+    $('dqTable').innerHTML = '<table>' + head + d.map(function (x) {
+      return '<tr><td>' + esc(x.k) + '</td><td>' + (x.v == null ? '—' : (+x.v).toFixed(2)) + '</td></tr>';
+    }).join('') + '</table>';
+  }
+
+  function csv() {
+    var X = $('dqX').value, Y = $('dqY').value, how = $('dqAgg').value;
+    var kw = $('dqFilter').value.split(/[,，]/).map(function (s) { return s.trim(); }).filter(Boolean);
+    var src = kw.length ? rows.filter(function (r) {
+      var s = Object.keys(r).map(function (k) { return r[k]; }).join(' ');
+      return kw.some(function (k) { return s.indexOf(k) >= 0; });
+    }) : rows;
+    var cols = Object.keys(rows[0] || {});
+    var lines = [cols.join(',')].concat(src.slice(0, 5000).map(function (r) {
+      return cols.map(function (c) { var v = r[c]; return '"' + String(v == null ? '' : (typeof v === 'object' ? JSON.stringify(v) : v)).replace(/"/g, '""') + '"'; }).join(',');
+    }));
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['\ufeff' + lines.join('\n')], { type: 'text/csv' }));
+    a.download = 'wangxi_' + ($('dqSet').dataset.setIdx + '_') + X + '_' + (Y || 'count') + '.csv';
+    a.click();
+  }
+
+  SETS.forEach(function (s, i) { var o = document.createElement('option'); o.textContent = s[0]; o.dataset.idx = i; o.value = i; $('dqSet').appendChild(o); });
+  $('dqSet').dataset.setIdx = 0;
+  $('dqSet').onchange = function () { $('dqSet').dataset.setIdx = this.value; fillTables(SETS[+this.value]); };
+  $('dqX').onchange = run; $('dqY').onchange = run; $('dqAgg').onchange = run;
+  $('dqRun').onclick = run; $('dqCsv').onclick = csv;
+  var s = document.createElement('script');
+  s.src = 'dashboard/echarts.min.js'; s.onload = function () { if (current) run(); };
+  document.head.appendChild(s);
+  fillTables(SETS[0]);
+})();
+</script>
 <!-- FOOTER_NAV_START -->
 <footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
 <strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
@@ -210,7 +398,7 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 <div style="margin-top:6px;"><b>核心内容：</b><a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/story-hui-guangzhou-2026.html" style="color:#c41e3a;text-decoration:none;">六巡广州站数据复盘</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
 <div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">setlists.html</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a></div>
 <div style="margin-top:6px;"><b>声学·内容：</b><a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a></div>
-<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">全站搜索</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
+<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">🔎 查询与问答</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
 </footer>
 <!-- FOOTER_NAV_END -->
 </body>

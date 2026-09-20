@@ -616,10 +616,13 @@
     if (widgetInjected) return;
     widgetInjected = true;
 
+    var INLINE = document.getElementById('qaInline');   // 页面自备容器 → 内嵌渲染，不生成右下角气泡
     var css = '.qaw-fab{position:fixed;right:20px;bottom:20px;z-index:9999;width:52px;height:52px;border-radius:50%;background:#c41e3a;color:#fff;border:none;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(196,30,58,.35);display:flex;align-items:center;justify-content:center;transition:transform .15s}'
       + '.qaw-fab:hover{transform:scale(1.08)}'
       + '.qaw-panel{position:fixed;right:20px;bottom:80px;z-index:9999;width:360px;max-width:calc(100vw - 40px);max-height:70vh;background:#fff;border:1px solid #e8d3d7;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}'
       + '.qaw-panel.open{display:flex}'
+      + '.qaw-inline .qaw-panel{position:static;width:auto;max-width:100%;max-height:none;box-shadow:none;display:flex}'
+      + '.qaw-inline .qaw-close{display:none}'
       + '.qaw-head{background:linear-gradient(135deg,#c41e3a,#a31832);color:#fff;padding:12px 14px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:6px}'
       + '.qaw-close{margin-left:auto;background:none;border:none;color:#fff;font-size:18px;cursor:pointer;line-height:1}'
       + '.qaw-body{padding:12px 14px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:10px}'
@@ -658,10 +661,15 @@
       + '  <div class="qaw-all" id="qaWidgetAll"></div>'
       + '</div>';
 
-    document.body.appendChild(fab);
     document.body.appendChild(panel);
-
-    fab.onclick = function () { panel.classList.toggle('open'); loadBank(function(){ render([]); }); };
+    if (INLINE) {                       // 内嵌：占位容器里直接展开，不显示气泡
+      INLINE.classList.add('qaw-inline');
+      INLINE.appendChild(panel);
+      panel.classList.add('open');
+    } else {
+      document.body.appendChild(fab);
+      fab.onclick = function () { panel.classList.toggle('open'); loadBank(function(){ render([]); }); };
+    }
     document.getElementById('qaWidgetClose').onclick = function () { panel.classList.remove('open'); };
     document.getElementById('qaWidgetBtn').onclick = runQuestion;
     document.getElementById('qaWidgetInput').onkeydown = function (e) { if (e.key === 'Enter') runQuestion(); };

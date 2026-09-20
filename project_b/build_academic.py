@@ -242,7 +242,7 @@ def build(doc: dict) -> str:
     parts.append(f'    <p class="meta">文献索引最后更新：{esc(doc.get("generated_at"))}（数据源 <code>data/literature.json</code>，由 <code>project_b/build_academic.py</code> 自动渲染）。</p>')
     parts.append("")
     parts.append('    <p style="margin-top: 40px; color: #999; font-size: 12px;">本页仅作学术索引，论文版权归原作者、期刊与数据库所有。如需引用请通过正规学术渠道获取原文。中文条目的摘要文字照录数据库公开著录页，未作改写。</p>')
-    parts.append('<script src="/qa_engine.js"></script>')
+    parts.append("<!-- 问答助手已统一到 /search.html（2026-09-20 合并） -->")
     parts.append("<!-- FOOTER_NAV_START --><!-- FOOTER_NAV_END -->")
     parts.append("</body>")
     parts.append("</html>")

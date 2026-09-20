@@ -44,6 +44,11 @@
   （`voice/stage/skill/academic/dashboard/live-reviews/discography/songs/timeline/…`）
 - **私密/实验区（noindex，不推送）**：`archive-index.html`（完整档案索引）、`kb-semantic.html`、
   `debate/`（争议案例）、`search.html`（工具页）
+- **查询与问答只有一个入口**：`search.html`（搜索 + 问答助手 + 数据集直查）。问答引擎 `qa_engine.js`
+  在页面内自备 `<div id="qaInline">` 时**内嵌渲染、不再生成右下角浮动窗**；其余页面一律不挂助手，
+  统一走底部「🔎 查询与问答」链接。改生成器后按顺序 **先生成页面、最后跑 `build_nav.py`**，否则导航区块会被覆盖成空。
+- **喂爬虫是第一要务**：每次推送后 IndexNow 通知 Bing/Yandex/Seznam/Naver（百度无入口）。
+  `deploy_all.py` 的推送清单 = 手写枢纽页 ∪ `sitemap.xml` 派生（新增页面自动覆盖，别改回手写清单）。
 - `data/`：JSON 数据层（见 `docs/DATA-SCHEMA.md`）｜`tools/`：脚本 ｜ `project_b/`：生成器与审计
 - `docs/`：本项目的规则与档案（见下）
 
