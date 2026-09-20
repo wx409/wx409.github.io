@@ -118,6 +118,34 @@ def notify(title, msg):
         log("notify 失败: %s" % e)
 
 
+ALARM = ROOT / "temp" / "链路告警.txt"
+
+
+def alarm_on_failure(where: str, detail: str) -> None:
+    """链路失败时：落本地告警文件 + 单独 commit/push 通知文件。
+
+    为什么必须绕过 deploy_all：失败时 deploy_all 本身没跑成，
+    挂在它上面的通知也发不出去（死锁）。所以这里只动一个文件、单独推。
+    """
+    try:
+        ALARM.write_text(
+            f"{datetime.now():%Y-%m-%d %H:%M:%S}｜{where}\n{detail}\n"
+            f"（本文件由 auto_update.py 失败分支写入；DSH 每次会话开头会查它，修好后可删）\n",
+            encoding="utf-8")
+    except Exception as e:
+        log("写告警文件失败: %s" % e)
+    try:
+        nf_path = ROOT / "data" / "notifications.json"
+        if nf_path.exists():
+            subprocess.run(["git", "add", "--", "data/notifications.json"], cwd=ROOT, check=False)
+            subprocess.run(["git", "commit", "-q", "-m", f"告警: {where} 失败（{datetime.now():%m-%d %H:%M}）"],
+                           cwd=ROOT, check=False)
+            subprocess.run(["git", "push", "-q", "origin", "main"], cwd=ROOT, check=False)
+            log("已单独推送告警通知文件（绕过 deploy_all）")
+    except Exception as e:
+        log("单独推送告警失败: %s" % e)
+
+
 def _record(category, title, content, source="", url=""):
     """只写本地通知表，供 notifications.html 做细粒度聚合展示。"""
     try:
@@ -225,6 +253,7 @@ def main():
     if not ok:
         log("deploy_all 失败，终止发布")
         notify("⚠️ 自动更新失败：deploy_all 出错", "详情见 logs/ 目录")
+        alarm_on_failure("deploy_all", "deploy_all 非零退出，详见 temp/deploy_run.log")
         return
 
     # 3. 检查是否有未推送的 commit（deploy_all 内部已 commit，
