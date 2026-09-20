@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-20 16:15",
+ "generated_at": "2026-09-20 16:17",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 165,
-  "dispatch": 164,
-  "deploy_steps": 55,
+  "menu_items": 172,
+  "dispatch": 171,
+  "deploy_steps": 58,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1266,6 +1266,62 @@
    "path": "D:\\wx409.github.io\\project_b\\build_style_metrics.py"
   },
   {
+   "script": "整场纵向分析.py",
+   "menu": 166,
+   "title": "整场纵向分析（拱形结构 / 音区不漂移，读已有 F0）",
+   "menu_label": "show_arc",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\整场纵向分析.py"
+  },
+  {
+   "script": "转写talk批次.py",
+   "menu": 167,
+   "title": "talk 批量转写（whisper，选目录出 txt+segments）",
+   "menu_label": "talk_batch",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\转写talk批次.py"
+  },
+  {
+   "script": "build_warehouse.py",
+   "menu": 168,
+   "title": "数据仓库重建（站点 JSON → DuckDB 单文件，101 表）",
+   "menu_label": "build_warehouse",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_warehouse.py"
+  },
+  {
+   "script": "archive_compress_media.py",
+   "menu": 169,
+   "title": "原始素材无损压缩（WAV→FLAC，默认试算）",
+   "menu_label": "archive_flac",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\archive_compress_media.py"
+  },
+  {
+   "script": "archive_reencode_hevc.py",
+   "menu": 170,
+   "title": "原始视频省空间（HEVC 重编码，默认试算）",
+   "menu_label": "archive_hevc",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\archive_reencode_hevc.py"
+  },
+  {
+   "script": "segment_concert.py",
+   "menu": 171,
+   "title": "整场按曲目切分（掌声 / 能量谷 / f0 断裂）",
+   "menu_label": "segment_concert",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\segment_concert.py"
+  },
+  {
+   "script": "attribution_report.py",
+   "menu": 172,
+   "title": "归因检验报告（四问 + 多重比较校正）",
+   "menu_label": "attribution",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\attribution_report.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1285,6 +1341,13 @@
    "deploy_desc": "批处理体检（GBK/BEL/双回车/goto 目标）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\audit_bat.py"
+  },
+  {
+   "script": "audit_extreme_prior.py",
+   "in_deploy": true,
+   "deploy_desc": "极值先验审计（用该曲已知音域做上限，防假极值上线）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_extreme_prior.py"
   },
   {
    "script": "auto_new_song_vocal.py",
@@ -1440,6 +1503,20 @@
    "deploy_desc": "首页事实块（轮次/城市/覆盖天数/Last updated 派生）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\inject_index_facts.py"
+  },
+  {
+   "script": "inject_long_notes.py",
+   "in_deploy": true,
+   "deploy_desc": "长声实测注入（从 data/archive_long_notes.json 派生，幂等）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\inject_long_notes.py"
+  },
+  {
+   "script": "inject_top_verified.py",
+   "in_deploy": true,
+   "deploy_desc": "人耳确认读数注入（listening_verdicts 派生，幂等）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\inject_top_verified.py"
   },
   {
    "script": "menu:0",

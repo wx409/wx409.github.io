@@ -213,6 +213,13 @@ echo    162. 听辨样本切制（待复核读数切 6~8 秒小段送人耳）
 echo    163. 辩音总档生成（传记素材：前史+正本+裁决台账合并）
 echo    164. 专辑层高音区复核（极值读数必须过人耳）
 echo    165. 风格指标生成（打两份工 / 低音亮度，可复算）
+echo    166. 整场纵向分析（拱形结构 / 音区不漂移，读已有 F0）
+echo    167. talk 批量转写（whisper，选目录出 txt+segments）
+echo    168. 数据仓库重建（站点 JSON → DuckDB 单文件，101 表）
+echo    169. 原始素材无损压缩（WAV→FLAC，默认试算）
+echo    170. 原始视频省空间（HEVC 重编码，默认试算）
+echo    171. 整场按曲目切分（掌声 / 能量谷 / f0 断裂）
+echo    172. 归因检验报告（四问 + 多重比较校正）
 echo    0. 退出
 echo.
 set "op="
@@ -382,6 +389,13 @@ if "%op%"=="161" goto audit_consistency
 if "%op%"=="162" goto make_review_clips
 if "%op%"=="163" goto build_debate_archive
 if "%op%"=="164" goto make_review_clips
+if "%op%"=="166" goto show_arc
+if "%op%"=="167" goto talk_batch
+if "%op%"=="168" goto build_warehouse
+if "%op%"=="169" goto archive_flac
+if "%op%"=="170" goto archive_hevc
+if "%op%"=="171" goto segment_concert
+if "%op%"=="172" goto attribution
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2285,5 +2299,71 @@ echo   指标二「低的要高唱」：低音区/中音区 频谱质心比
 echo   口径写死在脚本 docstring，引用前必看
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_style_metrics.py
+pause
+goto menu
+
+:show_arc
+cls
+echo  [整场纵向分析] 读已落盘逐帧 F0，算全场 5 分箱的音区走向
+echo  产出：data\archive_show_arc.json（只在有序整场素材上有效）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\整场纵向分析.py
+pause
+goto menu
+
+:talk_batch
+cls
+echo  [talk 批量转写] faster-whisper 本地缓存模型（GPU）
+echo  目录里的 wav/mp4 全部转写；已有同名 txt 自动跳过
+set /p wdir=  音频目录（可拖拽）:
+set /p wout=  输出目录:
+echo  python -X utf8 project_b\转写talk批次.py --dir "%wdir%" --out "%wout%"
+cd /d "D:\wx409.github.io"
+pause
+goto menu
+
+:build_warehouse
+cls
+echo  [数据仓库] 站点 data\*.json + 指数长表 → DuckDB 单文件
+echo  产出：E:\wx\warehouse\wangxi.duckdb + temp\DATA-WAREHOUSE.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_warehouse.py
+pause
+goto menu
+
+:archive_flac
+cls
+echo  [素材无损压缩] WAV → FLAC（默认只试算，不会动文件）
+echo  加 --apply 才真转；逐个比对 PCM md5 通过才删原 WAV
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\archive_compress_media.py
+pause
+goto menu
+
+:archive_hevc
+cls
+echo  [视频省空间] HEVC 重编码（默认只试算）
+echo  三重闸门：音频 md5 一致 + PSNR 至少 40dB + 体积压到七成以下 才替换原件
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\archive_reencode_hevc.py
+pause
+goto menu
+
+:segment_concert
+cls
+echo  [整场切曲] 三层判据：掌声边界 / 能量谷 / f0 断裂
+set /p wavf=  整场 wav 路径:
+set /p slist= 该场歌单（分号分隔，可空）:
+echo  python -X utf8 project_b\segment_concert.py --wav "%wavf%" --setlist "%slist%"
+cd /d "D:\wx409.github.io"
+pause
+goto menu
+
+:attribution
+cls
+echo  [归因检验] 四问：安慰剂 / 剂量-反应 / 事前趋势 / 中介链 + 多重比较校正
+echo  事件表：temp\归因事件表.json｜产出 temp\归因报告.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\attribution_report.py
 pause
 goto menu
