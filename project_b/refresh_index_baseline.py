@@ -201,6 +201,14 @@ def main() -> int:
                 "long_max": fr1["long_max"], "expected_max": fr1["expected_max"],
                 "lag_days": fr1["lag_days"], "annual": fr1["annual"]})
     log("结论：%s" % ("已刷新且新鲜 ✅" if ok else "已刷新但仍有滞后 ⚠️（检查日档案是否齐全）"))
+
+    # 指数一变，归因报告跟着重算（四问：安慰剂/剂量-反应/事前趋势/中介链；非致命）
+    try:
+        subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "attribution_report.py"), "--quiet"],
+                       cwd=ROOT, timeout=300, check=False)
+        log("归因报告已刷新：temp/归因报告.md")
+    except Exception as e:
+        log("[!] 归因报告生成失败（不影响刷新）：%s" % e)
     return 0
 
 
