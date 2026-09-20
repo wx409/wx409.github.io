@@ -143,6 +143,20 @@ def main() -> int:
 <li><b>中位数一律用 statistics.median</b>，偶数样本取中位；同音名取曲按实测 Hz 排序。</li>
 </ol>"""
 
+    # ---- 选曲与翻唱（无指数数据的 222 首 → 主动性样本）----
+    cat = load("cover_catalog.json"); ca = load("cover_analysis.json")
+    cstat = cat.get("stat", {})
+    fp = ca.get("fingerprint", {}); mv = ca.get("multi_version", {})
+    ra = ca.get("register_adapt", {}); ls = ca.get("language_style", {})
+    did = ca.get("did_own_vs_cover", {})
+    cov_tbl = table([[esc(s["title"]), s["times"], esc(s["first"]), esc(s["last"]),
+                      "✅" if s["own"] else "—", "✅" if s.get("has_index_data") else "—", esc(s["kind"])]
+                     for s in cat.get("songs", []) if s["times"] >= 5],
+                    ["曲目", "场次", "首唱", "末唱", "自有发行", "有指数数据", "类型"], "cover")
+    mv_tbl = table([[esc(c["song"]), c["versions"], c["low_median"], c["low_iqr"], c["low_range"], c["low_cv"]]
+                    for c in mv.get("rows", [])[:20]],
+                   ["曲目", "现场版本数", "最低音中位 Hz", "四分位差", "极差", "版本间变异系数"], "mv")
+
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
@@ -204,6 +218,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <div class="g">台账</div>
 <a href="#verdicts">复核裁决（{len(v_items)} 条）</a>
 <a href="#coverage">场次覆盖地图</a>
+<a href="#cover">选曲与翻唱</a>
 <a href="#limits">已知边界</a>
 </aside>
 <main>
@@ -271,6 +286,36 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <section id="coverage"><h2>场次覆盖地图（{n_cov}/{len(cov)}）</h2>
 <p class="lead">✅ 表示该场次已有声学素材入库（按同城同日匹配）。空白场次是<b>待采</b>，不是"没问题"。</p>
 <div class="scroll">{table(cov, ["日期", "城市", "巡次", "歌单曲数", "已有声学素材"])}</div>
+</section>
+
+<section id="cover"><h2>选曲与翻唱 · 无指数数据的那 {cstat.get('no_index_data','—')} 首</h2>
+<p class="lead">他 {cstat.get('shows','—')} 场唱过 <b>{cstat.get('songs_total','—')}</b> 首不同曲目，其中自有发行 <b>{cstat.get('own_released','—')}</b> 首、
+翻唱/非自有 <b>{cstat.get('covers','—')}</b> 首；<b>真正有 QQ 指数数据的只有 {cstat.get('own_with_index_data',0)+cstat.get('covers_with_index_data',0)} 首</b>，
+其余 {cstat.get('no_index_data','—')} 首没有市场数据——这部分的价值在<b>选择行为本身</b>：没有发行计划、没有推广资源、没有算法加持，选曲＝纯偏好。</p>
+<h3>① 选曲指纹：他几乎每巡换血</h3>
+<div class="kpis">
+<div class="kpi"><b>{fp.get('home_songs','—')}</b><span>看家曲（≥10 场）</span></div>
+<div class="kpi"><b>{fp.get('once_only','—')}</b><span>只唱过一次（实验区）</span></div>
+<div class="kpi"><b>{fp.get('tiers',{}).get('常演（5–9 场）','—')}</b><span>常演（5–9 场）</span></div>
+</div>
+{table([[r['from'] + '→' + r['to'], r['prev_n'], r['cur_n'], r['retained'], f"{r['retain_rate']:.0%}", f"{r['new_rate']:.0%}"]
+        for r in fp.get('retention', [])], ["巡次", "上巡曲目", "本巡曲目", "保留", "保留率", "新增率"], "retain")}
+<p class="lead">跨巡保留率仅 <b>2%–6%</b>：他的巡演不是"金曲循环"，而是持续更换曲目池——这本身是他"不肯重复自己"的行为证据。</p>
+<h3>② 同曲多版本方差：他每场是不是同一个水平</h3>
+<p class="lead">{mv.get('songs_with_3plus','—')} 首曲目有 ≥3 个现场版本，<b>版本间变异系数中位 {mv.get('low_cv_median','—')}</b>（越小＝各场越一致）。
+最小的（再见我的爱 0.3%、Yesterday Once More 0.9%、平凡又美好的晚上 0.85%）说明同曲跨场稳定；最大的（多听有益 22%、小毛驴 24%）多含串烧/片段，需按口径判读。</p>
+<div class="scroll">{mv_tbl}</div>
+<h3>③ 音区适配：他给不同来源曲目的"音区预算"</h3>
+<p class="lead">自有曲现场最低音中位 <b>{ra.get('own_live_low_median','—')} Hz</b>（n={ra.get('own_n','—')}） vs 翻唱曲 <b>{ra.get('cover_live_low_median','—')} Hz</b>（n={ra.get('cover_n','—')}）
+——他给<b>自己的作品</b>留了更低的音区。</p>
+<h3>④ 语言 / 风格跨度</h3>
+{table([[k, v['songs'], v['home_songs'], v['with_index']] for k, v in ls.items()],
+       ["组", "曲目数", "看家曲", "有指数数据"], "lang")}
+<h3>⑤ 自有曲 vs 翻唱曲 的舞台效应 DiD（设计可行，数据不足）</h3>
+<p class="lead">设计：同一场演出里"自有曲（受处理）vs 翻唱曲（对照）"在演出前后的相对变化差——同人、同期、同场地，
+唯一差别是"是否他的作品"。<b>但当前只有 {did.get('n_shows',0)} 场同时满足"≥2 首自有 + ≥2 首翻唱且都有指数数据"</b>，
+DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样本不足</b>；要跑通得先让更多曲目进入指数池，或改用"同曲跨场"配对。</p>
+<div class="scroll">{cov_tbl}</div>
 </section>
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>

@@ -1,0 +1,477 @@
+{
+ "generated_at": "2026-09-20T16:39:48",
+ "stat": {
+  "generated_at": "2026-09-20T16:39:47",
+  "songs_total": 293,
+  "own_released": 52,
+  "covers": 241,
+  "covers_with_index": 228,
+  "covers_with_index_data": 25,
+  "own_with_index_data": 46,
+  "no_index_data": 222,
+  "shows": 64,
+  "years": "2019–2026",
+  "tiers": {
+   "看家曲（≥10 场）": 53,
+   "常演（5–9 场）": 36,
+   "偶演（2–4 场）": 33,
+   "一次性（1 场）": 171
+  },
+  "medley": 13,
+  "request": 2,
+  "covers_zero_repeat": 156
+ },
+ "fingerprint": {
+  "tours": {
+   "一巡": 109,
+   "签唱会": 23,
+   "二巡": 48,
+   "三巡": 50,
+   "四巡": 53,
+   "五巡": 45,
+   "六巡": 18
+  },
+  "tour_order": [
+   "一巡",
+   "二巡",
+   "三巡",
+   "四巡",
+   "五巡",
+   "六巡"
+  ],
+  "retention": [
+   {
+    "from": "一巡",
+    "to": "二巡",
+    "prev_n": 109,
+    "cur_n": 48,
+    "retained": 5,
+    "retain_rate": 0.046,
+    "new": 43,
+    "new_rate": 0.896
+   },
+   {
+    "from": "二巡",
+    "to": "三巡",
+    "prev_n": 48,
+    "cur_n": 50,
+    "retained": 3,
+    "retain_rate": 0.062,
+    "new": 47,
+    "new_rate": 0.94
+   },
+   {
+    "from": "三巡",
+    "to": "四巡",
+    "prev_n": 50,
+    "cur_n": 53,
+    "retained": 1,
+    "retain_rate": 0.02,
+    "new": 52,
+    "new_rate": 0.981
+   },
+   {
+    "from": "四巡",
+    "to": "五巡",
+    "prev_n": 53,
+    "cur_n": 45,
+    "retained": 1,
+    "retain_rate": 0.019,
+    "new": 44,
+    "new_rate": 0.978
+   },
+   {
+    "from": "五巡",
+    "to": "六巡",
+    "prev_n": 45,
+    "cur_n": 18,
+    "retained": 1,
+    "retain_rate": 0.022,
+    "new": 17,
+    "new_rate": 0.944
+   }
+  ],
+  "tiers": {
+   "看家曲（≥10 场）": 53,
+   "常演（5–9 场）": 36,
+   "偶演（2–4 场）": 33,
+   "一次性（1 场）": 171
+  },
+  "once_only": 171,
+  "home_songs": 53,
+  "once_list": [
+   "DI DA DI",
+   "Don't Break My Heart",
+   "Fly Me to the Moon",
+   "Love Me Tender",
+   "Nature Boy",
+   "S'Wonderful",
+   "Yes or No",
+   "一帘幽梦",
+   "一江水",
+   "三个人的晚餐",
+   "下沉",
+   "不需要结果",
+   "世界赠予我的",
+   "东方之珠",
+   "两只老虎",
+   "中场休息15分钟",
+   "为爱痴狂",
+   "乌兰巴托的夜",
+   "乌兰巴托的夜晚",
+   "乡恋",
+   "云与海",
+   "亲爱的小孩",
+   "人说山西好风光",
+   "人间",
+   "今夜无人入睡",
+   "今宵多珍重",
+   "何日君再来",
+   "你快乐所以我快乐",
+   "你怎么舍得我难过",
+   "你的样子",
+   "你眼里的星光",
+   "偿还",
+   "光之心",
+   "军港之夜",
+   "冬天里的一把火",
+   "凄美地",
+   "凡人歌",
+   "北国之春",
+   "十年",
+   "千万次的问",
+   "千言万语",
+   "南海姑娘",
+   "原来你也在这里",
+   "只要有你",
+   "可爱的一朵玫瑰花",
+   "听海",
+   "嘎达梅林",
+   "嘴巴嘟嘟",
+   "囚鸟",
+   "四季歌",
+   "在梵高的星空下",
+   "城里的月光",
+   "夜上海",
+   "夜半歌声",
+   "大地飞歌",
+   "大海啊故乡",
+   "大眼睛",
+   "天边",
+   "天黑黑",
+   "奉献"
+  ]
+ },
+ "multi_version": {
+  "songs_with_3plus": 24,
+  "rows": [
+   {
+    "song": "让她降落",
+    "versions": 19,
+    "low_median": 91.9,
+    "low_iqr": 8.7,
+    "low_range": 35.2,
+    "high_median": 761.0,
+    "low_cv": 0.0915
+   },
+   {
+    "song": "Your Man",
+    "versions": 11,
+    "low_median": 90.4,
+    "low_iqr": 1.0,
+    "low_range": 23.5,
+    "high_median": 841.6,
+    "low_cv": 0.0658
+   },
+   {
+    "song": "像雾像雨又像风",
+    "versions": 9,
+    "low_median": 104.0,
+    "low_iqr": 21.9,
+    "low_range": 37.5,
+    "high_median": 326.2,
+    "low_cv": 0.1393
+   },
+   {
+    "song": "花儿为什么这样红",
+    "versions": 8,
+    "low_median": 72.5,
+    "low_iqr": 1.5,
+    "low_range": 23.1,
+    "high_median": 600.2,
+    "low_cv": 0.095
+   },
+   {
+    "song": "一生守候",
+    "versions": 6,
+    "low_median": 75.4,
+    "low_iqr": 5.2,
+    "low_range": 8.9,
+    "high_median": 359.6,
+    "low_cv": 0.045
+   },
+   {
+    "song": "心动",
+    "versions": 5,
+    "low_median": 97.1,
+    "low_iqr": 3.7,
+    "low_range": 36.1,
+    "high_median": 763.7,
+    "low_cv": 0.1471
+   },
+   {
+    "song": "多听有益",
+    "versions": 5,
+    "low_median": 74.9,
+    "low_iqr": 30.0,
+    "low_range": 46.4,
+    "high_median": 725.8,
+    "low_cv": 0.2214
+   },
+   {
+    "song": "再见我的爱人",
+    "versions": 4,
+    "low_median": 76.5,
+    "low_iqr": 0.2,
+    "low_range": 0.6,
+    "high_median": 706.4,
+    "low_cv": 0.0031
+   },
+   {
+    "song": "静止了的夜晚",
+    "versions": 4,
+    "low_median": 65.8,
+    "low_iqr": 16.8,
+    "low_range": 21.7,
+    "high_median": 913.2,
+    "low_cv": 0.141
+   },
+   {
+    "song": "情网",
+    "versions": 4,
+    "low_median": 93.4,
+    "low_iqr": 34.2,
+    "low_range": 34.8,
+    "high_median": 351.3,
+    "low_cv": 0.1841
+   },
+   {
+    "song": "我要你",
+    "versions": 4,
+    "low_median": 78.1,
+    "low_iqr": 3.4,
+    "low_range": 13.7,
+    "high_median": 435.3,
+    "low_cv": 0.0741
+   },
+   {
+    "song": "小毛驴",
+    "versions": 3,
+    "low_median": 83.1,
+    "low_iqr": 26.0,
+    "low_range": 51.9,
+    "high_median": 824.8,
+    "low_cv": 0.2399
+   },
+   {
+    "song": "Yourman",
+    "versions": 3,
+    "low_median": 87.2,
+    "low_iqr": 11.7,
+    "low_range": 23.4,
+    "high_median": 857.8,
+    "low_cv": 0.1138
+   },
+   {
+    "song": "人世间",
+    "versions": 3,
+    "low_median": 86.8,
+    "low_iqr": 9.8,
+    "low_range": 19.6,
+    "high_median": 725.0,
+    "low_cv": 0.0919
+   },
+   {
+    "song": "友谊地久天长",
+    "versions": 3,
+    "low_median": 103.6,
+    "low_iqr": 12.8,
+    "low_range": 25.6,
+    "high_median": 523.2,
+    "low_cv": 0.1097
+   },
+   {
+    "song": "Close to You",
+    "versions": 3,
+    "low_median": 73.7,
+    "low_iqr": 0.9,
+    "low_range": 1.8,
+    "high_median": 872.0,
+    "low_cv": 0.01
+   },
+   {
+    "song": "夜色",
+    "versions": 3,
+    "low_median": 97.0,
+    "low_iqr": 23.3,
+    "low_range": 46.6,
+    "high_median": 316.0,
+    "low_cv": 0.1934
+   },
+   {
+    "song": "平凡又美好的晚上",
+    "versions": 3,
+    "low_median": 80.3,
+    "low_iqr": 0.8,
+    "low_range": 1.6,
+    "high_median": 520.4,
+    "low_cv": 0.0085
+   },
+   {
+    "song": "月半弯",
+    "versions": 3,
+    "low_median": 81.4,
+    "low_iqr": 9.5,
+    "low_range": 19.1,
+    "high_median": 829.5,
+    "low_cv": 0.0993
+   },
+   {
+    "song": "Yesterday Once More",
+    "versions": 3,
+    "low_median": 83.3,
+    "low_iqr": 0.8,
+    "low_range": 1.6,
+    "high_median": 440.9,
+    "low_cv": 0.009
+   },
+   {
+    "song": "橄榄树",
+    "versions": 3,
+    "low_median": 100.3,
+    "low_iqr": 7.6,
+    "low_range": 15.2,
+    "high_median": 880.3,
+    "low_cv": 0.0676
+   },
+   {
+    "song": "哭砂",
+    "versions": 3,
+    "low_median": 84.7,
+    "low_iqr": 9.7,
+    "low_range": 19.4,
+    "high_median": 441.4,
+    "low_cv": 0.1142
+   },
+   {
+    "song": "南屏晚钟",
+    "versions": 3,
+    "low_median": 80.4,
+    "low_iqr": 8.5,
+    "low_range": 17.1,
+    "high_median": 325.0,
+    "low_cv": 0.0884
+   },
+   {
+    "song": "晚风",
+    "versions": 3,
+    "low_median": 80.7,
+    "low_iqr": 7.0,
+    "low_range": 13.9,
+    "high_median": 237.6,
+    "low_cv": 0.0748
+   }
+  ],
+  "low_cv_median": 0.0935,
+  "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
+ },
+ "register_adapt": {
+  "own_live_low_median": 80.4,
+  "cover_live_low_median": 83.3,
+  "own_n": 21,
+  "cover_n": 111,
+  "female_origin_covers": {
+   "橄榄树": {
+    "orig": "齐豫",
+    "live_low_median": 100.3
+   },
+   "心动": {
+    "orig": "陈洁仪",
+    "live_low_median": 97.1
+   },
+   "玫瑰人生（La Vie en Rose）": {
+    "orig": "Edith Piaf",
+    "live_low_median": 78.1
+   },
+   "女人花＋水中花": {
+    "orig": "梅艳芳",
+    "live_low_median": 77.6
+   },
+   "让她降落": {
+    "orig": "张惠妹",
+    "live_low_median": 91.9
+   },
+   "亲密爱人": {
+    "orig": "梅艳芳",
+    "live_low_median": 79.5
+   },
+   "月半弯": {
+    "orig": "陈坤/张学友（男）",
+    "live_low_median": 81.4
+   },
+   "再见我的爱（Goodbye My Love）": {
+    "orig": "邓丽君",
+    "live_low_median": null
+   }
+  },
+  "note": "同一个人唱自有曲/翻唱曲时的最低稳定音落点；差异＝他给不同来源曲目的音区预算"
+ },
+ "language_style": {
+  "英文/外语": {
+   "songs": 20,
+   "home_songs": 8,
+   "with_index": 3
+  },
+  "中文流行": {
+   "songs": 264,
+   "home_songs": 43,
+   "with_index": 66
+  },
+  "民族·戏曲·民歌": {
+   "songs": 9,
+   "home_songs": 2,
+   "with_index": 2
+  }
+ },
+ "did_own_vs_cover": {
+  "n_shows": 2,
+  "did_median_pct": 1.6,
+  "positive_share": 0.5,
+  "bonferroni_alpha": 0.025,
+  "significant": 0,
+  "rows": [
+   {
+    "date": "2024-09-16",
+    "tour": "四巡",
+    "city": "武汉",
+    "own_n": 3,
+    "cover_n": 2,
+    "own_pct": -3.1,
+    "cover_pct": -16.5,
+    "did_pct": 16.0,
+    "placebo_p": 0.517
+   },
+   {
+    "date": "2024-08-16",
+    "tour": "四巡",
+    "city": "北京",
+    "own_n": 3,
+    "cover_n": 2,
+    "own_pct": 6.1,
+    "cover_pct": 21.8,
+    "did_pct": -12.8,
+    "placebo_p": 0.3
+   }
+  ]
+ }
+}

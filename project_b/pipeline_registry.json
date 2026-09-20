@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-20 16:36",
+ "generated_at": "2026-09-20 16:39",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 174,
-  "dispatch": 173,
-  "deploy_steps": 60,
+  "menu_items": 175,
+  "dispatch": 174,
+  "deploy_steps": 61,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1338,6 +1338,16 @@
    "title": "曲目谱系（翻唱档案：293 首选曲行为结构化）",
    "menu_label": "cover_catalog",
    "path": "D:\\wx409.github.io\\project_b\\build_cover_catalog.py"
+  },
+  {
+   "script": "build_cover_analysis.py",
+   "in_deploy": true,
+   "deploy_desc": "翻唱价值分析 data/cover_analysis.json（选曲指纹/同曲多版本方差/音区适配/语言跨度/自有vs翻唱 DiD）",
+   "critical": false,
+   "menu": 175,
+   "title": "翻唱价值分析（选曲指纹 / 同曲多版本方差 / 音区适配 / 语言跨度 / 自有vs翻唱 DiD）",
+   "menu_label": "cover_analysis",
+   "path": "D:\\wx409.github.io\\project_b\\build_cover_analysis.py"
   },
   {
    "script": "_build_episodes.py",

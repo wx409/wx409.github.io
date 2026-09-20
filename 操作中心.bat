@@ -222,6 +222,7 @@ echo    171. 整场按曲目切分（掌声 / 能量谷 / f0 断裂）
 echo    172. 归因检验报告（四问 + 多重比较校正）
 echo    173. 追踪池核查与扩容（歌单唱过 vs 源表追踪，可 --apply 写入）
 echo    174. 曲目谱系（翻唱档案：293 首选曲行为结构化）
+echo    175. 翻唱价值分析（选曲指纹 / 同曲多版本方差 / 音区适配 / 语言跨度 / 自有vs翻唱 DiD）
 echo    0. 退出
 echo.
 set "op="
@@ -400,6 +401,7 @@ if "%op%"=="171" goto segment_concert
 if "%op%"=="172" goto attribution
 if "%op%"=="173" goto expand_pool
 if "%op%"=="174" goto cover_catalog
+if "%op%"=="175" goto cover_analysis
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2388,5 +2390,14 @@ echo  [曲目谱系] 64 场唱过的每首歌 → 场次/首唱末唱/自有或翻唱/有无指数
 echo  产出：data\cover_catalog.json + temp\曲目谱系.md
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_cover_catalog.py
+pause
+goto menu
+
+:cover_analysis
+cls
+echo  [翻唱价值分析] 把没有指数数据的 222 首变成可引用结论
+echo  产出：data\cover_analysis.json + temp\翻唱价值分析.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_cover_analysis.py
 pause
 goto menu
