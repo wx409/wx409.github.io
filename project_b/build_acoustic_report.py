@@ -403,6 +403,61 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 
     html = html.replace(">None<", ">—<").replace(">nan<", ">—<")   # 空值统一显示为破折号
     OUT.write_text(html, encoding="utf-8")
+
+    # ---- 本地留存副本（同一份内容，随每日部署一起刷新）----
+    local_html = Path(r"E:\wx\论文素材_王晰作传\声学全量报告_王晰.html")
+    local_md = Path(r"E:\wx\论文素材_王晰作传\声学全量报告_王晰.md")
+    try:
+        local_html.write_text(html, encoding="utf-8")
+        md = [f"# 王晰声学全量报告（本地版 · 自动生成 {datetime.now():%Y-%m-%d %H:%M}）", "",
+              f"- 对应线上页：{SITE}｜生成器：`project_b/build_acoustic_report.py`（随每日部署自动刷新）", "",
+              "## 一、口径与纪律", "",
+              "- 三级读数：**稳定音**（≥0.2s、HNR≥5dB、强度≥中位−25dB，且过谐波列/CREPE 校验）可作结论；"
+              "**触达音**只展示；**低音带读数**三不许（不进汇总/统计/引用）。",
+              "- 管线：demucs htdemucs 人声分离 → 自研 numpy YIN 逐帧 F0（fmin55/fmax1100/frame2048/hop512/sr22050）"
+              "→ 音符切分（≥80ms、抖动<0.6半音）→ 稳健过滤。",
+              "- 六条纪律：YIN 次谐波陷阱（原始混音查 2f0/4f0 峰值）｜扫到≠唱到｜修音敏感分层（稳定性/音准只能组内比）｜"
+              "现场音准是伪影（19–22 vs 录音室 7–9 音分）｜跨场验证规律｜中位数用 statistics.median。", "",
+              "## 二、核心数字", "",
+              f"- 录音室全量 **{len(songs)}** 曲｜现场层素材 **{len(rows)}** 条｜人耳/复核裁决 **{len(v_items)}** 条",
+              f"- 现场最低稳定音 **{summary.get('lowest',{}).get('note','—')} {summary.get('lowest',{}).get('hz','—')} Hz**"
+              f"（{summary.get('lowest',{}).get('song','')}）",
+              f"- 现场跨度中位 **{summary.get('span_median_octaves','—')}** 八度｜稳定性中位 **{summary.get('stability_median_cents','—')}** 音分｜"
+              f"颤音 **{summary.get('vibrato_rate_hz_median','—')} Hz**", "",
+              "## 三、录音室层（按最低稳定音升序，全量）", "",
+              "| 曲目 | 专辑 | 最低稳定音 | 最高稳定音 | 跨度(八度) | 稳定性(音分) | 颤音(Hz) | HNR(dB) |",
+              "|---|---|---|---|---|---|---|---|"]
+        for s in sorted(songs, key=lambda x: float(x.get("low_hz") or 999)):
+            md.append(f"| {s.get('title')} | {s.get('album')} | {s.get('low')} {s.get('low_hz')} | "
+                      f"{s.get('high')} {s.get('high_hz')} | {s.get('span_octaves')} | {s.get('stability_cents')} | "
+                      f"{s.get('vibrato_hz')} | {s.get('hnr_db')} |")
+        md += ["", "## 四、现场层（按最低音升序，前 60 条；完整 504 条见线上页/JSON）", "",
+               "| 素材 | 曲目 | 巡次 | 城市 | 日期 | 最低音 | Hz | 复核状态 |", "|---|---|---|---|---|---|---|---|"]
+        for r in sorted(rows, key=lambda x: float(x.get("low_hz") or 9999))[:60]:
+            md.append(f"| {r.get('tag')} | {r.get('song')} | {r.get('tour')} | {r.get('city')} | "
+                      f"{str(r.get('date'))[:10]} | {r.get('low_note')} | {r.get('low_hz')} | {r.get('verify') or r.get('source_verdict')} |")
+        md += ["", "## 五、覆盖（多方匹配置信分级）", "",
+               f"- 64 场中：已定位到具体场次 **{cst.get('L1_精确',0)+cst.get('L2_强',0)}**（①精确 {cst.get('L1_精确',0)} + ②强 {cst.get('L2_强',0)}）｜"
+               f"有本地素材 **{cst.get('covered','—')}**｜无线索 **{cst.get('missing','—')}**｜扫到文件 {cst.get('files_scanned','—')} 个",
+               f"- 仍无线索：{'、'.join(m['city'] + m['date'][5:] for m in ci.get('missing', []))}", "",
+               "## 六、选曲与翻唱（无指数数据的那部分）", "",
+               f"- 唱过 **{cstat.get('songs_total','—')}** 首｜自有 **{cstat.get('own_released','—')}**｜翻唱 **{cstat.get('covers','—')}**｜"
+               f"有指数数据仅 **{cstat.get('own_with_index_data',0)+cstat.get('covers_with_index_data',0)}** 首",
+               f"- 跨巡保留率 2%–6%（几乎每巡换血）｜看家曲 {fp.get('home_songs','—')} 首｜只唱一次 {fp.get('once_only','—')} 首",
+               f"- 同曲多版本：≥3 版本 {mv.get('songs_with_3plus','—')} 首，版本间变异系数中位 {mv.get('low_cv_median','—')}",
+               f"- 音区适配：自有曲现场最低音中位 {ra.get('own_live_low_median','—')} Hz vs 翻唱曲 {ra.get('cover_live_low_median','—')} Hz", "",
+               "## 七、复核裁决台账（含被否读数）", "",
+               "| 曲目 | 场次 | 方面 | 裁决 | Hz | 日期 |", "|---|---|---|---|---|---|"]
+        md += [f"| {i.get('song')} | {i.get('show')} | {i.get('aspect')} | {i.get('verdict')} | {i.get('verdict_hz')} | {str(i.get('date'))[:10]} |"
+               for i in v_items[:100]]
+        md += ["", "## 八、已知边界", "",
+               "- 覆盖不均（一/二/三巡缺口最大）；追踪池仅覆盖他的发行曲，翻唱天然无指数数据；",
+               "- 录音室层经修音，稳定性/音准不可跨层比较；现场音准偏差为方法学伪影；",
+               "- 本报告只发布方法与结果数据，原始音视频仅本地留存、不二次分发。", ""]
+        local_md.write_text("\n".join(md), encoding="utf-8")
+        print(f"→ 本地副本 {local_html.name} / {local_md.name}")
+    except Exception as e:
+        print("[warn] 本地副本写入失败:", e)
     print(f"✅ 已生成 {OUT.name}（{len(html)/1024:.0f} KB）｜录音室 {len(songs)} 曲｜现场 {len(rows)} 条｜裁决 {len(v_items)} 条｜覆盖 {n_cov}/{len(cov)}")
     assert len(songs) > 50 and len(rows) > 100 and n_cov > 0, "数据不足，检查 data/*.json"
     return 0
