@@ -92,6 +92,107 @@ def four_questions(daily: pd.Series, cut: str, win: int, null: np.ndarray) -> di
     }
 
 
+def song_matrix() -> pd.DataFrame:
+    """逐曲 rel 矩阵（index ÷ 自身 91 天滚动中位），行=日期、列=曲名。"""
+    df = pd.read_csv(LONG_CSV, encoding="utf-8-sig")
+    df.columns = [c.strip().lower() for c in df.columns]
+    dcol = [c for c in df.columns if "date" in c][0]
+    scol = [c for c in df.columns if "song" in c or "name" in c][0]
+    icol = [c for c in df.columns if "index" in c][0]
+    df = df[[dcol, scol, icol]].rename(columns={dcol: "d", scol: "song", icol: "index"})
+    df["d"] = pd.to_datetime(df["d"], errors="coerce")
+    df["index"] = pd.to_numeric(df["index"].astype(str).str.replace(",", ""), errors="coerce")
+    df = df.dropna().sort_values(["song", "d"])
+    df["rel"] = df["index"] / df.groupby("song")["index"].transform(
+        lambda s: s.rolling(91, center=True, min_periods=30).median())
+    return df.pivot_table(index="d", columns="song", values="rel", aggfunc="median")
+
+
+def treated_sets() -> list[dict]:
+    """事件 → 受处理曲目集合（自己给自己当对照：该场歌单 / 该专辑曲目）。"""
+    out = []
+    try:
+        sl = json.loads((ROOT / "data" / "setlists.json").read_text(encoding="utf-8"))["setlists"]
+        for date, v in sl.items():
+            titles = [s.get("title") for s in v.get("songs", []) if s.get("title")]
+            if titles:
+                out.append({"date": date, "kind": "巡演-歌单", "label": f"{v.get('city','')}{v.get('tour','')}",
+                            "treated": titles, "source": "setlists.json"})
+    except Exception as e:
+        print("[warn] setlists:", e)
+    try:
+        al = json.loads((ROOT / "data" / "albums.json").read_text(encoding="utf-8"))["albums"]
+        for a in al:
+            r = str(a.get("release") or "")
+            m = re.match(r"(\d{4})-(\d{2})(?:-(\d{2}))?", r)
+            if not m:
+                continue
+            day = m.group(3) or "15"
+            titles = [s.get("title") for s in a.get("songs", []) if s.get("title")]
+            if titles:
+                out.append({"date": f"{m.group(1)}-{m.group(2)}-{day}", "kind": "发行-专辑",
+                            "label": a.get("name", ""), "treated": titles, "source": "albums.json"})
+    except Exception as e:
+        print("[warn] albums:", e)
+    return out
+
+
+def did_layer(rel: pd.DataFrame, cases: list[dict], pre: int = 30, post: int = 30, n_placebo: int = 300,
+              min_obs: int = 15, min_treated: int = 3) -> list[dict]:
+    """自身对照 DiD：受处理曲目 vs 目录内其余曲目（剔掉"他自己整体在涨/跌"）。
+
+    稳健化：对数空间（乘性变化对称）+ 截断到 0.2~5 倍，避免小基数曲目尖峰造成 ±500% 假效应；
+    要求受处理曲目在前后窗各有 ≥min_obs 天有效值。
+    """
+    di = pd.DatetimeIndex(rel.index)
+    mat = np.log(np.clip(rel.to_numpy(dtype=float), 0.2, 5.0))       # 截断 + 对数
+    cols = {str(c).strip(): i for i, c in enumerate(rel.columns)}
+    rows = []
+
+    def delta(idx: np.ndarray):
+        pre_v = np.nanmedian(mat[max(0, idx - pre):idx, :], axis=0)
+        post_v = np.nanmedian(mat[idx:idx + post, :], axis=0)
+        obs_pre = np.sum(~np.isnan(mat[max(0, idx - pre):idx, :]), axis=0)
+        obs_post = np.sum(~np.isnan(mat[idx:idx + post, :]), axis=0)
+        return post_v - pre_v, obs_pre, obs_post
+
+    for c in cases:
+        idx = di.searchsorted(pd.Timestamp(c["date"]))
+        if idx < pre or idx + post > len(mat):
+            continue
+        hits = [cols[t] for t in c["treated"] if t in cols]
+        if len(hits) < min_treated:
+            continue
+        d, o_pre, o_post = delta(idx)
+        hitmask = np.zeros(mat.shape[1], dtype=bool)
+        hitmask[hits] = True
+        valid = (~np.isnan(d)) & (o_pre >= min_obs) & (o_post >= min_obs)
+        hitmask &= valid
+        if hitmask.sum() < min_treated:
+            continue
+        t = float(np.nanmedian(d[hitmask]))
+        ctl = d[~hitmask & valid]
+        c_delta = float(np.nanmedian(ctl)) if len(ctl) else np.nan
+        did = t - c_delta
+        pool = np.where(valid & ~hitmask)[0]
+        null = []
+        for _ in range(n_placebo):
+            if len(pool) < hitmask.sum():
+                break
+            pick = RNG.choice(pool, size=int(hitmask.sum()), replace=False)
+            m = np.zeros(mat.shape[1], dtype=bool)
+            m[pick] = True
+            null.append(float(np.nanmedian(d[m])) - float(np.nanmedian(d[~m & valid])))
+        p = float((np.abs(np.array(null)) >= abs(did)).mean()) if null else np.nan
+        rows.append({"kind": c["kind"], "label": c["label"], "date": c["date"],
+                     "treated_n": int(hitmask.sum()),
+                     "treated_pct": round((np.exp(t) - 1) * 100, 1),
+                     "control_pct": round((np.exp(c_delta) - 1) * 100, 1),
+                     "did_pct": round((np.exp(did) - 1) * 100, 1),
+                     "placebo_p": round(p, 3)})
+    return rows
+
+
 def mediation(daily: pd.Series, cut: str, win: int) -> dict:
     """中介链：签约/里程碑前后 场次数 与 微博条数 的变化（M 段是否成立）。"""
     c = pd.Timestamp(cut)
@@ -198,6 +299,16 @@ def main() -> int:
         if m:
             med.append({"event": ev["label"], "date": ev["date"], **m})
 
+    # 自身对照 DiD（受处理 = 该场歌单 / 该专辑曲目；对照 = 他其余曲目）
+    did_rows = []
+    try:
+        rel = song_matrix()
+        cases = treated_sets()
+        did_rows = did_layer(rel, cases)
+        log(f"自身对照 DiD：{len(did_rows)} 个事件可算（受处理曲目 vs 目录内其余）")
+    except Exception as e:
+        log("[warn] DiD 层跳过:", e)
+
     # 输出
     piv = res.pivot_table(index=["kind", "label", "cut"], columns="win",
                           values=["level_pct", "placebo_p"], aggfunc="first")
@@ -235,12 +346,30 @@ def main() -> int:
         for m in med:
             lines.append(f"| {m['event']}（{m['date']}） | {m.get('shows_pre','—')} → {m.get('shows_post','—')} | "
                          f"{m.get('weibo_pre','—')} → {m.get('weibo_post','—')} |")
+    if did_rows:
+        dd = pd.DataFrame(did_rows)
+        bonf = 0.05 / len(dd) if len(dd) else 0.05
+        lines += ["", f"## 自身对照 DiD（±30 天，{len(dd)} 个事件；Bonferroni α={bonf:.4f}）", "",
+                  "> 受处理 = 该场歌单 / 该专辑曲目；对照 = **他本人的其余曲目**。"
+                  "这剔掉了「他自己整体在涨/跌」，是当前没有外部对照群体时的最强替代。", "",
+                  "| 类型 | 事件 | 日期 | 受处理 n | 受处理变化 | 对照变化 | **DiD** | 安慰剂 p | 判定 |",
+                  "|---|---|---|---|---|---|---|---|---|"]
+        for r in sorted(did_rows, key=lambda x: -abs(x["did_pct"]))[:25]:
+            ok = r["placebo_p"] <= bonf
+            lines.append(f"| {r['kind']} | {r['label']} | {r['date']} | {r['treated_n']} | "
+                         f"{r['treated_pct']:+.1f}% | {r['control_pct']:+.1f}% | **{r['did_pct']:+.1f}%** | "
+                         f"{r['placebo_p']} | {'可识别' if ok else '测不出'} |")
+        n_ok = sum(1 for r in did_rows if r["placebo_p"] <= bonf)
+        med = np.median([r["did_pct"] for r in did_rows])
+        lines += ["", f"- 校正后可识别 **{n_ok}** / {len(did_rows)} 条｜DiD 中位 **{med:+.1f}%**"
+                      f"｜为正占比 {np.mean([r['did_pct'] > 0 for r in did_rows]):.0%}"]
+
     lines += ["", "> 判定规则：通过**多重比较校正**（Bonferroni/BH-FDR）才叫「可识别」；否则是叙事，不是关联。",
               "> 新增里程碑：编辑 `temp/归因事件表.json`；发行/演出/负情绪微博为自动采集。"]
     OUT_MD.write_text("\n".join(lines), encoding="utf-8")
     OUT_JS.write_text(json.dumps({"generated_at": datetime.now().isoformat(timespec="seconds"),
                                   "series_days": len(daily), "correction": corr,
-                                  "events": rows, "dose": dose, "mediation": med},
+                                  "events": rows, "dose": dose, "mediation": med, "did": did_rows},
                                  ensure_ascii=False, indent=1), encoding="utf-8")
     n_ok = int((res[res["win"] == 180]["placebo_p"] <= corr.get(180, {}).get("bonferroni_alpha", 0.05)).sum())
     log(f"事件 {len(res)} 条检验｜校正后「可识别」{n_ok} 条｜校正 {corr.get(180)}｜剂量-反应 {dose or '样本不足'}")
