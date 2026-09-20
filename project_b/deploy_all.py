@@ -92,7 +92,8 @@ STEPS = [
     (ROOT / "project_b" / "audit_nav.py", "导航与内链审计（孤儿页=0 把关）", False),
     (ROOT / "project_b" / "audit_jsonld.py", "结构化数据审计（JSON-LD 语法/必备类型/纪律用词）", False),
     (ROOT / "project_b" / "audit_bat.py", "批处理体检（GBK/BEL/双回车/goto 目标）", False),
-    (ROOT / "project_b" / "audit_consistency.py", "audit_ops_coverage.py", "操作中心覆盖审计（人工功能有入口 + 反向检查可运行脚本无孤儿）", False),
+    (ROOT / "project_b" / "audit_consistency.py", "汇总 vs 明细一致性审计（防未复核值被当结论）", False),
+    (ROOT / "project_b" / "audit_ops_coverage.py", "操作中心覆盖审计（人工功能有入口 + 反向检查可运行脚本无孤儿）", False),
     (ROOT / "project_b" / "audit_stage_exclusions.py", "排除项回归审计（防已排除素材/错误曲名被生成器回吞上线）", False),
     (ROOT / "project_b" / "build_pipeline_views.py", "任务视图刷新（install_tasks.ps1 / 任务登记表 / skill 任务表）", False),
     (ROOT / "project_b" / "audit_pipeline.py", "任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移告警）", False),
@@ -248,7 +249,7 @@ def main() -> None:
     # 2. 顺序执行生成脚本（第 4 项为可选附加参数）
     for step in STEPS:
         script, desc, critical = step[0], step[1], step[2]
-        extra = list(step[3]) if len(step) > 3 else []
+        extra = list(step[3]) if len(step) > 3 and isinstance(step[3], (list, tuple)) else []
         if not run(script, desc, critical, extra):
             print("\n[X] 流水线中止于关键步骤")
             sys.exit(2)
