@@ -4522,7 +4522,7 @@ else{
 }
 </script>
 <script src="search_engine.js"></script>
-<script src="/qa_engine.js"></script>
+<!-- 2026-09-20：问答助手已统一到 /search.html，本页不再挂浮动窗 -->
 
 <div id="arch-mount" style="max-width:1200px;margin:18px auto;padding:0 14px;background:#fff;border:1px solid #e3e6ef;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
     <h2 style="font-size:18px;margin:0 0 4px">📚 数字档案 · 口径与年度卡</h2>
