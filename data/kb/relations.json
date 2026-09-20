@@ -9716,35 +9716,35 @@
   "source_ref": "setlists.json"
  },
  {
-  "source": "song:祝我们随遇而安",
+  "source": "song:好久不见",
   "type": "performed_in",
   "target": "show:2025-11-21-shanghai",
   "context": "第15首",
   "source_ref": "setlists.json"
  },
  {
-  "source": "song:好久不见",
+  "source": "song:你怎么舍得我难过",
   "type": "performed_in",
   "target": "show:2025-11-21-shanghai",
   "context": "第16首",
   "source_ref": "setlists.json"
  },
  {
-  "source": "song:你怎么舍得我难过",
+  "source": "song:约定",
   "type": "performed_in",
   "target": "show:2025-11-21-shanghai",
   "context": "第17首",
   "source_ref": "setlists.json"
  },
  {
-  "source": "song:约定",
+  "source": "song:生日快乐",
   "type": "performed_in",
   "target": "show:2025-11-21-shanghai",
   "context": "第18首",
   "source_ref": "setlists.json"
  },
  {
-  "source": "song:生日快乐",
+  "source": "song:祝我们随遇而安",
   "type": "performed_in",
   "target": "show:2025-11-21-shanghai",
   "context": "第19首",
@@ -11427,6 +11427,13 @@
   "source": "song:多听有益",
   "type": "belongs_to_album",
   "target": "album:多听有益",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
+  "source": "song:多年以后",
+  "type": "belongs_to_album",
+  "target": "album:Low C的诱惑2",
   "context": "",
   "source_ref": "songs_meta.json"
  },

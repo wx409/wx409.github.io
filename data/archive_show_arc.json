@@ -1,0 +1,338 @@
+{
+ "generated_at": "2026-09-18 09:30",
+ "bins": 5,
+ "region": {
+  "low_lt": 48,
+  "high_ge": 60
+ },
+ "summary": {
+  "shows": 7,
+  "shows_within_1_semitone": 5,
+  "drift_median": 0.73,
+  "high_peak_in_last_two_bins": 3
+ },
+ "shows": [
+  {
+   "show": "wav_六巡含歌",
+   "segments": 4,
+   "minutes": 227.9,
+   "notes": 245738,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 50725,
+     "midi_median": 53.14,
+     "low_share": 0.167,
+     "high_share": 0.0948
+    },
+    {
+     "bin": 2,
+     "n": 40241,
+     "midi_median": 53.08,
+     "low_share": 0.238,
+     "high_share": 0.1167
+    },
+    {
+     "bin": 3,
+     "n": 47455,
+     "midi_median": 54.09,
+     "low_share": 0.2273,
+     "high_share": 0.1763
+    },
+    {
+     "bin": 4,
+     "n": 53996,
+     "midi_median": 52.02,
+     "low_share": 0.1933,
+     "high_share": 0.1136
+    },
+    {
+     "bin": 5,
+     "n": 53321,
+     "midi_median": 52.43,
+     "low_share": 0.204,
+     "high_share": 0.0732
+    }
+   ],
+   "drift_semitones": -0.71,
+   "high_share_peak_bin": 3,
+   "low_share_range": 0.071
+  },
+  {
+   "show": "wav_一巡现场",
+   "segments": 9,
+   "minutes": 206.5,
+   "notes": 230551,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 44410,
+     "midi_median": 53.21,
+     "low_share": 0.1377,
+     "high_share": 0.1106
+    },
+    {
+     "bin": 2,
+     "n": 50260,
+     "midi_median": 53.89,
+     "low_share": 0.1457,
+     "high_share": 0.1044
+    },
+    {
+     "bin": 3,
+     "n": 49786,
+     "midi_median": 53.27,
+     "low_share": 0.1663,
+     "high_share": 0.0856
+    },
+    {
+     "bin": 4,
+     "n": 40766,
+     "midi_median": 53.35,
+     "low_share": 0.179,
+     "high_share": 0.1319
+    },
+    {
+     "bin": 5,
+     "n": 45329,
+     "midi_median": 55.28,
+     "low_share": 0.1093,
+     "high_share": 0.2671
+    }
+   ],
+   "drift_semitones": 2.07,
+   "high_share_peak_bin": 5,
+   "low_share_range": 0.0697
+  },
+  {
+   "show": "wav_五巡上海20251121",
+   "segments": 18,
+   "minutes": 133.5,
+   "notes": 125698,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 23387,
+     "midi_median": 52.95,
+     "low_share": 0.2362,
+     "high_share": 0.1169
+    },
+    {
+     "bin": 2,
+     "n": 27293,
+     "midi_median": 52.99,
+     "low_share": 0.2016,
+     "high_share": 0.1053
+    },
+    {
+     "bin": 3,
+     "n": 20727,
+     "midi_median": 53.2,
+     "low_share": 0.2263,
+     "high_share": 0.2041
+    },
+    {
+     "bin": 4,
+     "n": 25708,
+     "midi_median": 52.57,
+     "low_share": 0.2066,
+     "high_share": 0.1152
+    },
+    {
+     "bin": 5,
+     "n": 28583,
+     "midi_median": 53.45,
+     "low_share": 0.1763,
+     "high_share": 0.1455
+    }
+   ],
+   "drift_semitones": 0.5,
+   "high_share_peak_bin": 3,
+   "low_share_range": 0.0599
+  },
+  {
+   "show": "wav_五巡北京260410",
+   "segments": 3,
+   "minutes": 129.7,
+   "notes": 131505,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 26010,
+     "midi_median": 54.54,
+     "low_share": 0.1799,
+     "high_share": 0.2662
+    },
+    {
+     "bin": 2,
+     "n": 24620,
+     "midi_median": 53.86,
+     "low_share": 0.1662,
+     "high_share": 0.2231
+    },
+    {
+     "bin": 3,
+     "n": 24755,
+     "midi_median": 53.33,
+     "low_share": 0.1963,
+     "high_share": 0.2441
+    },
+    {
+     "bin": 4,
+     "n": 30727,
+     "midi_median": 53.63,
+     "low_share": 0.1427,
+     "high_share": 0.2369
+    },
+    {
+     "bin": 5,
+     "n": 25393,
+     "midi_median": 53.81,
+     "low_share": 0.1786,
+     "high_share": 0.2309
+    }
+   ],
+   "drift_semitones": -0.73,
+   "high_share_peak_bin": 1,
+   "low_share_range": 0.0536
+  },
+  {
+   "show": "wav_鄂尔多斯2022",
+   "segments": 23,
+   "minutes": 82.0,
+   "notes": 120543,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 23754,
+     "midi_median": 53.95,
+     "low_share": 0.1667,
+     "high_share": 0.1639
+    },
+    {
+     "bin": 2,
+     "n": 27772,
+     "midi_median": 54.2,
+     "low_share": 0.1035,
+     "high_share": 0.0705
+    },
+    {
+     "bin": 3,
+     "n": 25949,
+     "midi_median": 52.86,
+     "low_share": 0.1629,
+     "high_share": 0.1108
+    },
+    {
+     "bin": 4,
+     "n": 22864,
+     "midi_median": 53.26,
+     "low_share": 0.1426,
+     "high_share": 0.0501
+    },
+    {
+     "bin": 5,
+     "n": 20204,
+     "midi_median": 54.61,
+     "low_share": 0.116,
+     "high_share": 0.1768
+    }
+   ],
+   "drift_semitones": 0.66,
+   "high_share_peak_bin": 5,
+   "low_share_range": 0.0632
+  },
+  {
+   "show": "wav_四巡北京231112",
+   "segments": 16,
+   "minutes": 78.0,
+   "notes": 116999,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 26156,
+     "midi_median": 54.96,
+     "low_share": 0.1367,
+     "high_share": 0.2373
+    },
+    {
+     "bin": 2,
+     "n": 23953,
+     "midi_median": 53.65,
+     "low_share": 0.125,
+     "high_share": 0.1364
+    },
+    {
+     "bin": 3,
+     "n": 23510,
+     "midi_median": 53.69,
+     "low_share": 0.1189,
+     "high_share": 0.098
+    },
+    {
+     "bin": 4,
+     "n": 22029,
+     "midi_median": 55.24,
+     "low_share": 0.1101,
+     "high_share": 0.2571
+    },
+    {
+     "bin": 5,
+     "n": 21351,
+     "midi_median": 53.87,
+     "low_share": 0.0974,
+     "high_share": 0.1801
+    }
+   ],
+   "drift_semitones": -1.09,
+   "high_share_peak_bin": 4,
+   "low_share_range": 0.0393
+  },
+  {
+   "show": "wav_广州逐曲",
+   "segments": 20,
+   "minutes": 76.4,
+   "notes": 116525,
+   "bins": [
+    {
+     "bin": 1,
+     "n": 23913,
+     "midi_median": 52.45,
+     "low_share": 0.2323,
+     "high_share": 0.1237
+    },
+    {
+     "bin": 2,
+     "n": 22932,
+     "midi_median": 50.37,
+     "low_share": 0.3042,
+     "high_share": 0.0826
+    },
+    {
+     "bin": 3,
+     "n": 23394,
+     "midi_median": 51.98,
+     "low_share": 0.1696,
+     "high_share": 0.0502
+    },
+    {
+     "bin": 4,
+     "n": 22840,
+     "midi_median": 51.33,
+     "low_share": 0.185,
+     "high_share": 0.0302
+    },
+    {
+     "bin": 5,
+     "n": 23446,
+     "midi_median": 53.31,
+     "low_share": 0.2098,
+     "high_share": 0.1028
+    }
+   ],
+   "drift_semitones": 0.86,
+   "high_share_peak_bin": 1,
+   "low_share_range": 0.1346
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-17 17:03:05",
+ "updated_at": "2026-09-20 09:02:46",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -1096,6 +1096,335 @@
   },
   {
    "time": "2026-09-17 17:03:05",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-17 21:00:25",
+   "title": "🎵 QQ新歌 · 多年以后",
+   "content": "专辑/单曲：Low C的诱惑2\n已写入候选清单，后续自动补歌词/班底。",
+   "category": "QQ新歌",
+   "source": "QQ音乐"
+  },
+  {
+   "time": "2026-09-17 21:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 1 首 / 网易云 0 首 / 全网动态 0 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-17 21:02:44",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-18 00:05:07",
+   "title": "📣 【加油，王晰】快男史上最重低音 - 王晰音视频专楼【快乐 ...",
+   "content": "16 小时之前&ensp;&#0183;&ensp;王晰本人对这一“生日礼物”的看法是，如果没有那次不通过，也许就没有他后来在广州得到包小柏、丁薇、王东三位老师 …\n链接：https://tieba.baidu.com/p/924089645",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://tieba.baidu.com/p/924089645"
+  },
+  {
+   "time": "2026-09-18 00:05:07",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-18 00:06:55",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-18 09:00:06",
+   "title": "⚠️ 大屏采集漏批：2026-09-18",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 20.5 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260918.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-09-18 09:00:26",
+   "title": "📣 如何评价王晰？ - 知乎",
+   "content": "王晰，在《歌手》的时候已经被很多人认识了，但是让大家更了解他的是在《声入人心》。 王晰张嘴酥断腿，宛如行走的大提琴。 是 …\n链接：https://www.zhihu.com/question/308352495",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/308352495"
+  },
+  {
+   "time": "2026-09-18 09:00:26",
+   "title": "📣 王晰真的是男低音么？ - 知乎",
+   "content": "2020年4月26日&ensp;&#0183;&ensp;首先，《歌手》修音的程度之严重我就不想说什么了； 其次，本人其实不大喜欢王晰的演唱（请注意不是声音是演 …\n链接：https://www.zhihu.com/question/40568290",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/40568290"
+  },
+  {
+   "time": "2026-09-18 09:00:26",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-18 09:02:50",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-18 14:02:54",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-18 17:00:25",
+   "title": "📣 王晰 首页 - jlu.edu.cn",
+   "content": "2026年9月3日&ensp;&#0183;&ensp;王晰，2010年就职于吉林大学，现为吉林大学地球科学学院教授，博士生导师。 主要从事“矿产勘查与勘探”的教学与 …\n链接：https://teachers.jlu.edu.cn/xiwang/zh_CN/index.htm",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://teachers.jlu.edu.cn/xiwang/zh_CN/index.htm"
+  },
+  {
+   "time": "2026-09-18 17:00:25",
+   "title": "📣 王晰巍-吉林大学商学与管理学院 - jlu.edu.cn",
+   "content": "2022年5月22日&ensp;&#0183;&ensp;吉林省管理学学会副会长，吉林省情报学会副理事长，吉林省数字经济学会理事，国家级学术期刊《图书情报工作》 …\n链接：https://sg.jlu.edu.cn/info/1031/4310.htm",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://sg.jlu.edu.cn/info/1031/4310.htm"
+  },
+  {
+   "time": "2026-09-18 17:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-18 17:02:49",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-18 21:00:26",
+   "title": "📣 【王晰】就是如此的为你《心动》不已_哔哩哔哩_bilibili",
+   "content": "(3)，王晰【情网】轻易就被你困在网中央【4k字幕】王晰回个人巡回音乐会重庆站20260613，王晰五巡上海场-半首wellerman但帅到 …\n链接：https://www.bilibili.com/video/BV1K8eM6sECm/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1K8eM6sECm/"
+  },
+  {
+   "time": "2026-09-18 21:00:26",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "5 天之前&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛稀缺的真&#183;男低音（Bass-baritone）——姚峰称他「作为 Bass-baritone 的话，在中 …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-09-18 21:00:26",
+   "title": "📣 王晰-快懂百科",
+   "content": "王晰（Elvis Wang），别名王欣，1985年4月9日出生于辽宁省营口市，毕业于辽宁艺术职业学院，后就读于沈阳音乐学院，前中国人 …\n链接：https://m.baike.com/wikiid/7202824149176877114",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://m.baike.com/wikiid/7202824149176877114"
+  },
+  {
+   "time": "2026-09-18 21:00:26",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-18 21:02:41",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-19 00:05:08",
+   "title": "📣 王晰 (中国内地男歌手)_360百科",
+   "content": "2018年1月16日&ensp;&#0183;&ensp;王晰,王晰，本名王欣，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，中国人民解放军海军政治 …\n链接：https://baike.so.com/doc/5384449-5620859.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.so.com/doc/5384449-5620859.html"
+  },
+  {
+   "time": "2026-09-19 00:05:08",
+   "title": "📣 王晰 (中國內地流行樂男低音歌手):早年經歷,演藝經歷,個人 ...",
+   "content": "2026年7月5日&ensp;&#0183;&ensp;王晰，1985年4月9日出生於遼寧省營口市，中國內地流行樂男低音歌手，中國人民解放軍 海軍政治部文工團 青年歌唱 …\n链接：https://www.newton.com.tw/wiki/%E7%8E%8B%E6%99%B0",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.newton.com.tw/wiki/%E7%8E%8B%E6%99%B0"
+  },
+  {
+   "time": "2026-09-19 00:05:08",
+   "title": "📣 王晰 - 歌手 - 网易云音乐",
+   "content": "王晰，本名王欣，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，中国人民解放军海军政治部文工团青年歌唱家、 …\n链接：https://music.163.com/artist?id=1058098",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://music.163.com/artist?id=1058098"
+  },
+  {
+   "time": "2026-09-19 00:05:08",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-19 00:07:35",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-19 09:02:43",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-19 14:00:26",
+   "title": "📣 如何评价王晰？ - 知乎",
+   "content": "2022年12月16日&ensp;&#0183;&ensp;【结语】 歌手有很多，王晰只有一个。 在这个日益浮躁功利的时代，我很感激有王晰这样一位优秀的歌手，持续用 …\n链接：https://www.zhihu.com/question/308352495/answers/updated",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/308352495/answers/updated"
+  },
+  {
+   "time": "2026-09-19 14:00:26",
+   "title": "📣 王晰「回&#215;广州」20260823 花城回响 来日方长（现场纯享）",
+   "content": "王晰「回&#215;广州」20260823 花城回响 来日方长（现场纯享）共计20条视频，包括：1.花儿为什么这样红、2.橄榄树、3.像雾像雨又像 …\n链接：https://www.bilibili.com/video/BV1ZBhK6bEGm/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1ZBhK6bEGm/"
+  },
+  {
+   "time": "2026-09-19 14:00:26",
+   "title": "📣 王晰作品百科 | 8张专辑完整曲目、单曲与官方渠道",
+   "content": "3 天之前&ensp;&#0183;&ensp;王晰2014-2024八张录音室专辑完整曲目（66首）、代表单曲索引，附官方试听与页面内试听。 数据来源 data/albums.json  …\n链接：https://wx409.github.io/discography.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/discography.html"
+  },
+  {
+   "time": "2026-09-19 14:00:26",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-19 14:02:46",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-19 17:00:25",
+   "title": "📣 【加油，王晰】快男史上最重低音 - 王晰音视频专楼【快乐 ...",
+   "content": "1 天前&ensp;&#0183;&ensp;王晰本人对这一“生日礼物”的看法是，如果没有那次不通过，也许就没有他后来在广州得到包小柏、丁薇、王东三位老师赏识 …\n链接：https://tieba.baidu.com/p/924089645",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://tieba.baidu.com/p/924089645"
+  },
+  {
+   "time": "2026-09-19 17:00:25",
+   "title": "📣 王晰 _ 百科",
+   "content": "王晰（Elvis Wang），1985年4月9日出生于辽宁营口，毕业于沈阳音乐学院， 中国内地流行乐男低音歌手。 他参加“第十五届全国青 …\n链接：https://baike.sogou.com/v62982728.htm",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.sogou.com/v62982728.htm"
+  },
+  {
+   "time": "2026-09-19 17:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-19 17:02:47",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-19 21:00:25",
+   "title": "📣 王晰-快懂百科",
+   "content": "王晰（Elvis Wang），别名王欣，1985年4月9日出生于辽宁省营口市，毕业于辽宁艺术职业学院，后就读于沈阳音乐学院，前中国人 …\n链接：https://m.baike.com/wikiid/7202824149176877114",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://m.baike.com/wikiid/7202824149176877114"
+  },
+  {
+   "time": "2026-09-19 21:00:25",
+   "title": "📣 王晰「回&#215;重庆」20260613 回溯之巡 重逢之庆（全场纯享）",
+   "content": "王晰「回&#215;重庆」20260613 回溯之巡 重逢之庆（全场纯享）共计19条视频，包括：花儿为什么这样红、像雾像雨又像风、Yesterday …\n链接：https://www.bilibili.com/video/BV1KwJx6iEza/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1KwJx6iEza/"
+  },
+  {
+   "time": "2026-09-19 21:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-19 21:02:47",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-20 00:05:24",
+   "title": "📣 如何评价王晰？ - 知乎",
+   "content": "王晰，在《歌手》的时候已经被很多人认识了，但是让大家更了解他的是在《声入人心》。 王晰张嘴酥断腿，宛如行走的大提琴。 是 …\n链接：https://www.zhihu.com/question/308352495",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/308352495"
+  },
+  {
+   "time": "2026-09-20 00:05:24",
+   "title": "📣 如何评价王晰？ - 知乎",
+   "content": "2022年12月16日&ensp;&#0183;&ensp;【结语】 歌手有很多，王晰只有一个。 在这个日益浮躁功利的时代，我很感激有王晰这样一位优秀的歌手，持续用 …\n链接：https://www.zhihu.com/question/308352495/answers/updated",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/308352495/answers/updated"
+  },
+  {
+   "time": "2026-09-20 00:05:24",
+   "title": "📣 王晰 (中国内地男歌手)_360百科",
+   "content": "2018年1月16日&ensp;&#0183;&ensp;王晰,王晰，本名王欣，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，中国人民解放军海军政治 …\n链接：https://baike.so.com/doc/5384449-5620859.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.so.com/doc/5384449-5620859.html"
+  },
+  {
+   "time": "2026-09-20 00:05:24",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-20 00:07:51",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-09-20 09:02:46",
    "title": "⚠️ 自动更新失败：deploy_all 出错",
    "content": "详情见 logs/ 目录",
    "category": "通知"

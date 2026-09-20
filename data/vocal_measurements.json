@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-17 17:02",
+ "generated_at": "2026-09-20 09:02",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 369,
+  "total": 386,
   "by_layer": {
    "studio_album": 72,
    "precision": 23,
-   "tour_live": 231,
+   "tour_live": 248,
    "stage_other": 32,
    "single": 11
   },
@@ -27,12 +27,12 @@
    "待复核（legacy 短读，未过 CREPE）": 5,
    "待复核": 4,
    "双引擎一致": 6,
-   "人耳确认（听辨）": 47,
-   "待复核（谐波列待判）": 15,
-   "谐波列复核通过": 159,
+   "人耳确认（听辨）": 48,
+   "待复核（谐波列待判）": 20,
+   "谐波列复核通过": 170,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 213
+  "songs": 217
  },
  "rows": [
   {
@@ -8197,6 +8197,41 @@
    }
   },
   {
+   "id": "tour_live|静止了的夜晚|未知20190821_BV1i4411d7MJ",
+   "song": "静止了的夜晚",
+   "version": "未知20190821_BV1i4411d7MJ",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-08-21",
+   "source_ref": "BV1i4411d7MJ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#1",
+    "low_hz": 58.2,
+    "high_note": "B5",
+    "high_hz": 983.5,
+    "span_octaves": 4.08,
+    "stability_cents": 8.0,
+    "intonation_cents": 17.1,
+    "vibrato_hz": 4.68,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.57,
+    "hnr_db": 5.6,
+    "duration_s": 248.9
+   },
+   "verify": {
+    "state": "人耳确认（听辨）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
+   }
+  },
+  {
    "id": "tour_live|静止了的夜晚|签唱会20190414_BV1M4411w735",
    "song": "静止了的夜晚",
    "version": "签唱会20190414_BV1M4411w735",
@@ -8334,6 +8369,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|我要你|未知20180826_BV1Zx411o7Rw",
+   "song": "我要你",
+   "version": "未知20180826_BV1Zx411o7Rw",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2018-08-26",
+   "source_ref": "BV1Zx411o7Rw",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.7,
+    "high_note": "D5",
+    "high_hz": 588.2,
+    "span_octaves": 3.16,
+    "stability_cents": 5.1,
+    "intonation_cents": 17.9,
+    "vibrato_hz": 5.11,
+    "vibrato_cents": 72.0,
+    "density_per_s": 1.42,
+    "hnr_db": 4.5,
+    "duration_s": 229.9
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 106
    }
   },
   {
@@ -8509,6 +8579,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|乌兰巴托的夜|未知20201223_BV1XK4y1V7y7",
+   "song": "乌兰巴托的夜",
+   "version": "未知20201223_BV1XK4y1V7y7",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-12-23",
+   "source_ref": "BV1XK4y1V7y7",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 71.2,
+    "high_note": "E4",
+    "high_hz": 327.1,
+    "span_octaves": 2.2,
+    "stability_cents": 8.5,
+    "intonation_cents": 24.1,
+    "vibrato_hz": 5.3,
+    "vibrato_cents": 95.0,
+    "density_per_s": 1.83,
+    "hnr_db": 4.5,
+    "duration_s": 238.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 309
    }
   },
   {
@@ -8926,6 +9031,38 @@
    }
   },
   {
+   "id": "tour_live|Love Me Tender|未知20200608_BV1wv411677D",
+   "song": "Love Me Tender",
+   "version": "未知20200608_BV1wv411677D",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-06-08",
+   "source_ref": "BV1wv411677D",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.2,
+    "stability_cents": 5.3,
+    "intonation_cents": 15.0,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 55.0,
+    "density_per_s": 1.31,
+    "hnr_db": 6.8,
+    "duration_s": 284.8
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 318
+   }
+  },
+  {
    "id": "tour_live|茕茕|二巡上海2021_全程_p7_茕茕",
    "song": "茕茕",
    "version": "二巡上海2021_全程_p7_茕茕",
@@ -9171,6 +9308,41 @@
    }
   },
   {
+   "id": "tour_live|玫瑰人生（La Vie en Rose）|未知20240925_BV1YMxgeBEe8",
+   "song": "玫瑰人生（La Vie en Rose）",
+   "version": "未知20240925_BV1YMxgeBEe8",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-09-25",
+   "source_ref": "BV1YMxgeBEe8",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.1,
+    "high_note": "C4",
+    "high_hz": 265.7,
+    "span_octaves": 1.77,
+    "stability_cents": 8.5,
+    "intonation_cents": 17.2,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 90.0,
+    "density_per_s": 2.15,
+    "hnr_db": 8.1,
+    "duration_s": 163.4
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 120
+   }
+  },
+  {
    "id": "tour_live|一生守候|六巡广州微博_6_一生守候",
    "song": "一生守候",
    "version": "六巡广州微博_6_一生守候",
@@ -9276,6 +9448,41 @@
    }
   },
   {
+   "id": "tour_live|晚风|未知20210717_BV1HU4y1n7Hv",
+   "song": "晚风",
+   "version": "未知20210717_BV1HU4y1n7Hv",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-07-17",
+   "source_ref": "BV1HU4y1n7Hv",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.7,
+    "high_note": "A#3",
+    "high_hz": 230.7,
+    "span_octaves": 1.53,
+    "stability_cents": 9.9,
+    "intonation_cents": 27.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 109.0,
+    "density_per_s": 1.75,
+    "hnr_db": 3.9,
+    "duration_s": 284.6
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 187
+   }
+  },
+  {
    "id": "tour_live|平凡又美好的晚上|六巡广州微博_5_平凡又美好的晚上",
    "song": "平凡又美好的晚上",
    "version": "六巡广州微博_5_平凡又美好的晚上",
@@ -9343,6 +9550,76 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 130
+   }
+  },
+  {
+   "id": "tour_live|晚风|未知20230225_BV1Qg4y1H7XH",
+   "song": "晚风",
+   "version": "未知20230225_BV1Qg4y1H7XH",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2023-02-25",
+   "source_ref": "BV1Qg4y1H7XH",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 80.7,
+    "high_note": "A#3",
+    "high_hz": 237.6,
+    "span_octaves": 1.56,
+    "stability_cents": 10.1,
+    "intonation_cents": 18.4,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 103.0,
+    "density_per_s": 1.83,
+    "hnr_db": 4.8,
+    "duration_s": 287.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 69
+   }
+  },
+  {
+   "id": "tour_live|像雾像雨又像风|未知20201206_BV1Mi4y157F6",
+   "song": "像雾像雨又像风",
+   "version": "未知20201206_BV1Mi4y157F6",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-12-06",
+   "source_ref": "BV1Mi4y157F6",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.3,
+    "high_note": "F4",
+    "high_hz": 353.5,
+    "span_octaves": 2.12,
+    "stability_cents": 8.6,
+    "intonation_cents": 19.3,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 88.0,
+    "density_per_s": 2.15,
+    "hnr_db": 6.2,
+    "duration_s": 210.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 312
    }
   },
   {
@@ -9696,6 +9973,76 @@
    }
   },
   {
+   "id": "tour_live|人世间|未知20240607_BV1T142117Bq",
+   "song": "人世间",
+   "version": "未知20240607_BV1T142117Bq",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-06-07",
+   "source_ref": "BV1T142117Bq",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.8,
+    "high_note": "G#4",
+    "high_hz": 416.0,
+    "span_octaves": 2.26,
+    "stability_cents": 7.5,
+    "intonation_cents": 21.9,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 70.0,
+    "density_per_s": 1.77,
+    "hnr_db": 7.8,
+    "duration_s": 272.8
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 107
+   }
+  },
+  {
+   "id": "tour_live|牵手|未知20191112_BV1tE411e7T2",
+   "song": "牵手",
+   "version": "未知20191112_BV1tE411e7T2",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-11-12",
+   "source_ref": "BV1tE411e7T2",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.9,
+    "high_note": "B5",
+    "high_hz": 966.5,
+    "span_octaves": 3.48,
+    "stability_cents": 7.3,
+    "intonation_cents": 21.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 85.0,
+    "density_per_s": 1.25,
+    "hnr_db": 3.0,
+    "duration_s": 256.9
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
    "id": "tour_live|鹅毛信|未知20241026_BV1orwNeTEV6",
    "song": "鹅毛信",
    "version": "未知20241026_BV1orwNeTEV6",
@@ -9906,6 +10253,41 @@
    }
   },
   {
+   "id": "tour_live|Your Man|杭州20190609_BV184411T7KZ",
+   "song": "Your Man",
+   "version": "杭州20190609_BV184411T7KZ",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "杭州",
+   "date": "2019-06-09",
+   "source_ref": "BV184411T7KZ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 89.6,
+    "high_note": "A4",
+    "high_hz": 452.4,
+    "span_octaves": 2.34,
+    "stability_cents": 8.7,
+    "intonation_cents": 24.0,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 77.0,
+    "density_per_s": 1.64,
+    "hnr_db": 3.4,
+    "duration_s": 220.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 90
+   }
+  },
+  {
    "id": "tour_live|Your Man|未知20191230_BV1TJ411Y7MH",
    "song": "Your Man",
    "version": "未知20191230_BV1TJ411Y7MH",
@@ -9973,6 +10355,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 112
+   }
+  },
+  {
+   "id": "tour_live|Your Man|未知20200104_BV1wJ41177BZ",
+   "song": "Your Man",
+   "version": "未知20200104_BV1wJ41177BZ",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-01-04",
+   "source_ref": "BV1wJ41177BZ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.0,
+    "high_note": "A#5",
+    "high_hz": 914.4,
+    "span_octaves": 3.34,
+    "stability_cents": 5.6,
+    "intonation_cents": 27.1,
+    "vibrato_hz": 4.92,
+    "vibrato_cents": 76.0,
+    "density_per_s": 1.45,
+    "hnr_db": 2.1,
+    "duration_s": 212.4
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 322
    }
   },
   {
@@ -10501,6 +10918,41 @@
    }
   },
   {
+   "id": "tour_live|人世间|北京20230504_BV1dk4y1E7zM",
+   "song": "人世间",
+   "version": "北京20230504_BV1dk4y1E7zM",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2023-05-04",
+   "source_ref": "BV1dk4y1E7zM",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 97.0,
+    "high_note": "G#5",
+    "high_hz": 825.5,
+    "span_octaves": 3.09,
+    "stability_cents": 6.6,
+    "intonation_cents": 21.6,
+    "vibrato_hz": 4.66,
+    "vibrato_cents": 65.0,
+    "density_per_s": 1.44,
+    "hnr_db": 5.1,
+    "duration_s": 248.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 116
+   }
+  },
+  {
    "id": "tour_live|心动|六巡广州微博_5_心动",
    "song": "心动",
    "version": "六巡广州微博_5_心动",
@@ -10813,6 +11265,76 @@
    }
   },
   {
+   "id": "tour_live|像雾像雨又像风|未知20201209_BV1Lf4y1i7HC",
+   "song": "像雾像雨又像风",
+   "version": "未知20201209_BV1Lf4y1i7HC",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-12-09",
+   "source_ref": "BV1Lf4y1i7HC",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 108.9,
+    "high_note": "D4",
+    "high_hz": 288.0,
+    "span_octaves": 1.4,
+    "stability_cents": 8.7,
+    "intonation_cents": 22.6,
+    "vibrato_hz": 4.61,
+    "vibrato_cents": 94.0,
+    "density_per_s": 2.16,
+    "hnr_db": 8.4,
+    "duration_s": 211.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 310
+   }
+  },
+  {
+   "id": "tour_live|在水一方|长沙20191222_BV1WJ411s7MR",
+   "song": "在水一方",
+   "version": "长沙20191222_BV1WJ411s7MR",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "长沙",
+   "date": "2019-12-22",
+   "source_ref": "BV1WJ411s7MR",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 109.1,
+    "high_note": "B5",
+    "high_hz": 987.6,
+    "span_octaves": 3.18,
+    "stability_cents": 6.5,
+    "intonation_cents": 17.8,
+    "vibrato_hz": 4.66,
+    "vibrato_cents": 67.0,
+    "density_per_s": 1.36,
+    "hnr_db": 4.9,
+    "duration_s": 105.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 50
+   }
+  },
+  {
    "id": "tour_live|像雾像雨又像风|未知20201118_BV1er4y1F7Nr",
    "song": "像雾像雨又像风",
    "version": "未知20201118_BV1er4y1F7Nr",
@@ -10880,6 +11402,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|莫斯科郊外的晚上|未知20190912_BV1hJ411P7bS",
+   "song": "莫斯科郊外的晚上",
+   "version": "未知20190912_BV1hJ411P7bS",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-09-12",
+   "source_ref": "BV1hJ411P7bS",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 112.6,
+    "high_note": "D4",
+    "high_hz": 287.4,
+    "span_octaves": 1.35,
+    "stability_cents": 8.1,
+    "intonation_cents": 30.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.13,
+    "hnr_db": 1.8,
+    "duration_s": 73.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 325
    }
   },
   {
@@ -11230,6 +11787,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 204
+   }
+  },
+  {
+   "id": "tour_live|小毛驴|上海20191105_BV17E411B7xm",
+   "song": "小毛驴",
+   "version": "上海20191105_BV17E411B7xm",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2019-11-05",
+   "source_ref": "BV17E411B7xm",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "B2",
+    "low_hz": 124.5,
+    "high_note": "G#5",
+    "high_hz": 824.8,
+    "span_octaves": 2.73,
+    "stability_cents": 7.6,
+    "intonation_cents": 25.0,
+    "vibrato_hz": 4.31,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.32,
+    "hnr_db": 2.4,
+    "duration_s": 101.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 327
    }
   },
   {
