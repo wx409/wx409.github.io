@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-20 21:01",
+ "generated_at": "2026-09-21 00:06",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,13 +9,13 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 504,
-  "n_stage_measured": 501,
+  "n_materials": 510,
+  "n_stage_measured": 507,
   "n_from_precision": 3,
-  "n_songs": 132,
+  "n_songs": 135,
   "n_tours": 8,
-  "n_verified": 247,
-  "n_harmonic_reviewed": 171,
+  "n_verified": 251,
+  "n_harmonic_reviewed": 175,
   "lowest": {
    "note": "A#1",
    "hz": 58.2,
@@ -27,13 +27,13 @@
    "crepe_hz": null
   },
   "span_median_octaves": 2.76,
-  "stability_median_cents": 7.0,
-  "vibrato_rate_hz_median": 4.92,
+  "stability_median_cents": 7.1,
+  "vibrato_rate_hz_median": 4.93,
   "vibrato_extent_cents_median": 77.0,
   "verify_dist": {
    "人耳确认（听辨）": 71,
-   "待复核（谐波列待判）": 20,
-   "谐波列复核通过": 170,
+   "待复核（谐波列待判）": 22,
+   "谐波列复核通过": 174,
    "未复核": 237,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
@@ -17362,6 +17362,58 @@
    "performer": "低音带读数（归属未确认）"
   },
   {
+   "tag": "未知20210718_BV16B4y1N7ac",
+   "song": "亲密爱人",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-07-18",
+   "bv": "BV16B4y1N7ac",
+   "owner": "王晰的小仓库",
+   "title": "【王晰】《亲密爱人》丨游戏环节全cut",
+   "bandwidth_kbps": 156,
+   "source_verdict": "官方直传",
+   "low_note": "F2",
+   "low_hz": 88.3,
+   "low_t_s": 105.30249433106576,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "G5",
+   "high_hz": 770.0,
+   "span_octaves": 3.12,
+   "stability_cents": 8.0,
+   "intonation_cents": 23.7,
+   "vibrato_hz": 4.97,
+   "vibrato_cents": 79.0,
+   "density_per_s": 1.89,
+   "hnr_db": 4.5,
+   "duration_s": 415.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "待复核（谐波列待判）",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "F2",
+    "hz": 88.3,
+    "why": "1f0 差 -27.2dB",
+    "fund_gap_db": -27.2,
+    "floor_db": -9.7,
+    "t_s": 105.302,
+    "dur_s": 0.209,
+    "partials": [
+     7.6,
+     34.8,
+     30.8,
+     32.8,
+     7.1,
+     5.3,
+     8.4,
+     19.4
+    ]
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+  },
+  {
    "tag": "14_玩笑",
    "song": "",
    "tour": "其他演出",
@@ -18300,6 +18352,61 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "广州20190805_BV1Ct411M734",
+   "song": "让她降落",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2019-08-05",
+   "bv": "BV1Ct411M734",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 让她降落 广州 饭拍",
+   "bandwidth_kbps": 318,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 91.0,
+   "low_t_s": 91.9742403628118,
+   "low_dur_s": 0.16253968253968254,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
+   "stability_cents": 8.8,
+   "intonation_cents": 26.6,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 86.0,
+   "density_per_s": 1.97,
+   "hnr_db": 7.3,
+   "duration_s": 230.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 91.0,
+    "why": "1f0 差 +0.0dB、3f0 在（53.1dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 31.7,
+    "t_s": 91.974,
+    "dur_s": 0.163,
+    "partials": [
+     58.4,
+     52.3,
+     29.8,
+     50.2,
+     53.1,
+     52.4,
+     34.0,
+     27.7
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1020.3,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "05_惑许",
@@ -20153,6 +20260,58 @@
    }
   },
   {
+   "tag": "未知20231013_BV1FH4y1d7u1",
+   "song": "一生守候",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2023-10-13",
+   "bv": "BV1FH4y1d7u1",
+   "owner": "cai慕伊",
+   "title": "《一生守候》女低音cover王晰版本升4key",
+   "bandwidth_kbps": 166,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "G#2",
+   "low_hz": 102.8,
+   "low_t_s": 25.959909297052153,
+   "low_dur_s": 0.3947392290249433,
+   "high_note": "C#4",
+   "high_hz": 279.3,
+   "span_octaves": 1.44,
+   "stability_cents": 9.8,
+   "intonation_cents": 12.8,
+   "vibrato_hz": 4.95,
+   "vibrato_cents": 76.0,
+   "density_per_s": 1.26,
+   "hnr_db": 15.1,
+   "duration_s": 116.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G#2",
+    "hz": 102.8,
+    "why": "1f0 差 -6.5dB、3f0 在（55.3dB）",
+    "fund_gap_db": -6.5,
+    "floor_db": 2.6,
+    "t_s": 25.96,
+    "dur_s": 0.395,
+    "partials": [
+     48.9,
+     50.2,
+     55.3,
+     47.8,
+     47.6,
+     33.4,
+     19.7,
+     10.1
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
    "tag": "王晰《B面图景》杭州签唱会全场__BV1NQ4y__P02_中场签名talk",
    "song": "",
    "tour": "其他演出",
@@ -20828,6 +20987,58 @@
     "note": "A2",
     "hz": 110.3
    }
+  },
+  {
+   "tag": "未知20200905_BV1B54y127bY",
+   "song": "听海",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-09-05",
+   "bv": "BV1B54y127bY",
+   "owner": "王晰的小仓库",
+   "title": "【王晰】《听海》",
+   "bandwidth_kbps": 130,
+   "source_verdict": "官方直传",
+   "low_note": "A2",
+   "low_hz": 110.9,
+   "low_t_s": 10.193560090702947,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "D4",
+   "high_hz": 293.5,
+   "span_octaves": 1.4,
+   "stability_cents": 8.6,
+   "intonation_cents": 5.7,
+   "vibrato_hz": 5.38,
+   "vibrato_cents": 106.0,
+   "density_per_s": 1.78,
+   "hnr_db": 7.5,
+   "duration_s": 77.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A2",
+    "hz": 110.9,
+    "why": "1f0 差 -13.4dB、3f0 在（49.6dB）",
+    "fund_gap_db": -13.4,
+    "floor_db": 10.9,
+    "t_s": 10.194,
+    "dur_s": 0.232,
+    "partials": [
+     50.5,
+     63.8,
+     49.6,
+     45.7,
+     44.9,
+     39.8,
+     37.2,
+     37.5
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
   },
   {
    "tag": "六巡广州微博_4_情网",
@@ -21871,6 +22082,58 @@
    }
   },
   {
+   "tag": "未知20230228_BV1zb411X7eR",
+   "song": "敖包相会",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2023-02-28",
+   "bv": "BV1zb411X7eR",
+   "owner": "开心不开心王晰说了算",
+   "title": "致力于发展铁铁们的音乐水平的王晰教授（副）（严谨）在听到如此动听的敖包相会的歌声后笑的太好看了吧！",
+   "bandwidth_kbps": 122,
+   "source_verdict": "官方直传",
+   "low_note": "B2",
+   "low_hz": 121.0,
+   "low_t_s": 35.75873015873016,
+   "low_dur_s": 0.3947392290249433,
+   "high_note": "A#5",
+   "high_hz": 954.7,
+   "span_octaves": 2.98,
+   "stability_cents": 4.1,
+   "intonation_cents": 19.4,
+   "vibrato_hz": 5.01,
+   "vibrato_cents": 40.0,
+   "density_per_s": 1.17,
+   "hnr_db": 2.8,
+   "duration_s": 146.8,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "待复核（谐波列待判）",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "B2",
+    "hz": 121.0,
+    "why": "1f0 差 -30.4dB",
+    "fund_gap_db": -30.4,
+    "floor_db": -4.9,
+    "t_s": 35.759,
+    "dur_s": 0.395,
+    "partials": [
+     31.1,
+     41.3,
+     45.5,
+     43.4,
+     54.6,
+     32.9,
+     50.1,
+     61.6
+    ]
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
+  },
+  {
    "tag": "二巡上海2021_全程_p28_Dearfriend",
    "song": "Dearfriend",
    "tour": "其他演出",
@@ -21921,6 +22184,61 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
+  },
+  {
+   "tag": "未知20220602_BV1jt4y1W7Wo",
+   "song": "凄美地",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-06-02",
+   "bv": "BV1jt4y1W7Wo",
+   "owner": "长歌行-短歌行",
+   "title": "王晰 龙向楠 凄美地 live",
+   "bandwidth_kbps": 194,
+   "source_verdict": "官方直传",
+   "low_note": "B2",
+   "low_hz": 122.0,
+   "low_t_s": 257.83437641723356,
+   "low_dur_s": 0.16253968253968254,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
+   "stability_cents": 7.8,
+   "intonation_cents": 20.2,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 82.0,
+   "density_per_s": 1.8,
+   "hnr_db": 4.8,
+   "duration_s": 280.7,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "B2",
+    "hz": 122.0,
+    "why": "1f0 差 -15.0dB、3f0 在（51.1dB）",
+    "fund_gap_db": -15.0,
+    "floor_db": 44.6,
+    "t_s": 257.834,
+    "dur_s": 0.163,
+    "partials": [
+     43.9,
+     58.9,
+     51.1,
+     56.5,
+     27.5,
+     56.1,
+     44.0,
+     25.1
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1044.0,
+   "high_note_unconfirmed": "C6"
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P15_点歌-敕勒川再来一遍！",
@@ -23428,7 +23746,7 @@
   },
   {
    "song": "一生守候",
-   "n_versions": 6,
+   "n_versions": 7,
    "tours": [
     "一巡",
     "六巡"
@@ -23436,7 +23754,7 @@
    "lowest_note": "C#2",
    "lowest_hz": 69.5,
    "lowest_tag": "新素材11j7s7_BV19J411j7s7",
-   "span_median_octaves": 2.28,
+   "span_median_octaves": 2.22,
    "versions": [
     {
      "tour": "其他演出",
@@ -23527,6 +23845,21 @@
      "span_octaves": 1.49,
      "verify": "谐波列复核通过",
      "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2023-10-13",
+     "low_note": "G#2",
+     "low_hz": 102.8,
+     "high_note": "C#4",
+     "high_hz": 279.3,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.44,
+     "verify": "谐波列复核通过",
+     "bv": "BV1FH4y1d7u1"
     }
    ]
   },
@@ -23700,12 +24033,12 @@
   },
   {
    "song": "亲密爱人",
-   "n_versions": 2,
+   "n_versions": 3,
    "tours": [],
    "lowest_note": "D#2",
    "lowest_hz": 76.8,
    "lowest_tag": "未知20191229_BV1TJ411a7Kk",
-   "span_median_octaves": 3.27,
+   "span_median_octaves": 3.16,
    "versions": [
     {
      "tour": "其他演出",
@@ -23736,6 +24069,21 @@
      "span_octaves": 3.16,
      "verify": "谐波列复核通过",
      "bv": "BV1UJ4m1t7m5"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2021-07-18",
+     "low_note": "F2",
+     "low_hz": 88.3,
+     "high_note": "G5",
+     "high_hz": 770.0,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.12,
+     "verify": "待复核（谐波列待判）",
+     "bv": "BV16B4y1N7ac"
     }
    ]
   },
@@ -24227,6 +24575,32 @@
    ]
   },
   {
+   "song": "凄美地",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "B2",
+   "lowest_hz": 122.0,
+   "lowest_tag": "未知20220602_BV1jt4y1W7Wo",
+   "span_median_octaves": null,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2022-06-02",
+     "low_note": "B2",
+     "low_hz": 122.0,
+     "high_note": null,
+     "high_hz": null,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": null,
+     "verify": "谐波列复核通过",
+     "bv": "BV1jt4y1W7Wo"
+    }
+   ]
+  },
+  {
    "song": "别离的预感",
    "n_versions": 1,
    "tours": [],
@@ -24594,6 +24968,32 @@
      "span_octaves": 2.49,
      "verify": "人耳确认（听辨）",
      "bv": ""
+    }
+   ]
+  },
+  {
+   "song": "听海",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "A2",
+   "lowest_hz": 110.9,
+   "lowest_tag": "未知20200905_BV1B54y127bY",
+   "span_median_octaves": 1.4,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2020-09-05",
+     "low_note": "A2",
+     "low_hz": 110.9,
+     "high_note": "D4",
+     "high_hz": 293.5,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.4,
+     "verify": "谐波列复核通过",
+     "bv": "BV1B54y127bY"
     }
    ]
   },
@@ -25805,6 +26205,32 @@
      "span_octaves": 2.37,
      "verify": "谐波列复核通过",
      "bv": "BV14kouYsEhY"
+    }
+   ]
+  },
+  {
+   "song": "敖包相会",
+   "n_versions": 1,
+   "tours": [],
+   "lowest_note": "B2",
+   "lowest_hz": 121.0,
+   "lowest_tag": "未知20230228_BV1zb411X7eR",
+   "span_median_octaves": 2.98,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2023-02-28",
+     "low_note": "B2",
+     "low_hz": 121.0,
+     "high_note": "A#5",
+     "high_hz": 954.7,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.98,
+     "verify": "待复核（谐波列待判）",
+     "bv": "BV1zb411X7eR"
     }
    ]
   },
@@ -27137,7 +27563,7 @@
   },
   {
    "song": "让她降落",
-   "n_versions": 19,
+   "n_versions": 20,
    "tours": [
     "一巡",
     "二巡",
@@ -27237,6 +27663,21 @@
      "span_octaves": 2.67,
      "verify": "人耳确认（听辨）",
      "bv": "BV1WJ411a7zj"
+    },
+    {
+     "tour": "其他演出",
+     "city": "广州",
+     "date": "2019-08-05",
+     "low_note": "F#2",
+     "low_hz": 91.0,
+     "high_note": null,
+     "high_hz": null,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": null,
+     "verify": "谐波列复核通过",
+     "bv": "BV1Ct411M734"
     },
     {
      "tour": "一巡",

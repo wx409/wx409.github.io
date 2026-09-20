@@ -12537,6 +12537,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:绝不放手",
+  "type": "belongs_to_album",
+  "target": "album:孤战迷城 影视原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "media:2019-06-15-01",
   "type": "covers",
   "target": "show:2019-06-15-wuhan",

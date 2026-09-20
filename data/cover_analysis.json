@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-20T21:02:05",
+ "generated_at": "2026-09-21T00:06:46",
  "stat": {
-  "generated_at": "2026-09-20T21:02:04",
+  "generated_at": "2026-09-21T00:06:46",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,16 +163,16 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 24,
+  "songs_with_3plus": 25,
   "rows": [
    {
     "song": "让她降落",
-    "versions": 19,
-    "low_median": 91.9,
-    "low_iqr": 8.7,
+    "versions": 20,
+    "low_median": 91.8,
+    "low_iqr": 8.2,
     "low_range": 35.2,
     "high_median": 761.0,
-    "low_cv": 0.0915
+    "low_cv": 0.0898
    },
    {
     "song": "Your Man",
@@ -203,12 +203,12 @@
    },
    {
     "song": "一生守候",
-    "versions": 6,
-    "low_median": 75.4,
-    "low_iqr": 5.2,
-    "low_range": 8.9,
-    "high_median": 359.6,
-    "low_cv": 0.045
+    "versions": 7,
+    "low_median": 77.8,
+    "low_iqr": 5.4,
+    "low_range": 33.3,
+    "high_median": 324.4,
+    "low_cv": 0.1296
    },
    {
     "song": "心动",
@@ -364,6 +364,15 @@
     "low_cv": 0.1142
    },
    {
+    "song": "亲密爱人",
+    "versions": 3,
+    "low_median": 82.2,
+    "low_iqr": 5.8,
+    "low_range": 11.5,
+    "high_median": 770.0,
+    "low_cv": 0.057
+   },
+   {
     "song": "南屏晚钟",
     "versions": 3,
     "low_median": 80.4,
@@ -382,14 +391,14 @@
     "low_cv": 0.0748
    }
   ],
-  "low_cv_median": 0.0935,
+  "low_cv_median": 0.095,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 80.4,
-  "cover_live_low_median": 83.2,
+  "cover_live_low_median": 84.7,
   "own_n": 21,
-  "cover_n": 112,
+  "cover_n": 115,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
@@ -409,11 +418,11 @@
    },
    "让她降落": {
     "orig": "张惠妹",
-    "live_low_median": 91.9
+    "live_low_median": 91.8
    },
    "亲密爱人": {
     "orig": "梅艳芳",
-    "live_low_median": 79.5
+    "live_low_median": 82.2
    },
    "月半弯": {
     "orig": "陈坤/张学友（男）",

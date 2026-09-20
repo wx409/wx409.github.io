@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-20 21:02",
+ "generated_at": "2026-09-21 00:06",
  "count": 56,
  "calibers": [
   {
@@ -29,7 +29,7 @@
   {
    "id": "songs_meta",
    "label": "歌曲元数据条目",
-   "value": 592,
+   "value": 593,
    "scope": "含元信息（时长/专辑/发行等）的曲目",
    "source": "data/songs_meta.json",
    "note": ""
@@ -109,7 +109,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1602,
+   "value": 1603,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -117,7 +117,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2226,
+   "value": 2227,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -125,7 +125,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5415,
+   "value": 5417,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -165,10 +165,10 @@
   {
    "id": "index_days",
    "label": "指数数据覆盖天数",
-   "value": 1293,
+   "value": 1294,
    "scope": "站点图表所用指数长表的实际覆盖天数",
    "source": "（文本挖掘产物目录）\\music_index_long.csv",
-   "note": "已发布长表唯一日期；2022-12-31 至 2026-09-18；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+   "note": "已发布长表唯一日期；2022-12-31 至 2026-09-19；原始库文件覆盖 1271 天（少算补充来源 11 天）"
   },
   {
    "id": "stage_measured_versions",
@@ -189,7 +189,7 @@
   {
    "id": "stage_low_reviewed",
    "label": "巡演现场低音读数·谐波列复核通过条数",
-   "value": 171,
+   "value": 175,
    "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
    "source": "data\\archive_stage_tour.json",
    "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
