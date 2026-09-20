@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-20 16:30",
+ "generated_at": "2026-09-20 16:36",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 173,
-  "dispatch": 172,
-  "deploy_steps": 59,
+  "menu_items": 174,
+  "dispatch": 173,
+  "deploy_steps": 60,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1328,6 +1328,16 @@
    "menu_label": "expand_pool",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\expand_track_pool.py"
+  },
+  {
+   "script": "build_cover_catalog.py",
+   "in_deploy": true,
+   "deploy_desc": "曲目谱系 data/cover_catalog.json（293 首选曲行为：场次/首唱末唱/自有或翻唱/有无指数）",
+   "critical": false,
+   "menu": 174,
+   "title": "曲目谱系（翻唱档案：293 首选曲行为结构化）",
+   "menu_label": "cover_catalog",
+   "path": "D:\\wx409.github.io\\project_b\\build_cover_catalog.py"
   },
   {
    "script": "_build_episodes.py",

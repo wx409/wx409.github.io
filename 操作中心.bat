@@ -221,6 +221,7 @@ echo    170. 原始视频省空间（HEVC 重编码，默认试算）
 echo    171. 整场按曲目切分（掌声 / 能量谷 / f0 断裂）
 echo    172. 归因检验报告（四问 + 多重比较校正）
 echo    173. 追踪池核查与扩容（歌单唱过 vs 源表追踪，可 --apply 写入）
+echo    174. 曲目谱系（翻唱档案：293 首选曲行为结构化）
 echo    0. 退出
 echo.
 set "op="
@@ -398,6 +399,7 @@ if "%op%"=="170" goto archive_hevc
 if "%op%"=="171" goto segment_concert
 if "%op%"=="172" goto attribution
 if "%op%"=="173" goto expand_pool
+if "%op%"=="174" goto cover_catalog
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2377,5 +2379,14 @@ echo  默认试算；--apply 才写源表（写前自动备份 xlsx）
 echo  源表：E:\wx\index_records\收听人数（2026.7.24）.xlsx
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\expand_track_pool.py
+pause
+goto menu
+
+:cover_catalog
+cls
+echo  [曲目谱系] 64 场唱过的每首歌 → 场次/首唱末唱/自有或翻唱/有无指数
+echo  产出：data\cover_catalog.json + temp\曲目谱系.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_cover_catalog.py
 pause
 goto menu
