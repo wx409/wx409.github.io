@@ -155,6 +155,17 @@ INDEXNOW_URLS = [
 ]
 
 
+def indexnow_targets() -> list[str]:
+    """推送目标 = 手写枢纽页 ∪ sitemap.xml（单一事实源，新增页面自动被推送，避免清单漂移）。"""
+    import re
+    try:
+        xml = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        return sorted(set(INDEXNOW_URLS) | set(re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", xml)))
+    except Exception as e:
+        print(f"[IndexNow] sitemap 读取失败，仅用枢纽页: {str(e)[:60]}")
+        return list(INDEXNOW_URLS)
+
+
 def notify_indexnow() -> bool:
     """通过 IndexNow 通知搜索引擎即时抓取（成功返回 True，失败警告不阻塞）。"""
     if not INDEXNOW_KEY_FILE.exists():
@@ -162,8 +173,9 @@ def notify_indexnow() -> bool:
         return False
     key = INDEXNOW_KEY_FILE.read_text(encoding="utf-8").strip()
     import urllib.request
+    urls = indexnow_targets()
     ok = 0
-    for u in INDEXNOW_URLS:
+    for u in urls:
         try:
             url = f"https://api.indexnow.org/indexnow?url={u}&key={key}"
             with urllib.request.urlopen(url, timeout=20) as resp:
@@ -173,7 +185,7 @@ def notify_indexnow() -> bool:
                     print(f"[IndexNow] {u} -> HTTP {resp.status}")
         except Exception as e:
             print(f"[IndexNow] {u} -> 失败: {str(e)[:80]}")
-    print(f"[IndexNow] 已通知 {ok}/{len(INDEXNOW_URLS)} 个 URL")
+    print(f"[IndexNow] 已通知 {ok}/{len(urls)} 个 URL")
     return ok > 0
 
 
