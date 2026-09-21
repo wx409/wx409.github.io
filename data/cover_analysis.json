@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-21T21:05:43",
+ "generated_at": "2026-09-22T00:10:26",
  "stat": {
-  "generated_at": "2026-09-21T21:05:42",
+  "generated_at": "2026-09-22T00:10:25",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 29,
+  "songs_with_3plus": 30,
   "rows": [
    {
     "song": "佛山全场",
@@ -265,6 +265,15 @@
     "low_cv": 0.2214
    },
    {
+    "song": "我要你",
+    "versions": 5,
+    "low_median": 78.1,
+    "low_iqr": 1.3,
+    "low_range": 15.0,
+    "high_median": 588.2,
+    "low_cv": 0.0712
+   },
+   {
     "song": "再见我的爱人",
     "versions": 4,
     "low_median": 76.5,
@@ -301,13 +310,13 @@
     "low_cv": 0.1841
    },
    {
-    "song": "我要你",
+    "song": "晚风",
     "versions": 4,
-    "low_median": 78.1,
-    "low_iqr": 3.4,
-    "low_range": 13.7,
-    "high_median": 435.3,
-    "low_cv": 0.0741
+    "low_median": 82.2,
+    "low_iqr": 5.8,
+    "low_range": 13.9,
+    "high_median": 237.6,
+    "low_cv": 0.0651
    },
    {
     "song": "小毛驴",
@@ -418,23 +427,23 @@
     "low_cv": 0.0884
    },
    {
-    "song": "晚风",
+    "song": "新不了情",
     "versions": 3,
-    "low_median": 80.7,
-    "low_iqr": 7.0,
-    "low_range": 13.9,
-    "high_median": 237.6,
-    "low_cv": 0.0748
+    "low_median": 86.1,
+    "low_iqr": 3.3,
+    "low_range": 6.7,
+    "high_median": 370.2,
+    "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1097,
+  "low_cv_median": 0.1045,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 80.7,
+  "own_live_low_median": 82.2,
   "cover_live_low_median": 84.7,
   "own_n": 21,
-  "cover_n": 121,
+  "cover_n": 123,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
