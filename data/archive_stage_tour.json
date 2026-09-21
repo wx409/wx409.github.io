@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-21 11:50",
+ "generated_at": "2026-09-21 13:21",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -46,7 +46,10 @@
    "未复核": 4,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
-  }
+  },
+  "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
+  "n_stat_basis": 583,
+  "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
   {
@@ -74,7 +77,10 @@
    "lowest_pending_under": false,
    "span_median_octaves": 3.04,
    "stability_median_cents": 7.4,
-   "vibrato_rate_hz_median": 4.79
+   "vibrato_rate_hz_median": 4.79,
+   "stat_basis": "可主张（复核通过）",
+   "n_stat_basis": 39,
+   "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
    "tour": "二巡",
@@ -99,7 +105,10 @@
    "lowest_pending_under": false,
    "span_median_octaves": 2.92,
    "stability_median_cents": 6.4,
-   "vibrato_rate_hz_median": 4.97
+   "vibrato_rate_hz_median": 4.97,
+   "stat_basis": "可主张（复核通过）",
+   "n_stat_basis": 37,
+   "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
    "tour": "三巡",
@@ -128,7 +137,10 @@
    "lowest_pending_under": true,
    "span_median_octaves": 2.4,
    "stability_median_cents": 6.7,
-   "vibrato_rate_hz_median": 4.85
+   "vibrato_rate_hz_median": 4.85,
+   "stat_basis": "可主张（复核通过）",
+   "n_stat_basis": 39,
+   "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
    "tour": "四巡",
@@ -153,7 +165,10 @@
    "lowest_pending_under": false,
    "span_median_octaves": 2.81,
    "stability_median_cents": 7.85,
-   "vibrato_rate_hz_median": 4.79
+   "vibrato_rate_hz_median": 4.79,
+   "stat_basis": "可主张（复核通过）",
+   "n_stat_basis": 31,
+   "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
    "tour": "五巡",
@@ -178,7 +193,10 @@
    "lowest_pending_under": true,
    "span_median_octaves": 2.75,
    "stability_median_cents": 7.35,
-   "vibrato_rate_hz_median": 4.86
+   "vibrato_rate_hz_median": 4.86,
+   "stat_basis": "可主张（复核通过）",
+   "n_stat_basis": 16,
+   "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
    "tour": "六巡",
@@ -201,7 +219,10 @@
    "lowest_pending_under": true,
    "span_median_octaves": 2.86,
    "stability_median_cents": 7.5,
-   "vibrato_rate_hz_median": 4.97
+   "vibrato_rate_hz_median": 4.97,
+   "stat_basis": "可主张（复核通过）",
+   "n_stat_basis": 61,
+   "generator_version": "stage-report v4 / 2026-09-21"
   }
  ],
  "rows": [

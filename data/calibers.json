@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-21 10:33",
-  "count": 58,
+  "generated_at": "2026-09-21 13:21",
+  "count": 59,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -61,10 +61,18 @@
     {
       "id": "stage_claimable",
       "label": "现场层可主张素材",
-      "value": 294,
+      "value": 463,
       "scope": "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
       "source": "data/archive_stage_tour.json → summary.n_claimable",
       "note": "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除"
+    },
+    {
+      "id": "vibrato_tier",
+      "label": "颤音速率的分层归属",
+      "value": "组内可纵比、跨组谨慎",
+      "scope": "修音敏感度分层中的单列一档（区别于高敏感层的稳定性/音准）",
+      "source": "音频备忘 §21 / acoustic-report「六条纪律」/ 宣传词条库 #8",
+      "note": "修音改的是音高慢变轨迹，颤音速率是 ~5Hz 快速调制，**基本不动速率**；但**幅度可能受轻微影响**，故速率优先组内纵向比较（三处文本已于 2026-09-21 统一）"
     },
     {
       "id": "playable_songs",
@@ -205,7 +213,7 @@
     {
       "id": "stage_low_reviewed",
       "label": "巡演现场低音读数·谐波列复核通过条数",
-      "value": 231,
+      "value": 412,
       "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
       "source": "data\\archive_stage_tour.json",
       "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
@@ -213,10 +221,10 @@
     {
       "id": "stage_lowest_hz",
       "label": "巡演现场最低稳定音（现行）",
-      "value": 58.2,
+      "value": 57.8,
       "scope": "王晰主导巡演现场·过复核门槛的最低稳定音（Hz）",
       "source": "data\\archive_stage_tour.json",
-      "note": "出处：静止了的夜晚｜ 2019-08-21｜复核 人耳确认（听辨）；与 recording_studio_vocal_songs 不同范围，禁止混用"
+      "note": "出处：｜杭州 2021-11-27｜复核 谐波列复核通过；与 recording_studio_vocal_songs 不同范围，禁止混用"
     },
     {
       "id": "reach_多听有益",

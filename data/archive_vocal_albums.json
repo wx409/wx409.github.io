@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16 16:46",
+ "generated_at": "2026-09-21 13:14",
  "source": "录音室专辑实测（QQ音乐 320k → demucs → YIN）",
  "method": {
   "separation": "demucs htdemucs（--two-stems=vocals，GPU，本地缓存模型）",
@@ -24,8 +24,8 @@
   },
   "span_median_octaves": 2.22,
   "span_max_octaves": 3.41,
-  "stability_cents_median": 7.0,
-  "intonation_cents_median": 9.0,
+  "stability_cents_median": 7.2,
+  "intonation_cents_median": 9.25,
   "vibrato_rate_hz_median": 5.12,
   "vibrato_extent_cents_median": 86.0,
   "note_density_median": 1.88

@@ -124,6 +124,11 @@ def collect() -> list[dict]:
         "data/archive_stage_tour.json → summary.n_claimable",
         "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；"
         "「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除")
+    add("vibrato_tier", "颤音速率的分层归属", "组内可纵比、跨组谨慎",
+        "修音敏感度分层中的单列一档（区别于高敏感层的稳定性/音准）",
+        "音频备忘 §21 / acoustic-report「六条纪律」/ 宣传词条库 #8",
+        "修音改的是音高慢变轨迹，颤音速率是 ~5Hz 快速调制，**基本不动速率**；"
+        "但**幅度可能受轻微影响**，故速率优先组内纵向比较（三处文本已于 2026-09-21 统一）")
 
     ps = _load("data/playable_songs.json") or {}
     add("playable_songs", "可试听曲目", _count(ps, "total"),
