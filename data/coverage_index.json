@@ -1,16 +1,16 @@
 {
  "stat": {
-  "generated_at": "2026-09-21T00:06:44",
+  "generated_at": "2026-09-21T09:24:22",
   "shows_total": 64,
-  "covered": 56,
-  "missing": 8,
-  "L1_精确": 31,
+  "covered": 61,
+  "missing": 3,
+  "L1_精确": 36,
   "L2_强": 12,
   "L3_中": 0,
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 6457,
-  "bv_mapped": 36
+  "files_scanned": 6674,
+  "bv_mapped": 41
  },
  "shows": [
   {
@@ -509,6 +509,46 @@
    "n_evidence": 4
   },
   {
+   "date": "2020-11-21",
+   "city": "佛山",
+   "tour": "二巡",
+   "songs": 22,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV17A411x7fH｜全场｜二巡佛山20201121"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡佛山20201121_p01_【王晰】2020个人巡回音乐会 11.21佛山场 p01 01 花儿为｜佛山全场"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡佛山20201121_p05_【王晰】2020个人巡回音乐会 11.21佛山场 p05 05 后会无｜佛山全场"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡佛山20201121_BV17A411x7fH｜全场"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡佛山20201121_p15_【王晰】2020个人巡回音乐会 11.21佛山场 p15 15 慢慢组｜佛山全场"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡佛山20201121_p11_【王晰】2020个人巡回音乐会 11.21佛山场 p11 11 唠嗑了｜佛山全场"
+    }
+   ],
+   "n_evidence": 231
+  },
+  {
    "date": "2020-11-29",
    "city": "北京",
    "tour": "二巡",
@@ -684,6 +724,46 @@
    "n_evidence": 1
   },
   {
+   "date": "2021-03-27",
+   "city": "宁波",
+   "tour": "二巡",
+   "songs": 23,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Ey4y147Nc｜花儿为什么这样红｜二巡宁波20210327"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "二巡宁波20210327_BV1Ey4y147Nc｜花儿为什么这样红"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Ey4y147Nc"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡宁波20210327_BV1Ey4y147Nc.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Ey4y147Nc"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "二巡宁波20210327_BV1Ey4y147Nc_f0.csv"
+    }
+   ],
+   "n_evidence": 14
+  },
+  {
    "date": "2021-04-11",
    "city": "南京",
    "tour": "二巡",
@@ -764,6 +844,86 @@
    "n_evidence": 120
   },
   {
+   "date": "2021-12-04",
+   "city": "广州",
+   "tour": "三巡",
+   "songs": 17,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1D34y1R7fC｜橄榄树｜三巡广州20211204"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "三巡广州20211204_BV1D34y1R7fC｜橄榄树"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1D34y1R7fC"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡广州20211204_BV1D34y1R7fC.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1D34y1R7fC"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡广州20211204_BV1D34y1R7fC_f0.csv"
+    }
+   ],
+   "n_evidence": 14
+  },
+  {
+   "date": "2022-01-09",
+   "city": "无锡",
+   "tour": "三巡",
+   "songs": 21,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1rZ4y1S7uc｜点歌环节｜三巡无锡20220109"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1rZ4y1S7uc"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡无锡20220109_BV1rZ4y1S7uc.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1rZ4y1S7uc"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡无锡20220109_BV1rZ4y1S7uc_f0.csv"
+    }
+   ],
+   "n_evidence": 14
+  },
+  {
    "date": "2022-04-09",
    "city": "北京",
    "tour": "三巡",
@@ -799,6 +959,46 @@
      "level": 1,
      "src": "路径日期",
      "detail": "北京20220409_BV1Au411v7ia_f0.csv"
+    }
+   ],
+   "n_evidence": 14
+  },
+  {
+   "date": "2022-07-15",
+   "city": "太原",
+   "tour": "三巡",
+   "songs": 18,
+   "level": 1,
+   "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1bN4y1T7wR｜点歌环节｜三巡太原20220715"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "三巡太原20220715_BV1bN4y1T7wR｜点歌环节"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1bN4y1T7wR"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡太原20220715_BV1bN4y1T7wR.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1bN4y1T7wR"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "三巡太原20220715_BV1bN4y1T7wR_f0.csv"
     }
    ],
    "n_evidence": 14
@@ -1526,30 +1726,6 @@
  ],
  "missing": [
   {
-   "date": "2020-11-21",
-   "city": "佛山",
-   "tour": "二巡",
-   "songs": 22
-  },
-  {
-   "date": "2021-03-27",
-   "city": "宁波",
-   "tour": "二巡",
-   "songs": 23
-  },
-  {
-   "date": "2021-12-04",
-   "city": "广州",
-   "tour": "三巡",
-   "songs": 17
-  },
-  {
-   "date": "2022-01-09",
-   "city": "无锡",
-   "tour": "三巡",
-   "songs": 21
-  },
-  {
    "date": "2022-01-10",
    "city": "上海",
    "tour": "三巡",
@@ -1560,12 +1736,6 @@
    "city": "长沙",
    "tour": "三巡",
    "songs": 21
-  },
-  {
-   "date": "2022-07-15",
-   "city": "太原",
-   "tour": "三巡",
-   "songs": 18
   },
   {
    "date": "2023-04-09",

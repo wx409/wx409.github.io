@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-21T00:06:46",
+ "generated_at": "2026-09-21T09:24:26",
  "stat": {
-  "generated_at": "2026-09-21T00:06:46",
+  "generated_at": "2026-09-21T09:24:24",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,8 +163,17 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 25,
+  "songs_with_3plus": 26,
   "rows": [
+   {
+    "song": "佛山全场",
+    "versions": 31,
+    "low_median": 87.0,
+    "low_iqr": 11.4,
+    "low_range": 89.7,
+    "high_median": 686.1,
+    "low_cv": 0.1945
+   },
    {
     "song": "让她降落",
     "versions": 20,
@@ -184,6 +193,15 @@
     "low_cv": 0.0658
    },
    {
+    "song": "花儿为什么这样红",
+    "versions": 9,
+    "low_median": 72.7,
+    "low_iqr": 0.9,
+    "low_range": 23.1,
+    "high_median": 603.5,
+    "low_cv": 0.0899
+   },
+   {
     "song": "像雾像雨又像风",
     "versions": 9,
     "low_median": 104.0,
@@ -191,15 +209,6 @@
     "low_range": 37.5,
     "high_median": 326.2,
     "low_cv": 0.1393
-   },
-   {
-    "song": "花儿为什么这样红",
-    "versions": 8,
-    "low_median": 72.5,
-    "low_iqr": 1.5,
-    "low_range": 23.1,
-    "high_median": 600.2,
-    "low_cv": 0.095
    },
    {
     "song": "一生守候",
@@ -245,6 +254,15 @@
     "low_range": 21.7,
     "high_median": 913.2,
     "low_cv": 0.141
+   },
+   {
+    "song": "橄榄树",
+    "versions": 4,
+    "low_median": 101.8,
+    "low_iqr": 6.6,
+    "low_range": 17.5,
+    "high_median": 880.3,
+    "low_cv": 0.0679
    },
    {
     "song": "情网",
@@ -346,15 +364,6 @@
     "low_cv": 0.009
    },
    {
-    "song": "橄榄树",
-    "versions": 3,
-    "low_median": 100.3,
-    "low_iqr": 7.6,
-    "low_range": 15.2,
-    "high_median": 880.3,
-    "low_cv": 0.0676
-   },
-   {
     "song": "哭砂",
     "versions": 3,
     "low_median": 84.7,
@@ -391,18 +400,18 @@
     "low_cv": 0.0748
    }
   ],
-  "low_cv_median": 0.095,
+  "low_cv_median": 0.0956,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 80.4,
-  "cover_live_low_median": 84.7,
+  "cover_live_low_median": 85.0,
   "own_n": 21,
-  "cover_n": 115,
+  "cover_n": 118,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
-    "live_low_median": 100.3
+    "live_low_median": 101.8
    },
    "心动": {
     "orig": "陈洁仪",

@@ -224,6 +224,7 @@ echo    173. 追踪池核查与扩容（歌单唱过 vs 源表追踪，可 --apply 写入）
 echo    174. 曲目谱系（翻唱档案：293 首选曲行为结构化）
 echo    175. 翻唱价值分析（选曲指纹 / 同曲多版本方差 / 音区适配 / 语言跨度 / 自有vs翻唱 DiD）
 echo    176. 场次覆盖索引（有实测 vs 有素材 两口径 + 待采清单）
+echo    177. 缺口场次补录（按 轨迹\场次下载清单_缺口补录_*.json 下载→实测→并入现场层）
 echo    0. 退出
 echo.
 set "op="
@@ -404,6 +405,7 @@ if "%op%"=="173" goto expand_pool
 if "%op%"=="174" goto cover_catalog
 if "%op%"=="175" goto cover_analysis
 if "%op%"=="176" goto coverage_index
+if "%op%"=="177" goto gap_backfill
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2409,6 +2411,21 @@ cls
 echo  [场次覆盖索引] 64 场：哪些已实测入库、哪些只有素材、哪些完全空白
 echo  口径A=有实测数据（可进结论）｜口径B=有本地素材（含未实测，证据强度分级）
 echo  产出：data\coverage_index.json
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_coverage_index.py
+pause
+goto menu
+
+:gap_backfill
+cls
+echo  [缺口场次补录] 覆盖地图里还没有素材的场次：下载 B 站音轨 → wav → demucs 分离 + 逐帧 F0 → 并入现场层
+echo  清单：E:\wx\论文素材_王晰作传\音域分析\轨迹\场次下载清单_缺口补录_*.json
+echo  跑完再回站点侧执行：covergage 索引 → 现场报告聚合 → stage.html → 声学报告 → 审计
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+set /p spec=  清单文件名（留空则跑全部 场次下载清单_*.json）:
+if "%spec%"=="" (python -X utf8 场次音域一键.py) else (python -X utf8 场次音域一键.py --spec "%spec%")
+echo.
+echo  接着回站点重建（本菜单 176 → 58 顺序执行）：
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_coverage_index.py
 pause
