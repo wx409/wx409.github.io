@@ -28,7 +28,8 @@ def main() -> int:
     a = ap.parse_args()
 
     ln = json.loads(LN.read_text(encoding="utf-8"))
-    top = ln.get("top", [])
+    # 幂等：把上一轮已移出的记录并回来一起重新分类，避免"第二轮把 top_flagged 覆盖成空"（2026-09-21 修）
+    top = (ln.get("top") or []) + (ln.get("top_flagged") or [])
     items = json.loads(VD.read_text(encoding="utf-8"))["items"]
 
     rej = [i for i in items if "非王晰" in str(i.get("verdict")) or "不是" in str(i.get("verdict_note"))]
