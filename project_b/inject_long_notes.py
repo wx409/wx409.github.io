@@ -34,18 +34,26 @@ def num(v, d=1):
 def build(doc):
     s = doc.get("stats") or {}
     top = doc.get("top") or []
+    _flag = doc.get("top_flagged") or []
+    _kept = doc.get("stats", {}).get("n_after_verdict_join", len(top))
+    _kept_d = sorted([x.get("dur_s") or 0 for x in top], reverse=True)
     L = [START, '<h2 id="长声">八、长声持续能力（演唱，非 talk）</h2>',
          '<p>长声时长 = <strong>同一音高连续保持</strong>的秒数'
          '（连续同音高段，抖动 &lt;0.6 半音）。'
          '这是<strong>直接可观测量</strong>，无需自创判据。'
          '数据来自 %d 个演唱段（已排除 talk 段）。</p>' % int(s.get("n_ge6s") or 0),
+         '<p class="sub">⚠️ 经「长声表 × 否决台账」反连接后，榜单只保留 <strong>%d</strong> 条；'
+         '另有 <strong>%d</strong> 条已移出（%s）。'
+         'C5 及以上长声默认需人耳归属确认——长声检测跑在 demucs vocals 轨上，而该轨含和声。</p>'
+         % (_kept, len(_flag), "；".join(str(x.get("verdict_conflict", ""))[:28] for x in _flag) or "无"),
          '<div class="kv">',
-         '<div><span class="k">≥8 秒</span><span class="v">%d 个</span></div>' % int(s.get("n_ge8s") or 0),
-         '<div><span class="k">≥10 秒</span><span class="v">%d 个</span></div>' % int(s.get("n_ge10s") or 0),
-         '<div><span class="k">≥12 秒</span><span class="v">%d 个</span></div>' % int(s.get("n_ge12s") or 0),
-         '<div><span class="k">≥15 秒</span><span class="v">%d 个</span></div>' % int(s.get("n_ge15s") or 0),
-         '<div><span class="k">中位</span><span class="v">%s 秒</span></div>' % num(s.get("median_s")),
-         '<div><span class="k">最长</span><span class="v">%s 秒</span></div>' % num(s.get("max_s")),
+         '<div><span class="k">≥8 秒（保留榜）</span><span class="v">%d 个</span></div>' % len([d for d in _kept_d if d >= 8]),
+         '<div><span class="k">≥10 秒</span><span class="v">%d 个</span></div>' % len([d for d in _kept_d if d >= 10]),
+         '<div><span class="k">≥12 秒</span><span class="v">%d 个</span></div>' % len([d for d in _kept_d if d >= 12]),
+         '<div><span class="k">≥15 秒</span><span class="v">%d 个</span></div>' % len([d for d in _kept_d if d >= 15]),
+         '<div><span class="k">中位</span><span class="v">%s 秒</span></div>'
+         % (round(__import__("statistics").median(_kept_d), 1) if _kept_d else 0),
+         '<div><span class="k">最长</span><span class="v">%s 秒</span></div>' % num(max(_kept_d) if _kept_d else 0),
          "</div>",
          "<h3>最长的 20 个长声</h3>",
          '<table><thead><tr><th>#</th><th>时长</th><th>音</th><th>Hz</th>'
