@@ -272,7 +272,9 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <div class="kpi"><b>{summary.get('span_median_octaves','—')}</b><span>现场跨度中位（八度）</span></div>
 <div class="kpi"><b>{summary.get('stability_median_cents','—')}</b><span>现场音符内稳定性中位（音分）</span></div>
 <div class="kpi"><b>{summary.get('vibrato_rate_hz_median','—')} Hz</b><span>颤音速率中位</span></div>
-<div class="kpi"><b>{n_cov}/{len(cov)}</b><span>64 场巡演中已收录声学素材</span></div>
+<div class="kpi"><b>{cst.get('L1_精确',0)+cst.get('L2_强',0)}/{cst.get('shows_total','—')}</b><span>已定位到具体场次（L1+L2，可进结论）</span></div>
+<div class="kpi"><b>{cst.get('covered','—')}/{cst.get('shows_total','—')}</b><span>有本地素材（含未实测，弱证据已标注）</span></div>
+<div class="kpi"><b>{cst.get('measured_shows_site','—')}/{cst.get('shows_total','—')}</b><span>已进站点现场层的场次</span></div>
 <div class="kpi"><b>{len(v_items)}</b><span>人耳/复核裁决条数</span></div>
 </div>
 <p class="lead">复核状态分布：{esc("；".join(f"{k} {v}" for k, v in (summary.get('verify_dist') or {{}}).items()))}</p>
@@ -346,7 +348,10 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>
 <ul>
-<li><b>覆盖不均</b>：{len(cov)} 场巡演中仅 {n_cov} 场有素材（{n_cov / max(len(cov),1):.0%}），一巡/二巡/三巡缺口最大。</li>
+<li><b>覆盖分三个口径，别混读</b>：有本地素材 <b>{cst.get('covered','—')}/{cst.get('shows_total','—')}</b>｜
+已定位到具体场次（L1+L2）<b>{cst.get('L1_精确',0)+cst.get('L2_强',0)}</b>｜
+已进站点现场层 <b>{cst.get('measured_shows_site','—')}</b>；
+证据较弱的场次只能写"该巡该城有素材"，不能写"该场已测"。</li>
 <li><b>追踪池限制</b>：QQ音乐指数仅覆盖追踪曲目池（{load("calibers.json", {}).get("items", [{}]) and "见口径登记表"}），
 多数歌单曲目不在池内，因此"唱了 → 数据涨没涨"的自身对照检验只有少数场次够样本。</li>
 <li><b>录音室层经修音</b>：稳定性、音准偏差属修音敏感层，不可直接跨层比较。</li>
@@ -458,8 +463,10 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
         print(f"→ 本地副本 {local_html.name} / {local_md.name}")
     except Exception as e:
         print("[warn] 本地副本写入失败:", e)
-    print(f"✅ 已生成 {OUT.name}（{len(html)/1024:.0f} KB）｜录音室 {len(songs)} 曲｜现场 {len(rows)} 条｜裁决 {len(v_items)} 条｜覆盖 {n_cov}/{len(cov)}")
-    assert len(songs) > 50 and len(rows) > 100 and n_cov > 0, "数据不足，检查 data/*.json"
+    print(f"✅ 已生成 {OUT.name}（{len(html)/1024:.0f} KB）｜录音室 {len(songs)} 曲｜现场 {len(rows)} 条｜裁决 {len(v_items)} 条｜"
+          f"覆盖 有素材 {cst.get('covered','—')}/{cst.get('shows_total','—')}·已定位 {cst.get('L1_精确',0)+cst.get('L2_强',0)}·"
+          f"站点层 {cst.get('measured_shows_site','—')}")
+    assert len(songs) > 50 and len(rows) > 100, "数据不足，检查 data/*.json"
     return 0
 
 

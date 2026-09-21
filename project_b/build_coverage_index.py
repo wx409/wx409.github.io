@@ -170,6 +170,8 @@ def main() -> int:
             "shows_total": len(shows), "covered": len(rows), "missing": len(miss),
             "L1_精确": lv[1], "L2_强": lv[2], "L3_中": lv[3], "L4_弱": lv[4],
             "measured_shows_hint": "L1/L2 可视为已定位到具体场次", "files_scanned": n_files,
+            "measured_shows_site": sum(1 for r in rows if any(
+                e["src"] == "站点实测" for e in r.get("evidence", []))),
             "bv_mapped": len(bv_to_show)}
     (DATA / "coverage_index.json").write_text(
         json.dumps({"stat": stat, "shows": rows, "missing": miss}, ensure_ascii=False, indent=1), encoding="utf-8")
