@@ -83,7 +83,8 @@ def main() -> int:
     spans = [round(float(s.get("span_octaves") or 0), 2) for s in songs if s.get("span_octaves")]
     by_tour = tour.get("by_tour", [])
     tour_names = [esc(t.get("tour", "")) for t in by_tour]
-    tour_n = [t.get("n") or t.get("materials") or 0 for t in by_tour]
+    tour_n = [t.get("n_materials") or t.get("n") or 0 for t in by_tour]
+    tour_claim = [t.get("n_claimable") or 0 for t in by_tour]
     vd = {}
     for it in v_items:
         vd[it.get("verdict", "未标")] = vd.get(it.get("verdict", "未标"), 0) + 1
@@ -337,7 +338,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <section id="charts"><h2>图表</h2>
 <h3>① 每首曲的音域上下限（x=最低、y=最高，点越大跨度越宽）</h3><div class="chart" id="c1"></div>
 <h3>② 跨度分布（八度）</h3><div class="chart" id="c2"></div>
-<h3>③ 现场层素材条数（按巡次）</h3><div class="chart" id="c3"></div>
+<h3>③ 现场层素材条数（按巡次，深色＝可主张/已确权）</h3><div class="chart" id="c3"></div>
 </section>
 
 <section id="vocal"><h2>跨素材精测层（{voc.get('count','—')} 曲）</h2>
@@ -430,6 +431,14 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 </section>
 
 <footer>
+<div class="note" style="margin-bottom:14px">
+<b>使用说明与版权声明</b><br>
+· 本页为<b>非营利性、个人学习与研究用途</b>的粉丝自建资料页，不涉及任何商业行为，不销售、不变现。<br>
+· 报告中的现场音视频素材<b>均来自哔哩哔哩（B 站）等公开平台</b>，仅用于本人研究性测量与比对；<b>版权归原作者及原始权利人所有</b>。<br>
+· 如权利人认为本站内容不妥，<b>请通过站内「投稿/联系」告知，我们将在第一时间删除相关内容</b>（侵删）。<br>
+· 本站<b>不转载、不二次分发、不提供音频下载</b>，仅发布测量方法、统计结果与判定台账；原始素材一律本地留存。<br>
+· 数据口径与复核状态均以本页与 <code>data/calibers.md</code> 为准；引用前请核对口径，未确权读数不得作为能力依据。
+</div>
 生成器：<code>project_b/build_acoustic_report.py</code>（随每日部署自动重跑）<br>
 数据源：archive_vocal_albums / archive_stage_tour / archive_vocal / vocal_measurements / listening_verdicts / setlists<br>
 方法学与逐次实测记录：<code>音频备忘_王晰声学发现.md</code>｜纪律：<code>辩音纪律总纲</code>｜口径字典：<code>data/calibers.md</code>
@@ -452,7 +461,7 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
       return new RegExp(v,'i').test(s.textContent);}});
     if(hit) hit.scrollIntoView({{behavior:'smooth',block:'start'}});
   }});
-  var sc={scatter} , spans={spans}, tn={json.dumps(tour_names, ensure_ascii=False)}, tv={json.dumps(tour_n)};
+  var sc={scatter} , spans={spans}, tn={json.dumps(tour_names, ensure_ascii=False)}, tv={json.dumps(tour_n)}, tc={json.dumps(tour_claim)};
   function init(){{
     if(!window.echarts) return;
     var c1=echarts.init(document.getElementById('c1'));
@@ -466,8 +475,11 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
     c2.setOption({{grid:{{left:50,right:20,top:20,bottom:40}},xAxis:{{type:'category',data:keys,name:'八度'}},yAxis:{{type:'value',name:'曲数'}},
       series:[{{type:'bar',data:keys.map(function(k){{return bins[k];}}),itemStyle:{{color:'#1a56c4'}}}}]}});
     var c3=echarts.init(document.getElementById('c3'));
-    c3.setOption({{grid:{{left:50,right:20,top:20,bottom:60}},xAxis:{{type:'category',data:tn,axisLabel:{{rotate:30}}}},yAxis:{{type:'value',name:'素材条数'}},
-      series:[{{type:'bar',data:tv,itemStyle:{{color:'#c41e3a'}}}}]}});
+    c3.setOption({{grid:{{left:50,right:20,top:30,bottom:60}},tooltip:{{trigger:'axis'}},
+      legend:{{top:0,data:['素材条数','可主张（已确权）']}},
+      xAxis:{{type:'category',data:tn,axisLabel:{{rotate:30}}}},yAxis:{{type:'value',name:'条数'}},
+      series:[{{name:'素材条数',type:'bar',data:tv,itemStyle:{{color:'#f2b8c2'}}}},
+              {{name:'可主张（已确权）',type:'bar',data:tc,itemStyle:{{color:'#c41e3a'}}}}]}});
     window.addEventListener('resize',function(){{[c1,c2,c3].forEach(function(c){{c.resize();}});}});
   }}
   if(window.echarts) init(); else window.addEventListener('load',init);

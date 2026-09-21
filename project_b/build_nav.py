@@ -60,11 +60,11 @@ FOOTER_GROUPS = [
                   "notifications.html"]),
     ("数据", ["dashboard/", "map/", "live/", "live/setlists.html", "data/music-index.html",
               "data/calibers.md", "data/kb/kb_digest.md"]),
-    ("声学·内容", ["acoustic-report.html", "voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
+    ("声学·内容", ["voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
                     "tavern/"]),
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
-                    "feed.xml", "sitemap.xml", "llms.txt"]),
+                    "acoustic-report.html", "feed.xml", "sitemap.xml", "llms.txt"]),
 ]
 
 # 顶部/底部导航不处理的页面：
