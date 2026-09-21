@@ -40,6 +40,9 @@ def main() -> int:
             rej_ref[s] = max(rej_ref.get(s, 0.0), float(h))
 
     flagged, kept = [], []
+    HI_GATE_HZ = 523.0   # C5 及以上：demucs vocals 轨含和声 → 高音区长声默认需人耳归属确认
+    ear_ok = {(str(i.get('song')), round(float(i.get('verdict_hz') or 0)))
+              for i in items if str(i.get('verdict', '')).startswith('是王晰')}
     for x in top:
         song, hz = str(x.get("song")), x.get("hz")
         direct, suspect = None, None
@@ -58,6 +61,11 @@ def main() -> int:
         elif suspect:
             x["verdict_conflict"] = (f"同音区存疑：该曲 {suspect:.0f}Hz 读数曾被否决"
                                      f"（{'；'.join(sorted({str(i.get('verdict')) for i in rej if str(i.get('song')) == song}))}），本条待核")
+            flagged.append(x)
+        elif hz and float(hz) >= HI_GATE_HZ and (song, round(float(hz))) not in ear_ok:
+            # 高音区闸门：demucs vocals 轨含和声 → C5 及以上长声默认需人耳确认归属
+            x["verdict_conflict"] = ("高音区待归属确认：C5 及以上长声读数受和声/伴奏污染风险高"
+                                     "（demucs vocals 轨含和声），需人耳确认后才回榜")
             flagged.append(x)
         else:
             kept.append(x)
