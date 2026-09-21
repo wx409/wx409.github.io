@@ -267,6 +267,9 @@ def main() -> int:
     _ln = load("archive_long_notes.json")
     _ln_top = _ln.get("top", [])[:10]
     _ln_flag = (_ln.get("verdict_check") or {}).get("flagged", [])
+    _ln_all = _ln.get("top", []) or []
+    _ln_low = max(_ln_all, key=lambda x: x.get("dur_s") or 0) if _ln_all else {"note": "—", "hz": "—", "dur_s": 0, "song": "—", "src": "—", "where": "—"}
+    _ln_high = max(_ln_all, key=lambda x: x.get("hz") or 0) if _ln_all else _ln_low
     _xm = next((r for r in rows if "厦门" in str(r.get("tag")) and str(r.get("low_note")) == "B1"), None)
 
     html = f"""<!DOCTYPE html>
@@ -475,8 +478,8 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 幅度中位 {f"{_vib_ext:.0f}"} 音分，比古典歌剧的 ±50–100 规范偏窄——<b>偏慢、偏窄，是流行低吟（crooner）审美，不是美声审美</b>，与曲目选择自洽。</p>
 <div class="note">对外一句话：<b>「一台八年校准误差 0.27Hz 的乐器。」</b>（数据源：本页专辑表 + 巡演 by_tour 中位）</div>
 <h3>③ 长声（≥6 秒同音高）——气息的直接证据</h3>
-<p class="lead">保留榜第一：<b>16.5 秒 D2 74.8Hz</b>（现场《我真的受伤了》）；低音每秒气流消耗更大，
-<b>16.5 秒的 D2 比同时长的高音更考验呼吸管理</b>。高音区保留最高：<b>11.8 秒 F5 698.0Hz</b>（《凄美地》官方 Live 版，归属待复核）。</p>
+<p class="lead">保留榜第一：<b>{f"{_ln_low['dur_s']:.1f} 秒 {_ln_low['note']} {_ln_low['hz']}Hz"}</b>（{esc(_ln_low['src'])}《{esc(_ln_low['song'])}》，{esc(_ln_low['where'])}）；低音每秒气流消耗更大，
+<b>16.5 秒的 D2 比同时长的高音更考验呼吸管理</b>。高音区保留最高：<b>{f"{_ln_high['dur_s']:.1f} 秒 {_ln_high['note']} {_ln_high['hz']}Hz"}</b>（{esc(_ln_high['src'])}《{esc(_ln_high['song'])}》，{esc(_ln_high['where'])}）。</p>
 {table([[x.get('rank'), esc(x.get('song')), esc(x.get('note')), x.get('hz'), x.get('dur_s'),
         esc(x.get('src')), esc(x.get('where'))] for x in _ln_top],
        ["#", "曲目", "音名", "Hz", "时长(s)", "层", "来源"], "longnotes")}
