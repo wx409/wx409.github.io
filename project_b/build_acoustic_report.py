@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -96,18 +97,65 @@ def main() -> int:
         ["曲目", "专辑", "最低稳定音", "最高稳定音", "跨度(八度)", "稳定性(音分)", "音准偏差(音分)", "颤音(Hz)", "HNR(dB)", "音符数"],
         "studio")
 
-    tour_tbl = table(
-        [[esc(r.get("tag")), esc(r.get("song")), esc(r.get("tour")), esc(r.get("city")), str(r.get("date"))[:10],
-          esc(r.get("low_note")), r.get("low_hz"), esc(r.get("high_note")), r.get("high_hz"),
-          esc(r.get("verify") or r.get("source_verdict"))]
-         for r in sorted(rows, key=lambda x: float(x.get("low_hz") or 9999))],
-        ["素材", "曲目", "巡次", "城市", "日期", "最低音", "Hz", "最高音", "Hz", "复核状态"], "tour")
+    # ---- 数据清洗与状态推导（P1 修复）----
+    def _hz(v):
+        """防御：历史数据里出现过「音名八度+Hz」串列（61026.8 → 1026.8）。"""
+        try:
+            f = float(v)
+        except (TypeError, ValueError):
+            return v
+        if f >= 2000 and 30 <= float(str(f)[1:]) <= 1200:
+            return round(float(str(f)[1:]), 1)
+        return v
+
+    def row_status(r) -> str:
+        """行级复核状态：人耳确认 > 谐波列通过 > 待复核 > 未复核（从已有字段推导，不新造）。"""
+        if str(r.get("ear_verdict") or "").startswith("人耳确认"):
+            return "人耳确认"
+        hs = r.get("harmonic_screen")
+        if isinstance(hs, str):
+            try:
+                hs = json.loads(hs.replace("'", '"'))
+            except Exception:
+                hs = {}
+        v = (hs or {}).get("verdict", "") if isinstance(hs, dict) else ""
+        if v == "成立":
+            return "谐波列通过"
+        if v == "待判":
+            return "待复核"
+        if r.get("a3_final_note"):
+            return "已复核（A3）"
+        return "未复核"
+
+    for _i in v_items:
+        _i["verdict_hz"] = _hz(_i.get("verdict_hz"))
+    # 台账唯一终态：同一 (曲目, 方面, 秒点, Hz) 只保留最新一条，旧的标 superseded
+    _seen = {}
+    for _i in sorted(v_items, key=lambda x: str(x.get("date") or "")):
+        k = (str(_i.get("song")), str(_i.get("aspect")), str(_i.get("t_s")), str(_i.get("verdict_hz")))
+        if k in _seen:
+            _seen[k]["_superseded"] = True
+        _seen[k] = _i
+    v_items = [i for i in v_items if not i.get("_superseded")]
+
+    _conf = [r for r in rows if row_status(r) != "未复核"]
+    _unrev = [r for r in rows if row_status(r) == "未复核"]
+
+    def _tour_rows(rs):
+        return [[esc(r.get("tag")), esc(r.get("song")), esc(r.get("tour")), esc(r.get("city")), str(r.get("date"))[:10],
+                 esc(r.get("low_note")), _hz(r.get("low_hz")), esc(r.get("high_note")), _hz(r.get("high_hz")),
+                 esc(row_status(r))]
+                for r in sorted(rs, key=lambda x: float(x.get("low_hz") or 9999))]
+
+    tour_tbl = table(_tour_rows(_conf), ["素材", "曲目", "巡次", "城市", "日期", "最低音", "Hz", "最高音", "Hz", "复核状态"], "tour")
+    unrev_tbl = table(_tour_rows(_unrev), ["素材", "曲目", "巡次", "城市", "日期", "最低音", "Hz", "最高音", "Hz", "复核状态"], "tour")
 
     v_tbl = table(
         [[esc(i.get("song")), esc(i.get("show")), esc(i.get("aspect")), esc(i.get("verdict")),
-          i.get("verdict_hz"), str(i.get("date"))[:10], esc(i.get("verdict_note"))]
+          _hz(i.get("verdict_hz")), (f"{i.get('t_s')}s" if i.get("t_s") not in (None, "") else "—"),
+          str(i.get("date"))[:10], esc(i.get("verdict_note"))]
          for i in v_items],
-        ["曲目", "场次", "方面", "复核结论", "判定 Hz", "日期", "说明"], "verdicts")
+        ["曲目", "场次", "方面", "复核结论", "判定 Hz", "秒点", "日期", "说明"], "verdicts")
 
     voc_tbl = table(
         [[esc(s.get("name")), esc(s.get("stable_note")), s.get("stable_hz"), s.get("stable_dur_s"),
@@ -246,6 +294,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <a href="#verdicts">复核裁决（{len(v_items)} 条）</a>
 <a href="#coverage">场次覆盖地图</a>
 <a href="#cover">选曲与翻唱</a>
+<a href="#case968">案例卡·莫斯科968Hz</a>
 <a href="#limits">已知边界</a>
 </aside>
 <main>
@@ -270,7 +319,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <div class="kpi"><b>{len(songs)}</b><span>录音室曲目全量实测</span></div>
 <div class="kpi"><b>{summary.get('n_materials','—')}</b><span>现场层素材条数</span></div>
 <div class="kpi"><b>{summary.get('span_median_octaves','—')}</b><span>现场跨度中位（八度）</span></div>
-<div class="kpi"><b>{summary.get('stability_median_cents','—')}</b><span>现场音符内稳定性中位（音分）</span></div>
+<div class="kpi"><b>{summary.get('stability_median_cents','—')}</b><span>现场音符内稳定性中位（音分）<br><b style="color:#a31832;font-weight:600">⚠️ 高敏感层：只能组内纵向比，不可与录音室 7.2 并读</b></span></div>
 <div class="kpi"><b>{summary.get('vibrato_rate_hz_median','—')} Hz</b><span>颤音速率中位</span></div>
 <div class="kpi"><b>{cst.get('L1_精确',0)+cst.get('L2_强',0)}/{cst.get('shows_total','—')}</b><span>已定位到具体场次（L1+L2，可进结论）</span></div>
 <div class="kpi"><b>{cst.get('covered','—')}/{cst.get('shows_total','—')}</b><span>有本地素材（含未实测，弱证据已标注）</span></div>
@@ -297,9 +346,13 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <p class="lead">权威背书：{esc(voc.get('authority',''))}</p>
 </section>
 
-<section id="tour"><h2>现场层 · {len(rows)} 条素材逐条</h2>
-<p class="lead">含巡演现场与签唱会；「复核状态」为空表示沿用来源判定。低音读数另附谐波列复核结论。</p>
+<section id="tour"><h2>现场层 · {len(rows)} 条素材（已确权 {len(_conf)} / 待复核 {len(_unrev)}）</h2>
+<p class="lead">默认只列<b>已确权</b>（人耳确认 / 谐波列通过 / A3 复核）；未复核的 237 条折在下方，可按需展开——
+台账不藏，但<b>不拿未确权读数当结论</b>。</p>
 <div class="scroll">{tour_tbl}</div>
+<details style="margin-top:10px"><summary style="cursor:pointer;color:#a31832;font-size:14px;">
+展开未复核素材（{len(_unrev)} 条，仅供参考，不作能力依据）</summary>
+<div class="scroll" style="margin-top:8px">{unrev_tbl}</div></details>
 </section>
 
 <section id="other"><h2>他人主导舞台（对照层）</h2>
@@ -344,6 +397,22 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 唯一差别是"是否他的作品"。<b>但当前只有 {did.get('n_shows',0)} 场同时满足"≥2 首自有 + ≥2 首翻唱且都有指数数据"</b>，
 DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样本不足</b>；要跑通得先让更多曲目进入指数池，或改用"同曲跨场"配对。</p>
 <div class="scroll">{cov_tbl}</div>
+</section>
+
+<section id="case968"><h2>案例卡 · 莫斯科 968Hz（极端条件下的最强样本）</h2>
+<p class="lead">台账里有一条特别值得单独看：<b>《在路上》最高音 968.0Hz，人耳确认「是王晰本人」，
+位于已确认段内、无观众噪声干扰</b>（来源：<code>data/listening_verdicts.json</code>，2026-09-16 裁决）。</p>
+<ul>
+<li><b>场合</b>：2025-09-20 莫斯科「国际视界」歌唱大赛（Intervision 2025）——多国代表、上万观众、赛程直播；
+出场顺序在决赛前一周才抽签（外部背景，来源见下）。</li>
+<li><b>为什么它比其它现场样本硬</b>：① 高压（国家队场合、无退路）② 直播（无后期修音余地）
+③ 人耳确认且无噪声干扰段 ④ 与录音室层的"修音敏感"批评完全无关（B5 级高音在"最高音"这一敏感层，故仍不跨层比较）。</li>
+<li><b>口径定位</b>：968.0Hz ≈ B5；男低音（bass-baritone）常见上界约 F4/G4 —— 该读数**超出典型上界一个八度以上**，
+与下限 B1 61.5Hz（低于"杰出男低音"标志音 Low C 一个半音）共同构成"两端都在标准之外"的数据陈述。</li>
+<li><b>来源</b>：台账裁决（本地）＋ 外部报道
+<a href="https://www.chinanews.com.cn/gj/2025/09-21/10486456.shtml" rel="nofollow">中新网</a>、
+<a href="https://news.ifeng.com/c/8n27bToQST3" rel="nofollow">凤凰网</a>（外部背景，未纳入本站口径）。</li>
+</ul>
 </section>
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>
@@ -407,6 +476,11 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 </body></html>"""
 
     html = html.replace(">None<", ">—<").replace(">nan<", ">—<")   # 空值统一显示为破折号
+
+    # 回归守卫：人类音域/乐器上限 1200Hz，出现 5 位以上「Hz」一律视为串列 bug，直接报错拦住上线
+    _bad = re.findall(r">(\d{5,}(?:\.\d+)?)<", html)
+    assert not _bad, f"检出异常 Hz 读数（疑似音名+Hz 串列）：{_bad[:5]}"
+
     OUT.write_text(html, encoding="utf-8")
 
     # ---- 本地留存副本（同一份内容，随每日部署一起刷新）----
