@@ -23,6 +23,7 @@ import argparse
 import json
 import os
 import re
+import statistics
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -102,6 +103,27 @@ def collect() -> list[dict]:
     cf = _load("data/credits_full.json") or {}
     add("credits_songs", "署名/演职信息曲目", _count(cf, "songs"),
         "有公开演职/署名记录的曲目", "data/credits_full.json", "")
+
+    # ---- 声学：现场音准（TET）口径（2026-09-21 登记）----
+    # 为什么必须登记：现场 TET 偏差与录音室不可比，页面/备忘出现 17.1–22.2 的区间波动，
+    # 若不写明"这是方法学伪影"，极易被读成"现场唱不准"。
+    _st = _load("data/archive_stage_tour.json") or {}
+    _rows = _st.get("rows") or []
+    _tet = [r.get("intonation_cents") for r in _rows if isinstance(r.get("intonation_cents"), (int, float))]
+    add("stage_tet_intonation", "现场音准偏差中位（TET，伪影）",
+        (round(statistics.median(_tet), 1) if _tet else None),
+        "王晰主导巡演/签唱会现场素材（demucs 人声分离后 YIN 逐帧测音准偏差）",
+        "data/archive_stage_tour.json",
+        "⚠️ **方法学伪影**：现场 TET 偏差实测落在 17–22 音分，而录音室为 7–9；"
+        "该差异来自「录音环境 + 人声分离」而非演唱，**不得用现场素材做音准结论**（纪律 24）。"
+        "区间会随素材批次在 17.1–22.2 间波动，引用时须注明批次与口径。")
+
+    _cl = _load("data/archive_stage_tour.json") or {}
+    add("stage_claimable", "现场层可主张素材", _cl.get("summary", {}).get("n_claimable"),
+        "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
+        "data/archive_stage_tour.json → summary.n_claimable",
+        "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；"
+        "「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除")
 
     ps = _load("data/playable_songs.json") or {}
     add("playable_songs", "可试听曲目", _count(ps, "total"),

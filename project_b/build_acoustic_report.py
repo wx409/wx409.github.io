@@ -110,7 +110,10 @@ def main() -> int:
         return v
 
     def row_status(r) -> str:
-        """行级复核状态：人耳确认 > 谐波列通过 > 待复核 > 未复核（从已有字段推导，不新造）。"""
+        """行级复核状态：优先用数据层已落库的 review_status（单一事实源），缺失才推导。"""
+        st = r.get("review_status")
+        if st:
+            return str(st)
         if str(r.get("ear_verdict") or "").startswith("人耳确认"):
             return "人耳确认"
         hs = r.get("harmonic_screen")
@@ -139,8 +142,12 @@ def main() -> int:
         _seen[k] = _i
     v_items = [i for i in v_items if not i.get("_superseded")]
 
-    _conf = [r for r in rows if row_status(r) != "未复核"]
-    _unrev = [r for r in rows if row_status(r) == "未复核"]
+    _CLAIM = {"人耳确认", "谐波列通过", "双引擎一致"}
+    _conf = [r for r in rows if row_status(r) in _CLAIM]
+    _pend = [r for r in rows if row_status(r).startswith("待复核")]
+    _unver = [r for r in rows if row_status(r).startswith("不可复核")]
+    _rej = [r for r in rows if row_status(r).startswith("人耳否决")]
+    _unrev = _pend + _unver + _rej
 
     def _tour_rows(rs):
         return [[esc(r.get("tag")), esc(r.get("song")), esc(r.get("tour")), esc(r.get("city")), str(r.get("date"))[:10],
@@ -347,12 +354,14 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <p class="lead">权威背书：{esc(voc.get('authority',''))}</p>
 </section>
 
-<section id="tour"><h2>现场层 · {len(rows)} 条素材（已确权 {len(_conf)} / 待复核 {len(_unrev)}）</h2>
-<p class="lead">默认只列<b>已确权</b>（人耳确认 / 谐波列通过 / A3 复核）；未复核的 237 条折在下方，可按需展开——
-台账不藏，但<b>不拿未确权读数当结论</b>。</p>
+<section id="tour"><h2>现场层 · {len(rows)} 条素材（可主张 {len(_conf)} / 待复核 {len(_pend)} / 不可复核 {len(_unver)} / 已否决 {len(_rej)}）</h2>
+<p class="lead">默认只列<b>可主张</b>（人耳确认 + 谐波列通过 + 双引擎一致）。其余四类折在下方——
+台账<b>不藏否决与未决</b>，但也<b>不拿未确权读数当结论</b>。
+其中「<b>不可复核（缺混音/时间）</b>」是<b>永久状态</b>：缺原始混音就无法做谐波列判定，属物理条件不足，
+已从能力主张中排除，不再按"待复核"长期挂账。</p>
 <div class="scroll">{tour_tbl}</div>
 <details style="margin-top:10px"><summary style="cursor:pointer;color:#a31832;font-size:14px;">
-展开未复核素材（{len(_unrev)} 条，仅供参考，不作能力依据）</summary>
+展开其余 {len(_unrev)} 条（待复核 {len(_pend)}｜不可复核 {len(_unver)}｜已否决 {len(_rej)}，仅供参考，不作能力依据）</summary>
 <div class="scroll" style="margin-top:8px">{unrev_tbl}</div></details>
 </section>
 
