@@ -246,6 +246,7 @@ def tier_block():
 <li><strong>稳定音（能力口径）</strong>：过复核门槛的最低音，可作能力结论，可进标题和对外引用句。</li>
 <li><strong>触达音</strong>：实际到过的最低 F0，但未满足持续时长/复核门槛——展示但<strong>不作能力依据</strong>，不进汇总计数、不进标题。</li>
 <li><strong>低音带读数</strong>：归属未完全确认（人声/乐器/念诵），标<strong>仅供参考</strong>，三不许：不进汇总、不进统计、不进对外引用句。</li>
+<li><strong>权威源</strong>：完整口径、逐条复核状态（可主张／待复核／不可复核／已否决）与全量台账见 <a href="/acoustic-report.html">《王晰声学全量报告》</a>；本页只呈现<strong>已确权</strong>读数，口径冲突时以该报告与 <code>data/calibers.md</code> 为准。</li>
 </ul>
 </div>
 <!-- TIER-CALIBER:END -->"""
