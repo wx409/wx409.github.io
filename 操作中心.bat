@@ -228,6 +228,7 @@ echo    177. 缺口场次补录（按 轨迹\场次下载清单_缺口补录_*.json 下载→实测→并入
 echo    178. 有视频场次清单（逐场列视频文件/BV/体积；未挂载盘自动提示）
 echo    179. 场次认领（把现场素材逐条归属到具体场次：日期/BV/歌单指纹）
 echo    180. 长声表 × 否决台账反连接（同音区存疑移出榜单，防女和声污染）
+echo    181. 注入审计（结果指纹版：首页事实/听众说/vocal音域摘要/长声章 是否真落地）
 echo    0. 退出
 echo.
 set "op="
@@ -412,6 +413,7 @@ if "%op%"=="177" goto gap_backfill
 if "%op%"=="178" goto video_shows
 if "%op%"=="179" goto show_assign
 if "%op%"=="180" goto longnotes_verdict
+if "%op%"=="181" goto audit_inject
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2461,5 +2463,14 @@ echo  [长声表反连接] 同曲同 Hz（±3%）被否决 → 移榜；同音区存疑 → 留档但不进榜
 echo  产出：data\archive_long_notes.json 增加 verdict_check 块 + top_flagged
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\audit_long_notes_verdicts.py
+pause
+goto menu
+
+:audit_inject
+cls
+echo  [注入审计] 只看结果：注入产物有没有出现在页面可见位置（锚点断链会被抓出）
+echo  背景：2026-09-21 曾因锚点被重建清掉，5 个注入器长期 no-op 而无人报警
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_injections.py
 pause
 goto menu

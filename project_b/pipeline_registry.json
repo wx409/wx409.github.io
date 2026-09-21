@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-21 11:56",
+ "generated_at": "2026-09-21 13:05",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 180,
-  "dispatch": 179,
-  "deploy_steps": 64,
+  "menu_items": 181,
+  "dispatch": 180,
+  "deploy_steps": 70,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -616,8 +616,8 @@
   {
    "script": "inject_vocal_summary.py",
    "in_deploy": true,
-   "deploy_desc": "首页音域摘要块（从实测 JSON 派生，禁手写）",
-   "critical": true,
+   "deploy_desc": "注入复跑：首页音域摘要块",
+   "critical": false,
    "menu": 86,
    "title": "首页音域摘要块刷新（从实测 JSON 派生）",
    "menu_label": "vocal_sum",
@@ -1016,7 +1016,7 @@
   {
    "script": "inject_essay_quotes.py",
    "in_deploy": true,
-   "deploy_desc": "歌迷赏析摘录注入（首页听众说 + 巡演页；数据 data/essay_quotes.json）",
+   "deploy_desc": "注入复跑：歌迷赏析摘录（首页听众说+巡演页）",
    "critical": false,
    "menu": 132,
    "title": "歌迷赏析摘录入站（首页听众说 + 歌曲库赏析入口 + 巡演页；数据 data/essay_quotes.json）",
@@ -1396,6 +1396,16 @@
    "path": "D:\\wx409.github.io\\project_b\\audit_long_notes_verdicts.py"
   },
   {
+   "script": "audit_injections.py",
+   "in_deploy": true,
+   "deploy_desc": "注入审计（结果指纹版：页面上能否看到注入产物，断链即返回 1）",
+   "critical": false,
+   "menu": 181,
+   "title": "注入审计（结果指纹版：首页事实/听众说/vocal音域摘要/长声章 是否真落地）",
+   "menu_label": "audit_inject",
+   "path": "D:\\wx409.github.io\\project_b\\audit_injections.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1581,21 +1591,21 @@
   {
    "script": "inject_index_facts.py",
    "in_deploy": true,
-   "deploy_desc": "首页事实块（轮次/城市/覆盖天数/Last updated 派生）",
-   "critical": true,
+   "deploy_desc": "注入复跑：首页事实块",
+   "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\inject_index_facts.py"
   },
   {
    "script": "inject_long_notes.py",
    "in_deploy": true,
-   "deploy_desc": "长声实测注入（从 data/archive_long_notes.json 派生，幂等）",
+   "deploy_desc": "注入复跑：长声实测章（vocal.html）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\inject_long_notes.py"
   },
   {
    "script": "inject_top_verified.py",
    "in_deploy": true,
-   "deploy_desc": "人耳确认读数注入（listening_verdicts 派生，幂等）",
+   "deploy_desc": "注入复跑：人耳确认读数章",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\inject_top_verified.py"
   },
