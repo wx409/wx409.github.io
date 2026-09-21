@@ -225,6 +225,7 @@ echo    174. 曲目谱系（翻唱档案：293 首选曲行为结构化）
 echo    175. 翻唱价值分析（选曲指纹 / 同曲多版本方差 / 音区适配 / 语言跨度 / 自有vs翻唱 DiD）
 echo    176. 场次覆盖索引（有实测 vs 有素材 两口径 + 待采清单）
 echo    177. 缺口场次补录（按 轨迹\场次下载清单_缺口补录_*.json 下载→实测→并入现场层）
+echo    178. 有视频场次清单（逐场列视频文件/BV/体积；未挂载盘自动提示）
 echo    0. 退出
 echo.
 set "op="
@@ -406,6 +407,7 @@ if "%op%"=="174" goto cover_catalog
 if "%op%"=="175" goto cover_analysis
 if "%op%"=="176" goto coverage_index
 if "%op%"=="177" goto gap_backfill
+if "%op%"=="178" goto video_shows
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2428,5 +2430,14 @@ echo.
 echo  接着回站点重建（本菜单 176 → 58 顺序执行）：
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_coverage_index.py
+pause
+goto menu
+
+:video_shows
+cls
+echo  [有视频场次清单] 扫描本地视频（含 G 盘自录原件），逐场列出文件/BV/体积/已测素材
+echo  产出：E:\wx\论文素材_王晰作传\有视频场次清单_王晰巡演.md ＋ data\video_shows.json
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_video_show_list.py
 pause
 goto menu
