@@ -240,6 +240,35 @@ def main() -> int:
     coverage_html += ("<h3>完全无素材的场次（待采清单）</h3><p class='lead'>"
                       + "、".join(f'{esc(m["city"])}{m["date"][5:]}' for m in ci.get("missing", [])) + "</p>")
 
+    # ---- 风格与能力弧线（专辑声区 / 颤音指纹 / 长声）----
+    import statistics as _st
+    _alb = {}
+    for _s in songs:
+        _alb.setdefault(str(_s.get("album")), []).append(_s)
+    _alb_rows = []
+    for _a, _ss in _alb.items():
+        def _m(key, f):
+            vals = [f(x) for x in _ss if f(x) is not None]
+            return _st.median(vals) if vals else None
+        _alb_rows.append({
+            "album": _a, "n": len(_ss),
+            "low": _m("low", lambda x: (x.get("register_share") or {}).get("low_lt_C3")),
+            "mid": _m("mid", lambda x: (x.get("register_share") or {}).get("mid_C3_B3")),
+            "high": _m("high", lambda x: (x.get("register_share") or {}).get("high_ge_C4")),
+            "span": _m("span", lambda x: x.get("span_octaves")),
+            "vib": _m("vib", lambda x: x.get("vibrato_hz")),
+        })
+    _alb_rows.sort(key=lambda r: (r["low"] if r["low"] is not None else 9))
+    _vib_all = _st.median([x["vibrato_hz"] for x in songs if x.get("vibrato_hz")])
+    _vib_v = [r["vib"] for r in _alb_rows if r["vib"]]
+    _vib_span = (max(_vib_v) - min(_vib_v)) if _vib_v else None
+    _vib_ext = _st.median([x["vibrato_cents"] for x in songs if x.get("vibrato_cents")])
+    _tour_vib = [t.get("vibrato_rate_hz_median") for t in by_tour if t.get("vibrato_rate_hz_median")]
+    _ln = load("archive_long_notes.json")
+    _ln_top = _ln.get("top", [])[:10]
+    _ln_flag = (_ln.get("verdict_check") or {}).get("flagged", [])
+    _xm = next((r for r in rows if "厦门" in str(r.get("tag")) and str(r.get("low_note")) == "B1"), None)
+
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
@@ -302,6 +331,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <a href="#verdicts">复核裁决（{len(v_items)} 条）</a>
 <a href="#coverage">场次覆盖地图</a>
 <a href="#cover">选曲与翻唱</a>
+<a href="#arc">风格与能力弧线</a>
 <a href="#case968">案例卡·莫斯科968Hz</a>
 <a href="#limits">已知边界</a>
 </aside>
@@ -333,6 +363,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <div class="kpi"><b>{cst.get('covered','—')}/{cst.get('shows_total','—')}</b><span>有本地素材（含未实测，弱证据已标注）</span></div>
 <div class="kpi"><b>{cst.get('measured_shows_site','—')}/{cst.get('shows_total','—')}</b><span>已进站点现场层的场次</span></div>
 <div class="kpi"><b>{len(v_items)}</b><span>人耳/复核裁决条数</span></div>
+<div class="kpi"><b>{esc(_xm.get('low_note')) if _xm else '—'} {_xm.get('low_hz') if _xm else '—'} Hz</b><span>现场最低·<b>人耳确认</b>（{esc(_xm.get('tag')) if _xm else '—'}）——比录音室最低 B1 61.5Hz 还低 0.3Hz，是「现场 ≥ 录音室」最硬的单点证据</span></div>
 </div>
 <p class="lead">复核状态分布：{esc("；".join(f"{k} {v}" for k, v in (summary.get('verify_dist') or {{}}).items()))}</p>
 </section>
@@ -423,6 +454,35 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 <a href="https://www.chinanews.com.cn/gj/2025/09-21/10486456.shtml" rel="nofollow">中新网</a>、
 <a href="https://news.ifeng.com/c/8n27bToQST3" rel="nofollow">凤凰网</a>（外部背景，未纳入本站口径）。</li>
 </ul>
+</section>
+
+<section id="arc"><h2>风格与能力弧线（八张专辑 + 长声 + 颤音指纹）</h2>
+<h3>① 专辑声区占比中位：一条肉眼可见的弧线</h3>
+<p class="lead">按「低音区占比」降序（低→高的顺序变化即他的美学走向）：2016–2017 接近一半音符压在 C3 以下、
+高区几乎不用（这是"低音标签期"）；随后低区骤降、高区打开（"去标签化"）；再回到 17–28%（"整合期"，
+低音从身份变成武器库里最重的那件）。<b>他的风格不是低音，是对全部音区的调用。</b></p>
+{table([[esc(r['album']), r['n'],
+        ("%.1f%%" % (r['low'] * 100)) if r['low'] is not None else "—",
+        ("%.1f%%" % (r['mid'] * 100)) if r['mid'] is not None else "—",
+        ("%.1f%%" % (r['high'] * 100)) if r['high'] is not None else "—",
+        f"{r['span']:.2f}" if r['span'] is not None else "—",
+        f"{r['vib']:.2f}" if r['vib'] is not None else "—"] for r in _alb_rows],
+       ["专辑", "曲数", "低区 <C3", "中区", "高区 ≥C4", "跨度中位(八度)", "颤音中位(Hz)"], "albumarc")}
+<h3>② 颤音指纹：八年校准误差 0.27Hz</h3>
+<p class="lead">录音室整体中位 <b>{f"{_vib_all:.2f}"} Hz</b>；<b>八张专辑各自中位全部落在
+{min(_vib_v):.2f}–{max(_vib_v):.2f} Hz</b>（跨度 <b>{f"{_vib_span:.2f}"} Hz</b>）；
+六轮巡演中位 {min(_tour_vib):.2f}–{max(_tour_vib):.2f} Hz（现场比录音室系统性慢 0.2–0.3Hz，轮间几乎不动）。
+幅度中位 {f"{_vib_ext:.0f}"} 音分，比古典歌剧的 ±50–100 规范偏窄——<b>偏慢、偏窄，是流行低吟（crooner）审美，不是美声审美</b>，与曲目选择自洽。</p>
+<div class="note">对外一句话：<b>「一台八年校准误差 0.27Hz 的乐器。」</b>（数据源：本页专辑表 + 巡演 by_tour 中位）</div>
+<h3>③ 长声（≥6 秒同音高）——气息的直接证据</h3>
+<p class="lead">保留榜第一：<b>16.5 秒 D2 74.8Hz</b>（现场《我真的受伤了》）；低音每秒气流消耗更大，
+<b>16.5 秒的 D2 比同时长的高音更考验呼吸管理</b>。高音区保留最高：<b>11.8 秒 F5 698.0Hz</b>（《凄美地》官方 Live 版，归属待复核）。</p>
+{table([[x.get('rank'), esc(x.get('song')), esc(x.get('note')), x.get('hz'), x.get('dur_s'),
+        esc(x.get('src')), esc(x.get('where'))] for x in _ln_top],
+       ["#", "曲目", "音名", "Hz", "时长(s)", "层", "来源"], "longnotes")}
+<p class="lead">⚠️ 已按「长声表 × 否决台账」反连接处理 <b>{len(_ln_flag)}</b> 条同音区存疑（如《葬心》A5 11.0s：
+该曲 1054Hz 读数曾判为女和声）——它们<b>留档但不进榜单、不进共识句</b>，理由写在
+<code>data/archive_long_notes.json → verdict_check</code>。</p>
 </section>
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>

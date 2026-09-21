@@ -227,6 +227,7 @@ echo    176. ³¡´Î¸²¸ÇË÷Òı£¨ÓĞÊµ²â vs ÓĞËØ²Ä Á½¿Ú¾¶ + ´ı²ÉÇåµ¥£©
 echo    177. È±¿Ú³¡´Î²¹Â¼£¨°´ ¹ì¼£\³¡´ÎÏÂÔØÇåµ¥_È±¿Ú²¹Â¼_*.json ÏÂÔØ¡úÊµ²â¡ú²¢ÈëÏÖ³¡²ã£©
 echo    178. ÓĞÊÓÆµ³¡´ÎÇåµ¥£¨Öğ³¡ÁĞÊÓÆµÎÄ¼ş/BV/Ìå»ı£»Î´¹ÒÔØÅÌ×Ô¶¯ÌáÊ¾£©
 echo    179. ³¡´ÎÈÏÁì£¨°ÑÏÖ³¡ËØ²ÄÖğÌõ¹éÊôµ½¾ßÌå³¡´Î£ºÈÕÆÚ/BV/¸èµ¥Ö¸ÎÆ£©
+echo    180. ³¤Éù±í ¡Á ·ñ¾öÌ¨ÕË·´Á¬½Ó£¨Í¬ÒôÇø´æÒÉÒÆ³ö°ñµ¥£¬·ÀÅ®ºÍÉùÎÛÈ¾£©
 echo    0. ÍË³ö
 echo.
 set "op="
@@ -410,6 +411,7 @@ if "%op%"=="176" goto coverage_index
 if "%op%"=="177" goto gap_backfill
 if "%op%"=="178" goto video_shows
 if "%op%"=="179" goto show_assign
+if "%op%"=="180" goto longnotes_verdict
 echo   [!] ÎŞĞ§Ñ¡Ïî£¬ÇëÖØÊÔ
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2450,5 +2452,14 @@ echo  [³¡´ÎÈÏÁì] ËÄ¼¶Ö¤¾İ£º¢ÙÈÕÆÚÖ±Åä ¢ÚBVÓ³Éä ¢Û¸èµ¥Ö¸ÎÆ ¢ÜÑ²´Î³ÇÊĞÎ¨Ò» ¢İÍ¬Ñ²Í
 echo  ²ú³ö£ºdata\show_assignment.json£¨ÖğËØ²Ä show_date/Ö¤¾İ¼¶ + ³¡¼¶»ã×Ü£©
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_show_assignment.py
+pause
+goto menu
+
+:longnotes_verdict
+cls
+echo  [³¤Éù±í·´Á¬½Ó] Í¬ÇúÍ¬ Hz£¨¡À3%£©±»·ñ¾ö ¡ú ÒÆ°ñ£»Í¬ÒôÇø´æÒÉ ¡ú Áôµµµ«²»½ø°ñµ¥/¹²Ê¶¾ä
+echo  ²ú³ö£ºdata\archive_long_notes.json Ôö¼Ó verdict_check ¿é + top_flagged
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_long_notes_verdicts.py
 pause
 goto menu

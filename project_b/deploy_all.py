@@ -100,6 +100,7 @@ STEPS = [
     (ROOT / "project_b" / "audit_nav.py", "导航与内链审计（孤儿页=0 把关）", False),
     (ROOT / "project_b" / "audit_jsonld.py", "结构化数据审计（JSON-LD 语法/必备类型/纪律用词）", False),
     (ROOT / "project_b" / "audit_bat.py", "批处理体检（GBK/BEL/双回车/goto 目标）", False),
+    (ROOT / "project_b" / "audit_long_notes_verdicts.py", "长声表 × 否决台账反连接（防被否决读数留在长声榜）", False),
     (ROOT / "project_b" / "audit_consistency.py", "汇总 vs 明细一致性审计（防未复核值被当结论）", False),
     (ROOT / "project_b" / "audit_ops_coverage.py", "操作中心覆盖审计（人工功能有入口 + 反向检查可运行脚本无孤儿）", False),
     (ROOT / "project_b" / "audit_stage_exclusions.py", "排除项回归审计（防已排除素材/错误曲名被生成器回吞上线）", False),
