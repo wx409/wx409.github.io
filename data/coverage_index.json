@@ -1,15 +1,15 @@
 {
  "stat": {
-  "generated_at": "2026-09-21T10:10:01",
+  "generated_at": "2026-09-21T10:17:37",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 39,
-  "L2_强": 12,
+  "L1_精确": 43,
+  "L2_强": 8,
   "L3_中": 0,
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 6896,
+  "files_scanned": 7475,
   "measured_shows_site": 29,
   "bv_mapped": 41
  },
@@ -1184,15 +1184,35 @@
    "city": "郑州",
    "tour": "三巡",
    "songs": 21,
-   "level": 2,
+   "level": 1,
    "evidence": [
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "郑州｜三巡·王晰2021-2022“图景”"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "Screenshot_20230501_090100.jpg"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "Screenshot_20230501_090225.jpg"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "Screenshot_20230501_090229.jpg"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "Screenshot_20230501_090240.jpg"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 5
   },
   {
    "date": "2023-05-03",
@@ -1302,7 +1322,7 @@
      "detail": "BV15c411X71m"
     }
    ],
-   "n_evidence": 60
+   "n_evidence": 113
   },
   {
    "date": "2023-12-10",
@@ -1324,15 +1344,40 @@
    "city": "上海",
    "tour": "四巡",
    "songs": 21,
-   "level": 2,
+   "level": 1,
    "evidence": [
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "上海｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "IMG_20231231_211331.jpg"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "video_20231231_200052.mp4"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "video_20231231_200350.mp4"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "video_20231231_200433.mp4"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "video_20231231_200555.mp4"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 47
   },
   {
    "date": "2024-01-27",
@@ -1537,22 +1582,27 @@
      "detail": "杭州20241221_BV1RjkYYbEF8.m4a"
     }
    ],
-   "n_evidence": 104
+   "n_evidence": 107
   },
   {
    "date": "2024-12-29",
    "city": "南昌",
    "tour": "五巡",
    "songs": 19,
-   "level": 2,
+   "level": 1,
    "evidence": [
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "南昌｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "2024-12-29南昌海报.jpg"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 2
   },
   {
    "date": "2025-01-01",
@@ -1727,7 +1777,7 @@
      "detail": "20251121210423 0037 talk 明白 talk 鹅毛信｜"
     }
    ],
-   "n_evidence": 110
+   "n_evidence": 127
   },
   {
    "date": "2026-01-31",
@@ -1749,7 +1799,7 @@
    "city": "北京",
    "tour": "五巡",
    "songs": 20,
-   "level": 2,
+   "level": 1,
    "evidence": [
     {
      "level": 2,
@@ -1760,9 +1810,29 @@
      "level": 2,
      "src": "巡演目录",
      "detail": "五巡·王晰吾个人巡回音乐会｜北京"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20260410吾五巡上半场.WAV"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20260410吾五巡下半场1.WAV"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20260410吾五巡下半场2.WAV"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "20260410吾五巡上半场.flac"
     }
    ],
-   "n_evidence": 2
+   "n_evidence": 8
   },
   {
    "date": "2026-06-13",

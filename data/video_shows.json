@@ -1,23 +1,22 @@
 {
  "stat": {
-  "generated_at": "2026-09-21T10:08:56",
+  "generated_at": "2026-09-21T10:17:39",
   "shows_total": 64,
-  "shows_with_video": 1,
+  "shows_with_video": 3,
   "shows_loose_only": 0,
-  "shows_no_video": 63,
-  "video_files_scanned": 45,
+  "shows_no_video": 61,
+  "video_files_scanned": 102,
   "scanned_roots": [
    "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频",
    "E:\\wx\\声音素材库",
    "E:\\wx\\六巡",
    "D:\\wx409.github.io\\temp",
+   "G:\\王晰巡演素材存档",
    "E:\\wx\\论文素材_王晰作传\\原始材料",
    "E:\\wx\\download"
   ],
-  "missing_roots": [
-   "G:\\王晰巡演素材存档"
-  ],
-  "video_gb": 1.08
+  "missing_roots": [],
+  "video_gb": 19.03
  },
  "shows": [
   {
@@ -623,12 +622,16 @@
    "city": "上海",
    "tour": "四巡",
    "songs": 21,
-   "video_files": 0,
-   "video_mb": 0.0,
+   "video_files": 36,
+   "video_mb": 8489.0,
    "bvs": [],
    "measured_materials": 0,
-   "has_video": false,
-   "samples": [],
+   "has_video": true,
+   "samples": [
+    "video_20231231_200052.mp4（168MB）",
+    "video_20231231_200350.mp4（3MB）",
+    "video_20231231_200433.mp4（77MB）"
+   ],
    "only_loose": false
   },
   {
@@ -792,12 +795,16 @@
    "city": "上海",
    "tour": "五巡",
    "songs": 20,
-   "video_files": 0,
-   "video_mb": 0.0,
+   "video_files": 33,
+   "video_mb": 9763.5,
    "bvs": [],
    "measured_materials": 15,
-   "has_video": false,
-   "samples": [],
+   "has_video": true,
+   "samples": [
+    "吾巡演上海站_20251121193244_Westway+Wellerman_我很好_My Oh My.MP4（792MB）",
+    "吾巡演上海站_20251121193244_Westway+Wellerman_我很好_My Oh My.MP4（792MB）",
+    "吾巡演上海站_20251121194832_0026_talk1.MP4（14MB）"
+   ],
    "only_loose": false
   },
   {
@@ -844,12 +851,14 @@
    "city": "广州",
    "tour": "六巡",
    "songs": 20,
-   "video_files": 31,
-   "video_mb": 1103.7,
+   "video_files": 33,
+   "video_mb": 1238.3,
    "bvs": [
+    "BV1ArKxe7E8H",
     "BV1GJFYeuEpb",
     "BV1LC411j79X",
     "BV1LP4y1k7zv",
+    "BV1QwWteUExt",
     "BV1VF886DEUN",
     "BV1aNhP65E4A",
     "BV1d54y1Z7fC",
@@ -862,8 +871,8 @@
    "has_video": true,
    "samples": [
     "BV1aNhP65E4A_王晰六巡「回」个人巡回音乐会广州站talk.mp4（262MB）",
-    "BV1d54y1Z7fC_【王晰X下潜】低音炮来上分了，我是无底的.mp4（28MB）",
-    "BV1GJFYeuEpb_流水纪独家专访王晰.mp4（150MB）"
+    "BV1ArKxe7E8H_【4K】王晰“肆益”个人巡回音乐会杭州站《多听有益》.mp4（42MB）",
+    "BV1d54y1Z7fC_【王晰X下潜】低音炮来上分了，我是无底的.mp4（28MB）"
    ],
    "only_loose": false
   }

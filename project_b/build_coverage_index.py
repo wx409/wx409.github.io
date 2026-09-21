@@ -29,7 +29,8 @@ AUD = Path(r"E:\wx\论文素材_王晰作传\音域分析\场次音频")
 MEDIA = Path(r"E:\wx\声音素材库\media")
 TEMP = ROOT / "temp"
 TOURS = ("一巡", "二巡", "三巡", "四巡", "五巡", "六巡", "签唱会")
-SCAN_ROOTS = [AUD, MEDIA, Path(r"E:\wx\六巡"), Path(r"E:\wx\论文素材_王晰作传\音域分析\轨迹")]
+SCAN_ROOTS = [AUD, MEDIA, Path(r"E:\wx\六巡"), Path(r"E:\wx\论文素材_王晰作传\音域分析\轨迹"),
+              Path(r"G:\王晰巡演素材存档")]   # 自录大疆/ZOOM 原件（外置盘；未挂载时自动跳过）
 
 DATE8 = re.compile(r"(20\d{2})[.\-_]?(\d{2})[.\-_]?(\d{2})")
 DATE_CN = re.compile(r"(20\d{2})年(\d{1,2})月(\d{1,2})日")
