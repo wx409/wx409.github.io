@@ -96,8 +96,12 @@ def main() -> int:
     else:
         t = t.replace("</body>", block + "\n</body>", 1)
     io.open(p, "w", encoding="utf-8").write(t)
+    _t = doc.get("top") or []
+    _f = doc.get("top_flagged") or []
+    _t8 = len([x for x in _t if (x.get("dur_s") or 0) >= 8])
+    _tmax = max([x.get("dur_s") or 0 for x in _t] or [0])
     print("✔ vocal.html 已注入第八章（保留榜 ≥8 秒 %d 条 / 移出 %d 条，最长 %s 秒）"
-          % (len([d for d in _kept_d if d >= 8]), len(_flag),
+          % (_t8, len(_f),
              num((doc.get("stats") or {}).get("max_s"))))
     return 0
 
