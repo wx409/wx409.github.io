@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-21T09:24:26",
+ "generated_at": "2026-09-21T10:03:48",
  "stat": {
-  "generated_at": "2026-09-21T09:24:24",
+  "generated_at": "2026-09-21T10:03:48",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 26,
+  "songs_with_3plus": 29,
   "rows": [
    {
     "song": "佛山全场",
@@ -173,6 +173,15 @@
     "low_range": 89.7,
     "high_median": 686.1,
     "low_cv": 0.1945
+   },
+   {
+    "song": "三巡上海全场",
+    "versions": 21,
+    "low_median": 105.4,
+    "low_iqr": 31.4,
+    "low_range": 411.4,
+    "high_median": 570.6,
+    "low_cv": 0.7222
    },
    {
     "song": "让她降落",
@@ -202,6 +211,15 @@
     "low_cv": 0.0899
    },
    {
+    "song": "三巡长沙全场",
+    "versions": 9,
+    "low_median": 73.1,
+    "low_iqr": 4.8,
+    "low_range": 73.4,
+    "high_median": 857.3,
+    "low_cv": 0.2729
+   },
+   {
     "song": "像雾像雨又像风",
     "versions": 9,
     "low_median": 104.0,
@@ -218,6 +236,15 @@
     "low_range": 33.3,
     "high_median": 324.4,
     "low_cv": 0.1296
+   },
+   {
+    "song": "签唱会上海全场",
+    "versions": 6,
+    "low_median": 78.2,
+    "low_iqr": 12.9,
+    "low_range": 40.8,
+    "high_median": 911.7,
+    "low_cv": 0.1654
    },
    {
     "song": "心动",
@@ -400,14 +427,14 @@
     "low_cv": 0.0748
    }
   ],
-  "low_cv_median": 0.0956,
+  "low_cv_median": 0.1097,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 80.4,
-  "cover_live_low_median": 85.0,
+  "own_live_low_median": 80.7,
+  "cover_live_low_median": 84.7,
   "own_n": 21,
-  "cover_n": 118,
+  "cover_n": 121,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
