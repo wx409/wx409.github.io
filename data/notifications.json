@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-21 00:05:10",
+ "updated_at": "2026-09-21 14:00:25",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -1524,6 +1524,27 @@
    "time": "2026-09-21 00:05:10",
    "title": "自动更新聚合完成",
    "content": "本轮新增：QQ 1 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-09-21 14:00:04",
+   "title": "⚠️ 大屏采集漏批：2026-09-21",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 46.9 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260921.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-09-21 14:00:25",
+   "title": "📣 “歌手黑马”王晰：多年后再次报名想弥补遗憾 - 今日头条",
+   "content": "2025年6月29日&ensp;&#0183;&ensp;2016年，《我是歌手》第四季的舞台上，王晰以一首西班牙的经典情歌《BesameMucho》惊艳四座，当时的他对大 …\n链接：https://www.toutiao.com/article/7521382647243833902/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.toutiao.com/article/7521382647243833902/"
+  },
+  {
+   "time": "2026-09-21 14:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
    "category": "汇总",
    "source": "auto_update"
   }
