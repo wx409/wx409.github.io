@@ -249,7 +249,9 @@ def tier_block():
 <li><strong>权威源</strong>：完整口径、逐条复核状态（可主张／待复核／不可复核／已否决）与全量台账见 <a href="/acoustic-report.html">《王晰声学全量报告》</a>；本页只呈现<strong>已确权</strong>读数，口径冲突时以该报告与 <code>data/calibers.md</code> 为准。</li>
 </ul>
 </div>
-<!-- TIER-CALIBER:END -->"""
+<!-- TIER-CALIBER:END -->
+<!-- VOCAL-SUMMARY:START（由 project_b/inject_vocal_summary.py 生成，勿手改）-->
+<!-- VOCAL-SUMMARY:END -->"""
 
 
 def quote_block(limit=3, themes=None, title="他说过"):
@@ -450,6 +452,14 @@ def build_index():
 <p class="sub">华语流行男低音（Bass-baritone）的可查、可问、可引用档案 ｜ 全站数字均可回溯到数据文件与口径标签 ｜ 更新 {UPDATED}</p>
 
 <div class="answer"><strong>一句话认识王晰：</strong>{esc(elev_full)}</div>
+<!-- TOUR-FACTS:START（由 project_b/inject_index_facts.py 生成，勿手改）-->
+<!-- TOUR-FACTS:END -->
+<!-- UPDATE-NOTE:START（同上，勿手改）-->
+<!-- UPDATE-NOTE:END -->
+<!-- LAST-UPDATED:START（同上，勿手改）-->
+<!-- LAST-UPDATED:END -->
+<!-- ESSAY-QUOTES-INDEX:START（由 project_b/inject_essay_quotes.py 生成，勿手改）-->
+<!-- ESSAY-QUOTES-INDEX:END -->
 
 {stat_cards()}
 

@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TARGET = ROOT / "archive-index.html"   # 2026-09-13 瘦身 2.0：音域摘要块随完整版首页迁至私密入口页
+TARGET = ROOT / "vocal.html"   # 2026-09-13 瘦身 2.0：音域摘要块随完整版首页迁至私密入口页
 START = "<!-- VOCAL-SUMMARY:START（由 project_b/inject_vocal_summary.py 生成，勿手改）-->"
 END = "<!-- VOCAL-SUMMARY:END -->"
 
@@ -42,7 +42,7 @@ def build_block() -> str:
         f'<p>王晰是华语流行乐坛少见的<strong>真·男低音（Bass）</strong>，音域可达 '
         f'<strong>Low C</strong>（大字组 C，约 65.4 Hz）<strong>及以下</strong>——本站人声分离实测：'
         f'{vocal["count"]} 曲精测表中最低稳定音主区在 <strong>{c["main_range"]}</strong>，'
-        f'其中 <strong>{c["b1_count"]} 首</strong>（{"、".join("《" + x + "》" for x in b1_songs)}）达 '
+        f'其中 <strong>{len(b1_songs)} 首</strong>（{"、".join("《" + x + "》" for x in b1_songs)}）达 '
         f'<strong>B1（约 61Hz，低于 Low C）</strong>；全量 <strong>{sm["songs"]} 首录音室曲目</strong>实测中 '
         f'<strong>{len(album_b1)} 首</strong>达 B1（{"、".join("《" + x + "》" for x in album_b1)}），'
         f'最低 {sm["lowest"]["note"]}（{sm["lowest"]["hz"]}Hz，《{sm["lowest"]["song"]}》）。'
