@@ -94,6 +94,12 @@ STEPS = [
     # 2026-09-13 瘦身 2.0：精简版 7 页（对外主入口）由单一生成器派生，禁止手写数字
     (ROOT / "project_b" / "build_golden_quotes.py", "金句档案 golden_quotes 图层（跨来源，带证据级别）", True),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
+    # ── 注入复跑守卫（2026-09-21）：compact 会重建 7 个公开页，注入块必须在其后重跑 ──
+    (ROOT / "project_b" / "inject_vocal_summary.py", "注入复跑：首页音域摘要块", False),
+    (ROOT / "project_b" / "inject_index_facts.py", "注入复跑：首页事实块", False),
+    (ROOT / "project_b" / "inject_essay_quotes.py", "注入复跑：歌迷赏析摘录（首页听众说+巡演页）", False),
+    (ROOT / "project_b" / "inject_long_notes.py", "注入复跑：长声实测章（vocal.html）", False),
+    (ROOT / "project_b" / "inject_top_verified.py", "注入复跑：人耳确认读数章", False),
     (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),
     (ROOT / "project_b" / "redact_local_paths.py", "公开文件本机路径净化（notifications/calibers/essay_quotes）", True),
