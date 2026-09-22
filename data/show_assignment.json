@@ -1,13 +1,13 @@
 {
  "summary": {
-  "generated_at": "2026-09-22T21:06:25",
-  "rows": 589,
+  "generated_at": "2026-09-23T00:11:10",
+  "rows": 595,
   "levels": {
    "L1": 239,
    "L6": 26,
-   "L3": 31,
+   "L3": 32,
    "L4": 2,
-   "未认领": 291
+   "未认领": 296
   },
   "shows_with_material": 37,
   "shows_with_claimable": 35,
@@ -150,11 +150,11 @@
    "n": 1,
    "claimable": 1
   },
-  "2019-06-07": {
-   "n": 1,
-   "claimable": 1
-  },
   "2019-08-04": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2019-06-07": {
    "n": 1,
    "claimable": 1
   },
@@ -4653,6 +4653,18 @@
    "why": ""
   },
   {
+   "tag": "未知20230505_BV15X4y127ER",
+   "song": "人世间",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2023-05-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20181221_BV1nt411Y7aj",
    "song": "我要你",
    "tour": "其他演出",
@@ -5433,6 +5445,18 @@
    "why": ""
   },
   {
+   "tag": "未知20190809_BV1mt411N77U",
+   "song": "着魔",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-08-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20240607_BV1T142117Bq",
    "song": "人世间",
    "tour": "其他演出",
@@ -5709,6 +5733,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "广州20190805_BV1ht411M7EH",
+   "song": "Your Man",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2019-08-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-08-04",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "一巡·Che_杭州_04_BV184411P7rh_p4",
    "song": "",
    "tour": "其他演出",
@@ -5824,6 +5860,18 @@
    "date": "2020-01-04",
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20191006_BV1cE411f7Gs",
+   "song": "一生守候",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-10-06",
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6194,6 +6242,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20200917_BV1uT4y1A7XC",
+   "song": "翠湖寒",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-09-17",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -6998,6 +7058,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20200103_BV1qJ411j7H2",
+   "song": "小毛驴",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-01-03",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,

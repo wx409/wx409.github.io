@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-22T21:06:30",
+ "generated_at": "2026-09-23T00:11:15",
  "stat": {
-  "generated_at": "2026-09-22T21:06:29",
+  "generated_at": "2026-09-23T00:11:14",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -194,12 +194,12 @@
    },
    {
     "song": "Your Man",
-    "versions": 11,
-    "low_median": 90.4,
-    "low_iqr": 1.0,
+    "versions": 12,
+    "low_median": 90.2,
+    "low_iqr": 1.2,
     "low_range": 23.5,
     "high_median": 841.6,
-    "low_cv": 0.0658
+    "low_cv": 0.0636
    },
    {
     "song": "花儿为什么这样红",
@@ -230,12 +230,12 @@
    },
    {
     "song": "一生守候",
-    "versions": 7,
-    "low_median": 77.8,
-    "low_iqr": 5.4,
+    "versions": 8,
+    "low_median": 78.0,
+    "low_iqr": 8.4,
     "low_range": 33.3,
-    "high_median": 324.4,
-    "low_cv": 0.1296
+    "high_median": 307.9,
+    "low_cv": 0.1278
    },
    {
     "song": "签唱会上海全场",
@@ -283,6 +283,15 @@
     "low_cv": 0.0031
    },
    {
+    "song": "小毛驴",
+    "versions": 4,
+    "low_median": 102.0,
+    "low_iqr": 41.4,
+    "low_range": 51.9,
+    "high_median": 824.8,
+    "low_cv": 0.2272
+   },
+   {
     "song": "静止了的夜晚",
     "versions": 4,
     "low_median": 65.8,
@@ -299,6 +308,15 @@
     "low_range": 17.5,
     "high_median": 880.3,
     "low_cv": 0.0679
+   },
+   {
+    "song": "人世间",
+    "versions": 4,
+    "low_median": 82.4,
+    "low_iqr": 11.4,
+    "low_range": 19.6,
+    "high_median": 750.3,
+    "low_cv": 0.0937
    },
    {
     "song": "情网",
@@ -319,15 +337,6 @@
     "low_cv": 0.0651
    },
    {
-    "song": "小毛驴",
-    "versions": 3,
-    "low_median": 83.1,
-    "low_iqr": 26.0,
-    "low_range": 51.9,
-    "high_median": 824.8,
-    "low_cv": 0.2399
-   },
-   {
     "song": "Yourman",
     "versions": 3,
     "low_median": 87.2,
@@ -335,15 +344,6 @@
     "low_range": 23.4,
     "high_median": 857.8,
     "low_cv": 0.1138
-   },
-   {
-    "song": "人世间",
-    "versions": 3,
-    "low_median": 86.8,
-    "low_iqr": 9.8,
-    "low_range": 19.6,
-    "high_median": 725.0,
-    "low_cv": 0.0919
    },
    {
     "song": "友谊地久天长",
@@ -441,9 +441,9 @@
  },
  "register_adapt": {
   "own_live_low_median": 82.2,
-  "cover_live_low_median": 84.7,
+  "cover_live_low_median": 85.0,
   "own_n": 21,
-  "cover_n": 123,
+  "cover_n": 124,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

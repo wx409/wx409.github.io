@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22 21:06",
+ "generated_at": "2026-09-23 00:11",
  "count": 59,
  "calibers": [
   {
@@ -61,7 +61,7 @@
   {
    "id": "stage_claimable",
    "label": "现场层可主张素材",
-   "value": 469,
+   "value": 475,
    "scope": "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
    "source": "data/archive_stage_tour.json → summary.n_claimable",
    "note": "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除"
@@ -189,10 +189,10 @@
   {
    "id": "index_days",
    "label": "指数数据覆盖天数",
-   "value": 1295,
+   "value": 1296,
    "scope": "站点图表所用指数长表的实际覆盖天数",
    "source": "（文本挖掘产物目录）\\music_index_long.csv",
-   "note": "已发布长表唯一日期；2022-12-31 至 2026-09-20；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+   "note": "已发布长表唯一日期；2022-12-31 至 2026-09-21；原始库文件覆盖 1271 天（少算补充来源 11 天）"
   },
   {
    "id": "stage_measured_versions",
@@ -213,7 +213,7 @@
   {
    "id": "stage_low_reviewed",
    "label": "巡演现场低音读数·谐波列复核通过条数",
-   "value": 418,
+   "value": 424,
    "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
    "source": "data\\archive_stage_tour.json",
    "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
