@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22 09:06",
+ "generated_at": "2026-09-22 14:06",
  "count": 59,
  "calibers": [
   {
@@ -21,7 +21,7 @@
   {
    "id": "entity_songs",
    "label": "关系图谱曲目",
-   "value": 437,
+   "value": 438,
    "scope": "至少有一条关系（现场/小酒馆/专辑）的曲目",
    "source": "entity_index.json",
    "note": "歌曲↔城市↔场馆↔逐字稿的聚合图谱节点数"

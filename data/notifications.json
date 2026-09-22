@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-22 09:00:05",
+ "updated_at": "2026-09-22 14:00:25",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -1623,6 +1623,45 @@
    "title": "⚠️ 大屏采集漏批：2026-09-22",
    "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 17.3 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260922.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-09-22 14:00:25",
+   "title": "📣 【王晰】191207 费加罗风尚盛典红毯+演唱合集_哔哩哔哩_bilibili",
+   "content": "【王晰】191207 费加罗风尚盛典红毯+演唱合集共计3条视频，包括：红毯、《云一定知道》、盛典回顾等，UP主更多精彩视频，请关 …\n链接：https://www.bilibili.com/video/BV1PJ411v7Ua/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1PJ411v7Ua/"
+  },
+  {
+   "time": "2026-09-22 14:00:25",
+   "title": "📣 王晰 - 歌手 - 网易云音乐",
+   "content": "王晰，本名王欣，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，中国人民解放军海军政治部文工团青年歌唱家、 …\n链接：https://music.163.com/artist?id=1058098",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://music.163.com/artist?id=1058098"
+  },
+  {
+   "time": "2026-09-22 14:00:25",
+   "title": "📣 王晰 _ 百科",
+   "content": "王晰（Elvis Wang），1985年4月9日出生于辽宁营口，毕业于沈阳音乐学院， 中国内地流行乐男低音歌手。 他参加“第十五届全国青 …\n链接：https://baike.sogou.com/v62982728.htm",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.sogou.com/v62982728.htm"
+  },
+  {
+   "time": "2026-09-22 14:00:25",
+   "title": "📣 王晰真的是男低音么？ - 知乎",
+   "content": "2020年4月26日&ensp;&#0183;&ensp;首先，《歌手》修音的程度之严重我就不想说什么了； 其次，本人其实不大喜欢王晰的演唱（请注意不是声音是演 …\n链接：https://www.zhihu.com/question/40568290",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/40568290"
+  },
+  {
+   "time": "2026-09-22 14:00:25",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 4 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
