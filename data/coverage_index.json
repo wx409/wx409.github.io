@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-09-23T21:06:34",
+  "generated_at": "2026-09-24T00:11:19",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7563,
+  "files_scanned": 7599,
   "measured_shows_site": 38,
   "shows_with_claimable_site": 36,
-  "bv_mapped": 43
+  "bv_mapped": 49
  },
  "shows": [
   {
@@ -1569,6 +1569,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1a9kbYmErn｜耶利亚女郎｜杭州20241221"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
     },
@@ -1576,14 +1581,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "杭州20241221_BV1RjkYYbEF8｜My Oh My"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "杭州20241221_BV16dryYBE8v｜敕勒歌"
     }
    ],
-   "n_evidence": 121
+   "n_evidence": 135
   },
   {
    "date": "2024-12-29",
@@ -1619,31 +1619,31 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV16H6kYFEZN｜雷美替胺｜长沙20250101"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1JErWYVEYs｜鹅毛信｜长沙20250101"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1shrwYREjc｜晚婚｜长沙20250101"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "长沙｜五巡·王晰吾个人巡回音乐会"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "长沙20250101_BV1by6kY5EQA｜梦里水乡"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1by6kY5EQA"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "长沙20250101_BV1by6kY5EQA.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1by6kY5EQA"
+     "detail": "长沙20250101_BV1JErWYVEYs｜鹅毛信"
     }
    ],
-   "n_evidence": 15
+   "n_evidence": 57
   },
   {
    "date": "2025-04-05",
@@ -1739,6 +1739,16 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1bkj3z3Eid｜爱情转移｜广州20250524"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1H2jNz5E5u｜我很好｜广州20250524"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "广州｜五巡·王晰吾个人巡回音乐会"
     },
@@ -1749,21 +1759,11 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1AxjKzmES3"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "广州20250524_BV1AxjKzmES3.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1AxjKzmES3"
+     "src": "站点实测",
+     "detail": "广州20250524_BV1bkj3z3Eid｜爱情转移"
     }
    ],
-   "n_evidence": 15
+   "n_evidence": 43
   },
   {
    "date": "2025-11-21",
