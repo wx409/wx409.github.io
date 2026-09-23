@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-23T09:06:15",
-  "rows": 595,
+  "generated_at": "2026-09-23T10:47:48",
+  "rows": 597,
   "levels": {
-   "L1": 239,
+   "L1": 241,
    "L6": 26,
    "L3": 32,
    "L4": 2,
    "未认领": 296
   },
-  "shows_with_material": 37,
-  "shows_with_claimable": 35,
+  "shows_with_material": 38,
+  "shows_with_claimable": 36,
   "shows_total": 64
  },
  "per_show": {
@@ -111,10 +111,14 @@
    "claimable": 9
   },
   "2024-12-21": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2025-05-24": {
    "n": 1,
    "claimable": 1
   },
-  "2025-05-24": {
+  "2025-01-01": {
    "n": 1,
    "claimable": 1
   },
@@ -2469,6 +2473,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "长沙20250101_BV1by6kY5EQA",
+   "song": "梦里水乡",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-01-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "北京20250405_BV1JZdcYEE73",
    "song": "世界赠予我的",
    "tour": "五巡",
@@ -2489,6 +2505,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2025-04-05",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "杭州20241221_BV16dryYBE8v",
+   "song": "敕勒歌",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-12-21",
    "level": 1,
    "why": "日期直配"
   },

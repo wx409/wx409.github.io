@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-23 09:06",
+ "generated_at": "2026-09-23 10:47",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,22 +9,22 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 595,
-  "n_stage_measured": 592,
+  "n_materials": 597,
+  "n_stage_measured": 594,
   "n_from_precision": 3,
-  "n_songs": 144,
+  "n_songs": 145,
   "n_tours": 8,
-  "n_verified": 500,
-  "n_claimable": 475,
+  "n_verified": 502,
+  "n_claimable": 477,
   "n_unverifiable": 3,
   "review_status_dist": {
-   "谐波列通过": 404,
+   "谐波列通过": 406,
    "待复核（谐波列待判）": 78,
    "人耳确认": 71,
    "人耳否决（非王晰）": 39,
    "不可复核（缺混音/时间）": 3
   },
-  "n_harmonic_reviewed": 424,
+  "n_harmonic_reviewed": 426,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -42,13 +42,13 @@
   "verify_dist": {
    "人耳确认（听辨）": 71,
    "待复核（谐波列待判）": 91,
-   "谐波列复核通过": 423,
+   "谐波列复核通过": 425,
    "未复核": 4,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 595,
+  "n_stat_basis": 597,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -172,13 +172,14 @@
   },
   {
    "tour": "五巡",
-   "n_materials": 19,
-   "n_claimable": 16,
+   "n_materials": 21,
+   "n_claimable": 18,
    "cities": [
     "上海",
     "北京",
     "广州",
-    "杭州"
+    "杭州",
+    "长沙"
    ],
    "dates": [
     "2024-12-21",
@@ -193,9 +194,9 @@
    "lowest_pending_under": true,
    "span_median_octaves": 2.75,
    "stability_median_cents": 7.35,
-   "vibrato_rate_hz_median": 4.86,
+   "vibrato_rate_hz_median": 4.95,
    "stat_basis": "可主张（复核通过）",
-   "n_stat_basis": 16,
+   "n_stat_basis": 18,
    "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
@@ -10658,6 +10659,60 @@
    "claimable": true
   },
   {
+   "tag": "长沙20250101_BV1by6kY5EQA",
+   "song": "梦里水乡",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "bv": "BV1by6kY5EQA",
+   "owner": "王晰的杂货铺",
+   "title": "王晰《梦里水乡》怎么能这么好听！『4k』【王晰五巡吾个人巡回音乐会长沙站点歌】20250101",
+   "bandwidth_kbps": 146,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "G2",
+   "low_hz": 99.6,
+   "low_t_s": 122.50848072562358,
+   "low_dur_s": 0.25541950113378686,
+   "high_note": "A#5",
+   "high_hz": 933.2,
+   "span_octaves": 3.23,
+   "stability_cents": 4.9,
+   "intonation_cents": 28.3,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 39.0,
+   "density_per_s": 1.42,
+   "hnr_db": 3.0,
+   "duration_s": 132.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G2",
+    "hz": 99.6,
+    "why": "1f0 差 -21.1dB、3f0 在（53.4dB）",
+    "fund_gap_db": -21.1,
+    "floor_db": 7.7,
+    "t_s": 122.508,
+    "dur_s": 0.255,
+    "partials": [
+     39.4,
+     60.5,
+     53.4,
+     57.2,
+     38.2,
+     34.9,
+     27.1,
+     29.2
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "review_status": "谐波列通过",
+   "claimable": true
+  },
+  {
    "tag": "北京20250405_BV1JZdcYEE73",
    "song": "世界赠予我的",
    "tour": "五巡",
@@ -10759,6 +10814,60 @@
      32.8,
      19.9,
      21.7
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "review_status": "谐波列通过",
+   "claimable": true
+  },
+  {
+   "tag": "杭州20241221_BV16dryYBE8v",
+   "song": "敕勒歌",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "bv": "BV16dryYBE8v",
+   "owner": "王晰的杂货铺",
+   "title": "两遍《敕勒歌》！民歌王晰yyds！！【4k字幕】王晰五巡吾个人巡回音乐会杭州首站点歌 20241221",
+   "bandwidth_kbps": 192,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "A#2",
+   "low_hz": 118.7,
+   "low_t_s": 71.4942403628118,
+   "low_dur_s": 0.3947392290249433,
+   "high_note": "F5",
+   "high_hz": 692.9,
+   "span_octaves": 2.54,
+   "stability_cents": 7.9,
+   "intonation_cents": 24.5,
+   "vibrato_hz": 4.97,
+   "vibrato_cents": 77.0,
+   "density_per_s": 1.79,
+   "hnr_db": 7.8,
+   "duration_s": 233.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A#2",
+    "hz": 118.7,
+    "why": "1f0 差 +0.0dB、3f0 在（42.7dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 11.0,
+    "t_s": 71.494,
+    "dur_s": 0.395,
+    "partials": [
+     65.9,
+     63.5,
+     42.7,
+     38.6,
+     14.4,
+     26.2,
+     19.7,
+     16.4
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
@@ -37047,13 +37156,30 @@
   },
   {
    "song": "敕勒歌",
-   "n_versions": 1,
-   "tours": [],
-   "lowest_note": "B2",
-   "lowest_hz": 122.8,
-   "lowest_tag": "未知20250413_BV14kouYsEhY",
-   "span_median_octaves": 2.37,
+   "n_versions": 2,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "A#2",
+   "lowest_hz": 118.7,
+   "lowest_tag": "杭州20241221_BV16dryYBE8v",
+   "span_median_octaves": 2.46,
    "versions": [
+    {
+     "tour": "五巡",
+     "city": "杭州",
+     "date": "2024-12-21",
+     "low_note": "A#2",
+     "low_hz": 118.7,
+     "high_note": "F5",
+     "high_hz": 692.9,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.54,
+     "verify": "谐波列复核通过",
+     "bv": "BV16dryYBE8v"
+    },
     {
      "tour": "其他演出",
      "city": "",
@@ -37503,6 +37629,34 @@
      "span_octaves": 1.43,
      "verify": "人耳确认（听辨）",
      "bv": ""
+    }
+   ]
+  },
+  {
+   "song": "梦里水乡",
+   "n_versions": 1,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "G2",
+   "lowest_hz": 99.6,
+   "lowest_tag": "长沙20250101_BV1by6kY5EQA",
+   "span_median_octaves": 3.23,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "长沙",
+     "date": "2025-01-01",
+     "low_note": "G2",
+     "low_hz": 99.6,
+     "high_note": "A#5",
+     "high_hz": 933.2,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.23,
+     "verify": "谐波列复核通过",
+     "bv": "BV1by6kY5EQA"
     }
    ]
   },

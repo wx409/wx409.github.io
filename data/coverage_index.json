@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-09-23T09:06:18",
+  "generated_at": "2026-09-23T10:47:50",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 43,
-  "L2_强": 8,
+  "L1_精确": 44,
+  "L2_强": 7,
   "L3_中": 0,
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7548,
-  "measured_shows_site": 37,
-  "shows_with_claimable_site": 35,
-  "bv_mapped": 41
+  "files_scanned": 7563,
+  "measured_shows_site": 38,
+  "shows_with_claimable_site": 36,
+  "bv_mapped": 43
  },
  "shows": [
   {
@@ -1564,6 +1564,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV16dryYBE8v｜敕勒歌｜杭州20241221"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
     },
@@ -1574,16 +1579,11 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1RjkYYbEF8"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "杭州20241221_BV1RjkYYbEF8.m4a"
+     "src": "站点实测",
+     "detail": "杭州20241221_BV16dryYBE8v｜敕勒歌"
     }
    ],
-   "n_evidence": 107
+   "n_evidence": 121
   },
   {
    "date": "2024-12-29",
@@ -1610,15 +1610,40 @@
    "city": "长沙",
    "tour": "五巡",
    "songs": 19,
-   "level": 2,
+   "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1by6kY5EQA｜梦里水乡｜长沙20250101"
+    },
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "长沙｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "长沙20250101_BV1by6kY5EQA｜梦里水乡"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1by6kY5EQA"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "长沙20250101_BV1by6kY5EQA.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1by6kY5EQA"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 15
   },
   {
    "date": "2025-04-05",

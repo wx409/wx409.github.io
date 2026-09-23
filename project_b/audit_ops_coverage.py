@@ -92,7 +92,9 @@ MANUAL_FEATURES = {
 
 # ── C 类反向检查：永久豁免（脚本可运行，但按设计不需要菜单入口） ─────────────
 ORPHAN_ALLOWLIST = {
-    "dsh_llm.py": "被 import 的库（DSH 本地模型调用助手），__main__ 仅自测",
+        r"E:\wx\论文素材_王晰作传\音域分析\轨迹\曲名过滤.py":
+        "被 import 的共享库（曲名注记/变体过滤单一事实源），__main__ 仅自测",
+"dsh_llm.py": "被 import 的库（DSH 本地模型调用助手），__main__ 仅自测",
     "project_b\\data_pipeline.py": "遗留原型（自建 01_原始数据/02_清洗数据 旧目录），已被现行流水线取代",
     "project_b\\build_legacy_notes.py": "一次性迁移脚本 —— 页面生成器（generate_voice_page 等）已原生包含 NOTE 块",
     "project_b\\fix_songs_meta.py": "一次性数据修复（补 21 首歌词+班底），已执行完毕",

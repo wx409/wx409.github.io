@@ -229,6 +229,7 @@ echo    178. 有视频场次清单（逐场列视频文件/BV/体积；未挂载盘自动提示）
 echo    179. 场次认领（把现场素材逐条归属到具体场次：日期/BV/歌单指纹）
 echo    180. 长声表 × 否决台账反连接（同音区存疑移出榜单，防女和声污染）
 echo    181. 注入审计（结果指纹版：首页事实/听众说/vocal音域摘要/长声章 是否真落地）
+echo    182. 曲目缺口自动补闭环（补搜扩池→缺口优先下载/测量→聚合→回写站点数据）
 echo    0. 退出
 echo.
 set "op="
@@ -414,6 +415,7 @@ if "%op%"=="178" goto video_shows
 if "%op%"=="179" goto show_assign
 if "%op%"=="180" goto longnotes_verdict
 if "%op%"=="181" goto audit_inject
+if "%op%"=="182" goto gap_loop
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2472,5 +2474,20 @@ echo  [注入审计] 只看结果：注入产物有没有出现在页面可见位置（锚点断链会被抓出）
 echo  背景：2026-09-21 曾因锚点被重建清掉，5 个注入器长期 no-op 而无人报警
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\audit_injections.py
+pause
+goto menu
+
+:gap_loop
+cls
+echo  [缺口自动补闭环] 三步串起来，等价于每日 10:00 + 每晚 22:00 两个计划任务的手动版
+echo   ① 补搜扩池：按 64 场歌单缺口搜 B 站（已过滤注记/环节/串烧/合唱，变体归一）
+echo   ② 缺口优先增量：优先下载「该巡该曲还没实测」的候选（下载→分离→F0→回写）
+echo   ③ 聚合：重跑巡演现场报告，站点 data/archive_stage_tour.json 更新
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 补搜巡演曲目.py --limit 8
+python -X utf8 每晚增量.py --limit 6
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 生成巡演现场报告.py
+echo  完成；如需上线请回主菜单跑 39/44（部署）
 pause
 goto menu
