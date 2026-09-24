@@ -76,6 +76,9 @@ def _reset_browser_for_cdp(exe=r"C:\Program Files (x86)\Lenovo\SLBrowser\SLBrows
 _CDP_RESET_DONE = False
 
 
+_CDP_OK = False      # CDP 兜底是否成功过（成功则不再误报风控）
+
+
 def cdp_fetch_list(uid, since=None, port=9222):
     """CDP 兜底：在已开启调试端口的浏览器页面里请求同一接口，返回 (cards, since_id)。
 
@@ -130,6 +133,9 @@ def cdp_fetch_list(uid, since=None, port=9222):
         return None, None
     info = d.get('data', {}).get('cardlistInfo', {})
     cards = [c for c in d.get('data', {}).get('cards', []) if c.get('card_type') == 9]
+    global _CDP_OK
+    if cards:
+        _CDP_OK = True
     log('CDP 兜底成功：ok=%s｜card_type=9 条数 %d' % (d.get('ok'), len(cards)))
     return cards, info.get('since_id')
 
@@ -399,7 +405,7 @@ def main():
             _lg = Path(r'D:\wx409.github.io\logs\weibo_pipeline.log')
             if _lg.exists():
                 _tail = _lg.read_text(encoding='utf-8', errors='ignore')[-4000:]
-                risk = ('HTTP 432' in _tail) or ('风控' in _tail)
+                risk = (('HTTP 432' in _tail) or ('风控' in _tail)) and not _CDP_OK
         except Exception:
             pass
         if risk:

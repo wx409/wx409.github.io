@@ -1,19 +1,24 @@
 @echo off
-rem WangXi weibo -> KB pipeline (scheduled task entry; log to logs/weibo_pipeline.log)
-rem 2026-09-24 ä¿®ï¼šåŽŸè„šæœ¬åªè·‘ã€ŒæŠ“å–ã€ï¼Œæ¼äº†åŽé¢ä¸¤æ­¥ï¼Œå¯¼è‡´è¯­æ–™åº“åœåœ¨ 2026-08-14 è€Œå½’æ¡£å·²åˆ° 09-17ã€‚
-rem   æ­¥éª¤1 å¾®åšæŠ“å–ï¼ˆç›´è¿ž 432 æ—¶è‡ªåŠ¨èµ° CDP å…œåº•ï¼Œè§ pipeline_weibo_update.pyï¼‰
-rem   æ­¥éª¤2 å½’æ¡£ -> è¯­æ–™åº“ï¼ˆwx_textmine\00_build_corpus.pyï¼‰
-rem   æ­¥éª¤3 è¯­æ–™ -> çŸ¥è¯†åº“ï¼ˆwx_textmine\run_pipeline.py allï¼‰
+chcp 936 >nul
+rem WangXi weibo -> corpus -> KB pipeline (scheduled task entry)
+rem 2026-09-24 ÐÞ¸´£ºÔ­½Å±¾Ö»ÅÜÁË¡¸×¥È¡¡¹£¬Â©ÁË¡¸¹éµµ->ÓïÁÏ¿â¡¹¡¸ÓïÁÏ->ÖªÊ¶¿â¡¹Á½²½£¬
+rem            µ¼ÖÂÓïÁÏ¿âÍ£ÔÚ 2026-08-14 ¶ø¹éµµÒÑµ½ 09-17¡£
+rem 2026-09-24 ÐÂÔö£º¹Ù·½¿ª·ÅÆ½Ì¨ API ²É¼¯£¨¸ß¼¶½Ó¿ÚÈ¨ÏÞÍ¨¹ýºó×Ô¶¯ÉúÐ§£»Î´Í¨¹ýÔòÌø¹ý£©¡£
 set PY="C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe"
 set LOG="D:\wx409.github.io\logs\weibo_pipeline.log"
 
-echo [%date% %time%] === æ­¥éª¤1/3 æŠ“å–å¾®åš === >> %LOG%
+echo [%date% %time%] === ²½Öè0/4 ¹Ù·½API²É¼¯£¨ÎÞ·ç¿Ø£»È¨ÏÞÎ´Í¨¹ýÊ±×Ô¶¯Ìø¹ý£©=== >> %LOG%
+cd /d "E:\wx\Ë½ÓÐ¹¤¾ß"
+%PY% -X utf8 "E:\wx\Ë½ÓÐ¹¤¾ß\Î¢²©¿ª·ÅAPI.py" --fetch >> %LOG% 2>&1
+
+echo [%date% %time%] === ²½Öè1/4 ×¥È¡Î¢²©£¨Ö±Á¬ -> CDP ¶µµ×£©=== >> %LOG%
+cd /d "D:\wx409.github.io"
 %PY% "D:\wx409.github.io\project_b\pipeline_weibo_update.py" >> %LOG% 2>&1
 
-echo [%date% %time%] === æ­¥éª¤2/3 å½’æ¡£ -> è¯­æ–™åº“ === >> %LOG%
+echo [%date% %time%] === ²½Öè2/4 ¹éµµ -> ÓïÁÏ¿â === >> %LOG%
 %PY% -X utf8 "E:\wx\wx_textmine\00_build_corpus.py" >> %LOG% 2>&1
 
-echo [%date% %time%] === æ­¥éª¤3/3 è¯­æ–™ -> çŸ¥è¯†åº“ï¼ˆtextmine allï¼‰=== >> %LOG%
+echo [%date% %time%] === ²½Öè3/4 ÓïÁÏ -> ÖªÊ¶¿â£¨textmine all£©=== >> %LOG%
 cd /d "E:\wx\wx_textmine"
 %PY% -X utf8 run_pipeline.py all >> %LOG% 2>&1
-echo [%date% %time%] === ç®¡çº¿ç»“æŸ === >> %LOG%
+echo [%date% %time%] === ¹ÜÏß½áÊø === >> %LOG%
