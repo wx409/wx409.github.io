@@ -236,6 +236,8 @@ echo    185. 音频资产台账（逐批次盘点：文件/体量/已分析/新增；进报告「资产台账」
 echo    186. 声学探索·可写方向清单（可复算观测，含样本量与可信度分级，供传记取材）
 echo    187. 横向素材积攒看板（微博/指数/语料/知识库/影像 是否同步增长 + 缺口告警）
 echo    188. 写作专题三题（音域两端 / 颤音指纹 / 音区自觉；现象-方法-数字-反面证据-可引用句）
+echo    189. 提取 Edge 微博 cookie（先退出 Edge；免 DevTools，写 weibo_cookies.txt）
+echo    190. 颤音指纹专题页（topic-vibrato.html：八年漂移 0.27Hz 完整证据链）
 echo    0. 退出
 echo.
 set "op="
@@ -428,6 +430,8 @@ if "%op%"=="185" goto audio_assets
 if "%op%"=="186" goto explore
 if "%op%"=="187" goto streams
 if "%op%"=="188" goto deepdives
+if "%op%"=="189" goto get_cookie
+if "%op%"=="190" goto vibtopic
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2566,5 +2570,26 @@ echo  [写作专题三题] 从可复算观测里挑三题深挖，含反面证据与可直接引用的句子
 echo  产出：data\\topic_deepdives.json ＋ 本地 专题深挖_三题_写作素材.md ＋ 报告「写作专题」章
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_topic_deepdives.py
+pause
+goto menu
+
+:get_cookie
+cls
+echo  [提取 Edge 微博 cookie] 请在 Edge 打开并登录 m.weibo.cn 后，**完全退出 Edge** 再运行
+echo  产出：E:\wx\私有工具\weibo_cookies.txt（旧文件自动备份）
+pause
+cd /d "E:\wx\私有工具"
+python -X utf8 提取Edge微博Cookie.py
+echo  完成后重跑 微博管线 验证（或在任务计划里等 21:30）
+pause
+goto menu
+
+:vibtopic
+cls
+echo  [颤音指纹专题页] 生成 topic-vibrato.html（含反面证据与可引用句）
+echo  生成后跑 build_nav.py（导航与页脚索引单一事实源）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_topic_page.py
+python -X utf8 project_b\build_nav.py
 pause
 goto menu

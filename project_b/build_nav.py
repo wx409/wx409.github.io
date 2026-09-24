@@ -60,7 +60,7 @@ FOOTER_GROUPS = [
                   "notifications.html"]),
     ("数据", ["dashboard/", "map/", "live/", "live/setlists.html", "data/music-index.html",
               "data/calibers.md", "data/kb/kb_digest.md"]),
-    ("声学·内容", ["voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
+    ("声学·内容", ["topic-vibrato.html", "voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
                     "tavern/"]),
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
@@ -85,6 +85,7 @@ ARCHIVE_PAGES = {
     "acoustic-report.html",
     "tavern/index.html", "gallery.html", "submit.html", "search.html",
     "story-hui-guangzhou-2026.html",
+    "topic-vibrato.html",
 }
 ROBOTS_INDEX = '<meta name="robots" content="index, follow">'
 
@@ -109,7 +110,7 @@ LABELS = {
     "city-guides.html": "城市攻略", "submit.html": "投稿",
     "culture/index.html": "文化足迹", "tavern/": "深夜小酒馆",
     "story-hui-guangzhou-2026.html": "六巡广州站数据复盘",
-    "archive-index.html": "🔒 完整档案索引",
+    "archive-index.html": "🔒 完整档案索引",    "topic-vibrato.html": "🎻 颤音指纹专题",
 }
 
 # 处理范围（相对仓库根）：根页面 + 有统一导航的内容子目录；dashboard/map 为应用页（自带布局）不处理

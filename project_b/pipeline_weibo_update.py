@@ -14,6 +14,12 @@ from pathlib import Path
 BASE = Path(r'E:\wx\私有工具\weibo_merged')
 STUDIO_UID = '7215995153'
 SELF_UID = '1292815744'
+import random
+
+# 抓取安全参数（2026-09-24）：把节奏降到正常用户量级，规避 m.weibo.cn 的"短期高频"风控
+SAFE_INTERVAL = (5.0, 15.0)      # 每请求随机间隔（秒）
+MAX_PAGES = 3                    # 每次最多翻页数（增量靠 since_id）
+BACKOFF_HOURS = [6, 24]          # 命中 432 后的冷却阶梯（小时）
 COOKIE_FILE = Path(r'E:\wx\私有工具\weibo_cookies.txt')
 DASH_GEN = Path(r'E:\wx\QQ音乐大屏生成器_GEO优化版_源码.py')
 KB = Path(r'E:\wx\私有工具\weibo_merged\causality_kb.json')
@@ -25,6 +31,10 @@ def log(*a):
 
 
 def get_cookie():
+    """读 cookie；文件缺失或明显过期时给出明确提示（不再等到 432 才暴露）。"""
+    if not COOKIE_FILE.exists():
+        log("⚠ cookie 文件不存在：%s（请从 Edge 本地 Cookie 库提取自己的会话）" % COOKIE_FILE)
+        raise SystemExit(3)
     c = open(COOKIE_FILE, encoding='utf-8', errors='ignore').read().strip()
     HDRS['Cookie'] = c
     return c
@@ -63,7 +73,7 @@ def existing_mids(archive_dir):
     return mids
 
 
-def crawl_incremental(uid, archive_dir, max_pages=30):
+def crawl_incremental(uid, archive_dir, max_pages=3):   # 2026-09-24：30→3（增量靠 since_id，一页通常够）
     """增量抓取：翻页，只保留归档里没有的 mid。"""
     existing = existing_mids(archive_dir)
     log('已有归档 mid 数: %d (%s)' % (len(existing), archive_dir))
@@ -94,7 +104,7 @@ def crawl_incremental(uid, archive_dir, max_pages=30):
         log('page%d: 新增 %d, 累计新 %d' % (page, added, len(new_items)))
         if not since or added == 0:
             break
-        time.sleep(1.0)
+        time.sleep(random.uniform(SAFE_INTERVAL[0], SAFE_INTERVAL[1]))
     return new_items
 
 
@@ -207,7 +217,7 @@ def extract_new_events(archive_dir, new_folders):
             added += 1
         except Exception as e:
             log('单条提取失败 %s: %s' % (it['folder'][:30], repr(e)[:60]))
-        time.sleep(0.5)
+        time.sleep(random.uniform(SAFE_INTERVAL[0], SAFE_INTERVAL[1]))
 
     try:
         events_out.write_text(json.dumps(existing, ensure_ascii=False, indent=1), encoding='utf-8')

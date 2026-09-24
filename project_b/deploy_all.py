@@ -75,6 +75,7 @@ STEPS = [
     (ROOT / "project_b" / "build_asset_streams.py", "横向素材积攒看板 data/asset_streams.json", False),
     (ROOT / "project_b" / "build_explore_findings.py", "声学探索·可写方向清单", False),
     (ROOT / "project_b" / "build_audio_assets.py", "音频资产台账 data/audio_assets.json", False),
+    (ROOT / "project_b" / "build_topic_page.py", "颤音指纹专题页 topic-vibrato.html", False),
     (ROOT / "project_b" / "build_topic_deepdives.py", "写作专题三题 data/topic_deepdives.json", False),
     (ROOT / "project_b" / "build_acoustic_report.py", "粉丝声学全量报告 acoustic-report.html（理论+实测+台账+图表+选曲，随数据自动刷新）", False),
     (ROOT / "project_b" / "build_cover_catalog.py", "曲目谱系 data/cover_catalog.json（293 首选曲行为：场次/首唱末唱/自有或翻唱/有无指数）", False),

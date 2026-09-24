@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta name="robots" content="index, follow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>王晰颤音指纹｜八年八张专辑，颤音速率只漂 0.27Hz</title>
+<meta name="description" content="72 首录音室曲目全量实测：颤音速率整体中位 5.12Hz，八张专辑中位 5.07–5.34Hz（漂移 0.27Hz）；六轮巡演 4.79–4.97Hz。含方法、原始数字、反面证据与限定。">
+<link rel="canonical" href="https://wx409.github.io/topic-vibrato.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResearchProject", "name": "王晰颤音指纹：八年录音室全量的颤音速率稳定性", "url": "https://wx409.github.io/topic-vibrato.html", "description": "对 72 首录音室曲目逐一测颤音速率（Hz），八张专辑中位 5.07–5.34Hz，整体中位 5.12Hz、漂移仅 0.27Hz；六轮巡演中位 4.79–4.97Hz。颤音速率属低频调制，修音对其影响有限，故组内纵向可比。", "dateModified": "2026-09-24", "citation": "https://wx409.github.io/acoustic-report.html", "isBasedOn": {"@type": "Dataset", "name": "archive_vocal_albums.json", "url": "https://wx409.github.io/data/archive_vocal_albums.json"}, "keywords": ["王晰", "颤音", "颤音速率", "声纹", "音色指纹", "人声分离", "F0"]}</script>
+<script src="dashboard/echarts.min.js"></script>
+<style>
+body{margin:0;background:#fbf9f6;color:#241f1c;font:16px/1.8 -apple-system,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:26px;line-height:1.4;margin:0 0 6px}
+.sub{color:#7a6e63;font-size:14px;margin:0 0 18px}
+h2{font-size:19px;margin:30px 0 10px;border-left:4px solid #c41e3a;padding-left:10px}
+.card{background:#fff;border:1px solid #eee4d8;border-radius:10px;padding:14px 18px;margin:14px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.kpi>div{flex:1 1 150px;background:#fff;border:1px solid #eee4d8;border-radius:10px;padding:12px}
+.kpi b{display:block;font-size:22px;color:#c41e3a}
+.kpi span{font-size:12px;color:#7a6e63}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:14px;margin:10px 0}
+th,td{border:1px solid #eee4d8;padding:6px 8px;text-align:left}
+th{background:#faf5ef}
+td.n{font-variant-numeric:tabular-nums;font-weight:600}
+ul{padding-left:22px} li{margin:4px 0}
+.tag{display:inline-block;background:#fdeef1;color:#a31832;border-radius:999px;padding:1px 9px;font-size:12px;margin-right:6px}
+footer{margin-top:34px;color:#7a6e63;font-size:13px}
+code{background:#f4efe8;padding:1px 5px;border-radius:4px;font-size:13px}
+</style></head><body>
+<!-- NAV_START -->
+<div class="nav">
+    <a href="/index.html">🏠 首页</a>
+    <a href="/works.html">🎵 作品</a>
+    <a href="/live.html">🎤 现场</a>
+    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
+    <a href="/history.html">📅 生涯</a>
+    <a href="/research.html">📚 研究</a>
+    <a href="/community.html">💬 参与</a>
+</div>
+<!-- NAV_END -->
+<div class="wrap">
+<h1>王晰颤音指纹：八年八张专辑，颤音速率只漂 0.27Hz</h1>
+<p class="sub">录音室全量 72 曲实测 · 生成于 2026-09-24 · 数据可复算</p>
+
+<div class="kpi">
+<div><b>5.12 Hz</b><span>录音室颤音速率整体中位</span></div>
+<div><b>0.27 Hz</b><span>八张专辑之间的漂移</span></div>
+<div><b>86 音分</b><span>颤音幅度中位</span></div>
+<div><b>4.79–4.97 Hz</b><span>六轮巡演中位区间</span></div>
+</div>
+
+<h2>一、现象</h2>
+<div class="card">
+<p>把 72 首录音室曲目的<b>颤音速率</b>（每秒调制次数）逐曲测出来，按专辑取中位：
+八张专辑的中位全部落在 <b>5.07–5.34 Hz</b>，整体中位 <b>5.12 Hz</b>，
+专辑之间的漂移只有 <b>0.27 Hz</b>。六轮巡演各轮的中位为 <b>4.79–4.97 Hz</b>，
+比录音室系统性慢 0.2–0.3 Hz（现场更松弛或速度更慢），但<b>轮与轮之间几乎不动</b>。</p>
+<p>颤音速率反映的是<b>神经—肌肉振荡频率</b>，是声带很难长期稳定的指标。八年间几乎不漂，
+意味着它稳定到<b>可以作为声纹指纹</b>使用。</p>
+</div>
+
+<h2>二、方法（可复算）</h2>
+<div class="card">
+<p>QQ 音乐 320k → <code>demucs htdemucs</code> 人声分离 → 自研 numpy YIN 逐帧 F0
+（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动 &lt;0.6 半音）
+→ 逐音符调制分析得到颤音速率（Hz）与幅度（音分）→ 按曲取中位、再按专辑取中位。</p>
+<p>生成器：<code>project_b/build_topic_page.py</code>；数据：<code>data/archive_vocal_albums.json</code>、
+<code>data/archive_stage_tour.json</code>。</p>
+</div>
+
+<h2>三、原始数字</h2>
+<div class="card"><h3 style="font-size:15px;margin:6px 0">八张专辑的颤音速率中位（Hz）</h3>
+<table><tr><th>专辑</th><th>曲数</th><th>颤音速率中位</th></tr><tr><td>B面图景</td><td>10</td><td class='n'>5.07</td></tr><tr><td>X自选集</td><td>9</td><td class='n'>5.07</td></tr><tr><td>不说</td><td>8</td><td class='n'>5.07</td></tr><tr><td>回望</td><td>3</td><td class='n'>5.07</td></tr><tr><td>重游往昔</td><td>8</td><td class='n'>5.15</td></tr><tr><td>歌颂</td><td>10</td><td class='n'>5.20</td></tr><tr><td>Low C的诱惑Ⅱ</td><td>12</td><td class='n'>5.31</td></tr><tr><td>Low C的诱惑</td><td>12</td><td class='n'>5.34</td></tr></table>
+<h3 style="font-size:15px;margin:14px 0 6px">六轮巡演（现场层）</h3>
+<table><tr><th>巡次</th><th>颤音速率中位</th></tr><tr><td>一巡</td><td class='n'>4.79</td></tr><tr><td>二巡</td><td class='n'>4.97</td></tr><tr><td>三巡</td><td class='n'>4.85</td></tr><tr><td>四巡</td><td class='n'>4.79</td></tr><tr><td>五巡</td><td class='n'>4.95</td></tr><tr><td>六巡</td><td class='n'>4.97</td></tr></table>
+</div>
+<div class="card" id="chart" style="height:320px"></div>
+<script>
+var echarts_alb = ["B面图景", "X自选集", "不说", "回望", "重游往昔", "歌颂", "Low C的诱惑Ⅱ", "Low C的诱惑"];
+var echarts_val = [5.07, 5.07, 5.07, 5.07, 5.15, 5.195, 5.31, 5.34];
+var c = echarts.init(document.getElementById('chart'));
+c.setOption({
+  title:{text:'八张专辑颤音速率中位（Hz）',left:'center',textStyle:{fontSize:14}},
+  grid:{left:60,right:30,top:50,bottom:70},
+  xAxis:{type:'category',data:echarts_alb,axisLabel:{rotate:25,fontSize:11}},
+  yAxis:{type:'value',min:4.8,max:5.5,name:'Hz'},
+  tooltip:{trigger:'axis'},
+  series:[{type:'line',data:echarts_val,symbolSize:8,lineStyle:{width:3,color:'#c41e3a'},
+           itemStyle:{color:'#c41e3a'},markLine:{data:[{yAxis:5.12,name:'整体中位'}],
+           lineStyle:{type:'dashed',color:'#7a6e63'},label:{formatter:'整体中位 5.12Hz'}}}]
+});
+window.addEventListener('resize',function(){c.resize();});
+</script>
+
+<h2>四、反面证据与限定（必须一起传播）</h2>
+<div class="card">
+<ul>
+<li><span class="tag">分层</span><b>颤音速率属「组内可纵比、跨组谨慎」层</b>：修音改变的是音高慢变轨迹，
+而颤音速率是 ~5Hz 的快速调制，<b>基本不受修音影响</b>；但<b>幅度可能受轻微影响</b>，故幅度类比较需谨慎。</li>
+<li><span class="tag">现场/录音室</span>现场比录音室系统性慢 0.2–0.3Hz。这是<b>演出状态差异</b>（速度、松弛度、场馆），
+<b>不是能力下降</b>——不可据此说"现场退步"。</li>
+<li><span class="tag">样本</span>72 曲按专辑分组后，各专辑曲数不等（3–12 首），个别专辑样本较小；
+中位稳健但非严格随机抽样。</li>
+<li><span class="tag">不构成评价</span>本页只陈述<b>稳定性事实</b>（速率稳、漂移小），
+<b>不构成"唱得好/不好"的评价</b>——颤音风格快慢属审美范畴（古典歌剧常见 5–7Hz；他是偏流行低吟的审美）。</li>
+</ul>
+</div>
+
+<h2>五、可直接引用的句子</h2>
+<div class="card">
+<ul>
+<li>「<b>一台八年校准误差 0.27Hz 的乐器。</b>」</li>
+<li>「八张专辑、72 首录音室曲目，颤音速率中位始终在 5.07–5.34Hz 之间——
+声带是很难长期稳定的器官，这组数字说明的是<b>稳定性本身</b>。」</li>
+<li>「现场比录音室慢 0.2–0.3Hz：同一台乐器，在不同房间里换了呼吸方式。」</li>
+</ul>
+</div>
+
+<footer>
+口径与完整台账见 <a href="/acoustic-report.html">《王晰声学全量报告》</a>（本站声学数据单一权威源）；
+数字字典 <a href="/data/calibers.md">data/calibers.md</a>。
+本站为非营利性个人学习研究站点，音频素材来自公开平台，如权利人认为不妥请联系删除（侵删）。
+</footer>
+</div><!-- FOOTER_NAV_START -->
+<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
+<strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
+<div style="margin-top:6px;"><b>主入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
+<div style="margin-top:6px;"><b>核心内容：</b><a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/story-hui-guangzhou-2026.html" style="color:#c41e3a;text-decoration:none;">六巡广州站数据复盘</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
+<div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">setlists.html</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a></div>
+<div style="margin-top:6px;"><b>声学·内容：</b><a href="/topic-vibrato.html" style="color:#c41e3a;text-decoration:none;">🎻 颤音指纹专题</a> · <a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a></div>
+<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">🔎 查询与问答</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/acoustic-report.html" style="color:#c41e3a;text-decoration:none;">📊 声学全量报告</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
+</footer>
+<!-- FOOTER_NAV_END -->
+</body></html>
