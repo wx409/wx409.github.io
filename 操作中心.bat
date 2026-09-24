@@ -232,6 +232,7 @@ echo    181. ×¢ÈëÉó¼Æ£¨½á¹ûÖ¸ÎÆ°æ£ºÊ×Ò³ÊÂÊµ/ÌıÖÚËµ/vocalÒôÓòÕªÒª/³¤ÉùÕÂ ÊÇ·ñÕæÂä
 echo    182. ÇúÄ¿È±¿Ú×Ô¶¯²¹±Õ»·£¨²¹ËÑÀ©³Ø¡úÈ±¿ÚÓÅÏÈÏÂÔØ/²âÁ¿¡ú¾ÛºÏ¡ú»ØĞ´Õ¾µãÊı¾İ£©
 echo    183. ÊÓÆµÒô¹ìÈë¿â£¨×ÔÂ¼/Î¢²©Ö±ÅÄÊÓÆµ ¡ú ³éÒô¹ì ¡ú ·ÖÀë/F0 ¡ú Èë¿â£»GÅÌÎ´¹ÒÔØ×Ô¶¯Ìø¹ı£©
 echo    184. ´ıÈË¶úÈ·ÈÏÇåµ¥£¨»ã×ÜÌ¨ÕË´ıºË+³¤ÉùÕ¢ÃÅ£¬²¢×Ô¶¯ÇĞÈ±Ê§Ñù±¾£©
+echo    185. ÒôÆµ×Ê²úÌ¨ÕË£¨ÖğÅú´ÎÅÌµã£ºÎÄ¼ş/ÌåÁ¿/ÒÑ·ÖÎö/ĞÂÔö£»½ø±¨¸æ¡¸×Ê²úÌ¨ÕË¡¹ÕÂ£©
 echo    0. ÍË³ö
 echo.
 set "op="
@@ -420,6 +421,7 @@ if "%op%"=="181" goto audit_inject
 if "%op%"=="182" goto gap_loop
 if "%op%"=="183" goto video_ingest
 if "%op%"=="184" goto pending_review
+if "%op%"=="185" goto audio_assets
 echo   [!] ÎŞĞ§Ñ¡Ïî£¬ÇëÖØÊÔ
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2522,5 +2524,14 @@ echo  ²ú³ö£ºtemp\´ıÌı±æÇåµ¥.md£¨ÈË¶Á£©£« data\pending_review.json£¨»ú¶Á£¬²»º¬±¾µ
 echo  ÌıÍêºó£º159 Ìı±æÌ¨ÕË»ØÌî -^> 160 ¶¨°¸ºóÖØ½¨
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_pending_review.py --cut
+pause
+goto menu
+
+:audio_assets
+cls
+echo  [ÒôÆµ×Ê²úÌ¨ÕË] ÖğÅú´ÎÇåµã£ºÒôÆµÎÄ¼şÊı/ÌåÁ¿/ÒÑ·ÖÎö²úÎï/±¾ÈÕĞÂÔö
+echo  ²ú³ö£ºdata\audio_assets.json£¨»ú¶Á£©£« ÒôÓò·ÖÎö\ÒôÆµ×Ê²úÌ¨ÕË.md£¨±¾µØÈË¶Á£©
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_audio_assets.py
 pause
 goto menu

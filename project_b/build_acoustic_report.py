@@ -144,6 +144,7 @@ def main() -> int:
 
     _CLAIM = {"人耳确认", "谐波列通过", "双引擎一致"}
     _conf = [r for r in rows if row_status(r) in _CLAIM]
+    _soft = [r for r in rows if "HNR 低于门槛" in row_status(r)]
     _pend = [r for r in rows if row_status(r).startswith("待复核")]
     _unver = [r for r in rows if row_status(r).startswith("不可复核")]
     _rej = [r for r in rows if row_status(r).startswith("人耳否决")]
@@ -266,6 +267,34 @@ def main() -> int:
     _vib_span = (max(_vib_v) - min(_vib_v)) if _vib_v else None
     _vib_ext = _st.median([x["vibrato_cents"] for x in songs if x.get("vibrato_cents")])
     _tour_vib = [t.get("vibrato_rate_hz_median") for t in by_tour if t.get("vibrato_rate_hz_median")]
+    # ---- 资产台账与来源构成（2026-09-24 新增）----
+    _assets = load("audio_assets.json")
+    _as = _assets.get("summary", {}) if isinstance(_assets, dict) else {}
+
+    def _src_kind(r):
+        t = str(r.get("tag") or "")
+        if "_v" in t and t.split("_v")[0][-8:].isdigit():
+            return "自录视频抽轨"
+        if "BV" in t or "__P" in t or "分P" in t:
+            return "B站转载音轨"
+        return "自录直拍/其他"
+
+    _sk = {}
+    for _r in rows:
+        k = _src_kind(_r)
+        d0 = _sk.setdefault(k, {"n": 0, "cl": 0, "hnr": [], "low": [], "span": []})
+        d0["n"] += 1
+        d0["cl"] += int(bool(_r.get("claimable")))
+        if isinstance(_r.get("hnr_db"), (int, float)):
+            d0["hnr"].append(_r["hnr_db"])
+        if isinstance(_r.get("low_hz"), (int, float)):
+            d0["low"].append(_r["low_hz"])
+        if isinstance(_r.get("span_octaves"), (int, float)):
+            d0["span"].append(_r["span_octaves"])
+
+    def _med2(v):
+        return round(_st.median(v), 1) if v else None
+
     _ln = load("archive_long_notes.json")
     _ln_top = _ln.get("top", [])[:10]
     _ln_flag = (_ln.get("verdict_check") or {}).get("flagged", [])
@@ -336,6 +365,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <a href="#verdicts">复核裁决（{len(v_items)} 条）</a>
 <a href="#coverage">场次覆盖地图</a>
 <a href="#cover">选曲与翻唱</a>
+<a href="#assets">资产台账与来源构成</a>
 <a href="#arc">风格与能力弧线</a>
 <a href="#case968">案例卡·莫斯科968Hz</a>
 <a href="#limits">已知边界</a>
@@ -390,14 +420,14 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <p class="lead">权威背书：{esc(voc.get('authority',''))}</p>
 </section>
 
-<section id="tour"><h2>现场层 · {len(rows)} 条素材（可主张 {len(_conf)} / 待复核 {len(_pend)} / 不可复核 {len(_unver)} / 已否决 {len(_rej)}）</h2>
+<section id="tour"><h2>现场层 · {len(rows)} 条素材（<b>可主张 {len(_conf)}</b> / 弱可主张 {len(_soft)} / 待复核 {len(_pend)} / 不可复核 {len(_unver)} / 已否决 {len(_rej)}）</h2>
 <p class="lead">默认只列<b>可主张</b>（人耳确认 + 谐波列通过 + 双引擎一致）。其余四类折在下方——
 台账<b>不藏否决与未决</b>，但也<b>不拿未确权读数当结论</b>。
 其中「<b>不可复核（缺混音/时间）</b>」是<b>永久状态</b>：缺原始混音就无法做谐波列判定，属物理条件不足，
 已从能力主张中排除，不再按"待复核"长期挂账。</p>
 <div class="scroll">{tour_tbl}</div>
 <details style="margin-top:10px"><summary style="cursor:pointer;color:#a31832;font-size:14px;">
-展开其余 {len(_unrev)} 条（待复核 {len(_pend)}｜不可复核 {len(_unver)}｜已否决 {len(_rej)}，仅供参考，不作能力依据）</summary>
+展开其余 {len(_unrev)} 条（弱可主张 {len(_soft)}｜待复核 {len(_pend)}｜不可复核 {len(_unver)}｜已否决 {len(_rej)}，仅供参考，不作能力依据）</summary>
 <div class="scroll" style="margin-top:8px">{unrev_tbl}</div></details>
 </section>
 
@@ -443,6 +473,32 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 唯一差别是"是否他的作品"。<b>但当前只有 {did.get('n_shows',0)} 场同时满足"≥2 首自有 + ≥2 首翻唱且都有指数数据"</b>，
 DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样本不足</b>；要跑通得先让更多曲目进入指数池，或改用"同曲跨场"配对。</p>
 <div class="scroll">{cov_tbl}</div>
+</section>
+
+<section id="assets"><h2>资产台账与来源构成（素材是怎么来的）</h2>
+<p class="lead">「现场层 636 条」是个聚合数；这一章回答<b>资产从哪来、哪天进库、质量如何</b>——
+传记需要可追溯账本，而不是单一总量。</p>
+<div class="kpi-row">
+<div class="kpi"><b>{_as.get('batches','—')}</b><span>采集批次</span></div>
+<div class="kpi"><b>{_as.get('files','—')}</b><span>音频文件总数</span></div>
+<div class="kpi"><b>{_as.get('gb','—')} GB</b><span>音频资产体量</span></div>
+<div class="kpi"><b>{_as.get('stats_total','—')}</b><span>逐曲分析产物（_stats）</span></div>
+<div class="kpi"><b>{_as.get('new_files','—')} 个 / {_as.get('new_mb','—')} MB</b><span>本日新增（源音频）</span></div>
+</div>
+<h3>① 按来源类型对照（同管线、同口径）</h3>
+{table([["<b>" + k + "</b>", v["n"], v["cl"], ("%.0f%%" % (100 * v["cl"] / max(v["n"], 1))),
+        _med2(v["hnr"]), _med2(v["low"]), _med2(v["span"])]
+       for k, v in sorted(_sk.items(), key=lambda x: -x[1]["n"])],
+      ["来源", "条数", "可主张", "可主张率", "HNR中位(dB)", "最低音中位(Hz)", "跨度中位(八度)"], "srckind")}
+<p class="lead">⚠️ <b>三条限定，缺一不可</b>：① <b>稳定性/TET 属修音敏感层</b>，自录与转载录音条件不同，
+<b>不可跨组比较</b>；② 可主张率差异可能来自<b>分离质量、伴奏密度、基频可检测性</b>，不是唱功差异；
+③ 自录素材<b>无曲目标注</b>，只能进「场次层」结论（"那晚唱到多低/多高"），不能进「曲目层」。</p>
+<h3>② HNR 门槛：可主张 {summary.get('n_claimable','—')} / 弱可主张 {summary.get('n_claimable_soft','—')}</h3>
+<p class="lead">站内铁律：<b>稳定音须 HNR ≥ {summary.get('hnr_gate_db','5')} dB</b>。
+2026-09-24 起，材料级 HNR 低于门槛的机器结论（谐波列通过）改标「<b>谐波列通过（HNR 低于门槛）</b>」，
+计入<b>弱可主张</b>：可用于场次覆盖，<b>不作能力依据</b>。另有两类特殊标注：
+<b>HNR 异常（疑分离失败）</b>、<b>不可复核（缺混音/时间）</b>。
+<b>人耳确认不受此门槛降级</b>——人耳结论优先于材料级机器指标。</p>
 </section>
 
 <section id="case968"><h2>案例卡 · 莫斯科 968Hz（极端条件下的最强样本）</h2>
@@ -494,6 +550,10 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>
 <ul>
+<li><b>自录片段曲目未标注</b>：视频抽轨素材（如四巡上海 2023-12-31 的 33 条）来自手机连续拍摄，
+  无曲目信息，<b>只能做场次级结论</b>；引用时须写「该场某片段」而非「某曲」。</li>
+<li><b>材料级 HNR 只作守卫</b>：门槛用材料中位 HNR 判定，不等于「该音符本身」的 HNR；
+  站内音符级门槛（≥0.2s、HNR≥5dB、强度达标）仍由测量脚本逐音符执行。</li>
 <li><b>高音区长声已设闸门（2026-09-21）</b>：长声检测跑在 demucs 的 vocals 轨上，而该轨**包含和声**——
   三次人耳抽查**全否**（F5 698Hz 女声/伴奏、C#5 559Hz 非本人、A5 888Hz 同音区存疑）。
   故 **C5 及以上长声一律标「待归属确认」并移出榜单**，需人耳确认后才回榜；

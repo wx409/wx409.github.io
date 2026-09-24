@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 08:45",
+ "generated_at": "2026-09-24 09:55",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 184,
-  "dispatch": 183,
-  "deploy_steps": 71,
+  "menu_items": 185,
+  "dispatch": 184,
+  "deploy_steps": 72,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1416,6 +1416,16 @@
    "path": "D:\\wx409.github.io\\project_b\\build_pending_review.py"
   },
   {
+   "script": "build_audio_assets.py",
+   "in_deploy": true,
+   "deploy_desc": "音频资产台账 data/audio_assets.json",
+   "critical": false,
+   "menu": 185,
+   "title": "音频资产台账（逐批次盘点：文件/体量/已分析/新增；进报告「资产台账」章）",
+   "menu_label": "audio_assets",
+   "path": "D:\\wx409.github.io\\project_b\\build_audio_assets.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1640,7 +1650,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/24 9:00:00",
+    "next": "2026/9/24 16:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 09:40",
+ "generated_at": "2026-09-24 09:53",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -15,14 +15,18 @@
   "n_songs": 150,
   "n_tours": 8,
   "n_verified": 525,
-  "n_claimable": 512,
+  "n_claimable": 265,
+  "n_claimable_soft": 245,
+  "hnr_gate_db": 5.0,
   "n_unverifiable": 4,
   "review_status_dist": {
-   "谐波列通过": 464,
+   "谐波列通过（HNR 低于门槛）": 245,
+   "谐波列通过": 217,
    "待复核（谐波列待判）": 95,
    "人耳确认": 48,
    "人耳否决（非王晰）": 25,
-   "不可复核（缺混音/时间）": 4
+   "不可复核（缺混音/时间）": 4,
+   "谐波列通过（HNR 异常，疑分离失败）": 2
   },
   "n_harmonic_reviewed": 472,
   "lowest": {
@@ -280,6 +284,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -335,6 +340,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -390,6 +396,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -445,6 +452,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "performer": "他人演唱（嘉宾）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -504,6 +512,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1050.6,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -559,6 +568,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -613,6 +623,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -667,8 +678,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p6_贝加尔湖畔",
@@ -723,6 +735,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -781,6 +794,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1047.9,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -835,6 +849,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -889,6 +904,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -947,6 +963,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1048.0,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1003,6 +1020,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1057,8 +1075,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p33_吃播",
@@ -1111,8 +1130,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p24_痒1",
@@ -1169,6 +1189,7 @@
    "ear_verdict": "人耳判定非王晰",
    "high_hz_original": 1008.1,
    "high_note_original": "B5",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1225,6 +1246,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1279,8 +1301,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p4_问候妆容和打光所有场最美！",
@@ -1338,6 +1361,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1004.9,
    "high_note_original": "B5",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1392,8 +1416,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p6_晚风暖暖",
@@ -1448,6 +1473,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1507,6 +1533,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1046.4,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1562,6 +1589,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "performer": "合唱（含王晰与他人）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -1616,8 +1644,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p7_Yourman",
@@ -1672,6 +1701,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -1726,8 +1756,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p23_yourman",
@@ -1780,8 +1811,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p15_她来听我的演唱会",
@@ -1836,6 +1868,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -1890,6 +1923,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -1943,6 +1977,7 @@
      47.4
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -1998,6 +2033,7 @@
    },
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -2052,8 +2088,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京20200102b_BV1KJ41177fC",
@@ -2105,6 +2142,7 @@
      37.9
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2158,6 +2196,7 @@
      34.3
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2216,6 +2255,7 @@
    "ear_verdict": "人耳判定非王晰",
    "high_hz_original": 1051.2,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -2270,8 +2310,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p24_同门的祝福",
@@ -2324,8 +2365,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p30_日语歌恋人哟",
@@ -2378,8 +2420,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p2_玛莲娜",
@@ -2432,8 +2475,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p5_心动",
@@ -2487,6 +2531,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -2541,6 +2586,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2595,6 +2641,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2649,6 +2696,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2703,6 +2751,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2761,6 +2810,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1030.2,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -2815,6 +2865,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2869,6 +2920,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -2925,6 +2977,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -2979,8 +3032,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡北京收官20200102_p19_Cometome",
@@ -3033,8 +3087,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p29_山楂树",
@@ -3087,8 +3142,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p27_直到世界尽头",
@@ -3141,8 +3197,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡厦门20191221_p10_李彦锋2",
@@ -3196,6 +3253,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "performer": "他人演唱（嘉宾）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -3251,6 +3309,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "performer": "他人演唱（嘉宾）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -3311,6 +3370,7 @@
    "low_hz_original": 78.7,
    "low_note_original": "D#2",
    "performer": "触达音（基频缺失）",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -3368,8 +3428,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1035.8,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20210411 王晰二巡南京收官站全场__BV__P01_20210411 王晰二巡南京收官站上半场",
@@ -3422,8 +3483,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p01_【王晰】2020个人巡回音乐会 11.21佛山场 p01 01 花儿为",
@@ -3479,6 +3541,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1047.4,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -3533,6 +3596,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -3589,6 +3653,7 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -3646,6 +3711,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1047.4,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -3687,6 +3753,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1066.0,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "不可复核（缺混音/时间）",
    "claimable": false
   },
@@ -3741,6 +3808,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -3795,8 +3863,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p26_【王晰】2020个人巡回音乐会 11.21佛山场 p26 26 点歌环",
@@ -3849,6 +3918,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -3903,8 +3973,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p16_【王晰】2020个人巡回音乐会 11.21佛山场 p16 16 你们发",
@@ -3957,8 +4028,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p25_【王晰】2020个人巡回音乐会 11.21佛山场 p25 25 点歌环",
@@ -4011,8 +4083,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p13_【王晰】2020个人巡回音乐会 11.21佛山场 p13 13 如果云",
@@ -4068,6 +4141,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1020.9,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -4122,8 +4196,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20210411 王晰二巡南京收官站全场__BV__P03_20210411 王晰二巡南京收官站 Encore",
@@ -4176,8 +4251,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p30_【王晰】2020个人巡回音乐会 11.21佛山场 p30 30 你",
@@ -4230,6 +4306,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -4284,6 +4361,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -4338,8 +4416,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p18_【王晰】2020个人巡回音乐会 11.21佛山场 p18 18 一定要",
@@ -4392,8 +4471,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p20_【王晰】2020个人巡回音乐会 11.21佛山场 p20 20 唠嗑part",
@@ -4446,8 +4526,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p27_【王晰】2020个人巡回音乐会 11.21佛山场 p27 27 点歌环",
@@ -4500,8 +4581,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p07_【王晰】2020个人巡回音乐会 11.21佛山场 p07 07 唠嗑 邓",
@@ -4554,8 +4636,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p10_【王晰】2020个人巡回音乐会 11.21佛山场 p10 10 哭砂",
@@ -4608,8 +4691,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p09_【王晰】2020个人巡回音乐会 11.21佛山场 p09 09 唠嗑 说",
@@ -4662,8 +4746,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p19_【王晰】2020个人巡回音乐会 11.21佛山场 p19 19 Dear frien",
@@ -4716,6 +4801,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -4770,8 +4856,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡南京20210411b_BV1SZ4y1c7Xb",
@@ -4823,6 +4910,7 @@
      29.5
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -4877,8 +4965,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p31_【王晰】2020个人巡回音乐会 11.21佛山场 p31 31 等一等",
@@ -4931,8 +5020,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p02_【王晰】2020个人巡回音乐会 11.21佛山场 p02 02 City of st",
@@ -4985,8 +5075,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p24_【王晰】2020个人巡回音乐会 11.21佛山场 p24 24 点歌环",
@@ -5039,8 +5130,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p28_【王晰】2020个人巡回音乐会 11.21佛山场 p28 28 唠嗑结",
@@ -5093,8 +5185,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p17_【王晰】2020个人巡回音乐会 11.21佛山场 p17 17 像雾像",
@@ -5147,8 +5240,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡南京20210411_串烧窗口_BV1S54y1b7HW",
@@ -5200,6 +5294,7 @@
      16.9
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -5254,8 +5349,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡南京20210411_BV1pL411n7Ns",
@@ -5307,6 +5403,7 @@
      15.2
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -5361,6 +5458,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -5415,8 +5513,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡佛山20201121_p29_【王晰】2020个人巡回音乐会 11.21佛山场 p29 29 王牌就",
@@ -5472,8 +5571,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1016.1,
    "high_note_unconfirmed": "B5",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p01_王晰三巡上海站 20220110 p01 送别",
@@ -5526,6 +5626,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5580,6 +5681,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5634,6 +5736,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5688,6 +5791,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5742,6 +5846,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5796,6 +5901,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5850,6 +5956,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5904,6 +6011,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -5958,6 +6066,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -6012,8 +6121,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P13_为爱痴狂 牵手 可爱的一朵玫瑰花",
@@ -6066,8 +6176,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P03_惑许 达尔文 车站 橄榄树",
@@ -6120,8 +6231,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡长沙20220624_p09_王晰三巡0624长沙全场（自存） p09 高级动物 爱你",
@@ -6174,6 +6286,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -6231,6 +6344,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1014.3,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -6288,8 +6402,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1059.7,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P14_talk 洪湖水浪打浪",
@@ -6342,8 +6457,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p10_王晰三巡上海站 20220110 p10 唠嗑3",
@@ -6396,8 +6512,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡深圳20230623_BV1QP411v7KR",
@@ -6449,6 +6566,7 @@
      21.2
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -6503,8 +6621,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P02_哑光",
@@ -6557,8 +6676,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p08_王晰三巡上海站 20220110 p08 唠嗑2",
@@ -6611,8 +6731,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P11_玩笑 倒叙",
@@ -6668,8 +6789,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1053.4,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p16_王晰三巡上海站 20220110 p16 让我欢喜让我忧",
@@ -6722,6 +6844,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -6776,6 +6899,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -6830,6 +6954,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -6884,8 +7009,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P12_这世界那么多人 暧昧 叶子 同类",
@@ -6938,6 +7064,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -6992,6 +7119,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7046,8 +7174,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡太原20220715_BV1bN4y1T7wR",
@@ -7100,6 +7229,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -7154,8 +7284,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡无锡20220109_BV1rZ4y1S7uc",
@@ -7208,8 +7339,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P04_突然想爱你 眼泪",
@@ -7262,8 +7394,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p07_王晰三巡上海站 20220110 p07 橄榄树",
@@ -7316,6 +7449,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7373,6 +7507,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1044.5,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7427,8 +7562,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P15_军港之夜",
@@ -7481,8 +7617,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P10_时空",
@@ -7535,6 +7672,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7589,6 +7727,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7643,6 +7782,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7697,6 +7837,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7751,6 +7892,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -7805,6 +7947,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7859,8 +8002,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p14_王晰三巡上海站 20220110 p14 虫儿飞",
@@ -7913,6 +8057,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -7967,8 +8112,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p05_王晰三巡上海站 20220110 p05 惑许（后半段）",
@@ -8021,6 +8167,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -8075,6 +8222,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -8132,8 +8280,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1031.4,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡长沙20220624_p08_王晰三巡0624长沙全场（自存） p08 点歌 第三首",
@@ -8186,8 +8335,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p12_王晰三巡上海站 20220110 p12 “彩胶”",
@@ -8240,8 +8390,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三巡上海20220110_p21_王晰三巡上海站 20220110 p21 拜拜",
@@ -8294,8 +8445,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p6_朝凤",
@@ -8351,6 +8503,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1015.3,
    "high_note_original": "B5",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -8406,6 +8559,7 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -8438,6 +8592,7 @@
    "a3_final_note": "人耳确认（听辨）",
    "source_layer": "十曲精测",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -8492,8 +8647,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p31_BesameMucho",
@@ -8550,6 +8706,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1007.0,
    "high_note_original": "B5",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -8604,8 +8761,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v25",
@@ -8658,8 +8816,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v05",
@@ -8712,8 +8871,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p13_海然海然+嘎达梅林",
@@ -8766,6 +8926,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -8822,6 +8983,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -8876,8 +9038,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p8_crystalstore",
@@ -8930,8 +9093,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p2_迷雾",
@@ -8984,6 +9148,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9038,8 +9203,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v13",
@@ -9092,8 +9258,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p10_永不失联的爱",
@@ -9146,6 +9313,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9200,8 +9368,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v27",
@@ -9254,8 +9423,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v11",
@@ -9308,8 +9478,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡 直拍_BV1Ab4y1g7Wj",
@@ -9340,6 +9511,7 @@
    "a3_final_note": "人耳确认（听辨）",
    "source_layer": "十曲精测",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -9394,6 +9566,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9448,8 +9621,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p33_崇拜",
@@ -9502,6 +9676,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9556,8 +9731,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p16_爱的箴言",
@@ -9610,6 +9786,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9650,6 +9827,7 @@
    },
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -9704,6 +9882,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9758,6 +9937,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9812,8 +9992,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p15_矜持+难以抗拒你的容颜+为你我受冷风吹",
@@ -9866,6 +10047,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -9920,8 +10102,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v09",
@@ -9974,8 +10157,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v29",
@@ -10028,8 +10212,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v26",
@@ -10082,8 +10267,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v20",
@@ -10136,8 +10322,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p27_生日part",
@@ -10190,8 +10377,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p5_小河",
@@ -10244,6 +10432,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -10298,6 +10487,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -10352,6 +10542,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -10406,8 +10597,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v21",
@@ -10460,8 +10652,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p30_生日快乐歌",
@@ -10514,8 +10707,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p12_友谊地久天长",
@@ -10580,6 +10774,7 @@
    "high_listen_reason": "2026-09-15 人耳听辨（样本见 音域分析\\听辨样本\\）：C6 不是、C5 是。机器侧谐波列亦显示 t=218.4~222.4s 的 1f0(523Hz) 弱、2f0(1046) 与 3f0(1569) 强、1569=3×523 → 真基频 523Hz。两个独立通道结论一致。",
    "high_t_s": 220.0,
    "high_dur_s": 4.0,
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -10634,6 +10829,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -10688,8 +10884,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v01",
@@ -10742,8 +10939,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p21_猫模狗样",
@@ -10796,6 +10994,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -10850,8 +11049,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v30",
@@ -10904,8 +11104,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海生日20240406_p4_也许",
@@ -10958,6 +11159,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -11012,6 +11214,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -11082,6 +11285,7 @@
    "high_listen_reason": "2026-09-15 人耳听辨（样本见 音域分析\\听辨样本\\）：C6 不是、C5 是。机器侧谐波列亦显示 t=218.4~222.4s 的 1f0(523Hz) 弱、2f0(1046) 与 3f0(1569) 强、1569=3×523 → 真基频 523Hz。两个独立通道结论一致。",
    "high_t_s": 220.0,
    "high_dur_s": 4.0,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -11138,6 +11342,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -11208,6 +11413,7 @@
    "high_listen_reason": "2026-09-15 人耳听辨（样本见 音域分析\\听辨样本\\）：C6 不是、C5 是。机器侧谐波列亦显示 t=218.4~222.4s 的 1f0(523Hz) 弱、2f0(1046) 与 3f0(1569) 强、1569=3×523 → 真基频 523Hz。两个独立通道结论一致。",
    "high_t_s": 220.0,
    "high_dur_s": 4.0,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -11262,6 +11468,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -11316,6 +11523,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -11348,6 +11556,7 @@
    "a3_final_note": "人耳确认（听辨）",
    "source_layer": "十曲精测",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -11402,8 +11611,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v24",
@@ -11456,6 +11666,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -11510,6 +11721,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -11564,8 +11776,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v03",
@@ -11618,6 +11831,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -11672,6 +11886,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -11726,8 +11941,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "四巡上海20231231_v36",
@@ -11780,8 +11996,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121203939 0034 住口6 talk 在路上 talk 勿扰 talk",
@@ -11834,6 +12051,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -11888,6 +12106,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -11942,6 +12161,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -11996,8 +12216,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121212548 0039 好久不见 你怎么值得我难过 约定",
@@ -12050,8 +12271,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121210423 0037 talk 明白 talk 鹅毛信",
@@ -12104,8 +12326,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121195344 0028 床前明月光 暗潮涌动 我真的受伤了",
@@ -12158,8 +12381,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121214316 0040 talk 祝我们随遇而安 talk",
@@ -12212,8 +12436,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "长沙20250101_BV1JErWYVEYs",
@@ -12266,6 +12491,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12320,6 +12546,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12374,8 +12601,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "长沙20250101_BV1shrwYREjc",
@@ -12428,8 +12656,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121205303 0035 无尽的夜里第1遍",
@@ -12482,8 +12711,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "广州20250524_BV1AxjKzmES3",
@@ -12536,6 +12766,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12590,6 +12821,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -12644,6 +12876,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12698,8 +12931,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "广州20250524_BV1bkj3z3Eid",
@@ -12755,6 +12989,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1052.7,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12809,6 +13044,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12863,8 +13099,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "杭州20241221_BV16dryYBE8v",
@@ -12917,6 +13154,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -12971,6 +13209,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13025,8 +13264,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251121203851 0032 住口4",
@@ -13079,6 +13319,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13136,6 +13377,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1034.8,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -13190,6 +13432,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13244,8 +13487,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡重庆20260613__BV1KwJx6iEza",
@@ -13301,6 +13545,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1071.8,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -13355,6 +13600,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13411,6 +13657,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -13465,6 +13712,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13519,8 +13767,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_回_p1_花儿为什么这样红",
@@ -13575,6 +13824,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -13629,6 +13879,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -13683,6 +13934,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13740,6 +13992,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1026.8,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -13794,6 +14047,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13848,6 +14102,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13902,6 +14157,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -13956,6 +14212,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14010,6 +14267,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14064,6 +14322,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14118,6 +14377,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14172,6 +14432,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14226,8 +14487,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_回_p9_一生守候",
@@ -14280,6 +14542,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14334,6 +14597,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14388,8 +14652,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_回_p14_平凡又美好的晚上",
@@ -14442,6 +14707,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14496,8 +14762,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_回_p6_月半弯",
@@ -14552,6 +14819,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -14606,6 +14874,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14662,6 +14931,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -14716,6 +14986,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14769,6 +15040,7 @@
      31.2
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14823,8 +15095,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_4_Yesterday Once More",
@@ -14877,6 +15150,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -14932,6 +15206,7 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -14986,6 +15261,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15040,8 +15316,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_15_女人花+水中花",
@@ -15094,6 +15371,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15150,6 +15428,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -15204,6 +15483,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15263,6 +15543,7 @@
    "high_verdict": "人耳确认为王晰本人",
    "high_listen_verified": true,
    "c6_status": "人耳确认（可作能力依据）",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -15316,6 +15597,7 @@
      38.2
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15373,8 +15655,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1057.7,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_16_Your Man",
@@ -15427,8 +15710,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_5339130699449225_下半场_让",
@@ -15481,6 +15765,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15535,6 +15820,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15590,6 +15876,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -15644,6 +15931,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15698,6 +15986,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -15753,6 +16042,7 @@
    },
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -15807,6 +16097,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -15861,6 +16152,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -15915,6 +16207,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -15969,8 +16262,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_2_橄榄树",
@@ -16023,6 +16317,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16076,6 +16371,7 @@
      29.5
     ]
    },
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16130,6 +16426,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16184,6 +16481,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -16237,8 +16535,9 @@
      31.8
     ]
    },
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_回_p16_Yourman",
@@ -16294,6 +16593,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1039.3,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -16351,6 +16651,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1050.8,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -16405,6 +16706,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16459,8 +16761,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州20260823_回_p17_Yourman②",
@@ -16516,6 +16819,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1038.4,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -16570,6 +16874,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16625,6 +16930,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -16684,6 +16990,7 @@
    "high_verdict": "段内含王晰声音，但极值归属待定（含伴奏/他人）",
    "high_hz_original": 1057.1,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -16738,6 +17045,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16792,6 +17100,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16846,6 +17155,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -16903,8 +17213,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1018.6,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】2020全国个人巡回音乐会-南宁站 全程__P01_上半场",
@@ -16957,6 +17268,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17013,6 +17325,7 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -17069,6 +17382,7 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -17126,6 +17440,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1036.5,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17180,6 +17495,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17237,6 +17553,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1047.7,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17294,6 +17611,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1013.2,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17348,6 +17666,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17402,6 +17721,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -17459,6 +17779,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1001.9,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17513,6 +17834,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17570,6 +17892,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1060.3,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17625,6 +17948,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -17679,8 +18003,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】2021全国个人巡回音乐会-武汉站  全__P02_下半场①",
@@ -17733,6 +18058,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17788,6 +18114,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -17842,6 +18169,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -17897,6 +18225,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -17951,6 +18280,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18008,6 +18338,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1008.1,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18062,8 +18393,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "07_橄榄树",
@@ -18119,6 +18451,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1048.7,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18174,6 +18507,7 @@
    },
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -18231,8 +18565,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1034.9,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡深圳__BV1LJ411K78S_p1",
@@ -18288,8 +18623,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1047.0,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "B面图景杭州签唱全场62min__BV1NQ4y1e7rf",
@@ -18342,6 +18678,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18399,6 +18736,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1014.9,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18456,6 +18794,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1025.7,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18513,6 +18852,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1005.5,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18567,8 +18907,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰《歌颂》北京签唱会__BV1hK411N7X__P07_talk+清唱被遗忘的时光",
@@ -18621,6 +18962,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18678,6 +19020,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1002.8,
    "high_note_unconfirmed": "B5",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -18735,8 +19078,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1014.3,
    "high_note_unconfirmed": "B5",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡·Che_上海__BV1fJ411x7nV",
@@ -18792,8 +19136,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1055.9,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰《歌颂》北京签唱会__BV1hK411N7X__P03_talk",
@@ -18846,8 +19191,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】2021全国个人巡回音乐会-武汉站  全__P03_下半场②",
@@ -18903,8 +19249,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1034.7,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P07_7.歌迷祝福VCR",
@@ -18957,8 +19304,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰个人音乐会六巡《回》广州站__BV1ZX4d__P02_下半场",
@@ -19014,8 +19362,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1060.7,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "新素材11j7s7_BV19J411j7s7",
@@ -19068,8 +19417,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_1_花儿为什么这样红",
@@ -19122,6 +19472,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -19176,6 +19527,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -19230,6 +19582,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -19284,6 +19637,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -19338,8 +19692,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20201223_BV1XK4y1V7y7",
@@ -19392,8 +19747,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P03_《也许》",
@@ -19446,8 +19802,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P21_碎碎念",
@@ -19500,8 +19857,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p6_茕茕",
@@ -19554,6 +19912,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -19611,6 +19970,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1048.7,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -19665,8 +20025,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰三巡鄂尔多斯站全场__BV1XU4y1i7s__P02_鄂尔多斯全场下1",
@@ -19719,8 +20080,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "签唱会上海20250501_p01_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
@@ -19776,6 +20138,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1025.1,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -19833,8 +20196,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1065.3,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰《歌颂》北京签唱会__BV1hK411N7X__P05_talk",
@@ -19887,6 +20251,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -19944,6 +20309,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1028.3,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -19998,6 +20364,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -20053,6 +20420,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -20107,6 +20475,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -20161,8 +20530,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "新素材y167VR_BV1Ct4y167VR",
@@ -20218,8 +20588,9 @@
    "high_verdict": "人耳确认为王晰本人",
    "high_listen_verified": true,
    "c6_status": "人耳确认（可作能力依据）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20201116_BV1fr4y1F769",
@@ -20272,6 +20643,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -20326,6 +20698,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -20380,6 +20753,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -20434,6 +20808,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -20488,6 +20863,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -20544,6 +20920,7 @@
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -20585,6 +20962,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1032.6,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "不可复核（缺混音/时间）",
    "claimable": false
   },
@@ -20639,8 +21017,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P05_《crystal stone》",
@@ -20693,8 +21072,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰《歌颂》北京签唱会__BV1hK411N7X__P04_come to me",
@@ -20747,6 +21127,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -20804,6 +21185,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1043.3,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -20858,8 +21240,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P09_祝我们随遇而安_钟爱一生",
@@ -20915,6 +21298,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1044.0,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -20969,6 +21353,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -21023,6 +21408,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -21079,6 +21465,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -21133,6 +21520,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21187,6 +21575,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21241,8 +21630,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡·Che_南京_14_BV1rt411K7wc_p14",
@@ -21295,6 +21685,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21352,6 +21743,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1062.5,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -21409,8 +21801,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1018.6,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "03_知晓",
@@ -21463,6 +21856,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21517,6 +21911,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21571,6 +21966,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21625,8 +22021,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡·Che_南京_13_BV1rt411K7wc_p13",
@@ -21679,8 +22076,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P20_《Besame Mucho》",
@@ -21736,8 +22134,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1013.2,
    "high_note_unconfirmed": "B5",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p7_茕茕",
@@ -21790,6 +22189,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -21844,6 +22244,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -21898,8 +22299,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "签唱会上海20230409_王晰新专辑《X自选集》生日签唱会全场",
@@ -21955,8 +22357,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1019.2,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "签唱会上海20250501_p04_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
@@ -22009,6 +22412,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -22063,8 +22467,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】二巡歌颂 201129北京场 全场 更新__P03_3. 茕茕 +talk  （对不起，我手癌）",
@@ -22120,8 +22525,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1032.4,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P03_3.问答环节",
@@ -22174,8 +22580,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "19_在水一方",
@@ -22228,8 +22635,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P16_点歌《北国之春》",
@@ -22282,8 +22690,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P09_《追梦人》",
@@ -22336,6 +22745,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22391,6 +22801,7 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -22445,8 +22856,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_4_再见我的爱人",
@@ -22499,6 +22911,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22556,6 +22969,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1030.6,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22610,6 +23024,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22664,6 +23079,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22718,8 +23134,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P10_雪孩子",
@@ -22772,6 +23189,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -22826,6 +23244,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -22880,6 +23299,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22934,6 +23354,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -22988,6 +23409,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23042,6 +23464,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23096,6 +23519,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23150,6 +23574,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23204,6 +23629,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23258,6 +23684,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23312,6 +23739,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23366,8 +23794,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "成都20191128_BV1HJ411978y",
@@ -23420,6 +23849,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23474,8 +23904,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "10人世间",
@@ -23528,6 +23959,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23582,6 +24014,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23636,6 +24069,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23690,6 +24124,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -23731,6 +24166,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1042.1,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "不可复核（缺混音/时间）",
    "claimable": false
   },
@@ -23785,6 +24221,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -23839,8 +24276,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P13_时光慢旅+慢慢地+从前慢+慢慢喜欢你",
@@ -23893,6 +24331,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -23947,6 +24386,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24001,8 +24441,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "签唱会上海20250501_p03_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
@@ -24055,6 +24496,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -24112,8 +24554,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1053.2,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P13_刮刮乐",
@@ -24166,8 +24609,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20190802_BV1Ut411F7Cp",
@@ -24220,8 +24664,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20230225_BV1Qg4y1H7XH",
@@ -24274,8 +24719,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】二巡歌颂 201129北京场 全场 更新__P14_14.像雾像雨又像风",
@@ -24328,8 +24774,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P12_爱情",
@@ -24382,6 +24829,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -24436,6 +24884,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24490,6 +24939,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24528,6 +24978,7 @@
     "note": "E2",
     "hz": 81.1
    },
+   "claimable_soft": false,
    "review_status": "不可复核（缺混音/时间）",
    "claimable": false
   },
@@ -24582,6 +25033,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24636,6 +25088,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24693,6 +25146,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1043.9,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -24747,8 +25201,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20201127_BV1nZ4y1G7Zq",
@@ -24802,6 +25257,7 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -24856,6 +25312,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24910,6 +25367,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -24964,6 +25422,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -25018,6 +25477,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25072,8 +25532,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p24_慢系列",
@@ -25126,6 +25587,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25180,8 +25642,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P23_《北国之春》纯享",
@@ -25234,6 +25697,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25288,8 +25752,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_1_Yesterday_Once_More",
@@ -25342,8 +25807,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_中段_Yesterday_Once_More",
@@ -25396,6 +25862,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25450,6 +25917,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25504,6 +25972,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -25561,8 +26030,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1048.7,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "09_You Needed Me",
@@ -25615,6 +26085,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25672,8 +26143,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1014.2,
    "high_note_unconfirmed": "B5",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20251124182425 0042 钟爱一生",
@@ -25729,6 +26201,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1068.4,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25783,6 +26256,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -25837,6 +26311,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25891,6 +26366,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25945,6 +26421,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -25999,6 +26476,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26053,8 +26531,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
@@ -26107,6 +26586,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26164,6 +26644,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1048.3,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -26218,6 +26699,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26272,8 +26754,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p25_如果云知道+云一定知道",
@@ -26329,6 +26812,7 @@
    "high_verdict": "人耳确认为王晰本人",
    "high_listen_verified": true,
    "c6_status": "人耳确认（可作能力依据）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26383,6 +26867,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26437,6 +26922,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26491,6 +26977,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26548,8 +27035,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1004.2,
    "high_note_unconfirmed": "B5",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20191112_BV1tE411e7T2",
@@ -26602,6 +27090,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -26656,8 +27145,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰B面图景杭州签售自录存档 20211127___P01_惑许",
@@ -26710,6 +27200,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26764,8 +27255,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P19_钟爱一生",
@@ -26818,6 +27310,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26872,6 +27365,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -26926,6 +27420,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -26980,8 +27475,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "05小河",
@@ -27034,6 +27530,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27088,8 +27585,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰B面图景杭州签售自录存档 20211127___P02_时光",
@@ -27142,6 +27640,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27196,6 +27695,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27250,6 +27750,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27304,6 +27805,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27358,8 +27860,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P20_你",
@@ -27412,6 +27915,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27468,6 +27972,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "performer": "低音带读数（归属未确认）",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -27522,6 +28027,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -27576,6 +28082,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27630,6 +28137,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27684,8 +28192,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "广州20190805_BV1ht411M7EH",
@@ -27741,8 +28250,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1062.2,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡·Che_杭州_04_BV184411P7rh_p4",
@@ -27798,6 +28308,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1027.6,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -27852,6 +28363,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -27906,8 +28418,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P02_2.《小河》",
@@ -27960,8 +28473,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "21_嘎达梅林",
@@ -28014,8 +28528,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】二巡歌颂 201129北京场 全场 更新__P06_6. 别离的预感",
@@ -28068,8 +28583,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20191230_BV1TJ411Y7MH",
@@ -28122,8 +28638,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "上海20250501_BV1QWVzzjEnM",
@@ -28177,6 +28694,7 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -28231,8 +28749,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20200104_BV1wJ41177BZ",
@@ -28285,6 +28804,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -28339,6 +28859,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -28394,6 +28915,7 @@
    },
    "verify_channel": "人耳听辨终裁（证据级别最高）",
    "listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -28448,6 +28970,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -28502,8 +29025,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p41_你",
@@ -28556,8 +29080,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P04_床前明月光",
@@ -28613,8 +29138,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1044.4,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_7_Your_Man",
@@ -28667,8 +29193,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "16_这世界那么多人+暧昧+叶子+同类",
@@ -28721,6 +29248,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -28775,8 +29303,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "签唱会上海20250501_p05_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
@@ -28829,6 +29358,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -28886,6 +29416,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1020.3,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -28940,6 +29471,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -28994,6 +29526,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29048,6 +29581,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29102,8 +29636,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "广州20191231_BV1yJ411G7z2",
@@ -29156,8 +29691,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_1_让她降落",
@@ -29210,6 +29746,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29267,8 +29804,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1015.7,
    "high_note_unconfirmed": "B5",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_下半场_让她降落",
@@ -29321,6 +29859,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29375,6 +29914,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29429,8 +29969,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "无尽的夜里第1遍",
@@ -29483,8 +30024,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P04_City of star",
@@ -29537,8 +30079,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "三亚20230225_BV1UX4y197Lu",
@@ -29591,8 +30134,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P06_左右中区分别talk",
@@ -29645,6 +30189,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -29699,6 +30244,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29753,6 +30299,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -29807,8 +30354,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P19_王牌就是我",
@@ -29864,8 +30412,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1027.0,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20240418_BV11u4m1F7tL",
@@ -29919,6 +30468,7 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -29976,6 +30526,7 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1058.7,
    "high_note_unconfirmed": "C6",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -30030,6 +30581,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -30084,8 +30636,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】二巡歌颂 201129北京场 全场 更新__P02_2. city of star   （全程曝光，对不起小狐狸的美貌）",
@@ -30138,8 +30691,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P01_《多听有益》",
@@ -30192,8 +30746,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "12_分岔",
@@ -30246,6 +30801,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -30300,8 +30856,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "北京20230504_BV1dk4y1E7zM",
@@ -30354,6 +30911,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -30409,6 +30967,7 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -30466,6 +31025,7 @@
    "high_verdict": "人耳判定非王晰（他人演唱/器乐/说话）",
    "high_hz_original": 1020.9,
    "high_note_original": "C6",
+   "claimable_soft": false,
    "review_status": "人耳否决（非王晰）",
    "claimable": false
   },
@@ -30520,6 +31080,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -30574,8 +31135,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": false,
+   "review_status": "谐波列通过（HNR 异常，疑分离失败）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p8_匆匆",
@@ -30630,6 +31192,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -30687,8 +31250,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1041.4,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p9_匆匆",
@@ -30743,6 +31307,7 @@
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "low_verdict": "人耳确认为王晰本人",
    "low_listen_verified": true,
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -30797,6 +31362,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -30851,6 +31417,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -30905,8 +31472,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "南京20190730_BV1Mt411c7hz",
@@ -30960,6 +31528,7 @@
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -31017,8 +31586,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1025.1,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "09也许",
@@ -31071,6 +31641,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -31125,6 +31696,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -31179,8 +31751,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "06永不失联的爱",
@@ -31233,6 +31806,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -31287,8 +31861,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "一巡·Che_南京_04_BV1rt411K7wc_p4",
@@ -31341,8 +31916,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": false,
+   "review_status": "谐波列通过（HNR 异常，疑分离失败）",
+   "claimable": false
   },
   {
    "tag": "未知20231013_BV1FH4y1d7u1",
@@ -31395,6 +31971,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -31449,8 +32026,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "六巡广州微博_2_橄榄树",
@@ -31503,6 +32081,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -31557,6 +32136,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -31611,6 +32191,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -31665,8 +32246,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P08_在路上",
@@ -31719,8 +32301,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P10_无尽的夜里",
@@ -31773,8 +32356,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p20_雪地里寄不出的求救信3.7手机渣画质",
@@ -31827,8 +32411,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "07友谊地久天长",
@@ -31881,6 +32466,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -31938,8 +32524,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1039.9,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P15_12.大合影",
@@ -31992,8 +32579,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20201209_BV1Lf4y1i7HC",
@@ -32046,6 +32634,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32100,8 +32689,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P07_怂",
@@ -32154,8 +32744,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20201118_BV1er4y1F7Nr",
@@ -32208,6 +32799,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32262,8 +32854,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20200905_BV1B54y127bY",
@@ -32316,6 +32909,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32370,6 +32964,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32424,8 +33019,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】20201007杭州签唱会 现场live__P03_《怂》",
@@ -32478,6 +33074,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32532,8 +33129,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "签唱会上海20250501_p02_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
@@ -32589,8 +33187,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1022.8,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p21_雪孩子",
@@ -32643,6 +33242,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32700,8 +33300,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1074.0,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "08_突然想爱你+眼泪",
@@ -32754,6 +33355,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -32808,6 +33410,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -32862,8 +33465,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】二巡歌颂 201129北京场 全场 更新__P07_7. 怂",
@@ -32919,8 +33523,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1041.9,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P17_点歌-耶利亚女郎",
@@ -32973,6 +33578,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33027,8 +33633,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P14_11.2《等一等昨天》",
@@ -33081,6 +33688,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33135,6 +33743,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33189,8 +33798,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p15_怂",
@@ -33243,8 +33853,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p13_别离的预感",
@@ -33301,6 +33912,7 @@
    "high_verdict": "人耳确认为王晰本人",
    "high_listen_verified": true,
    "c6_status": "人耳确认（可作能力依据）",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -33358,8 +33970,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1017.0,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "15点歌2心动",
@@ -33412,6 +34025,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -33466,6 +34080,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33520,6 +34135,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33574,8 +34190,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "20_敖包相会",
@@ -33628,8 +34245,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P16_追幸福的人",
@@ -33682,6 +34300,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33736,8 +34355,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20200103_BV1qJ411j7H2",
@@ -33793,8 +34413,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1066.3,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "未知20230228_BV1zb411X7eR",
@@ -33847,6 +34468,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -33901,6 +34523,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -33958,8 +34581,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1044.0,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P15_点歌-敕勒川再来一遍！",
@@ -34012,6 +34636,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -34067,6 +34692,7 @@
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
    "ear_verdict": "人耳确认为王晰本人",
+   "claimable_soft": false,
    "review_status": "人耳确认",
    "claimable": true
   },
@@ -34121,6 +34747,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -34175,6 +34802,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -34229,6 +34857,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -34283,8 +34912,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P09_雪地里寄不出的求救信",
@@ -34337,8 +34967,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P13_11.1虚假的点歌流程3",
@@ -34391,6 +35022,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -34445,6 +35077,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -34499,6 +35132,7 @@
     ]
    },
    "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "claimable_soft": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false
   },
@@ -34553,8 +35187,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p3_花儿为什么这样红3.8手机渣画质",
@@ -34607,6 +35242,7 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "claimable_soft": false,
    "review_status": "谐波列通过",
    "claimable": true
   },
@@ -34661,8 +35297,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "二巡上海2021_全程_p39_王牌就是我",
@@ -34715,8 +35352,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "【王晰】20201007杭州签唱会 现场live__P06_《王牌就是我》",
@@ -34772,8 +35410,9 @@
    "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
    "high_hz_unconfirmed": 1055.6,
    "high_note_unconfirmed": "C6",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P11_10.1.虚假的点歌流程2",
@@ -34826,8 +35465,9 @@
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
-   "review_status": "谐波列通过",
-   "claimable": true
+   "claimable_soft": true,
+   "review_status": "谐波列通过（HNR 低于门槛）",
+   "claimable": false
   }
  ],
  "by_song": [
