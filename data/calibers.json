@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24 00:11",
+ "generated_at": "2026-09-24 09:05",
  "count": 59,
  "calibers": [
   {
@@ -29,7 +29,7 @@
   {
    "id": "songs_meta",
    "label": "歌曲元数据条目",
-   "value": 593,
+   "value": 594,
    "scope": "含元信息（时长/专辑/发行等）的曲目",
    "source": "data/songs_meta.json",
    "note": ""
@@ -61,7 +61,7 @@
   {
    "id": "stage_claimable",
    "label": "现场层可主张素材",
-   "value": 481,
+   "value": 512,
    "scope": "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
    "source": "data/archive_stage_tour.json → summary.n_claimable",
    "note": "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除"
@@ -133,7 +133,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1603,
+   "value": 1604,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -141,7 +141,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2227,
+   "value": 2228,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -149,7 +149,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5417,
+   "value": 5419,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -213,7 +213,7 @@
   {
    "id": "stage_low_reviewed",
    "label": "巡演现场低音读数·谐波列复核通过条数",
-   "value": 430,
+   "value": 472,
    "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
    "source": "data\\archive_stage_tour.json",
    "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"

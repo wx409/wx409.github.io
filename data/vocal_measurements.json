@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 00:11",
+ "generated_at": "2026-09-24 09:05",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,26 +10,26 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 764,
+  "total": 797,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 606,
+   "tour_live": 639,
    "stage_other": 32,
    "single": 11
   },
   "by_verify": {
-   "未复核": 119,
-   "人耳确认（听辨）": 77,
+   "未复核": 120,
+   "人耳确认（听辨）": 54,
    "已取证": 6,
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 439,
+   "谐波列复核通过": 481,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 93,
+   "待复核（谐波列待判）": 106,
    "谐波列复核通过（同刻三源）": 1
   },
   "songs": 232
@@ -7615,7 +7615,7 @@
     "duration_s": 315.9
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -8242,7 +8242,7 @@
     "duration_s": 477.6
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -9109,6 +9109,76 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v25",
+   "song": "",
+   "version": "四巡上海20231231_v25",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 70.7,
+    "high_note": "A#4",
+    "high_hz": 466.6,
+    "span_octaves": 2.72,
+    "stability_cents": 6.0,
+    "intonation_cents": 23.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 49.0,
+    "density_per_s": 0.63,
+    "hnr_db": -0.2,
+    "duration_s": 393.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v05",
+   "song": "",
+   "version": "四巡上海20231231_v05",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 71.3,
+    "high_note": "A#3",
+    "high_hz": 227.4,
+    "span_octaves": 1.67,
+    "stability_cents": 3.7,
+    "intonation_cents": 32.7,
+    "vibrato_hz": 5.66,
+    "vibrato_cents": 142.0,
+    "density_per_s": 0.55,
+    "hnr_db": -0.1,
+    "duration_s": 81.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|海然海然+嘎达梅林|四巡上海生日20240406_p13_海然海然+嘎达梅林",
    "song": "海然海然+嘎达梅林",
    "version": "四巡上海生日20240406_p13_海然海然+嘎达梅林",
@@ -9284,6 +9354,76 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v16",
+   "song": "",
+   "version": "四巡上海20231231_v16",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.5,
+    "high_note": "E5",
+    "high_hz": 676.3,
+    "span_octaves": 3.2,
+    "stability_cents": 7.2,
+    "intonation_cents": 15.5,
+    "vibrato_hz": 4.42,
+    "vibrato_cents": 74.0,
+    "density_per_s": 1.01,
+    "hnr_db": 1.0,
+    "duration_s": 36.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v13",
+   "song": "",
+   "version": "四巡上海20231231_v13",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.7,
+    "high_note": "F#2",
+    "high_hz": 92.7,
+    "span_octaves": 0.33,
+    "stability_cents": 3.1,
+    "intonation_cents": 30.3,
+    "vibrato_hz": 5.08,
+    "vibrato_cents": 75.0,
+    "density_per_s": 0.66,
+    "hnr_db": -1.6,
+    "duration_s": 39.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|永不失联的爱|四巡上海生日20240406_p10_永不失联的爱",
    "song": "永不失联的爱",
    "version": "四巡上海生日20240406_p10_永不失联的爱",
@@ -9306,6 +9446,111 @@
     "density_per_s": 2.05,
     "hnr_db": 8.2,
     "duration_s": 307.8
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v23",
+   "song": "",
+   "version": "四巡上海20231231_v23",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.6,
+    "high_note": "G#5",
+    "high_hz": 811.8,
+    "span_octaves": 3.44,
+    "stability_cents": 6.8,
+    "intonation_cents": 20.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 86.0,
+    "density_per_s": 0.63,
+    "hnr_db": -0.3,
+    "duration_s": 52.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v27",
+   "song": "",
+   "version": "四巡上海20231231_v27",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.6,
+    "high_note": "B5",
+    "high_hz": 975.8,
+    "span_octaves": 3.71,
+    "stability_cents": 8.1,
+    "intonation_cents": 22.6,
+    "vibrato_hz": 5.45,
+    "vibrato_cents": 50.0,
+    "density_per_s": 0.82,
+    "hnr_db": -0.1,
+    "duration_s": 164.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v11",
+   "song": "",
+   "version": "四巡上海20231231_v11",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.8,
+    "high_note": "A#3",
+    "high_hz": 237.0,
+    "span_octaves": 1.66,
+    "stability_cents": 5.8,
+    "intonation_cents": 32.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 63.0,
+    "density_per_s": 0.95,
+    "hnr_db": 0.4,
+    "duration_s": 132.0
    },
    "verify": {
     "state": "谐波列复核通过",
@@ -9347,6 +9592,76 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v10",
+   "song": "",
+   "version": "四巡上海20231231_v10",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 75.4,
+    "high_note": "D#4",
+    "high_hz": 319.9,
+    "span_octaves": 2.08,
+    "stability_cents": 7.1,
+    "intonation_cents": 23.1,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.5,
+    "hnr_db": 5.8,
+    "duration_s": 609.8
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v34",
+   "song": "",
+   "version": "四巡上海20231231_v34",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 75.9,
+    "high_note": "E5",
+    "high_hz": 647.3,
+    "span_octaves": 3.09,
+    "stability_cents": 8.3,
+    "intonation_cents": 23.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 60.0,
+    "density_per_s": 0.68,
+    "hnr_db": 0.4,
+    "duration_s": 191.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|崇拜|四巡上海生日20240406_p33_崇拜",
    "song": "崇拜",
    "version": "四巡上海生日20240406_p33_崇拜",
@@ -9369,6 +9684,41 @@
     "density_per_s": 1.85,
     "hnr_db": 8.6,
     "duration_s": 298.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v19",
+   "song": "",
+   "version": "四巡上海20231231_v19",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.3,
+    "high_note": "G#4",
+    "high_hz": 426.7,
+    "span_octaves": 2.48,
+    "stability_cents": 8.9,
+    "intonation_cents": 20.0,
+    "vibrato_hz": 4.84,
+    "vibrato_cents": 55.0,
+    "density_per_s": 0.55,
+    "hnr_db": -0.1,
+    "duration_s": 129.8
    },
    "verify": {
     "state": "谐波列复核通过",
@@ -9487,6 +9837,41 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v22",
+   "song": "",
+   "version": "四巡上海20231231_v22",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.9,
+    "high_note": "B3",
+    "high_hz": 244.3,
+    "span_octaves": 1.65,
+    "stability_cents": 8.2,
+    "intonation_cents": 26.2,
+    "vibrato_hz": 4.56,
+    "vibrato_cents": 79.0,
+    "density_per_s": 1.57,
+    "hnr_db": 5.0,
+    "duration_s": 111.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|绝美玫瑰雨|四巡上海生日20240406_p28_绝美玫瑰雨",
    "song": "绝美玫瑰雨",
    "version": "四巡上海生日20240406_p28_绝美玫瑰雨",
@@ -9544,6 +9929,179 @@
     "density_per_s": 1.8,
     "hnr_db": 8.6,
     "duration_s": 406.8
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v33",
+   "song": "",
+   "version": "四巡上海20231231_v33",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.4,
+    "high_note": "A3",
+    "high_hz": 220.5,
+    "span_octaves": 1.49,
+    "stability_cents": 6.9,
+    "intonation_cents": 30.7,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 61.0,
+    "density_per_s": 1.17,
+    "hnr_db": 2.1,
+    "duration_s": 58.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v09",
+   "song": "",
+   "version": "四巡上海20231231_v09",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.7,
+    "high_note": "G3",
+    "high_hz": 198.6,
+    "span_octaves": 1.34,
+    "stability_cents": 3.0,
+    "intonation_cents": 19.8,
+    "density_per_s": 0.57,
+    "hnr_db": -0.7,
+    "duration_s": 61.6
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v29",
+   "song": "",
+   "version": "四巡上海20231231_v29",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.8,
+    "high_note": "C5",
+    "high_hz": 516.7,
+    "span_octaves": 2.71,
+    "stability_cents": 6.2,
+    "intonation_cents": 27.6,
+    "vibrato_hz": 4.53,
+    "vibrato_cents": 85.0,
+    "density_per_s": 0.76,
+    "hnr_db": -0.2,
+    "duration_s": 124.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v26",
+   "song": "",
+   "version": "四巡上海20231231_v26",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.0,
+    "high_note": "F#5",
+    "high_hz": 726.5,
+    "span_octaves": 3.2,
+    "stability_cents": 4.1,
+    "intonation_cents": 25.3,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 62.0,
+    "density_per_s": 0.52,
+    "hnr_db": -1.0,
+    "duration_s": 154.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v20",
+   "song": "",
+   "version": "四巡上海20231231_v20",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.3,
+    "high_note": "B3",
+    "high_hz": 252.9,
+    "span_octaves": 1.67,
+    "stability_cents": 6.9,
+    "intonation_cents": 25.2,
+    "vibrato_hz": 4.53,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.25,
+    "hnr_db": 3.2,
+    "duration_s": 115.7
    },
    "verify": {
     "state": "谐波列复核通过",
@@ -9662,6 +10220,41 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v07",
+   "song": "",
+   "version": "四巡上海20231231_v07",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 81.1,
+    "high_note": "A5",
+    "high_hz": 905.7,
+    "span_octaves": 3.48,
+    "stability_cents": 7.9,
+    "intonation_cents": 20.7,
+    "vibrato_hz": 4.95,
+    "vibrato_cents": 76.0,
+    "density_per_s": 1.61,
+    "hnr_db": 5.2,
+    "duration_s": 241.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|甩啦甩啦|四巡上海生日20240406_p22_甩啦甩啦",
    "song": "甩啦甩啦",
    "version": "四巡上海生日20240406_p22_甩啦甩啦",
@@ -9684,6 +10277,41 @@
     "density_per_s": 1.85,
     "hnr_db": 4.4,
     "duration_s": 365.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v21",
+   "song": "",
+   "version": "四巡上海20231231_v21",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.2,
+    "high_note": "G#3",
+    "high_hz": 204.4,
+    "span_octaves": 1.31,
+    "stability_cents": 9.4,
+    "intonation_cents": 33.5,
+    "vibrato_hz": 5.5,
+    "vibrato_cents": 1257.0,
+    "density_per_s": 0.75,
+    "hnr_db": -0.7,
+    "duration_s": 45.3
    },
    "verify": {
     "state": "谐波列复核通过",
@@ -9802,6 +10430,76 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v15",
+   "song": "",
+   "version": "四巡上海20231231_v15",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 87.3,
+    "high_note": "D5",
+    "high_hz": 580.3,
+    "span_octaves": 2.73,
+    "stability_cents": 5.9,
+    "intonation_cents": 18.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 59.0,
+    "density_per_s": 1.59,
+    "hnr_db": 3.1,
+    "duration_s": 128.6
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v01",
+   "song": "",
+   "version": "四巡上海20231231_v01",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 89.1,
+    "high_note": "F5",
+    "high_hz": 682.2,
+    "span_octaves": 2.94,
+    "stability_cents": 7.8,
+    "intonation_cents": 23.6,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.79,
+    "hnr_db": 3.8,
+    "duration_s": 160.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|猫模狗样|四巡上海生日20240406_p21_猫模狗样",
    "song": "猫模狗样",
    "version": "四巡上海生日20240406_p21_猫模狗样",
@@ -9824,6 +10522,76 @@
     "density_per_s": 2.26,
     "hnr_db": 6.5,
     "duration_s": 230.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v04",
+   "song": "",
+   "version": "四巡上海20231231_v04",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 100.1,
+    "high_note": "E5",
+    "high_hz": 664.1,
+    "span_octaves": 2.73,
+    "stability_cents": 5.2,
+    "intonation_cents": 18.5,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 60.0,
+    "density_per_s": 1.76,
+    "hnr_db": 4.6,
+    "duration_s": 215.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v30",
+   "song": "",
+   "version": "四巡上海20231231_v30",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 100.2,
+    "high_note": "G5",
+    "high_hz": 766.2,
+    "span_octaves": 2.93,
+    "stability_cents": 11.5,
+    "intonation_cents": 21.8,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 104.0,
+    "density_per_s": 0.78,
+    "hnr_db": -0.2,
+    "duration_s": 140.9
    },
    "verify": {
     "state": "谐波列复核通过",
@@ -9862,6 +10630,41 @@
    },
    "verify": {
     "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v28",
+   "song": "",
+   "version": "四巡上海20231231_v28",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 102.9,
+    "high_note": "G5",
+    "high_hz": 781.5,
+    "span_octaves": 2.92,
+    "stability_cents": 6.7,
+    "intonation_cents": 21.7,
+    "vibrato_hz": 4.89,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.69,
+    "hnr_db": 4.7,
+    "duration_s": 302.9
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -9975,6 +10778,76 @@
    }
   },
   {
+   "id": "tour_live||四巡上海20231231_v06",
+   "song": "",
+   "version": "四巡上海20231231_v06",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.3,
+    "high_note": "A5",
+    "high_hz": 887.8,
+    "span_octaves": 3.01,
+    "stability_cents": 5.6,
+    "intonation_cents": 20.8,
+    "vibrato_hz": 4.53,
+    "vibrato_cents": 62.0,
+    "density_per_s": 1.44,
+    "hnr_db": 5.3,
+    "duration_s": 255.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v08",
+   "song": "",
+   "version": "四巡上海20231231_v08",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.9,
+    "high_note": "G#5",
+    "high_hz": 808.7,
+    "span_octaves": 2.87,
+    "stability_cents": 7.9,
+    "intonation_cents": 23.1,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 76.0,
+    "density_per_s": 2.03,
+    "hnr_db": 7.8,
+    "duration_s": 251.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|多听有益|肆益收官 武汉琴台_BV1iWtUefEkm",
    "song": "多听有益",
    "version": "肆益收官 武汉琴台_BV1iWtUefEkm",
@@ -9998,6 +10871,286 @@
    },
    "provenance": {
     "measured_by": "十曲精测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v17",
+   "song": "",
+   "version": "四巡上海20231231_v17",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 116.1,
+    "high_note": "A#2",
+    "high_hz": 116.1,
+    "span_octaves": 0.0,
+    "stability_cents": 3.0,
+    "intonation_cents": 15.8,
+    "vibrato_hz": 3.45,
+    "vibrato_cents": 40.0,
+    "density_per_s": 0.68,
+    "hnr_db": 0.9,
+    "duration_s": 13.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v24",
+   "song": "",
+   "version": "四巡上海20231231_v24",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 116.5,
+    "high_note": "D#4",
+    "high_hz": 315.4,
+    "span_octaves": 1.44,
+    "stability_cents": 6.3,
+    "intonation_cents": 29.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.69,
+    "hnr_db": 8.7,
+    "duration_s": 153.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v35",
+   "song": "",
+   "version": "四巡上海20231231_v35",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 118.4,
+    "high_note": "C#5",
+    "high_hz": 544.2,
+    "span_octaves": 2.2,
+    "stability_cents": 4.6,
+    "intonation_cents": 20.0,
+    "vibrato_hz": 4.83,
+    "vibrato_cents": 57.0,
+    "density_per_s": 1.6,
+    "hnr_db": 5.3,
+    "duration_s": 260.4
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v32",
+   "song": "",
+   "version": "四巡上海20231231_v32",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "B2",
+    "low_hz": 120.4,
+    "high_note": "A5",
+    "high_hz": 887.5,
+    "span_octaves": 2.88,
+    "stability_cents": 9.4,
+    "intonation_cents": 24.0,
+    "vibrato_hz": 4.8,
+    "vibrato_cents": 218.0,
+    "density_per_s": 0.34,
+    "hnr_db": -0.7,
+    "duration_s": 65.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v03",
+   "song": "",
+   "version": "四巡上海20231231_v03",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "B2",
+    "low_hz": 126.3,
+    "high_note": "D4",
+    "high_hz": 294.6,
+    "span_octaves": 1.22,
+    "stability_cents": 5.9,
+    "intonation_cents": 22.1,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 71.0,
+    "density_per_s": 1.79,
+    "hnr_db": 5.6,
+    "duration_s": 75.4
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v18",
+   "song": "",
+   "version": "四巡上海20231231_v18",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#3",
+    "low_hz": 135.0,
+    "high_note": "B5",
+    "high_hz": 996.3,
+    "span_octaves": 2.88,
+    "stability_cents": 5.7,
+    "intonation_cents": 17.3,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 61.0,
+    "density_per_s": 1.55,
+    "hnr_db": 2.8,
+    "duration_s": 330.4
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v31",
+   "song": "",
+   "version": "四巡上海20231231_v31",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#3",
+    "low_hz": 138.6,
+    "high_note": "F3",
+    "high_hz": 176.7,
+    "span_octaves": 0.35,
+    "stability_cents": 4.4,
+    "intonation_cents": 30.3,
+    "vibrato_hz": 5.62,
+    "vibrato_cents": 90.0,
+    "density_per_s": 0.97,
+    "hnr_db": 1.4,
+    "duration_s": 18.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live||四巡上海20231231_v36",
+   "song": "",
+   "version": "四巡上海20231231_v36",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#3",
+    "low_hz": 158.1,
+    "high_note": "G5",
+    "high_hz": 765.7,
+    "span_octaves": 2.28,
+    "stability_cents": 3.3,
+    "intonation_cents": 28.1,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 41.0,
+    "density_per_s": 1.01,
+    "hnr_db": 1.9,
+    "duration_s": 45.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
    }
@@ -10998,7 +12151,7 @@
     "duration_s": 194.1
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -11173,7 +12326,7 @@
     "duration_s": 266.6
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -11208,7 +12361,7 @@
     "duration_s": 228.0
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -12500,7 +13653,7 @@
     "duration_s": 217.3
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -12570,7 +13723,7 @@
     "duration_s": 228.4
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -13398,7 +14551,7 @@
     "duration_s": 1471.6
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -13433,7 +14586,7 @@
     "duration_s": 257.6
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -14010,7 +15163,7 @@
     "duration_s": 173.0
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -14531,9 +15684,6 @@
    "metrics": {
     "low_note": "C#2",
     "low_hz": 69.5,
-    "high_note": "C6",
-    "high_hz": 1060.7,
-    "span_octaves": 3.93,
     "stability_cents": 6.0,
     "intonation_cents": 20.9,
     "vibrato_hz": 4.79,
@@ -15161,7 +16311,7 @@
     "duration_s": 393.0
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -15543,7 +16693,7 @@
     "duration_s": 2709.1
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "未复核",
     "engines": {},
     "raw_state": ""
    },
@@ -15715,7 +16865,7 @@
     "duration_s": 2095.8
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -15747,7 +16897,7 @@
     "duration_s": 713.6
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -15782,7 +16932,7 @@
     "duration_s": 205.4
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -15817,7 +16967,7 @@
     "duration_s": 157.0
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "待复核（谐波列待判）",
     "engines": {},
     "raw_state": ""
    },
@@ -17269,7 +18419,7 @@
     "duration_s": 615.7
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -18380,7 +19530,7 @@
     "duration_s": 184.9
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -18415,7 +19565,7 @@
     "duration_s": 522.8
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -19730,7 +20880,7 @@
     "duration_s": 237.2
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -21876,7 +23026,7 @@
     "duration_s": 206.0
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -21911,7 +23061,7 @@
     "duration_s": 1742.9
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
@@ -21978,7 +23128,7 @@
     "duration_s": 243.1
    },
    "verify": {
-    "state": "人耳确认（听辨）",
+    "state": "谐波列复核通过",
     "engines": {},
     "raw_state": ""
    },
