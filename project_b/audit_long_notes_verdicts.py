@@ -44,6 +44,8 @@ def main() -> int:
     HI_GATE_HZ = 523.0   # C5 及以上：demucs vocals 轨含和声 → 高音区长声默认需人耳归属确认
     ear_ok = {(str(i.get('song')), round(float(i.get('verdict_hz') or 0)))
               for i in items if str(i.get('verdict', '')).startswith('是王晰')}
+    ear_yes_songs = {(str(i.get('song')), float(i.get('verdict_hz') or 0))
+                     for i in items if str(i.get('verdict', '')).startswith('是王晰')}
     for x in top:
         song, hz = str(x.get("song")), x.get("hz")
         direct, suspect = None, None
@@ -56,6 +58,14 @@ def main() -> int:
             # 同曲存疑：仅当本条与「被否决的读数」处于同一音区（≥ 参照的 0.6 倍，约 1.5 个八度内）
             if not direct and song in rej_ref and float(hz) >= 0.6 * rej_ref[song]:
                 suspect = rej_ref[song]
+        # 人耳正面确认 > 一切机器规则（2026-09-24：你不要担心 C4 曾被同音区规则误降）
+        ear_yes = hz and any(str(song) == s0 and abs(float(hz) - h1) / float(hz) <= 0.03
+                            for s0, h1 in ear_yes_songs)
+        if ear_yes:
+            x["verdict_conflict"] = ""
+            x["ear_verified"] = True
+            kept.append(x)
+            continue
         if direct:
             x["verdict_conflict"] = f"直接冲突：台账否决 {direct.get('verdict')}（{direct.get('verdict_hz')}Hz）"
             flagged.append(x)

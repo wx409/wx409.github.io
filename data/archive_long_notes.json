@@ -59,16 +59,6 @@
   },
   {
    "rank": 5,
-   "dur_s": 12.3,
-   "note": "B4",
-   "hz": 496.6,
-   "src": "录音室",
-   "where": "Low C的诱惑",
-   "song": "当爱已成往事",
-   "t_start_s": 289.7
-  },
-  {
-   "rank": 6,
    "dur_s": 11.1,
    "note": "F2",
    "hz": 86.6,
@@ -186,15 +176,36 @@
    "where": "重游往昔",
    "song": "下沉",
    "t_start_s": 118.8
+  },
+  {
+   "rank": 6,
+   "dur_s": 11.0,
+   "note": "C4",
+   "hz": 263.9,
+   "src": "现场",
+   "where": "新源现场",
+   "song": "你不要担心",
+   "t_start_s": 277.4,
+   "verdict_conflict": "",
+   "ear_verified": true
   }
  ],
  "verdict_check": {
-  "generated_at": "2026-09-24 09:06",
+  "generated_at": "2026-09-24 09:40",
   "rule": "同曲同 Hz（±3%）被否决 → 直接冲突并移榜；同曲高音曾被否决 → 同曲存疑（留档、不进首屏/共识句）",
   "n_total": 23,
   "n_kept": 17,
   "n_flagged": 6,
   "flagged": [
+   {
+    "song": "当爱已成往事",
+    "note": "B4",
+    "hz": 496.6,
+    "dur_s": 12.3,
+    "src": "录音室",
+    "where": "Low C的诱惑",
+    "verdict_conflict": "同音区存疑：该曲 523Hz 读数曾被否决（非王晰（伴唱）），本条待核"
+   },
    {
     "song": "你不要担心",
     "note": "A3",
@@ -202,7 +213,7 @@
     "dur_s": 13.1,
     "src": "现场",
     "where": "新源现场",
-    "verdict_conflict": "同音区存疑：该曲 274Hz 读数曾被否决（非王晰本人（人耳判定）），本条待核"
+    "verdict_conflict": "直接冲突：台账否决 非王晰（218.6Hz）"
    },
    {
     "song": "凄美地 (Live)",
@@ -220,16 +231,7 @@
     "dur_s": 11.0,
     "src": "录音室",
     "where": "Low C的诱惑Ⅱ",
-    "verdict_conflict": "同音区存疑：该曲 1054Hz 读数曾被否决（非王晰（女和声）），本条待核"
-   },
-   {
-    "song": "你不要担心",
-    "note": "C4",
-    "hz": 263.9,
-    "dur_s": 11.0,
-    "src": "现场",
-    "where": "新源现场",
-    "verdict_conflict": "同音区存疑：该曲 274Hz 读数曾被否决（非王晰本人（人耳判定）），本条待核"
+    "verdict_conflict": "直接冲突：台账否决 非王晰（888.2Hz）"
    },
    {
     "song": "再见我的爱人",
@@ -247,11 +249,22 @@
     "dur_s": 8.2,
     "src": "录音室",
     "where": "Low C的诱惑",
-    "verdict_conflict": "高音区待归属确认：C5 及以上长声读数受和声/伴奏污染风险高（demucs vocals 轨含和声），需人耳确认后才回榜"
+    "verdict_conflict": "直接冲突：台账否决 非王晰（伴唱）（523.1Hz）"
    }
   ]
  },
  "top_flagged": [
+  {
+   "rank": 5,
+   "dur_s": 12.3,
+   "note": "B4",
+   "hz": 496.6,
+   "src": "录音室",
+   "where": "Low C的诱惑",
+   "song": "当爱已成往事",
+   "t_start_s": 289.7,
+   "verdict_conflict": "同音区存疑：该曲 523Hz 读数曾被否决（非王晰（伴唱）），本条待核"
+  },
   {
    "rank": 5,
    "dur_s": 13.1,
@@ -261,7 +274,7 @@
    "where": "新源现场",
    "song": "你不要担心",
    "t_start_s": 75.5,
-   "verdict_conflict": "同音区存疑：该曲 274Hz 读数曾被否决（非王晰本人（人耳判定）），本条待核"
+   "verdict_conflict": "直接冲突：台账否决 非王晰（218.6Hz）"
   },
   {
    "rank": 7,
@@ -283,18 +296,7 @@
    "where": "Low C的诱惑Ⅱ",
    "song": "葬心",
    "t_start_s": 303.3,
-   "verdict_conflict": "同音区存疑：该曲 1054Hz 读数曾被否决（非王晰（女和声）），本条待核"
-  },
-  {
-   "rank": 10,
-   "dur_s": 11.0,
-   "note": "C4",
-   "hz": 263.9,
-   "src": "现场",
-   "where": "新源现场",
-   "song": "你不要担心",
-   "t_start_s": 277.4,
-   "verdict_conflict": "同音区存疑：该曲 274Hz 读数曾被否决（非王晰本人（人耳判定）），本条待核"
+   "verdict_conflict": "直接冲突：台账否决 非王晰（888.2Hz）"
   },
   {
    "rank": 13,
@@ -316,7 +318,7 @@
    "where": "Low C的诱惑",
    "song": "当爱已成往事",
    "t_start_s": 146.0,
-   "verdict_conflict": "高音区待归属确认：C5 及以上长声读数受和声/伴奏污染风险高（demucs vocals 轨含和声），需人耳确认后才回榜"
+   "verdict_conflict": "直接冲突：台账否决 非王晰（伴唱）（523.1Hz）"
   }
  ]
 }
