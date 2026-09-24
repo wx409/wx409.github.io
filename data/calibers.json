@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24 09:05",
+ "generated_at": "2026-09-24 14:07",
  "count": 59,
  "calibers": [
   {
@@ -61,7 +61,7 @@
   {
    "id": "stage_claimable",
    "label": "现场层可主张素材",
-   "value": 512,
+   "value": 510,
    "scope": "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
    "source": "data/archive_stage_tour.json → summary.n_claimable",
    "note": "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除"

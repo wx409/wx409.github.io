@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 13:40",
+ "generated_at": "2026-09-24 13:54",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 190,
-  "dispatch": 189,
+  "menu_items": 191,
+  "dispatch": 190,
   "deploy_steps": 76,
   "scheduled_tasks": 5
  },
@@ -1446,12 +1446,12 @@
    "path": "D:\\wx409.github.io\\project_b\\build_topic_deepdives.py"
   },
   {
-   "script": "提取Edge微博Cookie.py",
+   "script": "menu:189",
    "menu": 189,
-   "title": "提取 Edge 微博 cookie（先退出 Edge；免 DevTools，写 weibo_cookies.txt）",
+   "title": "提取微博 cookie（联想浏览器一键：自动关浏览器→提取→重开）",
    "menu_label": "get_cookie",
    "in_deploy": false,
-   "path": "E:\\wx\\私有工具\\提取Edge微博Cookie.py"
+   "path": ""
   },
   {
    "script": "build_nav.py",
@@ -1462,6 +1462,14 @@
    "title": "颤音指纹专题页（topic-vibrato.html：八年漂移 0.27Hz 完整证据链）",
    "menu_label": "vibtopic",
    "path": "D:\\wx409.github.io\\project_b\\build_nav.py"
+  },
+  {
+   "script": "验证微博登录态.py",
+   "menu": 191,
+   "title": "微博登录态验证（1 个请求：login 是否 true / 是否被 432 风控）",
+   "menu_label": "check_login",
+   "in_deploy": false,
+   "path": "E:\\wx\\私有工具\\验证微博登录态.py"
   },
   {
    "script": "_build_episodes.py",

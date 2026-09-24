@@ -1,6 +1,6 @@
 {
  "summary": {
-  "generated_at": "2026-09-24T09:55:18",
+  "generated_at": "2026-09-24T14:06:43",
   "rows": 636,
   "levels": {
    "L1": 280,
@@ -10,29 +10,29 @@
    "未认领": 296
   },
   "shows_with_material": 39,
-  "shows_with_claimable": 30,
+  "shows_with_claimable": 37,
   "shows_total": 64
  },
  "per_show": {
   "2019-12-21": {
    "n": 29,
-   "claimable": 12
+   "claimable": 24
   },
   "2020-01-02": {
    "n": 16,
-   "claimable": 4
+   "claimable": 7
   },
   "2019-12-28": {
    "n": 9,
-   "claimable": 6
+   "claimable": 7
   },
   "2019-11-03": {
    "n": 2,
-   "claimable": 0
+   "claimable": 2
   },
   "2019-07-28": {
    "n": 4,
-   "claimable": 3
+   "claimable": 4
   },
   "2019-11-16": {
    "n": 1,
@@ -40,15 +40,15 @@
   },
   "2020-11-29": {
    "n": 1,
-   "claimable": 0
+   "claimable": 1
   },
   "2021-04-11": {
    "n": 6,
-   "claimable": 3
+   "claimable": 5
   },
   "2020-11-21": {
    "n": 32,
-   "claimable": 8
+   "claimable": 30
   },
   "2021-03-27": {
    "n": 1,
@@ -56,15 +56,15 @@
   },
   "2022-01-10": {
    "n": 21,
-   "claimable": 9
+   "claimable": 18
   },
   "2022-06-24": {
    "n": 9,
-   "claimable": 1
+   "claimable": 2
   },
   "2022-09-17": {
    "n": 17,
-   "claimable": 3
+   "claimable": 15
   },
   "2023-06-23": {
    "n": 1,
@@ -76,7 +76,7 @@
   },
   "2022-01-09": {
    "n": 1,
-   "claimable": 0
+   "claimable": 1
   },
   "2021-12-04": {
    "n": 1,
@@ -88,7 +88,7 @@
   },
   "2024-04-06": {
    "n": 18,
-   "claimable": 8
+   "claimable": 16
   },
   "2024-05-25": {
    "n": 1,
@@ -96,7 +96,7 @@
   },
   "2023-12-31": {
    "n": 33,
-   "claimable": 7
+   "claimable": 30
   },
   "2024-03-30": {
    "n": 9,
@@ -112,15 +112,15 @@
   },
   "2025-11-21": {
    "n": 15,
-   "claimable": 4
+   "claimable": 12
   },
   "2024-12-21": {
    "n": 3,
-   "claimable": 2
+   "claimable": 3
   },
   "2025-01-01": {
    "n": 4,
-   "claimable": 1
+   "claimable": 3
   },
   "2025-05-24": {
    "n": 3,
@@ -128,47 +128,47 @@
   },
   "2025-04-05": {
    "n": 2,
-   "claimable": 1
+   "claimable": 2
   },
   "2026-06-13": {
    "n": 23,
-   "claimable": 9
+   "claimable": 17
   },
   "2026-08-23": {
    "n": 42,
-   "claimable": 34
+   "claimable": 37
   },
   "2021-11-27": {
    "n": 11,
-   "claimable": 6
+   "claimable": 9
   },
   "2020-10-07": {
    "n": 6,
-   "claimable": 2
+   "claimable": 4
   },
   "2025-05-01": {
    "n": 7,
-   "claimable": 2
+   "claimable": 3
   },
   "2023-04-09": {
    "n": 2,
-   "claimable": 0
+   "claimable": 2
   },
   "2019-08-16": {
    "n": 1,
-   "claimable": 0
+   "claimable": 1
   },
   "2019-08-04": {
    "n": 2,
-   "claimable": 1
+   "claimable": 2
   },
   "2019-06-07": {
    "n": 1,
-   "claimable": 0
+   "claimable": 1
   },
   "2019-12-15": {
    "n": 1,
-   "claimable": 0
+   "claimable": 1
   }
  },
  "rows": [
@@ -262,8 +262,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -346,8 +346,8 @@
    "tour": "一巡",
    "city": "北京收官",
    "date": "2020-01-02",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-01-02",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -358,8 +358,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -394,8 +394,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -418,8 +418,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -466,8 +466,8 @@
    "tour": "一巡",
    "city": "上海",
    "date": "2019-11-03",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-11-03",
    "level": 1,
    "why": "日期直配"
@@ -490,8 +490,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -502,8 +502,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -562,8 +562,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -610,8 +610,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -622,8 +622,8 @@
    "tour": "一巡",
    "city": "北京收官",
    "date": "2020-01-02",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-01-02",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -634,8 +634,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -646,8 +646,8 @@
    "tour": "一巡",
    "city": "北京收官",
    "date": "2020-01-02",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-28",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -766,8 +766,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -778,8 +778,8 @@
    "tour": "一巡",
    "city": "北京收官",
    "date": "2020-01-02",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-01-02",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -790,8 +790,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -802,8 +802,8 @@
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-21",
    "level": 1,
    "why": "日期直配"
@@ -850,8 +850,8 @@
    "tour": "二巡",
    "city": "北京",
    "date": "2020-11-29",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-29",
    "level": 1,
    "why": "日期直配"
@@ -862,8 +862,8 @@
    "tour": "二巡",
    "city": "南京",
    "date": "2021-04-11",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2021-04-11",
    "level": 1,
    "why": "日期直配"
@@ -946,8 +946,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -970,8 +970,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -982,8 +982,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -994,8 +994,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1018,8 +1018,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1030,8 +1030,8 @@
    "tour": "二巡",
    "city": "南京",
    "date": "2021-04-11",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2021-04-11",
    "level": 1,
    "why": "日期直配"
@@ -1066,8 +1066,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1078,8 +1078,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1090,8 +1090,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1102,8 +1102,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1114,8 +1114,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1126,8 +1126,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1138,8 +1138,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1162,8 +1162,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1186,8 +1186,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1198,8 +1198,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1210,8 +1210,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1222,8 +1222,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1234,8 +1234,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1246,8 +1246,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1270,8 +1270,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1306,8 +1306,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1318,8 +1318,8 @@
    "tour": "二巡",
    "city": "佛山",
    "date": "2020-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-11-21",
    "level": 1,
    "why": "日期直配"
@@ -1438,8 +1438,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1450,8 +1450,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1462,8 +1462,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1498,8 +1498,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1510,8 +1510,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1522,8 +1522,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1546,8 +1546,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1558,8 +1558,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1570,8 +1570,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1582,8 +1582,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1630,8 +1630,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1666,8 +1666,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1690,8 +1690,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1702,8 +1702,8 @@
    "tour": "三巡",
    "city": "无锡",
    "date": "2022-01-09",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-09",
    "level": 1,
    "why": "日期直配"
@@ -1714,8 +1714,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1750,8 +1750,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1762,8 +1762,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1846,8 +1846,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1870,8 +1870,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1906,8 +1906,8 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
@@ -1918,8 +1918,8 @@
    "tour": "三巡",
    "city": "长沙",
    "date": "2022-06-24",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-06-24",
    "level": 1,
    "why": "日期直配"
@@ -1930,8 +1930,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1942,8 +1942,8 @@
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -1990,8 +1990,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2014,8 +2014,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2026,8 +2026,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2038,8 +2038,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2074,8 +2074,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2086,8 +2086,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2110,8 +2110,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2122,8 +2122,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2146,8 +2146,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2158,8 +2158,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2170,8 +2170,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2206,8 +2206,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2230,8 +2230,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2290,8 +2290,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2314,8 +2314,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2326,8 +2326,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2338,8 +2338,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2350,8 +2350,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2362,8 +2362,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2374,8 +2374,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2422,8 +2422,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2434,8 +2434,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2446,8 +2446,8 @@
    "tour": "四巡",
    "city": "上海生日",
    "date": "2024-04-06",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
@@ -2482,8 +2482,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2494,8 +2494,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2518,8 +2518,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2530,8 +2530,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2638,8 +2638,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2674,8 +2674,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2710,8 +2710,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2722,8 +2722,8 @@
    "tour": "四巡",
    "city": "上海",
    "date": "2023-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -2770,8 +2770,8 @@
    "tour": "五巡",
    "city": "杭州",
    "date": "2024-12-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2024-12-21",
    "level": 1,
    "why": "日期直配"
@@ -2782,8 +2782,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2794,8 +2794,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2806,8 +2806,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2818,8 +2818,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2854,8 +2854,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2866,8 +2866,8 @@
    "tour": "五巡",
    "city": "长沙",
    "date": "2025-01-01",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-01-01",
    "level": 1,
    "why": "日期直配"
@@ -2878,8 +2878,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2926,8 +2926,8 @@
    "tour": "五巡",
    "city": "长沙",
    "date": "2025-01-01",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-01-01",
    "level": 1,
    "why": "日期直配"
@@ -2962,8 +2962,8 @@
    "tour": "五巡",
    "city": "北京",
    "date": "2025-04-05",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-04-05",
    "level": 1,
    "why": "日期直配"
@@ -2998,8 +2998,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -3046,8 +3046,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -3106,8 +3106,8 @@
    "tour": "六巡",
    "city": "广州",
    "date": "2026-08-23",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-08-23",
    "level": 1,
    "why": "日期直配"
@@ -3262,8 +3262,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3298,8 +3298,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3322,8 +3322,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3394,8 +3394,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3442,8 +3442,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3514,8 +3514,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3526,8 +3526,8 @@
    "tour": "六巡",
    "city": "广州",
    "date": "2026-08-23",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-08-23",
    "level": 1,
    "why": "日期直配"
@@ -3646,8 +3646,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3706,8 +3706,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3754,8 +3754,8 @@
    "tour": "六巡",
    "city": "广州",
    "date": "2026-08-23",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2026-08-23",
    "level": 1,
    "why": "日期直配"
@@ -3850,8 +3850,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4018,8 +4018,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4102,8 +4102,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4138,8 +4138,8 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
@@ -4150,8 +4150,8 @@
    "tour": "其他演出",
    "city": "深圳",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4210,8 +4210,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4246,8 +4246,8 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4258,8 +4258,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4270,8 +4270,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4282,8 +4282,8 @@
    "tour": "其他演出",
    "city": "武汉",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4294,8 +4294,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4306,8 +4306,8 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4318,8 +4318,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4378,8 +4378,8 @@
    "tour": "其他演出",
    "city": "武汉",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4390,8 +4390,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2020-12-23",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4402,8 +4402,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4414,8 +4414,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4450,8 +4450,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4462,8 +4462,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4486,8 +4486,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4558,8 +4558,8 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
@@ -4570,8 +4570,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4666,8 +4666,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4678,8 +4678,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4714,8 +4714,8 @@
    "tour": "其他演出",
    "city": "长沙",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4798,8 +4798,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4834,8 +4834,8 @@
    "tour": "其他演出",
    "city": "长沙",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4882,8 +4882,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4894,8 +4894,8 @@
    "tour": "其他演出",
    "city": "南京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4906,8 +4906,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4942,8 +4942,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4954,8 +4954,8 @@
    "tour": "签唱会",
    "city": "上海",
    "date": "2023-04-09",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-04-09",
    "level": 1,
    "why": "日期直配"
@@ -4978,8 +4978,8 @@
    "tour": "其他演出",
    "city": "南宁",
    "date": "2020",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4990,8 +4990,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5002,8 +5002,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5014,8 +5014,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5026,8 +5026,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5062,8 +5062,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5122,8 +5122,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5266,8 +5266,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5290,8 +5290,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5374,8 +5374,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5410,8 +5410,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2019-09-14",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5434,8 +5434,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5446,8 +5446,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5458,8 +5458,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2019-08-02",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5470,8 +5470,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023-02-25",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5482,8 +5482,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5578,8 +5578,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5650,8 +5650,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5674,8 +5674,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5698,8 +5698,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5710,8 +5710,8 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5758,8 +5758,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5782,8 +5782,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2021-07-20",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5866,8 +5866,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5914,8 +5914,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2020-01-01",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5974,8 +5974,8 @@
    "tour": "签唱会",
    "city": "上海",
    "date": "2023-04-09",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-04-09",
    "level": 1,
    "why": "日期直配"
@@ -5998,8 +5998,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2024-10-26",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6022,8 +6022,8 @@
    "tour": "其他演出",
    "city": "深圳",
    "date": "2019-09-18",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6070,8 +6070,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6094,8 +6094,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6154,8 +6154,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6226,8 +6226,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "2019-08-18",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-08-16",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -6238,8 +6238,8 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "2019-08-05",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-08-04",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -6274,8 +6274,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "2019-06-09",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-06-07",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -6286,8 +6286,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6298,8 +6298,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6310,8 +6310,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6322,8 +6322,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2019-12-30",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6346,8 +6346,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6406,8 +6406,8 @@
    "tour": "其他演出",
    "city": "南京",
    "date": "2019-07-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-07-28",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -6418,8 +6418,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6430,8 +6430,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6442,8 +6442,8 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6466,8 +6466,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2019-12-22",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6538,8 +6538,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2019-06-10",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6550,8 +6550,8 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "2019-12-31",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6574,8 +6574,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6610,8 +6610,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6622,8 +6622,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6634,8 +6634,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6646,8 +6646,8 @@
    "tour": "其他演出",
    "city": "三亚",
    "date": "2023-02-25",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6694,8 +6694,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6706,8 +6706,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6754,8 +6754,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2020-09-17",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6766,8 +6766,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6778,8 +6778,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6802,8 +6802,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6886,8 +6886,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6934,8 +6934,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6958,8 +6958,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6994,8 +6994,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7018,8 +7018,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7054,8 +7054,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7102,8 +7102,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7114,8 +7114,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7126,8 +7126,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7138,8 +7138,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7162,8 +7162,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7174,8 +7174,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7198,8 +7198,8 @@
    "tour": "其他演出",
    "city": "长沙",
    "date": "2019-12-22",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-12-15",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -7210,8 +7210,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7234,8 +7234,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7270,8 +7270,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7294,8 +7294,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2019-09-12",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7306,8 +7306,8 @@
    "tour": "签唱会",
    "city": "上海",
    "date": "2025-05-01",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-05-01",
    "level": 1,
    "why": "日期直配"
@@ -7330,8 +7330,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7366,8 +7366,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7378,8 +7378,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7402,8 +7402,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7438,8 +7438,8 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
@@ -7450,8 +7450,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7474,8 +7474,8 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2020-10-07",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-10-07",
    "level": 1,
    "why": "日期直配"
@@ -7522,8 +7522,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7534,8 +7534,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7558,8 +7558,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7570,8 +7570,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2020-01-03",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7606,8 +7606,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2022-06-02",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7678,8 +7678,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2019-11-05",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2019-11-03",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
@@ -7690,8 +7690,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7738,8 +7738,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7762,8 +7762,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7774,8 +7774,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7786,8 +7786,8 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2020-10-07",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2020-10-07",
    "level": 1,
    "why": "日期直配"
@@ -7798,8 +7798,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "谐波列通过（HNR 低于门槛）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""

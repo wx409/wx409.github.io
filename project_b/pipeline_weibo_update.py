@@ -40,6 +40,55 @@ def get_cookie():
     return c
 
 
+def cdp_fetch_list(uid, since=None, port=9222):
+    """CDP 兜底：在已开启调试端口的浏览器页面里请求同一接口，返回 (cards, since_id)。
+
+    前置：浏览器以 --remote-debugging-port=9222 启动（见 提取浏览器微博Cookie.py / 操作中心 189）。
+    未就绪则返回 (None, None)，由调用方决定报错方式。
+    """
+    import json as _json
+    try:
+        import requests
+        import websocket
+    except Exception:
+        log('CDP 兜底不可用：缺 websocket-client / requests')
+        return None, None
+    base = 'http://127.0.0.1:%d' % port
+    try:
+        ts = requests.get(base + '/json', timeout=5).json()
+    except Exception:
+        log('CDP 兜底不可用：调试端口未开启（请以 --remote-debugging-port=%d 启动浏览器）' % port)
+        return None, None
+    page = next((t for t in ts if 'm.weibo.cn' in t.get('url', '') and t.get('type') == 'page'), None)
+    if page is None:
+        log('CDP 兜底不可用：没有 m.weibo.cn 标签页（请在该浏览器打开任意 m.weibo.cn 页面）')
+        return None, None
+    q = ('/api/container/getIndex?type=uid&value=%s&containerid=107603%s' % (uid, uid)) + \
+        ('&since_id=%s' % since if since else '')
+    expr = ("(async()=>{const r=await fetch(%r,{credentials:'include',"
+            "headers:{'X-Requested-With':'XMLHttpRequest'}});return await r.text();})()" % q)
+    try:
+        ws = websocket.create_connection(page['webSocketDebuggerUrl'], timeout=40, suppress_origin=True)
+        ws.send(_json.dumps({'id': 1, 'method': 'Runtime.enable'}))
+        ws.recv()
+        ws.send(_json.dumps({'id': 2, 'method': 'Runtime.evaluate',
+                             'params': {'expression': expr, 'awaitPromise': True, 'returnByValue': True}}))
+        while True:
+            msg = _json.loads(ws.recv())
+            if msg.get('id') == 2:
+                break
+        ws.close()
+        body = msg['result']['result']['value']
+        d = _json.loads(body)
+    except Exception as e:
+        log('CDP 兜底失败：%s' % repr(e)[:100])
+        return None, None
+    info = d.get('data', {}).get('cardlistInfo', {})
+    cards = [c for c in d.get('data', {}).get('cards', []) if c.get('card_type') == 9]
+    log('CDP 兜底成功：ok=%s｜card_type=9 条数 %d' % (d.get('ok'), len(cards)))
+    return cards, info.get('since_id')
+
+
 def fetch_list(uid, since=None):
     """翻一页列表，返回 (cards, since_id)"""
     import urllib.request, urllib.parse, urllib.error
@@ -50,10 +99,13 @@ def fetch_list(uid, since=None):
         d = json.loads(urllib.request.urlopen(req, timeout=20).read().decode('utf-8'))
     except urllib.error.HTTPError as e:
         if e.code == 432:
+            log('直连命中 432，尝试 CDP 兜底（浏览器页面上下文）…')
+            cards, since2 = cdp_fetch_list(uid, since)
+            if cards is not None:
+                return cards, since2
             raise RuntimeError(
-                '微博风控(HTTP 432)：m.weibo.cn 已标记当前 IP/账号（多为近期高频抓取触发，'
-                '如 weibo_proxy 全量抓取）。请停止一切微博请求 24-48 小时后重试，'
-                '期间勿跑 weibo_proxy / collect_show_feedback / 本管线')
+                '微博风控(HTTP 432) 且 CDP 兜底不可用。请：(1) 以 --remote-debugging-port=9222 启动浏览器，'
+                '并在其中打开任意 m.weibo.cn 页面后重试；或 (2) 停止微博请求 24-48 小时后再试。')
         raise
     info = d.get('data', {}).get('cardlistInfo', {})
     cards = [c for c in d.get('data', {}).get('cards', []) if c.get('card_type') == 9]
