@@ -286,7 +286,26 @@ def main():
     log('=== 本轮新增微博总数: %d ===' % total_new)
 
     if total_new == 0:
-        log('无新内容，跳过后续（不提取 / 不 rebuild）')
+        # 区分「上游无新帖」与「采集被风控挡住」——后者必须告警（2026-09-24 修）
+        risk = False
+        try:
+            _lg = Path(r'D:\wx409.github.io\logs\weibo_pipeline.log')
+            if _lg.exists():
+                _tail = _lg.read_text(encoding='utf-8', errors='ignore')[-4000:]
+                risk = ('HTTP 432' in _tail) or ('风控' in _tail)
+        except Exception:
+            pass
+        if risk:
+            log('⚠ 本轮 0 新增且检测到风控（HTTP 432）→ 写告警并置非零退出码')
+            try:
+                Path(r'D:\wx409.github.io\temp\链路告警.txt').write_text(
+                    '%s 微博管线被风控（HTTP 432）：采集 0 条，需降低频率或更换出口 IP\n'
+                    % __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), encoding='utf-8')
+            except Exception:
+                pass
+            log('无新内容，跳过后续（不提取 / 不 rebuild）')
+            sys.exit(2)
+        log('无新内容（上游无新帖），跳过后续（不提取 / 不 rebuild）')
         return
 
     # 2. 事件提取（LLM，只处理本轮新增）

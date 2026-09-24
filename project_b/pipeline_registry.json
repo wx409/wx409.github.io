@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 12:35",
+ "generated_at": "2026-09-24 13:32",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 186,
-  "dispatch": 185,
-  "deploy_steps": 73,
+  "menu_items": 188,
+  "dispatch": 187,
+  "deploy_steps": 75,
   "scheduled_tasks": 7
  },
  "tasks": [
@@ -1434,6 +1434,26 @@
    "title": "声学探索·可写方向清单（可复算观测，含样本量与可信度分级，供传记取材）",
    "menu_label": "explore",
    "path": "D:\\wx409.github.io\\project_b\\build_explore_findings.py"
+  },
+  {
+   "script": "build_asset_streams.py",
+   "in_deploy": true,
+   "deploy_desc": "横向素材积攒看板 data/asset_streams.json",
+   "critical": false,
+   "menu": 187,
+   "title": "横向素材积攒看板（微博/指数/语料/知识库/影像 是否同步增长 + 缺口告警）",
+   "menu_label": "streams",
+   "path": "D:\\wx409.github.io\\project_b\\build_asset_streams.py"
+  },
+  {
+   "script": "build_topic_deepdives.py",
+   "in_deploy": true,
+   "deploy_desc": "写作专题三题 data/topic_deepdives.json",
+   "critical": false,
+   "menu": 188,
+   "title": "写作专题三题（音域两端 / 颤音指纹 / 音区自觉；现象-方法-数字-反面证据-可引用句）",
+   "menu_label": "deepdives",
+   "path": "D:\\wx409.github.io\\project_b\\build_topic_deepdives.py"
   },
   {
    "script": "_build_episodes.py",

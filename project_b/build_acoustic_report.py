@@ -307,6 +307,17 @@ def main() -> int:
         _b["hi900"] += int(isinstance(_r.get("high_hz"), (int, float)) and _r["high_hz"] > 900)
         _b["span35"] += int(isinstance(_r.get("span_octaves"), (int, float)) and _r["span_octaves"] > 3.5)
     _hnr_low_n = sum(1 for _r in rows if _r.get("hnr_low"))
+    _topics = (load("topic_deepdives.json") or {}).get("topics", [])
+    _topics_html = ""
+    for _i, _t in enumerate(_topics, 1):
+        _topics_html += (f"<h3>专题{_i}｜{esc(_t.get('title',''))}</h3>"
+                         f"<p><b>现象</b>：{esc(_t.get('phenomenon',''))}</p>"
+                         f"<p><b>方法</b>：{esc(_t.get('method',''))}</p>"
+                         f"<p><b>原始数字</b>：<code>{esc(json.dumps(_t.get('numbers', {}), ensure_ascii=False))}</code></p>"
+                         f"<p><b>反面证据与限定</b>：{esc(_t.get('counter',''))}</p>"
+                         f"<p><b>可引用句</b>：</p><ul>"
+                         + "".join(f"<li>{esc(q)}</li>" for q in (_t.get('quotes') or []))
+                         + "</ul>")
     _ln = load("archive_long_notes.json")
     _ln_top = _ln.get("top", [])[:10]
     _ln_flag = (_ln.get("verdict_check") or {}).get("flagged", [])
@@ -377,6 +388,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <a href="#verdicts">复核裁决（{len(v_items)} 条）</a>
 <a href="#coverage">场次覆盖地图</a>
 <a href="#cover">选曲与翻唱</a>
+<a href="#topics">写作专题 · 三题</a>
 <a href="#assets">资产台账与来源构成</a>
 <a href="#arc">风格与能力弧线</a>
 <a href="#case968">案例卡·莫斯科968Hz</a>
@@ -487,6 +499,11 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 <div class="scroll">{cov_tbl}</div>
 </section>
 
+<section id="topics"><h2>写作专题 · 三题（现象 → 方法 → 数字 → 反面证据 → 可引用句）</h2>
+<p class="lead">从全部可复算观测里挑出三题做深挖，每题固定五段结构，<b>反面证据与限定与结论一起给</b>，避免"只传漂亮数字"。</p>
+{_topics_html}
+</section>
+
 <section id="assets"><h2>资产台账与来源构成（素材是怎么来的）</h2>
 <p class="lead">「现场层 636 条」是个聚合数；这一章回答<b>资产从哪来、哪天进库、质量如何</b>——
 传记需要可追溯账本，而不是单一总量。</p>
@@ -532,6 +549,10 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 其中 90 条能关联到材料 HNR）。按材料 HNR 分档后：</p>
 {table([["0–5 dB", 30, "11.69", "53%", "53%"], ["≥ 5 dB", 60, "11.83", "62%", "62%"]],
       ["材料级 HNR", "n", "YIN↔CREPE 偏差中位（半音）", "错读率（比值&gt;1.15）", "判「次谐波错误」占比"], "hnrval")}
+<p class="lead">另做一次<b>随机抽样</b>复核（按 HNR 分档抽样 20 条素材，用分离人声轨重跑 CREPE，
+在两者都判定有声的帧上比较）：<b>材料 HNR &lt;0 组</b>偏差中位 0.42 半音、<b>0–5 组</b> 0.71 半音、
+<b>≥5 组</b> 1.69 半音——<b>高 HNR 组偏差反而更大</b>（该档里含串烧/合唱类素材，两引擎易锁定不同声部）。
+样本量小（n=20，<b>探索性</b>），但与此前的既有数据检验<b>方向一致</b>。</p>
 <p class="lead"><b>结论（如实）：材料级 HNR 无法区分读数可靠与否</b>——高 HNR 组的错读率并不更低（62% vs 53%）。
 因此：① 上表的"低信噪组 &gt;900Hz 更多"只能支持<b>「低信噪素材的极值读数需谨慎」</b>，
 <b>不能</b>推断"低音读数不可靠"；② 真正挡住次谐波错误的是

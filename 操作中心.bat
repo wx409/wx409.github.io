@@ -234,6 +234,8 @@ echo    183. 视频音轨入库（自录/微博直拍视频 → 抽音轨 → 分离/F0 → 入库；G盘未
 echo    184. 待人耳确认清单（汇总台账待核+长声闸门，并自动切缺失样本）
 echo    185. 音频资产台账（逐批次盘点：文件/体量/已分析/新增；进报告「资产台账」章）
 echo    186. 声学探索·可写方向清单（可复算观测，含样本量与可信度分级，供传记取材）
+echo    187. 横向素材积攒看板（微博/指数/语料/知识库/影像 是否同步增长 + 缺口告警）
+echo    188. 写作专题三题（音域两端 / 颤音指纹 / 音区自觉；现象-方法-数字-反面证据-可引用句）
 echo    0. 退出
 echo.
 set "op="
@@ -424,6 +426,8 @@ if "%op%"=="183" goto video_ingest
 if "%op%"=="184" goto pending_review
 if "%op%"=="185" goto audio_assets
 if "%op%"=="186" goto explore
+if "%op%"=="187" goto streams
+if "%op%"=="188" goto deepdives
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2544,5 +2548,23 @@ echo  [可写方向清单] 把已有数据能回答的问题逐条算出来（非观点，全部可复算）
 echo  产出：data\\explore_findings.json ＋ 本地 声学探索_可写方向.md
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_explore_findings.py
+pause
+goto menu
+
+:streams
+cls
+echo  [横向素材积攒看板] 声学层之外，其余素材流是否在同步增长（含近7日新增/滞后天数/缺口）
+echo  产出：data\\asset_streams.json ＋ 本地 横向素材积攒看板.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_asset_streams.py
+pause
+goto menu
+
+:deepdives
+cls
+echo  [写作专题三题] 从可复算观测里挑三题深挖，含反面证据与可直接引用的句子
+echo  产出：data\\topic_deepdives.json ＋ 本地 专题深挖_三题_写作素材.md ＋ 报告「写作专题」章
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_topic_deepdives.py
 pause
 goto menu

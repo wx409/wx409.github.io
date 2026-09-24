@@ -1,0 +1,160 @@
+{
+ "generated_at": "2026-09-24 13:31",
+ "streams": [
+  {
+   "stream": "声学·现场层",
+   "source": "data/archive_stage_tour.json",
+   "n": 636,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": null,
+   "gap": "在积攒（每晚 22:00 增量）",
+   "note": ""
+  },
+  {
+   "stream": "声学·音频资产",
+   "source": "data/audio_assets.json",
+   "n": 1894,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": 42,
+   "gap": "在积攒",
+   "note": "本日新增 42 个"
+  },
+  {
+   "stream": "指数·每日指数",
+   "source": "music_index_long.csv",
+   "n": 1297,
+   "latest": "2026-09-22",
+   "lag_days": 2,
+   "new_7d": 6,
+   "gap": "在积攒（每日多批次）",
+   "note": "最新 2026-09-22"
+  },
+  {
+   "stream": "文本·声音素材",
+   "source": "wx_textmine_corpus/声音素材",
+   "n": 157,
+   "latest": "2026-09-14",
+   "lag_days": 9,
+   "new_7d": 0,
+   "gap": "**近期无新增**",
+   "note": ""
+  },
+  {
+   "stream": "文本·少城时代",
+   "source": "wx_textmine_corpus/少城时代",
+   "n": 172,
+   "latest": "2026-09-14",
+   "lag_days": 9,
+   "new_7d": 0,
+   "gap": "**近期无新增**",
+   "note": ""
+  },
+  {
+   "stream": "文本·工作室微博",
+   "source": "wx_textmine_corpus/工作室微博",
+   "n": 1059,
+   "latest": "2026-09-07",
+   "lag_days": 17,
+   "new_7d": 0,
+   "gap": "**近期无新增**",
+   "note": ""
+  },
+  {
+   "stream": "文本·本人微博",
+   "source": "wx_textmine_corpus/本人微博",
+   "n": 901,
+   "latest": "2026-09-07",
+   "lag_days": 17,
+   "new_7d": 0,
+   "gap": "**近期无新增**",
+   "note": ""
+  },
+  {
+   "stream": "文本·百家号",
+   "source": "wx_textmine_corpus/百家号",
+   "n": 625,
+   "latest": "2026-09-14",
+   "lag_days": 9,
+   "new_7d": 0,
+   "gap": "**近期无新增**",
+   "note": ""
+  },
+  {
+   "stream": "文本·百科",
+   "source": "wx_textmine_corpus/百科",
+   "n": 26,
+   "latest": "2026-09-07",
+   "lag_days": 17,
+   "new_7d": 0,
+   "gap": "**近期无新增**",
+   "note": ""
+  },
+  {
+   "stream": "演出·场次歌单",
+   "source": "data/setlists.json",
+   "n": 64,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": null,
+   "gap": "人工维护",
+   "note": "全站 64 场"
+  },
+  {
+   "stream": "知识库·实体",
+   "source": "data/kb/manifest.json",
+   "n": 1604,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": null,
+   "gap": "随内容更新",
+   "note": "事实 1692｜关系 2228｜语声集 157"
+  },
+  {
+   "stream": "知识库·问答库",
+   "source": "data/qa_bank.json",
+   "n": 16,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": null,
+   "gap": "随页面更新",
+   "note": ""
+  },
+  {
+   "stream": "影像·本地视频",
+   "source": "data/video_shows.json",
+   "n": 102,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": null,
+   "gap": "在积攒（G 盘归档；仅 1 批已抽轨入库）",
+   "note": "有视频场次 3｜体积 19.03 GB"
+  },
+  {
+   "stream": "文本·采访/杂志/报道",
+   "source": "散落于 E:\\wx",
+   "n": 4,
+   "latest": "",
+   "lag_days": null,
+   "new_7d": null,
+   "gap": "**缺口：未建索引**",
+   "note": "AGENTS.md 第三批待办"
+  }
+ ],
+ "summary": {
+  "streams": 14,
+  "accumulating": 2,
+  "stale": [
+   "文本·声音素材",
+   "文本·少城时代",
+   "文本·工作室微博",
+   "文本·本人微博",
+   "文本·百家号",
+   "文本·百科"
+  ],
+  "gaps": [
+   "文本·采访/杂志/报道"
+  ]
+ }
+}
