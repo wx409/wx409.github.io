@@ -100,6 +100,7 @@ STEPS = [
     (ROOT / "project_b" / "inject_essay_quotes.py", "注入复跑：歌迷赏析摘录（首页听众说+巡演页）", False),
     (ROOT / "project_b" / "inject_long_notes.py", "注入复跑：长声实测章（vocal.html）", False),
     (ROOT / "project_b" / "inject_top_verified.py", "注入复跑：人耳确认读数章", False),
+    (ROOT / "project_b" / "build_pending_review.py", "待人耳确认清单（台账待核+长声闸门）", False),
     (ROOT / "project_b" / "audit_injections.py", "注入审计（结果指纹版：页面上能否看到注入产物，断链即返回 1）", False),
     (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),

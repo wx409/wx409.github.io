@@ -231,6 +231,7 @@ echo    180. 长声表 × 否决台账反连接（同音区存疑移出榜单，防女和声污染）
 echo    181. 注入审计（结果指纹版：首页事实/听众说/vocal音域摘要/长声章 是否真落地）
 echo    182. 曲目缺口自动补闭环（补搜扩池→缺口优先下载/测量→聚合→回写站点数据）
 echo    183. 视频音轨入库（自录/微博直拍视频 → 抽音轨 → 分离/F0 → 入库；G盘未挂载自动跳过）
+echo    184. 待人耳确认清单（汇总台账待核+长声闸门，并自动切缺失样本）
 echo    0. 退出
 echo.
 set "op="
@@ -418,6 +419,7 @@ if "%op%"=="180" goto longnotes_verdict
 if "%op%"=="181" goto audit_inject
 if "%op%"=="182" goto gap_loop
 if "%op%"=="183" goto video_ingest
+if "%op%"=="184" goto pending_review
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2510,5 +2512,15 @@ set HF_HUB_OFFLINE=1
 python -X utf8 批量专辑音域.py --root "E:\wx\论文素材_王晰作传\音域分析\场次音频\wav_自录视频"
 cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
 python -X utf8 生成巡演现场报告.py
+pause
+goto menu
+
+:pending_review
+cls
+echo  [待人耳确认清单] 单一事实源：台账待核 + 长声闸门被移出条目；并自动切缺失样本
+echo  产出：temp\待听辨清单.md（人读）＋ data\pending_review.json（机读，不含本地路径）
+echo  听完后：159 听辨台账回填 -^> 160 定案后重建
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_pending_review.py --cut
 pause
 goto menu
