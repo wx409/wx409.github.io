@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-09-24 14:07　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-09-24 21:07　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -61,9 +61,9 @@
 | `voice_corpus_items` | 声音素材转写条目数 | **157** | 已下载并完成转写的音频/视频单集数，跨 18 个系列 | `data\voice_corpus.json#items` |
 | `voice_corpus_chars` | 声音素材转写全文字数 | **171098** | 全部转写稿字符数（可检索语料规模） | `data\voice_corpus.json#items[].text` |
 | `voice_corpus_minutes` | 声音素材总时长（分钟） | **926.1** | 已下载音频/视频的总时长 | `data\voice_corpus.json#counts` |
-| `textmine_corpus` | 文本挖掘语料条数 | **2653** | wx_textmine 管线的 corpus.jsonl 条数，来自 6 个来源 | `E:\wx\wx_textmine_out\corpus.jsonl` |
-| `textmine_events` | 文本挖掘抽取事件数 | **2442** | 从语料抽取的带日期事件（LLM 抽取，未经人工复核） | `E:\wx\wx_textmine_out\master_timeline.json` |
-| `event_effects_edges` | 事件×歌曲 效应边数 | **22215** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
+| `textmine_corpus` | 文本挖掘语料条数 | **5155** | wx_textmine 管线的 corpus.jsonl 条数，来自 6 个来源 | `E:\wx\wx_textmine_out\corpus.jsonl` |
+| `textmine_events` | 文本挖掘抽取事件数 | **3447** | 从语料抽取的带日期事件（LLM 抽取，未经人工复核） | `E:\wx\wx_textmine_out\master_timeline.json` |
+| `event_effects_edges` | 事件×歌曲 效应边数 | **31132** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
 | `media_library_files` | 声音素材库已下载媒体文件数 | **157** | 本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 | `media_library_pending` | 声音素材库待采条目数 | **2** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 

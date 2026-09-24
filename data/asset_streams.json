@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24 14:06",
+ "generated_at": "2026-09-24 21:07",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -36,7 +36,7 @@
    "source": "wx_textmine_corpus/声音素材",
    "n": 157,
    "latest": "2026-09-14",
-   "lag_days": 9,
+   "lag_days": 10,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -46,7 +46,7 @@
    "source": "wx_textmine_corpus/少城时代",
    "n": 172,
    "latest": "2026-09-14",
-   "lag_days": 9,
+   "lag_days": 10,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -54,41 +54,41 @@
   {
    "stream": "文本·工作室微博",
    "source": "wx_textmine_corpus/工作室微博",
-   "n": 1059,
-   "latest": "2026-09-07",
-   "lag_days": 17,
-   "new_7d": 0,
-   "gap": "**近期无新增**",
+   "n": 3275,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": 2216,
+   "gap": "在积攒",
    "note": ""
   },
   {
    "stream": "文本·本人微博",
    "source": "wx_textmine_corpus/本人微博",
-   "n": 901,
-   "latest": "2026-09-07",
-   "lag_days": 17,
-   "new_7d": 0,
-   "gap": "**近期无新增**",
+   "n": 934,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": 33,
+   "gap": "在积攒",
    "note": ""
   },
   {
    "stream": "文本·百家号",
    "source": "wx_textmine_corpus/百家号",
-   "n": 625,
-   "latest": "2026-09-14",
-   "lag_days": 9,
-   "new_7d": 0,
-   "gap": "**近期无新增**",
+   "n": 1216,
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": 591,
+   "gap": "在积攒",
    "note": ""
   },
   {
    "stream": "文本·百科",
    "source": "wx_textmine_corpus/百科",
    "n": 26,
-   "latest": "2026-09-07",
-   "lag_days": 17,
-   "new_7d": 0,
-   "gap": "**近期无新增**",
+   "latest": "2026-09-24",
+   "lag_days": 0,
+   "new_7d": 26,
+   "gap": "在积攒",
    "note": ""
   },
   {
@@ -144,14 +144,10 @@
  ],
  "summary": {
   "streams": 14,
-  "accumulating": 2,
+  "accumulating": 6,
   "stale": [
    "文本·声音素材",
-   "文本·少城时代",
-   "文本·工作室微博",
-   "文本·本人微博",
-   "文本·百家号",
-   "文本·百科"
+   "文本·少城时代"
   ],
   "gaps": [
    "文本·采访/杂志/报道"
