@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 21:06",
+ "generated_at": "2026-09-25 00:11",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,26 +9,26 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 636,
-  "n_stage_measured": 633,
+  "n_materials": 640,
+  "n_stage_measured": 637,
   "n_from_precision": 3,
-  "n_songs": 150,
+  "n_songs": 153,
   "n_tours": 8,
-  "n_verified": 525,
-  "n_claimable": 510,
-  "n_claimable_soft": 256,
+  "n_verified": 528,
+  "n_claimable": 513,
+  "n_claimable_soft": 258,
   "hnr_gate_db": 5.0,
-  "hnr_low_n": 336,
+  "hnr_low_n": 338,
   "n_unverifiable": 4,
   "review_status_dist": {
-   "谐波列通过": 462,
-   "待复核（谐波列待判）": 95,
+   "谐波列通过": 465,
+   "待复核（谐波列待判）": 96,
    "人耳确认": 48,
    "人耳否决（非王晰）": 25,
    "不可复核（缺混音/时间）": 4,
    "谐波列通过（HNR 异常，疑分离失败）": 2
   },
-  "n_harmonic_reviewed": 472,
+  "n_harmonic_reviewed": 475,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -39,20 +39,20 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 2.75,
+  "span_median_octaves": 2.76,
   "stability_median_cents": 7.0,
   "vibrato_rate_hz_median": 4.92,
   "vibrato_extent_cents_median": 76.0,
   "verify_dist": {
    "人耳确认（听辨）": 48,
-   "待复核（谐波列待判）": 106,
-   "谐波列复核通过": 471,
+   "待复核（谐波列待判）": 107,
+   "谐波列复核通过": 474,
    "未复核": 5,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 636,
+  "n_stat_basis": 640,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -177,11 +177,12 @@
   },
   {
    "tour": "五巡",
-   "n_materials": 27,
-   "n_claimable": 22,
+   "n_materials": 30,
+   "n_claimable": 24,
    "cities": [
     "上海",
     "北京",
+    "南昌",
     "广州",
     "杭州",
     "长沙"
@@ -201,7 +202,7 @@
    "stability_median_cents": 6.55,
    "vibrato_rate_hz_median": 4.95,
    "stat_basis": "可主张（复核通过）",
-   "n_stat_basis": 22,
+   "n_stat_basis": 24,
    "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
@@ -12382,6 +12383,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "上海20251121_BV1NwUnBpEmo",
+   "song": "好久不见",
+   "tour": "五巡",
+   "city": "上海",
+   "date": "2025-11-21",
+   "bv": "BV1NwUnBpEmo",
+   "owner": "不要总是哭唧唧",
+   "title": "【王晰】点歌part【好久不见】【你怎么舍得我难过】【约定】无论多耳熟能详的歌都能唱出自己的情感和味道【4K】20251",
+   "bandwidth_kbps": 127,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "C#2",
+   "low_hz": 67.4,
+   "low_t_s": 376.23292517006803,
+   "low_dur_s": 0.25541950113378686,
+   "high_note": "A5",
+   "high_hz": 870.0,
+   "span_octaves": 3.69,
+   "stability_cents": 7.3,
+   "intonation_cents": 21.9,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 77.0,
+   "density_per_s": 1.63,
+   "hnr_db": 7.3,
+   "duration_s": 414.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "待复核（谐波列待判）",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "C#2",
+    "hz": 67.4,
+    "why": "1f0 差 -36.6dB",
+    "fund_gap_db": -36.6,
+    "floor_db": 8.9,
+    "t_s": 376.233,
+    "dur_s": 0.255,
+    "partials": [
+     21.0,
+     57.7,
+     48.9,
+     38.4,
+     26.9,
+     41.0,
+     20.0,
+     32.6
+    ]
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "hnr_low": false,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "claimable_soft": false
+  },
+  {
    "tag": "杭州20241221_BV1RjkYYbEF8",
    "song": "My Oh My",
    "tour": "五巡",
@@ -12718,6 +12775,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "杭州20241221_BV1wrkYYVEXA",
+   "song": "在路上",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "bv": "BV1wrkYYVEXA",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰【在路上】新专主打首唱，120%还原了棚板的细节【4K】吾巡个人音乐会杭州站20241221",
+   "bandwidth_kbps": 124,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "D#2",
+   "low_hz": 78.9,
+   "low_t_s": 25.402630385487527,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "A4",
+   "high_hz": 439.7,
+   "span_octaves": 2.48,
+   "stability_cents": 6.3,
+   "intonation_cents": 18.5,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 66.0,
+   "density_per_s": 1.59,
+   "hnr_db": 3.5,
+   "duration_s": 182.3,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D#2",
+    "hz": 78.9,
+    "why": "1f0 差 -5.1dB、3f0 在（45.5dB）",
+    "fund_gap_db": -5.1,
+    "floor_db": 32.4,
+    "t_s": 25.403,
+    "dur_s": 0.209,
+    "partials": [
+     46.8,
+     51.9,
+     45.5,
+     42.0,
+     42.3,
+     34.9,
+     28.6,
+     20.7
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": true,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": true
+  },
+  {
    "tag": "20251121194904 0027 玫瑰人生（La Vie en Rose）",
    "song": "",
    "tour": "五巡",
@@ -12884,6 +12997,62 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "claimable_soft": true
+  },
+  {
+   "tag": "南昌20241229_BV1QK6GYZE3g",
+   "song": "恋曲1990",
+   "tour": "五巡",
+   "city": "南昌",
+   "date": "2024-12-29",
+   "bv": "BV1QK6GYZE3g",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰的老唱片时间【恋曲1990】【当爱已成往事】【是否】点歌part【4k】吾个人音乐会南昌站20241229",
+   "bandwidth_kbps": 113,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "F2",
+   "low_hz": 88.1,
+   "low_t_s": 150.5581859410431,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "A#5",
+   "high_hz": 909.1,
+   "span_octaves": 3.37,
+   "stability_cents": 7.3,
+   "intonation_cents": 24.0,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 80.0,
+   "density_per_s": 1.62,
+   "hnr_db": 5.3,
+   "duration_s": 512.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F2",
+    "hz": 88.1,
+    "why": "1f0 差 -12.5dB、3f0 在（54.3dB）",
+    "fund_gap_db": -12.5,
+    "floor_db": 14.6,
+    "t_s": 150.558,
+    "dur_s": 0.232,
+    "partials": [
+     49.7,
+     57.3,
+     54.3,
+     62.2,
+     34.4,
+     34.4,
+     31.6,
+     28.6
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
   },
   {
    "tag": "20251121205303 0035 无尽的夜里第1遍",
@@ -29381,6 +29550,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "上海20230409_BV1M14y117E1",
+   "song": "猫模狗样",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2023-04-09",
+   "bv": "BV1M14y117E1",
+   "owner": "早起战士奶茶一杯",
+   "title": "王晰《猫模狗样》上海签售20230409",
+   "bandwidth_kbps": 176,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 90.3,
+   "low_t_s": 26.81904761904762,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "G5",
+   "high_hz": 772.3,
+   "span_octaves": 3.1,
+   "stability_cents": 6.6,
+   "intonation_cents": 19.0,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 69.0,
+   "density_per_s": 1.84,
+   "hnr_db": 4.0,
+   "duration_s": 223.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 90.3,
+    "why": "1f0 差 -14.9dB、3f0 在（53.3dB）",
+    "fund_gap_db": -14.9,
+    "floor_db": 18.1,
+    "t_s": 26.819,
+    "dur_s": 0.232,
+    "partials": [
+     46.2,
+     61.1,
+     53.3,
+     41.6,
+     45.4,
+     46.5,
+     47.9,
+     37.4
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": true,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": true
+  },
+  {
    "tag": "太原20191229_BV1WJ411a7zj",
    "song": "让她降落",
    "tour": "其他演出",
@@ -39350,6 +39575,34 @@
    ]
   },
   {
+   "song": "在路上",
+   "n_versions": 1,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "D#2",
+   "lowest_hz": 78.9,
+   "lowest_tag": "杭州20241221_BV1wrkYYVEXA",
+   "span_median_octaves": 2.48,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "杭州",
+     "date": "2024-12-21",
+     "low_note": "D#2",
+     "low_hz": 78.9,
+     "high_note": "A4",
+     "high_hz": 439.7,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.48,
+     "verify": "谐波列复核通过",
+     "bv": "BV1wrkYYVEXA"
+    }
+   ]
+  },
+  {
    "song": "多听有益",
    "n_versions": 5,
    "tours": [
@@ -39632,6 +39885,34 @@
      "span_octaves": 3.15,
      "verify": "人耳确认（听辨）",
      "bv": ""
+    }
+   ]
+  },
+  {
+   "song": "好久不见",
+   "n_versions": 1,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "C#2",
+   "lowest_hz": 67.4,
+   "lowest_tag": "上海20251121_BV1NwUnBpEmo",
+   "span_median_octaves": 3.69,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "上海",
+     "date": "2025-11-21",
+     "low_note": "C#2",
+     "low_hz": 67.4,
+     "high_note": "A5",
+     "high_hz": 870.0,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.69,
+     "verify": "待复核（谐波列待判）",
+     "bv": "BV1NwUnBpEmo"
     }
    ]
   },
@@ -40197,6 +40478,34 @@
      "span_octaves": 3.05,
      "verify": "待复核（谐波列待判）",
      "bv": ""
+    }
+   ]
+  },
+  {
+   "song": "恋曲1990",
+   "n_versions": 1,
+   "tours": [
+    "五巡"
+   ],
+   "lowest_note": "F2",
+   "lowest_hz": 88.1,
+   "lowest_tag": "南昌20241229_BV1QK6GYZE3g",
+   "span_median_octaves": 3.37,
+   "versions": [
+    {
+     "tour": "五巡",
+     "city": "南昌",
+     "date": "2024-12-29",
+     "low_note": "F2",
+     "low_hz": 88.1,
+     "high_note": "A#5",
+     "high_hz": 909.1,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.37,
+     "verify": "谐波列复核通过",
+     "bv": "BV1QK6GYZE3g"
     }
    ]
   },
@@ -41355,15 +41664,30 @@
   },
   {
    "song": "猫模狗样",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "四巡"
    ],
    "lowest_note": "F#2",
-   "lowest_hz": 91.3,
-   "lowest_tag": "四巡上海生日20240406_p21_猫模狗样",
-   "span_median_octaves": 2.69,
+   "lowest_hz": 90.3,
+   "lowest_tag": "上海20230409_BV1M14y117E1",
+   "span_median_octaves": 2.9,
    "versions": [
+    {
+     "tour": "签唱会",
+     "city": "上海",
+     "date": "2023-04-09",
+     "low_note": "F#2",
+     "low_hz": 90.3,
+     "high_note": "G5",
+     "high_hz": 772.3,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.1,
+     "verify": "谐波列复核通过",
+     "bv": "BV1M14y117E1"
+    },
     {
      "tour": "四巡",
      "city": "上海生日",
@@ -43601,6 +43925,22 @@
    "delta_semitones": 3.5
   },
   {
+   "song": "在路上",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "bv": "BV1wrkYYVEXA",
+   "source_layer": "场次音频实测",
+   "live_note": "D#2",
+   "live_hz": 78.9,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "不说",
+   "studio_note": "D#2",
+   "studio_hz": 77.3,
+   "studio_span": null,
+   "delta_semitones": 0.4
+  },
+  {
    "song": "多听有益",
    "tour": "四巡",
    "city": "上海生日",
@@ -43839,6 +44179,22 @@
    "studio_hz": 72.3,
    "studio_span": 2.4,
    "delta_semitones": 2.0
+  },
+  {
+   "song": "猫模狗样",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2023-04-09",
+   "bv": "BV1M14y117E1",
+   "source_layer": "场次音频实测",
+   "live_note": "F#2",
+   "live_hz": 90.3,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "X自选集",
+   "studio_note": "E2",
+   "studio_hz": 82.3,
+   "studio_span": 2.17,
+   "delta_semitones": 1.6
   },
   {
    "song": "猫模狗样",

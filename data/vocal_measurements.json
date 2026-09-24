@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 21:07",
+ "generated_at": "2026-09-25 00:12",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 797,
+  "total": 801,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 639,
+   "tour_live": 643,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 481,
+   "谐波列复核通过": 484,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 106,
+   "待复核（谐波列待判）": 107,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 232
+  "songs": 234
  },
  "rows": [
   {
@@ -11261,6 +11261,41 @@
    }
   },
   {
+   "id": "tour_live|好久不见|上海20251121_BV1NwUnBpEmo",
+   "song": "好久不见",
+   "version": "上海20251121_BV1NwUnBpEmo",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "上海",
+   "date": "2025-11-21",
+   "source_ref": "BV1NwUnBpEmo",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 67.4,
+    "high_note": "A5",
+    "high_hz": 870.0,
+    "span_octaves": 3.69,
+    "stability_cents": 7.3,
+    "intonation_cents": 21.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 77.0,
+    "density_per_s": 1.63,
+    "hnr_db": 7.3,
+    "duration_s": 414.2
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 127
+   }
+  },
+  {
    "id": "tour_live|My Oh My|杭州20241221_BV1RjkYYbEF8",
    "song": "My Oh My",
    "version": "杭州20241221_BV1RjkYYbEF8",
@@ -11471,6 +11506,41 @@
    }
   },
   {
+   "id": "tour_live|在路上|杭州20241221_BV1wrkYYVEXA",
+   "song": "在路上",
+   "version": "杭州20241221_BV1wrkYYVEXA",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "source_ref": "BV1wrkYYVEXA",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 78.9,
+    "high_note": "A4",
+    "high_hz": 439.7,
+    "span_octaves": 2.48,
+    "stability_cents": 6.3,
+    "intonation_cents": 18.5,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.59,
+    "hnr_db": 3.5,
+    "duration_s": 182.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 124
+   }
+  },
+  {
    "id": "tour_live||20251121194904 0027 玫瑰人生（La Vie en Rose）",
    "song": "",
    "version": "20251121194904 0027 玫瑰人生（La Vie en Rose）",
@@ -11573,6 +11643,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 120
+   }
+  },
+  {
+   "id": "tour_live|恋曲1990|南昌20241229_BV1QK6GYZE3g",
+   "song": "恋曲1990",
+   "version": "南昌20241229_BV1QK6GYZE3g",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "南昌",
+   "date": "2024-12-29",
+   "source_ref": "BV1QK6GYZE3g",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 88.1,
+    "high_note": "A#5",
+    "high_hz": 909.1,
+    "span_octaves": 3.37,
+    "stability_cents": 7.3,
+    "intonation_cents": 24.0,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.62,
+    "hnr_db": 5.3,
+    "duration_s": 512.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 113
    }
   },
   {
@@ -21652,6 +21757,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 106
+   }
+  },
+  {
+   "id": "tour_live|猫模狗样|上海20230409_BV1M14y117E1",
+   "song": "猫模狗样",
+   "version": "上海20230409_BV1M14y117E1",
+   "layer": "tour_live",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2023-04-09",
+   "source_ref": "BV1M14y117E1",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.3,
+    "high_note": "G5",
+    "high_hz": 772.3,
+    "span_octaves": 3.1,
+    "stability_cents": 6.6,
+    "intonation_cents": 19.0,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 69.0,
+    "density_per_s": 1.84,
+    "hnr_db": 4.0,
+    "duration_s": 223.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 176
    }
   },
   {

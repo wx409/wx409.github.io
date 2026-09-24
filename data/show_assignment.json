@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-24T21:07:01",
-  "rows": 636,
+  "generated_at": "2026-09-25T00:11:40",
+  "rows": 640,
   "levels": {
-   "L1": 280,
+   "L1": 284,
    "L6": 26,
    "L3": 32,
    "L4": 2,
    "未认领": 296
   },
-  "shows_with_material": 39,
-  "shows_with_claimable": 37,
+  "shows_with_material": 40,
+  "shows_with_claimable": 38,
   "shows_total": 64
  },
  "per_show": {
@@ -111,16 +111,20 @@
    "claimable": 1
   },
   "2025-11-21": {
-   "n": 15,
+   "n": 16,
    "claimable": 12
   },
   "2024-12-21": {
-   "n": 3,
-   "claimable": 3
+   "n": 4,
+   "claimable": 4
   },
   "2025-01-01": {
    "n": 4,
    "claimable": 3
+  },
+  "2024-12-29": {
+   "n": 1,
+   "claimable": 1
   },
   "2025-05-24": {
    "n": 3,
@@ -151,8 +155,8 @@
    "claimable": 3
   },
   "2023-04-09": {
-   "n": 2,
-   "claimable": 2
+   "n": 3,
+   "claimable": 3
   },
   "2019-08-16": {
    "n": 1,
@@ -2765,6 +2769,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "上海20251121_BV1NwUnBpEmo",
+   "song": "好久不见",
+   "tour": "五巡",
+   "city": "上海",
+   "date": "2025-11-21",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2025-11-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "杭州20241221_BV1RjkYYbEF8",
    "song": "My Oh My",
    "tour": "五巡",
@@ -2837,6 +2853,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "杭州20241221_BV1wrkYYVEXA",
+   "song": "在路上",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "20251121194904 0027 玫瑰人生（La Vie en Rose）",
    "song": "",
    "tour": "五巡",
@@ -2869,6 +2897,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2025-01-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "南昌20241229_BV1QK6GYZE3g",
+   "song": "恋曲1990",
+   "tour": "五巡",
+   "city": "南昌",
+   "date": "2024-12-29",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-12-29",
    "level": 1,
    "why": "日期直配"
   },
@@ -6375,6 +6415,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "上海20230409_BV1M14y117E1",
+   "song": "猫模狗样",
+   "tour": "签唱会",
+   "city": "上海",
+   "date": "2023-04-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-04-09",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "太原20191229_BV1WJ411a7zj",

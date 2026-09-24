@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-09-24T21:07:02",
+  "generated_at": "2026-09-25T00:11:41",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7783,
-  "measured_shows_site": 39,
-  "shows_with_claimable_site": 37,
-  "bv_mapped": 49
+  "files_scanned": 7809,
+  "measured_shows_site": 40,
+  "shows_with_claimable_site": 38,
+  "bv_mapped": 53
  },
  "shows": [
   {
@@ -1148,6 +1148,11 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1M14y117E1｜猫模狗样｜上海20230409"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "签唱会上海20230409_王晰新专辑《X自选集》生日签唱会全场｜签唱会上海全场"
@@ -1159,13 +1164,8 @@
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "签唱会上海20230409_王晰【小河】【竖版】《X自选集》生日签唱会上海2023.4."
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "签唱会上海20230409_王晰新专辑《X自选集》生日签唱会全场.wav"
+     "src": "站点实测",
+     "detail": "上海20230409_BV1M14y117E1｜猫模狗样"
     },
     {
      "level": 1,
@@ -1174,11 +1174,11 @@
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "签唱会上海20230409_王晰【小河】【竖版】《X自选集》生日签唱会上海2023.4."
+     "src": "BV命中",
+     "detail": "BV1M14y117E1"
     }
    ],
-   "n_evidence": 13
+   "n_evidence": 27
   },
   {
    "date": "2023-05-01",
@@ -1574,16 +1574,16 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1wrkYYVEXA｜在路上｜杭州20241221"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "杭州20241221_BV1RjkYYbEF8｜My Oh My"
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
     }
    ],
-   "n_evidence": 135
+   "n_evidence": 149
   },
   {
    "date": "2024-12-29",
@@ -1594,16 +1594,36 @@
    "evidence": [
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1QK6GYZE3g｜恋曲1990｜南昌20241229"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "南昌｜五巡·王晰吾个人巡回音乐会"
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "南昌20241229_BV1QK6GYZE3g｜恋曲1990"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1QK6GYZE3g"
+    },
+    {
+     "level": 1,
      "src": "路径日期",
-     "detail": "2024-12-29南昌海报.jpg"
+     "detail": "南昌20241229_BV1QK6GYZE3g.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1QK6GYZE3g"
     }
    ],
-   "n_evidence": 2
+   "n_evidence": 18
   },
   {
    "date": "2025-01-01",
@@ -1774,6 +1794,11 @@
    "evidence": [
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1NwUnBpEmo｜好久不见｜上海20251121"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "上海｜五巡·王晰吾个人巡回音乐会"
     },
@@ -1795,15 +1820,10 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "20251121212548 0039 好久不见 你怎么值得我难过 约定｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "20251121210423 0037 talk 明白 talk 鹅毛信｜"
+     "detail": "上海20251121_BV1NwUnBpEmo｜好久不见"
     }
    ],
-   "n_evidence": 127
+   "n_evidence": 143
   },
   {
    "date": "2026-01-31",
