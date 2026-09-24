@@ -40,11 +40,19 @@ def collect() -> list[tuple[str, int, float]]:
     out = []
     if not RAW.is_dir():
         return out
+    skipped = []
     for f in os.listdir(RAW):
         p = RAW / f
-        if p.is_file():
-            st = p.stat()
-            out.append((f, st.st_size, st.st_mtime))
+        if not p.is_file():
+            continue
+        # 2026-09-24 加固：只处理 **raw_ 开头**的派生副本；同目录其它文件一律不碰（无人值守安全）
+        if not f.startswith("raw_"):
+            skipped.append(f)
+            continue
+        st = p.stat()
+        out.append((f, st.st_size, st.st_mtime))
+    if skipped:
+        print("[--] 跳过非 raw_ 文件 %d 个：%s" % (len(skipped), ", ".join(skipped[:5])))
     out.sort(key=lambda x: x[2], reverse=True)
     return out
 
