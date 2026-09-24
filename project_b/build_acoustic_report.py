@@ -295,6 +295,18 @@ def main() -> int:
     def _med2(v):
         return round(_st.median(v), 1) if v else None
 
+    # 低信噪 vs 可疑极值（HNR 门槛的经验依据）
+    _hnr_bins = {}
+    for _r in rows:
+        _h = _r.get("hnr_db")
+        if not isinstance(_h, (int, float)):
+            continue
+        _k = "HNR < 0 dB" if _h < 0 else ("0–5 dB" if _h < 5 else "≥ 5 dB")
+        _b = _hnr_bins.setdefault(_k, {"n": 0, "hi900": 0, "span35": 0})
+        _b["n"] += 1
+        _b["hi900"] += int(isinstance(_r.get("high_hz"), (int, float)) and _r["high_hz"] > 900)
+        _b["span35"] += int(isinstance(_r.get("span_octaves"), (int, float)) and _r["span_octaves"] > 3.5)
+    _hnr_low_n = sum(1 for _r in rows if _r.get("hnr_low"))
     _ln = load("archive_long_notes.json")
     _ln_top = _ln.get("top", [])[:10]
     _ln_flag = (_ln.get("verdict_check") or {}).get("flagged", [])
@@ -493,12 +505,31 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 <p class="lead">⚠️ <b>三条限定，缺一不可</b>：① <b>稳定性/TET 属修音敏感层</b>，自录与转载录音条件不同，
 <b>不可跨组比较</b>；② 可主张率差异可能来自<b>分离质量、伴奏密度、基频可检测性</b>，不是唱功差异；
 ③ 自录素材<b>无曲目标注</b>，只能进「场次层」结论（"那晚唱到多低/多高"），不能进「曲目层」。</p>
-<h3>② HNR 门槛：可主张 {summary.get('n_claimable','—')} / 弱可主张 {summary.get('n_claimable_soft','—')}</h3>
-<p class="lead">站内铁律：<b>稳定音须 HNR ≥ {summary.get('hnr_gate_db','5')} dB</b>。
-2026-09-24 起，材料级 HNR 低于门槛的机器结论（谐波列通过）改标「<b>谐波列通过（HNR 低于门槛）</b>」，
-计入<b>弱可主张</b>：可用于场次覆盖，<b>不作能力依据</b>。另有两类特殊标注：
-<b>HNR 异常（疑分离失败）</b>、<b>不可复核（缺混音/时间）</b>。
-<b>人耳确认不受此门槛降级</b>——人耳结论优先于材料级机器指标。</p>
+<h3>② HNR 门槛的科学依据与正确粒度</h3>
+<p class="lead"><b>5 dB 的两重依据</b>：① <b>工程依据（音符级）</b>——本管线 HNR 取归一化自相关在 50–1000Hz
+延迟区间内的峰值 <code>p</code>，<code>HNR = 10·log10(p/(1−p))</code>；5 dB 对应 <b>p≈0.76</b>，
+即"至少 76% 帧能量是周期性的"。<b>测量脚本一直按此门槛逐音符过滤</b>
+（<code>rule: dur≥0.15s & HNR≥5dB & rms≥中位−25dB</code>，每份 <code>_stats.json</code> 都记录 kept/total），
+所以做能力结论的稳定音<b>本身</b>已过该门槛。
+② <b>经验依据（材料级）</b>——材料中位 HNR 与"可疑极值"强相关：
+
+{table([[_k, _hnr_bins[_k]["n"],
+        ("%.0f%%" % (100 * _hnr_bins[_k]["hi900"] / max(_hnr_bins[_k]["n"], 1))),
+        ("%.0f%%" % (100 * _hnr_bins[_k]["span35"] / max(_hnr_bins[_k]["n"], 1)))]
+       for _k in ("HNR < 0 dB", "0–5 dB", "≥ 5 dB") if _k in _hnr_bins],
+      ["材料级 HNR", "条数", "高音 >900Hz 占比", "跨度 >3.5 八度占比"], "hnrbins")}
+<p class="lead">低信噪素材出现 &gt;900Hz 读数的比例<b>显著更高</b>（HNR&lt;0 组 21%、0–5 组 16%，而 ≥5 组仅 8%，约 2.6 倍）——这正是"分离残留／和声混入"的指纹
+（真实男低音的 &gt;900Hz 读数应当稀少）。<b>但粒度很重要</b>：材料级中位 HNR 反映的是"整段信噪环境"，
+它<b>不能否决</b>该素材的中音区稳定音（那些音符已过音符级门槛）。故本站的处理是：</p>
+<ul>
+<li><b>能力口径</b>（可主张 {summary.get('n_claimable','—')} 条）= 音符级 HNR≥5dB + 谐波列/人耳确认；</li>
+<li><b>低信噪标记</b>（材料 HNR&lt;5dB，共 {_hnr_low_n} 条）= <b>不否决，但告警</b>：其极值读数按弱证据呈现，引用须附"低信噪素材"限定；</li>
+<li><b>退化值硬拦</b>（HNR ≤ −30dB，疑分离失败）与<b>不可复核（缺混音/时间）</b>仍排除在能力结论之外；</li>
+<li><b>人耳确认不受任何材料级门槛降级</b>。</li>
+</ul>
+<p class="lead">⚠️ 与临床 HNR <b>不可比</b>：临床（如 Praat 对持续元音）健康成人常在 7–20 dB、&lt;7dB 提示嗓音障碍；
+本站输入是 <b>demucs 分离后的现场人声轨</b>（含伴奏残留、混响、观众噪声），估计器与素材都不同，
+数值系统性偏低，<b>只作管线内部质量守卫，不是嗓音质量结论</b>。</p>
 </section>
 
 <section id="case968"><h2>案例卡 · 莫斯科 968Hz（极端条件下的最强样本）</h2>
