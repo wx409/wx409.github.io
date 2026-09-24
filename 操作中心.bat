@@ -233,6 +233,7 @@ echo    182. 曲目缺口自动补闭环（补搜扩池→缺口优先下载/测量→聚合→回写站点数据
 echo    183. 视频音轨入库（自录/微博直拍视频 → 抽音轨 → 分离/F0 → 入库；G盘未挂载自动跳过）
 echo    184. 待人耳确认清单（汇总台账待核+长声闸门，并自动切缺失样本）
 echo    185. 音频资产台账（逐批次盘点：文件/体量/已分析/新增；进报告「资产台账」章）
+echo    186. 声学探索·可写方向清单（可复算观测，含样本量与可信度分级，供传记取材）
 echo    0. 退出
 echo.
 set "op="
@@ -422,6 +423,7 @@ if "%op%"=="182" goto gap_loop
 if "%op%"=="183" goto video_ingest
 if "%op%"=="184" goto pending_review
 if "%op%"=="185" goto audio_assets
+if "%op%"=="186" goto explore
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2533,5 +2535,14 @@ echo  [音频资产台账] 逐批次清点：音频文件数/体量/已分析产物/本日新增
 echo  产出：data\audio_assets.json（机读）＋ 音域分析\音频资产台账.md（本地人读）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_audio_assets.py
+pause
+goto menu
+
+:explore
+cls
+echo  [可写方向清单] 把已有数据能回答的问题逐条算出来（非观点，全部可复算）
+echo  产出：data\\explore_findings.json ＋ 本地 声学探索_可写方向.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_explore_findings.py
 pause
 goto menu
