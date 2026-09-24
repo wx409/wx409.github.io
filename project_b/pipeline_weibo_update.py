@@ -40,6 +40,42 @@ def get_cookie():
     return c
 
 
+def _reset_browser_for_cdp(exe=r"C:\Program Files (x86)\Lenovo\SLBrowser\SLBrowser.exe", port=9222):
+    """重启浏览器并等待调试端口就绪（**联想浏览器实测：DevTools 只接受启动后的首个 WS 连接**）。
+
+    每次进程只做一次（模块级标志），避免多账号重复重启。
+    """
+    global _CDP_RESET_DONE
+    if _CDP_RESET_DONE:
+        return True
+    import subprocess, time, os
+    try:
+        for img in ("SLBrowser.exe", "SLBrowser_proxy.exe"):
+            subprocess.run(["taskkill", "/im", img, "/f"], capture_output=True)
+        time.sleep(3)
+        if not os.path.exists(exe):
+            log('CDP：浏览器路径不存在 %s' % exe)
+            return False
+        subprocess.Popen([exe, "--remote-debugging-port=%d" % port])
+        import requests as _rq
+        for _ in range(15):
+            time.sleep(2)
+            try:
+                _rq.get("http://127.0.0.1:%d/json/version" % port, timeout=3)
+                log('CDP：浏览器已重启，调试端口就绪')
+                _CDP_RESET_DONE = True
+                return True
+            except Exception:
+                continue
+        log('CDP：等待调试端口超时')
+    except Exception as e:
+        log('CDP：重启浏览器失败 %s' % repr(e)[:80])
+    return False
+
+
+_CDP_RESET_DONE = False
+
+
 def cdp_fetch_list(uid, since=None, port=9222):
     """CDP 兜底：在已开启调试端口的浏览器页面里请求同一接口，返回 (cards, since_id)。
 
@@ -54,6 +90,8 @@ def cdp_fetch_list(uid, since=None, port=9222):
         log('CDP 兜底不可用：缺 websocket-client / requests')
         return None, None
     base = 'http://127.0.0.1:%d' % port
+    if not _reset_browser_for_cdp(port=port):
+        return None, None
     try:
         ts = requests.get(base + '/json', timeout=5).json()
     except Exception:
@@ -61,7 +99,14 @@ def cdp_fetch_list(uid, since=None, port=9222):
         return None, None
     page = next((t for t in ts if 'm.weibo.cn' in t.get('url', '') and t.get('type') == 'page'), None)
     if page is None:
-        log('CDP 兜底不可用：没有 m.weibo.cn 标签页（请在该浏览器打开任意 m.weibo.cn 页面）')
+        try:
+            page = requests.put(base + '/json/new?https://m.weibo.cn/', timeout=10).json()
+            import time as _t
+            _t.sleep(6)
+        except Exception:
+            page = None
+    if page is None:
+        log('CDP 兜底不可用：无法获得 m.weibo.cn 标签页')
         return None, None
     q = ('/api/container/getIndex?type=uid&value=%s&containerid=107603%s' % (uid, uid)) + \
         ('&since_id=%s' % since if since else '')
