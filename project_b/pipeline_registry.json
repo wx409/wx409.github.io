@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 13:54",
+ "generated_at": "2026-09-24 16:25",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 191,
-  "dispatch": 190,
+  "menu_items": 192,
+  "dispatch": 191,
   "deploy_steps": 76,
   "scheduled_tasks": 5
  },
@@ -1470,6 +1470,14 @@
    "menu_label": "check_login",
    "in_deploy": false,
    "path": "E:\\wx\\私有工具\\验证微博登录态.py"
+  },
+  {
+   "script": "build_timeline_candidates.py",
+   "menu": 192,
+   "title": "生涯节点候选（文本挖掘事件→高置信去重候选，供人工策展，不直接上站）",
+   "menu_label": "tl_cand",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_timeline_candidates.py"
   },
   {
    "script": "_build_episodes.py",

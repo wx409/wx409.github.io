@@ -239,6 +239,7 @@ echo    188. 写作专题三题（音域两端 / 颤音指纹 / 音区自觉；现象-方法-数字-反面证
 echo    189. 提取微博 cookie（联想浏览器一键：自动关浏览器→提取→重开）
 echo    190. 颤音指纹专题页（topic-vibrato.html：八年漂移 0.27Hz 完整证据链）
 echo    191. 微博登录态验证（1 个请求：login 是否 true / 是否被 432 风控）
+echo    192. 生涯节点候选（文本挖掘事件→高置信去重候选，供人工策展，不直接上站）
 echo    0. 退出
 echo.
 set "op="
@@ -434,6 +435,7 @@ if "%op%"=="188" goto deepdives
 if "%op%"=="189" goto get_cookie
 if "%op%"=="190" goto vibtopic
 if "%op%"=="191" goto check_login
+if "%op%"=="192" goto tl_cand
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2598,5 +2600,14 @@ cls
 echo  [微博登录态验证] 只发 1 个最轻请求（/api/config），判断 cookie 是否有效
 cd /d "E:\wx\私有工具"
 python -X utf8 验证微博登录态.py
+pause
+goto menu
+
+:tl_cand
+cls
+echo  [生涯节点候选] 口径：textmine_events 不得直接当站内事实引用（见 data/calibers.md）
+echo  产出：E:\wx\论文素材_王晰作传\生涯节点候选_来自文本挖掘.md ＋ temp\timeline_candidates.json
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_timeline_candidates.py
 pause
 goto menu
