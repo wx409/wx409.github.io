@@ -70,7 +70,8 @@ FOOTER_GROUPS = [
 # 顶部/底部导航不处理的页面：
 #   - 404/kb-semantic/social_wall：无完整骨架或无导航需求
 #   - archive-index.html：完整档案索引页（仍是私密页，不进主导航）
-SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html"}
+SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html",
+        "weibo-oauth-callback.html"}
 
 # 「完整档案」页清单（2026-09-13 瘦身 2.0）。**已更正 2026-09-13 晚**：
 #   旧页不是"退场"，而是「不占主导航位、但仍对外可见」——
