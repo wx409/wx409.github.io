@@ -230,6 +230,7 @@ echo    179. 场次认领（把现场素材逐条归属到具体场次：日期/BV/歌单指纹）
 echo    180. 长声表 × 否决台账反连接（同音区存疑移出榜单，防女和声污染）
 echo    181. 注入审计（结果指纹版：首页事实/听众说/vocal音域摘要/长声章 是否真落地）
 echo    182. 曲目缺口自动补闭环（补搜扩池→缺口优先下载/测量→聚合→回写站点数据）
+echo    183. 视频音轨入库（自录/微博直拍视频 → 抽音轨 → 分离/F0 → 入库；G盘未挂载自动跳过）
 echo    0. 退出
 echo.
 set "op="
@@ -416,6 +417,7 @@ if "%op%"=="179" goto show_assign
 if "%op%"=="180" goto longnotes_verdict
 if "%op%"=="181" goto audit_inject
 if "%op%"=="182" goto gap_loop
+if "%op%"=="183" goto video_ingest
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2481,13 +2483,32 @@ goto menu
 cls
 echo  [缺口自动补闭环] 三步串起来，等价于每日 10:00 + 每晚 22:00 两个计划任务的手动版
 echo   ① 补搜扩池：按 64 场歌单缺口搜 B 站（已过滤注记/环节/串烧/合唱，变体归一）
-echo   ② 缺口优先增量：优先下载「该巡该曲还没实测」的候选（下载→分离→F0→回写）
-echo   ③ 聚合：重跑巡演现场报告，站点 data/archive_stage_tour.json 更新
+echo   2) 缺口优先增量：优先下载「该巡该曲还没实测」的候选（下载→分离→F0→回写）
+echo   3) 聚合：重跑巡演现场报告，站点 data/archive_stage_tour.json 更新
 cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
 python -X utf8 补搜巡演曲目.py --limit 8
 python -X utf8 每晚增量.py --limit 6
 cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
 python -X utf8 生成巡演现场报告.py
 echo  完成；如需上线请回主菜单跑 39/44（部署）
+pause
+goto menu
+
+:video_ingest
+cls
+echo  [视频音轨入库] 把「不在管道输入里」的自录/微博视频接进声学链路
+echo   1) 抽轨：ffmpeg -vn 取音频，输出 44.1k wav 到 场次音频\wav_自录视频 批次目录
+echo   2) 分析：批量专辑音域.py --root wav_自录视频（分离 + 逐帧 F0）
+echo   3) 入库：生成巡演现场报告.py（已注册 wav_自录视频_分析）
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 视频音轨入库.py --dry
+echo  --- 以上为计划；按任意键执行抽轨（全量，幂等） ---
+pause
+python -X utf8 视频音轨入库.py
+cd /d "E:\wx\论文素材_王晰作传\音域分析"
+set HF_HUB_OFFLINE=1
+python -X utf8 批量专辑音域.py --root "E:\wx\论文素材_王晰作传\音域分析\场次音频\wav_自录视频"
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 生成巡演现场报告.py
 pause
 goto menu

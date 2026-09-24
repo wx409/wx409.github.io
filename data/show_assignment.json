@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-24T00:11:17",
-  "rows": 603,
+  "generated_at": "2026-09-24T08:29:56",
+  "rows": 636,
   "levels": {
-   "L1": 247,
+   "L1": 280,
    "L6": 26,
    "L3": 32,
    "L4": 2,
    "未认领": 296
   },
-  "shows_with_material": 38,
-  "shows_with_claimable": 36,
+  "shows_with_material": 39,
+  "shows_with_claimable": 37,
   "shows_total": 64
  },
  "per_show": {
@@ -94,6 +94,10 @@
    "n": 1,
    "claimable": 1
   },
+  "2023-12-31": {
+   "n": 33,
+   "claimable": 30
+  },
   "2024-03-30": {
    "n": 9,
    "claimable": 9
@@ -108,7 +112,7 @@
   },
   "2025-11-21": {
    "n": 15,
-   "claimable": 9
+   "claimable": 12
   },
   "2024-12-21": {
    "n": 3,
@@ -128,7 +132,7 @@
   },
   "2026-06-13": {
    "n": 23,
-   "claimable": 20
+   "claimable": 17
   },
   "2026-08-23": {
    "n": 42,
@@ -136,7 +140,7 @@
   },
   "2021-11-27": {
    "n": 11,
-   "claimable": 10
+   "claimable": 9
   },
   "2020-10-07": {
    "n": 6,
@@ -1494,7 +1498,7 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
@@ -1710,7 +1714,7 @@
    "tour": "三巡",
    "city": "武汉",
    "date": "2022-09-17",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-09-17",
    "level": 1,
@@ -2017,6 +2021,30 @@
    "why": "巡次+日期±2天唯一"
   },
   {
+   "tag": "四巡上海20231231_v25",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v05",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p13_海然海然+嘎达梅林",
    "song": "海然海然+嘎达梅林",
    "tour": "四巡",
@@ -2077,6 +2105,30 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "四巡上海20231231_v16",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v13",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p10_永不失联的爱",
    "song": "永不失联的爱",
    "tour": "四巡",
@@ -2087,6 +2139,42 @@
    "show_date": "2024-03-30",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "四巡上海20231231_v23",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v27",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v11",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "四巡 直拍_BV1Ab4y1g7Wj",
@@ -2101,6 +2189,30 @@
    "why": ""
   },
   {
+   "tag": "四巡上海20231231_v10",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v34",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p33_崇拜",
    "song": "崇拜",
    "tour": "四巡",
@@ -2111,6 +2223,18 @@
    "show_date": "2024-03-30",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "四巡上海20231231_v19",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "四巡上海生日20240406_p16_爱的箴言",
@@ -2149,6 +2273,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "四巡上海20231231_v22",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p28_绝美玫瑰雨",
    "song": "绝美玫瑰雨",
    "tour": "四巡",
@@ -2171,6 +2307,66 @@
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
+  },
+  {
+   "tag": "四巡上海20231231_v33",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v09",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v29",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v26",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v20",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "四巡上海生日20240406_p27_生日part",
@@ -2209,6 +2405,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "四巡上海20231231_v07",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p22_甩啦甩啦",
    "song": "甩啦甩啦",
    "tour": "四巡",
@@ -2219,6 +2427,18 @@
    "show_date": "2024-04-06",
    "level": 6,
    "why": "巡次+日期±2天唯一"
+  },
+  {
+   "tag": "四巡上海20231231_v21",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "四巡上海生日20240406_p30_生日快乐歌",
@@ -2257,6 +2477,30 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "四巡上海20231231_v15",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v01",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p21_猫模狗样",
    "song": "猫模狗样",
    "tour": "四巡",
@@ -2269,6 +2513,30 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "四巡上海20231231_v04",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v30",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p4_也许",
    "song": "也许",
    "tour": "四巡",
@@ -2279,6 +2547,18 @@
    "show_date": "2024-03-30",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "四巡上海20231231_v28",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "四巡南京20240127b_BV1qy421a7FR",
@@ -2317,6 +2597,30 @@
    "why": "日期直配"
   },
   {
+   "tag": "四巡上海20231231_v06",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v08",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "肆益收官 武汉琴台_BV1iWtUefEkm",
    "song": "多听有益",
    "tour": "四巡",
@@ -2327,6 +2631,102 @@
    "show_date": "2024-09-16",
    "level": 4,
    "why": "巡次城市唯一"
+  },
+  {
+   "tag": "四巡上海20231231_v17",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v24",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v35",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v32",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v03",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v18",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v31",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "四巡上海20231231_v36",
+   "song": "",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "20251121203939 0034 住口6 talk 在路上 talk 勿扰 talk",
@@ -2382,8 +2782,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2394,8 +2794,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2442,8 +2842,8 @@
    "tour": "五巡",
    "city": "上海",
    "date": "2025-11-21",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2025-11-21",
    "level": 1,
    "why": "日期直配"
@@ -2670,7 +3070,7 @@
    "tour": "六巡",
    "city": "广州",
    "date": "2026-08-23",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2026-08-23",
    "level": 1,
@@ -2730,8 +3130,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -2742,7 +3142,7 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2026-06-13",
    "level": 1,
@@ -3186,8 +3586,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3210,8 +3610,8 @@
    "tour": "六巡",
    "city": "重庆",
    "date": "2026-06-13",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": "2026-06-13",
    "level": 1,
    "why": "日期直配"
@@ -3498,8 +3898,8 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
@@ -3510,8 +3910,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -3714,8 +4114,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -3822,7 +4222,7 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
+   "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": null,
    "level": 0,
@@ -4122,8 +4522,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4254,8 +4654,8 @@
    "tour": "其他演出",
    "city": "南宁",
    "date": "2020",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "不可复核（缺混音/时间）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4314,7 +4714,7 @@
    "tour": "其他演出",
    "city": "长沙",
    "date": "2021",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -4326,8 +4726,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4338,8 +4738,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4350,8 +4750,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "人耳确认",
-   "claimable": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4398,8 +4798,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4410,8 +4810,8 @@
    "tour": "其他演出",
    "city": "南京",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4494,8 +4894,8 @@
    "tour": "其他演出",
    "city": "南京",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4506,8 +4906,8 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4686,8 +5086,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4854,7 +5254,7 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -4974,8 +5374,8 @@
    "tour": "其他演出",
    "city": "北京",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -4986,7 +5386,7 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
+   "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": null,
    "level": 0,
@@ -5238,7 +5638,7 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -5250,7 +5650,7 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -5478,8 +5878,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5706,7 +6106,7 @@
    "tour": "签唱会",
    "city": "杭州",
    "date": "2021-11-27",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2021-11-27",
    "level": 1,
@@ -5766,8 +6166,8 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -6450,7 +6850,7 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -6462,7 +6862,7 @@
    "tour": "其他演出",
    "city": "南京",
    "date": "",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -6486,7 +6886,7 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
-   "review_status": "人耳确认",
+   "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
    "level": 0,
@@ -6774,8 +7174,8 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
-   "review_status": "人耳否决（非王晰）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
