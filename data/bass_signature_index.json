@@ -1,0 +1,906 @@
+{
+ "generated_at": "2026-09-25T16:39:18",
+ "source_last_day": "2026-09-24",
+ "cases": [
+  {
+   "event": "2024-06-07 音乐剧《光影少年》",
+   "date": "2024-06-07",
+   "pre_n": 336,
+   "post_n": 785,
+   "pre_median": 204.5,
+   "post_median": 221.0,
+   "delta": 16.5,
+   "new_songs_in_pool": 40,
+   "new_songs": [
+    "Bésame Mucho",
+    "Crystal Store",
+    "一声阿爸",
+    "乌兰巴托的夜晚",
+    "也许",
+    "你",
+    "偏偏",
+    "偏执"
+   ]
+  },
+  {
+   "event": "2026-08-23 六巡「回」广州站",
+   "date": "2026-08-23",
+   "pre_n": 275,
+   "post_n": 299,
+   "pre_median": 216.0,
+   "post_median": 230.0,
+   "delta": 14.0,
+   "new_songs_in_pool": 7,
+   "new_songs": [
+    "Bésame Mucho",
+    "下沉",
+    "云一定知道",
+    "友谊地久天长",
+    "多听有益",
+    "带着一颗好心去流浪",
+    "我的心里只有你没有他"
+   ]
+  }
+ ],
+ "tour6_lift": [
+  {
+   "song": "一生中最爱",
+   "tour6_n": 51,
+   "pre_n": 80,
+   "tour6_median": 567.0,
+   "pre_median": 140.0,
+   "delta": 427.0,
+   "pct": 305.0,
+   "show_count": 0
+  },
+  {
+   "song": "山楂树",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 545.0,
+   "pre_median": 483.0,
+   "delta": 62.0,
+   "pct": 12.8,
+   "show_count": 0
+  },
+  {
+   "song": "贝加尔湖畔",
+   "tour6_n": 2,
+   "pre_n": 25,
+   "tour6_median": 178.0,
+   "pre_median": 119.0,
+   "delta": 59.0,
+   "pct": 49.6,
+   "show_count": 0
+  },
+  {
+   "song": "谁",
+   "tour6_n": 69,
+   "pre_n": 154,
+   "tour6_median": 231.0,
+   "pre_median": 187.5,
+   "delta": 43.5,
+   "pct": 23.2,
+   "show_count": 0
+  },
+  {
+   "song": "晚风暖暖",
+   "tour6_n": 68,
+   "pre_n": 129,
+   "tour6_median": 169.0,
+   "pre_median": 131.0,
+   "delta": 38.0,
+   "pct": 29.0,
+   "show_count": 0
+  },
+  {
+   "song": "多听有益",
+   "tour6_n": 2,
+   "pre_n": 31,
+   "tour6_median": 178.5,
+   "pre_median": 143.0,
+   "delta": 35.5,
+   "pct": 24.8,
+   "show_count": 0
+  },
+  {
+   "song": "爱于此生",
+   "tour6_n": 49,
+   "pre_n": 48,
+   "tour6_median": 129.0,
+   "pre_median": 117.0,
+   "delta": 12.0,
+   "pct": 10.3,
+   "show_count": 0
+  },
+  {
+   "song": "相思",
+   "tour6_n": 68,
+   "pre_n": 122,
+   "tour6_median": 145.0,
+   "pre_median": 133.5,
+   "delta": 11.5,
+   "pct": 8.6,
+   "show_count": 0
+  },
+  {
+   "song": "在路上",
+   "tour6_n": 69,
+   "pre_n": 154,
+   "tour6_median": 464.0,
+   "pre_median": 453.5,
+   "delta": 10.5,
+   "pct": 2.3,
+   "show_count": 9
+  },
+  {
+   "song": "重庆野玫瑰",
+   "tour6_n": 50,
+   "pre_n": 128,
+   "tour6_median": 138.0,
+   "pre_median": 131.0,
+   "delta": 7.0,
+   "pct": 5.3,
+   "show_count": 0
+  },
+  {
+   "song": "鸽子",
+   "tour6_n": 6,
+   "pre_n": 8,
+   "tour6_median": 110.0,
+   "pre_median": 106.0,
+   "delta": 4.0,
+   "pct": 3.8,
+   "show_count": 0
+  },
+  {
+   "song": "雷美替胺",
+   "tour6_n": 3,
+   "pre_n": 10,
+   "tour6_median": 240.0,
+   "pre_median": 251.5,
+   "delta": -11.5,
+   "pct": -4.6,
+   "show_count": 9
+  },
+  {
+   "song": "荒人之歌",
+   "tour6_n": 66,
+   "pre_n": 148,
+   "tour6_median": 135.0,
+   "pre_median": 147.5,
+   "delta": -12.5,
+   "pct": -8.5,
+   "show_count": 0
+  },
+  {
+   "song": "Over the Rainbow",
+   "tour6_n": 63,
+   "pre_n": 138,
+   "tour6_median": 125.0,
+   "pre_median": 138.5,
+   "delta": -13.5,
+   "pct": -9.7,
+   "show_count": 0
+  },
+  {
+   "song": "Sound of Silence",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 291.0,
+   "pre_median": 305.0,
+   "delta": -14.0,
+   "pct": -4.6,
+   "show_count": 0
+  },
+  {
+   "song": "一生守候",
+   "tour6_n": 62,
+   "pre_n": 146,
+   "tour6_median": 132.0,
+   "pre_median": 147.5,
+   "delta": -15.5,
+   "pct": -10.5,
+   "show_count": 0
+  },
+  {
+   "song": "亲密爱人",
+   "tour6_n": 69,
+   "pre_n": 154,
+   "tour6_median": 216.0,
+   "pre_median": 233.0,
+   "delta": -17.0,
+   "pct": -7.3,
+   "show_count": 0
+  },
+  {
+   "song": "小河",
+   "tour6_n": 23,
+   "pre_n": 109,
+   "tour6_median": 122.0,
+   "pre_median": 151.0,
+   "delta": -29.0,
+   "pct": -19.2,
+   "show_count": 0
+  },
+  {
+   "song": "星空穹顶",
+   "tour6_n": 7,
+   "pre_n": 4,
+   "tour6_median": 131.0,
+   "pre_median": 161.5,
+   "delta": -30.5,
+   "pct": -18.9,
+   "show_count": 0
+  },
+  {
+   "song": "友谊地久天长",
+   "tour6_n": 8,
+   "pre_n": 67,
+   "tour6_median": 106.0,
+   "pre_median": 138.0,
+   "delta": -32.0,
+   "pct": -23.2,
+   "show_count": 0
+  },
+  {
+   "song": "好好说再见",
+   "tour6_n": 2,
+   "pre_n": 4,
+   "tour6_median": 104.0,
+   "pre_median": 138.0,
+   "delta": -34.0,
+   "pct": -24.6,
+   "show_count": 0
+  },
+  {
+   "song": "哭砂",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 152.0,
+   "pre_median": 222.0,
+   "delta": -70.0,
+   "pct": -31.5,
+   "show_count": 0
+  },
+  {
+   "song": "月弯弯",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 328.0,
+   "pre_median": 414.0,
+   "delta": -86.0,
+   "pct": -20.8,
+   "show_count": 0
+  },
+  {
+   "song": "滚滚长江东逝水",
+   "tour6_n": 15,
+   "pre_n": 136,
+   "tour6_median": 106.0,
+   "pre_median": 192.0,
+   "delta": -86.0,
+   "pct": -44.8,
+   "show_count": 0
+  },
+  {
+   "song": "她真漂亮",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 203.0,
+   "pre_median": 290.0,
+   "delta": -87.0,
+   "pct": -30.0,
+   "show_count": 0
+  },
+  {
+   "song": "爱会和海风一起抵达",
+   "tour6_n": 8,
+   "pre_n": 69,
+   "tour6_median": 108.0,
+   "pre_median": 223.0,
+   "delta": -115.0,
+   "pct": -51.6,
+   "show_count": 0
+  },
+  {
+   "song": "神魂颠倒",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 253.0,
+   "pre_median": 379.0,
+   "delta": -126.0,
+   "pct": -33.2,
+   "show_count": 0
+  },
+  {
+   "song": "南屏晚钟",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 172.0,
+   "pre_median": 330.0,
+   "delta": -158.0,
+   "pct": -47.9,
+   "show_count": 0
+  },
+  {
+   "song": "黎明前的黑暗",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 6643.0,
+   "pre_median": 7499.0,
+   "delta": -856.0,
+   "pct": -11.4,
+   "show_count": 0
+  }
+ ],
+ "tour6_lift_top": [
+  {
+   "song": "一生中最爱",
+   "tour6_n": 51,
+   "pre_n": 80,
+   "tour6_median": 567.0,
+   "pre_median": 140.0,
+   "delta": 427.0,
+   "pct": 305.0,
+   "show_count": 0
+  },
+  {
+   "song": "山楂树",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 545.0,
+   "pre_median": 483.0,
+   "delta": 62.0,
+   "pct": 12.8,
+   "show_count": 0
+  },
+  {
+   "song": "贝加尔湖畔",
+   "tour6_n": 2,
+   "pre_n": 25,
+   "tour6_median": 178.0,
+   "pre_median": 119.0,
+   "delta": 59.0,
+   "pct": 49.6,
+   "show_count": 0
+  },
+  {
+   "song": "谁",
+   "tour6_n": 69,
+   "pre_n": 154,
+   "tour6_median": 231.0,
+   "pre_median": 187.5,
+   "delta": 43.5,
+   "pct": 23.2,
+   "show_count": 0
+  },
+  {
+   "song": "晚风暖暖",
+   "tour6_n": 68,
+   "pre_n": 129,
+   "tour6_median": 169.0,
+   "pre_median": 131.0,
+   "delta": 38.0,
+   "pct": 29.0,
+   "show_count": 0
+  },
+  {
+   "song": "多听有益",
+   "tour6_n": 2,
+   "pre_n": 31,
+   "tour6_median": 178.5,
+   "pre_median": 143.0,
+   "delta": 35.5,
+   "pct": 24.8,
+   "show_count": 0
+  },
+  {
+   "song": "爱于此生",
+   "tour6_n": 49,
+   "pre_n": 48,
+   "tour6_median": 129.0,
+   "pre_median": 117.0,
+   "delta": 12.0,
+   "pct": 10.3,
+   "show_count": 0
+  },
+  {
+   "song": "相思",
+   "tour6_n": 68,
+   "pre_n": 122,
+   "tour6_median": 145.0,
+   "pre_median": 133.5,
+   "delta": 11.5,
+   "pct": 8.6,
+   "show_count": 0
+  },
+  {
+   "song": "在路上",
+   "tour6_n": 69,
+   "pre_n": 154,
+   "tour6_median": 464.0,
+   "pre_median": 453.5,
+   "delta": 10.5,
+   "pct": 2.3,
+   "show_count": 9
+  },
+  {
+   "song": "重庆野玫瑰",
+   "tour6_n": 50,
+   "pre_n": 128,
+   "tour6_median": 138.0,
+   "pre_median": 131.0,
+   "delta": 7.0,
+   "pct": 5.3,
+   "show_count": 0
+  },
+  {
+   "song": "鸽子",
+   "tour6_n": 6,
+   "pre_n": 8,
+   "tour6_median": 110.0,
+   "pre_median": 106.0,
+   "delta": 4.0,
+   "pct": 3.8,
+   "show_count": 0
+  },
+  {
+   "song": "雷美替胺",
+   "tour6_n": 3,
+   "pre_n": 10,
+   "tour6_median": 240.0,
+   "pre_median": 251.5,
+   "delta": -11.5,
+   "pct": -4.6,
+   "show_count": 9
+  },
+  {
+   "song": "荒人之歌",
+   "tour6_n": 66,
+   "pre_n": 148,
+   "tour6_median": 135.0,
+   "pre_median": 147.5,
+   "delta": -12.5,
+   "pct": -8.5,
+   "show_count": 0
+  },
+  {
+   "song": "Over the Rainbow",
+   "tour6_n": 63,
+   "pre_n": 138,
+   "tour6_median": 125.0,
+   "pre_median": 138.5,
+   "delta": -13.5,
+   "pct": -9.7,
+   "show_count": 0
+  },
+  {
+   "song": "Sound of Silence",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 291.0,
+   "pre_median": 305.0,
+   "delta": -14.0,
+   "pct": -4.6,
+   "show_count": 0
+  },
+  {
+   "song": "一生守候",
+   "tour6_n": 62,
+   "pre_n": 146,
+   "tour6_median": 132.0,
+   "pre_median": 147.5,
+   "delta": -15.5,
+   "pct": -10.5,
+   "show_count": 0
+  },
+  {
+   "song": "亲密爱人",
+   "tour6_n": 69,
+   "pre_n": 154,
+   "tour6_median": 216.0,
+   "pre_median": 233.0,
+   "delta": -17.0,
+   "pct": -7.3,
+   "show_count": 0
+  },
+  {
+   "song": "小河",
+   "tour6_n": 23,
+   "pre_n": 109,
+   "tour6_median": 122.0,
+   "pre_median": 151.0,
+   "delta": -29.0,
+   "pct": -19.2,
+   "show_count": 0
+  },
+  {
+   "song": "星空穹顶",
+   "tour6_n": 7,
+   "pre_n": 4,
+   "tour6_median": 131.0,
+   "pre_median": 161.5,
+   "delta": -30.5,
+   "pct": -18.9,
+   "show_count": 0
+  },
+  {
+   "song": "友谊地久天长",
+   "tour6_n": 8,
+   "pre_n": 67,
+   "tour6_median": 106.0,
+   "pre_median": 138.0,
+   "delta": -32.0,
+   "pct": -23.2,
+   "show_count": 0
+  },
+  {
+   "song": "好好说再见",
+   "tour6_n": 2,
+   "pre_n": 4,
+   "tour6_median": 104.0,
+   "pre_median": 138.0,
+   "delta": -34.0,
+   "pct": -24.6,
+   "show_count": 0
+  },
+  {
+   "song": "哭砂",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 152.0,
+   "pre_median": 222.0,
+   "delta": -70.0,
+   "pct": -31.5,
+   "show_count": 0
+  },
+  {
+   "song": "月弯弯",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 328.0,
+   "pre_median": 414.0,
+   "delta": -86.0,
+   "pct": -20.8,
+   "show_count": 0
+  },
+  {
+   "song": "滚滚长江东逝水",
+   "tour6_n": 15,
+   "pre_n": 136,
+   "tour6_median": 106.0,
+   "pre_median": 192.0,
+   "delta": -86.0,
+   "pct": -44.8,
+   "show_count": 0
+  },
+  {
+   "song": "她真漂亮",
+   "tour6_n": 69,
+   "pre_n": 155,
+   "tour6_median": 203.0,
+   "pre_median": 290.0,
+   "delta": -87.0,
+   "pct": -30.0,
+   "show_count": 0
+  }
+ ],
+ "bass_groups": [
+  {
+   "name": "极低音（≤D2 73.4Hz）",
+   "n": 9,
+   "median_index": 205.0,
+   "median_show": 8,
+   "median_days": 32
+  },
+  {
+   "name": "低音区（≤E2 82.4Hz）",
+   "n": 17,
+   "median_index": 212.5,
+   "median_show": 8,
+   "median_days": 32
+  },
+  {
+   "name": "其他",
+   "n": 8,
+   "median_index": 228.5,
+   "median_show": 5.0,
+   "median_days": 32.0
+  }
+ ],
+ "low_share_tertiles": [
+  {
+   "name": "低",
+   "n": 8,
+   "median_index": 206.0
+  },
+  {
+   "name": "中",
+   "n": 8,
+   "median_index": 302.0
+  },
+  {
+   "name": "高",
+   "n": 9,
+   "median_index": 198.0
+  }
+ ],
+ "rows": [
+  {
+   "song": "惑许 王晰",
+   "album": "B面图景",
+   "low_hz": 91.0,
+   "low_note": "F#2",
+   "low_share": 0.236,
+   "vibrato_hz": 5.07,
+   "median_index": 321.5,
+   "days": 32,
+   "show_count": 13
+  },
+  {
+   "song": "轻信 王晰",
+   "album": "B面图景",
+   "low_hz": 111.3,
+   "low_note": "A2",
+   "low_share": 0.187,
+   "vibrato_hz": 5.38,
+   "median_index": 250.0,
+   "days": 32,
+   "show_count": 0
+  },
+  {
+   "song": "南屏晚钟 王晰",
+   "album": "Low C的诱惑",
+   "low_hz": 76.9,
+   "low_note": "D#2",
+   "low_share": 0.356,
+   "vibrato_hz": 5.07,
+   "median_index": 728.0,
+   "days": 32,
+   "show_count": 4
+  },
+  {
+   "song": "至少还有你 王晰",
+   "album": "Low C的诱惑",
+   "low_hz": 82.2,
+   "low_note": "E2",
+   "low_share": 0.479,
+   "vibrato_hz": 5.21,
+   "median_index": 149.5,
+   "days": 32,
+   "show_count": 0
+  },
+  {
+   "song": "乌兰巴托的夜晚 王晰",
+   "album": "Low C的诱惑Ⅱ",
+   "low_hz": 66.3,
+   "low_note": "C2",
+   "low_share": 0.55,
+   "vibrato_hz": 5.38,
+   "median_index": 198.0,
+   "days": 31,
+   "show_count": 1
+  },
+  {
+   "song": "贝加尔湖畔 王晰",
+   "album": "Low C的诱惑Ⅱ",
+   "low_hz": 68.5,
+   "low_note": "C#2",
+   "low_share": 0.676,
+   "vibrato_hz": 5.58,
+   "median_index": 174.5,
+   "days": 32,
+   "show_count": 17
+  },
+  {
+   "song": "重庆野玫瑰 王晰",
+   "album": "Low C的诱惑Ⅱ",
+   "low_hz": 76.8,
+   "low_note": "D#2",
+   "low_share": 0.555,
+   "vibrato_hz": 5.07,
+   "median_index": 561.0,
+   "days": 32,
+   "show_count": 1
+  },
+  {
+   "song": "多听有益 王晰",
+   "album": "X自选集",
+   "low_hz": 61.7,
+   "low_note": "B1",
+   "low_share": 0.279,
+   "vibrato_hz": 5.17,
+   "median_index": 282.5,
+   "days": 32,
+   "show_count": 2
+  },
+  {
+   "song": "Crystal Store 王晰",
+   "album": "X自选集",
+   "low_hz": 77.8,
+   "low_note": "D#2",
+   "low_share": 0.561,
+   "vibrato_hz": 4.79,
+   "median_index": 158.0,
+   "days": 20,
+   "show_count": 3
+  },
+  {
+   "song": "小河 王晰",
+   "album": "X自选集",
+   "low_hz": 81.9,
+   "low_note": "E2",
+   "low_share": 0.348,
+   "vibrato_hz": 5.38,
+   "median_index": 669.5,
+   "days": 32,
+   "show_count": 10
+  },
+  {
+   "song": "猫模狗样 王晰",
+   "album": "X自选集",
+   "low_hz": 82.3,
+   "low_note": "E2",
+   "low_share": 0.609,
+   "vibrato_hz": 5.07,
+   "median_index": 171.0,
+   "days": 29,
+   "show_count": 10
+  },
+  {
+   "song": "微醺23点08分 王晰",
+   "album": "X自选集",
+   "low_hz": 86.4,
+   "low_note": "F2",
+   "low_share": 0.593,
+   "vibrato_hz": 4.79,
+   "median_index": 355.0,
+   "days": 32,
+   "show_count": 9
+  },
+  {
+   "song": "是你 王晰",
+   "album": "X自选集",
+   "low_hz": 87.9,
+   "low_note": "F2",
+   "low_share": 0.131,
+   "vibrato_hz": 5.07,
+   "median_index": 151.0,
+   "days": 21,
+   "show_count": 1
+  },
+  {
+   "song": "偏偏 王晰",
+   "album": "X自选集",
+   "low_hz": 92.4,
+   "low_note": "F#2",
+   "low_share": 0.203,
+   "vibrato_hz": 5.22,
+   "median_index": 198.0,
+   "days": 32,
+   "show_count": 0
+  },
+  {
+   "song": "勿扰",
+   "album": "不说",
+   "low_hz": 65.6,
+   "low_note": "C2",
+   "low_share": 0.367,
+   "vibrato_hz": 4.79,
+   "median_index": 174.0,
+   "days": 115,
+   "show_count": 8
+  },
+  {
+   "song": "鹅毛信",
+   "album": "不说",
+   "low_hz": 65.3,
+   "low_note": "C2",
+   "low_share": 0.192,
+   "vibrato_hz": 4.79,
+   "median_index": 242.5,
+   "days": 192,
+   "show_count": 9
+  },
+  {
+   "song": "住口",
+   "album": "不说",
+   "low_hz": 69.3,
+   "low_note": "C#2",
+   "low_share": 0.154,
+   "vibrato_hz": 5.07,
+   "median_index": 205.0,
+   "days": 132,
+   "show_count": 8
+  },
+  {
+   "song": "祝我们随遇而安",
+   "album": "不说",
+   "low_hz": 73.1,
+   "low_note": "D2",
+   "low_share": 0.157,
+   "vibrato_hz": 5.07,
+   "median_index": 192.0,
+   "days": 243,
+   "show_count": 9
+  },
+  {
+   "song": "在路上",
+   "album": "不说",
+   "low_hz": 77.3,
+   "low_note": "D#2",
+   "low_share": 0.671,
+   "vibrato_hz": 5.07,
+   "median_index": 623.0,
+   "days": 548,
+   "show_count": 9
+  },
+  {
+   "song": "无尽的夜里",
+   "album": "不说",
+   "low_hz": 77.6,
+   "low_note": "D#2",
+   "low_share": 0.224,
+   "vibrato_hz": 4.79,
+   "median_index": 222.5,
+   "days": 128,
+   "show_count": 9
+  },
+  {
+   "song": "雷美替胺",
+   "album": "不说",
+   "low_hz": 93.9,
+   "low_note": "F#2",
+   "low_share": 0.07,
+   "vibrato_hz": 5.22,
+   "median_index": 207.0,
+   "days": 163,
+   "show_count": 9
+  },
+  {
+   "song": "明白",
+   "album": "不说",
+   "low_hz": 101.7,
+   "low_note": "G#2",
+   "low_share": 0.051,
+   "vibrato_hz": 5.38,
+   "median_index": 185.0,
+   "days": 119,
+   "show_count": 9
+  },
+  {
+   "song": "晚风暖暖 王晰",
+   "album": "重游往昔",
+   "low_hz": 65.3,
+   "low_note": "C2",
+   "low_share": 0.242,
+   "vibrato_hz": 5.02,
+   "median_index": 469.0,
+   "days": 29,
+   "show_count": 17
+  },
+  {
+   "song": "重游往昔 王晰",
+   "album": "重游往昔",
+   "low_hz": 73.1,
+   "low_note": "D2",
+   "low_share": 0.405,
+   "vibrato_hz": 5.11,
+   "median_index": 212.5,
+   "days": 30,
+   "show_count": 1
+  },
+  {
+   "song": "好好说再见 王晰",
+   "album": "重游往昔",
+   "low_hz": 90.1,
+   "low_note": "F#2",
+   "low_share": 0.069,
+   "vibrato_hz": 5.17,
+   "median_index": 277.5,
+   "days": 32,
+   "show_count": 1
+  }
+ ]
+}
