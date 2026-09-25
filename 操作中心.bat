@@ -248,6 +248,7 @@ echo    197. 曲名自动统一（把各种写法改写成规范名，只改曲名字段/键/ID）
 echo    198. 重建指数长表（从权威全量源，一处变全局变；19 个脚本共用）
 echo    199. 指数源覆盖审计（长表 vs 权威源；不足则报警）
 echo    200. 事件窗口分析（演出/综艺/晚会 前后 ±14 天指数响应）
+echo    201. 活动总表合并（百科版+微博核对版 → data/activity_master.json）
 echo    0. 退出
 echo.
 set "op="
@@ -452,6 +453,7 @@ if "%op%"=="197" goto norm_song
 if "%op%"=="198" goto idx_rebuild
 if "%op%"=="199" goto idx_audit
 if "%op%"=="200" goto ev_window
+if "%op%"=="201" goto act_master
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2699,5 +2701,13 @@ echo  产出：data/event_window_index.json ＋ 事件窗口_指数响应.md
 echo  参数：--days 14（窗口天数）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_event_windows.py
+pause
+goto menu
+
+:act_master
+cls
+echo  [活动总表] 并入 E:\wx\index_records 下两份手写活动表（458 事件/233 带曲目）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_activity_master.py
 pause
 goto menu

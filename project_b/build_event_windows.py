@@ -42,24 +42,26 @@ def binom_two_sided(k, n, p=0.5):
 
 
 def load_events():
-    """事件清单：巡演场次（setlists）+ 生涯事件（timeline）"""
+    """事件清单：来自 data/activity_master.json（458 条，含晚会/综艺/音乐剧，带演唱曲目）。
+
+    这是单一事件源（此前用 setlists+timeline，共 105 条且无晚会/综艺）。
+    """
+    p = SITE / "data" / "activity_master.json"
+    if not p.exists():
+        raise SystemExit("缺 data/activity_master.json —— 先跑 build_activity_master.py")
+    data = json.loads(p.read_text(encoding="utf-8"))
+    KIND_MAP = [("巡演", ["巡演", "音乐会"]), ("晚会", ["晚会", "典礼"]),
+                ("综艺", ["综艺", "电视"]), ("音乐剧", ["音乐剧", "话剧"])]
     ev = []
-    sl = json.loads((SITE / "data" / "setlists.json").read_text(encoding="utf-8"))["setlists"]
-    sl = list(sl.values()) if isinstance(sl, dict) else sl
-    for s in sl:
-        d = str(s.get("date") or "")[:10]
+    for r in data["rows"]:
+        d = str(r.get("date") or "")[:10]
         if not d:
             continue
-        ev.append({"date": d, "kind": "巡演", "label": f"{s.get('tour','')}{s.get('city','')}",
-                   "songs": [canon((x or {}).get("title")) for x in (s.get("songs") or [])]})
-    tl = json.loads((SITE / "data" / "timeline.json").read_text(encoding="utf-8"))
-    tl = tl if isinstance(tl, list) else (tl.get("items") or [])
-    for t in tl:
-        d = str(t.get("date") or "")[:10]
-        if not d:
-            continue
-        ev.append({"date": d, "kind": t.get("type") or "生涯", "label": t.get("title") or "",
-                   "songs": []})
+        k0 = r.get("kind") or "其他"
+        kind = next((k for k, kws in KIND_MAP if any(w in k0 for w in kws)), "其他")
+        ev.append({"date": d, "kind": kind, "label": str(r.get("title") or "")[:40],
+                   "songs": [canon(x) for x in (r.get("songs") or [])],
+                   "source": r.get("source")})
     ev.sort(key=lambda x: x["date"])
     return ev
 

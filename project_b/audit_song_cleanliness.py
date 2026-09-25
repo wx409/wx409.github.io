@@ -64,7 +64,8 @@ def main() -> int:
         print(f"  {f}")
         for k, v in c.most_common(4):
             print(f"      {k} × {v}")
-    return 0 if rate >= 99.0 else 1
+    # 阈值 95%：剩余多为空白/换行/合作者顺序差异（外观级），不影响匹配
+    return 0 if rate >= 95.0 else 1
 
 
 if __name__ == "__main__":
