@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-25 15:10",
+ "generated_at": "2026-09-25 15:33",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 197,
-  "dispatch": 196,
+  "menu_items": 199,
+  "dispatch": 198,
   "deploy_steps": 76,
   "scheduled_tasks": 6
  },
@@ -1526,6 +1526,22 @@
    "menu_label": "norm_song",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\normalize_song_names.py"
+  },
+  {
+   "script": "build_index_long.py",
+   "menu": 198,
+   "title": "重建指数长表（从权威全量源，一处变全局变；19 个脚本共用）",
+   "menu_label": "idx_rebuild",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_index_long.py"
+  },
+  {
+   "script": "audit_index_source.py",
+   "menu": 199,
+   "title": "指数源覆盖审计（长表 vs 权威源；不足则报警）",
+   "menu_label": "idx_audit",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_index_source.py"
   },
   {
    "script": "_build_episodes.py",

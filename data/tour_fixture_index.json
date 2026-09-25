@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T15:16:23",
+ "generated_at": "2026-09-25T15:38:50",
  "tour6_from": "2026-06-13",
  "index_last": "2026-09-24",
  "case_besame_mucho": {
@@ -56,17 +56,6 @@
  },
  "tour6_songs": [
   {
-   "song": "一生守候",
-   "tour6_plays": 2,
-   "index_days": 1182,
-   "median_all": 222.0,
-   "slope_all": -0.34,
-   "recent_n": 94,
-   "recent_median": 143.5,
-   "recent_slope": 0.499,
-   "pre_median": 244.0
-  },
-  {
    "song": "Bésame Mucho",
    "tour6_plays": 2,
    "index_days": 555,
@@ -84,28 +73,33 @@
    "note": "指数池无记录"
   },
   {
-   "song": "Your Man",
+   "song": "YourMan (Live) 王晰",
    "tour6_plays": 3,
-   "index_days": 0,
-   "note": "指数池无记录"
-  },
-  {
-   "song": "花儿为什么这样红",
-   "tour6_plays": 2,
-   "index_days": 141,
-   "median_all": 192.0,
-   "slope_all": -0.656,
+   "index_days": 33,
+   "median_all": 0.0,
+   "slope_all": 0.0,
    "recent_n": 0,
    "recent_median": null,
    "recent_slope": null,
-   "pre_median": 192.0
+   "pre_median": 0.0
   },
   {
-   "song": "像雾像雨又像风",
+   "song": "花儿为什么这样红 (Live) 王晰",
    "tour6_plays": 2,
-   "index_days": 1,
+   "index_days": 20,
    "median_all": 0.0,
-   "slope_all": null,
+   "slope_all": 0.0,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 0.0
+  },
+  {
+   "song": "像雾像雨又像风 王晰",
+   "tour6_plays": 2,
+   "index_days": 32,
+   "median_all": 0.0,
+   "slope_all": 0.0,
    "recent_n": 0,
    "recent_median": null,
    "recent_slope": null,
@@ -124,10 +118,15 @@
    "note": "指数池无记录"
   },
   {
-   "song": "月半弯",
+   "song": "月半弯 (Live) 王晰",
    "tour6_plays": 2,
-   "index_days": 0,
-   "note": "指数池无记录"
+   "index_days": 10,
+   "median_all": 0.0,
+   "slope_all": 0.0,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 0.0
   },
   {
    "song": "再见我的爱人",
@@ -136,38 +135,59 @@
    "note": "指数池无记录"
   },
   {
-   "song": "心动",
+   "song": "心动 (Live) 王晰",
    "tour6_plays": 2,
-   "index_days": 0,
-   "note": "指数池无记录"
-  },
-  {
-   "song": "让她降落",
-   "tour6_plays": 2,
-   "index_days": 0,
-   "note": "指数池无记录"
-  },
-  {
-   "song": "Autumn Leaves",
-   "tour6_plays": 2,
-   "index_days": 102,
-   "median_all": 179.0,
-   "slope_all": -0.079,
-   "recent_n": 1,
-   "recent_median": 242.0,
-   "recent_slope": null,
-   "pre_median": 178.0
-  },
-  {
-   "song": "平凡又美好的晚上",
-   "tour6_plays": 2,
-   "index_days": 103,
-   "median_all": 139.0,
-   "slope_all": -0.007,
+   "index_days": 31,
+   "median_all": 0.0,
+   "slope_all": 0.0,
    "recent_n": 0,
    "recent_median": null,
    "recent_slope": null,
-   "pre_median": 139.0
+   "pre_median": 0.0
+  },
+  {
+   "song": "一生守候 (Live) 王晰",
+   "tour6_plays": 2,
+   "index_days": 33,
+   "median_all": 448.0,
+   "slope_all": 0.489,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 448.0
+  },
+  {
+   "song": "让她降落 (Live) 王晰",
+   "tour6_plays": 2,
+   "index_days": 34,
+   "median_all": 0.0,
+   "slope_all": 0.0,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 0.0
+  },
+  {
+   "song": "Autumn Leaves (Live) 王晰",
+   "tour6_plays": 2,
+   "index_days": 33,
+   "median_all": 0.0,
+   "slope_all": 0.071,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 0.0
+  },
+  {
+   "song": "平凡又美好的晚上 王晰",
+   "tour6_plays": 2,
+   "index_days": 32,
+   "median_all": 0.0,
+   "slope_all": 0.776,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 0.0
   },
   {
    "song": "女人花+水中花",
@@ -196,22 +216,22 @@
  ],
  "fixture_vs_occasional": {
   "常驻(≥10场)": {
-   "n": 18,
-   "median_slope": -0.223,
-   "median_index": 191.5,
-   "positive_share": 5.6
+   "n": 31,
+   "median_slope": 0.0,
+   "median_index": 0.0,
+   "positive_share": 9.7
   },
   "半常驻(4-9场)": {
-   "n": 13,
-   "median_slope": -1.877,
-   "median_index": 205.0,
-   "positive_share": 7.7
+   "n": 18,
+   "median_slope": -1.067,
+   "median_index": 179.5,
+   "positive_share": 11.1
   },
   "偶发(1-3场)": {
-   "n": 80,
-   "median_slope": -0.265,
-   "median_index": 184.8,
-   "positive_share": 5.0
+   "n": 112,
+   "median_slope": 0.0,
+   "median_index": 0.0,
+   "positive_share": 21.4
   }
  }
 }

@@ -245,6 +245,8 @@ echo    194. 声学×指数交叉分析（正向：哪些曲目指数在涨 / 与演唱能力的关联）
 echo    195. 巡演常驻曲目×指数（含 Besame Mucho 案例 / 六巡曲目表现 / 常驻-偶发对照）
 echo    196. 曲名写法审计（检测 (Live)/重音/空格 等未归并写法，防统计漏算）
 echo    197. 曲名自动统一（把各种写法改写成规范名，只改曲名字段/键/ID）
+echo    198. 重建指数长表（从权威全量源，一处变全局变；19 个脚本共用）
+echo    199. 指数源覆盖审计（长表 vs 权威源；不足则报警）
 echo    0. 退出
 echo.
 set "op="
@@ -446,6 +448,8 @@ if "%op%"=="194" goto cross_ai
 if "%op%"=="195" goto fixture_idx
 if "%op%"=="196" goto song_names_audit
 if "%op%"=="197" goto norm_song
+if "%op%"=="198" goto idx_rebuild
+if "%op%"=="199" goto idx_audit
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2666,5 +2670,22 @@ echo  先试算再看写入：加 --apply 才真的改（自动备份到 temp/_songname_bak/）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\normalize_song_names.py
 python -X utf8 project_b\audit_song_names.py
+pause
+goto menu
+
+:idx_rebuild
+cls
+echo  [重建指数长表] 源=E:\\wx\\index_records\\raw_archive\\raw_latest.xlsx（口径：index=current_index）
+echo  试算加 --apply 才写入（自动备份）
+cd /d "D:\\wx409.github.io"
+python -X utf8 project_b\\build_index_long.py
+pause
+goto menu
+
+:idx_audit
+cls
+echo  [指数源审计] 覆盖率低于 95% 或每日曲目数远低于源 → 退出码 1
+cd /d "D:\\wx409.github.io"
+python -X utf8 project_b\\audit_index_source.py
 pause
 goto menu

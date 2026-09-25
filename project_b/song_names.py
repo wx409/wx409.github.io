@@ -27,6 +27,8 @@ ALIAS_FILE = SITE / "data" / "song_aliases.json"
 _STRIP_SUFFIX = re.compile(
     r"(?i)\s*[（(\[【]\s*(live|现场|现场版|演唱会版|演唱会|伴奏|纯享|live版|副歌)\s*[）)\]】]\s*$")
 _LEAD_NUM = re.compile(r"^\d{1,3}(?=[^\d])")          # 现场层文件名前缀 "12Bésame Mucho"
+_ARTIST_TAIL = re.compile(
+    r"\s*[\s\-–—]*\s*(?:live|Live)?\s*(?:王晰|王晰\s*/\s*[^\s]+|张韶涵\s*/\s*王晰)\s*$")
 _EXT = re.compile(r"\.(wav|mp3|flac|m4a|csv|json|txt)$", re.I)
 
 
@@ -99,8 +101,21 @@ def canon(s: str) -> str:
     if n in a:
         return a[n]
     if base is not None:
-        if strict_norm(base) in a:
-            return a[strict_norm(base)]
+        nb = strict_norm(base)
+        if nb in ov:
+            return ov[nb]
+        if nb in a:
+            return a[nb]
+    # 组合式：先剥演唱者后缀，再剥演出后缀
+    b2 = _ARTIST_TAIL.sub("", raw).strip()
+    if b2 != raw:
+        b3 = _STRIP_SUFFIX.sub("", b2).strip()
+        for cand in (b2, b3):
+            nc = strict_norm(cand)
+            if nc in ov:
+                return ov[nc]
+            if nc in a:
+                return a[nc]
     return raw
 
 
