@@ -247,6 +247,7 @@ echo    196. 曲名写法审计（检测 (Live)/重音/空格 等未归并写法，防统计漏算）
 echo    197. 曲名自动统一（把各种写法改写成规范名，只改曲名字段/键/ID）
 echo    198. 重建指数长表（从权威全量源，一处变全局变；19 个脚本共用）
 echo    199. 指数源覆盖审计（长表 vs 权威源；不足则报警）
+echo    200. 事件窗口分析（演出/综艺/晚会 前后 ±14 天指数响应）
 echo    0. 退出
 echo.
 set "op="
@@ -450,6 +451,7 @@ if "%op%"=="196" goto song_names_audit
 if "%op%"=="197" goto norm_song
 if "%op%"=="198" goto idx_rebuild
 if "%op%"=="199" goto idx_audit
+if "%op%"=="200" goto ev_window
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2687,5 +2689,15 @@ cls
 echo  [指数源审计] 覆盖率低于 95% 或每日曲目数远低于源 → 退出码 1
 cd /d "D:\\wx409.github.io"
 python -X utf8 project_b\\audit_index_source.py
+pause
+goto menu
+
+:ev_window
+cls
+echo  [事件窗口] 对每个事件取前后各 N 天，比较「演出曲目」与「全池对照」的中位变化
+echo  产出：data/event_window_index.json ＋ 事件窗口_指数响应.md
+echo  参数：--days 14（窗口天数）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_event_windows.py
 pause
 goto menu

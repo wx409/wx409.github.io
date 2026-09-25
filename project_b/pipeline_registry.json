@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-25 15:33",
+ "generated_at": "2026-09-25 16:11",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 199,
-  "dispatch": 198,
+  "menu_items": 200,
+  "dispatch": 199,
   "deploy_steps": 76,
   "scheduled_tasks": 6
  },
@@ -1542,6 +1542,14 @@
    "menu_label": "idx_audit",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\audit_index_source.py"
+  },
+  {
+   "script": "build_event_windows.py",
+   "menu": 200,
+   "title": "事件窗口分析（演出/综艺/晚会 前后 ±14 天指数响应）",
+   "menu_label": "ev_window",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_event_windows.py"
   },
   {
    "script": "_build_episodes.py",
