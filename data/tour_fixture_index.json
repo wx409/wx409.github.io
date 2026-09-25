@@ -1,50 +1,54 @@
 {
- "generated_at": "2026-09-25T15:01:57",
+ "generated_at": "2026-09-25T15:16:23",
  "tour6_from": "2026-06-13",
- "index_last": "2026-09-23",
+ "index_last": "2026-09-24",
  "case_besame_mucho": {
   "canonical": [
-   "Bésame Mucho"
+   "Besame Mucho (Live) 张韶涵/王晰",
+   "Besame Mucho 王晰",
+   "Bésame Mucho",
+   "Bésame Mucho (Live) 王晰"
   ],
-  "points": 598,
-  "first": "2022-12-31",
-  "last": "2026-09-06",
-  "median_all": 186.5,
-  "slope_all": -0.228,
+  "points": 629,
+  "first": "2023-01-01",
+  "last": "2026-09-24",
+  "median_all": 182.0,
+  "slope_all": -0.208,
   "by_year": {
-   "2022": {
-    "n": 1,
-    "median": 446.0,
-    "slope": null
-   },
    "2023": {
-    "n": 181,
-    "median": 276.0,
-    "slope": -2.429
+    "n": 196,
+    "median": 212.5,
+    "slope": -2.057
    },
    "2024": {
-    "n": 200,
-    "median": 194.0,
-    "slope": 0.179
+    "n": 244,
+    "median": 187.0,
+    "slope": 0.229
    },
    "2025": {
-    "n": 209,
+    "n": 165,
     "median": 169.0,
-    "slope": -0.218
+    "slope": -0.287
    },
    "2026": {
-    "n": 7,
-    "median": 114.0,
-    "slope": 0.13
+    "n": 24,
+    "median": 108.5,
+    "slope": 0.017
    }
   },
   "since_tour6": {
-   "n": 3,
-   "median": 140.0,
+   "n": 9,
+   "median": 108.0,
    "dates": [
     "2026-08-31",
+    "2026-09-01",
+    "2026-09-03",
     "2026-09-05",
-    "2026-09-06"
+    "2026-09-06",
+    "2026-09-07",
+    "2026-09-10",
+    "2026-09-13",
+    "2026-09-24"
    ]
   },
   "show_count": 13,
@@ -54,13 +58,24 @@
   {
    "song": "一生守候",
    "tour6_plays": 2,
-   "index_days": 1248,
-   "median_all": 255.0,
-   "slope_all": -0.359,
-   "recent_n": 89,
-   "recent_median": 144.0,
-   "recent_slope": 0.523,
-   "pre_median": 278.0
+   "index_days": 1182,
+   "median_all": 222.0,
+   "slope_all": -0.34,
+   "recent_n": 94,
+   "recent_median": 143.5,
+   "recent_slope": 0.499,
+   "pre_median": 244.0
+  },
+  {
+   "song": "Bésame Mucho",
+   "tour6_plays": 2,
+   "index_days": 555,
+   "median_all": 186.0,
+   "slope_all": -0.199,
+   "recent_n": 9,
+   "recent_median": 108.0,
+   "recent_slope": -1.356,
+   "pre_median": 186.0
   },
   {
    "song": "情网",
@@ -77,19 +92,24 @@
   {
    "song": "花儿为什么这样红",
    "tour6_plays": 2,
-   "index_days": 124,
-   "median_all": 216.5,
-   "slope_all": -0.96,
+   "index_days": 141,
+   "median_all": 192.0,
+   "slope_all": -0.656,
    "recent_n": 0,
    "recent_median": null,
    "recent_slope": null,
-   "pre_median": 216.5
+   "pre_median": 192.0
   },
   {
    "song": "像雾像雨又像风",
    "tour6_plays": 2,
-   "index_days": 0,
-   "note": "指数池无记录"
+   "index_days": 1,
+   "median_all": 0.0,
+   "slope_all": null,
+   "recent_n": 0,
+   "recent_median": null,
+   "recent_slope": null,
+   "pre_median": 0.0
   },
   {
    "song": "Yesterday Once More",
@@ -110,15 +130,10 @@
    "note": "指数池无记录"
   },
   {
-   "song": "再见，我的爱人",
+   "song": "再见我的爱人",
    "tour6_plays": 2,
-   "index_days": 12,
-   "median_all": 124.0,
-   "slope_all": 0.056,
-   "recent_n": 0,
-   "recent_median": null,
-   "recent_slope": null,
-   "pre_median": 124.0
+   "index_days": 0,
+   "note": "指数池无记录"
   },
   {
    "song": "心动",
@@ -133,37 +148,26 @@
    "note": "指数池无记录"
   },
   {
-   "song": "Bésame Mucho",
-   "tour6_plays": 2,
-   "index_days": 598,
-   "median_all": 186.5,
-   "slope_all": -0.228,
-   "recent_n": 3,
-   "recent_median": 140.0,
-   "recent_slope": null,
-   "pre_median": 187.0
-  },
-  {
    "song": "Autumn Leaves",
    "tour6_plays": 2,
-   "index_days": 83,
-   "median_all": 190.0,
-   "slope_all": -0.147,
-   "recent_n": 0,
-   "recent_median": null,
+   "index_days": 102,
+   "median_all": 179.0,
+   "slope_all": -0.079,
+   "recent_n": 1,
+   "recent_median": 242.0,
    "recent_slope": null,
-   "pre_median": 190.0
+   "pre_median": 178.0
   },
   {
    "song": "平凡又美好的晚上",
    "tour6_plays": 2,
-   "index_days": 79,
-   "median_all": 148.0,
-   "slope_all": -0.023,
+   "index_days": 103,
+   "median_all": 139.0,
+   "slope_all": -0.007,
    "recent_n": 0,
    "recent_median": null,
    "recent_slope": null,
-   "pre_median": 148.0
+   "pre_median": 139.0
   },
   {
    "song": "女人花+水中花",
@@ -192,22 +196,22 @@
  ],
  "fixture_vs_occasional": {
   "常驻(≥10场)": {
-   "n": 17,
-   "median_slope": -0.275,
-   "median_index": 193.0,
-   "positive_share": 11.8
+   "n": 18,
+   "median_slope": -0.223,
+   "median_index": 191.5,
+   "positive_share": 5.6
   },
   "半常驻(4-9场)": {
    "n": 13,
-   "median_slope": -2.08,
-   "median_index": 228.0,
+   "median_slope": -1.877,
+   "median_index": 205.0,
    "positive_share": 7.7
   },
   "偶发(1-3场)": {
-   "n": 75,
-   "median_slope": -0.344,
-   "median_index": 214.0,
-   "positive_share": 8.0
+   "n": 80,
+   "median_slope": -0.265,
+   "median_index": 184.8,
+   "positive_share": 5.0
   }
  }
 }

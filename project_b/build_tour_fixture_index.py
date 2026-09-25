@@ -21,7 +21,7 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SITE / "project_b"))
-from song_names import canon  # noqa: E402
+from song_names import canon, norm  # noqa: E402
 
 CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
 OUT_JSON = SITE / "data" / "tour_fixture_index.json"
@@ -42,21 +42,15 @@ def slope(pts):
 
 
 def main() -> int:
-    # ── 指数：按规范名合并 ────────────────────────────────
-    raw = defaultdict(list)
-    with CSV.open(encoding="utf-8-sig", errors="ignore") as f:
-        f.readline()
-        for line in f:
-            p = line.rstrip("\n").split(",")
-            if len(p) >= 3:
-                try:
-                    raw[canon(p[1])].append((p[0], float(p[2])))
-                except ValueError:
-                    pass
-    for k in raw:
-        raw[k].sort()
+    # ── 指数：来自 index_source（权威全量源，非残缺长表）──────
+    from index_source import load as _load_idx, coverage as _cov
+    _cov()                                   # 打印数据源覆盖（自检：每日歌数中位应 ~200+）
+    _df = _load_idx()
+    raw = {}
+    for cname, g in _df.dropna(subset=["current_index"]).groupby("canon"):
+        raw[cname] = sorted(zip(g["day"], g["current_index"].astype(float)))
     last = max(d for v in raw.values() for d, _ in v)
-    print(f"指数（按规范名合并）：{len(raw)} 首｜最新 {last}")
+    print(f"指数（权威源，按规范名合并）：{len(raw)} 首｜最新 {last}")
 
     meta = json.loads((SITE / "data" / "songs_meta.json").read_text(encoding="utf-8"))
     songs = meta["songs"]
@@ -81,7 +75,7 @@ def main() -> int:
         return raw.get(canon(name)) or []
 
     # ── 案例卡：Besame Mucho ───────────────────────────────
-    bs = [k for k in raw if "besame" in k.lower()]
+    bs = [k for k in raw if "besame" in norm(k).lower()]
     bs_pts = sorted([x for k in bs for x in raw[k]])
     case = {"canonical": bs, "points": len(bs_pts),
             "first": bs_pts[0][0] if bs_pts else None,
