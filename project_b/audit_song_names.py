@@ -16,13 +16,18 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SITE / "project_b"))
-from song_names import canon, norm  # noqa: E402
+from song_names import canon, norm, strict_norm, _STRIP_SUFFIX, _ARTIST_TAIL  # noqa: E402
 
 CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
 
 
 def main() -> int:
     # ① 指数长表
+    def base_key(x):
+        y = _ARTIST_TAIL.sub("", str(x)).strip()
+        y = _STRIP_SUFFIX.sub("", y).strip()
+        return strict_norm(" ".join(y.split()))
+
     idx = defaultdict(set)
     if CSV.exists():
         with CSV.open(encoding="utf-8-sig", errors="ignore") as f:
@@ -30,22 +35,24 @@ def main() -> int:
             for line in f:
                 p = line.rstrip("\n").split(",")
                 if len(p) >= 3:
-                    idx[norm(p[1])].add(p[1])
+                    idx[base_key(p[1])].add(p[1])
+    # 只有「同一严格键下 canon 结果不一致」才算未归并（标点差异按设计不合并）
     idx_dups = {k: sorted(v) for k, v in idx.items() if len({canon(x) for x in v}) > 1}
 
     # ② songs_meta
     meta = json.loads((SITE / "data" / "songs_meta.json").read_text(encoding="utf-8"))
     sm = defaultdict(set)
     for k, v in (meta.get("songs") or {}).items():
-        sm[norm((v or {}).get("name") or k)].add((v or {}).get("name") or k)
-    sm_dups = {k: sorted(v) for k, v in sm.items() if len(v) > 1}
+        nm = (v or {}).get("name") or k
+        sm[base_key(nm)].add(nm)
+    sm_dups = {k: sorted(v) for k, v in sm.items() if len({canon(x) for x in v}) > 1}
 
     # ③ 别名表覆盖
     aliases = json.loads((SITE / "data" / "song_aliases.json").read_text(encoding="utf-8")).get("aliases", {})
     covered = set()
     for cn, al in aliases.items():
         for x in [cn] + list(al):
-            covered.add(norm(x))
+            covered.add(base_key(x))
 
     missing = {k: v for k, v in idx_dups.items() if k not in covered}
 
