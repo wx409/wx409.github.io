@@ -36,6 +36,11 @@
 5. **过程稿不上线**：全站不得出现「旧口径/已作废/结论修正/瞬时最低」，版本谱系只留 JSON-LD `isBasedOn`。
 6. 遇到不确定：**暂停并询问，不自行猜测**。
 
+7. **曲名统一（防统计漏算）**：一切曲名匹配/统计先过 `project_b/song_names.py` 的 `canon()`；
+   规范名与别名表见 `data/song_aliases.json`（`canonical` 段优先，如 `Bésame Mucho`）。
+   同一首歌的多写法（`(Live)` 后缀、重音、大小写、空格）会拆散统计 → 新增数据后跑 **操作中心 197** 统一、**196** 审计。
+   **只改曲名字段/键/实体 ID；不改微博正文、证据引用与文件名镜像。**
+
 ## 三、仓库结构
 
 - **对外主入口 8 个公开页**：`index.html` `works.html` `live.html` `vocal.html` `history.html`

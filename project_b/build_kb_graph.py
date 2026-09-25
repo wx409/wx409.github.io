@@ -15,6 +15,9 @@
 import argparse, io, json, re, sys
 from datetime import datetime
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from song_names import canon  # noqa: E402
 
 ROOT = Path(r"D:\wx409.github.io")
 DATA = ROOT / "data"
@@ -145,8 +148,8 @@ def build():
             t = song.get("title", "")
             if not t:
                 continue
-            kb.ent("song:%s" % t, "song", t)
-            kb.rel("song:%s" % t, "performed_in", sid, "第%s首" % song.get("order", "?"), "setlists.json")
+            kb.ent("song:%s" % canon(t), "song", t)
+            kb.rel("song:%s" % canon(t), "performed_in", sid, "第%s首" % song.get("order", "?"), "setlists.json")
 
     # ---- 3) cities.json → 22城 show 事实（补 tour_num/live_url） ----
     cs = load(DATA / "cities.json", {}).get("cities", {})
@@ -179,13 +182,13 @@ def build():
 
     # ---- 5) songs_meta.json → 歌曲实体 + 统计事实 ----
     for name, m in load(DATA / "songs_meta.json", {}).get("songs", {}).items():
-        kb.ent("song:%s" % name, "song", name, {"album": m.get("album")})
+        kb.ent("song:%s" % canon(name), "song", name, {"album": m.get("album")})
         if m.get("show_count"):
-            kb.fact("song:%s" % name, "performed_count", m["show_count"], "", "", "songs_meta.json", 0.8)
+            kb.fact("song:%s" % canon(name), "performed_count", m["show_count"], "", "", "songs_meta.json", 0.8)
         if m.get("cities"):
-            kb.fact("song:%s" % name, "performed_cities", "、".join(m["cities"]), "", "", "songs_meta.json", 0.8)
+            kb.fact("song:%s" % canon(name), "performed_cities", "、".join(m["cities"]), "", "", "songs_meta.json", 0.8)
         if m.get("album"):
-            kb.rel("song:%s" % name, "belongs_to_album", "album:%s" % m["album"], "", "songs_meta.json")
+            kb.rel("song:%s" % canon(name), "belongs_to_album", "album:%s" % m["album"], "", "songs_meta.json")
 
     # ---- 6) live_repos.json → 媒体/报道实体 + 关系 ----
     repos = load(DATA / "live_repos.json", {}).get("repos", {})

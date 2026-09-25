@@ -244,6 +244,7 @@ echo    193. 自动关机豁免同步（节假日/调休自动识别；写入 shutdown_skip.txt）
 echo    194. 声学×指数交叉分析（正向：哪些曲目指数在涨 / 与演唱能力的关联）
 echo    195. 巡演常驻曲目×指数（含 Besame Mucho 案例 / 六巡曲目表现 / 常驻-偶发对照）
 echo    196. 曲名写法审计（检测 (Live)/重音/空格 等未归并写法，防统计漏算）
+echo    197. 曲名自动统一（把各种写法改写成规范名，只改曲名字段/键/ID）
 echo    0. 退出
 echo.
 set "op="
@@ -444,6 +445,7 @@ if "%op%"=="193" goto hol_skip
 if "%op%"=="194" goto cross_ai
 if "%op%"=="195" goto fixture_idx
 if "%op%"=="196" goto song_names_audit
+if "%op%"=="197" goto norm_song
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2652,6 +2654,17 @@ goto menu
 cls
 echo  [曲名写法审计] 检查指数长表/songs_meta/别名表覆盖
 cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_song_names.py
+pause
+goto menu
+
+:norm_song
+cls
+echo  [曲名自动统一] 规范名来自 data/song_aliases.json（canonical 段优先）
+echo  安全边界：只改曲名字段/键/实体ID；不改微博正文、证据引用、文件名镜像
+echo  先试算再看写入：加 --apply 才真的改（自动备份到 temp/_songname_bak/）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\normalize_song_names.py
 python -X utf8 project_b\audit_song_names.py
 pause
 goto menu

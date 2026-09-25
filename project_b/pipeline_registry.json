@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-25 15:02",
+ "generated_at": "2026-09-25 15:10",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 196,
-  "dispatch": 195,
+  "menu_items": 197,
+  "dispatch": 196,
   "deploy_steps": 76,
   "scheduled_tasks": 6
  },
@@ -1518,6 +1518,14 @@
    "menu_label": "song_names_audit",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\audit_song_names.py"
+  },
+  {
+   "script": "normalize_song_names.py",
+   "menu": 197,
+   "title": "曲名自动统一（把各种写法改写成规范名，只改曲名字段/键/ID）",
+   "menu_label": "norm_song",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\normalize_song_names.py"
   },
   {
    "script": "_build_episodes.py",

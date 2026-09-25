@@ -25,7 +25,7 @@ ALIAS_FILE = SITE / "data" / "song_aliases.json"
 
 # 去重规则：这些后缀/前缀不构成不同曲目
 _STRIP_SUFFIX = re.compile(
-    r"(?i)\s*[（(\[【]?\s*(live|现场|演唱会版|live\s*版|remix|ver\.?|version|伴奏|纯享|片段|demo)\s*[)）\]】]?\s*$")
+    r"(?i)\s*[（(\[【]\s*(live|现场|现场版|演唱会版|演唱会|伴奏|纯享|live版|副歌)\s*[）)\]】]\s*$")
 _LEAD_NUM = re.compile(r"^\d{1,3}(?=[^\d])")          # 现场层文件名前缀 "12Bésame Mucho"
 _EXT = re.compile(r"\.(wav|mp3|flac|m4a|csv|json|txt)$", re.I)
 
@@ -35,11 +35,31 @@ def norm(s: str) -> str:
     s = _EXT.sub("", str(s or "").strip())
     s = _LEAD_NUM.sub("", s)
     s = _STRIP_SUFFIX.sub("", s).strip()
-    s = unicodedata.normalize("NFKD", s)
+    s = unicodedata.normalize("NFD", s)
     s = "".join(c for c in s if not unicodedata.combining(c))
     s = re.sub(r"(?i)\b(live|remix|ver|version|feat)\b", "", s)
     s = re.sub(r"[\s·、,，.。!！?？\"'“”‘’\-—_/\\|｜（）()\[\]【】]+", "", s)
     return s.lower()
+
+
+@lru_cache(maxsize=1)
+def strict_norm(s: str) -> str:
+    """严格键：去重音、去空格、统一大小写，但**保留标点**（用于安全合并判定与查表）。"""
+    s = _EXT.sub("", str(s or "").strip())
+    s = _LEAD_NUM.sub("", s)
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r"\s+", "", s)
+    return s.casefold()
+
+
+def _canon_overrides() -> dict:
+    """{norm: 规范名} 人工锁定表（data/song_aliases.json 的 canonical 段）。"""
+    try:
+        d = json.loads(ALIAS_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return {strict_norm(k): str(v) for k, v in (d.get("canonical") or {}).items()}
 
 
 @lru_cache(maxsize=1)
@@ -51,23 +71,36 @@ def _aliases() -> dict:
         return {}
     m = {}
     for canon_name, alist in (d.get("aliases") or {}).items():
-        m[norm(canon_name)] = canon_name
+        m[strict_norm(canon_name)] = canon_name
         for a in alist:
-            m[norm(a)] = canon_name
+            m[strict_norm(a)] = canon_name
     return m
 
 
 def canon(s: str) -> str:
-    """返回规范名；不在别名表且无后缀则原样返回（保持展示友好）。"""
+    """返回规范名；**只做安全归一**，无法确定时原样返回（绝不截断或改写）。
+
+    安全归一的三类：
+      ① 命中 canonical 覆盖表 / 别名表；
+      ② 带「括号演出后缀」（(Live)/(现场)/(伴奏)…）且**去掉后缀后能命中**别名表/覆盖表；
+      ③ 其余原样返回。
+    """
     raw = str(s or "").strip()
+    n = strict_norm(raw)
+    ov = _canon_overrides()
+    if n in ov:
+        return ov[n]
+    base = _STRIP_SUFFIX.sub("", raw).strip() if _STRIP_SUFFIX.search(raw) else None
+    if base is not None:
+        nb = strict_norm(base)
+        if nb in ov:                     # 覆盖表优先于别名表
+            return ov[nb]
     a = _aliases()
-    n = norm(raw)
     if n in a:
         return a[n]
-    # 未登记：若原文只有 (Live) 这类后缀差异，剥掉后缀返回
-    stripped = _STRIP_SUFFIX.sub("", raw).strip()
-    if stripped != raw and norm(stripped) not in a:
-        return stripped
+    if base is not None:
+        if strict_norm(base) in a:
+            return a[strict_norm(base)]
     return raw
 
 

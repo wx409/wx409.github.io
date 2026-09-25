@@ -5240,7 +5240,7 @@
   },
   "show:2020-10-07-hangzhou": {
    "type": "show",
-   "name": "2020-10-07 杭州 ",
+   "name": "2020-10-07 杭州",
    "aliases": [],
    "attrs": {
     "venue": null,
@@ -5250,7 +5250,7 @@
   },
   "show:2020-10-17-beijing": {
    "type": "show",
-   "name": "2020-10-17 北京 ",
+   "name": "2020-10-17 北京",
    "aliases": [],
    "attrs": {
     "venue": null,
@@ -5370,7 +5370,7 @@
   },
   "show:2021-11-27-hangzhou": {
    "type": "show",
-   "name": "2021-11-27 杭州 ",
+   "name": "2021-11-27 杭州",
    "aliases": [],
    "attrs": {
     "venue": null,
@@ -5460,7 +5460,7 @@
   },
   "show:2023-04-09-shanghai": {
    "type": "show",
-   "name": "2023-04-09 上海 ",
+   "name": "2023-04-09 上海",
    "aliases": [],
    "attrs": {
     "venue": null,
@@ -5640,7 +5640,7 @@
   },
   "show:2025-05-01-shanghai": {
    "type": "show",
-   "name": "2025-05-01 上海 ",
+   "name": "2025-05-01 上海",
    "aliases": [],
    "attrs": {
     "venue": null,
@@ -5712,33 +5712,13 @@
    "type": "song",
    "name": "Autumn Leaves",
    "aliases": [],
-   "attrs": {}
-  },
-  "song:AutumnLeaves": {
-   "type": "song",
-   "name": "AutumnLeaves",
-   "aliases": [],
    "attrs": {
     "album": null
    }
   },
-  "song:Besame Mucho": {
+  "song:Bésame Mucho": {
    "type": "song",
-   "name": "Besame Mucho",
-   "aliases": [],
-   "attrs": {}
-  },
-  "song:BesameMucho": {
-   "type": "song",
-   "name": "BesameMucho",
-   "aliases": [],
-   "attrs": {
-    "album": null
-   }
-  },
-  "song:BésameMucho": {
-   "type": "song",
-   "name": "BésameMucho",
+   "name": "Bésame Mucho",
    "aliases": [],
    "attrs": {
     "album": null
@@ -5912,9 +5892,9 @@
     "album": null
    }
   },
-  "song:OvertheRainbow": {
+  "song:Over the Rainbow": {
    "type": "song",
-   "name": "OvertheRainbow",
+   "name": "Over the Rainbow",
    "aliases": [],
    "attrs": {
     "album": null
@@ -5926,9 +5906,9 @@
    "aliases": [],
    "attrs": {}
   },
-  "song:SoundofSilence": {
+  "song:Sound of Silence": {
    "type": "song",
-   "name": "SoundofSilence",
+   "name": "Sound of Silence",
    "aliases": [],
    "attrs": {
     "album": null
