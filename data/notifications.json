@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-25 14:00:03",
+ "updated_at": "2026-09-25 17:00:27",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -1882,6 +1882,20 @@
    "title": "⚠️ 大屏采集漏批：2026-09-25",
    "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n缺 11:49 quick\n缺 11:59 quick\n缺 12:18 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 46.8 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20260925.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-09-25 17:00:27",
+   "title": "🎵 网易云新歌 · Besame Mucho",
+   "content": "专辑/单曲：我是歌手第四季 第6期\n已写入候选清单，后续自动补歌词/班底。",
+   "category": "网易云新歌",
+   "source": "网易云"
+  },
+  {
+   "time": "2026-09-25 17:00:27",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 1 首 / 全网动态 0 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
