@@ -241,6 +241,7 @@ echo    190. 颤音指纹专题页（topic-vibrato.html：八年漂移 0.27Hz 完整证据链）
 echo    191. 微博登录态验证（1 个请求：login 是否 true / 是否被 432 风控）
 echo    192. 生涯节点候选（文本挖掘事件→高置信去重候选，供人工策展，不直接上站）
 echo    193. 自动关机豁免同步（节假日/调休自动识别；写入 shutdown_skip.txt）
+echo    194. 声学×指数交叉分析（正向：哪些曲目指数在涨 / 与演唱能力的关联）
 echo    0. 退出
 echo.
 set "op="
@@ -438,6 +439,7 @@ if "%op%"=="190" goto vibtopic
 if "%op%"=="191" goto check_login
 if "%op%"=="192" goto tl_cand
 if "%op%"=="193" goto hol_skip
+if "%op%"=="194" goto cross_ai
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2621,5 +2623,14 @@ echo  规则：目标日(次日01:30)为 周六/周日/周一 或 法定放假日 → 不关机
 echo  可用参数：--days 120（窗口）｜--skip-weekdays 6,7,1（星期）｜--respect-makeup（调休上班日按工作日算）
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\holiday_skip_sync.py --days 120
+pause
+goto menu
+
+:cross_ai
+cls
+echo  [声学×指数交叉] 正向视角：微观起伏 + 相关分析（含多重比较校正与稳健性对照）
+echo  产出：data/acoustic_index_cross.json ＋ 声学×指数交叉_正向分析.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_acoustic_index_cross.py
 pause
 goto menu
