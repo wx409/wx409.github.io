@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-09-24 16:25",
+ "generated_at": "2026-09-25 13:14",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 192,
-  "dispatch": 191,
+  "menu_items": 193,
+  "dispatch": 192,
   "deploy_steps": 76,
-  "scheduled_tasks": 5
+  "scheduled_tasks": 6
  },
  "tasks": [
   {
@@ -868,7 +868,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/9/24 22:00:00",
+    "next": "2026/9/25 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -1380,7 +1380,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/9/25 10:00:00",
+    "next": "2026/9/26 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1480,6 +1480,22 @@
    "path": "D:\\wx409.github.io\\project_b\\build_timeline_candidates.py"
   },
   {
+   "script": "holiday_skip_sync.py",
+   "menu": 193,
+   "title": "自动关机豁免同步（节假日/调休自动识别；写入 shutdown_skip.txt）",
+   "menu_label": "hol_skip",
+   "schedule": {
+    "name": "wx409_holiday_skip_daily",
+    "script": "holiday_skip_sync.py",
+    "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
+    "next": "2026/9/26 12:00:00",
+    "type": "Daily",
+    "start": "12:00:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\holiday_skip_sync.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1572,7 +1588,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/9/24 23:58:00",
+    "next": "2026/9/25 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -1711,7 +1727,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/24 21:30:00",
+    "next": "2026/9/25 21:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },

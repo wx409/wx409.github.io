@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-09-25 00:12
+# 生成时间：2026-09-25 13:14
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -23,6 +23,13 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_tour_pool_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_tour_pool_daily'
+
+# --- wx409_holiday_skip_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\holiday_skip_sync.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_holiday_skip_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_holiday_skip_daily'
 
 # --- wx409_music_index_daily ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\build_music_index.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'

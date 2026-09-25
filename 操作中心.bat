@@ -240,6 +240,7 @@ echo    189. 提取微博 cookie（联想浏览器一键：自动关浏览器→提取→重开）
 echo    190. 颤音指纹专题页（topic-vibrato.html：八年漂移 0.27Hz 完整证据链）
 echo    191. 微博登录态验证（1 个请求：login 是否 true / 是否被 432 风控）
 echo    192. 生涯节点候选（文本挖掘事件→高置信去重候选，供人工策展，不直接上站）
+echo    193. 自动关机豁免同步（节假日/调休自动识别；写入 shutdown_skip.txt）
 echo    0. 退出
 echo.
 set "op="
@@ -436,6 +437,7 @@ if "%op%"=="189" goto get_cookie
 if "%op%"=="190" goto vibtopic
 if "%op%"=="191" goto check_login
 if "%op%"=="192" goto tl_cand
+if "%op%"=="193" goto hol_skip
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2609,5 +2611,15 @@ echo  [生涯节点候选] 口径：textmine_events 不得直接当站内事实引用（见 data/calib
 echo  产出：E:\wx\论文素材_王晰作传\生涯节点候选_来自文本挖掘.md ＋ temp\timeline_candidates.json
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_timeline_candidates.py
+pause
+goto menu
+
+:hol_skip
+cls
+echo  [自动关机豁免同步] 从官方节假日日历(含调休)自动生成不关机日
+echo  规则：目标日(次日01:30)为 周六/周日/周一 或 法定放假日 → 不关机
+echo  可用参数：--days 120（窗口）｜--skip-weekdays 6,7,1（星期）｜--respect-makeup（调休上班日按工作日算）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\holiday_skip_sync.py --days 120
 pause
 goto menu
