@@ -242,6 +242,8 @@ echo    191. 微博登录态验证（1 个请求：login 是否 true / 是否被 432 风控）
 echo    192. 生涯节点候选（文本挖掘事件→高置信去重候选，供人工策展，不直接上站）
 echo    193. 自动关机豁免同步（节假日/调休自动识别；写入 shutdown_skip.txt）
 echo    194. 声学×指数交叉分析（正向：哪些曲目指数在涨 / 与演唱能力的关联）
+echo    195. 巡演常驻曲目×指数（含 Besame Mucho 案例 / 六巡曲目表现 / 常驻-偶发对照）
+echo    196. 曲名写法审计（检测 (Live)/重音/空格 等未归并写法，防统计漏算）
 echo    0. 退出
 echo.
 set "op="
@@ -440,6 +442,8 @@ if "%op%"=="191" goto check_login
 if "%op%"=="192" goto tl_cand
 if "%op%"=="193" goto hol_skip
 if "%op%"=="194" goto cross_ai
+if "%op%"=="195" goto fixture_idx
+if "%op%"=="196" goto song_names_audit
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2632,5 +2636,22 @@ echo  [声学×指数交叉] 正向视角：微观起伏 + 相关分析（含多重比较校正与稳健性对照
 echo  产出：data/acoustic_index_cross.json ＋ 声学×指数交叉_正向分析.md
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_acoustic_index_cross.py
+pause
+goto menu
+
+:fixture_idx
+cls
+echo  [常驻曲目×指数] 曲名先过 canon() 归并；常驻度用 songs_meta.show_count
+echo  产出：data/tour_fixture_index.json ＋ 追加到 声学×指数交叉_正向分析.md
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_tour_fixture_index.py
+pause
+goto menu
+
+:song_names_audit
+cls
+echo  [曲名写法审计] 检查指数长表/songs_meta/别名表覆盖
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\audit_song_names.py
 pause
 goto menu

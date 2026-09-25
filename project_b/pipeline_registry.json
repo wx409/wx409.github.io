@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-09-25 14:42",
+ "generated_at": "2026-09-25 15:02",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 194,
-  "dispatch": 193,
+  "menu_items": 196,
+  "dispatch": 195,
   "deploy_steps": 76,
   "scheduled_tasks": 6
  },
@@ -1502,6 +1502,22 @@
    "menu_label": "cross_ai",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\build_acoustic_index_cross.py"
+  },
+  {
+   "script": "build_tour_fixture_index.py",
+   "menu": 195,
+   "title": "巡演常驻曲目×指数（含 Besame Mucho 案例 / 六巡曲目表现 / 常驻-偶发对照）",
+   "menu_label": "fixture_idx",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_tour_fixture_index.py"
+  },
+  {
+   "script": "audit_song_names.py",
+   "menu": 196,
+   "title": "曲名写法审计（检测 (Live)/重音/空格 等未归并写法，防统计漏算）",
+   "menu_label": "song_names_audit",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_song_names.py"
   },
   {
    "script": "_build_episodes.py",

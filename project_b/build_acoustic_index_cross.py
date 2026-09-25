@@ -20,11 +20,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 import math
 import statistics
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from song_names import canon  # noqa: E402
 
 SITE = Path(__file__).resolve().parent.parent
 CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
@@ -101,7 +105,7 @@ def main() -> int:
                 continue
             d, s, v = parts[0], parts[1], parts[2]
             try:
-                series[s].append((d, float(v)))
+                series[canon(s)].append((d, float(v)))
             except ValueError:
                 continue
     for s in series:
@@ -178,7 +182,7 @@ def main() -> int:
 
     # ── 声学 join ─────────────────────────────────────────
     alb = json.loads((SITE / "data" / "archive_vocal_albums.json").read_text(encoding="utf-8"))
-    acoustic = {x.get("title"): x for x in alb.get("songs", []) if x.get("title")}
+    acoustic = {canon(x.get("title")): x for x in alb.get("songs", []) if x.get("title")}
     matched = [r for r in rows if r["song"] in acoustic]
     print(f"可配对（有指数>=门槛 且 有录音室声学）：{len(matched)} 首")
     for r in matched:
