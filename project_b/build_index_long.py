@@ -32,7 +32,7 @@ from index_source import RAW, canon  # noqa: E402
 OUT = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
 
 
-def build() -> pd.DataFrame:
+def build_source_only() -> pd.DataFrame:
     df = pd.read_excel(RAW, usecols=["uid", "data_date", "song_name", "current_index"])
     df["date"] = pd.to_datetime(df["data_date"], errors="coerce").dt.strftime("%Y-%m-%d")
     df["song"] = df["song_name"].astype(str).apply(lambda x: canon(" ".join(x.split())))
@@ -46,8 +46,31 @@ def build() -> pd.DataFrame:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--base", default="", help="并集基底：原长表备份路径（默认自动取最新 .bak_*）")
+    ap.add_argument("--source-only", action="store_true", help="只用权威源（会减少天数，慎用）")
     a = ap.parse_args()
-    new = build()
+    new = build_source_only()
+    if not a.source_only:
+        # ── 并集：基底（原长表）优先，补充源里基座没有的 (date, song) ──
+        import glob
+        base_path = a.base or (sorted(glob.glob(str(OUT) + ".bak_*")) or [""])[0]
+        if base_path and Path(base_path).exists():
+            base = pd.read_csv(base_path, encoding="utf-8-sig")
+            base["date"] = base["date"].astype(str)
+            base["song"] = base["song"].astype(str).apply(lambda x: canon(" ".join(str(x).split())))  # 基底也走 canon
+            base["index"] = pd.to_numeric(base["index"], errors="coerce")
+            base = base.dropna(subset=["index"])
+            key_new = set(zip(new["date"], new["song"]))
+            keep = new[~new.apply(lambda r: (r["date"], r["song"]) in set(zip(base["date"], base["song"])), axis=1)]
+            print(f"并集：基底 {len(base)} 行（{base['date'].nunique()} 天）＋补充 {len(keep)} 行 → "
+                  f"合计 {len(base)+len(keep)} 行")
+            new = (pd.concat([base[["date", "song", "index"]], keep[["date", "song", "index"]]],
+                             ignore_index=True)
+                   .drop_duplicates(subset=["date", "song"], keep="first")
+                   .sort_values(["date", "song"]))
+            print(f"  合并后：{len(new)} 行｜{new['date'].nunique()} 天｜{new['song'].nunique()} 曲")
+        else:
+            print("⚠ 未找到基底备份 → 退化为仅用权威源")
     print(f"新长表：{len(new)} 行｜日期 {new['date'].nunique()} 天（{new['date'].min()} → {new['date'].max()}）"
           f"｜曲目 {new['song'].nunique()} 首")
     per_day = new.groupby("date")["song"].nunique()
