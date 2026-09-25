@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-09-25T21:07:26",
+ "generated_at": "2026-09-26T00:12:10",
  "stat": {
-  "generated_at": "2026-09-25T21:07:25",
+  "generated_at": "2026-09-26T00:12:09",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
   "covers_with_index": 228,
-  "covers_with_index_data": 55,
-  "own_with_index_data": 52,
-  "no_index_data": 186,
+  "covers_with_index_data": 25,
+  "own_with_index_data": 46,
+  "no_index_data": 222,
   "shows": 64,
   "years": "2019–2026",
   "tiers": {
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 30,
+  "songs_with_3plus": 31,
   "rows": [
    {
     "song": "佛山全场",
@@ -355,6 +355,15 @@
     "low_cv": 0.1097
    },
    {
+    "song": "祝我们随遇而安",
+    "versions": 3,
+    "low_median": 89.4,
+    "low_iqr": 10.1,
+    "low_range": 20.1,
+    "high_median": 711.2,
+    "low_cv": 0.1127
+   },
+   {
     "song": "Close to You",
     "versions": 3,
     "low_median": 73.7,
@@ -436,14 +445,14 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1045,
+  "low_cv_median": 0.1097,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 81.5,
-  "cover_live_low_median": 86.1,
+  "cover_live_low_median": 86.2,
   "own_n": 23,
-  "cover_n": 131,
+  "cover_n": 135,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
@@ -484,12 +493,12 @@
   "英文/外语": {
    "songs": 20,
    "home_songs": 8,
-   "with_index": 7
+   "with_index": 3
   },
   "中文流行": {
    "songs": 264,
    "home_songs": 43,
-   "with_index": 98
+   "with_index": 66
   },
   "民族·戏曲·民歌": {
    "songs": 9,
@@ -499,7 +508,7 @@
  },
  "did_own_vs_cover": {
   "n_shows": 2,
-  "did_median_pct": 3.4,
+  "did_median_pct": 1.6,
   "positive_share": 0.5,
   "bonferroni_alpha": 0.025,
   "significant": 0,
@@ -509,22 +518,22 @@
     "tour": "四巡",
     "city": "武汉",
     "own_n": 3,
-    "cover_n": 3,
-    "own_pct": -4.0,
-    "cover_pct": -19.8,
-    "did_pct": 19.7,
-    "placebo_p": 0.563
+    "cover_n": 2,
+    "own_pct": -3.1,
+    "cover_pct": -16.5,
+    "did_pct": 16.0,
+    "placebo_p": 0.517
    },
    {
     "date": "2024-08-16",
     "tour": "四巡",
     "city": "北京",
     "own_n": 3,
-    "cover_n": 3,
-    "own_pct": 6.3,
-    "cover_pct": 22.0,
-    "did_pct": -12.9,
-    "placebo_p": 0.263
+    "cover_n": 2,
+    "own_pct": 6.1,
+    "cover_pct": 21.8,
+    "did_pct": -12.8,
+    "placebo_p": 0.3
    }
   ]
  }

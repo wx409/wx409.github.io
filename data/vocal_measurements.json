@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-25 21:07",
+ "generated_at": "2026-09-26 00:12",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 801,
+  "total": 806,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 643,
+   "tour_live": 648,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 484,
+   "谐波列复核通过": 488,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 107,
+   "待复核（谐波列待判）": 108,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 234
+  "songs": 238
  },
  "rows": [
   {
@@ -11296,6 +11296,38 @@
    }
   },
   {
+   "id": "tour_live|祝我们随遇而安|长沙20250101_BV1yQrcYHE4V",
+   "song": "祝我们随遇而安",
+   "version": "长沙20250101_BV1yQrcYHE4V",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "source_ref": "BV1yQrcYHE4V",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 69.8,
+    "stability_cents": 6.8,
+    "intonation_cents": 19.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 89.0,
+    "density_per_s": 1.44,
+    "hnr_db": 2.0,
+    "duration_s": 602.8
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 118
+   }
+  },
+  {
    "id": "tour_live|My Oh My|杭州20241221_BV1RjkYYbEF8",
    "song": "My Oh My",
    "version": "杭州20241221_BV1RjkYYbEF8",
@@ -11363,6 +11395,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|情歌|北京20250405_BV1ipdcYGEUf",
+   "song": "情歌",
+   "version": "北京20250405_BV1ipdcYGEUf",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "source_ref": "BV1ipdcYGEUf",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.8,
+    "high_note": "D#5",
+    "high_hz": 614.5,
+    "span_octaves": 3.04,
+    "stability_cents": 6.7,
+    "intonation_cents": 23.1,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.95,
+    "hnr_db": 7.1,
+    "duration_s": 123.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 120
    }
   },
   {
@@ -11716,6 +11783,76 @@
    }
   },
   {
+   "id": "tour_live|我变了我没变|北京20260410_BV1AFQABrEdx",
+   "song": "我变了我没变",
+   "version": "北京20260410_BV1AFQABrEdx",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "source_ref": "BV1AFQABrEdx",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 94.3,
+    "high_note": "B5",
+    "high_hz": 976.8,
+    "span_octaves": 3.37,
+    "stability_cents": 7.3,
+    "intonation_cents": 23.6,
+    "vibrato_hz": 5.17,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.83,
+    "hnr_db": 7.9,
+    "duration_s": 316.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 128
+   }
+  },
+  {
+   "id": "tour_live|天黑黑|北京20250405_BV1NJRZYmEne",
+   "song": "天黑黑",
+   "version": "北京20250405_BV1NJRZYmEne",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "source_ref": "BV1NJRZYmEne",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 95.9,
+    "high_note": "A#3",
+    "high_hz": 235.8,
+    "span_octaves": 1.3,
+    "stability_cents": 6.4,
+    "intonation_cents": 23.1,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 77.0,
+    "density_per_s": 1.62,
+    "hnr_db": 8.7,
+    "duration_s": 181.6
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 121
+   }
+  },
+  {
    "id": "tour_live|你快乐所以我快乐|广州20250524_BV1AxjKzmES3",
    "song": "你快乐所以我快乐",
    "version": "广州20250524_BV1AxjKzmES3",
@@ -11955,6 +12092,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 159
+   }
+  },
+  {
+   "id": "tour_live|囚鸟|广州20250524_BV1JvjKzrECr",
+   "song": "囚鸟",
+   "version": "广州20250524_BV1JvjKzrECr",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "广州",
+   "date": "2025-05-24",
+   "source_ref": "BV1JvjKzrECr",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 115.2,
+    "high_note": "C#4",
+    "high_hz": 280.4,
+    "span_octaves": 1.28,
+    "stability_cents": 6.2,
+    "intonation_cents": 24.4,
+    "vibrato_hz": 4.66,
+    "vibrato_cents": 56.0,
+    "density_per_s": 1.82,
+    "hnr_db": 6.2,
+    "duration_s": 104.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 120
    }
   },
   {

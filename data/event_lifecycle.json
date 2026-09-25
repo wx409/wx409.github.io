@@ -24,43 +24,43 @@
       "windows": {
        "pre7": {
         "n_days": 7,
-        "mean_index": 626.8,
-        "median_index": 626.0,
-        "avg_tracked_songs": 22.4,
+        "mean_index": 702.3,
+        "median_index": 674.9,
+        "avg_tracked_songs": 19.1,
         "complete": true
        },
        "pre3": {
         "n_days": 3,
-        "mean_index": 601.4,
-        "median_index": 606.8,
-        "avg_tracked_songs": 22.3,
+        "mean_index": 674.5,
+        "median_index": 674.9,
+        "avg_tracked_songs": 19,
         "complete": true
        },
        "d0": {
         "n_days": 1,
-        "mean_index": 636.7,
-        "median_index": 636.7,
-        "avg_tracked_songs": 21,
+        "mean_index": 718.1,
+        "median_index": 718.1,
+        "avg_tracked_songs": 18,
         "complete": true
        },
        "post3": {
         "n_days": 3,
-        "mean_index": 624.4,
-        "median_index": 626.1,
-        "avg_tracked_songs": 21,
+        "mean_index": 683.6,
+        "median_index": 659.3,
+        "avg_tracked_songs": 18.7,
         "complete": true
        },
        "post7": {
         "n_days": 7,
-        "mean_index": 611.9,
-        "median_index": 612.1,
-        "avg_tracked_songs": 21.1,
+        "mean_index": 663.1,
+        "median_index": 659.2,
+        "avg_tracked_songs": 19,
         "complete": true
        }
       },
-      "n_days": 1296,
-      "delta_pct_post7_vs_pre7": -2.4,
-      "delta_pct_post3_vs_pre3": 3.8
+      "n_days": 1299,
+      "delta_pct_post7_vs_pre7": -5.6,
+      "delta_pct_post3_vs_pre3": 1.3
      }
     }
    ],
@@ -76,7 +76,7 @@
    ]
   }
  ],
- "generated_at": "2026-09-25 21:07",
+ "generated_at": "2026-09-26 00:12",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
- "index_days_local": 1296
+ "index_days_local": 1299
 }

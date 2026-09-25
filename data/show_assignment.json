@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-25T21:07:09",
-  "rows": 640,
+  "generated_at": "2026-09-26T00:11:53",
+  "rows": 645,
   "levels": {
-   "L1": 284,
+   "L1": 289,
    "L6": 26,
    "L3": 32,
    "L4": 2,
    "未认领": 296
   },
-  "shows_with_material": 40,
-  "shows_with_claimable": 38,
+  "shows_with_material": 41,
+  "shows_with_claimable": 39,
   "shows_total": 64
  },
  "per_show": {
@@ -114,25 +114,29 @@
    "n": 16,
    "claimable": 12
   },
+  "2025-01-01": {
+   "n": 5,
+   "claimable": 3
+  },
   "2024-12-21": {
    "n": 4,
    "claimable": 4
   },
-  "2025-01-01": {
+  "2025-04-05": {
    "n": 4,
-   "claimable": 3
+   "claimable": 4
   },
   "2024-12-29": {
    "n": 1,
    "claimable": 1
   },
-  "2025-05-24": {
-   "n": 3,
-   "claimable": 2
+  "2026-04-10": {
+   "n": 1,
+   "claimable": 1
   },
-  "2025-04-05": {
-   "n": 2,
-   "claimable": 2
+  "2025-05-24": {
+   "n": 4,
+   "claimable": 3
   },
   "2026-06-13": {
    "n": 23,
@@ -2781,6 +2785,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "长沙20250101_BV1yQrcYHE4V",
+   "song": "祝我们随遇而安",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2025-01-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "杭州20241221_BV1RjkYYbEF8",
    "song": "My Oh My",
    "tour": "五巡",
@@ -2801,6 +2817,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2025-11-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20250405_BV1ipdcYGEUf",
+   "song": "情歌",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-04-05",
    "level": 1,
    "why": "日期直配"
   },
@@ -2925,6 +2953,30 @@
    "why": "日期直配"
   },
   {
+   "tag": "北京20260410_BV1AFQABrEdx",
+   "song": "我变了我没变",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2026-04-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20250405_BV1NJRZYmEne",
+   "song": "天黑黑",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2025-04-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-04-05",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "广州20250524_BV1AxjKzmES3",
    "song": "你快乐所以我快乐",
    "tour": "五巡",
@@ -3005,6 +3057,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2025-04-05",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "广州20250524_BV1JvjKzrECr",
+   "song": "囚鸟",
+   "tour": "五巡",
+   "city": "广州",
+   "date": "2025-05-24",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-05-24",
    "level": 1,
    "why": "日期直配"
   },
