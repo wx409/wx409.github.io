@@ -38,8 +38,14 @@ GENERIC = {"时间", "爱情", "是你", "遇见", "人间", "也许", "情歌",
            "心动", "谁", "星", "玫瑰", "往前", "回声", "月", "梦", "家", "路", "光", "花"}
 
 
+def tidy(x: str) -> str:
+    """清理尾部悬挂分隔符（保留合作者信息，如「雾里 (Live) 黄霄雲/么红」）。"""
+    x = re.sub(r"[\s/、,，·]+$", "", str(x).strip())
+    return re.sub(r"\s{2,}", " ", x)
+
+
 def strip_suffix(x: str) -> str:
-    return SN._STRIP_SUFFIX.sub("", SN._ARTIST_TAIL.sub("", str(x)).strip()).strip()
+    return tidy(SN._STRIP_SUFFIX.sub("", SN._ARTIST_TAIL.sub("", str(x)).strip()).strip())
 
 
 def build_canon_map(names: set[str]) -> dict[str, str]:
@@ -98,8 +104,14 @@ def voice_mentions(names: set[str], canon_map: dict[str, str]) -> tuple[Counter,
     cnt = Counter()
     for n in names:
         base = strip_suffix(n)
-        if len(base) >= 2 and base in blob:
-            cnt[canon_map.get(n, n)] = blob.count(base)
+        if len(base) < 2:
+            continue
+        if base in GENERIC or len(base) <= 2:          # 通用词：只算书名号内（避免膨胀）
+            hits = re.findall(r"[《〈「【\"“']" + re.escape(base) + r"[》〉」】\"”']", blob)
+        else:
+            hits = re.findall(re.escape(base), blob)
+        if hits:
+            cnt[canon_map.get(n, n)] = len(hits)
     return cnt, f"{src.relative_to(SITE)}（{len(blob)//1024} KB）"
 
 
