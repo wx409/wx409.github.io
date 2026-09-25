@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-09-25T17:07:15",
+ "generated_at": "2026-09-25T21:07:26",
  "stat": {
-  "generated_at": "2026-09-25T17:07:14",
+  "generated_at": "2026-09-25T21:07:25",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
   "covers_with_index": 228,
-  "covers_with_index_data": 13,
-  "own_with_index_data": 8,
-  "no_index_data": 272,
+  "covers_with_index_data": 55,
+  "own_with_index_data": 52,
+  "no_index_data": 186,
   "shows": 64,
   "years": "2019–2026",
   "tiers": {
@@ -484,21 +484,48 @@
   "英文/外语": {
    "songs": 20,
    "home_songs": 8,
-   "with_index": 1
+   "with_index": 7
   },
   "中文流行": {
    "songs": 264,
    "home_songs": 43,
-   "with_index": 19
+   "with_index": 98
   },
   "民族·戏曲·民歌": {
    "songs": 9,
    "home_songs": 2,
-   "with_index": 1
+   "with_index": 2
   }
  },
  "did_own_vs_cover": {
-  "n_shows": 0,
-  "note": "同场同时含自有曲与翻唱曲且有指数数据的场次不足"
+  "n_shows": 2,
+  "did_median_pct": 3.4,
+  "positive_share": 0.5,
+  "bonferroni_alpha": 0.025,
+  "significant": 0,
+  "rows": [
+   {
+    "date": "2024-09-16",
+    "tour": "四巡",
+    "city": "武汉",
+    "own_n": 3,
+    "cover_n": 3,
+    "own_pct": -4.0,
+    "cover_pct": -19.8,
+    "did_pct": 19.7,
+    "placebo_p": 0.563
+   },
+   {
+    "date": "2024-08-16",
+    "tour": "四巡",
+    "city": "北京",
+    "own_n": 3,
+    "cover_n": 3,
+    "own_pct": 6.3,
+    "cover_pct": 22.0,
+    "did_pct": -12.9,
+    "placebo_p": 0.263
+   }
+  ]
  }
 }

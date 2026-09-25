@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25 17:06",
+ "generated_at": "2026-09-25 21:07",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -36,7 +36,7 @@
    "source": "wx_textmine_corpus/声音素材",
    "n": 157,
    "latest": "2026-09-14",
-   "lag_days": 10,
+   "lag_days": 11,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -104,12 +104,12 @@
   {
    "stream": "知识库·实体",
    "source": "data/kb/manifest.json",
-   "n": 1574,
+   "n": 1663,
    "latest": "2026-09-25",
    "lag_days": 0,
    "new_7d": null,
    "gap": "随内容更新",
-   "note": "事实 1692｜关系 2227｜语声集 157"
+   "note": "事实 1704｜关系 2312｜语声集 157"
   },
   {
    "stream": "知识库·问答库",
