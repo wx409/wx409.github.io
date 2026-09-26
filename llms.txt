@@ -16,7 +16,7 @@
 | 颤音速率 / 幅度中位 | 5.12Hz/86 音分 | 录音室曲目 | https://wx409.github.io/data/archive_vocal_albums.json |
 | 现场复现 | 专辑层 vs 他人主导舞台最低稳定音差异不显著（p=0.197） | 同管线同口径，n=102 / 33 | https://wx409.github.io/data/archive_context_compare.json |
 | 巡演规模 | 59 场（全站含签唱会 64 场）/ 22 城 | 六轮个人巡回音乐会 | https://wx409.github.io/data/calibers.md |
-| 指数覆盖 | 1299 天 | 追踪曲目池日均指数（每日最终指数） | https://wx409.github.io/data/calibers.md |
+| 指数覆盖 | 1300 天 | 追踪曲目池日均指数（每日最终指数） | https://wx409.github.io/data/calibers.md |
 
 ## 三级读数制度（引用音域数字前必读）
 
@@ -111,4 +111,4 @@
 - 重建命令（本地）：python project_b\build_kb_graph.py（幂等，数据层更新后重跑即可）+ python tools\build_kb_vectors.py（语义索引）
 
 ---
-（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-26 21:01:17；请勿手改数字。）
+（本文件计数由 `generate_llms.py` 从各 JSON manifest 自动派生，生成于 2026-09-27 00:06:02；请勿手改数字。）

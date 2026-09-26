@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-26T21:07:24",
-  "rows": 645,
+  "generated_at": "2026-09-27T00:12:12",
+  "rows": 650,
   "levels": {
-   "L1": 289,
+   "L1": 294,
    "L6": 26,
    "L3": 32,
    "L4": 2,
    "未认领": 296
   },
-  "shows_with_material": 41,
-  "shows_with_claimable": 39,
+  "shows_with_material": 42,
+  "shows_with_claimable": 40,
   "shows_total": 64
  },
  "per_show": {
@@ -114,9 +114,13 @@
    "n": 16,
    "claimable": 12
   },
+  "2026-01-31": {
+   "n": 2,
+   "claimable": 2
+  },
   "2025-01-01": {
-   "n": 5,
-   "claimable": 3
+   "n": 6,
+   "claimable": 4
   },
   "2024-12-21": {
    "n": 4,
@@ -126,17 +130,17 @@
    "n": 4,
    "claimable": 4
   },
+  "2025-05-24": {
+   "n": 5,
+   "claimable": 4
+  },
   "2024-12-29": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2026-04-10": {
    "n": 1,
    "claimable": 1
-  },
-  "2025-05-24": {
-   "n": 4,
-   "claimable": 3
   },
   "2026-06-13": {
    "n": 23,
@@ -2773,6 +2777,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "杭州20260131_BV13v6xBdEuu",
+   "song": "暗潮涌动",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2026-01-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "上海20251121_BV1NwUnBpEmo",
    "song": "好久不见",
    "tour": "五巡",
@@ -2905,6 +2921,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "广州20250524_BV16J7LziEVc",
+   "song": "住口",
+   "tour": "五巡",
+   "city": "广州",
+   "date": "2025-05-24",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-05-24",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "20251121205734 0036 无尽的夜里第2遍",
    "song": "",
    "tour": "五巡",
@@ -2989,6 +3017,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "杭州20260131_BV1aU6pBJEnQ",
+   "song": "心有独钟",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2026-01-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "长沙20250101_BV16H6kYFEZN",
    "song": "雷美替胺",
    "tour": "五巡",
@@ -3033,6 +3073,30 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2025-05-24",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "南昌20241229_BV1Vc6vYhEXj",
+   "song": "无尽的夜里",
+   "tour": "五巡",
+   "city": "南昌",
+   "date": "2024-12-29",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-12-29",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "长沙20250101_BV1C7rDYZEzo",
+   "song": "原来你也在这里",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-01-01",
    "level": 1,
    "why": "日期直配"
   },

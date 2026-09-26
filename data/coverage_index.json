@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-09-26T21:07:27",
+  "generated_at": "2026-09-27T00:12:14",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 44,
-  "L2_强": 7,
+  "L1_精确": 45,
+  "L2_强": 6,
   "L3_中": 0,
   "L4_弱": 13,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7840,
-  "measured_shows_site": 41,
-  "shows_with_claimable_site": 39,
-  "bv_mapped": 58
+  "files_scanned": 7871,
+  "measured_shows_site": 42,
+  "shows_with_claimable_site": 40,
+  "bv_mapped": 63
  },
  "shows": [
   {
@@ -1599,6 +1599,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Vc6vYhEXj｜无尽的夜里｜南昌20241229"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "南昌｜五巡·王晰吾个人巡回音乐会"
     },
@@ -1609,13 +1614,8 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1QK6GYZE3g"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "南昌20241229_BV1QK6GYZE3g.wav"
+     "src": "站点实测",
+     "detail": "南昌20241229_BV1Vc6vYhEXj｜无尽的夜里"
     },
     {
      "level": 1,
@@ -1623,7 +1623,7 @@
      "detail": "BV1QK6GYZE3g"
     }
    ],
-   "n_evidence": 18
+   "n_evidence": 32
   },
   {
    "date": "2025-01-01",
@@ -1659,11 +1659,11 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "长沙｜五巡·王晰吾个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1C7rDYZEzo｜原来你也在这里｜长沙20250101"
     }
    ],
-   "n_evidence": 71
+   "n_evidence": 85
   },
   {
    "date": "2025-04-05",
@@ -1774,16 +1774,16 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "广州｜五巡·王晰吾个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV16J7LziEVc｜住口｜广州20250524"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "广州20250524_BV1AxjKzmES3｜你快乐所以我快乐"
+     "level": 2,
+     "src": "shows_tour表",
+     "detail": "广州｜五巡·王晰吾个人巡回音乐会"
     }
    ],
-   "n_evidence": 57
+   "n_evidence": 71
   },
   {
    "date": "2025-11-21",
@@ -1830,15 +1830,40 @@
    "city": "杭州",
    "tour": "五巡",
    "songs": 19,
-   "level": 2,
+   "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1aU6pBJEnQ｜心有独钟｜杭州20260131"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV13v6xBdEuu｜暗潮涌动｜杭州20260131"
+    },
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "杭州20260131_BV13v6xBdEuu｜暗潮涌动"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "杭州20260131_BV1aU6pBJEnQ｜心有独钟"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1aU6pBJEnQ"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 31
   },
   {
    "date": "2026-04-10",

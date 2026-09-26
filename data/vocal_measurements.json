@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-26 21:07",
+ "generated_at": "2026-09-27 00:12",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 806,
+  "total": 811,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 648,
+   "tour_live": 653,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 488,
+   "谐波列复核通过": 493,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
    "待复核（谐波列待判）": 108,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 238
+  "songs": 241
  },
  "rows": [
   {
@@ -11261,6 +11261,41 @@
    }
   },
   {
+   "id": "tour_live|暗潮涌动|杭州20260131_BV13v6xBdEuu",
+   "song": "暗潮涌动",
+   "version": "杭州20260131_BV13v6xBdEuu",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "source_ref": "BV13v6xBdEuu",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 67.3,
+    "high_note": "G5",
+    "high_hz": 785.9,
+    "span_octaves": 3.55,
+    "stability_cents": 7.4,
+    "intonation_cents": 19.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 82.0,
+    "density_per_s": 2.22,
+    "hnr_db": 8.0,
+    "duration_s": 219.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 116
+   }
+  },
+  {
    "id": "tour_live|好久不见|上海20251121_BV1NwUnBpEmo",
    "song": "好久不见",
    "version": "上海20251121_BV1NwUnBpEmo",
@@ -11643,6 +11678,41 @@
    }
   },
   {
+   "id": "tour_live|住口|广州20250524_BV16J7LziEVc",
+   "song": "住口",
+   "version": "广州20250524_BV16J7LziEVc",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "广州",
+   "date": "2025-05-24",
+   "source_ref": "BV16J7LziEVc",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.6,
+    "high_note": "F#4",
+    "high_hz": 365.2,
+    "span_octaves": 2.09,
+    "stability_cents": 6.2,
+    "intonation_cents": 23.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 67.0,
+    "density_per_s": 1.89,
+    "hnr_db": 5.0,
+    "duration_s": 202.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 111
+   }
+  },
+  {
    "id": "tour_live||20251121205734 0036 无尽的夜里第2遍",
    "song": "",
    "version": "20251121205734 0036 无尽的夜里第2遍",
@@ -11888,6 +11958,41 @@
    }
   },
   {
+   "id": "tour_live|心有独钟|杭州20260131_BV1aU6pBJEnQ",
+   "song": "心有独钟",
+   "version": "杭州20260131_BV1aU6pBJEnQ",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "source_ref": "BV1aU6pBJEnQ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 96.4,
+    "high_note": "D#5",
+    "high_hz": 639.8,
+    "span_octaves": 2.73,
+    "stability_cents": 6.8,
+    "intonation_cents": 21.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.73,
+    "hnr_db": 6.6,
+    "duration_s": 217.6
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 120
+   }
+  },
+  {
    "id": "tour_live|雷美替胺|长沙20250101_BV16H6kYFEZN",
    "song": "雷美替胺",
    "version": "长沙20250101_BV16H6kYFEZN",
@@ -12022,6 +12127,73 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 220
+   }
+  },
+  {
+   "id": "tour_live|无尽的夜里|南昌20241229_BV1Vc6vYhEXj",
+   "song": "无尽的夜里",
+   "version": "南昌20241229_BV1Vc6vYhEXj",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "南昌",
+   "date": "2024-12-29",
+   "source_ref": "BV1Vc6vYhEXj",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 109.8,
+    "stability_cents": 4.5,
+    "intonation_cents": 16.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 43.0,
+    "density_per_s": 1.3,
+    "hnr_db": 2.9,
+    "duration_s": 240.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 197
+   }
+  },
+  {
+   "id": "tour_live|原来你也在这里|长沙20250101_BV1C7rDYZEzo",
+   "song": "原来你也在这里",
+   "version": "长沙20250101_BV1C7rDYZEzo",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "source_ref": "BV1C7rDYZEzo",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.4,
+    "high_note": "A3",
+    "high_hz": 221.2,
+    "span_octaves": 1.0,
+    "stability_cents": 2.2,
+    "intonation_cents": 27.0,
+    "vibrato_hz": 4.53,
+    "vibrato_cents": 32.0,
+    "density_per_s": 0.72,
+    "hnr_db": -0.5,
+    "duration_s": 87.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 109
    }
   },
   {
