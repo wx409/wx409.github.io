@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-26 00:12",
+ "generated_at": "2026-09-26 09:07",
  "count": 59,
  "calibers": [
   {
@@ -445,7 +445,7 @@
   {
    "id": "textmine_events",
    "label": "文本挖掘抽取事件数",
-   "value": 3565,
+   "value": 3590,
    "scope": "从语料抽取的带日期事件（LLM 抽取，未经人工复核）",
    "source": "（文本挖掘产物目录）\\master_timeline.json",
    "note": "**不得直接当站内事实引用**；站内精选时间轴另计（data/timeline.json）"
@@ -453,7 +453,7 @@
   {
    "id": "event_effects_edges",
    "label": "事件×歌曲 效应边数",
-   "value": 32114,
+   "value": 32668,
    "scope": "事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant）",
    "source": "（文本挖掘产物目录）\\event_effects.json",
    "note": "口径注意：该项目文档旧值记为 19698，2026-09-15 管线重跑后为现值；引用时须与「84场×2960观测」区分，不可混用"
