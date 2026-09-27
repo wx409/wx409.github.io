@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-27T21:08:00",
+ "generated_at": "2026-09-28T00:12:14",
  "stat": {
-  "generated_at": "2026-09-27T21:08:00",
+  "generated_at": "2026-09-28T00:12:13",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 31,
+  "songs_with_3plus": 32,
   "rows": [
    {
     "song": "佛山全场",
@@ -236,6 +236,15 @@
     "low_range": 33.3,
     "high_median": 307.9,
     "low_cv": 0.1278
+   },
+   {
+    "song": "雪地里寄不出的求救信",
+    "versions": 6,
+    "low_median": 113.4,
+    "low_iqr": 37.8,
+    "low_range": 58.0,
+    "high_median": 654.8,
+    "low_cv": 0.2128
    },
    {
     "song": "签唱会上海全场",
@@ -445,13 +454,13 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1097,
+  "low_cv_median": 0.1112,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 82.2,
+  "own_live_low_median": 82.7,
   "cover_live_low_median": 86.3,
-  "own_n": 25,
+  "own_n": 26,
   "cover_n": 138,
   "female_origin_covers": {
    "橄榄树": {

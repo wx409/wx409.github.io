@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-27T21:07:56",
-  "since": "2026-09-27",
-  "batches": 187,
-  "files": 1926,
-  "gb": 68.2,
+  "generated_at": "2026-09-28T00:12:10",
+  "since": "2026-09-28",
+  "batches": 188,
+  "files": 1938,
+  "gb": 68.43,
   "new_files": 0,
   "new_mb": 0.0,
-  "stats_total": 1277,
-  "stage_rows": 650,
-  "claimable": 522,
-  "claimable_soft": 260
+  "stats_total": 1283,
+  "stage_rows": 656,
+  "claimable": 528,
+  "claimable_soft": 263
  },
  "batches": [
   {
@@ -24,12 +24,12 @@
   },
   {
    "batch": "wav",
-   "files": 209,
-   "mb": 9662.1,
+   "files": 215,
+   "mb": 9863.5,
    "stats": 0,
    "new_files": 0,
    "new_mb": 0.0,
-   "newest": "2026-09-26"
+   "newest": "2026-09-27"
   },
   {
    "batch": "wav_分P逐曲",
@@ -462,6 +462,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-16"
+  },
+  {
+   "batch": "雪地里寄不出的求救信",
+   "files": 6,
+   "mb": 30.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-27"
   },
   {
    "batch": "(根目录)",

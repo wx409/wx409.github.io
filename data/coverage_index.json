@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-09-27T21:07:45",
+  "generated_at": "2026-09-28T00:12:00",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 45,
+  "L1_精确": 46,
   "L2_强": 6,
   "L3_中": 0,
-  "L4_弱": 13,
+  "L4_弱": 12,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7871,
-  "measured_shows_site": 42,
-  "shows_with_claimable_site": 40,
-  "bv_mapped": 63
+  "files_scanned": 7907,
+  "measured_shows_site": 43,
+  "shows_with_claimable_site": 41,
+  "bv_mapped": 69
  },
  "shows": [
   {
@@ -433,6 +433,16 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1q54y1k7tM｜雪地里寄不出的求救信｜杭州20201007"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1cV41127jk｜雪地里寄不出的求救信｜杭州20201007"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "【王晰】20201007杭州签唱会 现场live__P05_《歌颂》｜"
@@ -445,40 +455,55 @@
     {
      "level": 1,
      "src": "站点实测",
+     "detail": "杭州20201007_BV1cV41127jk｜雪地里寄不出的求救信"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
      "detail": "【王晰】20201007杭州签唱会 现场live__P02_《云一定知道》｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P03_《怂》｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰】20201007杭州签唱会 现场live__P06_《王牌就是我》｜"
     }
    ],
-   "n_evidence": 42
+   "n_evidence": 70
   },
   {
    "date": "2020-10-17",
    "city": "北京",
    "tour": "签唱会",
    "songs": 6,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "54 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1ev411k7wK｜雪地里寄不出的求救信｜北京20201017"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1dy4y1b7j7｜雪地里寄不出的求救信｜北京20201017"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "北京20201017_BV1dy4y1b7j7｜雪地里寄不出的求救信"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "北京20201017_BV1ev411k7wK｜雪地里寄不出的求救信"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1dy4y1b7j7"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "北京20201017_BV1dy4y1b7j7.wav"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 28
   },
   {
    "date": "2020-11-14",
@@ -1153,6 +1178,16 @@
      "detail": "BV1M14y117E1｜猫模狗样｜上海20230409"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1iP41187X7｜雪地里寄不出的求救信｜上海20230409"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1EL411m76f｜雪地里寄不出的求救信｜上海20230409"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "签唱会上海20230409_王晰新专辑《X自选集》生日签唱会全场｜签唱会上海全场"
@@ -1160,25 +1195,15 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "签唱会上海20230409_王晰【小河】【竖版】《X自选集》生日签唱会上海2023.4.9｜小河"
+     "detail": "上海20230409_BV1EL411m76f｜雪地里寄不出的求救信"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "上海20230409_BV1M14y117E1｜猫模狗样"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "签唱会上海20230409_王晰【小河】【竖版】《X自选集》生日签唱会上海2023.4."
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1M14y117E1"
+     "detail": "签唱会上海20230409_王晰【小河】【竖版】《X自选集》生日签唱会上海2023.4.9｜小河"
     }
    ],
-   "n_evidence": 27
+   "n_evidence": 55
   },
   {
    "date": "2023-05-01",
