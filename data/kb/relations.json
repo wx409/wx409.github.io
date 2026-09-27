@@ -11445,6 +11445,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:夜",
+  "type": "belongs_to_album",
+  "target": "album:哈尔滨一九四四 电视原声带",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:大江东去",
   "type": "belongs_to_album",
   "target": "album:大江东去",
@@ -13135,13 +13142,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:夜",
-  "type": "belongs_to_album",
-  "target": "album:哈尔滨一九四四 电视原声带",
   "context": "",
   "source_ref": "songs_meta.json"
  },
