@@ -35,6 +35,7 @@ except Exception:
     pass
 
 SKIP_FILE = Path(r"E:\wx\shutdown_skip.txt")
+CFG_FILE = Path(r"E:\wx\shutdown_skip_config.txt")
 CACHE_DIR = Path(r"E:\wx\私有工具\holiday_cache")
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120 Safari/537.36"}
 SOURCES = [
@@ -82,6 +83,24 @@ def build(years: list[int]) -> tuple[dict, list[dict]]:
     return offdays, all_days
 
 
+def read_mode() -> tuple[str, int]:
+    """读配置：mode = all/normal，days = 窗口天数。缺省 normal/120。"""
+    mode, days = "normal", 120
+    try:
+        for line in CFG_FILE.read_text(encoding="utf-8").splitlines():
+            line = line.split("#")[0].strip()
+            if not line or "=" not in line:
+                continue
+            k, v = [x.strip() for x in line.split("=", 1)]
+            if k == "mode":
+                mode = v.lower()
+            elif k == "days":
+                days = int(v)
+    except Exception:
+        pass
+    return mode, days
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=120)
@@ -106,6 +125,10 @@ def main() -> int:
     offdays, all_days = build(years)
     print(f"  法定放假日 {len(offdays)} 天｜调休上班日 {sum(1 for x in all_days if not x.get('isOffDay'))} 天")
 
+    mode, cfg_days = read_mode()
+    if cfg_days and cfg_days != a.days:
+        a.days = cfg_days
+    print(f"  模式：{mode}｜窗口 {a.days} 天")
     rows, skip_dates = [], []
     for i in range(a.days):
         target = today + timedelta(days=i)
@@ -121,6 +144,8 @@ def main() -> int:
             why.append(f"{name}(法定)")
         if makeup:
             why.append("调休上班日")
+        if mode == "all":
+            why = (why or []) + ["长期不关机模式(all)"]
         skip = bool(why)
         if skip:
             skip_dates.append(target.isoformat())
@@ -130,7 +155,8 @@ def main() -> int:
     old = SKIP_FILE.read_text(encoding="utf-8") if SKIP_FILE.exists() else ""
     head = old.split(START)[0].rstrip()
     # 兜底：脚本长期未跑时，静态星期行仍生效
-    for wd in ("周六", "周日", "周一"):
+    for wd in (("周六", "周日", "周一") if mode != "all"
+               else ("周一", "周二", "周三", "周四", "周五", "周六", "周日")):
         if re.search(r"^%s$" % wd, head, re.M) is None:
             head += "\n" + wd
     if START not in old:
