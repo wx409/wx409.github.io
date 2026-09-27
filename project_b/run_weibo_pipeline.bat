@@ -13,7 +13,12 @@ rem %PY% -X utf8 "E:\wx\私有工具\微博开放API.py" --fetch >> %LOG% 2>&1
 set PY="C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe"
 set LOG="D:\wx409.github.io\logs\weibo_pipeline.log"
 
-echo [%date% %time%] === 步骤1/3 抓取微博（直连 -> CDP 兜底）=== >> %LOG%
+rem ===== PAUSED-BY-USER 2026-09-25：微博通道暂停（用户要求，等回来商量）=====
+rem   原因：CDP 兜底需以调试端口重启浏览器，可能打扰用户其它程序运行
+rem   恢复：把下面 3 行的 rem 去掉，并启用计划任务 wx409_weibo_pipeline_daily
+rem echo [%date% %time%] === 步骤1/3 抓取微博（直连 -> CDP 兜底）=== >> %LOG%
+rem cd /d "D:\wx409.github.io"
+rem %PY% "D:\wx409.github.io\project_b\pipeline_weibo_update.py" >> %LOG% 2>&1
 cd /d "D:\wx409.github.io"
 %PY% "D:\wx409.github.io\project_b\pipeline_weibo_update.py" >> %LOG% 2>&1
 
