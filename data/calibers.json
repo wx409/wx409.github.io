@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-27 00:12",
+ "generated_at": "2026-09-27 09:07",
  "count": 59,
  "calibers": [
   {
@@ -29,7 +29,7 @@
   {
    "id": "songs_meta",
    "label": "歌曲元数据条目",
-   "value": 685,
+   "value": 686,
    "scope": "含元信息（时长/专辑/发行等）的曲目",
    "source": "data/songs_meta.json",
    "note": ""
@@ -133,7 +133,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1663,
+   "value": 1664,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -141,7 +141,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2312,
+   "value": 2313,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -149,7 +149,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5568,
+   "value": 5570,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -445,7 +445,7 @@
   {
    "id": "textmine_events",
    "label": "文本挖掘抽取事件数",
-   "value": 3590,
+   "value": 3609,
    "scope": "从语料抽取的带日期事件（LLM 抽取，未经人工复核）",
    "source": "（文本挖掘产物目录）\\master_timeline.json",
    "note": "**不得直接当站内事实引用**；站内精选时间轴另计（data/timeline.json）"

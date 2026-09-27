@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-27 00:12",
+ "generated_at": "2026-09-27 09:07",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -14,7 +14,7 @@
   {
    "stream": "声学·音频资产",
    "source": "data/audio_assets.json",
-   "n": 1915,
+   "n": 1926,
    "latest": "2026-09-27",
    "lag_days": 0,
    "new_7d": 0,
@@ -55,7 +55,7 @@
    "stream": "文本·工作室微博",
    "source": "wx_textmine_corpus/工作室微博",
    "n": 3275,
-   "latest": "2026-09-26",
+   "latest": "2026-09-27",
    "lag_days": 0,
    "new_7d": 2216,
    "gap": "在积攒",
@@ -65,7 +65,7 @@
    "stream": "文本·本人微博",
    "source": "wx_textmine_corpus/本人微博",
    "n": 934,
-   "latest": "2026-09-26",
+   "latest": "2026-09-27",
    "lag_days": 0,
    "new_7d": 33,
    "gap": "在积攒",
@@ -75,7 +75,7 @@
    "stream": "文本·百家号",
    "source": "wx_textmine_corpus/百家号",
    "n": 1216,
-   "latest": "2026-09-26",
+   "latest": "2026-09-27",
    "lag_days": 0,
    "new_7d": 591,
    "gap": "在积攒",
@@ -85,7 +85,7 @@
    "stream": "文本·百科",
    "source": "wx_textmine_corpus/百科",
    "n": 26,
-   "latest": "2026-09-26",
+   "latest": "2026-09-27",
    "lag_days": 0,
    "new_7d": 26,
    "gap": "在积攒",
@@ -104,12 +104,12 @@
   {
    "stream": "知识库·实体",
    "source": "data/kb/manifest.json",
-   "n": 1663,
+   "n": 1664,
    "latest": "2026-09-27",
    "lag_days": 0,
    "new_7d": null,
    "gap": "随内容更新",
-   "note": "事实 1704｜关系 2312｜语声集 157"
+   "note": "事实 1704｜关系 2313｜语声集 157"
   },
   {
    "stream": "知识库·问答库",
