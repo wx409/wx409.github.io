@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28 00:12",
+ "generated_at": "2026-09-28 09:07",
  "count": 59,
  "calibers": [
   {
@@ -21,7 +21,7 @@
   {
    "id": "entity_songs",
    "label": "关系图谱曲目",
-   "value": 438,
+   "value": 437,
    "scope": "至少有一条关系（现场/小酒馆/专辑）的曲目",
    "source": "entity_index.json",
    "note": "歌曲↔城市↔场馆↔逐字稿的聚合图谱节点数"
@@ -445,7 +445,7 @@
   {
    "id": "textmine_events",
    "label": "文本挖掘抽取事件数",
-   "value": 3609,
+   "value": 3610,
    "scope": "从语料抽取的带日期事件（LLM 抽取，未经人工复核）",
    "source": "（文本挖掘产物目录）\\master_timeline.json",
    "note": "**不得直接当站内事实引用**；站内精选时间轴另计（data/timeline.json）"
