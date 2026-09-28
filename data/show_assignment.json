@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-09-28T21:07:24",
-  "rows": 656,
+  "generated_at": "2026-09-29T00:12:19",
+  "rows": 661,
   "levels": {
-   "L1": 300,
+   "L1": 301,
    "L6": 26,
    "L3": 32,
    "L4": 2,
-   "未认领": 296
+   "未认领": 300
   },
-  "shows_with_material": 43,
-  "shows_with_claimable": 41,
+  "shows_with_material": 44,
+  "shows_with_claimable": 42,
   "shows_total": 64
  },
  "per_show": {
@@ -53,6 +53,10 @@
   "2021-03-27": {
    "n": 1,
    "claimable": 0
+  },
+  "2020-12-05": {
+   "n": 1,
+   "claimable": 1
   },
   "2022-01-10": {
    "n": 21,
@@ -1049,6 +1053,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2021-04-11",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "广州20201205_BV1wp4y1676f",
+   "song": "歌颂",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-12-05",
    "level": 1,
    "why": "日期直配"
   },
@@ -4269,6 +4285,18 @@
    "why": ""
   },
   {
+   "tag": "南宁20201229_BV1sh411f7X9",
+   "song": "歌颂",
+   "tour": "其他演出",
+   "city": "南宁",
+   "date": "2020-12-29",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "二巡上海2021_全程_p17_哭砂",
    "song": "哭砂",
    "tour": "其他演出",
@@ -7041,6 +7069,18 @@
    "why": ""
   },
   {
+   "tag": "未知20210430_BV1By4y1s7sL",
+   "song": "City of Stars",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-04-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "二巡上海2021_全程_p38_王牌就是我",
    "song": "王牌就是我",
    "tour": "其他演出",
@@ -7478,6 +7518,18 @@
    "tour": "其他演出",
    "city": "广州",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "广州20210515_BV1Q64y1C7Sr",
+   "song": "歌颂",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2021-05-15",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -8047,6 +8099,18 @@
    "show_date": "2020-10-07",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "未知20210723_BV1Cv411n77a",
+   "song": "歌颂",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-07-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P11_10.1.虚假的点歌流程2",

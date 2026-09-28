@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-28T21:07:41",
+ "generated_at": "2026-09-29T00:12:35",
  "stat": {
-  "generated_at": "2026-09-28T21:07:41",
+  "generated_at": "2026-09-29T00:12:34",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 32,
+  "songs_with_3plus": 33,
   "rows": [
    {
     "song": "佛山全场",
@@ -263,6 +263,15 @@
     "low_range": 36.1,
     "high_median": 763.7,
     "low_cv": 0.1471
+   },
+   {
+    "song": "歌颂",
+    "versions": 5,
+    "low_median": 94.6,
+    "low_iqr": 25.3,
+    "low_range": 103.5,
+    "high_median": 392.7,
+    "low_cv": 0.3337
    },
    {
     "song": "多听有益",
@@ -454,14 +463,14 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1112,
+  "low_cv_median": 0.1127,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 82.7,
-  "cover_live_low_median": 86.3,
+  "cover_live_low_median": 86.4,
   "own_n": 26,
-  "cover_n": 138,
+  "cover_n": 139,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

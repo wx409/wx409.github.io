@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-09-28 21:07",
+ "generated_at": "2026-09-29 00:12",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 817,
+  "total": 822,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 659,
+   "tour_live": 664,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 499,
+   "谐波列复核通过": 503,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 108,
+   "待复核（谐波列待判）": 109,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 241
+  "songs": 242
  },
  "rows": [
   {
@@ -6258,6 +6258,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|歌颂|广州20201205_BV1wp4y1676f",
+   "song": "歌颂",
+   "version": "广州20201205_BV1wp4y1676f",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "source_ref": "BV1wp4y1676f",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.9,
+    "high_note": "C4",
+    "high_hz": 261.7,
+    "span_octaves": 1.61,
+    "stability_cents": 10.0,
+    "intonation_cents": 23.7,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 93.0,
+    "density_per_s": 1.68,
+    "hnr_db": 5.8,
+    "duration_s": 303.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 105
    }
   },
   {
@@ -15556,6 +15591,41 @@
    }
   },
   {
+   "id": "tour_live|歌颂|南宁20201229_BV1sh411f7X9",
+   "song": "歌颂",
+   "version": "南宁20201229_BV1sh411f7X9",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "南宁",
+   "date": "2020-12-29",
+   "source_ref": "BV1sh411f7X9",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 66.0,
+    "high_note": "G4",
+    "high_hz": 392.6,
+    "span_octaves": 2.57,
+    "stability_cents": 6.0,
+    "intonation_cents": 20.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.57,
+    "hnr_db": 5.2,
+    "duration_s": 262.8
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
+   }
+  },
+  {
    "id": "tour_live|哭砂|二巡上海2021_全程_p17_哭砂",
    "song": "哭砂",
    "version": "二巡上海2021_全程_p17_哭砂",
@@ -23524,6 +23594,41 @@
    }
   },
   {
+   "id": "tour_live|City of Stars|未知20210430_BV1By4y1s7sL",
+   "song": "City of Stars",
+   "version": "未知20210430_BV1By4y1s7sL",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-04-30",
+   "source_ref": "BV1By4y1s7sL",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 97.7,
+    "high_note": "A3",
+    "high_hz": 223.0,
+    "span_octaves": 1.19,
+    "stability_cents": 8.8,
+    "intonation_cents": 21.7,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 97.0,
+    "density_per_s": 1.7,
+    "hnr_db": 5.8,
+    "duration_s": 150.4
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 104
+   }
+  },
+  {
    "id": "tour_live|王牌就是我|二巡上海2021_全程_p38_王牌就是我",
    "song": "王牌就是我",
    "version": "二巡上海2021_全程_p38_王牌就是我",
@@ -24801,6 +24906,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|歌颂|广州20210515_BV1Q64y1C7Sr",
+   "song": "歌颂",
+   "version": "广州20210515_BV1Q64y1C7Sr",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2021-05-15",
+   "source_ref": "BV1Q64y1C7Sr",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 111.2,
+    "high_note": "G4",
+    "high_hz": 392.7,
+    "span_octaves": 1.82,
+    "stability_cents": 6.4,
+    "intonation_cents": 16.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.78,
+    "hnr_db": 3.4,
+    "duration_s": 277.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 132
    }
   },
   {
@@ -26418,6 +26558,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|歌颂|未知20210723_BV1Cv411n77a",
+   "song": "歌颂",
+   "version": "未知20210723_BV1Cv411n77a",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-07-23",
+   "source_ref": "BV1Cv411n77a",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E3",
+    "low_hz": 169.5,
+    "high_note": "A#5",
+    "high_hz": 941.7,
+    "span_octaves": 2.47,
+    "stability_cents": 5.4,
+    "intonation_cents": 16.1,
+    "vibrato_hz": 4.66,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.18,
+    "hnr_db": 1.6,
+    "duration_s": 243.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 131
    }
   },
   {

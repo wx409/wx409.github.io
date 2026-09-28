@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-09-28T21:07:27",
+  "generated_at": "2026-09-29T00:12:21",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 12,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7907,
-  "measured_shows_site": 43,
-  "shows_with_claimable_site": 41,
-  "bv_mapped": 69
+  "files_scanned": 7938,
+  "measured_shows_site": 44,
+  "shows_with_claimable_site": 42,
+  "bv_mapped": 70
  },
  "shows": [
   {
@@ -623,6 +623,26 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1wp4y1676f｜歌颂｜广州20201205"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "广州20201205_BV1wp4y1676f｜歌颂"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1wp4y1676f"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "广州20201205_BV1wp4y1676f.wav"
+    },
+    {
      "level": 1,
      "src": "路径日期",
      "detail": "二巡广州20201205__BV1Xa4y1W7eR.wav"
@@ -631,19 +651,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "input_ascii.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "vocals.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡广州20201205__BV1Xa4y1W7eR.m4a"
     }
    ],
-   "n_evidence": 4
+   "n_evidence": 18
   },
   {
    "date": "2020-12-19",
