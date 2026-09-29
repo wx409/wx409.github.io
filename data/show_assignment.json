@@ -1,13 +1,13 @@
 {
  "summary": {
-  "generated_at": "2026-09-29T21:07:26",
-  "rows": 661,
+  "generated_at": "2026-09-30T00:12:19",
+  "rows": 667,
   "levels": {
-   "L1": 301,
+   "L1": 306,
    "L6": 26,
    "L3": 32,
    "L4": 2,
-   "未认领": 300
+   "未认领": 301
   },
   "shows_with_material": 44,
   "shows_with_claimable": 42,
@@ -123,16 +123,20 @@
    "claimable": 2
   },
   "2025-01-01": {
-   "n": 6,
-   "claimable": 4
+   "n": 8,
+   "claimable": 5
   },
   "2024-12-21": {
-   "n": 4,
+   "n": 5,
    "claimable": 4
   },
   "2025-04-05": {
    "n": 4,
    "claimable": 4
+  },
+  "2026-04-10": {
+   "n": 3,
+   "claimable": 3
   },
   "2025-05-24": {
    "n": 5,
@@ -141,10 +145,6 @@
   "2024-12-29": {
    "n": 2,
    "claimable": 2
-  },
-  "2026-04-10": {
-   "n": 1,
-   "claimable": 1
   },
   "2026-06-13": {
    "n": 23,
@@ -2833,6 +2833,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "杭州20241221_BV1e3nqzAERf",
+   "song": "勿扰",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2024-12-21",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2024-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "杭州20241221_BV1RjkYYbEF8",
    "song": "My Oh My",
    "tour": "五巡",
@@ -2941,6 +2953,42 @@
    "why": "日期直配"
   },
   {
+   "tag": "未知20250101_BV1AK6oYqEPL",
+   "song": "钟爱一生",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2025-01-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20260410_BV11NoQBFEKv",
+   "song": "哭砂",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2026-04-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20250101_BV1G26dYnEWN",
+   "song": "床前明月光",
+   "tour": "五巡",
+   "city": "长沙",
+   "date": "2025-01-01",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2025-01-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "广州20250524_BV16J7LziEVc",
    "song": "住口",
    "tour": "五巡",
@@ -2985,6 +3033,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2024-12-29",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20260410_BV1UCRuBjESn",
+   "song": "钟爱一生",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2026-04-10",
    "level": 1,
    "why": "日期直配"
   },
@@ -6150,6 +6210,18 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20241012_BV1Mz6fYXELH",
+   "song": "勿扰",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-10-12",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,

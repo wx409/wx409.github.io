@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-09-29T21:07:28",
+  "generated_at": "2026-09-30T00:12:21",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 12,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7938,
+  "files_scanned": 7974,
   "measured_shows_site": 44,
   "shows_with_claimable_site": 42,
-  "bv_mapped": 70
+  "bv_mapped": 75
  },
  "shows": [
   {
@@ -1614,11 +1614,11 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "杭州｜五巡·王晰吾个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1e3nqzAERf｜勿扰｜杭州20241221"
     }
    ],
-   "n_evidence": 149
+   "n_evidence": 163
   },
   {
    "date": "2024-12-29",
@@ -1698,7 +1698,7 @@
      "detail": "BV1C7rDYZEzo｜原来你也在这里｜长沙20250101"
     }
    ],
-   "n_evidence": 85
+   "n_evidence": 113
   },
   {
    "date": "2025-04-05",
@@ -1914,6 +1914,16 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1UCRuBjESn｜钟爱一生｜北京20260410"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV11NoQBFEKv｜哭砂｜北京20260410"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "北京｜五巡·王晰吾个人巡回音乐会"
     },
@@ -1925,20 +1935,10 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "北京20260410_BV1AFQABrEdx｜我变了我没变"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1AFQABrEdx"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "北京20260410_BV1AFQABrEdx.wav"
+     "detail": "北京20260410_BV11NoQBFEKv｜哭砂"
     }
    ],
-   "n_evidence": 24
+   "n_evidence": 52
   },
   {
    "date": "2026-06-13",
