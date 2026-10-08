@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-10-08 13:10",
- "last_update": "2026-10-08 13:10",
+ "timestamp": "2026-10-08 18:06",
+ "last_update": "2026-10-08 18:06",
  "date_range": "2023-01-01 ~ 2026-10-08",
  "total": 279940,
  "complete_rate": 20.4,
@@ -202,7 +202,7 @@
   11.5,
   54.8,
   55.6,
-  8.5
+  9.0
  ],
  "top_songs": [
   {
@@ -266,108 +266,9 @@
    "tag": "活跃"
   }
  ],
- "daily_listen_trend": [
-  {
-   "rank": 1,
-   "song": "黎明前的黑暗",
-   "share_pct": 56.3,
-   "trend_pct": 4.8,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 8.1,
-   "trend_pct": 22.2,
-   "trend_label": "up"
-  },
-  {
-   "rank": 3,
-   "song": "在路上",
-   "share_pct": 7.7,
-   "trend_pct": 27.3,
-   "trend_label": "up"
-  },
-  {
-   "rank": 4,
-   "song": "一生中最爱",
-   "share_pct": 4.8,
-   "trend_pct": 36.8,
-   "trend_label": "up"
-  },
-  {
-   "rank": 5,
-   "song": "亲密爱人",
-   "share_pct": 4.1,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 6,
-   "song": "山楂树",
-   "share_pct": 3.7,
-   "trend_pct": -51.2,
-   "trend_label": "down"
-  },
-  {
-   "rank": 7,
-   "song": "Sound of Silence",
-   "share_pct": 3.3,
-   "trend_pct": -14.3,
-   "trend_label": "down"
-  },
-  {
-   "rank": 8,
-   "song": "相思",
-   "share_pct": 3.1,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 9,
-   "song": "再叙",
-   "share_pct": 3.1,
-   "trend_pct": -32.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 10,
-   "song": "南屏晚钟",
-   "share_pct": 2.2,
-   "trend_pct": -40.0,
-   "trend_label": "down"
-  },
-  {
-   "rank": 11,
-   "song": "哭砂",
-   "share_pct": 1.8,
-   "trend_pct": -37.5,
-   "trend_label": "down"
-  },
-  {
-   "rank": 12,
-   "song": "晚风暖暖",
-   "share_pct": 1.7,
-   "trend_pct": null,
-   "trend_label": "new"
-  }
- ],
- "daily_anomalies": [
-  {
-   "song": "哭砂",
-   "type": "🔥 指数突增",
-   "metric": "指数",
-   "change_pct": 0.494,
-   "desc": "指数较7日均值 +49.4%"
-  }
- ],
- "latest_anomaly": {
-  "song": "哭砂",
-  "type": "🔥 指数突增",
-  "metric": "指数",
-  "change_pct": 0.494,
-  "desc": "指数较7日均值 +49.4%"
- },
+ "daily_listen_trend": [],
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   439.0,
   452.0
@@ -8581,12 +8482,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-10-01",
-   "avg_index": 453.7,
-   "total_songs": 287,
-   "complete": true
-  },
-  {
    "date": "2026-10-02",
    "avg_index": 377.9,
    "total_songs": 253,
@@ -8619,6 +8514,12 @@
   {
    "date": "2026-10-07",
    "avg_index": 404.0,
+   "total_songs": 253,
+   "complete": true
+  },
+  {
+   "date": "2026-10-08",
+   "avg_index": null,
    "total_songs": 253,
    "complete": true
   }
