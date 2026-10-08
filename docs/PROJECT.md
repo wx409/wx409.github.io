@@ -33,7 +33,7 @@
 | 数据层 | 回答的问题 | 状态 | 主数据文件 |
 |---|---|---|---|
 | 声学实测 | 他能做到什么 | 核心建成；动态范围已出第一批 | `archive_vocal*.json`、`archive_stage*.json`、`archive_dynamic_range.json` |
-| QQ音乐指数 | 他被市场怎么对待 | 1286 天在，**未与声学交叉** | `dashboard_data.json`、`archive_baseline.json` |
+| QQ音乐指数 | 他被市场怎么对待 | 1311 天在，**未与声学交叉** | `dashboard_data.json`、`archive_baseline.json` |
 | 微博文本 | 他是什么状态、怎么表达 | 个人微博已有；少城时期待补 | `E:\wx\wx_textmine_out\corpus.jsonl`、`quotes.json` |
 
 | 声音素材 | 回答的问题 | 状态 |
