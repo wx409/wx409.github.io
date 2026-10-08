@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-08 11:50",
+  "timestamp": "2026-10-08 12:00",
   "total": 279940,
   "success": 57177,
   "complete_rate": 20.4,
@@ -189379,7 +189379,7 @@
       "对脉冲型场次（音乐节、拼盘演唱会）提前储备跟进素材与话题承接，避免峰值过后快速回落造成的曝光浪费。"
     ],
     "data_quality_note": "基于8类形态合计85场含逐日衰减数据（个人巡回23、其他22、晚会14、歌舞剧·音乐剧14、拼盘演唱会4、签唱会3、音乐节3、综艺2）；其中综艺样本量<3，对应均值标注「样本不足」；政府活动单独列示，不参与形态均值；Top10中歌单内数据为空的场次，溢出比留空不填。",
-    "generated_at": "2026-09-10 13:10:52"
+    "generated_at": "2026-10-08 11:51:14"
   },
   "batch_count": 1254,
   "date_range": "2023-01-01 ~ 2026-10-08",
@@ -212878,7 +212878,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-08 11:50",
+  "last_update": "2026-10-08 12:00",
   "today_batches": 1254,
   "daily_new_records": 1,
   "recent_7days": [
@@ -212950,17 +212950,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 17873,
-      "pct": 1.1
+      "rows": 130,
+      "pct": 0.0
     },
     "excel_files": {
-      "total": 4027,
-      "success": 4027,
+      "total": 4028,
+      "success": 4028,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1646292,
+      "before": 1646545,
       "after": 290500
     },
     "index_calibration": {
@@ -213168,7 +213168,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-08 11:50",
+    "generated_at": "2026-10-08 12:00",
     "overview": "共 87 场活动 / 3080 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.2%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
