@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-08T21:07:26",
-  "rows": 667,
+  "generated_at": "2026-10-09T00:11:59",
+  "rows": 677,
   "levels": {
-   "L1": 306,
+   "L1": 312,
    "L6": 26,
-   "L3": 32,
+   "L3": 34,
    "L4": 2,
-   "未认领": 301
+   "未认领": 303
   },
-  "shows_with_material": 44,
-  "shows_with_claimable": 42,
+  "shows_with_material": 47,
+  "shows_with_claimable": 45,
   "shows_total": 64
  },
  "per_show": {
@@ -47,14 +47,26 @@
    "claimable": 5
   },
   "2020-11-21": {
-   "n": 32,
-   "claimable": 30
+   "n": 33,
+   "claimable": 31
   },
   "2021-03-27": {
    "n": 1,
    "claimable": 0
   },
   "2020-12-05": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2020-12-19": {
+   "n": 2,
+   "claimable": 1
+  },
+  "2021-01-10": {
+   "n": 1,
+   "claimable": 1
+  },
+  "2021-03-08": {
    "n": 1,
    "claimable": 1
   },
@@ -111,8 +123,8 @@
    "claimable": 2
   },
   "2024-09-16": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2025-11-21": {
    "n": 16,
@@ -151,8 +163,8 @@
    "claimable": 17
   },
   "2026-08-23": {
-   "n": 42,
-   "claimable": 37
+   "n": 43,
+   "claimable": 38
   },
   "2021-11-27": {
    "n": 11,
@@ -937,6 +949,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "广州20201205_BV1kZ4y1G77g",
+   "song": "一帘幽梦",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-12-05",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "20210411 王晰二巡南京收官站全场__BV__P02_20210411 王晰二巡南京收官站下半场1080",
    "song": "",
    "tour": "二巡",
@@ -1053,6 +1077,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2021-04-11",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "南宁20201219_BV153411877D",
+   "song": "你",
+   "tour": "二巡",
+   "city": "南宁",
+   "date": "2020-12-19",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-12-19",
    "level": 1,
    "why": "日期直配"
   },
@@ -1285,6 +1321,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "武汉20210110_BV1hS4y197kb",
+   "song": "等一等昨天",
+   "tour": "二巡",
+   "city": "武汉",
+   "date": "2021-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡南京20210411_串烧窗口_BV1S54y1b7HW",
    "song": "让她降落",
    "tour": "二巡",
@@ -1329,6 +1377,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2020-11-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "上海20210308_BV1tX4y137U7",
+   "song": "Dear Friend",
+   "tour": "二巡",
+   "city": "上海",
+   "date": "2021-03-08",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-03-08",
    "level": 1,
    "why": "日期直配"
   },
@@ -2677,6 +2737,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "四巡武汉20240916_v01",
+   "song": "",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024-09-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-09-16",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海20231231_v24",
    "song": "",
    "tour": "四巡",
@@ -3745,6 +3817,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "六巡广州20260823_v03",
+   "song": "",
+   "tour": "六巡",
+   "city": "广州",
+   "date": "2026-08-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2026-08-23",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "六巡重庆20260613_BV1zEJA6xEr2",
    "song": "让她降落",
    "tour": "六巡",
@@ -4225,6 +4309,18 @@
    "why": ""
   },
   {
+   "tag": "未归属20151102_v04",
+   "song": "",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2015-11-02",
+   "review_status": "不可复核（缺混音/时间）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "【王晰】20201007杭州签唱会 现场live__P05_《歌颂》",
    "song": "",
    "tour": "签唱会",
@@ -4316,6 +4412,18 @@
    "date": "2021",
    "review_status": "人耳确认",
    "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未归属20240820_v02",
+   "song": "",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-08-20",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -5423,6 +5531,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "南宁20201220_BV1Lf4y1e72A",
+   "song": "女人花",
+   "tour": "其他演出",
+   "city": "南宁",
+   "date": "2020-12-20",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2020-12-19",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "未知20230505_BV15X4y127ER",
@@ -6573,6 +6693,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2019-06-07",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "佛山20201122_BV1Za411c7Sc",
+   "song": "滚滚红尘",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020-11-22",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-11-21",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
   },

@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-10-08T21:07:26",
+  "generated_at": "2026-10-09T00:12:00",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 45,
+  "L1_精确": 47,
   "L2_强": 7,
   "L3_中": 0,
-  "L4_弱": 12,
+  "L4_弱": 10,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7395,
-  "measured_shows_site": 44,
-  "shows_with_claimable_site": 42,
-  "bv_mapped": 75
+  "files_scanned": 7451,
+  "measured_shows_site": 47,
+  "shows_with_claimable_site": 45,
+  "bv_mapped": 79
  },
  "shows": [
   {
@@ -628,6 +628,16 @@
      "detail": "BV1wp4y1676f｜歌颂｜广州20201205"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1kZ4y1G77g｜一帘幽梦｜广州20201205"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "广州20201205_BV1kZ4y1G77g｜一帘幽梦"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "广州20201205_BV1wp4y1676f｜歌颂"
@@ -635,25 +645,15 @@
     {
      "level": 1,
      "src": "BV命中",
-     "detail": "BV1wp4y1676f"
+     "detail": "BV1kZ4y1G77g"
     },
     {
      "level": 1,
      "src": "路径日期",
-     "detail": "广州20201205_BV1wp4y1676f.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡广州20201205__BV1Xa4y1W7eR.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "input_ascii.wav"
+     "detail": "广州20201205_BV1kZ4y1G77g.wav"
     }
    ],
-   "n_evidence": 18
+   "n_evidence": 32
   },
   {
    "date": "2020-12-19",
@@ -663,6 +663,26 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV153411877D｜你｜南宁20201219"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "南宁20201219_BV153411877D｜你"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV153411877D"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "南宁20201219_BV153411877D.wav"
+    },
+    {
      "level": 1,
      "src": "路径日期",
      "detail": "二巡南宁20201219__BV1Cp4y1q7xi.wav"
@@ -671,19 +691,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "input_ascii.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "vocals.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡南宁20201219__BV1Cp4y1q7xi.m4a"
     }
    ],
-   "n_evidence": 4
+   "n_evidence": 18
   },
   {
    "date": "2021-01-09",
@@ -720,15 +730,40 @@
    "city": "武汉",
    "tour": "二巡",
    "songs": 22,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "4 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1hS4y197kb｜等一等昨天｜武汉20210110"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "武汉20210110_BV1hS4y197kb｜等一等昨天"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1hS4y197kb"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "武汉20210110_BV1hS4y197kb.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1hS4y197kb"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "武汉20210110_BV1hS4y197kb_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 14
   },
   {
    "date": "2021-03-07",
@@ -750,15 +785,40 @@
    "city": "上海",
    "tour": "二巡",
    "songs": 22,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "412 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1tX4y137U7｜Dear Friend｜上海20210308"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "上海20210308_BV1tX4y137U7｜Dear Friend"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1tX4y137U7"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20210308_BV1tX4y137U7.m4a"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1tX4y137U7"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20210308_BV1tX4y137U7.wav"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 14
   },
   {
    "date": "2021-03-27",
@@ -1554,11 +1614,31 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "四巡武汉20240916_v01｜"
+    },
+    {
+     "level": 1,
      "src": "路径日期",
-     "detail": "BV1iWtUefEkm_【王晰】《多听有益》【4K字幕】最后再被低音菩萨超度一次_『肆"
+     "detail": "四巡武汉20240916_v01.wav"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "四巡武汉20240916_v01_f0.csv"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "四巡武汉20240916_v01_stats.json"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "input_ascii.wav"
     }
    ],
-   "n_evidence": 2
+   "n_evidence": 8
   },
   {
    "date": "2024-12-21",
@@ -1998,7 +2078,7 @@
      "detail": "六巡广州20260823_1_花儿为什么这样红｜花儿为什么这样红"
     }
    ],
-   "n_evidence": 1057
+   "n_evidence": 1063
   }
  ],
  "missing": []
