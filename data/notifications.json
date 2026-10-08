@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 09:00:32",
+ "updated_at": "2026-10-08 14:00:28",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2117,6 +2117,43 @@
    "time": "2026-09-30 09:00:32",
    "title": "自动更新聚合完成",
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-10-08 14:00:03",
+   "title": "⚠️ 大屏采集漏批：2026-10-08",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 46.7 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261008.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-10-08 14:00:28",
+   "title": "📣 【王晰】点歌：《四季歌》4K字幕 | 王晰2021-2023『图景 ...",
+   "content": "2026年10月1日&ensp;&#0183;&ensp;【王晰】点歌：《四季歌》4K字幕 | 王晰2021-2023『图景』个人巡回音乐会 | 20220624 长沙 长沙音乐厅\n链接：https://www.bilibili.com/video/BV1RGaz6JEES/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1RGaz6JEES/"
+  },
+  {
+   "time": "2026-10-08 14:00:28",
+   "title": "📣 微博",
+   "content": "王晰超话，阅读数:41.5亿、帖子数:18.9万、粉丝数:31.9万，王晰 男低音歌唱家 国家二级演员 音乐家协会会员 乐华娱乐旗下艺人 主要 …\n链接：https://weibo.com/p/100808a425cb81fcda647a9556adf6206b3417",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://weibo.com/p/100808a425cb81fcda647a9556adf6206b3417"
+  },
+  {
+   "time": "2026-10-08 14:00:28",
+   "title": "📣 王晰 - 歌手 - 网易云音乐",
+   "content": "王晰，本名王欣，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，中国人民解放军海军政治部文工团青年歌唱家、 …\n链接：https://music.163.com/artist?id=1058098",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://music.163.com/artist?id=1058098"
+  },
+  {
+   "time": "2026-10-08 14:00:28",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
    "category": "汇总",
    "source": "auto_update"
   }
