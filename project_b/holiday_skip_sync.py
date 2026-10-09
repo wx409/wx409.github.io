@@ -105,8 +105,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=120)
     ap.add_argument("--dry", action="store_true")
-    ap.add_argument("--skip-weekdays", default="6,7,1",
-                    help="目标日为这些星期则不关机（1=周一…7=周日；默认 6,7,1）")
+    ap.add_argument("--skip-weekdays", default="6,7",
+                    help="目标日为这些星期则不关机（1=周一…7=周日；默认 6,7=周六/周日）")
     ap.add_argument("--respect-makeup", action="store_true",
                     help="调休上班日按工作日处理（不豁免）")
     a = ap.parse_args()

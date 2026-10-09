@@ -249,6 +249,9 @@ echo    198. 重建指数长表（从权威全量源，一处变全局变；19 个脚本共用）
 echo    199. 指数源覆盖审计（长表 vs 权威源；不足则报警）
 echo    200. 事件窗口分析（演出/综艺/晚会 前后 ±14 天指数响应）
 echo    201. 活动总表合并（百科版+微博核对版 → data/activity_master.json）
+echo    202. [关机档位] 工作日模式：周一~周五 01:30 关机，周末/法定节假日不关机
+echo    203. [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
+echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
 echo    0. 退出
 echo.
 set "op="
@@ -454,6 +457,9 @@ if "%op%"=="198" goto idx_rebuild
 if "%op%"=="199" goto idx_audit
 if "%op%"=="200" goto ev_window
 if "%op%"=="201" goto act_master
+if "%op%"=="202" goto power_normal
+if "%op%"=="203" goto power_all
+if "%op%"=="204" goto power_status
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2711,3 +2717,29 @@ cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_activity_master.py
 pause
 goto menu
+
+
+:power_normal
+cls
+echo  [关机档位] 工作日模式：周一~周五 01:30 关机，周末/法定节假日不关机
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\power_schedule.py normal
+pause
+goto menu
+
+:power_all
+cls
+echo  [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\power_schedule.py all
+pause
+goto menu
+
+:power_status
+cls
+echo  [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\power_schedule.py status
+pause
+goto menu
+
