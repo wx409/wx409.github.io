@@ -252,6 +252,7 @@ echo    201. 活动总表合并（百科版+微博核对版 → data/activity_master.json）
 echo    202. [关机档位] 工作日模式：周一~周五 01:30 关机，周末/法定节假日不关机
 echo    203. [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
 echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
+echo    205. [活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）
 echo    0. 退出
 echo.
 set "op="
@@ -460,6 +461,7 @@ if "%op%"=="201" goto act_master
 if "%op%"=="202" goto power_normal
 if "%op%"=="203" goto power_all
 if "%op%"=="204" goto power_status
+if "%op%"=="205" goto add_show
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2743,3 +2745,26 @@ python -X utf8 project_b\power_schedule.py status
 pause
 goto menu
 
+
+
+:add_show
+cls
+echo  [活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）
+echo  留空按回车跳过；未填关键字则默认按名称前 4 字查重
+set "d="
+set /p d=  演出日期 (YYYY-MM-DD): 
+if "%d%"=="" goto menu
+set "nm="
+set /p nm=  演出名称: 
+set "city="
+set /p city=  城市 (回车=北京): 
+if "%city%"=="" set "city=北京"
+set "mk="
+set /p mk=  查重关键字 (可空): 
+set "MOPT="
+if not "%mk%"=="" set "MOPT=--match %mk%"
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\add_show.py --date "%d%" --name "%nm%" --city "%city%" --stage 东演 %MOPT% --publish
+echo  补歌单： python -X utf8 project_b\add_show.py --date "%d%" --name "%nm%" --setlist "曲1、曲2"
+pause
+goto menu
