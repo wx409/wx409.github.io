@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-10-10 17:47　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-10-10 17:59　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -17,6 +17,7 @@
 | `show_block_attribution` | 场次音频切分与歌手归属 | **四判据 + 一 QC；极值音归属未定** | 含 talk/主持/观众的双人或多声部场次素材（逐块：谁在唱 + 块级分布型指标） | `docs/场次声学切分与归属方法论_20261010.md；data/show_blocks/*.json` |
 | `stage_claimable` | 现场层可主张素材 | **554** | 过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数 | `data/archive_stage_tour.json → summary.n_claimable` |
 | `vibrato_tier` | 颤音速率的分层归属 | **组内可纵比、跨组谨慎** | 修音敏感度分层中的单列一档（区别于高敏感层的稳定性/音准） | `音频备忘 §21 / acoustic-report「六条纪律」/ 宣传词条库 #8` |
+| `feedback_song_mentions` | 观众反馈·曲目提及榜口径 | **两栏：已核验 / 待核；非歌曲词剔除** | 各场次观众反馈分析产物（temp/audience_analysis/*.json）的 song_top 字段 | `project_b/analyze_audience_comments.py` |
 | `playable_songs` | 可试听曲目 | **117** | 站内提供试听入口的曲目 | `data/playable_songs.json` |
 | `netease_songs` | 网易云曲库曲目 | **125** | 网易云音乐侧可核验曲目 | `data/netease_catalog.json` |
 | `shows_all` | 全站场次 | **64** | 六轮巡演 + 签唱会等非巡演演出 | `data/cities.json（长表派生）` |

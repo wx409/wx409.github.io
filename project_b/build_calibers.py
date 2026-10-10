@@ -141,6 +141,14 @@ def collect() -> list[dict]:
         "修音改的是音高慢变轨迹，颤音速率是 ~5Hz 快速调制，**基本不动速率**；"
         "但**幅度可能受轻微影响**，故速率优先组内纵向比较（三处文本已于 2026-09-21 统一）")
 
+    add("feedback_song_mentions", "观众反馈·曲目提及榜口径", "两栏：已核验 / 待核；非歌曲词剔除",
+        "各场次观众反馈分析产物（temp/audience_analysis/*.json）的 song_top 字段",
+        "project_b/analyze_audience_comments.py",
+        "**2026-10-10 口径变更**：① 新增**非歌曲黑名单**（节目/栏目名如 星光大道·声入人心·我是歌手；"
+        "活动/主题名如 回·巡演·演唱会 及本剧名；机构/场馆名），命中即从曲目榜剔除，另存 `song_excluded` 供回溯；"
+        "② 榜拆两栏：`song_top`（在本场歌单内 → 已核验）与 `song_top_pending`（不在歌单内 → **待核/非本场候选，"
+        "不硬删**）；匹配做繁简/大小写/空格/变体归一；③ 本场歌单优先取长表，长表为空时回退 "
+        "`data/show_setlists/<date>_<city>.json`。**只改统计口径，不改原始评论文本与证据引用**。")
     ps = _load("data/playable_songs.json") or {}
     add("playable_songs", "可试听曲目", _count(ps, "total"),
         "站内提供试听入口的曲目", "data/playable_songs.json", "")

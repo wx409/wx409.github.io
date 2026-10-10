@@ -140,7 +140,7 @@ def main():
     for it in kept[:20]:
         print(f"  [{it['platform']}] match={it['match']['signal']}｜{it['text'][:70]}")
 
-    stats = A.analyze(kept)
+    stats = A.analyze(kept, a.date)
     stats["fingerprint"] = hashlib.md5(
         json.dumps([i["text"] for i in kept], ensure_ascii=False).encode("utf-8")).hexdigest()[:12]
     stats["filter"] = {

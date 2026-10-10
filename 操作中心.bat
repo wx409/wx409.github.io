@@ -255,6 +255,12 @@ echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
 echo    205. [活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）
 echo    206. [东演专区] 重建 dongyan.html（草原之夜 / 沉响与长歌；场次与曲目从活动总表派生）
 echo    207. [演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）；此处手动补跑/干跑
+echo    208. [双人场次] 生成本场块级数据（data/show_blocks）→ 注入现场层 → 重建 stage.html
+echo    209. [双人场次] 仅注入现场层（archive_stage_tour.json；生成器重写后必须重跑本项）
+echo    210. [观众反馈] 按本场专属关键词收紧（剧名/场馆/日期+主体词；旧产物自动 _v1 备份）
+echo    211. [小红书] Cookie 三态自检（有效/失效/被风控）后分发到抓取工具
+echo    212. [沉响场次] v4 正式管线：分区 → 块指标 → 分离质量QC → 曲名交叉
+echo    213. [沉响场次] v1-v3 过程脚本清单（过程稿；正式结论一律以 v4 为准）
 echo    0. 退出
 echo.
 set "op="
@@ -466,6 +472,12 @@ if "%op%"=="204" goto power_status
 if "%op%"=="205" goto add_show
 if "%op%"=="206" goto dongyan
 if "%op%"=="207" goto show_intake
+if "%op%"=="208" goto show_blocks
+if "%op%"=="209" goto inject_blocks
+if "%op%"=="210" goto feedback_strict
+if "%op%"=="211" goto xhs_cookie
+if "%op%"=="212" goto cx_v4_analysis
+if "%op%"=="213" goto cx_process
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2794,5 +2806,70 @@ start "" notepad "E:\wx\index_records\setlist_pending.txt"
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\night_show_intake.py --dry
 python -X utf8 project_b\night_show_intake.py
+pause
+goto menu
+
+
+
+:show_blocks
+cls
+echo  [双人场次] 生成本场块级数据 data/show_blocks → 注入 archive_stage_tour.json → 重建 stage.html
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_show_blocks.py
+python -X utf8 project_b\inject_show_blocks.py
+python -X utf8 project_b\build_stage_page.py
+pause
+goto menu
+
+
+:inject_blocks
+cls
+echo  [双人场次] 仅把 data/show_blocks 注入 data/archive_stage_tour.json（幂等）
+echo  注意：生成巡演现场报告.py 会全量重写该文件，重写后必须重跑本项
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\inject_show_blocks.py
+pause
+goto menu
+
+
+:feedback_strict
+cls
+echo  [观众反馈] 按本场专属关键词收紧：必须命中 剧名/场馆/日期 之一且含主体词
+echo  用法：先按需修改本块里的 --date / --city / --show / --xhs-dirs 再运行
+echo  旧产物自动备份为 _v1 与 _旧批次_未收紧 两份，保证可回溯
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\recollect_show_feedback_strict.py --date 2026-10-09 --city 北京 --show 沉响与长歌 --xhs-dirs "沉响与长歌"
+pause
+goto menu
+
+
+:xhs_cookie
+cls
+echo  [小红书] Cookie 三态自检（有效/失效/被风控）后再分发；非有效时不覆盖旧值
+echo  源：E:\wx\index_records\xhs.txt（与微博 wb.txt 同一惯例）
+cd /d "D:\wx409.github.io"
+python -X utf8 tools\sync_xhs_cookie.py --check
+python -X utf8 tools\sync_xhs_cookie.py
+pause
+goto menu
+
+
+:cx_v4_analysis
+cls
+echo  [沉响场次] v4 正式管线（口径见 docs 场次声学切分与归属方法论）
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+python -X utf8 沉响20261009_v4_块.py
+python -X utf8 沉响20261009_v4_指标.py
+python -X utf8 _cx_v4_sepcheck.py
+python -X utf8 _cx_v4_songmap.py
+pause
+goto menu
+
+
+:cx_process
+cls
+echo  [沉响场次] v1-v3 过程脚本（仅列路径，不执行；正式结论以 v4 为准）
+cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
+dir /b 沉响20261009*.py _cx_*.py
 pause
 goto menu

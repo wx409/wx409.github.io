@@ -1818,6 +1818,230 @@
     "type": "Daily",
     "start": "23:30:00"
    }
+  },
+  {
+   "script": "build_show_blocks.py",
+   "menu": 208,
+   "title": "生成本场块级数据 data/show_blocks（双人场次；只写可引用部分）",
+   "menu_label": "show_blocks",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks.py"
+  },
+  {
+   "script": "inject_show_blocks.py",
+   "menu": 209,
+   "title": "把 data/show_blocks 注入 data/archive_stage_tour.json（幂等）",
+   "menu_label": "inject_blocks",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\inject_show_blocks.py"
+  },
+  {
+   "script": "recollect_show_feedback_strict.py",
+   "menu": 210,
+   "title": "观众反馈按本场专属关键词收紧（含小红书 crawler 归档）",
+   "menu_label": "feedback_strict",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\recollect_show_feedback_strict.py"
+  },
+  {
+   "script": "sync_xhs_cookie.py",
+   "menu": 211,
+   "title": "小红书 Cookie 三态自检后分发（源 E:\\wx\\index_records\\xhs.txt）",
+   "menu_label": "xhs_cookie",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\tools\\sync_xhs_cookie.py"
+  },
+  {
+   "script": "_cx_mixfeat.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_mixfeat.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_mixfeat.py"
+  },
+  {
+   "script": "_cx_pause.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_pause.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_pause.py"
+  },
+  {
+   "script": "_cx_solve.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_solve.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_solve.py"
+  },
+  {
+   "script": "_cx_table.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_table.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_table.py"
+  },
+  {
+   "script": "_cx_v3_sepcheck.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v3_sepcheck.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v3_sepcheck.py"
+  },
+  {
+   "script": "_cx_v4_bleed.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v4_bleed.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v4_bleed.py"
+  },
+  {
+   "script": "_cx_v4_sepcheck.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v4_sepcheck.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v4_sepcheck.py"
+  },
+  {
+   "script": "_cx_v4_songmap.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v4_songmap.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v4_songmap.py"
+  },
+  {
+   "script": "_cx_vocfeat.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_vocfeat.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_vocfeat.py"
+  },
+  {
+   "script": "导出_沉响20261009_v2_听辨.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：导出_沉响20261009_v2_听辨.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\导出_沉响20261009_v2_听辨.py"
+  },
+  {
+   "script": "导出_沉响20261009_听辨.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：导出_沉响20261009_听辨.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\导出_沉响20261009_听辨.py"
+  },
+  {
+   "script": "沉响20261009_v2_分区.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_分区.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_分区.py"
+  },
+  {
+   "script": "沉响20261009_v2_块.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_块.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_块.py"
+  },
+  {
+   "script": "沉响20261009_v2_报告.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_报告.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_报告.py"
+  },
+  {
+   "script": "沉响20261009_v2_指标.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_指标.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_指标.py"
+  },
+  {
+   "script": "沉响20261009_v3_块.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v3_块.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v3_块.py"
+  },
+  {
+   "script": "沉响20261009_v3_报告.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v3_报告.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v3_报告.py"
+  },
+  {
+   "script": "沉响20261009_v3_指标.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v3_指标.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v3_指标.py"
+  },
+  {
+   "script": "沉响20261009_v4_块.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：沉响20261009_v4_块.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_块.py"
+  },
+  {
+   "script": "沉响20261009_v4_报告.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：沉响20261009_v4_报告.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_报告.py"
+  },
+  {
+   "script": "沉响20261009_v4_指标.py",
+   "menu": 212,
+   "title": "沉响与长歌场次声学分析（v4 正式管线）：沉响20261009_v4_指标.py",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_指标.py"
+  },
+  {
+   "script": "沉响20261009_场次分析.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_场次分析.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_场次分析.py"
+  },
+  {
+   "script": "沉响20261009_报告.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_报告.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_报告.py"
+  },
+  {
+   "script": "沉响20261009_段指标.py",
+   "menu": 213,
+   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_段指标.py",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_段指标.py"
   }
  ]
 }

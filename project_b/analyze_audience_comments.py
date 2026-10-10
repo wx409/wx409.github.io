@@ -54,6 +54,50 @@ SONGS_EXTRA = ["Autumn Leaves", "Besame Mucho", "Close to You", "Yesterday Once 
                "小河", "神魂颠倒", "黎明前的黑暗", "云与海", "山楂树", "玫瑰", "南屏晚钟", "哭砂", "凄美地"]
 
 
+# ── 非歌曲黑名单（2026-10-10 新增，可扩展）──────────────────────────────
+# 背景：曲目榜会把「节目名 / 活动名 / 机构名」当歌曲统计（实测误报：星光大道、声入人心），
+# 使「曲目提及榜」失真。按类登记，便于以后追加；**只改统计口径，不改原始评论文本与证据引用**。
+NON_SONG_BLACKLIST = {
+    "节目/栏目": ["星光大道", "声入人心", "歌手", "春晚", "春节联欢晚会", "中秋晚会", "元宵晚会",
+                "开门大吉", "回声嘹亮", "中国好声音", "我们的歌", "天赐的声音", "流淌的歌声",
+                "蒙面唱将", "经典咏流传", "国家宝藏", "声生不息", "披荆斩棘", "乘风破浪", "乐华十二周年"],
+    "活动/主题": ["回", "巡演", "巡回", "音乐会", "演唱会", "音乐节", "大师课", "拼盘", "音乐剧", "歌单",
+                "沉响与长歌", "沉响", "长歌"],   # 剧名与《回》同理，不计入曲目榜
+    "机构/场馆": ["天桥艺术中心", "东方演艺集团", "中国东方演艺集团", "保利剧院", "国家大剧院"],
+}
+NON_SONG = {x for v in NON_SONG_BLACKLIST.values() for x in v}
+
+
+def is_non_song(name: str) -> bool:
+    """命中黑名单即判为非歌曲词（双向包含，兼容「中国东方演艺集团」这类长写法）。"""
+    n = (name or "").strip()
+    if not n:
+        return True
+    return n in NON_SONG or any(b in n for b in NON_SONG)
+
+
+def _setlist_songs(date):
+    """本场歌单（长表派生）；取不到则返回空集（此时不拆「待核」栏，原样输出）。"""
+    if not date:
+        return set()
+    got = set()
+    try:
+        import collect_show_feedback as C
+        got = {str(x).strip() for x in (C.load_setlist_songs(date) or [])}
+    except Exception:
+        got = set()
+    if got:
+        return got
+    # 回退：本场歌单数据（长表该行「演唱曲目」列可能为空）
+    for f in sorted((ROOT / "data" / "show_setlists").glob(f"{date}_*.json")):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+            got |= {str(x).strip() for x in (d.get("songs") or [])}
+        except Exception:
+            continue
+    return got
+
+
 def esc(s):
     return (str(s or "")).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -146,7 +190,7 @@ def dedup(items):
 
 
 # ---------- L1 统计层（零 token） ----------
-def analyze(items):
+def analyze(items, date=None):
     n = len(items)
     plat = Counter(i["platform"] for i in items)
     dim_hits = defaultdict(list)
@@ -162,9 +206,14 @@ def analyze(items):
     # 歌名提及（简繁归一；排除巡演主题《回》等非歌曲词）
     TRAD = {"情網": "情网", "讓": "让", "緣": "缘", "淚": "泪", "裏": "里", "與": "与",
             "過": "过", "風": "风", "聲": "声", "們": "们", "說": "说", "來": "来",
-            "為": "为", "時": "时", "當": "当", "還": "还", "從": "从", "夢": "梦"}
-    NON_SONG = {"回"}
-
+            "為": "为", "時": "时", "當": "当", "還": "还", "從": "从", "夢": "梦",
+            # 2026-10-10 补：原表缺字导致繁体曲名与简体歌单对不上，被误判为「待核」
+            "欖": "榄", "樹": "树", "動": "动", "網": "网", "訴": "诉", "屬": "属", "於": "于",
+            "鄉": "乡", "遠": "远", "問": "问", "麗": "丽", "親": "亲", "愛": "爱", "語": "语",
+            "樂": "乐", "這": "这", "個": "个", "麼": "么", "樣": "样", "對": "对", "開": "开",
+            "關": "关", "長": "长", "見": "见", "點": "点", "幾": "几", "頭": "头", "飛": "飞",
+            "給": "给", "覺": "觉", "聽": "听", "記": "记", "隻": "只", "處": "处", "萬": "万",
+            "歲": "岁", "兩": "两", "無": "无", "氣": "气", "見": "见"}
     def norm_song(s):
         return "".join(TRAD.get(c, c) for c in s)
 
@@ -178,7 +227,31 @@ def analyze(items):
         for s in SONGS_EXTRA:
             if s in t or norm_song(s) in norm_song(t):
                 song_hits[norm_song(s)] += 1
+    # ① 黑名单剔除（节目名/活动名/机构名）② 按本场歌单把其余拆成「已核验 / 待核」
+    song_excluded = Counter()
+    for k in list(song_hits):
+        if is_non_song(k):
+            song_excluded[k] = song_hits.pop(k)
+    known = _setlist_songs(date)
+    pending = Counter()
+    if known:
+        # 归一化匹配：大小写、空格、以及「唱起草原的歌 / 唱起草原歌」「敕勒歌+乌兰巴托的夜」这类变体
+        def _nk(s):
+            return re.sub(r"[\s·・、,，+＋/]+", "", str(s or "")).lower()
+        kkeys = {_nk(x) for x in known if x}
+
+        def _is_known(name):
+            n = _nk(name)
+            if not n:
+                return False
+            if n in kkeys:
+                return True
+            return any((k in n) or (n in k) for k in kkeys if len(k) >= 2)
+        for k in list(song_hits):
+            if not _is_known(k):
+                pending[k] = song_hits.pop(k)
     song_top = song_hits.most_common(12)
+    song_top_pending = pending.most_common(12)
 
     # 情感
     pos = neg = neu = 0
@@ -253,7 +326,12 @@ def analyze(items):
     return {
         "total": n, "platforms": dict(plat),
         "dimensions": dict(sorted(dim_count.items(), key=lambda x: -x[1])),
-        "song_top": song_top, "theme_top": theme_top,
+        "song_top": song_top, "song_top_pending": song_top_pending,
+        "song_excluded": song_excluded.most_common(10),
+        "song_filter": {"blacklist_groups": list(NON_SONG_BLACKLIST.keys()),
+                        "setlist_known": len(known), "changed_at": "2026-10-10",
+                        "rule": "非歌曲黑名单剔除；非本场歌单者移入待核栏（不删）"},
+        "theme_top": theme_top,
         "sentiment": {"pos": pos, "neg": neg, "neu": neu},
         "audience": {"new_fan": newf, "old_fan": oldf},
         "gems": [{"platform": i["platform"], "text": i["text"][:100]} for i in gems],
@@ -336,6 +414,24 @@ def render_md(date, city, stats, llm):
     for s, c in stats["song_top"]:
         L.append(f"| 《{s}》 | {c} |")
     L.append("")
+    pend = stats.get("song_top_pending") or []
+    exc = stats.get("song_excluded") or []
+    if pend or exc:
+        L.append("")
+        L.append("> **口径变更（2026-10-10）**：曲目榜已剔除节目名/活动名/机构名；"
+                 "不在本场歌单内的曲名移入下方「待核」栏，原始评论与证据引用不变。")
+        if pend:
+            L.append("")
+            L.append("**待核 / 非本场候选**（可能是他场曲目、也可能是歌单未收录）：")
+            L.append("")
+            L.append("| 候选词 | 提及 |")
+            L.append("|---|---|")
+            for s, c in pend:
+                L.append(f"| {s} | {c} |")
+        if exc:
+            L.append("")
+            L.append("已按黑名单剔除的非歌曲词：" + "、".join(f"{s}({c})" for s, c in exc))
+    L.append("")
     L.append("## 4. 评价维度分布")
     L.append("")
     L.append("| 维度 | 评论数 |")
@@ -415,12 +511,17 @@ def main():
             print(md_out.read_text(encoding="utf-8")[:300])
             return
 
-    stats = analyze(items)
+    stats = analyze(items, args.date)
     llm = llm_summarize(stats) if args.llm else None
     if args.llm and not llm:
         print("LLM 层未启用（temp/deepseek_key.json 缺失或无 key），降级为规则统计")
     stats["fingerprint"] = fingerprint
     payload = {"fingerprint": fingerprint, "date": args.date, "city": args.city,
+               "caliber_change": {"changed_at": "2026-10-10",
+                                  "rules": ["新增非歌曲黑名单（节目/活动/机构名）并双向包含匹配",
+                                            "曲目榜拆为 song_top（本场歌单已核验）与 song_top_pending（待核/非本场候选）",
+                                            "被剔除词记入 song_excluded，便于回溯"],
+                                  "affects": "所有场次的曲目榜；原始评论文本与证据引用不变"},
                "stats": stats, "llm": llm}
     json_out.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
     md_out.write_text(render_md(args.date, args.city, stats, llm), encoding="utf-8")
