@@ -254,6 +254,7 @@ echo    203. [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
 echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
 echo    205. [活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）
 echo    206. [东演专区] 重建 dongyan.html（草原之夜 / 沉响与长歌；场次与曲目从活动总表派生）
+echo    207. [演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）；此处手动补跑/干跑
 echo    0. 退出
 echo.
 set "op="
@@ -464,6 +465,7 @@ if "%op%"=="203" goto power_all
 if "%op%"=="204" goto power_status
 if "%op%"=="205" goto add_show
 if "%op%"=="206" goto dongyan
+if "%op%"=="207" goto show_intake
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2779,5 +2781,16 @@ cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_dongyan_page.py
 python -X utf8 project_b\build_nav.py
 python -X utf8 project_b\audit_jsonld.py
+pause
+goto menu
+
+
+:show_intake
+cls
+echo  [演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）；此处手动补跑/干跑
+echo  待填歌单：把当晚歌单粘进 E:\wx\index_records\setlist_pending.txt 即可自动并入
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\night_show_intake.py --dry
+python -X utf8 project_b\night_show_intake.py
 pause
 goto menu

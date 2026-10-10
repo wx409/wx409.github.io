@@ -6,7 +6,7 @@
   "menu_items": 200,
   "dispatch": 199,
   "deploy_steps": 77,
-  "scheduled_tasks": 6
+  "scheduled_tasks": 7
  },
  "tasks": [
   {
@@ -1804,6 +1804,20 @@
    "menu_label": "dongyan",
    "in_deploy": true,
    "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_dongyan_page.py"
+  },
+  {
+   "script": "night_show_intake.py",
+   "in_deploy": false,
+   "category": "计划任务",
+   "title": "演出夜自动入库（每晚 23:30 检测当天是否有已登记演出 → 补开演里程碑 / 并入待填歌单 → 发布+推送）",
+   "menu_label": "show_intake",
+   "schedule": {
+    "name": "wx409_show_intake",
+    "script": "night_show_intake.py",
+    "cmd": "\"D:\\wx409.github.io\\project_b\\run_show_intake.bat\"",
+    "type": "Daily",
+    "start": "23:30:00"
+   }
   }
  ]
 }
