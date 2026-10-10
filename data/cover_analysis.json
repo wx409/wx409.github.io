@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-09T17:07:34",
+ "generated_at": "2026-10-10T09:04:12",
  "stat": {
-  "generated_at": "2026-10-09T17:07:33",
+  "generated_at": "2026-10-10T09:04:11",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 33,
+  "songs_with_3plus": 34,
   "rows": [
    {
     "song": "佛山全场",
@@ -373,6 +373,15 @@
     "low_cv": 0.1138
    },
    {
+    "song": "王牌就是我",
+    "versions": 3,
+    "low_median": 97.7,
+    "low_iqr": 34.5,
+    "low_range": 69.0,
+    "high_median": 717.0,
+    "low_cv": 0.2675
+   },
+   {
     "song": "友谊地久天长",
     "versions": 3,
     "low_median": 103.6,
@@ -463,14 +472,14 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1097,
+  "low_cv_median": 0.1112,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 82.2,
   "cover_live_low_median": 86.2,
   "own_n": 27,
-  "cover_n": 145,
+  "cover_n": 146,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

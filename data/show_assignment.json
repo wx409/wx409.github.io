@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-09T17:07:23",
-  "rows": 677,
+  "generated_at": "2026-10-10T09:03:56",
+  "rows": 681,
   "levels": {
-   "L1": 312,
+   "L1": 316,
    "L6": 26,
    "L3": 34,
    "L4": 2,
    "未认领": 303
   },
-  "shows_with_material": 47,
-  "shows_with_claimable": 45,
+  "shows_with_material": 48,
+  "shows_with_claimable": 47,
   "shows_total": 64
  },
  "per_show": {
@@ -51,12 +51,16 @@
    "claimable": 31
   },
   "2021-03-27": {
-   "n": 1,
-   "claimable": 0
+   "n": 2,
+   "claimable": 1
   },
   "2020-12-05": {
+   "n": 3,
+   "claimable": 3
+  },
+  "2021-03-08": {
    "n": 2,
-   "claimable": 2
+   "claimable": 1
   },
   "2020-12-19": {
    "n": 2,
@@ -66,7 +70,7 @@
    "n": 1,
    "claimable": 1
   },
-  "2021-03-08": {
+  "2020-11-14": {
    "n": 1,
    "claimable": 1
   },
@@ -1021,6 +1025,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "上海20210308_BV1gA411T7T6",
+   "song": "美酒加咖啡",
+   "tour": "二巡",
+   "city": "上海",
+   "date": "2021-03-08",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2021-03-08",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡佛山20201121_p16_【王晰】2020个人巡回音乐会 11.21佛山场 p16 16 你们发",
    "song": "佛山全场",
    "tour": "二巡",
@@ -1261,6 +1277,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "广州20201205_BV15y4y1S7ti",
+   "song": "王牌就是我",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-12-05",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡佛山20201121_p31_【王晰】2020个人巡回音乐会 11.21佛山场 p31 31 等一等",
    "song": "佛山全场",
    "tour": "二巡",
@@ -1357,6 +1385,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "杭州20201114_BV1kz4y1y7iD",
+   "song": "别离的预感",
+   "tour": "二巡",
+   "city": "杭州",
+   "date": "2020-11-14",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": "2020-11-14",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡南京20210411_BV1pL411n7Ns",
    "song": "让她降落",
    "tour": "二巡",
@@ -1401,6 +1441,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2020-11-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "宁波20210327_BV1jy4y1t7JZ",
+   "song": "追幸福的人",
+   "tour": "二巡",
+   "city": "宁波",
+   "date": "2021-03-27",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-03-27",
    "level": 1,
    "why": "日期直配"
   },

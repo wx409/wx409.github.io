@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-09T17:07:33",
-  "since": "2026-10-09",
-  "batches": 199,
-  "files": 1977,
-  "gb": 69.47,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1304,
-  "stage_rows": 677,
-  "claimable": 543,
-  "claimable_soft": 271
+  "generated_at": "2026-10-10T09:04:08",
+  "since": "2026-10-10",
+  "batches": 205,
+  "files": 1987,
+  "gb": 69.66,
+  "new_files": 10,
+  "new_mb": 189.8,
+  "stats_total": 1308,
+  "stage_rows": 681,
+  "claimable": 546,
+  "claimable_soft": 272
  },
  "batches": [
   {
@@ -24,12 +24,12 @@
   },
   {
    "batch": "wav",
-   "files": 232,
-   "mb": 10507.9,
+   "files": 236,
+   "mb": 10651.9,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-08"
+   "new_files": 4,
+   "new_mb": 144.1,
+   "newest": "2026-10-10"
   },
   {
    "batch": "wav_分P逐曲",
@@ -734,6 +734,42 @@
    "newest": "2026-09-15"
   },
   {
+   "batch": "月圆花好",
+   "files": 1,
+   "mb": 9.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 9.4,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "红豆",
+   "files": 1,
+   "mb": 9.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 9.4,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "美酒加咖啡",
+   "files": 1,
+   "mb": 9.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 9.4,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "别离的预感",
+   "files": 1,
+   "mb": 9.1,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 9.1,
+   "newest": "2026-10-10"
+  },
+  {
    "batch": "Dear Friend",
    "files": 1,
    "mb": 8.8,
@@ -786,6 +822,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-21"
+  },
+  {
+   "batch": "王牌就是我",
+   "files": 1,
+   "mb": 7.3,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 7.3,
+   "newest": "2026-10-10"
   },
   {
    "batch": "钟爱一生",
@@ -1587,6 +1632,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-26"
+  },
+  {
+   "batch": "追幸福的人",
+   "files": 1,
+   "mb": 1.1,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.1,
+   "newest": "2026-10-10"
   },
   {
    "batch": "定位复核_Besamemucho",

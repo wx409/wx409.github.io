@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-09T17:07:23",
+  "generated_at": "2026-10-10T09:03:56",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 10,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7451,
-  "measured_shows_site": 47,
-  "shows_with_claimable_site": 45,
-  "bv_mapped": 79
+  "files_scanned": 7477,
+  "measured_shows_site": 48,
+  "shows_with_claimable_site": 47,
+  "bv_mapped": 83
  },
  "shows": [
   {
@@ -513,6 +513,26 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1kz4y1y7iD｜别离的预感｜杭州20201114"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "杭州20201114_BV1kz4y1y7iD｜别离的预感"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1kz4y1y7iD"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "杭州20201114_BV1kz4y1y7iD.wav"
+    },
+    {
      "level": 1,
      "src": "路径日期",
      "detail": "二巡杭州20201114__BV1Va411w74z.wav"
@@ -521,19 +541,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "input_ascii.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "vocals.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡杭州20201114__BV1Va411w74z.m4a"
     }
    ],
-   "n_evidence": 4
+   "n_evidence": 18
   },
   {
    "date": "2020-11-21",
@@ -633,6 +643,11 @@
      "detail": "BV1kZ4y1G77g｜一帘幽梦｜广州20201205"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV15y4y1S7ti｜王牌就是我｜广州20201205"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "广州20201205_BV1kZ4y1G77g｜一帘幽梦"
@@ -644,16 +659,11 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1kZ4y1G77g"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "广州20201205_BV1kZ4y1G77g.wav"
+     "src": "站点实测",
+     "detail": "广州20201205_BV15y4y1S7ti｜王牌就是我"
     }
    ],
-   "n_evidence": 32
+   "n_evidence": 46
   },
   {
    "date": "2020-12-19",
@@ -793,6 +803,16 @@
      "detail": "BV1tX4y137U7｜Dear Friend｜上海20210308"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1gA411T7T6｜美酒加咖啡｜上海20210308"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "上海20210308_BV1gA411T7T6｜美酒加咖啡"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "上海20210308_BV1tX4y137U7｜Dear Friend"
@@ -806,19 +826,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "上海20210308_BV1tX4y137U7.m4a"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1tX4y137U7"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "上海20210308_BV1tX4y137U7.wav"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 32
   },
   {
    "date": "2021-03-27",
@@ -833,9 +843,19 @@
      "detail": "BV1Ey4y147Nc｜花儿为什么这样红｜二巡宁波20210327"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1jy4y1t7JZ｜追幸福的人｜宁波20210327"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "二巡宁波20210327_BV1Ey4y147Nc｜花儿为什么这样红"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "宁波20210327_BV1jy4y1t7JZ｜追幸福的人"
     },
     {
      "level": 1,
@@ -846,19 +866,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "二巡宁波20210327_BV1Ey4y147Nc.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Ey4y147Nc"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡宁波20210327_BV1Ey4y147Nc_f0.csv"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 28
   },
   {
    "date": "2021-04-11",
