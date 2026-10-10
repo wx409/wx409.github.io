@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-10 18:16",
+  "timestamp": "2026-10-10 18:26",
   "total": 280447,
   "success": 57198,
   "complete_rate": 20.4,
@@ -178,7 +178,7 @@
     11.5,
     54.8,
     55.6,
-    11.4
+    11.5
   ],
   "listener_labels": [
     "2024-11",
@@ -202893,7 +202893,7 @@
     ],
     "values": [
       116.4,
-      112.6
+      111.8
     ],
     "spring": [
       false,
@@ -210520,13 +210520,13 @@
   "daily_listen_overview": {
     "active_count": 8,
     "total_tracked": 383,
-    "concentration_top3": 73.8,
+    "concentration_top3": 74.8,
     "as_of": "2026-10-10",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-10-10 18:16",
+  "last_update": "2026-10-10 18:26",
   "today_batches": 1256,
   "daily_new_records": 1,
   "recent_7days": [
@@ -210584,17 +210584,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 129,
+      "rows": 130,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4071,
-      "success": 4071,
+      "total": 4072,
+      "success": 4072,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1657291,
+      "before": 1657544,
       "after": 291007
     },
     "index_calibration": {
@@ -210742,7 +210742,7 @@
     "top_listeners": [
       {
         "song": "黎明前的黑暗",
-        "peak": 686
+        "peak": 715
       },
       {
         "song": "在路上",
@@ -210750,7 +210750,7 @@
       },
       {
         "song": "一生中最爱",
-        "peak": 93
+        "peak": 101
       },
       {
         "song": "月弯弯",
@@ -210766,7 +210766,7 @@
       },
       {
         "song": "她真漂亮",
-        "peak": 56
+        "peak": 58
       },
       {
         "song": "再叙",
@@ -210803,7 +210803,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-10 18:16",
+    "generated_at": "2026-10-10 18:26",
     "overview": "共 87 场活动 / 3080 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.2%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
