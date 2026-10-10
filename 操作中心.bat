@@ -2787,7 +2787,8 @@ goto menu
 
 :show_intake
 cls
-echo  [演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）；此处手动补跑/干跑
+echo  [演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）：先收观众反馈（微博+小红书+B站）→ 补开演里程碑/并入待填歌单 → 全站发布+推送
+echo  参数：--no-feedback 跳过反馈｜--feedback-safe 只收 B 站（避风控）｜--no-publish 只登记不发布
 echo  待填歌单：把当晚歌单粘进 E:\wx\index_records\setlist_pending.txt 即可自动并入
 start "" notepad "E:\wx\index_records\setlist_pending.txt"
 cd /d "D:\wx409.github.io"

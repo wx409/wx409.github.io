@@ -101,6 +101,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=dt.date.today().isoformat())
     ap.add_argument("--no-publish", action="store_true")
+    ap.add_argument("--no-feedback", action="store_true",
+                    help="跳过观众反馈收集（默认跑：微博+小红书+B站，feedback_week --full-collect）")
+    ap.add_argument("--feedback-safe", action="store_true",
+                    help="反馈只收 B 站（避开微博/小红书风控）")
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
@@ -124,9 +128,21 @@ def main() -> int:
     rc = 0
     for e in hits:
         title = e.get("title") or ""
+        city = e.get("city") or ""
         key = re.sub(r"[《》\s·、（()）]", "", title)[:4]
+
+        # ① 观众反馈（微博+小红书+B站 → 匿名展示/全文归档/分析/进KB）；--no-push：统一交给最后的 deploy_all 发布
+        if not a.no_feedback and not city:
+            log("   [!] 事件未登记城市，跳过反馈收集（补 city 后重跑即可）")
+        elif not a.no_feedback:
+            fb = [sys.executable, "-X", "utf8", str(ROOT / "project_b" / "feedback_week.py"),
+                  "--date", today, "--city", city, "--no-push"]
+            if not a.feedback_safe:
+                fb.append("--full-collect")
+            rc |= run(fb, "观众反馈收集（%s %s%s）" % (today, city, "，仅B站" if a.feedback_safe else "，微博+小红书+B站"))
+
         cmd = [sys.executable, "-X", "utf8", str(ROOT / "project_b" / "add_show.py"),
-               "--date", today, "--name", title, "--city", e.get("city") or "",
+               "--date", today, "--name", title, "--city", city,
                "--venue", e.get("venue") or "", "--match", key, "--held-date", today]
         pending = read_pending()
         if pending:
