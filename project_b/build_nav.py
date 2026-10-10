@@ -55,7 +55,7 @@ NAV_ITEMS = [
 FOOTER_GROUPS = [
     ("主入口", ["index.html", "works.html", "live.html", "vocal.html",
                 "history.html", "research.html", "community.html"]),
-    ("核心内容", ["live-reviews.html", "discography.html", "songs.html", "timeline.html",
+    ("核心内容", ["live-reviews.html", "discography.html", "songs.html", "dongyan.html", "timeline.html",
                   "data-timeline.html", "story.html", "story-hui-guangzhou-2026.html",
                   "notifications.html"]),
     ("数据", ["dashboard/", "map/", "live/", "live/setlists.html", "data/music-index.html",
@@ -82,6 +82,7 @@ ARCHIVE_PAGES = {
     "discography.html", "songs.html", "live-reviews.html", "live/setlists.html",
     "stage.html", "map/index.html", "city-guides.html", "voice.html", "skill.html",
     "timeline.html", "data-timeline.html", "story.html", "jazz.html",
+    "dongyan.html",
     "culture/index.html", "academic.html", "dashboard/index.html",
     "acoustic-report.html",
     "tavern/index.html", "gallery.html", "submit.html", "search.html",
@@ -103,6 +104,7 @@ LABELS = {
     "robots.txt": "robots.txt", "404.html": "404 页",
     # 完整档案页显示名（底部索引直连用）
     "live-reviews.html": "现场实录", "discography.html": "作品百科",
+    "dongyan.html": "东演合作专区",
     "songs.html": "歌曲库", "timeline.html": "生涯时间轴",
     "data-timeline.html": "数据时间线", "story.html": "数据故事",
     "voice.html": "音域实测", "skill.html": "唱功实测",

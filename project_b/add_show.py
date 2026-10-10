@@ -53,19 +53,57 @@ def hit(text: str, key: str) -> bool:
     return bool(key) and key in (text or "")
 
 
+def norm_setlist(s: str) -> str:
+    """按长表口径规整歌单：、分隔 + canon()，丢弃 <2 或 >24 字的片段（标签不是歌名）。"""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from song_names import canon
+    out = []
+    for x in re.split(r"[、,，;；/\n]+", s or ""):
+        x = x.strip()
+        if 2 <= len(x) <= 24 and not x.isdigit() and x not in out:
+            out.append(canon(x))
+    return "、".join(out)
+
+
 def upsert_xlsx(a, log) -> str:
     import openpyxl
     wb = openpyxl.load_workbook(XLSX)
     ws = wb.active
-    names = [(i, str(r[1] or "")) for i, r in enumerate(ws.iter_rows(min_row=2, values_only=True), start=2)]
-    if any(hit(n, a.key) for _, n in names):
-        return "xlsx: 已存在同名行，跳过"
-    bak = XLSX.with_name("%s.bak_%s" % (XLSX.stem, dt.datetime.now().strftime("%Y%m%d_%H%M")))
-    shutil.copy2(XLSX, bak)
+    hdr = [c.value for c in ws[1]]
+    col = {n: hdr.index(n) + 1 for n in hdr if n}
+
+    def backup():
+        bak = XLSX.with_name("%s.bak_%s" % (XLSX.stem, dt.datetime.now().strftime("%Y%m%d_%H%M")))
+        shutil.copy2(XLSX, bak)
+        return bak.name
+
+    for row in ws.iter_rows(min_row=2):
+        if not hit(str(row[col["演出名称"] - 1].value or ""), a.key):
+            continue
+        cell = row[col["演唱曲目"] - 1]
+        old = str(cell.value or "").strip()
+        if not a.setlist:
+            return "xlsx: 已存在同名行，跳过（无新歌单）"
+        if not old:
+            bak = backup()
+            cell.value = a.setlist
+            wb.save(XLSX)
+            return "xlsx: 回填空的「演唱曲目」（备份 %s）" % bak
+        if a.append_setlist:
+            have = [x for x in old.split("、") if x]
+            add = [x for x in a.setlist.split("、") if x and x not in have]
+            if not add:
+                return "xlsx: 歌单无新增，未改动"
+            cell.value = old + "、" + "、".join(add)
+            wb.save(XLSX)
+            return "xlsx: 并入 %d 首新歌（%s）" % (len(add), "、".join(add[:6]))
+        return "xlsx: 已有「演唱曲目」，未覆盖（第二场加歌请加 --append-setlist）"
+
+    bak = backup()
     seq = max([r[0] for r in ws.iter_rows(min_row=2, max_col=1, values_only=True) if isinstance(r[0], int)] or [0]) + 1
     ws.append([seq, a.name, dt.datetime.fromisoformat(a.date), a.city, a.note or "", a.setlist or ""])
     wb.save(XLSX)
-    return "xlsx: 追加一行（序号 %d），备份 %s" % (seq, bak.name)
+    return "xlsx: 追加一行（序号 %d），备份 %s" % (seq, bak)
 
 
 def upsert_timeline(a, log) -> str:
@@ -73,10 +111,10 @@ def upsert_timeline(a, log) -> str:
     events = data if isinstance(data, list) else data.get("events", [])
     for e in events:
         if hit(e.get("title", ""), a.key):
-            if a.held_date:
-                if "已开演" not in e["title"]:
-                    e["title"] += "（%s 首场已开演）" % a.held_date[5:]
-                e["source"] = (e.get("source") or "") + "；已开演核实"
+            if a.held_dates:
+                tag = "（%s 首场已开演）" % a.held_dates[0][5:] if len(a.held_dates) == 1 else "（已开演 %s）" % "、".join(d[5:] for d in a.held_dates)
+                e["title"] = re.sub(r"（[^）]*已开演[^）]*）", "", e["title"]) + tag
+                e["source"] = re.sub(r"；已开演核实.*$", "", e.get("source") or "") + "；已开演核实"
             return "timeline: 命中已有条目，已更新标题/出处"
     events.append({"date": a.date, "type": a.type, "title": a.name,
                    "source": a.source or "", "stage": a.stage})
@@ -100,11 +138,13 @@ def upsert_lifecycle(a, log) -> str:
               "note": a.note or "", "source_url": a.source or "", "milestones": []}
         evs.append(ev)
         created = True
-    if a.held_date:
-        kinds = {m.get("kind") for m in ev.get("milestones", [])}
-        if "开演" not in kinds:
-            ev.setdefault("milestones", []).append(
-                {"kind": "开演", "date": a.held_date, "source": a.source or "", "source_label": "已开演核实"})
+    if a.held_dates:
+        have = {(m.get("kind"), m.get("date")) for m in ev.get("milestones", [])}
+        for d in a.held_dates:
+            if ("开演", d) not in have:
+                ev.setdefault("milestones", []).append(
+                    {"kind": "开演", "date": d, "source": a.source or "", "source_label": "已开演核实"})
+                created = True
     LIFECYCLE.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     return "lifecycle: %s%s" % ("新登记" if created else "已更新", ev["title"][:24])
 
@@ -139,7 +179,9 @@ def main() -> int:
     p.add_argument("--source", default="")
     p.add_argument("--setlist", default="")
     p.add_argument("--match", default=None, help="命中已有条目的关键字（默认取名称前 4 字）")
-    p.add_argument("--held-date", default=None, help="已开演日期（追加「开演」里程碑，时间轴标题标已开演）")
+    p.add_argument("--held-date", default=None, help="已开演日期（可逗号分隔多场；追加「开演」里程碑，时间轴标题标已开演）")
+    p.add_argument("--append-setlist", action="store_true",
+                   help="把 --setlist 并入已有「演唱曲目」（默认：已有内容则跳过，用于第二场加歌）")
     p.add_argument("--dry", action="store_true")
     p.add_argument("--publish", action="store_true", help="登记后跑 deploy_all.py 全站发布")
     p.add_argument("--selftest", action="store_true")
@@ -151,9 +193,16 @@ def main() -> int:
         p.error("--date 与 --name 必填")
     dt.date.fromisoformat(a.date)
     a.key = match_key(a.name, a.match)
+    a.held_dates = [d.strip() for d in (a.held_date or "").split(",") if d.strip()]
+    for d in a.held_dates:
+        dt.date.fromisoformat(d)
+    a.setlist = norm_setlist(a.setlist)
 
     log = lambda s: print(s, flush=True)
-    log("登记：%s ｜ %s ｜ 关键字命中「%s」" % (a.date, a.name, a.key))
+    log("登记：%s ｜ %s ｜ 关键字命中「%s」%s" % (a.date, a.name, a.key,
+        "｜已开演 %s" % "、".join(a.held_dates) if a.held_dates else ""))
+    if a.setlist:
+        log("歌单规整为 %d 首：%s" % (len(a.setlist.split("、")), a.setlist[:80]))
     if a.dry:
         log("[dry] 不改任何文件")
         return 0

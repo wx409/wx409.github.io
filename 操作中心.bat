@@ -253,6 +253,7 @@ echo    202. [关机档位] 工作日模式：周一~周五 01:30 关机，周末/法定节假日不关机
 echo    203. [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
 echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
 echo    205. [活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）
+echo    206. [东演专区] 重建 dongyan.html（草原之夜 / 沉响与长歌；场次与曲目从活动总表派生）
 echo    0. 退出
 echo.
 set "op="
@@ -462,6 +463,7 @@ if "%op%"=="202" goto power_normal
 if "%op%"=="203" goto power_all
 if "%op%"=="204" goto power_status
 if "%op%"=="205" goto add_show
+if "%op%"=="206" goto dongyan
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2766,5 +2768,16 @@ if not "%mk%"=="" set "MOPT=--match %mk%"
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\add_show.py --date "%d%" --name "%nm%" --city "%city%" --stage 东演 %MOPT% --publish
 echo  补歌单： python -X utf8 project_b\add_show.py --date "%d%" --name "%nm%" --setlist "曲1、曲2"
+pause
+goto menu
+
+
+:dongyan
+cls
+echo  [东演专区] 重建 dongyan.html（草原之夜 / 沉响与长歌；场次与曲目从活动总表派生）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_dongyan_page.py
+python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\audit_jsonld.py
 pause
 goto menu

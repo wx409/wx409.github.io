@@ -45,7 +45,7 @@
 
 - **对外主入口 8 个公开页**：`index.html` `works.html` `live.html` `vocal.html` `history.html`
   `research.html` `community.html`（精简版 7 页）+ `qa.html`（问答库 17 条实质问答，**已按方案 A 扶正为第 8 个公开页**）
-- **完整档案页 25 个**：`index,follow`、在 sitemap、推送 IndexNow，**只在底部全站索引有入口**
+- **完整档案页 26 个**：`index,follow`、在 sitemap、推送 IndexNow，**只在底部全站索引有入口**
   （`voice/stage/skill/academic/dashboard/live-reviews/discography/songs/timeline/…`）
 - **私密/实验区（noindex，不推送）**：`archive-index.html`（完整档案索引）、`kb-semantic.html`、
   `debate/`（争议案例）、`search.html`（工具页）
