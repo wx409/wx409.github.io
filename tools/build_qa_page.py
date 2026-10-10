@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """生成爬虫可读的静态问答页 qa.html（GEO 关键一击）
 
-数据源：`data/qa_bank.json`（16 条实质问答，由 build_kb_graph.py 维护）
+数据源：`data/qa_bank.json`（17 条实质问答，由 build_kb_graph.py 维护）
 产出：`qa.html` —— 真实 HTML（h2 问题 + p 答案）+ **FAQPage JSON-LD** + 纯文本正文。
 
 2026-09-14 改造（对应「qa.html 方案 A」）：
