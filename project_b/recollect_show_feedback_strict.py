@@ -54,6 +54,9 @@ def main():
     ap.add_argument("--city", required=True)
     ap.add_argument("--show", default="沉响与长歌")
     ap.add_argument("--venue", default="天桥")
+    ap.add_argument("--xhs-dirs", default="",
+                    help="小红书 crawler 归档的关键词目录名（逗号分隔），"
+                         "如 沉响与长歌,王晰 天桥；读取 E:\\wx\\私有工具\\xhs_archive\\<目录>\\*")
     ap.add_argument("--drop-neg", action="store_true",
                     help="同时剔除含其他城市/场次反证词的条目（当该条不含本场剧名时）")
     a = ap.parse_args()
@@ -81,6 +84,35 @@ def main():
                              "url": str(r.get("url", "")), "date": a.date})
                 added += 1
             print(f"补挂 B站 title/desc：{added} 条（原聚合器因缺 text 字段整批丢弃）")
+    # 缺陷修补 2：小红书 crawler（xhs_crawler.py）把笔记存到 xhs_archive/<关键词>/<folder>/，
+    # 而聚合器只读「按链接」子目录与全局分类档 → 关键词抓取的结果从未进入单场统计。
+    XHS_ARCH = Path(r"E:\wx\私有工具\xhs_archive")
+    xhs_added = 0
+    for kw_dir in [x.strip() for x in (a.xhs_dirs or "").split(",") if x.strip()]:
+        d0 = XHS_ARCH / kw_dir
+        if not d0.exists():
+            print(f"   （小红书归档目录不存在，跳过：{kw_dir}）")
+            continue
+        for note_dir in sorted(d0.iterdir()):
+            if not note_dir.is_dir():
+                continue
+            ct = note_dir / "content.txt"
+            if not ct.exists():
+                continue
+            txt = ct.read_text(encoding="utf-8", errors="ignore").strip()
+            if not txt:
+                continue
+            try:
+                meta = json.loads((note_dir / "meta.json").read_text(encoding="utf-8"))
+            except Exception:
+                meta = {}
+            pool.append({"platform": "小红书", "text": txt,
+                         "user": str(meta.get("author", "") or meta.get("nickname", "")),
+                         "url": str(meta.get("link", "") or meta.get("url", "")),
+                         "date": a.date, "xhs_kw": kw_dir})
+            xhs_added += 1
+    if xhs_added:
+        print(f"补挂 小红书 crawler 归档：{xhs_added} 条（关键词目录 {a.xhs_dirs}）")
     print(f"聚合池（未收紧）：{len(pool)} 条 | 平台构成 {dict(Counter(i['platform'] for i in pool))}")
 
     kept, dropped = [], []
@@ -123,7 +155,8 @@ def main():
     old_md = OUT_DIR / f"{a.date}_{a.city}.md"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     # 1) 备份旧批次（可回溯）
-    for src, tag in ((old_json, "旧批次_未收紧"), (old_md, "旧批次_未收紧")):
+    for src, tag in ((old_json, "旧批次_未收紧"), (old_md, "旧批次_未收紧"),
+                     (old_json, "v1"), (old_md, "v1")):
         if src.exists():
             bak = OUT_DIR / f"{a.date}_{a.city}_{tag}{src.suffix}"
             if not bak.exists():

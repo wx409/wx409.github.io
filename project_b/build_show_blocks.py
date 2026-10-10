@@ -108,9 +108,15 @@ def main() -> int:
             "dimensions": fb["stats"]["dimensions"], "sentiment": fb["stats"]["sentiment"],
             "song_mentions": fb["stats"]["song_top"][:8],
             "filter": fb["stats"].get("filter", {}),
-            "caveat": "原 104 条批次混入 2026-08-23 六巡广州内容（曲目榜与之重合、代表句带「广州/六巡」），"
-                      "已备份为 *_旧批次_未收紧.*；本批 22 条为收紧后结果，"
-                      "小红书通道因 cookie 过期未采（如实披露）。",
+            "filter_note": (lambda f: (
+                f"聚合池 {f.get('pool_total')} 条 → 保留 {f.get('kept_total')} 条；"
+                f"剔除 {f.get('dropped_total')} 条（原因："
+                + "、".join(f"{k} {v}" for k, v in (f.get("dropped_reasons") or {}).items()) + "）"
+            ))(fb["stats"].get("filter", {})),
+            "caveat": ("本批为「本场关键词收紧」后的结果：必须命中剧名/场馆/日期之一且含主体词，"
+                       "命中他场反证词且无强信号者剔除；旧的两个未收紧批次已备份"
+                       "（*_旧批次_未收紧.*、*_v1.*）可回溯。"
+                       "说明：曲目榜含少量非歌曲词（如节目名）属既有分析器词表问题，读榜时需人工剔除。"),
         },
         "provenance": {"acoustic_md": "原始材料/沉响与长歌_20261009_声学分析_v4.md（本地过程稿）",
                        "method_doc": "docs/场次声学切分与归属方法论_20261010.md",
