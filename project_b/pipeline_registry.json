@@ -5,7 +5,7 @@
  "sources": {
   "menu_items": 200,
   "dispatch": 199,
-  "deploy_steps": 76,
+  "deploy_steps": 77,
   "scheduled_tasks": 6
  },
  "tasks": [
@@ -1796,6 +1796,14 @@
    "deploy_desc": "首页表格（效应注入）",
    "critical": true,
    "path": "D:\\wx409.github.io\\update_index_table.py"
+  },
+  {
+   "script": "build_dongyan_page.py",
+   "menu": 206,
+   "title": "东演合作专区页 dongyan.html",
+   "menu_label": "dongyan",
+   "in_deploy": true,
+   "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_dongyan_page.py"
   }
  ]
 }
