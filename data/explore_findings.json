@@ -83,7 +83,7 @@
      4.97,
      4.85,
      4.79,
-     4.84,
+     4.89,
      4.97
     ]
    },
@@ -173,38 +173,38 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "224 个采集批次、2158 个音频文件、73.67 GB、1324 个逐曲分析产物",
+   "finding": "225 个采集批次、2186 个音频文件、73.69 GB、1324 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-10T17:07:41",
+    "generated_at": "2026-10-10T21:08:01",
     "since": "2026-10-10",
-    "batches": 224,
-    "files": 2158,
-    "gb": 73.67,
-    "new_files": 181,
-    "new_mb": 4301.1,
+    "batches": 225,
+    "files": 2186,
+    "gb": 73.69,
+    "new_files": 209,
+    "new_mb": 4319.9,
     "stats_total": 1324,
     "stage_rows": 697,
     "claimable": 554,
     "claimable_soft": 279
    },
-   "n": 2158,
+   "n": 2186,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
   {
    "cat": "方法·证据强度",
    "question": "现场层的证据强度分布",
-   "finding": "可主张 554 条（音符级 HNR≥5dB+谐波列/人耳）；低信噪告警 371 条；待复核 110 条",
+   "finding": "可主张 559 条（音符级 HNR≥5dB+谐波列/人耳）；低信噪告警 375 条；待复核 111 条",
    "numbers": {
-    "谐波列通过": 505,
-    "待复核（谐波列待判）": 110,
+    "谐波列通过": 510,
+    "待复核（谐波列待判）": 111,
     "人耳确认": 49,
     "人耳否决（非王晰）": 25,
     "不可复核（缺混音/时间）": 5,
     "谐波列通过（HNR 异常，疑分离失败）": 2,
     "未复核": 1
    },
-   "n": 697,
+   "n": 703,
    "caliber": "行级 review_status",
    "confidence": "A 高"
   },
@@ -235,7 +235,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 54、站点层 48",
    "numbers": {
-    "generated_at": "2026-10-10T21:07:48",
+    "generated_at": "2026-10-10T23:39:31",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
@@ -244,10 +244,10 @@
     "L3_中": 0,
     "L4_弱": 10,
     "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-    "files_scanned": 7716,
+    "files_scanned": 7752,
     "measured_shows_site": 48,
     "shows_with_claimable_site": 47,
-    "bv_mapped": 83
+    "bv_mapped": 89
    },
    "n": 64,
    "caliber": "多源匹配（L1–L4 证据级）",

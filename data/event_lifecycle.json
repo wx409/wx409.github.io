@@ -111,6 +111,55 @@
       "delta_pct_post7_vs_pre7": null,
       "delta_pct_post3_vs_pre3": null
      }
+    },
+    {
+     "kind": "开演",
+     "date": "2026-10-10",
+     "source": "",
+     "source_label": "已开演核实",
+     "stats": {
+      "date": "2026-10-10",
+      "windows": {
+       "pre7": {
+        "n_days": 6,
+        "mean_index": 452.5,
+        "median_index": 470.8,
+        "avg_tracked_songs": 10.2,
+        "complete": false
+       },
+       "pre3": {
+        "n_days": 2,
+        "mean_index": 452.6,
+        "median_index": 452.6,
+        "avg_tracked_songs": 9,
+        "complete": false
+       },
+       "d0": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post3": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post7": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       }
+      },
+      "n_days": 1313,
+      "delta_pct_post7_vs_pre7": null,
+      "delta_pct_post3_vs_pre3": null
+     }
     }
    ],
    "future": [
@@ -125,7 +174,7 @@
    ]
   }
  ],
- "generated_at": "2026-10-10 21:08",
+ "generated_at": "2026-10-10 23:39",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
  "index_days_local": 1313
 }

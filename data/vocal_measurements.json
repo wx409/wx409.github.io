@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-10 21:08",
+ "generated_at": "2026-10-10 23:39",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 858,
+  "total": 864,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 700,
+   "tour_live": 706,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 524,
+   "谐波列复核通过": 529,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 121,
+   "待复核（谐波列待判）": 122,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 262
+  "songs": 266
  },
  "rows": [
   {
@@ -12334,6 +12334,41 @@
    }
   },
   {
+   "id": "tour_live|奉献|杭州20260131_BV1HmftBcEWs",
+   "song": "奉献",
+   "version": "杭州20260131_BV1HmftBcEWs",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "source_ref": "BV1HmftBcEWs",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 91.5,
+    "high_note": "C#4",
+    "high_hz": 273.3,
+    "span_octaves": 1.58,
+    "stability_cents": 7.2,
+    "intonation_cents": 25.1,
+    "vibrato_hz": 5.29,
+    "vibrato_cents": 58.0,
+    "density_per_s": 1.41,
+    "hnr_db": 2.9,
+    "duration_s": 113.2
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 103
+   }
+  },
+  {
    "id": "tour_live||20251121205303 0035 无尽的夜里第1遍",
    "song": "",
    "version": "20251121205303 0035 无尽的夜里第1遍",
@@ -12614,6 +12649,76 @@
    }
   },
   {
+   "id": "tour_live|十年|北京20260410_BV1Z2oCBFEuU",
+   "song": "十年",
+   "version": "北京20260410_BV1Z2oCBFEuU",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "source_ref": "BV1Z2oCBFEuU",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 100.5,
+    "high_note": "F4",
+    "high_hz": 339.7,
+    "span_octaves": 1.76,
+    "stability_cents": 6.6,
+    "intonation_cents": 25.2,
+    "vibrato_hz": 5.02,
+    "vibrato_cents": 85.0,
+    "density_per_s": 1.64,
+    "hnr_db": 4.6,
+    "duration_s": 122.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 107
+   }
+  },
+  {
+   "id": "tour_live|Yes or No|杭州20260131_BV1NGFkzLEWZ",
+   "song": "Yes or No",
+   "version": "杭州20260131_BV1NGFkzLEWZ",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "source_ref": "BV1NGFkzLEWZ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 101.3,
+    "high_note": "A#5",
+    "high_hz": 913.6,
+    "span_octaves": 3.17,
+    "stability_cents": 7.9,
+    "intonation_cents": 25.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 91.0,
+    "density_per_s": 2.54,
+    "hnr_db": 5.4,
+    "duration_s": 191.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 88
+   }
+  },
+  {
    "id": "tour_live|爱情转移|广州20250524_BV1bkj3z3Eid",
    "song": "爱情转移",
    "version": "广州20250524_BV1bkj3z3Eid",
@@ -12646,6 +12751,41 @@
    }
   },
   {
+   "id": "tour_live|给电影人的情书|北京20260410_BV1t39DBxEdU",
+   "song": "给电影人的情书",
+   "version": "北京20260410_BV1t39DBxEdU",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "source_ref": "BV1t39DBxEdU",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 105.1,
+    "high_note": "C#4",
+    "high_hz": 277.8,
+    "span_octaves": 1.4,
+    "stability_cents": 7.9,
+    "intonation_cents": 22.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.98,
+    "hnr_db": 9.0,
+    "duration_s": 121.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 110
+   }
+  },
+  {
    "id": "tour_live|无尽的夜里|南昌20241229_BV1Vc6vYhEXj",
    "song": "无尽的夜里",
    "version": "南昌20241229_BV1Vc6vYhEXj",
@@ -12675,6 +12815,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 197
+   }
+  },
+  {
+   "id": "tour_live|给电影人的情书|北京20260410_BV1ZSDQBqExx",
+   "song": "给电影人的情书",
+   "version": "北京20260410_BV1ZSDQBqExx",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "北京",
+   "date": "2026-04-10",
+   "source_ref": "BV1ZSDQBqExx",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.3,
+    "high_note": "B5",
+    "high_hz": 970.0,
+    "span_octaves": 3.14,
+    "stability_cents": 3.6,
+    "intonation_cents": 18.2,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 54.0,
+    "density_per_s": 1.45,
+    "hnr_db": 3.5,
+    "duration_s": 123.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 63
    }
   },
   {
@@ -12780,6 +12955,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 159
+   }
+  },
+  {
+   "id": "tour_live|奉献|杭州20260131_BV1sAFLziEfK",
+   "song": "奉献",
+   "version": "杭州20260131_BV1sAFLziEfK",
+   "layer": "tour_live",
+   "tour": "五巡",
+   "city": "杭州",
+   "date": "2026-01-31",
+   "source_ref": "BV1sAFLziEfK",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 113.3,
+    "high_note": "C#4",
+    "high_hz": 272.7,
+    "span_octaves": 1.27,
+    "stability_cents": 4.0,
+    "intonation_cents": 28.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 48.0,
+    "density_per_s": 0.92,
+    "hnr_db": 0.2,
+    "duration_s": 114.6
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 114
    }
   },
   {

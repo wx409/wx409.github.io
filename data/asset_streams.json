@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-10-10 21:07",
+ "generated_at": "2026-10-10 23:39",
  "streams": [
   {
    "stream": "声学·现场层",
    "source": "data/archive_stage_tour.json",
-   "n": 697,
+   "n": 703,
    "latest": "2026-10-10",
    "lag_days": 0,
    "new_7d": null,
@@ -14,12 +14,12 @@
   {
    "stream": "声学·音频资产",
    "source": "data/audio_assets.json",
-   "n": 2158,
+   "n": 2186,
    "latest": "2026-10-10",
    "lag_days": 0,
-   "new_7d": 181,
+   "new_7d": 209,
    "gap": "在积攒",
-   "note": "本日新增 181 个"
+   "note": "本日新增 209 个"
   },
   {
    "stream": "指数·每日指数",
@@ -104,12 +104,12 @@
   {
    "stream": "知识库·实体",
    "source": "data/kb/manifest.json",
-   "n": 1665,
+   "n": 1666,
    "latest": "2026-10-10",
    "lag_days": 0,
    "new_7d": null,
    "gap": "随内容更新",
-   "note": "事实 1729｜关系 2313｜语声集 157"
+   "note": "事实 1734｜关系 2313｜语声集 157"
   },
   {
    "stream": "知识库·问答库",
