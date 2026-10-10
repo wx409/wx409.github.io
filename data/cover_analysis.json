@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-10T12:54:53",
+ "generated_at": "2026-10-10T14:08:13",
  "stat": {
-  "generated_at": "2026-10-10T12:54:52",
+  "generated_at": "2026-10-10T14:08:12",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -256,6 +256,15 @@
     "low_cv": 0.1654
    },
    {
+    "song": "小毛驴",
+    "versions": 5,
+    "low_median": 86.4,
+    "low_iqr": 37.9,
+    "low_range": 51.9,
+    "high_median": 867.8,
+    "low_cv": 0.2166
+   },
+   {
     "song": "心动",
     "versions": 5,
     "low_median": 97.1,
@@ -283,6 +292,15 @@
     "low_cv": 0.2214
    },
    {
+    "song": "哭砂",
+    "versions": 5,
+    "low_median": 80.7,
+    "low_iqr": 7.2,
+    "low_range": 19.4,
+    "high_median": 485.6,
+    "low_cv": 0.0892
+   },
+   {
     "song": "我要你",
     "versions": 5,
     "low_median": 78.1,
@@ -299,15 +317,6 @@
     "low_range": 0.6,
     "high_median": 706.4,
     "low_cv": 0.0031
-   },
-   {
-    "song": "小毛驴",
-    "versions": 4,
-    "low_median": 102.0,
-    "low_iqr": 41.4,
-    "low_range": 51.9,
-    "high_median": 824.8,
-    "low_cv": 0.2272
    },
    {
     "song": "静止了的夜晚",
@@ -335,15 +344,6 @@
     "low_range": 19.6,
     "high_median": 750.3,
     "low_cv": 0.0937
-   },
-   {
-    "song": "哭砂",
-    "versions": 4,
-    "low_median": 82.7,
-    "low_iqr": 7.8,
-    "low_range": 19.4,
-    "high_median": 463.5,
-    "low_cv": 0.0989
    },
    {
     "song": "情网",
@@ -477,9 +477,9 @@
  },
  "register_adapt": {
   "own_live_low_median": 82.2,
-  "cover_live_low_median": 86.2,
+  "cover_live_low_median": 86.4,
   "own_n": 27,
-  "cover_n": 146,
+  "cover_n": 159,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
