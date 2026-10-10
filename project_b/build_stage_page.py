@@ -368,6 +368,73 @@ def cross_section() -> str:
 ③ 跨来源不做「谁更准/谁更稳」的结论；④ 标注「待核」的 QQ 版本疑为粉丝上传，仅作交叉核对。
 </div>'''
 
+def show_blocks_section() -> str:
+    """双人场次块级小节（2026-10-10）：数据源 data/archive_stage_tour.json 的 show_blocks
+    （由 data/show_blocks/*.json 经 project_b/inject_show_blocks.py 注入）。
+
+    口径（见 data/calibers.md「场次音频切分与歌手归属」）：只写「人耳确认该段有谁的人声」+
+    块级**分布型**指标；**极值音（最低/最高稳定音）及其归属一律不写**。
+    """
+    try:
+        _sh = json.loads(TOUR.read_text(encoding="utf-8"))
+    except Exception:
+        _sh = {}
+    shows = _sh.get("show_blocks") or []
+    if not shows:
+        return ""
+    out = []
+    for sh in shows:
+        s0 = sh.get("show") or {}
+        b = sh.get("budget") or {}
+        be = sh.get("budget_extra") or {}
+        bl = sh.get("blocks") or []
+        n_ok = sum(1 for x in bl if x.get("in_stats"))
+        rows = []
+        for x in bl:
+            nm = x.get("song", "待核")
+            tag = "" if (x.get("song_status") == "已确证" or nm == "待核") else '<sup>待核</sup>'
+            rows.append(
+                f'<tr><td>b{x["no"]:02d}</td><td>{esc(x["who_confirmed"])}</td>'
+                f'<td>{esc(x["t0_hms"])}–{esc(x["t1_hms"])}</td><td>{x["dur_s"]:.0f}s</td>'
+                f'<td>{esc(nm)}{tag}</td>'
+                f'<td>{esc(x["f0_median_note"])}</td><td>{x["stability_cents_median"]}</td>'
+                f'<td>{x["intonation_cents_median"]}</td>'
+                f'<td>{x["vibrato_hz_median"]}/{x["vibrato_cents_median"]:.0f}</td>'
+                f'<td>{x["density_per_s"]}</td><td>{x["low_ratio_db"]:+.1f}</td>'
+                f'<td>{x["hnr_db_median"]}</td>'
+                f'<td>{"✅" if x.get("in_stats") else "—"}</td></tr>')
+        fb = sh.get("feedback") or {}
+        out.append(f'''<h2>一之二、双人场次（块级）：{esc(s0.get("name",""))}</h2>
+<div class="hl">
+<strong>{esc(s0.get("date",""))}｜{esc(s0.get("venue",""))}｜{esc(s0.get("organizer",""))}｜{esc(s0.get("cast",""))}</strong><br>
+全场 {b.get("total",0)/60:.0f} 分钟：<strong>演唱 {b.get("sing_total",0):.0f}s（{b.get("sing_pct",0)}%）</strong>；
+非演唱/未定 {b.get("nonsing_total",0):.0f}s（其中重叠合唱 {be.get("overlap_dur_s",0):.0f}s 不可归属、
+观众唱 {be.get("audience_sing_s",0):.0f}s、口哨等非演唱发声 {be.get("whistle_s",0):.0f}s）。
+共 <strong>{len(bl)} 个演唱块</strong>（进统计 {n_ok}：王晰 {sh.get("n_in_stats",{}).get("wang","—")}、
+傲日其愣 {sh.get("n_in_stats",{}).get("aori","—")}），块级指标为该块**人声轨的分布型统计**。
+</div>
+<div class="method">
+<strong>本层为什么只写「谁在唱」与分布型指标：</strong>本场是双人场次且素材为观众手机实录，
+<strong>极值音（最低/最高稳定音）的歌手归属不可判定</strong>（8 秒片段只能证明「该窗内有人声/是谁」）；
+故本表<strong>不列最低音/最高音、不作音域主张</strong>。口径见
+<code>data/calibers.md</code>「场次音频切分与歌手归属」，方法见
+<code>docs/场次声学切分与归属方法论_20261010.md</code>。
+</div>
+<table>
+<tr><th>块</th><th>谁在唱<sup>人耳</sup></th><th>时间</th><th>时长</th><th>曲目</th>
+<th>F0 中位</th><th>稳定性(c)</th><th>音准(c)</th><th>颤音(Hz/c)</th><th>密度(/s)</th>
+<th>低频占比(dB)</th><th>HNR(dB)</th><th>进统计</th></tr>
+{"".join(rows)}
+</table>
+<div class="card"><strong>观众反馈（本场关键词收紧后）：</strong>
+{fb.get("total","—")} 条（{ "、".join(f"{k} {v}" for k, v in (fb.get("platforms") or {}).items()) }）；
+情感：正面 {(fb.get("sentiment") or {}).get("pos","—")} / 中性 {(fb.get("sentiment") or {}).get("neu","—")} /
+负面 {(fb.get("sentiment") or {}).get("neg","—")}。<br>
+<span class="caveat">{esc(fb.get("caveat",""))}</span></div>
+''')
+    return "\n".join(out)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -496,6 +563,7 @@ def main() -> None:
         for x in (rp, faq)
     )
 
+    show_blocks_html = show_blocks_section()
     cross_html = cross_section()
     flagged = s.get("lowest_flagged") or []
     flag_html = ""
@@ -571,6 +639,8 @@ def main() -> None:
 {_TIER_BLOCK}
 
 {tour_html}
+
+{show_blocks_html}
 
 <div class="hl">
 <strong>他人主导层的声学画像：</strong>可信最低稳定音 <strong>{esc(s['lowest']['note'])}（{s['lowest']['hz']} Hz，《{esc(s['lowest']['title'])}》）</strong>；
