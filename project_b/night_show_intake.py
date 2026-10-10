@@ -30,6 +30,25 @@ ROOT = Path(__file__).resolve().parent.parent
 LIFECYCLE = ROOT / "data" / "event_lifecycle.json"
 PENDING = Path(r"E:\wx\index_records\setlist_pending.txt")
 LOG = ROOT / "temp" / "night_show_intake.log"
+TEMPLATE = ("# 演出夜待填歌单 —— 每晚 23:30 由计划任务 wx409_show_intake 读取\n"
+            "# 用法：把当晚歌单粘到本文件末尾即可（曲名用「、」或逗号分隔，多行也行）\n"
+            "# 「#」开头的行会被忽略；处理完本文件会归档为 setlist_pending.txt.done_<日期>，并重建本模板\n"
+            "# 例：嘎达梅林、忘不了、Your Man\n")
+
+
+def read_pending() -> str:
+    """只取非注释行（# 开头忽略），别的都不管。"""
+    if not PENDING.exists():
+        return ""
+    lines = [x for x in PENDING.read_text(encoding="utf-8").splitlines()
+             if x.strip() and not x.lstrip().startswith("#")]
+    return "\n".join(lines).strip()
+
+
+def ensure_pending() -> None:
+    if not PENDING.exists():
+        PENDING.parent.mkdir(parents=True, exist_ok=True)
+        PENDING.write_text(TEMPLATE, encoding="utf-8")
 
 
 def log(msg: str) -> None:
@@ -100,6 +119,7 @@ def main() -> int:
     if a.dry:
         log("[dry] 不改任何文件")
         return 0
+    ensure_pending()
 
     rc = 0
     for e in hits:
@@ -108,14 +128,15 @@ def main() -> int:
         cmd = [sys.executable, "-X", "utf8", str(ROOT / "project_b" / "add_show.py"),
                "--date", today, "--name", title, "--city", e.get("city") or "",
                "--venue", e.get("venue") or "", "--match", key, "--held-date", today]
-        if PENDING.exists():
-            txt = PENDING.read_text(encoding="utf-8").strip()
-            if txt:
-                cmd += ["--setlist", txt, "--append-setlist"]
-                log("   待填歌单已读取（%d 字符）" % len(txt))
+        pending = read_pending()
+        if pending:
+            cmd += ["--setlist", pending, "--append-setlist"]
+            log("   待填歌单已读取（%d 字符）" % len(pending))
         rc |= run(cmd, "演出登记：%s" % title[:24])
-        if PENDING.exists() and PENDING.read_text(encoding="utf-8").strip():
+        if pending:
             PENDING.rename(PENDING.with_name(PENDING.name + ".done_" + today))
+            ensure_pending()
+            log("   待填歌单已归档为 .done_%s，并重建空模板" % today)
 
     if not a.no_publish:
         rc |= run([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "deploy_all.py")], "全站发布 deploy_all")

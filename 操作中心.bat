@@ -2789,6 +2789,7 @@ goto menu
 cls
 echo  [演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）；此处手动补跑/干跑
 echo  待填歌单：把当晚歌单粘进 E:\wx\index_records\setlist_pending.txt 即可自动并入
+start "" notepad "E:\wx\index_records\setlist_pending.txt"
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\night_show_intake.py --dry
 python -X utf8 project_b\night_show_intake.py
