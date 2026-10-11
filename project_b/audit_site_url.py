@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""换域回归守卫：全站生成产物 grep 硬编码域名，命中即 fail（site_url.py 自身除外）。
+"""换域回归守卫（**边界**：只扫生成器源码 project_b/*.py 与 tools/*.py——生成页天然含 canonical/og:url 域名，那是产物不是硬编码，**禁止改成全站扫描**）：全站生成产物 grep 硬编码域名，命中即 fail（site_url.py 自身除外）。
 
 为什么：换域应「改一处」（project_b/site_url.py）。历史生成器有约 30 处硬编码
 `https://wx409.github.io`，新生成器再写死就会让换域重新变成几十处修改。
