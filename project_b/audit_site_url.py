@@ -13,7 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DOMAIN = "wx409.github.io"
 EXEMPT = {"site_url.py", "audit_site_url.py"}
-SCAN_EXT = {".html", ".js", ".json", ".xml", ".txt", ".md"}
+# 只扫「生成器源码」：生成页天然含 canonical/og:url 域名（那是产物，不是硬编码）
+SCAN_GLOBS = ("project_b/*.py", "tools/*.py")
 SKIP_DIRS = {".git", "node_modules", "temp", "docs", ".dsh", "logs", "assets"}
 # 第三方/存档类产物（微博快照等）不在「换域改一处」的范围内
 SKIP_SUBSTR = ("live/weibo-snap/", "live/archive/", "chat/")
@@ -21,8 +22,11 @@ SKIP_SUBSTR = ("live/weibo-snap/", "live/archive/", "chat/")
 
 def main() -> int:
     hits = []
-    for p in sorted(ROOT.rglob("*")):
-        if not p.is_file() or p.suffix.lower() not in SCAN_EXT:
+    cand = []
+    for g in SCAN_GLOBS:
+        cand += sorted(ROOT.glob(g))
+    for p in cand:
+        if not p.is_file():
             continue
         relposix = p.relative_to(ROOT).as_posix()
         if any(part in SKIP_DIRS for part in p.parts):
