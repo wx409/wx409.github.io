@@ -59,7 +59,9 @@ FOOTER_GROUPS = [
                   "data-timeline.html", "story.html", "story-hui-guangzhou-2026.html",
                   "notifications.html"]),
     ("数据", ["dashboard/", "map/", "live/", "live/setlists.html", "data/music-index.html",
-              "data/calibers.md", "data/kb/kb_digest.md"]),
+              "data/calibers.md", "data/kb/kb_digest.md",
+              # 检索意图视图（2026-10-11 新增；只加视图，不动已有 URL）
+              "index-by-song.html", "index-by-event.html", "index-by-question.html"]),
     ("声学·内容", ["topic-vibrato.html", "voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
                     "tavern/"]),
@@ -91,6 +93,7 @@ ARCHIVE_PAGES = {
     "tavern/index.html", "gallery.html", "submit.html", "search.html",
     "story-hui-guangzhou-2026.html",
     "topic-vibrato.html",
+    "index-by-song.html", "index-by-event.html", "index-by-question.html",
 }
 ROBOTS_INDEX = '<meta name="robots" content="index, follow">'
 
@@ -105,6 +108,8 @@ LABELS = {
     "data/kb/kb_digest.md": "知识库摘要", "data/calibers.md": "口径登记表（数字字典）",
     "feed.xml": "RSS 订阅", "sitemap.xml": "站点地图", "llms.txt": "AI 摘要（llms.txt）",
     "robots.txt": "robots.txt", "404.html": "404 页",
+    "index-by-song.html": "按歌索引", "index-by-event.html": "按事件索引",
+    "index-by-question.html": "按问题索引",
     # 完整档案页显示名（底部索引直连用）
     "live-reviews.html": "现场实录", "discography.html": "作品百科",
     "dongyan.html": "东演合作专区",
