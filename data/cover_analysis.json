@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-11T21:08:11",
+ "generated_at": "2026-10-12T00:13:20",
  "stat": {
-  "generated_at": "2026-10-11T21:08:10",
+  "generated_at": "2026-10-12T00:13:19",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 34,
+  "songs_with_3plus": 37,
   "rows": [
    {
     "song": "佛山全场",
@@ -202,6 +202,15 @@
     "low_cv": 0.0636
    },
    {
+    "song": "像雾像雨又像风",
+    "versions": 10,
+    "low_median": 96.0,
+    "low_iqr": 26.0,
+    "low_range": 37.5,
+    "high_median": 326.2,
+    "low_cv": 0.145
+   },
+   {
     "song": "花儿为什么这样红",
     "versions": 9,
     "low_median": 72.7,
@@ -218,15 +227,6 @@
     "low_range": 73.4,
     "high_median": 857.3,
     "low_cv": 0.2729
-   },
-   {
-    "song": "像雾像雨又像风",
-    "versions": 9,
-    "low_median": 104.0,
-    "low_iqr": 21.9,
-    "low_range": 37.5,
-    "high_median": 326.2,
-    "low_cv": 0.1393
    },
    {
     "song": "一生守候",
@@ -319,6 +319,15 @@
     "low_cv": 0.0031
    },
    {
+    "song": "匆匆",
+    "versions": 4,
+    "low_median": 104.9,
+    "low_iqr": 13.2,
+    "low_range": 13.3,
+    "high_median": 565.4,
+    "low_cv": 0.0632
+   },
+   {
     "song": "静止了的夜晚",
     "versions": 4,
     "low_median": 65.8,
@@ -371,6 +380,15 @@
     "low_range": 23.4,
     "high_median": 857.8,
     "low_cv": 0.1138
+   },
+   {
+    "song": "茕茕",
+    "versions": 3,
+    "low_median": 75.0,
+    "low_iqr": 7.0,
+    "low_range": 14.0,
+    "high_median": 776.3,
+    "low_cv": 0.0769
    },
    {
     "song": "王牌就是我",
@@ -445,6 +463,15 @@
     "low_cv": 0.009
    },
    {
+    "song": "全场_第二场",
+    "versions": 3,
+    "low_median": 118.4,
+    "low_iqr": 32.8,
+    "low_range": 65.6,
+    "high_median": 918.1,
+    "low_cv": 0.2524
+   },
+   {
     "song": "亲密爱人",
     "versions": 3,
     "low_median": 82.2,
@@ -472,14 +499,14 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1112,
+  "low_cv_median": 0.1097,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 82.2,
-  "cover_live_low_median": 86.4,
+  "cover_live_low_median": 86.9,
   "own_n": 27,
-  "cover_n": 163,
+  "cover_n": 165,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-11T21:08:07",
-  "since": "2026-10-11",
-  "batches": 230,
-  "files": 2241,
-  "gb": 73.97,
-  "new_files": 43,
-  "new_mb": 148.0,
-  "stats_total": 1330,
-  "stage_rows": 703,
-  "claimable": 559,
-  "claimable_soft": 282
+  "generated_at": "2026-10-12T00:13:17",
+  "since": "2026-10-12",
+  "batches": 233,
+  "files": 2255,
+  "gb": 74.27,
+  "new_files": 0,
+  "new_mb": 0.0,
+  "stats_total": 1340,
+  "stage_rows": 713,
+  "claimable": 569,
+  "claimable_soft": 287
  },
  "batches": [
   {
@@ -24,11 +24,11 @@
   },
   {
    "batch": "wav",
-   "files": 261,
-   "mb": 12210.7,
+   "files": 269,
+   "mb": 12487.6,
    "stats": 0,
-   "new_files": 3,
-   "new_mb": 91.3,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-11"
   },
   {
@@ -419,6 +419,15 @@
    "newest": "2026-10-10"
   },
   {
+   "batch": "像雾像雨又像风",
+   "files": 6,
+   "mb": 43.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
    "batch": "static_night_320k.wav",
    "files": 1,
    "mb": 43.4,
@@ -450,8 +459,8 @@
    "files": 2,
    "mb": 40.7,
    "stats": 0,
-   "new_files": 2,
-   "new_mb": 40.7,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-11"
   },
   {
@@ -471,15 +480,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-16"
-  },
-  {
-   "batch": "像雾像雨又像风",
-   "files": 5,
-   "mb": 36.9,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-19"
   },
   {
    "batch": "_zp2_tmp",
@@ -765,8 +765,8 @@
    "files": 37,
    "mb": 12.5,
    "stats": 0,
-   "new_files": 37,
-   "new_mb": 12.5,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-11"
   },
   {
@@ -959,6 +959,15 @@
    "newest": "2026-09-21"
   },
   {
+   "batch": "匆匆",
+   "files": 2,
+   "mb": 8.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
    "batch": "敕勒歌",
    "files": 2,
    "mb": 8.0,
@@ -1074,6 +1083,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-24"
+  },
+  {
+   "batch": "后会无期",
+   "files": 1,
+   "mb": 6.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
   },
   {
    "batch": "凄美地",
@@ -1200,6 +1218,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-17"
+  },
+  {
+   "batch": "City of Stars",
+   "files": 2,
+   "mb": 5.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
   },
   {
    "batch": "我很好",
@@ -1458,8 +1485,8 @@
    "files": 1,
    "mb": 3.5,
    "stats": 0,
-   "new_files": 1,
-   "new_mb": 3.5,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-11"
   },
   {
@@ -1742,6 +1769,15 @@
    "newest": "2026-09-23"
   },
   {
+   "batch": "茕茕",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
    "batch": "敖包相会",
    "files": 1,
    "mb": 2.1,
@@ -1776,15 +1812,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-11"
-  },
-  {
-   "batch": "City of Stars",
-   "files": 1,
-   "mb": 1.9,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-28"
   },
   {
    "batch": "情歌",

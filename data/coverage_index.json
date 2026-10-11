@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-10-11T21:07:55",
+  "generated_at": "2026-10-12T00:13:02",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 47,
+  "L1_精确": 48,
   "L2_强": 7,
   "L3_中": 0,
-  "L4_弱": 10,
+  "L4_弱": 9,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7764,
-  "measured_shows_site": 48,
-  "shows_with_claimable_site": 47,
-  "bv_mapped": 89
+  "files_scanned": 7820,
+  "measured_shows_site": 49,
+  "shows_with_claimable_site": 48,
+  "bv_mapped": 95
  },
  "shows": [
   {
@@ -558,6 +558,11 @@
      "detail": "BV17A411x7fH｜全场｜二巡佛山20201121"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Zs4y1G7do｜匆匆｜佛山20201121"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "二巡佛山20201121_p01_【王晰】2020个人巡回音乐会 11.21佛山场 p01 01 花儿为｜佛山全场"
@@ -576,14 +581,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "二巡佛山20201121_p15_【王晰】2020个人巡回音乐会 11.21佛山场 p15 15 慢慢组｜佛山全场"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "二巡佛山20201121_p11_【王晰】2020个人巡回音乐会 11.21佛山场 p11 11 唠嗑了｜佛山全场"
     }
    ],
-   "n_evidence": 231
+   "n_evidence": 245
   },
   {
    "date": "2020-11-29",
@@ -648,6 +648,11 @@
      "detail": "BV15y4y1S7ti｜王牌就是我｜广州20201205"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV14Z4y1g7CD｜像雾像雨又像风｜广州20201205"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "广州20201205_BV1kZ4y1G77g｜一帘幽梦"
@@ -655,15 +660,10 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "广州20201205_BV1wp4y1676f｜歌颂"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "广州20201205_BV15y4y1S7ti｜王牌就是我"
+     "detail": "广州20201205_BV14Z4y1g7CD｜像雾像雨又像风"
     }
    ],
-   "n_evidence": 46
+   "n_evidence": 60
   },
   {
    "date": "2020-12-19",
@@ -713,6 +713,26 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1dCy8YcEKo｜匆匆｜长沙20210109"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "长沙20210109_BV1dCy8YcEKo｜匆匆"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1dCy8YcEKo"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "长沙20210109_BV1dCy8YcEKo.wav"
+    },
+    {
      "level": 1,
      "src": "路径日期",
      "detail": "二巡长沙20210109__BV1Ez4y167ce.wav"
@@ -721,19 +741,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "input_ascii.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "vocals.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡长沙20210109__BV1Ez4y167ce.m4a"
     }
    ],
-   "n_evidence": 4
+   "n_evidence": 18
   },
   {
    "date": "2021-01-10",
@@ -746,6 +756,16 @@
      "level": 2,
      "src": "来源台账",
      "detail": "BV1hS4y197kb｜等一等昨天｜武汉20210110"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1xo4y1R7x7｜茕茕｜武汉20210110"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "武汉20210110_BV1xo4y1R7x7｜茕茕"
     },
     {
      "level": 1,
@@ -761,34 +781,49 @@
      "level": 1,
      "src": "路径日期",
      "detail": "武汉20210110_BV1hS4y197kb.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1hS4y197kb"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "武汉20210110_BV1hS4y197kb_f0.csv"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 28
   },
   {
    "date": "2021-03-07",
    "city": "上海",
    "tour": "二巡",
    "songs": 22,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "412 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Gr421F7at｜City of Stars｜上海20210307"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Gr421F7at"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20210307_BV1Gr421F7at.m4a"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Gr421F7at"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "上海20210307_BV1Gr421F7at.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Gr421F7at"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 9
   },
   {
    "date": "2021-03-08",
@@ -808,6 +843,16 @@
      "detail": "BV1gA411T7T6｜美酒加咖啡｜上海20210308"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1hjB4YhEN7｜后会无期｜上海20210308"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "上海20210308_BV1hjB4YhEN7｜后会无期"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "上海20210308_BV1gA411T7T6｜美酒加咖啡"
@@ -816,19 +861,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "上海20210308_BV1tX4y137U7｜Dear Friend"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1tX4y137U7"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "上海20210308_BV1tX4y137U7.m4a"
     }
    ],
-   "n_evidence": 32
+   "n_evidence": 46
   },
   {
    "date": "2021-03-27",

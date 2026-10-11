@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-11T21:07:55",
-  "rows": 703,
+  "generated_at": "2026-10-12T00:13:02",
+  "rows": 713,
   "levels": {
-   "L1": 322,
+   "L1": 327,
    "L6": 26,
    "L3": 34,
    "L4": 2,
-   "未认领": 319
+   "未认领": 324
   },
-  "shows_with_material": 48,
-  "shows_with_claimable": 47,
+  "shows_with_material": 49,
+  "shows_with_claimable": 48,
   "shows_total": 64
  },
  "per_show": {
@@ -42,31 +42,35 @@
    "n": 1,
    "claimable": 1
   },
+  "2021-03-08": {
+   "n": 3,
+   "claimable": 2
+  },
   "2021-04-11": {
    "n": 6,
    "claimable": 5
   },
   "2020-11-21": {
-   "n": 33,
-   "claimable": 31
+   "n": 34,
+   "claimable": 32
   },
   "2021-03-27": {
    "n": 2,
    "claimable": 1
   },
   "2020-12-05": {
-   "n": 3,
-   "claimable": 3
-  },
-  "2021-03-08": {
-   "n": 2,
-   "claimable": 1
+   "n": 4,
+   "claimable": 4
   },
   "2020-12-19": {
    "n": 2,
    "claimable": 1
   },
   "2021-01-10": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2021-01-09": {
    "n": 1,
    "claimable": 1
   },
@@ -893,6 +897,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "上海20210308_BV1hjB4YhEN7",
+   "song": "后会无期",
+   "tour": "二巡",
+   "city": "上海",
+   "date": "2021-03-08",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": "2021-03-08",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "20210411 王晰二巡南京收官站全场__BV__P01_20210411 王晰二巡南京收官站上半场",
    "song": "",
    "tour": "二巡",
@@ -1061,6 +1077,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "广州20201205_BV14Z4y1g7CD",
+   "song": "像雾像雨又像风",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-12-05",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡佛山20201121_p13_【王晰】2020个人巡回音乐会 11.21佛山场 p13 13 如果云",
    "song": "佛山全场",
    "tour": "二巡",
@@ -1105,6 +1133,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2020-12-19",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "武汉20210110_BV1xo4y1R7x7",
+   "song": "茕茕",
+   "tour": "二巡",
+   "city": "武汉",
+   "date": "2021-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-01-10",
    "level": 1,
    "why": "日期直配"
   },
@@ -1369,6 +1409,30 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2021-04-11",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "佛山20201121_BV1Zs4y1G7do",
+   "song": "匆匆",
+   "tour": "二巡",
+   "city": "佛山",
+   "date": "2020-11-21",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-11-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "长沙20210109_BV1dCy8YcEKo",
+   "song": "匆匆",
+   "tour": "二巡",
+   "city": "长沙",
+   "date": "2021-01-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-01-09",
    "level": 1,
    "why": "日期直配"
   },
@@ -4985,6 +5049,18 @@
    "why": ""
   },
   {
+   "tag": "沉响与长歌20261010_BV1ZppG6sEEr",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "【王晰】2021全国个人巡回音乐会-长沙站  全__P01_上半场",
    "song": "",
    "tour": "其他演出",
@@ -7901,6 +7977,30 @@
    "why": ""
   },
   {
+   "tag": "沉响与长歌20261010_双人_BV1tEp36uEoM",
+   "song": "Love is over",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "沉响与长歌20261010_双人_BV1tEp36uEoM",
+   "song": "Love is over",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "07友谊地久天长",
    "song": "",
    "tour": "其他演出",
@@ -8261,6 +8361,18 @@
    "why": ""
   },
   {
+   "tag": "沉响与长歌20261010_p2_BV1Mypv6zECb",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》",
    "song": "",
    "tour": "签唱会",
@@ -8559,6 +8671,18 @@
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "沉响与长歌20261010_p2_BV1Mypv6zECb",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P09_9.1虚假的点歌流程1",
