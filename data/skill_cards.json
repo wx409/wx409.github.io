@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-11 00:12",
+ "generated_at": "2026-10-11 09:07",
  "pool_size": 852,
  "policy": {
   "rotation": "按日期序数取模（确定性：同一天任意次运行结果一致）",
@@ -26,7 +26,7 @@
   "index": 365,
   "pool_size": 852,
   "date": "2026-10-11",
-  "generated_at": "2026-10-11 00:12"
+  "generated_at": "2026-10-11 09:07"
  },
  "recent": [
   {
@@ -47,7 +47,7 @@
    "index": 365,
    "pool_size": 852,
    "date": "2026-10-11",
-   "generated_at": "2026-10-11 00:12"
+   "generated_at": "2026-10-11 09:07"
   },
   {
    "key": "tour:四巡上海20231231_v17",
@@ -1358,7 +1358,7 @@
    "index": 365,
    "pool_size": 852,
    "date": "2026-10-11",
-   "generated_at": "2026-10-11 00:12"
+   "generated_at": "2026-10-11 09:07"
   }
  ]
 }
