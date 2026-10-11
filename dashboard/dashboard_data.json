@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-11 18:46",
+  "timestamp": "2026-10-11 18:56",
   "total": 280700,
   "success": 57211,
   "complete_rate": 20.4,
@@ -178,7 +178,7 @@
     11.5,
     54.8,
     55.6,
-    12.4
+    12.5
   ],
   "listener_labels": [
     "2024-11",
@@ -201311,7 +201311,7 @@
         24.2,
         18.8,
         24.3,
-        17.7,
+        25.9,
         19.9,
         19.6,
         31.2,
@@ -201575,7 +201575,7 @@
       "哭砂"
     ],
     "values": [
-      117.8
+      118.1
     ],
     "spring": [
       false
@@ -209199,15 +209199,15 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 6,
+    "active_count": 7,
     "total_tracked": 383,
-    "concentration_top3": 82.5,
+    "concentration_top3": 79.2,
     "as_of": "2026-10-11",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-10-11 18:46",
+  "last_update": "2026-10-11 18:56",
   "today_batches": 1257,
   "daily_new_records": 0,
   "recent_7days": [
@@ -209269,13 +209269,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4094,
-      "success": 4094,
+      "total": 4095,
+      "success": 4095,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1663110,
+      "before": 1663363,
       "after": 291260
     },
     "index_calibration": {
@@ -209478,7 +209478,7 @@
       },
       {
         "song": "哭砂",
-        "peak": 27
+        "peak": 28
       },
       {
         "song": "谁",
@@ -209491,7 +209491,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-11 18:46",
+    "generated_at": "2026-10-11 18:56",
     "overview": "共 88 场活动 / 3090 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 +0.3%、中位 -3.3%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
