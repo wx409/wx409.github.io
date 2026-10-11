@@ -106,6 +106,18 @@ def main():
                 meta = json.loads((note_dir / "meta.json").read_text(encoding="utf-8"))
             except Exception:
                 meta = {}
+            # ★ 跨场护栏：帖子日期必须落在 [演出日, 演出日+1]（当晚/次日发布）；
+            #   否则 10-10 的笔记会混进 10-09 的统计（2026-10-11 回修）
+            nd = str(meta.get("date", "") or "")
+            if nd:
+                import datetime as _dt
+                try:
+                    d0 = _dt.date.fromisoformat(a.date)
+                    dn = _dt.date.fromisoformat(nd[:10])
+                    if not (d0 <= dn <= d0 + _dt.timedelta(days=1)):
+                        continue
+                except Exception:
+                    pass
             pool.append({"platform": "小红书", "text": txt,
                          "user": str(meta.get("author", "") or meta.get("nickname", "")),
                          "url": str(meta.get("link", "") or meta.get("url", "")),

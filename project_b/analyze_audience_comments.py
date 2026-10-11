@@ -68,6 +68,17 @@ NON_SONG_BLACKLIST = {
 NON_SONG = {x for v in NON_SONG_BLACKLIST.values() for x in v}
 
 
+# 曲名的「疑属场次」提示（2026-10-11 回修）：仅用于给「被提及」栏加注，**不代表本场唱过**。
+SONG_SHOW_HINTS = {
+    "南屏晚钟": "疑属 2026-10-10 第二场点歌段（10-09 用户歌单与 B站全场录像均无）",
+    "一生中最爱": "疑属 2026-10-10 第二场点歌段（10-09 用户歌单与 B站全场录像均无）",
+    "贝加尔湖畔": "疑属 2026-10-10 第二场点歌候选单",
+    "赞歌": "疑属 2026-10-10 第二场点歌候选单",
+    "岩峰中开出的花": "10-10 点歌段；10-09 是否演出待核",
+    "草原之夜": "10-09/10-10 反馈均提及，两版歌单均无 → 待核",
+}
+
+
 def is_non_song(name: str) -> bool:
     """命中黑名单即判为非歌曲词（双向包含，兼容「中国东方演艺集团」这类长写法）。"""
     n = (name or "").strip()
@@ -237,7 +248,7 @@ def analyze(items, date=None):
     if known:
         # 归一化匹配：大小写、空格、以及「唱起草原的歌 / 唱起草原歌」「敕勒歌+乌兰巴托的夜」这类变体
         def _nk(s):
-            return re.sub(r"[\s·・、,，+＋/]+", "", str(s or "")).lower()
+            return re.sub(r"[\s·・、,，+＋/的地得了着儿啊呀哦呢]+", "", str(s or "")).lower()
         kkeys = {_nk(x) for x in known if x}
 
         def _is_known(name):
@@ -326,11 +337,22 @@ def analyze(items, date=None):
     return {
         "total": n, "platforms": dict(plat),
         "dimensions": dict(sorted(dim_count.items(), key=lambda x: -x[1])),
-        "song_top": song_top, "song_top_pending": song_top_pending,
+        # ★ 物理分栏（2026-10-11 回修）：确证曲目 / 仅被提及 —— 两者不得混用
+        "setlist_confirmed": song_top,
+        "mentioned_unverified": [{"word": w, "count": c, "hint": SONG_SHOW_HINTS.get(w, "")}
+                                 for w, c in song_top_pending],
         "song_excluded": song_excluded.most_common(10),
         "song_filter": {"blacklist_groups": list(NON_SONG_BLACKLIST.keys()),
-                        "setlist_known": len(known), "changed_at": "2026-10-10",
-                        "rule": "非歌曲黑名单剔除；非本场歌单者移入待核栏（不删）"},
+                        "setlist_known": len(known), "changed_at": "2026-10-11",
+                        "rule": "① 非歌曲黑名单剔除；② 只有在本场已确证歌单内的曲目进 setlist_confirmed；"
+                                "③ 其余词一律进 mentioned_unverified 并保留原词 —— "
+                                "**「提及 ≠ 演唱」，不得用作歌单证据**",
+                        "confirmed_source": "官方/用户歌单（data/show_setlists/<date>_*.json）"
+                                            "或长表「演唱曲目」列",
+                        "fields": {"setlist_confirmed": "已确证本场曲目（唯一可作曲目证据）",
+                                   "mentioned_unverified": "仅被提及的词（曲名/节目名/他场曲目）"}},
+        # 兼容旧字段名（读数相同，仅命名不同；新代码请用上面的分栏）
+        "song_top": song_top, "song_top_pending": song_top_pending,
         "theme_top": theme_top,
         "sentiment": {"pos": pos, "neg": neg, "neu": neu},
         "audience": {"new_fan": newf, "old_fan": oldf},
@@ -414,7 +436,14 @@ def render_md(date, city, stats, llm):
     for s, c in stats["song_top"]:
         L.append(f"| 《{s}》 | {c} |")
     L.append("")
-    pend = stats.get("song_top_pending") or []
+    pend = stats.get("mentioned_unverified") or []
+    if pend and isinstance(pend[0], dict):
+        pend = [(x["word"], x["count"], x.get("hint", "")) for x in pend]
+    else:
+        pend = [(w, c, "") for w, c in pend]
+    pend = list(pend)
+    if pend:
+        pass
     exc = stats.get("song_excluded") or []
     if pend or exc:
         L.append("")
@@ -422,12 +451,14 @@ def render_md(date, city, stats, llm):
                  "不在本场歌单内的曲名移入下方「待核」栏，原始评论与证据引用不变。")
         if pend:
             L.append("")
-            L.append("**待核 / 非本场候选**（可能是他场曲目、也可能是歌单未收录）：")
+            L.append("**仅被提及（mentioned_unverified）**："
+                     "⚠️ **「提及 ≠ 演唱」，不得用作本场歌单证据**；"
+                     "下列词可能属他场、节目名或歌单未收录：")
             L.append("")
-            L.append("| 候选词 | 提及 |")
-            L.append("|---|---|")
-            for s, c in pend:
-                L.append(f"| {s} | {c} |")
+            L.append("| 被提及的词 | 次数 | 疑属/说明 |")
+            L.append("|---|---|---|")
+            for s, c, h in pend:
+                L.append(f"| {s} | {c} | {h or '待核'} |")
         if exc:
             L.append("")
             L.append("已按黑名单剔除的非歌曲词：" + "、".join(f"{s}({c})" for s, c in exc))

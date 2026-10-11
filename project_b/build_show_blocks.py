@@ -106,7 +106,8 @@ def main() -> int:
             "source": "temp/audience_analysis/2026-10-09_北京.json（已按本场关键词收紧）",
             "total": fb["stats"]["total"], "platforms": fb["stats"]["platforms"],
             "dimensions": fb["stats"]["dimensions"], "sentiment": fb["stats"]["sentiment"],
-            "song_mentions": fb["stats"]["song_top"][:8],
+            "song_mentions": fb["stats"].get("setlist_confirmed", fb["stats"].get("song_top", []))[:8],
+            "mentioned_unverified": fb["stats"].get("mentioned_unverified", [])[:8],
             "filter": fb["stats"].get("filter", {}),
             "filter_note": (lambda f: (
                 f"聚合池 {f.get('pool_total')} 条 → 保留 {f.get('kept_total')} 条；"
