@@ -140,6 +140,25 @@ def collect() -> list[dict]:
         "东演场次为**院团合作场次**，引用须写「东演合作 14 场（草原之夜 12 + 沉响与长歌 2）」。"
         "东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；"
         "两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。")
+    # 专题卡数字口径（2026-10-11）：主数字只取 review_status 过门槛的读数
+    _cards = []
+    _cdir = ROOT / "data" / "share" / "cards"
+    if _cdir.exists():
+        for f in sorted(_cdir.glob("card_*.json")):
+            try:
+                _cards.append(json.loads(f.read_text(encoding="utf-8")))
+            except Exception:
+                continue
+    add("topic_card_numbers", "专题卡数字口径（6 张卡）",
+        f"{len(_cards)} 张卡 / 主数字 {sum(len(c.get('main_numbers') or []) for c in _cards)} 项 / "
+        f"caliber-lock {sum(len(c.get('caliber_lock') or []) for c in _cards)} 项",
+        "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模）",
+        "data/share/cards/",
+        "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——"
+        "只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**"
+        "（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写"
+        "「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。"
+        "**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。")
     _cl = _load("data/archive_stage_tour.json") or {}
     add("show_block_attribution", "场次音频切分与歌手归属", "四判据 + 一 QC；极值音归属未定",
         "含 talk/主持/观众的双人或多声部场次素材（逐块：谁在唱 + 块级分布型指标）",

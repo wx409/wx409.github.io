@@ -2082,6 +2082,22 @@
    "menu_label": "cx_v4_analysis",
    "in_deploy": false,
    "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v5_upgrade.py"
+  },
+  {
+   "script": "build_topic_cards.py",
+   "menu": 214,
+   "title": "专题卡片厂：6 张卡数据源 + 渲染片段（含 review_status 门槛）",
+   "menu_label": "topic_cards",
+   "in_deploy": false,
+   "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_topic_cards.py"
+  },
+  {
+   "script": "build_share_page.py",
+   "menu": 215,
+   "title": "分享作战室 share.html（五区）+ 数据种子",
+   "menu_label": "share_page",
+   "in_deploy": false,
+   "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_share_page.py"
   }
  ]
 }

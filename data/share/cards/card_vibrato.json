@@ -1,0 +1,64 @@
+{
+ "id": "vibrato",
+ "no": 1,
+ "title": "颤音指纹",
+ "subtitle": "八年跨专辑的颤音速率稳定性",
+ "pillar": "A 级（速率是低频调制，基本不受修音影响）",
+ "main_numbers": [
+  {
+   "value": 5.11,
+   "unit": "Hz",
+   "label": "跨专辑颤音速率中位",
+   "caliber": "vibrato_tier",
+   "source": "data/archive_vocal_albums.json"
+  },
+  {
+   "value": 0.27,
+   "unit": "Hz",
+   "label": "专辑间极差（越小越稳）",
+   "caliber": "vibrato_tier",
+   "source": "data/archive_vocal_albums.json"
+  }
+ ],
+ "view_reading": [
+  "同一测量管线、同一算法，覆盖 8 个专辑。各专辑颤音速率中位落在 5.07–5.34 Hz，整体中位 5.11 Hz。",
+  "专辑**间**极差仅 0.27 Hz —— 相当于「一台八年校准误差很小的乐器」。这是本项目证据等级最高的一条：修音改的是音高慢变轨迹，速率基本不动。",
+  "口径见 `data/calibers.md` → `vibrato_tier`（组内可纵比、跨组谨慎）。"
+ ],
+ "view_card": [
+  "颤音速率中位 5.11 Hz",
+  "专辑间极差 0.27 Hz",
+  "覆盖 8 张专辑"
+ ],
+ "caliber_lock": [],
+ "gate": {
+  "pass_status": [
+   "measured",
+   "人耳确认",
+   "人耳确认（听辨）",
+   "双引擎一致"
+  ],
+  "note": "本卡数字均为专辑级实测中位，全部过门槛"
+ },
+ "platform": {
+  "xiaohongshu": {
+   "标题": "颤音指纹｜八年只差 0.27 Hz",
+   "封面文案": "八年只差 0.27 Hz",
+   "正文": "颤音指纹。同一套算法测 8 张专辑，颤音速率中位 5.11 Hz，专辑间极差 0.27 Hz",
+   "标签": [
+    "#王晰",
+    "#低音炮",
+    "#声乐实测",
+    "#颤音指纹"
+   ],
+   "互动引导": "想看哪张专辑的明细？看原页"
+  },
+  "douyin": {
+   "听觉断点（纯文字占位）": "同一套算法测 8 张专辑，颤音速率中位 5.11 Hz，专辑间极差 0.27 Hz",
+   "口播": "颤音指纹：八年只差 0.27 Hz",
+   "must_note": "发布者自备素材，本站不提供音视频；请使用官方音源，勿搬运官摄"
+  }
+ },
+ "footnote": "口径：稳定音（过复核门槛）；样本 n=8/8 首；数据源：data/archive_vocal_albums.json｜口径：专辑级 vibrato_hz 中位",
+ "generated_at": "2026-10-11"
+}

@@ -71,6 +71,9 @@ FOOTER_GROUPS = [
 #   - 404/kb-semantic/social_wall：无完整骨架或无导航需求
 #   - archive-index.html：完整档案索引页（仍是私密页，不进主导航）
 SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html",
+        # 2026-10-11：分享作战室与竖屏分享卡**不进主导航**（用户拍板；仅从 community 强链）
+        "share.html", "share-vibrato.html", "share-low_floor.html", "share-low_dynamic.html",
+        "share-long_tone.html", "share-context_awareness.html", "share-tour_scale.html",
         "weibo-oauth-callback.html"}
 
 # 「完整档案」页清单（2026-09-13 瘦身 2.0）。**已更正 2026-09-13 晚**：

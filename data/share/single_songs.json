@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-11",
+ "rule": "主排序 songs_shows_index.count 降序 → 次排序「覆盖巡次数」降序；门槛＝任一 archive_*.json 有实测 或 被作品百科收录；自有/翻唱均可",
+ "count_rule_note": "覆盖巡次数 = len({sh['tour'] for sh in shows})（每首歌 shows[] 每条自带 tour）",
+ "top10": [
+  {
+   "title": "心动",
+   "count": 20,
+   "tours": 3,
+   "tour_list": [
+    "一巡",
+    "六巡",
+    "四巡"
+   ],
+   "gate": "实测"
+  },
+  {
+   "title": "让她降落",
+   "count": 20,
+   "tours": 3,
+   "tour_list": [
+    "一巡",
+    "二巡",
+    "六巡"
+   ],
+   "gate": "作品百科收录"
+  },
+  {
+   "title": "Your Man",
+   "count": 20,
+   "tours": 2,
+   "tour_list": [
+    "一巡",
+    "六巡"
+   ],
+   "gate": "作品百科收录"
+  },
+  {
+   "title": "一生守候",
+   "count": 19,
+   "tours": 2,
+   "tour_list": [
+    "一巡",
+    "六巡"
+   ],
+   "gate": "实测"
+  },
+  {
+   "title": "云一定知道",
+   "count": 18,
+   "tours": 2,
+   "tour_list": [
+    "一巡",
+    "签唱会"
+   ],
+   "gate": "实测"
+  },
+  {
+   "title": "亲爱的中国，我的爱",
+   "count": 17,
+   "tours": 1,
+   "tour_list": [
+    "一巡"
+   ],
+   "gate": "作品百科收录"
+  },
+  {
+   "title": "你不要担心",
+   "count": 17,
+   "tours": 1,
+   "tour_list": [
+    "一巡"
+   ],
+   "gate": "作品百科收录"
+  },
+  {
+   "title": "再见我的爱（Goodbye My Love）",
+   "count": 17,
+   "tours": 1,
+   "tour_list": [
+    "一巡"
+   ],
+   "gate": "作品百科收录"
+  },
+  {
+   "title": "我的太阳",
+   "count": 17,
+   "tours": 1,
+   "tour_list": [
+    "一巡"
+   ],
+   "gate": "作品百科收录"
+  },
+  {
+   "title": "晚风暖暖",
+   "count": 17,
+   "tours": 1,
+   "tour_list": [
+    "一巡"
+   ],
+   "gate": "实测"
+  }
+ ],
+ "all_count": 276
+}

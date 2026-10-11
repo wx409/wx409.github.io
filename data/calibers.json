@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-11 15:56",
-  "count": 62,
+  "generated_at": "2026-10-11 16:28",
+  "count": 63,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -65,6 +65,14 @@
       "scope": "中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（12 场）＋ 双人演唱会《沉响与长歌》（2 场）",
       "source": "data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）",
       "note": "★ **不得与「巡演 59／全站 64」混加**：64 = 个人巡演 59 + 签唱会 5 属个人巡演口径；东演场次为**院团合作场次**，引用须写「东演合作 14 场（草原之夜 12 + 沉响与长歌 2）」。东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。"
+    },
+    {
+      "id": "topic_card_numbers",
+      "label": "专题卡数字口径（6 张卡）",
+      "value": "6 张卡 / 主数字 19 项 / caliber-lock 16 项",
+      "scope": "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模）",
+      "source": "data/share/cards/",
+      "note": "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。"
     },
     {
       "id": "show_block_attribution",

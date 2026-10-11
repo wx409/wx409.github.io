@@ -261,6 +261,8 @@ echo    210. [观众反馈] 按本场专属关键词收紧（剧名/场馆/日期+主体词；旧产物自动 
 echo    211. [小红书] Cookie 三态自检（有效/失效/被风控）后分发到抓取工具
 echo    212. [沉响场次] v4 正式管线：分区 → 块指标 → 分离质量QC → 曲名交叉
 echo    213. [沉响场次] v1-v3 过程脚本清单（过程稿；正式结论一律以 v4 为准）
+echo    214. [专题卡] 生成 6 张专题卡数据源与渲染片段（build_topic_cards）
+echo    215. [分享] 生成 share.html 五区 + data/share 种子（build_share_page）
 echo    0. 退出
 echo.
 set "op="
@@ -478,6 +480,8 @@ if "%op%"=="210" goto feedback_strict
 if "%op%"=="211" goto xhs_cookie
 if "%op%"=="212" goto cx_v4_analysis
 if "%op%"=="213" goto cx_process
+if "%op%"=="214" goto topic_cards
+if "%op%"=="215" goto share_page
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2871,5 +2875,25 @@ cls
 echo  [沉响场次] v1-v3 过程脚本（仅列路径，不执行；正式结论以 v4 为准）
 cd /d "E:\wx\论文素材_王晰作传\音域分析\轨迹"
 dir /b 沉响20261009*.py _cx_*.py
+pause
+goto menu
+
+
+:topic_cards
+cls
+echo  [专题卡] 6 张卡数据源 + 渲染片段（含 review_status 门槛）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_topic_cards.py
+python -X utf8 project_b\build_share_page.py
+pause
+goto menu
+
+
+:share_page
+cls
+echo  [分享] share.html 五区 + data/share 种子
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_share_page.py
+python -X utf8 project_b\build_nav.py
 pause
 goto menu

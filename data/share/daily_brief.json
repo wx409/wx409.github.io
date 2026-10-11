@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-11",
+ "brief_card": {
+  "title": "今日速报（模板）",
+  "fields": [
+   "指数覆盖天数",
+   "最近一次更新",
+   "本期新上榜",
+   "一句结论"
+  ],
+  "note": "数值一律从 dashboard/dashboard_data.json 取，禁止手写"
+ },
+ "category_slots": {
+  "target": 30,
+  "filled_by": "人工",
+  "words": []
+ }
+}

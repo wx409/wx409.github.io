@@ -449,6 +449,7 @@ def build_index():
     quote = (ELEV.get("facts") or {}).get("quote", "")
     quote_who = (ELEV.get("facts") or {}).get("quote_who", "")
     blocks = f"""<h1>王晰 · AI 可读数字档案</h1>
+<div style="background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;margin:12px 0">🧰 <b>分享作战室</b>：6 张专题卡（颤音指纹/低音下限/低音动态/长声/情境自觉/巡演规模）+ 单曲 TOP10 + 三层挖词表 + 平台模板与使用纪律 → <a href="share.html">share.html</a>（经验性认知，非官方）</div>
 <p class="sub">华语流行男低音（Bass-baritone）的可查、可问、可引用档案 ｜ 全站数字均可回溯到数据文件与口径标签 ｜ 更新 {UPDATED}</p>
 
 <div class="answer"><strong>一句话认识王晰：</strong>{esc(elev_full)}</div>
@@ -1206,6 +1207,7 @@ def build_research():
 # ---------------------------------------------------------------- 页面 7：community
 def build_community():
     blocks = f"""<h1>访客参与入口</h1>
+"<div style='background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;margin:12px 0'>🧰 <b>分享作战室</b>：6 张专题卡（颤音指纹 / 低音下限 / 低音动态 / 长声 / 情境自觉 / 巡演规模）＋ 单曲 TOP10 ＋ 三层挖词表 ＋ 平台模板与使用纪律 → <a href='share.html'>share.html</a>（经验性认知，非官方）</div>"
 <p class="sub">投稿、勘误与观演经验 ｜ 所有投稿经人工审核，不公开未授权内容 ｜ 更新 {UPDATED}</p>
 
 <div class="answer"><strong>怎么参与：</strong>你可以投稿现场观感、歌曲推荐语、纠正站内错误，或提供可核实的素材线索。
@@ -1265,6 +1267,7 @@ def build_community():
             ("本站会公开我的投稿吗？",
              "不会公开全文，也不会公开个人信息；如需署名请在投稿时说明，站上仅收录元数据与索引。"),
         ]))
+    blocks += "\n" + '<div style="background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;margin:12px 0">🧰 <b>分享作战室</b>：6 张专题卡（颤音指纹 / 低音下限 / 低音动态 / 长声 / 情境自觉 / 巡演规模）＋ 单曲 TOP10 ＋ 三层挖词表 ＋ 平台模板与使用纪律 → <a href="share.html">share.html</a>（经验性认知，非官方）</div>'
     return page("community.html",
                 "王晰档案站 · 访客参与 | 投稿、勘误与观感索引",
                 "王晰 GEO 数字档案站的访客参与入口：投稿与勘误、现场观感索引、深夜小酒馆逐字稿、"
