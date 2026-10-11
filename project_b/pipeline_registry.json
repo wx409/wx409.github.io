@@ -2098,6 +2098,14 @@
    "menu_label": "share_page",
    "in_deploy": false,
    "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_share_page.py"
+  },
+  {
+   "script": "apply_site_url.py",
+   "menu": null,
+   "title": "生成后单点收口：历史域名统一为 SITE_URL（换域改一处）",
+   "menu_label": null,
+   "in_deploy": true,
+   "path": "D:\\wx409.github.io\\project_b\\apply_site_url.py"
   }
  ]
 }
