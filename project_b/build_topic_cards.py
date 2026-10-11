@@ -222,20 +222,59 @@ def main():
     # ── ⑤ 情境自觉（动态范围随语境变化）──
     ctx = sorted([(c["note"], c["dynamic_range_db"]["range_db"]) for _, c in rows
                   if c.get("dynamic_range_db")], key=lambda x: -x[1])
+    # 声区占比（低音区 <C3）跨语境：经「修音不敏感层」检验的原证据链 → 主数字
+    cc = load(D / "archive_context_compare.json")
+
+    def _low_share(obj):
+        out = []
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                if not isinstance(v, dict):
+                    continue
+                rs = (v.get("register_share") or {})
+                if rs.get("low_lt_C3") is not None:
+                    out.append((str(k), round(float(rs["low_lt_C3"]) * 100, 1)))
+            if out:
+                return out
+            obj = [x for x in obj.values() if isinstance(x, dict)]
+        for it in (obj if isinstance(obj, list) else []):
+            rs = (it.get("register_share") or {})
+            name = it.get("label") or it.get("title") or it.get("name") or it.get("context")
+            if rs.get("low_lt_C3") is not None and name:
+                out.append((name, round(float(rs["low_lt_C3"]) * 100, 1)))
+        return out
+    shares = _low_share(cc.get("metrics") or cc.get("contexts") or cc.get("items")
+                        or cc.get("rows") or {})
+    if not shares:
+        for f in ("archive_vocal.json", "archive_vocal_albums.json", "archive_stage_tour.json"):
+            j = json.loads((D / f).read_text(encoding="utf-8")) if (D / f).exists() else {}
+            rows = j.get("contexts") or j.get("songs") or j.get("rows") or []
+            for name, v in _low_share(rows)[:3]:
+                shares.append((name, v))
+            if shares:
+                break
     cards.append(dict(
-        id="context_awareness", no=5, title="情境自觉", subtitle="同一副嗓子在不同语境下的动态差异",
-        pillar="实测级（同管线跨语境）",
-        main_numbers=[{"value": v, "unit": "dB", "label": f"{n} 动态范围", "caliber": f"dynamic_range_{n}",
-                       "source": "data/archive_dynamic_range.json"} for n, v in ctx[:3]],
+        id="context_awareness", no=5, title="情境自觉", subtitle="同一副嗓子在不同语境下的声区占比",
+        pillar="实测级（经修音不敏感层检验）",
+        main_numbers=[{"value": v, "unit": "%", "label": f"{n} 低音区（<C3）占比",
+                       "caliber": "—", "source": "data/archive_context_compare.json"} for n, v in shares[:3]],
+        _ctx_dyn=[{"value": v, "unit": "dB", "label": f"{n} 动态范围（旁证）",
+                   "caliber": f"dynamic_range_{n}", "source": "data/archive_dynamic_range.json"}
+                  for n, v in ctx[:3]],
         view_reading=["同一测量管线、不同语境（录音室 / 现场 / 他人主导舞台）下，"
-                      "各低音音级的动态范围不同 —— 说明他**按语境调整发力**，而不是一种唱法唱到底。",
-                      "本卡只列**过门槛**音级；跨语境比较须注明语境与样本量。"],
-        view_card=[f"{n} {v} dB" for n, v in ctx[:3]],
-        caliber_lock=[],
+                      "**低音区（<C3）时长占比**不同 —— 该指标属「修音不敏感层」，故作为主数字。",
+                      "**推断（不得升格为结论）**：占比落差提示他按语境调整发力方式；"
+                      "动态范围（21.3/19.0/18.9 dB）降为**旁证**，列在下方 caliber-lock 位。"],
+        view_card=[f"{v}%" for _, v in shares[:3]] or [f"{n} {v} dB" for n, v in ctx[:3]],
+        caliber_lock=[{"value": v, "unit": "dB", "label": n + " 动态范围",
+                       "why": "**旁证**（动态范围，非本卡主数字）"} for n, v in ctx[:3]],
         gate={"pass_status": sorted(PASS_STATUS)},
         platform=plat_templates("情境自觉", "同一副嗓子，不同语境",
-                                "；".join(f"{n} {v}dB" for n, v in ctx[:3]), "想看完整对比？看原页"),
-        footnote=footnote(len(ctx), len(rows), "data/archive_dynamic_range.json")))
+                                "；".join(f"{n} 低音区 {v}%" for n, v in shares[:3]) or "见原页",
+                                "想看完整对比？看原页"),
+        footnote=footnote(len(shares[:3]), len(shares[:3]),
+                          "data/archive_context_compare.json",
+                          "旁证：动态范围见 data/archive_dynamic_range.json")))
 
     # ── ⑥ 巡演规模 ──
     tours = ssi.get("by_tour") or []
@@ -370,7 +409,7 @@ def page_shell(title, desc, inner):
     return f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{esc(title)}｜王晰数字图书馆</title>
+<title>{esc(title)}｜AI 可读数字档案｜GEO 资料站</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="https://wx409.github.io/topic-vibrato.html">
 <style>

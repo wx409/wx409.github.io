@@ -189,15 +189,15 @@ def main():
     disc = "".join(f"<li>{d}</li>" for d in (tpl.get("discipline") or DISCIPLINE))
     js = json.dumps({"@context": "https://schema.org", "@type": "CollectionPage",
                      "name": "分享作战室", "url": "https://wx409.github.io/share.html",
-                     "isPartOf": {"@type": "WebSite", "name": "王晰数字图书馆",
+                     "isPartOf": {"@type": "WebSite", "name": "AI 可读数字档案｜GEO 资料站",
                                   "url": "https://wx409.github.io/"},
                      "hasPart": [{"@type": "CreativeWork", "name": c["title"],
                                   "about": c["subtitle"]} for c in cards]}, ensure_ascii=False, indent=1)
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>分享作战室｜6 张卡 + 平台模板 + 使用纪律｜王晰数字图书馆</title>
-<meta name="description" content="王晰数字图书馆分享作战室：6 张专题卡（颤音指纹/低音下限/低音动态/长声/情境自觉/巡演规模）、单曲 TOP10、三层挖词表、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
+<title>分享作战室｜6 张卡 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
+<meta name="description" content="AI 可读数字档案｜GEO 资料站分享作战室：6 张专题卡（颤音指纹/低音下限/低音动态/长声/情境自觉/巡演规模）、单曲 TOP10、三层挖词表、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
 <link rel="canonical" href="https://wx409.github.io/share.html">
 <script type="application/ld+json">{js}</script>
 <style>
@@ -250,7 +250,7 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
         (SITE / f"share-{c['id']}.html").write_text(
             f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{esc(c['title'])}（分享卡）｜王晰数字图书馆</title>
+<title>{esc(c['title'])}（分享卡）｜AI 可读数字档案｜GEO 资料站</title>
 <meta name="robots" content="noindex,follow">
 <style>body{{max-width:420px;margin:0 auto;padding:16px;font:15px/1.7 -apple-system,"Microsoft YaHei",sans-serif;background:#faf6ef;color:#2b2320}}
 .card{{background:#fff;border-radius:12px;padding:14px}} .big{{font-size:34px;font-weight:700}} .foot{{color:#8a7f6d;font-size:12px}}

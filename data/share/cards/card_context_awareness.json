@@ -2,41 +2,83 @@
  "id": "context_awareness",
  "no": 5,
  "title": "情境自觉",
- "subtitle": "同一副嗓子在不同语境下的动态差异",
- "pillar": "实测级（同管线跨语境）",
+ "subtitle": "同一副嗓子在不同语境下的声区占比",
+ "pillar": "实测级（经修音不敏感层检验）",
  "main_numbers": [
+  {
+   "value": 19.1,
+   "unit": "%",
+   "label": "知晓 低音区（<C3）占比",
+   "caliber": "—",
+   "source": "data/archive_context_compare.json"
+  },
+  {
+   "value": 10.3,
+   "unit": "%",
+   "label": "倒叙 低音区（<C3）占比",
+   "caliber": "—",
+   "source": "data/archive_context_compare.json"
+  },
+  {
+   "value": 22.3,
+   "unit": "%",
+   "label": "哑光 低音区（<C3）占比",
+   "caliber": "—",
+   "source": "data/archive_context_compare.json"
+  }
+ ],
+ "_ctx_dyn": [
   {
    "value": 21.3,
    "unit": "dB",
-   "label": "C2 动态范围",
+   "label": "C2 动态范围（旁证）",
    "caliber": "dynamic_range_C2",
    "source": "data/archive_dynamic_range.json"
   },
   {
    "value": 19.0,
    "unit": "dB",
-   "label": "E2 动态范围",
+   "label": "E2 动态范围（旁证）",
    "caliber": "dynamic_range_E2",
    "source": "data/archive_dynamic_range.json"
   },
   {
    "value": 18.9,
    "unit": "dB",
-   "label": "D#2 动态范围",
+   "label": "D#2 动态范围（旁证）",
    "caliber": "dynamic_range_D#2",
    "source": "data/archive_dynamic_range.json"
   }
  ],
  "view_reading": [
-  "同一测量管线、不同语境（录音室 / 现场 / 他人主导舞台）下，各低音音级的动态范围不同 —— 说明他**按语境调整发力**，而不是一种唱法唱到底。",
-  "本卡只列**过门槛**音级；跨语境比较须注明语境与样本量。"
+  "同一测量管线、不同语境（录音室 / 现场 / 他人主导舞台）下，**低音区（<C3）时长占比**不同 —— 该指标属「修音不敏感层」，故作为主数字。",
+  "**推断（不得升格为结论）**：占比落差提示他按语境调整发力方式；动态范围（21.3/19.0/18.9 dB）降为**旁证**，列在下方 caliber-lock 位。"
  ],
  "view_card": [
-  "C2 21.3 dB",
-  "E2 19.0 dB",
-  "D#2 18.9 dB"
+  "19.1%",
+  "10.3%",
+  "22.3%"
  ],
- "caliber_lock": [],
+ "caliber_lock": [
+  {
+   "value": 21.3,
+   "unit": "dB",
+   "label": "C2 动态范围",
+   "why": "**旁证**（动态范围，非本卡主数字）"
+  },
+  {
+   "value": 19.0,
+   "unit": "dB",
+   "label": "E2 动态范围",
+   "why": "**旁证**（动态范围，非本卡主数字）"
+  },
+  {
+   "value": 18.9,
+   "unit": "dB",
+   "label": "D#2 动态范围",
+   "why": "**旁证**（动态范围，非本卡主数字）"
+  }
+ ],
  "gate": {
   "pass_status": [
    "measured",
@@ -53,7 +95,7 @@
   "xiaohongshu": {
    "标题": "情境自觉｜同一副嗓子，不同语境",
    "封面文案": "同一副嗓子，不同语境",
-   "正文": "情境自觉。C2 21.3dB；E2 19.0dB；D#2 18.9dB",
+   "正文": "情境自觉。知晓 低音区 19.1%；倒叙 低音区 10.3%；哑光 低音区 22.3%",
    "标签": [
     "#王晰",
     "#低音炮",
@@ -63,11 +105,11 @@
    "互动引导": "想看完整对比？看原页"
   },
   "douyin": {
-   "听觉断点（纯文字占位）": "C2 21.3dB；E2 19.0dB；D#2 18.9dB",
+   "听觉断点（纯文字占位）": "知晓 低音区 19.1%；倒叙 低音区 10.3%；哑光 低音区 22.3%",
    "口播": "情境自觉：同一副嗓子，不同语境",
    "must_note": "发布者自备素材，本站不提供音视频；请使用官方音源，勿搬运官摄"
   }
  },
- "footnote": "口径：稳定音（过复核门槛）；样本 n=6/6 首；数据源：data/archive_dynamic_range.json",
+ "footnote": "口径：稳定音（过复核门槛）；样本 n=3/3 首；数据源：data/archive_context_compare.json｜旁证：动态范围见 data/archive_dynamic_range.json",
  "generated_at": "2026-10-11"
 }
