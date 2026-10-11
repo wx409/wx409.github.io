@@ -1,0 +1,33 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-11",
+ "metric": "低音区（<C3）时长占比",
+ "source": "《现场能力三表对照_20260917》（本地档案）",
+ "contexts": [
+  {
+   "key": "A",
+   "label": "录音室专辑",
+   "n": 105,
+   "share_pct": 21.3
+  },
+  {
+   "key": "C",
+   "label": "自录无修现场",
+   "n": 29,
+   "share_pct": 14.5
+  },
+  {
+   "key": "B",
+   "label": "他人主导舞台",
+   "n": 33,
+   "share_pct": 10.7
+  }
+ ],
+ "monotonic": true,
+ "why_monotonic_matters": "占比单调递减（录音室 > 自录无修现场 > 他人主导舞台）是本判断的根：说明占比差异随语境条件递减，而非素材噪声。",
+ "erratum": {
+  "issue": "现算（data/archive_context_compare.json）得 19.1%/10.3%/22.3%，不单调",
+  "cause": "该文件只有两组（A_self n=107 / B_other n=33）且**不含声区占比字段**；本轮取的 19.1/10.3/22.3 来自其 contexts 内零散的 register_share，**分组定义与本卡口径不同**（未单列「自录无修现场 n=29」）→ 属不同口径，不是冲突",
+  "action": "卡面沿用原口径（A/C/B，n=105/29/33）并注明分组与样本量；另一分组口径的数值列在 caliber-lock 位备查；两版均已登记 caliber"
+ }
+}

@@ -159,6 +159,19 @@ def collect() -> list[dict]:
         "（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写"
         "「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。"
         "**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。")
+    # 第 5 卡口径 + 勘误（2026-10-11）
+    _cs = _load("data/share/context_shares.json") or {}
+    _ctxs = _cs.get("contexts") or []
+    add("context_register_share", "低音区（<C3）声区占比·跨语境",
+        " → ".join(f"{x['share_pct']}%" for x in _ctxs) if _ctxs else None,
+        "三个语境：" + "、".join(f"{x['key']} {x['label']}(n={x['n']})" for x in _ctxs),
+        "data/share/context_shares.json（原口径，源：《现场能力三表对照_20260917》）",
+        "★ **单调递减是本判断的根**（录音室 > 自录无修现场 > 他人主导舞台）。"
+        "**口径勘误登记**：`data/archive_context_compare.json` 现算得 19.1%/10.3%/22.3% 且不单调——"
+        "该文件只含两组（A_self n=107 / B_other n=33）且**不含声区占比字段**，本轮取的是其中零散 "
+        "register_share，**分组定义与本口径不同 → 属不同口径、非冲突**；"
+        "卡面沿用原口径并注明分组与样本量，另一分组值列 caliber-lock 备查。"
+        "**严禁在卡面静默换数**。")
     _cl = _load("data/archive_stage_tour.json") or {}
     add("show_block_attribution", "场次音频切分与歌手归属", "四判据 + 一 QC；极值音归属未定",
         "含 talk/主持/观众的双人或多声部场次素材（逐块：谁在唱 + 块级分布型指标）",

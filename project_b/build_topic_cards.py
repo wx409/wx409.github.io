@@ -29,6 +29,7 @@ from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 SITE = Path(__file__).resolve().parent.parent
 D = SITE / "data"
+SH = D / "share"
 OUT_CARDS = D / "share" / "cards"
 OUT_RENDER = D / "share" / "rendered"
 TODAY = date.today().isoformat()
@@ -224,6 +225,7 @@ def main():
                   if c.get("dynamic_range_db")], key=lambda x: -x[1])
     # 声区占比（低音区 <C3）跨语境：经「修音不敏感层」检验的原证据链 → 主数字
     cc = load(D / "archive_context_compare.json")
+    cs = load(SH / "context_shares.json")
 
     def _low_share(obj):
         out = []
@@ -256,7 +258,12 @@ def main():
     cards.append(dict(
         id="context_awareness", no=5, title="情境自觉", subtitle="同一副嗓子在不同语境下的声区占比",
         pillar="实测级（经修音不敏感层检验）",
-        main_numbers=[{"value": v, "unit": "%", "label": f"{n} 低音区（<C3）占比",
+        main_numbers=[{"value": x["share_pct"], "unit": "%",
+                       "label": f"{x['key']} {x['label']}（n={x['n']}）低音区<C3 占比",
+                       "caliber": "context_register_share",
+                       "source": "data/share/context_shares.json"}
+                      for x in (cs.get("contexts") or [])] or
+                     [{"value": v, "unit": "%", "label": f"{n} 低音区（<C3）占比",
                        "caliber": "—", "source": "data/archive_context_compare.json"} for n, v in shares[:3]],
         _ctx_dyn=[{"value": v, "unit": "dB", "label": f"{n} 动态范围（旁证）",
                    "caliber": f"dynamic_range_{n}", "source": "data/archive_dynamic_range.json"}
@@ -266,14 +273,18 @@ def main():
                       "**推断（不得升格为结论）**：占比落差提示他按语境调整发力方式；"
                       "动态范围（21.3/19.0/18.9 dB）降为**旁证**，列在下方 caliber-lock 位。"],
         view_card=[f"{v}%" for _, v in shares[:3]] or [f"{n} {v} dB" for n, v in ctx[:3]],
-        caliber_lock=[{"value": v, "unit": "dB", "label": n + " 动态范围",
-                       "why": "**旁证**（动态范围，非本卡主数字）"} for n, v in ctx[:3]],
+        caliber_lock=([{"value": v, "unit": "%", "label": n + " 低音区占比",
+                        "why": "**另一分组口径**（archive_context_compare 现算，分组与本卡不同，"
+                               "见 caliber `context_register_share` 勘误）"} for n, v in shares[:3]]
+                      + [{"value": v, "unit": "dB", "label": n + " 动态范围",
+                          "why": "**旁证**（动态范围，非本卡主数字）"} for n, v in ctx[:3]]),
         gate={"pass_status": sorted(PASS_STATUS)},
         platform=plat_templates("情境自觉", "同一副嗓子，不同语境",
                                 "；".join(f"{n} 低音区 {v}%" for n, v in shares[:3]) or "见原页",
                                 "想看完整对比？看原页"),
-        footnote=footnote(len(shares[:3]), len(shares[:3]),
-                          "data/archive_context_compare.json",
+        footnote=footnote(len(cs.get("contexts") or []) or len(shares[:3]),
+                          len(cs.get("contexts") or []) or len(shares[:3]),
+                          "data/share/context_shares.json（原口径 A/C/B）",
                           "旁证：动态范围见 data/archive_dynamic_range.json")))
 
     # ── ⑥ 巡演规模 ──

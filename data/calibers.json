@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-11 17:30",
-  "count": 63,
+  "generated_at": "2026-10-11 17:51",
+  "count": 64,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -69,10 +69,18 @@
     {
       "id": "topic_card_numbers",
       "label": "专题卡数字口径（6 张卡）",
-      "value": "6 张卡 / 主数字 19 项 / caliber-lock 19 项",
+      "value": "6 张卡 / 主数字 19 项 / caliber-lock 22 项",
       "scope": "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模）",
       "source": "data/share/cards/",
       "note": "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。"
+    },
+    {
+      "id": "context_register_share",
+      "label": "低音区（<C3）声区占比·跨语境",
+      "value": "21.3% → 14.5% → 10.7%",
+      "scope": "三个语境：A 录音室专辑(n=105)、C 自录无修现场(n=29)、B 他人主导舞台(n=33)",
+      "source": "data/share/context_shares.json（原口径，源：《现场能力三表对照_20260917》）",
+      "note": "★ **单调递减是本判断的根**（录音室 > 自录无修现场 > 他人主导舞台）。**口径勘误登记**：`data/archive_context_compare.json` 现算得 19.1%/10.3%/22.3% 且不单调——该文件只含两组（A_self n=107 / B_other n=33）且**不含声区占比字段**，本轮取的是其中零散 register_share，**分组定义与本口径不同 → 属不同口径、非冲突**；卡面沿用原口径并注明分组与样本量，另一分组值列 caliber-lock 备查。**严禁在卡面静默换数**。"
     },
     {
       "id": "show_block_attribution",

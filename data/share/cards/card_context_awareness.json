@@ -6,25 +6,25 @@
  "pillar": "实测级（经修音不敏感层检验）",
  "main_numbers": [
   {
-   "value": 19.1,
+   "value": 21.3,
    "unit": "%",
-   "label": "知晓 低音区（<C3）占比",
-   "caliber": "—",
-   "source": "data/archive_context_compare.json"
+   "label": "A 录音室专辑（n=105）低音区<C3 占比",
+   "caliber": "context_register_share",
+   "source": "data/share/context_shares.json"
   },
   {
-   "value": 10.3,
+   "value": 14.5,
    "unit": "%",
-   "label": "倒叙 低音区（<C3）占比",
-   "caliber": "—",
-   "source": "data/archive_context_compare.json"
+   "label": "C 自录无修现场（n=29）低音区<C3 占比",
+   "caliber": "context_register_share",
+   "source": "data/share/context_shares.json"
   },
   {
-   "value": 22.3,
+   "value": 10.7,
    "unit": "%",
-   "label": "哑光 低音区（<C3）占比",
-   "caliber": "—",
-   "source": "data/archive_context_compare.json"
+   "label": "B 他人主导舞台（n=33）低音区<C3 占比",
+   "caliber": "context_register_share",
+   "source": "data/share/context_shares.json"
   }
  ],
  "_ctx_dyn": [
@@ -60,6 +60,24 @@
   "22.3%"
  ],
  "caliber_lock": [
+  {
+   "value": 19.1,
+   "unit": "%",
+   "label": "知晓 低音区占比",
+   "why": "**另一分组口径**（archive_context_compare 现算，分组与本卡不同，见 caliber `context_register_share` 勘误）"
+  },
+  {
+   "value": 10.3,
+   "unit": "%",
+   "label": "倒叙 低音区占比",
+   "why": "**另一分组口径**（archive_context_compare 现算，分组与本卡不同，见 caliber `context_register_share` 勘误）"
+  },
+  {
+   "value": 22.3,
+   "unit": "%",
+   "label": "哑光 低音区占比",
+   "why": "**另一分组口径**（archive_context_compare 现算，分组与本卡不同，见 caliber `context_register_share` 勘误）"
+  },
   {
    "value": 21.3,
    "unit": "dB",
@@ -110,6 +128,6 @@
    "must_note": "发布者自备素材，本站不提供音视频；请使用官方音源，勿搬运官摄"
   }
  },
- "footnote": "口径：稳定音（过复核门槛）；样本 n=3/3 首；数据源：data/archive_context_compare.json｜旁证：动态范围见 data/archive_dynamic_range.json",
+ "footnote": "口径：稳定音（过复核门槛）；样本 n=3/3 首；数据源：data/share/context_shares.json（原口径 A/C/B）｜旁证：动态范围见 data/archive_dynamic_range.json",
  "generated_at": "2026-10-11"
 }

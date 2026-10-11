@@ -155,6 +155,17 @@ def main():
     stats = A.analyze(kept, a.date)
     stats["fingerprint"] = hashlib.md5(
         json.dumps([i["text"] for i in kept], ensure_ascii=False).encode("utf-8")).hexdigest()[:12]
+    _plat = dict(Counter(i["platform"] for i in kept))
+    _tot = max(sum(_plat.values()), 1)
+    _dom = max(_plat.items(), key=lambda kv: kv[1]) if _plat else ("—", 0)
+    stats["platform_composition"] = {
+        "counts": _plat, "total": sum(_plat.values()),
+        "dominant": _dom[0], "dominant_pct": round(_dom[1] / _tot * 100, 1),
+        "note": (f"本批反馈的平台构成为 {('、'.join(f'{k} {v}' for k, v in _plat.items()))}；"
+                 f"**{_dom[0]}占 {round(_dom[1]/_tot*100,1)}%** —— "
+                 "**单一平台声量 ≠ 全网声量**：引用结论时必须同时给出平台构成，"
+                 "不得把某平台的反馈读成「全网反馈」。"),
+    }
     stats["filter"] = {
         "rule": "必须命中本场信号（剧名/场馆/日期）之一 且 含主体词；含他场反证词且无强信号者剔除",
         "show_signals": SHOW_SIGNALS, "subject": SUBJECT, "neg_signals": NEG_SIGNALS,

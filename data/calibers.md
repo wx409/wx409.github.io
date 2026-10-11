@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-10-11 17:30　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-10-11 17:51　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -15,7 +15,8 @@
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
 | `stage_tet_intonation` | 现场音准偏差中位（TET，伪影） | **21.0** | 王晰主导巡演/签唱会现场素材（demucs 人声分离后 YIN 逐帧测音准偏差） | `data/archive_stage_tour.json` |
 | `dongyan_show_count` | 东演合作场次（分列） | **14** | 中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（12 场）＋ 双人演唱会《沉响与长歌》（2 场） | `data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）` |
-| `topic_card_numbers` | 专题卡数字口径（6 张卡） | **6 张卡 / 主数字 19 项 / caliber-lock 19 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模） | `data/share/cards/` |
+| `topic_card_numbers` | 专题卡数字口径（6 张卡） | **6 张卡 / 主数字 19 项 / caliber-lock 22 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模） | `data/share/cards/` |
+| `context_register_share` | 低音区（<C3）声区占比·跨语境 | **21.3% → 14.5% → 10.7%** | 三个语境：A 录音室专辑(n=105)、C 自录无修现场(n=29)、B 他人主导舞台(n=33) | `data/share/context_shares.json（原口径，源：《现场能力三表对照_20260917》）` |
 | `show_block_attribution` | 场次音频切分与歌手归属 | **四判据 + 一 QC；极值音归属未定** | 含 talk/主持/观众的双人或多声部场次素材（逐块：谁在唱 + 块级分布型指标） | `docs/场次声学切分与归属方法论_20261010.md；data/show_blocks/*.json` |
 | `stage_claimable` | 现场层可主张素材 | **559** | 过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数 | `data/archive_stage_tour.json → summary.n_claimable` |
 | `vibrato_tier` | 颤音速率的分层归属 | **组内可纵比、跨组谨慎** | 修音敏感度分层中的单列一档（区别于高敏感层的稳定性/音准） | `音频备忘 §21 / acoustic-report「六条纪律」/ 宣传词条库 #8` |
