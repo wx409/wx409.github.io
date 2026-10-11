@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-11 15:35",
-  "count": 61,
+  "generated_at": "2026-10-11 15:56",
+  "count": 62,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -59,6 +59,14 @@
       "note": "⚠️ **方法学伪影**：现场 TET 偏差实测落在 17–22 音分，而录音室为 7–9；该差异来自「录音环境 + 人声分离」而非演唱，**不得用现场素材做音准结论**（纪律 24）。区间会随素材批次在 17.1–22.2 间波动，引用时须注明批次与口径。"
     },
     {
+      "id": "dongyan_show_count",
+      "label": "东演合作场次（分列）",
+      "value": 14,
+      "scope": "中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（12 场）＋ 双人演唱会《沉响与长歌》（2 场）",
+      "source": "data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）",
+      "note": "★ **不得与「巡演 59／全站 64」混加**：64 = 个人巡演 59 + 签唱会 5 属个人巡演口径；东演场次为**院团合作场次**，引用须写「东演合作 14 场（草原之夜 12 + 沉响与长歌 2）」。东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。"
+    },
+    {
       "id": "show_block_attribution",
       "label": "场次音频切分与歌手归属",
       "value": "四判据 + 一 QC；极值音归属未定",
@@ -85,7 +93,7 @@
     {
       "id": "feedback_song_mentions",
       "label": "观众反馈·曲目提及榜口径",
-      "value": "两栏：已核验 / 待核；非歌曲词剔除",
+      "value": "两栏：setlist_confirmed / mentioned_unverified（提及≠演唱）",
       "scope": "各场次观众反馈分析产物（temp/audience_analysis/*.json）的 song_top 字段",
       "source": "project_b/analyze_audience_comments.py",
       "note": "**2026-10-11 立规**：**「提及 ≠ 演唱」**——曲名出现在观众反馈里只代表被谈论，不代表本场唱过；分析产物分两栏 `setlist_confirmed`（已确证本场曲目，唯一可作曲目证据）与 `mentioned_unverified`（仅被提及的词，**不得用作歌单证据**，含他场曲目/点歌候选/节目名），并加跨场护栏（小红书归档只取帖子日期 ∈ [演出日, +1]）。**2026-10-10 口径变更**：① 新增**非歌曲黑名单**（节目/栏目名如 星光大道·声入人心·我是歌手；活动/主题名如 回·巡演·演唱会 及本剧名；机构/场馆名），命中即从曲目榜剔除，另存 `song_excluded` 供回溯；② 榜拆两栏：`song_top`（在本场歌单内 → 已核验）与 `song_top_pending`（不在歌单内 → **待核/非本场候选，不硬删**）；匹配做繁简/大小写/空格/变体归一；③ 本场歌单优先取长表，长表为空时回退 `data/show_setlists/<date>_<city>.json`。**只改统计口径，不改原始评论文本与证据引用**。"

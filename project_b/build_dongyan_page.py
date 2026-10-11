@@ -62,6 +62,36 @@ def songs_for(match: str) -> list[str]:
     return out
 
 
+def nights_for(match: str) -> list[dict]:
+    """按夜歌单（data/show_setlists/*.json）：只取 show.name 含该项目关键字的文件。
+    **全部数字由文件派生，不写死**；供「按夜场次与歌单差异」小节使用。"""
+    out = []
+    d = ROOT / "data" / "show_setlists"
+    if not d.exists():
+        return out
+    for f in sorted(d.glob("*.json")):
+        try:
+            j = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        name = str((j.get("show") or {}).get("name", ""))
+        if match and match not in name:
+            continue
+        dl = j.get("delta_vs_first_show") or {}
+        added = [x.get("song") for x in (dl.get("added_compared_to_first_show")
+                                         or dl.get("added_confirmed") or []) if x.get("song")]
+        ps = dl.get("point_song_segment") or {}
+        out.append({"date": (j.get("show") or {}).get("date"),
+                    "segments": j.get("segments"), "songs": len(j.get("songs") or []),
+                    "added": added,
+                    "point_song": (ps.get("second_show_2026-10-10")
+                                   or (j.get("delta_vs_first_show") or {}).get("point_song")
+                                   or []),
+                    "no_removed": bool(dl.get("no_song_removed")),
+                    "file": f.name})
+    return out
+
+
 def esc(s) -> str:
     return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -98,6 +128,25 @@ for p in proj.get("projects", []):
                                for c in p["credits"]))
     if sg:
         parts.append("<h3>曲目（首场全场）</h3><p>%s</p>" % "".join('<span class="tag">%s</span>' % esc(s) for s in sg))
+    nts = nights_for(p.get("match", ""))
+    if nts:
+        rows = []
+        for n in nts:
+            extra = []
+            if n.get("added"):
+                extra.append("新增：" + "、".join(esc(x) for x in n["added"]))
+            if n.get("point_song"):
+                extra.append("点歌段：" + "、".join(esc(x) for x in n["point_song"]))
+            if n.get("no_removed"):
+                extra.append("无曲目被顶掉")
+            rows.append("<tr><td>%s</td><td>%s</td><td>%s</td><td class=meta>%s</td></tr>"
+                        % (esc(n.get("date")), esc(n.get("segments") or "—"),
+                           esc(n.get("songs")), "；".join(extra) or esc(n.get("file"))))
+        parts.append("<h3>按夜场次与歌单差异</h3>"
+                     "<table><tr><th>日期</th><th>段数</th><th>曲目数</th><th>与首场差异</th></tr>%s</table>"
+                     "<p class=meta>数据源：<code>data/show_setlists/*.json</code>（按夜独立歌单）｜"
+                     "★ 本页场次属「院团合作场次（东演）」，与个人巡演 59 场<b>分列</b>，不得混加</p>"
+                     % "".join(rows))
     if sh:
         parts.append("<h3>场次表</h3><table><tr><th>日期</th><th>城市</th><th>曲目数</th><th>出处</th></tr>%s</table>"
                      % "".join("<tr><td>%s</td><td>%s</td><td>%d</td><td class=meta>%s</td></tr>"

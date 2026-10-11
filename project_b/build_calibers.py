@@ -118,6 +118,28 @@ def collect() -> list[dict]:
         "该差异来自「录音环境 + 人声分离」而非演唱，**不得用现场素材做音准结论**（纪律 24）。"
         "区间会随素材批次在 17.1–22.2 间波动，引用时须注明批次与口径。")
 
+    # 东演合作场次（2026-10-11 立规）：**分列口径** —— 严禁并入「巡演 59 / 全站 64」
+    _am = _load("data/activity_master.json") or []
+    _am_items = _am if isinstance(_am, list) else (_am.get("items") or _am.get("rows") or [])
+    _cy = [x for x in _am_items if isinstance(x, dict) and "草原之夜" in str(x.get("title", ""))]
+    _cx_files = []
+    _sdir = ROOT / "data" / "show_setlists"
+    if _sdir.exists():
+        for f in sorted(_sdir.glob("*.json")):
+            try:
+                if "沉响" in f.read_text(encoding="utf-8")[:600]:
+                    _cx_files.append(f)
+            except Exception:
+                continue
+    add("dongyan_show_count", "东演合作场次（分列）",
+        (len(_cy) + len(_cx_files)) if (_cy or _cx_files) else None,
+        "中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》"
+        f"（{len(_cy)} 场）＋ 双人演唱会《沉响与长歌》（{len(_cx_files)} 场）",
+        "data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）",
+        "★ **不得与「巡演 59／全站 64」混加**：64 = 个人巡演 59 + 签唱会 5 属个人巡演口径；"
+        "东演场次为**院团合作场次**，引用须写「东演合作 14 场（草原之夜 12 + 沉响与长歌 2）」。"
+        "东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；"
+        "两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。")
     _cl = _load("data/archive_stage_tour.json") or {}
     add("show_block_attribution", "场次音频切分与歌手归属", "四判据 + 一 QC；极值音归属未定",
         "含 talk/主持/观众的双人或多声部场次素材（逐块：谁在唱 + 块级分布型指标）",
@@ -141,7 +163,7 @@ def collect() -> list[dict]:
         "修音改的是音高慢变轨迹，颤音速率是 ~5Hz 快速调制，**基本不动速率**；"
         "但**幅度可能受轻微影响**，故速率优先组内纵向比较（三处文本已于 2026-09-21 统一）")
 
-    add("feedback_song_mentions", "观众反馈·曲目提及榜口径", "两栏：已核验 / 待核；非歌曲词剔除",
+    add("feedback_song_mentions", "观众反馈·曲目提及榜口径", "两栏：setlist_confirmed / mentioned_unverified（提及≠演唱）",
         "各场次观众反馈分析产物（temp/audience_analysis/*.json）的 song_top 字段",
         "project_b/analyze_audience_comments.py",
         "**2026-10-11 立规**：**「提及 ≠ 演唱」**——曲名出现在观众反馈里只代表被谈论，不代表本场唱过；"
