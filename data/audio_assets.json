@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-10-11T17:08:04",
+  "generated_at": "2026-10-11T21:08:07",
   "since": "2026-10-11",
-  "batches": 227,
-  "files": 2198,
-  "gb": 73.83,
-  "new_files": 0,
-  "new_mb": 0.0,
+  "batches": 230,
+  "files": 2241,
+  "gb": 73.97,
+  "new_files": 43,
+  "new_mb": 148.0,
   "stats_total": 1330,
   "stage_rows": 703,
   "claimable": 559,
@@ -24,12 +24,12 @@
   },
   {
    "batch": "wav",
-   "files": 258,
-   "mb": 12119.4,
+   "files": 261,
+   "mb": 12210.7,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-10"
+   "new_files": 3,
+   "new_mb": 91.3,
+   "newest": "2026-10-11"
   },
   {
    "batch": "wav_分P逐曲",
@@ -446,6 +446,15 @@
    "newest": "2026-09-17"
   },
   {
+   "batch": "全场_第二场",
+   "files": 2,
+   "mb": 40.7,
+   "stats": 0,
+   "new_files": 2,
+   "new_mb": 40.7,
+   "newest": "2026-10-11"
+  },
+  {
    "batch": "重游往昔",
    "files": 10,
    "mb": 40.6,
@@ -750,6 +759,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-21"
+  },
+  {
+   "batch": "沉响20261010_块级",
+   "files": 37,
+   "mb": 12.5,
+   "stats": 0,
+   "new_files": 37,
+   "new_mb": 12.5,
+   "newest": "2026-10-11"
   },
   {
    "batch": "音源",
@@ -1434,6 +1452,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-16"
+  },
+  {
+   "batch": "Love is over",
+   "files": 1,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.5,
+   "newest": "2026-10-11"
   },
   {
    "batch": "天边",
