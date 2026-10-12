@@ -49,10 +49,10 @@
    "numbers": {
     "自有": 82.2,
     "自有n": 27,
-    "翻唱": 86.4,
-    "翻唱n": 163
+    "翻唱": 86.9,
+    "翻唱n": 165
    },
-   "n": 190,
+   "n": 192,
    "caliber": "现场层最低音中位",
    "confidence": "B 中"
   },
@@ -61,10 +61,10 @@
    "question": "同一首歌在不同场次，最低能压到多低、波动多大？",
    "finding": "≥3 版本的曲目有多首；同曲跨场最低音的变异系数中位约 10%",
    "numbers": {
-    "曲目数": 34,
-    "CV中位": 0.1112
+    "曲目数": 37,
+    "CV中位": 0.1097
    },
-   "n": 34,
+   "n": 37,
    "caliber": "现场层最低音（跨场同曲）",
    "confidence": "B 中"
   },
@@ -173,21 +173,21 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "230 个采集批次、2241 个音频文件、73.97 GB、1330 个逐曲分析产物",
+   "finding": "233 个采集批次、2255 个音频文件、74.27 GB、1340 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-11T21:08:07",
-    "since": "2026-10-11",
-    "batches": 230,
-    "files": 2241,
-    "gb": 73.97,
-    "new_files": 43,
-    "new_mb": 148.0,
-    "stats_total": 1330,
-    "stage_rows": 703,
-    "claimable": 559,
-    "claimable_soft": 282
+    "generated_at": "2026-10-12T00:13:17",
+    "since": "2026-10-12",
+    "batches": 233,
+    "files": 2255,
+    "gb": 74.27,
+    "new_files": 0,
+    "new_mb": 0.0,
+    "stats_total": 1340,
+    "stage_rows": 713,
+    "claimable": 569,
+    "claimable_soft": 287
    },
-   "n": 2241,
+   "n": 2255,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
@@ -235,7 +235,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 55、站点层 49",
    "numbers": {
-    "generated_at": "2026-10-12T00:13:02",
+    "generated_at": "2026-10-12T09:08:12",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
