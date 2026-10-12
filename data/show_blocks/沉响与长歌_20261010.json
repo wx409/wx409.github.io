@@ -114,5 +114,9 @@
   "caveat": "与本场同一纪律：源为公开平台、昵称匿名化；**平台构成必须与数字同行引用**。",
   "local_paths": false
  },
- "attribution_policy": "极值音一律 `归属未定`；只出块级分布型指标"
+ "attribution_policy": "极值音一律 `归属未定`；只出块级分布型指标",
+ "listening_status": "未定案",
+ "listening_items_total": 37,
+ "listening_return_file": "data/show_blocks/沉响与长歌_20261010_听辨回填.txt",
+ "listening_note": "数据驱动开关：blocks 为空且回填不完整 → stage 渲染占位句；37/37 定案或 listening_status=已定案 → 自动切回正式表格。部分回填**不得**生成块级表。"
 }

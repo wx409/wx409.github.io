@@ -382,6 +382,28 @@ def show_blocks_section() -> str:
     shows = _sh.get("show_blocks") or []
     if not shows:
         return ""
+    # ── 听辨状态（**数据驱动**，不硬编码开关）────────────────────────────
+    # 判据：该场 blocks 为空 且 「听辨回填文件」不存在/不完整 → 视为「未定案」；
+    # 回填完整（37/37）或数据里 listening_status 明确为「已定案」→ 自动切回正式表格。
+    def listening_pending(sh) -> bool:
+        bl = sh.get("blocks") or []
+        if bl:
+            return False
+        if str(sh.get("listening_status") or "") == "已定案":
+            return False
+        rf = sh.get("listening_return_file")
+        need = int(sh.get("listening_items_total") or 0)
+        if rf:
+            p = TOUR.parent.parent / rf
+            if p.exists() and need:
+                filled = sum(1 for ln in p.read_text(encoding="utf-8").splitlines()
+                             if ln.strip() and not ln.strip().startswith("#")
+                             and ln.count("|") >= 4
+                             and all(seg.strip() for seg in ln.split("|")[1:4]))
+                if filled >= need:
+                    return False
+        return True
+
     out = []
     for sh in shows:
         s0 = sh.get("show") or {}
@@ -389,6 +411,23 @@ def show_blocks_section() -> str:
         be = sh.get("budget_extra") or {}
         bl = sh.get("blocks") or []
         n_ok = sum(1 for x in bl if x.get("in_stats"))
+        # ── 未定案：只渲染占位说明（零值统计行与空表一律不渲染），观众反馈卡片照旧 ──
+        if listening_pending(sh):
+            fb0 = sh.get("feedback") or {}
+            need = int(sh.get("listening_items_total") or 0)
+            out.append(f'''<h2>一之二、双人场次（块级）：{esc(s0.get("name",""))}</h2>
+<div class="method">
+<strong>本场块级切分待听辨定案</strong>：{need} 条 8 秒片段待归属确认
+（唱/说 → 有人声/无人声 → 王晰/傲日其愣/双人重叠/观众/不确定），
+定案前本层不发布任何块级统计。方法见 <code>docs/场次声学切分与归属方法论_20261010.md</code>。
+</div>
+<div class="card"><strong>观众反馈（本场关键词收紧后）：</strong>
+{fb0.get("total","—")} 条（{ "、".join(f"{k} {v}" for k, v in (fb0.get("platforms") or {}).items()) }）；
+情感：正面 {(fb0.get("sentiment") or {}).get("pos","—")} / 中性 {(fb0.get("sentiment") or {}).get("neu","—")} /
+负面 {(fb0.get("sentiment") or {}).get("neg","—")}。<br>
+<span class="caveat">{esc(fb0.get("caveat",""))}</span></div>
+''')
+            continue
         rows = []
         for x in bl:
             nm = x.get("song", "待核")
