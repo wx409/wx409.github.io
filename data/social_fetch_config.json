@@ -1,0 +1,37 @@
+{
+ "schema": 1,
+ "note": "开机自启抓取的账号配置（**不写死在脚本里**）；xsec_token 会变，可整条替换 url",
+ "weibo": [
+  {
+   "key": "self",
+   "label": "王晰本人",
+   "cmd": "weibo_proxy.py fetch"
+  },
+  {
+   "key": "studio",
+   "label": "王晰工作室",
+   "cmd": "weibo_proxy_studio.py fetch --all"
+  }
+ ],
+ "weibo_snapshot": {
+  "cmd": "project_b/run_weibo_snapshot.py --once"
+ },
+ "xiaohongshu": [
+  {
+   "key": "official",
+   "label": "王晰（官方账号）",
+   "user_id": "5c0560a96b58b721004cca34",
+   "url": "https://www.xiaohongshu.com/user/profile/5c0560a96b58b721004cca34?xsec_token=&xsec_source=pc_search",
+   "script": "E:\\wx\\私有工具\\xhs_proxy\\fetch_xhs_user.py",
+   "note": "url 可整条替换（含 xsec_token）；留空 xsec_token 时工具可能仍可用"
+  }
+ ],
+ "cookie_files": {
+  "weibo": "E:\\wx\\index_records\\wb.txt",
+  "xhs": "E:\\wx\\index_records\\xhs.txt"
+ },
+ "sync_hint": {
+  "weibo": "python -X utf8 tools\\sync_weibo_cookie.py",
+  "xhs": "python -X utf8 tools\\sync_xhs_cookie.py"
+ }
+}

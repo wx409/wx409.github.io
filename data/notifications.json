@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-12 00:05:31",
+ "updated_at": "2026-10-12 10:39:34",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2496,6 +2496,18 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-10-12 10:39:18",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-12 10:39:34",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
   }
  ]
 }

@@ -266,6 +266,7 @@ echo    215. [分享] 生成 share.html 五区 + data/share 种子（build_share_page）
 echo    216. [沉响10-10] 块级生成（回填驱动；不完整则拒绝）
 echo    217. [沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）
 echo    218. [南屏晚钟] 首次实测（点歌段噪声口径）
+echo    219. [开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示）
 echo    0. 退出
 echo.
 set "op="
@@ -488,6 +489,7 @@ if "%op%"=="215" goto share_page
 if "%op%"=="216" goto blocks1010
 if "%op%"=="217" goto crossnight
 if "%op%"=="218" goto nanping
+if "%op%"=="219" goto social_boot
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2931,5 +2933,14 @@ echo  [nanping] measure_nanping_wanchong.py
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\measure_nanping_wanchong.py
 python -X utf8 project_b\build_stage_page.py
+pause
+goto menu
+
+
+:social_boot
+cls
+echo  [开机自启] 社媒抓取（微博本人+工作室 / 小红书官方账号），cookie 过期自动写站内通知
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\auto_fetch_social.py
 pause
 goto menu

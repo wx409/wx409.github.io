@@ -2130,6 +2130,15 @@
    "menu_label": "nanping",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\measure_nanping_wanchong.py"
+  },
+  {
+   "script": "auto_fetch_social.py",
+   "menu": 219,
+   "title": "开机自启：抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示）",
+   "menu_label": "social_boot",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\auto_fetch_social.py",
+   "pending_task": "schtasks /Create /TN wx409_social_boot /TR \"D:\\wx409.github.io\\auto_fetch_social.bat\" /SC ONLOGON /F"
   }
  ]
 }
