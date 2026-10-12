@@ -263,6 +263,9 @@ echo    212. [沉响场次] v4 正式管线：分区 → 块指标 → 分离质量QC → 曲名交叉
 echo    213. [沉响场次] v1-v3 过程脚本清单（过程稿；正式结论一律以 v4 为准）
 echo    214. [专题卡] 生成 6 张专题卡数据源与渲染片段（build_topic_cards）
 echo    215. [分享] 生成 share.html 五区 + data/share 种子（build_share_page）
+echo    216. [沉响10-10] 块级生成（回填驱动；不完整则拒绝）
+echo    217. [沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）
+echo    218. [南屏晚钟] 首次实测（点歌段噪声口径）
 echo    0. 退出
 echo.
 set "op="
@@ -482,6 +485,9 @@ if "%op%"=="212" goto cx_v4_analysis
 if "%op%"=="213" goto cx_process
 if "%op%"=="214" goto topic_cards
 if "%op%"=="215" goto share_page
+if "%op%"=="216" goto blocks1010
+if "%op%"=="217" goto crossnight
+if "%op%"=="218" goto nanping
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2895,5 +2901,35 @@ echo  [分享] share.html 五区 + data/share 种子
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\build_share_page.py
 python -X utf8 project_b\build_nav.py
+pause
+goto menu
+
+
+:blocks1010
+cls
+echo  [blocks1010] build_show_blocks_1010.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_show_blocks_1010.py
+python -X utf8 project_b\build_stage_page.py
+pause
+goto menu
+
+
+:crossnight
+cls
+echo  [crossnight] cross_night_consistency.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\cross_night_consistency.py
+python -X utf8 project_b\build_stage_page.py
+pause
+goto menu
+
+
+:nanping
+cls
+echo  [nanping] measure_nanping_wanchong.py
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\measure_nanping_wanchong.py
+python -X utf8 project_b\build_stage_page.py
 pause
 goto menu

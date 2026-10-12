@@ -2106,6 +2106,30 @@
    "menu_label": null,
    "in_deploy": true,
    "path": "D:\\wx409.github.io\\project_b\\apply_site_url.py"
+  },
+  {
+   "script": "build_show_blocks_1010.py",
+   "menu": 216,
+   "title": "10-10 块级生成（回填驱动，拒绝不完整回填）",
+   "menu_label": "blocks1010",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks_1010.py"
+  },
+  {
+   "script": "cross_night_consistency.py",
+   "menu": 217,
+   "title": "同曲跨夜一致性（第五种证据：同曲跨夜）",
+   "menu_label": "crossnight",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\cross_night_consistency.py"
+  },
+  {
+   "script": "measure_nanping_wanchong.py",
+   "menu": 218,
+   "title": "《南屏晚钟》首次实测（点歌段噪声口径）",
+   "menu_label": "nanping",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\measure_nanping_wanchong.py"
   }
  ]
 }
