@@ -438,15 +438,15 @@ def show_blocks_section() -> str:
                 f'<td>{esc(nm)}{tag}</td>'
                 f'<td>{esc(x["f0_median_note"])}</td><td>{x["stability_cents_median"]}</td>'
                 f'<td>{x["intonation_cents_median"]}</td>'
-                '<td>' + f'{x["vibrato_hz_median"]}/' + (f'{x["vibrato_cents_median"]:.0f}' if isinstance(x.get("vibrato_cents_median"), (int, float)) else "—") + '</td>'
+                f'<td>{x["vibrato_hz_median"]}/{x["vibrato_cents_median"]:.0f}</td>'
                 f'<td>{x["density_per_s"]}</td><td>{x["low_ratio_db"]:+.1f}</td>'
-                '<td>' + (str(x["hnr_db_median"]) if isinstance(x.get("hnr_db_median"), (int, float)) else "—/未测") + '</td>'
+                f'<td>{x["hnr_db_median"]}</td>'
                 f'<td>{"✅" if x.get("in_stats") else "—"}</td></tr>')
         fb = sh.get("feedback") or {}
         out.append(f'''<h2>一之二、双人场次（块级）：{esc(s0.get("name",""))}</h2>
 <div class="hl">
 <strong>{esc(s0.get("date",""))}｜{esc(s0.get("venue",""))}｜{esc(s0.get("organizer",""))}｜{esc(s0.get("cast",""))}</strong><br>
-全场 <strong>{b.get("total_s",0):.0f}s</strong>：演唱 <strong>{b.get("sing_total",0):.0f}s（{b.get("sing_pct","—")}%）</strong>；
+全场 {b.get("total",0)/60:.0f} 分钟：<strong>演唱 {b.get("sing_total",0):.0f}s（{b.get("sing_pct",0)}%）</strong>；
 非演唱/未定 {b.get("nonsing_total",0):.0f}s（其中重叠合唱 {be.get("overlap_dur_s",0):.0f}s 不可归属、
 观众唱 {be.get("audience_sing_s",0):.0f}s、口哨等非演唱发声 {be.get("whistle_s",0):.0f}s）。
 共 <strong>{len(bl)} 个演唱块</strong>（进统计 {n_ok}：王晰 {sh.get("n_in_stats",{}).get("wang","—")}、
