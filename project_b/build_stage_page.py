@@ -368,6 +368,20 @@ def cross_section() -> str:
 ③ 跨来源不做「谁更准/谁更稳」的结论；④ 标注「待核」的 QQ 版本疑为粉丝上传，仅作交叉核对。
 </div>'''
 
+def _cell(v, fmt="+.1f"):
+    """数值格式化：None/缺失 → 「—/未测」；字符串原样（防 None 格式化崩溃）。"""
+    if isinstance(v, (int, float)):
+        return format(v, fmt)
+    return str(v) if v not in (None, "") else "—/未测"
+
+
+def _hdr(v, pct=False):
+    """表头数值：None/0 且无数据 → 「—/未测」；有真值 → 数值（+%）。0 与未测是两件事。"""
+    if isinstance(v, (int, float)):
+        return f"{v:.1f}" + ("%" if pct else "")
+    return "—/未测"
+
+
 def show_blocks_section() -> str:
     """双人场次块级小节（2026-10-10）：数据源 data/archive_stage_tour.json 的 show_blocks
     （由 data/show_blocks/*.json 经 project_b/inject_show_blocks.py 注入）。
@@ -438,17 +452,16 @@ def show_blocks_section() -> str:
                 f'<td>{esc(nm)}{tag}</td>'
                 f'<td>{esc(x["f0_median_note"])}</td><td>{x["stability_cents_median"]}</td>'
                 f'<td>{x["intonation_cents_median"]}</td>'
-                f'<td>{x["vibrato_hz_median"]}/{x["vibrato_cents_median"]:.0f}</td>'
-                f'<td>{x["density_per_s"]}</td><td>{x["low_ratio_db"]:+.1f}</td>'
-                f'<td>{x["hnr_db_median"]}</td>'
+                f'<td>{_cell(x.get("vibrato_hz_median"), ".2f")}/{_cell(x.get("vibrato_cents_median"), ".0f")}</td>'
+                f'<td>{x["density_per_s"]}</td><td>{_cell(x.get("low_ratio_db"))}</td>'
+                f'<td>{_cell(x.get("hnr_db_median"), ".1f")}</td>'
                 f'<td>{"✅" if x.get("in_stats") else "—"}</td></tr>')
         fb = sh.get("feedback") or {}
         out.append(f'''<h2>一之二、双人场次（块级）：{esc(s0.get("name",""))}</h2>
 <div class="hl">
 <strong>{esc(s0.get("date",""))}｜{esc(s0.get("venue",""))}｜{esc(s0.get("organizer",""))}｜{esc(s0.get("cast",""))}</strong><br>
-全场 {b.get("total",0)/60:.0f} 分钟：<strong>演唱 {b.get("sing_total",0):.0f}s（{b.get("sing_pct",0)}%）</strong>；
-非演唱/未定 {b.get("nonsing_total",0):.0f}s（其中重叠合唱 {be.get("overlap_dur_s",0):.0f}s 不可归属、
-观众唱 {be.get("audience_sing_s",0):.0f}s、口哨等非演唱发声 {be.get("whistle_s",0):.0f}s）。
+全场 <strong>{_hdr(b.get("total_s"))}s</strong>：演唱 <strong>{_hdr(b.get("sing_total"))}s（{_hdr(b.get("sing_pct"), pct=True)}）</strong>；
+非演唱/未定 <strong>{_hdr(b.get("nonsing_total"))}s</strong>（其中重叠合唱 {_hdr(be.get("overlap_dur_s"))}s 不可归属、观众唱 {_hdr(be.get("audience_sing_s"))}s、口哨等非演唱发声 {_hdr(be.get("whistle_s"))}s）。
 共 <strong>{len(bl)} 个演唱块</strong>（进统计 {n_ok}：王晰 {sh.get("n_in_stats",{}).get("wang","—")}、
 傲日其愣 {sh.get("n_in_stats",{}).get("aori","—")}），块级指标为该块**人声轨的分布型统计**。
 </div>
