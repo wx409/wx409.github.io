@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-10-12 13:10",
- "last_update": "2026-10-12 13:10",
+ "timestamp": "2026-10-12 18:06",
+ "last_update": "2026-10-12 18:06",
  "date_range": "2023-01-01 ~ 2026-10-12",
  "total": 280953,
  "complete_rate": 20.4,
@@ -202,7 +202,7 @@
   11.5,
   54.8,
   55.6,
-  13.3
+  13.6
  ],
  "top_songs": [
   {
@@ -254,115 +254,9 @@
    "tag": "上涨"
   }
  ],
- "daily_listen_trend": [
-  {
-   "rank": 1,
-   "song": "黎明前的黑暗",
-   "share_pct": 53.3,
-   "trend_pct": -14.4,
-   "trend_label": "down"
-  },
-  {
-   "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 6.7,
-   "trend_pct": -23.8,
-   "trend_label": "down"
-  },
-  {
-   "rank": 3,
-   "song": "山楂树",
-   "share_pct": 6.5,
-   "trend_pct": 6.9,
-   "trend_label": "up"
-  },
-  {
-   "rank": 4,
-   "song": "一生中最爱",
-   "share_pct": 5.2,
-   "trend_pct": -16.7,
-   "trend_label": "down"
-  },
-  {
-   "rank": 5,
-   "song": "她真漂亮",
-   "share_pct": 5.0,
-   "trend_pct": 9.1,
-   "trend_label": "up"
-  },
-  {
-   "rank": 6,
-   "song": "在路上",
-   "share_pct": 4.0,
-   "trend_pct": -38.7,
-   "trend_label": "down"
-  },
-  {
-   "rank": 7,
-   "song": "Sound of Silence",
-   "share_pct": 4.0,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 8,
-   "song": "亲密爱人",
-   "share_pct": 3.5,
-   "trend_pct": 21.4,
-   "trend_label": "up"
-  },
-  {
-   "rank": 9,
-   "song": "再叙",
-   "share_pct": 3.1,
-   "trend_pct": -11.8,
-   "trend_label": "down"
-  },
-  {
-   "rank": 10,
-   "song": "南屏晚钟",
-   "share_pct": 2.7,
-   "trend_pct": -7.1,
-   "trend_label": "down"
-  },
-  {
-   "rank": 11,
-   "song": "相思",
-   "share_pct": 2.5,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 12,
-   "song": "哭砂",
-   "share_pct": 2.3,
-   "trend_pct": 10.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 13,
-   "song": "晚风暖暖",
-   "share_pct": 1.2,
-   "trend_pct": -14.3,
-   "trend_label": "down"
-  }
- ],
- "daily_anomalies": [
-  {
-   "song": "晚风暖暖",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 33,593 位"
-  }
- ],
- "latest_anomaly": {
-  "song": "晚风暖暖",
-  "type": "📈 排名飙升",
-  "metric": "排名",
-  "change_pct": null,
-  "desc": "排名较昨日上升 33,593 位"
- },
+ "daily_listen_trend": [],
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   435.0,
   456.0
@@ -8576,12 +8470,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-10-05",
-   "avg_index": 404.5,
-   "total_songs": 253,
-   "complete": true
-  },
-  {
    "date": "2026-10-06",
    "avg_index": 437.8,
    "total_songs": 252,
@@ -8614,6 +8502,12 @@
   {
    "date": "2026-10-11",
    "avg_index": 332.2,
+   "total_songs": 253,
+   "complete": true
+  },
+  {
+   "date": "2026-10-12",
+   "avg_index": null,
    "total_songs": 253,
    "complete": true
   }
