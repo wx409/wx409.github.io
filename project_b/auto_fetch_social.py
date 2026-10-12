@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import urllib.request
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -21,6 +22,9 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 CFG = SITE / "data" / "social_fetch_config.json"
 LOG = SITE / "temp" / "auto_fetch_social.log"
+# 微博登录态判定端点（**必须带 cookie** 请求，否则会误判为失效）
+ENDPOINT = "https://m.weibo.cn/api/config"
+WB_COOKIE = Path(r"E:\\wx\\私有工具\\weibo_proxy\\weibo_cookie.json")
 HINT = ("F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py "
         "或 tools\\sync_xhs_cookie.py")
 
@@ -44,18 +48,34 @@ def notify(title, body):
 
 
 def check_weibo(cfg):
-    """GET /api/config 判 login；失败按三态返回。"""
+    """微博登录态三态。
+
+    判定用文件与端点（2026-10-12 实测修正）：
+      ① 首选 `tools/sync_weibo_cookie.py --check`（与操作中心同口径），若存在且给出三态则采用；
+      ② 否则读 `E:\wx\私有工具\weibo_proxy\weibo_cookie.json` 的 cookie，
+         **带 Cookie 头** GET `https://m.weibo.cn/api/config`，取 data.login。
+    注意：**必须带 cookie**——不带 cookie 请求 /api/config 会返回 login=false，会造成"失效"误报。
+    """
     try:
-        sys.path.insert(0, SITE / "project_b")
-        import weibo_api  # noqa
-        ok = bool(getattr(weibo_api, "is_logged_in", lambda: None)())
-        return "有效" if ok else "失效"
+        r = subprocess.run([sys.executable, "-X", "utf8", "tools/sync_weibo_cookie.py", "--check"],
+                           capture_output=True, text=True, encoding="utf-8", errors="ignore",
+                           cwd=str(SITE))
+        out = (r.stdout or "") + (r.stderr or "")
+        for s2 in ("有效", "失效", "被风控"):
+            if s2 in out:
+                return s2
     except Exception:
         pass
     try:
-        import urllib.request
-        with urllib.request.urlopen("https://m.weibo.cn/api/config", timeout=12) as r:
-            d = json.loads(r.read().decode("utf-8", "ignore"))
+        raw = json.loads(Path(r"E:\\wx\\私有工具\\weibo_proxy\\weibo_cookie.json")
+                         .read_text(encoding="utf-8"))
+        ck = raw if isinstance(raw, str) else (raw.get("cookie") or raw.get("Cookie") or "")
+        if isinstance(ck, dict):
+            ck = "; ".join(f"{k}={v}" for k, v in ck.items())
+        req = urllib.request.Request(ENDPOINT, headers={
+            "Cookie": ck, "User-Agent": "Mozilla/5.0", "Referer": "https://m.weibo.cn/"})
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            d = json.loads(resp.read().decode("utf-8", "ignore"))
         return "有效" if (d.get("data") or {}).get("login") else "失效"
     except Exception as e:
         return f"无法判定（网络/风控：{type(e).__name__}）"

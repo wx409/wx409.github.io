@@ -2138,7 +2138,7 @@
    "menu_label": "social_boot",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\auto_fetch_social.py",
-   "pending_task": "schtasks /Create /TN wx409_social_boot /TR \"D:\\wx409.github.io\\auto_fetch_social.bat\" /SC ONLOGON /F"
+   "pending_task": "已用**启动文件夹**方案（免提权，与 ONLOGON 等效）：%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\wx409_social_boot.cmd（内部 start \"\" /min 调 D:\\wx409.github.io\\auto_fetch_social.bat）。备选 schtasks /Create /TN wx409_social_boot /SC ONLOGON 仅在需要**免登录触发**时使用，需管理员权限。"
   }
  ]
 }
