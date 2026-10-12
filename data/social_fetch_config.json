@@ -1,20 +1,35 @@
 {
  "schema": 1,
- "note": "开机自启抓取的账号配置（**不写死在脚本里**）；xsec_token 会变，可整条替换 url",
+ "note": "cmd 仅作展示；执行用 args（参数列表）+ cwd。**禁止把脚本名与参数拼成一个字符串传给 python。**",
  "weibo": [
   {
    "key": "self",
    "label": "王晰本人",
-   "cmd": "weibo_proxy.py fetch"
+   "cmd": "weibo_proxy.py fetch",
+   "cwd": "E:\\wx\\私有工具\\weibo_proxy",
+   "args": [
+    "weibo_proxy.py",
+    "fetch"
+   ]
   },
   {
    "key": "studio",
    "label": "王晰工作室",
-   "cmd": "weibo_proxy_studio.py fetch --all"
+   "cmd": "weibo_proxy_studio.py fetch --all",
+   "cwd": "E:\\wx\\私有工具\\weibo_proxy",
+   "args": [
+    "weibo_proxy_studio.py",
+    "fetch",
+    "--all"
+   ]
   }
  ],
  "weibo_snapshot": {
-  "cmd": "project_b/run_weibo_snapshot.py --once"
+  "cwd": "D:\\wx409.github.io",
+  "args": [
+   "project_b/run_weibo_snapshot.py",
+   "--once"
+  ]
  },
  "xiaohongshu": [
   {

@@ -92,7 +92,7 @@ def check_xhs():
 
 
 def run(cmd, cwd):
-    r = subprocess.run(cmd, shell=isinstance(cmd, str), capture_output=True, text=True,
+    r = subprocess.run(cmd, shell=False, capture_output=True, text=True,
                        encoding="utf-8", errors="ignore", cwd=cwd)
     tail = ((r.stdout or "") + (r.stderr or "")).strip().splitlines()
     return r.returncode, (tail[-1][:160] if tail else "")
@@ -119,11 +119,16 @@ def main() -> int:
                 + "；" + (cfg.get("weibo_snapshot") or {}).get("cmd", ""))
         else:
             for w in cfg.get("weibo", []):
-                rc, t = run([sys.executable, "-X", "utf8", w["cmd"]], cwd=SITE)
+                # ★ 参数列表化 + 各自 cwd（weibo_proxy*.py 在 E:\wx\私有工具\weibo_proxy）
+                args = w.get("args") or (w.get("cmd") or "").split()
+                rc, t = run([sys.executable, "-X", "utf8"] + args,
+                            cwd=Path(w.get("cwd") or SITE))
                 log(f"  {w['label']}：rc={rc}｜{t}")
-            snap = (cfg.get("weibo_snapshot") or {}).get("cmd")
-            if snap:
-                rc, t = run([sys.executable, "-X", "utf8", snap], cwd=SITE)
+            snap = cfg.get("weibo_snapshot") or {}
+            sargs = snap.get("args") or (snap.get("cmd") or "").split()
+            if sargs:
+                rc, t = run([sys.executable, "-X", "utf8"] + sargs,
+                            cwd=Path(snap.get("cwd") or SITE))
                 log(f"  微博快照：rc={rc}｜{t}")
 
     if a.platform in ("", "xhs"):
