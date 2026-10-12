@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-12T21:07:18",
-  "rows": 713,
+  "generated_at": "2026-10-13T00:12:21",
+  "rows": 719,
   "levels": {
-   "L1": 327,
+   "L1": 331,
    "L6": 26,
-   "L3": 34,
+   "L3": 35,
    "L4": 2,
-   "未认领": 324
+   "未认领": 325
   },
-  "shows_with_material": 49,
-  "shows_with_claimable": 48,
+  "shows_with_material": 50,
+  "shows_with_claimable": 49,
   "shows_total": 64
  },
  "per_show": {
@@ -70,6 +70,10 @@
    "n": 2,
    "claimable": 2
   },
+  "2021-03-07": {
+   "n": 1,
+   "claimable": 1
+  },
   "2021-01-09": {
    "n": 1,
    "claimable": 1
@@ -79,16 +83,16 @@
    "claimable": 1
   },
   "2022-01-10": {
-   "n": 21,
-   "claimable": 18
+   "n": 23,
+   "claimable": 20
   },
   "2022-06-24": {
    "n": 9,
    "claimable": 2
   },
   "2022-09-17": {
-   "n": 17,
-   "claimable": 15
+   "n": 18,
+   "claimable": 16
   },
   "2023-06-23": {
    "n": 1,
@@ -163,8 +167,8 @@
    "claimable": 4
   },
   "2024-12-29": {
-   "n": 2,
-   "claimable": 2
+   "n": 3,
+   "claimable": 3
   },
   "2026-06-13": {
    "n": 23,
@@ -1353,6 +1357,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "上海20210307_BV1Gr421F7at",
+   "song": "City of Stars",
+   "tour": "二巡",
+   "city": "上海",
+   "date": "2021-03-07",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-03-07",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡佛山20201121_p24_【王晰】2020个人巡回音乐会 11.21佛山场 p24 24 点歌环",
    "song": "佛山全场",
    "tour": "二巡",
@@ -1653,6 +1669,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "武汉20220917_BV1Qe4y1877s",
+   "song": "牵手",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-09-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "【王晰三巡·图景】20220917 武汉全程____P13_为爱痴狂 牵手 可爱的一朵玫瑰花",
    "song": "",
    "tour": "三巡",
@@ -1799,6 +1827,18 @@
   {
    "tag": "三巡上海20220110_p16_王晰三巡上海站 20220110 p16 让我欢喜让我忧",
    "song": "三巡上海全场",
+   "tour": "三巡",
+   "city": "上海",
+   "date": "2022-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "上海20220110_BV1hY41187D7",
+   "song": "让我欢喜让我忧",
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
@@ -2087,6 +2127,18 @@
   {
    "tag": "三巡上海20220110_p05_王晰三巡上海站 20220110 p05 惑许（后半段）",
    "song": "三巡上海全场",
+   "tour": "三巡",
+   "city": "上海",
+   "date": "2022-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "上海20220110_BV1pB4y117uB",
+   "song": "高级动物",
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
@@ -7797,6 +7849,18 @@
    "why": ""
   },
   {
+   "tag": "南昌20260909_BV19ZYs6LEfA",
+   "song": "当爱已成往事",
+   "tour": "其他演出",
+   "city": "南昌",
+   "date": "2026-09-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "06永不失联的爱",
    "song": "",
    "tour": "其他演出",
@@ -8515,6 +8579,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "南昌20250104_BV1LKrpYYEtN",
+   "song": "是否",
+   "tour": "其他演出",
+   "city": "南昌",
+   "date": "2025-01-04",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-12-29",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P15_点歌-敕勒川再来一遍！",

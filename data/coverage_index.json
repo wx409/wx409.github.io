@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-12T21:07:18",
+  "generated_at": "2026-10-13T00:12:22",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 9,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7820,
-  "measured_shows_site": 49,
-  "shows_with_claimable_site": 48,
-  "bv_mapped": 95
+  "files_scanned": 7853,
+  "measured_shows_site": 50,
+  "shows_with_claimable_site": 49,
+  "bv_mapped": 98
  },
  "shows": [
   {
@@ -799,6 +799,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "上海20210307_BV1Gr421F7at｜City of Stars"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV1Gr421F7at"
     },
@@ -816,14 +821,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "上海20210307_BV1Gr421F7at.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Gr421F7at"
     }
    ],
-   "n_evidence": 9
+   "n_evidence": 14
   },
   {
    "date": "2021-03-08",
@@ -1073,6 +1073,16 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1pB4y117uB｜高级动物｜上海20220110"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1hY41187D7｜让我欢喜让我忧｜上海20220110"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "三巡上海20220110_p01_王晰三巡上海站 20220110 p01 送别｜三巡上海全场"
@@ -1091,19 +1101,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "三巡上海20220110_p10_王晰三巡上海站 20220110 p10 唠嗑3｜三巡上海全场"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡上海20220110_p08_王晰三巡上海站 20220110 p08 唠嗑2｜三巡上海全场"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡上海20220110_p16_王晰三巡上海站 20220110 p16 让我欢喜让我忧｜三巡上海全场"
     }
    ],
-   "n_evidence": 147
+   "n_evidence": 175
   },
   {
    "date": "2022-04-09",
@@ -1253,9 +1253,19 @@
      "detail": "BV1MW4y1q7hr｜【王晰三巡·图景】20220917 武汉全程"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Qe4y1877s｜牵手｜武汉20220917"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "【王晰三巡·图景】20220917 武汉全程____P01_送别 moonriver 知晓｜"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "武汉20220917_BV1Qe4y1877s｜牵手"
     },
     {
      "level": 1,
@@ -1266,19 +1276,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "【王晰三巡·图景】20220917 武汉全程____P03_惑许 达尔文 车站 橄榄树｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰三巡·图景】20220917 武汉全程____P17_爱你｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰三巡·图景】20220917 武汉全程____P05_一生中最爱｜"
     }
    ],
-   "n_evidence": 183
+   "n_evidence": 199
   },
   {
    "date": "2023-04-09",
