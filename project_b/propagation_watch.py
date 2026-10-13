@@ -777,6 +777,65 @@ def run_dry(cfg, a):
     return 0
 
 
+def run_light(cfg, a) -> int:
+    """每日轻量巡逻 / 演出夜收尾：只跑**廉价**部分——cookie 三态 + 关键词配置体检 +
+    窗口簇状/单条突增判定（读本地语料，不联网、不载语义模型）。
+
+    代价：秒级；不改站点页面、不写公开 JSON（只追加本地日志与本地归档）。
+    """
+    probe = next((w for w in (cfg.get("window_probes") or [])), None)
+    out = {"generated_at": datetime.now().isoformat(), "mode": "light",
+           "time_window_hours": a.win, "cookie": {}, "keywords": {},
+           "thresholds": cfg.get("thresholds"), "retrieval_params_present": bool(cfg.get("retrieval"))}
+    for plat, c in (cfg.get("platforms") or {}).items():
+        if not c.get("enabled"):
+            continue
+        st = cookie_ok(plat) if plat in ("xhs", "weibo") else "不适用"
+        out["cookie"][plat] = st
+        log(f"  {plat}：cookie 三态 = {st}")
+        if st in ("失效", "被风控"):
+            notify(f"⚠ {plat} cookie 需要更新",
+                   f"传播监测（每日巡逻）：{plat} 登录态 {st}；"
+                   "请 F12 复制 Cookie 粘进 wb.txt/xhs.txt 并跑对应 sync 脚本")
+    kw = cfg.get("keywords") or {}
+    out["keywords"] = {k: len(v or []) for k, v in kw.items()}
+    log("  关键词组：曲名 %d｜钩子词 %d｜演出词 %d" % (
+        out["keywords"].get("songs", 0), out["keywords"].get("hook_words", 0),
+        out["keywords"].get("show_words", 0)))
+    if probe and probe.get("window"):
+        w = window_probe(cfg, probe["window"])
+        out["window_probe"] = {"label": probe.get("label", ""), "window": w.get("window"),
+                               "n_in_window": w.get("n_in_window"),
+                               "max_per_30min_sliding": w.get("max_per_30min_sliding"),
+                               "sliding_start": w.get("sliding_start"),
+                               "anchor_probe": w.get("anchor_probe"),
+                               "spikes_in_window": w.get("spikes_in_window"),
+                               "verdict": w.get("verdict")}
+        log("  定向窗（%s）：%s" % (probe.get("window"), (w.get("verdict") or "")[:110]))
+    r2 = rule2(cfg)
+    out["rule2"] = {"posts": {k: r2["posts"][k] for k in ("n", "median", "threshold", "triggered")},
+                    "comments": {k: r2["comments"][k] for k in ("n", "median", "threshold", "triggered")},
+                    "per_day_posts": {d: {"n": v["n"], "median": v["median"], "triggered": v["triggered"]}
+                                      for d, v in r2["posts"]["per_day"].items()}}
+    log("  规则二：帖 %s×中位%s 触发=%s｜评论 %s×中位%s 触发=%s" % (
+        r2["posts"]["threshold"], r2["posts"]["median"], r2["posts"]["triggered"],
+        r2["comments"]["threshold"], r2["comments"]["median"], r2["comments"]["triggered"]))
+    out["discipline"] = ("无平台侧数据不得写「爆火/上热点」；平台机制表述为经验性认知（非官方）；"
+                         "轻量巡逻只做本地判定，不改站点。")
+    dst = SITE / "temp" / "propagation_digest_light.json"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    if ARCH.parent.exists():
+        try:
+            (ARCH).mkdir(parents=True, exist_ok=True)
+            (ARCH / f"每日巡逻_{datetime.now():%Y%m%d}.json").write_text(
+                json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+        except Exception as e:
+            log(f"  本地归档失败（不致命）：{e}")
+    log("  轻量巡逻完成 → " + str(dst))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry", action="store_true")
@@ -785,9 +844,14 @@ def main() -> int:
     ap.add_argument("--eval-retrieval", action="store_true", help="A 六项：升级前后检索对照")
     ap.add_argument("--window", default="", help="定向窗，如 '2026-10-10 20:00-24:00'")
     ap.add_argument("--rule2", action="store_true", help="liked 归一化 + 单条赞>中位×3 模拟")
+    ap.add_argument("--light", action="store_true",
+                    help="每日轻量巡逻/演出夜收尾：cookie 三态 + 窗口簇状判定 + 规则二（不联网、不载语义模型）")
     a = ap.parse_args()
     cfg = json.loads(CFG.read_text(encoding="utf-8"))
     a.win = a.since or cfg.get("time_window_hours", 72)
+    if a.light:
+        log(f"=== 传播监测（轻量巡逻｜窗 {a.win}h）===")
+        return run_light(cfg, a)
     if a.eval_retrieval or a.window or a.rule2:
         a.dry = False
     return run_dry(cfg, a)

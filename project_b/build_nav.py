@@ -74,8 +74,10 @@ FOOTER_GROUPS = [
 #   - archive-index.html：完整档案索引页（仍是私密页，不进主导航）
 SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html",
         # 2026-10-11：分享作战室与竖屏分享卡**不进主导航**（用户拍板；仅从 community 强链）
-        "share.html", "share-vibrato.html", "share-low_floor.html", "share-low_dynamic.html",
-        "share-long_tone.html", "share-context_awareness.html", "share-tour_scale.html",
+        "share.html",
+        # 2026-10-13：竖屏分享卡改为**按目录派生**——新增卡片自动纳入 SKIP，
+        # 避免新卡漏网后被注入顶部导航条（与其余竖屏卡样式不一致）
+        *{p.name for p in ROOT.glob("share-*.html")},
         "weibo-oauth-callback.html"}
 
 # 「完整档案」页清单（2026-09-13 瘦身 2.0）。**已更正 2026-09-13 晚**：
