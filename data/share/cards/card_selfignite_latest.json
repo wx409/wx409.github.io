@@ -1,0 +1,90 @@
+{
+ "id": "selfignite_latest",
+ "no": 9,
+ "title": "自燃信号",
+ "subtitle": "演出后传播突增/簇状触发（阈值命中才出卡）",
+ "pillar": "事实（阈值触发）",
+ "review_status": "auto",
+ "page_status": "auto",
+ "page_layer": "share-<id>.html（noindex,follow，不进主导航）",
+ "main_numbers": [
+  {
+   "value": 45.5,
+   "unit": "赞",
+   "label": "帖点赞中位（判定基数）",
+   "caliber": "propagation_spike",
+   "source": "temp/propagation_digest_light.json"
+  },
+  {
+   "value": 136.5,
+   "unit": "赞",
+   "label": "突增阈值（中位×3.0）",
+   "caliber": "propagation_spike",
+   "source": "temp/propagation_digest_light.json"
+  },
+  {
+   "value": 0,
+   "unit": "条",
+   "label": "30 分钟滑动峰值（簇状门槛 5）",
+   "caliber": "propagation_cluster",
+   "source": "temp/propagation_digest_light.json"
+  },
+  {
+   "value": 263,
+   "unit": "赞",
+   "label": "最高单条（2026-10-09 21:38）",
+   "caliber": "propagation_spike",
+   "source": "data/share/woyaoni_spread.json"
+  }
+ ],
+ "view_reading": [
+  "触发源：temp/propagation_digest_light.json（2026-10-13T12:00）；阈值取自 data/propagation_watch.json#thresholds。",
+  "命中项：帖突增 是、评论突增 是、簇状（30 分钟滑动峰值 0 ≥ 5）否。",
+  "定向窗 2026-10-10 20:00 – 00:00：窗内 25 条（帖 4 / 评论 21）；窗内突增 1 条。",
+  "同场次样本：26 条笔记 / 1542 赞 / 176 条评论；69.2% 集中在演出当日或次晚。"
+ ],
+ "view_card": [
+  "帖中位 45.5 赞",
+  "阈值 136.5 赞",
+  "滑动峰值 0 条"
+ ],
+ "caliber_lock": [
+  {
+   "label": "平台侧",
+   "value": "无曝光/推荐/榜单数据",
+   "why": "平台机制一律 经验性认知（非官方）；禁用三类平台侧夸张断言（见 data/share/battlemap.json）"
+  },
+  {
+   "label": "样本",
+   "value": "本机可检索到的公开 UGC",
+   "why": "样本无法证实平台侧热度；「未命中」也不等于「没有热点」"
+  }
+ ],
+ "gate": {
+  "pass_status": [
+   "阈值触发（规则判定）"
+  ],
+  "note": "阈值：簇状 6 小时内 ≥5 条 / 单条突增 ≥中位×3.0"
+ },
+ "platform": {
+  "xiaohongshu": {
+   "标题": "自燃信号｜阈值命中的传播突增",
+   "封面文案": "阈值命中的传播突增",
+   "正文": "自燃信号。帖点赞中位 45.5、阈值 136.5",
+   "标签": [
+    "#王晰",
+    "#低音炮",
+    "#声乐实测",
+    "#自燃信号"
+   ],
+   "互动引导": "想看判定细节？看站内传播监测口径"
+  },
+  "douyin": {
+   "听觉断点（纯文字占位）": "帖点赞中位 45.5、阈值 136.5",
+   "口播": "自燃信号：阈值命中的传播突增",
+   "must_note": "发布者自备素材，本站不提供音视频；请使用官方音源，勿搬运官摄"
+  }
+ },
+ "footnote": "口径：规则判定（data/propagation_watch.json#thresholds）；触发源 temp/propagation_digest_light.json；生成 2026-10-13｜阈值未命中不出卡",
+ "generated_at": "2026-10-13"
+}

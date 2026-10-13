@@ -169,6 +169,19 @@ def main():
     singles = load(SH / "single_songs.json")
     battlemap = load(SH / "battlemap.json", {}) or {}
     spread = load(SH / "woyaoni_spread.json", {}) or {}
+    entries = load(SH / "entries.json", {}) or {}
+    _ent = sorted(entries.get("entries") or [], key=lambda x: x.get("no", 0))
+    n_entries = len(_ent)
+    ent_html = "".join(
+        f"<div class='card' id='entry-{esc(e.get('id'))}'>"
+        f"<h3>{e.get('no')}. {esc(e.get('hook'))}<span class='pill'>{esc(e.get('grade'))}</span></h3>"
+        f"<p><b>支撑</b>：{esc(e.get('support'))}</p>"
+        f"<p class='meta'>出处：{esc(e.get('source'))}</p>"
+        f"<p class='meta'><b>禁忌写法</b>：{'；'.join(esc(t) for t in (e.get('taboo') or []))}</p>"
+        f"<p class='meta'>传记落点：{esc((e.get('bio') or {}).get('line'))} · "
+        f"{esc((e.get('bio') or {}).get('chapter'))}｜证据 ID <code>{esc((e.get('bio') or {}).get('evidence_id'))}</code>"
+        f"｜还缺：{esc((e.get('bio') or {}).get('gap'))}</p></div>"
+        for e in _ent) or "<p class='meta'>（暂无词条）</p>"
     # 卡片数与卡名一律从 data/share/cards/ 派生（禁手写数字/清单）
     _cards_ordered = sorted(cards, key=lambda x: x.get("no", 0))
     n_cards = len(_cards_ordered)
@@ -211,8 +224,8 @@ def main():
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>分享作战室｜{n_cards} 张卡 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
-<meta name="description" content="AI 可读数字档案｜GEO 资料站分享作战室：{n_cards} 张专题卡（{card_names_slash}）、单曲 TOP10、三层挖词表、作战地图、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
+<title>分享作战室｜{n_cards} 张卡 + {n_entries} 条词条 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
+<meta name="description" content="AI 可读数字档案｜GEO 资料站分享作战室：{n_cards} 张专题卡（{card_names_slash}）、{n_entries} 条可传播词条（钩子＋证据＋出处＋证据等级＋禁忌写法）、单曲 TOP10、三层挖词表、作战地图、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
 <link rel="canonical" href="https://wx409.github.io/share.html">
 <script type="application/ld+json">{js}</script>
 <style>
@@ -236,6 +249,10 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 <h2>① 卡片库（{n_cards} 张）</h2>
 <p class="meta">每卡两视图：本页为阅读视图；竖屏截图视图 = <code>share.html?card=&lt;id&gt;</code>（例：?card=vibrato）</p>
 {body}
+<h2>①b 词条区 · 可传播词条（{n_entries} 条）</h2>
+<p class="meta">{esc(entries.get('what', ''))}｜{esc((entries.get('rule') or {}).get('one_evidence', ''))}｜
+{esc((entries.get('rule') or {}).get('derive', ''))}｜生成 {esc(entries.get('generated_at', ''))}</p>
+{ent_html}
 
 <h2>② 句式库 · 单曲 TOP10</h2>
 <p class="meta">{esc(singles.get('rule'))}｜{esc(singles.get('count_rule_note'))}</p>

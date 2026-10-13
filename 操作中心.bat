@@ -261,7 +261,7 @@ echo    210. [观众反馈] 按本场专属关键词收紧（剧名/场馆/日期+主体词；旧产物自动 
 echo    211. [小红书] Cookie 三态自检（有效/失效/被风控）后分发到抓取工具
 echo    212. [沉响场次] v4 正式管线：分区 → 块指标 → 分离质量QC → 曲名交叉
 echo    213. [沉响场次] v1-v3 过程脚本清单（过程稿；正式结论一律以 v4 为准）
-echo    214. [专题卡] 生成 6 张专题卡数据源与渲染片段（build_topic_cards）
+echo    214. [专题卡] 生成全部专题卡数据源与渲染片段（张数取自 data/share/cards/；build_topic_cards）
 echo    215. [分享] 生成 share.html 五区 + data/share 种子（build_share_page）
 echo    216. [沉响10-10] 块级生成（回填驱动；不完整则拒绝）
 echo    217. [沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）
@@ -269,6 +269,7 @@ echo    218. [南屏晚钟] 首次实测（点歌段噪声口径）
 echo    219. [开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示；登录自启由启动文件夹 wx409_social_boot.cmd 触发）
 echo    220. [巡检] origin 同步检查（落后即自动 push 并复查）
 echo    221. [传播监测] 搜→正文+评论→量化→摘要→异常通知；轻量巡逻/检索升级对照/定向窗/规则二
+echo    222. [词条/自动卡] 词条库 + 每周发现/自燃信号自动卡（未达条件不出卡；build_share_entries / build_auto_cards）
 echo    0. 退出
 echo.
 set "op="
@@ -494,6 +495,7 @@ if "%op%"=="218" goto nanping
 if "%op%"=="219" goto social_boot
 if "%op%"=="220" goto git_sync
 if "%op%"=="221" goto prop_watch
+if "%op%"=="222" goto share_auto
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2905,6 +2907,17 @@ goto menu
 cls
 echo  [分享] share.html 五区 + data/share 种子
 cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_share_page.py
+python -X utf8 project_b\build_nav.py
+pause
+goto menu
+
+:share_auto
+cls
+echo  [词条/自动卡] entries.json + 自动卡（未达条件不出卡）+ 重出分享页
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\build_share_entries.py
+python -X utf8 project_b\build_auto_cards.py
 python -X utf8 project_b\build_share_page.py
 python -X utf8 project_b\build_nav.py
 pause
