@@ -1,65 +1,148 @@
 {
- "schema": 1,
- "metric": "同曲跨夜一致性",
- "discipline": "只报差异与一致性，不写谁更强；极值音不参与",
- "rows": [
-  {
-   "song": "敕勒歌",
-   "by_night": {
-    "stability_cents_median": {
-     "2026-10-09": 7.3,
-     "2026-10-10": 53.03
+ "schema": 3,
+ "generator": "project_b/cross_night_consistency.py（**单一写入者**）",
+ "discipline": "只报差异与一致性，不评优劣；不可比就写不可比，不硬凑",
+ "versions": {
+  "v1_longblock_vs_8s": {
+   "comparable": false,
+   "why": "10-09 长块 vs 10-10 8 秒窗——窗口径不同",
+   "rows": [
+    {
+     "song": "敕勒歌",
+     "by_night": {
+      "stability_cents_median": {
+       "2026-10-09": 7.3,
+       "2026-10-10": 53.03
+      },
+      "intonation_cents_median": {
+       "2026-10-09": 19.7,
+       "2026-10-10": 46.03
+      },
+      "vibrato_hz_median": {
+       "2026-10-09": 5.07,
+       "2026-10-10": 1.27
+      },
+      "density_per_s": {
+       "2026-10-09": 0.7,
+       "2026-10-10": 0.43
+      },
+      "hnr_db_median": {
+       "2026-10-09": 7.3,
+       "2026-10-10": null
+      },
+      "f0_median_note": {
+       "2026-10-09": null,
+       "2026-10-10": null
+      }
+     }
     },
-    "intonation_cents_median": {
-     "2026-10-09": 19.7,
-     "2026-10-10": 46.03
-    },
-    "vibrato_hz_median": {
-     "2026-10-09": 5.07,
-     "2026-10-10": 1.27
-    },
-    "density_per_s": {
-     "2026-10-09": 0.7,
-     "2026-10-10": 0.43
-    },
-    "hnr_db_median": {
-     "2026-10-09": 7.3,
-     "2026-10-10": null
-    },
-    "f0_median_note": {
-     "2026-10-09": null,
-     "2026-10-10": null
+    {
+     "song": "乌兰巴托的夜",
+     "by_night": {
+      "stability_cents_median": {
+       "2026-10-09": 5.9,
+       "2026-10-10": 54.03
+      },
+      "intonation_cents_median": {
+       "2026-10-09": 13.9,
+       "2026-10-10": 47.03
+      },
+      "vibrato_hz_median": {
+       "2026-10-09": 4.79,
+       "2026-10-10": 2.08
+      },
+      "density_per_s": {
+       "2026-10-09": 0.95,
+       "2026-10-10": 0.37
+      },
+      "hnr_db_median": {
+       "2026-10-09": 8.5,
+       "2026-10-10": null
+      },
+      "f0_median_note": {
+       "2026-10-09": null,
+       "2026-10-10": null
+      }
+     }
     }
-   }
+   ]
   },
-  {
-   "song": "乌兰巴托的夜",
-   "by_night": {
-    "stability_cents_median": {
-     "2026-10-09": 5.9,
-     "2026-10-10": 54.03
+  "v2_sep_vs_mix_8s": {
+   "comparable": false,
+   "why": "输入类型不同：10-09 为分离人声、10-10 为原始混音",
+   "rows": [
+    {
+     "song": "敕勒歌",
+     "n_win_1009": 4,
+     "n_win_1010": 48,
+     "metrics_1009": {
+      "stability_cents_median": 92.82,
+      "intonation_cents_median": 85.82,
+      "vibrato_hz_median": 2.38
+     },
+     "metrics_1010_mix": {
+      "stability_cents_median": 78.56,
+      "intonation_cents_median": 71.56,
+      "vibrato_hz_median": 2.74
+     }
     },
-    "intonation_cents_median": {
-     "2026-10-09": 13.9,
-     "2026-10-10": 47.03
-    },
-    "vibrato_hz_median": {
-     "2026-10-09": 4.79,
-     "2026-10-10": 2.08
-    },
-    "density_per_s": {
-     "2026-10-09": 0.95,
-     "2026-10-10": 0.37
-    },
-    "hnr_db_median": {
-     "2026-10-09": 8.5,
-     "2026-10-10": null
-    },
-    "f0_median_note": {
-     "2026-10-09": null,
-     "2026-10-10": null
+    {
+     "song": "乌兰巴托的夜",
+     "n_win_1009": 3,
+     "n_win_1010": 48,
+     "metrics_1009": {
+      "stability_cents_median": 89.11,
+      "intonation_cents_median": 82.11,
+      "vibrato_hz_median": 2.2
+     },
+     "metrics_1010_mix": {
+      "stability_cents_median": 78.56,
+      "intonation_cents_median": 71.56,
+      "vibrato_hz_median": 2.74
+     }
     }
-   }
+   ]
+  },
+  "v3_sep_vs_sep_8s": {
+   "comparable": true,
+   "why": "两侧均为分离人声；同规格 win8s/hop30s/fmin55/fmax1100/frame2048/hop512",
+   "rows": [
+    {
+     "song": "敕勒歌",
+     "block_1009": "b05",
+     "n_win_1009": 4,
+     "n_win_1010": 136,
+     "metrics_1009": {
+      "stability_cents_median": 92.82,
+      "intonation_cents_median": 85.82,
+      "vibrato_hz_median": 2.38
+     },
+     "metrics_1010": {
+      "stability_cents_median": 55.67,
+      "intonation_cents_median": 48.67,
+      "vibrato_hz_median": 2.33
+     }
+    },
+    {
+     "song": "乌兰巴托的夜",
+     "block_1009": "b06",
+     "n_win_1009": 3,
+     "n_win_1010": 136,
+     "metrics_1009": {
+      "stability_cents_median": 89.11,
+      "intonation_cents_median": 82.11,
+      "vibrato_hz_median": 2.2
+     },
+     "metrics_1010": {
+      "stability_cents_median": 55.67,
+      "intonation_cents_median": 48.67,
+      "vibrato_hz_median": 2.33
+     }
+    }
+   ],
+   "n_win_1010_sep": 136,
+   "confound": "设备/机位/观众噪声/PA 直达声比例不同；样本为 8 秒窗中位"
   }
- ]
+ },
+ "review_status": "数据层（未上站）：观众实录 8 秒窗，未达上站门槛"
 }
