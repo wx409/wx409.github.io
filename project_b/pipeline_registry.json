@@ -2147,6 +2147,14 @@
    "menu_label": null,
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\audit_show_blocks_presence.py"
+  },
+  {
+   "script": "audit_git_sync.py",
+   "menu": 220,
+   "title": "origin 同步巡检（ahead/behind → 自动 push + 复查，仍不一致红灯）",
+   "menu_label": "git_sync",
+   "in_deploy": true,
+   "path": "D:\\wx409.github.io\\project_b\\audit_git_sync.py"
   }
  ]
 }
