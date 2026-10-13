@@ -74,22 +74,31 @@ def main() -> int:
 
     # ── 2 低于男低音下限的稳定低音线 ──
     rows = [r for r in (vm.get("rows") or []) if r.get("song") == "我要你" and r.get("layer") == "tour_live"]
-    lows = sorted(r["metrics"]["low_hz"] for r in rows if r["metrics"].get("low_hz"))
+    ok_rows = [r for r in rows if "通过" in ((r.get("verify") or {}).get("state") or "")]
+    pend_rows = [r for r in rows if r not in ok_rows]
+    lows = sorted(r["metrics"]["low_hz"] for r in ok_rows if r["metrics"].get("low_hz"))
+    pend = sorted((r["metrics"]["low_hz"], r["metrics"].get("low_note"),
+                   (r.get("verify") or {}).get("state")) for r in pend_rows if r["metrics"].get("low_hz"))
     if lows:
-        notes = sorted({r["metrics"]["low_note"] for r in rows if r["metrics"].get("low_note")})
+        notes = sorted({r["metrics"]["low_note"] for r in ok_rows if r["metrics"].get("low_note")})
         E.append(dict(
             no=2, id="low_line_below_floor", hook="低于男低音下限的「稳定低音线」",
-            support=(f"《我要你》现场 {len(lows)} 版最低读数区间 **{notes[0]}–{notes[-1]}"
-                     f"（{lows[0]:.1f}–{lows[-1]:.1f}Hz）**，中位 {st.median(lows):.1f}Hz；"
-                     f"全部低于一般男低音下限 E2 82.4Hz。与录音室全量最低**稳定音** B1 61.5Hz **分列**。"),
+            support=(f"《我要你》现场 {len(lows)} 版（**谐波列复核通过**）最低读数区间 "
+                     f"{notes[0]}–{notes[-1]}（{lows[0]:.1f}–{lows[-1]:.1f}Hz），中位 {st.median(lows):.1f}Hz；"
+                     f"全部低于一般男低音下限 E2 82.4Hz。" +
+                     (f"另有 {len(pend)} 版读数 {pend[0][1]} {pend[0][0]:.1f}Hz 属**待复核**（{pend[0][2]}），"
+                      f"**不计入本区间**。" if pend else "") +
+                     "与录音室全量最低**稳定音** B1 61.5Hz **分列**。"),
             source="data/vocal_measurements.json（layer=tour_live, song=我要你）；录音室口径 data/calibers.md",
             grade="实测（单曲**触达音**级）",
             taboo=["触达音不得作能力结论、不进标题数字位", "不得与录音室 B1 61.5Hz 混读",
-                   "极值音歌手归属一律「归属未定」"],
+                   "极值音歌手归属一律「归属未定」", "**待复核读数不得并入区间**（单列展示）"],
             bio=dict(line="能力-市场", chapter="低音的可核验边界：低到哪、稳不稳",
                      evidence_id="vocal_measurements:我要你×%d" % len(lows),
                      gap="缺同期（2026）同曲的稳定音级复核；缺动态范围/气声量化读数"),
-            extra={"n_versions": len(lows), "low_hz": lows, "median": round(st.median(lows), 1)}))
+            extra={"n_versions_verified": len(lows), "low_hz_verified": lows,
+                   "median": round(st.median(lows), 1),
+                   "pending_single_out": [{"hz": p[0], "note": p[1], "state": p[2]} for p in pend]}))
 
     # ── 3 一场演出里的自燃 ──
     if sp:
