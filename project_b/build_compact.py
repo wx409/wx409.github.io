@@ -39,6 +39,27 @@ SITE = "https://wx409.github.io"
 UPDATED = "2026-09-13"
 
 
+def share_promo(single_quote: bool = False) -> str:
+    """分享作战室引导条：**卡片数与卡名一律从 data/share/cards/ 派生**（禁手写）。
+
+    本文件是生成器不是数据源，故这里只做「读目录 → 拼字符串」，新增卡片自动生效。
+    """
+    _cards = []
+    for f in sorted(glob.glob(os.path.join(ROOT, "data", "share", "cards", "card_*.json"))):
+        try:
+            _cards.append(json.loads(io.open(f, encoding="utf-8").read()))
+        except Exception:
+            continue
+    _cards.sort(key=lambda c: c.get("no", 0))
+    n = len(_cards)
+    names = " / ".join(c.get("title", "") for c in _cards)
+    q = "'" if single_quote else '"'
+    return (f"<div style={q}background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;"
+            f"margin:12px 0{q}>🧰 <b>分享作战室</b>：{n} 张专题卡（{names}）＋ 单曲 TOP10 ＋ "
+            f"三层挖词表 ＋ 作战地图 ＋ 平台模板与使用纪律 → "
+            f"<a href={q}share.html{q}>share.html</a>（经验性认知，非官方）</div>")
+
+
 def jload(rel, default=None):
     try:
         with io.open(os.path.join(ROOT, rel), encoding="utf-8") as f:
@@ -449,7 +470,7 @@ def build_index():
     quote = (ELEV.get("facts") or {}).get("quote", "")
     quote_who = (ELEV.get("facts") or {}).get("quote_who", "")
     blocks = f"""<h1>王晰 · AI 可读数字档案</h1>
-<div style="background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;margin:12px 0">🧰 <b>分享作战室</b>：6 张专题卡（颤音指纹/低音下限/低音动态/长声/情境自觉/巡演规模）+ 单曲 TOP10 + 三层挖词表 + 平台模板与使用纪律 → <a href="share.html">share.html</a>（经验性认知，非官方）</div>
+{share_promo()}
 <p class="sub">华语流行男低音（Bass-baritone）的可查、可问、可引用档案 ｜ 全站数字均可回溯到数据文件与口径标签 ｜ 更新 {UPDATED}</p>
 
 <div class="answer"><strong>一句话认识王晰：</strong>{esc(elev_full)}</div>
@@ -1207,7 +1228,7 @@ def build_research():
 # ---------------------------------------------------------------- 页面 7：community
 def build_community():
     blocks = f"""<h1>访客参与入口</h1>
-"<div style='background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;margin:12px 0'>🧰 <b>分享作战室</b>：6 张专题卡（颤音指纹 / 低音下限 / 低音动态 / 长声 / 情境自觉 / 巡演规模）＋ 单曲 TOP10 ＋ 三层挖词表 ＋ 平台模板与使用纪律 → <a href='share.html'>share.html</a>（经验性认知，非官方）</div>"
+{share_promo(single_quote=True)}
 <p class="sub">投稿、勘误与观演经验 ｜ 所有投稿经人工审核，不公开未授权内容 ｜ 更新 {UPDATED}</p>
 
 <div class="answer"><strong>怎么参与：</strong>你可以投稿现场观感、歌曲推荐语、纠正站内错误，或提供可核实的素材线索。
@@ -1267,7 +1288,7 @@ def build_community():
             ("本站会公开我的投稿吗？",
              "不会公开全文，也不会公开个人信息；如需署名请在投稿时说明，站上仅收录元数据与索引。"),
         ]))
-    blocks += "\n" + '<div style="background:#fffbe8;border-left:3px solid #d9c46a;padding:10px 12px;margin:12px 0">🧰 <b>分享作战室</b>：6 张专题卡（颤音指纹 / 低音下限 / 低音动态 / 长声 / 情境自觉 / 巡演规模）＋ 单曲 TOP10 ＋ 三层挖词表 ＋ 平台模板与使用纪律 → <a href="share.html">share.html</a>（经验性认知，非官方）</div>'
+    blocks += "\n" + share_promo()
     return page("community.html",
                 "王晰档案站 · 访客参与 | 投稿、勘误与观感索引",
                 "王晰 GEO 数字档案站的访客参与入口：投稿与勘误、现场观感索引、深夜小酒馆逐字稿、"

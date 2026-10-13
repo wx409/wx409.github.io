@@ -167,6 +167,21 @@ def main():
     pool = load(SH / "song_pool.json")
     tpl = load(SH / "templates.json")
     singles = load(SH / "single_songs.json")
+    battlemap = load(SH / "battlemap.json", {}) or {}
+    spread = load(SH / "woyaoni_spread.json", {}) or {}
+    # 卡片数与卡名一律从 data/share/cards/ 派生（禁手写数字/清单）
+    _cards_ordered = sorted(cards, key=lambda x: x.get("no", 0))
+    n_cards = len(_cards_ordered)
+    card_names = "、".join(c["title"] for c in _cards_ordered)
+    card_names_slash = " / ".join(c["title"] for c in _cards_ordered)
+    bm_html = "".join(
+        f"<div class='card'><h3>{it.get('no')}. {esc(it.get('title'))}</h3>"
+        f"<p><b>做什么</b>：{esc(it.get('action'))}</p>"
+        f"<p><b>依据（实测）</b>：{esc(it.get('basis'))}</p>"
+        f"<p class='meta'>平台机制：{esc(it.get('mechanism', ''))}｜风险：{esc(it.get('risk', ''))}</p></div>"
+        for it in (battlemap.get("items") or [])) or "<p class='meta'>（暂无条目）</p>"
+    bm_counter = (f"<div class='warn'>{esc(battlemap.get('counterexample_note', ''))}</div>"
+                  if battlemap.get("counterexample_note") else "")
     sel = ""
     # ?card=<id> 竖屏视图：只渲染一张卡（截图用）
     body = "".join((RENDER / f"card_{c['id']}.html").read_text(encoding="utf-8") for c in cards)
@@ -196,8 +211,8 @@ def main():
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>分享作战室｜6 张卡 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
-<meta name="description" content="AI 可读数字档案｜GEO 资料站分享作战室：6 张专题卡（颤音指纹/低音下限/低音动态/长声/情境自觉/巡演规模）、单曲 TOP10、三层挖词表、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
+<title>分享作战室｜{n_cards} 张卡 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
+<meta name="description" content="AI 可读数字档案｜GEO 资料站分享作战室：{n_cards} 张专题卡（{card_names_slash}）、单曲 TOP10、三层挖词表、作战地图、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
 <link rel="canonical" href="https://wx409.github.io/share.html">
 <script type="application/ld+json">{js}</script>
 <style>
@@ -218,7 +233,7 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 数字一律派生自 <code>data/</code>，口径见 <code>data/calibers.md</code></p>
 <div class="warn">本页<strong>不进主导航</strong>，仅在 <a href="community.html">社群页</a> 强链；仅供站主自用与授权合作者参考。</div>
 
-<h2>① 卡片库（6 张）</h2>
+<h2>① 卡片库（{n_cards} 张）</h2>
 <p class="meta">每卡两视图：本页为阅读视图；竖屏截图视图 = <code>share.html?card=&lt;id&gt;</code>（例：?card=vibrato）</p>
 {body}
 
@@ -235,7 +250,13 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 <h2>④ 使用纪律（六条）</h2>
 <ol>{disc}</ol>
 
-<h2>⑤ 作战地图 · 三层挖词表</h2>
+<h2>⑤ 作战地图 · 有限渠道下的最大化传播</h2>
+<p class="meta">{esc(battlemap.get('disclaimer', ''))}｜依据实测：<code>{esc(battlemap.get('subject_facts', ''))}</code>（
+{esc(spread.get('subject', ''))}；样本 {spread.get('notes', '—')} 条笔记 / {spread.get('comments_grabbed', '—')} 条评论，非全平台普查）</p>
+{bm_counter}
+{bm_html}
+
+<h3>⑤b 三层挖词表</h3>
 <table><tr><th>层</th><th>目标词数</th><th>已有</th><th>填充方</th></tr>{kw_rows}</table>
 <p class="meta">挖词指引：{esc(' / '.join((kw.get('dig_guide') or [])))}</p>
 </body></html>

@@ -149,16 +149,39 @@ def collect() -> list[dict]:
                 _cards.append(json.loads(f.read_text(encoding="utf-8")))
             except Exception:
                 continue
-    add("topic_card_numbers", "专题卡数字口径（6 张卡）",
+    add("topic_card_numbers", f"专题卡数字口径（{len(_cards)} 张卡）",
         f"{len(_cards)} 张卡 / 主数字 {sum(len(c.get('main_numbers') or []) for c in _cards)} 项 / "
         f"caliber-lock {sum(len(c.get('caliber_lock') or []) for c in _cards)} 项",
-        "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模）",
+        "data/share/cards/card_*.json（" + "·".join(c.get("title", "") for c in
+                                                 sorted(_cards, key=lambda x: x.get("no", 0))) + "）",
         "data/share/cards/",
         "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——"
         "只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**"
         "（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写"
         "「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。"
         "**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。")
+    # 传播侧实测口径（2026-10-13）
+    _sp = _load("data/share/woyaoni_spread.json") or {}
+    if _sp:
+        add("woyaoni_xhs_spread", "《我要你》北京站小红书端传播实测",
+            f"{_sp.get('notes')} 条笔记 / {_sp.get('likes_total')} 赞 / {_sp.get('comments_grabbed')} 条评论",
+            f"样本＝第三方 AI 摘要所列链接集合（去重后 {_sp.get('notes')} 条），**非全平台普查**；"
+            f"发布集中度 {_sp.get('pct_same_day_or_next')}%（演出当日／次晚）、"
+            f"{_sp.get('pct_hour_21_23')}%（21–23 时）",
+            "data/share/woyaoni_spread.json（由 project_b/build_woyaoni_spread.py 从语料派生）",
+            "反例必须同列：同窗口 B站《哭砂》16554 播放 > 本曲最好 290 播放 → 高互动 ≠ 最大声量。"
+            "**禁用词**：爆火／引爆全网／上热点（无平台侧曝光数据；平台机制表述一律「经验性认知（非官方）」）。"
+            "「原版是温水·王晰版是红酒」「#0人能走出」评论 0 命中 → 待核，不得引用。")
+        _m = _sp.get("comment_categories") or {}
+        _mn = (_sp.get("comment_categories_main") or {})
+        add("woyaoni_comment_rule", "《我要你》评论触发点分类口径",
+            f"多命中：编曲 {_m.get('编曲/音乐处理')} / 低音 {_m.get('低音音色/音色本体')}；"
+            f"主类：编曲 {_mn.get('编曲/音乐处理')} / 低音 {_mn.get('低音音色/音色本体')}",
+            "关键词规则分类（可复核）",
+            "data/share/woyaoni_spread.json#comment_categories / #comment_categories_main",
+            "**两种口径都登记，引用时必须带口径名**：多命中=一条可命中多类（各类之和>总数，用于「被提到过」）；"
+            "主类=按特异性优先指派唯一类（各类之和=评论总数，用于「哪类最多」）。"
+            "卡片上每个数字就近标注其口径。")
     # 第 5 卡口径 + 勘误（2026-10-11）
     _cs = _load("data/share/context_shares.json") or {}
     _ctxs = _cs.get("contexts") or []

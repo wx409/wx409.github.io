@@ -11543,6 +11543,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:扬起的帆",
+  "type": "belongs_to_album",
+  "target": "album:扬起的帆",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:把一切给明天",
   "type": "belongs_to_album",
   "target": "album:二十不惑 电视剧原声带",
@@ -13142,13 +13149,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:扬起的帆",
-  "type": "belongs_to_album",
-  "target": "album:扬起的帆",
   "context": "",
   "source_ref": "songs_meta.json"
  },

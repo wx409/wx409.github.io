@@ -363,6 +363,87 @@ def main():
                                      len(stable) + len(a_sharp_readings),
                                      "data/archive_vocal.json + data/vocal_measurements.json + data/archive_stage_tour.json")
 
+    # ── ⑦ 一场演出里的自燃（小红书端传播实测；数字派生自 build_woyaoni_spread.py）──
+    sp = load(SH / "woyaoni_spread.json", None)
+    if sp:
+        _multi = sp.get("comment_categories") or {}
+        _main = sp.get("comment_categories_main") or {}
+        _px = sp.get("counterexample") or {}
+        c7 = dict(
+            id="woyaoni_selfignite", no=7,
+            title="一场演出里的自燃",
+            subtitle="没有传播链的歌，是怎么起来的（小红书端第三方 UGC 实测）",
+            pillar="事实（第三方 UGC 实测）",
+            main_numbers=[
+                {"value": sp["notes"], "unit": "条", "label": "同一场次的单曲笔记数（去重后）",
+                 "caliber": "woyaoni_xhs_spread", "source": "data/share/woyaoni_spread.json"},
+                {"value": sp["likes_total"], "unit": "赞", "label": "四天点赞合计（中位 %s）" % sp["likes_median"],
+                 "caliber": "woyaoni_xhs_spread", "source": "data/share/woyaoni_spread.json"},
+                {"value": sp["pct_same_day_or_next"], "unit": "%", "label": "笔记集中在演出当日／次晚",
+                 "caliber": "woyaoni_xhs_spread", "source": "data/share/woyaoni_spread.json"},
+                {"value": _multi.get("编曲/音乐处理"), "unit": "条",
+                 "label": "评论提到「编曲／音乐处理」（多命中口径）",
+                 "caliber": "woyaoni_comment_rule", "source": "data/share/woyaoni_spread.json"},
+                {"value": _main.get("低音音色/音色本体"), "unit": "条",
+                 "label": "评论主类为「低音音色」（主类口径，不重叠）",
+                 "caliber": "woyaoni_comment_rule", "source": "data/share/woyaoni_spread.json"},
+            ],
+            view_reading=[
+                "<b>样本</b>：第三方 AI 摘要所列链接集合，去重后 %d 条笔记 + %d 条评论；<b>非全平台普查</b>，只作样本不作分母。"
+                % (sp["notes"], sp["comments_grabbed"]),
+                "<b>时间结构</b>：%s%% 的笔记发布于两晚演出当日／次晚；%s%% 落在 21–23 时；"
+                "互动第一条发布于 %s（演出尚未散场，%d 赞）。"
+                % (sp["pct_same_day_or_next"], sp["pct_hour_21_23"],
+                   sp["first_peak"]["datetime"], sp["first_peak"]["likes"]),
+                "<b>讨论对象</b>：剔除泛赞美 %d 条后，被提到最多的是「编曲／音乐处理」（多命中 %d 条），"
+                "其次情绪共振 %d、版权自述 %d、私人情境 %d（唱到歌词「我的姑娘」时朝向台下的伴侣）。"
+                % (sp["comment_generic_praise"], _multi.get("编曲/音乐处理", 0),
+                   _multi.get("情绪共振/上头", 0), _multi.get("版权梗/圆梦叙事", 0),
+                   _multi.get("私人情境/关系联想", 0)),
+                "<b>叙事钩子（带时间戳）</b>：10-09 61:56–62:28 本人在台上自述——2019 年第一次巡演时就想唱这首歌，"
+                "了解版权后「哇好贵」就没唱，后来加入院团才「能够把这首歌唱给大家听」，随即报出曲名。",
+                "<b>不是标签驱动</b>：最高频话题标签是艺人/剧名词（#王晰 %s 条、#沉响与长歌 %s 条）；"
+                "钩子标签「#王晰唱我要你低音超绝」%d 条（覆盖 %s%%）、「#王晰低音杀」%d 条，"
+                "而描述性短语「低音超绝」出现在 %d/%d 条标题或正文里——描述词负责被点开，标签只是常规配置。"
+                % (dict(sp.get("tag_frequency_top") or []).get("王晰", "—"),
+                   dict(sp.get("tag_frequency_top") or []).get("沉响与长歌", "—"),
+                   sp["hook_tag_absent"], sp.get("tag_coverage_pct"),
+                   sp["hook_tag_used"],
+                   (sp.get("descriptive_phrase_hits") or {}).get("低音超绝", 0), sp["notes"]),
+            ],
+            view_card=[
+                "%d 条笔记" % sp["notes"],
+                "%d 赞" % sp["likes_total"],
+                "%s%% 当日同步" % sp["pct_same_day_or_next"],
+                "编曲 %d 条" % _multi.get("编曲/音乐处理", 0),
+            ],
+            caliber_lock=[
+                {"label": "反例·同窗口更高声量", "value": "B站《%s》%d 播放" % (_px.get("song"), _px.get("plays")),
+                 "why": "高于本曲最好成绩 %d 播放——高互动 ≠ 最大声量，不得写「本场最火」"
+                        % _px.get("this_song_best_plays", 0)},
+                {"label": "评论分类口径", "value": "多命中 vs 主类",
+                 "why": (sp.get("comment_rule") or {}).get("multi", "") + "；"
+                        + (sp.get("comment_rule") or {}).get("main", "")},
+                {"label": "待核·外部说法", "value": "「原版是温水、王晰版是红酒」",
+                 "why": "评论 0 命中、笔记正文无 → 无原始出处，不得引用"},
+                {"label": "待核·平台侧", "value": "曝光量／推荐位／榜单",
+                 "why": "无第三方数据 → 平台机制表述一律「经验性认知（非官方）」，禁写「爆火／引爆全网／上热点」"},
+                {"label": "去标识", "value": "家庭成员与在场人士",
+                 "why": "站内一律只写关系／身份，不写姓名"},
+            ],
+            gate={"pass_status": ["第三方 UGC 实测（计数类）"],
+                  "note": "本卡为传播侧计数，不适用声学「稳定音」门槛；所有数字源自 data/share/woyaoni_spread.json"},
+            platform=plat_templates(
+                "一场演出里的自燃", "没有传播链的歌，是怎么起来的",
+                "%d 条笔记 / %d 赞 / %s%% 集中在演出当日——窗口只有当晚 21:00–23:30"
+                % (sp["notes"], sp["likes_total"], sp["pct_same_day_or_next"]),
+                "想看完整实测口径？按站内专题卡核对"),
+            footnote=("口径：第三方 UGC 计数（同一场次单曲笔记，去重后）；样本 n=%d 条笔记 / %d 条评论；"
+                      "数据源：data/share/woyaoni_spread.json（由 build_woyaoni_spread.py 从语料派生）"
+                      "｜平台机制均为经验性认知（非官方）") % (sp["notes"], sp["comments_grabbed"]),
+        )
+        cards.append(c7)
+
     for c in cards:
         (OUT_CARDS / f"card_{c['id']}.json").write_text(
             json.dumps({**c, "generated_at": TODAY}, ensure_ascii=False, indent=1), encoding="utf-8")
