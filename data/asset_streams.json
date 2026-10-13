@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13 10:56",
+ "generated_at": "2026-10-13 14:08",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -14,12 +14,12 @@
   {
    "stream": "声学·音频资产",
    "source": "data/audio_assets.json",
-   "n": 2266,
+   "n": 2292,
    "latest": "2026-10-13",
    "lag_days": 0,
-   "new_7d": 0,
+   "new_7d": 28,
    "gap": "在积攒",
-   "note": "本日新增 0 个"
+   "note": "本日新增 28 个"
   },
   {
    "stream": "指数·每日指数",
@@ -109,7 +109,7 @@
    "lag_days": 0,
    "new_7d": null,
    "gap": "随内容更新",
-   "note": "事实 1744｜关系 2314｜语声集 157"
+   "note": "事实 1714｜关系 2314｜语声集 157"
   },
   {
    "stream": "知识库·问答库",
@@ -144,7 +144,7 @@
  ],
  "summary": {
   "streams": 14,
-  "accumulating": 1,
+  "accumulating": 2,
   "stale": [
    "文本·声音素材",
    "文本·少城时代",
