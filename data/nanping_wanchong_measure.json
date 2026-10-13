@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "song": "南屏晚钟",
+ "show_date": "2026-10-10",
+ "tier": "触达/样本级（**不得升格为稳定音主张**）",
+ "caliber_note": "点歌段噪声环境：观众欢呼/合唱可能抬高噪声底，影响 HNR 与极值读数",
+ "sources": [
+  "BV1DtpQ6sE8c（4K横版，点歌段）",
+  "BV1GTpn6BEFm（旁证）"
+ ],
+ "readings": [
+  {
+   "file": "沉响与长歌20261010_点歌段_BV1DtpQ6sE8c.wav",
+   "dur_s": 203.1,
+   "f0_median_hz": 94.2,
+   "f0_min_stable_hz": 59.6,
+   "stability_cents": 29.1,
+   "voiced_ratio": 0.33,
+   "note": "触达/样本级（点歌段噪声环境：含观众欢呼/合唱）"
+  },
+  {
+   "file": "沉响与长歌20261010_点歌段_BV1GTpn6BEFm.wav",
+   "dur_s": 191.5,
+   "f0_median_hz": 84.4,
+   "f0_min_stable_hz": 59.8,
+   "stability_cents": 34.02,
+   "voiced_ratio": 0.41,
+   "note": "触达/样本级（点歌段噪声环境：含观众欢呼/合唱）"
+  }
+ ],
+ "dual_source": "同曲双源一致性旁证（不升格）"
+}

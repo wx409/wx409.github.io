@@ -465,6 +465,7 @@ def show_blocks_section() -> str:
 共 <strong>{len(bl)} 个演唱块</strong>（进统计 {n_ok}：王晰 {sh.get("n_in_stats",{}).get("wang","—")}、
 傲日其愣 {sh.get("n_in_stats",{}).get("aori","—")}），块级指标为该块**人声轨的分布型统计**。
 </div>
+<div class="caveat">{esc(sh.get("coverage_note",""))}</div>
 <div class="method">
 <strong>本层为什么只写「谁在唱」与分布型指标：</strong>本场是双人场次且素材为观众手机实录，
 <strong>极值音（最低/最高稳定音）的歌手归属不可判定</strong>（8 秒片段只能证明「该窗内有人声/是谁」）；
