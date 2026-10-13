@@ -170,7 +170,8 @@ def collect() -> list[dict]:
             f"{_sp.get('pct_hour_21_23')}%（21–23 时）",
             "data/share/woyaoni_spread.json（由 project_b/build_woyaoni_spread.py 从语料派生）",
             "反例必须同列：同窗口 B站《哭砂》16554 播放 > 本曲最好 290 播放 → 高互动 ≠ 最大声量。"
-            "**禁用词**：爆火／引爆全网／上热点（无平台侧曝光数据；平台机制表述一律「经验性认知（非官方）」）。"
+            "**站点禁用三类平台侧夸张断言**（爆红级／全平台级／榜单推荐位级，细则见 "
+            "`data/share/battlemap.json#forbidden_claim_types`）；平台机制表述一律「经验性认知（非官方）」。"
             "「原版是温水·王晰版是红酒」「#0人能走出」评论 0 命中 → 待核，不得引用。")
         _m = _sp.get("comment_categories") or {}
         _mn = (_sp.get("comment_categories_main") or {})

@@ -171,7 +171,7 @@ def main() -> int:
         "todo_verification": [
             "「原版是温水、王晰版是红酒」：评论 0 命中、笔记正文无 → 无原始出处，待核",
             "「#0人能走出」：未获王晰相关出处 → 待核",
-            "平台侧曝光量/推荐位/榜单数据：缺失 → 不得写「爆火/引爆全网/上热点」",
+            "平台侧曝光量/推荐位/榜单数据：缺失 → 站点禁用一切平台侧夸张断言（三类，见 battlemap.forbidden_claim_types）",
             "10-10 23:26 热点观察：用户观察，无第三方数据",
         ],
     }
@@ -243,7 +243,12 @@ def main() -> int:
             f"⚠️ 反例：同窗口 B站《{f['counterexample']['song']}》{f['counterexample']['plays']} 播放，"
             f"高于本曲最好成绩 {f['counterexample']['this_song_best_plays']} 播放——"
             f"高互动 ≠ 最大声量，任何「本场最火」都不成立。"),
-        "forbidden_words": ["爆火", "引爆全网", "上热点", "全网爆红"],
+        "forbidden_claim_types": [
+            "平台侧「爆红级」断言（无曝光量数据支撑）",
+            "平台侧「全平台级」断言（样本为单平台、非普查）",
+            "平台侧「榜单/推荐位级」断言（无第三方数据）",
+        ],
+        "enforcement": "站点任何页面不得出现上述三类断言的说法；平台机制一律写「经验性认知（非官方）」。",
         "items": items,
     }
     (SH / "battlemap.json").write_text(
