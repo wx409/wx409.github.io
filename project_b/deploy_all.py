@@ -112,6 +112,7 @@ STEPS = [
     (ROOT / "project_b" / "audit_injections.py", "注入审计（结果指纹版：页面上能否看到注入产物，断链即返回 1）", False),
     (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
     (ROOT / "project_b" / "apply_site_url.py", "生成后单点收口：历史域名统一为 SITE_URL（换域改一处）", True),
+    (ROOT / "project_b" / "audit_git_sync.py", "origin 同步巡检（落后即 push 并复查，仍不一致红灯）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),
     (ROOT / "project_b" / "redact_local_paths.py", "公开文件本机路径净化（notifications/calibers/essay_quotes）", True),
     (ROOT / "project_b" / "audit_nav.py", "导航与内链审计（孤儿页=0 把关）", False),
