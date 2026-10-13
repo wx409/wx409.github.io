@@ -233,13 +233,16 @@ def rrf(rank_lists, k=60, weights=None):
 # ───────────────────────── 去重（noteId/BV + 标题 Jaccard） ─────────────────────────
 
 def dedupe(items, thr=0.85):
-    """items: [{doc_idx, note_id, title, ...}]，返回去重后列表（含 dup_count）。
+    """笔记层去重（口径：**只对「同作者 + 标题近似」折叠**）。
 
-    口径：**只在「笔记层」去重**——noteId（24 位 hex / BV 号）相同的算同一条，
-    标题归一化后 Jaccard≥thr 的视为同源（跨平台转发算一条，记 dup_count）。
-    评论按自身 id 唯一，不参与标题去重（同一笔记下多条不同评论是不同信息，不得合并）。
+    · noteId 相同 → 同一条，折叠（记 dup_count）
+    · **同作者** 且 标题归一化后 Jaccard≥thr → 同一来源，折叠（跨平台/重复发布算一条）
+    · **不同作者** 即使标题近似 → **保留两条**，两条都打 `likely_same_source=True`
+      （供后续人工判断；不得当同一条吞掉）
+    · 评论不参与标题去重（同一笔记下多条不同评论是不同信息）
     """
     seen_id, out = {}, []
+    pending_flag = []          # 待回标的"疑似同源但不同作者"配对
     for it in items:
         nid = norm_note_id(it.get("note_id") or it.get("url") or "")
         is_note = bool(it.get("title"))
@@ -249,18 +252,35 @@ def dedupe(items, thr=0.85):
         if is_note:
             hit = None
             for o in out:
-                if o.get("title") and jaccard(o.get("title", ""), it.get("title", "")) >= thr:
+                if not o.get("title"):
+                    continue
+                if jaccard(o.get("title", ""), it.get("title", "")) < thr:
+                    continue
+                if _same_author(o.get("author"), it.get("author")):
                     hit = o
                     break
+                pending_flag.append((o, it))       # 标题近似但作者不同 → 各留一条
             if hit is not None:
                 hit["dup_count"] += 1
                 hit.setdefault("dup_of", []).append(it.get("doc_idx"))
                 continue
-        it = dict(it, dup_count=1)
+        it = dict(it, dup_count=1, likely_same_source=False)
         out.append(it)
         if is_note and nid:
             seen_id[nid] = len(out) - 1
+    for a, b in pending_flag:
+        a["likely_same_source"] = True
+        b["likely_same_source"] = True
+        a.setdefault("likely_same_source_with", []).append(b.get("doc_idx"))
+        b.setdefault("likely_same_source_with", []).append(a.get("doc_idx"))
     return out
+
+
+def _same_author(a, b):
+    """作者是否同一人（去装饰/空白后比对；空作者视为不可判定 → 不折叠）。"""
+    a = re.sub(r"\s+", "", a or "").lower()
+    b = re.sub(r"\s+", "", b or "").lower()
+    return bool(a) and bool(b) and a == b
 
 
 # ───────────────────────── 语料装载（离线，只读本地既有产物） ─────────────────────────
@@ -393,6 +413,7 @@ def upgraded_search(docs, cfg, rounds=2):
         d = docs[j]
         tid = norm_note_id(d.get("note_id") or "")
         cand.append({"doc_idx": j, "note_id": tid, "title": d.get("title") or "",
+                     "author": d.get("author") or "",
                      "kind": d["kind"], "dt": d.get("dt", ""), "likes": d["likes"],
                      "rrf": round(sc, 6), "text": (d.get("text") or "")[:80]})
     cand.sort(key=lambda c: -c["rrf"])
@@ -411,11 +432,17 @@ def upgraded_search(docs, cfg, rounds=2):
     for c in ded:
         c["matched_targets"] = sorted([t for t, d in per_target.items() if c["doc_idx"] in d],
                                       key=lambda t: -per_target[t].get(c["doc_idx"], 0))[:4]
-    merged = [{"note_id": c["note_id"], "title": c.get("title", ""), "dup_count": c.get("dup_count", 1),
-               "merged_doc_idx": c.get("dup_of", [])} for c in ded if c.get("dup_count", 1) > 1]
+    merged = [{"note_id": c["note_id"], "title": c.get("title", ""), "author": c.get("author", ""),
+               "dup_count": c.get("dup_count", 1), "merged_doc_idx": c.get("dup_of", [])}
+              for c in ded if c.get("dup_count", 1) > 1]
+    same_src = [{"doc_idx": c["doc_idx"], "note_id": c["note_id"], "title": c.get("title", ""),
+                 "author": c.get("author", ""), "kind": c["kind"],
+                 "with": c.get("likely_same_source_with", [])}
+                for c in ded if c.get("likely_same_source")]
     return {"candidates": ded, "trace": trace, "sem_ok": sem_ok, "fused_n": len(fused),
             "gated_n": gated_n, "gated_union": sorted(gate_union),
-            "gated_union_n": len(gate_union), "merged_notes": merged}
+            "gated_union_n": len(gate_union), "merged_notes": merged,
+            "likely_same_source": same_src, "likely_same_source_n": len(same_src)}
 
 
 # ───────────────────────── A 六项：升级前后对照 + 二次检索 ─────────────────────────
@@ -482,13 +509,14 @@ def eval_retrieval(cfg, out_path: Path) -> dict:
                   "n_fused": up["fused_n"], "n_gated": recall_gated,
                   "n_recall_after_dedup": recall_after, "by_layer": by_layer,
                   "semantic_available": up["sem_ok"],
-                  "dedup": {"scope": "仅在笔记层（noteId/标题 Jaccard）",
+                  "dedup": {"scope": "笔记层：**只对「同作者 + 标题近似」折叠**；不同作者标题近似只打标不折叠",
                             "threshold": ((cfg.get("retrieval") or {}).get("dedup") or {}).get("jaccard"),
                             "collapsed": dup_collapsed,
                             "merged_notes": up.get("merged_notes", []),
-                            "caveat": "该阈值会合并**不同 noteId 但标题近乎相同**的笔记"
-                                      "（本轮 4 条，标题都是「王晰 我要你」类泛化标题）→ "
-                                      "是否算「同源转发」待人工确认；如不算，unique 应为 38 而非 34"},
+                            "likely_same_source_n": up.get("likely_same_source_n", 0),
+                            "likely_same_source": up.get("likely_same_source", []),
+                            "caveat": "不同作者但标题近乎相同的笔记**保留两条**并打 likely_same_source=true，"
+                                      "是否算同源转发留人工判断（本轮见 likely_same_source 清单）"},
                   "gate": {"per_target": up["gated_n"],
                            "note": "每目标只保留 BM25>bm25_min 的前 bm25_topn 条（防多目标 RRF 长尾稀释召回）"},
                   "top20": top_up, "trace": up["trace"]},
@@ -503,8 +531,11 @@ def eval_retrieval(cfg, out_path: Path) -> dict:
                                        "text": c["text"]} for c in new_hits[:8]],
                   "top10_overlap": len(set(base_rank[:10]) & set(up_rank[:10])),
                   "base_missed_by_up": len(base_set - up_set),
-                  "note": "两处口径差必须同列：①**真实性提升**＝变体扩展/语义把同指但原措辞不含关键词的文档纳入"
-                          "（见 new_hits）②**数值下降**＝相关性闸门剔除伪命中 + 笔记层去重折叠同源。"
+                  "likely_same_source_n": up.get("likely_same_source_n", 0),
+                  "note": "三个量分别看：①**真实性**＝变体扩展/语义把同指但原措辞不含关键词的文档纳入"
+                          "（new_hits）②**精确性**＝相关性闸门剔除伪命中（dropped_by_gate）"
+                          "③**同源折叠**＝只对「同作者+标题近似」折叠（collapsed）；"
+                          "不同作者标题近似一律保留两条并打 likely_same_source=true。"
                           "排序提升另见 top10_overlap（基线平台原序 vs 升级重排）"},
         "cluster_round1": cluster,
         "round2_auto_new_words": {"triggered": not cluster["cluster_found"],
@@ -512,16 +543,13 @@ def eval_retrieval(cfg, out_path: Path) -> dict:
         "verdict": "",
     }
     d = res["delta"]
-    if d["new_hits_not_in_baseline"] > 0:
-        res["verdict"] = (f"召回：{d['recall_before']} → {d['recall_after']} 条"
-                          f"（{d['recall_delta']:+d}，{d['recall_delta_pct']}%）。"
-                          f"真实性提升 {d['new_hits_not_in_baseline']} 条（变体/语义新纳入，基线子串搜不到）；"
-                          f"相关性闸门剔除伪命中 {d['dropped_by_gate']} 条、笔记层去重折叠 {dup_collapsed} 条同源"
-                          f"（这是条数下降的原因，不是漏召回）；"
-                          f"Top10 重合 {d['top10_overlap']}/10（平台原序 vs 重排，排序确有变化）")
-    else:
-        res["verdict"] = (f"召回无提升（{d['recall_before']} → {d['recall_after']}）："
-                          "变体扩展未带来基线搜不到的新增；仅排序变化，见 top20 对照与 top10 重合")
+    res["verdict"] = (f"召回：{d['recall_before']} → {d['recall_after']} 条"
+                      f"（{d['recall_delta']:+d}，{d['recall_delta_pct']}%）。"
+                      f"真实性提升 {d['new_hits_not_in_baseline']} 条（变体/语义新纳入，基线子串搜不到）；"
+                      f"相关性闸门剔除伪命中 {d['dropped_by_gate']} 条；"
+                      f"同作者+标题近似折叠 {dup_collapsed} 条；"
+                      f"不同作者标题近似**保留两条并打标** {d['likely_same_source_n']} 条（不折叠，待人工判断）；"
+                      f"Top10 重合 {d['top10_overlap']}/10（平台原序 vs 重排，排序确有变化）")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
     return res
