@@ -71,14 +71,15 @@ class KB:
                                   "aliases": ALIASES.get(eid, []), "attrs": attrs or {}}
         return eid
 
-    def fact(self, subject, prop, value, valid_from="", valid_to="", source="", conf=0.7):
+    def fact(self, subject, prop, value, valid_from="", valid_to="", source="", conf=0.7, batch=""):
         self.fact_n += 1
         # 2026-09-13 瘦身 2.0 第八阶段：每条原子事实补 source_url + source_type，
         # 使 facts.json 单条即可追溯（此前只有 source 文件名，外部读者无法定位）。
+        # 2026-10-13：新增 batch —— 批次/样本量标注（口径冲突时唯一能分清"哪份是真的"的字段）。
         s_url, s_type = SOURCE_REGISTRY.get(source, ("", "站内数据"))
         self.facts.append({"id": "f%04d" % self.fact_n, "subject": subject, "property": prop,
                            "value": value, "valid_from": valid_from, "valid_to": valid_to,
-                           "source": source, "source_url": s_url, "source_type": s_type,
+                           "source": source, "batch": batch, "source_url": s_url, "source_type": s_type,
                            "confidence": round(conf, 2)})
 
     def rel(self, src, rtype, tgt, context="", ref=""):
@@ -228,10 +229,18 @@ def build():
         kb.rel("person:wangxi", "hosts", eid, ep.get("category", ""), "tavern_transcripts.json")
 
     # ---- 9) 观众评论分析维度（analyze_audience_comments.py 产出，论文/分析/档案维度）----
+    # 2026-10-13 修口径冲突：本目录同时存在**多个批次**（收紧后的正式批 / preblacklist / v1 / 旧批次未收紧），
+    # 原实现按 glob 顺序全收 → 同一场次得到互相矛盾的 fact（如 10-09 同时有 29 与 35 两组维度）。
+    # 现规则：① 只收「正式批」= `<日期>_<城市>.json`；② 按 (日期,城市) 去重；③ 在 value 里**显式标注批次与样本量**。
     import glob as _glob
     an_dir = ROOT / "temp" / "audience_analysis"
+    _SUPERSEDED = ("_preblacklist", "_v1", "_旧批次", "_filter_report")
     n_an = 0
+    seen_show = set()
     for ap in sorted(_glob.glob(str(an_dir / "*.json"))):
+        _stem = Path(ap).stem
+        if any(_s in _stem for _s in _SUPERSEDED):
+            continue
         try:
             an = json.loads(Path(ap).read_text(encoding="utf-8"))
         except Exception:
@@ -239,29 +248,34 @@ def build():
         date, city = an.get("date", ""), an.get("city", "")
         if not date:
             continue
+        if (date, city) in seen_show:          # 同一场次只取一个正式批
+            continue
+        seen_show.add((date, city))
         sid = show_id(date, city)
         kb.ent(sid, "show", "%s %s" % (date, city))
         st = an.get("stats") or {}
         total = st.get("total") or 0
+        _batch = "〔批次 %s｜n=%s｜收紧口径〕" % (Path(ap).name, total)
         if total:
-            kb.fact(sid, "audience_comments_total", total, date, "", "analyze_audience_comments", 0.8)
+            kb.fact(sid, "audience_comments_total", total, date, "", "analyze_audience_comments", 0.8,
+                    batch=_batch)
         dims = st.get("dimensions") or {}
         if dims:
             kb.fact(sid, "audience_dim_top", "、".join("%s(%d)" % (k, v) for k, v in sorted(dims.items(), key=lambda x: -x[1])[:3]),
-                    date, "", "analyze_audience_comments", 0.8)
-            kb.fact(sid, "audience_dim_dist", "；".join("%s %d" % (k, v) for k, v in sorted(dims.items(), key=lambda x: -x[1])),
-                    date, "", "analyze_audience_comments", 0.8)
+                    date, "", "analyze_audience_comments", 0.8, batch=_batch)
+            kb.fact(sid, "audience_dim_dist", "；".join("%s %d" % (k, v) for k, v in sorted(dims.items(), key=lambda x: -x[1])) + _batch,
+                    date, "", "analyze_audience_comments", 0.8, batch=_batch)
         song_top = st.get("song_top") or []
         if song_top:
             kb.fact(sid, "audience_song_top", "、".join("%s(%d次)" % (s[0], s[1]) for s in song_top[:5]),
-                    date, "", "analyze_audience_comments", 0.8)
+                    date, "", "analyze_audience_comments", 0.8, batch=_batch)
         pf = st.get("platforms") or {}
         if pf:
             kb.fact(sid, "audience_platforms", "；".join("%s %d" % (k, v) for k, v in pf.items()),
-                    date, "", "analyze_audience_comments", 0.8)
+                    date, "", "analyze_audience_comments", 0.8, batch=_batch)
         n_an += 1
     if n_an:
-        print("[评论维度] %d 个场次分析结果入 KB（评论数/评价维度/歌曲提及/平台分布）" % n_an)
+        print("[评论维度] %d 个场次分析结果入 KB（只取正式批，value 内含批次与样本量）" % n_an)
 
     # ---- 组织归属（从 timeline 事件推导 valid_from/valid_to） ----
     org_rules = [("海政文工团", "2011", "2018"), ("乐华娱乐", "2019-04-09", "2024"),
