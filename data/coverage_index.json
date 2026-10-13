@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-10-13T21:08:21",
+  "generated_at": "2026-10-14T00:13:02",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 48,
-  "L2_强": 7,
+  "L1_精确": 50,
+  "L2_强": 6,
   "L3_中": 0,
-  "L4_弱": 9,
+  "L4_弱": 8,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 7916,
-  "measured_shows_site": 50,
-  "shows_with_claimable_site": 49,
-  "bv_mapped": 98
+  "files_scanned": 8000,
+  "measured_shows_site": 52,
+  "shows_with_claimable_site": 50,
+  "bv_mapped": 101
  },
  "shows": [
   {
@@ -1103,7 +1103,7 @@
      "detail": "三巡上海20220110_p10_王晰三巡上海站 20220110 p10 唠嗑3｜三巡上海全场"
     }
    ],
-   "n_evidence": 177
+   "n_evidence": 187
   },
   {
    "date": "2022-04-09",
@@ -1230,15 +1230,40 @@
    "city": "鄂尔多斯",
    "tour": "三巡",
    "songs": 23,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "20 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1WF411K75D｜朋友别哭｜未知20220717"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20220717_BV1WF411K75D｜朋友别哭"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1WF411K75D"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未知20220717_BV1WF411K75D.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1WF411K75D"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未知20220717_BV1WF411K75D_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 16
   },
   {
    "date": "2022-09-17",
@@ -1325,15 +1350,40 @@
    "city": "郑州",
    "tour": "三巡",
    "songs": 21,
-   "level": 2,
+   "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1xa4y1G7Rj｜再回首｜郑州20230501"
+    },
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "郑州｜三巡·王晰2021-2022“图景”"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "郑州20230501_BV1xa4y1G7Rj｜再回首"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1xa4y1G7Rj"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "郑州20230501_BV1xa4y1G7Rj.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1xa4y1G7Rj"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 19
   },
   {
    "date": "2023-05-03",
@@ -1379,8 +1429,18 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Sm4y1e7ZZ｜无与伦比的美丽｜深圳20230623"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "深圳｜三巡·王晰2021-2022“图景”"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "深圳20230623_BV1Sm4y1e7ZZ｜无与伦比的美丽"
     },
     {
      "level": 1,
@@ -1390,20 +1450,10 @@
     {
      "level": 1,
      "src": "BV命中",
-     "detail": "BV1QP411v7KR"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "三巡深圳20230623_BV1QP411v7KR.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1QP411v7KR"
+     "detail": "BV1Sm4y1e7ZZ"
     }
    ],
-   "n_evidence": 15
+   "n_evidence": 29
   },
   {
    "date": "2023-11-12",

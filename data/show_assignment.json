@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-13T21:08:21",
-  "rows": 719,
+  "generated_at": "2026-10-14T00:13:01",
+  "rows": 737,
   "levels": {
-   "L1": 331,
+   "L1": 336,
    "L6": 26,
    "L3": 35,
    "L4": 2,
-   "未认领": 325
+   "未认领": 338
   },
-  "shows_with_material": 50,
-  "shows_with_claimable": 49,
+  "shows_with_material": 52,
+  "shows_with_claimable": 50,
   "shows_total": 64
  },
  "per_show": {
@@ -83,8 +83,8 @@
    "claimable": 1
   },
   "2022-01-10": {
-   "n": 23,
-   "claimable": 20
+   "n": 25,
+   "claimable": 21
   },
   "2022-06-24": {
    "n": 9,
@@ -95,8 +95,16 @@
    "claimable": 16
   },
   "2023-06-23": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2022-07-17": {
    "n": 1,
    "claimable": 1
+  },
+  "2023-05-01": {
+   "n": 1,
+   "claimable": 0
   },
   "2022-07-15": {
    "n": 1,
@@ -1765,6 +1773,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "深圳20230623_BV1Sm4y1e7ZZ",
+   "song": "无与伦比的美丽",
+   "tour": "三巡",
+   "city": "深圳",
+   "date": "2023-06-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-06-23",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡深圳20230623_BV1QP411v7KR",
    "song": "静止了的夜晚",
    "tour": "三巡",
@@ -1773,6 +1793,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2023-06-23",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20220717_BV1WF411K75D",
+   "song": "朋友别哭",
+   "tour": "三巡",
+   "city": "鄂尔多斯",
+   "date": "2022-07-17",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-07-17",
    "level": 1,
    "why": "日期直配"
   },
@@ -1873,6 +1905,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "郑州20230501_BV1xa4y1G7Rj",
+   "song": "再回首",
+   "tour": "三巡",
+   "city": "郑州",
+   "date": "2023-05-01",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2023-05-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡上海20220110_p18_王晰三巡上海站 20220110 p18 撒娇～",
    "song": "三巡上海全场",
    "tour": "三巡",
@@ -1880,6 +1924,18 @@
    "date": "2022-01-10",
    "review_status": "谐波列通过",
    "claimable": true,
+   "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "20_王晰三巡上海站 20220110 p20 爱你",
+   "song": "全场_第二场",
+   "tour": "三巡",
+   "city": "上海",
+   "date": "2022-01-10",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
@@ -2187,6 +2243,18 @@
   {
    "tag": "三巡上海20220110_p12_王晰三巡上海站 20220110 p12 “彩胶”",
    "song": "三巡上海全场",
+   "tour": "三巡",
+   "city": "上海",
+   "date": "2022-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "21_王晰三巡上海站 20220110 p21 拜拜",
+   "song": "全场_第二场",
    "tour": "三巡",
    "city": "上海",
    "date": "2022-01-10",
@@ -5485,6 +5553,18 @@
    "why": ""
   },
   {
+   "tag": "沉响20261010_BV1Cfpj6jExn",
+   "song": "我要你",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P06_《永不失联的爱》",
    "song": "",
    "tour": "其他演出",
@@ -6169,6 +6249,18 @@
    "why": ""
   },
   {
+   "tag": "沉响与长歌20261010_点歌段_BV1GTpn6BEFm",
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20190802_BV1Ut411F7Cp",
    "song": "我要你",
    "tour": "其他演出",
@@ -6277,6 +6369,18 @@
    "why": ""
   },
   {
+   "tag": "25_【王晰】2020个人巡回音乐会 11.21佛山场 p25 25 点歌环",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P01_Wellerman_我很好_My oh My_La Vie en Rose",
    "song": "",
    "tour": "其他演出",
@@ -6294,6 +6398,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "2023",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "沉响与长歌20261010_点歌段_BV1DtpQ6sE8c",
+   "song": "南屏晚钟",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2026-10-10",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -6613,6 +6729,18 @@
    "why": ""
   },
   {
+   "tag": "22_【王晰】2020个人巡回音乐会 11.21佛山场 p22 22 唠嗑",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
    "song": "",
    "tour": "其他演出",
@@ -6752,6 +6880,30 @@
    "date": "2019-11-12",
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "20_【王晰】2020个人巡回音乐会 11.21佛山场 p20 20 唠嗑part",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "27_【王晰】2020个人巡回音乐会 11.21佛山场 p27 27 点歌环",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -7321,6 +7473,18 @@
    "why": ""
   },
   {
+   "tag": "26_【王晰】2020个人巡回音乐会 11.21佛山场 p26 26 点歌环",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20190610_BV1X4411N7gs",
    "song": "Your Man",
    "tour": "其他演出",
@@ -7633,6 +7797,18 @@
    "why": ""
   },
   {
+   "tag": "21_【王晰】2020个人巡回音乐会 11.21佛山场 p21 21 追幸福",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20210430_BV1By4y1s7sL",
    "song": "City of Stars",
    "tour": "其他演出",
@@ -7753,11 +7929,35 @@
    "why": ""
   },
   {
+   "tag": "23_【王晰】2020个人巡回音乐会 11.21佛山场 p23 23 歌颂",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "二巡上海2021_全程_p4_cityofstar3.7手机渣画质",
    "song": "cityofstar3.7手机渣画质",
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "24_【王晰】2020个人巡回音乐会 11.21佛山场 p24 24 点歌环",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -7914,6 +8114,18 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "28_【王晰】2020个人巡回音乐会 11.21佛山场 p28 28 唠嗑结",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -8826,6 +9038,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "2021-07-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "29_【王晰】2020个人巡回音乐会 11.21佛山场 p29 29 王牌就",
+   "song": "全场_第二场",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2020",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,

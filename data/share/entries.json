@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-13",
+ "generated_at": "2026-10-14",
  "what": "可传播词条库（每条只挂一条最硬的证据；宁少勿虚）",
  "rule": {
   "one_evidence": "每条只挂一条最硬证据，不堆砌",
@@ -39,7 +39,7 @@
    "no": 2,
    "id": "low_line_below_floor",
    "hook": "低于男低音下限的「稳定低音线」",
-   "support": "《我要你》现场 4 版（谐波列复核通过）最低读数区间 D#2–E2（78.1–80.7Hz），中位 78.8Hz；全部低于一般男低音下限 E2 82.4Hz。另有 1 版读数 C2 65.7Hz 属待复核（待复核（谐波列待判）），不计入本区间。与录音室全量最低稳定音 B1 61.5Hz 分列。",
+   "support": "《我要你》现场 5 版（谐波列复核通过）最低读数区间 D#2–E2（74.0–80.7Hz），中位 78.1Hz；全部低于一般男低音下限 E2 82.4Hz。另有 1 版读数 C2 65.7Hz 属待复核（待复核（谐波列待判）），不计入本区间。与录音室全量最低稳定音 B1 61.5Hz 分列。",
    "source": "data/vocal_measurements.json（layer=tour_live, song=我要你）；录音室口径 data/calibers.md",
    "grade": "实测（单曲触达音级）",
    "taboo": [
@@ -51,18 +51,19 @@
    "bio": {
     "line": "能力-市场",
     "chapter": "低音的可核验边界：低到哪、稳不稳",
-    "evidence_id": "vocal_measurements:我要你×4",
+    "evidence_id": "vocal_measurements:我要你×5",
     "gap": "缺同期（2026）同曲的稳定音级复核；缺动态范围/气声量化读数"
    },
    "extra": {
-    "n_versions_verified": 4,
+    "n_versions_verified": 5,
     "low_hz_verified": [
+     74.0,
      78.1,
      78.1,
      79.4,
      80.7
     ],
-    "median": 78.8,
+    "median": 78.1,
     "pending_single_out": [
      {
       "hz": 65.7,
