@@ -2155,6 +2155,14 @@
    "menu_label": "git_sync",
    "in_deploy": true,
    "path": "D:\\wx409.github.io\\project_b\\audit_git_sync.py"
+  },
+  {
+   "script": "propagation_watch.py",
+   "menu": 221,
+   "title": "传播监测线（搜→正文+评论→量化→摘要→异常通知；钩子词优先）",
+   "menu_label": "prop_watch",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\propagation_watch.py"
   }
  ]
 }

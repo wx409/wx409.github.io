@@ -1,0 +1,103 @@
+{
+ "schema": 1,
+ "note": "传播监测配置（改词不改码）；**经验性认知（非官方）**",
+ "time_window_hours": 72,
+ "keywords": {
+  "songs": [
+   "我要你",
+   "哭砂",
+   "南屏晚钟",
+   "一生中最爱",
+   "敕勒歌",
+   "乌兰巴托的夜",
+   "美酒加咖啡"
+  ],
+  "hook_words": [
+   "低音超绝",
+   "低音杀",
+   "低音炮",
+   "bossa",
+   "low c",
+   "低音天花板",
+   "开口跪"
+  ],
+  "show_words": [
+   "沉响与长歌",
+   "天桥",
+   "北京场",
+   "20261009",
+   "20261010"
+  ]
+ },
+ "platforms": {
+  "xhs": {
+   "enabled": true,
+   "mode": "links",
+   "why": "搜索路径会被 code 300011 拒 → 按链接路径 fetch_xhs_links.py 最稳",
+   "tool": "E:\\wx\\私有工具\\xhs_proxy\\fetch_xhs_links.py"
+  },
+  "weibo": {
+   "enabled": true,
+   "tool": "E:\\wx\\私有工具\\weibo_proxy\\weibo_proxy.py"
+  },
+  "bilibili": {
+   "enabled": true,
+   "tool": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\搜索B站轨迹素材.py"
+  }
+ },
+ "comments": {
+  "tool": "E:\\wx\\私有工具\\xhs_proxy\\xhs_comments.py",
+  "enabled": true,
+  "categories": {
+   "编曲": [
+    "编曲",
+    "bossa",
+    "爵士",
+    "改编"
+   ],
+   "情绪": [
+    "泪",
+    "哭",
+    "感动",
+    "破防"
+   ],
+   "版权梗": [
+    "版权",
+    "不让",
+    "买不起",
+    "梗"
+   ],
+   "低音": [
+    "低音",
+    "low",
+    "bass",
+    "下潜"
+   ],
+   "场景": [
+    "通勤",
+    "深夜",
+    "助眠",
+    "下雨"
+   ],
+   "求音源": [
+    "求",
+    "音源",
+    "完整版",
+    "哪里听"
+   ]
+  }
+ },
+ "thresholds": {
+  "cluster_n_in_hours": 5,
+  "cluster_hours": 6,
+  "hot_ratio_vs_median": 3.0,
+  "notify": true
+ },
+ "rate_limit": {
+  "sleep_min_s": 2.0,
+  "sleep_max_s": 5.0,
+  "backoff_base_s": 8,
+  "max_retries": 3,
+  "respect_300011": true
+ }
+}
