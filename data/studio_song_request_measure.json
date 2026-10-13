@@ -1,13 +1,63 @@
 {
- "schema": 1,
+ "schema": 2,
  "source": "微博工作室 5353266315265746（2026-10-12 18:40）点歌环节《哭砂》《亲密爱人》",
- "source_attr": "工作室发布（疑似中控台直出／官方机位）——**档位由三指标判定**",
- "caliber_note": "点歌段现场环境（观众欢呼可能抬高噪声底）；若指标支持则为「工作室中控台直出（音源属性）＋现场环境说明」",
+ "source_paths": [
+  "E:\\wx\\私有工具\\weibo_archive_studio\\media\\2026\\2026-10\\5353266315265746_video1.mp4",
+  "E:\\wx\\私有工具\\weibo_archive_studio\\media\\2026\\2026-10\\5353266315265746_video2.mp4"
+ ],
+ "fetched_date": "2026-10-13",
+ "uploader_type": "工作室（官方机位）",
+ "stage_relation": "官方机位（非观众席）",
  "metrics_def": {
-  "hnr_proxy_db_median": "谐波带能量占比中位（±6% 谐波窗，代理指标）",
+  "hnr_proxy_db_median": "谐波带能量占比中位（±6% 谐波窗；代理指标）",
   "noise_floor_dbfs": "帧 RMS 的 P10",
   "dynamic_range_db": "帧 RMS 的 P95−P5"
  },
- "readings": [],
- "tier": "触达/样本级（未升格：需三指标显著优于手机实录方可）"
+ "readings": [
+  {
+   "hnr_proxy_db_median": -2.8,
+   "hnr_proxy_p25_p75": [
+    -4.1,
+    -2.1
+   ],
+   "noise_floor_dbfs": -70.1,
+   "dynamic_range_db": 62.9,
+   "f0_median_hz": 85.3,
+   "f0_p5_hz": 57.7,
+   "voiced_ratio": 0.57,
+   "file": "5353266315265746_video1.mp4",
+   "dur_s": 123.0
+  },
+  {
+   "hnr_proxy_db_median": -3.4,
+   "hnr_proxy_p25_p75": [
+    -4.5,
+    -2.7
+   ],
+   "noise_floor_dbfs": -67.4,
+   "dynamic_range_db": 60.2,
+   "f0_median_hz": 82.5,
+   "f0_p5_hz": 60.2,
+   "voiced_ratio": 0.53,
+   "file": "5353266315265746_video2.mp4",
+   "dur_s": 185.7
+  }
+ ],
+ "phone_reference": {
+  "hnr_proxy_db_median": -2.8,
+  "hnr_proxy_p25_p75": [
+   -4.0,
+   -1.4
+  ],
+  "noise_floor_dbfs": -54.9,
+  "dynamic_range_db": 55.2,
+  "f0_median_hz": 132.4,
+  "f0_p5_hz": 79.5,
+  "voiced_ratio": 0.45,
+  "file": "沉响与长歌20261010_BV1ZppG6sEEr_vocals.wav"
+ },
+ "tier": "工作室中控台直出（音源属性）＋现场环境说明",
+ "caliber_note": "点歌段现场环境；音源属性：中控台直出",
+ "tier_basis": "ΔHNR代理/Δ噪声底 门槛：≥+3dB 或 ≤−3dB 才判定显著更优",
+ "nanping": "《南屏晚钟》仍单源（BV1DtpQ6sE8c，触达级）→ **双源旁证缺第二源**，不硬凑"
 }
