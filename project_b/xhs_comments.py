@@ -174,6 +174,54 @@ def load_cat_tables():
         return {}, {}, []
 
 
+def categorize_and_write(out_dir: Path, allc) -> None:
+    """写 categories.json（detail / rollup 两栏并列）；供抓取后与 --from-json 复用。"""
+    cats, rollup, pri = load_cat_tables()
+    flat = []
+    for r in allc:
+        for c in r["comments"]:
+            flat.append({**c, "note_id": r["note_id"], "level": 1})
+        for it in r["inner"]:
+            for s in it["subs"]:
+                flat.append({**s, "note_id": r["note_id"], "level": 2,
+                             "root_id": it["root_id"]})
+    hits = categorize(flat, cats)
+    stat = {k: {"n": len(v), "hit": bool(v),
+                "examples": [flat[i]["content"][:40] for i in v[:3]]}
+            for k, v in hits.items()}
+    order = pri or list(cats.keys())
+    per_item = {i: [k for k, idxs in hits.items() if i in idxs] for i in range(len(flat))}
+    main = {k: 0 for k in cats}
+    for i in range(len(flat)):
+        chosen = next((p for p in order if p in per_item[i]),
+                      "纯赞美/无明确触发点" if "纯赞美/无明确触发点" in cats else None)
+        if chosen:
+            main[chosen] = main.get(chosen, 0) + 1
+    roll = rollup_stat(hits, rollup)
+    for name, v in roll.items():
+        idxs = sorted({i for m in v["members"] for i in hits.get(m, [])})
+        v["examples"] = [flat[i]["content"][:40] for i in idxs[:3]]
+    (out_dir / "categories.json").write_text(json.dumps({
+        "generated_at": datetime.now().isoformat(),
+        "scope": "一级 + 二级（展平）", "n_total": len(flat),
+        "n_level1": sum(1 for x in flat if x["level"] == 1),
+        "n_level2": sum(1 for x in flat if x["level"] == 2),
+        "detail_label": "detail", "rollup_label": "rollup",
+        "detail": {"rule_source": "data/propagation_watch.json comments.categories.detail"
+                                   "（关键词逐字取自 temp/v3_分析.py CATS）",
+                   "multi_hit": stat, "main_class": main},
+        "rollup": {"rule_source": "data/propagation_watch.json comments.categories.rollup",
+                   "stat": roll,
+                   "note": "0 命中的类保留槽位并标 n=0，不删"},
+        "flat": flat}, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("detail（展平 %d 条：一级 %d / 二级 %d）：%s" % (
+        len(flat), sum(1 for x in flat if x["level"] == 1),
+        sum(1 for x in flat if x["level"] == 2),
+        "｜".join(f"{k} {v['n']}" for k, v in stat.items())))
+    print("rollup：%s" % "｜".join(
+        f"{k} {v['n']}" + ("" if v["hit"] else "（n=0，保留槽位）") for k, v in roll.items()))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--file", required=True)
@@ -184,7 +232,17 @@ def main() -> int:
     ap.add_argument("--inner-all", action="store_true", help="忽略 --inner，抓所有有二级的一级评论")
     ap.add_argument("--max-out", type=int, default=0, help="每条笔记一级评论上限；0=全部")
     ap.add_argument("--categorize", action="store_true", help="追加写 categories.json（分类统计）")
+    ap.add_argument("--from-json", action="store_true",
+                    help="离线重算分类：只读 --out 里已有的 comments.json（不联网、不重抓）")
     a = ap.parse_args()
+
+    if a.from_json:
+        out_dir = Path(a.out)
+        C = json.loads((out_dir / "comments.json").read_text(encoding="utf-8"))
+        print("离线重算：%s（一级 %s / 二级 %s）" % (
+            out_dir / "comments.json", C.get("n_out_total"), C.get("n_in_total")))
+        categorize_and_write(out_dir, C["notes"])
+        return 0
 
     lines = [l.strip() for l in Path(a.file).read_text(encoding="utf-8").splitlines() if l.strip()]
     seen, notes = set(), []
@@ -264,52 +322,7 @@ def main() -> int:
         json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 
     if a.categorize:
-        cats, rollup, pri = load_cat_tables()
-        flat = []
-        for r in allc:
-            for c in r["comments"]:
-                flat.append({**c, "note_id": r["note_id"], "level": 1})
-            for it in r["inner"]:
-                for s in it["subs"]:
-                    flat.append({**s, "note_id": r["note_id"], "level": 2,
-                                 "root_id": it["root_id"]})
-        hits = categorize(flat, cats)
-        # detail 栏：详表多命中 + 主类（按 detail_priority 取第一个命中）
-        stat = {k: {"n": len(v), "hit": bool(v),
-                    "examples": [flat[i]["content"][:40] for i in v[:3]]}
-                for k, v in hits.items()}
-        order = pri or list(cats.keys())
-        per_item = {i: [k for k, idxs in hits.items() if i in idxs] for i in range(len(flat))}
-        main = {k: 0 for k in cats}
-        for i in range(len(flat)):
-            chosen = next((p for p in order if p in per_item[i]),
-                          "纯赞美/无明确触发点" if "纯赞美/无明确触发点" in cats else None)
-            if chosen:
-                main[chosen] = main.get(chosen, 0) + 1
-        # rollup 栏：归并层（0 命中类保留 n=0 槽位）
-        roll = rollup_stat(hits, rollup)
-        for name, v in roll.items():
-            idxs = sorted({i for m in v["members"] for i in hits.get(m, [])})
-            v["examples"] = [flat[i]["content"][:40] for i in idxs[:3]]
-        (out_dir / "categories.json").write_text(json.dumps({
-            "generated_at": datetime.now().isoformat(),
-            "scope": "一级 + 二级（展平）", "n_total": len(flat),
-            "n_level1": sum(1 for x in flat if x["level"] == 1),
-            "n_level2": sum(1 for x in flat if x["level"] == 2),
-            "detail_label": "detail", "rollup_label": "rollup",
-            "detail": {"rule_source": "data/propagation_watch.json comments.categories.detail"
-                                       "（关键词逐字取自 temp/v3_分析.py CATS）",
-                       "multi_hit": stat, "main_class": main},
-            "rollup": {"rule_source": "data/propagation_watch.json comments.categories.rollup",
-                       "stat": roll,
-                       "note": "0 命中的类保留槽位并标 n=0，不删"},
-            "flat": flat}, ensure_ascii=False, indent=1), encoding="utf-8")
-        print("detail（展平 %d 条：一级 %d / 二级 %d）：%s" % (
-            len(flat), sum(1 for x in flat if x["level"] == 1),
-            sum(1 for x in flat if x["level"] == 2),
-            "｜".join(f"{k} {v['n']}" for k, v in stat.items())))
-        print("rollup：%s" % "｜".join(
-            f"{k} {v['n']}" + ("" if v["hit"] else "（n=0，保留槽位）") for k, v in roll.items()))
+        categorize_and_write(out_dir, allc)
 
     print(f"\n完成：成功 {out['n_ok']}/{len(allc)}；一级评论合计 {out['n_out_total']}，"
           f"二级实取 {out['n_in_total']}（平台声明 {out['declared_in_total']}）")

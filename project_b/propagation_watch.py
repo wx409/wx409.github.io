@@ -34,6 +34,7 @@ import sys
 import time
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
+from hashlib import sha1
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent.parent
@@ -643,11 +644,14 @@ def window_probe(cfg, win: str) -> dict:
             max_slide, slide_at = len(sel), f"{t0s:%H:%M}"
             slide_items = [d["dt"] for d in sel]
 
-    # 锚点（用户记忆的热点进入时点）前后各 bucket_min 的对照
+    # 锚点（用户记忆的热点进入时点）：**按已解析窗口的当天**推算，不写死日期；
+    # 配置里的 hot_entry_remembered 只作该历史窗的已知参照（跨日自动失效）。
     anchor_res = None
-    probe = next((w for w in (cfg.get("window_probes") or []) if w.get("hot_entry_remembered")), None)
-    if probe and re.match(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}", str(probe.get("hot_entry_remembered"))):
-        ta = datetime.strptime(str(probe["hot_entry_remembered"]), "%Y-%m-%d %H:%M").replace(tzinfo=CST)
+    probe = next((w for w in cfg.get("window_probes") or []
+                  if str(w.get("window", "")).startswith(day)), None)
+    hm = (probe or {}).get("hot_entry_remembered")
+    if hm and re.match(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}", str(hm)):
+        ta = datetime.strptime(str(hm), "%Y-%m-%d %H:%M").replace(tzinfo=CST)
         before = [d for d in inw if ta - timedelta(minutes=bucket_min) <= d["t"] < ta]
         after = [d for d in inw if ta <= d["t"] < ta + timedelta(minutes=bucket_min)]
         anchor_res = {"anchor": f"{ta:%Y-%m-%d %H:%M}",
@@ -743,6 +747,255 @@ def rule2(cfg) -> dict:
 
 # ───────────────────────── main ─────────────────────────
 
+# ───────────────────────── 人类可读 digest（`传播监测_<YYYYMMDD>.md`） ─────────────────────────
+
+DIGEST_MD_DIR = Path(r"E:\wx\论文素材_王晰作传\传播监测")
+DISCLAIMER = ("**平台机制表述为经验性认知（非官方）**；**无平台侧数据不得写「爆火/上热点」**；"
+              "无簇状也不得反证「没有热点」。样本为 AI 摘要给出的链接及其评论，**非平台全量**。")
+
+
+def _anon(name: str) -> str:
+    if not name:
+        return "匿名"
+    return "anon-" + sha1(str(name).encode("utf-8")).hexdigest()[:8]
+
+
+def top_posts(docs, n=5):
+    posts = [d for d in docs if d["kind"] == "post"]
+    posts.sort(key=lambda d: -d["likes"])
+    return [{"dt": d.get("dt", ""), "likes": d["likes"], "title": (d.get("title") or "")[:36],
+             "author": _anon(d.get("author", "")), "note_id": norm_note_id(d.get("note_id") or "")}
+            for d in posts[:n]]
+
+
+def two_col_categories():
+    """读最近一次评论分类产物（两口径：detail / rollup）。"""
+    p = CORPUS / "categories.json"
+    if not p.exists():
+        return None
+    try:
+        d = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    det = {k: (v.get("n") if isinstance(v, dict) else v)
+           for k, v in (d.get("detail", {}).get("multi_hit") or {}).items()}
+    rol = {k: v.get("n") for k, v in (d.get("rollup", {}).get("stat") or {}).items()}
+    return {"n_total": d.get("n_total"), "n_level1": d.get("n_level1"), "n_level2": d.get("n_level2"),
+            "detail": det, "rollup": rol,
+            "generated_at": d.get("generated_at", "")}
+
+
+def build_digest_md(rep, r2, wprobe, top, cats, cookie):
+    """结论先行 + 各栏；返回 markdown 文本。"""
+    day = datetime.now(CST).strftime("%Y-%m-%d")
+    lines = []
+    parts = []
+    if wprobe:
+        need = wprobe.get("cluster_need", 5)
+        slide = wprobe.get("max_per_30min_sliding") or 0
+        if slide >= need:
+            parts.append("簇状（30 分钟滑窗最大 %s 条，起 %s）" % (slide, wprobe.get("sliding_start")))
+        if wprobe.get("spikes_in_window"):
+            parts.append("单条突增（评论层 %s）" % "、".join(
+                "%s %d赞" % (s["dt"], s["likes"]) for s in wprobe["spikes_in_window"]))
+        concl = "窗口 %s 内 %d 条（帖 %d/评 %d）；%s" % (
+            wprobe.get("window"), wprobe.get("n_in_window"), wprobe.get("n_post"),
+            wprobe.get("n_comment"),
+            ("出现 " + "＋".join(parts)) if parts else
+            "无簇状、无单条突增 → **样本无法证实，需平台侧数据**（不得反证「没有热点」）")
+        if wprobe.get("is_historical"):
+            concl = ("**[历史窗]**（本地语料最新到 %s；当日无新语料）" % wprobe.get("latest_corpus_day")) + concl
+    else:
+        concl = "本轮无窗口判定数据"
+    lines.append("# 传播监测 · %s" % day)
+    lines.append("")
+    lines.append("> 生成：%s ｜ 窗口：%sh ｜ 模式：%s" % (
+        datetime.now(CST).strftime("%Y-%m-%d %H:%M"), rep.get("window_hours", 72), rep.get("mode", "light")))
+    lines.append("")
+    lines.append("## 结论（先行）")
+    if wprobe and (wprobe.get("n_in_window") == 0 and wprobe.get("window") and
+                   wprobe["window"][:10] == datetime.now(CST).strftime("%Y-%m-%d")):
+        lines.append("- **本轮无当日新语料**（当日窗口尚未产生数据）→ 判定以**参照窗**为准：")
+        r0 = wprobe.get("reference_window") or {}
+        rsp0 = r0.get("spikes_in_window") or []
+        parts0 = []
+        if (r0.get("max_per_30min_sliding") or 0) >= r0.get("cluster_need", 5):
+            parts0.append("簇状（30 分钟滑窗最大 %s 条，起 %s）" % (
+                r0.get("max_per_30min_sliding"), r0.get("sliding_start")))
+        if rsp0:
+            parts0.append("单条突增（评论层 %s）" % "、".join(
+                "%s %d赞" % (s["dt"], s["likes"]) for s in rsp0))
+        concl = ("参照窗 %s 内 %s 条（帖 %s/评 %s）；%s" % (
+            r0.get("window"), r0.get("n_in_window"), r0.get("n_post"), r0.get("n_comment"),
+            ("出现 " + "＋".join(parts0)) if parts0 else
+            "无簇状、无单条突增 → **样本无法证实，需平台侧数据**（不得反证「没有热点」）"))
+        lines.append("- " + concl + "（[历史窗] 非当日）")
+    else:
+        lines.append("- " + concl)
+    lines.append("- 规则二（单条赞 > 中位×%s）：帖中位 **%s** 阈值 **%s** → 触发 **%s**；"
+                 "评论中位 **%s** 阈值 **%s** → 触发 **%s**" % (
+                     r2["hot_ratio_vs_median"], r2["posts"]["median"], r2["posts"]["threshold"],
+                     "是" if r2["posts"]["triggered"] else "否", r2["comments"]["median"],
+                     r2["comments"]["threshold"], "是" if r2["comments"]["triggered"] else "否"))
+    lines.append("")
+    lines.append("## 各平台登录态与当期条数")
+    for p, st in sorted((cookie or {}).items()):
+        lines.append("- %s：cookie 三态 = **%s**" % (p, st))
+    if cats:
+        lines.append("- 当期评论：展平 **%s** 条（一级 %s / 二级 %s）" % (
+            cats.get("n_total"), cats.get("n_level1"), cats.get("n_level2")))
+    lines.append("")
+    lines.append("## 簇状 / 单条突增判定")
+    if wprobe:
+        lines.append("- 30 分钟滑窗最大：**%s** 条（起 %s）｜阈值：%s 条%s" % (
+            wprobe.get("max_per_30min_sliding"), wprobe.get("sliding_start"), wprobe.get("cluster_need"),
+            "（**该窗口尚未开始**，故 0 条；见下方参照窗）"
+            if (wprobe.get("n_in_window") == 0 and wprobe.get("window") and
+                wprobe["window"][:10] == datetime.now(CST).strftime("%Y-%m-%d")) else ""))
+        ap = wprobe.get("anchor_probe")
+        if ap:
+            lines.append("- 锚点 %s：前 30 分钟 **%s** 条 vs 后 30 分钟 **%s** 条" % (
+                ap.get("anchor"), ap["before_30min"]["n"], ap["after_30min"]["n"]))
+        b_posts = [b for b in (wprobe.get("buckets_30min_posts") or []) if b["n"]]
+        b_cmts = [b for b in (wprobe.get("buckets_30min_comments") or []) if b["n"]]
+        lines.append("- 分桶（帖）：" + ("｜".join("%s %d" % (b["bucket"], b["n"]) for b in b_posts)
+                                     or "无"))
+        lines.append("- 分桶（评）：" + ("｜".join("%s %d" % (b["bucket"], b["n"]) for b in b_cmts)
+                                     or "无"))
+        sp = wprobe.get("spikes_in_window") or []
+        maxp = max([p["likes"] for p in (wprobe.get("posts_in_window") or [])] or [0])
+        lines.append("- 窗内单条突增：%s" % (
+            "、".join("%s %s %d赞" % (s["dt"], s["kind"], s["likes"]) for s in sp)
+            if sp else "无（帖层最高 %s 赞，未过阈值）" % maxp))
+        ref = wprobe.get("reference_window")
+        if ref:
+            rslide = ref.get("max_per_30min_sliding") or 0
+            rneed = ref.get("cluster_need", 5)
+            rsp = ref.get("spikes_in_window") or []
+            rb = [b for b in (ref.get("buckets_30min_comments") or []) if b["n"]]
+            rap = ref.get("anchor_probe")
+            lines.append("")
+            lines.append("- **参照窗 %s**（最近语料日；当日无新语料）：窗内 %s 条（帖 %s/评 %s）；"
+                         "30 分钟滑窗最大 **%s**（起 %s）%s%s" % (
+                             ref.get("window"), ref.get("n_in_window"), ref.get("n_post"),
+                             ref.get("n_comment"), rslide, ref.get("sliding_start"),
+                             "→ 成簇" if rslide >= rneed else "→ 不成簇",
+                             ("；单条突增 " + "、".join("%s %d赞" % (s["dt"], s["likes"]) for s in rsp))
+                             if rsp else ""))
+            if rap:
+                lines.append("- 参照窗锚点 %s：前 30 分钟 **%s** 条 vs 后 30 分钟 **%s** 条" % (
+                    rap.get("anchor"), rap["before_30min"]["n"], rap["after_30min"]["n"]))
+            if rb:
+                lines.append("- 参照窗分桶（评）：" + "｜".join("%s %d" % (b["bucket"], b["n"]) for b in rb))
+    else:
+        lines.append("- 无窗口判定（配置 window_probes 为空）")
+    lines.append("")
+    lines.append("## Top 笔记（时间 / 赞 / 标题｜作者匿名）")
+    for i, p in enumerate(top or [], 1):
+        lines.append("%d. `%s` **%s 赞** %s（%s）" % (i, p["dt"], p["likes"], p["title"], p["author"]))
+    if not top:
+        lines.append("- （无）")
+    lines.append("")
+    lines.append("## 评论分类（两口径）")
+    if cats:
+        lines.append("**detail（详表，唯一规则）**：" + "｜".join(
+            "%s %s" % (k, v) for k, v in cats["detail"].items()))
+        lines.append("**rollup（简表降级为 6 大类归并）**：" + "｜".join(
+            "%s %s%s" % (k, v, "" if v else "（n=0 槽位保留）") for k, v in cats["rollup"].items()))
+        lines.append("")
+        lines.append("> 0 命中的类**保留槽位并标 n=0，不删**（" + "、".join(
+            k for k, v in cats["detail"].items() if not v) + "）")
+    else:
+        lines.append("- 暂无分类产物（`小红书素材\\我要你20261010\\categories.json` 未生成）")
+    lines.append("")
+    lines.append("## 反例与待核")
+    lines.append("- Top 笔记量级普遍为两位数~三位数赞 → **不构成「引爆全网」**；无平台曝光量/推荐位/榜单数据。")
+    lines.append("- 不同作者但标题近乎相同的笔记**保留两条**并标 `likely_same_source=true`（见检索升级对照 JSON）。")
+    lines.append("- 二级评论若与平台声明数不符，以 `comments.json` 的 `declared_in_total` 为准逐条对账。")
+    lines.append("- 极值音歌手归属一律**归属未定**；触达音不进标题数字位。")
+    lines.append("")
+    lines.append("## 声明")
+    lines.append("> " + DISCLAIMER)
+    lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+def resolve_probe_window(cfg, docs=None):
+    """窗口解析：**当天有语料 → 用当天 20:00–24:00**（演出夜口径）；否则用最近语料日的 20:00–24:00，
+    并标 `is_historical=True`（结论必须写「历史窗」+ 参照日期，防跨日误读）。
+
+    本地语料是 2026-10-09/10 那批《我要你》素材；10-13 之后再跑属"回顾"，
+    因此**同时给出最近语料日窗作参照**（latest_* 字段），digest 会把两者都列出来。
+    """
+    today = datetime.now(CST).strftime("%Y-%m-%d")
+    if docs is None:
+        try:
+            docs = load_corpus(CORPUS)
+        except Exception:
+            docs = []
+    days = sorted({(d.get("dt") or "")[:10] for d in docs if d.get("dt")})
+    latest = days[-1] if days else ""
+    fixed = next((x for x in (cfg.get("window_probes") or []) if x.get("window")), None)
+    fixed_w = (fixed or {}).get("window") or ""
+    has_today = today in days
+    if latest:
+        w = f"{latest} 20:00-24:00"
+        hist = (latest != today)
+    else:
+        w, hist = fixed_w, True
+    # 参照窗：配置里的已核实窗口优先（《我要你》10-10 那批），否则取最近语料日窗
+    ref = fixed_w or (f"{latest} 20:00-24:00" if latest else "")
+    return {"window": w, "is_historical": hist, "latest_corpus_day": latest,
+            "latest_window": ref, "latest_window_day": (ref[:10] if ref else ""),
+            "latest_window_is_new": bool(ref) and ref[:10] == today,
+            "fixed_window": fixed_w,
+            "label": "当日窗（演出夜）" if not hist else f"参照窗（最近语料日 {latest}）"}
+
+
+def attach_reference_window(cfg, w, pr):
+    """给当日窗挂上**参照窗**（最近已核实窗口），供 digest 的"簇状/单条突增"栏引用。"""
+    if not w or w.get("error"):
+        return w
+    w["is_historical"] = pr.get("is_historical")
+    w["label"] = pr.get("label")
+    w["latest_corpus_day"] = pr.get("latest_corpus_day")
+    lw = pr.get("latest_window")
+    if lw and lw != w.get("window"):
+        ref = window_probe(cfg, lw)
+        if ref and not ref.get("error"):
+            w["reference_window"] = {"day": pr.get("latest_window_day")}
+            w["reference_window"].update({k: ref.get(k) for k in (
+                "window", "n_in_window", "n_post", "n_comment", "max_per_30min_sliding",
+                "sliding_start", "anchor_probe", "spikes_in_window", "buckets_30min_posts",
+                "buckets_30min_comments", "posts_in_window", "cluster_need")})
+    return w
+
+
+def write_or_preview_digest(rep, r2, wprobe, dry=False):
+    """写 `传播监测_<YYYYMMDD>.md`（同日覆盖写）；dry 只打印预览、不落盘。"""
+    try:
+        docs = load_corpus(CORPUS)
+    except Exception:
+        docs = []
+    md = build_digest_md(rep, r2, wprobe, top_posts(docs), two_col_categories(),
+                         rep.get("cookie") or {})
+    if dry:
+        log("（dry）人类可读摘要预览（**不落盘**）→ 实跑将写 %s" % (
+            DIGEST_MD_DIR / f"传播监测_{datetime.now(CST):%Y%m%d}.md"))
+        for line in md.splitlines()[:12]:
+            log("   | " + line)
+        return None
+    try:
+        DIGEST_MD_DIR.mkdir(parents=True, exist_ok=True)
+        dst = DIGEST_MD_DIR / f"传播监测_{datetime.now(CST):%Y%m%d}.md"
+        dst.write_text(md, encoding="utf-8")
+        log("  人类可读摘要 → " + str(dst))
+        return dst
+    except Exception as e:
+        log(f"  摘要写入失败（不致命）：{e}")
+        return None
+
+
 def run_dry(cfg, a):
     log(f"=== 传播监测（{'dry' if a.dry else '实跑'}｜窗 {a.win}h｜模式 {a.mode}）===")
     log("关键词组：曲名 %d｜钩子词 %d｜演出词 %d" % (
@@ -770,6 +1023,15 @@ def run_dry(cfg, a):
             log(f"  （dry）将调用：{tool}")
         log("  （dry）将调用：%s（评论，含二级自行分页）" % (cfg.get("comments") or {}).get("tool"))
         log("  （dry）检索升级：多变体 + BM25 + bge-small-zh + RRF + 去重 + 重排")
+        # dry：打印人类可读摘要预览（不落盘）
+        prev = {"window_hours": a.win, "mode": "dry-preview",
+                "cookie": {p: cookie_ok(p) if p in ("xhs", "weibo") else "不适用"
+                           for p, c in (cfg.get("platforms") or {}).items() if c.get("enabled")}}
+        w = None
+        pr = resolve_probe_window(cfg)
+        if pr.get("window"):
+            w = attach_reference_window(cfg, window_probe(cfg, pr["window"]), pr)
+        write_or_preview_digest(prev, rule2(cfg), w, dry=True)
         log("（dry）不抓取、不写摘要、不通知")
         return 0
     if a.eval_retrieval:
@@ -801,7 +1063,19 @@ def run_dry(cfg, a):
             f"｜{r.get('verdict', '')[:100]}")
         log("→ " + str(out))
         return 0
-    log("!! 实抓需平台侧可用性；抓取/评论走既有工具，摘要与通知见 --eval-retrieval/--rule2/--window")
+    log("!! 实抓需平台侧可用性；抓取/评论走既有工具")
+    # 真实全量跑也写同一份人类可读摘要（JSON 另见 temp/propagation_digest_light.json）
+    cookie = {p: cookie_ok(p) if p in ("xhs", "weibo") else "不适用"
+              for p, c in (cfg.get("platforms") or {}).items() if c.get("enabled")}
+    pr = next((x for x in (cfg.get("window_probes") or []) if x.get("window")), None)
+    wf = window_probe(cfg, pr["window"]) if pr else None
+    if wf and not wf.get("error"):
+        rp = resolve_probe_window(cfg)
+        wf["is_historical"] = rp.get("is_historical")
+        wf["label"] = rp.get("label")
+        wf["latest_corpus_day"] = rp.get("latest_corpus_day")
+    write_or_preview_digest({"window_hours": a.win, "mode": "run", "cookie": cookie},
+                            rule2(cfg), wf, dry=False)
     return 0
 
 
@@ -811,9 +1085,12 @@ def run_light(cfg, a) -> int:
 
     代价：秒级；不改站点页面、不写公开 JSON（只追加本地日志与本地归档）。
     """
-    probe = next((w for w in (cfg.get("window_probes") or [])), None)
+    probe = resolve_probe_window(cfg)
     out = {"generated_at": datetime.now().isoformat(), "mode": "light",
            "time_window_hours": a.win, "cookie": {}, "keywords": {},
+           "probe_source": {"window": probe.get("window"), "is_historical": probe.get("is_historical"),
+                            "latest_corpus_day": probe.get("latest_corpus_day"),
+                            "label": probe.get("label")},
            "thresholds": cfg.get("thresholds"), "retrieval_params_present": bool(cfg.get("retrieval"))}
     for plat, c in (cfg.get("platforms") or {}).items():
         if not c.get("enabled"):
@@ -830,8 +1107,10 @@ def run_light(cfg, a) -> int:
     log("  关键词组：曲名 %d｜钩子词 %d｜演出词 %d" % (
         out["keywords"].get("songs", 0), out["keywords"].get("hook_words", 0),
         out["keywords"].get("show_words", 0)))
+    w_full = None
     if probe and probe.get("window"):
-        w = window_probe(cfg, probe["window"])
+        w = attach_reference_window(cfg, window_probe(cfg, probe["window"]), probe)
+        w_full = w
         out["window_probe"] = {"label": probe.get("label", ""), "window": w.get("window"),
                                "n_in_window": w.get("n_in_window"),
                                "max_per_30min_sliding": w.get("max_per_30min_sliding"),
@@ -853,6 +1132,8 @@ def run_light(cfg, a) -> int:
     dst = SITE / "temp" / "propagation_digest_light.json"
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 人类可读摘要（同日覆盖写；JSON 仍照写供机器读）
+    write_or_preview_digest(out, r2, w_full, dry=False)
     if ARCH.parent.exists():
         try:
             (ARCH).mkdir(parents=True, exist_ok=True)
