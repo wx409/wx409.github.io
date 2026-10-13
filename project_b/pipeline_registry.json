@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-09-25 17:30",
+ "generated_at": "2026-10-13 11:01",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 200,
-  "dispatch": 199,
-  "deploy_steps": 77,
-  "scheduled_tasks": 7
+  "menu_items": 221,
+  "dispatch": 220,
+  "deploy_steps": 81,
+  "scheduled_tasks": 8
  },
  "tasks": [
   {
@@ -868,7 +868,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/9/25 22:00:00",
+    "next": "2026/10/13 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -930,7 +930,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
-    "next": "2026/9/27 10:00:00",
+    "next": "2026/10/18 10:00:00",
     "type": "Weekly",
     "start": "10:00:00"
    },
@@ -1190,14 +1190,6 @@
    "path": ""
   },
   {
-   "script": "生成巡演现场报告.py",
-   "menu": 160,
-   "title": "听辨定案后重建（跑覆盖 → 巡演报告 → stage.html → 导航）",
-   "menu_label": "listen_rebuild",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\生成巡演现场报告.py"
-  },
-  {
    "script": "audit_consistency.py",
    "in_deploy": true,
    "deploy_desc": "汇总 vs 明细一致性审计（防未复核值被当结论）",
@@ -1380,7 +1372,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/9/26 10:00:00",
+    "next": "2026/10/14 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1488,7 +1480,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/9/26 12:00:00",
+    "next": "2026/10/13 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1552,6 +1544,182 @@
    "path": "D:\\wx409.github.io\\project_b\\build_event_windows.py"
   },
   {
+   "script": "build_activity_master.py",
+   "menu": 201,
+   "title": "活动总表合并（百科版+微博核对版 → data/activity_master.json）",
+   "menu_label": "act_master",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_activity_master.py"
+  },
+  {
+   "script": "power_schedule.py",
+   "menu": 204,
+   "title": "[关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）",
+   "menu_label": "power_status",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\power_schedule.py"
+  },
+  {
+   "script": "add_show.py",
+   "menu": 205,
+   "title": "[活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）",
+   "menu_label": "add_show",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\add_show.py"
+  },
+  {
+   "script": "build_dongyan_page.py",
+   "in_deploy": true,
+   "deploy_desc": "东演合作专区页 dongyan.html（草原之夜 / 沉响与长歌；数字从 activity_master 派生）",
+   "critical": false,
+   "menu": 206,
+   "title": "[东演专区] 重建 dongyan.html（草原之夜 / 沉响与长歌；场次与曲目从活动总表派生）",
+   "menu_label": "dongyan",
+   "path": "D:\\wx409.github.io\\project_b\\build_dongyan_page.py"
+  },
+  {
+   "script": "night_show_intake.py",
+   "menu": 207,
+   "title": "[演出夜入库] 每晚 23:30 自动跑（wx409_show_intake）；此处手动补跑/干跑",
+   "menu_label": "show_intake",
+   "schedule": {
+    "name": "wx409_show_intake",
+    "script": "night_show_intake.py",
+    "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
+    "next": "2026/10/13 23:30:00",
+    "type": "Daily",
+    "start": "23:30:00"
+   },
+   "notes": "由 .bat 包装的计划任务映射回脚本（wx409_show_intake）",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\night_show_intake.py"
+  },
+  {
+   "script": "build_show_blocks.py",
+   "in_deploy": true,
+   "deploy_desc": "块级数据（双人场次）",
+   "critical": true,
+   "menu": 208,
+   "title": "[双人场次] 生成本场块级数据（data/show_blocks）→ 注入现场层 → 重建 stage.html",
+   "menu_label": "show_blocks",
+   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks.py"
+  },
+  {
+   "script": "生成巡演现场报告.py",
+   "menu": 209,
+   "title": "[双人场次] 仅注入现场层（archive_stage_tour.json；生成器重写后必须重跑本项）",
+   "menu_label": "inject_blocks",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\生成巡演现场报告.py"
+  },
+  {
+   "script": "recollect_show_feedback_strict.py",
+   "menu": 210,
+   "title": "[观众反馈] 按本场专属关键词收紧（剧名/场馆/日期+主体词；旧产物自动 _v1 备份）",
+   "menu_label": "feedback_strict",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\recollect_show_feedback_strict.py"
+  },
+  {
+   "script": "sync_xhs_cookie.py",
+   "menu": 211,
+   "title": "[小红书] Cookie 三态自检（有效/失效/被风控）后分发到抓取工具",
+   "menu_label": "xhs_cookie",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\tools\\sync_xhs_cookie.py"
+  },
+  {
+   "script": "沉响20261009_v4_块.py",
+   "menu": 212,
+   "title": "[沉响场次] v4 正式管线：分区 → 块指标 → 分离质量QC → 曲名交叉",
+   "menu_label": "cx_v4_analysis",
+   "in_deploy": false,
+   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_块.py"
+  },
+  {
+   "script": "menu:213",
+   "menu": 213,
+   "title": "[沉响场次] v1-v3 过程脚本清单（过程稿；正式结论一律以 v4 为准）",
+   "menu_label": "cx_process",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "build_topic_cards.py",
+   "menu": 214,
+   "title": "[专题卡] 生成 6 张专题卡数据源与渲染片段（build_topic_cards）",
+   "menu_label": "topic_cards",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_topic_cards.py"
+  },
+  {
+   "script": "build_share_page.py",
+   "menu": 215,
+   "title": "[分享] 生成 share.html 五区 + data/share 种子（build_share_page）",
+   "menu_label": "share_page",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_share_page.py"
+  },
+  {
+   "script": "build_show_blocks_1010.py",
+   "menu": 216,
+   "title": "[沉响10-10] 块级生成（回填驱动；不完整则拒绝）",
+   "menu_label": "blocks1010",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks_1010.py"
+  },
+  {
+   "script": "cross_night_consistency.py",
+   "menu": 217,
+   "title": "[沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）",
+   "menu_label": "crossnight",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\cross_night_consistency.py"
+  },
+  {
+   "script": "measure_nanping_wanchong.py",
+   "menu": 218,
+   "title": "[南屏晚钟] 首次实测（点歌段噪声口径）",
+   "menu_label": "nanping",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\measure_nanping_wanchong.py"
+  },
+  {
+   "script": "auto_fetch_social.py",
+   "menu": 219,
+   "title": "[开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示；登录自启由启动文件夹 wx409_social_boot.cmd 触发）",
+   "menu_label": "social_boot",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\auto_fetch_social.py"
+  },
+  {
+   "script": "audit_git_sync.py",
+   "in_deploy": true,
+   "deploy_desc": "origin 同步巡检（落后即 push 并复查，仍不一致红灯）",
+   "critical": true,
+   "menu": 220,
+   "title": "[巡检] origin 同步检查（落后即自动 push 并复查）",
+   "menu_label": "git_sync",
+   "path": "D:\\wx409.github.io\\project_b\\audit_git_sync.py"
+  },
+  {
+   "script": "propagation_watch.py",
+   "menu": 221,
+   "title": "[传播监测] 搜→正文+评论→量化→摘要→异常通知；轻量巡逻/检索升级对照/定向窗/规则二",
+   "menu_label": "prop_watch",
+   "schedule": {
+    "name": "wx409_propagation_watch_daily",
+    "script": "propagation_watch.py",
+    "cmd": "D:\\wx409.github.io\\run_propagation_watch_daily.bat",
+    "next": "2026/10/13 23:40:00",
+    "type": "Daily",
+    "start": "23:40:00"
+   },
+   "notes": "由 .bat 包装的计划任务映射回脚本（wx409_propagation_watch_daily）",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\propagation_watch.py"
+  },
+  {
    "script": "_build_episodes.py",
    "in_deploy": true,
    "deploy_desc": "小酒馆逐字稿页",
@@ -1564,6 +1732,13 @@
    "deploy_desc": "小酒馆歌曲索引",
    "critical": false,
    "path": "D:\\wx409.github.io\\tavern\\_build_songs_compact.py"
+  },
+  {
+   "script": "apply_site_url.py",
+   "in_deploy": true,
+   "deploy_desc": "生成后单点收口：历史域名统一为 SITE_URL（换域改一处）",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\apply_site_url.py"
   },
   {
    "script": "audit_bat.py",
@@ -1644,7 +1819,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/9/25 23:58:00",
+    "next": "2026/10/13 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -1756,6 +1931,13 @@
    "path": "D:\\wx409.github.io\\project_b\\inject_long_notes.py"
   },
   {
+   "script": "inject_show_blocks.py",
+   "in_deploy": true,
+   "deploy_desc": "★ 注入块级到 archive_stage_tour.json（必须在聚合器之后、页面渲染之前，防双写覆盖）",
+   "critical": true,
+   "path": "D:\\wx409.github.io\\project_b\\inject_show_blocks.py"
+  },
+  {
    "script": "inject_top_verified.py",
    "in_deploy": true,
    "deploy_desc": "注入复跑：人耳确认读数章",
@@ -1783,7 +1965,7 @@
     "name": "wx409_weibo_pipeline_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\project_b\\run_weibo_pipeline.bat",
-    "next": "2026/9/26 0:30:00",
+    "next": "N/A",
     "type": "Daily",
     "start": "0:30:00"
    },
@@ -1796,373 +1978,6 @@
    "deploy_desc": "首页表格（效应注入）",
    "critical": true,
    "path": "D:\\wx409.github.io\\update_index_table.py"
-  },
-  {
-   "script": "build_dongyan_page.py",
-   "menu": 206,
-   "title": "东演合作专区页 dongyan.html",
-   "menu_label": "dongyan",
-   "in_deploy": true,
-   "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_dongyan_page.py"
-  },
-  {
-   "script": "night_show_intake.py",
-   "in_deploy": false,
-   "category": "计划任务",
-   "title": "演出夜自动入库（每晚 23:30 检测当天是否有已登记演出 → 补开演里程碑 / 并入待填歌单 → 发布+推送）",
-   "menu_label": "show_intake",
-   "schedule": {
-    "name": "wx409_show_intake",
-    "script": "night_show_intake.py",
-    "cmd": "\"D:\\wx409.github.io\\project_b\\run_show_intake.bat\"",
-    "type": "Daily",
-    "start": "23:30:00"
-   }
-  },
-  {
-   "script": "build_show_blocks.py",
-   "menu": 208,
-   "title": "生成本场块级数据 data/show_blocks（双人场次；只写可引用部分）",
-   "menu_label": "show_blocks",
-   "in_deploy": true,
-   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks.py"
-  },
-  {
-   "script": "inject_show_blocks.py",
-   "menu": 209,
-   "title": "把 data/show_blocks 注入 data/archive_stage_tour.json（幂等）",
-   "menu_label": "inject_blocks",
-   "in_deploy": true,
-   "path": "D:\\wx409.github.io\\project_b\\inject_show_blocks.py"
-  },
-  {
-   "script": "recollect_show_feedback_strict.py",
-   "menu": 210,
-   "title": "观众反馈按本场专属关键词收紧（含小红书 crawler 归档）",
-   "menu_label": "feedback_strict",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\recollect_show_feedback_strict.py"
-  },
-  {
-   "script": "sync_xhs_cookie.py",
-   "menu": 211,
-   "title": "小红书 Cookie 三态自检后分发（源 E:\\wx\\index_records\\xhs.txt）",
-   "menu_label": "xhs_cookie",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\tools\\sync_xhs_cookie.py"
-  },
-  {
-   "script": "_cx_mixfeat.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_mixfeat.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_mixfeat.py"
-  },
-  {
-   "script": "_cx_pause.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_pause.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_pause.py"
-  },
-  {
-   "script": "_cx_solve.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_solve.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_solve.py"
-  },
-  {
-   "script": "_cx_table.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_table.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_table.py"
-  },
-  {
-   "script": "_cx_v3_sepcheck.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v3_sepcheck.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v3_sepcheck.py"
-  },
-  {
-   "script": "_cx_v4_bleed.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v4_bleed.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v4_bleed.py"
-  },
-  {
-   "script": "_cx_v4_sepcheck.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v4_sepcheck.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v4_sepcheck.py"
-  },
-  {
-   "script": "_cx_v4_songmap.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_v4_songmap.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v4_songmap.py"
-  },
-  {
-   "script": "_cx_vocfeat.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：_cx_vocfeat.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_vocfeat.py"
-  },
-  {
-   "script": "导出_沉响20261009_v2_听辨.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：导出_沉响20261009_v2_听辨.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\导出_沉响20261009_v2_听辨.py"
-  },
-  {
-   "script": "导出_沉响20261009_听辨.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：导出_沉响20261009_听辨.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\导出_沉响20261009_听辨.py"
-  },
-  {
-   "script": "沉响20261009_v2_分区.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_分区.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_分区.py"
-  },
-  {
-   "script": "沉响20261009_v2_块.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_块.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_块.py"
-  },
-  {
-   "script": "沉响20261009_v2_报告.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_报告.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_报告.py"
-  },
-  {
-   "script": "沉响20261009_v2_指标.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v2_指标.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v2_指标.py"
-  },
-  {
-   "script": "沉响20261009_v3_块.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v3_块.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v3_块.py"
-  },
-  {
-   "script": "沉响20261009_v3_报告.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v3_报告.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v3_报告.py"
-  },
-  {
-   "script": "沉响20261009_v3_指标.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_v3_指标.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v3_指标.py"
-  },
-  {
-   "script": "沉响20261009_v4_块.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：沉响20261009_v4_块.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_块.py"
-  },
-  {
-   "script": "沉响20261009_v4_报告.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：沉响20261009_v4_报告.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_报告.py"
-  },
-  {
-   "script": "沉响20261009_v4_指标.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v4 正式管线）：沉响20261009_v4_指标.py",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_v4_指标.py"
-  },
-  {
-   "script": "沉响20261009_场次分析.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_场次分析.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_场次分析.py"
-  },
-  {
-   "script": "沉响20261009_报告.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_报告.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_报告.py"
-  },
-  {
-   "script": "沉响20261009_段指标.py",
-   "menu": 213,
-   "title": "沉响与长歌场次分析过程脚本（v1-v3，过程稿）：沉响20261009_段指标.py",
-   "menu_label": "cx_process",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\沉响20261009_段指标.py"
-  },
-  {
-   "script": "_cx_v5_clips.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v5 归属升级：同刻多源/换模型/音色）",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v5_clips.py"
-  },
-  {
-   "script": "_cx_v5_patch.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v5 归属升级：同刻多源/换模型/音色）",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v5_patch.py"
-  },
-  {
-   "script": "_cx_v5_sep.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v5 归属升级：同刻多源/换模型/音色）",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v5_sep.py"
-  },
-  {
-   "script": "_cx_v5_sep_patch.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v5 归属升级：同刻多源/换模型/音色）",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v5_sep_patch.py"
-  },
-  {
-   "script": "_cx_v5_upgrade.py",
-   "menu": 212,
-   "title": "沉响与长歌场次声学分析（v5 归属升级：同刻多源/换模型/音色）",
-   "menu_label": "cx_v4_analysis",
-   "in_deploy": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\_cx_v5_upgrade.py"
-  },
-  {
-   "script": "build_topic_cards.py",
-   "menu": 214,
-   "title": "专题卡片厂：6 张卡数据源 + 渲染片段（含 review_status 门槛）",
-   "menu_label": "topic_cards",
-   "in_deploy": false,
-   "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_topic_cards.py"
-  },
-  {
-   "script": "build_share_page.py",
-   "menu": 215,
-   "title": "分享作战室 share.html（五区）+ 数据种子",
-   "menu_label": "share_page",
-   "in_deploy": false,
-   "path": "D:\\\\wx409.github.io\\\\project_b\\\\build_share_page.py"
-  },
-  {
-   "script": "apply_site_url.py",
-   "menu": null,
-   "title": "生成后单点收口：历史域名统一为 SITE_URL（换域改一处）",
-   "menu_label": null,
-   "in_deploy": true,
-   "path": "D:\\wx409.github.io\\project_b\\apply_site_url.py"
-  },
-  {
-   "script": "build_show_blocks_1010.py",
-   "menu": 216,
-   "title": "10-10 块级生成（回填驱动，拒绝不完整回填）",
-   "menu_label": "blocks1010",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks_1010.py"
-  },
-  {
-   "script": "cross_night_consistency.py",
-   "menu": 217,
-   "title": "同曲跨夜一致性（第五种证据：同曲跨夜）",
-   "menu_label": "crossnight",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\cross_night_consistency.py"
-  },
-  {
-   "script": "measure_nanping_wanchong.py",
-   "menu": 218,
-   "title": "《南屏晚钟》首次实测（点歌段噪声口径）",
-   "menu_label": "nanping",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\measure_nanping_wanchong.py"
-  },
-  {
-   "script": "auto_fetch_social.py",
-   "menu": 219,
-   "title": "开机自启：抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示）",
-   "menu_label": "social_boot",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\auto_fetch_social.py",
-   "pending_task": "已用**启动文件夹**方案（免提权，与 ONLOGON 等效）：%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\wx409_social_boot.cmd（内部 start \"\" /min 调 D:\\wx409.github.io\\auto_fetch_social.bat）。备选 schtasks /Create /TN wx409_social_boot /SC ONLOGON 仅在需要**免登录触发**时使用，需管理员权限。"
-  },
-  {
-   "script": "audit_show_blocks_presence.py",
-   "menu": null,
-   "title": "★ 守卫：已定案 show_blocks 必须在 stage.html 按块数渲染（缺失红灯）",
-   "menu_label": null,
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\audit_show_blocks_presence.py"
-  },
-  {
-   "script": "audit_git_sync.py",
-   "menu": 220,
-   "title": "origin 同步巡检（ahead/behind → 自动 push + 复查，仍不一致红灯）",
-   "menu_label": "git_sync",
-   "in_deploy": true,
-   "path": "D:\\wx409.github.io\\project_b\\audit_git_sync.py"
-  },
-  {
-   "script": "propagation_watch.py",
-   "menu": 221,
-   "title": "传播监测线（搜→正文+评论→量化→摘要→异常通知；钩子词优先）",
-   "menu_label": "prop_watch",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\propagation_watch.py"
   }
  ]
 }

@@ -83,6 +83,9 @@ def gen_ps1(doc: dict) -> str:
         elif name == "wx409_weibo_pipeline_daily":
             lines.append("$t = New-ScheduledTaskTrigger -Daily -At 09:00")
             lines.append("$s = New-ScheduledTaskSettingsSet -StartWhenAvailable")
+        elif name == "wx409_propagation_watch_daily":
+            lines.append("$t = New-ScheduledTaskTrigger -Daily -At 23:40")
+            lines.append("$s = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew")
         elif name.startswith("QQMusicDashboard"):
             lines.append("$t = New-ScheduledTaskTrigger -AtLogOn")
             lines.append("$s = New-ScheduledTaskSettingsSet -StartWhenAvailable")

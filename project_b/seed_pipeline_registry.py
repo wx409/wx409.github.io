@@ -133,11 +133,29 @@ def main() -> int:
         key = scripts[0] if scripts else f"menu:{num}"
         e = reg.setdefault(key, {"script": key})
         e.update({"menu": num, "title": title, "menu_label": lab})
-    for t in scheduled():
+    sched = scheduled()
+    for t in sched:
         key = t["script"] or f"task:{t['name']}"
         e = reg.setdefault(key, {"script": key})
         e.update({"schedule": {"name": t["name"], "script": t["script"], "cmd": t["cmd"],
                                "next": t["next"], "type": t["schedule_type"], "start": t["start"]}})
+
+    # 计划任务的脚本可能是 .bat 包装（run_*.bat），此时上面拿不到 .py 名：
+    # 按 wrapper 名做**显式映射**（避免被误认成 task:<name> 孤儿条目）。
+    WRAPPER = {"wx409_propagation_watch_daily": "propagation_watch.py",
+               "wx409_show_intake": "night_show_intake.py"}
+    by_name = {t["name"]: t for t in sched}
+    for name, target in WRAPPER.items():
+        stale = reg.pop(f"task:{name}", None)      # 先清掉 .bat 包装留下的孤儿占位
+        sch = by_name.get(name)
+        if not sch or target.startswith("task:"):
+            continue
+        e = reg.setdefault(target, {"script": target})
+        e.update({"script": target, "schedule": {"name": name, "script": target, "cmd": sch["cmd"],
+                                                 "next": sch["next"], "type": sch["schedule_type"],
+                                                 "start": sch["start"]}})
+        if stale:
+            e.setdefault("notes", "由 .bat 包装的计划任务映射回脚本（%s）" % name)
 
     for k, e in reg.items():
         e.setdefault("in_deploy", False)

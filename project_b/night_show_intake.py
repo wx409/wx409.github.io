@@ -9,7 +9,10 @@
 3. 若存在待填歌单 `E:\\wx\\index_records\\setlist_pending.txt` → 作为 `--setlist --append-setlist`
    并入（第二场加歌用），处理完改名为 `.done_<日期>`。
 4. 默认接着跑 `deploy_all.py` + `git push origin main`（`--no-publish` 可关）。
-5. 没演出 → 静默退出 0（不产生任何改动）。
+5. **传播监测收尾**（`--no-watch` 可关）：`propagation_watch.py --light --since 24`
+   —— cookie 三态（失效写站点通知）+ 当晚窗口簇状/单条突增判定 + 规则二（单条赞>中位×3）。
+   轻量秒级；失败只记不阻断。**无平台侧数据不写「爆火/上热点」**。
+6. 没演出 → 静默退出 0（不产生任何改动）。
 
 用户只需做一件事（可选）：把当晚歌单按「顿号/逗号」分隔粘进 `setlist_pending.txt`。
 
@@ -101,6 +104,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=dt.date.today().isoformat())
     ap.add_argument("--no-publish", action="store_true")
+    ap.add_argument("--no-watch", action="store_true",
+                    help="跳过传播监测收尾（默认跑：cookie 三态 + 当晚窗口簇状判定 + 规则二，轻量秒级）")
     ap.add_argument("--no-feedback", action="store_true",
                     help="跳过观众反馈收集（默认跑：微博+小红书+B站，feedback_week --full-collect）")
     ap.add_argument("--feedback-safe", action="store_true",
@@ -157,6 +162,15 @@ def main() -> int:
     if not a.no_publish:
         rc |= run([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "deploy_all.py")], "全站发布 deploy_all")
         rc |= run(["git", "push", "origin", "main"], "git push")
+
+    # ⑥ 传播监测收尾（紧随演出夜入库；轻量秒级，失败只记不阻断）
+    #    做了什么：cookie 三态（失效即写站点通知 + 本地日志）＋ 当晚窗口簇状/单条突增判定
+    #    ＋「单条赞>中位×3」规则二；判定只用本地语料，**无平台侧数据不写「爆火/上热点」**。
+    if not a.no_watch:
+        wr = run([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "propagation_watch.py"),
+                  "--light", "--since", "24"], "传播监测收尾（轻量巡逻）")
+        if wr != 0:
+            log("   [!] 传播监测收尾非零退出（w=%d）→ 只记不阻断，台账见 temp\\propagation_watch.log" % wr)
     log("=== 完成 rc=%d ===" % rc)
     return rc
 

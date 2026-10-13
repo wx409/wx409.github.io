@@ -268,7 +268,7 @@ echo    217. [沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）
 echo    218. [南屏晚钟] 首次实测（点歌段噪声口径）
 echo    219. [开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示；登录自启由启动文件夹 wx409_social_boot.cmd 触发）
 echo    220. [巡检] origin 同步检查（落后即自动 push 并复查）
-echo    221. [传播监测] 搜→正文+评论→量化→摘要→异常通知（--dry 可预览）
+echo    221. [传播监测] 搜→正文+评论→量化→摘要→异常通知；轻量巡逻/检索升级对照/定向窗/规则二
 echo    0. 退出
 echo.
 set "op="
@@ -2965,6 +2965,10 @@ cls
 echo  [传播监测] 复用 fetch_xhs_links / weibo_proxy / 搜索B站轨迹素材 / xhs_comments
 cd /d "D:\wx409.github.io"
 python -X utf8 project_b\propagation_watch.py --dry
+python -X utf8 project_b\propagation_watch.py --light
+python -X utf8 project_b\propagation_watch.py --eval-retrieval
+python -X utf8 project_b\propagation_watch.py --window "2026-10-10 20:00-24:00"
+python -X utf8 project_b\propagation_watch.py --rule2
 python -X utf8 project_b\propagation_watch.py
 pause
 goto menu

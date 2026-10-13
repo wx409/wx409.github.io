@@ -122,6 +122,8 @@ STEPS = [
     (ROOT / "project_b" / "audit_consistency.py", "汇总 vs 明细一致性审计（防未复核值被当结论）", False),
     (ROOT / "project_b" / "audit_ops_coverage.py", "操作中心覆盖审计（人工功能有入口 + 反向检查可运行脚本无孤儿）", False),
     (ROOT / "project_b" / "audit_stage_exclusions.py", "排除项回归审计（防已排除素材/错误曲名被生成器回吞上线）", False),
+    (ROOT / "project_b" / "propagation_watch.py", "传播监测·每日轻量巡逻（cookie 三态 + 窗口簇状判定 + 规则二；秒级，不改站点页面）",
+     False, ["--light"]),
     (ROOT / "project_b" / "build_pipeline_views.py", "任务视图刷新（install_tasks.ps1 / 任务登记表 / skill 任务表）", False),
     (ROOT / "project_b" / "audit_pipeline.py", "任务一致性审计（登记表 vs 部署 vs 菜单 vs 计划任务，漂移告警）", False),
     (ROOT / "project_b" / "check_index_integrity.py", "指数数据源完整性守卫（防回退到缺陷版构建）", True),
