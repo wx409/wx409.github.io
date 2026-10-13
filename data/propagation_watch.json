@@ -1,6 +1,6 @@
 {
- "schema": 1,
- "note": "传播监测配置（改词不改码）；**经验性认知（非官方）**",
+ "schema": 2,
+ "note": "传播监测配置（改词不改码）；平台机制表述一律**经验性认知（非官方）**",
  "time_window_hours": 72,
  "keywords": {
   "songs": [
@@ -29,6 +29,97 @@
    "20261010"
   ]
  },
+ "retrieval": {
+  "note": "A 六项检索升级参数（⑥ 参数全部进本文件，码内不写死）",
+  "expansion": {
+   "max_variants": 5,
+   "new_word_rounds": 2,
+   "new_word_topk": 12
+  },
+  "query_variants": {
+   "我要你": [
+    "我要你 王晰",
+    "沉响与长歌 我要你",
+    "王晰 我要你 低音",
+    "bossa 我要你 改编",
+    "我要你 版权"
+   ],
+   "哭砂": [
+    "哭砂 王晰",
+    "王晰 哭砂 现场",
+    "哭砂 低音炮"
+   ],
+   "南屏晚钟": [
+    "南屏晚钟 王晰",
+    "南屏晚钟 现场",
+    "南屏晚钟 低音"
+   ],
+   "一生中最爱": [
+    "一生中最爱 王晰",
+    "一生中最爱 现场",
+    "一生中最爱 翻唱"
+   ],
+   "敕勒歌": [
+    "敕勒歌 王晰",
+    "敕勒歌 现场",
+    "敕勒歌 改编"
+   ],
+   "乌兰巴托的夜": [
+    "乌兰巴托的夜 王晰",
+    "乌兰巴托 敕勒川 王晰",
+    "乌兰巴托的夜 现场"
+   ],
+   "美酒加咖啡": [
+    "美酒加咖啡 王晰",
+    "美酒加咖啡 现场",
+    "美酒加咖啡 爵士"
+   ],
+   "低音炮": [
+    "低音炮 王晰",
+    "低音 王晰 现场",
+    "男低音 王晰"
+   ],
+   "沉响与长歌": [
+    "沉响与长歌 北京",
+    "沉响与长歌 天桥",
+    "沉响与长歌 歌单"
+   ]
+  },
+  "bm25": {
+   "k1": 1.5,
+   "b": 0.75
+  },
+  "semantic": {
+   "enabled": true,
+   "model": "BAAI/bge-small-zh-v1.5",
+   "why": "复用站点既有 tools/build_kb_vectors.py 同款模型，离线缓存已就位，不引新依赖",
+   "device": "cpu"
+  },
+  "rrf": {
+   "k": 60,
+   "w_bm25": 1.0,
+   "w_sem": 1.0
+  },
+  "recall": {
+   "bm25_topn": 50,
+   "bm25_min": 0.5,
+   "why": "相关性闸门：每目标只保留 BM25 与目标词实质重叠（>bm25_min）的前 bm25_topn 条；否则多目标 RRF 的长尾会把无关文档一起捞进来，召回被稀释成近似全量（实测 202 条里 198 条）"
+  },
+  "dedup": {
+   "jaccard": 0.85,
+   "why": "noteId 归一（24位hex）/ BV 号 + 标题归一化后 Jaccard≥0.85 视为同源；跨平台转发算一条并记出现次数 dup_count"
+  },
+  "rerank": {
+   "w_rrf": 1.0,
+   "w_interaction": 0.3,
+   "w_time": 0.2,
+   "time_decay": {
+    "half_life_hours": 48
+   },
+   "keep_platform_order": true,
+   "why": "相关性×互动分位×时间衰减；**原始平台顺序作对照保留**（before/after 同列）"
+  }
+ },
  "platforms": {
   "xhs": {
    "enabled": true,
@@ -46,8 +137,12 @@
   }
  },
  "comments": {
-  "tool": "E:\\wx\\私有工具\\xhs_proxy\\xhs_comments.py",
+  "tool": "D:\\wx409.github.io\\project_b\\xhs_comments.py",
+  "tool_external": "E:\\wx\\私有工具\\xhs_proxy\\xhs_comments.py",
   "enabled": true,
+  "fetch_inner": true,
+  "inner_note": "二级评论自行分页（底层 get_note_inner_comment 循环至 has_more=False）；SDK 的 get_note_all_inner_comment 有内部 bug（sub_comments 键缺失 + 提前 break）",
+  "normalize_note": "互动量一律先过 to_int()（万/k/亿/千分位）再比较与统计",
   "categories": {
    "编曲": [
     "编曲",
@@ -85,11 +180,16 @@
     "完整版",
     "哪里听"
    ]
+  },
+  "categories_pending_review": {
+   "note": "本简表词少：该语料里 场景/求音源 两类 0 命中；被服用的详表是站点 temp/v3_分析.py 的 CATS（编曲/情绪/版权梗/低音/私人情境/求音源…）。两表并存，是否并表待人工确认。",
+   "detail_table_source": "D:\\wx409.github.io\\temp\\v3_分析.py"
   }
  },
  "thresholds": {
   "cluster_n_in_hours": 5,
   "cluster_hours": 6,
+  "cluster_bucket_minutes": 30,
   "hot_ratio_vs_median": 3.0,
   "notify": true
  },
@@ -99,5 +199,13 @@
   "backoff_base_s": 8,
   "max_retries": 3,
   "respect_300011": true
- }
+ },
+ "window_probes": [
+  {
+   "label": "10-10 热点进入窗（用户记忆 23:26）",
+   "window": "2026-10-10 20:00-24:00",
+   "hot_entry_remembered": "2026-10-10 23:26",
+   "discipline": "无平台侧数据不得写「爆火/上热点」；无簇状也不得反证「没有热点」"
+  }
+ ]
 }
