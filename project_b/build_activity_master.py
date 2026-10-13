@@ -64,6 +64,52 @@ def split_songs(s) -> list[str]:
     return sorted(set(out))
 
 
+ATTR_FILE = SITE / "data" / "performance_attribution.json"
+
+
+def load_attribution() -> list[dict]:
+    """演唱者归属覆盖表（双人/拼盘场次的同台嘉宾独唱曲目）。缺文件则返回空表（不报错）。"""
+    try:
+        return json.loads(ATTR_FILE.read_text(encoding="utf-8")).get("shows", [])
+    except Exception:
+        return []
+
+
+def apply_attribution(row: dict, shows: list[dict]) -> None:
+    """给该事件挂归属：`song_performers`（逐曲归属）、`songs_subject`（只算主体歌手王晰的曲目）。
+
+    **不删曲目**：`songs` 保持全场原样；`songs_subject` 供"王晰曲目"统计使用。
+    """
+    hit = next((s for s in shows
+                if s.get("key") and row["date"].startswith(s["key"])
+                and (not s.get("title_match") or s["title_match"] in row["title"])), None)
+    if not hit:
+        return
+    excl = set(hit.get("exclude_for_subject") or [])
+    pend = {p.get("song"): p.get("by") for p in (hit.get("pending") or [])}
+    keep = hit.get("keep") or {}
+    pmap = {}
+    for s in row["songs"]:
+        if s in excl:
+            pmap[s] = "傲日其愣（独唱）"
+        elif s in pend:
+            pmap[s] = pend[s] or "待核（疑傲日独唱，用户未确认）"
+        else:
+            pmap[s] = "王晰/双人（未列入排除）"
+    row["song_performers"] = pmap
+    row["songs_subject"] = sorted([s for s in row["songs"] if s not in excl])
+    row["attribution"] = {
+        "cast": hit.get("cast", ""),
+        "excluded_for_subject": sorted(excl),
+        "pending": hit.get("pending", []),
+        "keep_wangxi": keep.get("王晰独唱", []),
+        "keep_duet": keep.get("双人合唱", []),
+        "config": "data/performance_attribution.json",
+        "note": ("本行为双人/拼盘场次全场曲目；`songs`=全场登记，`songs_subject`=只算主体歌手王晰"
+                 "（已剔除同台嘉宾独唱，但不删数据）。" if excl else
+                 "本行无归属覆盖（`songs`= `songs_subject`）。"),
+    }
+
 def main() -> int:
     rows = []
     # ① 百科版
@@ -104,10 +150,14 @@ def main() -> int:
     uniq.sort(key=lambda x: x["date"])
 
     with_songs = [r for r in uniq if r["songs"]]
-    # 曲目 → 出现事件数（可重建"演出保留曲目"）
+    # 演唱者归属覆盖（双人/拼盘场次：同台嘉宾独唱不计入"王晰曲目"，但不删数据）
+    shows = load_attribution()
+    for r in uniq:
+        apply_attribution(r, shows)
+    # 曲目 → 出现事件数（可重建"演出保留曲目"）——**按主体歌手口径**（songs_subject）
     song_events = defaultdict(list)
     for r in uniq:
-        for s in r["songs"]:
+        for s in (r.get("songs_subject") or r["songs"]):
             song_events[s].append(r["date"])
 
     payload = {"generated_at": datetime.now().isoformat(timespec="seconds"),

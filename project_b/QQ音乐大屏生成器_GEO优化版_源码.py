@@ -1810,11 +1810,17 @@ def load_performance_events(path):
     与巡演长表区别：单一曲目演出（如音乐剧王晰仅唱《埋下记忆》），歌单内仅 1 首，
     其余全部歌曲为"歌单外"，故辐射带动（radiance_uplift）能反映"该演出是否带动王晰整体关注度"。
     文件缺失时返回空 dict（不影响主流程）。
+
+    ★ 演唱者归属守卫（2026-10-13）：双人/拼盘场次（如《沉响与长歌》王晰 × 傲日其愣）的
+    「演唱曲目」列按**全场**登记，含同台嘉宾独唱曲目 → 会造成"歌单内"虚高。
+    本函数按 `data/performance_attribution.json` 剔除同台嘉宾独唱（**只影响王晰口径的
+    辐射带动分析，不改长表、不删数据**）；归属表缺失时保持旧行为（不剔）。
     """
     events = {}
     if not path or not os.path.exists(path):
         logger.info(f"演出活动表不存在（辐射带动分析不含音乐剧演出）: {path}")
         return events
+    attr_rows = _load_attribution_rows(path)
     try:
         df = pd.read_excel(path, sheet_name=0)
         for _, row in df.iterrows():
@@ -1843,11 +1849,69 @@ def load_performance_events(path):
                     merged.add(s)
             if not merged:
                 continue
+            excluded = _excluded_for_subject(attr_rows, d, name)
+            if excluded:
+                before = len(merged)
+                merged = {s for s in merged if s not in excluded}
+                logger.info(f"演唱者归属守卫：{name}（{d}）按「同台嘉宾独唱」剔除 "
+                            f"{before - len(merged)} 首（例：{sorted(excluded)[:5]}）")
+            if not merged:
+                continue
             events[(d, scene)] = {"tour": name, "songs": merged, "city": _clean_city(row.get("地点"))}
         logger.info(f"演出活动表: {len(events)} 场演出已加载（辐射带动分析输入，多曲目已拆分）")
     except Exception as e:
         logger.warning(f"演出活动表读取失败（辐射带动分析跳过演出活动）: {e}")
     return events
+
+
+def _load_attribution_rows(events_xlsx_path):
+    """读 data/performance_attribution.json（优先演出活动表同目录，其次站点 data/）。
+
+    缺文件返回 []，此时**不剔除任何曲目**（保持旧行为，不破坏历史结果）。
+    """
+    cands = []
+    try:
+        cands.append(os.path.join(os.path.dirname(os.path.abspath(events_xlsx_path)),
+                                  "performance_attribution.json"))
+    except Exception:
+        pass
+    try:
+        cands.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                  "data", "performance_attribution.json"))
+    except Exception:
+        pass
+    cands.append(os.path.join(os.getcwd(), "data", "performance_attribution.json"))
+    for p in cands:
+        try:
+            if p and os.path.exists(p):
+                with open(p, encoding="utf-8") as f:
+                    rows = json.load(f).get("shows", [])
+                logger.info(f"演唱者归属表已加载：{len(rows)} 个场次覆盖（{p}）")
+                return rows
+        except Exception as e:
+            logger.warning(f"演唱者归属表读取失败（{p}）: {e}")
+    logger.info("未找到演唱者归属表（performance_attribution.json）→ 不剔除任何曲目")
+    return []
+
+
+def _excluded_for_subject(attr_rows, date_str, title):
+    """该场次应从"王晰口径"剔除的曲目（归一化名）。无覆盖返回空集。
+
+    只剔 `exclude_for_subject`（已确证的嘉宾独唱）；`pending`（待核）**不剔**——
+    宁少剔不多剔，等人工确认。
+    """
+    out = set()
+    for s in attr_rows or []:
+        key = str(s.get("key") or "")
+        tm = s.get("title_match") or ""
+        if not (key and date_str.startswith(key)):
+            continue
+        if tm and tm not in title:
+            continue
+        for song in (s.get("exclude_for_subject") or []):
+            out.add(norm_name(song))
+    return out
+
 
 
 def _city_of(scene):

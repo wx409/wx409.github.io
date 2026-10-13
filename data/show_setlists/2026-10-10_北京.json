@@ -18,97 +18,116 @@
   {
    "no": 1,
    "song": "嘎达梅林",
-   "by": "双人"
+   "by": "双人",
+   "performer": "双人"
   },
   {
    "no": 2,
    "song": "忘不了",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 3,
    "song": "Your Man",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 4,
    "song": "四岁的海骝马",
-   "by": "傲日"
+   "by": "傲日",
+   "performer": "傲日"
   },
   {
    "no": 5,
    "song": "敕勒歌＋乌兰巴托的夜",
-   "by": "双人"
+   "by": "双人",
+   "performer": "双人"
   },
   {
    "no": 6,
    "song": "心恋",
-   "by": "双人"
+   "by": "双人",
+   "performer": "双人"
   },
   {
    "no": 7,
    "song": "在水一方",
-   "by": "傲日"
+   "by": "傲日",
+   "performer": "傲日"
   },
   {
    "no": 8,
    "song": "最美",
-   "by": "傲日"
+   "by": "傲日",
+   "performer": "傲日"
   },
   {
    "no": 9,
    "song": "唱起草原的歌",
-   "by": "傲日"
+   "by": "傲日",
+   "performer": "傲日"
   },
   {
    "no": 10,
    "song": "小毛驴",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 11,
    "song": "Yes or No",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 12,
    "song": "在路上",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 13,
    "song": "我会找到你",
-   "by": "傲日"
+   "by": "傲日",
+   "performer": "傲日"
   },
   {
    "no": 14,
    "song": "我要你",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 15,
    "song": "民族串烧（送亲歌/小草/莫合茹）",
-   "by": "傲日"
+   "by": "傲日",
+   "performer": "傲日"
   },
   {
    "no": 16,
    "song": "英文串烧（Smoke Gets in Your Eyes / Moon River / Love Me Tender）",
-   "by": "王晰"
+   "by": "王晰",
+   "performer": "王晰"
   },
   {
    "no": 17,
    "song": "点歌环节",
-   "by": "双人"
+   "by": "双人",
+   "performer": "双人"
   },
   {
    "no": 18,
    "song": "结束曲 美酒加咖啡",
-   "by": "双人"
+   "by": "双人",
+   "performer": "双人"
   },
   {
    "no": 19,
    "song": "返场 酒歌",
-   "by": "双人"
+   "by": "双人",
+   "performer": "双人"
   }
  ],
  "songs": [
@@ -174,5 +193,15 @@
  "notes": [
   "★ 本场为「院团合作场次（东演）」，**与个人巡演 59 场分列，不得混加**（见 calibers `dongyan_show_count`）",
   "曲目以用户确认为准；旁证：微博直发视频、B站直拍、观众手写歌单"
- ]
+ ],
+ "attribution": {
+  "added_compared_to_first_show": [
+   {
+    "song": "Love Is Over",
+    "by": "王晰 × 傲日其愣（合唱）",
+    "status": "确证"
+   }
+  ],
+  "config": "data/performance_attribution.json"
+ }
 }
