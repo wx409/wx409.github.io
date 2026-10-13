@@ -48,7 +48,7 @@ def main() -> int:
     for dt in dates:
         for b in nights[dt]["blocks"]:
             song = b.get("song")
-            if song and b.get("song_status") == "已确证":
+            if song and str(b.get("song_status")) in ("已确证", "用户确认"):
                 per.setdefault(song, {}).setdefault(dt, []).append(b)
     rows = []
     for song, byd in per.items():
