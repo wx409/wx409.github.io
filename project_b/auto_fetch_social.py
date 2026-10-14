@@ -2,7 +2,7 @@
 """开机自启：自动抓一遍 王晰本人微博 + 工作室微博 + 王晰小红书（官方账号）。
 
 设计（最小可行）：
-- **先验 cookie 三态**：微博（GET /api/config 判 login）/ 小红书（tools\\sync_xhs_cookie.py --check）
+- **先验 cookie 四态**：微博（GET /api/config 判 login）/ 小红书（tools\\sync_xhs_cookie.py --check）
 - **有效** → 按配置依次跑既有脚本（复用，不另起一套）
 - **无效/风控** → **不硬跑**，写站点通知（notify.record）+ 本地日志（含"需要用户做什么"）
 - **幂等 + 容错**：单平台失败不影响其它；退出码 0（除非配置缺失）；日志落 temp/
@@ -166,9 +166,12 @@ def check_weibo(cfg):
                            capture_output=True, text=True, encoding="utf-8", errors="ignore",
                            cwd=str(SITE))
         out = (r.stdout or "") + (r.stderr or "")
-        for s2 in ("有效", "失效", "被风控"):
-            if s2 in out:
-                return s2
+        # ★ 2026-10-14 四态：显式解析（缺文件/异常 → 不可判定，不判失效）
+        import re as _re
+        m = _re.search(r"四态判定[：:]\s*(有效|失效|被风控|不可判定)", out) or _re.search(
+            r"(不可判定|被风控|失效|有效)", out)
+        if m:
+            return m.group(1)
     except Exception:
         pass
     try:
@@ -181,19 +184,25 @@ def check_weibo(cfg):
             "Cookie": ck, "User-Agent": "Mozilla/5.0", "Referer": "https://m.weibo.cn/"})
         with urllib.request.urlopen(req, timeout=12) as resp:
             d = json.loads(resp.read().decode("utf-8", "ignore"))
-        return "有效" if (d.get("data") or {}).get("login") else "失效"
+        login = (d.get("data") or {}).get("login")
+        if login is True:
+            return "有效"
+        if login is False:
+            return "失效"
+        return "不可判定"   # 应答无法解释 → 不判失效（防误报）
     except Exception as e:
-        return f"无法判定（网络/风控：{type(e).__name__}）"
+        return "不可判定"   # 网络异常/文件缺失 → 不判失效（防误报）
 
 
 def check_xhs():
     r = subprocess.run([sys.executable, "-X", "utf8", "tools/sync_xhs_cookie.py", "--check"],
                        capture_output=True, text=True, encoding="utf-8", errors="ignore", cwd=str(SITE))
     out = (r.stdout or "") + (r.stderr or "")
-    for s in ("有效", "失效", "被风控"):
-        if s in out:
-            return s
-    return "无法判定"
+    # ★ 2026-10-14 四态：显式解析（缺文件/工具链异常 → 不可判定，不判失效）
+    import re as _re
+    m = _re.search(r"四态判定[：:]\s*(有效|失效|被风控|不可判定)", out) or _re.search(
+        r"(不可判定|被风控|失效|有效)", out)
+    return m.group(1) if m else "不可判定"
 
 
 def run(cmd, cwd):
@@ -216,10 +225,16 @@ def main() -> int:
 
     if a.platform in ("", "weibo"):
         st = check_weibo(cfg)
-        log(f"微博 cookie 三态：{st}")
-        if st != "有效":
+        log(f"微博 cookie 四态：{st}")
+        if st in ("失效", "被风控"):
             notify("⚠ 微博 cookie 需要更新", f"微博登录态：{st}。请{HINT}")
             active_alert("微博", st, "跑 tools\\sync_weibo_cookie.py")
+        elif st == "不可判定":
+            log("微博登录态「不可判定」→ 只记日志 + 站内通知一次，**不弹窗/不建桌面文件**"
+                "（避免让你去重置本来没坏的 cookie）")
+            notify("ℹ 微博登录态不可判定（非失效）",
+                   "本次未能判定微博登录态（cookie 文件缺失 / 端点不可达 / 应答无法解释）。"
+                   "**未判定为失效**，请勿急于重置 cookie；若持续多日不可判定再检查网络或文件路径。")
         else:
             clear_mark("微博")
             if a.dry:
@@ -241,10 +256,15 @@ def main() -> int:
 
     if a.platform in ("", "xhs"):
         st = check_xhs()
-        log(f"小红书 cookie 三态：{st}")
-        if st != "有效":
+        log(f"小红书 cookie 四态：{st}")
+        if st in ("失效", "被风控"):
             notify("⚠ 小红书 cookie 需要更新", f"小红书登录态：{st}。请{HINT}")
             active_alert("小红书", st, "跑 tools\\sync_xhs_cookie.py")
+        elif st == "不可判定":
+            log("小红书登录态「不可判定」→ 只记日志 + 站内通知一次，**不弹窗/不建桌面文件**")
+            notify("ℹ 小红书登录态不可判定（非失效）",
+                   "本次未能判定小红书登录态（cookie 文件缺失 / 工具链加载失败 / 网络异常）。"
+                   "**未判定为失效**，请勿急于重置 cookie。")
         else:
             clear_mark("小红书")
             for x in cfg.get("xiaohongshu", []):

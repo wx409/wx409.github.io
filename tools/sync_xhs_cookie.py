@@ -43,6 +43,26 @@ def clean_cookie(raw: str) -> str:
     return c
 
 
+STATES = ("有效", "失效", "被风控", "不可判定")
+
+
+def normalize_state(raw: str) -> str:
+    """把 probe 的原始返回归一到**四态**（有效 / 失效 / 被风控 / 不可判定）。
+
+    ★ 2026-10-14：防误报——cookie 文件缺失 / 工具链加载失败 / 网络异常 / 返回无法解释，
+    一律判「**不可判定**」，**不判失效**（避免让用户去重置本来没坏的 cookie）。
+    只有明确拿到「未登录 / 登录失效 / expired / -100」才判失效。
+    """
+    s = raw or ""
+    if s.startswith("有效"):
+        return "有效"
+    if "被风控" in s:
+        return "被风控"
+    if "失效" in s and "或未知" not in s and "异常" not in s:
+        return "失效"
+    return "不可判定"
+
+
 def load_cookie() -> str:
     if SRC.exists():
         return clean_cookie(SRC.read_text(encoding="utf-8", errors="ignore"))
@@ -104,26 +124,28 @@ def main() -> int:
 
     if not SRC.exists():
         print(f"[X] 找不到源文件: {SRC}")
-        return 1
+        print("[自检] 四态判定：不可判定（源文件缺失，**不判失效**；请把 Cookie 放进 xhs.txt）")
+        return 3 if a.check else 1
     cookie = clean_cookie(SRC.read_text(encoding="utf-8", errors="ignore"))
     if not cookie or "=" not in cookie:
         print("[X] xhs.txt 为空或不像 Cookie")
-        return 1
+        print("[自检] 四态判定：不可判定（内容为空/格式不符，不判失效）")
+        return 3 if a.check else 1
     if not any(k in cookie for k in XHS_KEYS):
         print(f"[!] 警告：xhs.txt 未包含常见小红书字段 {XHS_KEYS}，请确认没有误贴微博 Cookie")
 
     print(f"源：{SRC}（{len(cookie)} 字符）")
     if a.check:
-        state = probe(cookie)
-        print(f"[自检] 三态判定：{state}")
-        return 0 if state == "有效" else 2
+        state = normalize_state(probe(cookie))
+        print(f"[自检] 四态判定：{state}")
+        return 0 if state == "有效" else (3 if state == "不可判定" else 2)
 
-    state = probe(cookie)
-    print(f"[自检] 三态判定：{state}")
+    state = normalize_state(probe(cookie))
+    print(f"[自检] 四态判定：{state}")
     if state != "有效":
         print("[X] Cookie 非「有效」，**不覆盖现有 cookie 文件**（避免把还能用的旧值弄坏）。"
               "如确认要强制写入，请手动备份后操作。")
-        return 2
+        return 3 if state == "不可判定" else 2
 
     CRAWLER_DST.parent.mkdir(parents=True, exist_ok=True)
     REALTIME_DST.parent.mkdir(parents=True, exist_ok=True)

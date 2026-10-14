@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 import sys
+import urllib.request
 from pathlib import Path
 
 SRC = Path(r"E:\wx\index_records\wb.txt")
@@ -32,7 +33,47 @@ def clean_cookie(raw: str) -> str:
     return c
 
 
+
+# ── 四态登录态自检（与 tools/sync_xhs_cookie.py 同口径）─────────────────────────
+ENDPOINT = "https://m.weibo.cn/api/config"
+
+
+def check_state() -> tuple[str, str]:
+    """返回 (四态, 说明)。缺文件/异常一律「不可判定」，只有明确 login:false 才判「失效」。"""
+    if not SRC.exists():
+        return "不可判定", f"源文件缺失：{SRC}（不判失效；请把 Cookie 放进 wb.txt）"
+    cookie = clean_cookie(SRC.read_text(encoding="utf-8", errors="ignore"))
+    if not cookie or "=" not in cookie:
+        return "不可判定", "wb.txt 为空或格式不符（不判失效）"
+    try:
+        req = urllib.request.Request(ENDPOINT, headers={
+            "User-Agent": "Mozilla/5.0", "Cookie": cookie,
+            "Referer": "https://m.weibo.cn/"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            body = r.read().decode("utf-8", errors="replace")
+        d = json.loads(body)
+    except Exception as e:
+        s = repr(e)
+        if any(k in s for k in ("432", "风控", "频繁", "403")):
+            return "被风控", f"端点异常且疑似风控：{s[:120]}"
+        return "不可判定", f"端点不可达/网络异常：{s[:120]}"
+    login = (d.get("data") or {}).get("login")
+    if login is True:
+        return "有效", "login=true"
+    if login is False:
+        return "失效", "login=false（明确未登录）"
+    return "不可判定", f"应答无法解释（无 data.login）：{body[:80]}"
+
+
+def main_check() -> int:
+    state, why = check_state()
+    print(f"[自检] 四态判定：{state}（{why}）")
+    return 0 if state == "有效" else (3 if state == "不可判定" else 2)
+
+
 def main() -> int:
+    if "--check" in sys.argv:
+        return main_check()
     if not SRC.exists():
         print(f"[X] 找不到源文件: {SRC}")
         return 1

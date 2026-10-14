@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-14 15:15:09",
+ "updated_at": "2026-10-14 15:25:03",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2638,6 +2638,18 @@
    "time": "2026-10-14 15:15:09",
    "title": "⚠ 小红书 cookie 需要更新",
    "content": "小红书登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-14 15:23:32",
+   "title": "⚠ 小红书 cookie 需要更新",
+   "content": "小红书登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-14 15:25:03",
+   "title": "ℹ 小红书登录态不可判定（非失效）",
+   "content": "本次未能判定小红书登录态（cookie 文件缺失 / 工具链加载失败 / 网络异常）。**未判定为失效**，请勿急于重置 cookie。",
    "category": "通知"
   }
  ]
