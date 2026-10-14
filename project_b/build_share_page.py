@@ -195,6 +195,21 @@ def main():
         for it in (battlemap.get("items") or [])) or "<p class='meta'>（暂无条目）</p>"
     bm_counter = (f"<div class='warn'>{esc(battlemap.get('counterexample_note', ''))}</div>"
                   if battlemap.get("counterexample_note") else "")
+    # ── ①c 钩子候选池（**只展示已确认**；未确认留本地池，不展示风险内部备注）──
+    pool_doc = load(D / "hooks_pool.json", {}) or {}
+    _hooks = pool_doc.get("hooks") or []
+    hk_conf = [h for h in _hooks if (h.get("review_status") or "local") == "confirmed"]
+    hk_local_n = len(_hooks) - len(hk_conf)
+    hk_pub_n = len(hk_conf)
+    hk_html = ("".join(
+        f"<div class='card'><h3>{esc(h.get('hook'))}</h3>"
+        f"<p class='meta'>建议小词：{esc('、'.join(h.get('small_words') or []))}｜"
+        f"目标人群：{esc(h.get('audience', ''))}</p>"
+        f"<p class='meta'>出处：<code>{esc(h.get('evidence', '')[:150])}</code></p></div>"
+        for h in hk_conf) or
+        "<p class='meta'>（暂无「已确认」候选——本地池里的候选需人工确认后才上站；"
+        "确认方式：在 <code>data/hooks_pool.json</code> 给该条加 "
+        "<code>\"review_status\": \"confirmed\"</code>）</p>")
     sel = ""
     # ?card=<id> 竖屏视图：只渲染一张卡（截图用）
     body = "".join((RENDER / f"card_{c['id']}.html").read_text(encoding="utf-8") for c in cards)
@@ -253,6 +268,12 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 <p class="meta">{esc(entries.get('what', ''))}｜{esc((entries.get('rule') or {}).get('one_evidence', ''))}｜
 {esc((entries.get('rule') or {}).get('derive', ''))}｜生成 {esc(entries.get('generated_at', ''))}</p>
 {ent_html}
+
+<h2>①c 钩子候选池（已确认 {hk_pub_n} 条 · 本地池另有 {hk_local_n} 条）</h2>
+<p class="meta">规则化抽取：<code>project_b/hook_miner.py</code>（离线评分＝可转述性＋证据强度＋新颖度；规则见 <code>data/hooks_pool.json#rules</code>）</p>
+<p class="meta">可见范围：本站**只展示已确认（review_status=confirmed）的候选**，仅「钩子句 + 建议小词 + 出处」，**不展示风险内部备注**；</p>
+<p class="meta">未确认候选留在本地池（<code>E:\wx\论文素材_王晰作传\传播监测\钩子候选池_&lt;日期&gt;.md</code>），勾选后跑 <code>hook_miner.py --render-picked</code> 出卡。</p>
+{hk_html}
 
 <h2>② 句式库 · 单曲 TOP10</h2>
 <p class="meta">{esc(singles.get('rule'))}｜{esc(singles.get('count_rule_note'))}</p>

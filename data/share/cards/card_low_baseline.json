@@ -1,0 +1,65 @@
+{
+ "id": "low_baseline",
+ "no": 10,
+ "title": "低音基线",
+ "subtitle": "不是一首歌的偶然：72 首录音室曲目的低音落点分布",
+ "pillar": "实测（最低稳定音口径）",
+ "main_numbers": [
+  {
+   "value": 72,
+   "unit": "首",
+   "label": "录音室曲目池（全量实测）",
+   "caliber": "vocal_album_rows",
+   "source": "data/archive_vocal_albums.json#songs[]（length）"
+  },
+  {
+   "value": 44,
+   "unit": "首",
+   "label": "最低稳定音低于 E2 82.4Hz（男低音常用下界）",
+   "caliber": "low_below_e2",
+   "source": "data/archive_vocal_albums.json#songs[].low_hz < 82.4"
+  },
+  {
+   "value": 61.5,
+   "unit": "Hz",
+   "label": "全池最低稳定音 B1《静止了的夜晚》",
+   "caliber": "lowest_stable_B1",
+   "source": "data/archive_vocal_albums.json#summary.lowest{note,hz,song,album}"
+  },
+  {
+   "value": 0,
+   "unit": "首",
+   "label": "达到 B1 的曲目数（B1 共 4 首：知晓/渔光曲/多听有益/静止了的夜晚）",
+   "caliber": "lowest_stable_B1",
+   "source": "data/archive_vocal_albums.json#songs[].low_note == 'B1'"
+  }
+ ],
+ "view_reading": [
+  "录音室曲目池共 **72 首**（全量实测，非抽样）；其中 **44 首**（61.1%）的最低稳定音**低于 E2 82.4Hz**——E2 是合唱写作与声乐教学里男低音的常用下界，用来描述声部大致范围，不是物理极限。",
+  "全池最低稳定音 **B1 61.5Hz**，曲目《静止了的夜晚》（专辑《重游往昔》）；低音声部把 C2（本站参照线 65.4Hz）称为 Low C，该读数比它再低约 1.06 个半音。",
+  "**只算「最低稳定音」**：时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB，且极值音本身需 ≥0.2s 并过谐波列复核；触达音、低音带读数、归属未定的现场极值音**一律不作依据、不进标题**（三级读数制度，见 `data/calibers.md`）。",
+  "<div class='hist'><div class='hb'><span class='hl'>55–60Hz</span><span class='hf' style='width:0%'></span><span class='hc'>0</span></div><div class='hb'><span class='hl'>60–65Hz</span><span class='hf' style='width:22%'></span><span class='hc'>4</span></div><div class='hb'><span class='hl'>65–70Hz</span><span class='hf' style='width:67%'></span><span class='hc'>12</span></div><div class='hb'><span class='hl'>70–75Hz</span><span class='hf' style='width:72%'></span><span class='hc'>13</span></div><div class='hb'><span class='hl'>75–80Hz</span><span class='hf' style='width:50%'></span><span class='hc'>9</span></div><div class='hb'><span class='hl'>80–85Hz</span><span class='hf' style='width:44%'></span><span class='hc'>8</span></div><div class='hb'><span class='hl'>85–95Hz</span><span class='hf' style='width:100%'></span><span class='hc'>18</span></div></div><style>.hist{margin:8px 0}.hb{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a6a55}.hl{width:96px;text-align:right}.hf{height:10px;background:#c9a227;border-radius:2px;display:inline-block}.hc{color:#8a7f6d}</style>",
+  "低音落点分布（按最低稳定音，Hz）。横条越长＝落在该区间的曲目越多。"
+ ],
+ "view_card": [
+  "44/72 首低于 E2",
+  "最低 B1 61.5Hz",
+  "只算最低稳定音"
+ ],
+ "caliber_lock": [],
+ "gate": {
+  "pass_status": "measured（注：`archive_vocal_albums.json` 内每首带 album_verify_status；C6 类读数已按人耳确认非本人剔除，仅存 high_hz_original 备查）",
+  "note": "本卡数字全部为录音室实测稳定音分布，无待核读数入内"
+ },
+ "platform": {
+  "xiaohongshu": {
+   "钩子句": "44/72 首低于男低音常用下界 E2",
+   "记忆点": "最低 B1 61.5Hz"
+  },
+  "douyin": {
+   "听觉断点": "低频落点与 High C 的对照（发布者自备素材）"
+  }
+ },
+ "footnote": "来源：data/archive_vocal_albums.json（72 首全量实测）｜口径：最低稳定音；每条数字的字段出处见各自主数字条目。生成 2026-10-14",
+ "generated_at": "2026-10-14"
+}

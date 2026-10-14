@@ -1,0 +1,47 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-14T12:45:18",
+ "how": "把想传播的条目 picked 改成 true，再跑 python -X utf8 project_b\\hook_miner.py --render-picked",
+ "count": 3,
+ "picked_count": 0,
+ "items": [
+  {
+   "id": "2019_想唱_版权太贵_等到_2026_01",
+   "hook": "2019 想唱，版权太贵，等到 2026",
+   "small_words": [
+    "版权梗",
+    "七年",
+    "等到",
+    "终于唱了"
+   ],
+   "evidence": "现场 talk 61:56（绝对 3716.1s）；原话「其实我在我2019年做自己的第一次巡演的时候…了解了一下这首歌的版权…哇好贵…后来加入到了东方…能够让我把这首歌唱给大家听」（原始材料\\我要你_声学与传播归因_v2.json#S2_copyright_story.verbatim[]）",
+   "audience": "泛路人 / 内容二创 / 版权话题关注者",
+   "score_total": 8.5,
+   "picked": false
+  },
+  {
+   "id": "笔记直接用_低音超绝_当钩子标签_8_处__02",
+   "hook": "笔记直接用「低音超绝」当钩子标签（8 处）",
+   "small_words": [
+    "低音超绝"
+   ],
+   "evidence": "语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题\n请速巡演之\n-\n《我要你》4K字幕@王晰  | 2026",
+   "audience": "同好圈层 / 二创",
+   "score_total": 6.0,
+   "picked": false
+  },
+  {
+   "id": "一口气_16_5_秒不换气_03",
+   "hook": "一口气 16.5 秒不换气",
+   "small_words": [
+    "长声",
+    "一口气",
+    "十六秒"
+   ],
+   "evidence": "data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, src=现场, t_start_s=695.9）",
+   "audience": "声乐爱好者 / 泛路人",
+   "score_total": 6.0,
+   "picked": false
+  }
+ ]
+}

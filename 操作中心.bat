@@ -270,6 +270,7 @@ echo    219. [开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期
 echo    220. [巡检] origin 同步检查（落后即自动 push 并复查）
 echo    221. [传播监测] 搜→正文+评论→量化→摘要→异常通知；轻量巡逻/检索升级对照/定向窗/规则二
 echo    222. [词条/自动卡] 词条库 + 每周发现/自燃信号自动卡（未达条件不出卡；build_share_entries / build_auto_cards）
+echo    223. [钩子发现] 规则化抽钩子候选池（talk/评论/声学事件）+ 勾选后出卡
 echo    0. 退出
 echo.
 set "op="
@@ -496,6 +497,7 @@ if "%op%"=="219" goto social_boot
 if "%op%"=="220" goto git_sync
 if "%op%"=="221" goto prop_watch
 if "%op%"=="222" goto share_auto
+if "%op%"=="223" goto hook_mine
 echo   [!] 无效选项，请重试
 timeout /t 1 /nobreak >nul
 goto menu
@@ -2983,5 +2985,17 @@ python -X utf8 project_b\propagation_watch.py --eval-retrieval
 python -X utf8 project_b\propagation_watch.py --window "2026-10-10 20:00-24:00"
 python -X utf8 project_b\propagation_watch.py --rule2
 python -X utf8 project_b\propagation_watch.py
+pause
+goto menu
+
+
+:hook_mine
+cls
+echo  [钩子发现] 抽候选池（dry 预览）→ 抽池 → 勾选后出卡（编辑 data\hooks_pick.json 把 picked 改 true）
+cd /d "D:\wx409.github.io"
+python -X utf8 project_b\hook_miner.py --dry
+python -X utf8 project_b\hook_miner.py
+echo  [提示] 勾选后运行下面这行：
+echo     python -X utf8 project_b\hook_miner.py --render-picked
 pause
 goto menu

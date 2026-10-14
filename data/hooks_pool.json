@@ -1,0 +1,327 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-14T12:45:18",
+ "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
+ "rules": {
+  "时间标记": {
+   "pattern": "(20\\d{2}\\s*年|一巡|二巡|三巡|四巡|五巡|六巡|第[一二三四五六七八九十]次|去年|前年|当年|那一年|巡演的时候)"
+  },
+  "冲突标记": {
+   "pattern": "(版权|好贵|太贵|唱不起|没唱|不让|被拒|遗憾|可惜|等了|终于|才|没想到|结果|但是|可是|其实)"
+  },
+  "数字标记": {
+   "pattern": "(\\d+\\s*(年|个月|天|秒|分钟|半音|赫兹|Hz|场|城|首|条|次|遍)|[一二三四五六七八九十百]+(年|个月|秒|场|城|次))"
+  },
+  "道具动作": {
+   "pattern": "(沙锤|摇着|手里|麦克|麦|灯光|舞台|台下|鞠躬|落泪|哽咽|接唱|返场|清唱|加唱)"
+  },
+  "自嘲口吻": {
+   "pattern": "(我这个人|我这人|说白了|老实说|其实我|我也不|我就|别看我|哼)"
+  }
+ },
+ "threshold": {
+  "score_total": 6.0,
+  "score_evidence": 1.0,
+  "score_novelty": 1.0
+ },
+ "scoring": {
+  "可转述性 score_story": "冲突 2 + 时间/数字 1 + 道具 0.5 + 自嘲 0.5（上限 4）",
+  "证据强度 score_evidence": "时间戳 1 + 字段路径 1 + 证据长度 1（上限 3）",
+  "新颖度 score_novelty": "未出现在已发卡片/词条 = 2，否则 0",
+  "score_total": "三者之和（上限 9）"
+ },
+ "count": 3,
+ "dropped_count": 8,
+ "hooks": [
+  {
+   "hook": "2019 想唱，版权太贵，等到 2026",
+   "evidence": "现场 talk 61:56（绝对 3716.1s）；原话「其实我在我2019年做自己的第一次巡演的时候…了解了一下这首歌的版权…哇好贵…后来加入到了东方…能够让我把这首歌唱给大家听」（原始材料\\我要你_声学与传播归因_v2.json#S2_copyright_story.verbatim[]）",
+   "small_words": [
+    "版权梗",
+    "七年",
+    "等到",
+    "终于唱了"
+   ],
+   "audience": "泛路人 / 内容二创 / 版权话题关注者",
+   "kind": "talk",
+   "t_abs_s": 3716.08,
+   "t_hms": "61:56",
+   "parts": {
+    "三段式": [
+     {
+      "t_abs_s": 3719.3,
+      "t_hms": "61:59",
+      "text": "其实我在我2019年做自己的第一次巡演的时候"
+     }
+    ],
+    "冲突": [
+     {
+      "t_abs_s": 3727.7,
+      "t_hms": "62:07",
+      "text": "但是那个时候了解了一下这首歌的版权"
+     },
+     {
+      "t_abs_s": 3731.02,
+      "t_hms": "62:11",
+      "text": "哇好贵"
+     },
+     {
+      "t_abs_s": 3731.62,
+      "t_hms": "62:11",
+      "text": "对就没有唱"
+     }
+    ],
+    "转折": [
+     {
+      "t_abs_s": 3734.26,
+      "t_hms": "62:14",
+      "text": "但是后来加入到了东方"
+     },
+     {
+      "t_abs_s": 3739.26,
+      "t_hms": "62:19",
+      "text": "对所以说非常的感谢东方"
+     },
+     {
+      "t_abs_s": 3743.8,
+      "t_hms": "62:23",
+      "text": "能够让我把这首歌唱给大家听"
+     }
+    ],
+    "结尾": [
+     {
+      "t_abs_s": 3748.42,
+      "t_hms": "62:28",
+      "text": "这首歌曲叫做我要你"
+     }
+    ]
+   },
+   "score_story": 3.5,
+   "score_evidence": 3.0,
+   "score_novelty": 2.0,
+   "score_total": 8.5,
+   "risk": [
+    "talk 为本地 ASR 转写，未人工校对（引用须标注）"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "笔记直接用「低音超绝」当钩子标签（8 处）",
+   "evidence": "语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题\n请速巡演之\n-\n《我要你》4K字幕@王晰  | 2026",
+   "small_words": [
+    "低音超绝"
+   ],
+   "audience": "同好圈层 / 二创",
+   "kind": "comment",
+   "t_abs_s": null,
+   "t_hms": "",
+   "n": 8,
+   "score_story": 2.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 6.0,
+   "risk": [
+    "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "一口气 16.5 秒不换气",
+   "evidence": "data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, src=现场, t_start_s=695.9）",
+   "small_words": [
+    "长声",
+    "一口气",
+    "十六秒"
+   ],
+   "audience": "声乐爱好者 / 泛路人",
+   "kind": "acoustic",
+   "t_abs_s": 695.9,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 3.0,
+   "score_novelty": 2.0,
+   "score_total": 6.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": []
+  }
+ ],
+ "dropped": [
+  {
+   "hook": "进院团才把这首歌唱成",
+   "evidence": "现场 talk 62:19（绝对 3739.3s）：对所以说非常的感谢东方",
+   "small_words": [
+    "院团",
+    "东演"
+   ],
+   "audience": "行业观察 / 粉丝内部梗",
+   "kind": "talk",
+   "t_abs_s": 3739.26,
+   "t_hms": "62:19",
+   "score_story": 2.0,
+   "score_evidence": 1.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "talk 为本地 ASR 转写，未人工校对（引用须标注）"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "≥10 秒的长音有 8 条",
+   "evidence": "data/archive_long_notes.json#top[]（dur_s ≥ 10 计数）；最长 16.5s",
+   "small_words": [
+    "长音",
+    "稳定"
+   ],
+   "audience": "声乐爱好者",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "最低稳定音 B1 61.5Hz",
+   "evidence": "data/archive_vocal_albums.json#summary.lowest（song=静止了的夜晚, album=重游往昔）",
+   "small_words": [
+    "B1",
+    "Low C",
+    "最低稳定音"
+   ],
+   "audience": "声乐爱好者 / 泛路人",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "72 首里 44 首低于 E2",
+   "evidence": "data/archive_vocal_albums.json#songs[].low_hz < 82.4（n=72）",
+   "small_words": [
+    "E2",
+    "分布",
+    "低音基线"
+   ],
+   "audience": "泛路人 / 数据向读者",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "八年 8 张专辑，颤音速率极差 0.27Hz",
+   "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
+   "small_words": [
+    "颤音",
+    "八年",
+    "稳定性"
+   ],
+   "audience": "声乐爱好者 / 数据向读者",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "「后来我发现原来我是同事」",
+   "evidence": "现场 talk 62:16（绝对 3736.4s）：后来我发现原来我是同事",
+   "small_words": [
+    "同事",
+    "自嘲"
+   ],
+   "audience": "行业观察 / 粉丝内部梗",
+   "kind": "talk",
+   "t_abs_s": 3736.42,
+   "t_hms": "62:16",
+   "score_story": 0.0,
+   "score_evidence": 1.0,
+   "score_novelty": 2.0,
+   "score_total": 3.0,
+   "risk": [
+    "talk 为本地 ASR 转写，未人工校对（引用须标注）"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "评论区把「bossa」当成这版的谈资（4 处）",
+   "evidence": "语料命中「bossa」4 处；例：bossa是王晰的舒适区也是我们的舒适区，好听爱听王哥能不能多来",
+   "small_words": [
+    "bossa"
+   ],
+   "audience": "同好圈层 / 二创",
+   "kind": "comment",
+   "t_abs_s": null,
+   "t_hms": "",
+   "n": 4,
+   "score_story": 0.0,
+   "score_evidence": 1.0,
+   "score_novelty": 2.0,
+   "score_total": 3.0,
+   "risk": [
+    "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
+   ],
+   "blocked": false,
+   "used_by": []
+  },
+  {
+   "hook": "评论区把「沙锤」当成编曲记忆点（4 处）",
+   "evidence": "语料命中「沙锤」4 处；例：沙锤吧",
+   "small_words": [
+    "沙锤"
+   ],
+   "audience": "同好圈层 / 二创",
+   "kind": "comment",
+   "t_abs_s": null,
+   "t_hms": "",
+   "n": 4,
+   "score_story": 0.5,
+   "score_evidence": 0.0,
+   "score_novelty": 2.0,
+   "score_total": 2.5,
+   "risk": [
+    "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
+   ],
+   "blocked": false,
+   "used_by": []
+  }
+ ],
+ "discipline": "平台机制表述为经验性认知（非官方）；禁写爆火/引爆全网/上热点；绝不写入逝者/私域信息（命中即拦下）；音视频不入 git、不上页面。"
+}
