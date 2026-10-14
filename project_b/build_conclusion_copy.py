@@ -84,10 +84,23 @@ F = {
 CONC = []
 
 
-def add(key, title, conclusion, evidence, taboos, bio, xhs, weibo, audience=""):
+def add(key, title, conclusion, evidence, taboos, bio, xhs, weibo, audience="", douyin=""):
+    """短视频脚本骨架：与小红书共用同一条结论与同一批事实，只换呈现顺序（纯文字，不含音视频）。"""
+    if not douyin:
+        lines = [x for x in xhs.splitlines() if x.strip()]
+        hook_line = lines[0] if lines else conclusion
+        smalls = []
+        if lines and lines[-1].startswith("小词："):
+            smalls = [w.strip() for w in re.split(r"[／/、]", lines[-1].replace("小词：", "")) if w.strip()]
+        douyin = ("【钩子句】" + hook_line + "\n"
+                  "【3 秒开头】" + hook_line + "\n"
+                  "【中段事实】" + conclusion + "\n"
+                  "【结尾 CTA】完整数据可在站内检索；平台机制为经验性认知（非官方）\n"
+                  "【字幕要点】" + " / ".join(smalls[:3]) + "\n"
+                  "【素材】发布者自备，本站不提供音视频")
     CONC.append({"key": key, "title": title, "conclusion": conclusion, "evidence": evidence,
                  "taboos": taboos, "audience": audience,
-                 "copy": {"传记体": bio, "小红书": xhs, "微博": weibo}})
+                 "copy": {"传记体": bio, "小红书": xhs, "微博": weibo, "抖音": douyin}})
 
 
 add("low_baseline", "低音是整本曲库的基线",
@@ -205,7 +218,7 @@ L = ["# 结论成品 v1（结论 ＋ 三种可发文案 ＋ 出处 ＋ 禁忌）
 for i, c in enumerate(CONC, 1):
     L += [f"## {i}. {c['title']}", "", f"**结论**：{c['conclusion']}", "",
           f"**证据**：`{c['evidence']}`", "", f"**禁忌**：{c['taboos']}", ""]
-    for fmt in ("传记体", "小红书", "微博"):
+    for fmt in ("传记体", "小红书", "微博", "抖音"):
         L += [f"**{fmt}**", "", "```", c["copy"][fmt], "```", ""]
     L += [f"目标人群：{c['audience'] or '—'}", "", "---", ""]
 L += [f"**禁词自检**：{'通过（0 命中）' if not issues else '命中 ' + str(issues)}", ""]
