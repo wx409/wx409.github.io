@@ -1,0 +1,115 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-14",
+ "source": "data/text_profile.json（由 project_b/build_language_profile.py 现算）",
+ "charts": [
+  {
+   "file": "assets/insight/语言演变_分期.png",
+   "sha256": "b099be8cd3994de3ba39d9a6c9e8b0b6a967098e487b412922052858409d57e0",
+   "numbers": {
+    "分期": {
+     "2014-2019 早期": {
+      "short_sent_pct": 74.4,
+      "first_person_pct": 20.3,
+      "n_docs": 1144
+     },
+     "2020-2023 中期": {
+      "short_sent_pct": 70.9,
+      "first_person_pct": 14.5,
+      "n_docs": 2964
+     },
+     "2024-2026 近期": {
+      "short_sent_pct": 39.2,
+      "first_person_pct": 27.4,
+      "n_docs": 1041
+     }
+    },
+    "跨源": {
+     "巡演Talk（口语层）": {
+      "short_sent_pct": 80.6,
+      "first_person_pct": 44.1,
+      "n_sent": 1468
+     },
+     "活动表（事务层）": {
+      "short_sent_pct": 13.7,
+      "first_person_pct": 0.9,
+      "n_sent": 539
+     }
+    },
+    "逐年点数": 19
+   }
+  },
+  {
+   "file": "assets/insight/语言演变_逐年.png",
+   "sha256": "1fd725c0e2bc25e2ed4b8877c200dba2eecae4354bdb3d9122ab659ef8d612c1",
+   "numbers": {
+    "分期": {
+     "2014-2019 早期": {
+      "short_sent_pct": 74.4,
+      "first_person_pct": 20.3,
+      "n_docs": 1144
+     },
+     "2020-2023 中期": {
+      "short_sent_pct": 70.9,
+      "first_person_pct": 14.5,
+      "n_docs": 2964
+     },
+     "2024-2026 近期": {
+      "short_sent_pct": 39.2,
+      "first_person_pct": 27.4,
+      "n_docs": 1041
+     }
+    },
+    "跨源": {
+     "巡演Talk（口语层）": {
+      "short_sent_pct": 80.6,
+      "first_person_pct": 44.1,
+      "n_sent": 1468
+     },
+     "活动表（事务层）": {
+      "short_sent_pct": 13.7,
+      "first_person_pct": 0.9,
+      "n_sent": 539
+     }
+    },
+    "逐年点数": 19
+   }
+  },
+  {
+   "file": "assets/insight/跨源三层.png",
+   "sha256": "c6b266a7bea1ff200134b0ae745f38a5ec59d746d2ef437849ba0230a9e69ee1",
+   "numbers": {
+    "分期": {
+     "2014-2019 早期": {
+      "short_sent_pct": 74.4,
+      "first_person_pct": 20.3,
+      "n_docs": 1144
+     },
+     "2020-2023 中期": {
+      "short_sent_pct": 70.9,
+      "first_person_pct": 14.5,
+      "n_docs": 2964
+     },
+     "2024-2026 近期": {
+      "short_sent_pct": 39.2,
+      "first_person_pct": 27.4,
+      "n_docs": 1041
+     }
+    },
+    "跨源": {
+     "巡演Talk（口语层）": {
+      "short_sent_pct": 80.6,
+      "first_person_pct": 44.1,
+      "n_sent": 1468
+     },
+     "活动表（事务层）": {
+      "short_sent_pct": 13.7,
+      "first_person_pct": 0.9,
+      "n_sent": 539
+     }
+    },
+    "逐年点数": 19
+   }
+  }
+ ]
+}
