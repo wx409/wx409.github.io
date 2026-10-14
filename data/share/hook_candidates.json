@@ -1,0 +1,954 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-14",
+ "sources": {
+  "corpus": "文本挖掘语料库 corpus.jsonl（逐帖）",
+  "talk": "data/tour_talks_sentences.json",
+  "hook_miner": "project_b/hook_miner.py（规则与打分复用）"
+ },
+ "caliber": {
+  "min_rules_hit": 2,
+  "hook_max_chars": 28,
+  "dedup_against": [
+   "data/share/entries.json",
+   "data/hooks_pool.json",
+   "data/hooks_pick.json"
+  ],
+  "note": "钩子必须是可核验事实；含禁词/隐私词的候选直接丢弃"
+ },
+ "counts": {
+  "candidates_raw": 56,
+  "kept": 33,
+  "dropped": {
+   "与已发重复": 3,
+   "池内重复": 20
+  },
+  "by_kind": {
+   "corpus": 25,
+   "talk": 2,
+   "acoustic": 4,
+   "comment": 2
+  }
+ },
+ "hooks": [
+  {
+   "hook": "没想到观众太热情 了，我一下手足无措了",
+   "quote": "原以为只是一场很普通的录制，没想到观众太热情 了，我一下手足无措了,于是…",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "冲突标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2018-08-06",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 2.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 6.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_18",
+   "review_status": "candidate",
+   "hook_markers": [
+    "冲突标记"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：冲突标记、数字标记"
+  },
+  {
+   "hook": "王晰六巡 明天，我们舞台见！",
+   "quote": "王晰六巡 明天，我们舞台见！",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "studio_weibo",
+   "date": "2026-06-12",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_13",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：时间标记、道具动作"
+  },
+  {
+   "hook": "我的追光仪式感追光吧开播距离人生初舞台14 年",
+   "quote": "我的追光仪式感追光吧开播距离人生初舞台14 年，这两个奖项使我明白了坚持的重要性，此刻封 存，点亮属于我的追光时刻!",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2021-11-20",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_24",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：数字标记、道具动作"
+  },
+  {
+   "hook": "距离人生初舞台14年",
+   "quote": "距离人生初舞台14年，这两个奖项使我明白了坚持的重要性，此刻封存，点亮属于我的追光时刻！",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "baijiahao",
+   "date": "2021-11-20",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_27",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：数字标记、道具动作"
+  },
+  {
+   "hook": "王晰超话舞台的魔法 源于幕后的每一次“较真”",
+   "quote": "王晰超话舞台的魔法 源于幕后的每一次“较真” 我准备好了 今晚不见不散王晰吾个人巡回音乐会王晰五巡",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "baijiahao",
+   "date": "2025-11-21",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_30",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：时间标记、数字标记、道具动作"
+  },
+  {
+   "hook": "进院团才把这首歌唱成",
+   "evidence": "现场 talk 62:19（绝对 3739.3s）：对所以说非常的感谢东方",
+   "small_words": [
+    "院团",
+    "东演"
+   ],
+   "audience": "行业观察 / 粉丝内部梗",
+   "kind": "talk",
+   "t_abs_s": 3739.26,
+   "t_hms": "62:19",
+   "score_story": 2.0,
+   "score_evidence": 1.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "talk 为本地 ASR 转写，未人工校对（引用须标注）"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_00",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：院团、东演"
+  },
+  {
+   "hook": "≥10 秒的长音有 8 条",
+   "evidence": "data/archive_long_notes.json#top[]（dur_s ≥ 10 计数）；最长 16.5s",
+   "small_words": [
+    "长音",
+    "稳定"
+   ],
+   "audience": "声乐爱好者",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_04",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：长音、稳定"
+  },
+  {
+   "hook": "最低稳定音 B1 61.5Hz",
+   "evidence": "data/archive_vocal_albums.json#summary.lowest（song=静止了的夜晚, album=重游往昔）",
+   "small_words": [
+    "B1",
+    "Low C",
+    "最低稳定音"
+   ],
+   "audience": "声乐爱好者 / 泛路人",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_05",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：B1、Low C、最低稳定音"
+  },
+  {
+   "hook": "72 首里 44 首低于 E2",
+   "evidence": "data/archive_vocal_albums.json#songs[].low_hz < 82.4（n=72）",
+   "small_words": [
+    "E2",
+    "分布",
+    "低音基线"
+   ],
+   "audience": "泛路人 / 数据向读者",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_06",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：E2、分布、低音基线"
+  },
+  {
+   "hook": "八年 8 张专辑，颤音速率极差 0.27Hz",
+   "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
+   "small_words": [
+    "颤音",
+    "八年",
+    "稳定性"
+   ],
+   "audience": "声乐爱好者 / 数据向读者",
+   "kind": "acoustic",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_07",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：颤音、八年、稳定性"
+  },
+  {
+   "hook": "2020年，让我们继续携手同行 元旦快乐",
+   "quote": "王晰 因为有你 星光璀璨 365个日夜兼程，收获源源不断的幸福时光 2020年，让我们继续携手同行 元旦快乐 幸福安康",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "studio_weibo",
+   "date": "2020-01-01",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_08",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "还记得去年16城17场的一巡",
+   "quote": "王晰 还记得去年16城17场的一巡，现场点唱环节的狂欢吗 今年， 王晰2020个人巡回音乐会 让我们狂欢继续！",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "studio_weibo",
+   "date": "2020-11-03",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_09",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "2024年巡演第一站📍重庆🔛即将出发✈️",
+   "quote": "王晰 王晰肆益个人巡回音乐会 王晰四巡 2024年巡演第一站📍重庆🔛即将出发✈️ 火辣辣的山城🌶️，我们来咯 ！",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "studio_weibo",
+   "date": "2024-03-29",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_10",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "2013年青歌赛结束后的那次经历",
+   "quote": "没有手机的日子虽然很安静，让我想起了 2013年青歌赛结束后的那次经历。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2016-05-10",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_15",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "王晰的低音时间2016年的最后一期，感谢大家一年",
+   "quote": "王晰的低音时间2016年的最后一期，感谢大家一年 以来的支持与等候，明年，我们继续!",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2016-12-30",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_16",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "2017年第一场与中国爱乐乐团合作的音乐会",
+   "quote": "2017年第一场与中国爱乐乐团合作的音乐会，非常顺 利，愉快 也辛苦我的小伙伴们一天的陪伴 …",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2017-01-20",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_17",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "想起来2019年1月6日最后一次录制，我对",
+   "quote": "想起来2019年1月6日最后一次录制，我对 100天前的自己说：人的成长来源于破碎，感谢你能勇 敢的打碎自己，重塑，再出发。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2019-12-16",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_21",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "「后来我发现原来我是同事」",
+   "evidence": "现场 talk 62:16（绝对 3736.4s）：后来我发现原来我是同事",
+   "small_words": [
+    "同事",
+    "自嘲"
+   ],
+   "audience": "行业观察 / 粉丝内部梗",
+   "kind": "talk",
+   "t_abs_s": 3736.42,
+   "t_hms": "62:16",
+   "score_story": 0.0,
+   "score_evidence": 1.0,
+   "score_novelty": 2.0,
+   "score_total": 3.0,
+   "risk": [
+    "talk 为本地 ASR 转写，未人工校对（引用须标注）"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_01",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：同事、自嘲"
+  },
+  {
+   "hook": "评论区把「bossa」当成这版的谈资（4 处）",
+   "evidence": "语料命中「bossa」4 处；例：bossa是王晰的舒适区也是我们的舒适区，好听爱听王哥能不能多来",
+   "small_words": [
+    "bossa"
+   ],
+   "audience": "同好圈层 / 二创",
+   "kind": "comment",
+   "t_abs_s": null,
+   "t_hms": "",
+   "n": 4,
+   "score_story": 0.0,
+   "score_evidence": 1.0,
+   "score_novelty": 2.0,
+   "score_total": 3.0,
+   "risk": [
+    "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_03",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：bossa"
+  },
+  {
+   "hook": "评论区把「沙锤」当成编曲记忆点（4 处）",
+   "evidence": "语料命中「沙锤」4 处；例：沙锤吧",
+   "small_words": [
+    "沙锤"
+   ],
+   "audience": "同好圈层 / 二创",
+   "kind": "comment",
+   "t_abs_s": null,
+   "t_hms": "",
+   "n": 4,
+   "score_story": 0.5,
+   "score_evidence": 0.0,
+   "score_novelty": 2.0,
+   "score_total": 2.5,
+   "risk": [
+    "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_02",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：沙锤"
+  },
+  {
+   "hook": "备战第一次公演， 对我来说最大的挑战",
+   "quote": "王晰的追光vlog 备战第一次公演， 对我来说最大的挑战，竟然不是跳舞 .",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2021-12-12",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_25",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "四巡北京站的第二场收官了，感恩一切 相信以后",
+   "quote": "四巡北京站的第二场收官了，感恩一切 相信以后，我们还会有很多很多的“小故事”等待着降临，爱你们❤️.",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "baijiahao",
+   "date": "2024-08-16",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_28",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "巡演第50场，感恩同行，爱让我们一直在路上❤️",
+   "quote": "五巡首场，『吾』晰启「杭」🎤 巡演第50场，感恩同行，爱让我们一直在路上❤️.王晰吾个人巡回音乐会",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "baijiahao",
+   "date": "2024-12-22",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_29",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "王晰2026年愿大家如骏马奔腾 自由洒脱",
+   "quote": "王晰2026年愿大家如骏马奔腾 自由洒脱 平安喜乐 新的一年 音乐常在 我们在歌声里相见 新年快乐 万事顺意",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "baijiahao",
+   "date": "2026-02-17",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 5.0,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_31",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：时间标记、数字标记"
+  },
+  {
+   "hook": "舞台，女儿是最珍贵的听众，也是最 严苛的评审",
+   "quote": "3年前，我走上了为人父的 舞台，女儿是最珍贵的听众，也是最 严苛的评审，可是即使没有掌声，我 也会努力唱下去。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "冲突标记",
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2019-06-12",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_19",
+   "review_status": "candidate",
+   "hook_markers": [
+    "冲突标记",
+    "道具动作"
+   ],
+   "hook_marker_n": 2,
+   "why": "命中：冲突标记、数字标记、道具动作"
+  },
+  {
+   "hook": "期待北京站的舞台和你",
+   "quote": "杭州站的我太过瓦伦达心态，总结遗 憾才能有所收获，佛山站卸下负重成 就另一个天地.期待北京站的舞台和你 们相见。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "冲突标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2020-11-22",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_22",
+   "review_status": "candidate",
+   "hook_markers": [
+    "冲突标记",
+    "道具动作"
+   ],
+   "hook_marker_n": 2,
+   "why": "命中：冲突标记、道具动作"
+  },
+  {
+   "hook": "我没变》《给电影人的情书》舞台直拍🎬",
+   "quote": "王晰 王晰五巡 北京站《十年》《我变了，我没变》《给电影人的情书》舞台直拍🎬 王晰吾个人巡回音乐会",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "studio_weibo",
+   "date": "2026-04-11",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_11",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：时间标记、数字标记、道具动作"
+  },
+  {
+   "hook": "我们舞台见！",
+   "quote": "王晰 今日份 晰哥排练进行时， 距离 王晰回个人巡回音乐会 首场重庆站倒计时5️⃣天 王晰六巡 6月13日，我们舞台见！",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "studio_weibo",
+   "date": "2026-06-08",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_12",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：时间标记、道具动作"
+  },
+  {
+   "hook": "会有我就在你耳边说话的感觉",
+   "quote": "第一期我准备了由 为我独家 制作的3D读诗音频，挑选了王菲的经典作品《百年孤 寂》,戴上耳机听，会有我就在你耳边说话的感觉 喔。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "数字标记",
+    "自嘲口吻"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2016-04-23",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_14",
+   "review_status": "candidate",
+   "hook_markers": [
+    "自嘲口吻"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：数字标记、自嘲口吻"
+  },
+  {
+   "hook": "时间怀念的舞台，或许是一种约定",
+   "quote": ".终 于，在这一场我把她带来了 恰当的 时间怀念的舞台，或许是一种约定。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2019-09-07",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_20",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：数字标记、道具动作"
+  },
+  {
+   "hook": "需要你们在台下观看60",
+   "quote": "追光吧肺话文学式官宣追光吧光影故事感大片 据调查，我在台上演唱1分钟，需要你们在台下观看60 秒。",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "数字标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2021-10-28",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_23",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：数字标记、道具动作"
+  },
+  {
+   "hook": "灯光就位，以声赴约，我们今晚见🎤",
+   "quote": "王晰 王晰吾个人巡回音乐会 灯光就位，以声赴约，我们今晚见🎤 王晰五巡",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "wx_weibo",
+   "date": "2026-04-10",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_26",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：时间标记、道具动作"
+  },
+  {
+   "hook": "灯光就位，以声赴约",
+   "quote": "王晰王晰吾个人巡回音乐会 灯光就位，以声赴约，我们今晚见🎤王晰五巡",
+   "evidence": "（文本挖掘产物目录））",
+   "small_words": [
+    "时间标记",
+    "道具动作"
+   ],
+   "audience": "泛路人 / 粉丝",
+   "kind": "corpus",
+   "source": "baijiahao",
+   "date": "2026-04-10",
+   "t_abs_s": null,
+   "t_hms": "",
+   "score_story": 0.5,
+   "score_evidence": 2.0,
+   "score_novelty": 2.0,
+   "score_total": 4.5,
+   "risk": [],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_32",
+   "review_status": "candidate",
+   "hook_markers": [
+    "道具动作"
+   ],
+   "hook_marker_n": 1,
+   "why": "命中：时间标记、道具动作"
+  }
+ ]
+}
