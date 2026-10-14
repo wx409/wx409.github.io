@@ -1,0 +1,53 @@
+{
+ "id": "pick_16s_breath",
+ "no": 92,
+ "title": "一口气 16.5 秒不换气",
+ "subtitle": "钩子候选（用户勾选后生成；钩子句＋小词＋出处）",
+ "review_status": "confirmed",
+ "pillar": "候选（规则抽取；用户已勾选＝要传播）",
+ "page_layer": "share-<id>.html（noindex,follow；不进主导航）",
+ "main_numbers": [
+  {
+   "value": "—",
+   "unit": "分",
+   "label": "规则总分（可转述＋证据＋新颖，满分 9）",
+   "caliber": "hook_score",
+   "source": "project_b/hook_miner.py#RULES（规则表可逐条复核）"
+  },
+  {
+   "value": "—",
+   "unit": "处/条",
+   "label": "语料命中次数（证据强度）",
+   "caliber": "hook_score",
+   "source": "data/hooks_pool.json#hooks[hook=「一口气 16.5 秒不换气」].n｜data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, du"
+  }
+ ],
+ "view_reading": [
+  "**钩子句**：一口气 16.5 秒不换气",
+  "**建议小词**：长声、一口气、十六秒",
+  "**出处**：data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, src=现场, t_start_s=695.9）",
+  "**目标人群**：声乐爱好者 / 泛路人",
+  "**数字出处**：总分＝`project_b/hook_miner.py#RULES`；命中次数＝`data/hooks_pool.json#hooks[].n`（每卡主数字均带字段路径）",
+  "**纪律**：平台机制为经验性认知（非官方）；禁写爆火/引爆全网/上热点；音视频不入站，发布者自备素材。"
+ ],
+ "view_card": [
+  "一口气 16.5 秒不换气",
+  "长声、一口气"
+ ],
+ "caliber_lock": [],
+ "gate": {
+  "pass_status": "规则抽取得分 —",
+  "note": "钩子事实未变；仅作传播角度选择（不评优劣）"
+ },
+ "platform": {
+  "xiaohongshu": {
+   "钩子句": "一口气 16.5 秒不换气",
+   "建议小词": "长声、一口气、十六秒"
+  },
+  "douyin": {
+   "听觉断点": "（发布者自备素材，本站不提供音视频）"
+  }
+ },
+ "footnote": "来源：data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, src=现场, t_start_s=695.9）｜生成 2026-10-14",
+ "generated_at": "2026-10-14"
+}

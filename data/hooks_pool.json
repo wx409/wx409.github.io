@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-14T12:45:18",
+ "generated_at": "2026-10-14T13:03:18",
  "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
  "rules": {
   "时间标记": {
@@ -31,7 +31,7 @@
   "score_total": "三者之和（上限 9）"
  },
  "count": 3,
- "dropped_count": 8,
+ "dropped_count": 10,
  "hooks": [
   {
    "hook": "2019 想唱，版权太贵，等到 2026",
@@ -104,7 +104,8 @@
     "talk 为本地 ASR 转写，未人工校对（引用须标注）"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "review_status": "local"
   },
   {
    "hook": "笔记直接用「低音超绝」当钩子标签（8 处）",
@@ -120,12 +121,7 @@
    "score_story": 2.0,
    "score_evidence": 2.0,
    "score_novelty": 2.0,
-   "score_total": 6.0,
-   "risk": [
-    "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
-   ],
-   "blocked": false,
-   "used_by": []
+   "review_status": "confirmed"
   },
   {
    "hook": "一口气 16.5 秒不换气",
@@ -142,12 +138,7 @@
    "score_story": 1.0,
    "score_evidence": 3.0,
    "score_novelty": 2.0,
-   "score_total": 6.0,
-   "risk": [
-    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
-   ],
-   "blocked": false,
-   "used_by": []
+   "review_status": "confirmed"
   }
  ],
  "dropped": [
@@ -260,6 +251,55 @@
    "used_by": []
   },
   {
+   "hook": "笔记直接用「低音超绝」当钩子标签（8 处）",
+   "evidence": "语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题\n请速巡演之\n-\n《我要你》4K字幕@王晰  | 2026",
+   "small_words": [
+    "低音超绝"
+   ],
+   "audience": "同好圈层 / 二创",
+   "kind": "comment",
+   "t_abs_s": null,
+   "t_hms": "",
+   "n": 8,
+   "score_story": 2.0,
+   "score_evidence": 2.0,
+   "score_novelty": 0.0,
+   "score_total": 4.0,
+   "risk": [
+    "属第三方 UGC 语料，引用需匿名化；不得当全网声量",
+    "新颖度低：已出现在 ['card:pick_low_superlative']"
+   ],
+   "blocked": false,
+   "used_by": [
+    "card:pick_low_superlative"
+   ]
+  },
+  {
+   "hook": "一口气 16.5 秒不换气",
+   "evidence": "data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, src=现场, t_start_s=695.9）",
+   "small_words": [
+    "长声",
+    "一口气",
+    "十六秒"
+   ],
+   "audience": "声乐爱好者 / 泛路人",
+   "kind": "acoustic",
+   "t_abs_s": 695.9,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 3.0,
+   "score_novelty": 0.0,
+   "score_total": 4.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位",
+    "新颖度低：已出现在 ['card:pick_16s_breath']"
+   ],
+   "blocked": false,
+   "used_by": [
+    "card:pick_16s_breath"
+   ]
+  },
+  {
    "hook": "「后来我发现原来我是同事」",
    "evidence": "现场 talk 62:16（绝对 3736.4s）：后来我发现原来我是同事",
    "small_words": [
@@ -323,5 +363,6 @@
    "used_by": []
   }
  ],
- "discipline": "平台机制表述为经验性认知（非官方）；禁写爆火/引爆全网/上热点；绝不写入逝者/私域信息（命中即拦下）；音视频不入 git、不上页面。"
+ "discipline": "平台机制表述为经验性认知（非官方）；禁写爆火/引爆全网/上热点；绝不写入逝者/私域信息（命中即拦下）；音视频不入 git、不上页面。",
+ "review_note": "review_status=confirmed 的条目在 share.html「①c 钩子候选池」展示；local 仅存本地池。确认入口＝data/hooks_pick.json 的 picked"
 }

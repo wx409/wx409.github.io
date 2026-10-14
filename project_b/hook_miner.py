@@ -405,9 +405,71 @@ def eligible(c: dict) -> bool:
 
 # ───────────────────────── 产池 / 渲染 ─────────────────────────
 
+# 稳定 id 映射：已上站的钩子用固定 id（文件名里不要中文/空格，便于 URL 与审计）
+STABLE_ID = {
+    "笔记直接用「低音超绝」当钩子标签（8 处）": "low_superlative",
+    "一口气 16.5 秒不换气": "16s_breath",
+    "2019 想唱，版权太贵，等到 2026": "copyright_2026",
+    "评论区把「沙锤」当成编曲记忆点（8 处）": "shaker",
+    "评论区把「bossa」当成这版的谈资（5 处）": "bossa",
+}
+PUBLISH_STATUS = ("confirmed",)      # 只有该状态在 share.html「①c 钩子候选池」展示
+
+
+def hook_id(hook: str, i: int) -> str:
+    """稳定 id：优先查 STABLE_ID，否则回退序号命名（不把中文写进文件名）。"""
+    return STABLE_ID.get(hook) or ("hook_%02d" % i)
+
+
+def sync_pool_review() -> int:
+    """把 hooks_pick.json 里 picked=true 的条目在 hooks_pool.json 标 review_status=confirmed。
+
+    用户勾选＝要传播 → 上站展示（钩子句＋建议小词＋出处；**不展示风险备注**）。
+    幂等：已标的不重复；未勾选的保持 local。
+    """
+    pick = load(PICK, {})
+    picked = {x["hook"] for x in (pick.get("items") or []) if x.get("picked")}
+    doc = load(POOL, {})
+    n = 0
+    for h in (doc.get("hooks") or []):
+        want = "confirmed" if h.get("hook") in picked else "local"
+        if h.get("review_status") != want:
+            h["review_status"] = want
+            n += 1
+    doc["review_note"] = ("review_status=confirmed 的条目在 share.html「①c 钩子候选池」展示；"
+                          "local 仅存本地池。确认入口＝data/hooks_pick.json 的 picked")
+    POOL.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("[确认同步] hooks_pool.json review_status 更新 %d 条；confirmed=%d 条" % (
+        n, sum(1 for h in (doc.get("hooks") or []) if h.get("review_status") == "confirmed")))
+    return 0
+
+
 def build_pool(args) -> dict:
     used = novelty_index()
+    # ★ 已勾选/已确认的钩子**不得因「新颖度=0」被踢出池**（否则上站后池里就查不到它了）：
+    #   把它们从新颖度参照里摘掉（新颖度反映的是"此前是否已被用过"，不是"是否已入选"）
+    protected = set()
+    try:
+        for x in (load(PICK, {}).get("items") or []):
+            if x.get("picked") and x.get("hook"):
+                protected.add(hun(x["hook"]))
+        for h in (load(POOL, {}).get("hooks") or []):
+            if (h.get("review_status") or "") in PUBLISH_STATUS and h.get("hook"):
+                protected.add(hun(h["hook"]))
+    except Exception:
+        pass
+    used = {k: v for k, v in used.items() if not any(p and (p in k or k in p) for p in protected)}
     cands = []
+    # ★ 已勾选/已确认但本轮**没被规则重新抽到**的钩子：从旧池原样带回（不因规则波动丢条目）
+    try:
+        old_hooks = {hun(h.get("hook", "")): h for h in (load(POOL, {}).get("hooks") or [])}
+        for h in old_hooks.values():
+            if (h.get("review_status") or "") in PUBLISH_STATUS or hun(h.get("hook", "")) in protected:
+                cands.append({k: v for k, v in h.items()
+                              if k not in ("score_total", "score_story", "score_evidence",
+                                           "score_novelty", "risk", "blocked", "used_by")})
+    except Exception:
+        pass
     cands += copyright_story_candidates()
     cands += talk_candidates(load_talk_lines())
     cands += comment_candidates()
@@ -442,13 +504,15 @@ def build_pool(args) -> dict:
     # picks 模板（默认全 false；已有勾选不覆盖）
     if not args.pool_only:
         old = load(PICK, {})
-        oldmap = {x.get("id"): x.get("picked") for x in (old.get("items") or [])}
+        # ★ 以 **hook 文本**为准恢复勾选状态（id 会随命名规则变化，hook 不会）
+        oldmap = {x.get("hook"): x.get("picked") for x in (old.get("items") or [])}
         items = []
         for i, c in enumerate(pool, 1):
-            cid = re.sub(r"\W+", "_", c["hook"])[:24] + f"_{i:02d}"
+            cid = hook_id(c["hook"], i)
             items.append({"id": cid, "hook": c["hook"], "small_words": c["small_words"],
                           "evidence": c["evidence"], "audience": c["audience"],
-                          "score_total": c["score_total"], "picked": bool(oldmap.get(cid, False))})
+                          "score_total": c["score_total"],
+                          "picked": bool(oldmap.get(c["hook"], False))})
         PICK.write_text(json.dumps({
             "schema": 1, "generated_at": datetime.now().isoformat(timespec="seconds"),
             "how": "把想传播的条目 picked 改成 true，再跑 python -X utf8 project_b\\hook_miner.py --render-picked",
@@ -500,22 +564,34 @@ def render_picked() -> int:
         if not c:
             continue
         n += 1
-        cid = "pick_" + x["id"]
+        cid = "pick_" + hook_id(x["hook"], n)      # 稳定 id（不把中文写进文件名）
         card = {
-            "id": cid, "no": 90 + n, "title": x["hook"][:22], "subtitle": "钩子候选（用户勾选后生成）",
-            "review_status": "auto", "pillar": "候选（规则抽取，待人工确认上行）",
-            "page_layer": "share-<id>.html（noindex,follow）",
-            "main_numbers": [{"value": c["score_total"], "unit": "分", "label": "规则总分（可转述+证据+新颖）",
-                              "caliber": "hook_score", "source": "project_b/hook_miner.py#RULES"}],
-            "view_reading": [f"**钩子句**：{x['hook']}", f"**建议小词**：{'、'.join(x['small_words'])}",
-                             f"**出处**：{x['evidence']}", f"**目标人群**：{x['audience']}",
-                             "**纪律**：平台机制为经验性认知（非官方）；禁写爆火/引爆全网/上热点。"],
+            "id": cid, "no": 90 + n, "title": x["hook"][:22],
+            "subtitle": "钩子候选（用户勾选后生成；钩子句＋小词＋出处）",
+            "review_status": "confirmed", "pillar": "候选（规则抽取；用户已勾选＝要传播）",
+            "page_layer": "share-<id>.html（noindex,follow；不进主导航）",
+            "main_numbers": [{"value": c.get("score_total", "—"), "unit": "分",
+                              "label": "规则总分（可转述＋证据＋新颖，满分 9）",
+                              "caliber": "hook_score", "source": "project_b/hook_miner.py#RULES（规则表可逐条复核）"},
+                             {"value": (c.get("n") or "—"), "unit": "处/条",
+                              "label": "语料命中次数（证据强度）",
+                              "caliber": "hook_score",
+                              "source": f"data/hooks_pool.json#hooks[hook=「{x['hook'][:16]}」].n"
+                                        f"｜{x['evidence'][:60]}"}],
+            "view_reading": [f"**钩子句**：{x['hook']}",
+                             f"**建议小词**：{'、'.join(x['small_words'])}",
+                             f"**出处**：{x['evidence']}",
+                             f"**目标人群**：{x['audience']}",
+                             "**数字出处**：总分＝`project_b/hook_miner.py#RULES`；命中次数＝"
+                             "`data/hooks_pool.json#hooks[].n`（每卡主数字均带字段路径）",
+                             "**纪律**：平台机制为经验性认知（非官方）；禁写爆火/引爆全网/上热点；"
+                             "音视频不入站，发布者自备素材。"],
             "view_card": [x["hook"][:18], "、".join(x["small_words"][:2])],
-            "caliber_lock": [], "gate": {"pass_status": "规则抽取得分 %.1f" % c["score_total"],
-                                         "note": "钩子事实未变，仅作传播角度选择"},
+            "caliber_lock": [], "gate": {"pass_status": "规则抽取得分 %s" % c.get("score_total", "—"),
+                                         "note": "钩子事实未变；仅作传播角度选择（不评优劣）"},
             "platform": {"xiaohongshu": {"钩子句": x["hook"], "建议小词": "、".join(x["small_words"])},
                          "douyin": {"听觉断点": "（发布者自备素材，本站不提供音视频）"}},
-            "footnote": f"来源：{x['evidence'][:90]}｜生成 {TODAY}",
+            "footnote": f"来源：{x['evidence'][:110]}｜生成 {TODAY}",
             "generated_at": TODAY,
         }
         (OUT_CARDS / f"card_{cid}.json").write_text(json.dumps(card, ensure_ascii=False, indent=1),
