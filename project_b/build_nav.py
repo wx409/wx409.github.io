@@ -68,6 +68,9 @@ FOOTER_GROUPS = [
                     "singing.html", "singing-social.html",
                     "tavern/"]),
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
+                    # 2026-10-14：分享作战室**不进顶部主导航**（不稀释主站），
+                    # 但必须在底部全站索引入口（可达性修复：此前只在 community 强链，用户找不到）
+                    "share.html",
                     "acoustic-report.html", "feed.xml", "sitemap.xml", "llms.txt"]),
 ]
 
