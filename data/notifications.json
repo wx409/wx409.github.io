@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-13 21:00:33",
+ "updated_at": "2026-10-14 14:19:27",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2627,6 +2627,20 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-10-14 14:19:09",
+   "title": "洞察页未随输入更新",
+   "content": "洞察页未随输入更新。\n页面：insight.html（时间 2026-10-11 14:19:08）\n输入：data\\share\\conclusion_copy.json（时间 2026-10-14 14:11:27）\n输入：data\\text_profile.json（时间 2026-10-14 14:11:26）\n输入：data\\share\\hook_candidates.json（时间 2026-10-14 14:11:28）\n输入：data\\share\\insight_charts.json（时间 2026-10-14 14:11:29）\n输入比页面新 258741.2 秒。\n机制：洞察页由 deploy_all 里的 6 个非致命步骤生成；某步未运行或失败时，页面会停在上一版。\n自愈：本哨兵 --ensure 会依次补跑这 6 个生成器与 build_nav（失败不致命）。",
+   "category": "运维",
+   "source": "dashboard_freshness.py"
+  },
+  {
+   "time": "2026-10-14 14:19:27",
+   "title": "洞察页未随输入更新",
+   "content": "洞察页未随输入更新。\n页面：insight.html（时间 2026-10-11 14:19:26）\n输入：data\\share\\conclusion_copy.json（时间 2026-10-14 14:19:13）\n输入：data\\text_profile.json（时间 2026-10-14 14:19:11）\n输入：data\\share\\hook_candidates.json（时间 2026-10-14 14:19:14）\n输入：data\\share\\insight_charts.json（时间 2026-10-14 14:19:15）\n输入比页面新 259189.1 秒。\n机制：洞察页由 deploy_all 里的 6 个非致命步骤生成；某步未运行或失败时，页面会停在上一版。\n自愈：本哨兵 --ensure 会依次补跑这 6 个生成器与 build_nav（失败不致命）。",
+   "category": "运维",
+   "source": "dashboard_freshness.py"
   }
  ]
 }
