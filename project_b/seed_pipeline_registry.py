@@ -75,7 +75,10 @@ def deploy_steps() -> list[dict]:
 
 def bat_state():
     raw = BAT.read_bytes().decode("gbk")
-    menu = {int(m.group(1)): m.group(2).strip() for m in re.finditer(r'^echo\s+(\d+)\.\s*(.+?)\s*$', raw, re.M)}
+    menu_all = {int(m.group(1)): m.group(2).strip()
+                for m in re.finditer(r'^echo\s+(\d+)\.\s*(.+?)\s*$', raw, re.M)}
+    # ★ 2026-10-14：`echo 0. 退出` 不是功能菜单项，打印/计数一律排除，避免「显示 224 / 实际 223」
+    menu = {k: v for k, v in menu_all.items() if k != 0}
     disp = {int(m.group(1)): m.group(2) for m in re.finditer(r'if "%op%"=="(\d+)" goto (\w+)', raw)}
     labels = {}
     for m in re.finditer(r'^:(\w+)\s*$(.*?)(?=^:\w+\s*$|\Z)', raw, re.M | re.S):

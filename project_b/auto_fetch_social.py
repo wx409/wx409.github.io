@@ -13,9 +13,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
-import urllib.request
 import sys
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -45,6 +46,110 @@ def notify(title, body):
         log("已写站点通知")
     except Exception as e:
         log(f"站点通知失败（不致命）：{e}")
+
+
+# ───────────────────────── 主动通知（弹窗 + 桌面标记 + 每日去重） ─────────────────────────
+# 现状是被动通知（站点 notifications.html + 本地日志，且启动项是 start /min 最小化窗口）
+# → 「不动手去看就收不到」。这里补两条**主动**通道，保留站点通知与日志（三通道并存）。
+STATE = SITE / "temp" / "auto_fetch_social_state.json"
+DESKTOP = Path(os.environ.get("USERPROFILE") or str(Path.home())) / "Desktop"
+MARK = DESKTOP / "⚠_王晰采集_cookie需更新.txt"
+STEPS = ("三步怎么做：\n"
+         "  1) 浏览器登录对应平台 → F12 → Network → 随便点一个已发出的请求 → 右键 → Copy → "
+         "Copy request headers\n"
+         "  2) 把里面的 Cookie 一行粘进 E:\\wx\\index_records\\wb.txt（微博）或 xhs.txt（小红书）\n"
+         "  3) 跑 tools\\sync_weibo_cookie.py（微博）或 tools\\sync_xhs_cookie.py（小红书）")
+
+
+def _state() -> dict:
+    try:
+        return json.loads(STATE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _save_state(d: dict) -> None:
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    STATE.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def popup(title: str, body: str) -> bool:
+    """桌面弹窗（PowerShell MessageBox，**非阻塞**：超时 60s 自动关，脚本不等待）。"""
+    try:
+        # 用 XML 承载文本（PS 侧解析 XML，避免引号/换行转义问题）
+        xml = ("<t><title>" + (title or "").replace("&", "&amp;").replace("<", "&lt;") + "</title>"
+               "<body>" + (body or "").replace("&", "&amp;").replace("<", "&lt;").replace("\n", "&#10;")
+               + "</body></t>")
+        tmp = SITE / "temp" / "_cookie_popup.xml"
+        tmp.parent.mkdir(parents=True, exist_ok=True)
+        tmp.write_text(xml, encoding="utf-8")
+        ps = ("Add-Type -AssemblyName System.Windows.Forms;"
+              "$x=[xml](Get-Content -Raw -Encoding UTF8 '" + str(tmp) + "');"
+              "$null=[System.Windows.Forms.MessageBox]::Show("
+              "$x.t.body.'#text' + [Environment]::NewLine + $x.t.body.InnerText,"
+              "$x.t.title.InnerText,[System.Windows.Forms.MessageBoxButtons]::OK,"
+              "[System.Windows.Forms.MessageBoxIcon]::Warning)")
+        # 非阻塞：不等待（Popen），并自带超时自杀，避免弹窗卡住采集流程
+        subprocess.Popen(["powershell", "-NoProfile", "-WindowStyle", "Hidden", "-Command", ps],
+                         creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        log("已弹桌面窗口（非阻塞）")
+        return True
+    except Exception as e:
+        log(f"弹窗失败（不致命）：{e}")
+        return False
+
+
+def active_alert(plat: str, st: str, hint_extra: str = "") -> None:
+    """cookie 非「有效」时的**主动通知**：每天每平台每状态只弹一次；桌面标记文件常驻到恢复。
+
+    三通道并存：① 站点通知（由调用方 notify）② 桌面弹窗 ③ 桌面标记文件（恢复后自动删）。
+    """
+    today = datetime.now().strftime("%Y-%m-%d")
+    key = f"{plat}:{st}"
+    s = _state()
+    fired = (s.get("fired") or {})
+    if fired.get(key) == today:
+        log(f"主动通知去重：{plat} {st} 今天已弹过（不再弹）")
+    else:
+        title = f"⚠ 王晰采集：{plat} cookie {st}"
+        body = (f"{plat} 登录态：{st}\n\n{STEPS}\n\n{hint_extra}\n\n"
+                f"（此窗口 60 秒后自动关闭；本站不做任何自动登录）")
+        popup(title, body)
+        fired[key] = today
+    # 桌面标记文件：写清平台/时间/三步；恢复后由 clear_mark 删除
+    try:
+        MARK.parent.mkdir(parents=True, exist_ok=True)
+        cur = MARK.read_text(encoding="utf-8") if MARK.exists() else ""
+        line = (f"[{datetime.now():%Y-%m-%d %H:%M}] {plat}：{st}"
+                f"（{hint_extra}）\n")
+        if line not in cur:
+            MARK.write_text(cur + line, encoding="utf-8")
+        log(f"桌面标记文件已更新：{MARK}")
+    except Exception as e:
+        log(f"桌面标记写入失败（不致命）：{e}")
+    s["fired"] = fired
+    s["last"] = {**(s.get("last") or {}), plat: {"state": st, "at": datetime.now().isoformat(timespec="seconds")}}
+    _save_state(s)
+
+
+def clear_mark(plat: str) -> None:
+    """cookie 恢复正常 → 删除桌面标记文件（若无其它平台仍异常）。"""
+    s = _state()
+    last = s.get("last") or {}
+    last.pop(plat, None)
+    s["last"] = last
+    _save_state(s)
+    if last:
+        log(f"{plat} cookie 已恢复；仍有平台待处理：{list(last)}（标记文件保留）")
+        return
+    if MARK.exists():
+        try:
+            MARK.unlink()
+            log(f"全部平台 cookie 恢复正常 → 已删除桌面标记文件：{MARK}")
+        except Exception as e:
+            log(f"删除桌面标记失败（不致命）：{e}")
+    else:
+        log("桌面标记文件不存在（无需删除）")
 
 
 def check_weibo(cfg):
@@ -113,30 +218,35 @@ def main() -> int:
         st = check_weibo(cfg)
         log(f"微博 cookie 三态：{st}")
         if st != "有效":
-            notify("⚠ 微博 cookie 需要更新", f"微博登录态：{st}。请{F['weibo'] if False else HINT}")
-        elif a.dry:
-            log("（dry）将执行：" + "；".join(w["cmd"] for w in cfg.get("weibo", []))
-                + "；" + (cfg.get("weibo_snapshot") or {}).get("cmd", ""))
+            notify("⚠ 微博 cookie 需要更新", f"微博登录态：{st}。请{HINT}")
+            active_alert("微博", st, "跑 tools\\sync_weibo_cookie.py")
         else:
-            for w in cfg.get("weibo", []):
-                # ★ 参数列表化 + 各自 cwd（weibo_proxy*.py 在 E:\wx\私有工具\weibo_proxy）
-                args = w.get("args") or (w.get("cmd") or "").split()
-                rc, t = run([sys.executable, "-X", "utf8"] + args,
-                            cwd=Path(w.get("cwd") or SITE))
-                log(f"  {w['label']}：rc={rc}｜{t}")
-            snap = cfg.get("weibo_snapshot") or {}
-            sargs = snap.get("args") or (snap.get("cmd") or "").split()
-            if sargs:
-                rc, t = run([sys.executable, "-X", "utf8"] + sargs,
-                            cwd=Path(snap.get("cwd") or SITE))
-                log(f"  微博快照：rc={rc}｜{t}")
+            clear_mark("微博")
+            if a.dry:
+                log("（dry）将执行：" + "；".join(w["cmd"] for w in cfg.get("weibo", []))
+                    + "；" + (cfg.get("weibo_snapshot") or {}).get("cmd", ""))
+            else:
+                for w in cfg.get("weibo", []):
+                    # ★ 参数列表化 + 各自 cwd（weibo_proxy*.py 在 E:\wx\私有工具\weibo_proxy）
+                    args = w.get("args") or (w.get("cmd") or "").split()
+                    rc, t = run([sys.executable, "-X", "utf8"] + args,
+                                cwd=Path(w.get("cwd") or SITE))
+                    log(f"  {w['label']}：rc={rc}｜{t}")
+                snap = cfg.get("weibo_snapshot") or {}
+                sargs = snap.get("args") or (snap.get("cmd") or "").split()
+                if sargs:
+                    rc, t = run([sys.executable, "-X", "utf8"] + sargs,
+                                cwd=Path(snap.get("cwd") or SITE))
+                    log(f"  微博快照：rc={rc}｜{t}")
 
     if a.platform in ("", "xhs"):
         st = check_xhs()
         log(f"小红书 cookie 三态：{st}")
         if st != "有效":
             notify("⚠ 小红书 cookie 需要更新", f"小红书登录态：{st}。请{HINT}")
+            active_alert("小红书", st, "跑 tools\\sync_xhs_cookie.py")
         else:
+            clear_mark("小红书")
             for x in cfg.get("xiaohongshu", []):
                 url = x.get("url") or ""
                 if a.dry:

@@ -53,6 +53,70 @@ def load(p, default=None):
         return default
 
 
+def verify_field_map() -> list[str]:
+    """★ 启动时校验 FIELD_MAP 的上游字段是否真的存在。
+
+    背景（2026-10-14）：初版自动探测 `name/desc/venue` 三个键在该文件里并不存在，
+    于是**静默出了空表**（事务层 0 条）。这里改成：逐条检查 container / text_fields /
+    date_field，缺任何一项即**打印告警并把该源退回空表 + 明确提示**，不再静默。
+
+    返回：问题清单（空＝全部通过）。
+    """
+    problems = []
+    for name, spec in FIELD_MAP.items():
+        fp = D / Path(str(spec["file"])).name
+        if not fp.exists():
+            problems.append(f"{name}: 文件不存在 {fp}")
+            continue
+        doc = load(fp, None)
+        if doc is None:
+            problems.append(f"{name}: JSON 解析失败 {fp}")
+            continue
+        cont = str(spec.get("container") or "")
+        # ① 容器校验
+        if cont == "rows":
+            bad = not isinstance(doc.get("rows"), list)
+        elif cont.startswith("setlists"):
+            bad = not isinstance(doc.get("setlists"), dict)
+        elif "groups" in cont:
+            groups = doc.get("groups")
+            bad = not isinstance(groups, list)
+            if not bad:
+                g0 = groups[0] if groups else {}
+                if not isinstance(g0.get("items"), list):
+                    bad = True
+                elif g0.get("items") and not isinstance(g0["items"][0].get("sentences"), list):
+                    bad = True
+        else:
+            bad = cont not in doc if cont else False
+        if bad:
+            problems.append(f"{name}: 容器 `{cont}` 缺失或类型不对（上游字段改名？）")
+            continue
+        # ② 文本字段抽样校验（取一行/一项，逐字段看是否真的出现）
+        sample = None
+        if cont == "rows":
+            sample = (doc.get("rows") or [None])[0]
+        elif cont.startswith("setlists"):
+            sl = doc.get("setlists") or {}
+            sample = next(iter(sl.values()), None) if sl else None
+        elif "groups" in cont:
+            g0 = (doc.get("groups") or [None])[0]
+            sample = ((g0 or {}).get("items") or [None])[0]
+            if sample and (sample.get("sentences") or []):
+                sample = sample["sentences"][0]
+        for tf in spec.get("text_fields") or []:
+            key = tf.split("[]")[0].split(".")[-1]
+            if isinstance(sample, dict) and key not in sample:
+                problems.append(f"{name}: 文本字段 `{tf}` 在抽样项里不存在"
+                                f"（可用键：{list(sample)[:8]}）")
+        df = spec.get("date_field")
+        if df and isinstance(sample, dict) and df not in sample:
+            problems.append(f"{name}: 日期字段 `{df}` 在抽样项里不存在")
+    return problems
+
+
+_VERIFY_PROBLEMS = verify_field_map()
+
 am = load(D / "activity_master.json") or {}
 act_rows = am.get("rows") or []
 tt = load(D / "tour_talks_sentences.json") or {}
@@ -191,6 +255,15 @@ L += ["", "**初版三处映射错误（本轮修正）**：① 活动表按 `na
       "③ 长表按 `shows/rows/items` 探测 → 实为按日期为键的字典 `setlists`。"
       "三处都会让那一层静默变成空表，因此本步把映射写死并在此登记。", ""]
 OUT_MD.write_text("\n".join(L), encoding="utf-8")
+
+# ★ 字段映射校验结果（缺失即告警 + 该层退回空表并提示，绝不静默出空表）
+if _VERIFY_PROBLEMS:
+    print("[warn] FIELD_MAP 校验未通过 %d 项（对应层已退回空表，不静默）：" % len(_VERIFY_PROBLEMS))
+    for p in _VERIFY_PROBLEMS:
+        print("   -", p)
+    print("   → 处置：核对上游字段名后改 FIELD_MAP（见本文件顶部注释），或确认数据源已换。")
+else:
+    print("[ok] FIELD_MAP 校验通过（container / text_fields / date_field 均存在）")
 
 print(f"[ok] {OUT_JS.name}｜事件 {len(rows_out)} 个｜talk 句 {talk_sent_total}｜活动 {len(act_rows)}｜长表 {len(events)}")
 print(f"[ok] {OUT_MD.name}")

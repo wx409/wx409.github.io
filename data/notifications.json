@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-14 14:19:27",
+ "updated_at": "2026-10-14 15:15:09",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2627,6 +2627,18 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-10-14 15:15:06",
+   "title": "⚠ 小红书 cookie 需要更新",
+   "content": "小红书登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-14 15:15:09",
+   "title": "⚠ 小红书 cookie 需要更新",
+   "content": "小红书登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
   }
  ]
 }
