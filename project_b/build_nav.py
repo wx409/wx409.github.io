@@ -71,6 +71,8 @@ FOOTER_GROUPS = [
                     # 2026-10-14：分享作战室**不进顶部主导航**（不稀释主站），
                     # 但必须在底部全站索引入口（可达性修复：此前只在 community 强链，用户找不到）
                     "share.html",
+                    # 2026-10-14：洞察层（结论＋成稿文案＋出处）同样不进主导航、进底部索引
+                    "insight.html",
                     "acoustic-report.html", "feed.xml", "sitemap.xml", "llms.txt"]),
 ]
 

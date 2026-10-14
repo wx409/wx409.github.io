@@ -51,7 +51,7 @@ ns = [(bins[n] or {}).get("n_docs") or 0 for n in names]
 fig, ax = plt.subplots(figsize=(7.6, 3.4))
 x = range(len(names))
 ax.bar([i - 0.18 for i in x], short, width=0.36, color="#4a6fa5", label="短句率（≤15 字）")
-ax.bar([i + 0.18 for i in x], first, width=0.36, color="#c08a3e", label="第一人称句占比")
+ax.bar([i + 0.18 for i in x], first, width=0.36, color="#c08a3e", label="含「我」的句子占比")
 for i, (a, b, n) in enumerate(zip(short, first, ns)):
     ax.text(i - 0.18, a + 1, f"{a}%", ha="center", fontsize=8)
     ax.text(i + 0.18, b + 1, f"{b}%", ha="center", fontsize=8)
@@ -93,7 +93,7 @@ cn = [cross[k].get("n_sent") or 0 for k in ck]
 fig, ax = plt.subplots(figsize=(7.6, 3.2))
 x = range(len(ck))
 ax.bar([i - 0.18 for i in x], cs, width=0.36, color="#5a7d5a", label="短句率")
-ax.bar([i + 0.18 for i in x], cf, width=0.36, color="#8a5a7d", label="第一人称句占比")
+ax.bar([i + 0.18 for i in x], cf, width=0.36, color="#8a5a7d", label="含「我」的句子占比")
 for i, (a, b, n) in enumerate(zip(cs, cf, cn)):
     ax.text(i - 0.18, a + 1, f"{a}%", ha="center", fontsize=8)
     ax.text(i + 0.18, b + 1, f"{b}%", ha="center", fontsize=8)

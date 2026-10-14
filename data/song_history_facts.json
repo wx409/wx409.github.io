@@ -21,29 +21,60 @@
     "portable_note": "可传播事实：该曲为首次演唱（此前无公开演唱记录）",
     "scope_note": "「首次」限定在本站已核查的公开演出记录范围内；不代表绝对首次，不作「史上首次」式断言"
    },
-   "acoustic_gap": "本站尚无该曲的人声分离实测读数（音域／长声／低音占比均缺）→ 属能力层缺口，与本条事实分栏",
+   "acoustic_gap": "本站录音室**无该曲**（未发行）；**现场有实测**：2026-10-09《沉响》英文串烧切片（【现场·串烧切片】低稳定 A2 110.3Hz；切片边界由人工/标题推定，误差 ±2s 量级，须与读数同引；极值音归属未定）",
    "confirmed_by": "用户确认 2026-10-14",
-   "confirmed_at": "2026-10-14"
+   "confirmed_at": "2026-10-14",
+   "live_reading": {
+    "scope": "现场·串烧切片（2026-10-09 英文串烧第 1 段）",
+    "low_note": "A2",
+    "low_hz": 110.3,
+    "bv": "BV1Mypv6zECb",
+    "boundary_note": "切片边界人工/标题推定，±2s 量级",
+    "attribution": "极值音归属未定",
+    "review_status": "谐波列通过"
+   }
   },
   {
    "song": "Moon River",
    "fact": "三巡唱过",
-   "tours": ["三巡"],
+   "tours": [
+    "三巡"
+   ],
    "tour_note": "三巡（2021–2023『图景』个人巡回音乐会）曲目",
    "evidence": "用户确认 2026-10-14；旁证见 data/song_evidence_master.json（show_count、演出记录）与 data/setlists.json 三巡各站曲目",
-   "acoustic_gap": "本站已有其他语境读数；三巡现场是否有可主张的稳定音读数，见数据层各字段",
+   "acoustic_gap": "录音室**无该曲**；现场与三巡均有实测：三巡广州 2021-12-04 串烧第 1 段（低稳定 C2 65.1Hz，切片边界推定 ±2s）；沉响 10-09 英文串烧切片（低稳定 F#2 93.5Hz）",
    "confirmed_by": "用户确认 2026-10-14",
-   "confirmed_at": "2026-10-14"
+   "confirmed_at": "2026-10-14",
+   "live_reading": {
+    "scope": "现场（三巡广州串烧第 1 段 / 沉响英文串烧切片）",
+    "low_note": "C2",
+    "low_hz": 65.1,
+    "bv": "BV1SQ4y1e7Dg",
+    "boundary_note": "切片边界人工/标题推定，±2s 量级",
+    "attribution": "极值音归属未定",
+    "review_status": "谐波列通过"
+   }
   },
   {
    "song": "一生中最爱",
    "fact": "三巡唱过",
-   "tours": ["三巡"],
+   "tours": [
+    "三巡"
+   ],
    "tour_note": "三巡（2021–2023『图景』个人巡回音乐会）曲目",
    "evidence": "用户确认 2026-10-14；旁证见 data/song_evidence_master.json（show_count=2、idx_first）与 data/setlists.json 三巡武汉／深圳站",
-   "acoustic_gap": "本站尚无该曲的人声分离实测读数（音域／长声／低音占比均缺）→ 能力层缺口",
+   "acoustic_gap": "录音室**无该曲**；**现场已实测**：三巡舟山 2026-05-23（低稳定 E2 80.7Hz／跨度 3.45 八度／384 音符；来源 BV13MVK6uEa9，二次制作·待听辨；极值音归属未定）",
    "confirmed_by": "用户确认 2026-10-14",
-   "confirmed_at": "2026-10-14"
+   "confirmed_at": "2026-10-14",
+   "live_reading": {
+    "scope": "现场（三巡舟山 2026-05-23）",
+    "low_note": "E2",
+    "low_hz": 80.7,
+    "bv": "BV13MVK6uEa9",
+    "attribution": "极值音归属未定",
+    "review_status": "谐波列通过",
+    "batch": "三巡舟山场"
+   }
   }
  ],
  "discipline": "平台机制表述为经验性认知（非官方）；不评优劣；极值音归属未定；触达音不进标题数字位。"

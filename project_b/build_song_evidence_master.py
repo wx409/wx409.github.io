@@ -129,10 +129,21 @@ def main() -> int:
         meta_raw[nm] = v
     st = json.loads((SITE / "data" / "archive_stage_tour.json").read_text(encoding="utf-8"))
     stage_raw = Counter()
+    stage_low = {}          # ★ 现场层读数（口径：最低稳定音；归属未定者不入）
     for r in (st.get("rows") or st.get("materials") or []):
         for key in ("song", "title", "曲目"):
             if r.get(key):
                 stage_raw[str(r[key])] += 1
+                # 现场最低稳定音（只取 review_status 过门槛的行；旧口径字段名兼容 low_hz/low_note）
+                if r.get("low_hz") and str(r.get("review_status") or "").strip() in (
+                        "谐波列通过", "谐波列复核通过", "人耳确认", "人耳确认（听辨）", "双引擎一致"):
+                    cur = stage_low.get(str(r[key]))
+                    if not cur or (r.get("low_hz") or 9e9) < (cur.get("low_hz") or 9e9):
+                        stage_low[str(r[key])] = {
+                            "low_note": r.get("low_note"), "low_hz": r.get("low_hz"),
+                            "tag": r.get("tag"), "date": r.get("date"), "city": r.get("city"),
+                            "bv": r.get("bv"), "review_status": r.get("review_status"),
+                            "attribution": "极值音归属未定（现场实测口径）"}
                 break
     df = load_idx()
     g = df.dropna(subset=["current_index"])
@@ -197,6 +208,20 @@ def main() -> int:
         r["sources_with_data"] = sum(1 for k in ("low_hz", "show_count", "stage_materials",
                                                  "text_mentions", "voice_mentions", "idx_days")
                                      if (r.get(k) or 0))
+        # ★ 录音室无读数时，回落到**现场层最低稳定音**（口径同引、标「现场·切片/场次」）
+        sl = stage_low.get(r["song"])
+        if sl and not r.get("low_hz"):
+            r["low_note_live"] = sl["low_note"]
+            r["low_hz_live"] = sl["low_hz"]
+            r["live_reading"] = {"scope": "现场实测（最低稳定音口径）",
+                                 "attribution": "极值音归属未定",
+                                 "tag": sl.get("tag"), "date": sl.get("date"), "city": sl.get("city"),
+                                 "bv": sl.get("bv"), "review_status": sl.get("review_status"),
+                                 "boundary_note": ("串烧切片边界由人工/标题推定，误差 ±2s 量级"
+                                                   if "切片" in str(sl.get("tag") or "") else "")}
+            r["sources_with_data"] = sum(1 for k in ("low_hz", "low_hz_live", "show_count",
+                                                     "stage_materials", "text_mentions",
+                                                     "voice_mentions", "idx_days") if (r.get(k) or 0))
     # ★ 演唱史事实（用户确认；与「库里无实测」的能力层缺口**分栏存放**，不混读）
     FACTS = SITE / "data" / "song_history_facts.json"
     facts = {}

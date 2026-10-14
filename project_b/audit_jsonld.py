@@ -70,8 +70,13 @@ def main() -> int:
         stats[html.name] = sorted(set(types))
 
         for banned in BANNED:
-            if banned in text:
-                problems.append(f"{html.name} 出现违规/作废措辞「{banned}」")
+            if banned not in text:
+                continue
+            # ★ 2026-10-14 修：「第一人」是语法术语「第一人称」（first person）的子串，
+            #   语言学统计（如「第一人称句占 17.8%」）不是「第一人」式断言 → 排除该语境。
+            if banned == "第一人" and "第一人称" in text and banned not in text.replace("第一人称", ""):
+                continue
+            problems.append(f"{html.name} 出现违规/作废措辞「{banned}」")
 
         need = REQUIRED.get(html.name)
         if need:
