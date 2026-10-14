@@ -106,6 +106,15 @@ STEPS = [
     (ROOT / "project_b" / "build_topic_cards.py", "专题卡库 data/share/cards + rendered（数字全部派生）", True),
     (ROOT / "project_b" / "build_auto_cards.py", "自动卡（每周发现／自燃信号；未达条件不出卡）", False),
     (ROOT / "project_b" / "build_share_page.py", "分享作战室 share.html + 竖屏分享卡页", True),
+    # ── 洞察层链路（2026-10-14 接入；「数据更新 → 洞察页自动更新」闭环）──
+    #   顺序即依赖：语言画像/措辞差表 → 结论文案 → 钩子池 → 图 → 洞察页；
+    #   全部 non-fatal（False）：失败不阻断部署，只影响洞察页新鲜度。
+    (ROOT / "project_b" / "build_language_profile.py", "语言画像 data/text_profile.json（句式/意象/分期/跨源）", False),
+    (ROOT / "project_b" / "build_cross_wording.py", "跨源措辞差表 data/cross_source_wording.json", False),
+    (ROOT / "project_b" / "build_conclusion_copy.py", "结论成品 data/share/conclusion_copy.json（结论＋四形态文案＋证据＋禁忌）", False),
+    (ROOT / "project_b" / "build_hook_candidates.py", "钩子候选池 data/share/hook_candidates.json（复用 hook_miner 规则与打分）", False),
+    (ROOT / "project_b" / "build_insight_charts.py", "洞察图 assets/insight/*（图＋sha256 指纹入 data/share/insight_charts.json）", False),
+    (ROOT / "project_b" / "build_insight_page.py", "洞察页 insight.html（不进主导航、进底部索引与 sitemap）", False),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
     # ── 注入复跑守卫（2026-09-21）：compact 会重建 7 个公开页，注入块必须在其后重跑 ──
     (ROOT / "project_b" / "inject_vocal_summary.py", "注入复跑：首页音域摘要块", False),

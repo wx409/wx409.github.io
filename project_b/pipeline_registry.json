@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-10-14 13:41",
+ "generated_at": "2026-10-14 14:10",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 223,
-  "dispatch": 222,
-  "deploy_steps": 85,
+  "menu_items": 224,
+  "dispatch": 223,
+  "deploy_steps": 91,
   "scheduled_tasks": 10
  },
  "tasks": [
@@ -1742,6 +1742,16 @@
    "path": "D:\\wx409.github.io\\project_b\\hook_miner.py"
   },
   {
+   "script": "build_language_profile.py",
+   "in_deploy": true,
+   "deploy_desc": "语言画像 data/text_profile.json（句式/意象/分期/跨源）",
+   "critical": false,
+   "menu": 224,
+   "title": "[洞察层] 生成 insight.html（结论+四形态文案+证据+禁忌｜语言画像｜措辞差表｜钩子池）",
+   "menu_label": "insight_page",
+   "path": "D:\\wx409.github.io\\project_b\\build_language_profile.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -1818,6 +1828,20 @@
    "path": "D:\\wx409.github.io\\project_b\\build_compact.py"
   },
   {
+   "script": "build_conclusion_copy.py",
+   "in_deploy": true,
+   "deploy_desc": "结论成品 data/share/conclusion_copy.json（结论＋四形态文案＋证据＋禁忌）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_conclusion_copy.py"
+  },
+  {
+   "script": "build_cross_wording.py",
+   "in_deploy": true,
+   "deploy_desc": "跨源措辞差表 data/cross_source_wording.json",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_cross_wording.py"
+  },
+  {
    "script": "build_entity_index.py",
    "in_deploy": true,
    "deploy_desc": "跨站关系 entity_index.json",
@@ -1844,6 +1868,27 @@
    "deploy_desc": "金句档案 golden_quotes 图层（跨来源，带证据级别）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\build_golden_quotes.py"
+  },
+  {
+   "script": "build_hook_candidates.py",
+   "in_deploy": true,
+   "deploy_desc": "钩子候选池 data/share/hook_candidates.json（复用 hook_miner 规则与打分）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_hook_candidates.py"
+  },
+  {
+   "script": "build_insight_charts.py",
+   "in_deploy": true,
+   "deploy_desc": "洞察图 assets/insight/*（图＋sha256 指纹入 data/share/insight_charts.json）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_insight_charts.py"
+  },
+  {
+   "script": "build_insight_page.py",
+   "in_deploy": true,
+   "deploy_desc": "洞察页 insight.html（不进主导航、进底部索引与 sitemap）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_insight_page.py"
   },
   {
    "script": "build_jazz_page.py",
