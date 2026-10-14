@@ -1,0 +1,417 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-14",
+ "field_map": {
+  "activity_master": {
+   "file": "data/activity_master.json",
+   "container": "rows",
+   "text_fields": [
+    "title",
+    "city",
+    "note"
+   ],
+   "date_field": "date",
+   "verified": true,
+   "note": "确认于 2026-10-14：该文件**没有** name/desc/venue 字段；事务层文本取 title＋city＋note"
+  },
+  "tour_talks_sentences": {
+   "file": "data/tour_talks_sentences.json",
+   "container": "groups[].items[].sentences[]",
+   "text_fields": [
+    "text"
+   ],
+   "date_field": "",
+   "verified": true,
+   "note": "确认于 2026-10-14：句子在 groups→items→sentences 三层之下；groups[].tour/city 可作事件归属"
+  },
+  "setlists": {
+   "file": "data/setlists.json",
+   "container": "setlists（按日期为键的字典）",
+   "text_fields": [
+    "songs[].title",
+    "theme",
+    "venue"
+   ],
+   "date_field": "date",
+   "verified": true,
+   "note": "确认于 2026-10-14：setlists 是 dict，键为日期；曲目写法取 songs[].title"
+  }
+ },
+ "layer_counts": {
+  "talk_sentences": 1459,
+  "talk_groups": 12,
+  "talk_counts_from_file": {
+   "sources": 67,
+   "sentences": 1459,
+   "groups": 12,
+   "excluded_sources": 220,
+   "request_sources": 11
+  },
+  "activity_events": 458,
+  "setlist_shows": 64
+ },
+ "events": [
+  {
+   "date": "2019-12-28",
+   "tour": "一巡",
+   "city": "太原",
+   "venue": "山西大剧院",
+   "n_songs": 36,
+   "talk_layer": {
+    "n_sent": 121,
+    "sample": "我今天去了好多可以吃面的地方",
+    "timecode": "05:29",
+    "src": "花样年华+talk"
+   },
+   "act_layer": {
+    "n_rows": 1,
+    "title": "王晰“Cherish珍晰”2019巡演太原站",
+    "note": "巡演=Cherish珍晰2019个人巡回音乐会｜长表命中=2019-12-28 太原｜差异=与长表 2019-12-28 太原 基本一致，无明确冲突"
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-12-21",
+   "tour": "一巡",
+   "city": "厦门",
+   "venue": "厦门沧江剧院",
+   "n_songs": 29,
+   "talk_layer": {
+    "n_sent": 138,
+    "sample": "真的难搞眼,突破一下自己,很好,但是我觉得失败了",
+    "timecode": "00:00",
+    "src": "晰哥唠嗑2"
+   },
+   "act_layer": {
+    "n_rows": 1,
+    "title": "Cherish珍晰2019个人巡回音乐会厦门站",
+    "note": "巡演=Cherish珍晰2019个人巡回音乐会｜长表命中=2019-12-21 厦门｜差异=与长表 2019-12-21 厦门 基本一致，无明确冲突"
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-08-16",
+   "tour": "一巡",
+   "city": "北京",
+   "venue": "北京世纪剧院",
+   "n_songs": 27,
+   "talk_layer": {
+    "n_sent": 99,
+    "sample": "那接下来呢 我会邀请我的第二位嘉宾",
+    "timecode": "00:00",
+    "src": "深夜酒馆 by 简弘亦（含晰哥介绍嘉宾）"
+   },
+   "act_layer": {
+    "n_rows": 4,
+    "title": "Cherish珍晰巡回音乐会北京站",
+    "note": "巡演=Cherish珍晰2019｜长表命中=2019-08-16 北京｜差异=与长表 2019-08-16 北京 基本一致，无明确冲突；巡演=Cherish珍晰个人巡回音乐会｜长表命中=2019-09-08 深圳｜差异=与长表 2019-0"
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-12-15",
+   "tour": "一巡",
+   "city": "长沙",
+   "venue": "长沙梅溪湖国际文化艺术中心大剧院",
+   "n_songs": 26,
+   "talk_layer": {
+    "n_sent": 131,
+    "sample": "其实在之前的许多年的一年尤其是在文工团的历练下其实我说实话其实并不应该紧张因为在文工团的每年的工作当中我们都有每年一百成的演书这对我来说我觉得是我的一个财富但是真的一想到回到我那边",
+    "timecode": "00:00",
+    "src": "2 文工团talking+《跟着你到天边》《晚风暖暖》"
+   },
+   "act_layer": {
+    "n_rows": 2,
+    "title": "Cherish珍晰个人巡回音乐会长沙站",
+    "note": "巡演=Cherish珍晰2019个人巡回音乐会｜长表命中=2019-12-15 长沙｜差异=与长表 2019-12-15 长沙 基本一致，无明确冲突；巡演=Cherish珍晰个人巡回音乐会｜长表命中=nan｜差异=微博佐证日期=2019 城"
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-07-28",
+   "tour": "一巡",
+   "city": "南京",
+   "venue": "南京保利大剧院",
+   "n_songs": 25,
+   "talk_layer": {
+    "n_sent": 164,
+    "sample": "看一下你们写的这个问题要不要",
+    "timecode": "00:25",
+    "src": "回答问题+清唱"
+   },
+   "act_layer": {
+    "n_rows": 0,
+    "title": "",
+    "note": ""
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2020-01-02",
+   "tour": "一巡",
+   "city": "北京",
+   "venue": "北京北展剧场",
+   "n_songs": 25,
+   "talk_layer": {
+    "n_sent": 115,
+    "sample": "在2020年的元旦之后1月2号",
+    "timecode": "03:06",
+    "src": "一生守候+很长一段内心独白"
+   },
+   "act_layer": {
+    "n_rows": 2,
+    "title": "王晰“Cherish珍晰”2019巡演北京收官",
+    "note": "巡演=2020个人巡回音乐会｜长表命中=2020-11-14 杭州｜差异=与长表 2020-11-14 杭州 基本一致，无明确冲突；巡演=Cherish珍晰2019巡演｜长表命中=nan｜差异=微博佐证日期=2020-01-02 城市=北京"
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2021-03-07",
+   "tour": "二巡",
+   "city": "上海",
+   "venue": "上海东方艺术中心",
+   "n_songs": 22,
+   "talk_layer": {
+    "n_sent": 82,
+    "sample": "嗯,其实有太久的老歌真的是非常非常的好听",
+    "timecode": "00:04",
+    "src": "talk-红蕾丝衬衣 3.7"
+   },
+   "act_layer": {
+    "n_rows": 1,
+    "title": "王晰2021个人巡回音乐会上海站",
+    "note": "巡演=2021个人巡回音乐会｜长表命中=2021-03-08 上海｜差异=与长表 2021-03-08 上海 基本一致，无明确冲突"
+   },
+   "list_layer": {
+    "songs_head": [
+     "花儿为什么这样红",
+     "City of Stars",
+     "茕茕",
+     "匆匆",
+     "后会无期",
+     "别离的预感"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2023-12-31",
+   "tour": "四巡",
+   "city": "上海",
+   "venue": "上海北外滩友邦大剧院",
+   "n_songs": 21,
+   "talk_layer": {
+    "n_sent": 52,
+    "sample": "有很多朋友都是在神无人心上面所知道的我 了解的我",
+    "timecode": "00:00",
+    "src": "talk-声入人心"
+   },
+   "act_layer": {
+    "n_rows": 4,
+    "title": "踏上新征程2024 BRTV跨年之夜",
+    "note": "巡演=四巡｜长表命中=2023-12-31 上海｜差异=与长表 2023-12-31 上海 基本一致，无明确冲突；巡演=四巡｜长表命中=2024-01-27 南京｜差异=与长表 2024-01-27 南京 基本一致，无明确冲突；巡演=肆益｜"
+   },
+   "list_layer": {
+    "songs_head": [
+     "恭喜发财",
+     "新年好",
+     "夜上海",
+     "南屏晚钟",
+     "夜来香",
+     "嘎达梅林+海然海然"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-06-07",
+   "tour": "一巡",
+   "city": "杭州",
+   "venue": "杭州剧院",
+   "n_songs": 20,
+   "talk_layer": {
+    "n_sent": 131,
+    "sample": "如果说要是没有跟大家聊几句的话",
+    "timecode": "00:15",
+    "src": "串场（11分钟，儿歌连唱 小燕子、葫芦娃、两只老虎）"
+   },
+   "act_layer": {
+    "n_rows": 0,
+    "title": "",
+    "note": ""
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-11-16",
+   "tour": "一巡",
+   "city": "海口",
+   "venue": "海口国际会展中心东方环球大剧院",
+   "n_songs": 20,
+   "talk_layer": {
+    "n_sent": 35,
+    "sample": "我说的是这一年唱的最多的一首歌",
+    "timecode": "00:00",
+    "src": "介绍嘉宾 金天泽"
+   },
+   "act_layer": {
+    "n_rows": 1,
+    "title": "王晰Cherish珍晰2019巡演海口站落幕",
+    "note": "巡演=Cherish珍晰2019个人巡回音乐会｜长表命中=2019-11-16 海口｜差异=与长表 2019-11-16 海口 基本一致，无明确冲突"
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2026-08-23",
+   "tour": "六巡",
+   "city": "广州",
+   "venue": "广东艺术剧院",
+   "n_songs": 20,
+   "talk_layer": {
+    "n_sent": 268,
+    "sample": "我觉得要再不见的话我就快匀了",
+    "timecode": "00:16",
+    "src": "talk①"
+   },
+   "act_layer": {
+    "n_rows": 3,
+    "title": "王晰个人巡回音乐会",
+    "note": "巡演=回个人巡回音乐会（六巡）｜长表命中=2026-08-23 广州｜差异=与长表 2026-08-23 广州 基本一致，无明确冲突；巡演=回个人巡回音乐会｜长表命中=2026-08-23 广州｜差异=与长表 2026-08-23 广州 基"
+   },
+   "list_layer": {
+    "songs_head": [
+     "生日快乐",
+     "花儿为什么这样红",
+     "橄榄树",
+     "像雾像雨又像风",
+     "Yesterday Once More",
+     "Close to You"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  },
+  {
+   "date": "2019-06-15",
+   "tour": "一巡",
+   "city": "武汉",
+   "venue": "武汉剧院",
+   "n_songs": 18,
+   "talk_layer": {
+    "n_sent": 123,
+    "sample": "因为真的是非常用心地去准备每一首歌",
+    "timecode": "00:23",
+    "src": "串场 “父亲节快乐”"
+   },
+   "act_layer": {
+    "n_rows": 0,
+    "title": "",
+    "note": ""
+   },
+   "list_layer": {
+    "songs_head": [
+     "让她降落",
+     "玛莲娜",
+     "花样年华",
+     "跟着你到天边",
+     "晚风暖暖",
+     "Your Man"
+    ],
+    "alias_written": [],
+    "alias_note": "长表里用了别名写法，规范名见 data/song_aliases.json"
+   }
+  }
+ ],
+ "unmatched_talk_groups": [],
+ "caliber": "三层措辞天然不同（口语/事务/曲目），本表只做**对照呈现**，不作优劣或准确性判断；曲目层写法以 data/song_aliases.json 为规范。"
+}

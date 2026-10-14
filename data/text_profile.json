@@ -1198,17 +1198,125 @@
  },
  "cross_source": {
   "巡演Talk（口语层）": {
-   "n_docs": 0,
-   "n_sent": 0
+   "n_docs": 1459,
+   "n_sent": 1468,
+   "chars": 18768,
+   "chars_per_doc_median": 10,
+   "sent_len_median": 10.0,
+   "short_sent_pct": 80.6,
+   "question_pct": 2.7,
+   "first_person_pct": 44.1,
+   "imagery_top": [
+    [
+     "城市",
+     31
+    ],
+    [
+     "夜",
+     20
+    ],
+    [
+     "风",
+     16
+    ],
+    [
+     "身体",
+     13
+    ],
+    [
+     "海",
+     12
+    ],
+    [
+     "舞台",
+     11
+    ],
+    [
+     "路",
+     10
+    ],
+    [
+     "酒/茶",
+     6
+    ],
+    [
+     "乐器",
+     5
+    ]
+   ],
+   "imagery_doc_pct": {
+    "城市": 2.1,
+    "夜": 1.4,
+    "风": 1.1,
+    "身体": 0.9,
+    "海": 0.8,
+    "舞台": 0.8,
+    "路": 0.7,
+    "酒/茶": 0.4,
+    "乐器": 0.3
+   },
+   "emotion_top": [
+    [
+     "感谢",
+     64
+    ],
+    [
+     "期待",
+     47
+    ],
+    [
+     "开心",
+     22
+    ],
+    [
+     "坚持",
+     13
+    ],
+    [
+     "疲惫",
+     5
+    ],
+    [
+     "告别",
+     4
+    ],
+    [
+     "想念",
+     4
+    ],
+    [
+     "自嘲/自谦",
+     1
+    ]
+   ],
+   "emotion_doc_pct": {
+    "感谢": 4.4,
+    "期待": 3.2,
+    "开心": 1.5,
+    "坚持": 0.9,
+    "疲惫": 0.3,
+    "告别": 0.3,
+    "想念": 0.3,
+    "自嘲/自谦": 0.1
+   },
+   "container": "groups[].items[].sentences[]",
+   "groups": 12,
+   "file_counts": {
+    "sources": 67,
+    "sentences": 1459,
+    "groups": 12,
+    "excluded_sources": 220,
+    "request_sources": 11
+   }
   },
   "活动表（事务层）": {
    "n_docs": 458,
-   "n_sent": 564,
-   "chars": 28336,
-   "chars_per_doc_median": 69.0,
-   "sent_len_median": 46.0,
-   "short_sent_pct": 7.1,
-   "question_pct": 10.3,
+   "n_sent": 539,
+   "chars": 26962,
+   "chars_per_doc_median": 66.0,
+   "sent_len_median": 48,
+   "short_sent_pct": 13.7,
+   "question_pct": 10.8,
    "first_person_pct": 0.9,
    "imagery_top": [
     [
@@ -1282,12 +1390,15 @@
     "期待": 0.4,
     "坚持": 0.2,
     "感谢": 0.2
-   }
+   },
+   "container": "rows[]（title＋city＋note）"
   },
-  "巡演长表（曲目文本层）": {
-   "n_songs": 0,
-   "n_docs": 0,
+  "巡演长表（曲目层）": {
+   "container": "setlists（日期为键）",
+   "n_songs": 1254,
+   "n_docs": 64,
    "n_sent": 0,
+   "shows": 64,
    "note": "曲名文本，不做句式统计；仅用于曲目词表交叉"
   }
  }

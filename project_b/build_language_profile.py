@@ -118,40 +118,41 @@ for d in docs_all:
 BINS = {"2014-2019 早期": range(2014, 2020), "2020-2023 中期": range(2020, 2024), "2024-2026 近期": range(2024, 2027)}
 bins = {name: [d for d in docs_all if (d["date"] or "")[:4].isdigit() and int((d["date"])[:4]) in yrs] for name, yrs in BINS.items()}
 
-# ── 2. 跨源层 ──
+# ── 2. 跨源层（字段映射**人工确认过**；见 build_cross_wording.py 的 FIELD_MAP）──
+#   2026-10-14 修正：初版按 sentences/rows/items 与 shows/rows/items 探测，三层里有两层取到 0 条。
 cross = {}
 talks = load(D / "tour_talks_sentences.json")
 if talks is not None:
-    rows = talks if isinstance(talks, list) else (talks.get("sentences") or talks.get("rows") or talks.get("items") or [])
     td = []
-    for r in rows:
-        if isinstance(r, dict):
-            td.append({"text": r.get("text") or r.get("sentence") or r.get("content") or "",
-                       "date": str(r.get("date") or r.get("show_date") or "")})
-        elif isinstance(r, str):
-            td.append({"text": r, "date": ""})
-    cross["巡演Talk（口语层）"] = {**slice_stats(td), "file": "data/tour_talks_sentences.json"}
+    for g in (talks.get("groups") or []):                      # ← 句子在 groups[].items[].sentences[]
+        for it in (g.get("items") or []):
+            for s in (it.get("sentences") or []):
+                if (s.get("text") or "").strip():
+                    td.append({"text": s["text"], "date": ""})
+    cross["巡演Talk（口语层）"] = {**slice_stats(td), "file": "data/tour_talks_sentences.json",
+                                 "container": "groups[].items[].sentences[]",
+                                 "groups": len(talks.get("groups") or []),
+                                 "file_counts": talks.get("counts")}
 act = load(D / "activity_master.json")
 if act is not None:
-    rows = act if isinstance(act, list) else (act.get("rows") or act.get("items") or act.get("activities") or [])
+    rows = act.get("rows") or []                              # ← 该文件没有 name/desc/venue 字段
     ad = []
     for r in rows:
         if isinstance(r, dict):
-            ad.append({"text": " ".join(str(r.get(k) or "") for k in ("title", "name", "note", "desc", "venue", "city")),
-                       "date": str(r.get("date") or r.get("show_date") or "")})
-    cross["活动表（事务层）"] = {**slice_stats(ad), "file": "data/activity_master.json"}
+            ad.append({"text": " ".join(str(r.get(k) or "") for k in ("title", "city", "note")),
+                       "date": str(r.get("date") or "")})
+    cross["活动表（事务层）"] = {**slice_stats(ad), "file": "data/activity_master.json",
+                                "container": "rows[]（title＋city＋note）"}
 sl = load(D / "setlists.json")
 if sl is not None:
-    rows = sl if isinstance(sl, list) else (sl.get("shows") or sl.get("rows") or sl.get("items") or [])
+    sets = sl.get("setlists") or {}                           # ← 按日期为键的字典
     names = []
-    for r in rows:
-        if isinstance(r, dict):
-            s = r.get("songs") or r.get("setlist") or []
-            if isinstance(s, list):
-                names += [str(x if not isinstance(x, dict) else (x.get("song") or x.get("title") or "")) for x in s]
-    sl_text = " ".join(x for x in names if x)
-    cross["巡演长表（曲目文本层）"] = {"file": "data/setlists.json", "n_songs": len([x for x in names if x]),
-                                 "n_docs": len([x for x in names if x]), "n_sent": 0,
+    for _k, v in (sets.items() if isinstance(sets, dict) else []):
+        if isinstance(v, dict):
+            names += [str(x.get("title") or "") for x in (v.get("songs") or []) if isinstance(x, dict)]
+    cross["巡演长表（曲目层）"] = {"file": "data/setlists.json", "container": "setlists（日期为键）",
+                                 "n_songs": len([x for x in names if x]), "n_docs": len(sets), "n_sent": 0,
+                                 "shows": sl.get("show_count"),
                                  "note": "曲名文本，不做句式统计；仅用于曲目词表交叉"}
 
 full = {
