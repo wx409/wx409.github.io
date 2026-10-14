@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-10-14 12:46",
+ "generated_at": "2026-10-14 13:41",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 223,
   "dispatch": 222,
   "deploy_steps": 85,
-  "scheduled_tasks": 9
+  "scheduled_tasks": 10
  },
  "tasks": [
   {
@@ -1740,6 +1740,19 @@
    "menu_label": "hook_mine",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\hook_miner.py"
+  },
+  {
+   "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
+   "schedule": {
+    "name": "QQMusicDashboardAutoStart",
+    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\pythonw.exe \"e:\\wx\\QQ音乐大屏生成器_GEO优化版_源码.py\"",
+    "next": "N/A",
+    "type": "At logon time",
+    "start": "N/A"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\QQ音乐大屏生成器_GEO优化版_源码.py"
   },
   {
    "script": "_build_episodes.py",

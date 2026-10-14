@@ -43,7 +43,10 @@ def tasks_state() -> dict[str, str]:
     r = subprocess.run(["schtasks", "/query", "/fo", "csv"], capture_output=True,
                        text=True, encoding="utf-8", errors="replace")
     for line in (r.stdout or "").splitlines()[1:]:
-        if "wx409" not in line:
+        # 2026-10-14：巡检范围从「名字含 wx409」扩到「含 QQMusicDashboard」——
+        # 大屏 daemon 任务叫 QQMusicDashboardAutoStart，此前被这句过滤掉，
+        # 于是它静默死掉时 audit_pipeline / 登记表都看不见（可达性与新鲜度双缺口）。
+        if "wx409" not in line and "QQMusicDashboard" not in line:
             continue
         name = line.split(",")[0].strip('"').lstrip("\\")
         q = subprocess.run(["schtasks", "/query", "/tn", name, "/fo", "list", "/v"],

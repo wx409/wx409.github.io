@@ -224,6 +224,28 @@ def _next_occurrence(hhmm):
     return target
 
 
+def _dashboard_fallback():
+    """大屏 rebuild 兜底（2026-10-14 增加，C 项 c）。
+
+    本脚本由计划任务 `wx409_music_index_daily`（每日 23:58）驱动；
+    大屏本身由常驻 daemon（`QQMusicDashboardAutoStart`）定时重建。
+    daemon 若静默死掉，页面会无声过期 —— 这里在每日任务里补一步：
+    新鲜度超过阈值（默认 26h）就用生成器自带的 `--rebuild` 重建网页（不采集）。
+    任何失败都**不致命**，只打印；真正的告警由 dashboard_freshness.py --check 负责。
+    """
+    try:
+        fr = WEBSITE / 'project_b' / 'dashboard_freshness.py'
+        r = subprocess.run([sys.executable, '-X', 'utf8', str(fr), '--ensure'],
+                           capture_output=True, text=True, encoding='utf-8',
+                           errors='replace', timeout=2000)
+        tail = (r.stdout or '').strip().splitlines()
+        print('[大屏兜底] ' + (tail[-1] if tail else f'rc={r.returncode}'))
+        return r.returncode == 0
+    except Exception as e:
+        print('[大屏兜底] 跳过（不致命）：%s' % repr(e)[:120])
+        return False
+
+
 def _generate():
     d = json.loads(SRC.read_text(encoding='utf-8'))
     md_text = build_md(d)
@@ -284,6 +306,9 @@ def main(args):
             # 未等到末批数据：宁可跳过，也不发布与 dashboard 不一致的旧数据
             print('[!] 到达截止时间仍未等到今日末批数据，跳过生成')
             return 2
+
+    # C 项 c：先做一次大屏新鲜度兜底（daemon 死掉时当日补建；失败不致命）
+    _dashboard_fallback()
 
     _generate()
 

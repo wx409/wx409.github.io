@@ -93,7 +93,9 @@ def scheduled() -> list[dict]:
     r = subprocess.run(["schtasks", "/query", "/fo", "csv"], capture_output=True,
                        text=True, encoding="utf-8", errors="replace")
     for line in (r.stdout or "").splitlines()[1:]:
-        if "wx409" not in line:
+        # 2026-10-14：登记范围扩到 QQMusicDashboard*（大屏 daemon 任务名不含 wx409，
+        # 此前不进登记表 → audit_pipeline 无法把它与系统对照，挂掉也发现不了）
+        if "wx409" not in line and "QQMusicDashboard" not in line:
             continue
         name = line.split(",")[0].strip('"').lstrip("\\")
         q = subprocess.run(["schtasks", "/query", "/tn", name, "/fo", "list", "/v"],

@@ -109,6 +109,29 @@ def run_refresh_index():
     return r.returncode
 
 
+def run_dashboard_freshness():
+    """大屏新鲜度哨兵（2026-10-14 增加，C 项 b）。
+
+    大屏 daemon（计划任务 QQMusicDashboardAutoStart）若静默退出，页面会无声过期。
+    此步**非致命**：过期则先尝试自动补建，仍过期就写站内通知（走既有 notify 通道）。
+    """
+    log("-- dashboard_freshness（大屏新鲜度哨兵 + 自动补建）--")
+    try:
+        r = subprocess.run([sys.executable, "-X", "utf8",
+                            str(ROOT / "project_b" / "dashboard_freshness.py"), "--ensure"],
+                           cwd=ROOT, capture_output=True, text=True,
+                           encoding="utf-8", errors="ignore", timeout=60 * 40,
+                           env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+    except Exception as e:
+        log("   [freshness] 调用失败（非致命）: %s" % e)
+        return 2
+    for ln in [x for x in (r.stdout or "").splitlines() if x.strip()][-6:]:
+        log("   " + ln)
+    if r.returncode != 0:
+        log("   [freshness] 仍过期（已写站内通知，非致命）")
+    return r.returncode
+
+
 def notify(title, msg):
     try:
         sys.path.insert(0, str(ROOT / "project_b"))
@@ -235,6 +258,10 @@ def main():
     # 0b. 看门狗：漏批巡检 + 自愈（2026-09-09 更新重启停摆事故后新增）
     if not args.no_watchdog:
         run_watchdog()
+
+    # 0c. 大屏新鲜度哨兵（2026-10-14 新增；daemon 静默死掉时当日补建并告警）
+    if not args.no_watchdog:
+        run_dashboard_freshness()
 
     # 1. watch（新歌自动入库；小酒馆节目已结束，不再监测/推送）
     if args.watch:
