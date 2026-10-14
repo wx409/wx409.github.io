@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-14T21:07:56",
+ "generated_at": "2026-10-15T00:13:28",
  "stat": {
-  "generated_at": "2026-10-14T21:07:55",
+  "generated_at": "2026-10-15T00:13:27",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 37,
+  "songs_with_3plus": 38,
   "rows": [
    {
     "song": "佛山全场",
@@ -247,6 +247,15 @@
     "low_cv": 0.1278
    },
    {
+    "song": "哭砂",
+    "versions": 6,
+    "low_median": 79.1,
+    "low_iqr": 14.8,
+    "low_range": 20.2,
+    "high_median": 599.4,
+    "low_cv": 0.107
+   },
+   {
     "song": "我要你",
     "versions": 6,
     "low_median": 78.1,
@@ -308,15 +317,6 @@
     "low_range": 46.4,
     "high_median": 725.8,
     "low_cv": 0.2214
-   },
-   {
-    "song": "哭砂",
-    "versions": 5,
-    "low_median": 80.7,
-    "low_iqr": 7.2,
-    "low_range": 19.4,
-    "high_median": 485.6,
-    "low_cv": 0.0892
    },
    {
     "song": "南屏晚钟",
@@ -427,6 +427,15 @@
     "low_cv": 0.2675
    },
    {
+    "song": "Moon River",
+    "versions": 3,
+    "low_median": 73.4,
+    "low_iqr": 14.2,
+    "low_range": 28.4,
+    "high_median": 583.6,
+    "low_cv": 0.1542
+   },
+   {
     "song": "友谊地久天长",
     "versions": 3,
     "low_median": 103.6,
@@ -499,14 +508,14 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1097,
+  "low_cv_median": 0.1112,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 83.2,
-  "cover_live_low_median": 86.4,
+  "cover_live_low_median": 87.0,
   "own_n": 29,
-  "cover_n": 174,
+  "cover_n": 177,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

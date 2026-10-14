@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-14T21:07:37",
+  "generated_at": "2026-10-15T00:13:09",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 8,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8064,
+  "files_scanned": 8105,
   "measured_shows_site": 52,
   "shows_with_claimable_site": 50,
-  "bv_mapped": 102
+  "bv_mapped": 106
  },
  "shows": [
   {
@@ -653,17 +653,17 @@
      "detail": "BV14Z4y1g7CD｜像雾像雨又像风｜广州20201205"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "广州20201205_BV1kZ4y1G77g｜一帘幽梦"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Uz4y167hL｜今宵多珍重｜未知20201205"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "广州20201205_BV14Z4y1g7CD｜像雾像雨又像风"
+     "detail": "广州20201205_BV1kZ4y1G77g｜一帘幽梦"
     }
    ],
-   "n_evidence": 60
+   "n_evidence": 74
   },
   {
    "date": "2020-12-19",
@@ -763,6 +763,11 @@
      "detail": "BV1xo4y1R7x7｜茕茕｜武汉20210110"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV12Q4y1B7BG｜漫长的告别｜未知20210110"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "武汉20210110_BV1xo4y1R7x7｜茕茕"
@@ -774,16 +779,11 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1hS4y197kb"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "武汉20210110_BV1hS4y197kb.wav"
+     "src": "站点实测",
+     "detail": "未知20210110_BV12Q4y1B7BG｜漫长的告别"
     }
    ],
-   "n_evidence": 28
+   "n_evidence": 42
   },
   {
    "date": "2021-03-07",
@@ -848,22 +848,22 @@
      "detail": "BV1hjB4YhEN7｜后会无期｜上海20210308"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "上海20210308_BV1hjB4YhEN7｜后会无期"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Eh4y1872Y｜哭砂｜上海20210308"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1a14y1B7zy｜红豆｜上海20210308"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "上海20210308_BV1gA411T7T6｜美酒加咖啡"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "上海20210308_BV1tX4y137U7｜Dear Friend"
+     "detail": "上海20210308_BV1Eh4y1872Y｜哭砂"
     }
    ],
-   "n_evidence": 46
+   "n_evidence": 74
   },
   {
    "date": "2021-03-27",
@@ -1023,7 +1023,7 @@
      "detail": "三巡广州20211204_BV1D34y1R7fC｜橄榄树"
     }
    ],
-   "n_evidence": 23
+   "n_evidence": 28
   },
   {
    "date": "2022-01-09",

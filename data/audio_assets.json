@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-14T21:07:52",
-  "since": "2026-10-14",
-  "batches": 256,
-  "files": 2353,
-  "gb": 77.84,
-  "new_files": 16,
-  "new_mb": 230.6,
-  "stats_total": 1379,
-  "stage_rows": 744,
-  "claimable": 597,
-  "claimable_soft": 302
+  "generated_at": "2026-10-15T00:13:24",
+  "since": "2026-10-15",
+  "batches": 258,
+  "files": 2366,
+  "gb": 78.04,
+  "new_files": 0,
+  "new_mb": 0.0,
+  "stats_total": 1386,
+  "stage_rows": 751,
+  "claimable": 602,
+  "claimable_soft": 305
  },
  "batches": [
   {
@@ -24,11 +24,11 @@
   },
   {
    "batch": "wav",
-   "files": 294,
-   "mb": 15387.7,
+   "files": 301,
+   "mb": 15562.7,
    "stats": 0,
-   "new_files": 1,
-   "new_mb": 42.4,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -405,8 +405,8 @@
    "files": 6,
    "mb": 84.9,
    "stats": 0,
-   "new_files": 6,
-   "new_mb": 84.9,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -477,8 +477,8 @@
    "files": 1,
    "mb": 42.4,
    "stats": 0,
-   "new_files": 1,
-   "new_mb": 42.4,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -567,8 +567,8 @@
    "files": 2,
    "mb": 33.6,
    "stats": 0,
-   "new_files": 1,
-   "new_mb": 24.9,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -666,8 +666,8 @@
    "files": 3,
    "mb": 24.9,
    "stats": 0,
-   "new_files": 3,
-   "new_mb": 24.9,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -770,6 +770,15 @@
    "newest": "2026-10-10"
   },
   {
+   "batch": "哭砂",
+   "files": 4,
+   "mb": 17.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
    "batch": "沉响20261009",
    "files": 26,
    "mb": 17.5,
@@ -858,6 +867,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-13"
+  },
+  {
+   "batch": "红豆",
+   "files": 3,
+   "mb": 14.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
   },
   {
    "batch": "新不了情",
@@ -977,15 +995,6 @@
    "newest": "2026-10-13"
   },
   {
-   "batch": "哭砂",
-   "files": 3,
-   "mb": 10.6,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-10"
-  },
-  {
    "batch": "part8",
    "files": 1,
    "mb": 10.1,
@@ -1014,15 +1023,6 @@
   },
   {
    "batch": "月圆花好",
-   "files": 1,
-   "mb": 9.4,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-10"
-  },
-  {
-   "batch": "红豆",
    "files": 1,
    "mb": 9.4,
    "stats": 0,
@@ -1125,8 +1125,8 @@
    "files": 3,
    "mb": 8.0,
    "stats": 0,
-   "new_files": 3,
-   "new_mb": 8.0,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -1146,6 +1146,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-21"
+  },
+  {
+   "batch": "天边",
+   "files": 2,
+   "mb": 7.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
   },
   {
    "batch": "part7",
@@ -1670,15 +1679,6 @@
    "newest": "2026-10-11"
   },
   {
-   "batch": "天边",
-   "files": 1,
-   "mb": 3.5,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-11"
-  },
-  {
    "batch": "着魔",
    "files": 1,
    "mb": 3.4,
@@ -1695,6 +1695,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-08"
+  },
+  {
+   "batch": "漫长的告别",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
   },
   {
    "batch": "床前明月光",
@@ -1755,8 +1764,8 @@
    "files": 1,
    "mb": 3.1,
    "stats": 0,
-   "new_files": 1,
-   "new_mb": 3.1,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-10-14"
   },
   {
@@ -2028,6 +2037,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-25"
+  },
+  {
+   "batch": "今宵多珍重",
+   "files": 1,
+   "mb": 1.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
   },
   {
    "batch": "十年",
