@@ -244,6 +244,13 @@ def main() -> int:
         c["hook_markers"] = [k for k in sw if k in ("冲突标记", "自嘲口吻", "道具动作")]
         c["hook_marker_n"] = len(c["hook_markers"])
         c["why"] = "命中：" + "、".join(sw) if sw else ""
+        # 原始语料噪声标记（**只标记、不改写**；与 hook_miner.noise_flags 同口径）
+        try:
+            _flags = hm.noise_flags(" ".join(str(c.get(k) or "") for k in ("hook", "quote", "evidence")))
+        except Exception:
+            _flags = []
+        c["raw_noise"] = bool(_flags)
+        c["raw_noise_reasons"] = _flags
         c["evidence"] = redact(c.get("evidence"))
         rows.append(c)
 

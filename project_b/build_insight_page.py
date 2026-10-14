@@ -138,8 +138,9 @@ _hooks = HK.get("hooks") or []
 _shown, _skipped = [], 0
 for h in _hooks:
     blob = " ".join(str(h.get(k) or "") for k in ("hook", "quote", "risk", "evidence"))
-    if BANNED_RE.search(blob):
-        # 含平台侧措辞或感叹号的原始语料：**不在本页展示**（不改动池里的数据）
+    # 2026-10-14：优先用**生成期打好的 raw_noise 标记**（hook_miner.noise_flags，只标记不改写），
+    # 正则黑名单只作兜底。含平台侧措辞/感叹号/断裂空格的原始语料不在本页展示（池里保留原句）。
+    if h.get("raw_noise") or BANNED_RE.search(blob):
         _skipped += 1
         continue
     _shown.append(h)

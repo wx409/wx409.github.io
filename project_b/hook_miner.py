@@ -345,6 +345,30 @@ def novelty_index() -> dict:
     return used
 
 
+def noise_flags(text: str) -> list:
+    """原始语料噪声标记（**只标记、不改写**）。
+
+    命中任一项即 raw_noise=true：
+      · 平台侧措辞：HYPE 词表（爆火/引爆/上热点/全网…）
+      · 感叹号（含全角）
+      · 空格噪声：**断裂型**空格——空格把「字＋虚词/标点」劈开，如「热情 了」「备战第一次公演， 对我来说」。
+        仅用于区分「转录断裂」与标题里的正常空格（如「王晰六巡 明天」不算）。
+      · 隐私词：PRIVATE 词表
+    """
+    t = str(text or "")
+    flags = []
+    if any(x in t for x in HYPE):
+        flags.append("平台侧措辞")
+    if re.search(r"[!！]", t):
+        flags.append("感叹号")
+    if re.search(r"[\u4e00-\u9fff][ \u3000]+(?=[了的着过是在和我你他她它们吗呢吧啊、，。])"
+                 r"|(?<=[了的着过是在、，。])[ \u3000]+[\u4e00-\u9fff]", t):
+        flags.append("空格噪声")
+    if any(x in t for x in PRIVATE):
+        flags.append("隐私词")
+    return flags
+
+
 def score(c: dict, used: dict) -> dict:
     txt = hun(c.get("hook", "") + c.get("evidence", ""))
     h = hits(txt)
@@ -475,6 +499,14 @@ def build_pool(args) -> dict:
     cands += comment_candidates()
     cands += acoustic_candidates()
     scored = [score(c, used) for c in cands]
+    # 2026-10-14：给**原始语料**打噪声标记（只标记、不改写）。
+    # 下游展示层可据此跳过含平台侧措辞/感叹号/空格噪声的条目，避免有人手改原句。
+    for c in scored:
+        # 注意：**只扫原始语料字段**（hook/quote/evidence），不扫 risk ——
+        # risk 是我们自己写的禁忌说明（常含「不得当全网声量」这类否定句），纳入会误伤。
+        flags = noise_flags(" ".join(str(c.get(k) or "") for k in ("hook", "quote", "evidence")))
+        c["raw_noise"] = bool(flags)
+        c["raw_noise_reasons"] = flags
     scored.sort(key=lambda x: -x["score_total"])
     pool = [c for c in scored if eligible(c)]
     dropped = [c for c in scored if not eligible(c)]

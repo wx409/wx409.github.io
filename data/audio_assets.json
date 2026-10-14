@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-14T09:08:07",
+  "generated_at": "2026-10-14T14:08:10",
   "since": "2026-10-14",
-  "batches": 249,
-  "files": 2335,
-  "gb": 77.6,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1365,
-  "stage_rows": 737,
-  "claimable": 590,
-  "claimable_soft": 300
+  "batches": 256,
+  "files": 2353,
+  "gb": 77.84,
+  "new_files": 16,
+  "new_mb": 230.6,
+  "stats_total": 1379,
+  "stage_rows": 744,
+  "claimable": 597,
+  "claimable_soft": 302
  },
  "batches": [
   {
@@ -24,12 +24,12 @@
   },
   {
    "batch": "wav",
-   "files": 293,
-   "mb": 15345.4,
+   "files": 294,
+   "mb": 15387.7,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-13"
+   "new_files": 1,
+   "new_mb": 42.4,
+   "newest": "2026-10-14"
   },
   {
    "batch": "wav_分P逐曲",
@@ -401,6 +401,15 @@
    "newest": "2026-09-16"
   },
   {
+   "batch": "wav_串烧切片",
+   "files": 6,
+   "mb": 84.9,
+   "stats": 0,
+   "new_files": 6,
+   "new_mb": 84.9,
+   "newest": "2026-10-14"
+  },
+  {
    "batch": "三巡上海全场",
    "files": 21,
    "mb": 82.5,
@@ -462,6 +471,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-10"
+  },
+  {
+   "batch": "wav_一生中最爱",
+   "files": 1,
+   "mb": 42.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 42.4,
+   "newest": "2026-10-14"
   },
   {
    "batch": "X自选集",
@@ -543,6 +561,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-16"
+  },
+  {
+   "batch": "Moon River",
+   "files": 2,
+   "mb": 33.6,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 24.9,
+   "newest": "2026-10-14"
   },
   {
    "batch": "part3",
@@ -633,6 +660,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-16"
+  },
+  {
+   "batch": "Moon River_切片",
+   "files": 3,
+   "mb": 24.9,
+   "stats": 0,
+   "new_files": 3,
+   "new_mb": 24.9,
+   "newest": "2026-10-14"
   },
   {
    "batch": "牵手",
@@ -1074,6 +1110,24 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-23"
+  },
+  {
+   "batch": "英文串烧",
+   "files": 1,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "英文串烧_切片",
+   "files": 3,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 3,
+   "new_mb": 8.0,
+   "newest": "2026-10-14"
   },
   {
    "batch": "part10",
@@ -1695,6 +1749,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-10"
+  },
+  {
+   "batch": "一生中最爱",
+   "files": 1,
+   "mb": 3.1,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.1,
+   "newest": "2026-10-14"
   },
   {
    "batch": "专辑层C6复核_20260916",

@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-14T09:07:52",
+  "generated_at": "2026-10-14T14:07:54",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 8,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8000,
+  "files_scanned": 8064,
   "measured_shows_site": 52,
   "shows_with_claimable_site": 50,
-  "bv_mapped": 101
+  "bv_mapped": 102
  },
  "shows": [
   {
@@ -998,32 +998,32 @@
      "detail": "BV1D34y1R7fC｜橄榄树｜三巡广州20211204"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1SQ4y1e7Dg｜Moon River｜三巡广州20211204"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "切片1_MoonRiver｜Moon River"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "切片3_YouNeededMe｜You Needed Me"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "切片2_CloseToYou｜Close to You"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "三巡广州20211204_BV1D34y1R7fC｜橄榄树"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1D34y1R7fC"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "三巡广州20211204_BV1D34y1R7fC.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1D34y1R7fC"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "三巡广州20211204_BV1D34y1R7fC_f0.csv"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 23
   },
   {
    "date": "2022-01-09",

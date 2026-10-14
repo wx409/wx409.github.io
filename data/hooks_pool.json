@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-14T13:43:11",
+ "generated_at": "2026-10-14T14:08:21",
  "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
  "rules": {
   "时间标记": {
@@ -104,7 +104,9 @@
     "talk 为本地 ASR 转写，未人工校对（引用须标注）"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "笔记直接用「低音超绝」当钩子标签（8 处）",
@@ -117,7 +119,8 @@
    "t_abs_s": null,
    "t_hms": "",
    "n": 8,
-   "review_status": "confirmed",
+   "raw_noise": false,
+   "raw_noise_reasons": [],
    "score_story": 2.0,
    "score_evidence": 2.0,
    "score_novelty": 2.0,
@@ -140,7 +143,8 @@
    "kind": "acoustic",
    "t_abs_s": 695.9,
    "t_hms": "",
-   "review_status": "confirmed",
+   "raw_noise": false,
+   "raw_noise_reasons": [],
    "score_story": 1.0,
    "score_evidence": 3.0,
    "score_novelty": 2.0,
@@ -170,7 +174,9 @@
     "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "一口气 16.5 秒不换气",
@@ -192,7 +198,9 @@
     "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   }
  ],
  "dropped": [
@@ -215,7 +223,9 @@
     "talk 为本地 ASR 转写，未人工校对（引用须标注）"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "≥10 秒的长音有 8 条",
@@ -236,7 +246,9 @@
     "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "最低稳定音 B1 61.5Hz",
@@ -258,7 +270,9 @@
     "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "72 首里 44 首低于 E2",
@@ -280,7 +294,9 @@
     "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "八年 8 张专辑，颤音速率极差 0.27Hz",
@@ -302,7 +318,9 @@
     "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "「后来我发现原来我是同事」",
@@ -323,7 +341,9 @@
     "talk 为本地 ASR 转写，未人工校对（引用须标注）"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "评论区把「bossa」当成这版的谈资（4 处）",
@@ -344,7 +364,9 @@
     "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "评论区把「沙锤」当成编曲记忆点（4 处）",
@@ -365,7 +387,9 @@
     "属第三方 UGC 语料，引用需匿名化；不得当全网声量"
    ],
    "blocked": false,
-   "used_by": []
+   "used_by": [],
+   "raw_noise": false,
+   "raw_noise_reasons": []
   }
  ],
  "discipline": "平台机制表述为经验性认知（非官方）；禁写爆火/引爆全网/上热点；绝不写入逝者/私域信息（命中即拦下）；音视频不入 git、不上页面。"

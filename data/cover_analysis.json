@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-14T09:08:11",
+ "generated_at": "2026-10-14T14:08:15",
  "stat": {
-  "generated_at": "2026-10-14T09:08:10",
+  "generated_at": "2026-10-14T14:08:13",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -346,6 +346,15 @@
     "low_cv": 0.0632
    },
    {
+    "song": "Close to You",
+    "versions": 4,
+    "low_median": 74.2,
+    "low_iqr": 1.6,
+    "low_range": 3.2,
+    "high_median": 865.8,
+    "low_cv": 0.0162
+   },
+   {
     "song": "静止了的夜晚",
     "versions": 4,
     "low_median": 65.8,
@@ -436,15 +445,6 @@
     "low_cv": 0.1127
    },
    {
-    "song": "Close to You",
-    "versions": 3,
-    "low_median": 73.7,
-    "low_iqr": 0.9,
-    "low_range": 1.8,
-    "high_median": 872.0,
-    "low_cv": 0.01
-   },
-   {
     "song": "夜色",
     "versions": 3,
     "low_median": 97.0,
@@ -506,7 +506,7 @@
   "own_live_low_median": 83.2,
   "cover_live_low_median": 86.4,
   "own_n": 29,
-  "cover_n": 170,
+  "cover_n": 174,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

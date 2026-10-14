@@ -1,13 +1,13 @@
 {
  "summary": {
-  "generated_at": "2026-10-14T09:07:51",
-  "rows": 737,
+  "generated_at": "2026-10-14T14:07:53",
+  "rows": 744,
   "levels": {
-   "L1": 336,
+   "L1": 339,
    "L6": 26,
    "L3": 35,
-   "L4": 2,
-   "未认领": 338
+   "未认领": 342,
+   "L4": 2
   },
   "shows_with_material": 52,
   "shows_with_claimable": 50,
@@ -90,6 +90,10 @@
    "n": 9,
    "claimable": 2
   },
+  "2021-12-04": {
+   "n": 4,
+   "claimable": 4
+  },
   "2022-09-17": {
    "n": 18,
    "claimable": 16
@@ -111,10 +115,6 @@
    "claimable": 0
   },
   "2022-01-09": {
-   "n": 1,
-   "claimable": 1
-  },
-  "2021-12-04": {
    "n": 1,
    "claimable": 1
   },
@@ -1593,6 +1593,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "切片1_MoonRiver",
+   "song": "Moon River",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-12-04",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡长沙20220624_p07_王晰三巡0624长沙全场（自存） p07 玩笑 倒叙 钢伴组曲 点歌",
    "song": "三巡长沙全场",
    "tour": "三巡",
@@ -1665,6 +1677,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "切片3_YouNeededMe",
+   "song": "You Needed Me",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-12-04",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡上海20220110_p04_王晰三巡上海站 20220110 p04 唠嗑1",
    "song": "三巡上海全场",
    "tour": "三巡",
@@ -1673,6 +1697,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "切片2_CloseToYou",
+   "song": "Close to You",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-12-04",
    "level": 1,
    "why": "日期直配"
   },
@@ -1831,6 +1867,18 @@
    "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "三巡舟山20260523_BV13MVK6uEa9",
+   "song": "一生中最爱",
+   "tour": "三巡",
+   "city": "舟山",
+   "date": "2026-05-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
   },
   {
    "tag": "三巡上海20220110_p08_王晰三巡上海站 20220110 p08 唠嗑2",
@@ -7605,6 +7653,18 @@
    "why": ""
   },
   {
+   "tag": "切片2",
+   "song": "Moon River",
+   "tour": "东演双人场（待核）",
+   "city": "北京",
+   "date": "2026-10-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "三亚20230225_BV1UX4y197Lu",
    "song": "晚风",
    "tour": "其他演出",
@@ -8181,6 +8241,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "切片3",
+   "song": "Love Me Tender",
+   "tour": "东演双人场（待核）",
+   "city": "北京",
+   "date": "2026-10-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P02_匆匆",
    "song": "",
    "tour": "其他演出",
@@ -8378,6 +8450,18 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "切片1",
+   "song": "Smoke Gets in Your Eyes",
+   "tour": "东演双人场（待核）",
+   "city": "北京",
+   "date": "2026-10-09",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,

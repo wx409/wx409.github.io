@@ -58,7 +58,11 @@
     "冲突标记"
    ],
    "hook_marker_n": 1,
-   "why": "命中：冲突标记、数字标记"
+   "why": "命中：冲突标记、数字标记",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "王晰六巡 明天，我们舞台见！",
@@ -87,7 +91,11 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：时间标记、道具动作"
+   "why": "命中：时间标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号"
+   ]
   },
   {
    "hook": "我的追光仪式感追光吧开播距离人生初舞台14 年",
@@ -116,7 +124,12 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：数字标记、道具动作"
+   "why": "命中：数字标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号",
+    "空格噪声"
+   ]
   },
   {
    "hook": "距离人生初舞台14年",
@@ -145,7 +158,11 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：数字标记、道具动作"
+   "why": "命中：数字标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号"
+   ]
   },
   {
    "hook": "王晰超话舞台的魔法 源于幕后的每一次“较真”",
@@ -175,7 +192,11 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：时间标记、数字标记、道具动作"
+   "why": "命中：时间标记、数字标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "进院团才把这首歌唱成",
@@ -201,7 +222,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：院团、东演"
+   "why": "命中：院团、东演",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "≥10 秒的长音有 8 条",
@@ -227,7 +250,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：长音、稳定"
+   "why": "命中：长音、稳定",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "最低稳定音 B1 61.5Hz",
@@ -254,7 +279,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：B1、Low C、最低稳定音"
+   "why": "命中：B1、Low C、最低稳定音",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "72 首里 44 首低于 E2",
@@ -281,7 +308,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：E2、分布、低音基线"
+   "why": "命中：E2、分布、低音基线",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "八年 8 张专辑，颤音速率极差 0.27Hz",
@@ -308,7 +337,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：颤音、八年、稳定性"
+   "why": "命中：颤音、八年、稳定性",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "2020年，让我们继续携手同行 元旦快乐",
@@ -335,7 +366,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "还记得去年16城17场的一巡",
@@ -362,7 +395,12 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号",
+    "空格噪声"
+   ]
   },
   {
    "hook": "2024年巡演第一站📍重庆🔛即将出发✈️",
@@ -389,7 +427,11 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号"
+   ]
   },
   {
    "hook": "2013年青歌赛结束后的那次经历",
@@ -416,7 +458,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "王晰的低音时间2016年的最后一期，感谢大家一年",
@@ -443,7 +487,11 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号"
+   ]
   },
   {
    "hook": "2017年第一场与中国爱乐乐团合作的音乐会",
@@ -470,7 +518,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "想起来2019年1月6日最后一次录制，我对",
@@ -497,7 +547,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "「后来我发现原来我是同事」",
@@ -523,7 +575,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：同事、自嘲"
+   "why": "命中：同事、自嘲",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "评论区把「bossa」当成这版的谈资（4 处）",
@@ -549,7 +603,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：bossa"
+   "why": "命中：bossa",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "评论区把「沙锤」当成编曲记忆点（4 处）",
@@ -575,7 +631,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：沙锤"
+   "why": "命中：沙锤",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "备战第一次公演， 对我来说最大的挑战",
@@ -602,7 +660,11 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "四巡北京站的第二场收官了，感恩一切 相信以后",
@@ -629,7 +691,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "巡演第50场，感恩同行，爱让我们一直在路上❤️",
@@ -656,7 +720,9 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "王晰2026年愿大家如骏马奔腾 自由洒脱",
@@ -683,7 +749,11 @@
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
-   "why": "命中：时间标记、数字标记"
+   "why": "命中：时间标记、数字标记",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "舞台，女儿是最珍贵的听众，也是最 严苛的评审",
@@ -714,7 +784,11 @@
     "道具动作"
    ],
    "hook_marker_n": 2,
-   "why": "命中：冲突标记、数字标记、道具动作"
+   "why": "命中：冲突标记、数字标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "期待北京站的舞台和你",
@@ -744,7 +818,11 @@
     "道具动作"
    ],
    "hook_marker_n": 2,
-   "why": "命中：冲突标记、道具动作"
+   "why": "命中：冲突标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "我没变》《给电影人的情书》舞台直拍🎬",
@@ -774,7 +852,9 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：时间标记、数字标记、道具动作"
+   "why": "命中：时间标记、数字标记、道具动作",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "我们舞台见！",
@@ -803,7 +883,12 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：时间标记、道具动作"
+   "why": "命中：时间标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "感叹号",
+    "空格噪声"
+   ]
   },
   {
    "hook": "会有我就在你耳边说话的感觉",
@@ -832,7 +917,9 @@
     "自嘲口吻"
    ],
    "hook_marker_n": 1,
-   "why": "命中：数字标记、自嘲口吻"
+   "why": "命中：数字标记、自嘲口吻",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "时间怀念的舞台，或许是一种约定",
@@ -861,7 +948,11 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：数字标记、道具动作"
+   "why": "命中：数字标记、道具动作",
+   "raw_noise": true,
+   "raw_noise_reasons": [
+    "空格噪声"
+   ]
   },
   {
    "hook": "需要你们在台下观看60",
@@ -890,7 +981,9 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：数字标记、道具动作"
+   "why": "命中：数字标记、道具动作",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "灯光就位，以声赴约，我们今晚见🎤",
@@ -919,7 +1012,9 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：时间标记、道具动作"
+   "why": "命中：时间标记、道具动作",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "灯光就位，以声赴约",
@@ -948,7 +1043,9 @@
     "道具动作"
    ],
    "hook_marker_n": 1,
-   "why": "命中：时间标记、道具动作"
+   "why": "命中：时间标记、道具动作",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   }
  ]
 }
