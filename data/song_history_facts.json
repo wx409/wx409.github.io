@@ -1,0 +1,50 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-14",
+ "what": "演唱史事实（用户确认，非测算、非推断）——与「库里无实测」的缺口分栏存放，不混读",
+ "rule": {
+  "who": "只登记用户明确确认的演唱史事实；每条必带 confirmed_by 与 confirmed_at",
+  "split": "「事实」栏＝发生过什么（可传播）；「缺口」栏＝我们测没测到（能力层读数）；两者不得互相替代",
+  "no_grade_claim": "本表不评优劣；极值音归属未定；音视频不入 git、不上页面"
+ },
+ "facts": [
+  {
+   "song": "Smoke Gets in Your Eyes",
+   "fact": "首次演唱",
+   "first_performance": {
+    "date": "2026-10-09",
+    "show": "《沉响与长歌》演唱会 北京站（王晰 × 傲日其愣）",
+    "venue": "北京天桥艺术中心·大剧场",
+    "segment": "第 16 段「英文串烧」，与《Moon River》《Love Me Tender》连唱，演唱者=王晰",
+    "evidence": "data/show_setlists/2026-10-09_北京.json（segment 16，by=王晰）",
+    "portable": true,
+    "portable_note": "可传播事实：该曲为首次演唱（此前无公开演唱记录）",
+    "scope_note": "「首次」限定在本站已核查的公开演出记录范围内；不代表绝对首次，不作「史上首次」式断言"
+   },
+   "acoustic_gap": "本站尚无该曲的人声分离实测读数（音域／长声／低音占比均缺）→ 属能力层缺口，与本条事实分栏",
+   "confirmed_by": "用户确认 2026-10-14",
+   "confirmed_at": "2026-10-14"
+  },
+  {
+   "song": "Moon River",
+   "fact": "三巡唱过",
+   "tours": ["三巡"],
+   "tour_note": "三巡（2021–2023『图景』个人巡回音乐会）曲目",
+   "evidence": "用户确认 2026-10-14；旁证见 data/song_evidence_master.json（show_count、演出记录）与 data/setlists.json 三巡各站曲目",
+   "acoustic_gap": "本站已有其他语境读数；三巡现场是否有可主张的稳定音读数，见数据层各字段",
+   "confirmed_by": "用户确认 2026-10-14",
+   "confirmed_at": "2026-10-14"
+  },
+  {
+   "song": "一生中最爱",
+   "fact": "三巡唱过",
+   "tours": ["三巡"],
+   "tour_note": "三巡（2021–2023『图景』个人巡回音乐会）曲目",
+   "evidence": "用户确认 2026-10-14；旁证见 data/song_evidence_master.json（show_count=2、idx_first）与 data/setlists.json 三巡武汉／深圳站",
+   "acoustic_gap": "本站尚无该曲的人声分离实测读数（音域／长声／低音占比均缺）→ 能力层缺口",
+   "confirmed_by": "用户确认 2026-10-14",
+   "confirmed_at": "2026-10-14"
+  }
+ ],
+ "discipline": "平台机制表述为经验性认知（非官方）；不评优劣；极值音归属未定；触达音不进标题数字位。"
+}

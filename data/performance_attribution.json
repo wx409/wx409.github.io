@@ -118,6 +118,35 @@
     "10": "小毛驴 = 摇滚版（图上标注）",
     "14": "我要你 = 沙锤（图上编曲细节标注）",
     "17": "哭砂 = 粉丝接唱（图上观众行为标注）"
+   },
+   "user_confirmed_song_history": {
+    "confirmed_by": "用户确认 2026-10-14",
+    "note": "演唱史事实（**事实栏**，可传播）——与「本站无实测读数」的**缺口栏**分开写，不混读",
+    "facts": [
+     {
+      "song": "Smoke Gets in Your Eyes",
+      "fact": "首次演唱",
+      "detail": "2026-10-09《沉响与长歌》北京站第 16 段「英文串烧」（与《Moon River》《Love Me Tender》连唱，by=王晰）为该曲**首次演唱**",
+      "portable": true,
+      "scope": "「首次」限定在本站已核查的公开演出记录范围内；不作绝对「史上首次」断言",
+      "acoustic_gap": "本站尚无该曲的人声分离实测读数（能力层缺口，另行标注）"
+     },
+     {
+      "song": "Moon River",
+      "fact": "三巡唱过",
+      "detail": "三巡（2021–2023『图景』个人巡回音乐会）曲目",
+      "portable": true,
+      "acoustic_gap": "见 data/song_evidence_master.json 该行各字段"
+     },
+     {
+      "song": "一生中最爱",
+      "fact": "三巡唱过",
+      "detail": "三巡（2021–2023『图景』个人巡回音乐会）曲目；10-10 点歌段亦唱",
+      "portable": true,
+      "acoustic_gap": "本站尚无该曲的人声分离实测读数（能力层缺口）"
+     }
+    ],
+    "data_layer": "data/song_history_facts.json（单一事实源）→ 并入 data/song_evidence_master.json 每行的 history_facts / acoustic_gap"
    }
   }
  ]

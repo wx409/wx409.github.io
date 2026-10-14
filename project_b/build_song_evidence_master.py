@@ -163,6 +163,15 @@ def main() -> int:
     idx = {C(k): v for k, v in idx_raw.items()}
 
     names = set(ac) | set(shows) | set(stage) | set(idx)
+    # ★ 演唱史事实里的曲目也要进表（哪怕其它源都没有数据）——否则「首次演唱」这类事实会漏掉
+    try:
+        import json as _json
+        for _f in (_json.loads((SITE / "data" / "song_history_facts.json").read_text(encoding="utf-8"))
+                   .get("facts") or []):
+            if _f.get("song"):
+                names.add(_f["song"])
+    except Exception:
+        pass
     names = {n for n in names if n and len(n) >= 2}
     print(f"并入曲目：{len(names)} 首")
 
@@ -188,6 +197,29 @@ def main() -> int:
         r["sources_with_data"] = sum(1 for k in ("low_hz", "show_count", "stage_materials",
                                                  "text_mentions", "voice_mentions", "idx_days")
                                      if (r.get(k) or 0))
+    # ★ 演唱史事实（用户确认；与「库里无实测」的能力层缺口**分栏存放**，不混读）
+    FACTS = SITE / "data" / "song_history_facts.json"
+    facts = {}
+    try:
+        for f in (json.loads(FACTS.read_text(encoding="utf-8")).get("facts") or []):
+            facts[f.get("song")] = f
+    except Exception as e:
+        print("[warn] song_history_facts.json 读取失败：", e)
+    for r in rows:
+        f = facts.get(r["song"])
+        if not f:
+            continue
+        r["history_facts"] = {           # 事实栏（发生了什么）
+            "fact": f.get("fact"),
+            "first_performance": f.get("first_performance"),
+            "tours": f.get("tours"),
+            "tour_note": f.get("tour_note"),
+            "evidence": f.get("evidence"),
+            "confirmed_by": f.get("confirmed_by"),
+            "confirmed_at": f.get("confirmed_at"),
+            "portable": bool((f.get("first_performance") or {}).get("portable")),
+        }
+        r["acoustic_gap"] = f.get("acoustic_gap")   # 缺口栏（我们测没测到）
     rows.sort(key=lambda r: (-r["sources_with_data"], -(r["idx_days"] or 0), -(r["text_mentions"] or 0)))
 
     cov = {"acoustic": sum(1 for r in rows if r["low_hz"]), "shows": sum(1 for r in rows if r["show_count"]),
@@ -197,6 +229,9 @@ def main() -> int:
            "index": sum(1 for r in rows if r["idx_days"])}
     OUT_JSON.write_text(json.dumps({"generated_at": datetime.now().isoformat(timespec="seconds"),
                                     "n_songs": len(rows), "coverage": cov,
+                                    "history_facts_note": "每行 `history_facts`＝用户确认的演唱史事实（可传播）；"
+                                                          "`acoustic_gap`＝能力层实测缺口。两者分栏，不得互相替代。",
+                                    "history_facts_source": "data/song_history_facts.json",
                                     "voice_source": voi_src, "rows": rows},
                                    ensure_ascii=False, indent=1), encoding="utf-8")
 
