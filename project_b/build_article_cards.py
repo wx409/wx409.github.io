@@ -188,50 +188,56 @@ def main() -> int:
     p_all, p_solo = sk.get("p_all"), sk.get("p_solo")
     n_self, n_other = sk.get("self"), sk.get("all")
     cards.append(dict(
-        id="pair_54", no=12, title="54 组配对",
-        subtitle="同一首歌：录音室版本 vs 现场版本（跨层配对）",
+        id="pair_54", no=12, title="配对 56 组",
+        subtitle="同一首歌：录音室版本 vs 现场版本（跨层配对；主口径＝全量，54 组为敏感性）",
         pillar="实测（跨层，两侧窗口不同）",
         main_numbers=[
-            {"value": n_t, "unit": "组", "label": "配对组数（去掉 2 个 ≈12 半音离群后，即此前报的 54 组口径）",
+            {"value": n_all, "unit": "组", "label": "**主口径**：全量配对组数（不做事后筛选）",
              "caliber": "pair_studio_live",
-             "source": "data/archive_stage_tour.json#live_vs_studio_pairs[].delta_semitones"
-                       "（n=56，去掉最大 2 条 = 54）"},
-            {"value": round(med_t, 1), "unit": "半音", "label": "绝对半音差中位（54 组口径）",
+             "source": "data/archive_stage_tour.json#live_vs_studio_pairs[].delta_semitones"},
+            {"value": round(med_all, 1), "unit": "半音", "label": "**主口径**：绝对半音差中位（全量）",
              "caliber": "pair_studio_live",
-             "source": "同字段（|delta_semitones| 中位，54 组子集）"},
-            {"value": round(w1_t, 1), "unit": "%", "label": "差值落在 ±1 半音内的比例（54 组口径）",
+             "source": "同字段（|delta_semitones| 中位，全量）"},
+            {"value": round(w1_all, 1), "unit": "%", "label": "**主口径**：差值落在 ±1 半音内的比例（全量）",
              "caliber": "pair_studio_live",
-             "source": "同字段（|delta| ≤ 1.0 计数占比，54 组子集）"},
-            {"value": n_all, "unit": "组", "label": f"全量配对组数（未剪裁；中位 {med_all:.1f} 半音、±1 内 {w1_all:.1f}%）",
+             "source": "同字段（|delta| ≤ 1.0 计数占比，全量）"},
+            {"value": f"{n_t} 组 / {med_t:.1f} / {w1_t:.1f}%", "unit": "组·半音·%",
+             "label": f"敏感性口径：剔除 2 个 ≈12 半音离群后（{n_t} 组 / 中位 {med_t:.1f} / {w1_t:.1f}%）",
              "caliber": "pair_studio_live",
-             "source": "同字段（全 56 条，含 2 个 ≈12 半音离群）"},
+             "source": "同字段（降序前 2 条离群：《歌颂》2021-07-23 11.9、《雪地里寄不出的求救信》"
+                       "2020-10-07 11.7）"},
             {"value": f"{p_all:.4f} / {p_solo:.4f}", "unit": "p",
-             "label": f"两组 p 值（最低稳定音：全样本 / 仅独唱）——**必须同列**",
+             "label": "两组 p 值（最低稳定音：全样本 / 仅独唱）——**必须同列**",
              "caliber": "context_compare_p",
              "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi]"
                        "{p_all,p_solo,self,all}"},
         ],
         view_reading=[
-            f"同一首歌的**录音室版本**与**现场版本**逐组配对，共 **{n_all} 组**"
-            f"（另有 2 组差值 ≈12 半音，属八度/声部误配，剪裁后为 {n_t} 组，即此前报的 54 组口径）。",
-            f"54 组口径下：绝对半音差**中位 {med_t:.1f} 个半音**，**{w1_t:.1f}%** 落在 ±1 半音之内；"
-            f"全量 56 组口径下：中位 {med_all:.1f} 半音、±1 内 {w1_all:.1f}%。**两个口径都列，不混读。**",
+            f"**主口径（全量、不做事后筛选）**：同一首歌的**录音室版本**与**现场版本**逐组配对共 "
+            f"**{n_all} 组**，绝对半音差**中位 {med_all:.1f} 个半音**，**{w1_all:.1f}%** 落在 ±1 半音之内。"
+            "不采用「先剔离群再看」的算法——**按离群值事后筛选容易被读成挑数据**，故以全量为主口径。",
+            f"**敏感性口径**（脚注）：剔除 2 个 ≈12 半音离群后为 **{n_t} 组**，中位 {med_t:.1f} 半音、"
+            f"{w1_t:.1f}% 落在 ±1 内。两个离群逐条可查：《歌颂》2021-07-23（11.9 半音）、"
+            "《雪地里寄不出的求救信》2020-10-07（11.7 半音）——量级接近一个八度，属八度/声部误配或唱段差异，"
+            "**按口径原样列出、不隐藏**。",
             f"**两组 p 值必须同列**：最低稳定音在「本人主导 vs 他人主导」两组之间，"
             f"**全样本 p = {p_all:.4f}**，**仅独唱敏感性 p = {p_solo:.4f}**——两种口径都不显著。"
             "引用时不得只取其中一个（见 `data/calibers.md` → `context_compare_p`）。",
             "跨层比较的前提：两侧窗口不同（录音室整曲 vs 现场片段），故只谈**分布与差值**，"
             "不把某一组差值当作单曲结论；现场极值音**归属未定**，不参与归属判断。",
         ],
-        view_card=[f"54 组：中位 {med_t:.1f} 半音", f"{w1_t:.1f}% 在 ±1 半音内",
+        view_card=[f"{n_all} 组：中位 {med_all:.1f} 半音（主口径）", f"{w1_all:.1f}% 在 ±1 半音内",
                    f"p={p_all:.4f} / {p_solo:.4f}（同列）"],
         caliber_lock=[],
         gate={"pass_status": "measured（跨层配对）",
-              "note": "跨层窗口不同 → 只报中位与占比；p 值两组同列"},
-        platform={"xiaohongshu": {"钩子句": f"同曲录音室 vs 现场：54 组中位只差 {med_t:.1f} 个半音",
-                                 "记忆点": f"{w1_t:.1f}% 落在 ±1 半音内"},
+              "note": "主口径＝全量（不做事后离群筛选）；敏感性口径脚注同列；p 值两组同列"},
+        platform={"xiaohongshu": {"钩子句": f"同曲录音室 vs 现场：{n_all} 组中位只差 {med_all:.1f} 个半音",
+                                 "记忆点": f"{w1_all:.1f}% 落在 ±1 半音内"},
                   "douyin": {"听觉断点": "同曲两版 A/B 切换（发布者自备素材）"}},
-        footnote=f"来源：data/archive_stage_tour.json#live_vs_studio_pairs（n={n_all}）"
-                 f"＋ data/archive_context_compare.json#sensitivity_solo_only｜生成 {TODAY}",
+        footnote=f"来源：data/archive_stage_tour.json#live_vs_studio_pairs（n={n_all}，主口径）"
+                 f"＋ data/archive_context_compare.json#sensitivity_solo_only（p 两组同列）｜"
+                 f"敏感性口径（{n_t} 组，剔 2 个 ≈12 半音离群）见主数字第 4 条｜"
+                 f"**数字现算**：素材库更新后旧稿数值会自动随卡刷新｜生成 {TODAY}",
     ))
 
     for c in cards:

@@ -64,6 +64,8 @@ FOOTER_GROUPS = [
               "index-by-song.html", "index-by-event.html", "index-by-question.html"]),
     ("声学·内容", ["topic-vibrato.html", "voice.html", "skill.html", "stage.html", "academic.html", "qa.html",
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
+                    # 演唱实测说明（2026-10-14 新增；文章版 + 可转发短句版。不进主导航）
+                    "singing.html", "singing-social.html",
                     "tavern/"]),
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
                     "acoustic-report.html", "feed.xml", "sitemap.xml", "llms.txt"]),
