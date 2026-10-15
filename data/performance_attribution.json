@@ -39,7 +39,7 @@
      "四岁的海骝马",
      "在水一方",
      "最美",
-     "唱起草原歌",
+     "唱起草原的歌",
      "我会找到你",
      "梦一场",
      "送亲歌",
@@ -156,6 +156,84 @@
      "canonical": "心爱的姑娘",
      "by": "图源 2026-10-14（10-10 No.4）"
     }
+   },
+   "night_calibers": {
+    "what": "**单晚口径**（用户裁决 2026-10-14：另立），与「两晚合并行」口径**并列保留**",
+    "counting_rule": "**双人曲与加唱『算两个人的』**（2026-10-14 用户裁决）：双人合唱曲（含加唱《生日歌》）**同时计入王晰口径与傲日口径**——即 `songs_subject` 保留双人曲；仅「同台嘉宾独唱」（`exclude_for_subject`）才从王晰口径剔除。",
+    "why_need_both": "长表一行＝两晚合并登记；此前只有合并值（勿把合并值当单场）。单晚口径用于回答「某一晚王晰唱了哪些/多少」；合并口径用于「这轮演出共覆盖多少」。",
+    "by_night": {
+     "2026-10-09": {
+      "n_numbered": 23,
+      "n_expanded": 28,
+      "n_duet_songs": 6,
+      "n_solo_only_wangxi": 11,
+      "subject_n": 17,
+      "subject_songs": [
+       "Love Me Tender",
+       "Moon River",
+       "Smoke Gets in Your Eyes",
+       "Yes or No",
+       "Your Man",
+       "乌兰巴托的夜",
+       "亲密爱人",
+       "哭砂",
+       "嘎达梅林",
+       "在路上",
+       "小毛驴",
+       "心恋",
+       "忘不了",
+       "我要你",
+       "敕勒歌",
+       "美酒加咖啡",
+       "酒歌"
+      ],
+      "duet_songs": [
+       "乌兰巴托的夜",
+       "嘎达梅林",
+       "心恋",
+       "敕勒歌",
+       "美酒加咖啡",
+       "酒歌"
+      ]
+     },
+     "2026-10-10": {
+      "n_numbered": 23,
+      "n_expanded": 28,
+      "n_duet_songs": 7,
+      "n_solo_only_wangxi": 11,
+      "subject_n": 18,
+      "subject_songs": [
+       "Love Is Over",
+       "Love Me Tender",
+       "Moon River",
+       "Smoke Gets in Your Eyes",
+       "Yes or No",
+       "Your Man",
+       "一生中最爱",
+       "乌兰巴托的夜",
+       "南屏晚钟",
+       "嘎达梅林",
+       "在路上",
+       "小毛驴",
+       "心恋",
+       "忘不了",
+       "我要你",
+       "敕勒歌",
+       "美酒加咖啡",
+       "酒歌"
+      ],
+      "duet_songs": [
+       "Love Is Over",
+       "乌兰巴托的夜",
+       "嘎达梅林",
+       "心恋",
+       "敕勒歌",
+       "美酒加咖啡",
+       "酒歌"
+      ]
+     }
+    },
+    "merged_note": "合并值 = 两晚并集去重（见 `activity_master.json` 该行 `songs_subject`）"
    }
   }
  ]
