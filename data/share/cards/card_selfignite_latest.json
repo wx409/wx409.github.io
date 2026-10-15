@@ -38,7 +38,7 @@
   }
  ],
  "view_reading": [
-  "触发源：temp/propagation_digest_light.json（2026-10-15T21:00）；阈值取自 data/propagation_watch.json#thresholds。",
+  "触发源：temp/propagation_digest_light.json（2026-10-16T00:00）；阈值取自 data/propagation_watch.json#thresholds。",
   "命中项：帖突增 是、评论突增 是、簇状（30 分钟滑动峰值 0 ≥ 5）否。",
   "定向窗 2026-10-10 20:00 – 00:00：窗内 25 条（帖 4 / 评论 21）；窗内突增 1 条。",
   "同场次样本：26 条笔记 / 1542 赞 / 176 条评论；69.2% 集中在演出当日或次晚。"
@@ -85,6 +85,6 @@
    "must_note": "发布者自备素材，本站不提供音视频；请使用官方音源，勿搬运官摄"
   }
  },
- "footnote": "口径：规则判定（data/propagation_watch.json#thresholds）；触发源 temp/propagation_digest_light.json；生成 2026-10-15｜阈值未命中不出卡",
- "generated_at": "2026-10-15"
+ "footnote": "口径：规则判定（data/propagation_watch.json#thresholds）；触发源 temp/propagation_digest_light.json；生成 2026-10-16｜阈值未命中不出卡",
+ "generated_at": "2026-10-16"
 }

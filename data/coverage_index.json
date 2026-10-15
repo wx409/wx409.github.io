@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-15T21:07:49",
+  "generated_at": "2026-10-16T00:13:19",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 8,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8120,
-  "measured_shows_site": 52,
-  "shows_with_claimable_site": 50,
-  "bv_mapped": 106
+  "files_scanned": 8158,
+  "measured_shows_site": 54,
+  "shows_with_claimable_site": 52,
+  "bv_mapped": 111
  },
  "shows": [
   {
@@ -183,6 +183,26 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV13E411r7op｜宝贝｜重庆20191019"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "重庆20191019_BV13E411r7op｜宝贝"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV13E411r7op"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "重庆20191019_BV13E411r7op.wav"
+    },
+    {
      "level": 1,
      "src": "路径日期",
      "detail": "一巡重庆20191019__BV1nE411r7BY_p1.wav"
@@ -191,19 +211,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "input_ascii.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "vocals.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "一巡重庆20191019__BV1nE411r7BY_p1.m4a"
     }
    ],
-   "n_evidence": 4
+   "n_evidence": 18
   },
   {
    "date": "2019-11-03",
@@ -258,32 +268,32 @@
      "detail": "BV1wJ411U7Wh｜天边｜海口20191116"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1GJ411m7Bv｜南海姑娘｜海口20191116"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "海口20191116_BV1wJ411U7Wh｜天边"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1wJ411U7Wh"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "海口20191116_BV1wJ411U7Wh.wav"
+     "src": "站点实测",
+     "detail": "海口20191116_BV1GJ411m7Bv｜南海姑娘"
     },
     {
      "level": 1,
      "src": "BV命中",
-     "detail": "BV1wJ411U7Wh"
+     "detail": "BV1GJ411m7Bv"
     },
     {
      "level": 1,
      "src": "路径日期",
-     "detail": "海口20191116_BV1wJ411U7Wh_f0.csv"
+     "detail": "海口20191116_BV1GJ411m7Bv.wav"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 28
   },
   {
    "date": "2019-11-29",
@@ -308,12 +318,37 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1UJ411B7gu｜月牙湾｜未知20191201"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20191201_BV1UJ411B7gu｜月牙湾"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1UJ411B7gu"
+    },
+    {
      "level": 1,
      "src": "路径日期",
-     "detail": "一巡佛山20191201__BV16J411q7ZK_p1.m4a"
+     "detail": "未知20191201_BV1UJ411B7gu.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1UJ411B7gu"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未知20191201_BV1UJ411B7gu_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 15
   },
   {
    "date": "2019-12-15",
@@ -338,6 +373,16 @@
    "level": 1,
    "evidence": [
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1bJ411x7eQ｜Your Man｜厦门20191221"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV14J411W74i｜Come to Me｜厦门20191221"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "一巡厦门20191221_p2_跟着你到天边｜跟着你到天边"
@@ -356,19 +401,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "一巡厦门20191221_p9_李彦锋红眼睛｜李彦锋红眼睛"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "一巡厦门20191221_p7_一生守候｜一生守候"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "一巡厦门20191221_p31_忘词版海阔天空｜忘词版海阔天空"
     }
    ],
-   "n_evidence": 372
+   "n_evidence": 400
   },
   {
    "date": "2019-12-28",

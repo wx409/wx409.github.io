@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-15T21:08:07",
+ "generated_at": "2026-10-16T00:13:38",
  "stat": {
-  "generated_at": "2026-10-15T21:08:06",
+  "generated_at": "2026-10-16T00:13:37",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -203,12 +203,12 @@
    },
    {
     "song": "Your Man",
-    "versions": 12,
-    "low_median": 90.2,
-    "low_iqr": 1.2,
+    "versions": 14,
+    "low_median": 90.4,
+    "low_iqr": 0.9,
     "low_range": 23.5,
     "high_median": 841.6,
-    "low_cv": 0.0636
+    "low_cv": 0.0592
    },
    {
     "song": "像雾像雨又像风",
@@ -512,10 +512,10 @@
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 83.2,
-  "cover_live_low_median": 87.0,
-  "own_n": 29,
-  "cover_n": 177,
+  "own_live_low_median": 84.4,
+  "cover_live_low_median": 87.3,
+  "own_n": 30,
+  "cover_n": 180,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

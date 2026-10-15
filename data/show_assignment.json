@@ -1,23 +1,23 @@
 {
  "summary": {
-  "generated_at": "2026-10-15T21:07:48",
-  "rows": 753,
+  "generated_at": "2026-10-16T00:13:18",
+  "rows": 759,
   "levels": {
-   "L1": 343,
+   "L1": 348,
    "L6": 26,
    "L3": 36,
-   "未认领": 345,
+   "未认领": 346,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 52,
-  "shows_with_claimable": 50,
+  "shows_with_material": 54,
+  "shows_with_claimable": 52,
   "shows_total": 64
  },
  "per_show": {
   "2019-12-21": {
-   "n": 29,
-   "claimable": 24
+   "n": 31,
+   "claimable": 26
   },
   "2020-01-02": {
    "n": 16,
@@ -36,6 +36,14 @@
    "claimable": 4
   },
   "2019-11-16": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2019-10-19": {
+   "n": 1,
+   "claimable": 1
+  },
+  "2019-12-01": {
    "n": 1,
    "claimable": 1
   },
@@ -574,8 +582,32 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "厦门20191221_BV14J411W74i",
+   "song": "Come to Me",
+   "tour": "一巡",
+   "city": "厦门",
+   "date": "2019-12-21",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "一巡厦门20191221_p22_cometome",
    "song": "cometome",
+   "tour": "一巡",
+   "city": "厦门",
+   "date": "2019-12-21",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "厦门20191221_BV1bJ411x7eQ",
+   "song": "Your Man",
    "tour": "一巡",
    "city": "厦门",
    "date": "2019-12-21",
@@ -802,6 +834,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "重庆20191019_BV13E411r7op",
+   "song": "宝贝",
+   "tour": "一巡",
+   "city": "重庆",
+   "date": "2019-10-19",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-10-19",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "一巡厦门20191221_p13_山楂",
    "song": "山楂",
    "tour": "一巡",
@@ -846,6 +890,30 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "海口20191116_BV1GJ411m7Bv",
+   "song": "南海姑娘",
+   "tour": "一巡",
+   "city": "海口",
+   "date": "2019-11-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-11-16",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20191201_BV1UJ411B7gu",
+   "song": "月牙湾",
+   "tour": "一巡",
+   "city": "佛山",
+   "date": "2019-12-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-01",
    "level": 1,
    "why": "日期直配"
   },
@@ -7496,6 +7564,18 @@
    "show_date": "2019-07-28",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "未知20220227_BV1oS4y1F7Vz",
+   "song": "Your Man",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-02-27",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
   },
   {
    "tag": "二巡上海2021_全程_p41_你",
