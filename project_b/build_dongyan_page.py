@@ -110,13 +110,42 @@ for p in proj.get("projects", []):
     if sh:
         span = sh[0]["date"] if len(sh) == 1 else "%s ~ %s" % (sh[0]["date"], sh[-1]["date"])
     parts.append('<h2>%s<span class="badge">%s</span></h2>' % (esc(p["title"]), esc(p.get("kind", ""))))
+    # ★ 2026-10-14：曲目口径改为**两栏并列**（节目编号 23｜实际歌曲 N，换算式同列），
+    #   数字从 data/show_setlists/*.json 现算，禁手写。
+    conv = ""
+    try:
+        import json as _json
+        _rows = []
+        for f in sorted((ROOT / "data" / "show_setlists").glob("*.json")):
+            j = _json.loads(f.read_text(encoding="utf-8"))
+            if "沉响" not in str((j.get("show") or {}).get("name", "")):
+                continue
+            _rows.append({
+                "date": (j.get("show") or {}).get("date", f.stem),
+                "primary": j.get("songs_count_primary") or j.get("segments_no"),
+                "total": j.get("songs_count_total"),
+                "with_encore": j.get("songs_count_total_with_encore"),
+                "conversion": j.get("songs_count_conversion", ""),
+            })
+        _rows.sort(key=lambda x: x["date"])
+        if _rows:
+            bits = []
+            for r in _rows:
+                n = r["with_encore"] or r["total"]
+                bits.append(f"{r['date']}：节目编号 <b>{r['primary']}</b>｜实际歌曲 <b>{n}</b> 首")
+            conv = ("；".join(bits)
+                    + "。换算式：" + (_rows[-1].get("conversion") or "")
+                    + "（旧文「19 段 / 26 曲」为早期口径，今以本行为准）")
+    except Exception as e:
+        conv = f"（口径读取失败：{e}）"
     parts.append('<table><tr><th>王晰的角色</th><td><span class="badge role">%s</span></td></tr>'
                  '<tr><th>主要场馆</th><td>%s</td></tr>'
                  '<tr><th>场次</th><td>共 <b>%d</b> 场%s%s</td></tr>'
-                 '<tr><th>曲目</th><td>共 <b>%d</b> 首（按长表去重）</td></tr></table>'
+                 '<tr><th>曲目</th><td>%s</td></tr></table>'
                  % (esc(p.get("role", "")), esc(p.get("venue", "")), len(sh),
                     "（%s）" % esc(span) if span else "",
-                    "，覆盖 %s" % "、".join(cities) if cities else "", len(sg)))
+                    "，覆盖 %s" % "、".join(cities) if cities else "",
+                    conv or ("共 <b>%d</b> 首（按长表去重）" % len(sg))))
     parts.append('<p class="lead">%s</p>' % esc(p.get("summary", "")))
     if p.get("facts"):
         parts.append("<h3>可引用要点</h3><ul>%s</ul>"
