@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-15T17:07:44",
+ "generated_at": "2026-10-15T21:08:07",
  "stat": {
-  "generated_at": "2026-10-15T17:07:43",
+  "generated_at": "2026-10-15T21:08:06",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -283,6 +283,15 @@
     "low_cv": 0.1654
    },
    {
+    "song": "南屏晚钟",
+    "versions": 6,
+    "low_median": 80.6,
+    "low_iqr": 2.1,
+    "low_range": 17.1,
+    "high_median": 272.9,
+    "low_cv": 0.0681
+   },
+   {
     "song": "小毛驴",
     "versions": 5,
     "low_median": 86.4,
@@ -317,15 +326,6 @@
     "low_range": 46.4,
     "high_median": 725.8,
     "low_cv": 0.2214
-   },
-   {
-    "song": "南屏晚钟",
-    "versions": 5,
-    "low_median": 80.7,
-    "low_iqr": 1.2,
-    "low_range": 17.1,
-    "high_median": 325.0,
-    "low_cv": 0.0715
    },
    {
     "song": "再见我的爱人",

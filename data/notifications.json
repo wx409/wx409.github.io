@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-15 18:31:24",
+ "updated_at": "2026-10-15 21:00:36",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2695,6 +2695,37 @@
    "title": "⚠ 索引源不可读（本次未更新歌曲证据总表）",
    "content": "索引源不可读（Excel 判定失败/文件被占用）：FileNotFoundError(2, 'No such file or directory')；已保留既有 JSON，未写空表。排查：`（本机 E 盘）index_records\\raw_archive\\raw_latest.xlsx` 是否正被采集端写入（属已知竞态，稍后重跑即可）；若长期不可读再查该文件本身。",
    "category": "通知"
+  },
+  {
+   "time": "2026-10-15 21:00:36",
+   "title": "📣 【王晰】《敕勒歌》4K竖屏字幕 | 此曲只应天上有 | 沉响与长歌 ...",
+   "content": "1 天前&ensp;&#0183;&ensp;好勇的打法，好顶的唱功，谁是美酒谁是咖啡一目了然【美酒加咖啡】【4k】王晰x傲日其愣“沉响与长歌”北京演唱 …\n链接：https://www.bilibili.com/video/BV1m1p26qEGa/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1m1p26qEGa/"
+  },
+  {
+   "time": "2026-10-15 21:00:36",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛稀缺的真&#183;男低音（Bass-baritone）——姚峰称他「作为 Bass-baritone 的 …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-10-15 21:00:36",
+   "title": "📣 王晰真的是男低音么？ - 知乎",
+   "content": "2020年4月26日&ensp;&#0183;&ensp;首先，《歌手》修音的程度之严重我就不想说什么了； 其次，本人其实不大喜欢王晰的演唱（请注意不是声音是演 …\n链接：https://www.zhihu.com/question/40568290",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/40568290"
+  },
+  {
+   "time": "2026-10-15 21:00:36",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
