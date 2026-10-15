@@ -110,7 +110,33 @@
    "idx_median": 530.0,
    "idx_peak": 5605.0,
    "idx_first": "2023-01-01",
-   "sources_with_data": 5
+   "sources_with_data": 5,
+   "dual_source_check": {
+    "sources": [
+     {
+      "id": "BV1DtpQ6sE8c",
+      "noise_floor_dbfs": -34.88,
+      "hnr_db": 1.83,
+      "dyn_range_db": 6.48,
+      "dur_s": 203.1
+     },
+     {
+      "id": "BV1GTpn6BEFm",
+      "noise_floor_dbfs": -32.24,
+      "hnr_db": 3.08,
+      "dyn_range_db": 5.28,
+      "dur_s": 191.5
+     }
+    ],
+    "delta": {
+     "noise_floor_db": 2.64,
+     "hnr_db": 1.25
+    },
+    "threshold": "Δ噪声底 ≤−3dB 或 ΔHNR ≥+3dB 才可论证升格",
+    "verdict": "两源均未达升格门槛 → 维持触达/样本级",
+    "consistency": "同曲同场，互不矛盾；差异量级小，不评优劣",
+    "attribution": "极值音归属未定"
+   }
   },
   {
    "song": "哭砂",
@@ -204,7 +230,17 @@
     "confirmed_at": "2026-10-14",
     "portable": false
    },
-   "acoustic_gap": "录音室**无该曲**；**现场已实测**：三巡舟山 2026-05-23（低稳定 E2 80.7Hz／跨度 3.45 八度／384 音符；来源 BV13MVK6uEa9，二次制作·待听辨；极值音归属未定）"
+   "acoustic_gap": "录音室**无该曲**；**现场已实测**：三巡舟山 2026-05-23（低稳定 E2 80.7Hz／跨度 3.45 八度／384 音符；来源 BV13MVK6uEa9，二次制作·待听辨；极值音归属未定）",
+   "cross_venue_note": {
+    "zhoushan_20260523": {
+     "bv": "BV13MVK6uEa9",
+     "low_stable": "E2",
+     "low_hz": 80.7,
+     "source_verdict": "重制(二次制作)·待听辨"
+    },
+    "new_studio_post": "未取到（微博 cookie 失效）→ 同场双源待补",
+    "caliber_diff": "个人巡演场 vs 双人演唱会；整曲 vs 点歌段；手机实录 vs 中控台 → 只比量级，不作优劣"
+   }
   },
   {
    "song": "小河",
