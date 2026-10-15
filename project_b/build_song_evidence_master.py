@@ -18,6 +18,7 @@ import argparse
 import json
 import re
 import sys
+import time
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -145,7 +146,41 @@ def main() -> int:
                             "bv": r.get("bv"), "review_status": r.get("review_status"),
                             "attribution": "极值音归属未定（现场实测口径）"}
                 break
-    df = load_idx()
+    # ── 索引源读取：**显式降级守卫**（2026-10-15 批准）─────────────────────────
+    # 背景：权威源 E:\wx\index_records\raw_archive\raw_latest.xlsx **采集端可能正在重写该文件**
+    #      （每次采集后落盘）→ pandas 会报「Excel file format cannot be determined」。
+    #      **这是已知竞态，不是坏文件**（2026-10-15 诊断：魔数 504B0304＝合法 xlsx、大小/mtime 三证齐全，
+    #      复测即可读）。故：① 先自动重试 1 次（间隔数秒）② 仍失败则**保留既有 JSON、不覆盖不清空**，
+    #      打印日志 + 站内通知 + 明确退出码 4；**绝不静默出空表**（与 build_cross_wording 的 FIELD_MAP 守卫同规矩）。
+    def _try_load_idx():
+        try:
+            return load_idx(), ""
+        except Exception as e:
+            return None, repr(e)[:200]
+
+    df, err = _try_load_idx()
+    if df is None:
+        print(f"[warn] 索引源首次读取失败：{err}")
+        print("[warn] 判定为**已知竞态**（采集端可能在重写 raw_latest.xlsx）→ 3 秒后重试 1 次")
+        time.sleep(3)
+        load_idx.cache_clear() if hasattr(load_idx, "cache_clear") else None
+        df, err2 = _try_load_idx()
+        if df is None:
+            reason = f"索引源不可读（Excel 判定失败/文件被占用）：{err2}"
+            print(f"[X] {reason}")
+            print(f"[X] 本次**不更新** {OUT_JSON.name}（保留上一次的 JSON，未清空、未写空表）")
+            try:
+                sys.path.insert(0, str(SITE / "project_b"))
+                import notify
+                notify.record("⚠ 索引源不可读（本次未更新歌曲证据总表）",
+                              reason + "；已保留既有 JSON，未写空表。"
+                              "排查：`E:\\wx\\index_records\\raw_archive\\raw_latest.xlsx` 是否正被采集端写入"
+                              "（属已知竞态，稍后重跑即可）；若长期不可读再查该文件本身。")
+                print("[X] 已写站内通知（notifications.html）")
+            except Exception as e2:
+                print(f"[X] 站内通知失败（不致命）：{e2}")
+            return 4          # 明确退出码：上层可见，不静默
+        print("[ok] 重试成功（竞态已过）")
     g = df.dropna(subset=["current_index"])
     g = g[g["current_index"] > 0]
     idx_raw = {}

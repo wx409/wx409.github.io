@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-15 14:00:33",
+ "updated_at": "2026-10-15 18:31:24",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2689,6 +2689,12 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-10-15 18:31:24",
+   "title": "⚠ 索引源不可读（本次未更新歌曲证据总表）",
+   "content": "索引源不可读（Excel 判定失败/文件被占用）：FileNotFoundError(2, 'No such file or directory')；已保留既有 JSON，未写空表。排查：`（本机 E 盘）index_records\\raw_archive\\raw_latest.xlsx` 是否正被采集端写入（属已知竞态，稍后重跑即可）；若长期不可读再查该文件本身。",
+   "category": "通知"
   }
  ]
 }
