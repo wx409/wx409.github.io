@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-10-14 15:16",
+ "generated_at": "2026-10-15 17:50",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 223,
   "dispatch": 223,
   "deploy_steps": 91,
-  "scheduled_tasks": 10
+  "scheduled_tasks": 11
  },
  "tasks": [
   {
@@ -868,7 +868,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/10/14 22:00:00",
+    "next": "2026/10/15 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -1372,7 +1372,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/10/15 10:00:00",
+    "next": "2026/10/16 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1480,7 +1480,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/10/15 12:00:00",
+    "next": "2026/10/16 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1586,7 +1586,7 @@
     "name": "wx409_show_intake",
     "script": "night_show_intake.py",
     "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
-    "next": "2026/10/14 23:30:00",
+    "next": "2026/10/15 23:30:00",
     "type": "Daily",
     "start": "23:30:00"
    },
@@ -1715,7 +1715,7 @@
     "name": "wx409_propagation_watch_daily",
     "script": "propagation_watch.py",
     "cmd": "D:\\wx409.github.io\\run_propagation_watch_daily.bat",
-    "next": "2026/10/14 23:40:00",
+    "next": "2026/10/15 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -1906,7 +1906,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/10/14 23:58:00",
+    "next": "2026/10/15 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -2044,9 +2044,22 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/10/14 21:00:00",
+    "next": "2026/10/15 21:00:00",
     "type": "Daily",
     "start": "21:00:00"
+   },
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "task:wx409_social_daily",
+   "schedule": {
+    "name": "wx409_social_daily",
+    "script": "",
+    "cmd": "D:\\wx409.github.io\\run_social_daily.bat",
+    "next": "2026/10/16 9:30:00",
+    "type": "Daily",
+    "start": "9:30:00"
    },
    "in_deploy": false,
    "path": ""

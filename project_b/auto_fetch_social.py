@@ -212,16 +212,44 @@ def run(cmd, cwd):
     return r.returncode, (tail[-1][:160] if tail else "")
 
 
+def already_ran_today() -> str:
+    """同日去重：返回今天已跑过的时间戳（未跑过返回空串）。
+
+    ★ 2026-10-15 补：开机自启**只在登录时触发**——这台机器 2026-10-08 开机后从未重启，
+    抓取连续多日没有触发机会。故新增每日兜底计划任务（09:30）与启动文件夹**并存**，
+    并用本函数保证**同一自然日只成功跑一次**（以 state.json 的 `last_run_ok` 为准）。
+    """
+    s = _state()
+    lr = s.get("last_run_ok") or {}
+    return lr.get("at", "") if lr.get("date") == datetime.now().strftime("%Y-%m-%d") else ""
+
+
+def mark_ran_today(note: str = "") -> None:
+    s = _state()
+    s["last_run_ok"] = {"date": datetime.now().strftime("%Y-%m-%d"),
+                        "at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "note": note}
+    _save_state(s)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--platform", default="", help="weibo|xhs，留空=全部")
+    ap.add_argument("--force", action="store_true", help="忽略同日去重，强制跑一次")
     a = ap.parse_args()
     if not CFG.exists():
         log("!! 缺配置文件 data/social_fetch_config.json → 退出码 2")
         return 2
     cfg = json.loads(CFG.read_text(encoding="utf-8"))
-    log(f"=== 开机自启抓取{'（dry）' if a.dry else ''} ===")
+    log(f"=== 开机自启抓取{'（dry）' if a.dry else ''}{'（force）' if a.force else ''} ===")
+
+    # 同日去重（启动项与每日兜底任务并存，靠这里互不重复）
+    if not a.force and not a.dry:
+        done = already_ran_today()
+        if done:
+            log(f"同日去重：今天（{datetime.now():%Y-%m-%d}）已于 {done} 成功跑过 → 本次跳过"
+                f"（要强制跑加 --force）")
+            return 0
 
     if a.platform in ("", "weibo"):
         st = check_weibo(cfg)
@@ -276,6 +304,26 @@ def main() -> int:
                     rc, t = run([sys.executable, "-X", "utf8", x["script"], "--url", url],
                                 cwd=str(Path(x["script"]).parent))
                     log(f"  {x['label']}：rc={rc}｜{t}")
+    # 只有全部平台 cookie「有效」才记为「今日已成功跑过」（否则下次仍应重试）
+    if not a.dry:
+        s = _state()
+        try:
+            st_weibo = None
+            if a.platform in ("", "weibo"):
+                st_weibo = check_weibo(cfg)
+            st_xhs = None
+            if a.platform in ("", "xhs"):
+                st_xhs = check_xhs()
+            states = {k: v for k, v in (("微博", st_weibo), ("小红书", st_xhs)) if v is not None}
+            bad = {k: v for k, v in states.items() if v != "有效"}
+        except Exception as e:
+            bad, states = {"unknown": repr(e)[:60]}, {}
+        if not bad:
+            mark_ran_today("all-cookie-valid")
+            log("已记「今日成功跑过」（同日去重生效：启动项与每日兜底不再重复）")
+        else:
+            log(f"未记「今日成功跑过」：登录态异常 {bad} → 下次（含每日兜底）会重试，"
+                f"以便 cookie 更新后自动补齐")
     log("=== 完成（单平台失败不影响其它）===")
     return 0
 
