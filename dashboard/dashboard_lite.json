@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-10-16 13:10",
- "last_update": "2026-10-16 13:10",
+ "timestamp": "2026-10-16 18:06",
+ "last_update": "2026-10-16 18:06",
  "date_range": "2023-01-01 ~ 2026-10-16",
  "total": 281965,
  "complete_rate": 20.3,
@@ -202,7 +202,7 @@
   11.5,
   54.8,
   55.6,
-  18.1
+  18.4
  ],
  "top_songs": [
   {
@@ -260,85 +260,7 @@
    "tag": "上涨"
   }
  ],
- "daily_listen_trend": [
-  {
-   "rank": 1,
-   "song": "黎明前的黑暗",
-   "share_pct": 60.8,
-   "trend_pct": 7.9,
-   "trend_label": "up"
-  },
-  {
-   "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 7.4,
-   "trend_pct": 58.3,
-   "trend_label": "up"
-  },
-  {
-   "rank": 3,
-   "song": "山楂树",
-   "share_pct": 5.6,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 4,
-   "song": "在路上",
-   "share_pct": 4.9,
-   "trend_pct": -21.9,
-   "trend_label": "down"
-  },
-  {
-   "rank": 5,
-   "song": "她真漂亮",
-   "share_pct": 4.7,
-   "trend_pct": 20.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 6,
-   "song": "一生中最爱",
-   "share_pct": 4.1,
-   "trend_pct": -43.2,
-   "trend_label": "down"
-  },
-  {
-   "rank": 7,
-   "song": "Sound of Silence",
-   "share_pct": 3.7,
-   "trend_pct": -26.9,
-   "trend_label": "down"
-  },
-  {
-   "rank": 8,
-   "song": "哭砂",
-   "share_pct": 3.3,
-   "trend_pct": 30.8,
-   "trend_label": "up"
-  },
-  {
-   "rank": 9,
-   "song": "再叙",
-   "share_pct": 2.1,
-   "trend_pct": -15.4,
-   "trend_label": "down"
-  },
-  {
-   "rank": 10,
-   "song": "南屏晚钟",
-   "share_pct": 1.7,
-   "trend_pct": -18.2,
-   "trend_label": "down"
-  },
-  {
-   "rank": 11,
-   "song": "相思",
-   "share_pct": 1.7,
-   "trend_pct": 12.5,
-   "trend_label": "up"
-  }
- ],
+ "daily_listen_trend": [],
  "daily_anomalies": [],
  "latest_anomaly": null,
  "weekend_workday": [
@@ -8554,12 +8476,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-10-09",
-   "avg_index": 348.2,
-   "total_songs": 253,
-   "complete": true
-  },
-  {
    "date": "2026-10-10",
    "avg_index": 369.1,
    "total_songs": 254,
@@ -8592,6 +8508,12 @@
   {
    "date": "2026-10-15",
    "avg_index": 364.5,
+   "total_songs": 253,
+   "complete": true
+  },
+  {
+   "date": "2026-10-16",
+   "avg_index": null,
    "total_songs": 253,
    "complete": true
   }
