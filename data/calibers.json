@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16 09:08",
+ "generated_at": "2026-10-16 14:08",
  "count": 66,
  "calibers": [
   {
@@ -69,7 +69,7 @@
   {
    "id": "topic_card_numbers",
    "label": "专题卡数字口径（14 张卡）",
-   "value": "14 张卡 / 主数字 47 项 / caliber-lock 30 项",
+   "value": "14 张卡 / 主数字 46 项 / caliber-lock 30 项",
    "scope": "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·八年只漂 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气）",
    "source": "data/share/cards/",
    "note": "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。"
