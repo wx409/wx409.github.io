@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-17 16:10",
-  "count": 67,
+  "generated_at": "2026-10-17 16:18",
+  "count": 71,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -249,6 +249,38 @@
       "scope": "站点图表所用指数长表的实际覆盖天数",
       "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
       "note": "已发布长表唯一日期；2022-12-31 至 2026-10-16；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+    },
+    {
+      "id": "pairing_full_56",
+      "label": "同曲配对（主口径·全量）",
+      "value": "56 组 / 中位 1.7 半音 / 41.1% 在 ±1 半音内",
+      "scope": "同一首歌 studio↔现场 的绝对半音差；**主口径＝全量、不做事后离群筛选**",
+      "source": "data/share/cards/card_pair_54.json#main_numbers",
+      "note": "敏感性口径（剔除 2 个约 12 半音离群）：54 组 / 1.6 半音 / 42.6%——脚注并列，不替代主口径"
+    },
+    {
+      "id": "pairing_excl_outliers_54",
+      "label": "同曲配对（敏感性·剔除离群）",
+      "value": "54 组 / 1.6 / 42.6%",
+      "scope": "剔除两个约 12 半音的离群配对后的敏感性口径",
+      "source": "data/share/cards/card_pair_54.json#main_numbers（第 4 项）",
+      "note": "只作稳健性参考；对外引用以主口径 56 组为准"
+    },
+    {
+      "id": "pairing_p_full",
+      "label": "配对差异 p 值（全部配对）",
+      "value": 0.2131,
+      "scope": "自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对）",
+      "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all",
+      "note": ""
+    },
+    {
+      "id": "pairing_p_solo_only",
+      "label": "配对差异 p 值（仅独唱）",
+      "value": 0.1975,
+      "scope": "同一检验的敏感性口径（仅独唱场次）",
+      "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo",
+      "note": ""
     },
     {
       "id": "point_song_source",

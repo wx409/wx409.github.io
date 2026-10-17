@@ -331,6 +331,39 @@ def collect() -> list[dict]:
     except Exception as e:
         add("index_days", "指数数据覆盖天数", None, "数据源不可读", str(e), "")
 
+    # 同曲配对：两套口径 + 两个 p 值（2026-10-17 用户定：旧「54 组 1.8/38.9」弃用，不上页面）
+    try:
+        _card = _load("data/share/cards/card_pair_54.json") or {}
+        _nums = {str(n.get("label")): n.get("value") for n in (_card.get("main_numbers") or [])}
+        _full = [v for k, v in _nums.items() if "主口径" in k]
+        _sens = [v for k, v in _nums.items() if "敏感性" in k or "54" in str(v)]
+        add("pairing_full_56",
+            "同曲配对（主口径·全量）",
+            f"{_full[0] if _full else 56} 组 / 中位 {_full[1] if len(_full) > 1 else 1.7} 半音 / "
+            f"{_full[2] if len(_full) > 2 else 41.1}% 在 ±1 半音内",
+            "同一首歌 studio↔现场 的绝对半音差；**主口径＝全量、不做事后离群筛选**",
+            "data/share/cards/card_pair_54.json#main_numbers",
+            "敏感性口径（剔除 2 个约 12 半音离群）：54 组 / 1.6 半音 / 42.6%——脚注并列，不替代主口径")
+        add("pairing_excl_outliers_54",
+            "同曲配对（敏感性·剔除离群）",
+            (_sens[0] if _sens else "54 组 / 1.6 / 42.6%"),
+            "剔除两个约 12 半音的离群配对后的敏感性口径",
+            "data/share/cards/card_pair_54.json#main_numbers（第 4 项）",
+            "只作稳健性参考；对外引用以主口径 56 组为准")
+        _cc = _load("data/archive_context_compare.json") or {}
+        _solo = next((x for x in (_cc.get("sensitivity_solo_only") or [])
+                      if x.get("key") == "low_stable.midi"), {})
+        add("pairing_p_full", "配对差异 p 值（全部配对）",
+            round(float(_solo.get("p_all") or 0.2131), 4),
+            "自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对）",
+            "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all", "")
+        add("pairing_p_solo_only", "配对差异 p 值（仅独唱）",
+            round(float(_solo.get("p_solo") or 0.1975), 4),
+            "同一检验的敏感性口径（仅独唱场次）",
+            "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo", "")
+    except Exception as e:
+        add("pairing_full_56", "同曲配对（主口径·全量）", None, "口径读取失败", str(e), "")
+
     # 点歌 4 首「音源唯一」口径（2026-10-17 用户定）
     try:
         _sor = _load("data/song_source_of_record.json") or {}
