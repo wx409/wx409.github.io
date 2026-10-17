@@ -101,11 +101,11 @@ STEPS = [
     (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),
     # 2026-09-13 瘦身 2.0：精简版 7 页（对外主入口）由单一生成器派生，禁止手写数字
     (ROOT / "project_b" / "build_golden_quotes.py", "金句档案 golden_quotes 图层（跨来源，带证据级别）", True),
-    # 分享作战室内容链（2026-10-13 入链）：词条 → 卡片 → 自动卡 → 分享页 → 精简版页（引导条的卡片数从目录派生）
+    # 素材与引用内容链（2026-10-13 入链）：词条 → 卡片 → 自动卡 → 分享页 → 精简版页（引导条的卡片数从目录派生）
     (ROOT / "project_b" / "build_share_entries.py", "词条库 data/share/entries.json（8 条，数字全部派生）", True),
     (ROOT / "project_b" / "build_topic_cards.py", "专题卡库 data/share/cards + rendered（数字全部派生）", True),
     (ROOT / "project_b" / "build_auto_cards.py", "自动卡（每周发现／自燃信号；未达条件不出卡）", False),
-    (ROOT / "project_b" / "build_share_page.py", "分享作战室 share.html + 竖屏分享卡页", True),
+    (ROOT / "project_b" / "build_share_page.py", "素材与引用 share.html + 竖屏分享卡页", True),
     # ── 洞察层链路（2026-10-14 接入；「数据更新 → 洞察页自动更新」闭环）──
     #   顺序即依赖：语言画像/措辞差表 → 结论文案 → 钩子池 → 图 → 洞察页；
     #   全部 non-fatal（False）：失败不阻断部署，只影响洞察页新鲜度。

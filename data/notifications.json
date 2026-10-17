@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-17 15:12:06",
+ "updated_at": "2026-10-17 16:04:18",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -2805,6 +2805,18 @@
    "time": "2026-10-17 15:12:06",
    "title": "🔄 大屏 daemon 已被看门狗拉起",
    "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 23280）。此前 dashboard_data.json 距上次更新 7.1 分钟。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-17 16:02:43",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 24604）。此前 dashboard_data.json 距上次更新 48.0 分钟。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-17 16:04:18",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 14408）。此前 dashboard_data.json 距上次更新 49.6 分钟。",
    "category": "通知"
   }
  ]

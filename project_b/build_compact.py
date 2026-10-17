@@ -40,7 +40,7 @@ UPDATED = "2026-09-13"
 
 
 def share_promo(single_quote: bool = False) -> str:
-    """分享作战室引导条：**卡片数与卡名一律从 data/share/cards/ 派生**（禁手写）。
+    """素材与引用引导条：**卡片数与卡名一律从 data/share/cards/ 派生**（禁手写）。
 
     本文件是生成器不是数据源，故这里只做「读目录 → 拼字符串」，新增卡片自动生效。
     """
@@ -59,11 +59,11 @@ def share_promo(single_quote: bool = False) -> str:
     btn = (f"<a href={q}share.html{q} style={q}display:inline-block;margin-top:8px;"
            f"background:#a8323d;color:#fff;padding:10px 20px;border-radius:8px;"
            f"font-weight:700;font-size:15px;text-decoration:none{q}>"
-           f"🎁 给粉丝的素材包 → 分享作战室</a>")
+           f"素材与引用 →</a>")
     hint = (f"<span style={q}color:#8a7f6d;font-size:12.5px;margin-left:10px{q}>"
             f"直达 <code>wx409.github.io/share.html</code></span>")
     return (f"<div style={q}background:#fffbe8;border-left:3px solid #d9c46a;padding:12px 14px;"
-            f"margin:12px 0{q}>🧰 <b>分享作战室</b>：{n} 张专题卡（{names}）＋ 单曲 TOP10 ＋ "
+            f"margin:12px 0{q}>🧰 <b>素材与引用</b>：{n} 张专题卡（{names}）＋ 单曲 TOP10 ＋ "
             f"三层挖词表 ＋ 作战地图 ＋ 平台模板与使用纪律（经验性认知，非官方）<br>{btn}{hint}</div>")
 
 

@@ -1,7 +1,7 @@
 {
- "schema": 2,
- "generated_at": "2026-10-17T15:14:13",
- "caliber": "钩子=data/hooks_pick.json(picked)；证据=entries.json；风格约束=copy_style.json（真语料 26 笔记/121 评论）；预览用，不自动发布",
+ "schema": 3,
+ "generated_at": "2026-10-17T16:05:20",
+ "caliber": "钩子=hooks_pick；证据=entries；风格=copy_style（真语料）；留白≤3 且为选项式；预览用",
  "style": {
   "ruler": {
    "lines_median": 2.0,
@@ -84,6 +84,26 @@
    "断层第一"
   ]
  },
+ "slots": [
+  {
+   "id": "night_seat",
+   "priority": 1,
+   "text": "〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕",
+   "hint": "不填也能发（删掉方括号直发），但填了才像你"
+  },
+  {
+   "id": "reaction",
+   "priority": 2,
+   "text": "〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕",
+   "hint": "不填也能发（删掉方括号直发），但填了才像你"
+  },
+  {
+   "id": "own_line",
+   "priority": 3,
+   "text": "〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+   "hint": "不填也能发（删掉方括号直发），但填了才像你"
+  }
+ ],
  "n_hooks": 2,
  "items": [
   {
@@ -92,7 +112,7 @@
     "低音超绝"
    ],
    "footnote": {
-    "source": "data/hooks_pool.json#hooks（规则抽取得分见 hook_miner.py#RULES）",
+    "source": "data/hooks_pool.json#hooks",
     "grade": "实测/语料命中（见证据表）",
     "taboo": [
      "不得夸大为平台级量级",
@@ -100,21 +120,57 @@
     ]
    },
    "four": {
-    "小红书": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n现场那一句出来，我先愣了一下。\n〔你来补：你在哪一场、坐在哪边〕\n就这一下。\n〔你来补：你当时脑子里冒出来的那句话〕\n\n#王晰 #低音超绝 #现场",
-    "微博": "笔记直接用「低音超绝」当钩子标签（8 处）\n出处：data/hooks_pool.json#hooks（规则抽取得分见 hook_miner.py#RULES）\n〔你来补：你听的是哪一场〕",
-    "抖音": "【钩子句】笔记直接用「低音超绝」当钩子标签（8 处）\n【3 秒开头】笔记直接用「低音超绝」当钩子标签（8 处）\n【中段事实】语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题 请速巡演之 - 《我要你》4K字幕@王晰  \n【CTA】想听完整的，去翻原片\n【留白】〔你来补：你的第一反应〕\n【字幕要点】低音超绝",
-    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n〔你来补：当天的一个具体场景〕\n\n这是测量结果，不是形容。"
+    "小红书": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n现场那一句出来，我先愣了一下。\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n\n就这一下。\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕\n\n#王晰 #低音超绝 #现场",
+    "微博": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n出处：data/hooks_pool.json#hooks\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+    "抖音": "【钩子句】笔记直接用「低音超绝」当钩子标签（8 处）\n【3 秒开头】笔记直接用「低音超绝」当钩子标签（8 处）\n【中段事实】语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题 请速巡演之 - 《我要你》4K字幕@王晰  \n【CTA】想听完整的，去翻原片\n【留白】〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n【字幕要点】低音超绝",
+    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n\n这是测量结果，不是形容。"
+   },
+   "zero_fill": {
+    "小红书": "笔记直接用「低音超绝」当钩子标签（8 处）\n现场那一句出来，我先愣了一下。\n就这一下。\n#王晰 #低音超绝 #现场",
+    "微博": "笔记直接用「低音超绝」当钩子标签（8 处）\n出处：data/hooks_pool.json#hooks",
+    "抖音": "【钩子句】笔记直接用「低音超绝」当钩子标签（8 处）\n【3 秒开头】笔记直接用「低音超绝」当钩子标签（8 处）\n【中段事实】语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题 请速巡演之 - 《我要你》4K字幕@王晰\n【CTA】想听完整的，去翻原片\n【留白】\n【字幕要点】低音超绝",
+    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n这是测量结果，不是形容。"
+   },
+   "filled_example": {
+    "小红书": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n现场那一句出来，我先愣了一下。\n10-09 首场，坐左边靠过道\n\n那句尾音落下去，我下意识屏住呼吸\n\n就这一下。\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕\n\n#王晰 #低音超绝 #现场",
+    "微博": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n出处：data/hooks_pool.json#hooks\n10-09 首场，坐左边靠过道\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+    "抖音": "【钩子句】笔记直接用「低音超绝」当钩子标签（8 处）\n【3 秒开头】笔记直接用「低音超绝」当钩子标签（8 处）\n【中段事实】语料命中「低音超绝」8 处；例：0人能走出王晰唱的我要你 感谢东演，感谢樊导，帮忙解决版权问题 请速巡演之 - 《我要你》4K字幕@王晰  \n【CTA】想听完整的，去翻原片\n【留白】那句尾音落下去，我下意识屏住呼吸\n【字幕要点】低音超绝",
+    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n10-09 首场，坐左边靠过道\n那句尾音落下去，我下意识屏住呼吸\n\n这是测量结果，不是形容。"
+   },
+   "slots": [
+    {
+     "id": "night_seat",
+     "priority": 1,
+     "text": "〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕",
+     "hint": "不填也能发（删掉方括号直发），但填了才像你"
+    },
+    {
+     "id": "reaction",
+     "priority": 2,
+     "text": "〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕",
+     "hint": "不填也能发（删掉方括号直发），但填了才像你"
+    },
+    {
+     "id": "own_line",
+     "priority": 3,
+     "text": "〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+     "hint": "不填也能发（删掉方括号直发），但填了才像你"
+    }
+   ],
+   "fill_count": {
+    "小红书": 3,
+    "微博": 2,
+    "抖音": 1,
+    "传记体": 2
    },
    "four_score": {
     "小红书": {
      "platform": "小红书",
-     "lines": 6,
+     "lines": 7,
      "lines_ok": true,
      "line_lens": [
       15,
-      16,
       5,
-      19,
       0
      ],
      "line_over_limit": [],
@@ -123,12 +179,11 @@
      "emoji_ok": true,
      "tags": 3,
      "tags_ok": true,
-     "tags_at_tail": true,
-     "fill_slots": 2,
+     "fill_slots": 3,
      "fill_ok": true,
+     "fill_le3": true,
      "numbers": 0,
      "numbers_ok": true,
-     "first_person": true,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -143,11 +198,10 @@
     },
     "微博": {
      "platform": "微博",
-     "lines": 3,
+     "lines": 4,
      "lines_ok": true,
      "line_lens": [
-      37,
-      13
+      23
      ],
      "line_over_limit": [
       1
@@ -155,14 +209,13 @@
      "line_max_ok": true,
      "emoji": 0,
      "emoji_ok": true,
-     "tags": 2,
+     "tags": 1,
      "tags_ok": true,
-     "tags_at_tail": true,
-     "fill_slots": 1,
+     "fill_slots": 2,
      "fill_ok": true,
+     "fill_le3": true,
      "numbers": 0,
      "numbers_ok": true,
-     "first_person": false,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -184,7 +237,6 @@
       28,
       74,
       15,
-      16,
       10
      ],
      "line_over_limit": [
@@ -197,12 +249,11 @@
      "emoji_ok": true,
      "tags": 0,
      "tags_ok": true,
-     "tags_at_tail": false,
      "fill_slots": 1,
      "fill_ok": true,
+     "fill_le3": true,
      "numbers": 1,
      "numbers_ok": true,
-     "first_person": true,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -217,11 +268,10 @@
     },
     "传记体": {
      "platform": "传记体",
-     "lines": 3,
+     "lines": 4,
      "lines_ok": true,
      "line_lens": [
       17,
-      15,
       12
      ],
      "line_over_limit": [],
@@ -230,12 +280,11 @@
      "emoji_ok": true,
      "tags": 0,
      "tags_ok": true,
-     "tags_at_tail": false,
-     "fill_slots": 1,
+     "fill_slots": 2,
      "fill_ok": true,
+     "fill_le3": true,
      "numbers": 0,
      "numbers_ok": true,
-     "first_person": false,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -249,25 +298,159 @@
      "pass": true
     }
    },
+   "zero_score": {
+    "小红书": {
+     "platform": "小红书",
+     "lines": 4,
+     "lines_ok": true,
+     "line_lens": [
+      15,
+      5,
+      0
+     ],
+     "line_over_limit": [],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 3,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 0,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    },
+    "微博": {
+     "platform": "微博",
+     "lines": 2,
+     "lines_ok": true,
+     "line_lens": [
+      23
+     ],
+     "line_over_limit": [
+      1
+     ],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 1,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 0,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    },
+    "抖音": {
+     "platform": "抖音",
+     "lines": 6,
+     "lines_ok": true,
+     "line_lens": [
+      26,
+      28,
+      74,
+      15,
+      4,
+      10
+     ],
+     "line_over_limit": [
+      1,
+      2,
+      3
+     ],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 0,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 1,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    },
+    "传记体": {
+     "platform": "传记体",
+     "lines": 2,
+     "lines_ok": true,
+     "line_lens": [
+      17,
+      12
+     ],
+     "line_over_limit": [],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 0,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 0,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    }
+   },
    "tones": {
     "口语": {
-     "text": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n我就在现场。\n就这一下\n〔你来补：你身边的反应〕",
+     "text": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n我就在现场。\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n就这一下。",
      "params": {
       "句长中位": 10,
-      "短句率": 69.0,
       "第一人称": true
      }
     },
     "编辑": {
-     "text": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n读数与出处：data/hooks_pool.json#hooks（规则抽取得分见 hook_miner.py#RULES）\n口径：实测/语料命中（见证据表）\n不作平台量级推断。",
+     "text": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n读数与出处：data/hooks_pool.json#hooks\n口径：实测/语料命中（见证据表）\n不作平台量级推断。",
      "params": {
       "硬事实": 2,
-      "第一人称": false,
-      "禁形容词": true
+      "第一人称": false
      }
     },
     "粉丝": {
-     "text": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n不是吹，这个数据摆在这儿。\n〔你来补：你存的那张截图/那一段〕\n想看原片的自己去找。",
+     "text": "笔记直接用「低音超绝」当钩子标签（8 处）\n\n不是吹，这个数据摆在这儿。\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕\n想看原片的自己去找。",
      "params": {
       "热情": true,
       "禁夸词": [
@@ -282,123 +465,15 @@
      }
     }
    },
-   "tone_score": {
-    "口语": {
-     "platform": "小红书",
-     "lines": 4,
-     "lines_ok": true,
-     "line_lens": [
-      6,
-      4,
-      12
-     ],
-     "line_over_limit": [],
-     "line_max_ok": true,
-     "emoji": 0,
-     "emoji_ok": true,
-     "tags": 0,
-     "tags_ok": false,
-     "tags_at_tail": false,
-     "fill_slots": 1,
-     "fill_ok": true,
-     "numbers": 0,
-     "numbers_ok": true,
-     "first_person": true,
-     "anti_patterns": [],
-     "banned_words": [],
-     "checks": {
-      "lines": true,
-      "em": true,
-      "tg": false,
-      "fl": true,
-      "nm": true,
-      "ln": true
-     },
-     "pass": false
-    },
-    "编辑": {
-     "platform": "小红书",
-     "lines": 4,
-     "lines_ok": true,
-     "line_lens": [
-      40,
-      16,
-      9
-     ],
-     "line_over_limit": [
-      1
-     ],
-     "line_max_ok": false,
-     "emoji": 0,
-     "emoji_ok": true,
-     "tags": 2,
-     "tags_ok": false,
-     "tags_at_tail": true,
-     "fill_slots": 0,
-     "fill_ok": false,
-     "numbers": 0,
-     "numbers_ok": true,
-     "first_person": false,
-     "anti_patterns": [],
-     "banned_words": [],
-     "checks": {
-      "lines": true,
-      "em": true,
-      "tg": false,
-      "fl": false,
-      "nm": true,
-      "ln": false
-     },
-     "pass": false
-    },
-    "粉丝": {
-     "platform": "小红书",
-     "lines": 4,
-     "lines_ok": true,
-     "line_lens": [
-      13,
-      17,
-      10
-     ],
-     "line_over_limit": [],
-     "line_max_ok": true,
-     "emoji": 0,
-     "emoji_ok": true,
-     "tags": 0,
-     "tags_ok": false,
-     "tags_at_tail": false,
-     "fill_slots": 1,
-     "fill_ok": true,
-     "numbers": 0,
-     "numbers_ok": true,
-     "first_person": false,
-     "anti_patterns": [],
-     "banned_words": [],
-     "checks": {
-      "lines": true,
-      "em": true,
-      "tg": false,
-      "fl": true,
-      "nm": true,
-      "ln": true
-     },
-     "pass": false
-    }
-   },
    "usage": {
     "用途": "小红书图文（本套亦含微博/抖音/传记体）",
     "预计发布时机": "演出后 48h 内",
     "必须修改的 1–3 处": [
-     "〔你来补〕的位置",
-     "标签换成你所在城市/场次",
-     "确认数字与出处一致"
-    ]
-   },
-   "banned_hits": {
-    "小红书": [],
-    "微博": [],
-    "抖音": [],
-    "传记体": []
+     "〔选一个：哪一场 / 哪个位置〕",
+     "〔从三句里挑一句，或改成你自己的〕",
+     "〔填一句当天的小细节〕"
+    ],
+    "提示": "不填也能发（删掉方括号直发），但填了才像你；零填版见每套下方"
    }
   },
   {
@@ -409,7 +484,7 @@
     "十六秒"
    ],
    "footnote": {
-    "source": "data/hooks_pool.json#hooks（规则抽取得分见 hook_miner.py#RULES）",
+    "source": "data/hooks_pool.json#hooks",
     "grade": "实测/语料命中（见证据表）",
     "taboo": [
      "不得夸大为平台级量级",
@@ -417,21 +492,57 @@
     ]
    },
    "four": {
-    "小红书": "一口气 16.5 秒不换气\n\n现场那一句出来，我先愣了一下。\n〔你来补：你在哪一场、坐在哪边〕\n就这一下。\n〔你来补：你当时脑子里冒出来的那句话〕\n\n#王晰 #长声 #一口气 #十六秒 #现场",
-    "微博": "一口气 16.5 秒不换气\n出处：data/hooks_pool.json#hooks（规则抽取得分见 hook_miner.py#RULES）\n〔你来补：你听的是哪一场〕",
-    "抖音": "【钩子句】一口气 16.5 秒不换气\n【3 秒开头】一口气 16.5 秒不换气\n【中段事实】data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, \n【CTA】想听完整的，去翻原片\n【留白】〔你来补：你的第一反应〕\n【字幕要点】长声 / 一口气 / 十六秒",
-    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n〔你来补：当天的一个具体场景〕\n\n这是测量结果，不是形容。"
+    "小红书": "一口气 16.5 秒不换气\n\n现场那一句出来，我先愣了一下。\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n\n就这一下。\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕\n\n#王晰 #长声 #一口气 #十六秒 #现场",
+    "微博": "一口气 16.5 秒不换气\n\n出处：data/hooks_pool.json#hooks\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+    "抖音": "【钩子句】一口气 16.5 秒不换气\n【3 秒开头】一口气 16.5 秒不换气\n【中段事实】data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, \n【CTA】想听完整的，去翻原片\n【留白】〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n【字幕要点】长声 / 一口气 / 十六秒",
+    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n\n这是测量结果，不是形容。"
+   },
+   "zero_fill": {
+    "小红书": "一口气 16.5 秒不换气\n现场那一句出来，我先愣了一下。\n就这一下。\n#王晰 #长声 #一口气 #十六秒 #现场",
+    "微博": "一口气 16.5 秒不换气\n出处：data/hooks_pool.json#hooks",
+    "抖音": "【钩子句】一口气 16.5 秒不换气\n【3 秒开头】一口气 16.5 秒不换气\n【中段事实】data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5,\n【CTA】想听完整的，去翻原片\n【留白】\n【字幕要点】长声 / 一口气 / 十六秒",
+    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n这是测量结果，不是形容。"
+   },
+   "filled_example": {
+    "小红书": "一口气 16.5 秒不换气\n\n现场那一句出来，我先愣了一下。\n10-09 首场，坐左边靠过道\n\n那句尾音落下去，我下意识屏住呼吸\n\n就这一下。\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕\n\n#王晰 #长声 #一口气 #十六秒 #现场",
+    "微博": "一口气 16.5 秒不换气\n\n出处：data/hooks_pool.json#hooks\n10-09 首场，坐左边靠过道\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+    "抖音": "【钩子句】一口气 16.5 秒不换气\n【3 秒开头】一口气 16.5 秒不换气\n【中段事实】data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, \n【CTA】想听完整的，去翻原片\n【留白】那句尾音落下去，我下意识屏住呼吸\n【字幕要点】长声 / 一口气 / 十六秒",
+    "传记体": "他把这一句唱完，台下没有立刻鼓掌。\n10-09 首场，坐左边靠过道\n那句尾音落下去，我下意识屏住呼吸\n\n这是测量结果，不是形容。"
+   },
+   "slots": [
+    {
+     "id": "night_seat",
+     "priority": 1,
+     "text": "〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕",
+     "hint": "不填也能发（删掉方括号直发），但填了才像你"
+    },
+    {
+     "id": "reaction",
+     "priority": 2,
+     "text": "〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕",
+     "hint": "不填也能发（删掉方括号直发），但填了才像你"
+    },
+    {
+     "id": "own_line",
+     "priority": 3,
+     "text": "〔填当天的天气／排队／邻座的一句吐槽，一句就够〕",
+     "hint": "不填也能发（删掉方括号直发），但填了才像你"
+    }
+   ],
+   "fill_count": {
+    "小红书": 3,
+    "微博": 2,
+    "抖音": 1,
+    "传记体": 2
    },
    "four_score": {
     "小红书": {
      "platform": "小红书",
-     "lines": 6,
+     "lines": 7,
      "lines_ok": true,
      "line_lens": [
       15,
-      16,
       5,
-      19,
       0
      ],
      "line_over_limit": [],
@@ -440,12 +551,11 @@
      "emoji_ok": true,
      "tags": 5,
      "tags_ok": true,
-     "tags_at_tail": true,
-     "fill_slots": 2,
+     "fill_slots": 3,
      "fill_ok": true,
-     "numbers": 1,
+     "fill_le3": true,
+     "numbers": 0,
      "numbers_ok": true,
-     "first_person": true,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -460,11 +570,10 @@
     },
     "微博": {
      "platform": "微博",
-     "lines": 3,
+     "lines": 4,
      "lines_ok": true,
      "line_lens": [
-      37,
-      13
+      23
      ],
      "line_over_limit": [
       1
@@ -472,14 +581,13 @@
      "line_max_ok": true,
      "emoji": 0,
      "emoji_ok": true,
-     "tags": 2,
+     "tags": 1,
      "tags_ok": true,
-     "tags_at_tail": true,
-     "fill_slots": 1,
+     "fill_slots": 2,
      "fill_ok": true,
-     "numbers": 1,
+     "fill_le3": true,
+     "numbers": 0,
      "numbers_ok": true,
-     "first_person": false,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -501,7 +609,6 @@
       20,
       55,
       15,
-      16,
       20
      ],
      "line_over_limit": [
@@ -512,12 +619,11 @@
      "emoji_ok": true,
      "tags": 1,
      "tags_ok": true,
-     "tags_at_tail": false,
      "fill_slots": 1,
      "fill_ok": true,
+     "fill_le3": true,
      "numbers": 3,
      "numbers_ok": true,
-     "first_person": true,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -532,11 +638,10 @@
     },
     "传记体": {
      "platform": "传记体",
-     "lines": 3,
+     "lines": 4,
      "lines_ok": true,
      "line_lens": [
       17,
-      15,
       12
      ],
      "line_over_limit": [],
@@ -545,12 +650,11 @@
      "emoji_ok": true,
      "tags": 0,
      "tags_ok": true,
-     "tags_at_tail": false,
-     "fill_slots": 1,
+     "fill_slots": 2,
      "fill_ok": true,
+     "fill_le3": true,
      "numbers": 0,
      "numbers_ok": true,
-     "first_person": false,
      "anti_patterns": [],
      "banned_words": [],
      "checks": {
@@ -564,25 +668,157 @@
      "pass": true
     }
    },
+   "zero_score": {
+    "小红书": {
+     "platform": "小红书",
+     "lines": 4,
+     "lines_ok": true,
+     "line_lens": [
+      15,
+      5,
+      0
+     ],
+     "line_over_limit": [],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 5,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 0,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    },
+    "微博": {
+     "platform": "微博",
+     "lines": 2,
+     "lines_ok": true,
+     "line_lens": [
+      23
+     ],
+     "line_over_limit": [
+      1
+     ],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 1,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 0,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    },
+    "抖音": {
+     "platform": "抖音",
+     "lines": 6,
+     "lines_ok": true,
+     "line_lens": [
+      18,
+      20,
+      55,
+      15,
+      4,
+      20
+     ],
+     "line_over_limit": [
+      3
+     ],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 1,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 3,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    },
+    "传记体": {
+     "platform": "传记体",
+     "lines": 2,
+     "lines_ok": true,
+     "line_lens": [
+      17,
+      12
+     ],
+     "line_over_limit": [],
+     "line_max_ok": true,
+     "emoji": 0,
+     "emoji_ok": true,
+     "tags": 0,
+     "tags_ok": true,
+     "fill_slots": 0,
+     "fill_ok": false,
+     "fill_le3": true,
+     "numbers": 0,
+     "numbers_ok": true,
+     "anti_patterns": [],
+     "banned_words": [],
+     "checks": {
+      "lines": true,
+      "em": true,
+      "tg": true,
+      "fl": false,
+      "nm": true,
+      "ln": true
+     },
+     "pass": false
+    }
+   },
    "tones": {
     "口语": {
-     "text": "一口气 16.5 秒不换气\n\n我就在现场。\n就这一下\n〔你来补：你身边的反应〕",
+     "text": "一口气 16.5 秒不换气\n\n我就在现场。\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n就这一下。",
      "params": {
       "句长中位": 10,
-      "短句率": 69.0,
       "第一人称": true
      }
     },
     "编辑": {
-     "text": "一口气 16.5 秒不换气\n\n读数与出处：data/hooks_pool.json#hooks（规则抽取得分见 hook_miner.py#RULES）\n口径：实测/语料命中（见证据表）\n不作平台量级推断。",
+     "text": "一口气 16.5 秒不换气\n\n读数与出处：data/hooks_pool.json#hooks\n口径：实测/语料命中（见证据表）\n不作平台量级推断。",
      "params": {
       "硬事实": 2,
-      "第一人称": false,
-      "禁形容词": true
+      "第一人称": false
      }
     },
     "粉丝": {
-     "text": "一口气 16.5 秒不换气\n\n不是吹，这个数据摆在这儿。\n〔你来补：你存的那张截图/那一段〕\n想看原片的自己去找。",
+     "text": "一口气 16.5 秒不换气\n\n不是吹，这个数据摆在这儿。\n〔填当天的天气／排队／邻座的一句吐槽，一句就够〕\n想看原片的自己去找。",
      "params": {
       "热情": true,
       "禁夸词": [
@@ -597,136 +833,28 @@
      }
     }
    },
-   "tone_score": {
-    "口语": {
-     "platform": "小红书",
-     "lines": 4,
-     "lines_ok": true,
-     "line_lens": [
-      6,
-      4,
-      12
-     ],
-     "line_over_limit": [],
-     "line_max_ok": true,
-     "emoji": 0,
-     "emoji_ok": true,
-     "tags": 0,
-     "tags_ok": false,
-     "tags_at_tail": false,
-     "fill_slots": 1,
-     "fill_ok": true,
-     "numbers": 1,
-     "numbers_ok": true,
-     "first_person": true,
-     "anti_patterns": [],
-     "banned_words": [],
-     "checks": {
-      "lines": true,
-      "em": true,
-      "tg": false,
-      "fl": true,
-      "nm": true,
-      "ln": true
-     },
-     "pass": false
-    },
-    "编辑": {
-     "platform": "小红书",
-     "lines": 4,
-     "lines_ok": true,
-     "line_lens": [
-      40,
-      16,
-      9
-     ],
-     "line_over_limit": [
-      1
-     ],
-     "line_max_ok": false,
-     "emoji": 0,
-     "emoji_ok": true,
-     "tags": 2,
-     "tags_ok": false,
-     "tags_at_tail": true,
-     "fill_slots": 0,
-     "fill_ok": false,
-     "numbers": 1,
-     "numbers_ok": true,
-     "first_person": false,
-     "anti_patterns": [],
-     "banned_words": [],
-     "checks": {
-      "lines": true,
-      "em": true,
-      "tg": false,
-      "fl": false,
-      "nm": true,
-      "ln": false
-     },
-     "pass": false
-    },
-    "粉丝": {
-     "platform": "小红书",
-     "lines": 4,
-     "lines_ok": true,
-     "line_lens": [
-      13,
-      17,
-      10
-     ],
-     "line_over_limit": [],
-     "line_max_ok": true,
-     "emoji": 0,
-     "emoji_ok": true,
-     "tags": 0,
-     "tags_ok": false,
-     "tags_at_tail": false,
-     "fill_slots": 1,
-     "fill_ok": true,
-     "numbers": 1,
-     "numbers_ok": true,
-     "first_person": false,
-     "anti_patterns": [],
-     "banned_words": [],
-     "checks": {
-      "lines": true,
-      "em": true,
-      "tg": false,
-      "fl": true,
-      "nm": true,
-      "ln": true
-     },
-     "pass": false
-    }
-   },
    "usage": {
     "用途": "小红书图文（本套亦含微博/抖音/传记体）",
     "预计发布时机": "演出后 48h 内",
     "必须修改的 1–3 处": [
-     "〔你来补〕的位置",
-     "标签换成你所在城市/场次",
-     "确认数字与出处一致"
-    ]
-   },
-   "banned_hits": {
-    "小红书": [],
-    "微博": [],
-    "抖音": [],
-    "传记体": []
+     "〔选一个：哪一场 / 哪个位置〕",
+     "〔从三句里挑一句，或改成你自己的〕",
+     "〔填一句当天的小细节〕"
+    ],
+    "提示": "不填也能发（删掉方括号直发），但填了才像你；零填版见每套下方"
    }
   }
  ],
  "demo": {
   "hook": "一口气 16.5 秒不换气",
   "before_machine": "值得一提的是，《我真的受伤了》中有一句长达 16.5 秒不换气的演唱，不仅展现了扎实的气息控制，而且体现了极高的专业水准。综上所述，该表现值得我们关注。让我们共同期待他未来更多精彩表现！",
-  "after_human": "那句 16 秒半，他一口没换。\n\n我在现场听的时候，先听到的是气，不是字。\n〔你来补：你当时坐在哪、周围什么反应〕\n\n#王晰 #现场 #低音",
+  "after_human": "那句 16 秒半，他一口没换。\n\n我在现场听的时候，先听到的是气，不是字。\n〔选一个场次＋位置：10-09 首场 / 10-10 第二场 ｜ 左边 / 中间 / 右边 / 前排〕\n〔从这三句里挑一句，或改成你自己的：① 我以为低音会糊，结果每个字都清楚 ② 他一开口，前排有人小声「哇」 ③ 那句尾音落下去，我下意识屏住呼吸〕\n\n#王晰 #现场 #低音",
   "changes": [
-   "删掉「值得一提的是 / 不仅…而且 / 综上所述 / 让我们」四处 AI 句式",
+   "删掉「值得一提的是／不仅…而且／综上所述／让我们」四处 AI 句式",
    "长句拆成短行（每行 ≤20 字，允许不完整句）",
-   "数字从「多处强调」压到**一个**：16 秒半",
-   "加一个只有现场才有的个人锚点（气先到、字后到）",
-   "留一处〔你来补〕，让人能把自己的位置填进去；删掉结尾的空洞祝愿句"
+   "数字压到**一个**（16 秒半）",
+   "留白改成**选项式**：场次/位置给选项、反应给三句备选",
+   "留白下加提示「不填也能发，但填了才像你」；另给零填版"
   ],
   "score_before": {
    "platform": "小红书",
@@ -743,12 +871,11 @@
    "emoji_ok": true,
    "tags": 0,
    "tags_ok": false,
-   "tags_at_tail": false,
    "fill_slots": 0,
    "fill_ok": false,
+   "fill_le3": true,
    "numbers": 1,
    "numbers_ok": true,
-   "first_person": true,
    "anti_patterns": [
     "不仅…而且…",
     "值得一提的是",
@@ -768,12 +895,11 @@
   },
   "score_after": {
    "platform": "小红书",
-   "lines": 4,
+   "lines": 5,
    "lines_ok": true,
    "line_lens": [
     15,
     20,
-    19,
     0
    ],
    "line_over_limit": [],
@@ -782,12 +908,11 @@
    "emoji_ok": true,
    "tags": 3,
    "tags_ok": true,
-   "tags_at_tail": true,
-   "fill_slots": 1,
+   "fill_slots": 2,
    "fill_ok": true,
+   "fill_le3": true,
    "numbers": 1,
    "numbers_ok": true,
-   "first_person": true,
    "anti_patterns": [],
    "banned_words": [],
    "checks": {

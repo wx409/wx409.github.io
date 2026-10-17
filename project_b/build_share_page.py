@@ -226,6 +226,8 @@ def main():
         + "<ul>" + "".join(f"<li>{esc(e['when'])}｜{esc(e['kind'])}</li>" for e in x["evidence"]) + "</ul>"
         + f"<p class='meta'>来源：{esc(x['source'])}</p></div>"
         for x in (pool.get("items") or [])) or "<p class='meta'>（暂无）</p>"
+    facts_file = D / "share" / "rendered" / "facts_section.html"
+    facts_html = facts_file.read_text(encoding="utf-8") if facts_file.exists() else ""
     cp_file = D / "share" / "rendered" / "copy_pipeline.html"
     copy_html = (cp_file.read_text(encoding="utf-8") if cp_file.exists()
                  else "<p class=meta>（未生成：跑 project_b/build_copy_pipeline.py）</p>")
@@ -234,7 +236,7 @@ def main():
         + "</ul>" for k, v in (tpl.get("templates") or {}).items() if isinstance(v, dict))
     disc = "".join(f"<li>{d}</li>" for d in (tpl.get("discipline") or DISCIPLINE))
     js = json.dumps({"@context": "https://schema.org", "@type": "CollectionPage",
-                     "name": "分享作战室", "url": "https://wx409.github.io/share.html",
+                     "name": "素材与引用", "url": "https://wx409.github.io/share.html",
                      "isPartOf": {"@type": "WebSite", "name": "AI 可读数字档案｜GEO 资料站",
                                   "url": "https://wx409.github.io/"},
                      "hasPart": [{"@type": "CreativeWork", "name": c["title"],
@@ -242,8 +244,8 @@ def main():
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>分享作战室｜{n_cards} 张卡 + {n_entries} 条词条 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
-<meta name="description" content="AI 可读数字档案｜GEO 资料站分享作战室：{n_cards} 张专题卡（{card_names_slash}）、{n_entries} 条可传播词条（钩子＋证据＋出处＋证据等级＋禁忌写法）、单曲 TOP10、三层挖词表、作战地图、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
+<title>素材与引用｜{n_cards} 张卡 + {n_entries} 条词条 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
+<meta name="description" content="AI 可读数字档案｜GEO 资料站素材与引用：{n_cards} 张专题卡（{card_names_slash}）、{n_entries} 条可传播词条（钩子＋证据＋出处＋证据等级＋禁忌写法）、单曲 TOP10、三层挖词表、作战地图、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
 <link rel="canonical" href="https://wx409.github.io/share.html">
 <script type="application/ld+json">{js}</script>
 <style>
@@ -259,10 +261,13 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 .warn{{background:#fffbe8;border-left:3px solid #d9c46a;padding:8px 12px}}
 </style></head><body>
 <!-- NAV_START --><!-- NAV_END -->
-<h1>🧰 分享作战室</h1>
+<h1>素材与引用</h1>
+<p class="meta">📖 <b>怎么用</b>：先看 <a href="使用说明-四件套.html">使用说明（四件套）</a>——勾选 → 预览 → 改掉〔你来补〕→ 自检 5 条 → 再发布。</p>
 <p class="meta">生成 {TODAY}｜<b>经验性认知（非官方）</b>：本页为本站基于公开材料的经验性整理，非官方发布｜
 数字一律派生自 <code>data/</code>，口径见 <code>data/calibers.md</code></p>
 <div class="warn">本页<strong>不进主导航</strong>，仅在 <a href="community.html">社群页</a> 强链；仅供站主自用与授权合作者参考。</div>
+
+{facts_html}
 
 <h2>① 卡片库（{n_cards} 张）</h2>
 <p class="meta">每卡两视图：本页为阅读视图；竖屏截图视图 = <code>share.html?card=&lt;id&gt;</code>（例：?card=vibrato）</p>

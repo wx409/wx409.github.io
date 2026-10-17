@@ -81,7 +81,7 @@ def main() -> int:
     if sp.exists():
         t = sp.read_text(encoding="utf-8")
         if "使用说明-四件套.html" not in t:
-            anchor = "<h1>🧰 分享作战室</h1>"
+            anchor = "<h1>素材与引用</h1>"
             if anchor in t:
                 t = t.replace(anchor, anchor + "\n<p class=\"meta\">📖 先看 <a href=\"使用说明-四件套.html\">"
                                              "使用说明（四件套）</a>：怎么勾选、怎么改、怎么自检。</p>", 1)

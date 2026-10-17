@@ -68,7 +68,7 @@ FOOTER_GROUPS = [
                     "singing.html", "singing-social.html",
                     "tavern/"]),
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
-                    # 2026-10-14：分享作战室**不进顶部主导航**（不稀释主站），
+                    # 2026-10-14：素材与引用**不进顶部主导航**（不稀释主站），
                     # 但必须在底部全站索引入口（可达性修复：此前只在 community 强链，用户找不到）
                     "share.html",
                     # 2026-10-14：洞察层（结论＋成稿文案＋出处）同样不进主导航、进底部索引
@@ -80,7 +80,7 @@ FOOTER_GROUPS = [
 #   - 404/kb-semantic/social_wall：无完整骨架或无导航需求
 #   - archive-index.html：完整档案索引页（仍是私密页，不进主导航）
 SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html",
-        # 2026-10-11：分享作战室与竖屏分享卡**不进主导航**（用户拍板；仅从 community 强链）
+        # 2026-10-11：素材与引用与竖屏分享卡**不进主导航**（用户拍板；仅从 community 强链）
         "share.html",
         # 2026-10-13：竖屏分享卡改为**按目录派生**——新增卡片自动纳入 SKIP，
         # 避免新卡漏网后被注入顶部导航条（与其余竖屏卡样式不一致）
