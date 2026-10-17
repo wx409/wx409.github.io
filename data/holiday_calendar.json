@@ -1,0 +1,968 @@
+{
+ "generated_at": "2026-10-17T15:00:57",
+ "source": "holiday-cn（与 project_b/night_shutdown_gate.py 共用本地缓存）",
+ "rule": "关机 ⇔ 周一~周五 且 非法定节假日 且 非调休上班日；周六/周日/节假日/调休一律不关机",
+ "window_days": 120,
+ "days": [
+  {
+   "date": "2026-10-17",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-10-18",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-10-19",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-20",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-21",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-22",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-23",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-24",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-10-25",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-10-26",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-27",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-28",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-29",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-30",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-10-31",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-01",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-02",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-03",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-04",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-05",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-06",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-07",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-08",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-09",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-10",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-11",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-12",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-13",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-14",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-15",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-16",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-17",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-18",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-19",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-20",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-21",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-22",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-23",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-24",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-25",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-26",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-27",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-11-28",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-29",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-11-30",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-01",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-02",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-03",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-04",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-05",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-06",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-07",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-08",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-09",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-10",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-11",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-12",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-13",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-14",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-15",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-16",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-17",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-18",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-19",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-20",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-21",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-22",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-23",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-24",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-25",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-26",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-27",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2026-12-28",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-29",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-30",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2026-12-31",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-01",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-02",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-03",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-04",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-05",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-06",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-07",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-08",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-09",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-10",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-11",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-12",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-13",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-14",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-15",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-16",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-17",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-18",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-19",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-20",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-21",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-22",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-23",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-24",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-25",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-26",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-27",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-28",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-29",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-01-30",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-01-31",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-02-01",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-02",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-03",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-04",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-05",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-06",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-02-07",
+   "weekday": "周日",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-02-08",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-09",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-10",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-11",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-12",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-13",
+   "weekday": "周六",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": false,
+   "reason": "周末（不关机）"
+  }
+ ]
+}

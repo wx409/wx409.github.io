@@ -151,34 +151,35 @@ def main() -> int:
             skip_dates.append(target.isoformat())
         rows.append((target, "✅ 不关机" if skip else "❌ 会关机", "＋".join(why) or "工作日"))
 
-    # 组装文件（保留原注释与手动行，只替换受管区块）
-    old = SKIP_FILE.read_text(encoding="utf-8") if SKIP_FILE.exists() else ""
-    head = old.split(START)[0].rstrip()
-    # 兜底：脚本长期未跑时，静态星期行仍生效
-    for wd in (("周六", "周日", "周一") if mode != "all"
-               else ("周一", "周二", "周三", "周四", "周五", "周六", "周日")):
-        if re.search(r"^%s$" % wd, head, re.M) is None:
-            head += "\n" + wd
-    if START not in old:
-        head = old.rstrip() + "\n\n# 目标日（次日 01:30）命中下列日期 → 不关机；本区块由脚本自动维护\n"
-    body = [START] + skip_dates + [END]
-    new = head + "\n" + "\n".join(body) + "\n"
+    # ★ 2026-10-17 用户裁决（方案 A）：本脚本**不再写 shutdown_skip.txt**——
+    #   自动关机决策已迁到 `project_b/night_shutdown_gate.py` + 计划任务 `wx409_night_shutdown`；
+    #   shutdown_skip.txt 已改为「周一~周日全列」，使旧生成器永不下发关机（避免两套机制互抢）。
+    #   本脚本现在只负责：① 维护本地日历缓存 ② 导出 `data/holiday_calendar.json`（供 gate/审计/页面引用）。
+    cal = []
+    for i in range(a.days):
+        target = today + timedelta(days=i)
+        iso = target.isoformat()
+        makeup = any(x.get("date") == iso and not x.get("isOffDay") for x in all_days)
+        off = iso in offdays
+        shutdown_ok = (target.weekday() < 5) and not off and not makeup
+        cal.append({"date": iso, "weekday": WD_NAME[target.weekday()],
+                    "is_holiday": off, "is_makeup": makeup,
+                    "shutdown_ok": shutdown_ok,
+                    "reason": ("法定节假日" if off else "调休上班日（不关机）" if makeup
+                               else "周末（不关机）" if target.weekday() >= 5 else "普通工作日（关机）")})
 
-    print(f"\n将写入 {len(skip_dates)} 个豁免日期（窗口 {today} ~ {today + timedelta(days=a.days - 1)}）")
-    print("\n=== 未来 14 天验证表 ===")
-    print(f"{'目标日(次日01:30)':<20}{'判定':<12}依据")
-    for d, verdict, why in rows[:14]:
-        print(f"{d.isoformat():<20}{d.strftime('%a'):<5}{verdict:<12}{why}")
-
+    out = Path(r"D:\wx409.github.io\data\holiday_calendar.json")
+    out.write_text(json.dumps({
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "source": "holiday-cn（与 project_b/night_shutdown_gate.py 共用本地缓存）",
+        "rule": "关机 ⇔ 周一~周五 且 非法定节假日 且 非调休上班日；周六/周日/节假日/调休一律不关机",
+        "window_days": a.days,
+        "days": cal,
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"\n已写出 {out}（{len(cal)} 天）")
+    print("（不再写 E:\\wx\\shutdown_skip.txt —— 关机决策已由 night_shutdown_gate.py 接管）")
     if a.dry:
-        print("\n[dry] 未写入文件")
-        return 0
-    if SKIP_FILE.exists():
-        bak = SKIP_FILE.with_suffix(f".bak_{datetime.now():%Y%m%d_%H%M}.txt")
-        shutil.copy2(SKIP_FILE, bak)
-        print("\n已备份 →", bak.name)
-    SKIP_FILE.write_text(new, encoding="utf-8")
-    print("已写入", SKIP_FILE)
+        print("[dry] 未写入 data/holiday_calendar.json")
     return 0
 
 
