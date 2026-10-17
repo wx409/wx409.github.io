@@ -30,6 +30,7 @@ except Exception:
 SITE = Path(r"D:\wx409.github.io")
 CSV = Path(r"E:\wx\wx_textmine_out\music_index_long.csv")
 OUT = SITE / "data" / "index_freshness.json"
+BATCH = SITE / "data" / "index_batches.json"
 
 
 def load_dates() -> list[str]:
@@ -72,6 +73,16 @@ def main() -> int:
             missing.append(cursor)
         cursor += timedelta(days=1)
 
+    # ★ 2026-10-17：只有「白天中间批」的日期 = **待最终批**，不算缺日（不静默跳过）
+    pending_final = []
+    try:
+        b = json.loads(BATCH.read_text(encoding="utf-8"))
+        pend = set(b.get("pending_final") or [])
+        pending_final = [d.isoformat() for d in missing if d.isoformat() in pend]
+        missing = [d for d in missing if d.isoformat() not in pend]
+    except Exception:
+        pending_final = []
+
     recent = [d for d in missing if d >= expect - timedelta(days=a.recent)]
     year = [d for d in missing if d >= expect - timedelta(days=365)]
 
@@ -97,6 +108,8 @@ def main() -> int:
         "missing_ranges_year": ranges(year),
         "streak_no_gap_days": streak,
         "status": "ok" if not missing else "gap",
+        "pending_final": pending_final,
+        "pending_final_note": "这些日期只有白天/傍晚的中间批，**等当日最终批（23:56 那批）**，不算缺日",
         "headline": (f"最近成功采集：{dates[-1]} ｜ 覆盖 {len(dates)} 天 ｜ 已连续无缺日 {streak} 天"
                      if not missing else
                      f"⚠ 缺日 {len(missing)} 天（最近：{', '.join(d.isoformat() for d in recent) or '—'}）"

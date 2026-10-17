@@ -1,17 +1,14 @@
 {
- "generated_at": "2026-10-17T15:09:04",
+ "generated_at": "2026-10-17T16:10:19",
  "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
  "caliber": "已发布长表 music_index_long.csv（date,song,index）",
  "first_date": "2022-12-31",
- "last_date": "2026-10-14",
+ "last_date": "2026-10-16",
  "expect_last": "2026-10-16",
- "coverage_days": 1319,
- "rows": 46286,
- "missing_total": 67,
- "missing_recent": [
-  "2026-10-15",
-  "2026-10-16"
- ],
+ "coverage_days": 1321,
+ "rows": 46310,
+ "missing_total": 65,
+ "missing_recent": [],
  "missing_last_year": [
   "2025-10-18",
   "2025-10-21",
@@ -33,17 +30,9 @@
   "2026-03-02",
   "2026-04-09",
   "2026-06-29",
-  "2026-07-05",
-  "2026-10-15",
-  "2026-10-16"
+  "2026-07-05"
  ],
- "missing_ranges_recent": [
-  {
-   "from": "2026-10-15",
-   "to": "2026-10-16",
-   "days": 2
-  }
- ],
+ "missing_ranges_recent": [],
  "missing_ranges_year": [
   {
    "from": "2025-10-18",
@@ -114,14 +103,11 @@
    "from": "2026-07-05",
    "to": "2026-07-05",
    "days": 1
-  },
-  {
-   "from": "2026-10-15",
-   "to": "2026-10-16",
-   "days": 2
   }
  ],
- "streak_no_gap_days": 101,
+ "streak_no_gap_days": 103,
  "status": "gap",
- "headline": "⚠ 缺日 67 天（最近：2026-10-15, 2026-10-16）｜覆盖 1319 天｜最后数据 2026-10-14"
+ "pending_final": [],
+ "pending_final_note": "这些日期只有白天/傍晚的中间批，**等当日最终批（23:56 那批）**，不算缺日",
+ "headline": "⚠ 缺日 65 天（最近：—）｜覆盖 1321 天｜最后数据 2026-10-16"
 }
