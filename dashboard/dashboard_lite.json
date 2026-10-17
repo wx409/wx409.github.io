@@ -1,8 +1,8 @@
 {
- "timestamp": "2026-10-17 15:13",
- "last_update": "2026-10-17 15:13",
+ "timestamp": "2026-10-17 16:05",
+ "last_update": "2026-10-17 16:05",
  "date_range": "2023-01-01 ~ 2026-10-17",
- "total": 282217,
+ "total": 282218,
  "complete_rate": 20.3,
  "total_songs": 383,
  "active_songs": 244,
@@ -102,7 +102,7 @@
   560.0,
   597.0,
   610.0,
-  380.0
+  378.0
  ],
  "song_count_trend": [
   197,
@@ -150,7 +150,7 @@
   282,
   254,
   255,
-  289
+  290
  ],
  "listener_labels": [
   "2024-11",
@@ -206,56 +206,44 @@
  ],
  "top_songs": [
   {
+   "name": "她真漂亮",
+   "trend": -18.5,
+   "score": 35,
+   "tag": "上涨"
+  },
+  {
+   "name": "黎明前的黑暗",
+   "trend": -31.1,
+   "score": 35,
+   "tag": "上涨"
+  },
+  {
    "name": "南屏晚钟",
    "trend": -19.7,
    "score": 35,
    "tag": "上涨"
   },
   {
-   "name": "她真漂亮",
-   "trend": -18.0,
-   "score": 35,
-   "tag": "上涨"
-  },
-  {
-   "name": "黎明前的黑暗",
-   "trend": -30.1,
-   "score": 35,
-   "tag": "上涨"
-  },
-  {
-   "name": "一生中最爱",
-   "trend": -62.4,
-   "score": 35,
-   "tag": "上涨"
-  },
-  {
-   "name": "相思",
-   "trend": -9.6,
-   "score": 35,
-   "tag": "上涨"
-  },
-  {
-   "name": "山楂树",
-   "trend": -20.3,
-   "score": 33,
-   "tag": "上涨"
-  },
-  {
-   "name": "亲密爱人",
-   "trend": -22.9,
-   "score": 25,
-   "tag": "上涨"
-  },
-  {
    "name": "哭砂",
-   "trend": 15.3,
+   "trend": 13.5,
    "score": 25,
    "tag": "活跃"
   },
   {
+   "name": "一生中最爱",
+   "trend": -63.0,
+   "score": 25,
+   "tag": "上涨"
+  },
+  {
+   "name": "山楂树",
+   "trend": -21.3,
+   "score": 23,
+   "tag": "活跃"
+  },
+  {
    "name": "月弯弯",
-   "trend": -19.9,
+   "trend": -20.3,
    "score": 20,
    "tag": "上涨"
   },
@@ -271,22 +259,22 @@
    "rank": 1,
    "song": "黎明前的黑暗",
    "share_pct": 56.0,
-   "trend_pct": -4.8,
+   "trend_pct": 0.0,
    "trend_label": "flat"
   },
   {
    "rank": 2,
    "song": "一生中最爱",
    "share_pct": 7.0,
-   "trend_pct": 76.2,
-   "trend_label": "up"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 3,
    "song": "月弯弯",
    "share_pct": 6.4,
-   "trend_pct": -10.5,
-   "trend_label": "down"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 4,
@@ -299,22 +287,22 @@
    "rank": 5,
    "song": "山楂树",
    "share_pct": 4.5,
-   "trend_pct": -17.2,
-   "trend_label": "down"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 6,
    "song": "在路上",
    "share_pct": 4.3,
-   "trend_pct": -8.0,
-   "trend_label": "down"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 7,
    "song": "Sound of Silence",
    "share_pct": 4.1,
-   "trend_pct": 15.8,
-   "trend_label": "up"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 8,
@@ -327,56 +315,42 @@
    "rank": 9,
    "song": "南屏晚钟",
    "share_pct": 2.6,
-   "trend_pct": 55.6,
-   "trend_label": "up"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 10,
    "song": "再叙",
    "share_pct": 2.3,
-   "trend_pct": 9.1,
-   "trend_label": "up"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 11,
    "song": "哭砂",
    "share_pct": 2.1,
-   "trend_pct": -35.3,
-   "trend_label": "down"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 12,
    "song": "相思",
    "share_pct": 1.9,
-   "trend_pct": 11.1,
-   "trend_label": "up"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   },
   {
    "rank": 13,
    "song": "亲密爱人",
    "share_pct": 1.1,
-   "trend_pct": null,
-   "trend_label": "new"
+   "trend_pct": 0.0,
+   "trend_label": "flat"
   }
  ],
- "daily_anomalies": [
-  {
-   "song": "相思",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 4,906 位"
-  }
- ],
- "latest_anomaly": {
-  "song": "相思",
-  "type": "📈 排名飙升",
-  "metric": "排名",
-  "change_pct": null,
-  "desc": "排名较昨日上升 4,906 位"
- },
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
-  434.0,
+  425.0,
   440.0
  ],
  "tour_events": [
@@ -8435,8 +8409,8 @@
      "name": "黎明前的黑暗",
      "value": [
       -805.5,
-      52.84,
-      6.7,
+      51.78,
+      6.6,
       "上升期"
      ],
      "uid": "L:003kT6Nu080HGU"
@@ -8445,9 +8419,9 @@
      "name": "山楂树",
      "value": [
       3723.2,
-      6.19,
+      6.06,
       11.6,
-      "上升期"
+      "经典沉淀期"
      ],
      "uid": "L:004P06zD0JBO4K"
     },
@@ -8455,7 +8429,7 @@
      "name": "在路上",
      "value": [
       2563.1,
-      4.18,
+      4.06,
       0.2,
       "经典沉淀期"
      ],
@@ -8465,9 +8439,9 @@
      "name": "一生中最爱",
      "value": [
       -1675.5,
-      4.08,
+      4.0,
       2.3,
-      "上升期"
+      "稳定期"
      ],
      "uid": "L:001aGOYZ4NJSv1"
     },
@@ -8475,8 +8449,8 @@
      "name": "月弯弯",
      "value": [
       5460.3,
-      3.8,
-      6.5,
+      3.79,
+      6.6,
       "上升期"
      ],
      "uid": "L:0004SGwr3j7Yrv"
@@ -8485,7 +8459,7 @@
      "name": "哭砂",
      "value": [
       9451.6,
-      3.31,
+      3.16,
       1.5,
       "经典沉淀期"
      ],
@@ -8495,7 +8469,7 @@
      "name": "Sound of Silence",
      "value": [
       4909.0,
-      2.89,
+      2.84,
       1.4,
       "稳定期"
      ],
@@ -8505,8 +8479,8 @@
      "name": "再叙",
      "value": [
       -61.6,
-      2.57,
-      10.5,
+      2.51,
+      10.4,
       "经典沉淀期"
      ],
      "uid": "L:003DjjRg41B5Az"
@@ -8515,8 +8489,8 @@
      "name": "南屏晚钟",
      "value": [
       7334.6,
-      2.48,
-      2.3,
+      2.47,
+      2.4,
       "上升期"
      ],
      "uid": "L:002eILQB0vjEBF"
@@ -8525,8 +8499,8 @@
      "name": "她真漂亮",
      "value": [
       6209.1,
-      2.48,
-      4.3,
+      2.46,
+      4.4,
       "上升期"
      ],
      "uid": "L:0008yoRC49h4PQ"
@@ -8535,37 +8509,37 @@
      "name": "相思",
      "value": [
       7350.2,
-      2.37,
-      7.2,
-      "上升期"
+      2.32,
+      7.1,
+      "经典沉淀期"
      ],
      "uid": "L:003BzG801RLlcT"
-    },
-    {
-     "name": "亲密爱人",
-     "value": [
-      6121.3,
-      2.27,
-      5.6,
-      "稳定期"
-     ],
-     "uid": "L:002WvSxf1vcrEo"
     },
     {
      "name": "谁",
      "value": [
       4485.7,
-      2.25,
+      2.22,
       10.7,
       "经典沉淀期"
      ],
      "uid": "L:003CZT4V0twz41"
     },
     {
+     "name": "亲密爱人",
+     "value": [
+      6121.3,
+      2.21,
+      5.6,
+      "经典沉淀期"
+     ],
+     "uid": "L:002WvSxf1vcrEo"
+    },
+    {
      "name": "一生守候",
      "value": [
       8122.2,
-      2.14,
+      2.1,
       6.0,
       "经典沉淀期"
      ],
@@ -8575,7 +8549,7 @@
      "name": "晚风暖暖",
      "value": [
       -595.6,
-      2.14,
+      2.1,
       7.3,
       "经典沉淀期"
      ],
@@ -8587,12 +8561,6 @@
   }
  ],
  "recent_7days": [
-  {
-   "date": "2026-10-10",
-   "avg_index": 369.1,
-   "total_songs": 254,
-   "complete": true
-  },
   {
    "date": "2026-10-11",
    "avg_index": 333.2,
@@ -8625,6 +8593,12 @@
   },
   {
    "date": "2026-10-16",
+   "avg_index": 351.6,
+   "total_songs": 253,
+   "complete": true
+  },
+  {
+   "date": "2026-10-17",
    "avg_index": 351.6,
    "total_songs": 253,
    "complete": true
