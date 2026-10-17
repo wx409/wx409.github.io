@@ -331,6 +331,20 @@ def collect() -> list[dict]:
     except Exception as e:
         add("index_days", "指数数据覆盖天数", None, "数据源不可读", str(e), "")
 
+    # 点歌 4 首「音源唯一」口径（2026-10-17 用户定）
+    try:
+        _sor = _load("data/song_source_of_record.json") or {}
+        _recs = _sor.get("records") or []
+        add("point_song_source",
+            "点歌 4 首测量源（唯一）",
+            len(_recs),
+            "两晚点歌中**王晰独唱**的 4 首，测量源只能是工作室微博视频（中控台直出）；"
+            "观众侧素材仅 corroboration_only，不进主读数；缺工作室版本则 missing_studio_source 并剔除，不得顶替",
+            "data/song_source_of_record.json",
+            "；".join(f"{r.get('song')}←{r.get('note_id')}#video{r.get('video_index')}" for r in _recs))
+    except Exception as e:
+        add("point_song_source", "点歌 4 首测量源（唯一）", None, "口径文件不可读", str(e), "")
+
     # 现场实测（轨迹工程）：按场次入台账的口径，**不并入录音室主口径**
     try:
         stage_p = Path(r"E:\wx\论文素材_王晰作传\音域分析\轨迹\让她降落_四版实测.json")

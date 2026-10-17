@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-16 22:14",
+ "generated_at": "2026-10-17 15:28",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,19 +9,19 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 765,
-  "n_stage_measured": 762,
+  "n_materials": 767,
+  "n_stage_measured": 764,
   "n_from_precision": 3,
   "n_songs": 209,
   "n_tours": 10,
-  "n_verified": 630,
-  "n_claimable": 615,
+  "n_verified": 632,
+  "n_claimable": 617,
   "n_claimable_soft": 313,
   "hnr_gate_db": 5.0,
   "hnr_low_n": 408,
   "n_unverifiable": 5,
   "review_status_dist": {
-   "谐波列通过": 565,
+   "谐波列通过": 567,
    "待复核（谐波列待判）": 117,
    "人耳确认": 50,
    "人耳否决（非王晰）": 25,
@@ -29,7 +29,7 @@
    "谐波列通过（HNR 异常，疑分离失败）": 2,
    "未复核": 1
   },
-  "n_harmonic_reviewed": 575,
+  "n_harmonic_reviewed": 577,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -40,20 +40,20 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 2.74,
+  "span_median_octaves": 2.73,
   "stability_median_cents": 6.8,
   "vibrato_rate_hz_median": 4.92,
   "vibrato_extent_cents_median": 75.0,
   "verify_dist": {
    "人耳确认（听辨）": 50,
    "待复核（谐波列待判）": 128,
-   "谐波列复核通过": 574,
+   "谐波列复核通过": 576,
    "未复核": 7,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 765,
+  "n_stat_basis": 767,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -3836,7 +3836,8 @@
    "hnr_low": false,
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "上海20210308_BV1hjB4YhEN7",
@@ -8716,7 +8717,8 @@
    "hnr_low": true,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": true
+   "claimable_soft": true,
+   "corroboration_only": true
   },
   {
    "tag": "三巡上海20220110_p08_王晰三巡上海站 20220110 p08 唠嗑2",
@@ -15486,7 +15488,8 @@
    "hnr_low": true,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": true
+   "claimable_soft": true,
+   "corroboration_only": true
   },
   {
    "tag": "未知20250101_BV1G26dYnEWN",
@@ -22551,7 +22554,8 @@
    "hnr_low": true,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": true
+   "claimable_soft": true,
+   "corroboration_only": true
   },
   {
    "tag": "沉响与长歌20261009_双人_BV1EZph65Ebh",
@@ -27551,7 +27555,8 @@
    "hnr_low": true,
    "review_status": "人耳确认",
    "claimable": true,
-   "claimable_soft": true
+   "claimable_soft": true,
+   "corroboration_only": true
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P18_点歌《着魔》",
@@ -27778,7 +27783,8 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "沉响与长歌20261009_王晰_BV1K6ph6dEsq",
@@ -27834,7 +27840,8 @@
    "hnr_low": true,
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "六巡广州微博_6_女人花＋水中花",
@@ -28638,9 +28645,9 @@
    "high_note": "A3",
    "high_hz": 220.7,
    "span_octaves": 1.48,
-   "stability_cents": 10.5,
-   "intonation_cents": 25.2,
-   "vibrato_hz": 5.42,
+   "stability_cents": 10.9,
+   "intonation_cents": 25.9,
+   "vibrato_hz": 5.52,
    "vibrato_cents": 86.0,
    "density_per_s": 2.01,
    "hnr_db": 6.3,
@@ -28674,7 +28681,18 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "source_of_record": {
+    "source_type": "工作室·中控台直出",
+    "note_id": "5353988652270759",
+    "video_index": 1,
+    "fetched_at": "2026-10-15",
+    "camera": "官方机位",
+    "bv": "weibo:5353988652270759#video1",
+    "window": "99.5s（点歌段片段）",
+    "window_note": "片段；不得据此推断整曲最低音"
+   },
+   "corroboration_only": false
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P17_点歌《梦醒时分》",
@@ -29389,7 +29407,8 @@
    "hnr_low": true,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": true
+   "claimable_soft": true,
+   "corroboration_only": true
   },
   {
    "tag": "签唱会上海20250501_p03_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
@@ -29616,7 +29635,8 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "未知20190802_BV1Ut411F7Cp",
@@ -30331,7 +30351,8 @@
    "hnr_low": true,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": true
+   "claimable_soft": true,
+   "corroboration_only": true
   },
   {
    "tag": "未知20201127_BV1nZ4y1G7Zq",
@@ -30500,7 +30521,8 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P08_哭砂",
@@ -31629,7 +31651,8 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "未知20191230_BV13K4y1t782",
@@ -31797,7 +31820,8 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P06_钢伴with崔迪老师（我真的受伤了+遗憾+从前的我+萱草花）",
@@ -33656,7 +33680,8 @@
    "hnr_low": true,
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "14_玩笑",
@@ -33844,11 +33869,11 @@
    "high_note": "D#4",
    "high_hz": 310.1,
    "span_octaves": 1.8,
-   "stability_cents": 10.0,
-   "intonation_cents": 24.4,
-   "vibrato_hz": 5.17,
-   "vibrato_cents": 96.0,
-   "density_per_s": 2.26,
+   "stability_cents": 8.9,
+   "intonation_cents": 24.2,
+   "vibrato_hz": 5.22,
+   "vibrato_cents": 98.0,
+   "density_per_s": 2.27,
    "hnr_db": 8.1,
    "duration_s": 102.1,
    "a3_state": "",
@@ -33880,7 +33905,18 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "source_of_record": {
+    "source_type": "工作室·中控台直出",
+    "note_id": "5353988652270759",
+    "video_index": 2,
+    "fetched_at": "2026-10-15",
+    "camera": "官方机位",
+    "bv": "weibo:5353988652270759#video2",
+    "window": "102.1s（点歌段片段）",
+    "window_note": "片段；不得据此推断整曲最低音"
+   },
+   "corroboration_only": false
   },
   {
    "tag": "广州20190805_BV1ht411M7EH",
@@ -35126,6 +35162,73 @@
    "claimable_soft": false
   },
   {
+   "tag": "工作室中控台20261012_video2_5353266315265746",
+   "song": "亲密爱人",
+   "tour": "工作室中控台（点歌段）",
+   "city": "",
+   "date": "2026-10-09",
+   "bv": "weibo:5353266315265746#video2",
+   "owner": "王晰Elvis-晰息相关（工作室官微）",
+   "title": "王晰工作室 点歌环节（亲密爱人，video2）",
+   "bandwidth_kbps": null,
+   "source_verdict": "工作室官微·中控台直出",
+   "low_note": "F#2",
+   "low_hz": 90.7,
+   "low_t_s": 8.219863945578231,
+   "low_dur_s": 0.25541950113378686,
+   "high_note": "B3",
+   "high_hz": 240.1,
+   "span_octaves": 1.4,
+   "stability_cents": 8.6,
+   "intonation_cents": 25.2,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 92.0,
+   "density_per_s": 2.33,
+   "hnr_db": 7.5,
+   "duration_s": 92.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 90.7,
+    "why": "1f0 差 -10.3dB、3f0 在（52.7dB）",
+    "fund_gap_db": -10.3,
+    "floor_db": 11.3,
+    "t_s": 8.22,
+    "dur_s": 0.255,
+    "partials": [
+     46.9,
+     57.3,
+     52.7,
+     52.7,
+     47.1,
+     40.1,
+     35.8,
+     34.0
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false,
+   "source_of_record": {
+    "source_type": "工作室·中控台直出",
+    "note_id": "5353266315265746",
+    "video_index": 2,
+    "fetched_at": "2026-10-15",
+    "camera": "官方机位",
+    "bv": "weibo:5353266315265746#video2",
+    "window": "92.8s（点歌段片段）",
+    "window_note": "片段；不得据此推断整曲最低音"
+   },
+   "corroboration_only": false
+  },
+  {
    "tag": "未知20191222_BV1sJ411s7hj",
    "song": "Your Man",
    "tour": "其他演出",
@@ -36305,7 +36408,8 @@
    "hnr_low": false,
    "review_status": "谐波列通过",
    "claimable": true,
-   "claimable_soft": false
+   "claimable_soft": false,
+   "corroboration_only": true
   },
   {
    "tag": "二巡上海2021_全程_p32_歌颂",
@@ -39930,6 +40034,73 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "claimable_soft": false
+  },
+  {
+   "tag": "工作室中控台20261012_video1_5353266315265746",
+   "song": "哭砂",
+   "tour": "工作室中控台（点歌段）",
+   "city": "",
+   "date": "2026-10-09",
+   "bv": "weibo:5353266315265746#video1",
+   "owner": "王晰Elvis-晰息相关（工作室官微）",
+   "title": "王晰工作室 点歌环节（哭砂，video1）",
+   "bandwidth_kbps": null,
+   "source_verdict": "工作室官微·中控台直出",
+   "low_note": "A2",
+   "low_hz": 110.2,
+   "low_t_s": 3.2275736961451247,
+   "low_dur_s": 0.4876190476190476,
+   "high_note": "C4",
+   "high_hz": 262.4,
+   "span_octaves": 1.25,
+   "stability_cents": 8.7,
+   "intonation_cents": 25.4,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 81.0,
+   "density_per_s": 2.18,
+   "hnr_db": 7.6,
+   "duration_s": 61.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "A2",
+    "hz": 110.2,
+    "why": "1f0 差 +0.0dB、3f0 在（41.1dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 5.9,
+    "t_s": 3.228,
+    "dur_s": 0.488,
+    "partials": [
+     52.0,
+     51.0,
+     41.1,
+     27.9,
+     23.9,
+     25.3,
+     24.5,
+     18.8
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false,
+   "source_of_record": {
+    "source_type": "工作室·中控台直出",
+    "note_id": "5353266315265746",
+    "video_index": 1,
+    "fetched_at": "2026-10-15",
+    "camera": "官方机位",
+    "bv": "weibo:5353266315265746#video1",
+    "window": "61.5s（点歌段片段，非整曲）",
+    "window_note": "片段；不得据此推断整曲最低音"
+   },
+   "corroboration_only": false
   },
   {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P21_等一等昨天",
@@ -45674,12 +45845,12 @@
   },
   {
    "song": "亲密爱人",
-   "n_versions": 3,
+   "n_versions": 4,
    "tours": [],
    "lowest_note": "D#2",
    "lowest_hz": 76.8,
    "lowest_tag": "未知20191229_BV1TJ411a7Kk",
-   "span_median_octaves": 3.16,
+   "span_median_octaves": 3.14,
    "versions": [
     {
      "tour": "其他演出",
@@ -45725,6 +45896,21 @@
      "span_octaves": 3.12,
      "verify": "待复核（谐波列待判）",
      "bv": "BV16B4y1N7ac"
+    },
+    {
+     "tour": "工作室中控台（点歌段）",
+     "city": "",
+     "date": "2026-10-09",
+     "low_note": "F#2",
+     "low_hz": 90.7,
+     "high_note": "B3",
+     "high_hz": 240.1,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.4,
+     "verify": "谐波列复核通过",
+     "bv": "weibo:5353266315265746#video2"
     }
    ]
   },
@@ -47782,7 +47968,7 @@
   },
   {
    "song": "哭砂",
-   "n_versions": 6,
+   "n_versions": 7,
    "tours": [
     "二巡",
     "五巡"
@@ -47790,7 +47976,7 @@
    "lowest_note": "C2",
    "lowest_hz": 65.2,
    "lowest_tag": "上海20210308_BV1Eh4y1872Y",
-   "span_median_octaves": 2.93,
+   "span_median_octaves": 2.6,
    "versions": [
     {
      "tour": "二巡",
@@ -47881,6 +48067,21 @@
      "span_octaves": 2.37,
      "verify": "谐波列复核通过",
      "bv": "BV1of4y1Q73V"
+    },
+    {
+     "tour": "工作室中控台（点歌段）",
+     "city": "",
+     "date": "2026-10-09",
+     "low_note": "A2",
+     "low_hz": 110.2,
+     "high_note": "C4",
+     "high_hz": 262.4,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.25,
+     "verify": "谐波列复核通过",
+     "bv": "weibo:5353266315265746#video1"
     }
    ]
   },

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-17 15:14",
-  "count": 66,
+  "generated_at": "2026-10-17 15:28",
+  "count": 67,
   "calibers": [
     {
       "id": "tracked_songs",
@@ -109,7 +109,7 @@
     {
       "id": "stage_claimable",
       "label": "现场层可主张素材",
-      "value": 615,
+      "value": 617,
       "scope": "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
       "source": "data/archive_stage_tour.json → summary.n_claimable",
       "note": "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除"
@@ -251,6 +251,14 @@
       "note": "已发布长表唯一日期；2022-12-31 至 2026-10-15；原始库文件覆盖 1271 天（少算补充来源 11 天）"
     },
     {
+      "id": "point_song_source",
+      "label": "点歌 4 首测量源（唯一）",
+      "value": 4,
+      "scope": "两晚点歌中**王晰独唱**的 4 首，测量源只能是工作室微博视频（中控台直出）；观众侧素材仅 corroboration_only，不进主读数；缺工作室版本则 missing_studio_source 并剔除，不得顶替",
+      "source": "data/song_source_of_record.json",
+      "note": "亲密爱人←5353266315265746#video2；哭砂←5353266315265746#video1；南屏晚钟←5353988652270759#video1；一生中最爱←5353988652270759#video2"
+    },
+    {
       "id": "stage_measured_versions",
       "label": "现场实测版本数",
       "value": 16,
@@ -269,7 +277,7 @@
     {
       "id": "stage_low_reviewed",
       "label": "巡演现场低音读数·谐波列复核通过条数",
-      "value": 575,
+      "value": 577,
       "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
       "source": "data\\archive_stage_tour.json",
       "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
