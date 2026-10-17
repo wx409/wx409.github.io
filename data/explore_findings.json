@@ -62,7 +62,7 @@
    "finding": "≥3 版本的曲目有多首；同曲跨场最低音的变异系数中位约 10%",
    "numbers": {
     "曲目数": 38,
-    "CV中位": 0.1112
+    "CV中位": 0.1132
    },
    "n": 38,
    "caliber": "现场层最低音（跨场同曲）",
@@ -173,21 +173,21 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "263 个采集批次、2382 个音频文件、78.24 GB、1396 个逐曲分析产物",
+   "finding": "265 个采集批次、2404 个音频文件、79.16 GB、1407 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-16T21:08:37",
-    "since": "2026-10-16",
-    "batches": 263,
-    "files": 2382,
-    "gb": 78.24,
-    "new_files": 0,
-    "new_mb": 0.0,
-    "stats_total": 1396,
-    "stage_rows": 759,
-    "claimable": 609,
-    "claimable_soft": 307
+    "generated_at": "2026-10-17T17:09:44",
+    "since": "2026-10-17",
+    "batches": 265,
+    "files": 2404,
+    "gb": 79.16,
+    "new_files": 10,
+    "new_mb": 649.4,
+    "stats_total": 1407,
+    "stage_rows": 767,
+    "claimable": 617,
+    "claimable_soft": 313
    },
-   "n": 2382,
+   "n": 2404,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
@@ -235,7 +235,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 56、站点层 54",
    "numbers": {
-    "generated_at": "2026-10-17T17:09:33",
+    "generated_at": "2026-10-17T21:07:31",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
