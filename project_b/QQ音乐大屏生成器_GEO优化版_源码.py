@@ -2856,6 +2856,7 @@ h2.chart-title{font-size:15px;font-weight:600}
 </style>
 </head>
 <body>
+<div id="wx-freshbar">__FRESHNESS_BAR__</div>
 <div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：论文素材_王晰作传\基线口径\compute_baseline_v1.py</div>
 <div class="container">
   <div class="data-freshness-bar" id="freshnessBar">
@@ -5721,6 +5722,9 @@ def generate_dashboard(payload, dashboard_dir):
     html = html.replace("__GEO_SUMMARY__", geo["summary"])
     html = html.replace("__ABOUT_SECTION__", geo["about"])
     html = html.replace("__HEAD_INFO__", head_info)
+    # ★ 2026-10-17：数据新鲜度条（派生自长表；缺日标红）
+    html = html.replace("__FRESHNESS_BAR__", _freshness_bar_html())
+
     html = html.replace("__STATUS_INFO__", status_info)
     # 数据已改为前端 fetch dashboard_data.json（fetch 改造），不再内嵌 __JSON_DATA__。
     # payload 仍写入 dashboard_data.json（见上方 json.dump），供前端 fetch 加载。
@@ -6157,6 +6161,49 @@ def _is_wangxi_keep(display_name):
         return True
     artists = [a.strip() for a in re.split(r"[/／、,，&＆]", s.split("\n", 1)[1]) if a.strip()]
     return any("王晰" in a for a in artists)
+
+
+def _freshness_bar_html():
+    """数据新鲜度条（2026-10-17 新增）：**全部派生自长表**，不手写任何数字。
+
+    来源：E:\\wx\\wx_textmine_out\\music_index_long.csv（已发布长表口径）
+    输出：覆盖天数 / 最后数据日 / 已连续无缺日天数 / 最近缺口（有缺口则整条标红）
+    失败：返回空串（不阻断大屏）。
+    """
+    try:
+        import datetime as _dt
+        import pandas as pd
+        _csv = r"E:\wx\wx_textmine_out\music_index_long.csv"
+        _d = pd.to_datetime(pd.read_csv(_csv, usecols=["date"])["date"], errors="coerce")
+        _ds = sorted(set(_d.dt.strftime("%Y-%m-%d").dropna()))
+        if not _ds:
+            return ""
+        _have = set(_ds)
+        _last = _dt.date.fromisoformat(_ds[-1])
+        _expect = _dt.date.today() - _dt.timedelta(days=1)
+        _miss = []
+        _c = _dt.date.fromisoformat(_ds[0])
+        while _c <= _expect:
+            if _c.isoformat() not in _have:
+                _miss.append(_c.isoformat())
+            _c += _dt.timedelta(days=1)
+        _streak = 0
+        _c = _last
+        while _c.isoformat() in _have:
+            _streak += 1
+            _c -= _dt.timedelta(days=1)
+        if _miss:
+            _recent = _miss[-5:]
+            _txt = (f"\u26a0 指数数据有缺日 {len(_miss)} 天（最近：{'、'.join(_recent)}）"
+                    f"｜覆盖 {len(_ds)} 天｜最后数据 {_ds[-1]}")
+            _bg, _fg = "#fdecea", "#a8323d"
+        else:
+            _txt = (f"最近成功采集：{_ds[-1]} ｜ 覆盖 {len(_ds)} 天 ｜ 已连续无缺日 {_streak} 天")
+            _bg, _fg = "#eef7f0", "#1f7a3d"
+        return (f'<div style="background:{_bg};color:{_fg};padding:8px 14px;border-radius:6px;'
+                f'font-size:13px;margin:0 0 10px">{_txt}</div>')
+    except Exception:
+        return ""
 
 
 def rebuild_dashboard():
