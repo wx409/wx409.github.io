@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-17T21:07:42",
+ "generated_at": "2026-10-18T00:13:11",
  "stat": {
-  "generated_at": "2026-10-17T21:07:42",
+  "generated_at": "2026-10-18T00:13:10",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -337,6 +337,15 @@
     "low_cv": 0.0031
    },
    {
+    "song": "友谊地久天长",
+    "versions": 4,
+    "low_median": 105.4,
+    "low_iqr": 9.1,
+    "low_range": 25.6,
+    "high_median": 523.2,
+    "low_cv": 0.0991
+   },
+   {
     "song": "匆匆",
     "versions": 4,
     "low_median": 104.9,
@@ -445,15 +454,6 @@
     "low_cv": 0.1542
    },
    {
-    "song": "友谊地久天长",
-    "versions": 3,
-    "low_median": 103.6,
-    "low_iqr": 12.8,
-    "low_range": 25.6,
-    "high_median": 523.2,
-    "low_cv": 0.1097
-   },
-   {
     "song": "祝我们随遇而安",
     "versions": 3,
     "low_median": 89.4,
@@ -512,10 +512,10 @@
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 84.4,
-  "cover_live_low_median": 87.3,
-  "own_n": 30,
-  "cover_n": 180,
+  "own_live_low_median": 83.2,
+  "cover_live_low_median": 87.5,
+  "own_n": 31,
+  "cover_n": 185,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

@@ -1,31 +1,35 @@
 {
  "summary": {
-  "generated_at": "2026-10-17T21:07:30",
-  "rows": 767,
+  "generated_at": "2026-10-18T00:12:56",
+  "rows": 774,
   "levels": {
-   "L1": 351,
+   "L1": 356,
    "L6": 26,
    "L3": 39,
-   "未认领": 348,
+   "未认领": 350,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 54,
-  "shows_with_claimable": 52,
+  "shows_with_material": 55,
+  "shows_with_claimable": 53,
   "shows_total": 64
  },
  "per_show": {
   "2019-12-21": {
-   "n": 31,
+   "n": 32,
    "claimable": 26
   },
   "2020-01-02": {
-   "n": 16,
+   "n": 17,
    "claimable": 7
   },
   "2019-12-28": {
    "n": 9,
    "claimable": 7
+  },
+  "2019-10-12": {
+   "n": 1,
+   "claimable": 1
   },
   "2019-11-03": {
    "n": 2,
@@ -36,6 +40,10 @@
    "claimable": 4
   },
   "2019-11-16": {
+   "n": 3,
+   "claimable": 3
+  },
+  "2019-12-15": {
    "n": 2,
    "claimable": 2
   },
@@ -226,10 +234,6 @@
   "2020-10-17": {
    "n": 2,
    "claimable": 2
-  },
-  "2019-12-15": {
-   "n": 1,
-   "claimable": 1
   }
  },
  "rows": [
@@ -448,6 +452,18 @@
    "show_date": "2020-01-02",
    "level": 6,
    "why": "巡次+日期±2天唯一"
+  },
+  {
+   "tag": "未知20191012_BV1ME411Z7YE",
+   "song": "慢慢喜欢你",
+   "tour": "一巡",
+   "city": "南宁",
+   "date": "2019-10-12",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-10-12",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "一巡厦门20191221_p4_再见我的爱人",
@@ -714,6 +730,18 @@
    "why": "巡次+日期±2天唯一"
   },
   {
+   "tag": "厦门20191221_BV1FJ411x7cX",
+   "song": "恋人",
+   "tour": "一巡",
+   "city": "厦门",
+   "date": "2019-12-21",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "一巡厦门20191221_p30_日语歌恋人哟",
    "song": "日语歌恋人哟",
    "tour": "一巡",
@@ -834,6 +862,30 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "长沙20191215_BV12J411V7nH",
+   "song": "光之心",
+   "tour": "一巡",
+   "city": "长沙",
+   "date": "2019-12-15",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-15",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20200102_BV1xJ411j7oN",
+   "song": "友谊地久天长",
+   "tour": "一巡",
+   "city": "北京",
+   "date": "2020-01-02",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2020-01-02",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "重庆20191019_BV13E411r7op",
    "song": "宝贝",
    "tour": "一巡",
@@ -880,6 +932,18 @@
    "show_date": "2020-01-02",
    "level": 6,
    "why": "巡次+日期±2天唯一"
+  },
+  {
+   "tag": "海口20191116_BV1tK4y1M7YF",
+   "song": "抗风桐",
+   "tour": "一巡",
+   "city": "海口",
+   "date": "2019-11-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-11-16",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "一巡厦门20191221_p29_山楂树",
@@ -5250,6 +5314,18 @@
    "why": ""
   },
   {
+   "tag": "BV1no4y1K7dP_maxq",
+   "song": "渡荆门送别",
+   "tour": "综艺（他人主导）",
+   "city": "",
+   "date": "2023-06-04",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "六巡广州微博_1_花儿为什么这样红",
    "song": "花儿为什么这样红",
    "tour": "其他演出",
@@ -6409,6 +6485,18 @@
    "date": "",
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "video",
+   "song": "微醺23点08分",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": null,
    "level": 0,
    "why": ""

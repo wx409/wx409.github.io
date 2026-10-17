@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-10-17T21:07:31",
+  "generated_at": "2026-10-18T00:12:57",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 50,
+  "L1_精确": 52,
   "L2_强": 6,
   "L3_中": 0,
-  "L4_弱": 8,
+  "L4_弱": 6,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8221,
-  "measured_shows_site": 54,
-  "shows_with_claimable_site": 52,
-  "bv_mapped": 114
+  "files_scanned": 8264,
+  "measured_shows_site": 55,
+  "shows_with_claimable_site": 53,
+  "bv_mapped": 119
  },
  "shows": [
   {
@@ -165,15 +165,40 @@
    "city": "南宁",
    "tour": "一巡",
    "songs": 20,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "1 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1ME411Z7YE｜慢慢喜欢你｜未知20191012"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20191012_BV1ME411Z7YE｜慢慢喜欢你"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1ME411Z7YE"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未知20191012_BV1ME411Z7YE.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1ME411Z7YE"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未知20191012_BV1ME411Z7YE_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 14
   },
   {
    "date": "2019-10-19",
@@ -273,6 +298,11 @@
      "detail": "BV1GJ411m7Bv｜南海姑娘｜海口20191116"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1tK4y1M7YF｜抗风桐｜海口20191116"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "海口20191116_BV1wJ411U7Wh｜天边"
@@ -280,20 +310,15 @@
     {
      "level": 1,
      "src": "站点实测",
+     "detail": "海口20191116_BV1tK4y1M7YF｜抗风桐"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
      "detail": "海口20191116_BV1GJ411m7Bv｜南海姑娘"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1GJ411m7Bv"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "海口20191116_BV1GJ411m7Bv.wav"
     }
    ],
-   "n_evidence": 28
+   "n_evidence": 42
   },
   {
    "date": "2019-11-29",
@@ -355,15 +380,40 @@
    "city": "长沙",
    "tour": "一巡",
    "songs": 26,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "66 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV12J411V7nH｜光之心｜长沙20191215"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "长沙20191215_BV12J411V7nH｜光之心"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV12J411V7nH"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "长沙20191215_BV12J411V7nH.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV12J411V7nH"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "长沙20191215_BV12J411V7nH_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 16
   },
   {
    "date": "2019-12-21",
@@ -383,6 +433,11 @@
      "detail": "BV14J411W74i｜Come to Me｜厦门20191221"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1FJ411x7cX｜恋人｜厦门20191221"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "一巡厦门20191221_p2_跟着你到天边｜跟着你到天边"
@@ -396,14 +451,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "一巡厦门20191221_p14_山楂2｜山楂2"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "一巡厦门20191221_p9_李彦锋红眼睛｜李彦锋红眼睛"
     }
    ],
-   "n_evidence": 400
+   "n_evidence": 414
   },
   {
    "date": "2019-12-28",
@@ -443,6 +493,11 @@
      "detail": "BV15K411w7Sj｜让她降落｜北京20200102"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1xJ411j7oN｜友谊地久天长｜北京20200102"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "一巡北京收官20200102_p14_一生守候+很长一段内心独白｜一生守候+很长一段内心独白"
@@ -451,14 +506,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "一巡北京收官20200102_p5_跟着你到天边｜跟着你到天边"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "一巡北京收官20200102_p12_心动+被吐槽的我只在乎你｜心动+被吐槽的我只在乎你"
     }
    ],
-   "n_evidence": 318
+   "n_evidence": 332
   },
   {
    "date": "2020-10-07",

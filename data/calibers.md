@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-10-17 21:07　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-10-18 00:13　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -9,18 +9,18 @@
 |---|---|---|---|---|
 | `tracked_songs` | 追踪曲目池 | **383** | 主动追踪并采集指数的曲目清单（池内） | `dashboard/dashboard_data.json` |
 | `tracked_links` | 追踪链接数 | **383** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
-| `entity_songs` | 关系图谱曲目 | **437** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
+| `entity_songs` | 关系图谱曲目 | **436** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
 | `songs_meta` | 歌曲元数据条目 | **687** | 含元信息（时长/专辑/发行等）的曲目 | `data/songs_meta.json` |
 | `song_archive` | 歌曲档案条目 | **748** | 档案库收录的全部曲目条目（含未追踪/无指数） | `data/song_archive.json` |
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
 | `stage_tet_intonation` | 现场音准偏差中位（TET，伪影） | **21.0** | 王晰主导巡演/签唱会现场素材（demucs 人声分离后 YIN 逐帧测音准偏差） | `data/archive_stage_tour.json` |
 | `dongyan_show_count` | 东演合作场次（分列） | **14** | 中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（12 场）＋ 双人演唱会《沉响与长歌》（2 场） | `data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）` |
-| `topic_card_numbers` | 专题卡数字口径（14 张卡） | **14 张卡 / 主数字 46 项 / caliber-lock 30 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·八年只漂 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气） | `data/share/cards/` |
+| `topic_card_numbers` | 专题卡数字口径（14 张卡） | **14 张卡 / 主数字 47 项 / caliber-lock 30 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·八年只漂 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气） | `data/share/cards/` |
 | `woyaoni_xhs_spread` | 《我要你》北京站小红书端传播实测 | **26 条笔记 / 1542 赞 / 176 条评论** | 样本＝第三方 AI 摘要所列链接集合（去重后 26 条），**非全平台普查**；发布集中度 69.2%（演出当日／次晚）、50.0%（21–23 时） | `data/share/woyaoni_spread.json（由 project_b/build_woyaoni_spread.py 从语料派生）` |
 | `woyaoni_comment_rule` | 《我要你》评论触发点分类口径 | **多命中：编曲 20 / 低音 9；主类：编曲 17 / 低音 6** | 关键词规则分类（可复核） | `data/share/woyaoni_spread.json#comment_categories / #comment_categories_main` |
 | `context_register_share` | 低音区（<C3）声区占比·跨语境 | **21.3% → 14.5% → 10.7%** | 三个语境：A 录音室专辑(n=105)、C 自录无修现场(n=29)、B 他人主导舞台(n=33) | `data/share/context_shares.json（原口径，源：《现场能力三表对照_20260917》）` |
 | `show_block_attribution` | 场次音频切分与歌手归属 | **四判据 + 一 QC；极值音归属未定** | 含 talk/主持/观众的双人或多声部场次素材（逐块：谁在唱 + 块级分布型指标） | `docs/场次声学切分与归属方法论_20261010.md；data/show_blocks/*.json` |
-| `stage_claimable` | 现场层可主张素材 | **617** | 过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数 | `data/archive_stage_tour.json → summary.n_claimable` |
+| `stage_claimable` | 现场层可主张素材 | **621** | 过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数 | `data/archive_stage_tour.json → summary.n_claimable` |
 | `vibrato_tier` | 颤音速率的分层归属 | **组内可纵比、跨组谨慎** | 修音敏感度分层中的单列一档（区别于高敏感层的稳定性/音准） | `音频备忘 §21 / acoustic-report「六条纪律」/ 宣传词条库 #8` |
 | `feedback_song_mentions` | 观众反馈·曲目提及榜口径 | **两栏：setlist_confirmed / mentioned_unverified（提及≠演唱）** | 各场次观众反馈分析产物（temp/audience_analysis/*.json）的 song_top 字段 | `project_b/analyze_audience_comments.py` |
 | `playable_songs` | 可试听曲目 | **117** | 站内提供试听入口的曲目 | `data/playable_songs.json` |
@@ -45,7 +45,7 @@
 | `point_song_source` | 点歌 4 首测量源（唯一） | **4** | 两晚点歌中**王晰独唱**的 4 首，测量源只能是工作室微博视频（中控台直出）；观众侧素材仅 corroboration_only，不进主读数；缺工作室版本则 missing_studio_source 并剔除，不得顶替 | `data/song_source_of_record.json` |
 | `stage_measured_versions` | 现场实测版本数 | **16** | B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次） | `音域分析\轨迹\让她降落_四版实测.json` |
 | `stage_measured_shows` | 现场实测场次数 | **5** | 上述现场版本覆盖的实际演出场次（同场多源只算一场） | `音域分析\轨迹\让她降落_四版实测.json` |
-| `stage_low_reviewed` | 巡演现场低音读数·谐波列复核通过条数 | **577** | archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数 | `data\archive_stage_tour.json` |
+| `stage_low_reviewed` | 巡演现场低音读数·谐波列复核通过条数 | **581** | archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数 | `data\archive_stage_tour.json` |
 | `stage_lowest_hz` | 巡演现场最低稳定音（现行） | **57.8** | 王晰主导巡演现场·过复核门槛的最低稳定音（Hz） | `data\archive_stage_tour.json` |
 | `reach_多听有益` | 多听有益 念诵段触达音（G#1） | **51.9** | 录音室 MV / 念诵段 @80.0s：混音带限自相关 + 外部耳测；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].reach_*` |
 | `reach_live_多听有益` | 多听有益 现场念诵段低音事件（A1） | **56.5** | 四巡｜北京 2023-11-12（王晰本人号直拍 BV1Ab4y1g7Wj）｜@55.5s（2.0s）：本人现场人声在场（听辨认定）；属触达级，**不并入稳定音口径** | `data\archive_vocal.json#songs[].live_low_events` |
