@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-16T21:08:42",
+ "generated_at": "2026-10-17T17:09:45",
  "stat": {
-  "generated_at": "2026-10-16T21:08:41",
+  "generated_at": "2026-10-17T17:09:45",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -211,6 +211,15 @@
     "low_cv": 0.0592
    },
    {
+    "song": "雪地里寄不出的求救信",
+    "versions": 12,
+    "low_median": 124.9,
+    "low_iqr": 22.5,
+    "low_range": 91.9,
+    "high_median": 655.4,
+    "low_cv": 0.1963
+   },
+   {
     "song": "像雾像雨又像风",
     "versions": 10,
     "low_median": 96.0,
@@ -248,12 +257,12 @@
    },
    {
     "song": "哭砂",
-    "versions": 6,
-    "low_median": 79.1,
-    "low_iqr": 14.8,
-    "low_range": 20.2,
-    "high_median": 599.4,
-    "low_cv": 0.107
+    "versions": 7,
+    "low_median": 80.7,
+    "low_iqr": 13.3,
+    "low_range": 45.0,
+    "high_median": 485.6,
+    "low_cv": 0.172
    },
    {
     "song": "我要你",
@@ -263,15 +272,6 @@
     "low_range": 15.0,
     "high_median": 589.6,
     "low_cv": 0.0663
-   },
-   {
-    "song": "雪地里寄不出的求救信",
-    "versions": 6,
-    "low_median": 113.4,
-    "low_iqr": 37.8,
-    "low_range": 58.0,
-    "high_median": 654.8,
-    "low_cv": 0.2128
    },
    {
     "song": "签唱会上海全场",
@@ -391,6 +391,15 @@
     "low_cv": 0.1841
    },
    {
+    "song": "亲密爱人",
+    "versions": 4,
+    "low_median": 85.2,
+    "low_iqr": 8.1,
+    "low_range": 13.9,
+    "high_median": 752.0,
+    "low_cv": 0.0641
+   },
+   {
     "song": "晚风",
     "versions": 4,
     "low_median": 82.2,
@@ -490,15 +499,6 @@
     "low_cv": 0.009
    },
    {
-    "song": "亲密爱人",
-    "versions": 3,
-    "low_median": 82.2,
-    "low_iqr": 5.8,
-    "low_range": 11.5,
-    "high_median": 770.0,
-    "low_cv": 0.057
-   },
-   {
     "song": "新不了情",
     "versions": 3,
     "low_median": 86.1,
@@ -508,7 +508,7 @@
     "low_cv": 0.0337
    }
   ],
-  "low_cv_median": 0.1112,
+  "low_cv_median": 0.1132,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
@@ -539,7 +539,7 @@
    },
    "亲密爱人": {
     "orig": "梅艳芳",
-    "live_low_median": 82.2
+    "live_low_median": 85.2
    },
    "月半弯": {
     "orig": "陈坤/张学友（男）",

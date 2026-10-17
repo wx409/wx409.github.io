@@ -1,16 +1,16 @@
 {
  "summary": {
-  "generated_at": "2026-10-16T21:08:37",
-  "since": "2026-10-16",
-  "batches": 263,
-  "files": 2382,
-  "gb": 78.24,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1396,
-  "stage_rows": 759,
-  "claimable": 609,
-  "claimable_soft": 307
+  "generated_at": "2026-10-17T17:09:44",
+  "since": "2026-10-17",
+  "batches": 265,
+  "files": 2404,
+  "gb": 79.16,
+  "new_files": 10,
+  "new_mb": 649.4,
+  "stats_total": 1407,
+  "stage_rows": 767,
+  "claimable": 617,
+  "claimable_soft": 313
  },
  "batches": [
   {
@@ -24,12 +24,12 @@
   },
   {
    "batch": "wav",
-   "files": 309,
-   "mb": 15740.8,
+   "files": 315,
+   "mb": 15988.8,
    "stats": 0,
    "new_files": 0,
    "new_mb": 0.0,
-   "newest": "2026-10-15"
+   "newest": "2026-10-16"
   },
   {
    "batch": "wav_分P逐曲",
@@ -192,6 +192,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-17"
+  },
+  {
+   "batch": "_jiu_tmp",
+   "files": 7,
+   "mb": 616.6,
+   "stats": 0,
+   "new_files": 7,
+   "new_mb": 616.6,
+   "newest": "2026-10-17"
   },
   {
    "batch": "沉响20261009_v2_块",
@@ -437,6 +446,15 @@
    "newest": "2026-10-13"
   },
   {
+   "batch": "雪地里寄不出的求救信",
+   "files": 12,
+   "mb": 74.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-16"
+  },
+  {
    "batch": "Your Man",
    "files": 11,
    "mb": 72.8,
@@ -599,13 +617,13 @@
    "newest": "2026-09-16"
   },
   {
-   "batch": "雪地里寄不出的求救信",
-   "files": 6,
-   "mb": 30.3,
+   "batch": "wav_工作室中控台",
+   "files": 4,
+   "mb": 29.9,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-27"
+   "new_files": 2,
+   "new_mb": 13.0,
+   "newest": "2026-10-17"
   },
   {
    "batch": "(根目录)",
@@ -725,6 +743,15 @@
    "newest": "2026-09-17"
   },
   {
+   "batch": "wav_微醺深圳0926",
+   "files": 1,
+   "mb": 19.8,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 19.8,
+   "newest": "2026-10-17"
+  },
+  {
    "batch": "练声降A",
    "files": 3,
    "mb": 19.4,
@@ -786,15 +813,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-10"
-  },
-  {
-   "batch": "wav_工作室中控台",
-   "files": 2,
-   "mb": 17.0,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-15"
   },
   {
    "batch": "心动",

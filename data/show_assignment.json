@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-10-16T21:08:21",
-  "rows": 759,
+  "generated_at": "2026-10-17T17:09:33",
+  "rows": 767,
   "levels": {
-   "L1": 348,
+   "L1": 351,
    "L6": 26,
-   "L3": 36,
-   "未认领": 346,
+   "L3": 39,
+   "未认领": 348,
    "L4": 2,
    "L2": 1
   },
@@ -48,8 +48,8 @@
    "claimable": 1
   },
   "2020-11-29": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2021-03-08": {
    "n": 5,
@@ -68,24 +68,24 @@
    "claimable": 1
   },
   "2020-12-05": {
-   "n": 5,
-   "claimable": 5
+   "n": 6,
+   "claimable": 6
   },
   "2020-12-19": {
    "n": 2,
    "claimable": 1
   },
   "2021-01-10": {
+   "n": 4,
+   "claimable": 4
+  },
+  "2021-03-07": {
    "n": 3,
    "claimable": 3
   },
-  "2021-03-07": {
-   "n": 1,
-   "claimable": 1
-  },
   "2021-01-09": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2020-11-14": {
    "n": 1,
@@ -1638,6 +1638,30 @@
    "why": "日期直配"
   },
   {
+   "tag": "长沙20210109_BV1Jf4y1y7Di",
+   "song": "雪地里寄不出的求救信",
+   "tour": "二巡",
+   "city": "长沙",
+   "date": "2021-01-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-01-09",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "武汉20210110_BV1Kz4y1U7G9",
+   "song": "雪地里寄不出的求救信",
+   "tour": "二巡",
+   "city": "武汉",
+   "date": "2021-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "二巡佛山20201121_p12_【王晰】2020个人巡回音乐会 11.21佛山场 p12 12 雪地里",
    "song": "佛山全场",
    "tour": "二巡",
@@ -1658,6 +1682,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2021-03-27",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "广州20201205_BV1LZ4y1g7tY",
+   "song": "雪地里寄不出的求救信",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-12-05",
    "level": 1,
    "why": "日期直配"
   },
@@ -7626,6 +7662,18 @@
    "why": ""
   },
   {
+   "tag": "工作室中控台20261012_video2_5353266315265746",
+   "song": "亲密爱人",
+   "tour": "工作室中控台（点歌段）",
+   "city": "",
+   "date": "2026-10-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20191222_BV1sJ411s7hj",
    "song": "Your Man",
    "tour": "其他演出",
@@ -8526,6 +8574,18 @@
    "why": ""
   },
   {
+   "tag": "上海20210310_BV1qK4y1D798",
+   "song": "雪地里寄不出的求救信",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2021-03-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-03-07",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "07友谊地久天长",
    "song": "",
    "tour": "其他演出",
@@ -8627,6 +8687,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "2020-11-18",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "工作室中控台20261012_video1_5353266315265746",
+   "song": "哭砂",
+   "tour": "工作室中控台（点歌段）",
+   "city": "",
+   "date": "2026-10-09",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -8982,6 +9054,18 @@
    "why": ""
   },
   {
+   "tag": "北京20201201_BV1Jt4y1Y7fh",
+   "song": "雪地里寄不出的求救信",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2020-12-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2020-11-29",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "20_敖包相会",
    "song": "",
    "tour": "其他演出",
@@ -9208,6 +9292,18 @@
    "show_date": "2020-10-07",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "上海20210310_BV1DK4y1J7qB",
+   "song": "雪地里寄不出的求救信",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2021-03-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-03-07",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P12_10.2《雪地里寄不出的求救信》",

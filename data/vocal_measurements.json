@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-16 21:08",
+ "generated_at": "2026-10-17 17:09",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 920,
+  "total": 928,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 762,
+   "tour_live": 770,
    "stage_other": 32,
    "single": 11
   },
@@ -25,7 +25,7 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 578,
+   "谐波列复核通过": 586,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
@@ -7842,6 +7842,76 @@
    }
   },
   {
+   "id": "tour_live|雪地里寄不出的求救信|长沙20210109_BV1Jf4y1y7Di",
+   "song": "雪地里寄不出的求救信",
+   "version": "长沙20210109_BV1Jf4y1y7Di",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "长沙",
+   "date": "2021-01-09",
+   "source_ref": "BV1Jf4y1y7Di",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C3",
+    "low_hz": 130.5,
+    "high_note": "A#5",
+    "high_hz": 936.7,
+    "span_octaves": 2.84,
+    "stability_cents": 5.7,
+    "intonation_cents": 15.3,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 60.0,
+    "density_per_s": 1.5,
+    "hnr_db": 3.8,
+    "duration_s": 245.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 194
+   }
+  },
+  {
+   "id": "tour_live|雪地里寄不出的求救信|武汉20210110_BV1Kz4y1U7G9",
+   "song": "雪地里寄不出的求救信",
+   "version": "武汉20210110_BV1Kz4y1U7G9",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "武汉",
+   "date": "2021-01-10",
+   "source_ref": "BV1Kz4y1U7G9",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C3",
+    "low_hz": 130.8,
+    "high_note": "A#5",
+    "high_hz": 911.7,
+    "span_octaves": 2.8,
+    "stability_cents": 5.0,
+    "intonation_cents": 18.9,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 59.0,
+    "density_per_s": 1.7,
+    "hnr_db": 4.5,
+    "duration_s": 227.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 327
+   }
+  },
+  {
    "id": "tour_live|佛山全场|二巡佛山20201121_p12_【王晰】2020个人巡回音乐会 11.21佛山场 p12 12 雪地里",
    "song": "佛山全场",
    "version": "二巡佛山20201121_p12_【王晰】2020个人巡回音乐会 11.21佛山场 p12 12 雪地里",
@@ -7909,6 +7979,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 130
+   }
+  },
+  {
+   "id": "tour_live|雪地里寄不出的求救信|广州20201205_BV1LZ4y1g7tY",
+   "song": "雪地里寄不出的求救信",
+   "version": "广州20201205_BV1LZ4y1g7tY",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "广州",
+   "date": "2020-12-05",
+   "source_ref": "BV1LZ4y1g7tY",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E3",
+    "low_hz": 162.0,
+    "high_note": "E4",
+    "high_hz": 332.1,
+    "span_octaves": 1.04,
+    "stability_cents": 5.4,
+    "intonation_cents": 18.9,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 49.0,
+    "density_per_s": 0.95,
+    "hnr_db": 0.5,
+    "duration_s": 249.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 156
    }
   },
   {
@@ -21075,9 +21180,9 @@
     "high_note": "A3",
     "high_hz": 220.7,
     "span_octaves": 1.48,
-    "stability_cents": 10.5,
-    "intonation_cents": 25.2,
-    "vibrato_hz": 5.42,
+    "stability_cents": 10.9,
+    "intonation_cents": 25.9,
+    "vibrato_hz": 5.52,
     "vibrato_cents": 86.0,
     "density_per_s": 2.01,
     "hnr_db": 6.3,
@@ -24306,11 +24411,11 @@
     "high_note": "D#4",
     "high_hz": 310.1,
     "span_octaves": 1.8,
-    "stability_cents": 10.0,
-    "intonation_cents": 24.4,
-    "vibrato_hz": 5.17,
-    "vibrato_cents": 96.0,
-    "density_per_s": 2.26,
+    "stability_cents": 8.9,
+    "intonation_cents": 24.2,
+    "vibrato_hz": 5.22,
+    "vibrato_cents": 98.0,
+    "density_per_s": 2.27,
     "hnr_db": 8.1,
     "duration_s": 102.1
    },
@@ -25074,6 +25179,41 @@
     "density_per_s": 1.83,
     "hnr_db": 7.2,
     "duration_s": 483.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|亲密爱人|工作室中控台20261012_video2_5353266315265746",
+   "song": "亲密爱人",
+   "version": "工作室中控台20261012_video2_5353266315265746",
+   "layer": "tour_live",
+   "tour": "工作室中控台（点歌段）",
+   "city": "",
+   "date": "2026-10-09",
+   "source_ref": "weibo:5353266315265746#video2",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.7,
+    "high_note": "B3",
+    "high_hz": 240.1,
+    "span_octaves": 1.4,
+    "stability_cents": 8.6,
+    "intonation_cents": 25.2,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 92.0,
+    "density_per_s": 2.33,
+    "hnr_db": 7.5,
+    "duration_s": 92.9
    },
    "verify": {
     "state": "谐波列复核通过",
@@ -27679,6 +27819,38 @@
    }
   },
   {
+   "id": "tour_live|雪地里寄不出的求救信|上海20210310_BV1qK4y1D798",
+   "song": "雪地里寄不出的求救信",
+   "version": "上海20210310_BV1qK4y1D798",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2021-03-10",
+   "source_ref": "BV1qK4y1D798",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 107.4,
+    "stability_cents": 4.7,
+    "intonation_cents": 20.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 55.0,
+    "density_per_s": 1.62,
+    "hnr_db": 3.9,
+    "duration_s": 248.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 255
+   }
+  },
+  {
    "id": "tour_live||07友谊地久天长",
    "song": "",
    "version": "07友谊地久天长",
@@ -27988,6 +28160,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 305
+   }
+  },
+  {
+   "id": "tour_live|哭砂|工作室中控台20261012_video1_5353266315265746",
+   "song": "哭砂",
+   "version": "工作室中控台20261012_video1_5353266315265746",
+   "layer": "tour_live",
+   "tour": "工作室中控台（点歌段）",
+   "city": "",
+   "date": "2026-10-09",
+   "source_ref": "weibo:5353266315265746#video1",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 110.2,
+    "high_note": "C4",
+    "high_hz": 262.4,
+    "span_octaves": 1.25,
+    "stability_cents": 8.7,
+    "intonation_cents": 25.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 81.0,
+    "density_per_s": 2.18,
+    "hnr_db": 7.6,
+    "duration_s": 61.5
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
    }
   },
   {
@@ -28994,6 +29201,41 @@
    }
   },
   {
+   "id": "tour_live|雪地里寄不出的求救信|北京20201201_BV1Jt4y1Y7fh",
+   "song": "雪地里寄不出的求救信",
+   "version": "北京20201201_BV1Jt4y1Y7fh",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2020-12-01",
+   "source_ref": "BV1Jt4y1Y7fh",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 119.1,
+    "high_note": "E5",
+    "high_hz": 645.2,
+    "span_octaves": 2.44,
+    "stability_cents": 7.3,
+    "intonation_cents": 17.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 64.0,
+    "density_per_s": 1.69,
+    "hnr_db": 3.9,
+    "duration_s": 257.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 313
+   }
+  },
+  {
    "id": "tour_live||20_敖包相会",
    "song": "",
    "version": "20_敖包相会",
@@ -29645,6 +29887,38 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 322
+   }
+  },
+  {
+   "id": "tour_live|雪地里寄不出的求救信|上海20210310_BV1DK4y1J7qB",
+   "song": "雪地里寄不出的求救信",
+   "version": "上海20210310_BV1DK4y1J7qB",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2021-03-10",
+   "source_ref": "BV1DK4y1J7qB",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C3",
+    "low_hz": 128.6,
+    "stability_cents": 4.8,
+    "intonation_cents": 13.2,
+    "vibrato_hz": 5.18,
+    "vibrato_cents": 51.0,
+    "density_per_s": 1.51,
+    "hnr_db": 3.8,
+    "duration_s": 246.3
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 255
    }
   },
   {

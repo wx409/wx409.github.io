@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-16T21:08:23",
+  "generated_at": "2026-10-17T17:09:33",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 8,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8158,
+  "files_scanned": 8221,
   "measured_shows_site": 54,
   "shows_with_claimable_site": 52,
-  "bv_mapped": 111
+  "bv_mapped": 114
  },
  "shows": [
   {
@@ -693,12 +693,12 @@
      "detail": "BV1Uz4y167hL｜今宵多珍重｜未知20201205"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "广州20201205_BV1kZ4y1G77g｜一帘幽梦"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1LZ4y1g7tY｜雪地里寄不出的求救信｜广州20201205"
     }
    ],
-   "n_evidence": 74
+   "n_evidence": 88
   },
   {
    "date": "2020-12-19",
@@ -753,9 +753,19 @@
      "detail": "BV1dCy8YcEKo｜匆匆｜长沙20210109"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Jf4y1y7Di｜雪地里寄不出的求救信｜长沙20210109"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "长沙20210109_BV1dCy8YcEKo｜匆匆"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "长沙20210109_BV1Jf4y1y7Di｜雪地里寄不出的求救信"
     },
     {
      "level": 1,
@@ -766,19 +776,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "长沙20210109_BV1dCy8YcEKo.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "二巡长沙20210109__BV1Ez4y167ce.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "input_ascii.wav"
     }
    ],
-   "n_evidence": 18
+   "n_evidence": 32
   },
   {
    "date": "2021-01-10",
@@ -803,6 +803,11 @@
      "detail": "BV12Q4y1B7BG｜漫长的告别｜未知20210110"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Kz4y1U7G9｜雪地里寄不出的求救信｜武汉20210110"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "武汉20210110_BV1xo4y1R7x7｜茕茕"
@@ -811,14 +816,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "武汉20210110_BV1hS4y197kb｜等一等昨天"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "未知20210110_BV12Q4y1B7BG｜漫长的告别"
     }
    ],
-   "n_evidence": 42
+   "n_evidence": 56
   },
   {
    "date": "2021-03-07",
