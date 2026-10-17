@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-17 18:06",
+  "timestamp": "2026-10-17 18:16",
   "total": 282218,
   "success": 57286,
   "complete_rate": 20.3,
@@ -191146,7 +191146,7 @@
       "音乐节、拼盘演唱会的脉冲型特征明显，适合短周期集中投放并设明确的结束节点；对极值场次单独复盘，不纳入常规预期基线。"
     ],
     "data_quality_note": "基于87场记录：形态聚合覆盖63场（个人巡回23、晚会14、音乐节3、其他23），衰减聚合覆盖86场（另含签唱会3、拼盘演唱会5、歌舞剧·音乐剧14、综艺2）；政府活动1场（2025-03-21南昌）单独列示、不参与均值计算；综艺n=2、政府活动n=1已标注样本不足；Top10中歌单内无数据的场次，歌单内与溢出比留空。",
-    "generated_at": "2026-10-17 16:05:45"
+    "generated_at": "2026-10-17 18:07:05"
   },
   "batch_count": 1263,
   "date_range": "2023-01-01 ~ 2026-10-17",
@@ -214577,13 +214577,13 @@
   "daily_listen_overview": {
     "active_count": 8,
     "total_tracked": 383,
-    "concentration_top3": 75.6,
+    "concentration_top3": 76.2,
     "as_of": "2026-10-17",
     "too_small": true
   },
   "daily_listen_trend": [],
   "daily_new_today": [],
-  "last_update": "2026-10-17 18:06",
+  "last_update": "2026-10-17 18:16",
   "today_batches": 1263,
   "daily_new_records": 0,
   "recent_7days": [
@@ -214645,13 +214645,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4214,
-      "success": 4214,
+      "total": 4215,
+      "success": 4215,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1692623,
+      "before": 1692876,
       "after": 292778
     },
     "index_calibration": {
@@ -214874,7 +214874,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-17 18:06",
+    "generated_at": "2026-10-17 18:16",
     "overview": "共 88 场活动 / 3094 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 +0.2%、中位 -3.3%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
