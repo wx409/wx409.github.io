@@ -226,6 +226,9 @@ def main():
         + "<ul>" + "".join(f"<li>{esc(e['when'])}｜{esc(e['kind'])}</li>" for e in x["evidence"]) + "</ul>"
         + f"<p class='meta'>来源：{esc(x['source'])}</p></div>"
         for x in (pool.get("items") or [])) or "<p class='meta'>（暂无）</p>"
+    cp_file = D / "share" / "rendered" / "copy_pipeline.html"
+    copy_html = (cp_file.read_text(encoding="utf-8") if cp_file.exists()
+                 else "<p class=meta>（未生成：跑 project_b/build_copy_pipeline.py）</p>")
     tpl_html = "".join(
         f"<h4>{esc(k)}</h4><ul>" + "".join(f"<li><b>{esc(kk)}</b>：{esc(vv)}</li>" for kk, vv in v.items())
         + "</ul>" for k, v in (tpl.get("templates") or {}).items() if isinstance(v, dict))
@@ -274,6 +277,10 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 <p class="meta">可见范围：本站**只展示已确认（review_status=confirmed）的候选**，仅「钩子句 + 建议小词 + 出处」，**不展示风险内部备注**；</p>
 <p class="meta">未确认候选留在本地池（<code>E:\wx\论文素材_王晰作传\传播监测\钩子候选池_&lt;日期&gt;.md</code>），勾选后跑 <code>hook_miner.py --render-picked</code> 出卡。</p>
 {hk_html}
+
+<h2>①d 一键成稿（预览 · 不自动发布）</h2>
+<p class="meta">由 <code>project_b/build_copy_pipeline.py</code> 生成：四件套（小红书/微博/抖音/传记体）× 三档口吻（口语/编辑/粉丝），每条带证据脚注、禁忌与「〔你来补〕」留白；<b>只预览，确认后手动发布</b>。用法见 <a href="使用说明-四件套.html">使用说明（四件套）</a>。</p>
+{copy_html}
 
 <h2>② 句式库 · 单曲 TOP10</h2>
 <p class="meta">{esc(singles.get('rule'))}｜{esc(singles.get('count_rule_note'))}</p>

@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "generated_at": "2026-10-17T15:13:23",
+ "source": "E:\\wx\\论文素材_王晰作传\\小红书素材\\我要你20261010",
+ "n_posts": 26,
+ "n_comments": 121,
+ "ruler": {
+  "lines_median": 2.0,
+  "lines_p10": 1,
+  "lines_p90": 5,
+  "line_len_p50": 19,
+  "line_len_p90": 67,
+  "line_le20_pct": 56.5,
+  "emoji_notes_pct": 19.2,
+  "emoji_median": 0.0,
+  "emoji_p90": 1,
+  "emoji_max": 5,
+  "tags_median": 4.0,
+  "tags_p10": 2,
+  "tags_p90": 6,
+  "tags_at_tail_pct": 92.3,
+  "first_person_notes_pct": 84.6,
+  "exclam_notes_pct": 11.5,
+  "question_notes_pct": 0.0,
+  "title_blank_structure_pct": 42.3,
+  "at_mention_pct": 30.8,
+  "link_pct": 0.0
+ },
+ "comments": {
+  "n": 121,
+  "first_person_pct": 16.5,
+  "exclam_pct": 21.5
+ },
+ "constraints": {
+  "line_max_chars": 20,
+  "lines_range": [
+   3,
+   5
+  ],
+  "emoji_max": 1,
+  "tags_range": [
+   3,
+   5
+  ],
+  "tags_at_tail": true,
+  "first_person_min_lines": 1,
+  "exclam_max": 1,
+  "no_long_paragraph": true,
+  "title_then_blank_line": true,
+  "fill_in_slots": [
+   1,
+   3
+  ]
+ },
+ "note": "约束值取「真语料中位/P90」的保守合并；生成时按 constraints 硬约束，越界即重写。"
+}
