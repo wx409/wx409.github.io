@@ -1,23 +1,15 @@
 {
- "generated_at": "2026-10-17T16:00:19",
- "expect_last": "2026-10-16",
+ "generated_at": "2026-10-18T09:10:02",
+ "expect_last": "2026-10-17",
  "gaps_before": 66,
  "handled": 1,
- "findable": [
-  "2026-10-16"
+ "findable": [],
+ "missing_no_source": [
+  "2026-10-17"
  ],
- "missing_no_source": [],
- "rebuild": {
-  "rc": 0,
-  "tail": [
-   "   gap: 2025-03-25 -> 2025-03-27",
-   "   gap: 2025-04-11 -> 2025-04-13",
-   "输出: E:\\wx\\wx_textmine_out\\music_index_long.csv"
-  ]
- },
- "gaps_after": 65,
+ "rebuild": null,
+ "gaps_after": 66,
  "remaining_recent": [
-  "2026-01-15",
   "2026-01-18",
   "2026-01-19",
   "2026-01-25",
@@ -26,6 +18,7 @@
   "2026-03-02",
   "2026-04-09",
   "2026-06-29",
-  "2026-07-05"
+  "2026-07-05",
+  "2026-10-17"
  ]
 }
