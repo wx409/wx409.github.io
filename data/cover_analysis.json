@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-18T21:08:52",
+ "generated_at": "2026-10-19T00:13:06",
  "stat": {
-  "generated_at": "2026-10-18T21:08:52",
+  "generated_at": "2026-10-19T00:13:06",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -266,12 +266,12 @@
    },
    {
     "song": "我要你",
-    "versions": 6,
+    "versions": 7,
     "low_median": 78.1,
-    "low_iqr": 4.0,
+    "low_iqr": 3.7,
     "low_range": 15.0,
-    "high_median": 589.6,
-    "low_cv": 0.0663
+    "high_median": 591.0,
+    "low_cv": 0.0636
    },
    {
     "song": "签唱会上海全场",
@@ -512,10 +512,10 @@
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 83.2,
-  "cover_live_low_median": 87.5,
-  "own_n": 31,
-  "cover_n": 185,
+  "own_live_low_median": 84.4,
+  "cover_live_low_median": 87.8,
+  "own_n": 32,
+  "cover_n": 187,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

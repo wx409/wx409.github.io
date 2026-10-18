@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-10-18T21:08:38",
-  "rows": 774,
+  "generated_at": "2026-10-19T00:12:51",
+  "rows": 778,
   "levels": {
-   "L1": 356,
+   "L1": 360,
    "L6": 26,
    "L3": 39,
    "未认领": 350,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 55,
-  "shows_with_claimable": 53,
+  "shows_with_material": 56,
+  "shows_with_claimable": 54,
   "shows_total": 64
  },
  "per_show": {
@@ -68,7 +68,7 @@
    "claimable": 5
   },
   "2020-11-21": {
-   "n": 35,
+   "n": 36,
    "claimable": 33
   },
   "2021-03-27": {
@@ -119,8 +119,12 @@
    "n": 2,
    "claimable": 2
   },
-  "2022-07-17": {
+  "2023-05-20": {
    "n": 1,
+   "claimable": 1
+  },
+  "2022-07-17": {
+   "n": 2,
    "claimable": 1
   },
   "2023-05-01": {
@@ -132,8 +136,8 @@
    "claimable": 0
   },
   "2022-01-09": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2022-04-09": {
    "n": 1,
@@ -1738,6 +1742,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "佛山20201121_BV1ft4y1e7ER",
+   "song": "雪孩子（滑雪歌）",
+   "tour": "二巡",
+   "city": "佛山",
+   "date": "2020-11-21",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2020-11-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "宁波20210327_BV1jy4y1t7JZ",
    "song": "追幸福的人",
    "tour": "二巡",
@@ -2050,6 +2066,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "南宁20230520_BV1Yh4y1x72g",
+   "song": "我要你",
+   "tour": "三巡",
+   "city": "南宁",
+   "date": "2023-05-20",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-05-20",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "未知20220717_BV1WF411K75D",
    "song": "朋友别哭",
    "tour": "三巡",
@@ -2218,6 +2246,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "太原20220717_BV1Rg411o7uU",
+   "song": "知晓",
+   "tour": "三巡",
+   "city": "鄂尔多斯",
+   "date": "2022-07-17",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2022-07-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡上海20220110_p02_王晰三巡上海站 20220110 p02 Moon River",
    "song": "三巡上海全场",
    "tour": "三巡",
@@ -2286,6 +2326,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-09-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20220109_BV1LL41157MQ",
+   "song": "送别",
+   "tour": "三巡",
+   "city": "无锡",
+   "date": "2022-01-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-09",
    "level": 1,
    "why": "日期直配"
   },

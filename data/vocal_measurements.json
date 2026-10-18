@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-18 21:08",
+ "generated_at": "2026-10-19 00:13",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 935,
+  "total": 939,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 777,
+   "tour_live": 781,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 590,
+   "谐波列复核通过": 592,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 131,
+   "待复核（谐波列待判）": 133,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 287
+  "songs": 289
  },
  "rows": [
   {
@@ -8122,6 +8122,41 @@
    }
   },
   {
+   "id": "tour_live|雪孩子（滑雪歌）|佛山20201121_BV1ft4y1e7ER",
+   "song": "雪孩子（滑雪歌）",
+   "version": "佛山20201121_BV1ft4y1e7ER",
+   "layer": "tour_live",
+   "tour": "二巡",
+   "city": "佛山",
+   "date": "2020-11-21",
+   "source_ref": "BV1ft4y1e7ER",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D3",
+    "low_hz": 144.1,
+    "high_note": "C4",
+    "high_hz": 260.6,
+    "span_octaves": 0.85,
+    "stability_cents": 7.6,
+    "intonation_cents": 18.9,
+    "vibrato_hz": 4.98,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.9,
+    "hnr_db": 9.9,
+    "duration_s": 28.4
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 131
+   }
+  },
+  {
    "id": "tour_live|追幸福的人|宁波20210327_BV1jy4y1t7JZ",
    "song": "追幸福的人",
    "version": "宁波20210327_BV1jy4y1t7JZ",
@@ -9023,6 +9058,41 @@
    }
   },
   {
+   "id": "tour_live|我要你|南宁20230520_BV1Yh4y1x72g",
+   "song": "我要你",
+   "version": "南宁20230520_BV1Yh4y1x72g",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "南宁",
+   "date": "2023-05-20",
+   "source_ref": "BV1Yh4y1x72g",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 80.0,
+    "high_note": "G#5",
+    "high_hz": 835.3,
+    "span_octaves": 3.38,
+    "stability_cents": 6.1,
+    "intonation_cents": 19.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 53.0,
+    "density_per_s": 1.47,
+    "hnr_db": 5.4,
+    "duration_s": 278.4
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 128
+   }
+  },
+  {
    "id": "tour_live|朋友别哭|未知20220717_BV1WF411K75D",
    "song": "朋友别哭",
    "version": "未知20220717_BV1WF411K75D",
@@ -9510,6 +9580,38 @@
    }
   },
   {
+   "id": "tour_live|知晓|太原20220717_BV1Rg411o7uU",
+   "song": "知晓",
+   "version": "太原20220717_BV1Rg411o7uU",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "鄂尔多斯",
+   "date": "2022-07-17",
+   "source_ref": "BV1Rg411o7uU",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.8,
+    "stability_cents": 5.9,
+    "intonation_cents": 19.4,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 63.0,
+    "density_per_s": 1.42,
+    "hnr_db": 4.7,
+    "duration_s": 250.2
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 215
+   }
+  },
+  {
    "id": "tour_live|三巡上海全场|三巡上海20220110_p02_王晰三巡上海站 20220110 p02 Moon River",
    "song": "三巡上海全场",
    "version": "三巡上海20220110_p02_王晰三巡上海站 20220110 p02 Moon River",
@@ -9717,6 +9819,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|送别|未知20220109_BV1LL41157MQ",
+   "song": "送别",
+   "version": "未知20220109_BV1LL41157MQ",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "无锡",
+   "date": "2022-01-09",
+   "source_ref": "BV1LL41157MQ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 102.5,
+    "high_note": "F#5",
+    "high_hz": 737.0,
+    "span_octaves": 2.85,
+    "stability_cents": 6.4,
+    "intonation_cents": 21.2,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.59,
+    "hnr_db": 4.7,
+    "duration_s": 225.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 314
    }
   },
   {

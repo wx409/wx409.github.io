@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-10-18T21:08:39",
+  "generated_at": "2026-10-19T00:12:52",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 52,
-  "L2_强": 6,
+  "L1_精确": 53,
+  "L2_强": 5,
   "L3_中": 0,
   "L4_弱": 6,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8264,
-  "measured_shows_site": 55,
-  "shows_with_claimable_site": 53,
-  "bv_mapped": 119
+  "files_scanned": 8290,
+  "measured_shows_site": 56,
+  "shows_with_claimable_site": 54,
+  "bv_mapped": 123
  },
  "shows": [
   {
@@ -648,6 +648,11 @@
      "detail": "BV1Zs4y1G7do｜匆匆｜佛山20201121"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1ft4y1e7ER｜雪孩子（滑雪歌）｜佛山20201121"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "二巡佛山20201121_p01_【王晰】2020个人巡回音乐会 11.21佛山场 p01 01 花儿为｜佛山全场"
@@ -661,14 +666,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "二巡佛山20201121_BV17A411x7fH｜全场"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "二巡佛山20201121_p15_【王晰】2020个人巡回音乐会 11.21佛山场 p15 15 慢慢组｜佛山全场"
     }
    ],
-   "n_evidence": 245
+   "n_evidence": 259
   },
   {
    "date": "2020-11-29",
@@ -1123,9 +1123,19 @@
      "detail": "BV1rZ4y1S7uc｜点歌环节｜三巡无锡20220109"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1LL41157MQ｜送别｜未知20220109"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20220109_BV1LL41157MQ｜送别"
     },
     {
      "level": 1,
@@ -1136,19 +1146,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "三巡无锡20220109_BV1rZ4y1S7uc.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1rZ4y1S7uc"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "三巡无锡20220109_BV1rZ4y1S7uc_f0.csv"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 28
   },
   {
    "date": "2022-01-10",
@@ -1323,9 +1323,19 @@
      "detail": "BV1WF411K75D｜朋友别哭｜未知20220717"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Rg411o7uU｜知晓｜太原20220717"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "未知20220717_BV1WF411K75D｜朋友别哭"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "太原20220717_BV1Rg411o7uU｜知晓"
     },
     {
      "level": 1,
@@ -1336,19 +1346,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "未知20220717_BV1WF411K75D.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1WF411K75D"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "未知20220717_BV1WF411K75D_f0.csv"
     }
    ],
-   "n_evidence": 16
+   "n_evidence": 30
   },
   {
    "date": "2022-09-17",
@@ -1490,15 +1490,40 @@
    "city": "南宁",
    "tour": "三巡",
    "songs": 22,
-   "level": 2,
+   "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Yh4y1x72g｜我要你｜南宁20230520"
+    },
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "南宁｜三巡·王晰2021-2022“图景”"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "南宁20230520_BV1Yh4y1x72g｜我要你"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Yh4y1x72g"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "南宁20230520_BV1Yh4y1x72g.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Yh4y1x72g"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 19
   },
   {
    "date": "2023-06-23",
