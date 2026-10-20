@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-10-20 14:07",
+ "generated_at": "2026-10-20 22:20",
  "streams": [
   {
    "stream": "声学·现场层",
    "source": "data/archive_stage_tour.json",
-   "n": 780,
+   "n": 781,
    "latest": "2026-10-20",
    "lag_days": 0,
    "new_7d": null,
@@ -24,19 +24,19 @@
   {
    "stream": "指数·每日指数",
    "source": "music_index_long.csv",
-   "n": 1322,
-   "latest": "2026-10-17",
-   "lag_days": 3,
-   "new_7d": 5,
+   "n": 1324,
+   "latest": "2026-10-19",
+   "lag_days": 1,
+   "new_7d": 7,
    "gap": "在积攒（每日多批次）",
-   "note": "最新 2026-10-17"
+   "note": "最新 2026-10-19"
   },
   {
    "stream": "文本·声音素材",
    "source": "wx_textmine_corpus/声音素材",
    "n": 157,
    "latest": "2026-09-14",
-   "lag_days": 35,
+   "lag_days": 36,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -46,7 +46,7 @@
    "source": "wx_textmine_corpus/少城时代",
    "n": 172,
    "latest": "2026-09-14",
-   "lag_days": 35,
+   "lag_days": 36,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""

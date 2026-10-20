@@ -1,18 +1,27 @@
 {
  "summary": {
-  "generated_at": "2026-10-20T14:08:14",
+  "generated_at": "2026-10-20T22:20:25",
   "since": "2026-10-20",
-  "batches": 280,
-  "files": 2441,
-  "gb": 79.77,
-  "new_files": 12,
-  "new_mb": 142.5,
-  "stats_total": 1420,
-  "stage_rows": 780,
-  "claimable": 625,
-  "claimable_soft": 318
+  "batches": 284,
+  "files": 2452,
+  "gb": 80.21,
+  "new_files": 23,
+  "new_mb": 593.1,
+  "stats_total": 1424,
+  "stage_rows": 781,
+  "claimable": 624,
+  "claimable_soft": 317
  },
  "batches": [
+  {
+   "batch": "wav",
+   "files": 339,
+   "mb": 16970.1,
+   "stats": 0,
+   "new_files": 11,
+   "new_mb": 546.7,
+   "newest": "2026-10-20"
+  },
   {
    "batch": "wav_十年现场语料",
    "files": 337,
@@ -21,15 +30,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-17"
-  },
-  {
-   "batch": "wav",
-   "files": 334,
-   "mb": 16553.7,
-   "stats": 0,
-   "new_files": 6,
-   "new_mb": 130.2,
-   "newest": "2026-10-20"
   },
   {
    "batch": "wav_分P逐曲",
@@ -743,6 +743,15 @@
    "newest": "2026-09-17"
   },
   {
+   "batch": "女儿情",
+   "files": 1,
+   "mb": 20.2,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 20.2,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "wav_微醺深圳0926",
    "files": 1,
    "mb": 19.8,
@@ -1094,6 +1103,15 @@
    "newest": "2026-10-10"
   },
   {
+   "batch": "月亮代表我的心",
+   "files": 2,
+   "mb": 8.9,
+   "stats": 0,
+   "new_files": 2,
+   "new_mb": 8.9,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "Dear Friend",
    "files": 1,
    "mb": 8.8,
@@ -1337,6 +1355,15 @@
    "newest": "2026-09-24"
   },
   {
+   "batch": "City of Stars",
+   "files": 3,
+   "mb": 6.2,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 0.7,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "翠湖寒",
    "files": 1,
    "mb": 6.1,
@@ -1452,15 +1479,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-17"
-  },
-  {
-   "batch": "City of Stars",
-   "files": 2,
-   "mb": 5.5,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-11"
   },
   {
    "batch": "我很好",
@@ -2075,6 +2093,15 @@
    "newest": "2026-09-18"
   },
   {
+   "batch": "只要有你",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 2.3,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "梦里水乡",
    "files": 1,
    "mb": 2.3,
@@ -2136,6 +2163,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-10"
+  },
+  {
+   "batch": "白月光",
+   "files": 1,
+   "mb": 2.0,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 2.0,
+   "newest": "2026-10-20"
   },
   {
    "batch": "月牙湾",

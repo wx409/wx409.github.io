@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-20 14:08",
+ "generated_at": "2026-10-20 22:20",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,26 +10,26 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 941,
+  "total": 942,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 783,
+   "tour_live": 784,
    "stage_other": 32,
    "single": 11
   },
   "by_verify": {
-   "未复核": 122,
+   "未复核": 127,
    "人耳确认（听辨）": 56,
    "已取证": 6,
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 594,
+   "谐波列复核通过": 593,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 133,
+   "待复核（谐波列待判）": 130,
    "谐波列复核通过（同刻三源）": 1
   },
   "songs": 291
@@ -6035,6 +6035,41 @@
    }
   },
   {
+   "id": "tour_live|City of Stars|佛山20191201_BV1xJ411y7KQ",
+   "song": "City of Stars",
+   "version": "佛山20191201_BV1xJ411y7KQ",
+   "layer": "tour_live",
+   "tour": "一巡",
+   "city": "佛山",
+   "date": "2019-12-01",
+   "source_ref": "BV1xJ411y7KQ",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A#3",
+    "low_hz": 235.6,
+    "high_note": "B4",
+    "high_hz": 488.2,
+    "span_octaves": 1.05,
+    "stability_cents": 5.4,
+    "intonation_cents": 31.6,
+    "vibrato_hz": 3.92,
+    "vibrato_cents": 97.0,
+    "density_per_s": 0.46,
+    "hnr_db": -1.2,
+    "duration_s": 43.8
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 125
+   }
+  },
+  {
    "id": "tour_live|云一定知道|一巡北京收官20200102_p21_云一定知道",
    "song": "云一定知道",
    "version": "一巡北京收官20200102_p21_云一定知道",
@@ -8423,7 +8458,7 @@
     "duration_s": 1351.5
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "未复核",
     "engines": {},
     "raw_state": ""
    },
@@ -8598,7 +8633,7 @@
     "duration_s": 1630.5
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "未复核",
     "engines": {},
     "raw_state": ""
    },
@@ -19154,7 +19189,7 @@
     "duration_s": 1447.3
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "未复核",
     "engines": {},
     "raw_state": ""
    },
@@ -20632,7 +20667,7 @@
     "duration_s": 4101.3
    },
    "verify": {
-    "state": "谐波列复核通过",
+    "state": "未复核",
     "engines": {},
     "raw_state": ""
    },
@@ -22128,7 +22163,7 @@
     "duration_s": 1698.8
    },
    "verify": {
-    "state": "待复核（谐波列待判）",
+    "state": "未复核",
     "engines": {},
     "raw_state": ""
    },

@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-20T14:07:58",
+  "generated_at": "2026-10-20T22:20:08",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 6,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8310,
+  "files_scanned": 8331,
   "measured_shows_site": 56,
   "shows_with_claimable_site": 54,
-  "bv_mapped": 129
+  "bv_mapped": 131
  },
  "shows": [
   {
@@ -348,32 +348,32 @@
      "detail": "BV1UJ411B7gu｜月牙湾｜未知20191201"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1CJ411z7xC｜月亮代表我的心｜佛山20191201"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1xJ411y7KQ｜City of Stars｜佛山20191201"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "未知20191201_BV1UJ411B7gu｜月牙湾"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1UJ411B7gu"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "未知20191201_BV1UJ411B7gu.wav"
+     "src": "站点实测",
+     "detail": "佛山20191201_BV1xJ411y7KQ｜City of Stars"
     },
     {
      "level": 1,
      "src": "BV命中",
-     "detail": "BV1UJ411B7gu"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "未知20191201_BV1UJ411B7gu_f0.csv"
+     "detail": "BV1xJ411y7KQ"
     }
    ],
-   "n_evidence": 15
+   "n_evidence": 34
   },
   {
    "date": "2019-12-15",
