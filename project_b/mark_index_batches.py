@@ -43,10 +43,12 @@ def main() -> int:
                 fdate = date(int(y), int(mo), int(dd))
             except ValueError:
                 continue
-            value_date = (fdate - timedelta(days=1)).isoformat()
             quick = "_quick" in p.name
             late = bool(hh) and int(hh) >= 22
             kind = "middle_day" if (quick or (hh and not late)) else "final"
+            # ★ 2026-10-20 修：中间批是「当天实时」的批次 → 值日期＝文件名当天；
+            #   只有最终日档（D−1 约定）才减一天。
+            value_date = (fdate if kind == "middle_day" else fdate - timedelta(days=1)).isoformat()
             rec = batches.setdefault(value_date, {"final": [], "middle": []})
             rec["final" if kind == "final" else "middle"].append(
                 {"file": p.name, "dir": str(d), "mtime": p.stat().st_mtime, "kind": kind})

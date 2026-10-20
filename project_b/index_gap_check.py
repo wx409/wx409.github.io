@@ -109,6 +109,10 @@ def main() -> int:
         "streak_no_gap_days": streak,
         "status": "ok" if not missing else "gap",
         "pending_final": pending_final,
+        "pending_final_batch": sorted(set(pending_final) | set(
+            [x for x in (json.loads(BATCH.read_text(encoding="utf-8")).get("pending_final") or [])
+                if x not in have]
+            if BATCH.exists() else [])),
         "pending_final_note": "这些日期只有白天/傍晚的中间批，**等当日最终批（23:56 那批）**，不算缺日",
         "headline": (f"最近成功采集：{dates[-1]} ｜ 覆盖 {len(dates)} 天 ｜ 已连续无缺日 {streak} 天"
                      if not missing else

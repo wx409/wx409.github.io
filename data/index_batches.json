@@ -1,31 +1,41 @@
 {
  "schema": 1,
- "generated_at": "2026-10-17T16:10:19",
+ "generated_at": "2026-10-20T22:07:56",
  "rule": "`_quick` 或 22 点前的整点批＝middle_day；日档/22 点后整点批＝final；值日期＝文件名−1",
- "n_days": 450,
+ "n_days": 454,
  "pending_final": [
-  "2026-10-16"
+  "2026-10-19",
+  "2026-10-20"
  ],
  "days": {
-  "2026-07-24": {
+  "2026-07-25": {
    "has_final": true,
    "n_middle": 2,
    "final_files": [
-    "2026.07.25_2251.xlsx",
-    "2026.07.25_2331.xlsx",
-    "2026.7.25.xlsx"
+    "2026.7.26.xlsx",
+    "2026.07.26.xlsx"
    ],
    "middle_files": [
     "2026.07.25_1254.xlsx",
     "2026.07.25_1807.xlsx"
    ]
   },
-  "2026-07-25": {
+  "2026-07-24": {
+   "has_final": true,
+   "n_middle": 0,
+   "final_files": [
+    "2026.07.25_2251.xlsx",
+    "2026.07.25_2331.xlsx",
+    "2026.7.25.xlsx"
+   ],
+   "middle_files": []
+  },
+  "2026-07-26": {
    "has_final": true,
    "n_middle": 15,
    "final_files": [
-    "2026.7.26.xlsx",
-    "2026.07.26.xlsx"
+    "2026.7.27.xlsx",
+    "2026.07.27.xlsx"
    ],
    "middle_files": [
     "2026.07.26_1028_quick.xlsx",
@@ -33,12 +43,13 @@
     "2026.07.26_1128_quick.xlsx"
    ]
   },
-  "2026-07-28": {
+  "2026-07-29": {
    "has_final": true,
    "n_middle": 5,
    "final_files": [
-    "2026.07.29.xlsx",
-    "2026.07.29.xlsx"
+    "2026.07.30_2339.xlsx",
+    "2026.07.30_2355.xlsx",
+    "2026.07.30.xlsx"
    ],
    "middle_files": [
     "2026.07.29_2000_quick.xlsx",
@@ -46,32 +57,18 @@
     "2026.07.29_2100_quick.xlsx"
    ]
   },
-  "2026-07-29": {
-   "has_final": true,
-   "n_middle": 13,
-   "final_files": [
-    "2026.07.30_2339.xlsx",
-    "2026.07.30_2355.xlsx",
-    "2026.07.30.xlsx"
-   ],
-   "middle_files": [
-    "2026.07.30_1149_quick.xlsx",
-    "2026.07.30_1159_quick.xlsx",
-    "2026.07.30_1218_quick.xlsx"
-   ]
-  },
   "2026-07-30": {
    "has_final": true,
-   "n_middle": 16,
+   "n_middle": 13,
    "final_files": [
     "2026.07.31_2339.xlsx",
     "2026.07.31_2355.xlsx",
     "2026.07.31.xlsx"
    ],
    "middle_files": [
-    "2026.07.31_0805_quick.xlsx",
-    "2026.07.31_0815_quick.xlsx",
-    "2026.07.31_0825_quick.xlsx"
+    "2026.07.30_1149_quick.xlsx",
+    "2026.07.30_1159_quick.xlsx",
+    "2026.07.30_1218_quick.xlsx"
    ]
   },
   "2026-07-31": {
@@ -83,18 +80,32 @@
     "2026.08.01.xlsx"
    ],
    "middle_files": [
+    "2026.07.31_0805_quick.xlsx",
+    "2026.07.31_0815_quick.xlsx",
+    "2026.07.31_0825_quick.xlsx"
+   ]
+  },
+  "2026-08-01": {
+   "has_final": true,
+   "n_middle": 16,
+   "final_files": [
+    "2026.08.02_2339.xlsx",
+    "2026.08.02_2340.xlsx",
+    "2026.08.02_2355.xlsx"
+   ],
+   "middle_files": [
     "2026.08.01_0805_quick.xlsx",
     "2026.08.01_0815_quick.xlsx",
     "2026.08.01_0825_quick.xlsx"
    ]
   },
-  "2026-08-01": {
+  "2026-08-02": {
    "has_final": true,
    "n_middle": 26,
    "final_files": [
-    "2026.08.02_2339.xlsx",
-    "2026.08.02_2340.xlsx",
-    "2026.08.02_2355.xlsx"
+    "2026.08.03_2339.xlsx",
+    "2026.08.03_2355.xlsx",
+    "2026.08.03.xlsx"
    ],
    "middle_files": [
     "2026.08.02_0805_quick.xlsx",
@@ -102,32 +113,18 @@
     "2026.08.02_0825_quick.xlsx"
    ]
   },
-  "2026-08-02": {
-   "has_final": true,
-   "n_middle": 17,
-   "final_files": [
-    "2026.08.03_2339.xlsx",
-    "2026.08.03_2355.xlsx",
-    "2026.08.03.xlsx"
-   ],
-   "middle_files": [
-    "2026.08.03_0805_quick.xlsx",
-    "2026.08.03_0806_quick.xlsx",
-    "2026.08.03_0815_quick.xlsx"
-   ]
-  },
   "2026-08-03": {
    "has_final": true,
-   "n_middle": 11,
+   "n_middle": 17,
    "final_files": [
     "2026.08.04_2339.xlsx",
     "2026.08.04.xlsx",
     "2026.08.04.xlsx"
    ],
    "middle_files": [
-    "2026.08.04_0805_quick.xlsx",
-    "2026.08.04_0825_quick.xlsx",
-    "2026.08.04_1149_quick.xlsx"
+    "2026.08.03_0805_quick.xlsx",
+    "2026.08.03_0806_quick.xlsx",
+    "2026.08.03_0815_quick.xlsx"
    ]
   },
   "2026-08-04": {
@@ -139,9 +136,9 @@
     "2026.08.05.xlsx"
    ],
    "middle_files": [
-    "2026.08.05_0805_quick.xlsx",
-    "2026.08.05_0825_quick.xlsx",
-    "2026.08.05_1149_quick.xlsx"
+    "2026.08.04_0805_quick.xlsx",
+    "2026.08.04_0825_quick.xlsx",
+    "2026.08.04_1149_quick.xlsx"
    ]
   },
   "2026-08-05": {
@@ -153,23 +150,23 @@
     "2026.08.06.xlsx"
    ],
    "middle_files": [
-    "2026.08.06_0805_quick.xlsx",
-    "2026.08.06_1149_quick.xlsx",
-    "2026.08.06_1218_quick.xlsx"
+    "2026.08.05_0805_quick.xlsx",
+    "2026.08.05_0825_quick.xlsx",
+    "2026.08.05_1149_quick.xlsx"
    ]
   },
   "2026-08-06": {
    "has_final": true,
-   "n_middle": 13,
+   "n_middle": 11,
    "final_files": [
     "2026.08.07_2315.xlsx",
     "2026.08.07.xlsx",
     "2026.08.07.xlsx"
    ],
    "middle_files": [
-    "2026.08.07_1150_quick.xlsx",
-    "2026.08.07_1200_quick.xlsx",
-    "2026.08.07_1219_quick.xlsx"
+    "2026.08.06_0805_quick.xlsx",
+    "2026.08.06_1149_quick.xlsx",
+    "2026.08.06_1218_quick.xlsx"
    ]
   },
   "2026-08-07": {
@@ -181,37 +178,37 @@
     "2026.08.08.xlsx"
    ],
    "middle_files": [
-    "2026.08.08_1149_quick.xlsx",
-    "2026.08.08_1159_quick.xlsx",
-    "2026.08.08_1218_quick.xlsx"
+    "2026.08.07_1150_quick.xlsx",
+    "2026.08.07_1200_quick.xlsx",
+    "2026.08.07_1219_quick.xlsx"
    ]
   },
   "2026-08-08": {
    "has_final": true,
-   "n_middle": 16,
+   "n_middle": 13,
    "final_files": [
     "2026.08.09_2315.xlsx",
     "2026.08.09.xlsx",
     "2026.08.09.xlsx"
    ],
    "middle_files": [
-    "2026.08.09_0805_quick.xlsx",
-    "2026.08.09_0815_quick.xlsx",
-    "2026.08.09_0825_quick.xlsx"
+    "2026.08.08_1149_quick.xlsx",
+    "2026.08.08_1159_quick.xlsx",
+    "2026.08.08_1218_quick.xlsx"
    ]
   },
   "2026-08-09": {
    "has_final": true,
-   "n_middle": 13,
+   "n_middle": 16,
    "final_files": [
     "2026.08.10_2315.xlsx",
     "2026.08.10.xlsx",
     "2026.08.10.xlsx"
    ],
    "middle_files": [
-    "2026.08.10_1149_quick.xlsx",
-    "2026.08.10_1159_quick.xlsx",
-    "2026.08.10_1218_quick.xlsx"
+    "2026.08.09_0805_quick.xlsx",
+    "2026.08.09_0815_quick.xlsx",
+    "2026.08.09_0825_quick.xlsx"
    ]
   },
   "2026-08-10": {
@@ -223,9 +220,9 @@
     "2026.08.11.xlsx"
    ],
    "middle_files": [
-    "2026.08.11_1149_quick.xlsx",
-    "2026.08.11_1159_quick.xlsx",
-    "2026.08.11_1218_quick.xlsx"
+    "2026.08.10_1149_quick.xlsx",
+    "2026.08.10_1159_quick.xlsx",
+    "2026.08.10_1218_quick.xlsx"
    ]
   },
   "2026-08-11": {
@@ -237,9 +234,9 @@
     "2026.08.12.xlsx"
    ],
    "middle_files": [
-    "2026.08.12_1149_quick.xlsx",
-    "2026.08.12_1159_quick.xlsx",
-    "2026.08.12_1218_quick.xlsx"
+    "2026.08.11_1149_quick.xlsx",
+    "2026.08.11_1159_quick.xlsx",
+    "2026.08.11_1218_quick.xlsx"
    ]
   },
   "2026-08-12": {
@@ -251,18 +248,32 @@
     "2026.08.13.xlsx"
    ],
    "middle_files": [
+    "2026.08.12_1149_quick.xlsx",
+    "2026.08.12_1159_quick.xlsx",
+    "2026.08.12_1218_quick.xlsx"
+   ]
+  },
+  "2026-08-13": {
+   "has_final": true,
+   "n_middle": 13,
+   "final_files": [
+    "2026.08.14_2315.xlsx",
+    "2026.08.14.xlsx",
+    "2026.08.14.xlsx"
+   ],
+   "middle_files": [
     "2026.08.13_1149_quick.xlsx",
     "2026.08.13_1159_quick.xlsx",
     "2026.08.13_1218_quick.xlsx"
    ]
   },
-  "2026-08-13": {
+  "2026-08-14": {
    "has_final": true,
    "n_middle": 15,
    "final_files": [
-    "2026.08.14_2315.xlsx",
-    "2026.08.14.xlsx",
-    "2026.08.14.xlsx"
+    "2026.08.15_2315.xlsx",
+    "2026.08.15.xlsx",
+    "2026.08.15.xlsx"
    ],
    "middle_files": [
     "2026.08.14_0815_quick.xlsx",
@@ -270,13 +281,13 @@
     "2026.08.14_1149_quick.xlsx"
    ]
   },
-  "2026-08-14": {
+  "2026-08-15": {
    "has_final": true,
    "n_middle": 10,
    "final_files": [
-    "2026.08.15_2315.xlsx",
-    "2026.08.15.xlsx",
-    "2026.08.15.xlsx"
+    "2026.08.16_2315.xlsx",
+    "2026.08.16.xlsx",
+    "2026.08.16.xlsx"
    ],
    "middle_files": [
     "2026.08.15_1805_quick.xlsx",
@@ -284,13 +295,13 @@
     "2026.08.15_1825_quick.xlsx"
    ]
   },
-  "2026-08-15": {
+  "2026-08-16": {
    "has_final": true,
    "n_middle": 16,
    "final_files": [
-    "2026.08.16_2315.xlsx",
-    "2026.08.16.xlsx",
-    "2026.08.16.xlsx"
+    "2026.08.17_2315.xlsx",
+    "2026.08.17.xlsx",
+    "2026.08.17.xlsx"
    ],
    "middle_files": [
     "2026.08.16_0805_quick.xlsx",
@@ -298,13 +309,13 @@
     "2026.08.16_0825_quick.xlsx"
    ]
   },
-  "2026-08-16": {
+  "2026-08-17": {
    "has_final": true,
    "n_middle": 13,
    "final_files": [
-    "2026.08.17_2315.xlsx",
-    "2026.08.17.xlsx",
-    "2026.08.17.xlsx"
+    "2026.08.18_2315.xlsx",
+    "2026.08.18.xlsx",
+    "2026.08.18.xlsx"
    ],
    "middle_files": [
     "2026.08.17_1149_quick.xlsx",
@@ -312,32 +323,18 @@
     "2026.08.17_1218_quick.xlsx"
    ]
   },
-  "2026-08-17": {
-   "has_final": true,
-   "n_middle": 14,
-   "final_files": [
-    "2026.08.18_2315.xlsx",
-    "2026.08.18.xlsx",
-    "2026.08.18.xlsx"
-   ],
-   "middle_files": [
-    "2026.08.18_1149_quick.xlsx",
-    "2026.08.18_1159_quick.xlsx",
-    "2026.08.18_1218_quick.xlsx"
-   ]
-  },
   "2026-08-18": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 14,
    "final_files": [
     "2026.08.19_2315.xlsx",
     "2026.08.19.xlsx",
     "2026.08.19.xlsx"
    ],
    "middle_files": [
-    "2026.08.19_0805_quick.xlsx",
-    "2026.08.19_0815_quick.xlsx",
-    "2026.08.19_0825_quick.xlsx"
+    "2026.08.18_1149_quick.xlsx",
+    "2026.08.18_1159_quick.xlsx",
+    "2026.08.18_1218_quick.xlsx"
    ]
   },
   "2026-08-19": {
@@ -349,9 +346,9 @@
     "2026.08.20.xlsx"
    ],
    "middle_files": [
-    "2026.08.20_0805_quick.xlsx",
-    "2026.08.20_0815_quick.xlsx",
-    "2026.08.20_0825_quick.xlsx"
+    "2026.08.19_0805_quick.xlsx",
+    "2026.08.19_0815_quick.xlsx",
+    "2026.08.19_0825_quick.xlsx"
    ]
   },
   "2026-08-20": {
@@ -363,18 +360,32 @@
     "2026.08.21.xlsx"
    ],
    "middle_files": [
+    "2026.08.20_0805_quick.xlsx",
+    "2026.08.20_0815_quick.xlsx",
+    "2026.08.20_0825_quick.xlsx"
+   ]
+  },
+  "2026-08-21": {
+   "has_final": true,
+   "n_middle": 17,
+   "final_files": [
+    "2026.08.22_2315.xlsx",
+    "2026.08.22.xlsx",
+    "2026.08.22.xlsx"
+   ],
+   "middle_files": [
     "2026.08.21_0805_quick.xlsx",
     "2026.08.21_0815_quick.xlsx",
     "2026.08.21_0825_quick.xlsx"
    ]
   },
-  "2026-08-21": {
+  "2026-08-22": {
    "has_final": true,
    "n_middle": 10,
    "final_files": [
-    "2026.08.22_2315.xlsx",
-    "2026.08.22.xlsx",
-    "2026.08.22.xlsx"
+    "2026.08.23_2315.xlsx",
+    "2026.08.23.xlsx",
+    "2026.08.23.xlsx"
    ],
    "middle_files": [
     "2026.08.22_1805_quick.xlsx",
@@ -382,13 +393,13 @@
     "2026.08.22_1825_quick.xlsx"
    ]
   },
-  "2026-08-22": {
+  "2026-08-23": {
    "has_final": true,
    "n_middle": 18,
    "final_files": [
-    "2026.08.23_2315.xlsx",
-    "2026.08.23.xlsx",
-    "2026.08.23.xlsx"
+    "2026.08.24_2315.xlsx",
+    "2026.08.24.xlsx",
+    "2026.08.24.xlsx"
    ],
    "middle_files": [
     "2026.08.23_0805_quick.xlsx",
@@ -396,13 +407,13 @@
     "2026.08.23_0825_quick.xlsx"
    ]
   },
-  "2026-08-23": {
+  "2026-08-24": {
    "has_final": true,
    "n_middle": 13,
    "final_files": [
-    "2026.08.24_2315.xlsx",
-    "2026.08.24.xlsx",
-    "2026.08.24.xlsx"
+    "2026.08.25_2315.xlsx",
+    "2026.08.25.xlsx",
+    "2026.08.25.xlsx"
    ],
    "middle_files": [
     "2026.08.24_1152_quick.xlsx",
@@ -410,13 +421,13 @@
     "2026.08.24_1218_quick.xlsx"
    ]
   },
-  "2026-08-24": {
+  "2026-08-25": {
    "has_final": true,
    "n_middle": 14,
    "final_files": [
-    "2026.08.25_2315.xlsx",
-    "2026.08.25.xlsx",
-    "2026.08.25.xlsx"
+    "2026.08.26_2315.xlsx",
+    "2026.08.26.xlsx",
+    "2026.08.26.xlsx"
    ],
    "middle_files": [
     "2026.08.25_1149_quick.xlsx",
@@ -424,32 +435,18 @@
     "2026.08.25_1218_quick.xlsx"
    ]
   },
-  "2026-08-25": {
-   "has_final": true,
-   "n_middle": 17,
-   "final_files": [
-    "2026.08.26_2315.xlsx",
-    "2026.08.26.xlsx",
-    "2026.08.26.xlsx"
-   ],
-   "middle_files": [
-    "2026.08.26_0805_quick.xlsx",
-    "2026.08.26_0815_quick.xlsx",
-    "2026.08.26_0825_quick.xlsx"
-   ]
-  },
   "2026-08-26": {
    "has_final": true,
-   "n_middle": 14,
+   "n_middle": 17,
    "final_files": [
     "2026.08.27_2315.xlsx",
     "2026.08.27.xlsx",
     "2026.08.27.xlsx"
    ],
    "middle_files": [
-    "2026.08.27_1149_quick.xlsx",
-    "2026.08.27_1159_quick.xlsx",
-    "2026.08.27_1218_quick.xlsx"
+    "2026.08.26_0805_quick.xlsx",
+    "2026.08.26_0815_quick.xlsx",
+    "2026.08.26_0825_quick.xlsx"
    ]
   },
   "2026-08-27": {
@@ -461,23 +458,23 @@
     "2026.08.28.xlsx"
    ],
    "middle_files": [
-    "2026.08.28_1149_quick.xlsx",
-    "2026.08.28_1159_quick.xlsx",
-    "2026.08.28_1218_quick.xlsx"
+    "2026.08.27_1149_quick.xlsx",
+    "2026.08.27_1159_quick.xlsx",
+    "2026.08.27_1218_quick.xlsx"
    ]
   },
   "2026-08-28": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 14,
    "final_files": [
     "2026.08.29_2315.xlsx",
     "2026.08.29.xlsx",
     "2026.08.29.xlsx"
    ],
    "middle_files": [
-    "2026.08.29_0805_quick.xlsx",
-    "2026.08.29_0815_quick.xlsx",
-    "2026.08.29_0825_quick.xlsx"
+    "2026.08.28_1149_quick.xlsx",
+    "2026.08.28_1159_quick.xlsx",
+    "2026.08.28_1218_quick.xlsx"
    ]
   },
   "2026-08-29": {
@@ -489,23 +486,23 @@
     "2026.08.30.xlsx"
    ],
    "middle_files": [
-    "2026.08.30_0805_quick.xlsx",
-    "2026.08.30_0816_quick.xlsx",
-    "2026.08.30_0825_quick.xlsx"
+    "2026.08.29_0805_quick.xlsx",
+    "2026.08.29_0815_quick.xlsx",
+    "2026.08.29_0825_quick.xlsx"
    ]
   },
   "2026-08-30": {
    "has_final": true,
-   "n_middle": 14,
+   "n_middle": 17,
    "final_files": [
     "2026.08.31_2315.xlsx",
     "2026.08.31.xlsx",
     "2026.08.31.xlsx"
    ],
    "middle_files": [
-    "2026.08.31_1149_quick.xlsx",
-    "2026.08.31_1159_quick.xlsx",
-    "2026.08.31_1218_quick.xlsx"
+    "2026.08.30_0805_quick.xlsx",
+    "2026.08.30_0816_quick.xlsx",
+    "2026.08.30_0825_quick.xlsx"
    ]
   },
   "2026-08-31": {
@@ -517,9 +514,9 @@
     "2026.09.01.xlsx"
    ],
    "middle_files": [
-    "2026.09.01_1149_quick.xlsx",
-    "2026.09.01_1159_quick.xlsx",
-    "2026.09.01_1218_quick.xlsx"
+    "2026.08.31_1149_quick.xlsx",
+    "2026.08.31_1159_quick.xlsx",
+    "2026.08.31_1218_quick.xlsx"
    ]
   },
   "2026-09-01": {
@@ -531,9 +528,9 @@
     "2026.09.02.xlsx"
    ],
    "middle_files": [
-    "2026.09.02_1149_quick.xlsx",
-    "2026.09.02_1159_quick.xlsx",
-    "2026.09.02_1218_quick.xlsx"
+    "2026.09.01_1149_quick.xlsx",
+    "2026.09.01_1159_quick.xlsx",
+    "2026.09.01_1218_quick.xlsx"
    ]
   },
   "2026-09-02": {
@@ -545,9 +542,9 @@
     "2026.09.03.xlsx"
    ],
    "middle_files": [
-    "2026.09.03_1149_quick.xlsx",
-    "2026.09.03_1159_quick.xlsx",
-    "2026.09.03_1218_quick.xlsx"
+    "2026.09.02_1149_quick.xlsx",
+    "2026.09.02_1159_quick.xlsx",
+    "2026.09.02_1218_quick.xlsx"
    ]
   },
   "2026-09-03": {
@@ -559,23 +556,23 @@
     "2026.09.04.xlsx"
    ],
    "middle_files": [
-    "2026.09.04_1149_quick.xlsx",
-    "2026.09.04_1159_quick.xlsx",
-    "2026.09.04_1218_quick.xlsx"
+    "2026.09.03_1149_quick.xlsx",
+    "2026.09.03_1159_quick.xlsx",
+    "2026.09.03_1218_quick.xlsx"
    ]
   },
   "2026-09-04": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 14,
    "final_files": [
     "2026.09.05_2315.xlsx",
     "2026.09.05.xlsx",
     "2026.09.05.xlsx"
    ],
    "middle_files": [
-    "2026.09.05_0805_quick.xlsx",
-    "2026.09.05_0815_quick.xlsx",
-    "2026.09.05_0825_quick.xlsx"
+    "2026.09.04_1149_quick.xlsx",
+    "2026.09.04_1159_quick.xlsx",
+    "2026.09.04_1218_quick.xlsx"
    ]
   },
   "2026-09-05": {
@@ -587,18 +584,32 @@
     "2026.09.06.xlsx"
    ],
    "middle_files": [
+    "2026.09.05_0805_quick.xlsx",
+    "2026.09.05_0815_quick.xlsx",
+    "2026.09.05_0825_quick.xlsx"
+   ]
+  },
+  "2026-09-06": {
+   "has_final": true,
+   "n_middle": 17,
+   "final_files": [
+    "2026.09.07_2315.xlsx",
+    "2026.09.07.xlsx",
+    "2026.09.07.xlsx"
+   ],
+   "middle_files": [
     "2026.09.06_0805_quick.xlsx",
     "2026.09.06_0815_quick.xlsx",
     "2026.09.06_0825_quick.xlsx"
    ]
   },
-  "2026-09-06": {
+  "2026-09-07": {
    "has_final": true,
    "n_middle": 14,
    "final_files": [
-    "2026.09.07_2315.xlsx",
-    "2026.09.07.xlsx",
-    "2026.09.07.xlsx"
+    "2026.09.08_2315.xlsx",
+    "2026.09.08.xlsx",
+    "2026.09.08.xlsx"
    ],
    "middle_files": [
     "2026.09.07_1149_quick.xlsx",
@@ -606,13 +617,11 @@
     "2026.09.07_1218_quick.xlsx"
    ]
   },
-  "2026-09-07": {
+  "2026-09-08": {
    "has_final": true,
    "n_middle": 17,
    "final_files": [
-    "2026.09.08_2315.xlsx",
-    "2026.09.08.xlsx",
-    "2026.09.08.xlsx"
+    "2026.09.09.xlsx"
    ],
    "middle_files": [
     "2026.09.08_0805_quick.xlsx",
@@ -620,11 +629,13 @@
     "2026.09.08_0825_quick.xlsx"
    ]
   },
-  "2026-09-08": {
+  "2026-09-09": {
    "has_final": true,
    "n_middle": 11,
    "final_files": [
-    "2026.09.09.xlsx"
+    "2026.09.10_2315.xlsx",
+    "2026.09.10.xlsx",
+    "2026.09.10.xlsx"
    ],
    "middle_files": [
     "2026.09.09_1149_quick.xlsx",
@@ -632,32 +643,18 @@
     "2026.09.09_1218_quick.xlsx"
    ]
   },
-  "2026-09-09": {
-   "has_final": true,
-   "n_middle": 16,
-   "final_files": [
-    "2026.09.10_2315.xlsx",
-    "2026.09.10.xlsx",
-    "2026.09.10.xlsx"
-   ],
-   "middle_files": [
-    "2026.09.10_0815_quick.xlsx",
-    "2026.09.10_0825_quick.xlsx",
-    "2026.09.10_1149_quick.xlsx"
-   ]
-  },
   "2026-09-10": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 16,
    "final_files": [
     "2026.09.11_2315.xlsx",
     "2026.09.11.xlsx",
     "2026.09.11.xlsx"
    ],
    "middle_files": [
-    "2026.09.11_0805_quick.xlsx",
-    "2026.09.11_0815_quick.xlsx",
-    "2026.09.11_0825_quick.xlsx"
+    "2026.09.10_0815_quick.xlsx",
+    "2026.09.10_0825_quick.xlsx",
+    "2026.09.10_1149_quick.xlsx"
    ]
   },
   "2026-09-11": {
@@ -669,18 +666,32 @@
     "2026.09.12.xlsx"
    ],
    "middle_files": [
+    "2026.09.11_0805_quick.xlsx",
+    "2026.09.11_0815_quick.xlsx",
+    "2026.09.11_0825_quick.xlsx"
+   ]
+  },
+  "2026-09-12": {
+   "has_final": true,
+   "n_middle": 17,
+   "final_files": [
+    "2026.09.13_2315.xlsx",
+    "2026.09.13.xlsx",
+    "2026.09.13.xlsx"
+   ],
+   "middle_files": [
     "2026.09.12_0805_quick.xlsx",
     "2026.09.12_0815_quick.xlsx",
     "2026.09.12_0825_quick.xlsx"
    ]
   },
-  "2026-09-12": {
+  "2026-09-13": {
    "has_final": true,
    "n_middle": 18,
    "final_files": [
-    "2026.09.13_2315.xlsx",
-    "2026.09.13.xlsx",
-    "2026.09.13.xlsx"
+    "2026.09.14_2315.xlsx",
+    "2026.09.14.xlsx",
+    "2026.09.14.xlsx"
    ],
    "middle_files": [
     "2026.09.13_0805_quick.xlsx",
@@ -688,13 +699,13 @@
     "2026.09.13_0825_quick.xlsx"
    ]
   },
-  "2026-09-13": {
+  "2026-09-14": {
    "has_final": true,
    "n_middle": 14,
    "final_files": [
-    "2026.09.14_2315.xlsx",
-    "2026.09.14.xlsx",
-    "2026.09.14.xlsx"
+    "2026.09.15_2315.xlsx",
+    "2026.09.15.xlsx",
+    "2026.09.15.xlsx"
    ],
    "middle_files": [
     "2026.09.14_1149_quick.xlsx",
@@ -702,13 +713,13 @@
     "2026.09.14_1218_quick.xlsx"
    ]
   },
-  "2026-09-14": {
+  "2026-09-15": {
    "has_final": true,
    "n_middle": 16,
    "final_files": [
-    "2026.09.15_2315.xlsx",
-    "2026.09.15.xlsx",
-    "2026.09.15.xlsx"
+    "2026.09.16_2315.xlsx",
+    "2026.09.16.xlsx",
+    "2026.09.16.xlsx"
    ],
    "middle_files": [
     "2026.09.15_0926.xlsx",
@@ -716,13 +727,13 @@
     "2026.09.15_1149_quick.xlsx"
    ]
   },
-  "2026-09-15": {
+  "2026-09-16": {
    "has_final": true,
    "n_middle": 14,
    "final_files": [
-    "2026.09.16_2315.xlsx",
-    "2026.09.16.xlsx",
-    "2026.09.16.xlsx"
+    "2026.09.17_2315.xlsx",
+    "2026.09.17.xlsx",
+    "2026.09.17.xlsx"
    ],
    "middle_files": [
     "2026.09.16_1149_quick.xlsx",
@@ -730,13 +741,13 @@
     "2026.09.16_1218_quick.xlsx"
    ]
   },
-  "2026-09-16": {
+  "2026-09-17": {
    "has_final": true,
    "n_middle": 17,
    "final_files": [
-    "2026.09.17_2315.xlsx",
-    "2026.09.17.xlsx",
-    "2026.09.17.xlsx"
+    "2026.09.18_2315.xlsx",
+    "2026.09.18.xlsx",
+    "2026.09.18.xlsx"
    ],
    "middle_files": [
     "2026.09.17_0805_quick.xlsx",
@@ -744,32 +755,18 @@
     "2026.09.17_0825_quick.xlsx"
    ]
   },
-  "2026-09-17": {
-   "has_final": true,
-   "n_middle": 14,
-   "final_files": [
-    "2026.09.18_2315.xlsx",
-    "2026.09.18.xlsx",
-    "2026.09.18.xlsx"
-   ],
-   "middle_files": [
-    "2026.09.18_1149_quick.xlsx",
-    "2026.09.18_1159_quick.xlsx",
-    "2026.09.18_1218_quick.xlsx"
-   ]
-  },
   "2026-09-18": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 14,
    "final_files": [
     "2026.09.19_2315.xlsx",
     "2026.09.19.xlsx",
     "2026.09.19.xlsx"
    ],
    "middle_files": [
-    "2026.09.19_0805_quick.xlsx",
-    "2026.09.19_0815_quick.xlsx",
-    "2026.09.19_0825_quick.xlsx"
+    "2026.09.18_1149_quick.xlsx",
+    "2026.09.18_1159_quick.xlsx",
+    "2026.09.18_1218_quick.xlsx"
    ]
   },
   "2026-09-19": {
@@ -781,23 +778,23 @@
     "2026.09.20.xlsx"
    ],
    "middle_files": [
-    "2026.09.20_0805_quick.xlsx",
-    "2026.09.20_0815_quick.xlsx",
-    "2026.09.20_0825_quick.xlsx"
+    "2026.09.19_0805_quick.xlsx",
+    "2026.09.19_0815_quick.xlsx",
+    "2026.09.19_0825_quick.xlsx"
    ]
   },
   "2026-09-20": {
    "has_final": true,
-   "n_middle": 14,
+   "n_middle": 17,
    "final_files": [
     "2026.09.21_2315.xlsx",
     "2026.09.21.xlsx",
     "2026.09.21.xlsx"
    ],
    "middle_files": [
-    "2026.09.21_1149_quick.xlsx",
-    "2026.09.21_1159_quick.xlsx",
-    "2026.09.21_1218_quick.xlsx"
+    "2026.09.20_0805_quick.xlsx",
+    "2026.09.20_0815_quick.xlsx",
+    "2026.09.20_0825_quick.xlsx"
    ]
   },
   "2026-09-21": {
@@ -809,9 +806,9 @@
     "2026.09.22.xlsx"
    ],
    "middle_files": [
-    "2026.09.22_1149_quick.xlsx",
-    "2026.09.22_1159_quick.xlsx",
-    "2026.09.22_1218_quick.xlsx"
+    "2026.09.21_1149_quick.xlsx",
+    "2026.09.21_1159_quick.xlsx",
+    "2026.09.21_1218_quick.xlsx"
    ]
   },
   "2026-09-22": {
@@ -823,18 +820,32 @@
     "2026.09.23.xlsx"
    ],
    "middle_files": [
+    "2026.09.22_1149_quick.xlsx",
+    "2026.09.22_1159_quick.xlsx",
+    "2026.09.22_1218_quick.xlsx"
+   ]
+  },
+  "2026-09-23": {
+   "has_final": true,
+   "n_middle": 14,
+   "final_files": [
+    "2026.09.24_2315.xlsx",
+    "2026.09.24.xlsx",
+    "2026.09.24.xlsx"
+   ],
+   "middle_files": [
     "2026.09.23_1149_quick.xlsx",
     "2026.09.23_1159_quick.xlsx",
     "2026.09.23_1218_quick.xlsx"
    ]
   },
-  "2026-09-23": {
+  "2026-09-24": {
    "has_final": true,
    "n_middle": 17,
    "final_files": [
-    "2026.09.24_2315.xlsx",
-    "2026.09.24.xlsx",
-    "2026.09.24.xlsx"
+    "2026.09.25_2315.xlsx",
+    "2026.09.25.xlsx",
+    "2026.09.25.xlsx"
    ],
    "middle_files": [
     "2026.09.24_0805_quick.xlsx",
@@ -842,32 +853,18 @@
     "2026.09.24_0825_quick.xlsx"
    ]
   },
-  "2026-09-24": {
-   "has_final": true,
-   "n_middle": 11,
-   "final_files": [
-    "2026.09.25_2315.xlsx",
-    "2026.09.25.xlsx",
-    "2026.09.25.xlsx"
-   ],
-   "middle_files": [
-    "2026.09.25_1309_quick.xlsx",
-    "2026.09.25_1805_quick.xlsx",
-    "2026.09.25_1815_quick.xlsx"
-   ]
-  },
   "2026-09-25": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 11,
    "final_files": [
     "2026.09.26_2315.xlsx",
     "2026.09.26.xlsx",
     "2026.09.26.xlsx"
    ],
    "middle_files": [
-    "2026.09.26_0805_quick.xlsx",
-    "2026.09.26_0815_quick.xlsx",
-    "2026.09.26_0825_quick.xlsx"
+    "2026.09.25_1309_quick.xlsx",
+    "2026.09.25_1805_quick.xlsx",
+    "2026.09.25_1815_quick.xlsx"
    ]
   },
   "2026-09-26": {
@@ -879,9 +876,9 @@
     "2026.09.27.xlsx"
    ],
    "middle_files": [
-    "2026.09.27_0805_quick.xlsx",
-    "2026.09.27_0815_quick.xlsx",
-    "2026.09.27_0825_quick.xlsx"
+    "2026.09.26_0805_quick.xlsx",
+    "2026.09.26_0815_quick.xlsx",
+    "2026.09.26_0825_quick.xlsx"
    ]
   },
   "2026-09-27": {
@@ -893,9 +890,9 @@
     "2026.09.28.xlsx"
    ],
    "middle_files": [
-    "2026.09.28_0805_quick.xlsx",
-    "2026.09.28_0815_quick.xlsx",
-    "2026.09.28_0825_quick.xlsx"
+    "2026.09.27_0805_quick.xlsx",
+    "2026.09.27_0815_quick.xlsx",
+    "2026.09.27_0825_quick.xlsx"
    ]
   },
   "2026-09-28": {
@@ -907,18 +904,31 @@
     "2026.09.29.xlsx"
    ],
    "middle_files": [
+    "2026.09.28_0805_quick.xlsx",
+    "2026.09.28_0815_quick.xlsx",
+    "2026.09.28_0825_quick.xlsx"
+   ]
+  },
+  "2026-09-29": {
+   "has_final": true,
+   "n_middle": 17,
+   "final_files": [
+    "2026.09.30_2339.xlsx",
+    "2026.09.30.xlsx",
+    "2026.09.30.xlsx"
+   ],
+   "middle_files": [
     "2026.09.29_0805_quick.xlsx",
     "2026.09.29_0815_quick.xlsx",
     "2026.09.29_0825_quick.xlsx"
    ]
   },
-  "2026-09-29": {
+  "2026-09-30": {
    "has_final": true,
    "n_middle": 16,
    "final_files": [
-    "2026.09.30_2339.xlsx",
-    "2026.09.30.xlsx",
-    "2026.09.30.xlsx"
+    "2026.10.01_2351.xlsx",
+    "2026.10.01.xlsx"
    ],
    "middle_files": [
     "2026.09.30_0805_quick.xlsx",
@@ -926,12 +936,13 @@
     "2026.09.30_0825_quick.xlsx"
    ]
   },
-  "2026-09-30": {
+  "2026-10-01": {
    "has_final": true,
    "n_middle": 11,
    "final_files": [
-    "2026.10.01_2351.xlsx",
-    "2026.10.01.xlsx"
+    "2026.10.02_2339.xlsx",
+    "2026.10.02.xlsx",
+    "2026.10.02.xlsx"
    ],
    "middle_files": [
     "2026.10.01_0807_quick.xlsx",
@@ -939,13 +950,13 @@
     "2026.10.01_1151_quick.xlsx"
    ]
   },
-  "2026-10-01": {
+  "2026-10-02": {
    "has_final": true,
    "n_middle": 13,
    "final_files": [
-    "2026.10.02_2339.xlsx",
-    "2026.10.02.xlsx",
-    "2026.10.02.xlsx"
+    "2026.10.03_2340.xlsx",
+    "2026.10.03.xlsx",
+    "2026.10.03.xlsx"
    ],
    "middle_files": [
     "2026.10.02_1150_quick.xlsx",
@@ -953,13 +964,13 @@
     "2026.10.02_1219_quick.xlsx"
    ]
   },
-  "2026-10-02": {
+  "2026-10-03": {
    "has_final": true,
    "n_middle": 14,
    "final_files": [
-    "2026.10.03_2340.xlsx",
-    "2026.10.03.xlsx",
-    "2026.10.03.xlsx"
+    "2026.10.04_2339.xlsx",
+    "2026.10.04.xlsx",
+    "2026.10.04.xlsx"
    ],
    "middle_files": [
     "2026.10.03_0806_quick.xlsx",
@@ -967,13 +978,13 @@
     "2026.10.03_0825_quick.xlsx"
    ]
   },
-  "2026-10-03": {
+  "2026-10-04": {
    "has_final": true,
    "n_middle": 13,
    "final_files": [
-    "2026.10.04_2339.xlsx",
-    "2026.10.04.xlsx",
-    "2026.10.04.xlsx"
+    "2026.10.05_2339.xlsx",
+    "2026.10.05.xlsx",
+    "2026.10.05.xlsx"
    ],
    "middle_files": [
     "2026.10.04_1149_quick.xlsx",
@@ -981,13 +992,13 @@
     "2026.10.04_1218_quick.xlsx"
    ]
   },
-  "2026-10-04": {
+  "2026-10-05": {
    "has_final": true,
    "n_middle": 17,
    "final_files": [
-    "2026.10.05_2339.xlsx",
-    "2026.10.05.xlsx",
-    "2026.10.05.xlsx"
+    "2026.10.06_2339.xlsx",
+    "2026.10.06.xlsx",
+    "2026.10.06.xlsx"
    ],
    "middle_files": [
     "2026.10.05_1149_quick.xlsx",
@@ -995,13 +1006,13 @@
     "2026.10.05_1159_quick.xlsx"
    ]
   },
-  "2026-10-05": {
+  "2026-10-06": {
    "has_final": true,
    "n_middle": 15,
    "final_files": [
-    "2026.10.06_2339.xlsx",
-    "2026.10.06.xlsx",
-    "2026.10.06.xlsx"
+    "2026.10.07_2340.xlsx",
+    "2026.10.07.xlsx",
+    "2026.10.07.xlsx"
    ],
    "middle_files": [
     "2026.10.06_1149_quick.xlsx",
@@ -1009,13 +1020,13 @@
     "2026.10.06_1159_quick.xlsx"
    ]
   },
-  "2026-10-06": {
+  "2026-10-07": {
    "has_final": true,
    "n_middle": 16,
    "final_files": [
-    "2026.10.07_2340.xlsx",
-    "2026.10.07.xlsx",
-    "2026.10.07.xlsx"
+    "2026.10.08_2315.xlsx",
+    "2026.10.08.xlsx",
+    "2026.10.08.xlsx"
    ],
    "middle_files": [
     "2026.10.07_1149_quick.xlsx",
@@ -1023,13 +1034,13 @@
     "2026.10.07_1159_quick.xlsx"
    ]
   },
-  "2026-10-07": {
+  "2026-10-08": {
    "has_final": true,
    "n_middle": 14,
    "final_files": [
-    "2026.10.08_2315.xlsx",
-    "2026.10.08.xlsx",
-    "2026.10.08.xlsx"
+    "2026.10.09_2339.xlsx",
+    "2026.10.09.xlsx",
+    "2026.10.09.xlsx"
    ],
    "middle_files": [
     "2026.10.08_1149_quick.xlsx",
@@ -1037,13 +1048,13 @@
     "2026.10.08_1218_quick.xlsx"
    ]
   },
-  "2026-10-08": {
+  "2026-10-09": {
    "has_final": true,
    "n_middle": 19,
    "final_files": [
-    "2026.10.09_2339.xlsx",
-    "2026.10.09.xlsx",
-    "2026.10.09.xlsx"
+    "2026.10.10_2315.xlsx",
+    "2026.10.10.xlsx",
+    "2026.10.10.xlsx"
    ],
    "middle_files": [
     "2026.10.09_0805_quick.xlsx",
@@ -1051,32 +1062,18 @@
     "2026.10.09_0825_quick.xlsx"
    ]
   },
-  "2026-10-09": {
-   "has_final": true,
-   "n_middle": 14,
-   "final_files": [
-    "2026.10.10_2315.xlsx",
-    "2026.10.10.xlsx",
-    "2026.10.10.xlsx"
-   ],
-   "middle_files": [
-    "2026.10.10_1149_quick.xlsx",
-    "2026.10.10_1159_quick.xlsx",
-    "2026.10.10_1218_quick.xlsx"
-   ]
-  },
   "2026-10-10": {
    "has_final": true,
-   "n_middle": 17,
+   "n_middle": 14,
    "final_files": [
     "2026.10.11_2315.xlsx",
     "2026.10.11.xlsx",
     "2026.10.11.xlsx"
    ],
    "middle_files": [
-    "2026.10.11_0805_quick.xlsx",
-    "2026.10.11_0815_quick.xlsx",
-    "2026.10.11_0825_quick.xlsx"
+    "2026.10.10_1149_quick.xlsx",
+    "2026.10.10_1159_quick.xlsx",
+    "2026.10.10_1218_quick.xlsx"
    ]
   },
   "2026-10-11": {
@@ -1088,9 +1085,9 @@
     "2026.10.12.xlsx"
    ],
    "middle_files": [
-    "2026.10.12_0805_quick.xlsx",
-    "2026.10.12_0815_quick.xlsx",
-    "2026.10.12_0825_quick.xlsx"
+    "2026.10.11_0805_quick.xlsx",
+    "2026.10.11_0815_quick.xlsx",
+    "2026.10.11_0825_quick.xlsx"
    ]
   },
   "2026-10-12": {
@@ -1102,9 +1099,9 @@
     "2026.10.13.xlsx"
    ],
    "middle_files": [
-    "2026.10.13_0805_quick.xlsx",
-    "2026.10.13_0815_quick.xlsx",
-    "2026.10.13_0825_quick.xlsx"
+    "2026.10.12_0805_quick.xlsx",
+    "2026.10.12_0815_quick.xlsx",
+    "2026.10.12_0825_quick.xlsx"
    ]
   },
   "2026-10-13": {
@@ -1116,9 +1113,9 @@
     "2026.10.14.xlsx"
    ],
    "middle_files": [
-    "2026.10.14_0805_quick.xlsx",
-    "2026.10.14_0815_quick.xlsx",
-    "2026.10.14_0825_quick.xlsx"
+    "2026.10.13_0805_quick.xlsx",
+    "2026.10.13_0815_quick.xlsx",
+    "2026.10.13_0825_quick.xlsx"
    ]
   },
   "2026-10-14": {
@@ -1130,9 +1127,9 @@
     "2026.10.15.xlsx"
    ],
    "middle_files": [
-    "2026.10.15_0805_quick.xlsx",
-    "2026.10.15_0815_quick.xlsx",
-    "2026.10.15_0825_quick.xlsx"
+    "2026.10.14_0805_quick.xlsx",
+    "2026.10.14_0815_quick.xlsx",
+    "2026.10.14_0825_quick.xlsx"
    ]
   },
   "2026-10-15": {
@@ -1144,19 +1141,71 @@
     "2026.10.16.xlsx"
    ],
    "middle_files": [
+    "2026.10.15_0805_quick.xlsx",
+    "2026.10.15_0815_quick.xlsx",
+    "2026.10.15_0825_quick.xlsx"
+   ]
+  },
+  "2026-10-16": {
+   "has_final": true,
+   "n_middle": 17,
+   "final_files": [
+    "2026.10.17_2315.xlsx",
+    "2026.10.17.xlsx",
+    "2026.10.17.xlsx"
+   ],
+   "middle_files": [
     "2026.10.16_0805_quick.xlsx",
     "2026.10.16_0815_quick.xlsx",
     "2026.10.16_0825_quick.xlsx"
    ]
   },
-  "2026-10-16": {
-   "has_final": false,
-   "n_middle": 8,
-   "final_files": [],
+  "2026-10-17": {
+   "has_final": true,
+   "n_middle": 18,
+   "final_files": [
+    "2026.10.18_2315.xlsx",
+    "2026.10.18.xlsx",
+    "2026.10.18.xlsx"
+   ],
    "middle_files": [
     "2026.10.17_0805_quick.xlsx",
     "2026.10.17_0808_quick.xlsx",
     "2026.10.17_0815_quick.xlsx"
+   ]
+  },
+  "2026-10-18": {
+   "has_final": true,
+   "n_middle": 17,
+   "final_files": [
+    "2026.10.19_2339.xlsx",
+    "2026.10.19.xlsx",
+    "2026.10.19.xlsx"
+   ],
+   "middle_files": [
+    "2026.10.18_0805_quick.xlsx",
+    "2026.10.18_0815_quick.xlsx",
+    "2026.10.18_0825_quick.xlsx"
+   ]
+  },
+  "2026-10-19": {
+   "has_final": false,
+   "n_middle": 17,
+   "final_files": [],
+   "middle_files": [
+    "2026.10.19_1149_quick.xlsx",
+    "2026.10.19_1159_quick.xlsx",
+    "2026.10.19_1218_quick.xlsx"
+   ]
+  },
+  "2026-10-20": {
+   "has_final": false,
+   "n_middle": 3,
+   "final_files": [],
+   "middle_files": [
+    "2026.10.20_1149_quick.xlsx",
+    "2026.10.20_1159_quick.xlsx",
+    "2026.10.20_1309_quick.xlsx"
    ]
   },
   "2026-07-27": {
@@ -1165,6 +1214,15 @@
    "final_files": [
     "2026.07.28.xlsx",
     "2026.07.28.xlsx"
+   ],
+   "middle_files": []
+  },
+  "2026-07-28": {
+   "has_final": true,
+   "n_middle": 0,
+   "final_files": [
+    "2026.07.29.xlsx",
+    "2026.07.29.xlsx"
    ],
    "middle_files": []
   },
@@ -2345,15 +2403,6 @@
    "final_files": [
     "2026.7.24.xlsx",
     "2026.7.24.xlsx"
-   ],
-   "middle_files": []
-  },
-  "2026-07-26": {
-   "has_final": true,
-   "n_middle": 0,
-   "final_files": [
-    "2026.7.27.xlsx",
-    "2026.07.27.xlsx"
    ],
    "middle_files": []
   },
