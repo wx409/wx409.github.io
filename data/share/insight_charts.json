@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-20",
+ "generated_at": "2026-10-21",
  "source": "data/text_profile.json（由 project_b/build_language_profile.py 现算）",
  "charts": [
   {
@@ -32,8 +32,8 @@
      },
      "活动表（事务层）": {
       "short_sent_pct": 13.6,
-      "first_person_pct": 1.1,
-      "n_sent": 543
+      "first_person_pct": 1.3,
+      "n_sent": 545
      }
     },
     "逐年点数": 19
@@ -68,8 +68,8 @@
      },
      "活动表（事务层）": {
       "short_sent_pct": 13.6,
-      "first_person_pct": 1.1,
-      "n_sent": 543
+      "first_person_pct": 1.3,
+      "n_sent": 545
      }
     },
     "逐年点数": 19
@@ -77,7 +77,7 @@
   },
   {
    "file": "assets/insight/跨源三层.png",
-   "sha256": "1da6823391615de3aab6133f549491bb79884b429fbd64d1638491ec8110012c",
+   "sha256": "7e55ed162d6f8b412de1a6fbbb1f4bce0ab00d8cc835d661a1c1cc162c8a6e4d",
    "numbers": {
     "分期": {
      "2014-2019 早期": {
@@ -104,8 +104,8 @@
      },
      "活动表（事务层）": {
       "short_sent_pct": 13.6,
-      "first_person_pct": 1.1,
-      "n_sent": 543
+      "first_person_pct": 1.3,
+      "n_sent": 545
      }
     },
     "逐年点数": 19

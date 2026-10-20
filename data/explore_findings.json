@@ -61,10 +61,10 @@
    "question": "同一首歌在不同场次，最低能压到多低、波动多大？",
    "finding": "≥3 版本的曲目有多首；同曲跨场最低音的变异系数中位约 10%",
    "numbers": {
-    "曲目数": 38,
-    "CV中位": 0.1132
+    "曲目数": 39,
+    "CV中位": 0.1138
    },
-   "n": 38,
+   "n": 39,
    "caliber": "现场层最低音（跨场同曲）",
    "confidence": "B 中"
   },
@@ -173,38 +173,38 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "280 个采集批次、2441 个音频文件、79.77 GB、1420 个逐曲分析产物",
+   "finding": "284 个采集批次、2452 个音频文件、80.21 GB、1424 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-20T14:08:14",
+    "generated_at": "2026-10-20T22:20:25",
     "since": "2026-10-20",
-    "batches": 280,
-    "files": 2441,
-    "gb": 79.77,
-    "new_files": 12,
-    "new_mb": 142.5,
-    "stats_total": 1420,
-    "stage_rows": 780,
-    "claimable": 625,
-    "claimable_soft": 318
+    "batches": 284,
+    "files": 2452,
+    "gb": 80.21,
+    "new_files": 23,
+    "new_mb": 593.1,
+    "stats_total": 1424,
+    "stage_rows": 781,
+    "claimable": 624,
+    "claimable_soft": 317
    },
-   "n": 2441,
+   "n": 2452,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
   {
    "cat": "方法·证据强度",
    "question": "现场层的证据强度分布",
-   "finding": "可主张 624 条（音符级 HNR≥5dB+谐波列/人耳）；低信噪告警 417 条；待复核 119 条",
+   "finding": "可主张 632 条（音符级 HNR≥5dB+谐波列/人耳）；低信噪告警 422 条；待复核 124 条",
    "numbers": {
-    "谐波列通过": 574,
-    "待复核（谐波列待判）": 119,
+    "谐波列通过": 582,
+    "待复核（谐波列待判）": 124,
     "人耳确认": 50,
     "人耳否决（非王晰）": 25,
-    "不可复核（缺混音/时间）": 10,
+    "不可复核（缺混音/时间）": 5,
     "谐波列通过（HNR 异常，疑分离失败）": 2,
     "未复核": 1
    },
-   "n": 781,
+   "n": 789,
    "caliber": "行级 review_status",
    "confidence": "A 高"
   },
@@ -233,9 +233,9 @@
   {
    "cat": "生涯·曲目",
    "question": "他唱过多少首歌、巡演覆盖如何",
-   "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 58、站点层 56",
+   "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 58、站点层 58",
    "numbers": {
-    "generated_at": "2026-10-20T22:20:08",
+    "generated_at": "2026-10-21T00:13:11",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
@@ -244,9 +244,9 @@
     "L3_中": 0,
     "L4_弱": 6,
     "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-    "files_scanned": 8331,
-    "measured_shows_site": 56,
-    "shows_with_claimable_site": 54,
+    "files_scanned": 8357,
+    "measured_shows_site": 58,
+    "shows_with_claimable_site": 56,
     "bv_mapped": 131
    },
    "n": 64,

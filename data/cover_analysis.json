@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-20T22:20:26",
+ "generated_at": "2026-10-21T00:13:23",
  "stat": {
-  "generated_at": "2026-10-20T22:20:26",
+  "generated_at": "2026-10-21T00:13:23",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -391,6 +391,15 @@
     "low_cv": 0.0937
    },
    {
+    "song": "新不了情",
+    "versions": 4,
+    "low_median": 88.6,
+    "low_iqr": 5.4,
+    "low_range": 6.7,
+    "high_median": 433.6,
+    "low_cv": 0.0334
+   },
+   {
     "song": "情网",
     "versions": 4,
     "low_median": 93.4,
@@ -506,15 +515,6 @@
     "low_range": 1.6,
     "high_median": 440.9,
     "low_cv": 0.009
-   },
-   {
-    "song": "新不了情",
-    "versions": 3,
-    "low_median": 86.1,
-    "low_iqr": 3.3,
-    "low_range": 6.7,
-    "high_median": 370.2,
-    "low_cv": 0.0337
    }
   ],
   "low_cv_median": 0.1138,
@@ -522,9 +522,9 @@
  },
  "register_adapt": {
   "own_live_low_median": 84.4,
-  "cover_live_low_median": 88.1,
+  "cover_live_low_median": 88.6,
   "own_n": 32,
-  "cover_n": 189,
+  "cover_n": 195,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

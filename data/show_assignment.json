@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-10-20T22:20:08",
-  "rows": 781,
+  "generated_at": "2026-10-21T00:13:10",
+  "rows": 789,
   "levels": {
-   "L1": 363,
+   "L1": 368,
    "L6": 26,
-   "L3": 39,
+   "L3": 42,
    "未认领": 350,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 56,
-  "shows_with_claimable": 54,
+  "shows_with_material": 58,
+  "shows_with_claimable": 56,
   "shows_total": 64
  },
  "per_show": {
@@ -36,8 +36,12 @@
    "claimable": 2
   },
   "2019-07-28": {
+   "n": 6,
+   "claimable": 6
+  },
+  "2019-12-01": {
    "n": 4,
-   "claimable": 4
+   "claimable": 3
   },
   "2019-11-16": {
    "n": 3,
@@ -49,10 +53,6 @@
   },
   "2019-10-19": {
    "n": 1,
-   "claimable": 1
-  },
-  "2019-12-01": {
-   "n": 2,
    "claimable": 1
   },
   "2020-11-29": {
@@ -156,16 +156,24 @@
    "claimable": 30
   },
   "2024-03-30": {
-   "n": 10,
-   "claimable": 10
+   "n": 12,
+   "claimable": 11
   },
   "2024-09-16": {
    "n": 3,
    "claimable": 3
   },
+  "2024-08-16": {
+   "n": 1,
+   "claimable": 1
+  },
   "2024-01-27": {
    "n": 2,
    "claimable": 2
+  },
+  "2023-12-10": {
+   "n": 1,
+   "claimable": 1
   },
   "2025-11-21": {
    "n": 16,
@@ -221,7 +229,7 @@
   },
   "2023-04-09": {
    "n": 5,
-   "claimable": 4
+   "claimable": 5
   },
   "2019-08-16": {
    "n": 1,
@@ -706,6 +714,18 @@
    "review_status": "人耳否决（非王晰）",
    "claimable": false,
    "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "佛山20191201_BV1CJ411z7xC",
+   "song": "月亮代表我的心",
+   "tour": "一巡",
+   "city": "佛山",
+   "date": "2019-12-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-01",
    "level": 1,
    "why": "日期直配"
   },
@@ -1855,7 +1875,7 @@
    "tour": "三巡",
    "city": "长沙",
    "date": "2022-06-24",
-   "review_status": "不可复核（缺混音/时间）",
+   "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2022-06-24",
    "level": 1,
@@ -1915,7 +1935,7 @@
    "tour": "三巡",
    "city": "长沙",
    "date": "2022-06-24",
-   "review_status": "不可复核（缺混音/时间）",
+   "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2022-06-24",
    "level": 1,
@@ -2714,6 +2734,18 @@
    "why": "巡次+日期±2天唯一"
   },
   {
+   "tag": "重庆20240330_BV1Bm411k72j",
+   "song": "美丽的草原我的家",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-03-30",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p17_想游泳的星",
    "song": "想游泳的星",
    "tour": "四巡",
@@ -3158,6 +3190,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "重庆20240330_BV1LH4y1u7FA",
+   "song": "新不了情",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2024-03-30",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p21_猫模狗样",
    "song": "猫模狗样",
    "tour": "四巡",
@@ -3178,6 +3222,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2024-09-16",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20240816_BV1u2p9eDE1c",
+   "song": "黄昏放牛",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2024-08-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-08-16",
    "level": 1,
    "why": "日期直配"
   },
@@ -3382,6 +3438,18 @@
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "广州20231210_BV1hi4y1v7VC",
+   "song": "阿瓦尔古丽",
+   "tour": "四巡",
+   "city": "广州",
+   "date": "2023-12-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-10",
    "level": 1,
    "why": "日期直配"
   },
@@ -5587,7 +5655,7 @@
    "tour": "签唱会",
    "city": "上海",
    "date": "2025-05-01",
-   "review_status": "不可复核（缺混音/时间）",
+   "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2025-05-01",
    "level": 1,
@@ -5930,6 +5998,18 @@
    "why": ""
   },
   {
+   "tag": "南京20190730_BV1dt411F7wt",
+   "song": "女儿情",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-07-28",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "沉响20261010_BV1Cfpj6jExn",
    "song": "我要你",
    "tour": "其他演出",
@@ -6103,8 +6183,8 @@
    "tour": "签唱会",
    "city": "上海",
    "date": "2023-04-09",
-   "review_status": "不可复核（缺混音/时间）",
-   "claimable": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
    "show_date": "2023-04-09",
    "level": 1,
    "why": "日期直配"
@@ -6619,7 +6699,7 @@
    "tour": "签唱会",
    "city": "上海",
    "date": "2025-05-01",
-   "review_status": "不可复核（缺混音/时间）",
+   "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2025-05-01",
    "level": 1,
@@ -7946,6 +8026,18 @@
    "why": ""
   },
   {
+   "tag": "南京20190730_BV1Rt411F7aV",
+   "song": "只要有你",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-07-28",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "广州20191231_BV1yJ411G7z2",
    "song": "新不了情",
    "tour": "其他演出",
@@ -8088,6 +8180,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "佛山20191203_BV1iJ411q7Ee",
+   "song": "月亮代表我的心",
+   "tour": "其他演出",
+   "city": "佛山",
+   "date": "2019-12-03",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-01",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "未知20190818_BV1x4411f7i9",

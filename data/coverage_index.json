@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-20T22:20:08",
+  "generated_at": "2026-10-21T00:13:11",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,9 +9,9 @@
   "L3_中": 0,
   "L4_弱": 6,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8331,
-  "measured_shows_site": 56,
-  "shows_with_claimable_site": 54,
+  "files_scanned": 8357,
+  "measured_shows_site": 58,
+  "shows_with_claimable_site": 56,
   "bv_mapped": 131
  },
  "shows": [
@@ -360,20 +360,20 @@
     {
      "level": 1,
      "src": "站点实测",
+     "detail": "佛山20191201_BV1CJ411z7xC｜月亮代表我的心"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
      "detail": "未知20191201_BV1UJ411B7gu｜月牙湾"
     },
     {
      "level": 1,
      "src": "站点实测",
      "detail": "佛山20191201_BV1xJ411y7KQ｜City of Stars"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1xJ411y7KQ"
     }
    ],
-   "n_evidence": 34
+   "n_evidence": 43
   },
   {
    "date": "2019-12-15",
@@ -1624,6 +1624,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "广州20231210_BV1hi4y1v7VC｜阿瓦尔古丽"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV1hi4y1v7VC"
     },
@@ -1636,14 +1641,9 @@
      "level": 1,
      "src": "BV命中",
      "detail": "BV1hi4y1v7VC"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "广州20231210_BV1hi4y1v7VC.m4a"
     }
    ],
-   "n_evidence": 6
+   "n_evidence": 15
   },
   {
    "date": "2023-12-31",
@@ -1755,15 +1755,15 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "重庆20240330_BV1Gm421n7ef｜亲爱的小孩"
+     "detail": "重庆20240330_BV1Bm411k72j｜美丽的草原我的家"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Gm421n7ef"
+     "src": "站点实测",
+     "detail": "重庆20240330_BV1LH4y1u7FA｜新不了情"
     }
    ],
-   "n_evidence": 25
+   "n_evidence": 43
   },
   {
    "date": "2024-04-06",
@@ -1839,6 +1839,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "北京20240816_BV1u2p9eDE1c｜黄昏放牛"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV1u2p9eDE1c"
     },
@@ -1851,14 +1856,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "四巡北京20240816__BV17hWtefEra.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "input_ascii.wav"
     }
    ],
-   "n_evidence": 10
+   "n_evidence": 19
   },
   {
    "date": "2024-09-16",
