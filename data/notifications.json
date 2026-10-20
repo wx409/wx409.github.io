@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-20 09:02:52",
+ "updated_at": "2026-10-20 14:00:31",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -3196,6 +3196,41 @@
   },
   {
    "time": "2026-10-20 09:02:52",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-10-20 11:01:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [11732]），但 dashboard_data.json 已 126.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-20 14:00:04",
+   "title": "⚠️ 指数长表滞后 2 天",
+   "content": "长表最新 2026-10-17，但日档案最新 2026-10-19（期望长表到 2026-10-18）。\n原因：deploy_all 步骤里没有指数长表/基线刷新 —— 请运行\n  python project_b\\refresh_index_baseline.py --force\n（或操作中心 64 → 45/44）",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-10-20 14:00:31",
+   "title": "📣 【王晰】【声入人心】唱歌合集音频_哔哩哔哩_bilibili",
+   "content": "2018年12月3日&ensp;&#0183;&ensp;【王晰】【声入人心】唱歌合集音频共计13条视频，包括：【王晰】【声入人心】唱歌合集音频1-5期、you are my …\n链接：https://www.bilibili.com/video/BV1St411D72N/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1St411D72N/"
+  },
+  {
+   "time": "2026-10-20 14:00:31",
+   "title": "📣 王晰 _ 百科",
+   "content": "王晰（Elvis Wang），1985年4月9日出生于辽宁营口，毕业于沈阳音乐学院， 中国内地流行乐男低音歌手。 他参加“第十五届全国青 …\n链接：https://baike.sogou.com/v62982728.htm",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.sogou.com/v62982728.htm"
+  },
+  {
+   "time": "2026-10-20 14:00:31",
    "title": "自动更新聚合完成",
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
    "category": "汇总",

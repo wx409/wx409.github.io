@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-20 09:10",
+ "generated_at": "2026-10-20 14:07",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -55757,7 +55757,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-10-20 09:10",
+   "generated_at": "2026-10-20 14:07",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -57071,7 +57071,7 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-10-20 09:10",
+  "generated_at": "2026-10-20 14:07",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"

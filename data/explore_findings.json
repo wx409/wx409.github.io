@@ -49,10 +49,10 @@
    "numbers": {
     "自有": 84.4,
     "自有n": 32,
-    "翻唱": 87.8,
-    "翻唱n": 187
+    "翻唱": 88.1,
+    "翻唱n": 189
    },
-   "n": 219,
+   "n": 221,
    "caliber": "现场层最低音中位",
    "confidence": "B 中"
   },
@@ -173,21 +173,21 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "275 个采集批次、2429 个音频文件、79.63 GB、1418 个逐曲分析产物",
+   "finding": "280 个采集批次、2441 个音频文件、79.77 GB、1420 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-19T17:07:57",
-    "since": "2026-10-19",
-    "batches": 275,
-    "files": 2429,
-    "gb": 79.63,
-    "new_files": 0,
-    "new_mb": 0.0,
-    "stats_total": 1418,
-    "stage_rows": 778,
-    "claimable": 623,
+    "generated_at": "2026-10-20T09:11:10",
+    "since": "2026-10-20",
+    "batches": 280,
+    "files": 2441,
+    "gb": 79.77,
+    "new_files": 12,
+    "new_mb": 142.5,
+    "stats_total": 1420,
+    "stage_rows": 780,
+    "claimable": 625,
     "claimable_soft": 318
    },
-   "n": 2429,
+   "n": 2441,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
@@ -235,7 +235,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 58、站点层 56",
    "numbers": {
-    "generated_at": "2026-10-20T09:10:56",
+    "generated_at": "2026-10-20T14:07:58",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20 09:10",
+ "generated_at": "2026-10-20 14:07",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -14,12 +14,12 @@
   {
    "stream": "声学·音频资产",
    "source": "data/audio_assets.json",
-   "n": 2429,
+   "n": 2441,
    "latest": "2026-10-20",
    "lag_days": 0,
-   "new_7d": 0,
+   "new_7d": 12,
    "gap": "在积攒",
-   "note": "本日新增 0 个"
+   "note": "本日新增 12 个"
   },
   {
    "stream": "指数·每日指数",
@@ -144,7 +144,7 @@
  ],
  "summary": {
   "streams": 14,
-  "accumulating": 1,
+  "accumulating": 2,
   "stale": [
    "文本·声音素材",
    "文本·少城时代",
