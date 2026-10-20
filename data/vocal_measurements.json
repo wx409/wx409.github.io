@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-19 17:07",
+ "generated_at": "2026-10-20 09:11",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 939,
+  "total": 941,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 781,
+   "tour_live": 783,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 592,
+   "谐波列复核通过": 594,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
    "待复核（谐波列待判）": 133,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 289
+  "songs": 291
  },
  "rows": [
   {
@@ -12209,6 +12209,41 @@
    }
   },
   {
+   "id": "tour_live|Fly Me to the Moon|武汉20240916_BV1b4sye8E76",
+   "song": "Fly Me to the Moon",
+   "version": "武汉20240916_BV1b4sye8E76",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024-09-16",
+   "source_ref": "BV1b4sye8E76",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 93.3,
+    "high_note": "C#4",
+    "high_hz": 273.0,
+    "span_octaves": 1.55,
+    "stability_cents": 6.7,
+    "intonation_cents": 26.3,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.63,
+    "hnr_db": 6.5,
+    "duration_s": 78.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 146
+   }
+  },
+  {
    "id": "tour_live||四巡上海20231231_v04",
    "song": "",
    "version": "四巡上海20231231_v04",
@@ -12415,6 +12450,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|亲爱的小孩|重庆20240330_BV1Gm421n7ef",
+   "song": "亲爱的小孩",
+   "version": "重庆20240330_BV1Gm421n7ef",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "source_ref": "BV1Gm421n7ef",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 105.1,
+    "high_note": "D4",
+    "high_hz": 289.8,
+    "span_octaves": 1.46,
+    "stability_cents": 7.7,
+    "intonation_cents": 18.0,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 88.0,
+    "density_per_s": 1.56,
+    "hnr_db": 6.7,
+    "duration_s": 112.4
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
    }
   },
   {

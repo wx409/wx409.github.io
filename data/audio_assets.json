@@ -1,15 +1,15 @@
 {
  "summary": {
-  "generated_at": "2026-10-19T17:07:57",
-  "since": "2026-10-19",
-  "batches": 275,
-  "files": 2429,
-  "gb": 79.63,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1418,
-  "stage_rows": 778,
-  "claimable": 623,
+  "generated_at": "2026-10-20T09:11:10",
+  "since": "2026-10-20",
+  "batches": 280,
+  "files": 2441,
+  "gb": 79.77,
+  "new_files": 12,
+  "new_mb": 142.5,
+  "stats_total": 1420,
+  "stage_rows": 780,
+  "claimable": 625,
   "claimable_soft": 318
  },
  "batches": [
@@ -24,12 +24,12 @@
   },
   {
    "batch": "wav",
-   "files": 328,
-   "mb": 16423.4,
+   "files": 334,
+   "mb": 16553.7,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-18"
+   "new_files": 6,
+   "new_mb": 130.2,
+   "newest": "2026-10-20"
   },
   {
    "batch": "wav_分P逐曲",
@@ -842,6 +842,15 @@
    "newest": "2026-09-20"
   },
   {
+   "batch": "新不了情",
+   "files": 4,
+   "mb": 16.3,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 2.9,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "part5",
    "files": 1,
    "mb": 16.3,
@@ -912,15 +921,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-17"
-  },
-  {
-   "batch": "新不了情",
-   "files": 3,
-   "mb": 13.4,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-21"
   },
   {
    "batch": "旋木",
@@ -1697,6 +1697,15 @@
    "newest": "2026-09-16"
   },
   {
+   "batch": "黄昏放牛",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.7,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "敕勒歌_乌兰巴托的夜",
    "files": 1,
    "mb": 3.6,
@@ -2156,6 +2165,15 @@
    "newest": "2026-09-25"
   },
   {
+   "batch": "亲爱的小孩",
+   "files": 1,
+   "mb": 1.7,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.7,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "今宵多珍重",
    "files": 1,
    "mb": 1.7,
@@ -2210,6 +2228,15 @@
    "newest": "2026-10-15"
   },
   {
+   "batch": "Fly Me to the Moon",
+   "files": 1,
+   "mb": 1.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.4,
+   "newest": "2026-10-20"
+  },
+  {
    "batch": "A#1复核_20260916",
    "files": 2,
    "mb": 1.3,
@@ -2217,6 +2244,24 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-16"
+  },
+  {
+   "batch": "阿瓦尔古丽",
+   "files": 1,
+   "mb": 1.3,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.3,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "美丽的草原我的家",
+   "files": 1,
+   "mb": 1.3,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.3,
+   "newest": "2026-10-20"
   },
   {
    "batch": "宝贝",

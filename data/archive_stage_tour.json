@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-19 17:07",
+ "generated_at": "2026-10-20 09:10",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,19 +9,19 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 778,
-  "n_stage_measured": 775,
+  "n_materials": 780,
+  "n_stage_measured": 777,
   "n_from_precision": 3,
-  "n_songs": 218,
+  "n_songs": 220,
   "n_tours": 11,
-  "n_verified": 638,
-  "n_claimable": 623,
+  "n_verified": 640,
+  "n_claimable": 625,
   "n_claimable_soft": 318,
   "hnr_gate_db": 5.0,
   "hnr_low_n": 416,
   "n_unverifiable": 5,
   "review_status_dist": {
-   "谐波列通过": 573,
+   "谐波列通过": 575,
    "待复核（谐波列待判）": 122,
    "人耳确认": 50,
    "人耳否决（非王晰）": 25,
@@ -29,7 +29,7 @@
    "谐波列通过（HNR 异常，疑分离失败）": 2,
    "未复核": 1
   },
-  "n_harmonic_reviewed": 583,
+  "n_harmonic_reviewed": 585,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -40,20 +40,20 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 2.74,
+  "span_median_octaves": 2.73,
   "stability_median_cents": 6.8,
   "vibrato_rate_hz_median": 4.92,
   "vibrato_extent_cents_median": 75.0,
   "verify_dist": {
    "人耳确认（听辨）": 50,
    "待复核（谐波列待判）": 133,
-   "谐波列复核通过": 582,
+   "谐波列复核通过": 584,
    "未复核": 7,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 778,
+  "n_stat_basis": 780,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -163,14 +163,15 @@
   },
   {
    "tour": "四巡",
-   "n_materials": 66,
-   "n_claimable": 62,
+   "n_materials": 68,
+   "n_claimable": 64,
    "cities": [
     "上海",
     "上海生日",
     "南京",
     "杭州",
-    "武汉"
+    "武汉",
+    "重庆"
    ],
    "dates": [
     "2023-12-31",
@@ -183,11 +184,11 @@
    "lowest_hz_all": 65.0,
    "lowest_verify_all": "谐波列复核通过",
    "lowest_pending_under": false,
-   "span_median_octaves": 2.74,
+   "span_median_octaves": 2.73,
    "stability_median_cents": 7.2,
    "vibrato_rate_hz_median": 4.79,
    "stat_basis": "可主张（复核通过）",
-   "n_stat_basis": 62,
+   "n_stat_basis": 64,
    "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
@@ -13918,6 +13919,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "武汉20240916_BV1b4sye8E76",
+   "song": "Fly Me to the Moon",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024-09-16",
+   "bv": "BV1b4sye8E76",
+   "owner": "王晰的杂货铺",
+   "title": "《Fly Me to the Moon》「4k字幕」王晰肆益武汉收官场点歌 20240916",
+   "bandwidth_kbps": 146,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "F#2",
+   "low_hz": 93.3,
+   "low_t_s": 32.74013605442177,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "C#4",
+   "high_hz": 273.0,
+   "span_octaves": 1.55,
+   "stability_cents": 6.7,
+   "intonation_cents": 26.3,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 73.0,
+   "density_per_s": 1.63,
+   "hnr_db": 6.5,
+   "duration_s": 78.0,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 93.3,
+    "why": "1f0 差 -6.4dB、3f0 在（48.2dB）",
+    "fund_gap_db": -6.4,
+    "floor_db": 11.7,
+    "t_s": 32.74,
+    "dur_s": 0.209,
+    "partials": [
+     49.9,
+     56.3,
+     48.2,
+     42.5,
+     39.0,
+     52.0,
+     36.7,
+     39.6
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
+  },
+  {
    "tag": "四巡上海20231231_v04",
    "song": "",
    "tour": "四巡",
@@ -14268,6 +14325,62 @@
    "low_listen_verified": true,
    "hnr_low": false,
    "review_status": "人耳确认",
+   "claimable": true,
+   "claimable_soft": false
+  },
+  {
+   "tag": "重庆20240330_BV1Gm421n7ef",
+   "song": "亲爱的小孩",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "bv": "BV1Gm421n7ef",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰点歌part【亲爱的小孩】歌声可以传递力量，陪你度过所有难捱的夜晚【4k】肆益巡回音乐会重庆站20240330",
+   "bandwidth_kbps": 130,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "G#2",
+   "low_hz": 105.1,
+   "low_t_s": 48.39038548752834,
+   "low_dur_s": 0.3250793650793651,
+   "high_note": "D4",
+   "high_hz": 289.8,
+   "span_octaves": 1.46,
+   "stability_cents": 7.7,
+   "intonation_cents": 18.0,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 88.0,
+   "density_per_s": 1.56,
+   "hnr_db": 6.7,
+   "duration_s": 112.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "G#2",
+    "hz": 105.1,
+    "why": "1f0 差 +0.0dB、3f0 在（36.3dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 11.0,
+    "t_s": 48.39,
+    "dur_s": 0.325,
+    "partials": [
+     57.3,
+     49.5,
+     36.3,
+     26.0,
+     22.9,
+     18.4,
+     22.3,
+     18.8
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
    "claimable": true,
    "claimable_soft": false
   },
@@ -44512,6 +44625,34 @@
    ]
   },
   {
+   "song": "Fly Me to the Moon",
+   "n_versions": 1,
+   "tours": [
+    "四巡"
+   ],
+   "lowest_note": "F#2",
+   "lowest_hz": 93.3,
+   "lowest_tag": "武汉20240916_BV1b4sye8E76",
+   "span_median_octaves": 1.55,
+   "versions": [
+    {
+     "tour": "四巡",
+     "city": "武汉",
+     "date": "2024-09-16",
+     "low_note": "F#2",
+     "low_hz": 93.3,
+     "high_note": "C#4",
+     "high_hz": 273.0,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.55,
+     "verify": "谐波列复核通过",
+     "bv": "BV1b4sye8E76"
+    }
+   ]
+  },
+  {
    "song": "Love Me Tender",
    "n_versions": 2,
    "tours": [],
@@ -46514,6 +46655,34 @@
      "span_octaves": 3.34,
      "verify": "谐波列复核通过",
      "bv": ""
+    }
+   ]
+  },
+  {
+   "song": "亲爱的小孩",
+   "n_versions": 1,
+   "tours": [
+    "四巡"
+   ],
+   "lowest_note": "G#2",
+   "lowest_hz": 105.1,
+   "lowest_tag": "重庆20240330_BV1Gm421n7ef",
+   "span_median_octaves": 1.46,
+   "versions": [
+    {
+     "tour": "四巡",
+     "city": "重庆",
+     "date": "2024-03-30",
+     "low_note": "G#2",
+     "low_hz": 105.1,
+     "high_note": "D4",
+     "high_hz": 289.8,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.46,
+     "verify": "谐波列复核通过",
+     "bv": "BV1Gm421n7ef"
     }
    ]
   },
@@ -55588,7 +55757,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-10-19 17:07",
+   "generated_at": "2026-10-20 09:10",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -56902,7 +57071,7 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-10-19 17:07",
+  "generated_at": "2026-10-20 09:10",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"
