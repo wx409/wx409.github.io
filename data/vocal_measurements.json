@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-21 21:08",
+ "generated_at": "2026-10-22 00:13",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 950,
+  "total": 956,
   "by_layer": {
    "studio_album": 72,
    "precision": 43,
-   "tour_live": 792,
+   "tour_live": 798,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 601,
+   "谐波列复核通过": 605,
    "双引擎一致": 8,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 3,
-   "待复核（谐波列待判）": 135,
+   "待复核（谐波列待判）": 137,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 296
+  "songs": 297
  },
  "rows": [
   {
@@ -9927,6 +9927,41 @@
    }
   },
   {
+   "id": "tour_live|月半弯|北京20220409_BV17L4y1F7k2",
+   "song": "月半弯",
+   "version": "北京20220409_BV17L4y1F7k2",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "source_ref": "BV17L4y1F7k2",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 104.6,
+    "high_note": "B4",
+    "high_hz": 503.7,
+    "span_octaves": 2.27,
+    "stability_cents": 6.3,
+    "intonation_cents": 20.0,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 69.0,
+    "density_per_s": 1.58,
+    "hnr_db": 4.2,
+    "duration_s": 251.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 313
+   }
+  },
+  {
    "id": "tour_live|三巡上海全场|三巡上海20220110_p07_王晰三巡上海站 20220110 p07 橄榄树",
    "song": "三巡上海全场",
    "version": "三巡上海20220110_p07_王晰三巡上海站 20220110 p07 橄榄树",
@@ -10274,6 +10309,41 @@
    }
   },
   {
+   "id": "tour_live|爱你|未知20220109_BV1TF411v7Ed",
+   "song": "爱你",
+   "version": "未知20220109_BV1TF411v7Ed",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "无锡",
+   "date": "2022-01-09",
+   "source_ref": "BV1TF411v7Ed",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 109.3,
+    "high_note": "D5",
+    "high_hz": 570.8,
+    "span_octaves": 2.38,
+    "stability_cents": 6.0,
+    "intonation_cents": 21.8,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.36,
+    "hnr_db": 4.4,
+    "duration_s": 333.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 313
+   }
+  },
+  {
    "id": "tour_live|三巡上海全场|三巡上海20220110_p17_王晰三巡上海站 20220110 p17 某火锅店生日快乐",
    "song": "三巡上海全场",
    "version": "三巡上海20220110_p17_王晰三巡上海站 20220110 p17 某火锅店生日快乐",
@@ -10306,6 +10376,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|爱你|北京20220409_BV1c3411n782",
+   "song": "爱你",
+   "version": "北京20220409_BV1c3411n782",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "source_ref": "BV1c3411n782",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 112.3,
+    "high_note": "A5",
+    "high_hz": 891.8,
+    "span_octaves": 2.99,
+    "stability_cents": 6.5,
+    "intonation_cents": 18.2,
+    "vibrato_hz": 4.95,
+    "vibrato_cents": 84.0,
+    "density_per_s": 2.02,
+    "hnr_db": 7.8,
+    "duration_s": 362.2
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 313
    }
   },
   {
@@ -17816,6 +17921,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|爱你|北京20220412_BV1s94y1d7e7",
+   "song": "爱你",
+   "version": "北京20220412_BV1s94y1d7e7",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2022-04-12",
+   "source_ref": "BV1s94y1d7e7",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.3,
+    "high_note": "G#5",
+    "high_hz": 853.4,
+    "span_octaves": 3.71,
+    "stability_cents": 5.7,
+    "intonation_cents": 17.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.86,
+    "hnr_db": 5.8,
+    "duration_s": 372.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
    }
   },
   {
@@ -27717,6 +27857,41 @@
    }
   },
   {
+   "id": "tour_live|倒叙|未知20220718_BV1M94y1X76n",
+   "song": "倒叙",
+   "version": "未知20220718_BV1M94y1X76n",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-18",
+   "source_ref": "BV1M94y1X76n",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G2",
+    "low_hz": 100.4,
+    "high_note": "D4",
+    "high_hz": 289.1,
+    "span_octaves": 1.53,
+    "stability_cents": 5.1,
+    "intonation_cents": 22.8,
+    "vibrato_hz": 4.53,
+    "vibrato_cents": 68.0,
+    "density_per_s": 1.49,
+    "hnr_db": 4.8,
+    "duration_s": 201.0
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 199
+   }
+  },
+  {
    "id": "tour_live|心动|南京20190730_BV1Mt411c7hz",
    "song": "心动",
    "version": "南京20190730_BV1Mt411c7hz",
@@ -28478,6 +28653,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|月半弯|太原20220716_BV1JY4y177Sh",
+   "song": "月半弯",
+   "version": "太原20220716_BV1JY4y177Sh",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "太原",
+   "date": "2022-07-16",
+   "source_ref": "BV1JY4y177Sh",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 107.1,
+    "high_note": "B4",
+    "high_hz": 491.6,
+    "span_octaves": 2.2,
+    "stability_cents": 4.3,
+    "intonation_cents": 24.8,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 59.0,
+    "density_per_s": 1.21,
+    "hnr_db": 2.9,
+    "duration_s": 241.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 214
    }
   },
   {

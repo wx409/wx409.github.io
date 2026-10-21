@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-21T21:08:46",
+ "generated_at": "2026-10-22T00:13:33",
  "stat": {
-  "generated_at": "2026-10-21T21:08:45",
+  "generated_at": "2026-10-22T00:13:32",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 39,
+  "songs_with_3plus": 40,
   "rows": [
    {
     "song": "佛山全场",
@@ -319,6 +319,15 @@
     "low_cv": 0.3337
    },
    {
+    "song": "月半弯",
+    "versions": 5,
+    "low_median": 98.6,
+    "low_iqr": 23.2,
+    "low_range": 27.6,
+    "high_median": 503.7,
+    "low_cv": 0.1232
+   },
+   {
     "song": "多听有益",
     "versions": 5,
     "low_median": 74.9,
@@ -472,6 +481,15 @@
     "low_cv": 0.1542
    },
    {
+    "song": "爱你",
+    "versions": 3,
+    "low_median": 109.3,
+    "low_iqr": 23.5,
+    "low_range": 47.0,
+    "high_median": 853.4,
+    "low_cv": 0.2246
+   },
+   {
     "song": "祝我们随遇而安",
     "versions": 3,
     "low_median": 89.4,
@@ -499,15 +517,6 @@
     "low_cv": 0.0085
    },
    {
-    "song": "月半弯",
-    "versions": 3,
-    "low_median": 81.4,
-    "low_iqr": 9.5,
-    "low_range": 19.1,
-    "high_median": 829.5,
-    "low_cv": 0.0993
-   },
-   {
     "song": "Yesterday Once More",
     "versions": 3,
     "low_median": 83.3,
@@ -517,14 +526,14 @@
     "low_cv": 0.009
    }
   ],
-  "low_cv_median": 0.1138,
+  "low_cv_median": 0.1255,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 84.4,
-  "cover_live_low_median": 88.6,
-  "own_n": 32,
-  "cover_n": 195,
+  "own_live_low_median": 85.6,
+  "cover_live_low_median": 89.4,
+  "own_n": 33,
+  "cover_n": 196,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
@@ -552,7 +561,7 @@
    },
    "月半弯": {
     "orig": "陈坤/张学友（男）",
-    "live_low_median": 81.4
+    "live_low_median": 98.6
    },
    "再见我的爱（Goodbye My Love）": {
     "orig": "邓丽君",

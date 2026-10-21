@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-21T21:08:28",
+  "generated_at": "2026-10-22T00:13:14",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 6,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8357,
+  "files_scanned": 8393,
   "measured_shows_site": 58,
-  "shows_with_claimable_site": 56,
-  "bv_mapped": 131
+  "shows_with_claimable_site": 57,
+  "bv_mapped": 134
  },
  "shows": [
   {
@@ -1128,6 +1128,11 @@
      "detail": "BV1LL41157MQ｜送别｜未知20220109"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1TF411v7Ed｜爱你｜未知20220109"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
@@ -1139,16 +1144,11 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1rZ4y1S7uc"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "三巡无锡20220109_BV1rZ4y1S7uc.wav"
+     "src": "站点实测",
+     "detail": "未知20220109_BV1TF411v7Ed｜爱你"
     }
    ],
-   "n_evidence": 28
+   "n_evidence": 42
   },
   {
    "date": "2022-01-10",
@@ -1203,32 +1203,32 @@
      "detail": "BV1Au411v7ia｜光阴的故事｜北京20220409"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1c3411n782｜爱你｜北京20220409"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV17L4y1F7k2｜月半弯｜北京20220409"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "北京20220409_BV17L4y1F7k2｜月半弯"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "北京20220409_BV1Au411v7ia｜光阴的故事"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Au411v7ia"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "北京20220409_BV1Au411v7ia.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Au411v7ia"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "北京20220409_BV1Au411v7ia_f0.csv"
+     "src": "站点实测",
+     "detail": "北京20220409_BV1c3411n782｜爱你"
     }
    ],
-   "n_evidence": 14
+   "n_evidence": 42
   },
   {
    "date": "2022-06-24",

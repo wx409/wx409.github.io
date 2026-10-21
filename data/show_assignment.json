@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-10-21T21:08:27",
-  "rows": 789,
+  "generated_at": "2026-10-22T00:13:14",
+  "rows": 795,
   "levels": {
-   "L1": 368,
+   "L1": 371,
    "L6": 26,
-   "L3": 42,
-   "未认领": 350,
+   "L3": 44,
+   "未认领": 351,
    "L4": 2,
    "L2": 1
   },
   "shows_with_material": 58,
-  "shows_with_claimable": 56,
+  "shows_with_claimable": 57,
   "shows_total": 64
  },
  "per_show": {
@@ -132,16 +132,16 @@
    "claimable": 0
   },
   "2022-07-15": {
-   "n": 1,
-   "claimable": 0
+   "n": 2,
+   "claimable": 1
   },
   "2022-01-09": {
-   "n": 2,
-   "claimable": 2
+   "n": 3,
+   "claimable": 3
   },
   "2022-04-09": {
-   "n": 1,
-   "claimable": 1
+   "n": 4,
+   "claimable": 3
   },
   "2024-04-06": {
    "n": 18,
@@ -2374,6 +2374,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "北京20220409_BV17L4y1F7k2",
+   "song": "月半弯",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-04-09",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡上海20220110_p07_王晰三巡上海站 20220110 p07 橄榄树",
    "song": "三巡上海全场",
    "tour": "三巡",
@@ -2494,6 +2506,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "未知20220109_BV1TF411v7Ed",
+   "song": "爱你",
+   "tour": "三巡",
+   "city": "无锡",
+   "date": "2022-01-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-09",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡上海20220110_p17_王晰三巡上海站 20220110 p17 某火锅店生日快乐",
    "song": "三巡上海全场",
    "tour": "三巡",
@@ -2502,6 +2526,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20220409_BV1c3411n782",
+   "song": "爱你",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2022-04-09",
    "level": 1,
    "why": "日期直配"
   },
@@ -5108,6 +5144,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "北京20220412_BV1s94y1d7e7",
+   "song": "爱你",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2022-04-12",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-04-09",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "二巡上海2021_全程_p10_后会无期3.7手机渣画质",
@@ -8554,6 +8602,18 @@
    "why": ""
   },
   {
+   "tag": "未知20220718_BV1M94y1X76n",
+   "song": "倒叙",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-18",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "南京20190730_BV1Mt411c7hz",
    "song": "心动",
    "tour": "其他演出",
@@ -8816,6 +8876,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "太原20220716_BV1JY4y177Sh",
+   "song": "月半弯",
+   "tour": "其他演出",
+   "city": "太原",
+   "date": "2022-07-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-07-15",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "二巡上海2021_全程_p20_雪地里寄不出的求救信3.7手机渣画质",
