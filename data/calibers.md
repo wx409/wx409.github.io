@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-10-21 09:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-10-21 14:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -15,7 +15,7 @@
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
 | `stage_tet_intonation` | 现场音准偏差中位（TET，伪影） | **21.0** | 王晰主导巡演/签唱会现场素材（demucs 人声分离后 YIN 逐帧测音准偏差） | `data/archive_stage_tour.json` |
 | `dongyan_show_count` | 东演合作场次（分列） | **14** | 中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（12 场）＋ 双人演唱会《沉响与长歌》（2 场） | `data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）` |
-| `topic_card_numbers` | 专题卡数字口径（14 张卡） | **14 张卡 / 主数字 47 项 / caliber-lock 30 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·八年只漂 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气） | `data/share/cards/` |
+| `topic_card_numbers` | 专题卡数字口径（14 张卡） | **14 张卡 / 主数字 46 项 / caliber-lock 30 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·八年只漂 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气） | `data/share/cards/` |
 | `woyaoni_xhs_spread` | 《我要你》北京站小红书端传播实测 | **26 条笔记 / 1542 赞 / 176 条评论** | 样本＝第三方 AI 摘要所列链接集合（去重后 26 条），**非全平台普查**；发布集中度 69.2%（演出当日／次晚）、50.0%（21–23 时） | `data/share/woyaoni_spread.json（由 project_b/build_woyaoni_spread.py 从语料派生）` |
 | `woyaoni_comment_rule` | 《我要你》评论触发点分类口径 | **多命中：编曲 20 / 低音 9；主类：编曲 17 / 低音 6** | 关键词规则分类（可复核） | `data/share/woyaoni_spread.json#comment_categories / #comment_categories_main` |
 | `context_register_share` | 低音区（<C3）声区占比·跨语境 | **21.3% → 14.5% → 10.7%** | 三个语境：A 录音室专辑(n=105)、C 自录无修现场(n=29)、B 他人主导舞台(n=33) | `data/share/context_shares.json（原口径，源：《现场能力三表对照_20260917》）` |

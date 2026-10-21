@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-20T22:08:20",
+ "generated_at": "2026-10-21T09:10:02",
  "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
  "caliber": "已发布长表 music_index_long.csv（date,song,index）",
  "first_date": "2022-12-31",
  "last_date": "2026-10-19",
- "expect_last": "2026-10-19",
+ "expect_last": "2026-10-20",
  "coverage_days": 1324,
- "rows": 46339,
+ "rows": 46340,
  "missing_total": 65,
  "missing_recent": [],
  "missing_last_year": [
@@ -101,7 +101,9 @@
  ],
  "streak_no_gap_days": 106,
  "status": "gap",
- "pending_final": [],
+ "pending_final": [
+  "2026-10-20"
+ ],
  "pending_final_batch": [
   "2026-10-20"
  ],
