@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-21 12:53",
+  "timestamp": "2026-10-21 13:10",
   "total": 283232,
   "success": 57329,
   "complete_rate": 20.2,
@@ -178,7 +178,7 @@
     11.5,
     54.8,
     55.6,
-    22.8
+    22.9
   ],
   "listener_labels": [
     "2024-11",
@@ -201587,7 +201587,7 @@
       "哭砂"
     ],
     "values": [
-      124.3
+      127.2
     ],
     "spring": [
       false
@@ -209297,7 +209297,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-21 12:53",
+  "last_update": "2026-10-21 13:10",
   "today_batches": 1267,
   "daily_new_records": 0,
   "recent_7days": [
@@ -209369,17 +209369,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 0,
+      "rows": 130,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4276,
-      "success": 4276,
+      "total": 4277,
+      "success": 4277,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1707923,
+      "before": 1708176,
       "after": 293792
     },
     "index_calibration": {
@@ -209615,7 +209615,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-21 12:53",
+    "generated_at": "2026-10-21 13:10",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
