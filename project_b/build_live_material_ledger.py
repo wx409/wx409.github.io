@@ -125,7 +125,9 @@ def main() -> int:
 
     # 人读 md
     s = doc["summary"]
-    md = [f"# 现场素材台账（as_of {doc['as_of']}）", "",
+    md = [f"# 现场素材台账", "",
+          f"- 台账更新 **{doc['generated_at'][:16].replace('T', ' ')}**｜数据最新 **{doc['as_of']}**",
+          f"- 候选 **{s['candidates']:,}** = 全站可检索演出视频；已完成 **{sum(1 for r in rows if r['status'] == '已完成')} 条（{s['processed_songs']} 首）**；缺口 **{s['gap_songs']} 首（覆盖 {s['coverage_pct']}%）**",
           f"- 候选素材 **{s['candidates']}** 条（{s['songs']} 首）",
           f"- 已处理素材 **{s['processed_materials']}** 条（{s['processed_songs']} 首）",
           f"- 缺口曲目 **{s['gap_songs']}** 首｜覆盖率 **{s['coverage_pct']}%**",
@@ -138,6 +140,7 @@ def main() -> int:
     OUT_MD.write_text("\n".join(md) + "\n", encoding="utf-8")
 
     # 站内页
+    done_n = sum(1 for r in rows if r["status"] == "已完成")
     color = {"已完成": "#1f7a3d", "跳过-串烧需人工切分": "#b8860b", "候选": "#666", "失败": "#a8323d"}
     H = ["<!DOCTYPE html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\">",
          "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
@@ -150,7 +153,11 @@ def main() -> int:
          "</style></head><body>", "<!-- NAV_START --><!-- NAV_END -->",
          "<h1>现场素材台账</h1>",
          f"<p class=\"meta\">候选 {s['candidates']}｜已处理素材 {s['processed_materials']}｜"
-         f"缺口曲目 {s['gap_songs']}｜覆盖率 {s['coverage_pct']}%｜最近更新 {doc['as_of']}</p>",
+         f"<p class=\"meta\">台账更新 {doc['generated_at'][:16].replace('T', ' ')} ｜ "
+         f"数据最新 {doc['as_of']}</p>",
+         f"<p class=\"meta\">候选 {s['candidates']:,} = 全站可检索演出视频；"
+         f"已完成 {done_n} 条（{s['processed_songs']} 首）；缺口 {s['gap_songs']} 首"
+         f"（覆盖 {s['coverage_pct']}%）</p>",
          "<h2>每类素材能做到什么</h2><ul>",
          "<li>4K 字幕／直拍单曲 → 可测：低音读数、跨度、颤音、稳定性、长声（极值音归属未定）</li>",
          "<li>剪辑／混剪 → 仅作一致性旁证，不进主读数</li>",
