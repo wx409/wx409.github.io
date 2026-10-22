@@ -592,12 +592,12 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
         f"{r['span']:.2f}" if r['span'] is not None else "—",
         f"{r['vib']:.2f}" if r['vib'] is not None else "—"] for r in _alb_rows],
        ["专辑", "曲数", "低区 <C3", "中区", "高区 ≥C4", "跨度中位(八度)", "颤音中位(Hz)"], "albumarc")}
-<h3>② 颤音指纹：八年校准误差 0.27Hz</h3>
+<h3>② 颤音指纹：十年校准误差 0.27Hz</h3>
 <p class="lead">录音室整体中位 <b>{f"{_vib_all:.2f}"} Hz</b>；<b>八张专辑各自中位全部落在
 {min(_vib_v):.2f}–{max(_vib_v):.2f} Hz</b>（跨度 <b>{f"{_vib_span:.2f}"} Hz</b>）；
 六轮巡演中位 {min(_tour_vib):.2f}–{max(_tour_vib):.2f} Hz（现场比录音室系统性慢 0.2–0.3Hz，轮间几乎不动）。
 幅度中位 {f"{_vib_ext:.0f}"} 音分，比古典歌剧的 ±50–100 规范偏窄——<b>偏慢、偏窄，是流行低吟（crooner）审美，不是美声审美</b>，与曲目选择自洽。</p>
-<div class="note">对外一句话：<b>「一台八年校准误差 0.27Hz 的乐器。」</b>（数据源：本页专辑表 + 巡演 by_tour 中位）</div>
+<div class="note">对外一句话：<b>「一台十年校准误差 0.27Hz 的乐器。」</b>（数据源：本页专辑表 + 巡演 by_tour 中位）</div>
 <h3>③ 长声（≥6 秒同音高）——气息的直接证据</h3>
 <p class="lead"><b>两个口径分列，勿混读</b>：<b>按时长</b>保留榜第一＝<b>{f"{_ln_low['dur_s']:.1f} 秒 {_ln_low['note']} {_ln_low['hz']}Hz"}</b>（{esc(_ln_low['src'])}《{esc(_ln_low['song'])}》）；
 <b>按音高</b>保留榜最高＝<b>{f"{_ln_high['note']} {_ln_high['hz']}Hz / {_ln_high['dur_s']:.1f} 秒"}</b>（{esc(_ln_high['src'])}《{esc(_ln_high['song'])}》）。

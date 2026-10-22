@@ -103,7 +103,7 @@ def main():
     med = st.median([x[2] for x in alb]) if alb else None
     spread = (max(x[2] for x in alb) - min(x[2] for x in alb)) if alb else None
     cards.append(dict(
-        id="vibrato", no=1, title="颤音指纹", subtitle="八年跨专辑的颤音速率稳定性",
+        id="vibrato", no=1, title="颤音指纹", subtitle="八张专辑跨十年的颤音速率稳定性",
         pillar="A 级（速率是低频调制，基本不受修音影响）",
         main_numbers=[
             {"value": round(med, 2), "unit": "Hz", "label": "跨专辑颤音速率中位",
@@ -114,14 +114,14 @@ def main():
         view_reading=[
             f"同一测量管线、同一算法，覆盖 {len(alb)} 个专辑。各专辑颤音速率中位落在 "
             f"{min(x[2] for x in alb):.2f}–{max(x[2] for x in alb):.2f} Hz，整体中位 {med:.2f} Hz。",
-            f"专辑**间**极差仅 {spread:.2f} Hz —— 相当于「一台八年校准误差很小的乐器」。"
+            f"专辑**间**极差仅 {spread:.2f} Hz —— 相当于「一台十年校准误差很小的乐器」。"
             "这是本项目证据等级最高的一条：修音改的是音高慢变轨迹，速率基本不动。",
             "口径见 `data/calibers.md` → `vibrato_tier`（组内可纵比、跨组谨慎）。",
         ],
         view_card=[f"颤音速率中位 {med:.2f} Hz", f"专辑间极差 {spread:.2f} Hz", f"覆盖 {len(alb)} 张专辑"],
         caliber_lock=[], gate={"pass_status": sorted(PASS_STATUS)[:4],
                                "note": "本卡数字均为专辑级实测中位，全部过门槛"},
-        platform=plat_templates("颤音指纹", f"八年只差 {spread:.2f} Hz",
+        platform=plat_templates("颤音指纹", f"八张专辑只差 {spread:.2f} Hz",
                                 f"同一套算法测 {len(alb)} 张专辑，颤音速率中位 {med:.2f} Hz，专辑间极差 {spread:.2f} Hz",
                                 "想看哪张专辑的明细？看原页"),
         footnote=footnote(len(alb), len(alb), "data/archive_vocal_albums.json",
@@ -452,7 +452,7 @@ def main():
     # ① 迁移：topic-vibrato.html 用新模板重渲染（URL 不变）
     vib = next(c for c in cards if c["id"] == "vibrato")
     (SITE / "topic-vibrato.html").write_text(
-        page_shell("颤音指纹专题", "王晰颤音指纹：八年跨专辑的颤音速率稳定性（数据全部派生）", render_card(vib)),
+        page_shell("颤音指纹专题", "王晰颤音指纹：八张专辑跨十年的颤音速率稳定性（数据全部派生）", render_card(vib)),
         encoding="utf-8")
     print(f"[ok] {len(cards)} 张卡 → data/share/cards/ + data/share/rendered/；topic-vibrato.html 已迁新模板")
     for c in cards:

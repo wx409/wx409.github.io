@@ -18,15 +18,16 @@
  },
  "counts": {
   "candidates_raw": 56,
-  "kept": 33,
+  "kept": 32,
   "dropped": {
    "与已发重复": 3,
+   "长度": 1,
    "池内重复": 20
   },
   "by_kind": {
    "corpus": 25,
    "talk": 2,
-   "acoustic": 4,
+   "acoustic": 3,
    "comment": 2
   }
  },
@@ -52,7 +53,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_18",
+   "hook_id": "hook_17",
    "review_status": "candidate",
    "hook_markers": [
     "冲突标记"
@@ -85,7 +86,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_13",
+   "hook_id": "hook_12",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -118,7 +119,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_24",
+   "hook_id": "hook_23",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -152,7 +153,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_27",
+   "hook_id": "hook_26",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -186,7 +187,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_30",
+   "hook_id": "hook_29",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -313,35 +314,6 @@
    "raw_noise_reasons": []
   },
   {
-   "hook": "八年 8 张专辑，颤音速率极差 0.27Hz",
-   "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
-   "small_words": [
-    "颤音",
-    "八年",
-    "稳定性"
-   ],
-   "audience": "声乐爱好者 / 数据向读者",
-   "kind": "acoustic",
-   "t_abs_s": null,
-   "t_hms": "",
-   "score_story": 1.0,
-   "score_evidence": 2.0,
-   "score_novelty": 2.0,
-   "score_total": 5.0,
-   "risk": [
-    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
-   ],
-   "blocked": false,
-   "used_by": [],
-   "hook_id": "hook_07",
-   "review_status": "candidate",
-   "hook_markers": [],
-   "hook_marker_n": 0,
-   "why": "命中：颤音、八年、稳定性",
-   "raw_noise": false,
-   "raw_noise_reasons": []
-  },
-  {
    "hook": "2020年，让我们继续携手同行 元旦快乐",
    "quote": "王晰 因为有你 星光璀璨 365个日夜兼程，收获源源不断的幸福时光 2020年，让我们继续携手同行 元旦快乐 幸福安康",
    "evidence": "（文本挖掘产物目录））",
@@ -362,7 +334,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_08",
+   "hook_id": "hook_07",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -391,7 +363,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_09",
+   "hook_id": "hook_08",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -423,7 +395,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_10",
+   "hook_id": "hook_09",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -454,7 +426,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_15",
+   "hook_id": "hook_14",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -483,7 +455,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_16",
+   "hook_id": "hook_15",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -514,7 +486,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_17",
+   "hook_id": "hook_16",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -543,7 +515,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_21",
+   "hook_id": "hook_20",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -656,7 +628,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_25",
+   "hook_id": "hook_24",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -687,7 +659,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_28",
+   "hook_id": "hook_27",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -716,7 +688,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_29",
+   "hook_id": "hook_28",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -745,7 +717,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_31",
+   "hook_id": "hook_30",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -777,7 +749,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_19",
+   "hook_id": "hook_18",
    "review_status": "candidate",
    "hook_markers": [
     "冲突标记",
@@ -811,7 +783,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_22",
+   "hook_id": "hook_21",
    "review_status": "candidate",
    "hook_markers": [
     "冲突标记",
@@ -846,7 +818,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_11",
+   "hook_id": "hook_10",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -877,7 +849,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_12",
+   "hook_id": "hook_11",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -911,7 +883,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_14",
+   "hook_id": "hook_13",
    "review_status": "candidate",
    "hook_markers": [
     "自嘲口吻"
@@ -942,7 +914,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_20",
+   "hook_id": "hook_19",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -975,7 +947,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_23",
+   "hook_id": "hook_22",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -1006,7 +978,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_26",
+   "hook_id": "hook_25",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -1037,7 +1009,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_32",
+   "hook_id": "hook_31",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"

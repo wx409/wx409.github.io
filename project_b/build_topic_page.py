@@ -3,9 +3,9 @@
 
 为什么挑这一题（用户 2026-09-24「我不懂，你判断」）：
   ① 证据等级最高（A 级）：颤音速率是**低频调制**，修音改的是音高慢变轨迹 → 速率基本不受修音影响；
-  ② 方法稳健：同一管线、同一算法，八年八个专辑横向可比（不像"最低音"受次谐波与归属风险影响）；
-  ③ 唯一性：华语流行男低音的八年声纹稳定性，同类站点没有可比数据；
-  ④ 可传播：一句话能说清（"一台八年校准误差 0.27Hz 的乐器"），且**不夸大**（只陈述稳定性事实）。
+  ② 方法稳健：同一管线、同一算法，八张专辑（2014–2024）横向可比（不像"最低音"受次谐波与归属风险影响）；
+  ③ 唯一性：华语流行男低音的十年声纹稳定性，同类站点没有可比数据；
+  ④ 可传播：一句话能说清（"一台十年校准误差 0.27Hz 的乐器"），且**不夸大**（只陈述稳定性事实）。
   另两题的短板：音域两端依赖未经人耳确认的 A#1；自有 vs 翻唱样本 21:121 严重不对称 → 都留作后续。
 
 用法：python -X utf8 project_b\\build_topic_page.py
@@ -52,7 +52,7 @@ tv_html = "".join(f"<tr><td>{t}</td><td class='n'>{v:.2f}</td></tr>" for t, v in
 ld = {
     "@context": "https://schema.org",
     "@type": "ResearchProject",
-    "name": "王晰颤音指纹：八年录音室全量的颤音速率稳定性",
+    "name": "王晰颤音指纹：八张专辑录音室全量的颤音速率稳定性",
     "url": "https://wx409.github.io/topic-vibrato.html",
     "description": (f"对 72 首录音室曲目逐一测颤音速率（Hz），八张专辑中位 {min(alb_meds):.2f}–{max(alb_meds):.2f}Hz，"
                     f"整体中位 {vib_all:.2f}Hz、漂移仅 {drift:.2f}Hz；六轮巡演中位 {tv_min:.2f}–{tv_max:.2f}Hz。"
@@ -67,7 +67,7 @@ ld = {
 html = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>王晰颤音指纹｜八年八张专辑，颤音速率只漂 {drift:.2f}Hz</title>
+<title>王晰颤音指纹｜八张专辑，颤音速率只漂 {drift:.2f}Hz</title>
 <meta name="description" content="72 首录音室曲目全量实测：颤音速率整体中位 {vib_all:.2f}Hz，八张专辑中位 {min(alb_meds):.2f}–{max(alb_meds):.2f}Hz（漂移 {drift:.2f}Hz）；六轮巡演 {tv_min:.2f}–{tv_max:.2f}Hz。含方法、原始数字、反面证据与限定。">
 <link rel="canonical" href="https://wx409.github.io/topic-vibrato.html">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
@@ -92,7 +92,7 @@ ul{{padding-left:22px}} li{{margin:4px 0}}
 footer{{margin-top:34px;color:#7a6e63;font-size:13px}}
 code{{background:#f4efe8;padding:1px 5px;border-radius:4px;font-size:13px}}
 </style></head><body><div class="wrap">
-<h1>王晰颤音指纹：八年八张专辑，颤音速率只漂 {drift:.2f}Hz</h1>
+<h1>王晰颤音指纹：八张专辑，颤音速率只漂 {drift:.2f}Hz</h1>
 <p class="sub">录音室全量 72 曲实测 · 生成于 {TODAY} · 数据可复算</p>
 
 <div class="kpi">
@@ -108,7 +108,7 @@ code{{background:#f4efe8;padding:1px 5px;border-radius:4px;font-size:13px}}
 八张专辑的中位全部落在 <b>{min(alb_meds):.2f}–{max(alb_meds):.2f} Hz</b>，整体中位 <b>{vib_all:.2f} Hz</b>，
 专辑之间的漂移只有 <b>{drift:.2f} Hz</b>。六轮巡演各轮的中位为 <b>{tv_min:.2f}–{tv_max:.2f} Hz</b>，
 比录音室系统性慢 0.2–0.3 Hz（现场更松弛或速度更慢），但<b>轮与轮之间几乎不动</b>。</p>
-<p>颤音速率反映的是<b>神经—肌肉振荡频率</b>，是声带很难长期稳定的指标。八年间几乎不漂，
+<p>颤音速率反映的是<b>神经—肌肉振荡频率</b>，是声带很难长期稳定的指标。十年间几乎不漂，
 意味着它稳定到<b>可以作为声纹指纹</b>使用。</p>
 </div>
 
@@ -162,7 +162,7 @@ window.addEventListener('resize',function(){{c.resize();}});
 <h2>五、可直接引用的句子</h2>
 <div class="card">
 <ul>
-<li>「<b>一台八年校准误差 {drift:.2f}Hz 的乐器。</b>」</li>
+<li>「<b>一台十年校准误差 {drift:.2f}Hz 的乐器。</b>」</li>
 <li>「八张专辑、72 首录音室曲目，颤音速率中位始终在 {min(alb_meds):.2f}–{max(alb_meds):.2f}Hz 之间——
 声带是很难长期稳定的器官，这组数字说明的是<b>稳定性本身</b>。」</li>
 <li>「现场比录音室慢 0.2–0.3Hz：同一台乐器，在不同房间里换了呼吸方式。」</li>

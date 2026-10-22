@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""文章配套三卡：低音基线 / 八年只漂 0.27Hz / 54 组配对（2026-10-13 用户授权上线）。
+"""文章配套三卡：低音基线 / 八张专辑只漂 0.27Hz / 54 组配对（2026-10-13 用户授权上线）。
 
 走**现有卡片厂**（复用 `build_topic_cards.render_card` 的片段模板与 gate 块）：
   data/share/cards/card_low_baseline.json · card_vibrato_8y.json · card_pair_54.json
@@ -127,7 +127,7 @@ def main() -> int:
                  f"每条数字的字段出处见各自主数字条目。生成 {TODAY}",
     ))
 
-    # ── ② 八年只漂 0.27Hz（专辑级颤音速率）──
+    # ── ② 八张专辑只漂 0.27Hz（专辑级颤音速率）──
     by_alb = {}
     for s in songs:
         if s.get("vibrato_hz") and s.get("album"):
@@ -135,7 +135,7 @@ def main() -> int:
     alb = sorted(((a, len(v), st.median(v)) for a, v in by_alb.items()), key=lambda x: x[2])
     spread = max(x[2] for x in alb) - min(x[2] for x in alb)
     cards.append(dict(
-        id="vibrato_8y", no=11, title="八年只漂 0.27Hz",
+        id="vibrato_8y", no=11, title="八张专辑只漂 0.27Hz",
         subtitle="与自己比：跨专辑颤音速率稳定性（8 张专辑）",
         pillar="实测（专辑级中位，组内纵比）",
         main_numbers=[
@@ -166,7 +166,7 @@ def main() -> int:
         caliber_lock=[],
         gate={"pass_status": "measured（专辑级中位）",
               "note": "速率属低修音敏感项；仍标注「组内可纵比、跨组谨慎」"},
-        platform={"xiaohongshu": {"钩子句": f"八年 {len(alb)} 张专辑，颤音速率极差只有 {spread:.2f}Hz",
+        platform={"xiaohongshu": {"钩子句": f"{len(alb)} 张专辑（2014–2024，跨十年），颤音速率极差只有 {spread:.2f}Hz",
                                  "记忆点": f"{min(x[2] for x in alb):.2f}–{max(x[2] for x in alb):.2f} Hz"},
                   "douyin": {"听觉断点": "同一句颤音的慢放对照（发布者自备素材）"}},
         footnote=f"来源：data/archive_vocal_albums.json（{len(alb)} 张专辑，按 .album 取中位）｜"

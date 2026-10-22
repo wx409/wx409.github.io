@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-17 15:14",
+ "generated_at": "2026-10-22 21:01",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 223,
@@ -868,7 +868,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/10/17 22:00:00",
+    "next": "2026/10/22 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -930,7 +930,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
-    "next": "2026/10/18 10:00:00",
+    "next": "2026/10/25 10:00:00",
     "type": "Weekly",
     "start": "10:00:00"
    },
@@ -1372,7 +1372,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/10/18 10:00:00",
+    "next": "2026/10/23 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1451,7 +1451,7 @@
    "deploy_desc": "导航单一事实源（顶部导航+底部全站索引，幂等）",
    "critical": true,
    "menu": 190,
-   "title": "颤音指纹专题页（topic-vibrato.html：八年漂移 0.27Hz 完整证据链）",
+   "title": "颤音指纹专题页（topic-vibrato.html：八张专辑漂移 0.27Hz 完整证据链）",
    "menu_label": "vibtopic",
    "path": "D:\\wx409.github.io\\project_b\\build_nav.py"
   },
@@ -1480,7 +1480,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/10/18 12:00:00",
+    "next": "2026/10/23 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1586,7 +1586,7 @@
     "name": "wx409_show_intake",
     "script": "night_show_intake.py",
     "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
-    "next": "2026/10/17 23:30:00",
+    "next": "2026/10/22 23:30:00",
     "type": "Daily",
     "start": "23:30:00"
    },
@@ -1657,7 +1657,7 @@
   {
    "script": "build_share_page.py",
    "in_deploy": true,
-   "deploy_desc": "分享作战室 share.html + 竖屏分享卡页",
+   "deploy_desc": "素材与引用 share.html + 竖屏分享卡页",
    "critical": true,
    "menu": 215,
    "title": "[分享] 生成 share.html 五区 + data/share 种子（build_share_page）",
@@ -1715,7 +1715,7 @@
     "name": "wx409_propagation_watch_daily",
     "script": "propagation_watch.py",
     "cmd": "D:\\wx409.github.io\\run_propagation_watch_daily.bat",
-    "next": "2026/10/17 23:40:00",
+    "next": "2026/10/22 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -1906,7 +1906,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/10/17 23:58:00",
+    "next": "2026/10/22 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -2044,7 +2044,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/10/17 15:21:00",
+    "next": "2026/10/22 21:11:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2057,7 +2057,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/10/17 21:00:00",
+    "next": "2026/10/22 21:30:00",
     "type": "Daily",
     "start": "21:00:00"
    },
@@ -2070,7 +2070,7 @@
     "name": "wx409_index_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_index_daily.bat",
-    "next": "2026/10/18 9:10:00",
+    "next": "2026/10/23 9:10:00",
     "type": "Daily",
     "start": "9:10:00"
    },
@@ -2083,7 +2083,7 @@
     "name": "wx409_night_shutdown",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_night_shutdown.bat",
-    "next": "2026/10/18 1:30:00",
+    "next": "2026/10/23 1:30:00",
     "type": "Daily",
     "start": "1:30:00"
    },
@@ -2096,7 +2096,7 @@
     "name": "wx409_social_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_social_daily.bat",
-    "next": "2026/10/18 9:30:00",
+    "next": "2026/10/23 9:30:00",
     "type": "Daily",
     "start": "9:30:00"
    },

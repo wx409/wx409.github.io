@@ -127,7 +127,7 @@ def main() -> int:
                    "pct_same_day_or_next": sp["pct_same_day_or_next"],
                    "comments": sp["comments_grabbed"]}))
 
-    # ── 4 八年只漂 0.27Hz ──
+    # ── 4 八张专辑只漂 0.27Hz ──
     songs = [s for s in (va.get("songs") or []) if s.get("vibrato_hz")]
     by = {}
     for s in songs:
@@ -137,14 +137,14 @@ def main() -> int:
         spread = max(x[2] for x in alb) - min(x[2] for x in alb)
         med = st.median([x[2] for x in alb])
         E.append(dict(
-            no=4, id="vibrato_eight_years", hook=f"八年只漂 {spread:.2f}Hz",
+            no=4, id="vibrato_eight_years", hook=f"八张专辑只漂 {spread:.2f}Hz",
             support=(f"{len(alb)} 张专辑的颤音速率中位极差 **{spread:.2f}Hz**（专辑中位 {med:.2f}Hz）；"
                      f"覆盖 {len(songs)} 首曲目。最低 {alb[0][0]} {alb[0][2]:.2f}Hz、"
                      f"最高 {alb[-1][0]} {alb[-1][2]:.2f}Hz。"),
             source="data/archive_vocal_albums.json（卡片 vibrato 同源）",
             grade="实测",
             taboo=["颤音速率组内可纵比、跨组谨慎", "不得据此推断「唱功更好」"],
-            bio=dict(line="能力-市场", chapter="生理指纹：八年不变的速率",
+            bio=dict(line="能力-市场", chapter="生理指纹：八张专辑不变的速率",
                      evidence_id="vibrato_tier / card:vibrato",
                      gap="缺同期现场（非专辑）版本的同指标对照"),
             extra={"albums": len(alb), "spread_hz": round(spread, 4), "median_hz": round(med, 4)}))

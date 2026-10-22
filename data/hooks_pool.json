@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-22T00:00:09",
+ "generated_at": "2026-10-22T21:01:04",
  "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
  "rules": {
   "时间标记": {
@@ -299,11 +299,11 @@
    "raw_noise_reasons": []
   },
   {
-   "hook": "八年 8 张专辑，颤音速率极差 0.27Hz",
+   "hook": "8 张专辑（2014–2024，跨十年），颤音速率极差 0.27Hz",
    "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
    "small_words": [
     "颤音",
-    "八年",
+    "八张专辑",
     "稳定性"
    ],
    "audience": "声乐爱好者 / 数据向读者",
