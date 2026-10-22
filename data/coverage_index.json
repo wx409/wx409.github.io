@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-10-22T21:08:54",
+  "generated_at": "2026-10-23T00:13:46",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 55,
+  "L1_精确": 57,
   "L2_强": 3,
   "L3_中": 0,
-  "L4_弱": 6,
+  "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8393,
-  "measured_shows_site": 58,
-  "shows_with_claimable_site": 57,
-  "bv_mapped": 134
+  "files_scanned": 8429,
+  "measured_shows_site": 59,
+  "shows_with_claimable_site": 58,
+  "bv_mapped": 140
  },
  "shows": [
   {
@@ -213,32 +213,32 @@
      "detail": "BV13E411r7op｜宝贝｜重庆20191019"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1RE411y79N｜重庆野玫瑰｜重庆20191019"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1sJ41127cF｜重游往昔｜重庆20191019"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1EX4y1w7hT｜重游往昔｜重庆20191019"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1qE411k72B｜重庆野玫瑰｜重庆20191019"
+    },
+    {
      "level": 1,
      "src": "站点实测",
-     "detail": "重庆20191019_BV13E411r7op｜宝贝"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV13E411r7op"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "重庆20191019_BV13E411r7op.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "一巡重庆20191019__BV1nE411r7BY_p1.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "input_ascii.wav"
+     "detail": "重庆20191019_BV1RE411y79N｜重庆野玫瑰"
     }
    ],
-   "n_evidence": 18
+   "n_evidence": 74
   },
   {
    "date": "2019-11-03",
@@ -325,15 +325,40 @@
    "city": "珠海",
    "tour": "一巡",
    "songs": 24,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "1 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1FJ411v79w｜野狼disco｜珠海20191129"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "珠海20191129_BV1FJ411v79w｜野狼disco"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1FJ411v79w"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "珠海20191129_BV1FJ411v79w.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1FJ411v79w"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "珠海20191129_BV1FJ411v79w_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 14
   },
   {
    "date": "2019-12-01",
@@ -460,15 +485,40 @@
    "city": "太原",
    "tour": "一巡",
    "songs": 36,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "144 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1jq4y1x76d｜难忘今宵｜太原20191228"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "太原20191228_BV1jq4y1x76d｜难忘今宵"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1jq4y1x76d"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "太原20191228_BV1jq4y1x76d.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1jq4y1x76d"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "太原20191228_BV1jq4y1x76d_f0.csv"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 14
   },
   {
    "date": "2020-01-02",

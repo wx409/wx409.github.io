@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-10-22T21:08:53",
-  "rows": 795,
+  "generated_at": "2026-10-23T00:13:45",
+  "rows": 801,
   "levels": {
-   "L1": 371,
+   "L1": 377,
    "L6": 26,
    "L3": 44,
    "未认领": 351,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 58,
-  "shows_with_claimable": 57,
+  "shows_with_material": 59,
+  "shows_with_claimable": 58,
   "shows_total": 64
  },
  "per_show": {
@@ -24,12 +24,16 @@
    "claimable": 7
   },
   "2019-12-28": {
-   "n": 9,
-   "claimable": 7
+   "n": 10,
+   "claimable": 8
   },
   "2019-10-12": {
    "n": 1,
    "claimable": 1
+  },
+  "2019-10-19": {
+   "n": 5,
+   "claimable": 5
   },
   "2019-11-03": {
    "n": 2,
@@ -51,7 +55,7 @@
    "n": 2,
    "claimable": 2
   },
-  "2019-10-19": {
+  "2019-11-29": {
    "n": 1,
    "claimable": 1
   },
@@ -526,6 +530,30 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "重庆20191019_BV1RE411y79N",
+   "song": "重庆野玫瑰",
+   "tour": "一巡",
+   "city": "重庆",
+   "date": "2019-10-19",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-10-19",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "重庆20191019_BV1qE411k72B",
+   "song": "重庆野玫瑰",
+   "tour": "一巡",
+   "city": "重庆",
+   "date": "2019-10-19",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-10-19",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "一巡北京收官20200102_p16_钢铁小毛驴",
    "song": "钢铁小毛驴",
    "tour": "一巡",
@@ -618,6 +646,30 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "重庆20191019_BV1EX4y1w7hT",
+   "song": "重游往昔",
+   "tour": "一巡",
+   "city": "重庆",
+   "date": "2019-10-19",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-10-19",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "重庆20191019_BV1sJ41127cF",
+   "song": "重游往昔",
+   "tour": "一巡",
+   "city": "重庆",
+   "date": "2019-10-19",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-10-19",
    "level": 1,
    "why": "日期直配"
   },
@@ -838,6 +890,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "太原20191228_BV1jq4y1x76d",
+   "song": "难忘今宵",
+   "tour": "一巡",
+   "city": "太原",
+   "date": "2019-12-28",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-28",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "一巡厦门20191221_p3_花样年华",
    "song": "花样年华",
    "tour": "一巡",
@@ -1050,6 +1114,18 @@
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2019-12-01",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "珠海20191129_BV1FJ411v79w",
+   "song": "野狼disco",
+   "tour": "一巡",
+   "city": "珠海",
+   "date": "2019-11-29",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-11-29",
    "level": 1,
    "why": "日期直配"
   },

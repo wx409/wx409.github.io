@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-10-22T21:09:08",
-  "since": "2026-10-22",
-  "batches": 287,
-  "files": 2464,
-  "gb": 80.55,
+  "generated_at": "2026-10-23T00:13:59",
+  "since": "2026-10-23",
+  "batches": 290,
+  "files": 2476,
+  "gb": 80.76,
   "new_files": 0,
   "new_mb": 0.0,
-  "stats_total": 1435,
-  "stage_rows": 795,
-  "claimable": 636,
-  "claimable_soft": 326
+  "stats_total": 1441,
+  "stage_rows": 801,
+  "claimable": 642,
+  "claimable_soft": 330
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 345,
-   "mb": 17266.6,
+   "files": 351,
+   "mb": 17452.6,
    "stats": 0,
    "new_files": 0,
    "new_mb": 0.0,
-   "newest": "2026-10-21"
+   "newest": "2026-10-22"
   },
   {
    "batch": "wav_十年现场语料",
@@ -473,6 +473,15 @@
    "newest": "2026-10-10"
   },
   {
+   "batch": "重游往昔",
+   "files": 12,
+   "mb": 51.8,
+   "stats": 16,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
+  },
+  {
    "batch": "像雾像雨又像风",
    "files": 6,
    "mb": 43.7,
@@ -525,15 +534,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-13"
-  },
-  {
-   "batch": "重游往昔",
-   "files": 10,
-   "mb": 40.6,
-   "stats": 16,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-11"
   },
   {
    "batch": "全量待复核_20260916",
@@ -912,6 +912,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-22"
+  },
+  {
+   "batch": "重庆野玫瑰",
+   "files": 2,
+   "mb": 14.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
   },
   {
    "batch": "祝我们随遇而安",
@@ -2246,6 +2255,15 @@
    "newest": "2026-10-14"
   },
   {
+   "batch": "难忘今宵",
+   "files": 1,
+   "mb": 1.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
+  },
+  {
    "batch": "十年",
    "files": 1,
    "mb": 1.6,
@@ -2595,6 +2613,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-15"
+  },
+  {
+   "batch": "野狼disco",
+   "files": 1,
+   "mb": 0.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
   }
  ]
 }
