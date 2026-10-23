@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-23 14:00:49",
+ "updated_at": "2026-10-23 18:39:32",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -3562,6 +3562,47 @@
    "time": "2026-10-23 14:00:49",
    "title": "自动更新聚合完成",
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 4 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-10-23 14:13:00",
+   "title": "⚠️ 自动更新失败：git push 未成功",
+   "content": "请手动执行 cd （仓库根） && git push origin main",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-23 17:21:03",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [11276]），但 dashboard_data.json 已 248.8 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-23 18:39:06",
+   "title": "⚠️ 大屏采集漏批：2026-10-23",
+   "content": "应当完成但缺产出的批次：\n缺 12:18 quick\n缺 18:05 quick\n缺 18:15 quick\n缺 18:25 quick\n缺 18:39 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 77.8 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261023.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-10-23 18:39:32",
+   "title": "📣 【王晰】《敕勒歌》4K竖屏字幕 | 此曲只应天上有 | 沉响与长歌 ...",
+   "content": "2026年10月14日&ensp;&#0183;&ensp;【王晰】《敕勒歌》4K竖屏字幕 | 此曲只应天上有 | 沉响与长歌&#183;20261010 | 北京天桥艺术中心, 视频播放量 343、弹 …\n链接：https://www.bilibili.com/video/BV1m1p26qEGa/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV1m1p26qEGa/"
+  },
+  {
+   "time": "2026-10-23 18:39:32",
+   "title": "📣 微博",
+   "content": "王晰超话，阅读数:41.5亿、帖子数:18.9万、粉丝数:31.9万，王晰 男低音歌唱家 国家二级演员 音乐家协会会员 乐华娱乐旗下艺人 主要 …\n链接：https://www.weibo.com/p/100808a425cb81fcda647a9556adf6206b3417",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.weibo.com/p/100808a425cb81fcda647a9556adf6206b3417"
+  },
+  {
+   "time": "2026-10-23 18:39:32",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
    "category": "汇总",
    "source": "auto_update"
   }
