@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-10-23T21:11:28",
+  "generated_at": "2026-10-24T00:13:36",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8429,
+  "files_scanned": 8465,
   "measured_shows_site": 59,
   "shows_with_claimable_site": 58,
-  "bv_mapped": 140
+  "bv_mapped": 143
  },
  "shows": [
   {
@@ -1183,6 +1183,11 @@
      "detail": "BV1TF411v7Ed｜爱你｜未知20220109"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1TP4y1J7M4｜惑许｜未知20220109"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
@@ -1191,14 +1196,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "未知20220109_BV1LL41157MQ｜送别"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "未知20220109_BV1TF411v7Ed｜爱你"
     }
    ],
-   "n_evidence": 42
+   "n_evidence": 56
   },
   {
    "date": "2022-01-10",
@@ -1378,6 +1378,11 @@
      "detail": "BV1Rg411o7uU｜知晓｜太原20220717"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV19r4y1j7Xj｜惑许｜未知20220717"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "未知20220717_BV1WF411K75D｜朋友别哭"
@@ -1389,16 +1394,11 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1WF411K75D"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "未知20220717_BV1WF411K75D.wav"
+     "src": "站点实测",
+     "detail": "未知20220717_BV19r4y1j7Xj｜惑许"
     }
    ],
-   "n_evidence": 30
+   "n_evidence": 44
   },
   {
    "date": "2022-09-17",
@@ -1594,6 +1594,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1aV4y1y7tq｜时空｜深圳20230623"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "深圳｜三巡·王晰2021-2022“图景”"
     },
@@ -1606,14 +1611,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "三巡深圳20230623_BV1QP411v7KR｜静止了的夜晚"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Sm4y1e7ZZ"
     }
    ],
-   "n_evidence": 29
+   "n_evidence": 43
   },
   {
    "date": "2023-11-12",

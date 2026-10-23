@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-10-23T21:11:27",
-  "rows": 801,
+  "generated_at": "2026-10-24T00:13:35",
+  "rows": 807,
   "levels": {
-   "L1": 377,
+   "L1": 380,
    "L6": 26,
-   "L3": 44,
-   "未认领": 351,
+   "L3": 45,
+   "未认领": 353,
    "L4": 2,
    "L2": 1
   },
@@ -120,16 +120,16 @@
    "claimable": 16
   },
   "2023-06-23": {
-   "n": 2,
-   "claimable": 2
+   "n": 4,
+   "claimable": 4
   },
   "2023-05-20": {
    "n": 1,
    "claimable": 1
   },
   "2022-07-17": {
-   "n": 2,
-   "claimable": 1
+   "n": 3,
+   "claimable": 2
   },
   "2023-05-01": {
    "n": 1,
@@ -140,8 +140,8 @@
    "claimable": 1
   },
   "2022-01-09": {
-   "n": 3,
-   "claimable": 3
+   "n": 4,
+   "claimable": 4
   },
   "2022-04-09": {
    "n": 4,
@@ -2366,6 +2366,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "未知20220717_BV19r4y1j7Xj",
+   "song": "惑许",
+   "tour": "三巡",
+   "city": "鄂尔多斯",
+   "date": "2022-07-17",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-07-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡上海20220110_p02_王晰三巡上海站 20220110 p02 Moon River",
    "song": "三巡上海全场",
    "tour": "三巡",
@@ -2410,6 +2422,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "深圳20230623_BV1aV4y1y7tq",
+   "song": "时空",
+   "tour": "三巡",
+   "city": "深圳",
+   "date": "2023-06-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-06-23",
    "level": 1,
    "why": "日期直配"
   },
@@ -2602,6 +2626,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20220109_BV1TP4y1J7M4",
+   "song": "惑许",
+   "tour": "三巡",
+   "city": "无锡",
+   "date": "2022-01-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-09",
    "level": 1,
    "why": "日期直配"
   },
@@ -6482,6 +6518,18 @@
    "why": ""
   },
   {
+   "tag": "未知20220418_BV11a411v7jk",
+   "song": "分岔",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-04-18",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P06_别离的预感",
    "song": "",
    "tour": "其他演出",
@@ -7135,6 +7183,18 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "北京20220419_BV1eB4y1U7sP",
+   "song": "玩笑",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2022-04-19",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -9756,6 +9816,18 @@
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "深圳20230625_BV1g14y127yw",
+   "song": "凄美地",
+   "tour": "其他演出",
+   "city": "深圳",
+   "date": "2023-06-25",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-06-23",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "沉响与长歌20261010_p2_BV1Mypv6zECb",

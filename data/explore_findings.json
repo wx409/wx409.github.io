@@ -175,7 +175,7 @@
    "question": "这份档案的素材基础有多大、从哪来？",
    "finding": "290 个采集批次、2476 个音频文件、80.76 GB、1441 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-23T18:47:55",
+    "generated_at": "2026-10-23T21:11:49",
     "since": "2026-10-23",
     "batches": 290,
     "files": 2476,
@@ -194,17 +194,17 @@
   {
    "cat": "方法·证据强度",
    "question": "现场层的证据强度分布",
-   "finding": "可主张 642 条（音符级 HNR≥5dB+谐波列/人耳）；低信噪告警 430 条；待复核 126 条",
+   "finding": "可主张 647 条（音符级 HNR≥5dB+谐波列/人耳）；低信噪告警 430 条；待复核 127 条",
    "numbers": {
-    "谐波列通过": 592,
-    "待复核（谐波列待判）": 126,
+    "谐波列通过": 597,
+    "待复核（谐波列待判）": 127,
     "人耳确认": 50,
     "人耳否决（非王晰）": 25,
     "不可复核（缺混音/时间）": 5,
     "谐波列通过（HNR 异常，疑分离失败）": 2,
     "未复核": 1
    },
-   "n": 801,
+   "n": 807,
    "caliber": "行级 review_status",
    "confidence": "A 高"
   },
@@ -235,7 +235,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 60、站点层 59",
    "numbers": {
-    "generated_at": "2026-10-23T21:11:28",
+    "generated_at": "2026-10-24T00:13:36",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
@@ -244,10 +244,10 @@
     "L3_中": 0,
     "L4_弱": 4,
     "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-    "files_scanned": 8429,
+    "files_scanned": 8465,
     "measured_shows_site": 59,
     "shows_with_claimable_site": 58,
-    "bv_mapped": 140
+    "bv_mapped": 143
    },
    "n": 64,
    "caliber": "多源匹配（L1–L4 证据级）",
