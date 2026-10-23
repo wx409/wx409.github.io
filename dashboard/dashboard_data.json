@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-23 19:07",
+  "timestamp": "2026-10-23 19:22",
   "total": 283738,
   "success": 57352,
   "complete_rate": 20.2,
@@ -178,7 +178,7 @@
     11.5,
     54.8,
     55.6,
-    25.4
+    25.5
   ],
   "listener_labels": [
     "2024-11",
@@ -199345,7 +199345,7 @@
       "哭砂"
     ],
     "values": [
-      118.2
+      119.8
     ],
     "spring": [
       false
@@ -206975,15 +206975,86 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 6,
+    "active_count": 10,
     "total_tracked": 383,
-    "concentration_top3": 82.3,
+    "concentration_top3": 71.8,
     "as_of": "2026-10-23",
-    "too_small": true
+    "too_small": false
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 58.2,
+      "trend_pct": 83.4,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "山楂树",
+      "share_pct": 6.8,
+      "trend_pct": 169.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "在路上",
+      "share_pct": 6.7,
+      "trend_pct": 64.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "月弯弯",
+      "share_pct": 6.3,
+      "trend_pct": 54.1,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "一生中最爱",
+      "share_pct": 6.0,
+      "trend_pct": 161.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
+      "song": "她真漂亮",
+      "share_pct": 4.9,
+      "trend_pct": 55.2,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "神魂颠倒",
+      "share_pct": 4.7,
+      "trend_pct": null,
+      "trend_label": "new"
+    },
+    {
+      "rank": 8,
+      "song": "南屏晚钟",
+      "share_pct": 2.5,
+      "trend_pct": 76.9,
+      "trend_label": "up"
+    },
+    {
+      "rank": 9,
+      "song": "哭砂",
+      "share_pct": 2.0,
+      "trend_pct": 28.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 10,
+      "song": "晚风暖暖",
+      "share_pct": 1.8,
+      "trend_pct": null,
+      "trend_label": "new"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-10-23 19:07",
+  "last_update": "2026-10-23 19:22",
   "today_batches": 1269,
   "daily_new_records": 0,
   "recent_7days": [
@@ -207045,13 +207116,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4307,
-      "success": 4307,
+      "total": 4308,
+      "success": 4308,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1715766,
+      "before": 1716019,
       "after": 294298
     },
     "index_calibration": {
@@ -207259,7 +207330,7 @@
       },
       {
         "song": "神魂颠倒",
-        "peak": 41
+        "peak": 43
       },
       {
         "song": "谁",
@@ -207288,7 +207359,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-23 19:07",
+    "generated_at": "2026-10-23 19:22",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
