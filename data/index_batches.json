@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-10-20T22:07:56",
+ "generated_at": "2026-10-23T22:30:40",
  "rule": "`_quick` 或 22 点前的整点批＝middle_day；日档/22 点后整点批＝final；值日期＝文件名−1",
- "n_days": 454,
+ "n_days": 457,
  "pending_final": [
-  "2026-10-19",
-  "2026-10-20"
+  "2026-10-22",
+  "2026-10-23"
  ],
  "days": {
   "2026-07-25": {
@@ -1189,9 +1189,13 @@
    ]
   },
   "2026-10-19": {
-   "has_final": false,
+   "has_final": true,
    "n_middle": 17,
-   "final_files": [],
+   "final_files": [
+    "2026.10.20_2315.xlsx",
+    "2026.10.20.xlsx",
+    "2026.10.20.xlsx"
+   ],
    "middle_files": [
     "2026.10.19_1149_quick.xlsx",
     "2026.10.19_1159_quick.xlsx",
@@ -1199,13 +1203,51 @@
    ]
   },
   "2026-10-20": {
-   "has_final": false,
+   "has_final": true,
    "n_middle": 3,
-   "final_files": [],
+   "final_files": [
+    "2026.10.21_2315.xlsx",
+    "2026.10.21.xlsx",
+    "2026.10.21.xlsx"
+   ],
    "middle_files": [
     "2026.10.20_1149_quick.xlsx",
     "2026.10.20_1159_quick.xlsx",
     "2026.10.20_1309_quick.xlsx"
+   ]
+  },
+  "2026-10-21": {
+   "has_final": true,
+   "n_middle": 7,
+   "final_files": [
+    "2026.10.22_2315.xlsx",
+    "2026.10.22.xlsx",
+    "2026.10.22.xlsx"
+   ],
+   "middle_files": [
+    "2026.10.21_0805_quick.xlsx",
+    "2026.10.21_0815_quick.xlsx",
+    "2026.10.21_0825_quick.xlsx"
+   ]
+  },
+  "2026-10-22": {
+   "has_final": false,
+   "n_middle": 14,
+   "final_files": [],
+   "middle_files": [
+    "2026.10.22_0805_quick.xlsx",
+    "2026.10.22_0815_quick.xlsx",
+    "2026.10.22_0825_quick.xlsx"
+   ]
+  },
+  "2026-10-23": {
+   "has_final": false,
+   "n_middle": 11,
+   "final_files": [],
+   "middle_files": [
+    "2026.10.23_0805_quick.xlsx",
+    "2026.10.23_0815_quick.xlsx",
+    "2026.10.23_0825_quick.xlsx"
    ]
   },
   "2026-07-27": {

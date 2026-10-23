@@ -73,6 +73,45 @@ def has_index_col(path: str) -> bool:
     return any("音乐指数" in str(c) for c in cols)
 
 
+
+
+def same_day_override(d: str) -> str:
+    """缺日 d 若存在同名日档（文件日期＝d）且含『音乐指数』列 → 写入 day_overrides 并返回文件路径。"""
+    import json as _json
+    from datetime import date as _date
+    from pathlib import Path as _P
+    ovp = _P(r"E:\wx\index_records\day_overrides.json")
+    ov = {}
+    if ovp.exists():
+        try:
+            ov = _json.loads(ovp.read_text(encoding="utf-8"))
+        except Exception:
+            ov = {}
+    want = _date.fromisoformat(d)
+    for root in STORES:
+        if not root.is_dir():
+            continue
+        for f in root.glob("*.xlsx"):
+            if f.name.startswith("~$"):
+                continue
+            m = DATE_RE.search(f.name)
+            if not m:
+                continue
+            try:
+                if _date(int(m.group(1)), int(m.group(2)), int(m.group(3))) != want:
+                    continue
+            except ValueError:
+                continue
+            if not has_index_col(str(f)):
+                continue
+            ov[f.name] = {"column": "音乐指数", "as_date": d,
+                          "note": "自动登记（backfill 自愈）：当日文件含『音乐指数』列＝当日值"}
+            ovp.parent.mkdir(parents=True, exist_ok=True)
+            ovp.write_text(_json.dumps(ov, ensure_ascii=False, indent=1), encoding="utf-8")
+            return str(f)
+    return ""
+
+
 def gaps(expect_last: str = "") -> list[str]:
     sys.path.insert(0, str(SITE / "project_b"))
     import index_gap_check as g
@@ -106,6 +145,12 @@ def main() -> int:
     found, absent = [], []
     for d in target:
         cand = idx.get(d) or []
+        if not cand:
+            _hit = same_day_override(d)
+            if _hit:
+                print(f"  [自愈] {d}：发现同日文件 {_hit}（含音乐指数列）→ 已登记 override")
+                found.append(d)      # 已登记 override，重建时会按 D 导入
+                continue
         # ★ 2026-10-17 修：`指数vs` 的 quick 批次只有「当前收听人数」、**无指数列** →
         #   不能算"可补"。必须至少有一个带「音乐指数」列的文件才算可补。
         usable = [p for p in cand if has_index_col(p)]
