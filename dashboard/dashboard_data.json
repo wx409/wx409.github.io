@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24 19:22",
+  "timestamp": "2026-10-24 20:16",
   "total": 283991,
   "success": 57365,
   "complete_rate": 20.2,
@@ -209378,11 +209378,78 @@
     "total_tracked": 383,
     "concentration_top3": 78.8,
     "as_of": "2026-10-24",
-    "too_small": true
+    "too_small": true,
+    "sample_tier": "small",
+    "recent7_median_n": 253.0
   },
-  "daily_listen_trend": [],
+  "daily_listen_trend": [
+    {
+      "rank": 1,
+      "song": "黎明前的黑暗",
+      "share_pct": 65.0,
+      "raw": 547.0,
+      "trend_pct": 59.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 2,
+      "song": "山楂树",
+      "share_pct": 7.6,
+      "raw": 64.0,
+      "trend_pct": 156.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "月弯弯",
+      "share_pct": 6.2,
+      "raw": 52.0,
+      "trend_pct": 73.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 4,
+      "song": "一生中最爱",
+      "share_pct": 6.2,
+      "raw": 52.0,
+      "trend_pct": 108.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 5,
+      "song": "在路上",
+      "share_pct": 5.8,
+      "raw": 49.0,
+      "trend_pct": 63.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
+      "song": "Sound of Silence",
+      "share_pct": 3.4,
+      "raw": 29.0,
+      "trend_pct": 45.0,
+      "trend_label": "up"
+    },
+    {
+      "rank": 7,
+      "song": "谁",
+      "share_pct": 3.0,
+      "raw": 25.0,
+      "trend_pct": 4.2,
+      "trend_label": "flat"
+    },
+    {
+      "rank": 8,
+      "song": "南屏晚钟",
+      "share_pct": 2.7,
+      "raw": 23.0,
+      "trend_pct": 64.3,
+      "trend_label": "up"
+    }
+  ],
   "daily_new_today": [],
-  "last_update": "2026-10-24 19:22",
+  "last_update": "2026-10-24 20:16",
   "today_batches": 1270,
   "daily_new_records": 0,
   "recent_7days": [
@@ -209440,7 +209507,7 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 130,
+      "rows": 0,
       "pct": 0.0
     },
     "excel_files": {
@@ -209717,7 +209784,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-24 19:22",
+    "generated_at": "2026-10-24 20:16",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",

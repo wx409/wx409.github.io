@@ -1489,6 +1489,7 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=500, min_displ
             "rank": rank,
             "song": str(uid2disp.get(r["uid"], r["uid"])),
             "share_pct": round(float(r["peak"]) / total_peak * 100, 1),
+            "raw": float(r["peak"]),
             "trend_pct": trend_pct,
             "trend_label": label,
         })
@@ -1518,15 +1519,26 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=500, min_displ
     new_today = new_today[:500]  # 全量（当天新上榜歌曲一般不多）
 
     too_small = int(len(active)) < min_display
+    _n_today = int(len(active))
+    # 近 7 日 active_count 中位（用同一 df 的每日有值曲目数）
+    try:
+        _daily = df.copy()
+        _daily["d"] = pd.to_datetime(_daily["data_date"], errors="coerce").dt.strftime("%Y-%m-%d")
+        _cnt = _daily.groupby("d")["uid"].nunique().sort_index().tail(7)
+        _r7 = float(_cnt.median()) if len(_cnt) else None
+    except Exception:
+        _r7 = None
     return {
         "overview": {
-            "active_count": int(len(active)),
+            "active_count": _n_today,
             "total_tracked": int(total_songs),
             "concentration_top3": concentration,
             "as_of": cur_date.strftime("%Y-%m-%d"),
             "too_small": too_small,
+            "sample_tier": "normal" if _n_today >= 10 else ("small" if _n_today >= 3 else "tiny"),
+            "recent7_median_n": round(_r7, 1) if _r7 is not None else None,
         },
-        "trend": [] if too_small else trend,
+        "trend": [] if _n_today == 0 else trend,
         "new_today": new_today,
     }
 
@@ -2961,7 +2973,7 @@ __GEO_SUMMARY__
   <div class="daily-trend-card" id="dailyTrendCard">
     <div class="daily-trend-header">今日收听份额（全量 · 含🆕新上榜）</div>
     <div class="daily-trend-list" id="dailyTrendList"></div>
-    <div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
+    <div id="dailySampleCtx" style="display:none;color:#8b96ad;font-size:12px;margin:4px 0 2px"></div><div id="dailySampleTag" style="display:none;color:#e0b95a;font-size:12px;margin:2px 0 6px"></div><div class="daily-trend-empty" id="dailyTrendEmpty" style="display:none;color:#5a6b8c;padding:12px;font-size:12px;text-align:center;">今日活跃歌曲样本过小（&lt;10 首），份额结构无统计意义，暂不展示。</div>
   </div>
   <div class="daily-trend-card" id="monthlyCard" style="margin-top:14px;">
     <div class="daily-trend-header">📅 当月榜单 · <span id="monthLabel">--</span>（新上榜排行 / 日均指数 Top / 收听峰值 Top）</div>
@@ -3653,9 +3665,20 @@ setTimeout(function(){
   var list = document.getElementById('dailyTrendList');
   var emptyTip = document.getElementById('dailyTrendEmpty');
   if (!card || !list) return;
-  if (ov.too_small) {
-    if (emptyTip) emptyTip.style.display = 'block';
-    return;
+  var _tier = ov.sample_tier || (ov.too_small ? 'small' : 'normal');
+  var _n = ov.active_count || 0;
+  var _r7 = (ov.recent7_median_n !== null && ov.recent7_median_n !== undefined) ? ov.recent7_median_n : '--';
+  var _ctx = document.getElementById('dailySampleCtx');
+  if (_ctx) {
+    _ctx.style.display = 'block';
+    _ctx.textContent = '今日 ' + _n + ' 首；近 7 日中位 ' + _r7 + ' 首';
+  }
+  var _tag = document.getElementById('dailySampleTag');
+  if (_tag) {
+    _tag.style.display = 'block';
+    if (_tier === 'normal') { _tag.textContent = '样本 n=' + _n; }
+    else if (_tier === 'small') { _tag.textContent = '小样本 n=' + _n + '｜样本较小，仅列当日构成，不作结构或趋势判断'; }
+    else { _tag.textContent = '样本过少 n=' + _n + '，仅作记录'; }
   }
   if (trend.length === 0) {
     if (emptyTip) emptyTip.style.display = 'block';
