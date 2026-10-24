@@ -6322,6 +6322,25 @@ def rebuild_dashboard():
         hist_uid_names = merged_names
         logger.info(f"同名合并后: {len(hist_trends)} 首歌（含 {sum(1 for v in name_to_uids.values() if len(v)>1)} 组合并）")
     payload = build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hist_trends, hist_uid_names, setlists=setlists)
+    # ★ 2026-10-24：置顶「今日洞察」（每日 22:00 由 project_b/build_daily_insights.py 生成）
+    try:
+        import json as _json
+        from pathlib import Path as _Path
+        _di_path = _Path(r"D:\\wx409.github.io\\data\\daily_insights.json")
+        if _di_path.exists():
+            _di = _json.loads(_di_path.read_text(encoding="utf-8"))
+            _items = []
+            for _it in (_di.get("items") or []):
+                _items.append({"title": _it.get("title"),
+                               "text": "<br>".join(_it.get("lines") or []),
+                               "evidence": "", "drill": None})
+            if _items:
+                payload["insights"] = _items + (payload.get("insights") or [])
+                payload["insight_meta"] = {"generated_at": _di.get("generated_at"),
+                                             "data_as_of": _di.get("data_as_of")}
+                logger.info("今日洞察已注入：%d 条（数据截至 %s）" % (len(_items), _di.get("data_as_of")))
+    except Exception as _e:
+        logger.warning("今日洞察注入失败（不致命）：%s" % _e)
 
     # === 原始数据本地归档（不公开，仅本地留存供深度分析）===
     raw_dir = os.path.join(OUTPUT_DIR, "raw_archive")

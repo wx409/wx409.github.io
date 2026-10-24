@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24 09:33",
+  "timestamp": "2026-10-24 10:40",
   "total": 283738,
   "success": 57365,
   "complete_rate": 20.2,
@@ -207136,7 +207136,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-24 09:33",
+  "last_update": "2026-10-24 10:40",
   "today_batches": 1269,
   "daily_new_records": 0,
   "recent_7days": [
@@ -207233,6 +207233,36 @@
       "name2mid_1to1": 232,
       "nonsong_skipped": 131
     }
+  },
+  "insights": [
+    {
+      "title": "指数又动了：2026-10-22 池中位 190",
+      "text": "结论：2026-10-22 的追踪池中位 190 点<br>数字：较前一日 181 点，变化 +8；有值曲目 10 首（前一日 10）<br>为什么：单日中位变化超过 ±10 点，说明当天的收听结构有整体位移，不是个别曲目<br>弱｜文案：2026-10-22 这天，整个池子一起动了<br>证据：music_index_long.csv（2026-10-22 vs 2026-10-21，n=10）",
+      "evidence": "",
+      "drill": null
+    },
+    {
+      "title": "当天涨得最猛：《黎明前的黑暗》+83 点",
+      "text": "结论：《黎明前的黑暗》单日涨 83 点<br>数字：2451 → 2534；当日涨幅前三 黎明前的黑暗+83、在路上+75、南屏晚钟+52<br>为什么：同一天整体中位只动几点的日子里，单曲能涨这么多，通常对应一次外部曝光<br>能｜文案：这首一天涨了 83 点<br>证据：music_index_long.csv#song=黎明前的黑暗",
+      "evidence": "",
+      "drill": null
+    },
+    {
+      "title": "上一场演出的指数峰值在 T+10",
+      "text": "结论：2023-10-29 场次峰值 T+10（292.8 点）<br>数字：total_uplift 10.4｜窗口 14 天<br>为什么：峰值若落在 T+8 以后，说明传播不是当晚爆发，而是延迟扩散<br>能｜文案：这场演出，八天后才到顶<br>证据：dashboard_data.json#tour_song_effects[].daily_series",
+      "evidence": "",
+      "drill": null
+    },
+    {
+      "title": "最近一场 2026-10-14 已入现场层 2 条",
+      "text": "结论：2026-10-14 现场素材入库 2 条<br>数字：已确认钩子 0 条；素材含中控台与观众侧<br>为什么：素材入库是后续能力读数与宣传的前提，缺素材时任何读数都只能等<br>弱｜文案：这场的声音，已经进档案了<br>证据：archive_stage_tour.json#rows；hooks_pool.json#hooks",
+      "evidence": "",
+      "drill": null
+    }
+  ],
+  "insight_meta": {
+    "generated_at": "2026-10-24T10:28:49",
+    "data_as_of": "2026-10-22"
   },
   "monthly": {
     "month": "2026-10",
@@ -207441,7 +207471,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-24 09:33",
+    "generated_at": "2026-10-24 10:40",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
