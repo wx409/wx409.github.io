@@ -1,0 +1,42 @@
+{
+ "generated_at": "2026-10-24",
+ "rule": "默认 3 常青 + 2 时效；无时效料时 3 常青 + 1 方法（共 4 条），不凑数",
+ "items": [
+  {
+   "kind": "常青",
+   "hook": "他的低音不是偶尔为之：72 首里 44 首低于 E2",
+   "asset": "低音线卡片（card_low_baseline）",
+   "platform": "小红书",
+   "fact_boundary": "可写 44/72；不可写“华语最低”",
+   "material_boundary": "可截图可二创，需署名",
+   "risk": "低"
+  },
+  {
+   "kind": "常青",
+   "hook": "一口气 16.5 秒，音高不移动",
+   "asset": "长音卡片（card_long_tone）",
+   "platform": "抖音",
+   "fact_boundary": "可写 16.5s/D2；不可写“无人能及”",
+   "material_boundary": "可截图，需署名",
+   "risk": "低"
+  },
+  {
+   "kind": "常青",
+   "hook": "现场他反而比唱片高一点",
+   "asset": "配对卡片（card_pair_54）",
+   "platform": "B站",
+   "fact_boundary": "可写 +1.8 半音/81%；不可跨窗口比单点",
+   "material_boundary": "可二创非商用",
+   "risk": "中"
+  },
+  {
+   "kind": "方法",
+   "hook": "怎么核一个数：从 CSV 到能引用的一句",
+   "asset": "share.html 口径段",
+   "platform": "小红书",
+   "fact_boundary": "只讲方法，不涉结论",
+   "material_boundary": "可截图，需署名",
+   "risk": "低"
+  }
+ ]
+}

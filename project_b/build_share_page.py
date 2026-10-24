@@ -228,6 +228,15 @@ def main():
         for x in (pool.get("items") or [])) or "<p class='meta'>（暂无）</p>"
     facts_file = D / "share" / "rendered" / "facts_section.html"
     facts_html = facts_file.read_text(encoding="utf-8") if facts_file.exists() else ""
+    _ct = SITE / "data" / "share" / "rendered" / "cut_templates.html"
+    cut_html = _ct.read_text(encoding="utf-8") if _ct.exists() else ""
+    _corr = SITE / "data" / "share" / "corrections.json"
+    corr_html = ""
+    if _corr.exists():
+        _c = json.loads(_corr.read_text(encoding="utf-8"))
+        _items = "".join("<li>" + x.get("date","") + "：" + x.get("what","") + "（" + x.get("detail","") + "）</li>"
+                         for x in (_c.get("items") or []))
+        corr_html = "<p class=\"meta\">最近更正：" + _items + "｜纠错入口：<a href=\"" + _c.get("issue","") + "\">" + _c.get("issue","") + "</a></p>"
     cp_file = D / "share" / "rendered" / "copy_pipeline.html"
     copy_html = (cp_file.read_text(encoding="utf-8") if cp_file.exists()
                  else "<p class=meta>（未生成：跑 project_b/build_copy_pipeline.py）</p>")
@@ -267,7 +276,9 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 数字一律派生自 <code>data/</code>，口径见 <code>data/calibers.md</code></p>
 <div class="warn">本页<strong>不进主导航</strong>，仅在 <a href="community.html">社群页</a> 强链；仅供站主自用与授权合作者参考。</div>
 
+{corr_html}
 {facts_html}
+{cut_html}
 
 <h2>① 卡片库（{n_cards} 张）</h2>
 <p class="meta">每卡两视图：本页为阅读视图；竖屏截图视图 = <code>share.html?card=&lt;id&gt;</code>（例：?card=vibrato）</p>
