@@ -19,6 +19,17 @@ SITE = "https://wx409.github.io"
 
 def build_page(meta: dict) -> str:
     songs = meta["songs"]
+    # ★ 2026-10-24：只渲染有王晰参与的曲目（独唱/合唱）；他人独唱仅保留在数据层
+    _ex = ROOT / "data" / "songs_page_exclusions.json"
+    _excluded = set()
+    if _ex.exists():
+        try:
+            _excluded = set(json.loads(_ex.read_text(encoding="utf-8")).get("excluded") or [])
+        except Exception:
+            _excluded = set()
+    _before = len(songs)
+    songs = {k: v for k, v in songs.items() if k not in _excluded}
+    _filtered = _before - len(songs)
     n_all = len(songs)
     n_lyrics = sum(1 for v in songs.values() if v.get("lyric_tags") or v.get("lyric_frags"))
     n_album = sum(1 for v in songs.values() if v.get("album"))

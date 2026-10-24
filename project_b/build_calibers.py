@@ -364,6 +364,23 @@ def collect() -> list[dict]:
     except Exception as e:
         add("pairing_full_56", "同曲配对（主口径·全量）", None, "口径读取失败", str(e), "")
 
+    # 歌曲页可见口径（2026-10-24）：只渲染有王晰参与的曲目；他人独唱仅留数据层
+    try:
+        _sa = _load("data/songs_attribution.json") or {}
+        _ex = _load("data/songs_page_exclusions.json") or {}
+        _n_all = _sa.get("total") or 0
+        _n_ex = len(_ex.get("excluded") or [])
+        add("songs_page_visible", "歌曲页可见曲目数", _n_all - _n_ex,
+            "songs.html 只渲染「王晰独唱/合唱」；他人独唱（用户确认或归属表剔除）不渲染，数据层保留",
+            "data/songs_attribution.json + data/songs_page_exclusions.json",
+            f"数据层 {_n_all} 首，页面剔除 {_n_ex} 首（他人独唱）；待核 "
+            f"{( _sa.get('class_counts') or {}).get('待核', 0)} 首保留并标记")
+        add("songs_page_excluded", "歌曲页剔除曲目数", _n_ex,
+            "判为他人独唱、不在 songs.html 渲染的曲目数",
+            "data/songs_page_exclusions.json", "；".join((_ex.get("excluded") or [])[:6]))
+    except Exception as e:
+        add("songs_page_visible", "歌曲页可见曲目数", None, "口径读取失败", str(e), "")
+
     # 点歌 4 首「音源唯一」口径（2026-10-17 用户定）
     try:
         _sor = _load("data/song_source_of_record.json") or {}

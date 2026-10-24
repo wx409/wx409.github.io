@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-10-24 09:48　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-10-24 12:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -42,6 +42,8 @@
 | `pairing_excl_outliers_54` | 同曲配对（敏感性·剔除离群） | **63 组 / 1.8 / 38.1%** | 剔除两个约 12 半音的离群配对后的敏感性口径 | `data/share/cards/card_pair_54.json#main_numbers（第 4 项）` |
 | `pairing_p_full` | 配对差异 p 值（全部配对） | **0.2131** | 自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对） | `data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all` |
 | `pairing_p_solo_only` | 配对差异 p 值（仅独唱） | **0.1975** | 同一检验的敏感性口径（仅独唱场次） | `data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo` |
+| `songs_page_visible` | 歌曲页可见曲目数 | **682** | songs.html 只渲染「王晰独唱/合唱」；他人独唱（用户确认或归属表剔除）不渲染，数据层保留 | `data/songs_attribution.json + data/songs_page_exclusions.json` |
+| `songs_page_excluded` | 歌曲页剔除曲目数 | **6** | 判为他人独唱、不在 songs.html 渲染的曲目数 | `data/songs_page_exclusions.json` |
 | `point_song_source` | 点歌 4 首测量源（唯一） | **4** | 两晚点歌中**王晰独唱**的 4 首，测量源只能是工作室微博视频（中控台直出）；观众侧素材仅 corroboration_only，不进主读数；缺工作室版本则 missing_studio_source 并剔除，不得顶替 | `data/song_source_of_record.json` |
 | `stage_measured_versions` | 现场实测版本数 | **16** | B站音轨人声分离后实测的现场演唱版本（一巡/二巡/六巡的同一首歌多场次） | `音域分析\轨迹\让她降落_四版实测.json` |
 | `stage_measured_shows` | 现场实测场次数 | **5** | 上述现场版本覆盖的实际演出场次（同场多源只算一场） | `音域分析\轨迹\让她降落_四版实测.json` |
