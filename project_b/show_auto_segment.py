@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""show_auto_segment.py —— 整场音频「自动粗切」（档 1）
+"""show_auto_segment.py —— 整场音频「自动粗切」（**实验**；experimental=true，不排队、不作数据来源）
 
 方法：0.5s 窗 RMS → 局部能量谷底（低于中位 −6dB）+ 静音检测（−45dB）→
       取 N−1 个最深且相互间隔 ≥60s 的切点 → 按歌单顺序对齐（顺序约束）；
@@ -109,6 +109,7 @@ def main() -> int:
     doc = {"show": a.show, "audio": str(a.audio), "duration_s": round(dur, 1),
            "n_songs": n, "n_cuts_found": len(chosen), "median_db": round(med, 1),
            "method": "0.5s RMS 谷底（<中位−6dB，≥0.75s）+ 间隔≥60s + 歌单顺序对齐",
+           "experimental": True,
            "note": "全部 auto=true、boundary_error≈±5s、等级＝自动切分·待核，不进能力汇总",
            "segments": segs}
     OUTDIR.mkdir(parents=True, exist_ok=True)

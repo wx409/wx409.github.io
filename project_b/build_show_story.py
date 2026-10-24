@@ -134,8 +134,10 @@ def main() -> int:
             H.append("<p class=\"meta\">上表仅列前 5 段；全部段落见 "
                      f"<code>data/show_segments_auto/{slug}.json</code>。</p>")
         elif s["materials"] >= 1:
-            H.append("<p>本场素材为整场录像，<b>尚未逐曲切分</b>。可补：自动粗切每晚 2 场，"
-                     "精切只做定番/低音锚点/点歌。</p>")
+            _n_mat = s["materials"]
+            _n_song = len(s["songs"])
+            H.append(f"<p>本场素材 <b>{_n_mat}</b> 段，已覆盖 <b>{min(_n_mat, _n_song)}</b> 首，待补 <b>{max(0, _n_song - _n_mat)}</b> 首（夜间采集排队中）。</p>"
+                     "<p class=\"meta\">整场切分实验中（experimental=true），暂不作为数据来源；夜间逐曲采集每晚上限 18 条，缺口少的场次优先。</p>")
         if low_row:
             H.append(f"<p>这一场测到的最低稳定音是 <b>{low_row.get('low_note')} {low_row.get('low_hz')} Hz</b>，"
                      f"出现在《{html.escape(str(low_row.get('song')))}》。口径：音符≥0.2s、HNR≥5dB、强度≥中位−25dB，"
