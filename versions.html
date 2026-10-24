@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>同曲跨场矩阵｜王晰现场 12 首 × 102 个版本｜AI 可读数字档案</title>
+<meta name="description" content="同一首歌跨巡次、跨年份、跨城市的现场读数矩阵：12 首、102 个版本，逐个标出稳定音、跨度、音符内稳定性与复核状态。差异来自调性与编配，不用于能力排名。">
+<link rel="canonical" href="https://wx409.github.io/versions.html">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+           line-height: 1.75; max-width: 980px; margin: 0 auto; padding: 20px; color: #333;
+           background: #fdfcf9; }
+    h1 { border-bottom: 3px solid #8a6d3b; padding-bottom: 10px; font-size: 26px; }
+    h2 { margin-top: 34px; font-size: 19px; border-left: 4px solid #8a6d3b; padding-left: 10px; }
+    .meta { color: #666; font-size: 13.5px; margin: 8px 0 18px; }
+    .note { background: #fff8e6; border-left: 3px solid #c9a227; padding: 12px 16px;
+            font-size: 13.5px; border-radius: 4px; margin: 16px 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin: 10px 0 6px; }
+    th, td { border: 1px solid #e5ddcc; padding: 6px 8px; text-align: left; }
+    th { background: #f6f1e4; font-weight: 600; }
+    td.n { text-align: right; font-variant-numeric: tabular-nums; }
+    .ok { color: #2e7d32; } .pending { color: #b26a00; }
+    .sub { color: #555; font-size: 13.5px; margin: 4px 0 0; }
+    .foot { color: #777; font-size: 12.5px; margin: 26px 0 10px; }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "王晰同曲跨场现场读数矩阵", "description": "同一首歌在不同巡次、年份、城市的现场实测读数（12 首 / 102 个版本）。", "isAccessibleForFree": true, "creator": {"@type": "Person", "name": "王晰数字档案站"}, "license": "https://wx409.github.io/about.html", "variableMeasured": ["最低稳定音", "最高稳定音", "跨度", "音符内稳定性", "颤音速率"], "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wx409.github.io/data/live_versions.json"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "同一首歌在不同城市的现场，最低音会差多少？", "acceptedAnswer": {"@type": "Answer", "text": "本页按巡次与城市逐条列出同一首歌的现场读数。以《多听有益》为例，四巡上海生日与杭州均为 C2 65.2Hz，北京直拍为 D2 74.9Hz，2024-04-18 其他演出为 F#2 95.2Hz，版本间极差约 9.3 个半音——差异主要来自当场调性与编配，不能直接当作唱功升降。"}}, {"@type": "Question", "name": "为什么有些现场读数标着「待判」？", "acceptedAnswer": {"@type": "Answer", "text": "低音区基频常常弱于伴奏与低音乐器，需要原始混音的谐波列判定或人耳听辨才能定案。标「待判」的读数照原样展示，但不计入中位统计，也不作为能力结论的依据。"}}, {"@type": "Question", "name": "这个矩阵能说明什么、不能说明什么？", "acceptedAnswer": {"@type": "Answer", "text": "它能说明同一首歌在多轮巡演中能否回到相近的音高坐标，以及版本之间的实际差异；它不能替代逐句听辨，也不能把不同场次的最低音直接排成能力高低。"}}]}</script>
+</head><body>
+<!-- NAV_START -->
+<div class="nav">
+    <a href="/index.html">🏠 首页</a>
+    <a href="/works.html">🎵 作品</a>
+    <a href="/live.html">🎤 现场</a>
+    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
+    <a href="/history.html">📅 生涯</a>
+    <a href="/research.html">📚 研究</a>
+    <a href="/community.html">💬 参与</a>
+</div>
+<!-- NAV_END -->
+<h1>🔀 同曲跨场矩阵</h1>
+<p class="meta">同一首歌，换个城市、隔几年再唱，他还能不能回到同一个音高坐标？本页把 12 首、102 个现场版本按巡次与日期排开——其中 87 条已过复核门槛，11 条标注「待判」。</p>
+<div class="note">口径：只收有最低音读数的现场素材；人耳否决的读数已排除；「待判」条目照原样展示但不进中位统计。跨场最低音差异主要来自当场调性与编配，本页不据此做能力排名。数据源 <code>data/live_versions.json</code>，由 <code>project_b/build_live_versions.py</code> 生成。</div>
+<h2>一眼总览</h2>
+<table>
+<tr><th>曲目</th><th>版本</th><th>巡次</th><th>稳定音中位</th><th>与录音室</th><th>版本间极差</th></tr>
+<tr><td><a href="#s-让她降落">让她降落</a></td><td class="n">20</td><td class="n">5</td><td class="n">92.0 Hz</td><td class="n">—</td><td class="n">5.8 半音</td></tr>
+<tr><td><a href="#s-哭砂">哭砂</a></td><td class="n">7</td><td class="n">4</td><td class="n">84.7 Hz</td><td class="n">—</td><td class="n">8.9 半音</td></tr>
+<tr><td><a href="#s-Your Man">Your Man</a></td><td class="n">14</td><td class="n">3</td><td class="n">90.4 Hz</td><td class="n">—</td><td class="n">4.1 半音</td></tr>
+<tr><td><a href="#s-雪地里寄不出的求救信">雪地里寄不出的求救信</a></td><td class="n">12</td><td class="n">3</td><td class="n">124.9 Hz</td><td class="n">+11.2 半音</td><td class="n">14.5 半音</td></tr>
+<tr><td><a href="#s-像雾像雨又像风">像雾像雨又像风</a></td><td class="n">10</td><td class="n">3</td><td class="n">104.0 Hz</td><td class="n">—</td><td class="n">6.6 半音</td></tr>
+<tr><td><a href="#s-花儿为什么这样红">花儿为什么这样红</a></td><td class="n">9</td><td class="n">3</td><td class="n">72.2 Hz</td><td class="n">—</td><td class="n">5.0 半音</td></tr>
+<tr><td><a href="#s-一生守候">一生守候</a></td><td class="n">8</td><td class="n">3</td><td class="n">78.0 Hz</td><td class="n">—</td><td class="n">6.8 半音</td></tr>
+<tr><td><a href="#s-再见我的爱人">再见我的爱人</a></td><td class="n">4</td><td class="n">3</td><td class="n">76.5 Hz</td><td class="n">—</td><td class="n">0.1 半音</td></tr>
+<tr><td><a href="#s-我要你">我要你</a></td><td class="n">7</td><td class="n">2</td><td class="n">78.75 Hz</td><td class="n">—</td><td class="n">1.5 半音</td></tr>
+<tr><td><a href="#s-多听有益">多听有益</a></td><td class="n">5</td><td class="n">2</td><td class="n">74.9 Hz</td><td class="n">+3.4 半音</td><td class="n">9.3 半音</td></tr>
+<tr><td><a href="#s-静止了的夜晚">静止了的夜晚</a></td><td class="n">4</td><td class="n">2</td><td class="n">58.2 Hz</td><td class="n">-0.9 半音</td><td class="n">5.5 半音</td></tr>
+<tr><td><a href="#s-后会无期">后会无期</a></td><td class="n">2</td><td class="n">2</td><td class="n">— Hz</td><td class="n">—</td><td class="n">—</td></tr>
+</table>
+<p class="foot">「与录音室」按该曲录音室最低稳定音对照（无录音室记录者留空）；「版本间极差」只统计已过门槛的现场读数。</p>
+<h2 id="s-让她降落">让她降落</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">5 个巡次｜20 个版本｜稳定音中位 <b>92.0 Hz</b>｜版本间极差 <b>5.8 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>F#2 91.9 Hz</td><td>G5 777.6 Hz</td><td class="n">3.08</td><td class="n">8.4</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>F#2 92.3 Hz</td><td>B4 498.9 Hz</td><td class="n">2.43</td><td class="n">8.6</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2019-07-28</td><td>南京</td><td>F#2 91.1 Hz</td><td>B5 984.0 Hz</td><td class="n">3.43</td><td class="n">7.7</td><td class="n">5.02</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-08-05</td><td>广州</td><td>F#2 91.0 Hz</td><td>—</td><td class="n">—</td><td class="n">8.8</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-12-29</td><td>太原</td><td>F#2 90.3 Hz</td><td>D5 573.3 Hz</td><td class="n">2.67</td><td class="n">7.2</td><td class="n">5.17</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2020-01-02</td><td>北京</td><td>F#2 91.7 Hz</td><td>A5 904.3 Hz</td><td class="n">3.30</td><td class="n">6.7</td><td class="n">5.17</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2020-01-02</td><td>北京</td><td>F#2 92.1 Hz</td><td>A#5 937.0 Hz</td><td class="n">3.35</td><td class="n">5.7</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2020-01-02</td><td>北京</td><td>F#2 92.1 Hz</td><td>A#5 928.0 Hz</td><td class="n">3.33</td><td class="n">6.0</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2020-01-02</td><td>北京收官</td><td>G2 98.5 Hz</td><td>A5 904.8 Hz</td><td class="n">3.20</td><td class="n">6.8</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-04-11</td><td>南京</td><td>F2 88.6 Hz</td><td>G5 767.8 Hz</td><td class="n">3.11</td><td class="n">7.4</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-04-11</td><td>南京</td><td>A2 108.6 Hz</td><td>F#5 761.0 Hz</td><td class="n">2.81</td><td class="n">6.3</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-04-11</td><td>南京</td><td>A#2 117.8 Hz</td><td>B4 496.7 Hz</td><td class="n">2.08</td><td class="n">5.7</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>签唱会</td><td>2021-11-27</td><td>杭州</td><td>F#2 91.1 Hz</td><td>B5 965.6 Hz</td><td class="n">3.41</td><td class="n">7.2</td><td class="n">4.88</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-06-13</td><td>重庆</td><td>F2 88.9 Hz</td><td>B4 489.4 Hz</td><td class="n">3.00</td><td class="n">8.6</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-06-13</td><td>重庆</td><td>G#2 104.3 Hz</td><td>C#5 541.8 Hz</td><td class="n">2.38</td><td class="n">7.3</td><td class="n">4.92</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-06-13</td><td>重庆</td><td>G#2 106.4 Hz</td><td>B4 488.8 Hz</td><td class="n">2.20</td><td class="n">6.2</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>E2 82.6 Hz</td><td>B4 500.0 Hz</td><td class="n">2.60</td><td class="n">7.9</td><td class="n">5.07</td><td><span class="pending">待判</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>E2 84.5 Hz</td><td>E5 670.9 Hz</td><td class="n">2.99</td><td class="n">6.4</td><td class="n">5.00</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>F2 88.1 Hz</td><td>B5 1000.2 Hz</td><td class="n">3.51</td><td class="n">7.7</td><td class="n">5.07</td><td><span class="pending">待判</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>G2 98.0 Hz</td><td>B4 501.5 Hz</td><td class="n">2.60</td><td class="n">7.0</td><td class="n">5.03</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-哭砂">哭砂</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">4 个巡次｜7 个版本｜稳定音中位 <b>84.7 Hz</b>｜版本间极差 <b>8.9 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>2020-09-04</td><td>—</td><td>F2 85.4 Hz</td><td>A4 441.4 Hz</td><td class="n">2.37</td><td class="n">8.1</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2021</td><td>上海</td><td>C2 66.0 Hz</td><td>G4 400.5 Hz</td><td class="n">2.60</td><td class="n">6.5</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2021</td><td>上海</td><td>E2 84.7 Hz</td><td>G#5 845.2 Hz</td><td class="n">3.32</td><td class="n">6.0</td><td class="n">5.25</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-03-08</td><td>上海</td><td>C2 65.2 Hz</td><td>F5 713.2 Hz</td><td class="n">3.45</td><td class="n">6.0</td><td class="n">4.92</td><td><span class="pending">待判</span></td></tr>
+<tr><td>五巡</td><td>2026-04-10</td><td>北京</td><td>E2 80.7 Hz</td><td>B4 485.6 Hz</td><td class="n">2.59</td><td class="n">6.3</td><td class="n">4.89</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2026-10-09</td><td>—</td><td>D#2 77.5 Hz</td><td>F#5 739.5 Hz</td><td class="n">3.26</td><td class="n">6.6</td><td class="n">4.79</td><td><span class="pending">待判</span></td></tr>
+<tr><td>工作室中控台（点歌段）</td><td>2026-10-09</td><td>—</td><td>A2 110.2 Hz</td><td>C4 262.4 Hz</td><td class="n">1.25</td><td class="n">8.7</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-Your Man">Your Man</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">3 个巡次｜14 个版本｜稳定音中位 <b>90.4 Hz</b>｜版本间极差 <b>4.1 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>F#2 90.6 Hz</td><td>G5 763.6 Hz</td><td class="n">3.08</td><td class="n">8.7</td><td class="n">5.17</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-06-09</td><td>杭州</td><td>F2 89.6 Hz</td><td>A4 452.4 Hz</td><td class="n">2.34</td><td class="n">8.7</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-06-10</td><td>—</td><td>F#2 91.5 Hz</td><td>F5 714.5 Hz</td><td class="n">2.97</td><td class="n">7.7</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-07-31</td><td>南京</td><td>F#2 90.4 Hz</td><td>A#4 475.8 Hz</td><td class="n">2.40</td><td class="n">6.5</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-08-05</td><td>广州</td><td>F2 89.3 Hz</td><td>—</td><td class="n">—</td><td class="n">6.7</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-08-18</td><td>北京</td><td>F2 88.9 Hz</td><td>A#4 471.1 Hz</td><td class="n">2.41</td><td class="n">7.5</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-09-18</td><td>深圳</td><td>F2 87.1 Hz</td><td>A#5 912.5 Hz</td><td class="n">3.39</td><td class="n">6.9</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2019-12-21</td><td>厦门</td><td>F#2 90.6 Hz</td><td>B5 993.7 Hz</td><td class="n">3.45</td><td class="n">6.0</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-12-22</td><td>—</td><td>F#2 90.9 Hz</td><td>B5 992.5 Hz</td><td class="n">3.45</td><td class="n">5.4</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-12-30</td><td>—</td><td>F#2 89.9 Hz</td><td>A5 891.2 Hz</td><td class="n">3.31</td><td class="n">6.7</td><td class="n">5.28</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-01-04</td><td>—</td><td>F#2 90.0 Hz</td><td>A#5 914.4 Hz</td><td class="n">3.34</td><td class="n">5.6</td><td class="n">4.92</td><td><span class="pending">待判</span></td></tr>
+<tr><td>其他演出</td><td>2022-02-27</td><td>—</td><td>F#2 90.4 Hz</td><td>C#5 555.1 Hz</td><td class="n">2.62</td><td class="n">5.7</td><td class="n">5.24</td><td><span class="pending">待判</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>F#2 90.4 Hz</td><td>B5 961.4 Hz</td><td class="n">3.41</td><td class="n">7.3</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>A2 110.6 Hz</td><td>G#5 841.6 Hz</td><td class="n">2.93</td><td class="n">6.7</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-雪地里寄不出的求救信">雪地里寄不出的求救信</h2>
+<p class="sub">录音室参照：<b>C2 65.3 Hz</b>（歌颂）</p>
+<p class="sub">3 个巡次｜12 个版本｜稳定音中位 <b>124.9 Hz</b>｜与录音室相差 <b>+11.2 半音</b>｜版本间极差 <b>14.5 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>签唱会</td><td>2020-10-07</td><td>杭州</td><td>C#2 70.1 Hz</td><td>A#5 932.3 Hz</td><td class="n">3.73</td><td class="n">5.7</td><td class="n">4.53</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>签唱会</td><td>2020-10-07</td><td>杭州</td><td>C3 128.1 Hz</td><td>G4 392.7 Hz</td><td class="n">2.62</td><td class="n">4.3</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>签唱会</td><td>2020-10-17</td><td>北京</td><td>G#2 104.1 Hz</td><td>—</td><td class="n">—</td><td class="n">5.5</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>签唱会</td><td>2020-10-17</td><td>北京</td><td>B2 127.0 Hz</td><td>—</td><td class="n">—</td><td class="n">8.0</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-12-01</td><td>北京</td><td>A#2 119.1 Hz</td><td>E5 645.2 Hz</td><td class="n">2.44</td><td class="n">7.3</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2020-12-05</td><td>广州</td><td>E3 162.0 Hz</td><td>E4 332.1 Hz</td><td class="n">1.04</td><td class="n">5.4</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-01-09</td><td>长沙</td><td>C3 130.5 Hz</td><td>A#5 936.7 Hz</td><td class="n">2.84</td><td class="n">5.7</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-01-10</td><td>武汉</td><td>C3 130.8 Hz</td><td>A#5 911.7 Hz</td><td class="n">2.80</td><td class="n">5.0</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2021-03-10</td><td>上海</td><td>A2 107.4 Hz</td><td>—</td><td class="n">—</td><td class="n">4.7</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2021-03-10</td><td>上海</td><td>C3 128.6 Hz</td><td>—</td><td class="n">—</td><td class="n">4.8</td><td class="n">5.18</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>签唱会</td><td>2023-04-09</td><td>上海</td><td>E2 82.8 Hz</td><td>E5 665.5 Hz</td><td class="n">3.01</td><td class="n">5.0</td><td class="n">4.88</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>签唱会</td><td>2023-04-09</td><td>上海</td><td>B2 122.8 Hz</td><td>E5 644.1 Hz</td><td class="n">2.39</td><td class="n">5.5</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-像雾像雨又像风">像雾像雨又像风</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">3 个巡次｜10 个版本｜稳定音中位 <b>104.0 Hz</b>｜版本间极差 <b>6.6 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>F2 87.9 Hz</td><td>E4 326.2 Hz</td><td class="n">1.89</td><td class="n">8.8</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-11-18</td><td>—</td><td>A2 109.5 Hz</td><td>C4 266.8 Hz</td><td class="n">1.28</td><td class="n">7.4</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-11-27</td><td>—</td><td>E2 81.9 Hz</td><td>C4 266.8 Hz</td><td class="n">1.70</td><td class="n">7.2</td><td class="n">4.92</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2020-12-05</td><td>广州</td><td>E2 81.8 Hz</td><td>—</td><td class="n">—</td><td class="n">10.0</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-12-06</td><td>—</td><td>E2 81.3 Hz</td><td>F4 353.5 Hz</td><td class="n">2.12</td><td class="n">8.6</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-12-09</td><td>—</td><td>A2 108.9 Hz</td><td>D4 288.0 Hz</td><td class="n">1.40</td><td class="n">8.7</td><td class="n">4.61</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2021</td><td>上海</td><td>A#2 118.8 Hz</td><td>G#5 848.8 Hz</td><td class="n">2.84</td><td class="n">5.0</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2025-04-13</td><td>—</td><td>G#2 104.0 Hz</td><td>C4 266.0 Hz</td><td class="n">1.36</td><td class="n">7.6</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>F2 87.6 Hz</td><td>G#5 854.0 Hz</td><td class="n">3.29</td><td class="n">7.1</td><td class="n">5.07</td><td><span class="pending">待判</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>A#2 114.6 Hz</td><td>B4 507.6 Hz</td><td class="n">2.15</td><td class="n">8.1</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-花儿为什么这样红">花儿为什么这样红</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">3 个巡次｜9 个版本｜稳定音中位 <b>72.2 Hz</b>｜版本间极差 <b>5.0 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>C#2 69.7 Hz</td><td>D5 600.2 Hz</td><td class="n">3.11</td><td class="n">8.0</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>C#2 69.7 Hz</td><td>D5 600.1 Hz</td><td class="n">3.11</td><td class="n">8.0</td><td class="n">4.94</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-11-16</td><td>—</td><td>D2 72.7 Hz</td><td>G#5 813.5 Hz</td><td class="n">3.48</td><td class="n">7.5</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-12-26</td><td>杭州</td><td>D2 73.1 Hz</td><td>D5 584.7 Hz</td><td class="n">3.00</td><td class="n">5.8</td><td class="n">4.79</td><td>已测</td></tr>
+<tr><td>其他演出</td><td>2021</td><td>上海</td><td>D2 72.1 Hz</td><td>—</td><td class="n">—</td><td class="n">3.9</td><td class="n">4.79</td><td>已测</td></tr>
+<tr><td>其他演出</td><td>2021</td><td>上海</td><td>F#2 92.8 Hz</td><td>A#5 914.0 Hz</td><td class="n">3.30</td><td class="n">4.2</td><td class="n">4.49</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>二巡</td><td>2021-03-27</td><td>宁波</td><td>D2 73.0 Hz</td><td>D#5 606.8 Hz</td><td class="n">3.05</td><td class="n">7.2</td><td class="n">4.79</td><td>已测</td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>D2 72.2 Hz</td><td>D5 596.1 Hz</td><td class="n">3.05</td><td class="n">7.7</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>D2 73.0 Hz</td><td>A5 903.0 Hz</td><td class="n">3.63</td><td class="n">7.1</td><td class="n">4.79</td><td><span class="pending">待判</span></td></tr>
+</table>
+<h2 id="s-一生守候">一生守候</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">3 个巡次｜8 个版本｜稳定音中位 <b>78.0 Hz</b>｜版本间极差 <b>6.8 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>—</td><td>—</td><td>C#2 69.5 Hz</td><td>E4 324.4 Hz</td><td class="n">2.22</td><td class="n">5.8</td><td class="n">5.32</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>D#2 78.4 Hz</td><td>A3 220.8 Hz</td><td class="n">1.49</td><td class="n">9.1</td><td class="n">4.98</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-10-06</td><td>—</td><td>F#2 90.2 Hz</td><td>D4 291.4 Hz</td><td class="n">2.69</td><td class="n">10.7</td><td class="n">4.88</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2019-12-21</td><td>厦门</td><td>D2 72.9 Hz</td><td>B5 960.9 Hz</td><td class="n">3.72</td><td class="n">9.8</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2020-05-17</td><td>—</td><td>D2 73.0 Hz</td><td>A3 219.0 Hz</td><td class="n">1.58</td><td class="n">7.3</td><td class="n">5.32</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2023-10-13</td><td>—</td><td>G#2 102.8 Hz</td><td>C#4 279.3 Hz</td><td class="n">1.44</td><td class="n">9.8</td><td class="n">4.95</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>D#2 77.8 Hz</td><td>A5 889.1 Hz</td><td class="n">3.52</td><td class="n">9.2</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>D#2 78.2 Hz</td><td>G4 394.8 Hz</td><td class="n">2.34</td><td class="n">8.7</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-再见我的爱人">再见我的爱人</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">3 个巡次｜4 个版本｜稳定音中位 <b>76.5 Hz</b>｜版本间极差 <b>0.1 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>—</td><td>广州</td><td>D#2 77.0 Hz</td><td>F5 701.6 Hz</td><td class="n">3.19</td><td class="n">9.5</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>一巡</td><td>2019-12-21</td><td>厦门</td><td>D#2 76.5 Hz</td><td>A5 886.4 Hz</td><td class="n">3.53</td><td class="n">7.9</td><td class="n">5.12</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>D#2 76.4 Hz</td><td>F5 711.2 Hz</td><td class="n">3.22</td><td class="n">7.9</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>六巡</td><td>2026-08-23</td><td>广州</td><td>D#2 76.5 Hz</td><td>A#4 456.7 Hz</td><td class="n">2.58</td><td class="n">8.9</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-我要你">我要你</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">2 个巡次｜7 个版本｜稳定音中位 <b>78.75 Hz</b>｜版本间极差 <b>1.5 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>2018-08-26</td><td>—</td><td>C2 65.7 Hz</td><td>D5 588.2 Hz</td><td class="n">3.16</td><td class="n">5.1</td><td class="n">5.11</td><td><span class="pending">待判</span></td></tr>
+<tr><td>其他演出</td><td>2018-12-21</td><td>—</td><td>D#2 78.1 Hz</td><td>B3 250.5 Hz</td><td class="n">1.68</td><td class="n">11.0</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-01-11</td><td>—</td><td>D#2 78.1 Hz</td><td>G#5 819.2 Hz</td><td class="n">3.39</td><td class="n">9.9</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-08-02</td><td>—</td><td>E2 80.7 Hz</td><td>A#5 937.2 Hz</td><td class="n">3.54</td><td class="n">10.6</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-11-28</td><td>成都</td><td>D#2 79.4 Hz</td><td>C#4 282.4 Hz</td><td class="n">2.83</td><td class="n">8.7</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>三巡</td><td>2023-05-20</td><td>南宁</td><td>D#2 80.0 Hz</td><td>G#5 835.3 Hz</td><td class="n">3.38</td><td class="n">6.1</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2026-10-10</td><td>—</td><td>D2 74.0 Hz</td><td>D5 591.0 Hz</td><td class="n">3.00</td><td class="n">4.2</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-多听有益">多听有益</h2>
+<p class="sub">录音室参照：<b>B1 61.7 Hz</b>（X自选集）</p>
+<p class="sub">2 个巡次｜5 个版本｜稳定音中位 <b>74.9 Hz</b>｜与录音室相差 <b>+3.4 半音</b>｜版本间极差 <b>9.3 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>四巡</td><td>2023-2024</td><td>—</td><td>D2 74.9 Hz</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>四巡</td><td>2024</td><td>杭州</td><td>C2 65.2 Hz</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>四巡</td><td>2024</td><td>武汉</td><td>A2 111.6 Hz</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>四巡</td><td>2024-04-06</td><td>上海生日</td><td>C2 65.2 Hz</td><td>C5 525.9 Hz</td><td class="n">3.01</td><td class="n">7.5</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2024-04-18</td><td>—</td><td>F#2 95.2 Hz</td><td>A#5 925.8 Hz</td><td class="n">3.28</td><td class="n">6.5</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-静止了的夜晚">静止了的夜晚</h2>
+<p class="sub">录音室参照：<b>B1 61.5 Hz</b>（重游往昔）</p>
+<p class="sub">2 个巡次｜4 个版本｜稳定音中位 <b>58.2 Hz</b>｜与录音室相差 <b>-0.9 半音</b>｜版本间极差 <b>5.5 半音</b></p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>2019</td><td>成都</td><td>D2 73.4 Hz</td><td>—</td><td class="n">—</td><td class="n">8.9</td><td class="n">5.07</td><td>已测</td></tr>
+<tr><td>其他演出</td><td>2019-04-14</td><td>—</td><td>A#1 58.2 Hz</td><td>B4 484.9 Hz</td><td class="n">3.06</td><td class="n">7.3</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>其他演出</td><td>2019-08-21</td><td>—</td><td>A#1 58.2 Hz</td><td>B5 983.5 Hz</td><td class="n">4.08</td><td class="n">8.0</td><td class="n">4.68</td><td><span class="ok">过门槛</span></td></tr>
+<tr><td>三巡</td><td>2023-06-23</td><td>深圳</td><td>D#2 79.9 Hz</td><td>A#5 913.2 Hz</td><td class="n">3.51</td><td class="n">5.7</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
+</table>
+<h2 id="s-后会无期">后会无期</h2>
+<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
+<p class="sub">2 个巡次｜2 个版本</p>
+<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
+<tr><td>其他演出</td><td>2021</td><td>上海</td><td>D2 72.5 Hz</td><td>F4 349.2 Hz</td><td class="n">2.27</td><td class="n">6.3</td><td class="n">5.14</td><td><span class="pending">待判</span></td></tr>
+<tr><td>二巡</td><td>2021-03-08</td><td>上海</td><td>D2 72.6 Hz</td><td>F4 346.5 Hz</td><td class="n">2.25</td><td class="n">7.5</td><td class="n">5.07</td><td><span class="pending">待判</span></td></tr>
+</table>
+<p class="foot">方法：QQ 音乐 320k / 现场素材 → demucs htdemucs 人声分离 → 自研 YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动 &lt;0.6 半音）→ 稳健过滤（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB）；低音读数另做原始混音谐波列判定。最后更新：2026-10-24 16:34。</p>
+<!-- FOOTER_NAV_START -->
+<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
+<strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
+<div style="margin-top:6px;"><b>主入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
+<div style="margin-top:6px;"><b>核心内容：</b><a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/dongyan.html" style="color:#c41e3a;text-decoration:none;">东演合作专区</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/story-hui-guangzhou-2026.html" style="color:#c41e3a;text-decoration:none;">六巡广州站数据复盘</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
+<div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">setlists.html</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a> · <a href="/index-by-song.html" style="color:#c41e3a;text-decoration:none;">按歌索引</a> · <a href="/index-by-event.html" style="color:#c41e3a;text-decoration:none;">按事件索引</a> · <a href="/index-by-question.html" style="color:#c41e3a;text-decoration:none;">按问题索引</a></div>
+<div style="margin-top:6px;"><b>场次故事：</b><a href="/stories.html" style="color:#c41e3a;text-decoration:none;">stories.html</a></div>
+<div style="margin-top:6px;"><b>声学·内容：</b><a href="/topic-vibrato.html" style="color:#c41e3a;text-decoration:none;">🎻 颤音指纹专题</a> · <a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测</a> · <a href="/live-materials.html" style="color:#c41e3a;text-decoration:none;">live-materials.html</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/singing.html" style="color:#c41e3a;text-decoration:none;">singing.html</a> · <a href="/singing-social.html" style="color:#c41e3a;text-decoration:none;">singing-social.html</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a></div>
+<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">🔎 查询与问答</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/share.html" style="color:#c41e3a;text-decoration:none;">share.html</a> · <a href="/insight.html" style="color:#c41e3a;text-decoration:none;">insight.html</a> · <a href="/acoustic-report.html" style="color:#c41e3a;text-decoration:none;">📊 声学全量报告</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
+</footer>
+<!-- FOOTER_NAV_END -->
+</body></html>

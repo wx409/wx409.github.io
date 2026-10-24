@@ -104,6 +104,7 @@ ARCHIVE_PAGES = {
     "story-hui-guangzhou-2026.html",
     "topic-vibrato.html",
     "index-by-song.html", "index-by-event.html", "index-by-question.html",
+    "versions.html",
 }
 ROBOTS_INDEX = '<meta name="robots" content="index, follow">'
 
@@ -120,6 +121,7 @@ LABELS = {
     "robots.txt": "robots.txt", "404.html": "404 页",
     "index-by-song.html": "按歌索引", "index-by-event.html": "按事件索引",
     "index-by-question.html": "按问题索引",
+    "versions.html": "🔀 同曲跨场矩阵",
     # 完整档案页显示名（底部索引直连用）
     "live-reviews.html": "现场实录", "discography.html": "作品百科",
     "dongyan.html": "东演合作专区",
