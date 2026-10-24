@@ -1,15 +1,15 @@
 {
  "stat": {
-  "generated_at": "2026-10-24T21:09:00",
+  "generated_at": "2026-10-25T00:13:04",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 57,
-  "L2_强": 3,
+  "L1_精确": 58,
+  "L2_强": 2,
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8466,
+  "files_scanned": 8468,
   "measured_shows_site": 59,
   "shows_with_claimable_site": 58,
   "bv_mapped": 143
@@ -1693,7 +1693,7 @@
      "detail": "BV1hi4y1v7VC"
     }
    ],
-   "n_evidence": 15
+   "n_evidence": 16
   },
   {
    "date": "2023-12-31",
@@ -1860,15 +1860,20 @@
    "city": "杭州",
    "tour": "四巡",
    "songs": 20,
-   "level": 2,
+   "level": 1,
    "evidence": [
     {
      "level": 2,
      "src": "shows_tour表",
      "detail": "杭州｜四巡·\"肆益\"个人巡回音乐会"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "杭州20240525_BV1hn4y1o7w6.m4a"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 2
   },
   {
    "date": "2024-08-16",

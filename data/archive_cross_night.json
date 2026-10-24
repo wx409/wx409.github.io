@@ -121,7 +121,12 @@
       "stability_cents_median": 55.67,
       "intonation_cents_median": 48.67,
       "vibrato_hz_median": 2.33
-     }
+     },
+     "n_windows": {
+      "1009": 4,
+      "1010": 136
+     },
+     "use_for_convergence": false
     },
     {
      "song": "乌兰巴托的夜",
@@ -137,11 +142,18 @@
       "stability_cents_median": 55.67,
       "intonation_cents_median": 48.67,
       "vibrato_hz_median": 2.33
-     }
+     },
+     "n_windows": {
+      "1009": 3,
+      "1010": 136
+     },
+     "use_for_convergence": false
     }
    ],
    "n_win_1010_sep": 136,
-   "confound": "设备/机位/观众噪声/PA 直达声比例不同；样本为 8 秒窗中位"
+   "confound": "设备/机位/观众噪声/PA 直达声比例不同；样本为 8 秒窗中位",
+   "retracted": true,
+   "retract_reason": "10-09 窗数仅 3-4，10-10 为 136，极差 0.18→0 可能来自抽样密度，不可用于收敛判断"
   }
  },
  "review_status": "数据层（未上站）：观众实录 8 秒窗，未达上站门槛"
