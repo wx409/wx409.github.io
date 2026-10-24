@@ -81,6 +81,8 @@ def probe(path: Path) -> dict:
     idx = np.argsort(spec[lo])[-3:][::-1]
     peaks = [round(float(f[lo][j]), 1) for j in idx]
 
+    hi = shares['1-4k']
+    distortion = hi > 25.0
     low = shares['40-80']
     if low >= 15:
         verdict = 'full'          # 低频完整
@@ -100,6 +102,7 @@ def probe(path: Path) -> dict:
         'low_band_peaks_hz': peaks,
         'frames_used': cnt,
         'verdict': verdict, 'advice': advice,
+        'distortion_suspect': distortion,
     }
 
 
@@ -129,6 +132,8 @@ def main() -> None:
     print("低频段最强峰: " + ', '.join(f'{h} Hz' for h in info['low_band_peaks_hz']))
     tag = {'full': '✅', 'attenuated': '⚠️', 'no-low': '❌'}[info['verdict']]
     print(f"{tag} 判定: {info['advice']}")
+    if info.get('distortion_suspect'):
+        print('⚠️ 高频占比 >25%：疑似失真/削波——低频仍可判，但音色、亮度类结论不可用')
 
 
 if __name__ == '__main__':
