@@ -1266,11 +1266,18 @@
    "release": "2022-12",
    "qq_mid": "000bAQWo0jiS2s",
    "wyy_id": null,
+   "editions": {
+    "digital": {"tracks": 9, "includes": ["多听有益"], "excludes": ["想游泳的星"],
+                "note": "QQ音乐数字版；《多听有益》仅线上发行（词作摘自百字明/心经）"},
+    "physical": {"tracks": 9, "includes": ["想游泳的星"], "excludes": ["多听有益"],
+                 "note": "实体 CD 曲目与数字版不同：含《想游泳的星》（5:26），不含《多听有益》"}
+   },
    "songs": [
     {
      "title": "多听有益",
      "mid": "0042NK4I4TOARK",
      "singer": "王晰",
+     "digital_only": true,
      "credits": {
       "lyricist": "摘自百字明/心经/刘子源",
       "composer": "刘炫豆",

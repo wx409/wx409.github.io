@@ -1,0 +1,303 @@
+{
+ "schema": "lossless-bitrate-check/v1",
+ "what": "同一曲目 实体CD无损 vs QQ音乐320k：人声轨亮度指标的差异（界定 320k 对「低音是亮的」结论的影响）",
+ "matched": 16,
+ "missed": [],
+ "median": {
+  "lossless_ratio": 0.476,
+  "mp3_ratio": 0.477,
+  "d_ratio": 0.0,
+  "d_hi_share_1k": -0.0016,
+  "ratio_abs_max": 0.001
+ },
+ "rows": [
+  {
+   "album": "6.X自选集",
+   "song": "偏偏",
+   "lossless": {
+    "low_centroid_hz": 101.34,
+    "mid_centroid_hz": 205.36,
+    "ratio": 0.493,
+    "hi_share_1k": 0.05863
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 101.31,
+    "mid_centroid_hz": 205.38,
+    "ratio": 0.493,
+    "hi_share_1k": 0.05902
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00039
+  },
+  {
+   "album": "6.X自选集",
+   "song": "微醺23点08分",
+   "lossless": {
+    "low_centroid_hz": 100.41,
+    "mid_centroid_hz": 200.86,
+    "ratio": 0.5,
+    "hi_share_1k": 0.12018
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 100.49,
+    "mid_centroid_hz": 200.95,
+    "ratio": 0.5,
+    "hi_share_1k": 0.12402
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00384
+  },
+  {
+   "album": "6.X自选集",
+   "song": "朝凤",
+   "lossless": {
+    "low_centroid_hz": 103.37,
+    "mid_centroid_hz": 224.15,
+    "ratio": 0.461,
+    "hi_share_1k": 0.09432
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 103.28,
+    "mid_centroid_hz": 224.01,
+    "ratio": 0.461,
+    "hi_share_1k": 0.09591
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00159
+  },
+  {
+   "album": "6.X自选集",
+   "song": "是你",
+   "lossless": {
+    "low_centroid_hz": 102.44,
+    "mid_centroid_hz": 212.35,
+    "ratio": 0.482,
+    "hi_share_1k": 0.04495
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 102.44,
+    "mid_centroid_hz": 212.31,
+    "ratio": 0.483,
+    "hi_share_1k": 0.0456
+   },
+   "d_ratio": -0.001,
+   "d_hi_share_1k": -0.00065
+  },
+  {
+   "album": "6.X自选集",
+   "song": "猫模狗样",
+   "lossless": {
+    "low_centroid_hz": 100.53,
+    "mid_centroid_hz": 208.84,
+    "ratio": 0.481,
+    "hi_share_1k": 0.13479
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 100.59,
+    "mid_centroid_hz": 208.57,
+    "ratio": 0.482,
+    "hi_share_1k": 0.13966
+   },
+   "d_ratio": -0.001,
+   "d_hi_share_1k": -0.00487
+  },
+  {
+   "album": "6.X自选集",
+   "song": "不需要结果",
+   "lossless": {
+    "low_centroid_hz": 100.22,
+    "mid_centroid_hz": 186.78,
+    "ratio": 0.537,
+    "hi_share_1k": 0.0669
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 100.23,
+    "mid_centroid_hz": 186.79,
+    "ratio": 0.537,
+    "hi_share_1k": 0.06904
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00214
+  },
+  {
+   "album": "6.X自选集",
+   "song": "Crystal Store",
+   "lossless": {
+    "low_centroid_hz": 99.29,
+    "mid_centroid_hz": 187.82,
+    "ratio": 0.529,
+    "hi_share_1k": 0.0757
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 99.29,
+    "mid_centroid_hz": 187.33,
+    "ratio": 0.53,
+    "hi_share_1k": 0.07824
+   },
+   "d_ratio": -0.001,
+   "d_hi_share_1k": -0.00254
+  },
+  {
+   "album": "6.X自选集",
+   "song": "小河",
+   "lossless": {
+    "low_centroid_hz": 99.9,
+    "mid_centroid_hz": 195.29,
+    "ratio": 0.512,
+    "hi_share_1k": 0.02885
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 99.88,
+    "mid_centroid_hz": 195.25,
+    "ratio": 0.512,
+    "hi_share_1k": 0.02966
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00081
+  },
+  {
+   "album": "7.不说",
+   "song": "在路上",
+   "lossless": {
+    "low_centroid_hz": 102.74,
+    "mid_centroid_hz": 227.65,
+    "ratio": 0.451,
+    "hi_share_1k": 0.1384
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 102.73,
+    "mid_centroid_hz": 227.64,
+    "ratio": 0.451,
+    "hi_share_1k": 0.14154
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00314
+  },
+  {
+   "album": "7.不说",
+   "song": "无尽的夜里",
+   "lossless": {
+    "low_centroid_hz": 103.35,
+    "mid_centroid_hz": 233.39,
+    "ratio": 0.443,
+    "hi_share_1k": 0.1714
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 103.27,
+    "mid_centroid_hz": 233.39,
+    "ratio": 0.442,
+    "hi_share_1k": 0.17518
+   },
+   "d_ratio": 0.001,
+   "d_hi_share_1k": -0.00378
+  },
+  {
+   "album": "7.不说",
+   "song": "鹅毛信",
+   "lossless": {
+    "low_centroid_hz": 97.28,
+    "mid_centroid_hz": 214.45,
+    "ratio": 0.454,
+    "hi_share_1k": 0.08477
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 97.15,
+    "mid_centroid_hz": 214.45,
+    "ratio": 0.453,
+    "hi_share_1k": 0.08485
+   },
+   "d_ratio": 0.001,
+   "d_hi_share_1k": -8e-05
+  },
+  {
+   "album": "7.不说",
+   "song": "勿扰",
+   "lossless": {
+    "low_centroid_hz": 101.11,
+    "mid_centroid_hz": 220.57,
+    "ratio": 0.458,
+    "hi_share_1k": 0.11292
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 101.18,
+    "mid_centroid_hz": 220.56,
+    "ratio": 0.459,
+    "hi_share_1k": 0.11516
+   },
+   "d_ratio": -0.001,
+   "d_hi_share_1k": -0.00224
+  },
+  {
+   "album": "7.不说",
+   "song": "住口",
+   "lossless": {
+    "low_centroid_hz": 98.77,
+    "mid_centroid_hz": 209.62,
+    "ratio": 0.471,
+    "hi_share_1k": 0.14436
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 98.88,
+    "mid_centroid_hz": 209.65,
+    "ratio": 0.472,
+    "hi_share_1k": 0.14607
+   },
+   "d_ratio": -0.001,
+   "d_hi_share_1k": -0.00171
+  },
+  {
+   "album": "7.不说",
+   "song": "明白",
+   "lossless": {
+    "low_centroid_hz": 99.56,
+    "mid_centroid_hz": 218.53,
+    "ratio": 0.456,
+    "hi_share_1k": 0.20895
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 99.62,
+    "mid_centroid_hz": 218.53,
+    "ratio": 0.456,
+    "hi_share_1k": 0.21042
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.00147
+  },
+  {
+   "album": "7.不说",
+   "song": "雷美替胺",
+   "lossless": {
+    "low_centroid_hz": 100.45,
+    "mid_centroid_hz": 218.24,
+    "ratio": 0.46,
+    "hi_share_1k": 0.06902
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 100.46,
+    "mid_centroid_hz": 218.36,
+    "ratio": 0.46,
+    "hi_share_1k": 0.06962
+   },
+   "d_ratio": 0.0,
+   "d_hi_share_1k": -0.0006
+  },
+  {
+   "album": "7.不说",
+   "song": "祝我们随遇而安",
+   "lossless": {
+    "low_centroid_hz": 98.85,
+    "mid_centroid_hz": 194.47,
+    "ratio": 0.508,
+    "hi_share_1k": 0.05057
+   },
+   "mp3_320k": {
+    "low_centroid_hz": 99.04,
+    "mid_centroid_hz": 194.59,
+    "ratio": 0.509,
+    "hi_share_1k": 0.05133
+   },
+   "d_ratio": -0.001,
+   "d_hi_share_1k": -0.00076
+  }
+ ]
+}
