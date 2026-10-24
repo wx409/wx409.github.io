@@ -110,7 +110,8 @@ def upsert_timeline(a, log) -> str:
     data = json.loads(TIMELINE.read_text(encoding="utf-8"))
     events = data if isinstance(data, list) else data.get("events", [])
     for e in events:
-        if hit(e.get("title", ""), a.key):
+        # ★ 2026-10-24：按「日期 + 标题」唯一条目，不再仅按 title 去重（沉响两晚曾被合并）
+        if e.get("date") == a.date and hit(e.get("title", ""), a.key):
             if a.held_dates:
                 tag = "（%s 首场已开演）" % a.held_dates[0][5:] if len(a.held_dates) == 1 else "（已开演 %s）" % "、".join(d[5:] for d in a.held_dates)
                 e["title"] = re.sub(r"（[^）]*已开演[^）]*）", "", e["title"]) + tag
