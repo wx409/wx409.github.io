@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24 21:01",
+  "timestamp": "2026-10-24 21:31",
   "total": 283991,
   "success": 57365,
   "complete_rate": 20.2,
@@ -209376,7 +209376,7 @@
   "daily_listen_overview": {
     "active_count": 8,
     "total_tracked": 383,
-    "concentration_top3": 78.2,
+    "concentration_top3": 80.9,
     "as_of": "2026-10-24",
     "too_small": true,
     "sample_tier": "small",
@@ -209386,70 +209386,70 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 64.0,
-      "raw": 475.0,
-      "trend_pct": 38.1,
+      "share_pct": 65.6,
+      "raw": 502.0,
+      "trend_pct": 45.9,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "月弯弯",
-      "share_pct": 7.1,
-      "raw": 53.0,
-      "trend_pct": 76.7,
+      "share_pct": 7.7,
+      "raw": 59.0,
+      "trend_pct": 96.7,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "山楂树",
-      "share_pct": 7.0,
-      "raw": 52.0,
-      "trend_pct": 108.0,
+      "song": "在路上",
+      "share_pct": 7.6,
+      "raw": 58.0,
+      "trend_pct": 93.3,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "一生中最爱",
-      "share_pct": 6.3,
-      "raw": 47.0,
-      "trend_pct": 88.0,
+      "song": "山楂树",
+      "share_pct": 6.0,
+      "raw": 46.0,
+      "trend_pct": 84.0,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "在路上",
-      "share_pct": 5.8,
-      "raw": 43.0,
-      "trend_pct": 43.3,
+      "song": "一生中最爱",
+      "share_pct": 5.1,
+      "raw": 39.0,
+      "trend_pct": 56.0,
       "trend_label": "up"
     },
     {
       "rank": 6,
-      "song": "Sound of Silence",
-      "share_pct": 3.9,
-      "raw": 29.0,
-      "trend_pct": 45.0,
+      "song": "谁",
+      "share_pct": 3.7,
+      "raw": 28.0,
+      "trend_pct": 16.7,
       "trend_label": "up"
     },
     {
       "rank": 7,
-      "song": "谁",
-      "share_pct": 3.9,
-      "raw": 29.0,
-      "trend_pct": 20.8,
-      "trend_label": "up"
+      "song": "Sound of Silence",
+      "share_pct": 2.2,
+      "raw": 17.0,
+      "trend_pct": -15.0,
+      "trend_label": "down"
     },
     {
       "rank": 8,
       "song": "南屏晚钟",
-      "share_pct": 1.9,
-      "raw": 14.0,
-      "trend_pct": 0.0,
-      "trend_label": "flat"
+      "share_pct": 2.1,
+      "raw": 16.0,
+      "trend_pct": 14.3,
+      "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-24 21:01",
+  "last_update": "2026-10-24 21:31",
   "today_batches": 1270,
   "daily_new_records": 0,
   "recent_7days": [
@@ -209511,13 +209511,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4328,
-      "success": 4328,
+      "total": 4329,
+      "success": 4329,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1720826,
+      "before": 1721079,
       "after": 294551
     },
     "index_calibration": {
@@ -209784,7 +209784,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-24 21:01",
+    "generated_at": "2026-10-24 21:31",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
