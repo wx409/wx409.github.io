@@ -548,6 +548,21 @@ echo    223. [钩子发现] 规则化抽钩子候选池（talk/评论/声学事件）+ 勾选后出卡
 
 echo    224. [洞察层] 生成 insight.html（结论+四形态文案+证据+禁忌｜语言画像｜措辞差表｜钩子池）
 
+
+echo  [T · 直播采集（VB-Cable · 线上演唱会/平台直播）]
+
+echo  ------------------------------------------------------------------------------
+
+echo    224. [采集] 查看默认播放/录音设备
+
+echo    225. [采集] 链路自检（测试音自录自判，过了才录）
+
+echo    226. [采集] 直播录制（切 CABLE Input → 录 → 自动恢复）
+
+echo    227. [采集] 素材体检（40-80Hz 占比三档判定）
+
+echo    228. [采集] 打开直播采集 SOP
+
 echo    0. 退出
 
 echo.
@@ -1001,6 +1016,16 @@ if "%op%"=="221" goto prop_watch
 if "%op%"=="222" goto share_auto
 
 if "%op%"=="223" goto hook_mine
+if "%op%"=="224" goto cap_list
+
+if "%op%"=="225" goto cap_selftest
+
+if "%op%"=="226" goto cap_record
+
+if "%op%"=="227" goto cap_probe
+
+if "%op%"=="228" goto cap_sop
+
 
 
 
@@ -6035,6 +6060,101 @@ echo  [提示] 勾选后运行下面这行：
 echo     python -X utf8 project_b\hook_miner.py --render-picked
 
 pause
+
+goto menu
+
+
+:cap_list
+
+cls
+
+echo  [采集] 当前默认播放/录音设备
+
+cd /d "D:\wx409.github.io"
+
+pwsh -NoProfile -File tools\set_default_audio.ps1 -List
+
+echo.
+
+echo  录音设备：
+
+pwsh -NoProfile -File tools\set_default_audio.ps1 -List -Record
+
+pause
+
+goto menu
+
+
+:cap_selftest
+
+cls
+
+echo  [采集] 链路自检：放 60Hz+1200Hz 测试音，自己录、自己判
+
+echo  [判据] 低频与高频幅度相差小于 3 dB 才算通过；不通过不要开录
+
+cd /d "D:\wx409.github.io"
+
+pwsh -NoProfile -File tools\set_default_audio.ps1 -Set "CABLE Input"
+
+python -X utf8 project_b\loopback_selftest.py --seconds 10
+
+pwsh -NoProfile -File tools\set_default_audio.ps1 -Set "扬声器"
+
+pause
+
+goto menu
+
+
+:cap_record
+
+cls
+
+echo  [采集] 直播录制：默认输出会切到 CABLE Input，录制期间本机无声（正常）
+
+set "secs="
+
+set /p secs=  录制秒数（直接回车 = 3600，约 1 小时）:
+
+if "%secs%"=="" set secs=3600
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\record_cable.py --seconds %secs%
+
+pause
+
+goto menu
+
+
+:cap_probe
+
+cls
+
+echo  [采集] 素材体检：把音频或视频文件路径粘进来（支持 wav/mp3/m4a/mp4/mkv）
+
+set "capfile="
+
+set /p capfile=  文件路径:
+
+if "%capfile%"=="" goto menu
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\audio_probe.py "%capfile%"
+
+pause
+
+goto menu
+
+
+:cap_sop
+
+cls
+
+echo  [采集] 打开直播采集 SOP 文档
+
+start "" "D:\wx409.github.io\docs\直播采集SOP.md"
 
 goto menu
 
