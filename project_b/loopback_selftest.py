@@ -52,11 +52,12 @@ def make_tone(sr=48000, secs=8.0):
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seconds", type=int, default=10)
+    ap.add_argument("--device", default=DEV)
     args = ap.parse_args()
 
     make_tone()
     rec_cmd = [ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
-               "-f", "dshow", "-i", f"audio={DEV}",
+               "-f", "dshow", "-i", f"audio={args.device}",
                "-ac", "2", "-ar", "48000", "-c:a", "pcm_s24le",
                "-t", str(args.seconds), str(REC)]
     p = subprocess.Popen(rec_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
