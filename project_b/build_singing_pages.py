@@ -238,7 +238,7 @@ def build() -> int:
 
     OUT_A.write_text(SHELL.format(
         title="他唱得怎么样：一份基于实测的说明", desc="最低稳定音 B1 61.5Hz、72 首里 44 首低于 E2、"
-        "八张专辑颤音速率极差 0.27Hz、同曲录音室与现场配对 56 组中位 1.7 半音——含文末核对表。",
+        "八张录音室作品颤音速率极差 0.27Hz、同曲录音室与现场配对 56 组中位 1.7 半音——含文末核对表。",
         canonical=f"{BASE}/singing.html", ogtitle="他唱得怎么样：一份基于实测的说明",
         body=body_a, ld=json.dumps(ld_a, ensure_ascii=False)), encoding="utf-8")
     OUT_B.write_text(SHELL.format(

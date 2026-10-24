@@ -17,7 +17,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "name": "王晰音域实测数据集（72 首录音室曲目 + 35 首跨素材精测）",
+  "name": "王晰音域实测数据集（72 首录音室曲目 + 43 首跨素材精测）",
   "description": "对王晰 72 首录音室曲目做 demucs 人声分离与逐帧 F0 提取（自研 YIN），最低稳定音 B1 61.5Hz，跨度中位 2.22 个八度；最高音 F5 含伴唱/和声干扰风险，需听辨。",
   "url": "https://wx409.github.io/vocal.html",
   "creator": {
@@ -42,7 +42,7 @@
   "@context": "https://schema.org",
   "@type": "ResearchProject",
   "name": "王晰声学实测（人声分离 + 逐帧 F0）",
-  "description": "对王晰录音室与现场素材做统一管线声学实测，产出可复算的逐帧 F0 与逐曲指标；当前口径 72 首录音室曲目 + 35 首跨素材精测 + 32 个他人主导舞台素材。",
+  "description": "对王晰录音室与现场素材做统一管线声学实测，产出可复算的逐帧 F0 与逐曲指标；当前口径 72 首录音室曲目 + 43 首跨素材精测 + 32 个他人主导舞台素材。",
   "url": "https://wx409.github.io/vocal.html",
   "isBasedOn": [
     "data/archive_vocal.json",
@@ -157,7 +157,7 @@ font-size:13px;color:#666;line-height:2}
 </div>
 <!-- TIER-CALIBER:END -->
 <!-- VOCAL-SUMMARY:START（由 project_b/inject_vocal_summary.py 生成，勿手改）-->
-<p>王晰是华语流行乐坛少见的<strong>真·男低音（Bass）</strong>，音域可达 <strong>Low C</strong>（大字组 C，约 65.4 Hz）<strong>及以下</strong>——本站人声分离实测：35 曲精测表中最低稳定音主区在 <strong>B1–D2（61.2–75.5Hz）</strong>，其中 <strong>4 首</strong>（《跟着你到天边》、《静止了的夜晚》、《多听有益》、《知晓》）达 <strong>B1（约 61Hz，低于 Low C）</strong>；全量 <strong>72 首录音室曲目</strong>实测中 <strong>4 首</strong>达 B1（《知晓》、《渔光曲》、《多听有益》、《静止了的夜晚》），最低 B1（61.5Hz，《静止了的夜晚》）。两者统计对象不同，请勿混读。详见 <a href="voice.html">🎼 音域实测页</a>。</p>
+<p>王晰是华语流行乐坛少见的<strong>真·男低音（Bass）</strong>，音域可达 <strong>Low C</strong>（大字组 C，约 65.4 Hz）<strong>及以下</strong>——本站人声分离实测：43 曲精测表中最低稳定音主区在 <strong>B1–D2（61.2–75.5Hz）</strong>，其中 <strong>4 首</strong>（《跟着你到天边》、《静止了的夜晚》、《多听有益》、《知晓》）达 <strong>B1（约 61Hz，低于 Low C）</strong>；全量 <strong>72 首录音室曲目</strong>实测中 <strong>4 首</strong>达 B1（《知晓》、《渔光曲》、《多听有益》、《静止了的夜晚》），最低 B1（61.5Hz，《静止了的夜晚》）。两者统计对象不同，请勿混读。详见 <a href="voice.html">🎼 音域实测页</a>。</p>
 <!-- VOCAL-SUMMARY:END -->
 
 <h2>低音区动态范围实测</h2>
@@ -198,47 +198,55 @@ font-size:13px;color:#666;line-height:2}
 <tr><td>音符密度中位</td><td class="n"><strong>1.88/秒</strong></td><td class="src">每秒可辨识音符数</td></tr>
 </table>
 
-<h2>三、跨素材精测层：35 首曲目最低稳定音</h2>
+<h2>三、跨素材精测层：43 首曲目最低稳定音</h2>
 <p class="sub">本层由规则从数据派生（极值集 / 跨语境对照集 / 复核特例集），曲目随素材增减自动进出，不是手挑名单。
-35 曲中共 3 首最低稳定音达 B1；全量录音室 72 首中为 4 首
+43 曲中共 3 首最低稳定音达 B1；全量录音室 72 首中为 4 首
 （知晓、渔光曲、多听有益、静止了的夜晚）。两处统计对象不同，请勿混读。</p>
 <table>
 <tr><th>曲目</th><th>最低稳定音</th><th>Hz</th><th>复核状态</th><th>触达音（不作能力依据）</th><th>语境</th></tr>
 <tr><td>跟着你到天边</td><td class="n"><strong>B1</strong></td><td class="n">61.2</td><td class="n">人耳确认（听辨）</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>静止了的夜晚</td><td class="n"><strong>B1</strong></td><td class="n">61.5</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>多听有益</td><td class="n"><strong>B1</strong></td><td class="n">61.6</td><td class="n">已核验（严格口径复测）</td><td>G#1 51.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">录音室、现场混剪、巡演现场</td></tr>
-<tr><td>知晓</td><td class="n"><strong>B1</strong></td><td class="n">61.9</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>知晓</td><td class="n"><strong>B1</strong></td><td class="n">61.9</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>心动</td><td class="n"><strong>C2</strong></td><td class="n">64.3</td><td class="n">人耳确认（听辨）</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>晚风</td><td class="n"><strong>C2</strong></td><td class="n">64.9</td><td class="n">YIN_OK</td><td>—</td><td class="src">录音室、巡演现场、他人主导舞台</td></tr>
 <tr><td>朝凤</td><td class="n"><strong>C2</strong></td><td class="n">65.0</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
+<tr><td>Moon River</td><td class="n"><strong>C2</strong></td><td class="n">65.1</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>忘不了</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">✅ 双引擎一致</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>爱你</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>鹅毛信</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">已核验（严格口径复测）</td><td>D2 71.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>晚风暖暖</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
-<tr><td>雪地里寄不出的求救信</td><td class="n"><strong>C2</strong></td><td class="n">65.3</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室</td></tr>
 <tr><td>后会无期3.7手机渣画质</td><td class="n"><strong>C2</strong></td><td class="n">65.4</td><td class="n">人耳确认（听辨）</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>谁</td><td class="n"><strong>C2</strong></td><td class="n">65.4</td><td class="n">人耳确认（听辨）</td><td>—</td><td class="src">巡演现场、他人主导舞台</td></tr>
 <tr><td>山楂2</td><td class="n"><strong>C2</strong></td><td class="n">65.5</td><td class="n">人耳确认（听辨）</td><td>—</td><td class="src">巡演现场</td></tr>
-<tr><td>勿扰</td><td class="n"><strong>C2</strong></td><td class="n">65.6</td><td class="n">⚪ 待复核</td><td>—</td><td class="src">录音室</td></tr>
 <tr><td>后会无期3.8手机渣画质</td><td class="n"><strong>C2</strong></td><td class="n">65.6</td><td class="n">人耳确认（听辨）</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>下潜</td><td class="n"><strong>C2</strong></td><td class="n">65.7</td><td class="n">已核验（严格口径复测）</td><td>D2 71.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">现场</td></tr>
 <tr><td>偏执</td><td class="n"><strong>C2</strong></td><td class="n">65.8</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、他人主导舞台</td></tr>
-<tr><td>美丽的草原我的家</td><td class="n"><strong>C2</strong></td><td class="n">65.8</td><td class="n">YIN_OK</td><td>—</td><td class="src">他人主导舞台</td></tr>
+<tr><td>美丽的草原我的家</td><td class="n"><strong>C2</strong></td><td class="n">65.8</td><td class="n">YIN_OK</td><td>—</td><td class="src">巡演现场、他人主导舞台</td></tr>
 <tr><td>哭砂</td><td class="n"><strong>C2</strong></td><td class="n">66.0</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>乌兰巴托的夜晚</td><td class="n"><strong>C2</strong></td><td class="n">66.3</td><td class="n">✅ 双引擎一致</td><td>—</td><td class="src">录音室</td></tr>
+<tr><td>暗潮涌动</td><td class="n"><strong>C2</strong></td><td class="n">67.3</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>一生守候</td><td class="n"><strong>C#2</strong></td><td class="n">69.5</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场、他人主导舞台</td></tr>
-<tr><td>渡荆门送别</td><td class="n"><strong>C#2</strong></td><td class="n">69.7</td><td class="n">已核验（严格口径复测）</td><td>B1 60.5Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视、他人主导舞台</td></tr>
+<tr><td>渡荆门送别</td><td class="n"><strong>C#2</strong></td><td class="n">69.7</td><td class="n">已核验（严格口径复测）</td><td>B1 60.5Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视、巡演现场、他人主导舞台</td></tr>
+<tr><td>雪地里寄不出的求救信</td><td class="n"><strong>C#2</strong></td><td class="n">70.1</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>茕茕</td><td class="n"><strong>D2</strong></td><td class="n">71.5</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>小毛驴</td><td class="n"><strong>D2</strong></td><td class="n">72.6</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场、他人主导舞台</td></tr>
 <tr><td>Autumn Leaves</td><td class="n"><strong>D2</strong></td><td class="n">73.0</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
+<tr><td>重游往昔</td><td class="n"><strong>D2</strong></td><td class="n">73.1</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
+<tr><td>当爱已成往事</td><td class="n"><strong>D2</strong></td><td class="n">73.2</td><td class="n">✅ 双引擎一致</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
+<tr><td>倒叙</td><td class="n"><strong>D2</strong></td><td class="n">73.4</td><td class="n">🟡 已取证</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>想游泳的星</td><td class="n"><strong>D2</strong></td><td class="n">73.5</td><td class="n">已核验（严格口径复测）</td><td>D2 71.5Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>云一定知道</td><td class="n"><strong>D2</strong></td><td class="n">73.7</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>南屏晚钟</td><td class="n"><strong>D2</strong></td><td class="n">74.0</td><td class="n">✅ 双引擎一致</td><td>C#2 67.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>三巡上海全场</td><td class="n"><strong>D2</strong></td><td class="n">74.0</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
+<tr><td>我要你</td><td class="n"><strong>D2</strong></td><td class="n">74.0</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>雾里</td><td class="n"><strong>D2</strong></td><td class="n">75.5</td><td class="n">YIN_OK</td><td>C2 64.5Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视、他人主导舞台</td></tr>
-<tr><td>我要你</td><td class="n"><strong>D#2</strong></td><td class="n">78.1</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 <tr><td>渔光曲</td><td class="n"><strong>D#2</strong></td><td class="n">79.2</td><td class="n">已核验（人工复核）</td><td>—</td><td class="src"></td></tr>
+<tr><td>歌颂</td><td class="n"><strong>F2</strong></td><td class="n">85.9</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
+<tr><td>勿扰</td><td class="n"><strong>F2</strong></td><td class="n">86.3</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">录音室、巡演现场</td></tr>
 <tr><td>向着太阳</td><td class="n"><strong>G2</strong></td><td class="n">97.8</td><td class="n">已核验（人工复核）</td><td>B1 61.9Hz<br><span class="src">触达音·不作能力依据</span></td><td class="src">央视/晚会</td></tr>
 <tr><td>三巡长沙全场</td><td class="n"><strong>A2</strong></td><td class="n">108.4</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
+<tr><td>敕勒歌</td><td class="n"><strong>A#2</strong></td><td class="n">118.7</td><td class="n">谐波列复核通过</td><td>—</td><td class="src">巡演现场</td></tr>
 </table>
 
 <h2>四、低音现场复现（取证状态）</h2>
@@ -279,8 +287,8 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 <table>
 <tr><th>端点</th><th>范围</th><th>读数</th><th>曲目／场景</th><th>来源</th><th>状态</th><th>说明</th></tr>
 <tr><td>最低·稳定音</td><td>录音室</td><td><strong>B1 <span class="hz">61.5 Hz</span></strong></td><td>静止了的夜晚</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">全站主口径的能力下限；B1 稳定音共 4 首（知晓/渔光曲/多听有益/静止了的夜晚）</td></tr>
-<tr><td>最高·稳定音</td><td>录音室</td><td><strong>C6 <span class="hz">1067.5 Hz</span></strong></td><td>月光</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">非头声；为《Low C的诱惑Ⅱ》录音室曲目</td></tr>
-<tr><td>跨度·最大</td><td>录音室</td><td><strong>3.94 八度</strong></td><td>—</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">中位 2.27 八度；最大值为单曲最宽</td></tr>
+<tr><td>最高·稳定音</td><td>录音室</td><td><strong>F5 <span class="hz">706.0 Hz</span></strong></td><td>带着一颗好心去流浪</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">人耳确认。C5 以上读数须逐条听辨；C6 类读数经人耳裁决非本人，不进本表（裁决见 data/listening_verdicts.json）</td></tr>
+<tr><td>跨度·最大</td><td>录音室</td><td><strong>3.41 八度</strong></td><td>—</td><td>本站 72 曲录音室全量实测</td><td class="lv-ok">✅ 已复核</td><td class="src">中位 2.22 八度；最大值为单曲最宽</td></tr>
 <tr><td>最低·触达音</td><td>录音室</td><td><strong>B1 <span class="hz">61.6 Hz</span></strong></td><td>渔光曲</td><td>本站实测（已降级）</td><td class="lv-warn">⚠️ 已降为触达级</td><td class="src">真 320k 复测稳定音为 D#2 79.2Hz；B1 时刻谱峰在位但未达稳定门槛</td></tr>
 <tr><td>最低·练声场景</td><td>练声</td><td><strong>A1（触达） <span class="hz">55.1 Hz</span></strong></td><td>练声（Low C 下面的 A）</td><td>喜马拉雅练声音频；现存唯一可访问副本为 B站转载</td><td class="lv-pend">⏳ 已精测·触达级</td><td class="src">全曲仅 6 帧约 0.1s，未过「极值音 ≥0.2s」门槛；同素材稳定音为 B1 62.0Hz。原始发布渠道与时间待考</td></tr>
 <tr><td>最低·现场稳定音</td><td>现场</td><td><strong>A2 <span class="hz">109.9 Hz</span></strong></td><td>友谊地久天长（四巡·肆益 南京 2024-01-27）</td><td>B站现场录像（主源）</td><td class="lv-ok">✅ 已复核</td><td class="src">同场备份源另测到 F#2 91.4Hz（0.186s，谐波列成立）为候选；主源 G#2 101.0Hz 亦成立。一条 A2 111.1Hz 读数为 1/2 次谐波已排除</td></tr>
@@ -289,7 +297,7 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 <tr><td>最低·外部记载</td><td>外部·扒谱</td><td><strong>A1 / Ab1 <span class="hz">55.0 Hz</span></strong></td><td>喜马拉雅练声音频（帖内记载）</td><td>豆瓣小组《晰晰音域整理帖》2019-02-07</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">帖内称「A1 只在喜马拉雅练声音频中出现过；Ab1 没有视频可考证」，与本站精测的出处一致</td></tr>
 <tr><td>最低·外部记载</td><td>外部·扒谱</td><td><strong>B1 <span class="hz">61.6 Hz</span></strong></td><td>葬心（《Low C的诱惑Ⅱ》）</td><td>同上豆瓣帖</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">本站 72 曲实测可核对该曲最低稳定音是否亦为 B1（待办）</td></tr>
 <tr><td>最低·自述</td><td>自述</td><td><strong>「最低能唱 A」</strong></td><td>—</td><td>金钟奖采访（帖内转引）</td><td class="lv-ext">📌 转引自外部来源</td><td class="src">另有别名「王降A」（据帖内称由谷峰所取）</td></tr>
-<tr><td>跨度·外部</td><td>外部·扒谱</td><td><strong>A1–C5，超过三个八度</strong></td><td>—</td><td>同上豆瓣帖</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">与本站 span_max 3.94 八度方向一致</td></tr>
+<tr><td>跨度·外部</td><td>外部·扒谱</td><td><strong>A1–C5，超过三个八度</strong></td><td>—</td><td>同上豆瓣帖</td><td class="lv-ext">📌 外部来源·未复核</td><td class="src">与本站 span_max 3.41 八度方向一致</td></tr>
 <tr><td>歌曲层·最低（非王晰个人）</td><td>外部·耳测</td><td><strong>D#2 <span class="hz">78.0 Hz</span></strong></td><td>向着太阳（VITAS×王晰）</td><td>B站《【音高测量43】…》一摸提纳-耳测音高，2025-11-02</td><td class="lv-ext">📌 外部来源·**对象不同**</td><td class="src">该视频测的是**整首歌（混音+两位歌手+伴奏）**。78Hz 在 6 轨分离中落在 bass 轨（伴奏低音器乐），非王晰人声（人声轨 60–100Hz 能量占比仅 0.15%）</td></tr>
 <tr><td>歌曲层·最高（非王晰个人）</td><td>外部·耳测</td><td><strong>G6 <span class="hz">1568.0 Hz</span></strong></td><td>向着太阳（VITAS×王晰）</td><td>同上</td><td class="lv-ext">📌 外部来源·**对象不同**</td><td class="src">G6 属 VITAS 的头声；与 78Hz 相除得 20.1×（标题「接近20倍赫兹」）</td></tr>
 <tr><td>跨度·歌曲层</td><td>外部·耳测</td><td><strong>4.33 八度</strong></td><td>向着太阳</td><td>同上</td><td class="lv-ext">📌 外部来源·**歌曲层**</td><td class="src">**不可与王晰个人音域混读**：该数含伴奏低音器乐与 VITAS 高音</td></tr>
@@ -307,40 +315,6 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
 <h2>七、专辑层逐曲明细</h2><p class="sub">共 72 首，完整表见 <a href="/works.html">作品页</a>；机读数据见 <a href="/data/archive_vocal_albums.json">archive_vocal_albums.json</a>。</p>
 
 <p class="src">局限性声明：本站音域数据基于已获取的录音室与现场素材，受素材音质限制；触达音与低音带读数不作能力依据；外部来源读数口径未核实，仅作档案记录。结构化的第三方表述（论坛/粉丝扒谱/媒体宣发）一律标注来源与性质，不转写成本站测量结论。</p>
-<!-- LONG-NOTES:START -->
-<h2 id="长声">八、长声持续能力（演唱，非 talk）</h2>
-<p>长声时长 = <strong>同一音高连续保持</strong>的秒数（连续同音高段，抖动 &lt;0.6 半音）。这是<strong>直接可观测量</strong>，无需自创判据。数据来自 23 个演唱段（已排除 talk 段）。</p>
-<p class="sub">⚠️ 经「长声表 × 否决台账」反连接后，榜单只保留 <strong>17</strong> 条；另有 <strong>6</strong> 条已移出（直接冲突：台账否决 非王晰（部分归属）（496.6Hz）；直接冲突：台账否决 非王晰（218.6Hz）；直接冲突：台账否决 非王晰（女声／伴奏）（698.0Hz；直接冲突：台账否决 非王晰（888.2Hz）；直接冲突：台账否决 非王晰（用户听辨：两条样本均非本人）；直接冲突：台账否决 非王晰（伴唱）（523.1Hz））。C5 及以上长声默认需人耳归属确认——长声检测跑在 demucs vocals 轨上，而该轨含和声。</p>
-<div class="kv">
-<div><span class="k">≥8 秒（保留榜）</span><span class="v">17 个</span></div>
-<div><span class="k">≥10 秒</span><span class="v">8 个</span></div>
-<div><span class="k">≥12 秒</span><span class="v">4 个</span></div>
-<div><span class="k">≥15 秒</span><span class="v">2 个</span></div>
-<div><span class="k">中位</span><span class="v">9.9 秒</span></div>
-<div><span class="k">最长</span><span class="v">16.5 秒</span></div>
-</div>
-<h3>最长的 20 个长声</h3>
-<table><thead><tr><th>#</th><th>时长</th><th>音</th><th>Hz</th><th>来源</th><th>曲目</th></tr></thead><tbody>
-<tr><td>1</td><td>16.5 秒</td><td>D2</td><td>74.8</td><td>分P逐曲</td><td>我真的受伤了</td></tr>
-<tr><td>2</td><td>15.1 秒</td><td>A#3</td><td>231.6</td><td>舞台对照·QQ官方版</td><td>节气歌</td></tr>
-<tr><td>3</td><td>14.6 秒</td><td>E3</td><td>166.5</td><td>五巡上海20251121</td><td>Westway+Wellerman</td></tr>
-<tr><td>4</td><td>14.4 秒</td><td>D3</td><td>146.8</td><td>Low C的诱惑Ⅱ</td><td>月圆花好</td></tr>
-<tr><td>5</td><td>11.1 秒</td><td>F2</td><td>86.6</td><td>分P逐曲</td><td>Wellerman</td></tr>
-<tr><td>7</td><td>10.5 秒</td><td>A3</td><td>220.3</td><td>分P逐曲</td><td>无尽的夜里</td></tr>
-<tr><td>8</td><td>10.3 秒</td><td>F#3</td><td>186.5</td><td>分P逐曲</td><td>友谊地久天长</td></tr>
-<tr><td>9</td><td>9.9 秒</td><td>F3</td><td>171.4</td><td>五巡上海20251121</td><td>玫瑰人生（La Vie en Rose）</td></tr>
-<tr><td>10</td><td>9.0 秒</td><td>C#4</td><td>274.8</td><td>重游往昔</td><td>重游往昔</td></tr>
-<tr><td>11</td><td>9.0 秒</td><td>G3</td><td>201.4</td><td>五巡上海20251121</td><td>Westway+Wellerman</td></tr>
-<tr><td>12</td><td>9.0 秒</td><td>C#4</td><td>273.3</td><td>分P逐曲</td><td>我真的受伤了</td></tr>
-<tr><td>13</td><td>8.9 秒</td><td>F#4</td><td>360.0</td><td>B面图景</td><td>哑光</td></tr>
-<tr><td>14</td><td>8.6 秒</td><td>C4</td><td>261.7</td><td>舞台对照·QQ官方版</td><td>望阙台 (Live)</td></tr>
-<tr><td>15</td><td>8.5 秒</td><td>A3</td><td>219.6</td><td>舞台对照·QQ官方版</td><td>她真漂亮</td></tr>
-<tr><td>16</td><td>8.4 秒</td><td>G2</td><td>97.5</td><td>歌颂</td><td>王牌就是我</td></tr>
-<tr><td>17</td><td>8.3 秒</td><td>F#3</td><td>183.6</td><td>重游往昔</td><td>下沉</td></tr>
-<tr><td>6</td><td>11.0 秒</td><td>C4</td><td>263.9</td><td>新源现场</td><td>你不要担心</td></tr>
-</tbody></table>
-<p class="src">方法：逐帧 F0（demucs 人声分离 → numpy YIN）→ 连续同音高段切分（抖动 &lt;0.6 半音，≥6 秒）→ 取时长。<strong>只计演唱段</strong>：文件名排除 talk/点歌/讲话，且须匹配该场歌单曲目名。口径见 <code>data/archive_long_notes.json</code>。</p>
-<!-- LONG-NOTES:END -->
 <h2>他说过 / 别人怎么说</h2>
 <div class="card">「这次不仅 Low C 几乎到了自己极限，最低音低过 Low C，不说全球，在亚洲这张专辑可以说是最低音的一张。」<div class="src">—— 2015-11-30 ｜ 王晰本人微博（录制第二张专辑期间） ｜ 证据级别：本人 </div></div>
 <div class="card">「作为 Bass-baritone 的话，在中国本身就不多，这是流行圈内的，恐怕就是孤本了。」<div class="src">—— 姚峰（深圳音协主席） ｜ 证据级别：权威点评 </div></div>

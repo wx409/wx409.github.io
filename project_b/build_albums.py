@@ -87,6 +87,18 @@ def main():
 
     import datetime
     out["generated_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    # 保留旧文件里本脚本不生产的字段（kind=ep / release_date / credits / lyrics 等），
+    # 否则一次重跑会把《回望》的 EP 标记与全部制作人员信息抹掉。
+    try:
+        prev = json.load(open(r"D:\wx409.github.io\data\albums.json", encoding="utf-8"))
+        prev_by = {a.get("name"): a for a in (prev.get("albums") or [])}
+        for a in out["albums"]:
+            old = prev_by.get(a.get("name"))
+            if old:
+                for k, v in old.items():
+                    a.setdefault(k, v)
+    except Exception:
+        pass
     json.dump(out, open(r"D:\wx409.github.io\data\albums.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
     print("\n[OK] -> data/albums.json")

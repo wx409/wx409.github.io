@@ -50,6 +50,37 @@ def esc(s) -> str:
     return html.escape(str(s or ""))
 
 
+__VOCAL = None
+
+
+def _vocal_song(name: str):
+    """按曲名取 data/archive_vocal.json 中的实测行（跨素材精测层）。取不到返回 None。"""
+    global __VOCAL
+    if __VOCAL is None:
+        p = ROOT / "data" / "archive_vocal.json"
+        __VOCAL = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    for s in __VOCAL.get("songs") or []:
+        if s.get("name") == name:
+            return s
+    return None
+
+
+def render_vocal_link(name: str) -> str:
+    """把「该曲在本站实测中的最低稳定音」从数据层派生，禁止手写读数。
+
+    literature.json 里只写 vocal_link: "<曲名>"，数字一律现取现算。
+    """
+    s = _vocal_song(name)
+    if not s or not s.get("lowest_note") or s.get("lowest_hz") is None:
+        return ""
+    note, hz = s["lowest_note"], float(s["lowest_hz"])
+    status = s.get("stable_status") or ""
+    tail = f"（复核状态：{esc(status)}）" if status else ""
+    return (f'<br><strong>与本站实测的关系：</strong>该曲在<a href="/voice.html">音域实测</a>中'
+            f'为人声分离实测曲目之一，最低稳定音 <b>{esc(note)}（{hz:.1f} Hz）</b>'
+            f'（稳定音口径：音符 ≥0.15s、HNR ≥5dB，极值音本身 ≥0.2s）{tail}。')
+
+
 def render_jsonld(doc: dict) -> str:
     graph = []
     for sec in doc["sections"]:
@@ -99,7 +130,7 @@ def render_paper_item(it: dict) -> str:
     if it.get("keywords"):
         h.append(f'        <p><strong>关键词：</strong>{esc(it["keywords"])}</p>')
     if it.get("value"):
-        h.append(f'        <p><strong>核心学术价值：</strong>{it["value"]}</p>')
+        h.append(f'        <p><strong>核心学术价值：</strong>{it["value"]}{render_vocal_link(it.get("vocal_link", "")) if it.get("vocal_link") else ""}</p>')
     if it.get("meta"):
         h.append(f'        <p class="meta">{it["meta"]}</p>')
     h.append("    </div>")

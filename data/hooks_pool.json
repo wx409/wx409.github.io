@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-24T00:00:09",
+ "generated_at": "2026-10-24T15:24:04",
  "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
  "rules": {
   "时间标记": {
@@ -303,7 +303,7 @@
    "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
    "small_words": [
     "颤音",
-    "八张专辑",
+    "八张录音室作品",
     "稳定性"
    ],
    "audience": "声乐爱好者 / 数据向读者",

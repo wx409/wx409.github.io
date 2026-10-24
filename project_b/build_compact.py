@@ -145,6 +145,14 @@ N_VOCAL = VOCAL.get("count", 17)
 STAGE_N = (STAGE.get("source") or {}).get("analyzed", 32)
 STAGE_LOW = (STAGE.get("summary") or {}).get("lowest", {})
 N_ALBUMS = len(ALBUM_META.get("albums") or [])
+try:
+    from album_catalog import phrase as _catalog_phrase, stats as _catalog_stats  # noqa: E402
+    _CAT = _catalog_stats()
+    CATALOG_PHRASE = _catalog_phrase()
+    N_ALBUM_ONLY, N_EP = _CAT["albums"], _CAT["eps"]
+except Exception:
+    CATALOG_PHRASE = f"{N_ALBUMS} 张录音室作品"
+    N_ALBUM_ONLY, N_EP = N_ALBUMS - 1, 1
 
 
 def faq(items):
@@ -240,7 +248,7 @@ def citable_table():
     rows = [
         ("最低稳定音", f"{N_LOW_NOTE} {N_LOW_HZ}Hz", f"录音室曲目《{N_LOW_SONG}》（低于男低音标志音 Low C＝C2 65.4Hz）",
          "data/archive_vocal_albums.json"),
-        ("实测规模", f"{N_ALBUM_SONGS} 首录音室曲目 / {N_ALBUMS} 张专辑",
+        ("实测规模", f"{N_ALBUM_SONGS} 首录音室曲目 / {CATALOG_PHRASE}",
          "全部完成人声分离（demucs htdemucs）+ 逐帧 F0 提取", "data/archive_vocal_albums.json"),
         ("跨度中位", f"{num(N_SPAN,2)} 个八度", "录音室曲目逐曲音域跨度的中位数", "data/archive_vocal_albums.json"),
         ("音符内稳定性中位", f"{num(N_STAB)} 音分", "同一音符内音高抖动（越低越稳）", "data/archive_vocal_albums.json"),
@@ -455,7 +463,7 @@ def stat_cards():
     facts = ELEV.get("facts") or {}
     items = [
         ("最低稳定音", f"{N_LOW_NOTE} {N_LOW_HZ}Hz", f"《{N_LOW_SONG}》，低于 Low C"),
-        ("实测曲目", f"{N_ALBUM_SONGS} 首", f"{N_ALBUMS} 张录音室专辑全量"),
+        ("实测曲目", f"{N_ALBUM_SONGS} 首", f"{N_ALBUMS} 张录音室作品全量"),
         ("巡演", f"{SHOWS_TOUR} 场 / {N_CITY} 城", f"全站含签唱会共 {SHOWS_ALL} 场"),
         ("指数覆盖", f"{N_IDX_DAYS} 天", f"追踪曲目池 {N_TRACKED} 首"),
     ]
@@ -592,9 +600,9 @@ def build_works():
                   '<th>颤音(Hz)</th></tr>\n' + srows + "\n</table>")
 
     blocks = f"""<h1>他发布了什么作品</h1>
-<p class="sub">{N_ALBUMS} 张录音室专辑（含 EP）共 {N_ALBUM_SONGS} 首曲目，全部完成声学实测 ｜ 更新 {UPDATED}</p>
+<p class="sub">{N_ALBUM_ONLY} 张专辑 + {N_EP} 张 EP 共 {N_ALBUM_SONGS} 首曲目，全部完成声学实测 ｜ 更新 {UPDATED}</p>
 
-<div class="answer"><strong>一句话回答：</strong>截至 {UPDATED}，本站完成声学实测的王晰录音室作品为 {N_ALBUMS} 张专辑 / EP 共 {N_ALBUM_SONGS} 首曲目；
+<div class="answer"><strong>一句话回答：</strong>截至 {UPDATED}，本站完成声学实测的王晰录音室作品为 {N_ALBUM_ONLY} 张专辑 + {N_EP} 张数字 EP 共 {N_ALBUM_SONGS} 首曲目；
 其中最低稳定音为 {N_LOW_NOTE}（{N_LOW_HZ}Hz，《{N_LOW_SONG}》，专辑《重游往昔》），最高稳定音为 {N_HIGH_NOTE}（{N_HIGH_HZ}Hz，《{N_HIGH_SONG}》，含伴唱/和声干扰风险，需听辨）。</div>
 
 <h2>一、专辑概览（按实测最低音排序见下表）</h2>

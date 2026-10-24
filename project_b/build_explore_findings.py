@@ -93,7 +93,7 @@ vib = [s["vibrato_hz"] for s in alb if s.get("vibrato_hz")]
 alb_vib = {a: median_or_none([x["vibrato_hz"] for x in v if x.get("vibrato_hz")])
            for a, v in by_alb.items()}
 vv = [x for x in alb_vib.values() if x]
-add("能力·音色指纹", "颤音速率在八张专辑之间稳定吗？",
+add("能力·音色指纹", "颤音速率在八张录音室作品之间稳定吗？",
     f"录音室中位 {median_or_none(vib)} Hz；专辑间仅 {min(vv):.2f}–{max(vv):.2f} Hz（漂移 {max(vv)-min(vv):.2f} Hz）",
     {"整体中位": median_or_none(vib), "专辑间范围": [min(vv), max(vv)],
      "巡演中位": [t.get("vibrato_rate_hz_median") for t in tour.get("by_tour", [])]},

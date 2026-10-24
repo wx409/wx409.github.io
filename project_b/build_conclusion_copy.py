@@ -137,16 +137,16 @@ add("long_note", "一口气的长度",
 
 if F["vib_spread"] is not None:
     add("vibrato", "颤音的跨年稳定性",
-        f"{F['vib_albums']} 张专辑的颤音速率中位极差 {F['vib_spread']}Hz（全量中位 {F['vib_median']}Hz）。",
+        f"{F['vib_albums']} 张录音室作品的颤音速率中位极差 {F['vib_spread']}Hz（全量中位 {F['vib_median']}Hz）。",
         "data/archive_vocal_albums.json#songs[].vibrato_hz（按 album 取中位后比极差）",
         "须注明是**与他自己的基线比**；不得引申为「比谁更稳」；样本为专辑层中位。",
         f"从最早一张到最近一张，中间隔了几年。把每张专辑里所有曲目的颤音速率各自取中位，再横向比一遍，"
         f"最高与最低之间只差 {F['vib_spread']} 赫兹。这些专辑的录制年份、编曲和人声处理都不一样。",
-        f"{F['vib_albums']} 张专辑，颤音速率只漂了 {F['vib_spread']} 赫兹。\n"
+        f"{F['vib_albums']} 张录音室作品，颤音速率只漂了 {F['vib_spread']} 赫兹。\n"
         f"做法是把每张专辑的颤音速率取中位，再互相比。\n"
         f"这些专辑的年份和编曲都不同。\n"
         f"小词：颤音 / 稳定性 / 指纹",
-        f"{F['vib_albums']} 张专辑的颤音速率中位极差是 {F['vib_spread']} 赫兹。",
+        f"{F['vib_albums']} 张录音室作品的颤音速率中位极差是 {F['vib_spread']} 赫兹。",
         "声乐爱好者 / 数据向读者")
 
 if F["cn_rows"]:

@@ -309,7 +309,7 @@ def acoustic_candidates() -> list[dict]:
         out.append({
             "hook": f"{len(med)} 张专辑（2014–2024，跨十年），颤音速率极差 {spread:.2f}Hz",
             "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
-            "small_words": ["颤音", "八张专辑", "稳定性"], "audience": "声乐爱好者 / 数据向读者",
+            "small_words": ["颤音", "八张录音室作品", "稳定性"], "audience": "声乐爱好者 / 数据向读者",
             "kind": "acoustic", "t_abs_s": None, "t_hms": "",
         })
     cn = load(D / "archive_cross_night.json")
