@@ -1294,6 +1294,13 @@
      "mid": "0042NK4I4TOARK",
      "singer": "王晰",
      "digital_only": true,
+     "master_verified": {
+      "date": "2026-10-24",
+      "source": "QQ音乐臻品母带（客户端播放 → 声卡环回采集，48kHz/24bit）",
+      "method": "原始混音谐波列（1f0–6f0 逐分音判读）",
+      "result": "1f0 61.6Hz 为最强分音，2/3/4/6f0 齐全 → B1 成立，不是有损压缩产物",
+      "note": "320k 与母带在同段给出相同谐波结构；人声分离轨会削 60–90Hz 基频，极值以混音为准"
+     },
      "credits": {
       "lyricist": "摘自百字明/心经/刘子源",
       "composer": "刘炫豆",
