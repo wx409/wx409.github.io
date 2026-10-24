@@ -103,8 +103,8 @@
   {
    "no": 4,
    "id": "vibrato_eight_years",
-   "hook": "八张录音室作品只漂 0.27Hz",
-   "support": "8 张录音室作品的颤音速率中位极差 0.27Hz（专辑中位 5.11Hz）；覆盖 72 首曲目。最低 B面图景 5.07Hz、最高 Low C的诱惑 5.34Hz。",
+   "hook": "八张录音室作品只漂 0.39Hz",
+   "support": "8 张录音室作品的颤音速率中位极差 0.39Hz（专辑中位 5.12Hz）；覆盖 72 首曲目。最低 不说 4.95Hz、最高 Low C的诱惑 5.34Hz。",
    "source": "data/archive_vocal_albums.json（卡片 vibrato 同源）",
    "grade": "实测",
    "taboo": [
@@ -119,8 +119,8 @@
    },
    "extra": {
     "albums": 8,
-    "spread_hz": 0.27,
-    "median_hz": 5.11
+    "spread_hz": 0.39,
+    "median_hz": 5.12
    }
   },
   {

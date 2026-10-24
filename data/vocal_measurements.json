@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-24 15:21",
+ "generated_at": "2026-10-24 17:08",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,10 +10,10 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 968,
+  "total": 976,
   "by_layer": {
    "studio_album": 72,
-   "precision": 43,
+   "precision": 51,
    "tour_live": 810,
    "stage_other": 32,
    "single": 11
@@ -21,14 +21,14 @@
   "by_verify": {
    "未复核": 122,
    "人耳确认（听辨）": 56,
-   "已取证": 6,
+   "已取证": 8,
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 616,
-   "双引擎一致": 8,
+   "谐波列复核通过": 623,
+   "双引擎一致": 9,
    "待复核（legacy 短读，未过 CREPE）": 7,
-   "待复核": 3,
+   "待复核": 1,
    "待复核（谐波列待判）": 138,
    "谐波列复核通过（同刻三源）": 1
   },
@@ -979,12 +979,12 @@
     "high_note": "B4",
     "high_hz": 483.8,
     "span_octaves": 2.97,
-    "stability_cents": 5.1,
+    "stability_cents": 4.7,
     "intonation_cents": 6.4,
-    "vibrato_hz": 5.17,
-    "vibrato_cents": 64.0,
-    "density_per_s": 1.47,
-    "hnr_db": 3.7
+    "vibrato_hz": 5.12,
+    "vibrato_cents": 63.0,
+    "density_per_s": 1.43,
+    "hnr_db": 3.6
    },
    "verify": {
     "state": "未复核"
@@ -1005,12 +1005,12 @@
     "low_note": "D#2",
     "low_hz": 77.8,
     "high_note": "A4",
-    "high_hz": 436.4,
-    "span_octaves": 2.49,
-    "stability_cents": 7.7,
-    "intonation_cents": 7.1,
+    "high_hz": 434.0,
+    "span_octaves": 2.48,
+    "stability_cents": 7.6,
+    "intonation_cents": 7.8,
     "vibrato_hz": 4.79,
-    "vibrato_cents": 77.0,
+    "vibrato_cents": 73.0,
     "density_per_s": 1.64,
     "hnr_db": 2.9
    },
@@ -1035,12 +1035,12 @@
     "high_note": "C4",
     "high_hz": 262.3,
     "span_octaves": 1.68,
-    "stability_cents": 7.8,
-    "intonation_cents": 7.6,
+    "stability_cents": 7.3,
+    "intonation_cents": 7.5,
     "vibrato_hz": 5.38,
-    "vibrato_cents": 114.0,
-    "density_per_s": 2.1,
-    "hnr_db": 7.7
+    "vibrato_cents": 115.0,
+    "density_per_s": 2.06,
+    "hnr_db": 7.6
    },
    "verify": {
     "state": "未复核"
@@ -1063,11 +1063,11 @@
     "high_note": "F#4",
     "high_hz": 369.3,
     "span_octaves": 2.17,
-    "stability_cents": 4.7,
-    "intonation_cents": 6.3,
+    "stability_cents": 4.9,
+    "intonation_cents": 6.0,
     "vibrato_hz": 5.07,
-    "vibrato_cents": 79.0,
-    "density_per_s": 1.82,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.75,
     "hnr_db": 4.2
    },
    "verify": {
@@ -1087,16 +1087,16 @@
    "source_ref": "X自选集",
    "metrics": {
     "low_note": "F2",
-    "low_hz": 86.4,
+    "low_hz": 88.0,
     "high_note": "B4",
     "high_hz": 493.0,
-    "span_octaves": 2.51,
-    "stability_cents": 7.7,
-    "intonation_cents": 8.4,
-    "vibrato_hz": 5.22,
-    "vibrato_cents": 80.0,
-    "density_per_s": 1.83,
-    "hnr_db": 9.4
+    "span_octaves": 2.49,
+    "stability_cents": 7.5,
+    "intonation_cents": 8.6,
+    "vibrato_hz": 5.27,
+    "vibrato_cents": 82.0,
+    "density_per_s": 1.85,
+    "hnr_db": 9.5
    },
    "verify": {
     "state": "未复核"
@@ -1115,16 +1115,16 @@
    "source_ref": "X自选集",
    "metrics": {
     "low_note": "F2",
-    "low_hz": 86.4,
+    "low_hz": 86.6,
     "high_note": "C4",
     "high_hz": 261.6,
-    "span_octaves": 1.6,
-    "stability_cents": 6.0,
-    "intonation_cents": 7.9,
+    "span_octaves": 1.59,
+    "stability_cents": 5.7,
+    "intonation_cents": 7.5,
     "vibrato_hz": 4.79,
-    "vibrato_cents": 61.0,
-    "density_per_s": 2.02,
-    "hnr_db": 4.5
+    "vibrato_cents": 63.0,
+    "density_per_s": 2.0,
+    "hnr_db": 4.4
    },
    "verify": {
     "state": "未复核"
@@ -1143,16 +1143,16 @@
    "source_ref": "X自选集",
    "metrics": {
     "low_note": "F2",
-    "low_hz": 87.9,
+    "low_hz": 87.8,
     "high_note": "A#4",
     "high_hz": 463.4,
     "span_octaves": 2.4,
-    "stability_cents": 5.8,
-    "intonation_cents": 5.7,
+    "stability_cents": 6.2,
+    "intonation_cents": 6.0,
     "vibrato_hz": 5.07,
-    "vibrato_cents": 75.0,
-    "density_per_s": 1.81,
-    "hnr_db": 10.5
+    "vibrato_cents": 73.0,
+    "density_per_s": 1.85,
+    "hnr_db": 10.6
    },
    "verify": {
     "state": "未复核"
@@ -1173,14 +1173,14 @@
     "low_note": "F2",
     "low_hz": 87.4,
     "high_note": "G#4",
-    "high_hz": 414.3,
-    "span_octaves": 2.25,
+    "high_hz": 414.1,
+    "span_octaves": 2.24,
     "stability_cents": 5.5,
-    "intonation_cents": 6.8,
-    "vibrato_hz": 5.07,
-    "vibrato_cents": 78.0,
+    "intonation_cents": 6.7,
+    "vibrato_hz": 5.09,
+    "vibrato_cents": 77.0,
     "density_per_s": 2.09,
-    "hnr_db": 7.1
+    "hnr_db": 7.2
    },
    "verify": {
     "state": "未复核"
@@ -1203,11 +1203,11 @@
     "high_note": "E4",
     "high_hz": 330.2,
     "span_octaves": 1.84,
-    "stability_cents": 6.6,
+    "stability_cents": 6.4,
     "intonation_cents": 6.1,
-    "vibrato_hz": 5.22,
-    "vibrato_cents": 82.0,
-    "density_per_s": 1.86,
+    "vibrato_hz": 5.26,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.85,
     "hnr_db": 9.8
    },
    "verify": {
@@ -1231,12 +1231,12 @@
     "high_note": "F5",
     "high_hz": 699.5,
     "span_octaves": 3.41,
-    "stability_cents": 6.7,
-    "intonation_cents": 8.8,
+    "stability_cents": 6.8,
+    "intonation_cents": 8.6,
     "vibrato_hz": 4.79,
-    "vibrato_cents": 87.0,
-    "density_per_s": 1.31,
-    "hnr_db": 2.1
+    "vibrato_cents": 79.0,
+    "density_per_s": 1.3,
+    "hnr_db": 2.0
    },
    "verify": {
     "state": "未复核"
@@ -1259,12 +1259,12 @@
     "high_note": "F4",
     "high_hz": 348.4,
     "span_octaves": 2.42,
-    "stability_cents": 7.0,
-    "intonation_cents": 10.0,
+    "stability_cents": 7.3,
+    "intonation_cents": 9.5,
     "vibrato_hz": 4.79,
     "vibrato_cents": 73.0,
-    "density_per_s": 1.46,
-    "hnr_db": 7.3
+    "density_per_s": 1.47,
+    "hnr_db": 7.1
    },
    "verify": {
     "state": "未复核"
@@ -1283,44 +1283,16 @@
    "source_ref": "不说",
    "metrics": {
     "low_note": "C#2",
-    "low_hz": 69.3,
+    "low_hz": 69.4,
     "high_note": "F#4",
     "high_hz": 367.8,
     "span_octaves": 2.41,
-    "stability_cents": 7.2,
-    "intonation_cents": 14.5,
-    "vibrato_hz": 5.07,
-    "vibrato_cents": 81.0,
-    "density_per_s": 2.25,
+    "stability_cents": 6.5,
+    "intonation_cents": 14.1,
+    "vibrato_hz": 5.02,
+    "vibrato_cents": 80.0,
+    "density_per_s": 2.3,
     "hnr_db": 7.6
-   },
-   "verify": {
-    "state": "未复核"
-   },
-   "provenance": {
-    "measured_by": "批量专辑音域",
-    "legacy": "archive_vocal_albums.json"
-   }
-  },
-  {
-   "id": "studio_album|祝我们随遇而安|不说",
-   "song": "祝我们随遇而安",
-   "version": "录音室《不说》",
-   "layer": "studio_album",
-   "album": "不说",
-   "source_ref": "不说",
-   "metrics": {
-    "low_note": "D2",
-    "low_hz": 73.1,
-    "high_note": "A4",
-    "high_hz": 439.7,
-    "span_octaves": 2.59,
-    "stability_cents": 8.5,
-    "intonation_cents": 16.6,
-    "vibrato_hz": 5.07,
-    "vibrato_cents": 104.0,
-    "density_per_s": 2.37,
-    "hnr_db": 7.7
    },
    "verify": {
     "state": "未复核"
@@ -1340,11 +1312,14 @@
    "metrics": {
     "low_note": "D#2",
     "low_hz": 77.3,
-    "stability_cents": 5.6,
-    "intonation_cents": 7.8,
-    "vibrato_hz": 5.07,
-    "vibrato_cents": 60.0,
-    "density_per_s": 1.89,
+    "high_note": "E5",
+    "high_hz": 663.7,
+    "span_octaves": 3.1,
+    "stability_cents": 5.3,
+    "intonation_cents": 8.2,
+    "vibrato_hz": 4.88,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.86,
     "hnr_db": 4.2
    },
    "verify": {
@@ -1366,14 +1341,42 @@
     "low_note": "D#2",
     "low_hz": 77.6,
     "high_note": "F#4",
-    "high_hz": 374.0,
+    "high_hz": 375.0,
     "span_octaves": 2.27,
-    "stability_cents": 4.3,
-    "intonation_cents": 6.6,
+    "stability_cents": 4.5,
+    "intonation_cents": 6.8,
     "vibrato_hz": 4.79,
-    "vibrato_cents": 85.0,
-    "density_per_s": 1.89,
-    "hnr_db": 5.2
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.86,
+    "hnr_db": 5.3
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域",
+    "legacy": "archive_vocal_albums.json"
+   }
+  },
+  {
+   "id": "studio_album|祝我们随遇而安|不说",
+   "song": "祝我们随遇而安",
+   "version": "录音室《不说》",
+   "layer": "studio_album",
+   "album": "不说",
+   "source_ref": "不说",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.4,
+    "high_note": "A4",
+    "high_hz": 440.7,
+    "span_octaves": 2.37,
+    "stability_cents": 9.4,
+    "intonation_cents": 16.4,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 101.0,
+    "density_per_s": 2.37,
+    "hnr_db": 7.7
    },
    "verify": {
     "state": "未复核"
@@ -1392,16 +1395,16 @@
    "source_ref": "不说",
    "metrics": {
     "low_note": "F#2",
-    "low_hz": 93.9,
-    "high_note": "D5",
-    "high_hz": 589.2,
-    "span_octaves": 2.65,
-    "stability_cents": 8.2,
-    "intonation_cents": 14.0,
-    "vibrato_hz": 5.22,
-    "vibrato_cents": 85.0,
-    "density_per_s": 1.84,
-    "hnr_db": 9.6
+    "low_hz": 94.1,
+    "high_note": "B4",
+    "high_hz": 492.7,
+    "span_octaves": 2.39,
+    "stability_cents": 8.3,
+    "intonation_cents": 13.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 90.0,
+    "density_per_s": 1.86,
+    "hnr_db": 9.5
    },
    "verify": {
     "state": "未复核"
@@ -1420,16 +1423,16 @@
    "source_ref": "不说",
    "metrics": {
     "low_note": "G#2",
-    "low_hz": 101.7,
+    "low_hz": 102.1,
     "high_note": "C5",
-    "high_hz": 522.0,
+    "high_hz": 521.9,
     "span_octaves": 2.36,
-    "stability_cents": 5.4,
+    "stability_cents": 5.6,
     "intonation_cents": 9.7,
     "vibrato_hz": 5.38,
-    "vibrato_cents": 79.0,
-    "density_per_s": 2.16,
-    "hnr_db": 7.2
+    "vibrato_cents": 76.0,
+    "density_per_s": 2.18,
+    "hnr_db": 7.3
    },
    "verify": {
     "state": "未复核"
@@ -2170,7 +2173,7 @@
    "song": "知晓",
    "version": "十曲精测·稳定音",
    "layer": "precision",
-   "source_ref": "录音室",
+   "source_ref": "录音室、巡演现场",
    "metrics": {
     "low_note": "B1",
     "low_hz": 61.9
@@ -2244,6 +2247,26 @@
    }
   },
   {
+   "id": "precision|Moon River|stable",
+   "song": "Moon River",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "巡演现场",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.1,
+    "duration_s": 0.23219954648526078
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·切片1_MoonRiver"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
    "id": "precision|忘不了|stable",
    "song": "忘不了",
    "version": "十曲精测·稳定音",
@@ -2256,6 +2279,26 @@
    "verify": {
     "state": "双引擎一致",
     "evidence": "专辑音域汇总·Low C的诱惑"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|爱你|stable",
+   "song": "爱你",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "巡演现场",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.3,
+    "duration_s": 0.23219954648526078
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·北京20220412_BV1s94y1d7e7"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",
@@ -2323,25 +2366,6 @@
    }
   },
   {
-   "id": "precision|雪地里寄不出的求救信|stable",
-   "song": "雪地里寄不出的求救信",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "录音室",
-   "metrics": {
-    "low_note": "C2",
-    "low_hz": 65.3
-   },
-   "verify": {
-    "state": "待复核",
-    "evidence": "专辑音域汇总·歌颂"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
-   }
-  },
-  {
    "id": "precision|后会无期3.7手机渣画质|stable",
    "song": "后会无期3.7手机渣画质",
    "version": "十曲精测·稳定音",
@@ -2395,25 +2419,6 @@
    "verify": {
     "state": "人耳确认（听辨）",
     "evidence": "archive_stage_tour·一巡厦门20191221_p14_山楂2"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
-   }
-  },
-  {
-   "id": "precision|勿扰|stable",
-   "song": "勿扰",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "录音室",
-   "metrics": {
-    "low_note": "C2",
-    "low_hz": 65.6
-   },
-   "verify": {
-    "state": "待复核",
-    "evidence": "专辑音域汇总·不说"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",
@@ -2505,7 +2510,7 @@
    "song": "美丽的草原我的家",
    "version": "十曲精测·稳定音",
    "layer": "precision",
-   "source_ref": "他人主导舞台",
+   "source_ref": "巡演现场、他人主导舞台",
    "metrics": {
     "low_note": "C2",
     "low_hz": 65.8
@@ -2552,6 +2557,26 @@
    "verify": {
     "state": "双引擎一致",
     "evidence": "专辑音域汇总·Low C的诱惑Ⅱ"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|暗潮涌动|stable",
+   "song": "暗潮涌动",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "巡演现场",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 67.3,
+    "duration_s": 0.23219954648526078
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·杭州20260131_BV13v6xBdEuu"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",
@@ -2620,6 +2645,26 @@
    }
   },
   {
+   "id": "precision|雪地里寄不出的求救信|stable",
+   "song": "雪地里寄不出的求救信",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "C#2",
+    "low_hz": 70.1,
+    "duration_s": 0.25541950113378686
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·杭州20201007_BV1cV41127jk"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
    "id": "precision|茕茕|stable",
    "song": "茕茕",
    "version": "十曲精测·稳定音",
@@ -2673,6 +2718,63 @@
    "verify": {
     "state": "谐波列复核通过",
     "evidence": "archive_stage_tour·六巡广州20260823_12_Autumn Leaves"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|重游往昔|stable",
+   "song": "重游往昔",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.1
+   },
+   "verify": {
+    "state": "已取证",
+    "evidence": "专辑音域汇总·重游往昔"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|当爱已成往事|stable",
+   "song": "当爱已成往事",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.2
+   },
+   "verify": {
+    "state": "双引擎一致",
+    "evidence": "专辑音域汇总·Low C的诱惑"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|倒叙|stable",
+   "song": "倒叙",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.4
+   },
+   "verify": {
+    "state": "已取证",
+    "evidence": "专辑音域汇总·B面图景"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",
@@ -2800,6 +2902,26 @@
    }
   },
   {
+   "id": "precision|我要你|stable",
+   "song": "我要你",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "巡演现场",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 74.0,
+    "duration_s": 0.2089795918367347
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·沉响20261010_BV1Cfpj6jExn"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
    "id": "precision|雾里|stable",
    "song": "雾里",
    "version": "十曲精测·稳定音",
@@ -2839,26 +2961,6 @@
    }
   },
   {
-   "id": "precision|我要你|stable",
-   "song": "我要你",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "巡演现场",
-   "metrics": {
-    "low_note": "D#2",
-    "low_hz": 78.1,
-    "duration_s": 0.37151927437641724
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "evidence": "archive_stage_tour·未知20181221_BV1nt411Y7aj"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
-   }
-  },
-  {
    "id": "precision|渔光曲|stable",
    "song": "渔光曲",
    "version": "十曲精测·稳定音",
@@ -2873,6 +2975,46 @@
    "verify": {
     "state": "已核验",
     "evidence": "真 320k（M800）复测：稳定音为 D#2 79.2Hz（0.26s，HNR 8.1dB）；B1 61.6Hz 时刻谱峰在位但未达稳定门槛 → 降为触达级"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|歌颂|stable",
+   "song": "歌颂",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 85.9,
+    "duration_s": 0.5572789115646258
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·广州20201205_BV1wp4y1676f"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|勿扰|stable",
+   "song": "勿扰",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.3,
+    "duration_s": 0.25541950113378686
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·未知20241012_BV1Mz6fYXELH"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",
@@ -2934,6 +3076,26 @@
    "verify": {
     "state": "谐波列复核通过",
     "evidence": "archive_stage_tour·三巡长沙20220624_p03_王晰三巡0624长沙全场（自存） p03 橄榄树"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|敕勒歌|stable",
+   "song": "敕勒歌",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "巡演现场",
+   "metrics": {
+    "low_note": "A#2",
+    "low_hz": 118.7,
+    "duration_s": 0.3947392290249433
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "evidence": "archive_stage_tour·杭州20241221_BV16dryYBE8v"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-24 15:21",
+ "generated_at": "2026-10-24 17:08",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -56656,7 +56656,7 @@
    "live_hz": 65.3,
    "studio_note": "B1",
    "live_kind": "C2",
-   "live_note": "杭州站（肆益巡演）",
+   "live_note": "四巡｜北京 2023-11-12（BV1kN4y1D7U8）",
    "note": "录音室稳定音 B1（61.6Hz，三处 0.28–0.35s）与现场稳定音 C2（65.3Hz，1.0–1.25s 台地）相差约 1.0 个半音——同一低音区在两种语境下都稳定可复现",
    "studio_reach": {
     "note": "G#1",
@@ -56824,9 +56824,9 @@
    "live_verify": "谐波列复核通过",
    "studio_album": "不说",
    "studio_note": "C#2",
-   "studio_hz": 69.3,
+   "studio_hz": 69.4,
    "studio_span": 2.41,
-   "delta_semitones": 3.7
+   "delta_semitones": 3.6
   },
   {
    "song": "你",
@@ -56985,7 +56985,7 @@
    "studio_album": "不说",
    "studio_note": "D#2",
    "studio_hz": 77.3,
-   "studio_span": null,
+   "studio_span": 3.1,
    "delta_semitones": 0.4
   },
   {
@@ -57128,8 +57128,8 @@
    "live_verify": "谐波列复核通过",
    "studio_album": "X自选集",
    "studio_note": "F2",
-   "studio_hz": 86.4,
-   "studio_span": 1.6,
+   "studio_hz": 86.6,
+   "studio_span": 1.59,
    "delta_semitones": -1.3
   },
   {
@@ -57273,7 +57273,7 @@
    "studio_album": "X自选集",
    "studio_note": "F2",
    "studio_hz": 87.4,
-   "studio_span": 2.25,
+   "studio_span": 2.24,
    "delta_semitones": -5.1
   },
   {
@@ -57479,10 +57479,10 @@
    "live_hz": 89.4,
    "live_verify": "谐波列复核通过",
    "studio_album": "不说",
-   "studio_note": "D2",
-   "studio_hz": 73.1,
-   "studio_span": 2.59,
-   "delta_semitones": 3.5
+   "studio_note": "F2",
+   "studio_hz": 85.4,
+   "studio_span": 2.37,
+   "delta_semitones": 0.8
   },
   {
    "song": "祝我们随遇而安",
@@ -57495,10 +57495,10 @@
    "live_hz": 89.9,
    "live_verify": "人耳确认（听辨）",
    "studio_album": "不说",
-   "studio_note": "D2",
-   "studio_hz": 73.1,
-   "studio_span": 2.59,
-   "delta_semitones": 3.6
+   "studio_note": "F2",
+   "studio_hz": 85.4,
+   "studio_span": 2.37,
+   "delta_semitones": 0.9
   },
   {
    "song": "等一等昨天",
@@ -58028,7 +58028,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-10-24 15:21",
+   "generated_at": "2026-10-24 17:08",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -59342,7 +59342,7 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-10-24 15:21",
+  "generated_at": "2026-10-24 17:08",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"

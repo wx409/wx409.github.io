@@ -1267,10 +1267,26 @@
    "qq_mid": "000bAQWo0jiS2s",
    "wyy_id": null,
    "editions": {
-    "digital": {"tracks": 9, "includes": ["多听有益"], "excludes": ["想游泳的星"],
-                "note": "QQ音乐数字版；《多听有益》仅线上发行（词作摘自百字明/心经）"},
-    "physical": {"tracks": 9, "includes": ["想游泳的星"], "excludes": ["多听有益"],
-                 "note": "实体 CD 曲目与数字版不同：含《想游泳的星》（5:26），不含《多听有益》"}
+    "digital": {
+     "tracks": 9,
+     "includes": [
+      "多听有益"
+     ],
+     "excludes": [
+      "想游泳的星"
+     ],
+     "note": "QQ音乐数字版；《多听有益》仅线上发行（词作摘自百字明/心经）"
+    },
+    "physical": {
+     "tracks": 9,
+     "includes": [
+      "想游泳的星"
+     ],
+     "excludes": [
+      "多听有益"
+     ],
+     "note": "实体 CD 曲目与数字版不同：含《想游泳的星》（5:26），不含《多听有益》"
+    }
    },
    "songs": [
     {
@@ -7903,5 +7919,5 @@
    "release_verified_at": "2026-09-11 12:41"
   }
  ],
- "release_verified_at": "2026-10-24 15:16"
+ "release_verified_at": "2026-10-24 17:01"
 }
