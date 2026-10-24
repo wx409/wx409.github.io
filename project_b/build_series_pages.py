@@ -61,6 +61,9 @@ def main() -> int:
              "<!-- NAV_START --><!-- NAV_END -->",
              f"<h1>{html.escape(s['title'])}</h1><p class=\"meta\">{html.escape(s['desc'])}</p>",
              '<div class="nav">' + (nav[0] if nav else "") + " " + (nav[1] if len(nav) > 1 else "") + "</div>"]
+        if s["id"] == "chenxiang":
+            H.append("<h2>官方报道</h2><p>新华网 2026-10-14 报道（引用，非转载）："
+                     "<a href=\"press.html\">媒体报道页</a>。</p>")
         for cid in s["cards"]:
             H.append(f"<section>{card_html(cid)}</section>")
         H.append('<h2>系列目录</h2><ul>')

@@ -149,6 +149,10 @@ def main() -> int:
         else:
             H.append("<p>本场未采集：没有可用的低音读数。</p>")
         H.append(f"<p class=\"meta\">证据：archive_stage_tour.json（date={s['date']}）</p>")
+        if s["date"] in ("2026-10-09", "2026-10-10"):
+            H.append("<h2>官方报道</h2><p>新华网 2026-10-14 报道（引用，非转载）："
+                     "<a href=\"press.html\">媒体报道页</a>；"
+                     "引文与链接状态见该页（未取得原文时标“引文待补”）。</p>")
         H.append("<h2>三 · 结尾</h2>")
         if dims:
             items = sorted(dims.items(), key=lambda x: -x[1])[:6]
