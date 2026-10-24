@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24 00:14",
+ "generated_at": "2026-10-24 09:48",
  "count": 71,
  "calibers": [
   {
@@ -29,7 +29,7 @@
   {
    "id": "songs_meta",
    "label": "歌曲元数据条目",
-   "value": 687,
+   "value": 688,
    "scope": "含元信息（时长/专辑/发行等）的曲目",
    "source": "data/songs_meta.json",
    "note": ""
@@ -189,7 +189,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1667,
+   "value": 1668,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -197,7 +197,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2314,
+   "value": 2315,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5585,
+   "value": 5587,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
