@@ -287,6 +287,20 @@
   "source_ref": "timeline.json"
  },
  {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t041",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t042",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
   "source": "show:2019-06-07-hangzhou",
   "type": "held_at",
   "target": "venue:杭州剧院",
@@ -11431,6 +11445,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:外婆",
+  "type": "belongs_to_album",
+  "target": "album:外婆",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:多听有益",
   "type": "belongs_to_album",
   "target": "album:多听有益",
@@ -13149,13 +13170,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:外婆",
-  "type": "belongs_to_album",
-  "target": "album:外婆",
   "context": "",
   "source_ref": "songs_meta.json"
  },
