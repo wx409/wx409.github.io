@@ -72,6 +72,8 @@ STEPS = [
         (ROOT / "project_b" / "build_show_blocks.py", "块级数据（双人场次）", True),
     (ROOT / "project_b" / "inject_show_blocks.py", "★ 注入块级到 archive_stage_tour.json（必须在聚合器之后、页面渲染之前，防双写覆盖）", True),
 (ROOT / "project_b" / "build_stage_page.py", "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）", False),
+    (ROOT / "project_b" / "build_cut_templates.py", "模板卡四张 + weekly5 + 最近更正", False),
+    (ROOT / "project_b" / "build_live_material_ledger.py", "现场素材台账 live-materials.html（每日追加）", False),
     (ROOT / "project_b" / "build_show_assignment.py", "场次认领 data/show_assignment.json（素材→具体场次，六级证据）", False),
     (ROOT / "project_b" / "build_coverage_index.py", "场次覆盖索引 data/coverage_index.json（有实测 vs 有素材 两口径 + 待采清单）", False),
     (ROOT / "project_b" / "build_asset_streams.py", "横向素材积攒看板 data/asset_streams.json", False),
