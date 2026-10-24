@@ -118,6 +118,24 @@ def main() -> int:
                  "<figcaption>图 1：曲目规模与可用素材条数。素材少于曲目数是常态——能测的只有拿到音轨的那些。</figcaption></figure>")
         H.append(f"<p class=\"meta\">证据：setlists.json#{s['date']}；archive_stage_tour.json#rows[date={s['date']}]</p>")
         H.append("<h2>二 · 中场</h2>")
+        _seg_f = D / "show_segments_auto" / f"{slug}.json"
+        _seg = load(_seg_f, {}) or {}
+        if _seg.get("segments"):
+            _ss = _seg["segments"]
+            H.append("<table><tr><th>已验证曲目</th><th>自动切分</th><th>本场未切分</th></tr>"
+                     f"<tr><td>0</td><td>{len(_ss)}</td><td>{max(0, len(s['songs']) - len(_ss))}</td></tr></table>")
+            H.append("<p class=\"meta\">自动切分为整场音频按谷底+歌单顺序推定，边界误差约 ±5 秒，"
+                     "等级「自动切分·待核」，不进能力汇总。</p>")
+            H.append("<table><tr><th>曲目</th><th>起</th><th>止</th><th>时长</th><th>置信度</th></tr>"
+                     + "".join(f"<tr><td>{html.escape(str(x['song']))}</td><td>{x['start']}s</td>"
+                               f"<td>{x['end']}s</td><td>{x['dur']}s</td><td>{x['confidence']}</td></tr>"
+                               for x in _ss[:5])
+                     + "</table>")
+            H.append("<p class=\"meta\">上表仅列前 5 段；全部段落见 "
+                     f"<code>data/show_segments_auto/{slug}.json</code>。</p>")
+        elif s["materials"] >= 1:
+            H.append("<p>本场素材为整场录像，<b>尚未逐曲切分</b>。可补：自动粗切每晚 2 场，"
+                     "精切只做定番/低音锚点/点歌。</p>")
         if low_row:
             H.append(f"<p>这一场测到的最低稳定音是 <b>{low_row.get('low_note')} {low_row.get('low_hz')} Hz</b>，"
                      f"出现在《{html.escape(str(low_row.get('song')))}》。口径：音符≥0.2s、HNR≥5dB、强度≥中位−25dB，"
@@ -150,22 +168,48 @@ def main() -> int:
         (SITE / f"story-{slug}.html").write_text("\n".join(H), encoding="utf-8")
         built.append({**s, "slug": slug, "songs_n": len(s["songs"])})
 
+    # 分组：巡次 + 双人/特别场 + 专题
+    TOURS = ["六巡", "五巡", "四巡", "三巡", "二巡", "一巡"]
+    groups = defaultdict(list)
+    for v in sorted(built, key=lambda x: x["date"], reverse=True):
+        g = v["tour"] if v["tour"] in TOURS else "双人/特别场"
+        groups[g].append(v)
+    # 沉响两页置顶（双人/特别场）
+    groups["双人/特别场"] = sorted(groups.get("双人/特别场", []),
+                                    key=lambda x: (0 if x["date"] in KEEP_SLUG else 1, x["date"]),
+                                    reverse=False)
     I = ["<!DOCTYPE html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\">",
          "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
          "<title>场次故事｜三幕结构</title>",
          "<link rel=\"canonical\" href=\"https://wx409.github.io/stories.html\">",
          "<style>body{font:15px/1.7 -apple-system,Segoe UI,Microsoft YaHei,sans-serif;max-width:860px;"
-         "margin:24px auto;padding:0 16px}li{margin:5px 0}.meta{color:#666;font-size:.9em}</style>",
+         "margin:24px auto;padding:0 16px}li{margin:5px 0}.meta{color:#666;font-size:.9em}h3{margin-top:1.2em}</style>",
          "</head><body>", "<!-- NAV_START --><!-- NAV_END -->", "<h1>场次故事</h1>",
-         f"<p class=\"meta\">三幕模板：开场（规模）→ 中场（读数）→ 结尾（观众）。"
-         f"已生成 <b>{len(built)}</b> 场；待补 <b>{len(pend)}</b> 场。"
-         "门槛：曲目 ≥10 且（现场素材 ≥1 或有反馈）；不达标的进待补，不生成空壳页。</p>",
-         f"<h2>已生成（{len(built)} 场，按日期倒序）</h2><ul>"]
-    for v in sorted(built, key=lambda x: x["date"], reverse=True):
-        I.append(f'<li><a href="story-{v["slug"]}.html">{v["date"]} {html.escape(v["city"])}</a>'
-                 f'<span class="meta">（{html.escape(v["tour"])}｜曲目 {v["songs_n"]}｜素材 {v["materials"]}'
-                 + (f'｜反馈 {v["feedback"]}' if v["feedback"] else "") + '）</span></li>')
-    I.append(f"</ul><h2>待补（{len(pend)} 场）</h2><ul>")
+         f"<p class=\"meta\">三幕模板：开场→中场→结尾；已生成 <b>{len(built)}</b> 场，待补 <b>{len(pend)}</b> 场。"
+         "门槛：曲目 ≥10 且（现场素材 ≥1 或有反馈）。</p>"]
+    for g in TOURS + ["双人/特别场"]:
+        vs = groups.get(g) or []
+        if not vs:
+            continue
+        I.append(f"<h2>{g}（{len(vs)} 场）</h2><ul>")
+        for v in vs:
+            I.append(f'<li><a href="story-{v["slug"]}.html">{v["date"]} {html.escape(v["city"])}</a>'
+                     f'<span class="meta">（曲目 {v["songs_n"]}｜素材 {v["materials"]}'
+                     + (f'｜反馈 {v["feedback"]}' if v["feedback"] else "") + '）</span></li>')
+        I.append("</ul>")
+    I.append("<h2>专题</h2><ul><li><a href=\"story-hui-guangzhou-2026.html\">六巡广州站单场复盘</a>"
+             "<span class=\"meta\">（专题页，保留原 URL）</span></li></ul>")
+    # 磁盘集合校验：未入索引的 story-*.html 自动补一条并告警
+    listed = {f"story-{v['slug']}.html" for v in built}
+    disk = {x.name for x in SITE.glob("story-*.html")}
+    missing = sorted(disk - listed - {"story-hui-guangzhou-2026.html"})
+    if missing:
+        I.append(f"<h2>未入索引（自动补 {len(missing)}）</h2><ul>")
+        for m in missing:
+            I.append(f'<li><a href="{m}">{m}</a><span class="meta">（磁盘存在，索引生成时未覆盖，已自动补链）</span></li>')
+        I.append("</ul>")
+        print(f"[warn] 有 {len(missing)} 个故事页未入索引，已补链：{missing[:5]}")
+    I.append(f"<h2>待补（{len(pend)} 场）</h2><ul>")
     for v in pend:
         miss = []
         if len(v["songs"]) < 10:
@@ -176,7 +220,7 @@ def main() -> int:
             miss.append("无观众反馈")
         I.append(f'<li>{v["date"]} {html.escape(v["city"])}<span class="meta">（缺：{"、".join(miss)}；'
                  '可补来源：B站分P / 现场录音 / 反馈抓取）</span></li>')
-    I.append('</ul><p class="meta">另：<a href="story-hui-guangzhou-2026.html">六巡广州站单场复盘</a>（专题，保留原 URL）</p></body></html>')
+    I.append("</ul></body></html>")
     (SITE / "stories.html").write_text("\n".join(I), encoding="utf-8")
     print(f"[ok] 生成 {len(built)} 页｜待补 {len(pend)} 场")
     for v in pend[:6]:
