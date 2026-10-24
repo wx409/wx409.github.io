@@ -1522,10 +1522,13 @@ def compute_daily_listen(df_all, total_songs, min_active=5, top_n=500, min_displ
     _n_today = int(len(active))
     # 近 7 日 active_count 中位（用同一 df 的每日有值曲目数）
     try:
-        _daily = df.copy()
-        _daily["d"] = pd.to_datetime(_daily["data_date"], errors="coerce").dt.strftime("%Y-%m-%d")
-        _cnt = _daily.groupby("d")["uid"].nunique().sort_index().tail(7)
-        _r7 = float(_cnt.median()) if len(_cnt) else None
+        # 与「今日 n」同口径：当日 listeners>0 的行数；取当前日之前 7 个数据日的中位
+        _prev = [d for d in dates if d != cur_date][-7:]
+        _c = []
+        for _d in _prev:
+            _g = daily[daily["data_date"] == _d]
+            _c.append(int((_g["listeners"].notna() & (_g["listeners"] > 0)).sum()))
+        _r7 = float(pd.Series(_c).median()) if _c else None
     except Exception:
         _r7 = None
     return {
@@ -3671,7 +3674,7 @@ setTimeout(function(){
   var _ctx = document.getElementById('dailySampleCtx');
   if (_ctx) {
     _ctx.style.display = 'block';
-    _ctx.textContent = '今日 ' + _n + ' 首；近 7 日中位 ' + _r7 + ' 首';
+    _ctx.textContent = '今日 ' + _n + ' 首；近 7 日同口径中位 ' + _r7 + ' 首';
   }
   var _tag = document.getElementById('dailySampleTag');
   if (_tag) {
