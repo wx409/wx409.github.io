@@ -62,6 +62,7 @@ FOOTER_GROUPS = [
               "data/calibers.md", "data/kb/kb_digest.md",
               # 检索意图视图（2026-10-11 新增；只加视图，不动已有 URL）
               "index-by-song.html", "index-by-event.html", "index-by-question.html"]),
+    ("场次故事", ["stories.html", "series-low-line.html", "series-long-tone.html", "series-vibrato.html", "series-chenxiang.html", "series-copyright.html"]),
     ("声学·内容", ["topic-vibrato.html", "voice.html", "skill.html", "stage.html", "live-materials.html", "academic.html", "qa.html",
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
                     # 演唱实测说明（2026-10-14 新增；文章版 + 可转发短句版。不进主导航）

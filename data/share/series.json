@@ -1,0 +1,50 @@
+{
+ "series": [
+  {
+   "id": "low-line",
+   "title": "低音线",
+   "desc": "录音室与现场的最低稳定音、低音占比与基线",
+   "cards": [
+    "card_low_baseline",
+    "card_low_floor",
+    "card_low_dynamic"
+   ]
+  },
+  {
+   "id": "long-tone",
+   "title": "长声",
+   "desc": "一口气的长度与音高稳定",
+   "cards": [
+    "card_long_tone",
+    "card_pick_16s_breath"
+   ]
+  },
+  {
+   "id": "vibrato",
+   "title": "颤音",
+   "desc": "十年来同一个抖法",
+   "cards": [
+    "card_vibrato",
+    "card_vibrato_8y"
+   ]
+  },
+  {
+   "id": "chenxiang",
+   "title": "沉响纪实",
+   "desc": "两晚同曲、跨源与点歌段",
+   "cards": [
+    "card_pair_54",
+    "card_pick_low_superlative"
+   ]
+  },
+  {
+   "id": "copyright",
+   "title": "版权梗",
+   "desc": "一首想唱七年的歌与它的传播",
+   "cards": [
+    "card_woyaoni_selfignite",
+    "card_selfignite_latest"
+   ]
+  }
+ ]
+}
