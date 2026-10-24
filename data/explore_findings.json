@@ -173,21 +173,21 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "294 个采集批次、2488 个音频文件、80.95 GB、1447 个逐曲分析产物",
+   "finding": "294 个采集批次、2522 个音频文件、82.22 GB、1447 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-10-24T15:21:46",
+    "generated_at": "2026-10-24T17:08:48",
     "since": "2026-10-24",
     "batches": 294,
-    "files": 2488,
-    "gb": 80.95,
-    "new_files": 0,
-    "new_mb": 0.0,
+    "files": 2522,
+    "gb": 82.22,
+    "new_files": 34,
+    "new_mb": 1303.3,
     "stats_total": 1447,
     "stage_rows": 807,
     "claimable": 647,
     "claimable_soft": 330
    },
-   "n": 2488,
+   "n": 2522,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
@@ -235,7 +235,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 60、站点层 59",
    "numbers": {
-    "generated_at": "2026-10-24T17:08:36",
+    "generated_at": "2026-10-24T21:09:00",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
@@ -244,7 +244,7 @@
     "L3_中": 0,
     "L4_弱": 4,
     "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-    "files_scanned": 8465,
+    "files_scanned": 8466,
     "measured_shows_site": 59,
     "shows_with_claimable_site": 58,
     "bv_mapped": 143
