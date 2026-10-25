@@ -28,6 +28,28 @@ def load(rel, default=None):
         return default if default is not None else {}
 
 
+CLAIMS = load("data/claims.json", {})
+CAL = load("data/calibration_pitch.json", {})
+_C1 = next((c for c in CLAIMS.get("claims", []) if c.get("id") == "C1-duoting-c2-repro"), {})
+
+
+def c2_wording() -> str:
+    """C2 的页面措辞由主张状态派生：主张暂停/撤回时，页面自动降级。"""
+    if _C1.get("status") in ("暂停", "撤回"):
+        return "（C1 主张已暂停，读数暂不作为结论）"
+    return "C2 音级（读数随方法与参数变化，仅报音级）"
+
+
+def cal_sentence() -> str:
+    sm = (CAL.get("summary") or {})
+    if not sm:
+        return "② 合成基准的误差表现：暂无可用校准数据；"
+    return (f"② <strong>合成基准的误差表现</strong>：{sm.get('runs')} 次理想谐波复音运行中，"
+            f"判对容差 ±{sm.get('tol_cents')} 音分，绝对误差中位 {sm.get('err_median')} 音分、"
+            f"P90 {sm.get('err_p90')}、最大 {sm.get('err_max')}；"
+            f"<strong>该结果只覆盖该基准的合成条件，不代表真实现场录音的统一误差</strong>；")
+
+
 _TIER_BLOCK = '''<!-- TIER-CALIBER:START（三级读数制度统一文本块，勿手改）-->
 <div style="margin:14px 0;padding:12px 16px;background:#fff8f0;border:1px solid #eddcc0;border-radius:8px;font-size:14px;line-height:1.9">
 <strong>三级读数制度（本站声学数据统一口径，全站一致）</strong>
@@ -139,7 +161,7 @@ def main() -> int:
         live_rows = (f"<tr><td>{esc(svl.get('song'))}</td><td>录音室</td>"
                      f"<td>{esc(svl.get('studio_note'))}</td><td>{esc(svl.get('studio_hz'))} Hz</td></tr>"
                      f"<tr><td>{esc(svl.get('song'))}</td><td>现场</td>"
-                     f"<td>{esc(svl.get('live_note'))}</td><td>{esc(svl.get('live_hz'))} Hz</td></tr>")
+                     f"<td>{esc(svl.get('live_note'))}</td><td>{c2_wording()}</td></tr>")
 
     # ── 与他人的对照 ──
     ctx_rows = ""
@@ -267,9 +289,9 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 {cmp_html}
 
 <div class="hl">
-<strong>方法与边界（诚实披露）：</strong>① 全部数据来自本地人声分离 + 自研 YIN 逐帧 F0，音源为流媒体有损/无损音频，非母带；② 绝对频率存在 ±0.5Hz 量级误差，但不影响音级判定；
-③ 高音侧可能混入伴唱/和声层，需人工听辨，不作"能唱该音"的断言；④ 本页不作排名式结论；
-⑤ "唱功"一词在本页严格限定为<strong>可测量的发声控制指标</strong>（音域/颤音/稳定性/密度/声区），不涉及艺术评价。
+<strong>方法与边界（诚实披露）：</strong>① 全部数据来自本地人声分离 + 自研 YIN 逐帧 F0，音源为流媒体有损/无损音频，非母带；{cal_sentence()}③ <strong>真实录音的误差边界</strong>：目前仅完成少量参考标注试运行，尚不足以给出全站统一的 ±Hz 或音分误差范围；具体个案仍须结合人声归属、原始混音谐波列与参数敏感性判断；
+④ 高音侧可能混入伴唱/和声层，需人工听辨，不作"能唱该音"的断言；⑤ 本页不作排名式结论；
+⑥ "唱功"一词在本页严格限定为<strong>可测量的发声控制指标</strong>（音域/颤音/稳定性/密度/声区），不涉及艺术评价。
 </div>
 <p class="sub">生成器：<code>project_b/build_skill_page.py</code>（数据全部派生自站点 JSON，无手写数字）。</p>
 </body></html>"""
