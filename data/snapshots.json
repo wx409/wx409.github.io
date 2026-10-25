@@ -1,0 +1,44 @@
+{
+ "schema": "snapshots/v1",
+ "generated_at": "2026-10-25",
+ "principle": "日期用于阅读，运行标识用于复核。派生数字必须绑定 snapshot_id；混合复跑不得写成同日全量重测。",
+ "snapshots": [
+  {
+   "snapshot_id": "snap-2026-09-21",
+   "snapshot_date": "2026-09-21",
+   "method_version": "yin-v2 + report-v1（稳定音门槛 0.15s/HNR5dB；专辑音域汇总）",
+   "status": "完整基准",
+   "included_albums": ["Low C的诱惑", "Low C的诱惑Ⅱ", "重游往昔", "歌颂", "B面图景", "回望", "X自选集", "不说"],
+   "rerun_albums": [],
+   "source_run_ids": {"all": "run-2026-09-21-album-full"},
+   "supersedes": null,
+   "note": "站内现行 0.27Hz 的来源快照；八张作品均为同一次运行环境"
+  },
+  {
+   "snapshot_id": "snap-2026-10-25-mixed",
+   "snapshot_date": "2026-10-25",
+   "method_version": "yin-v2 + report-v1（同一脚本与参数）",
+   "status": "混合复跑",
+   "included_albums": ["Low C的诱惑", "Low C的诱惑Ⅱ", "重游往昔", "歌颂", "B面图景", "回望", "X自选集", "不说"],
+   "rerun_albums": ["X自选集", "不说"],
+   "source_run_ids": {
+    "X自选集": "run-2026-10-24-cd-arbitration-force",
+    "不说": "run-2026-10-24-cd-arbitration-force",
+    "其他六张": "run-2026-09-21-album-full"
+   },
+   "supersedes": "snap-2026-09-21",
+   "note": "为 CD 仲裁强制复跑 X自选集 与 不说 后的状态；其余六张仍来自旧运行，故为混合快照"
+  }
+ ],
+ "pending_decision": {
+  "metric": "八张录音室作品逐碟颤音速率中位数之极差",
+  "old_value": 0.27,
+  "new_value": 0.39,
+  "status": "候选值，未达发布条件",
+  "checks": {
+   "method_consistency": "同一脚本与参数（批量专辑音域.py + 生成专辑音域报告.py），方法未变",
+   "comparability": "X自选集/不说 的音源未变（仍为 320k），复跑仅因极值仲裁触发；跨专辑可比性需复核",
+   "repeatability": "未完成（需同一输入与方法二次复跑比对）"
+  }
+ }
+}

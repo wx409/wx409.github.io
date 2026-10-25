@@ -1,0 +1,41 @@
+{
+ "schema": "derived/vibrato_spread-v1",
+ "metric": "八张录音室作品逐碟颤音速率中位数之极差",
+ "definition": "max(逐碟中位) − min(逐碟中位)；颤音速率单位 Hz",
+ "snapshot_id": "snap-2026-10-25-mixed",
+ "snapshot_date": "2026-10-25",
+ "status": "混合复跑",
+ "included_albums": [
+  "B面图景",
+  "Low C的诱惑",
+  "Low C的诱惑Ⅱ",
+  "X自选集",
+  "不说",
+  "回望",
+  "歌颂",
+  "重游往昔"
+ ],
+ "album_medians": {
+  "B面图景": 5.07,
+  "Low C的诱惑": 5.34,
+  "Low C的诱惑Ⅱ": 5.31,
+  "X自选集": 5.09,
+  "不说": 4.95,
+  "回望": 5.07,
+  "歌颂": 5.2,
+  "重游往昔": 5.15
+ },
+ "value_hz": 0.39,
+ "input_fingerprint": "3638c4e62b0f136a",
+ "generated_at": "2026-10-25 16:37",
+ "publishable": false,
+ "publishable_reason": "重复性校验未完成；页面暂用旧快照值，待判定后切换",
+ "history": [
+  {
+   "snapshot_id": "snap-2026-09-21",
+   "snapshot_date": "2026-09-21",
+   "value_hz": 0.27,
+   "note": "旧完整基准；现有页面仍显示该值"
+  }
+ ]
+}

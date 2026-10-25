@@ -41,7 +41,13 @@ alb_rows = sorted(((a, len(v), st.median(v)) for a, v in by_alb.items()), key=la
 vib_all = st.median([s["vibrato_hz"] for s in songs if s.get("vibrato_hz")])
 vib_ext = st.median([s["vibrato_cents"] for s in songs if s.get("vibrato_cents")])
 alb_meds = [r[2] for r in alb_rows]
-drift = max(alb_meds) - min(alb_meds)
+drift_live = max(alb_meds) - min(alb_meds)
+DERIVED = json.loads((SITE / "data" / "derived" / "vibrato_spread.json").read_text(encoding="utf-8"))
+_hist = {h["snapshot_id"]: h for h in DERIVED.get("history", [])}
+_off = _hist.get("snap-2026-09-21")
+drift = float(_off["value_hz"]) if _off else round(drift_live, 2)
+drift_cand = float(DERIVED.get("value_hz", drift_live))
+drift_official_date = _off["snapshot_date"] if _off else "—"
 tv = [(t["tour"], t.get("vibrato_rate_hz_median")) for t in tour.get("by_tour", []) if t.get("vibrato_rate_hz_median")]
 tv_min, tv_max = min(x[1] for x in tv), max(x[1] for x in tv)
 
@@ -110,6 +116,9 @@ code{{background:#f4efe8;padding:1px 5px;border-radius:4px;font-size:13px}}
 比录音室系统性慢 0.2–0.3 Hz（现场更松弛或速度更慢），但<b>轮与轮之间几乎不动</b>。</p>
 <p>颤音速率反映的是<b>神经—肌肉振荡频率</b>，是声带很难长期稳定的指标。十年间几乎不漂，
 意味着它稳定到<b>可以作为声纹指纹</b>使用。</p>
+<p class="sub">数据快照：{drift_official_date}（完整基准，八张录音室作品逐碟中位数之极差 {drift:.2f}Hz）。
+另：2026-10-25 因 CD 仲裁复跑了《X自选集》《不说》，同一口径重算为 <b>{drift_cand:.2f}Hz</b>，
+该值为<b>候选</b>——两次复跑与其余六张的可比性、重复性尚未完成，暂不作为对外结论。</p>
 </div>
 
 <h2>二、方法（可复算）</h2>
