@@ -44,18 +44,6 @@ footer{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px solid
 @media print{aside,#q{display:none}.wrap{display:block;max-width:none}.scroll{max-height:none}}
 @media(max-width:820px){.wrap{grid-template-columns:1fr}aside{position:static;border:none;max-height:none}}
 </style></head><body>
-<!-- NAV_START -->
-<div class="nav">
-    <a href="/index.html">🏠 首页</a>
-    <a href="/works.html">🎵 作品</a>
-    <a href="/live.html">🎤 现场</a>
-    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
-    <a href="/history.html">📅 生涯</a>
-    <a href="/research.html">📚 研究</a>
-    <a href="/community.html">💬 参与</a>
-</div>
-<!-- NAV_END -->
-
 <div class="wrap">
 <aside>
 <div class="g">导读</div>
@@ -80,7 +68,7 @@ footer{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px solid
 </aside>
 <main>
 <h1>王晰声学全量报告</h1>
-<p class="lead">粉丝自建 · 权威口径 · 可复算 · 自动更新｜生成于 2026-10-25 18:34</p>
+<p class="lead">粉丝自建 · 权威口径 · 可复算 · 自动更新｜生成于 2026-10-25 19:57</p>
 <input id="q" type="search" placeholder="在本报告内搜索（曲名 / 音名 / 城市 / 巡次 / 「和声」「次谐波」…）">
 
 <section id="what"><h2>这本报告是什么</h2>
@@ -103,6 +91,51 @@ footer{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px solid
 <p>QQ音乐 320k / 自录音源 → <code>demucs htdemucs</code> 人声分离 → 自研 numpy YIN 逐帧 F0
 （fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动 &lt;0.6 半音）→
 稳健过滤（时长 ≥0.15s、HNR ≥5dB、rms ≥中位−25dB）→ 低音读数另做<b>原始混音谐波列</b>判定。</p>
+
+<h3>一、测量链路与主要失效情形</h3>
+<div class="note">
+<b>链路</b>：原始素材 → 人声归属与目标片段 → 音高／相关参数估计 → 复核与敏感性 → 主张 → 页面与发布出口。
+</div>
+<ul>
+<li><b>倍频／次谐波</b>：锁到真周期的 2×、1/2、1/3 倍 → 在原始混音查谐波列。</li>
+<li><b>伴奏 bass</b>：分离前混音里 53–57Hz 可能是贝斯残留 → 只有人声分离后的读数才进统计。</li>
+<li><b>分离伪影</b>：demucs 会改变低频能量 → 极值读数必须在原始混音上复核。</li>
+<li><b>归属不清</b>：双人场次、和声层、念诵段 → 标「归属未定」，不进结论。</li>
+<li><b>不可比</b>：不同素材（录音室／现场／手机）不可直接相减或排名。</li>
+</ul>
+
+<h3>二、合成校准结果（第一层，仅合成信号）</h3>
+<table><thead><tr><th>项</th><th>值</th></tr></thead><tbody>
+<tr><td>运行次数</td><td>120 次理想谐波复音</td></tr>
+<tr><td>判对容差</td><td>±50.0 音分</td></tr>
+<tr><td>绝对误差 中位 / P90 / 最大</td><td>3.4 / 9.2 / 12.4 音分</td></tr>
+<tr><td>负对照</td><td>纯 60Hz 贝斯可被读出「音高」→ 说明「能测音高 ≠ 能判是人」；静音不出帧；纯噪声可产生虚假读数</td></tr>
+</tbody></table>
+<div class="note"><b>固定说明</b>：这是<b>合成基准</b>，不是 120 个独立真实现场样本，也不代表真实录音的统一误差。</div>
+
+<h3>三、真实录音的误差边界</h3>
+<ul>
+<li>参考标注目前只完成<b>少量试运行</b>；</li>
+<li><b>人声归属</b>与 <b>F0 参考标注</b>是两个任务，不能相互替代；</li>
+<li>尚不足以给出全站统一的 ±Hz 或音分误差；</li>
+<li>个案仍需结合：归属确认、原始混音谐波列、必要的参数敏感性分析。</li>
+</ul>
+
+<h3>四、快照、方法版本与适用范围</h3>
+<p><b>当前快照</b>：snap-2026-09-21（完整基准，2026-09-21）；snap-2026-10-25-mixed（混合复跑，2026-10-25）。</p>
+<ul>
+<li><b>release（发布值）</b>：0.27Hz，来自 snap-2026-09-21（完整基准（八张同一次运行））。</li>
+<li><b>候选值</b>：0.39Hz，状态「混合复跑；可比性与重复性未完成」，不可发布。</li>
+<li><b>混合快照</b>：局部复跑（如 CD 仲裁重跑两张专辑）会让文件处于「部分新、部分旧」状态，故必须登记 rerun_albums，不能写成同日全量重测。</li>
+<li><b>失效机制</b>：主张暂停或撤回 → 对应页面结论与发布出口同步降级；原始素材记录保留。</li>
+</ul>
+<table><thead><tr><th>指标</th><th>当前适用范围</th></tr></thead><tbody>
+<tr><td>F0 / 最低稳定音</td><td>已接入；合成校准通过，真实误差待分层估计</td></tr>
+<tr><td>稳定性（音分）</td><td>已接入；仅「同一音内部」，不等于整曲音准</td></tr>
+<tr><td>颤音速率</td><td>已接入；修音基本不动速率，可组内纵向比较</td></tr>
+<tr><td>动态范围</td><td>已接入但限制使用：跨设备／跨场地 dB 不可直接比较</td></tr>
+<tr><td>共振峰 F1/F2</td><td><b>探索性</b>：三种方法结果不一致，暂不作结论</td></tr>
+</tbody></table>
 <h3>六条血泪纪律（判读前必读）</h3>
 <ol>
 <li><b>YIN 次谐波陷阱</b>：极高音 + 密集编曲会锁到真周期的 1/3、1/5 倍。判别法：在<b>原始混音</b>上查谐波列，2f0/4f0 有峰才是真音，只有 3f0/6f0 即次谐波错误。</li>
@@ -204,7 +237,7 @@ DiD 中位 1.6%。结论：<b>设计成立、样本不足</b>；要跑通得先�
 
 <section id="topics"><h2>写作专题 · 三题（现象 → 方法 → 数字 → 反面证据 → 可引用句）</h2>
 <p class="lead">从全部可复算观测里挑出三题做深挖，每题固定五段结构，<b>反面证据与限定与结论一起给</b>，避免"只传漂亮数字"。</p>
-<h3>专题1｜音域两端：B1 61.5Hz 与 A#1 57.8Hz 的两支证据</h3><p><b>现象</b>：录音室 72 曲最低稳定音 B1 61.5Hz（《静止了的夜晚》），B1 共 4 首；现场层最低 A#1 57.8Hz（签唱会自录存档，谐波列通过）；上端录音室 F5 706Hz、现场人耳确认 968Hz（莫斯科《在路上》）。</p><p><b>方法</b>：QQ 320k / 自录 → demucs htdemucs 人声分离 → 自研 numpy YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动&lt;0.6 半音）→ 稳健过滤（时长≥0.15s、HNR≥5dB、rms≥中位−25dB；极值音本身≥0.2s）→ 原始混音谐波列复核。</p><p><b>原始数字</b>：<code>{"录音室最低": "B1 61.5Hz（静止了的夜晚）", "B1 曲目": ["静止了的夜晚", "渔光曲", "多听有益", "知晓"], "现场最低": "A#1 57.8Hz（王晰B面图景杭州签售自录存档 20211127___P05_游离）", "现场人耳确认最低": "B1 61.2Hz（一巡厦门20191221_p2_跟着你到天边）", "上端": "录音室 F5 706Hz；现场人耳确认 968Hz（莫斯科）"}</code></p><p><b>反面证据与限定</b>：① 现场 A#1 57.8Hz 目前是「谐波列通过」而非人耳确认，引用须带此限定；② 《向着太阳》曾因 YIN 次谐波误读 D#2，经 CREPE 复核改为 G2 97.8Hz——说明单引擎读数可能错，必须双引擎+谐波列；③ 低于 Low C 的读数在混音上容易被伴奏 bass 污染。</p><p><b>可引用句</b>：</p><ul><li>“他的下限 B1 比男低音标志音 Low C 还低一个半音；现场甚至到过 A#1——两端都在声部标准之外。”</li><li>“4 首录音室曲目触及 B1，说明这不是一次意外，而是他四张专辑里的工作音。”</li></ul><h3>专题2｜颤音指纹：八张录音室作品只漂 0.27Hz</h3><p><b>现象</b>：录音室 72 曲颤音速率中位 5.12Hz；八张录音室作品各自中位仅 4.95–5.34Hz（漂移 0.39Hz）；六轮巡演 4.79–4.97Hz。</p><p><b>方法</b>：逐音符 F0 轨迹的调制分析（颤音速率＝调制频率，幅度＝音分跨度）；音频同上管线。</p><p><b>原始数字</b>：<code>{"整体中位": 5.12, "专辑间": {"B面图景": 5.07, "Low C的诱惑": 5.34, "Low C的诱惑Ⅱ": 5.31, "X自选集": 5.09, "不说": 4.95, "回望": 5.07, "歌颂": 5.2, "重游往昔": 5.15}, "巡演": [4.79, 4.97, 4.84, 4.79, 4.89, 4.97]}</code></p><p><b>反面证据与限定</b>：① 颤音速率按本站分层属「组内可纵比、跨组谨慎」——修音基本不动速率，但幅度可能受影响；② 现场比录音室系统性慢 0.2–0.3Hz，属演出状态差异，不是能力下降；③ 这只说明「稳定性达到可作指纹的程度」，不构成「好/坏」评价。</p><p><b>可引用句</b>：</p><ul><li>“一台十年校准误差 0.27Hz 的乐器。”</li><li>“颤音速率是人类声带很难长期稳定的指标——十年间几乎不动，稳定到可以作为指纹。”</li></ul><h3>专题3｜音区自觉：给自己的歌 vs 唱别人的歌</h3><p><b>现象</b>：现场层里自有曲最低音中位 85.6Hz（n=39），翻唱曲 89.6Hz（n=198）——他给自己的歌写得更低，唱别人的歌时收着。</p><p><b>方法</b>：现场层逐素材最低稳定音 → 按「自有/翻唱」分组取中位（同管线同口径）；另做同曲跨场多版本方差分析。</p><p><b>原始数字</b>：<code>{"自有中位": 85.6, "自有n": 39, "翻唱中位": 89.6, "翻唱n": 198, "≥3 版本曲目": 40, "同曲跨场 CV 中位": 0.1255}</code></p><p><b>反面证据与限定</b>：① 两组样本严重不对称（自有 21 vs 翻唱 121），只能当倾向，不能当结论；② 自有/翻唱的划分依赖「发行归属」，个别曲目存在合作/翻唱界定争议；③ 现场选曲受场次与点歌影响，不是纯粹的创作选择。</p><p><b>可引用句</b>：</p><ul><li>“他给自己写的歌，比唱别人的歌更低——低音是留给作品的签名。”</li><li>“唱过 293 首里翻唱 241 首，跨巡保留率仅 2–6%：每一轮巡演几乎换血。”</li></ul>
+<h3>专题1｜音域两端：B1 61.5Hz 与 A#1 57.8Hz 的两支证据</h3><p><b>现象</b>：录音室 72 曲最低稳定音 B1 61.5Hz（《静止了的夜晚》），B1 共 4 首；现场层最低 A#1 57.8Hz（签唱会自录存档，谐波列通过）；上端录音室 F5 706Hz、现场人耳确认 968Hz（莫斯科《在路上》）。</p><p><b>方法</b>：QQ 320k / 自录 → demucs htdemucs 人声分离 → 自研 numpy YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动&lt;0.6 半音）→ 稳健过滤（时长≥0.15s、HNR≥5dB、rms≥中位−25dB；极值音本身≥0.2s）→ 原始混音谐波列复核。</p><p><b>原始数字</b>：<code>{"录音室最低": "B1 61.5Hz（静止了的夜晚）", "B1 曲目": ["静止了的夜晚", "渔光曲", "多听有益", "知晓"], "现场最低": "A#1 57.8Hz（王晰B面图景杭州签售自录存档 20211127___P05_游离）", "现场人耳确认最低": "B1 61.2Hz（一巡厦门20191221_p2_跟着你到天边）", "上端": "录音室 F5 706Hz；现场人耳确认 968Hz（莫斯科）"}</code></p><p><b>反面证据与限定</b>：① 现场 A#1 57.8Hz 目前是「谐波列通过」而非人耳确认，引用须带此限定；② 《向着太阳》曾因 YIN 次谐波误读 D#2，经 CREPE 复核改为 G2 97.8Hz——说明单引擎读数可能错，必须双引擎+谐波列；③ 低于 Low C 的读数在混音上容易被伴奏 bass 污染。</p><p><b>可引用句</b>：</p><ul><li>“他的下限 B1 比男低音标志音 Low C 还低一个半音；现场甚至到过 A#1——两端都在声部标准之外。”</li><li>“4 首录音室曲目触及 B1，说明这不是一次意外，而是他四张专辑里的工作音。”</li></ul><h3>专题2｜颤音指纹：七张专辑与一张数字 EP极差 0.27Hz</h3><p><b>现象</b>：录音室 72 曲颤音速率中位 5.12Hz；七张专辑与一张数字 EP各自中位仅 4.95–5.34Hz（漂移 0.39Hz）；六轮巡演 4.79–4.97Hz。</p><p><b>方法</b>：逐音符 F0 轨迹的调制分析（颤音速率＝调制频率，幅度＝音分跨度）；音频同上管线。</p><p><b>原始数字</b>：<code>{"整体中位": 5.12, "专辑间": {"B面图景": 5.07, "Low C的诱惑": 5.34, "Low C的诱惑Ⅱ": 5.31, "X自选集": 5.09, "不说": 4.95, "回望": 5.07, "歌颂": 5.2, "重游往昔": 5.15}, "巡演": [4.79, 4.97, 4.84, 4.79, 4.89, 4.97]}</code></p><p><b>反面证据与限定</b>：① 颤音速率按本站分层属「组内可纵比、跨组谨慎」——修音基本不动速率，但幅度可能受影响；② 现场比录音室系统性慢 0.2–0.3Hz，属演出状态差异，不是能力下降；③ 这只说明「稳定性达到可作指纹的程度」，不构成「好/坏」评价。</p><p><b>可引用句</b>：</p><ul><li>“一台十年校准误差 0.27Hz 的乐器。”</li><li>“颤音速率是人类声带很难长期稳定的指标——十年间几乎不动，稳定到可以作为指纹。”</li></ul><h3>专题3｜音区自觉：给自己的歌 vs 唱别人的歌</h3><p><b>现象</b>：现场层里自有曲最低音中位 85.6Hz（n=39），翻唱曲 89.6Hz（n=198）——他给自己的歌写得更低，唱别人的歌时收着。</p><p><b>方法</b>：现场层逐素材最低稳定音 → 按「自有/翻唱」分组取中位（同管线同口径）；另做同曲跨场多版本方差分析。</p><p><b>原始数字</b>：<code>{"自有中位": 85.6, "自有n": 39, "翻唱中位": 89.6, "翻唱n": 198, "≥3 版本曲目": 40, "同曲跨场 CV 中位": 0.1255}</code></p><p><b>反面证据与限定</b>：① 两组样本严重不对称（自有 21 vs 翻唱 121），只能当倾向，不能当结论；② 自有/翻唱的划分依赖「发行归属」，个别曲目存在合作/翻唱界定争议；③ 现场选曲受场次与点歌影响，不是纯粹的创作选择。</p><p><b>可引用句</b>：</p><ul><li>“他给自己写的歌，比唱别人的歌更低——低音是留给作品的签名。”</li><li>“唱过 293 首里翻唱 241 首，跨巡保留率仅 2–6%：每一轮巡演几乎换血。”</li></ul>
 </section>
 
 <section id="assets"><h2>资产台账与来源构成（素材是怎么来的）</h2>
@@ -375,16 +408,4 @@ DiD 中位 1.6%。结论：<b>设计成立、样本不足</b>；要跑通得先�
   if(window.echarts) init(); else window.addEventListener('load',init);
 })();
 </script>
-<!-- FOOTER_NAV_START -->
-<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
-<strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
-<div style="margin-top:6px;"><b>主入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
-<div style="margin-top:6px;"><b>核心内容：</b><a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/dongyan.html" style="color:#c41e3a;text-decoration:none;">东演合作专区</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/story-hui-guangzhou-2026.html" style="color:#c41e3a;text-decoration:none;">六巡广州站数据复盘</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
-<div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">setlists.html</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a> · <a href="/index-by-song.html" style="color:#c41e3a;text-decoration:none;">按歌索引</a> · <a href="/index-by-event.html" style="color:#c41e3a;text-decoration:none;">按事件索引</a> · <a href="/index-by-question.html" style="color:#c41e3a;text-decoration:none;">按问题索引</a></div>
-<div style="margin-top:6px;"><b>场次故事：</b><a href="/stories.html" style="color:#c41e3a;text-decoration:none;">stories.html</a></div>
-<div style="margin-top:6px;"><b>来源与引用：</b><a href="/press.html" style="color:#c41e3a;text-decoration:none;">press.html</a> · <a href="/share.html" style="color:#c41e3a;text-decoration:none;">share.html</a></div>
-<div style="margin-top:6px;"><b>声学·内容：</b><a href="/topic-vibrato.html" style="color:#c41e3a;text-decoration:none;">🎻 颤音指纹专题</a> · <a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测</a> · <a href="/live-materials.html" style="color:#c41e3a;text-decoration:none;">live-materials.html</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/singing.html" style="color:#c41e3a;text-decoration:none;">singing.html</a> · <a href="/singing-social.html" style="color:#c41e3a;text-decoration:none;">singing-social.html</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a></div>
-<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">🔎 查询与问答</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/share.html" style="color:#c41e3a;text-decoration:none;">share.html</a> · <a href="/insight.html" style="color:#c41e3a;text-decoration:none;">insight.html</a> · <a href="/acoustic-report.html" style="color:#c41e3a;text-decoration:none;">📊 声学全量报告</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
-</footer>
-<!-- FOOTER_NAV_END -->
 </body></html>

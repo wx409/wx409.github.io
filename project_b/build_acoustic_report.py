@@ -202,6 +202,62 @@ def main() -> int:
 <li><b>中位数一律用 statistics.median</b>，偶数样本取中位；同音名取曲按实测 Hz 排序。</li>
 </ol>"""
 
+    # ---- 方法总站：链路 / 合成校准 / 真实误差边界 / 快照与适用范围 ----
+    cal = load("calibration_pitch.json")
+    snap = load("snapshots.json")
+    der = load("derived/vibrato_spread.json")
+    csm = cal.get("summary") or {}
+    rel = der.get("release") or {}
+    cand = der.get("candidate") or {}
+    snap_list = snap.get("snapshots") or []
+    METHOD_BLOCK = f"""
+<h3>一、测量链路与主要失效情形</h3>
+<div class="note">
+<b>链路</b>：原始素材 → 人声归属与目标片段 → 音高／相关参数估计 → 复核与敏感性 → 主张 → 页面与发布出口。
+</div>
+<ul>
+<li><b>倍频／次谐波</b>：锁到真周期的 2×、1/2、1/3 倍 → 在原始混音查谐波列。</li>
+<li><b>伴奏 bass</b>：分离前混音里 53–57Hz 可能是贝斯残留 → 只有人声分离后的读数才进统计。</li>
+<li><b>分离伪影</b>：demucs 会改变低频能量 → 极值读数必须在原始混音上复核。</li>
+<li><b>归属不清</b>：双人场次、和声层、念诵段 → 标「归属未定」，不进结论。</li>
+<li><b>不可比</b>：不同素材（录音室／现场／手机）不可直接相减或排名。</li>
+</ul>
+
+<h3>二、合成校准结果（第一层，仅合成信号）</h3>
+<table><thead><tr><th>项</th><th>值</th></tr></thead><tbody>
+<tr><td>运行次数</td><td>{csm.get('runs')} 次理想谐波复音</td></tr>
+<tr><td>判对容差</td><td>±{csm.get('tol_cents')} 音分</td></tr>
+<tr><td>绝对误差 中位 / P90 / 最大</td><td>{csm.get('err_median')} / {csm.get('err_p90')} / {csm.get('err_max')} 音分</td></tr>
+<tr><td>负对照</td><td>纯 60Hz 贝斯可被读出「音高」→ 说明「能测音高 ≠ 能判是人」；静音不出帧；纯噪声可产生虚假读数</td></tr>
+</tbody></table>
+<div class="note"><b>固定说明</b>：这是<b>合成基准</b>，不是 120 个独立真实现场样本，也不代表真实录音的统一误差。</div>
+
+<h3>三、真实录音的误差边界</h3>
+<ul>
+<li>参考标注目前只完成<b>少量试运行</b>；</li>
+<li><b>人声归属</b>与 <b>F0 参考标注</b>是两个任务，不能相互替代；</li>
+<li>尚不足以给出全站统一的 ±Hz 或音分误差；</li>
+<li>个案仍需结合：归属确认、原始混音谐波列、必要的参数敏感性分析。</li>
+</ul>
+
+<h3>四、快照、方法版本与适用范围</h3>
+<p><b>当前快照</b>：{'；'.join(f"{x.get('snapshot_id')}（{x.get('status')}，{x.get('snapshot_date')}）" for x in snap_list[:2])}。</p>
+<ul>
+<li><b>release（发布值）</b>：{rel.get('value_hz')}Hz，来自 {rel.get('snapshot_id')}（{rel.get('basis')}）。</li>
+<li><b>候选值</b>：{cand.get('value_hz')}Hz，状态「{cand.get('status')}」，不可发布。</li>
+<li><b>混合快照</b>：局部复跑（如 CD 仲裁重跑两张专辑）会让文件处于「部分新、部分旧」状态，故必须登记 rerun_albums，不能写成同日全量重测。</li>
+<li><b>失效机制</b>：主张暂停或撤回 → 对应页面结论与发布出口同步降级；原始素材记录保留。</li>
+</ul>
+<table><thead><tr><th>指标</th><th>当前适用范围</th></tr></thead><tbody>
+<tr><td>F0 / 最低稳定音</td><td>已接入；合成校准通过，真实误差待分层估计</td></tr>
+<tr><td>稳定性（音分）</td><td>已接入；仅「同一音内部」，不等于整曲音准</td></tr>
+<tr><td>颤音速率</td><td>已接入；修音基本不动速率，可组内纵向比较</td></tr>
+<tr><td>动态范围</td><td>已接入但限制使用：跨设备／跨场地 dB 不可直接比较</td></tr>
+<tr><td>共振峰 F1/F2</td><td><b>探索性</b>：三种方法结果不一致，暂不作结论</td></tr>
+</tbody></table>
+"""
+    theory = theory.replace('<h3>六条血泪纪律（判读前必读）</h3>', METHOD_BLOCK + '<h3>六条血泪纪律（判读前必读）</h3>')
+
     # ---- 选曲与翻唱（无指数数据的 222 首 → 主动性样本）----
     cat = load("cover_catalog.json"); ca = load("cover_analysis.json")
     cstat = cat.get("stat", {})
