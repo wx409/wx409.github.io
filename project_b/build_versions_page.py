@@ -45,7 +45,8 @@ STYLE = """
 CLAIMS = json.loads((Path(__file__).resolve().parent.parent / "data" / "claims.json")
                      .read_text(encoding="utf-8"))
 _CMAP = {c["id"]: c for c in CLAIMS.get("claims", [])}
-SONG_CLAIMS = {"让她降落": "C4-rangta-c2", "再见我的爱人": "C5-zaijian-same-note"}
+SONG_CLAIMS = json.loads((Path(__file__).resolve().parent.parent / "data" / "song_claims.json")
+                             .read_text(encoding="utf-8")).get("mapping", {})
 
 
 def claim_block(song: str) -> str:
@@ -60,6 +61,9 @@ def claim_block(song: str) -> str:
         return ('<p class="sub" style="color:#c0392b"><b>该曲主张已暂停</b>：'
                 '下列读数暂不作为结论，仅留档。</p>')
     sc = c.get("scope") or {}
+    if c.get("classification") == "待核":
+        return (f'<p class="sub" style="color:#c0392b"><b>暂不适合汇总（主张 {cid}）</b>：'
+                f'{esc((c.get("cannot_write") or ["纳入统计的版本不足"])[0])}</p>')
     head = (f'<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 {cid}）</b>：'
             f'{esc(c["can_write"][0])}</p>')
     meta = (f'<p class="sub">版本 {sc.get("total_versions")}｜纳入 {sc.get("included")}｜'

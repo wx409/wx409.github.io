@@ -25,17 +25,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "王晰同曲跨场现场读数矩阵", "description": "同一首歌在不同巡次、年份、城市的现场实测读数（12 首 / 102 个版本）。", "isAccessibleForFree": true, "creator": {"@type": "Person", "name": "王晰数字档案站"}, "license": "https://wx409.github.io/about.html", "variableMeasured": ["最低稳定音", "最高稳定音", "跨度", "音符内稳定性", "颤音速率"], "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://wx409.github.io/data/live_versions.json"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "同一首歌在不同城市的现场，最低音会差多少？", "acceptedAnswer": {"@type": "Answer", "text": "本页按巡次与城市逐条列出同一首歌的现场读数。以《多听有益》为例，四巡上海生日与杭州均为 C2 65.2Hz，北京直拍为 D2 74.9Hz，2024-04-18 其他演出为 F#2 95.2Hz，版本间极差约 9.3 个半音——差异主要来自当场调性与编配，不能直接当作唱功升降。"}}, {"@type": "Question", "name": "为什么有些现场读数标着「待判」？", "acceptedAnswer": {"@type": "Answer", "text": "低音区基频常常弱于伴奏与低音乐器，需要原始混音的谐波列判定或人耳听辨才能定案。标「待判」的读数照原样展示，但不计入中位统计，也不作为能力结论的依据。"}}, {"@type": "Question", "name": "这个矩阵能说明什么、不能说明什么？", "acceptedAnswer": {"@type": "Answer", "text": "它能说明同一首歌在多轮巡演中能否回到相近的音高坐标，以及版本之间的实际差异；它不能替代逐句听辨，也不能把不同场次的最低音直接排成能力高低。"}}]}</script>
 </head><body>
-<!-- NAV_START -->
-<div class="nav">
-    <a href="/index.html">🏠 首页</a>
-    <a href="/works.html">🎵 作品</a>
-    <a href="/live.html">🎤 现场</a>
-    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
-    <a href="/history.html">📅 生涯</a>
-    <a href="/research.html">📚 研究</a>
-    <a href="/community.html">💬 参与</a>
-</div>
-<!-- NAV_END -->
+<!-- NAV_START --><!-- NAV_END -->
 <h1>🔀 同曲跨场矩阵</h1>
 <p class="meta">同一首歌，换个城市、隔几年再唱，他还能不能回到同一个音高坐标？本页把 12 首、102 个现场版本按巡次与日期排开——其中 87 条已过复核门槛，11 条标注「待判」。</p>
 <div class="note">口径：只收有最低音读数的现场素材；人耳否决的读数已排除；「待判」条目照原样展示但不进中位统计。跨场最低音差异主要来自当场调性与编配，本页不据此做能力排名。数据源 <code>data/live_versions.json</code>，由 <code>project_b/build_live_versions.py</code> 生成。</div>
@@ -61,7 +51,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">5 个巡次｜20 个版本｜目标段读数中位 <b>92.0 Hz</b>｜版本间极差 <b>5.8 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本最多的一首（20 个），适合看同一首歌怎么随场次变化；版本间极差 5.8 半音——不同调性，不能当能力对比；含 2 条「待判」读数，未计入中位。</p>
-<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C4-rangta-c2）</b>：已核对的 20 个版本里，18 个进入统计，2 个待判</p><p class="sub">版本 20｜纳入 18｜排除 2（状态为「待判」的读数不进中位、不作能力依据）｜跨调性：是｜极差 5.75 半音</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-01-rangta）</b>：已核对的 20 个版本中 18 个进入统计、2 个待判；读数跨度约 5.75 半音，主要来自当场调性与编配差异</p><p class="sub">版本 20｜纳入 18｜排除 2（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 5.75 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>F#2 91.9 Hz</td><td>G5 777.6 Hz</td><td class="n">3.08</td><td class="n">8.4</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>F#2 92.3 Hz</td><td>B4 498.9 Hz</td><td class="n">2.43</td><td class="n">8.6</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
@@ -88,6 +78,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">4 个巡次｜7 个版本｜目标段读数中位 <b>84.7 Hz</b>｜版本间极差 <b>8.9 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 8.9 半音——不同调性，不能当能力对比；含 2 条「待判」读数，未计入中位；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-02-kusha）</b>：已核对的 7 个版本中 5 个进入统计、2 个待判；读数跨度约 8.88 半音，主要来自当场调性与编配差异</p><p class="sub">版本 7｜纳入 5｜排除 2（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 8.88 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>2020-09-04</td><td>—</td><td>F2 85.4 Hz</td><td>A4 441.4 Hz</td><td class="n">2.37</td><td class="n">8.1</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>其他演出</td><td>2021</td><td>上海</td><td>C2 66.0 Hz</td><td>G4 400.5 Hz</td><td class="n">2.60</td><td class="n">6.5</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
@@ -101,6 +92,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">3 个巡次｜14 个版本｜目标段读数中位 <b>90.4 Hz</b>｜版本间极差 <b>4.1 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 4.1 半音——不同调性，不能当能力对比；含 2 条「待判」读数，未计入中位；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-03-yourman）</b>：已核对的 14 个版本中 12 个进入统计、2 个待判；读数跨度约 4.14 半音，主要来自当场调性与编配差异</p><p class="sub">版本 14｜纳入 12｜排除 2（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 4.14 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>F#2 90.6 Hz</td><td>G5 763.6 Hz</td><td class="n">3.08</td><td class="n">8.7</td><td class="n">5.17</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>其他演出</td><td>2019-06-09</td><td>杭州</td><td>F2 89.6 Hz</td><td>A4 452.4 Hz</td><td class="n">2.34</td><td class="n">8.7</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
@@ -121,6 +113,7 @@
 <p class="sub">录音室参照：<b>C2 65.3 Hz</b>（歌颂）</p>
 <p class="sub">3 个巡次｜12 个版本｜目标段读数中位 <b>124.9 Hz</b>｜与录音室相差 <b>+11.2 半音</b>｜版本间极差 <b>14.5 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 14.5 半音——不同调性，不能当能力对比。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-04-xuedi）</b>：已核对的 12 个版本中 12 个进入统计、0 个待判；读数跨度约 14.50 半音，主要来自当场调性与编配差异</p><p class="sub">版本 12｜纳入 12｜排除 0（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 14.5 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>签唱会</td><td>2020-10-07</td><td>杭州</td><td>C#2 70.1 Hz</td><td>A#5 932.3 Hz</td><td class="n">3.73</td><td class="n">5.7</td><td class="n">4.53</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>签唱会</td><td>2020-10-07</td><td>杭州</td><td>C3 128.1 Hz</td><td>G4 392.7 Hz</td><td class="n">2.62</td><td class="n">4.3</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
@@ -139,6 +132,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">3 个巡次｜10 个版本｜目标段读数中位 <b>104.0 Hz</b>｜版本间极差 <b>6.6 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 6.6 半音——不同调性，不能当能力对比；含 1 条「待判」读数，未计入中位；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-05-xiangwu）</b>：已核对的 10 个版本中 9 个进入统计、1 个待判；读数跨度约 6.57 半音，主要来自当场调性与编配差异</p><p class="sub">版本 10｜纳入 9｜排除 1（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 6.57 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>F2 87.9 Hz</td><td>E4 326.2 Hz</td><td class="n">1.89</td><td class="n">8.8</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>其他演出</td><td>2020-11-18</td><td>—</td><td>A2 109.5 Hz</td><td>C4 266.8 Hz</td><td class="n">1.28</td><td class="n">7.4</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
@@ -155,6 +149,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">3 个巡次｜9 个版本｜目标段读数中位 <b>72.2 Hz</b>｜版本间极差 <b>5.0 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 5.0 半音——不同调性，不能当能力对比；含 1 条「待判」读数，未计入中位；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-06-huaer）</b>：已核对的 9 个版本中 5 个进入统计、1 个待判；读数跨度约 4.96 半音，主要来自当场调性与编配差异</p><p class="sub">版本 9｜纳入 5｜排除 4（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 4.96 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>C#2 69.7 Hz</td><td>D5 600.2 Hz</td><td class="n">3.11</td><td class="n">8.0</td><td class="n">4.97</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>C#2 69.7 Hz</td><td>D5 600.1 Hz</td><td class="n">3.11</td><td class="n">8.0</td><td class="n">4.94</td><td><span class="ok">过门槛</span></td></tr>
@@ -170,6 +165,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">3 个巡次｜8 个版本｜目标段读数中位 <b>78.0 Hz</b>｜版本间极差 <b>6.8 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 6.8 半音——不同调性，不能当能力对比；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-07-yisheng）</b>：已核对的 8 个版本中 8 个进入统计、0 个待判；读数跨度约 6.78 半音，主要来自当场调性与编配差异</p><p class="sub">版本 8｜纳入 8｜排除 0（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 6.78 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>—</td><td>—</td><td>C#2 69.5 Hz</td><td>E4 324.4 Hz</td><td class="n">2.22</td><td class="n">5.8</td><td class="n">5.32</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>D#2 78.4 Hz</td><td>A3 220.8 Hz</td><td class="n">1.49</td><td class="n">9.1</td><td class="n">4.98</td><td><span class="ok">过门槛</span></td></tr>
@@ -184,7 +180,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">3 个巡次｜4 个版本｜目标段读数中位 <b>76.5 Hz</b>｜版本间极差 <b>0.1 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差只有 0.14 半音，几乎落在同一个音上；本站未收该曲录音室实测，只作现场内部比较。</p>
-<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C5-zaijian-same-note）</b>：4 个版本的目标段最低音读数几乎重合（极差 0.14 个半音，约 14 音分）</p><p class="sub">版本 4｜纳入 4｜排除 0（无待判读数）｜跨调性：否｜极差 0.14 半音</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-08-zaijian）</b>：4 个已核版本的目标段最低音读数几乎重合（极差 0.14 半音），是同一音高任务被反复完成的直接证据</p><p class="sub">版本 4｜纳入 4｜排除 0（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：否｜极差 0.14 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>—</td><td>广州</td><td>D#2 77.0 Hz</td><td>F5 701.6 Hz</td><td class="n">3.19</td><td class="n">9.5</td><td class="n">4.79</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>一巡</td><td>2019-12-21</td><td>厦门</td><td>D#2 76.5 Hz</td><td>A5 886.4 Hz</td><td class="n">3.53</td><td class="n">7.9</td><td class="n">5.12</td><td><span class="ok">过门槛</span></td></tr>
@@ -195,6 +191,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">2 个巡次｜7 个版本｜目标段读数中位 <b>78.75 Hz</b>｜版本间极差 <b>1.5 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 1.5 半音——不同调性，不能当能力对比；含 1 条「待判」读数，未计入中位；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-09-woyaoni）</b>：已核对的 7 个版本中 6 个进入统计、1 个待判；读数跨度约 1.50 半音，主要来自当场调性与编配差异</p><p class="sub">版本 7｜纳入 6｜排除 1（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 1.5 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>2018-08-26</td><td>—</td><td>C2 65.7 Hz</td><td>D5 588.2 Hz</td><td class="n">3.16</td><td class="n">5.1</td><td class="n">5.11</td><td><span class="pending">待判</span></td></tr>
 <tr><td>其他演出</td><td>2018-12-21</td><td>—</td><td>D#2 78.1 Hz</td><td>B3 250.5 Hz</td><td class="n">1.68</td><td class="n">11.0</td><td class="n">5.38</td><td><span class="ok">过门槛</span></td></tr>
@@ -208,6 +205,7 @@
 <p class="sub">录音室参照：<b>B1 61.7 Hz</b>（X自选集）</p>
 <p class="sub">2 个巡次｜5 个版本｜目标段读数中位 <b>74.9 Hz</b>｜与录音室相差 <b>+3.4 半音</b>｜版本间极差 <b>9.3 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 9.3 半音——不同调性，不能当能力对比。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-10-duoting）</b>：已核对的 5 个版本中 5 个进入统计、0 个待判；读数跨度约 9.30 半音，主要来自当场调性与编配差异</p><p class="sub">版本 5｜纳入 5｜排除 0（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 9.3 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>四巡</td><td>2023-2024</td><td>—</td><td>D2 74.9 Hz</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="ok">过门槛</span></td></tr>
 <tr><td>四巡</td><td>2024</td><td>杭州</td><td>C2 65.2 Hz</td><td>—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="ok">过门槛</span></td></tr>
@@ -219,6 +217,7 @@
 <p class="sub">录音室参照：<b>B1 61.5 Hz</b>（重游往昔）</p>
 <p class="sub">2 个巡次｜4 个版本｜目标段读数中位 <b>58.2 Hz</b>｜与录音室相差 <b>-0.9 半音</b>｜版本间极差 <b>5.5 半音</b></p>
 <p class="sub" style="color:#8a6d3b">怎么读：版本间极差 5.5 半音——不同调性，不能当能力对比。</p>
+<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 C-song-11-jingzhi）</b>：已核对的 4 个版本中 3 个进入统计、0 个待判；读数跨度约 5.49 半音，主要来自当场调性与编配差异</p><p class="sub">版本 4｜纳入 3｜排除 1（待判读数与未过门槛的已测读数均不进中位、不作能力依据）｜跨调性：是｜极差 5.49 半音</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>2019</td><td>成都</td><td>D2 73.4 Hz</td><td>—</td><td class="n">—</td><td class="n">8.9</td><td class="n">5.07</td><td>已测</td></tr>
 <tr><td>其他演出</td><td>2019-04-14</td><td>—</td><td>A#1 58.2 Hz</td><td>B4 484.9 Hz</td><td class="n">3.06</td><td class="n">7.3</td><td class="n">5.07</td><td><span class="ok">过门槛</span></td></tr>
@@ -229,6 +228,7 @@
 <p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>
 <p class="sub">2 个巡次｜2 个版本</p>
 <p class="sub" style="color:#8a6d3b">怎么读：含 2 条「待判」读数，未计入中位；本站未收该曲录音室实测，只作现场内部比较。</p>
+<p class="sub" style="color:#c0392b"><b>暂不适合汇总（主张 C-song-12-houhui）</b>：暂不适合汇总：纳入统计的版本不足或缺少最低音读数</p>
 <table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th><th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>
 <tr><td>其他演出</td><td>2021</td><td>上海</td><td>D2 72.5 Hz</td><td>F4 349.2 Hz</td><td class="n">2.27</td><td class="n">6.3</td><td class="n">5.14</td><td><span class="pending">待判</span></td></tr>
 <tr><td>二巡</td><td>2021-03-08</td><td>上海</td><td>D2 72.6 Hz</td><td>F4 346.5 Hz</td><td class="n">2.25</td><td class="n">7.5</td><td class="n">5.07</td><td><span class="pending">待判</span></td></tr>
@@ -237,16 +237,5 @@
 <div class="note"><p>① 同一首歌在不同场次的最低音会变，主要是调性和编配不同，不能拿来给状态打分。</p><p>② 这里统计的是「最低稳定音」——过复核门槛、能进乐句的那个音，不是单帧扫到的低频。</p><p>③ 版本间极差越小的曲目（如 0.1–0.5 半音），越能说明他能在不同场次回到同一个音高坐标。</p></div>
 <p class="foot">口径：稳定音（音符 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音本身 ≥0.2s）；待判读数不进统计。数据源 <code>data/live_versions.json</code>。</p>
 <p class="foot">方法：QQ 音乐 320k / 现场素材 → demucs htdemucs 人声分离 → 自研 YIN 逐帧 F0（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动 &lt;0.6 半音）→ 稳健过滤（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB）；低音读数另做原始混音谐波列判定。最后更新：2026-10-24 16:34。</p>
-<!-- FOOTER_NAV_START -->
-<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
-<strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
-<div style="margin-top:6px;"><b>主入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
-<div style="margin-top:6px;"><b>核心内容：</b><a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/dongyan.html" style="color:#c41e3a;text-decoration:none;">东演合作专区</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/story-hui-guangzhou-2026.html" style="color:#c41e3a;text-decoration:none;">六巡广州站数据复盘</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
-<div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">setlists.html</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a> · <a href="/index-by-song.html" style="color:#c41e3a;text-decoration:none;">按歌索引</a> · <a href="/index-by-event.html" style="color:#c41e3a;text-decoration:none;">按事件索引</a> · <a href="/index-by-question.html" style="color:#c41e3a;text-decoration:none;">按问题索引</a></div>
-<div style="margin-top:6px;"><b>场次故事：</b><a href="/stories.html" style="color:#c41e3a;text-decoration:none;">stories.html</a></div>
-<div style="margin-top:6px;"><b>来源与引用：</b><a href="/press.html" style="color:#c41e3a;text-decoration:none;">press.html</a> · <a href="/share.html" style="color:#c41e3a;text-decoration:none;">share.html</a></div>
-<div style="margin-top:6px;"><b>声学·内容：</b><a href="/topic-vibrato.html" style="color:#c41e3a;text-decoration:none;">🎻 颤音指纹专题</a> · <a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测</a> · <a href="/live-materials.html" style="color:#c41e3a;text-decoration:none;">live-materials.html</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/singing.html" style="color:#c41e3a;text-decoration:none;">singing.html</a> · <a href="/singing-social.html" style="color:#c41e3a;text-decoration:none;">singing-social.html</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a></div>
-<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">🔎 查询与问答</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/share.html" style="color:#c41e3a;text-decoration:none;">share.html</a> · <a href="/insight.html" style="color:#c41e3a;text-decoration:none;">insight.html</a> · <a href="/acoustic-report.html" style="color:#c41e3a;text-decoration:none;">📊 声学全量报告</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
-</footer>
-<!-- FOOTER_NAV_END -->
+<!-- FOOTER_NAV_START --><!-- FOOTER_NAV_END -->
 </body></html>

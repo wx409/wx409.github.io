@@ -249,6 +249,361 @@
    "reviewer": "本站",
    "date": "2026-10-25",
    "status": "可用"
+  },
+  {
+   "id": "C-song-01-rangta",
+   "song": "让她降落",
+   "claim": "《让她降落》20 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 20,
+    "included": 18,
+    "excluded": 2,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 5.75,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 20 个版本中 18 个进入统计、2 个待判；读数跨度约 5.75 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-02-kusha",
+   "song": "哭砂",
+   "claim": "《哭砂》7 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 7,
+    "included": 5,
+    "excluded": 2,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 8.88,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 7 个版本中 5 个进入统计、2 个待判；读数跨度约 8.88 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-03-yourman",
+   "song": "Your Man",
+   "claim": "《Your Man》14 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 14,
+    "included": 12,
+    "excluded": 2,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 4.14,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 14 个版本中 12 个进入统计、2 个待判；读数跨度约 4.14 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-04-xuedi",
+   "song": "雪地里寄不出的求救信",
+   "claim": "《雪地里寄不出的求救信》12 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 12,
+    "included": 12,
+    "excluded": 0,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 14.5,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 12 个版本中 12 个进入统计、0 个待判；读数跨度约 14.50 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-05-xiangwu",
+   "song": "像雾像雨又像风",
+   "claim": "《像雾像雨又像风》10 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 10,
+    "included": 9,
+    "excluded": 1,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 6.57,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 10 个版本中 9 个进入统计、1 个待判；读数跨度约 6.57 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-06-huaer",
+   "song": "花儿为什么这样红",
+   "claim": "《花儿为什么这样红》9 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 9,
+    "included": 5,
+    "excluded": 4,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 4.96,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 9 个版本中 5 个进入统计、1 个待判；读数跨度约 4.96 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-07-yisheng",
+   "song": "一生守候",
+   "claim": "《一生守候》8 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 8,
+    "included": 8,
+    "excluded": 0,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 6.78,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 8 个版本中 8 个进入统计、0 个待判；读数跨度约 6.78 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-08-zaijian",
+   "song": "再见我的爱人",
+   "claim": "《再见我的爱人》4 个版本的目标段最低音读数分布",
+   "claim_type": "复现",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "普通",
+   "scope": {
+    "total_versions": 4,
+    "included": 4,
+    "excluded": 0,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": false,
+    "range_semitones": 0.14,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "4 个已核版本的目标段最低音读数几乎重合（极差 0.14 半音），是同一音高任务被反复完成的直接证据"
+   ],
+   "cannot_write": [
+    "所有场次都如此（仅这 4 个版本）",
+    "整首歌的音准同样稳定"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-09-woyaoni",
+   "song": "我要你",
+   "claim": "《我要你》7 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 7,
+    "included": 6,
+    "excluded": 1,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 1.5,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 7 个版本中 6 个进入统计、1 个待判；读数跨度约 1.50 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-10-duoting",
+   "song": "多听有益",
+   "claim": "《多听有益》5 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 5,
+    "included": 5,
+    "excluded": 0,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 9.3,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 5 个版本中 5 个进入统计、0 个待判；读数跨度约 9.30 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-11-jingzhi",
+   "song": "静止了的夜晚",
+   "claim": "《静止了的夜晚》4 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "classification": "复杂",
+   "scope": {
+    "total_versions": 4,
+    "included": 3,
+    "excluded": 1,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 5.49,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 4 个版本中 3 个进入统计、0 个待判；读数跨度约 5.49 半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C-song-12-houhui",
+   "song": "后会无期",
+   "claim": "《后会无期》2 个版本的目标段最低音读数分布",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M0",
+   "classification": "待核",
+   "scope": {
+    "total_versions": 2,
+    "included": 0,
+    "excluded": 2,
+    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "cross_key": false,
+    "range_semitones": null,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [],
+   "cannot_write": [
+    "暂不适合汇总：纳入统计的版本不足或缺少最低音读数"
+   ],
+   "fails_if": "新增版本出现明显不同读数且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "待核"
   }
  ]
 }
