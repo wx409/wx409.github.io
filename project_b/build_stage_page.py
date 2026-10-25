@@ -302,10 +302,10 @@ def tour_layer_html() -> str:
 <div class="method">
 <strong>数量口径（五种数量不可混用）：</strong>
 <ul style="margin:6px 0 0;padding-left:22px">
-<li><strong>巡演轮次</strong>：{s.get("n_tours")} 轮（本页实测覆盖）</li>
+<li><strong>巡演轮次</strong>：本页实测覆盖 {s.get("n_tours")} 个巡次标签（含巡演与签售等场次类型；与「六轮巡演」不是同一统计范围，后者专指个人巡回音乐会）</li>
 <li><strong>独立场次</strong>：全站 64 场＝六轮巡演 59 + 签唱会 5（不与素材条数混算）</li>
 <li><strong>上传／剪辑素材</strong>：{n} 条（同一场可有多个上传或剪辑，仍按素材计）</li>
-<li><strong>进入统计的读数</strong>：{ver} 条过复核门槛（可引用 {s.get("n_claimable")} 条）</li>
+<li><strong>进入统计的读数</strong>：{ver} 条过复核门槛；其中达到 claimable 规则 {s.get("n_claimable")} 条——<strong>该状态不等同于 {s.get("n_claimable")} 条独立发布主张</strong></li>
 <li><strong>同曲跨场版本</strong>：102 个（12 首，见 <a href="versions.html">同曲跨场矩阵</a>；与"场次""素材"是不同单位）</li>
 </ul>
 </div>
@@ -319,6 +319,10 @@ def tour_layer_html() -> str:
 <strong>这一页回答什么：</strong>不是"谁最低"，而是——哪些歌有多个现场资料；哪些版本测的是同一目标段；
 哪些只在描述读数分布；哪些能支持"在这些素材里反复完成同一个音乐任务"；
 以及调性、编配、素材质量还限制了什么。<strong>极端音排不成名次，只能标出它站在哪一层证据上。</strong>
+</div>
+<div class="method">
+<strong>两个词要说清：</strong>「未过门槛」是<strong>测量筛选结果</strong>（时长/HNR/强度不足），不是对演唱质量的评价；
+「待判」是<strong>归属或复核未完成</strong>，同样不是否定。
 </div>
 <h3>巡次汇总</h3>
 <table>

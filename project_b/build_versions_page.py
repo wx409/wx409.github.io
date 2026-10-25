@@ -58,8 +58,10 @@ def claim_block(song: str) -> str:
     if not c:
         return ""
     if c.get("status") in ("暂停", "撤回"):
+        why = (c.get("cannot_write") or [""])[0]
+        tail = f'原因：{esc(why)}。' if why else ''
         return ('<p class="sub" style="color:#c0392b"><b>该曲主张已暂停</b>：'
-                '下列读数暂不作为结论，仅留档。</p>')
+                f'下列读数暂不作为结论，仅留档。{tail}</p>')
     sc = c.get("scope") or {}
     if c.get("classification") == "待核":
         return (f'<p class="sub" style="color:#c0392b"><b>暂不适合汇总（主张 {cid}）</b>：'
@@ -168,7 +170,7 @@ def main() -> None:
              "name": "同一首歌在不同城市的现场，最低音会差多少？",
              "acceptedAnswer": {"@type": "Answer", "text":
                  "本页按巡次与城市逐条列出同一首歌的现场读数。以《多听有益》为例，四巡上海生日与杭州均为 C2 65.2Hz，"
-                 "北京直拍为 D2 74.9Hz，2024-04-18 其他演出为 F#2 95.2Hz，版本间极差约 9.3 个半音——差异主要来自当场调性与编配，"
+                 "北京直拍为 D2 74.9Hz，2024-04-18 其他演出为 F#2 95.2Hz，版本间极差约 9.3 个半音——不同版本存在调性与编配差异，"
                  "不能直接当作唱功升降。"}},
             {"@type": "Question",
              "name": "为什么有些现场读数标着「待判」？",
@@ -214,7 +216,7 @@ def main() -> None:
         f'本页把 {c["songs"]} 首、{c["versions"]} 个现场版本按巡次与日期排开——'
         f'其中 {n_ok} 条已过复核门槛，{n_pending} 条标注「待判」。</p>',
         '<div class="note">口径：只收有最低音读数的现场素材；人耳否决的读数已排除；'
-        '「待判」条目照原样展示但不进中位统计。跨场最低音差异主要来自当场调性与编配，'
+        '「待判」条目照原样展示但不进中位统计。不同版本存在调性与编配差异，该极差只描述读数分布，'
         '本页不据此做能力排名。数据源 <code>data/live_versions.json</code>，由 '
         '<code>project_b/build_live_versions.py</code> 生成。</div>',
         '<details class="note"><summary><b>怎么读这张表</b>（点开／收起）</summary>'
