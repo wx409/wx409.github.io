@@ -1,0 +1,256 @@
+{
+ "engine": "Praat via parselmouth",
+ "method": "Sound.to_pitch (autocorrelation)",
+ "version": "0.4.7",
+ "params": {
+  "pitch_floor": 50.0,
+  "pitch_ceiling": 1100.0,
+  "time_step_s": 0.02322,
+  "win_s": 6.0
+ },
+ "input_type_note": "每段输入与清单 input_path 完全一致（与 YIN 同一文件、同一窗口）",
+ "status": "exploratory",
+ "publishable": false,
+ "segments": [
+  {
+   "segment_id": "stu-01",
+   "input_sha256": "f9ccf5345d243953",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-02",
+   "input_sha256": "ad699cf9f70747fe",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-03",
+   "input_sha256": "c92b4a3b73357697",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-04",
+   "input_sha256": "57e27584d7b1ed18",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-05",
+   "input_sha256": "7ef5001d425d2bd4",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-06",
+   "input_sha256": "2348c060d150348e",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-07",
+   "input_sha256": "2dbade3d7484c242",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-08",
+   "input_sha256": "84c78aa4f91c8fa8",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-09",
+   "input_sha256": "4c769ce557efd629",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-10",
+   "input_sha256": "31b9007dba1df9b1",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-11",
+   "input_sha256": "5eda359f12af7947",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-12",
+   "input_sha256": "99c260a79286cc9e",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-13",
+   "input_sha256": "8cf005fcc6e56537",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-14",
+   "input_sha256": "9c80c5add1b2e43b",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-15",
+   "input_sha256": "45a38f019fbed35a",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-16",
+   "input_sha256": "d4836f8c89decf09",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-17",
+   "input_sha256": "c5c4f120ec61e00e",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-18",
+   "input_sha256": "178579990fae0a6e",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-19",
+   "input_sha256": "39a3dd0631aa215a",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "stu-20",
+   "input_sha256": "42d434096268d2ba",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-00",
+   "input_sha256": "ab18ea299ce043c8",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-01",
+   "input_sha256": "e37a93fec45679c3",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-02",
+   "input_sha256": "94baaedf0667fc53",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-03",
+   "input_sha256": "ec7d052b6965de8d",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-04",
+   "input_sha256": "6a8ce57e604b5ea5",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-05",
+   "input_sha256": "130ef947373758e1",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-06",
+   "input_sha256": "7bb881ef1a46f8fe",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-07",
+   "input_sha256": "5da18246cc966610",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-08",
+   "input_sha256": "301908d8bd95534c",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-09",
+   "input_sha256": "98321e50c9b1439f",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-10",
+   "input_sha256": "52a9cea2ece0bf94",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-11",
+   "input_sha256": "5190c47a8fbb8e17",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-12",
+   "input_sha256": "2514ec212a4fca67",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-13",
+   "input_sha256": "c4d9ce128e68889d",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-14",
+   "input_sha256": "b1070620b7ff0bf4",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-15",
+   "input_sha256": "944577b6f01a1347",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-16",
+   "input_sha256": "60b20014c62d93c7",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-17",
+   "input_sha256": "b2eaea8875fd5733",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-18",
+   "input_sha256": "fc1d6acd7387177d",
+   "frames": 256,
+   "status": "ok"
+  },
+  {
+   "segment_id": "live-19",
+   "input_sha256": "f925ab1a4b944b5a",
+   "frames": 256,
+   "status": "ok"
+  }
+ ]
+}
