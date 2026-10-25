@@ -76,8 +76,8 @@ out = {
                         and x['f0_verdict'] == 'unresolved'],
     "needs_relisten": [x['adjudication_id'] for x in rows
                        if x['attribution'] == 'target_singer' and x['f0_verdict'] == 'unresolved'],
-    "inconsistent": [x['adjudication_id'] for x in rows
-                     if x['attribution'] == 'not_target_singer' and x['yin_or_praat']],
+    "non_target_with_f0": [x['adjudication_id'] for x in rows
+                           if x['attribution'] != 'target_singer' and x['yin_or_praat']],
     "rows": rows,
 }
 (ADJ / 'adjudication_verdicts.json').write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
