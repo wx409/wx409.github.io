@@ -66,7 +66,9 @@ def main() -> None:
                 errors.append(f"E4 {name} 仍用旧快照值 {val}，而派生结果已可发布")
             elif val.startswith("0.39") and not derived.get("publishable"):
                 ctx = txt[max(0, m.start() - 160): m.end() + 160]
-                if "候选" in ctx:
+                if name.startswith("share"):
+                    errors.append(f"E4 {name} 属于分享出口，无论是否标注「候选」都不得出现 {val}")
+                elif "候选" in ctx:
                     warns.append(f"{name} 标注为候选值 {val}（允许，但不得进发布出口）")
                 else:
                     errors.append(f"E4 {name} 使用了未达发布条件的新值 {val} 且未标「候选」")

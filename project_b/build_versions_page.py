@@ -42,6 +42,32 @@ STYLE = """
 """
 
 
+CLAIMS = json.loads((Path(__file__).resolve().parent.parent / "data" / "claims.json")
+                     .read_text(encoding="utf-8"))
+_CMAP = {c["id"]: c for c in CLAIMS.get("claims", [])}
+SONG_CLAIMS = {"让她降落": "C4-rangta-c2", "再见我的爱人": "C5-zaijian-same-note"}
+
+
+def claim_block(song: str) -> str:
+    """两首试点：判读句与状态由主张派生；主张暂停则整块降级。"""
+    cid = SONG_CLAIMS.get(song)
+    if not cid:
+        return ""
+    c = _CMAP.get(cid)
+    if not c:
+        return ""
+    if c.get("status") in ("暂停", "撤回"):
+        return ('<p class="sub" style="color:#c0392b"><b>该曲主张已暂停</b>：'
+                '下列读数暂不作为结论，仅留档。</p>')
+    sc = c.get("scope") or {}
+    head = (f'<p class="sub" style="color:#8a6d3b"><b>可引用句（主张 {cid}）</b>：'
+            f'{esc(c["can_write"][0])}</p>')
+    meta = (f'<p class="sub">版本 {sc.get("total_versions")}｜纳入 {sc.get("included")}｜'
+            f'排除 {sc.get("excluded")}（{esc(sc.get("exclude_rule"))}）｜'
+            f'跨调性：{"是" if sc.get("cross_key") else "否"}｜极差 {sc.get("range_semitones")} 半音</p>')
+    return head + meta
+
+
 def esc(s) -> str:
     return html.escape(str(s if s is not None else ""))
 
@@ -82,6 +108,9 @@ def section(s: dict) -> str:
     vd = verdict(s)
     if vd:
         h.append(f'<p class="sub" style="color:#8a6d3b">怎么读：{vd}</p>')
+    cb = claim_block(s["song"])
+    if cb:
+        h.append(cb)
     h.append("<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th>"
              "<th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>")
     for v in s["versions"]:

@@ -9,14 +9,24 @@
   "note": "按本规则，敏感性完成前，五份均不得仅凭逐帧测量标 M2。"
  },
  "axes": {
-  "measurement": ["M0", "M1", "M2"],
+  "measurement": [
+   "M0",
+   "M1",
+   "M2"
+  ],
   "inference_scope": {
    "S1": "描述单个片段",
    "S2": "描述同一首歌的多个版本",
    "S3": "讨论某类演出或某一轮巡演",
    "S4": "讨论整体能力"
   },
-  "claim_type": ["描述", "复现", "比较", "机制", "评价"]
+  "claim_type": [
+   "描述",
+   "复现",
+   "比较",
+   "机制",
+   "评价"
+  ]
  },
  "claims": [
   {
@@ -28,11 +38,61 @@
    "measurement_note": "整批按最弱环节 M1：① 上海、杭州仅有谐波列复核，未人耳确认；② 五份中仅乐华、北京两晚做了参数敏感性，上海、杭州、北京11-12 未做；③ 乐华与北京的方法不同（自相关 vs YIN），不构成同管线复算。",
    "naming_note": "本主张测的是「目标低音段」，不是「整首作品的最低稳定音」——两者不可混用。",
    "materials": [
-    {"name": "乐华家族演唱会 2024-08-24", "input": "原始混音", "method": "50–95Hz 自相关，帧 4096", "window": "65–72s", "reported_hz": 65.31, "attribution": "人耳确认", "sensitivity": "已做（YIN 网格 18 组：65.6–66.6Hz）", "usable": "S2", "m": "M1"},
-    {"name": "北京 2023-11-13", "input": "原始混音", "method": "50–95Hz 自相关，帧 4096", "window": "143–148.5s", "reported_hz": 65.40, "attribution": "人耳确认", "sensitivity": "已做（18 组：65.4–65.6Hz）", "usable": "S2", "m": "M1"},
-    {"name": "北京 2023-11-12", "input": "分离人声＋混音", "method": "YIN（frame 2048 / hop 512 / fmin 55 / fmax 1100）＋混音谐波列", "window": "整曲", "reported_hz": 65.3, "attribution": "谐波列（未人耳）", "sensitivity": "未做", "usable": "S2", "m": "M1"},
-    {"name": "四巡上海生日 2024-04-06", "input": "分离人声＋混音", "method": "YIN ＋混音谐波列", "window": "55.8s 附近", "reported_hz": 65.2, "attribution": "谐波列（未人耳）", "sensitivity": "未做", "usable": "S2", "m": "M1"},
-    {"name": "四巡杭州 2024", "input": "分离人声＋混音", "method": "YIN ＋混音谐波列", "window": "整曲", "reported_hz": 65.2, "attribution": "谐波列（未人耳）", "sensitivity": "未做", "usable": "S2", "m": "M1"}
+    {
+     "name": "乐华家族演唱会 2024-08-24",
+     "input": "原始混音",
+     "method": "50–95Hz 自相关，帧 4096",
+     "window": "65–72s",
+     "reported_hz": 65.31,
+     "attribution": "人耳确认",
+     "sensitivity": "已做（YIN 网格 18 组：65.6–66.6Hz）",
+     "usable": "S2",
+     "m": "M1"
+    },
+    {
+     "name": "北京 2023-11-13",
+     "input": "原始混音",
+     "method": "50–95Hz 自相关，帧 4096",
+     "window": "143–148.5s",
+     "reported_hz": 65.4,
+     "attribution": "人耳确认",
+     "sensitivity": "已做（18 组：65.4–65.6Hz）",
+     "usable": "S2",
+     "m": "M1"
+    },
+    {
+     "name": "北京 2023-11-12",
+     "input": "分离人声＋混音",
+     "method": "YIN（frame 2048 / hop 512 / fmin 55 / fmax 1100）＋混音谐波列",
+     "window": "整曲",
+     "reported_hz": 65.3,
+     "attribution": "谐波列（未人耳）",
+     "sensitivity": "未做",
+     "usable": "S2",
+     "m": "M1"
+    },
+    {
+     "name": "四巡上海生日 2024-04-06",
+     "input": "分离人声＋混音",
+     "method": "YIN ＋混音谐波列",
+     "window": "55.8s 附近",
+     "reported_hz": 65.2,
+     "attribution": "谐波列（未人耳）",
+     "sensitivity": "未做",
+     "usable": "S2",
+     "m": "M1"
+    },
+    {
+     "name": "四巡杭州 2024",
+     "input": "分离人声＋混音",
+     "method": "YIN ＋混音谐波列",
+     "window": "整曲",
+     "reported_hz": 65.2,
+     "attribution": "谐波列（未人耳）",
+     "sensitivity": "未做",
+     "usable": "S2",
+     "m": "M1"
+    }
    ],
    "weakest_link": "上海、杭州未人耳归属；三份未做敏感性；两种方法混用",
    "definition": "目标低音段＝该曲最低音所在乐句；读数取窗内逐帧中位（不是单帧极值）",
@@ -40,8 +100,24 @@
    "calibration": "第一层合成基准：120 次运行全部判对，绝对误差中位 3.4 / P90 9.2 / 最大 12.4 音分（容差 ±50）",
    "calibration_scope": "仅覆盖理想谐波复音的音高提取；不覆盖真实素材的颤音/元音/分离伪影",
    "sensitivity_result": {
-    "乐华": {"method": "YIN 参数网格 18 组", "range_hz": [65.6, 66.6], "cent_shift_vs_reported": 23, "all_in_C2": true},
-    "北京11-13": {"method": "YIN 参数网格 18 组", "range_hz": [65.4, 65.6], "cent_shift_vs_reported": 2, "all_in_C2": true},
+    "乐华": {
+     "method": "YIN 参数网格 18 组",
+     "range_hz": [
+      65.6,
+      66.6
+     ],
+     "cent_shift_vs_reported": 23,
+     "all_in_C2": true
+    },
+    "北京11-13": {
+     "method": "YIN 参数网格 18 组",
+     "range_hz": [
+      65.4,
+      65.6
+     ],
+     "cent_shift_vs_reported": 2,
+     "all_in_C2": true
+    },
     "conclusion": "音级（C2）稳健；具体赫兹不稳健——换方法可漂约 23 音分，因此不得再给「65.2–65.4」这种窄区间"
    },
    "comparability": "同曲同段落意图；场次与编配不同，可比性中等；方法不同，交叉比较需注明",
@@ -69,10 +145,28 @@
    "claim_type": "描述",
    "inference_scope": "S1",
    "measurement": "M2",
-   "materials": [{"name": "录音室《重游往昔》320k", "input": "分离人声＋混音", "method": "YIN＋谐波列", "reported_hz": 61.5, "attribution": "谐波列＋跨源一致", "sensitivity": "跨源一致性已做", "m": "M2"}],
-   "can_write": ["本站已测 72 首录音室曲目中的最低稳定音"],
-   "cannot_write": ["他能唱 A1（触达未过门槛）", "该读数代表生理极限"],
-   "fails_if": {"precise_reading": "更高证据级别复核改变读数", "pitch_class": "复核否定 B1 归级"},
+   "materials": [
+    {
+     "name": "录音室《重游往昔》320k",
+     "input": "分离人声＋混音",
+     "method": "YIN＋谐波列",
+     "reported_hz": 61.5,
+     "attribution": "谐波列＋跨源一致",
+     "sensitivity": "跨源一致性已做",
+     "m": "M2"
+    }
+   ],
+   "can_write": [
+    "本站已测 72 首录音室曲目中的最低稳定音"
+   ],
+   "cannot_write": [
+    "他能唱 A1（触达未过门槛）",
+    "该读数代表生理极限"
+   ],
+   "fails_if": {
+    "precise_reading": "更高证据级别复核改变读数",
+    "pitch_class": "复核否定 B1 归级"
+   },
    "reviewer": "本站",
    "date": "2026-10-25"
   },
@@ -87,11 +181,74 @@
     "三种方法 F1 从 237 到 1482Hz，互不一致",
     "Praat：B1 段 F1≈453Hz（约 H7），基频距 F1 约 7 个谐波——该机制前提不满足"
    ],
-   "can_write": ["本轮未得到可引用的 F1/F2 结论", "该机制不适用于 61.7Hz 这一音高"],
-   "cannot_write": ["用 F1/F2 解释低音亮度", "归因于主动元音修饰"],
+   "can_write": [
+    "本轮未得到可引用的 F1/F2 结论",
+    "该机制不适用于 61.7Hz 这一音高"
+   ],
+   "cannot_write": [
+    "用 F1/F2 解释低音亮度",
+    "归因于主动元音修饰"
+   ],
    "resume_when": "稳定元音段 + 参考标注 + 敏感性分析 + 人工复核全部完成",
    "reviewer": "本站",
    "date": "2026-10-25"
+  },
+  {
+   "id": "C4-rangta-c2",
+   "claim": "《让她降落》跨 5 个巡次 20 个版本的目标段最低音读数分布（含跨调性版本）",
+   "claim_type": "描述",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "scope": {
+    "total_versions": 20,
+    "included": 18,
+    "excluded": 2,
+    "exclude_rule": "状态为「待判」的读数不进中位、不作能力依据",
+    "cross_key": true,
+    "range_semitones": 5.75,
+    "object": "各版本同一目标段（最低音所在乐句）"
+   },
+   "can_write": [
+    "已核对的 20 个版本里，18 个进入统计，2 个待判",
+    "读数分布跨约 5.75 个半音，主要来自当场调性与编配差异"
+   ],
+   "cannot_write": [
+    "跨场音准更稳或更不稳（不同调性不可直接比较）",
+    "嗓音状态发生了变化",
+    "同一音乐任务被以同样难度反复完成"
+   ],
+   "fails_if": "调性/编配被逐场对照后，读数差异不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
+   "id": "C5-zaijian-same-note",
+   "claim": "《再见我的爱人》4 个已核版本的目标段最低音读数落在同一音级内（极差 0.14 个半音）",
+   "claim_type": "复现",
+   "inference_scope": "S2",
+   "measurement": "M1",
+   "scope": {
+    "total_versions": 4,
+    "included": 4,
+    "excluded": 0,
+    "exclude_rule": "无待判读数",
+    "cross_key": false,
+    "range_semitones": 0.14,
+    "object": "各版本同一目标段"
+   },
+   "can_write": [
+    "4 个版本的目标段最低音读数几乎重合（极差 0.14 个半音，约 14 音分）",
+    "这是同一首歌在不同场次被反复完成同一音高任务的直接证据"
+   ],
+   "cannot_write": [
+    "所有场次都如此（仅这 4 个版本）",
+    "整首歌的音准同样稳定"
+   ],
+   "fails_if": "新增版本出现明显不同的读数，且不能由调性解释",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
   }
  ]
 }
