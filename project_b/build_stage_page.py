@@ -357,9 +357,10 @@ def tour_layer_html() -> str:
 「暂停主张」只改变发布状态，不否定素材本身。</p>
 </div>
 <div class="method">
-<strong>双人场次为什么单列：</strong>《沉响与长歌》为<strong>王晰 × 傲日其愣</strong>双人演唱会，
-两条人声同时在场、无法逐句归属，因此不并入「王晰主导」或「他人主导」任何一层，
-只做<strong>块级记录</strong>（不逐条引用）。
+<strong>双人场次为什么单列：</strong>《沉响与长歌》由<strong>王晰（制作人之一）× 傲日其愣</strong>共同完成——
+就演出控制权而言，可以算<strong>他主导</strong>；但两条人声同时在场、<strong>无法逐句归属</strong>，
+因此不并入「能力证据层」，只做<strong>块级记录</strong>（不逐条引用）。
+<strong>主导权与可归属性是两件事</strong>：前者决定"这算不算他的场子"，后者决定"这个音能不能算他唱的"。
 </div>
 <h3>巡次汇总</h3>
 <table>
@@ -665,7 +666,7 @@ def main() -> None:
     faq = faq_page([
         ("王晰在巡演现场唱得到多低？",
          (f"以他本人主导的巡演现场语料为准：现行已实测 {tour_n} 条素材中，最低稳定音为 "
-          f"{_t_lo.get('note','—')}（{_t_lo.get('hz','—')} Hz），实测于《{_t_lo.get('song','—')}》"
+          f"{_t_lo.get('note','—')}（{_t_lo.get('hz','—')} Hz），实测于《{_song_of(_t_lo)}》"
           f"{_t_lo.get('city','')} {_t_lo.get('date','')} 场，复核状态为{_t_lo.get('verify','—')}"
           + (f"，并做了 CREPE 交叉校验（{_t_lo.get('crepe_hz')} Hz）" if _t_lo.get("crepe_hz") else "")
           + f"；{tour_n} 条中 {_t_ver} 条过复核门槛。"
