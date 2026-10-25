@@ -57,6 +57,19 @@ def main() -> None:
         "value_hz": spread,
         "input_fingerprint": fingerprint,
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "release": {
+            "value_hz": 0.27,
+            "snapshot_id": PREV_SNAPSHOT,
+            "snapshot_date": snaps[PREV_SNAPSHOT]["snapshot_date"],
+            "basis": "完整基准（八张同一次运行）",
+        },
+        "candidate": {
+            "value_hz": spread,
+            "snapshot_id": CURRENT_SNAPSHOT,
+            "snapshot_date": snaps[CURRENT_SNAPSHOT]["snapshot_date"],
+            "status": "混合复跑；可比性与重复性未完成",
+            "publishable": False,
+        },
         "publishable": False,
         "publishable_reason": "重复性校验未完成；页面暂用旧快照值，待判定后切换",
         "history": [

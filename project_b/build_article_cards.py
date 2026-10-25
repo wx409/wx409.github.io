@@ -133,9 +133,13 @@ def main() -> int:
         if s.get("vibrato_hz") and s.get("album"):
             by_alb.setdefault(s["album"], []).append(s["vibrato_hz"])
     alb = sorted(((a, len(v), st.median(v)) for a, v in by_alb.items()), key=lambda x: x[2])
-    spread = max(x[2] for x in alb) - min(x[2] for x in alb)
+    try:
+        from vibrato_release import release as _vib_release
+        spread, _vib_date, _vib_snap = _vib_release()
+    except Exception:
+        spread = max(x[2] for x in alb) - min(x[2] for x in alb)
     cards.append(dict(
-        id="vibrato_8y", no=11, title="八张录音室作品只漂 0.27Hz",
+        id="vibrato_8y", no=11, title=f"八张录音室作品只漂 {spread:.2f}Hz",
         subtitle="与自己比：跨专辑颤音速率稳定性（8 张录音室作品）",
         pillar="实测（专辑级中位，组内纵比）",
         main_numbers=[

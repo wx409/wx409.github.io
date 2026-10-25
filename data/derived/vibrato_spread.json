@@ -27,7 +27,20 @@
  },
  "value_hz": 0.39,
  "input_fingerprint": "3638c4e62b0f136a",
- "generated_at": "2026-10-25 16:37",
+ "generated_at": "2026-10-25 16:43",
+ "release": {
+  "value_hz": 0.27,
+  "snapshot_id": "snap-2026-09-21",
+  "snapshot_date": "2026-09-21",
+  "basis": "完整基准（八张同一次运行）"
+ },
+ "candidate": {
+  "value_hz": 0.39,
+  "snapshot_id": "snap-2026-10-25-mixed",
+  "snapshot_date": "2026-10-25",
+  "status": "混合复跑；可比性与重复性未完成",
+  "publishable": false
+ },
  "publishable": false,
  "publishable_reason": "重复性校验未完成；页面暂用旧快照值，待判定后切换",
  "history": [

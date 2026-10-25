@@ -101,7 +101,11 @@ def main():
         by_alb.setdefault(s.get("album"), []).append(s["vibrato_hz"])
     alb = sorted(((a, len(v), st.median(v)) for a, v in by_alb.items() if a), key=lambda x: x[2])
     med = st.median([x[2] for x in alb]) if alb else None
-    spread = (max(x[2] for x in alb) - min(x[2] for x in alb)) if alb else None
+    try:
+        from vibrato_release import release as _vib_release
+        spread, _vib_date, _vib_snap = _vib_release()
+    except Exception:
+        spread = (max(x[2] for x in alb) - min(x[2] for x in alb)) if alb else None
     cards.append(dict(
         id="vibrato", no=1, title="颤音指纹", subtitle="八张录音室作品跨十年的颤音速率稳定性",
         pillar="A 级（速率是低频调制，基本不受修音影响）",

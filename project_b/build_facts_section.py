@@ -55,8 +55,13 @@ def main() -> int:
         if s.get("vibrato_hz"):
             g[s["album"]].append(s["vibrato_hz"])
     med = {k: st.median(v) for k, v in g.items() if len(v) >= 3}
-    vib_spread = round(max(med.values()) - min(med.values()), 2) if med else 0
-    vib_lo, vib_hi = round(min(med.values()), 2), round(max(med.values()), 2)
+    vib_lo = round(min(med.values()), 2) if med else 0
+    vib_hi = round(max(med.values()), 2) if med else 0
+    try:
+        from vibrato_release import release as _vib_release
+        vib_spread, _vib_date, _vib_snap = _vib_release()
+    except Exception:
+        vib_spread = round(max(med.values()) - min(med.values()), 2) if med else 0
 
     ln = load(D / "archive_long_notes.json", {}) or {}
     top = ln.get("top") or []

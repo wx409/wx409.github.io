@@ -54,7 +54,11 @@ for x in S:
         alb.setdefault(x["album"], []).append(x["vibrato_hz"])
 # ★ 必须**按中位值排序**再取极差；按专辑名排序会算成 0.08（静默错误，2026-10-14 抓到）
 amed = sorted(((a, st.median(v)) for a, v in alb.items()), key=lambda t: t[1])
-vib_spread = round(amed[-1][1] - amed[0][1], 2) if len(amed) > 1 else None
+try:
+    from vibrato_release import release as _vib_release
+    vib_spread = _vib_release()[0]
+except Exception:
+    vib_spread = round(amed[-1][1] - amed[0][1], 2) if len(amed) > 1 else None
 v3 = ((CN.get("versions") or {}).get("v3_sep_vs_sep_8s") or {})
 cn_rows = [(r.get("song"), (r.get("metrics_1009") or {}).get("vibrato_hz_median"),
             (r.get("metrics_1010") or {}).get("vibrato_hz_median")) for r in (v3.get("rows") or [])]

@@ -20,7 +20,7 @@
    "source": "data/archive_vocal_albums.json#songs[].album（去重）"
   },
   {
-   "value": "5.07–5.34",
+   "value": "4.95–5.34",
    "unit": "Hz",
    "label": "各专辑中位所在区间",
    "caliber": "vibrato_tier",
@@ -28,10 +28,10 @@
   }
  ],
  "view_reading": [
-  "把每张专辑所有曲目的颤音速率各取中位，再横向比一遍：8 张录音室作品落在 **5.07–5.34 Hz**，最高与最低之间只差 **0.27 Hz**。",
+  "把每张专辑所有曲目的颤音速率各取中位，再横向比一遍：8 张录音室作品落在 **4.95–5.34 Hz**，最高与最低之间只差 **0.27 Hz**。",
   "**这是与自己比**：拿来对照的是他自己的专辑基线，不是别的歌手——跨歌手的录音条件、编曲与人声处理无法对齐，本站不产出此类比较。",
   "颤音来自气息与喉部的配合，频率约 5Hz 量级；修音改的是音高慢变轨迹，对这类快速调制**基本不动速率**（幅度可能受轻微影响），故速率适合**组内纵向**比较。口径见 `data/calibers.md` → `vibrato_tier`。",
-  "<div class='hist'><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:100%'></span><span class='hc'>4</span></div><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:50%'></span><span class='hc'>2</span></div><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:0%'></span><span class='hc'>0</span></div><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:50%'></span><span class='hc'>2</span></div></div><style>.hist{margin:8px 0}.hb{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a6a55}.hl{width:96px;text-align:right}.hf{height:10px;background:#c9a227;border-radius:2px;display:inline-block}.hc{color:#8a7f6d}</style>",
+  "<div class='hist'><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:100%'></span><span class='hc'>3</span></div><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:67%'></span><span class='hc'>2</span></div><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:0%'></span><span class='hc'>0</span></div><div class='hb'><span class='hl'>5–5Hz</span><span class='hf' style='width:67%'></span><span class='hc'>2</span></div></div><style>.hist{margin:8px 0}.hb{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a6a55}.hl{width:96px;text-align:right}.hf{height:10px;background:#c9a227;border-radius:2px;display:inline-block}.hc{color:#8a7f6d}</style>",
   "各专辑颤音速率中位（Hz）。条越短＝该专辑越接近区间下端。"
  ],
  "view_card": [
@@ -47,12 +47,12 @@
  "platform": {
   "xiaohongshu": {
    "钩子句": "8 张录音室作品（2014–2024，跨十年），颤音速率极差只有 0.27Hz",
-   "记忆点": "5.07–5.34 Hz"
+   "记忆点": "4.95–5.34 Hz"
   },
   "douyin": {
    "听觉断点": "同一句颤音的慢放对照（发布者自备素材）"
   }
  },
- "footnote": "来源：data/archive_vocal_albums.json（8 张录音室作品，按 .album 取中位）｜口径：vibrato_tier（组内纵比）｜生成 2026-10-24",
- "generated_at": "2026-10-24"
+ "footnote": "来源：data/archive_vocal_albums.json（8 张录音室作品，按 .album 取中位）｜口径：vibrato_tier（组内纵比）｜生成 2026-10-25",
+ "generated_at": "2026-10-25"
 }

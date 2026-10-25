@@ -133,9 +133,13 @@ def main() -> int:
     for s in songs:
         by.setdefault(s.get("album"), []).append(s["vibrato_hz"])
     alb = sorted(((a, len(v), st.median(v)) for a, v in by.items() if a), key=lambda x: x[2])
+    med = st.median(x[2] for x in alb) if alb else 0
     if alb:
-        spread = max(x[2] for x in alb) - min(x[2] for x in alb)
-        med = st.median([x[2] for x in alb])
+        try:
+            from vibrato_release import release as _vib_release
+            spread, _vib_date, _vib_snap = _vib_release()
+        except Exception:
+            spread = max(x[2] for x in alb) - min(x[2] for x in alb)
         E.append(dict(
             no=4, id="vibrato_eight_years", hook=f"八张录音室作品只漂 {spread:.2f}Hz",
             support=(f"{len(alb)} 张录音室作品的颤音速率中位极差 **{spread:.2f}Hz**（专辑中位 {med:.2f}Hz）；"
