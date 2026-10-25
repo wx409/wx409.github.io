@@ -1,0 +1,131 @@
+{
+ "schema": "engine_agreement/v1",
+ "engine_a": "自研 YIN",
+ "engine_b": "Praat autocorrelation (Parselmouth)",
+ "window_s": 6.0,
+ "tol_cents": 50.0,
+ "summary": {
+  "录音室人声轨": {
+   "files": 2,
+   "agree_pct_median": 73.4,
+   "octave_pct_median": 9.4,
+   "median_cents_median": 4.3
+  },
+  "现场混音": {
+   "files": 10,
+   "agree_pct_median": 53.5,
+   "octave_pct_median": 8.9,
+   "median_cents_median": 6.8
+  }
+ },
+ "rows": [
+  {
+   "frames": 60,
+   "agree_pct": 53.3,
+   "octave_pct": 16.7,
+   "median_cents": 8.2,
+   "p90_abs_cents": 1940.4,
+   "stratum": "录音室人声轨",
+   "file": "htdemucs/vocals.wav"
+  },
+  {
+   "frames": 184,
+   "agree_pct": 93.5,
+   "octave_pct": 2.2,
+   "median_cents": 0.5,
+   "p90_abs_cents": 13.9,
+   "stratum": "录音室人声轨",
+   "file": "htdemucs/vocals.wav"
+  },
+  {
+   "frames": 49,
+   "agree_pct": 67.3,
+   "octave_pct": 0.0,
+   "median_cents": 4.9,
+   "p90_abs_cents": 89.0,
+   "stratum": "现场混音",
+   "file": "b08_傲日.wav"
+  },
+  {
+   "frames": 49,
+   "agree_pct": 55.1,
+   "octave_pct": 0.0,
+   "median_cents": 8.6,
+   "p90_abs_cents": 2103.5,
+   "stratum": "现场混音",
+   "file": "一巡·Che_海口_30_BV1xJ41127TP_p30.wav"
+  },
+  {
+   "frames": 231,
+   "agree_pct": 58.0,
+   "octave_pct": 12.1,
+   "median_cents": 1.5,
+   "p90_abs_cents": 2793.9,
+   "stratum": "现场混音",
+   "file": "一巡·Che_武汉_13_BV1G441137Sj_p13.wav"
+  },
+  {
+   "frames": 134,
+   "agree_pct": 44.0,
+   "octave_pct": 10.4,
+   "median_cents": 13.4,
+   "p90_abs_cents": 1289.3,
+   "stratum": "现场混音",
+   "file": "二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p11.wav"
+  },
+  {
+   "frames": 203,
+   "agree_pct": 80.3,
+   "octave_pct": 3.0,
+   "median_cents": 2.2,
+   "p90_abs_cents": 1587.8,
+   "stratum": "现场混音",
+   "file": "一巡·Che_南京_03_BV1rt411K7wc_p3.wav"
+  },
+  {
+   "frames": 91,
+   "agree_pct": 41.8,
+   "octave_pct": 16.5,
+   "median_cents": 6.3,
+   "p90_abs_cents": 1894.8,
+   "stratum": "现场混音",
+   "file": "海口20191116_BV1tK4y1M7YF.wav"
+  },
+  {
+   "frames": 127,
+   "agree_pct": 73.2,
+   "octave_pct": 11.8,
+   "median_cents": 2.8,
+   "p90_abs_cents": 1267.4,
+   "stratum": "现场混音",
+   "file": "二巡南京20210411_串烧窗口_BV1S54y1b7HW.wav"
+  },
+  {
+   "frames": 197,
+   "agree_pct": 38.6,
+   "octave_pct": 15.2,
+   "median_cents": 42.8,
+   "p90_abs_cents": 1222.4,
+   "stratum": "现场混音",
+   "file": "四巡上海生日20240406_p%(playlist_index)s_BV1DC411V7rB_p13.wav"
+  },
+  {
+   "frames": 189,
+   "agree_pct": 51.9,
+   "octave_pct": 7.4,
+   "median_cents": 7.4,
+   "p90_abs_cents": 1512.2,
+   "stratum": "现场混音",
+   "file": "【王晰】2021全国个人巡回音乐会-武汉站  全__P02_下半场①.wav"
+  },
+  {
+   "frames": 173,
+   "agree_pct": 50.9,
+   "octave_pct": 5.8,
+   "median_cents": 14.5,
+   "p90_abs_cents": 2796.8,
+   "stratum": "现场混音",
+   "file": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P03_住口_在路上_勿扰_无尽的夜里_无尽的夜里.wav"
+  }
+ ]
+}
