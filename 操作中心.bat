@@ -562,6 +562,24 @@ echo    226. [采集] 直播录制（切 CABLE Input → 录 → 自动恢复）
 echo    227. [采集] 素材体检（40-80Hz 占比三档判定）
 
 echo    228. [采集] 打开直播采集 SOP
+echo  [U · 声学证据链（快照 / 主张 / 底句 / 发布检查）]
+echo  ------------------------------------------------------------------------------
+echo    229. [证据] 重建事实原子（数据→facts）
+echo    230. [证据] 生成证据底句（单主张装配）
+echo    231. [证据] 底句回读校验（数字必须落在事实池）
+echo    232. [证据] 重建派生值（颤音极差 release/candidate）
+echo    233. [证据] 快照一致性审计（0.27/0.39 分流）
+echo    234. [证据] 版本矩阵一致性审计（102 版总账）
+echo    235. [证据] 协议链绑定检查（主张→出口→页面）
+echo    236. [证据] 发布前措辞检查（粘贴文案）
+echo    237. [页面] 重建 versions 页（同曲跨场）
+echo    238. [页面] 重建 stage 页（现场证据）
+echo    239. [页面] 重建 voice 页（录音室音域）
+echo    240. [页面] 重建 skill 页（能力维度）
+echo    241. [页面] 重建 acoustic-report（方法总站）
+echo    242. [证据] 六项审计一键跑（全绿才算过）
+echo    243. [证据] 打开阶段基线 v1 文档
+
 
 echo    0. 退出
 
@@ -1028,6 +1046,22 @@ if "%op%"=="228" goto cap_sop
 
 
 
+
+if "%op%"=="229" goto ev_facts
+if "%op%"=="230" goto ev_quotes
+if "%op%"=="231" goto ev_verify
+if "%op%"=="232" goto ev_derived
+if "%op%"=="233" goto ev_snap
+if "%op%"=="234" goto ev_matrix
+if "%op%"=="235" goto ev_chain
+if "%op%"=="236" goto ev_publish
+if "%op%"=="237" goto pg_versions
+if "%op%"=="238" goto pg_stage
+if "%op%"=="239" goto pg_voice
+if "%op%"=="240" goto pg_skill
+if "%op%"=="241" goto pg_report
+if "%op%"=="242" goto ev_audit_all
+if "%op%"=="243" goto ev_baseline
 
 if "%op%"=="224" goto insight_page
 
@@ -6155,6 +6189,256 @@ cls
 echo  [采集] 打开直播采集 SOP 文档
 
 start "" "D:\wx409.github.io\docs\直播采集SOP.md"
+
+goto menu
+
+:ev_facts
+
+cls
+
+echo  [证据] 重建事实原子
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_fact_atoms.py
+
+pause
+
+goto menu
+
+
+:ev_quotes
+
+cls
+
+echo  [证据] 生成证据底句
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\gen_quotes.py
+
+pause
+
+goto menu
+
+
+:ev_verify
+
+cls
+
+echo  [证据] 底句回读校验
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\verify_quotes.py
+
+pause
+
+goto menu
+
+
+:ev_derived
+
+cls
+
+echo  [证据] 重建派生值
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_derived.py
+
+pause
+
+goto menu
+
+
+:ev_snap
+
+cls
+
+echo  [证据] 快照一致性审计
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\audit_snapshot.py
+
+pause
+
+goto menu
+
+
+:ev_matrix
+
+cls
+
+echo  [证据] 版本矩阵一致性审计
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\audit_versions_matrix.py
+
+pause
+
+goto menu
+
+
+:ev_chain
+
+cls
+
+echo  [证据] 协议链绑定检查
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\chain_check.py
+
+pause
+
+goto menu
+
+
+:ev_publish
+
+cls
+
+echo  [证据] 发布前措辞检查
+
+cd /d "D:\wx409.github.io"
+
+set "pubtext="
+
+set /p pubtext=  粘贴要发的整段话: 
+
+if "%pubtext%"=="" goto menu
+
+python -X utf8 project_b\publish_check.py --text "%pubtext%"
+
+pause
+
+goto menu
+
+
+:pg_versions
+
+cls
+
+echo  [页面] 重建 versions
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_versions_page.py
+
+python -X utf8 project_b\build_nav.py
+
+pause
+
+goto menu
+
+
+:pg_stage
+
+cls
+
+echo  [页面] 重建 stage
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_stage_page.py
+
+python -X utf8 project_b\build_nav.py
+
+pause
+
+goto menu
+
+
+:pg_voice
+
+cls
+
+echo  [页面] 重建 voice
+
+cd /d "E:\wx\论文素材_王晰作传\基线口径"
+
+python -X utf8 generate_voice_page.py
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_nav.py
+
+pause
+
+goto menu
+
+
+:pg_skill
+
+cls
+
+echo  [页面] 重建 skill
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_skill_page.py
+
+python -X utf8 project_b\build_nav.py
+
+pause
+
+goto menu
+
+
+:pg_report
+
+cls
+
+echo  [页面] 重建 acoustic-report
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\build_acoustic_report.py
+
+python -X utf8 project_b\build_nav.py
+
+pause
+
+goto menu
+
+
+:ev_audit_all
+
+cls
+
+echo  [证据] 六项审计一键跑
+
+cd /d "D:\wx409.github.io"
+
+python -X utf8 project_b\audit_versions_matrix.py
+
+python -X utf8 project_b\audit_snapshot.py
+
+python -X utf8 project_b\chain_check.py
+
+python -X utf8 project_b\audit_caliber.py
+
+python -X utf8 project_b\audit_jsonld.py
+
+python -X utf8 project_b\audit_nav.py
+
+pause
+
+goto menu
+
+
+:ev_baseline
+
+cls
+
+echo  [证据] 打开阶段基线文档
+
+start "" "D:\wx409.github.io\docs\阶段基线_v1.md"
+
+pause
 
 goto menu
 
