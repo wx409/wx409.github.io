@@ -12,11 +12,11 @@
   "candidate_B_more_reasonable": null,
   "both_reasonable_small_difference": null,
   "both_unreliable": null,
-  "unresolved": null,
-  "status": "pending"
+  "unresolved": true,
+  "status": "done"
  },
  "evidence_used": [],
- "reason": "",
+ "reason": "听者表示无法判断音高（无音高训练），按规则记 unresolved",
  "reviewer": "star",
  "review_date": "2026-10-25",
  "confidence_or_unjudgeable_reason": "pending human review",

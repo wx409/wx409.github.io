@@ -1,0 +1,390 @@
+{
+ "status": "machine_prescreen",
+ "publishable": false,
+ "note": "非裁决：仅依据 1/2/3 次谐波是否齐全；不计入 f0_verdict",
+ "counts": {
+  "both_complete": 4,
+  "A_complete_B_missing": 10,
+  "B_complete_A_missing": 7,
+  "both_missing": 3
+ },
+ "rows": [
+  {
+   "adjudication_id": "adj-01",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-02",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-03",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-04",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "B_harmonics": [],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-05",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-06",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "both_complete",
+   "needs_trained_listener": false
+  },
+  {
+   "adjudication_id": "adj-07",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "class": "both_complete",
+   "needs_trained_listener": false
+  },
+  {
+   "adjudication_id": "adj-08",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "B_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-09",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-10",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-11",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "both_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-12",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-13",
+   "A_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "class": "B_complete_A_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-14",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "B_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-15",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-16",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "B_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-17",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1,
+    3,
+    4,
+    6
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-18",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "both_complete",
+   "needs_trained_listener": false
+  },
+  {
+   "adjudication_id": "adj-19",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "B_harmonics": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "class": "both_complete",
+   "needs_trained_listener": false
+  },
+  {
+   "adjudication_id": "adj-20",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-21",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-22",
+   "A_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1
+   ],
+   "class": "both_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-23",
+   "A_harmonics": [
+    1
+   ],
+   "B_harmonics": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "class": "both_missing",
+   "needs_trained_listener": true
+  },
+  {
+   "adjudication_id": "adj-24",
+   "A_harmonics": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "B_harmonics": [
+    1
+   ],
+   "class": "A_complete_B_missing",
+   "needs_trained_listener": true
+  }
+ ]
+}
