@@ -312,7 +312,7 @@ def acoustic_candidates() -> list[dict]:
             "disabled_reason": "颤音极差与站内现行 0.27Hz 冲突（复跑后专辑中位为 4.95–5.34，极差 0.39Hz）；"
                                "待确定快照口径后再放行",
             "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
-            "small_words": ["颤音", "八张录音室作品", "稳定性"], "audience": "声乐爱好者 / 数据向读者",
+            "small_words": ["颤音", "七张专辑与一张数字 EP", "稳定性"], "audience": "声乐爱好者 / 数据向读者",
             "kind": "acoustic", "t_abs_s": None, "t_hms": "",
         })
     cn = load(D / "archive_cross_night.json")

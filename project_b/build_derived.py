@@ -47,7 +47,7 @@ def main() -> None:
 
     out = {
         "schema": "derived/vibrato_spread-v1",
-        "metric": "八张录音室作品逐碟颤音速率中位数之极差",
+        "metric": "七张专辑与一张数字 EP逐碟颤音速率中位数之极差",
         "definition": "max(逐碟中位) − min(逐碟中位)；颤音速率单位 Hz",
         "snapshot_id": CURRENT_SNAPSHOT,
         "snapshot_date": snaps[CURRENT_SNAPSHOT]["snapshot_date"],

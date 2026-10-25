@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""文章配套三卡：低音基线 / 八张录音室作品只漂 0.27Hz / 54 组配对（2026-10-13 用户授权上线）。
+"""文章配套三卡：低音基线 / 七张专辑与一张数字 EP只漂 0.27Hz / 54 组配对（2026-10-13 用户授权上线）。
 
 走**现有卡片厂**（复用 `build_topic_cards.render_card` 的片段模板与 gate 块）：
   data/share/cards/card_low_baseline.json · card_vibrato_8y.json · card_pair_54.json
@@ -127,7 +127,7 @@ def main() -> int:
                  f"每条数字的字段出处见各自主数字条目。生成 {TODAY}",
     ))
 
-    # ── ② 八张录音室作品只漂 0.27Hz（专辑级颤音速率）──
+    # ── ② 七张专辑与一张数字 EP只漂 0.27Hz（专辑级颤音速率）──
     by_alb = {}
     for s in songs:
         if s.get("vibrato_hz") and s.get("album"):
@@ -139,8 +139,8 @@ def main() -> int:
     except Exception:
         spread = max(x[2] for x in alb) - min(x[2] for x in alb)
     cards.append(dict(
-        id="vibrato_8y", no=11, title=f"八张录音室作品只漂 {spread:.2f}Hz",
-        subtitle="与自己比：跨专辑颤音速率稳定性（8 张录音室作品）",
+        id="vibrato_8y", no=11, title=f"七张专辑 + 一张数字 EP，颤音只漂 {spread:.2f}Hz",
+        subtitle="与自己比：跨专辑颤音速率稳定性（七张专辑 + 一张数字 EP）",
         pillar="实测（专辑级中位，组内纵比）",
         main_numbers=[
             {"value": round(spread, 2), "unit": "Hz", "label": "专辑间颤音速率中位极差（越小越稳）",

@@ -10,7 +10,7 @@
 用法：
     from album_catalog import phrase, stats
     stats()   -> {'works': 8, 'albums': 7, 'eps': 1, 'ep_names': ['回望'], 'songs': 72}
-    phrase()  -> '八张录音室作品（7 张专辑 + 1 张 EP《回望》）'
+    phrase()  -> '七张专辑与一张数字 EP（7 张专辑 + 1 张 EP《回望》）'
 """
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ def cn(n: int) -> str:
 
 
 def phrase(with_parenthetical: bool = True) -> str:
-    """'八张录音室作品（7 张专辑 + 1 张 EP《回望》）' —— 全部由 albums.json 派生。"""
+    """'七张专辑与一张数字 EP（7 张专辑 + 1 张 EP《回望》）' —— 全部由 albums.json 派生。"""
     s = stats()
     head = f"{cn(s['works'])}张录音室作品"
     if not with_parenthetical or s["eps"] == 0:

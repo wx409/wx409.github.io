@@ -17,6 +17,20 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+def _song_of(lo: dict) -> str:
+    """曲名兜底：优先用 song 字段，其次从 tag 的 ___Pxx_曲名 解析，最后标全场素材。"""
+    song = (lo.get("song") or "").strip()
+    if song:
+        return song
+    tag = str(lo.get("tag") or "")
+    m = re.search(r"___P\d+_(.+)$", tag)
+    if m:
+        return m.group(1).strip()
+    if "全程" in tag or "上半场" in tag:
+        return "全场素材（未切分）"
+    return "曲目待补"
+
 SRC = ROOT / "data" / "archive_stage.json"
 CROSS = ROOT / "data" / "archive_crosscheck.json"
 CTX = ROOT / "data" / "archive_context_compare.json"
@@ -76,14 +90,14 @@ def _highlights_block() -> str:
         ("六巡广州20260823_回", "二巡上海2021", "一巡厦门", "一巡北京收官", "四巡上海生日"))]
     parts = [
         f'<li><strong>现场最低稳定音</strong>：{nm(lo, "low")}'
-        f'（《{esc(lo.get("song"))}》{esc(lo.get("tour"))}｜{esc(lo.get("city"))}）</li>',
+        f'（《{esc(_song_of(lo))}》{esc(lo.get("tour"))}｜{esc(lo.get("city"))}）</li>',
     ]
     if hi:
         parts.append(f'<li><strong>现场最高稳定音</strong>：{nm(hi, "high")}'
-                     f'（《{esc(hi.get("song"))}》{esc(hi.get("tour"))}｜{esc(hi.get("city"))}）</li>')
+                     f'（《{esc(_song_of(hi))}》{esc(hi.get("tour"))}｜{esc(hi.get("city"))}）</li>')
     if sp:
         parts.append(f'<li><strong>最宽跨度</strong>：<strong>{sp.get("span_octaves")} 个八度</strong>'
-                     f'（《{esc(sp.get("song"))}》{esc(sp.get("tour"))}｜{esc(sp.get("city"))}：'
+                     f'（《{esc(_song_of(sp))}》{esc(sp.get("tour"))}｜{esc(sp.get("city"))}：'
                      f'{nm(sp, "low")} → {nm(sp, "high")}）</li>')
     parts.append(f'<li><strong>实测规模</strong>：{len(rows)} 条素材'
                  f'（其中本轮新增 {len(newest)} 首来自分P单曲源）｜'
@@ -296,7 +310,7 @@ def tour_layer_html() -> str:
     st_excl = _c.get("excluded", 0)
     return f'''<h2>一、王晰主导巡演现场（能力证据层）</h2>
 <div class="hl">
-<strong>《{esc(lo["song"] or "游离")}》该场本曲已测段落最低 {esc(lo["note"])}（{lo["hz"]} Hz）</strong>——{esc(lo["city"])} {esc(lo["date"])}{esc(_src_note(lo))}。
+<strong>《{esc(_song_of(lo))}》该场本曲已测段落最低 {esc(lo["note"])}（{lo["hz"]} Hz）</strong>——{esc(lo["city"])} {esc(lo["date"])}{esc(_src_note(lo))}。
 复核状态：<strong>{esc(lo["verify"])}</strong>{f'，CREPE 交叉校验 {lo["crepe_hz"]} Hz' if lo.get("crepe_hz") else ""}。<br>
 本层已有 {n} 条素材（场次音频实测 {s.get("n_stage_measured")} + 十曲精测并入 {s.get("n_from_precision")}），覆盖 {s.get("n_tours")} 个巡次、{s.get("n_songs")} 首曲目，其中 {ver} 条过复核门槛；
 跨度中位 {s.get("span_median_octaves")} 个八度（口径：排除人耳否决读数后 n=682；含全部读数为 2.73，两值不可混用）、音符内稳定性中位 {s.get("stability_median_cents")} 音分、颤音 {s.get("vibrato_rate_hz_median")} Hz / {s.get("vibrato_extent_cents_median")} 音分（仅场次音频实测口径的指标参与该项统计）。
@@ -341,6 +355,11 @@ def tour_layer_html() -> str:
 </ul>
 <p style="margin:6px 0 0">「未过门槛」是测量筛选结果，不是对演唱质量的评价；「待核」不是否定；
 「暂停主张」只改变发布状态，不否定素材本身。</p>
+</div>
+<div class="method">
+<strong>双人场次为什么单列：</strong>《沉响与长歌》为<strong>王晰 × 傲日其愣</strong>双人演唱会，
+两条人声同时在场、无法逐句归属，因此不并入「王晰主导」或「他人主导」任何一层，
+只做<strong>块级记录</strong>（不逐条引用）。
 </div>
 <h3>巡次汇总</h3>
 <table>
