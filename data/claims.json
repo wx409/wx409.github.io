@@ -251,6 +251,32 @@
    "status": "可用"
   },
   {
+   "id": "C6-vibrato-spread",
+   "claim": "七张专辑与一张数字 EP 的逐碟颤音速率中位数分布（4.95–5.34Hz，极差 0.27Hz）",
+   "claim_type": "描述",
+   "inference_scope": "S3",
+   "measurement": "M1",
+   "scope": {
+    "albums": 8,
+    "songs": 72,
+    "snapshot_id": "snap-2026-09-21",
+    "snapshot_date": "2026-09-21",
+    "definition": "逐碟取中位后，max−min"
+   },
+   "can_write": [
+    "七张专辑与一张数字 EP，逐碟颤音速率中位数为 4.95–5.34Hz，极差 0.27Hz（2026-09-21 快照，覆盖 72 首曲目）。该极差描述不同作品之间的离散程度。"
+   ],
+   "cannot_write": [
+    "时间稳定性（该指标是跨专辑差异，不是十年漂移）",
+    "嗓音状态或唱功水平",
+    "把 0.27 与 0.39 混用（后者为混合复跑候选）"
+   ],
+   "fails_if": "重复性校验显示该极差不可复现",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
+  },
+  {
    "id": "C-song-01-rangta",
    "song": "让她降落",
    "claim": "《让她降落》20 个版本的目标段最低音读数分布",
@@ -262,7 +288,7 @@
     "total_versions": 20,
     "included": 18,
     "excluded": 2,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 5.75,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -292,7 +318,7 @@
     "total_versions": 7,
     "included": 5,
     "excluded": 2,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 8.88,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -322,7 +348,7 @@
     "total_versions": 14,
     "included": 12,
     "excluded": 2,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 4.14,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -352,7 +378,7 @@
     "total_versions": 12,
     "included": 12,
     "excluded": 0,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 14.5,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -382,7 +408,7 @@
     "total_versions": 10,
     "included": 9,
     "excluded": 1,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 6.57,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -412,7 +438,7 @@
     "total_versions": 9,
     "included": 5,
     "excluded": 4,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 4.96,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -442,7 +468,7 @@
     "total_versions": 8,
     "included": 8,
     "excluded": 0,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 6.78,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -472,7 +498,7 @@
     "total_versions": 4,
     "included": 4,
     "excluded": 0,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": false,
     "range_semitones": 0.14,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -501,7 +527,7 @@
     "total_versions": 7,
     "included": 6,
     "excluded": 1,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 1.5,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -531,7 +557,7 @@
     "total_versions": 5,
     "included": 4,
     "excluded": 1,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数、未过门槛读数与已判失真素材均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 6.55,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -561,7 +587,7 @@
     "total_versions": 4,
     "included": 3,
     "excluded": 1,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": true,
     "range_semitones": 5.49,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -591,7 +617,7 @@
     "total_versions": 2,
     "included": 0,
     "excluded": 2,
-    "exclude_rule": "待判读数与未过门槛的已测读数均不进中位、不作能力依据",
+    "exclude_rule": "待判读数与未过门槛读数均不进中位、不作能力依据",
     "cross_key": false,
     "range_semitones": null,
     "object": "各版本同一目标段（最低音所在乐句）"
@@ -604,32 +630,6 @@
    "reviewer": "本站",
    "date": "2026-10-25",
    "status": "待核"
-  },
-  {
-   "id": "C6-vibrato-spread",
-   "claim": "七张专辑与一张数字 EP 的逐碟颤音速率中位数分布（4.95–5.34Hz，极差 0.27Hz）",
-   "claim_type": "描述",
-   "inference_scope": "S3",
-   "measurement": "M1",
-   "scope": {
-    "albums": 8,
-    "songs": 72,
-    "snapshot_id": "snap-2026-09-21",
-    "snapshot_date": "2026-09-21",
-    "definition": "逐碟取中位后，max−min"
-   },
-   "can_write": [
-    "七张专辑与一张数字 EP，逐碟颤音速率中位数为 4.95–5.34Hz，极差 0.27Hz（2026-09-21 快照，覆盖 72 首曲目）。该极差描述不同作品之间的离散程度。"
-   ],
-   "cannot_write": [
-    "时间稳定性（该指标是跨专辑差异，不是十年漂移）",
-    "嗓音状态或唱功水平",
-    "把 0.27 与 0.39 混用（后者为混合复跑候选）"
-   ],
-   "fails_if": "重复性校验显示该极差不可复现",
-   "reviewer": "本站",
-   "date": "2026-10-25",
-   "status": "可用"
   }
  ]
 }

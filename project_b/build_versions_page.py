@@ -79,7 +79,7 @@ def esc(s) -> str:
 
 
 def table_all(doc: dict) -> str:
-    h = ['<table>', '<tr><th>曲目</th><th>版本</th><th>巡次</th><th>目标段读数中位</th>'
+    h = ['<table>', '<tr><th>曲目</th><th>版本</th><th>巡次</th><th>整曲最低稳定音中位</th>'
          '<th>与录音室</th><th>版本间极差</th></tr>']
     for s in doc["songs"]:
         d = s.get("vs_studio_semitones")
@@ -105,11 +105,11 @@ def section(s: dict) -> str:
         h.append('<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>')
     bits = [f'{s["n_tours"]} 个巡次', f'{s["n_versions"]} 个版本']
     if s.get("low_median") is not None:
-        bits.append(f'目标段读数中位 <b>{s["low_median"]} Hz</b>')
+        bits.append(f'整曲最低稳定音中位 <b>{s["low_median"]} Hz</b>')
     if s.get("vs_studio_semitones") is not None:
         bits.append(f'与录音室相差 <b>{s["vs_studio_semitones"]:+.1f} 半音</b>')
     if s.get("low_range_semitones"):
-        bits.append(f'版本间极差 <b>{s["low_range_semitones"]:.1f} 半音</b>')
+        bits.append(f'版本间极差 <b>{s["low_range_semitones"]:.2f} 半音</b>')
     h.append('<p class="sub">' + "｜".join(bits) + "</p>")
     vd = verdict(s)
     if vd:
@@ -170,7 +170,8 @@ def main() -> None:
              "name": "同一首歌在不同城市的现场，最低音会差多少？",
              "acceptedAnswer": {"@type": "Answer", "text":
                  "本页按巡次与城市逐条列出同一首歌的现场读数。以《多听有益》为例，四巡上海生日与杭州均为 C2 65.2Hz，"
-                 "北京直拍为 D2 74.9Hz，2024-04-18 其他演出为 F#2 95.2Hz，版本间极差约 9.3 个半音——不同版本存在调性与编配差异，"
+                 "北京直拍为 D2 74.9Hz，2024-04-18 其他演出为 F#2 95.2Hz；武汉 A2 111.6Hz 因素材失真已移出统计（留档不计数）。"
+                 "纳入版本的极差约 6.55 个半音——不同版本存在调性与编配差异，"
                  "不能直接当作唱功升降。"}},
             {"@type": "Question",
              "name": "为什么有些现场读数标着「待判」？",
