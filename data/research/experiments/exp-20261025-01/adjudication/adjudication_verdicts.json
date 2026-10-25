@@ -1,0 +1,289 @@
+{
+ "status": "exploratory",
+ "publishable": false,
+ "windows": 24,
+ "caveat": "听者参考了 listening_cheatsheet.md（机器预筛提示）；本轮裁决不宜视为完全独立的人耳基准，需独立听者复核后再升级证据等级。",
+ "overall": {
+  "n": 24,
+  "yin_more_reasonable": 8,
+  "praat_more_reasonable": 8,
+  "both_reasonable": 0,
+  "both_unreliable": 0,
+  "unresolved": 8,
+  "attribution_target": 18,
+  "attribution_other_or_unclear": 6
+ },
+ "by_layer": {
+  "录音室人声轨": {
+   "n": 12,
+   "yin_more_reasonable": 5,
+   "praat_more_reasonable": 5,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 2,
+   "attribution_target": 11,
+   "attribution_other_or_unclear": 1
+  },
+  "现场混音": {
+   "n": 12,
+   "yin_more_reasonable": 3,
+   "praat_more_reasonable": 3,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 6,
+   "attribution_target": 7,
+   "attribution_other_or_unclear": 5
+  }
+ },
+ "by_category": {
+  "octave": {
+   "n": 9,
+   "yin_more_reasonable": 1,
+   "praat_more_reasonable": 4,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 4,
+   "attribution_target": 6,
+   "attribution_other_or_unclear": 3
+  },
+  "one_sided": {
+   "n": 3,
+   "yin_more_reasonable": 2,
+   "praat_more_reasonable": 1,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 0,
+   "attribution_target": 3,
+   "attribution_other_or_unclear": 0
+  },
+  "nonoctave": {
+   "n": 9,
+   "yin_more_reasonable": 4,
+   "praat_more_reasonable": 3,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 2,
+   "attribution_target": 8,
+   "attribution_other_or_unclear": 1
+  },
+  "agree_high": {
+   "n": 2,
+   "yin_more_reasonable": 1,
+   "praat_more_reasonable": 0,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 1,
+   "attribution_target": 1,
+   "attribution_other_or_unclear": 1
+  },
+  "agree_mid": {
+   "n": 1,
+   "yin_more_reasonable": 0,
+   "praat_more_reasonable": 0,
+   "both_reasonable": 0,
+   "both_unreliable": 0,
+   "unresolved": 1,
+   "attribution_target": 0,
+   "attribution_other_or_unclear": 1
+  }
+ },
+ "agree_windows": {
+  "n": 3,
+  "both_reasonable": 0,
+  "suspicious": 2
+ },
+ "rows": [
+  {
+   "adjudication_id": "adj-01",
+   "layer": "录音室人声轨",
+   "category": "octave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-02",
+   "layer": "录音室人声轨",
+   "category": "octave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-03",
+   "layer": "录音室人声轨",
+   "category": "one_sided",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-04",
+   "layer": "录音室人声轨",
+   "category": "one_sided",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-05",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-06",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "not_target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-07",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-08",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-09",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-10",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-11",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-12",
+   "layer": "录音室人声轨",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-13",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "target_singer",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-14",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "accompaniment_or_other_voice",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-15",
+   "layer": "现场混音",
+   "category": "one_sided",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-16",
+   "layer": "现场混音",
+   "category": "nonoctave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-17",
+   "layer": "现场混音",
+   "category": "agree_high",
+   "attribution": "unclear",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-18",
+   "layer": "现场混音",
+   "category": "agree_high",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "YIN"
+  },
+  {
+   "adjudication_id": "adj-19",
+   "layer": "现场混音",
+   "category": "agree_mid",
+   "attribution": "not_target_singer",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-20",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-21",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_B_more_reasonable",
+   "yin_or_praat": "Praat"
+  },
+  {
+   "adjudication_id": "adj-22",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "accompaniment_or_other_voice",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-23",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "accompaniment_or_other_voice",
+   "f0_verdict": "unresolved",
+   "yin_or_praat": null
+  },
+  {
+   "adjudication_id": "adj-24",
+   "layer": "现场混音",
+   "category": "octave",
+   "attribution": "target_singer",
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "Praat"
+  }
+ ]
+}

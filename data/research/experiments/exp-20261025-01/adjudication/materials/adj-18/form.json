@@ -9,16 +9,16 @@
  },
  "f0_verdict": {
   "candidate_A_more_reasonable": null,
-  "candidate_B_more_reasonable": null,
+  "candidate_B_more_reasonable": true,
   "both_reasonable_small_difference": null,
   "both_unreliable": null,
-  "unresolved": true,
+  "unresolved": null,
   "status": "done"
  },
  "evidence_used": [],
- "reason": "听者表示无法判断音高（无音高训练），按规则记 unresolved",
+ "reason": "王晰的低音，很低",
  "reviewer": "star",
  "review_date": "2026-10-25",
  "confidence_or_unjudgeable_reason": "pending human review",
- "partial": true
+ "partial": false
 }

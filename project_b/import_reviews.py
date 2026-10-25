@@ -67,8 +67,35 @@ ok = pending = bad = 0
 problems = []
 for r in rows:
     aid = r['adjudication_id']
-    att = r['att'].lower()
-    f0 = r['f0']
+    def norm_att(x: str) -> str:
+        t = x.lower().replace('_', ' ').replace('-', ' ').strip()
+        if 'not' in t or '不是' in x or '别人' in x:
+            return 'not_target'
+        if 'accomp' in t or '伴奏' in x or '其他声部' in x:
+            return 'accompaniment'
+        if 'unclear' in t or '不清' in x or '不确定' in x:
+            return 'unclear'
+        if t.startswith('target') or x.startswith('是他') or x.startswith('王晰'):
+            return 'target'
+        return t
+
+    def norm_f0(x: str) -> str:
+        t = x.strip()
+        u = t.upper()
+        if u.startswith('A'):
+            return 'A'
+        if u.startswith('B'):
+            return 'B'
+        if 'both_ok' in u or '都可' in t or '都可以' in t or '都像' in t:
+            return 'both_ok'
+        if 'both_bad' in u or '都不可靠' in t or '都不像' in t:
+            return 'both_bad'
+        if 'unresolved' in u or '无法' in t or '听不出' in t or '不确定' in t:
+            return 'unresolved'
+        return t
+
+    att = norm_att(r['att'])
+    f0 = norm_f0(r['f0'])
     key_f0 = next((k for k in F0 if k.lower() == f0.lower()), None)
     key_att = next((k for k in ATT if k == att), None)
     if not att and not f0:
