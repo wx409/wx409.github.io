@@ -8,15 +8,15 @@
   "status": "done"
  },
  "f0_verdict": {
-  "candidate_A_more_reasonable": null,
+  "candidate_A_more_reasonable": true,
   "candidate_B_more_reasonable": null,
   "both_reasonable_small_difference": null,
   "both_unreliable": null,
-  "unresolved": true,
+  "unresolved": null,
   "status": "done"
  },
  "evidence_used": [],
- "reason": "王晰的声音，稍微高一些",
+ "reason": "两个候选 287/75，听者确认他在唱高音 → 取 287",
  "reviewer": "star",
  "review_date": "2026-10-25",
  "confidence_or_unjudgeable_reason": "pending human review",

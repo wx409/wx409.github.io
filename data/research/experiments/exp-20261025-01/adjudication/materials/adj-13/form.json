@@ -1,10 +1,10 @@
 {
  "adjudication_id": "adj-13",
  "attribution": {
-  "target_singer": true,
+  "target_singer": null,
   "not_target_singer": null,
   "accompaniment_or_other_voice": null,
-  "unclear": null,
+  "unclear": true,
   "status": "done"
  },
  "f0_verdict": {
@@ -16,7 +16,7 @@
   "status": "done"
  },
  "evidence_used": [],
- "reason": "王晰的声音，稍微高一些",
+ "reason": "听者确认在唱高音但分不清是否本人 → 归属存疑，F0 不判",
  "reviewer": "star",
  "review_date": "2026-10-25",
  "confidence_or_unjudgeable_reason": "pending human review",

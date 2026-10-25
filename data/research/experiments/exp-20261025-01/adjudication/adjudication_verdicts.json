@@ -5,32 +5,32 @@
  "caveat": "听者参考了 listening_cheatsheet.md（机器预筛提示）；本轮裁决不宜视为完全独立的人耳基准，需独立听者复核后再升级证据等级。",
  "overall_all_windows": {
   "n": 24,
-  "yin_more_reasonable": 8,
-  "praat_more_reasonable": 8,
+  "yin_more_reasonable": 9,
+  "praat_more_reasonable": 9,
   "both_reasonable": 0,
   "both_unreliable": 0,
-  "unresolved": 8,
-  "attribution_target": 18,
-  "attribution_other_or_unclear": 6
+  "unresolved": 6,
+  "attribution_target": 17,
+  "attribution_other_or_unclear": 7
  },
  "overall": {
-  "n": 18,
-  "yin_more_reasonable": 7,
-  "praat_more_reasonable": 8,
+  "n": 17,
+  "yin_more_reasonable": 8,
+  "praat_more_reasonable": 9,
   "both_reasonable": 0,
   "both_unreliable": 0,
-  "unresolved": 3,
-  "attribution_target": 18,
+  "unresolved": 0,
+  "attribution_target": 17,
   "attribution_other_or_unclear": 0
  },
  "by_layer": {
   "录音室人声轨": {
    "n": 12,
-   "yin_more_reasonable": 5,
-   "praat_more_reasonable": 5,
+   "yin_more_reasonable": 6,
+   "praat_more_reasonable": 6,
    "both_reasonable": 0,
    "both_unreliable": 0,
-   "unresolved": 2,
+   "unresolved": 0,
    "attribution_target": 11,
    "attribution_other_or_unclear": 1
   },
@@ -41,8 +41,8 @@
    "both_reasonable": 0,
    "both_unreliable": 0,
    "unresolved": 6,
-   "attribution_target": 7,
-   "attribution_other_or_unclear": 5
+   "attribution_target": 6,
+   "attribution_other_or_unclear": 6
   }
  },
  "by_category": {
@@ -53,8 +53,8 @@
    "both_reasonable": 0,
    "both_unreliable": 0,
    "unresolved": 4,
-   "attribution_target": 6,
-   "attribution_other_or_unclear": 3
+   "attribution_target": 5,
+   "attribution_other_or_unclear": 4
   },
   "one_sided": {
    "n": 3,
@@ -68,11 +68,11 @@
   },
   "nonoctave": {
    "n": 9,
-   "yin_more_reasonable": 4,
-   "praat_more_reasonable": 3,
+   "yin_more_reasonable": 5,
+   "praat_more_reasonable": 4,
    "both_reasonable": 0,
    "both_unreliable": 0,
-   "unresolved": 2,
+   "unresolved": 0,
    "attribution_target": 8,
    "attribution_other_or_unclear": 1
   },
@@ -103,22 +103,19 @@
   "suspicious": 2
  },
  "target_only": {
-  "n": 18,
-  "yin": 7,
-  "praat": 8,
-  "unresolved": 3
+  "n": 17,
+  "yin": 8,
+  "praat": 9,
+  "unresolved": 0
  },
  "final_no_target": [
+  "adj-13",
   "adj-14",
   "adj-17",
   "adj-22",
   "adj-23"
  ],
- "needs_relisten": [
-  "adj-07",
-  "adj-08",
-  "adj-13"
- ],
+ "needs_relisten": [],
  "non_target_with_f0": [
   "adj-06"
  ],
@@ -176,16 +173,16 @@
    "layer": "录音室人声轨",
    "category": "nonoctave",
    "attribution": "target_singer",
-   "f0_verdict": "unresolved",
-   "yin_or_praat": null
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "YIN"
   },
   {
    "adjudication_id": "adj-08",
    "layer": "录音室人声轨",
    "category": "nonoctave",
    "attribution": "target_singer",
-   "f0_verdict": "unresolved",
-   "yin_or_praat": null
+   "f0_verdict": "candidate_A_more_reasonable",
+   "yin_or_praat": "Praat"
   },
   {
    "adjudication_id": "adj-09",
@@ -223,7 +220,7 @@
    "adjudication_id": "adj-13",
    "layer": "现场混音",
    "category": "octave",
-   "attribution": "target_singer",
+   "attribution": "unclear",
    "f0_verdict": "unresolved",
    "yin_or_praat": null
   },
