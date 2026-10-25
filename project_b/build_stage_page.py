@@ -289,10 +289,10 @@ def tour_layer_html() -> str:
     sv = next((r for r in (t.get("live_vs_studio") or []) if r.get("kind") == "同曲对照"), None)
     return f'''<h2>一、王晰主导巡演现场（能力证据层）</h2>
 <div class="hl">
-<strong>现场最低稳定音 {esc(lo["note"])}（{lo["hz"]} Hz）</strong>——《{esc(lo["song"] or "游离")}》{esc(lo["city"])} {esc(lo["date"])}{esc(_src_note(lo))}。
+<strong>《{esc(lo["song"] or "游离")}》该场本曲已测段落最低 {esc(lo["note"])}（{lo["hz"]} Hz）</strong>——{esc(lo["city"])} {esc(lo["date"])}{esc(_src_note(lo))}。
 复核状态：<strong>{esc(lo["verify"])}</strong>{f'，CREPE 交叉校验 {lo["crepe_hz"]} Hz' if lo.get("crepe_hz") else ""}。<br>
 本层已有 {n} 条素材（场次音频实测 {s.get("n_stage_measured")} + 十曲精测并入 {s.get("n_from_precision")}），覆盖 {s.get("n_tours")} 个巡次、{s.get("n_songs")} 首曲目，其中 {ver} 条过复核门槛；
-跨度中位 {s.get("span_median_octaves")} 个八度（口径：排除人耳否决读数后 n≈682；含全部读数为 2.73，两值不可混用）、音符内稳定性中位 {s.get("stability_median_cents")} 音分、颤音 {s.get("vibrato_rate_hz_median")} Hz / {s.get("vibrato_extent_cents_median")} 音分（仅场次音频实测口径的指标参与该项统计）。
+跨度中位 {s.get("span_median_octaves")} 个八度（口径：排除人耳否决读数后 n=682；含全部读数为 2.73，两值不可混用）、音符内稳定性中位 {s.get("stability_median_cents")} 音分、颤音 {s.get("vibrato_rate_hz_median")} Hz / {s.get("vibrato_extent_cents_median")} 音分（仅场次音频实测口径的指标参与该项统计）。
 </div>
 <div class="method">
 <strong>为什么这一层才算「现场能力」：</strong>巡演由他本人主导——选曲、调性、编排、曲目位置由他决定，唱什么、唱到多低是他自己的选择。

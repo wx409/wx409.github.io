@@ -307,7 +307,10 @@ def acoustic_candidates() -> list[dict]:
         med = {a: st.median(v) for a, v in by.items()}
         spread = max(med.values()) - min(med.values())
         out.append({
-            "hook": f"{len(med)} 张专辑（2014–2024，跨十年），颤音速率极差 {spread:.2f}Hz",
+            "hook": f"{len(med)} 张录音室作品（2014–2024，跨十年），颤音速率极差 {spread:.2f}Hz",
+            "disabled": True,
+            "disabled_reason": "颤音极差与站内现行 0.27Hz 冲突（复跑后专辑中位为 4.95–5.34，极差 0.39Hz）；"
+                               "待确定快照口径后再放行",
             "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
             "small_words": ["颤音", "八张录音室作品", "稳定性"], "audience": "声乐爱好者 / 数据向读者",
             "kind": "acoustic", "t_abs_s": None, "t_hms": "",

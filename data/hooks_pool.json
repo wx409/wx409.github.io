@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-25T15:26:27",
+ "generated_at": "2026-10-25T15:42:16",
  "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
  "rules": {
   "时间标记": {
@@ -299,7 +299,9 @@
    "raw_noise_reasons": []
   },
   {
-   "hook": "8 张专辑（2014–2024，跨十年），颤音速率极差 0.39Hz",
+   "hook": "8 张录音室作品（2014–2024，跨十年），颤音速率极差 0.39Hz",
+   "disabled": true,
+   "disabled_reason": "颤音极差与站内现行 0.27Hz 冲突（复跑后专辑中位为 4.95–5.34，极差 0.39Hz）；待确定快照口径后再放行",
    "evidence": "data/archive_vocal_albums.json#songs[].vibrato_hz（按 .album 取中位后比）",
    "small_words": [
     "颤音",
