@@ -32,7 +32,7 @@ RED = [
 ]
 YELLOW = [
     ("音级缺限定", r"(?<!目标)(?<!低音段)C2(?!.{0,10}(附近|左右|音级))"),
-    ("稳定缺条件", r"稳定(?!.{0,12}(音分|条件|范围|素材))"),
+    ("稳定缺条件", r"(?<!不代表跨场)(?<!不表示跨场)(?<!不直接表示跨场)稳定(?!.{0,12}(音分|条件|范围|素材|性))"),
     ("精确 Hz 缺方法", r"\d{2,3}\.\d\s*(Hz|赫兹)(?!.{0,12}(方法|参数|读数|约))"),
     ("音分缺精度说明", r"\d+(\.\d+)?\s*音分(?!.{0,12}(误差|读数|中位|精度))"),
 ]
@@ -54,6 +54,34 @@ def check(text: str, cases: list[dict], case_id: str | None = None):
     return red, yellow, case
 
 
+
+
+def numeric_check(text: str, claim: dict):
+    """把草稿里的数字与主张 scope 对齐；并检查是否丢了边界句。"""
+    issues, warns = [], []
+    sc = claim.get("scope") or {}
+    pairs = [
+        ("版本总数", sc.get("total_versions"), r"(\d+)\s*(?:个)?版"),
+        ("纳入数", sc.get("included"), r"(\d+)\s*个?纳入"),
+        ("未纳入数", sc.get("excluded"), r"(\d+)\s*个?未纳入"),
+        ("极差", sc.get("range_semitones"), r"极差约?\s*([\d.]+)\s*半音"),
+    ]
+    for name, want, pat in pairs:
+        if want is None:
+            continue
+        m = re.search(pat, text)
+        if not m:
+            continue
+        got = float(m.group(1))
+        if abs(got - float(want)) > 0.011:
+            issues.append(f"{name}：草稿 {got} ≠ 主张 {want}")
+    # 边界句：主张要求“只描述分布/不表示稳定性”时，草稿应带这类限定
+    need = bool(sc.get("range_semitones"))
+    has = any(k in text for k in ("只描述", "不直接", "不代表", "不表示", "不是稳定性"))
+    if need and not has:
+        warns.append("缺边界句：该数字不能单独表示跨场稳定性，建议补“只描述读数分布”")
+    return issues, warns
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--text", default="")
@@ -72,6 +100,23 @@ def main() -> None:
     doc = load()
     red, yellow, case = check(text, doc["cases"], a.case or None)
 
+    if not case:
+        _claims = json.loads((ROOT / "data" / "claims.json").read_text(encoding="utf-8"))["claims"]
+        _hit = next((c for c in _claims if c.get("song") and c["song"] in text), None)
+        if _hit:
+            case = {"id": _hit["id"], "quote": (_hit.get("can_write") or [""])[0],
+                    "source": "", "object": "", "boundary": "", "status": _hit.get("status"),
+                    "claim_id": _hit["id"]}
+    if case and case.get("claim_id"):
+        cid = case["claim_id"]
+        cl = next((c for c in json.loads((ROOT / "data" / "claims.json")
+                                         .read_text(encoding="utf-8"))["claims"]
+                   if c["id"] == cid), None)
+        if cl:
+            n_iss, n_warn = numeric_check(text, cl)
+            if n_iss:
+                red.extend([("数据不一致", x) for x in n_iss])
+            yellow.extend([("边界", x) for x in n_warn])
     print(f"字数 {len(text)}｜RED {len(red)}｜YELLOW {len(yellow)}")
     if red:
         print("\n[RED] 必须删或改：")
@@ -82,11 +127,11 @@ def main() -> None:
         for name, frag in yellow:
             print(f"  · {name}：{frag}")
     if case:
-        print(f"\n[引用原文] {case['quote']}")
-        print(f"[来源] {case['source']}")
-        print(f"[对象] {case['object']}")
-        print(f"[边界] {case['boundary']}")
-        print(f"[状态] {case['status']}")
+        print(f"\n[引用原文] {case.get('quote', '')}")
+        print(f"[来源] {case.get('source', '')}")
+        print(f"[对象] {case.get('object', '')}")
+        print(f"[边界] {case.get('boundary', '')}")
+        print(f"[状态] {case.get('status', '')}")
     if not red and not yellow:
         print("\n[GREEN] 未命中措辞红线（仅代表没越界，不代表内容正确）")
     sys.exit(1 if red else 0)
