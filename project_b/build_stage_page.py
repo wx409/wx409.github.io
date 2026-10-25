@@ -334,7 +334,7 @@ def tour_layer_html() -> str:
 <div class="method">
 <strong>条目三态（本页 {st_total} 条素材）：</strong>
 <ul style="margin:6px 0 0;padding-left:22px">
-<li><strong>可形成结论</strong>：{st_claim} 条——过复核门槛且可引用，进入统计与发布</li>
+<li><strong>达到测量复核门槛</strong>：{st_claim} 条——可参与已登记主张；<strong>实际发布仍取决于主张绑定及其状态</strong>（claimable 是读数状态，publishable 是主张与出口状态）</li>
 <li><strong>只能描述素材</strong>：{st_desc} 条——有录音与读数，但未达可引用门槛，不推出复现或能力结论</li>
 <li><strong>待核</strong>：{st_pend} 条——归属或复核未完成，留档待查</li>
 <li><strong>排除</strong>：{st_excl} 条——已有明确原因（失真/人声否决等），留档不计数</li>
