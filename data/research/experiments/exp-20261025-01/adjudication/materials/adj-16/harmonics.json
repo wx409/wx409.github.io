@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-16",
+ "segment_id": "live-16",
+ "layer": "现场混音",
+ "t_global": 46.328,
+ "candidate_A_f0": 233.68,
+ "candidate_B_f0": 55.45,
+ "top_peaks": [
+  {
+   "hz": 230.0,
+   "db": 44.8
+  },
+  {
+   "hz": 220.0,
+   "db": 43.9
+  },
+  {
+   "hz": 280.0,
+   "db": 42.4
+  },
+  {
+   "hz": 200.0,
+   "db": 40.8
+  },
+  {
+   "hz": 270.0,
+   "db": 39.6
+  },
+  {
+   "hz": 90.0,
+   "db": 38.4
+  },
+  {
+   "hz": 190.0,
+   "db": 37.2
+  },
+  {
+   "hz": 240.0,
+   "db": 36.4
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 233.7,
+   "peak_hz": 230.0,
+   "db": 44.8
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 467.4,
+   "peak_hz": 460.0,
+   "db": 24.7
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 701.0,
+   "peak_hz": 690.0,
+   "db": 7.0
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 934.7,
+   "peak_hz": 960.0,
+   "db": -0.2
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1402.1,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 55.5,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 110.9,
+   "peak_hz": 110.0,
+   "db": 8.2
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 166.4,
+   "peak_hz": 170.0,
+   "db": 25.2
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 221.8,
+   "peak_hz": 220.0,
+   "db": 43.9
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 332.7,
+   "peak_hz": 330.0,
+   "db": 32.2
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav\\让她降落\\六巡广州20260823_10_让她降落.wav",
+ "window": [
+  40.5,
+  46.5
+ ]
+}

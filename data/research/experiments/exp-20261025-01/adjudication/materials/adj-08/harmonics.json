@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-08",
+ "segment_id": "stu-03",
+ "layer": "录音室人声轨",
+ "t_global": 77.401,
+ "candidate_A_f0": 287.25,
+ "candidate_B_f0": 75.17,
+ "top_peaks": [
+  {
+   "hz": 230.0,
+   "db": 35.7
+  },
+  {
+   "hz": 670.0,
+   "db": 34.9
+  },
+  {
+   "hz": 1050.0,
+   "db": 34.5
+  },
+  {
+   "hz": 220.0,
+   "db": 34.4
+  },
+  {
+   "hz": 240.0,
+   "db": 32.6
+  },
+  {
+   "hz": 1060.0,
+   "db": 31.9
+  },
+  {
+   "hz": 680.0,
+   "db": 31.1
+  },
+  {
+   "hz": 210.0,
+   "db": 30.1
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 287.3,
+   "peak_hz": 280.0,
+   "db": 21.9
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 574.5,
+   "peak_hz": 560.0,
+   "db": 24.2
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 861.8,
+   "peak_hz": 880.0,
+   "db": 11.6
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 1149.0,
+   "peak_hz": 1150.0,
+   "db": 19.4
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1723.5,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 75.2,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 150.3,
+   "peak_hz": 150.0,
+   "db": 18.6
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 225.5,
+   "peak_hz": 230.0,
+   "db": 35.7
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 300.7,
+   "peak_hz": 300.0,
+   "db": 23.1
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 451.0,
+   "peak_hz": 460.0,
+   "db": 22.5
+  }
+ ],
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\歌颂\\王牌就是我\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  73.5,
+  79.5
+ ]
+}

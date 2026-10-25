@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-19",
+ "segment_id": "live-08",
+ "layer": "现场混音",
+ "t_global": 53.158,
+ "candidate_A_f0": 278.94,
+ "candidate_B_f0": 270.89,
+ "top_peaks": [
+  {
+   "hz": 270.0,
+   "db": 42.0
+  },
+  {
+   "hz": 260.0,
+   "db": 38.4
+  },
+  {
+   "hz": 280.0,
+   "db": 36.9
+  },
+  {
+   "hz": 290.0,
+   "db": 33.6
+  },
+  {
+   "hz": 220.0,
+   "db": 31.0
+  },
+  {
+   "hz": 300.0,
+   "db": 30.8
+  },
+  {
+   "hz": 210.0,
+   "db": 29.9
+  },
+  {
+   "hz": 550.0,
+   "db": 25.4
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 278.9,
+   "peak_hz": 280.0,
+   "db": 36.9
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 557.9,
+   "peak_hz": 550.0,
+   "db": 25.4
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 836.8,
+   "peak_hz": 830.0,
+   "db": 13.5
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 1115.8,
+   "peak_hz": 1120.0,
+   "db": -1.6
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1673.6,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 270.9,
+   "peak_hz": 270.0,
+   "db": 42.0
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 541.8,
+   "peak_hz": 550.0,
+   "db": 25.4
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 812.7,
+   "peak_hz": 800.0,
+   "db": 15.1
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 1083.5,
+   "peak_hz": 1060.0,
+   "db": 1.9
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1625.3,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\沉响20261009_v2_块\\b04_傲日.wav",
+ "window": [
+  50.0,
+  56.0
+ ]
+}

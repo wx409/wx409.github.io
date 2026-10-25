@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-17",
+ "segment_id": "live-10",
+ "layer": "现场混音",
+ "t_global": 64.17,
+ "candidate_A_f0": 72.98,
+ "candidate_B_f0": 72.77,
+ "top_peaks": [
+  {
+   "hz": 220.0,
+   "db": 51.5
+  },
+  {
+   "hz": 210.0,
+   "db": 48.0
+  },
+  {
+   "hz": 230.0,
+   "db": 43.3
+  },
+  {
+   "hz": 150.0,
+   "db": 41.8
+  },
+  {
+   "hz": 140.0,
+   "db": 39.7
+  },
+  {
+   "hz": 440.0,
+   "db": 32.1
+  },
+  {
+   "hz": 160.0,
+   "db": 30.9
+  },
+  {
+   "hz": 70.0,
+   "db": 29.4
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 73.0,
+   "peak_hz": 70.0,
+   "db": 29.4
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 146.0,
+   "peak_hz": 150.0,
+   "db": 41.8
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 218.9,
+   "peak_hz": 220.0,
+   "db": 51.5
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 291.9,
+   "peak_hz": 290.0,
+   "db": 27.7
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 437.9,
+   "peak_hz": 440.0,
+   "db": 32.1
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 72.8,
+   "peak_hz": 70.0,
+   "db": 29.4
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 145.5,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 218.3,
+   "peak_hz": 220.0,
+   "db": 51.5
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 291.1,
+   "peak_hz": 290.0,
+   "db": 27.7
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 436.6,
+   "peak_hz": 440.0,
+   "db": 32.1
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav\\花儿为什么这样红\\未知20201116_BV1fr4y1F769.wav",
+ "window": [
+  61.5,
+  67.5
+ ]
+}

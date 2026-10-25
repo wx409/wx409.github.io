@@ -1,0 +1,81 @@
+{
+ "adjudication_id": "adj-04",
+ "segment_id": "stu-05",
+ "layer": "录音室人声轨",
+ "t_global": 186.0,
+ "candidate_A_f0": 219.77,
+ "candidate_B_f0": null,
+ "top_peaks": [
+  {
+   "hz": 220.0,
+   "db": 52.8
+  },
+  {
+   "hz": 210.0,
+   "db": 47.5
+  },
+  {
+   "hz": 230.0,
+   "db": 45.4
+  },
+  {
+   "hz": 440.0,
+   "db": 39.1
+  },
+  {
+   "hz": 430.0,
+   "db": 35.1
+  },
+  {
+   "hz": 450.0,
+   "db": 30.8
+  },
+  {
+   "hz": 240.0,
+   "db": 21.8
+  },
+  {
+   "hz": 270.0,
+   "db": 21.2
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 219.8,
+   "peak_hz": 220.0,
+   "db": 52.8
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 439.5,
+   "peak_hz": 440.0,
+   "db": 39.1
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 659.3,
+   "peak_hz": 660.0,
+   "db": 19.2
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 879.1,
+   "peak_hz": 880.0,
+   "db": 9.2
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1318.6,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": null,
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\X自选集\\偏偏\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  186.0,
+  192.0
+ ]
+}

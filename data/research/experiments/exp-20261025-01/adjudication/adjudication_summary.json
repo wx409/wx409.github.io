@@ -1,0 +1,33 @@
+{
+ "experiment_id": "exp-20261025-01",
+ "status": "exploratory",
+ "publishable": false,
+ "windows": 24,
+ "pending_reviews": 24,
+ "completed_reviews": 0,
+ "by_category": {
+  "octave": 9,
+  "one_sided": 3,
+  "nonoctave": 9,
+  "agree_high": 2,
+  "agree_mid": 1
+ },
+ "by_layer": {
+  "录音室人声轨": 12,
+  "现场混音": 12
+ },
+ "verdicts": {
+  "note": "全部 pending：无真实听者，不生成裁决统计"
+ },
+ "not_computable": [
+  "YIN更合理/Praat更合理的分子",
+  "共同可疑/共同错误计数",
+  "八度分歧中各引擎更合理计数"
+ ],
+ "scope": "仅这 24 个裁决窗口；不输出全站误差率，不启用 80/60 阈值",
+ "limitations": [
+  "录音室窗口的输入为分离人声，谐波列基于该输入；原始混音未映射，需人工听辨补足",
+  "本批无 agree_low 类窗口（40 段中不存在），已在 shortfall_notes 记录",
+  "所有裁决字段为 pending：无真实听者，不生成裁决统计"
+ ]
+}

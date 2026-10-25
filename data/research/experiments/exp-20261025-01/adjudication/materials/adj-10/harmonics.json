@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-10",
+ "segment_id": "stu-14",
+ "layer": "录音室人声轨",
+ "t_global": 102.356,
+ "candidate_A_f0": 1108.76,
+ "candidate_B_f0": 156.02,
+ "top_peaks": [
+  {
+   "hz": 160.0,
+   "db": 24.2
+  },
+  {
+   "hz": 150.0,
+   "db": 23.8
+  },
+  {
+   "hz": 130.0,
+   "db": 10.9
+  },
+  {
+   "hz": 330.0,
+   "db": 10.8
+  },
+  {
+   "hz": 140.0,
+   "db": 10.8
+  },
+  {
+   "hz": 340.0,
+   "db": 9.5
+  },
+  {
+   "hz": 170.0,
+   "db": 9.1
+  },
+  {
+   "hz": 180.0,
+   "db": 8.9
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 1108.8,
+   "peak_hz": 1110.0,
+   "db": -17.7
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 2217.5,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 3326.3,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 4435.0,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 6652.6,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 156.0,
+   "peak_hz": 160.0,
+   "db": 24.2
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 312.0,
+   "peak_hz": 320.0,
+   "db": -0.6
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 468.1,
+   "peak_hz": 480.0,
+   "db": -12.9
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 624.1,
+   "peak_hz": 640.0,
+   "db": -17.8
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 936.1,
+   "peak_hz": 930.0,
+   "db": -24.7
+  }
+ ],
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\Low C的诱惑\\忘不了\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  99.5,
+  105.5
+ ]
+}

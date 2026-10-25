@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-23",
+ "segment_id": "live-04",
+ "layer": "现场混音",
+ "t_global": 3.658,
+ "candidate_A_f0": 931.31,
+ "candidate_B_f0": 104.05,
+ "top_peaks": [
+  {
+   "hz": 940.0,
+   "db": 36.3
+  },
+  {
+   "hz": 930.0,
+   "db": 35.6
+  },
+  {
+   "hz": 830.0,
+   "db": 30.9
+  },
+  {
+   "hz": 840.0,
+   "db": 28.9
+  },
+  {
+   "hz": 230.0,
+   "db": 25.4
+  },
+  {
+   "hz": 240.0,
+   "db": 23.8
+  },
+  {
+   "hz": 950.0,
+   "db": 23.2
+  },
+  {
+   "hz": 220.0,
+   "db": 21.6
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 931.3,
+   "peak_hz": 940.0,
+   "db": 36.3
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 1862.6,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 2793.9,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 3725.2,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 5587.8,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 104.0,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 208.1,
+   "peak_hz": 210.0,
+   "db": 16.3
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 312.1,
+   "peak_hz": 310.0,
+   "db": 16.3
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 416.2,
+   "peak_hz": 410.0,
+   "db": 20.3
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 624.3,
+   "peak_hz": 620.0,
+   "db": 19.9
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav_新源现场\\cometome\\一巡北京收官20200102_p19_Cometome.wav",
+ "window": [
+  0.5,
+  6.5
+ ]
+}

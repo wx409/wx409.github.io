@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-18",
+ "segment_id": "live-06",
+ "layer": "现场混音",
+ "t_global": 197.472,
+ "candidate_A_f0": 69.46,
+ "candidate_B_f0": 68.58,
+ "top_peaks": [
+  {
+   "hz": 70.0,
+   "db": 47.2
+  },
+  {
+   "hz": 60.0,
+   "db": 44.4
+  },
+  {
+   "hz": 80.0,
+   "db": 37.2
+  },
+  {
+   "hz": 140.0,
+   "db": 34.9
+  },
+  {
+   "hz": 210.0,
+   "db": 34.4
+  },
+  {
+   "hz": 180.0,
+   "db": 33.2
+  },
+  {
+   "hz": 170.0,
+   "db": 33.1
+  },
+  {
+   "hz": 130.0,
+   "db": 30.4
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 69.5,
+   "peak_hz": 70.0,
+   "db": 47.2
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 138.9,
+   "peak_hz": 140.0,
+   "db": 34.9
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 208.4,
+   "peak_hz": 210.0,
+   "db": 34.4
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 277.9,
+   "peak_hz": 270.0,
+   "db": 26.1
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 416.8,
+   "peak_hz": 410.0,
+   "db": 14.2
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 68.6,
+   "peak_hz": 70.0,
+   "db": 47.2
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 137.2,
+   "peak_hz": 140.0,
+   "db": 34.9
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 205.7,
+   "peak_hz": 210.0,
+   "db": 34.4
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 274.3,
+   "peak_hz": 270.0,
+   "db": 26.1
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 411.5,
+   "peak_hz": 410.0,
+   "db": 14.2
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav_分P逐曲\\【王晰】五巡首场杭州 全部歌曲 自录202412__P07_（下半场）住口\\【王晰】五巡首场杭州 全部歌曲 自录202412__P07_（下半场）住口.wav",
+ "window": [
+  194.5,
+  200.5
+ ]
+}

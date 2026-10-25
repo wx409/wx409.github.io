@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-13",
+ "segment_id": "live-00",
+ "layer": "现场混音",
+ "t_global": 75.615,
+ "candidate_A_f0": 96.21,
+ "candidate_B_f0": 216.04,
+ "top_peaks": [
+  {
+   "hz": 220.0,
+   "db": 41.2
+  },
+  {
+   "hz": 190.0,
+   "db": 39.8
+  },
+  {
+   "hz": 200.0,
+   "db": 38.8
+  },
+  {
+   "hz": 450.0,
+   "db": 38.5
+  },
+  {
+   "hz": 230.0,
+   "db": 37.4
+  },
+  {
+   "hz": 440.0,
+   "db": 37.0
+  },
+  {
+   "hz": 380.0,
+   "db": 34.9
+  },
+  {
+   "hz": 880.0,
+   "db": 34.1
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 96.2,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 192.4,
+   "peak_hz": 190.0,
+   "db": 39.8
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 288.6,
+   "peak_hz": 290.0,
+   "db": 26.1
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 384.9,
+   "peak_hz": 380.0,
+   "db": 34.9
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 577.3,
+   "peak_hz": 570.0,
+   "db": 28.8
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 216.0,
+   "peak_hz": 220.0,
+   "db": 41.2
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 432.1,
+   "peak_hz": 440.0,
+   "db": 37.0
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 648.1,
+   "peak_hz": 650.0,
+   "db": 29.4
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 864.1,
+   "peak_hz": 880.0,
+   "db": 34.1
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1296.2,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav\\三巡长沙全场\\三巡长沙20220624_p08_王晰三巡0624长沙全场（自存） p08 点歌 第三首.wav",
+ "window": [
+  74.5,
+  80.5
+ ]
+}

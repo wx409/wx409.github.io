@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-12",
+ "segment_id": "stu-10",
+ "layer": "录音室人声轨",
+ "t_global": 185.359,
+ "candidate_A_f0": 1102.46,
+ "candidate_B_f0": 176.77,
+ "top_peaks": [
+  {
+   "hz": 160.0,
+   "db": 28.7
+  },
+  {
+   "hz": 150.0,
+   "db": 27.4
+  },
+  {
+   "hz": 170.0,
+   "db": 23.9
+  },
+  {
+   "hz": 190.0,
+   "db": 22.4
+  },
+  {
+   "hz": 370.0,
+   "db": 22.1
+  },
+  {
+   "hz": 140.0,
+   "db": 21.6
+  },
+  {
+   "hz": 360.0,
+   "db": 20.8
+  },
+  {
+   "hz": 550.0,
+   "db": 18.7
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 1102.5,
+   "peak_hz": 1070.0,
+   "db": -1.4
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 2204.9,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 3307.4,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 4409.8,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 6614.8,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 176.8,
+   "peak_hz": 180.0,
+   "db": 18.1
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 353.5,
+   "peak_hz": 360.0,
+   "db": 20.8
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 530.3,
+   "peak_hz": 540.0,
+   "db": 13.2
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 707.1,
+   "peak_hz": 720.0,
+   "db": 0.7
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1060.6,
+   "peak_hz": 1050.0,
+   "db": -1.2
+  }
+ ],
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\Low C的诱惑Ⅱ\\重庆野玫瑰\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  184.5,
+  190.5
+ ]
+}

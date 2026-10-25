@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-24",
+ "segment_id": "live-17",
+ "layer": "现场混音",
+ "t_global": 182.437,
+ "candidate_A_f0": 70.48,
+ "candidate_B_f0": 1091.08,
+ "top_peaks": [
+  {
+   "hz": 80.0,
+   "db": 50.3
+  },
+  {
+   "hz": 70.0,
+   "db": 49.3
+  },
+  {
+   "hz": 90.0,
+   "db": 48.4
+  },
+  {
+   "hz": 50.0,
+   "db": 46.7
+  },
+  {
+   "hz": 60.0,
+   "db": 46.2
+  },
+  {
+   "hz": 100.0,
+   "db": 45.7
+  },
+  {
+   "hz": 140.0,
+   "db": 43.1
+  },
+  {
+   "hz": 150.0,
+   "db": 42.8
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 70.5,
+   "peak_hz": 70.0,
+   "db": 49.3
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 141.0,
+   "peak_hz": 140.0,
+   "db": 43.1
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 211.4,
+   "peak_hz": 210.0,
+   "db": 25.6
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 281.9,
+   "peak_hz": 280.0,
+   "db": 27.4
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 422.9,
+   "peak_hz": 430.0,
+   "db": 19.7
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 1091.1,
+   "peak_hz": 1060.0,
+   "db": 20.4
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 2182.2,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 3273.3,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 4364.3,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 6546.5,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav_广州逐曲\\一生守候\\六巡广州微博_6_一生守候.wav",
+ "window": [
+  179.0,
+  185.0
+ ]
+}

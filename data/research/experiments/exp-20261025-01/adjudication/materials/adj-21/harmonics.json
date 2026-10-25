@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-21",
+ "segment_id": "live-14",
+ "layer": "现场混音",
+ "t_global": 21.625,
+ "candidate_A_f0": 58.45,
+ "candidate_B_f0": 951.84,
+ "top_peaks": [
+  {
+   "hz": 50.0,
+   "db": 44.1
+  },
+  {
+   "hz": 60.0,
+   "db": 43.9
+  },
+  {
+   "hz": 90.0,
+   "db": 41.0
+  },
+  {
+   "hz": 70.0,
+   "db": 40.6
+  },
+  {
+   "hz": 100.0,
+   "db": 40.2
+  },
+  {
+   "hz": 130.0,
+   "db": 37.0
+  },
+  {
+   "hz": 120.0,
+   "db": 36.8
+  },
+  {
+   "hz": 350.0,
+   "db": 34.9
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 58.5,
+   "peak_hz": 60.0,
+   "db": 43.9
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 116.9,
+   "peak_hz": 120.0,
+   "db": 36.8
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 175.4,
+   "peak_hz": 180.0,
+   "db": 28.2
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 233.8,
+   "peak_hz": 230.0,
+   "db": 32.6
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 350.7,
+   "peak_hz": 350.0,
+   "db": 34.9
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 951.8,
+   "peak_hz": 930.0,
+   "db": 29.8
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 1903.7,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 2855.5,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 3807.4,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 5711.0,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav\\无尽的夜里\\南昌20241229_BV1Vc6vYhEXj.wav",
+ "window": [
+  20.0,
+  26.0
+ ]
+}

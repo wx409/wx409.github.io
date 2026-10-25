@@ -1,0 +1,81 @@
+{
+ "adjudication_id": "adj-03",
+ "segment_id": "stu-18",
+ "layer": "录音室人声轨",
+ "t_global": 137.5,
+ "candidate_A_f0": 118.17,
+ "candidate_B_f0": null,
+ "top_peaks": [
+  {
+   "hz": 110.0,
+   "db": 48.2
+  },
+  {
+   "hz": 120.0,
+   "db": 46.3
+  },
+  {
+   "hz": 100.0,
+   "db": 39.7
+  },
+  {
+   "hz": 130.0,
+   "db": 33.6
+  },
+  {
+   "hz": 90.0,
+   "db": 31.0
+  },
+  {
+   "hz": 200.0,
+   "db": 28.8
+  },
+  {
+   "hz": 210.0,
+   "db": 28.7
+  },
+  {
+   "hz": 220.0,
+   "db": 27.9
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 118.2,
+   "peak_hz": 120.0,
+   "db": 46.3
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 236.3,
+   "peak_hz": 230.0,
+   "db": 25.2
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 354.5,
+   "peak_hz": 350.0,
+   "db": 13.0
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 472.7,
+   "peak_hz": 460.0,
+   "db": 20.4
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 709.0,
+   "peak_hz": 730.0,
+   "db": -2.5
+  }
+ ],
+ "support_B": null,
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\X自选集\\Crystal Store\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  137.5,
+  143.5
+ ]
+}

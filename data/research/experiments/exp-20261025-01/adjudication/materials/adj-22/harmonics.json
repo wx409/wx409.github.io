@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-22",
+ "segment_id": "live-13",
+ "layer": "现场混音",
+ "t_global": 34.865,
+ "candidate_A_f0": 73.56,
+ "candidate_B_f0": 736.94,
+ "top_peaks": [
+  {
+   "hz": 740.0,
+   "db": 43.6
+  },
+  {
+   "hz": 730.0,
+   "db": 39.0
+  },
+  {
+   "hz": 660.0,
+   "db": 38.2
+  },
+  {
+   "hz": 750.0,
+   "db": 36.4
+  },
+  {
+   "hz": 670.0,
+   "db": 34.2
+  },
+  {
+   "hz": 650.0,
+   "db": 33.1
+  },
+  {
+   "hz": 640.0,
+   "db": 31.1
+  },
+  {
+   "hz": 780.0,
+   "db": 27.7
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 73.6,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 147.1,
+   "peak_hz": 150.0,
+   "db": 4.5
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 220.7,
+   "peak_hz": 220.0,
+   "db": 2.6
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 294.2,
+   "peak_hz": 290.0,
+   "db": 11.6
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 441.4,
+   "peak_hz": 430.0,
+   "db": 10.2
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 736.9,
+   "peak_hz": 740.0,
+   "db": 43.6
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 1473.9,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 2210.8,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 2947.8,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 4421.6,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav_十年现场语料\\二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p38\\二巡上海2021_全程_p%(playlist_index)s_BV1nZ4y1P7GU_p38.wav",
+ "window": [
+  30.5,
+  36.5
+ ]
+}

@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-09",
+ "segment_id": "stu-19",
+ "layer": "录音室人声轨",
+ "t_global": 169.625,
+ "candidate_A_f0": 827.76,
+ "candidate_B_f0": 170.51,
+ "top_peaks": [
+  {
+   "hz": 160.0,
+   "db": 40.8
+  },
+  {
+   "hz": 180.0,
+   "db": 39.3
+  },
+  {
+   "hz": 170.0,
+   "db": 37.7
+  },
+  {
+   "hz": 190.0,
+   "db": 37.0
+  },
+  {
+   "hz": 150.0,
+   "db": 36.1
+  },
+  {
+   "hz": 340.0,
+   "db": 29.0
+  },
+  {
+   "hz": 200.0,
+   "db": 28.5
+  },
+  {
+   "hz": 330.0,
+   "db": 28.1
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 827.8,
+   "peak_hz": 850.0,
+   "db": -2.8
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 1655.5,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 2483.3,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 3311.0,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 4966.5,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 170.5,
+   "peak_hz": 170.0,
+   "db": 37.7
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 341.0,
+   "peak_hz": 340.0,
+   "db": 29.0
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 511.5,
+   "peak_hz": 500.0,
+   "db": 7.4
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 682.0,
+   "peak_hz": 700.0,
+   "db": 2.4
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1023.1,
+   "peak_hz": 1010.0,
+   "db": -4.0
+  }
+ ],
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\Low C的诱惑\\爱情\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  168.0,
+  174.0
+ ]
+}

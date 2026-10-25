@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-11",
+ "segment_id": "stu-06",
+ "layer": "录音室人声轨",
+ "t_global": 51.503,
+ "candidate_A_f0": 862.34,
+ "candidate_B_f0": 96.42,
+ "top_peaks": [
+  {
+   "hz": 100.0,
+   "db": 38.8
+  },
+  {
+   "hz": 90.0,
+   "db": 38.7
+  },
+  {
+   "hz": 110.0,
+   "db": 36.6
+  },
+  {
+   "hz": 80.0,
+   "db": 31.6
+  },
+  {
+   "hz": 120.0,
+   "db": 30.0
+  },
+  {
+   "hz": 190.0,
+   "db": 28.4
+  },
+  {
+   "hz": 180.0,
+   "db": 27.9
+  },
+  {
+   "hz": 200.0,
+   "db": 27.7
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 862.3,
+   "peak_hz": 880.0,
+   "db": -3.4
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 1724.7,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 2587.0,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 3449.4,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 5174.0,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 96.4,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 192.8,
+   "peak_hz": 190.0,
+   "db": 28.4
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 289.3,
+   "peak_hz": 290.0,
+   "db": 3.7
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 385.7,
+   "peak_hz": 390.0,
+   "db": 5.4
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 578.5,
+   "peak_hz": 570.0,
+   "db": -2.8
+  }
+ ],
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\X自选集\\不需要结果\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  46.0,
+  52.0
+ ]
+}

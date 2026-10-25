@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-20",
+ "segment_id": "live-05",
+ "layer": "现场混音",
+ "t_global": 190.127,
+ "candidate_A_f0": 195.7,
+ "candidate_B_f0": 63.6,
+ "top_peaks": [
+  {
+   "hz": 190.0,
+   "db": 51.0
+  },
+  {
+   "hz": 200.0,
+   "db": 46.6
+  },
+  {
+   "hz": 180.0,
+   "db": 43.5
+  },
+  {
+   "hz": 50.0,
+   "db": 43.2
+  },
+  {
+   "hz": 60.0,
+   "db": 41.7
+  },
+  {
+   "hz": 70.0,
+   "db": 29.9
+  },
+  {
+   "hz": 110.0,
+   "db": 29.6
+  },
+  {
+   "hz": 380.0,
+   "db": 29.1
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 195.7,
+   "peak_hz": 190.0,
+   "db": 51.0
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 391.4,
+   "peak_hz": 380.0,
+   "db": 29.1
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 587.1,
+   "peak_hz": 580.0,
+   "db": 23.9
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 782.8,
+   "peak_hz": 760.0,
+   "db": 7.2
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 1174.2,
+   "peak_hz": 1150.0,
+   "db": 3.4
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 63.6,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 127.2,
+   "peak_hz": 130.0,
+   "db": 19.5
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 190.8,
+   "peak_hz": 190.0,
+   "db": 51.0
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 254.4,
+   "peak_hz": 250.0,
+   "db": 12.4
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 381.6,
+   "peak_hz": 380.0,
+   "db": 29.1
+  }
+ ],
+ "input_type": "stage_mix",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\场次音频\\wav\\雪地里寄不出的求救信\\北京20201017_BV1dy4y1b7j7.wav",
+ "window": [
+  189.5,
+  195.5
+ ]
+}

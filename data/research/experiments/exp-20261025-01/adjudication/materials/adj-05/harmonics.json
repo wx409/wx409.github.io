@@ -1,0 +1,112 @@
+{
+ "adjudication_id": "adj-05",
+ "segment_id": "stu-17",
+ "layer": "录音室人声轨",
+ "t_global": 151.817,
+ "candidate_A_f0": 918.34,
+ "candidate_B_f0": 136.1,
+ "top_peaks": [
+  {
+   "hz": 140.0,
+   "db": 32.3
+  },
+  {
+   "hz": 130.0,
+   "db": 31.2
+  },
+  {
+   "hz": 150.0,
+   "db": 25.7
+  },
+  {
+   "hz": 120.0,
+   "db": 21.7
+  },
+  {
+   "hz": 280.0,
+   "db": 18.5
+  },
+  {
+   "hz": 270.0,
+   "db": 16.4
+  },
+  {
+   "hz": 230.0,
+   "db": 11.7
+  },
+  {
+   "hz": 170.0,
+   "db": 11.4
+  }
+ ],
+ "support_A": [
+  {
+   "harmonic": 1,
+   "expected_hz": 918.3,
+   "peak_hz": 920.0,
+   "db": -10.0
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 1836.7,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 2755.0,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 3673.3,
+   "peak_hz": null,
+   "db": null
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 5510.0,
+   "peak_hz": null,
+   "db": null
+  }
+ ],
+ "support_B": [
+  {
+   "harmonic": 1,
+   "expected_hz": 136.1,
+   "peak_hz": 140.0,
+   "db": 32.3
+  },
+  {
+   "harmonic": 2,
+   "expected_hz": 272.2,
+   "peak_hz": 280.0,
+   "db": 18.5
+  },
+  {
+   "harmonic": 3,
+   "expected_hz": 408.3,
+   "peak_hz": 400.0,
+   "db": 2.0
+  },
+  {
+   "harmonic": 4,
+   "expected_hz": 544.4,
+   "peak_hz": 560.0,
+   "db": 1.7
+  },
+  {
+   "harmonic": 6,
+   "expected_hz": 816.6,
+   "peak_hz": 840.0,
+   "db": -8.9
+  }
+ ],
+ "input_type": "separated_vocal",
+ "input_path": "E:\\wx\\论文素材_王晰作传\\音域分析\\分离_专辑\\Low C的诱惑\\千言万语\\htdemucs\\input_ascii\\vocals.wav",
+ "window": [
+  146.5,
+  152.5
+ ]
+}
