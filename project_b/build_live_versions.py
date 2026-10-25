@@ -50,6 +50,18 @@ def semi(a, b):
     return round(12 * math.log2(a / b), 2)
 
 
+EXCL = json.loads((Path(__file__).resolve().parent.parent / "data" / "live_exclusions.json")
+                 .read_text(encoding="utf-8")).get("items", [])
+
+
+def excluded_of(row):
+    tag = str(row.get("tag") or "")
+    for e in EXCL:
+        if e.get("match") and e["match"] in tag:
+            return e
+    return None
+
+
 def state_of(row):
     v = str(row.get("verify_channel") or row.get("a3_final_note") or "")
     if any(k in v for k in REJECT):
@@ -83,7 +95,8 @@ def main() -> None:
             continue
         if any(k in name for k in NOT_A_SONG):
             continue
-        stt = state_of(r)
+        _ex = excluded_of(r)
+        stt = "excluded" if _ex else state_of(r)
         if stt == "rejected":
             continue
         groups[name].append({
@@ -95,6 +108,7 @@ def main() -> None:
             "stability_cents": r.get("stability_cents"),
             "vibrato_hz": r.get("vibrato_hz"),
             "state": stt,
+                "excluded_reason": (_ex.get("reason") if _ex else None),
             "verify": str(r.get("verify_channel") or r.get("a3_final_note") or ""),
         })
 
@@ -164,7 +178,7 @@ def main() -> None:
                 f'{v["span_octaves"]:.2f}' if v.get("span_octaves") else "—",
                 f'{v["stability_cents"]:.1f}' if v.get("stability_cents") is not None else "—",
                 f'{v["vibrato_hz"]:.2f}' if v.get("vibrato_hz") is not None else "—",
-                {"ok": "✅ 过门槛", "pending": "⏳ 待判", "recorded": "· 已测"}.get(v["state"], v["state"])))
+                {"ok": "✅ 过门槛", "pending": "⏳ 待判", "recorded": "· 已测", "excluded": "⛔ 排除"}.get(v["state"], v["state"])))
         lines.append("")
     MD.parent.mkdir(parents=True, exist_ok=True)
     MD.write_text("\n".join(lines), encoding="utf-8")

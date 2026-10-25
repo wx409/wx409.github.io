@@ -55,8 +55,8 @@ def main() -> None:
         errors.append(f"版本总数 {total_v} ≠ 102")
     if total_pend != 11:
         errors.append(f"待判总数 {total_pend} ≠ 11")
-    if total_exc != 15:
-        errors.append(f"未纳入总数 {total_exc} ≠ 15（待判 11 + 已测未过门槛 4）")
+    if total_exc != 16:
+        errors.append(f"未纳入总数 {total_exc} ≠ 16（待判 11 + 未过门槛 4 + 排除 1）")
     if total_incl + total_exc != total_v:
         errors.append(f"纳入 {total_incl} + 排除 {total_exc} ≠ 总数 {total_v}")
 

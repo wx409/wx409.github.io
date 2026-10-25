@@ -1,0 +1,15 @@
+{
+ "schema": "live_exclusions/v1",
+ "principle": "已判定不适用的素材：保留留档，不进入统计与发布；不等于否定演唱。",
+ "items": [
+  {
+   "song": "多听有益",
+   "match": "BV1iWtUefEkm",
+   "label": "武汉琴台 2024-09-16",
+   "reason_code": "distortion",
+   "reason": "高频失真：1–4kHz 占 33.4%、峰值 0 dBFS（2026-10-24 实测）",
+   "in_stats": false,
+   "in_publish": false
+  }
+ ]
+}

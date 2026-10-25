@@ -1,6 +1,6 @@
 {
  "schema": "live-versions/v1",
- "generated_at": "2026-10-24 16:34",
+ "generated_at": "2026-10-25 18:02",
  "what": "同一首歌在不同巡次/年份/城市的现场读数横向矩阵（跨场对照的唯一数据出口）",
  "discipline": [
   "只列有最低音读数的现场行；人耳否决行直接排除",
@@ -45,6 +45,7 @@
      "stability_cents": 8.4,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -61,6 +62,7 @@
      "stability_cents": 8.6,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -77,6 +79,7 @@
      "stability_cents": 7.7,
      "vibrato_hz": 5.02,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列复核通过"
     },
     {
@@ -93,6 +96,7 @@
      "stability_cents": 8.8,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -109,6 +113,7 @@
      "stability_cents": 7.2,
      "vibrato_hz": 5.17,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "人耳听辨终裁（证据级别最高）"
     },
     {
@@ -125,6 +130,7 @@
      "stability_cents": 6.7,
      "vibrato_hz": 5.17,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "人耳确认（听辨）"
     },
     {
@@ -141,6 +147,7 @@
      "stability_cents": 5.7,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列复核通过"
     },
     {
@@ -157,6 +164,7 @@
      "stability_cents": 6.0,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列复核通过"
     },
     {
@@ -173,6 +181,7 @@
      "stability_cents": 6.8,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -189,6 +198,7 @@
      "stability_cents": 7.4,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列复核通过"
     },
     {
@@ -205,6 +215,7 @@
      "stability_cents": 6.3,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "双引擎一致"
     },
     {
@@ -221,6 +232,7 @@
      "stability_cents": 5.7,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "双引擎一致"
     },
     {
@@ -237,6 +249,7 @@
      "stability_cents": 7.2,
      "vibrato_hz": 4.88,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -253,6 +266,7 @@
      "stability_cents": 8.6,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列复核通过（同刻三源）"
     },
     {
@@ -269,6 +283,7 @@
      "stability_cents": 7.3,
      "vibrato_hz": 4.92,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "双引擎一致"
     },
     {
@@ -285,6 +300,7 @@
      "stability_cents": 6.2,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "双引擎一致"
     },
     {
@@ -301,6 +317,7 @@
      "stability_cents": 7.9,
      "vibrato_hz": 5.07,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -317,6 +334,7 @@
      "stability_cents": 6.4,
      "vibrato_hz": 5.0,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "双引擎一致"
     },
     {
@@ -333,6 +351,7 @@
      "stability_cents": 7.7,
      "vibrato_hz": 5.07,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -349,6 +368,7 @@
      "stability_cents": 7.0,
      "vibrato_hz": 5.03,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "人耳确认（听辨）"
     }
    ]
@@ -384,6 +404,7 @@
      "stability_cents": 8.1,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -400,6 +421,7 @@
      "stability_cents": 6.5,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -416,6 +438,7 @@
      "stability_cents": 6.0,
      "vibrato_hz": 5.25,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -432,6 +455,7 @@
      "stability_cents": 6.0,
      "vibrato_hz": 4.92,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -448,6 +472,7 @@
      "stability_cents": 6.3,
      "vibrato_hz": 4.89,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -464,6 +489,7 @@
      "stability_cents": 6.6,
      "vibrato_hz": 4.79,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -480,6 +506,7 @@
      "stability_cents": 8.7,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -514,6 +541,7 @@
      "stability_cents": 8.7,
      "vibrato_hz": 5.17,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -530,6 +558,7 @@
      "stability_cents": 8.7,
      "vibrato_hz": 5.38,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -546,6 +575,7 @@
      "stability_cents": 7.7,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -562,6 +592,7 @@
      "stability_cents": 6.5,
      "vibrato_hz": 5.38,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -578,6 +609,7 @@
      "stability_cents": 6.7,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -594,6 +626,7 @@
      "stability_cents": 7.5,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -610,6 +643,7 @@
      "stability_cents": 6.9,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -626,6 +660,7 @@
      "stability_cents": 6.0,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -642,6 +677,7 @@
      "stability_cents": 5.4,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -658,6 +694,7 @@
      "stability_cents": 6.7,
      "vibrato_hz": 5.28,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -674,6 +711,7 @@
      "stability_cents": 5.6,
      "vibrato_hz": 4.92,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -690,6 +728,7 @@
      "stability_cents": 5.7,
      "vibrato_hz": 5.24,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -706,6 +745,7 @@
      "stability_cents": 7.3,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -722,6 +762,7 @@
      "stability_cents": 6.7,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -760,6 +801,7 @@
      "stability_cents": 5.7,
      "vibrato_hz": 4.53,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -776,6 +818,7 @@
      "stability_cents": 4.3,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -792,6 +835,7 @@
      "stability_cents": 5.5,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -808,6 +852,7 @@
      "stability_cents": 8.0,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -824,6 +869,7 @@
      "stability_cents": 7.3,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -840,6 +886,7 @@
      "stability_cents": 5.4,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -856,6 +903,7 @@
      "stability_cents": 5.7,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -872,6 +920,7 @@
      "stability_cents": 5.0,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -888,6 +937,7 @@
      "stability_cents": 4.7,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -904,6 +954,7 @@
      "stability_cents": 4.8,
      "vibrato_hz": 5.18,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -920,6 +971,7 @@
      "stability_cents": 5.0,
      "vibrato_hz": 4.88,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -936,6 +988,7 @@
      "stability_cents": 5.5,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -970,6 +1023,7 @@
      "stability_cents": 8.8,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -986,6 +1040,7 @@
      "stability_cents": 7.4,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1002,6 +1057,7 @@
      "stability_cents": 7.2,
      "vibrato_hz": 4.92,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "人耳听辨终裁（证据级别最高）"
     },
     {
@@ -1018,6 +1074,7 @@
      "stability_cents": 10.0,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1034,6 +1091,7 @@
      "stability_cents": 8.6,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1050,6 +1108,7 @@
      "stability_cents": 8.7,
      "vibrato_hz": 4.61,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1066,6 +1125,7 @@
      "stability_cents": 5.0,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1082,6 +1142,7 @@
      "stability_cents": 7.6,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1098,6 +1159,7 @@
      "stability_cents": 7.1,
      "vibrato_hz": 5.07,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -1114,6 +1176,7 @@
      "stability_cents": 8.1,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -1148,6 +1211,7 @@
      "stability_cents": 8.0,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1164,6 +1228,7 @@
      "stability_cents": 8.0,
      "vibrato_hz": 4.94,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1180,6 +1245,7 @@
      "stability_cents": 7.5,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1196,6 +1262,7 @@
      "stability_cents": 5.8,
      "vibrato_hz": 4.79,
      "state": "recorded",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1212,6 +1279,7 @@
      "stability_cents": 3.9,
      "vibrato_hz": 4.79,
      "state": "recorded",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1228,6 +1296,7 @@
      "stability_cents": 4.2,
      "vibrato_hz": 4.49,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1244,6 +1313,7 @@
      "stability_cents": 7.2,
      "vibrato_hz": 4.79,
      "state": "recorded",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1260,6 +1330,7 @@
      "stability_cents": 7.7,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1276,6 +1347,7 @@
      "stability_cents": 7.1,
      "vibrato_hz": 4.79,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     }
    ]
@@ -1310,6 +1382,7 @@
      "stability_cents": 5.8,
      "vibrato_hz": 5.32,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1326,6 +1399,7 @@
      "stability_cents": 9.1,
      "vibrato_hz": 4.98,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1342,6 +1416,7 @@
      "stability_cents": 10.7,
      "vibrato_hz": 4.88,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1358,6 +1433,7 @@
      "stability_cents": 9.8,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1374,6 +1450,7 @@
      "stability_cents": 7.3,
      "vibrato_hz": 5.32,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1390,6 +1467,7 @@
      "stability_cents": 9.8,
      "vibrato_hz": 4.95,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1406,6 +1484,7 @@
      "stability_cents": 9.2,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1422,6 +1501,7 @@
      "stability_cents": 8.7,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -1456,6 +1536,7 @@
      "stability_cents": 9.5,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1472,6 +1553,7 @@
      "stability_cents": 7.9,
      "vibrato_hz": 5.12,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1488,6 +1570,7 @@
      "stability_cents": 7.9,
      "vibrato_hz": 5.38,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1504,6 +1587,7 @@
      "stability_cents": 8.9,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -1537,6 +1621,7 @@
      "stability_cents": 5.1,
      "vibrato_hz": 5.11,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -1553,6 +1638,7 @@
      "stability_cents": 11.0,
      "vibrato_hz": 5.38,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1569,6 +1655,7 @@
      "stability_cents": 9.9,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1585,6 +1672,7 @@
      "stability_cents": 10.6,
      "vibrato_hz": 5.38,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1601,6 +1689,7 @@
      "stability_cents": 8.7,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1617,6 +1706,7 @@
      "stability_cents": 6.1,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1633,6 +1723,7 @@
      "stability_cents": 4.2,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -1651,10 +1742,10 @@
    ],
    "n_tours": 2,
    "low_min": 65.2,
-   "low_max": 111.6,
-   "low_range_semitones": 9.3,
-   "low_median": 74.9,
-   "vs_studio_semitones": 3.36,
+   "low_max": 95.2,
+   "low_range_semitones": 6.55,
+   "low_median": 70.05,
+   "vs_studio_semitones": 2.2,
    "versions": [
     {
      "tour": "四巡",
@@ -1670,6 +1761,7 @@
      "stability_cents": null,
      "vibrato_hz": null,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "人耳确认（听辨）"
     },
     {
@@ -1686,6 +1778,7 @@
      "stability_cents": null,
      "vibrato_hz": null,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "人耳确认（听辨）"
     },
     {
@@ -1701,7 +1794,8 @@
      "span_octaves": null,
      "stability_cents": null,
      "vibrato_hz": null,
-     "state": "ok",
+     "state": "excluded",
+     "excluded_reason": "高频失真：1–4kHz 占 33.4%、峰值 0 dBFS（2026-10-24 实测）",
      "verify": "人耳确认（听辨）"
     },
     {
@@ -1718,6 +1812,7 @@
      "stability_cents": 7.5,
      "vibrato_hz": 4.97,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1734,6 +1829,7 @@
      "stability_cents": 6.5,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     }
    ]
@@ -1771,6 +1867,7 @@
      "stability_cents": 8.9,
      "vibrato_hz": 5.07,
      "state": "recorded",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1787,6 +1884,7 @@
      "stability_cents": 7.3,
      "vibrato_hz": 5.07,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1803,6 +1901,7 @@
      "stability_cents": 8.0,
      "vibrato_hz": 4.68,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列筛查（脚本自动；1f0/3f0 完整性）"
     },
     {
@@ -1819,6 +1918,7 @@
      "stability_cents": 5.7,
      "vibrato_hz": 4.79,
      "state": "ok",
+     "excluded_reason": null,
      "verify": "谐波列复核通过"
     }
    ]
@@ -1852,6 +1952,7 @@
      "stability_cents": 6.3,
      "vibrato_hz": 5.14,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     },
     {
@@ -1868,6 +1969,7 @@
      "stability_cents": 7.5,
      "vibrato_hz": 5.07,
      "state": "pending",
+     "excluded_reason": null,
      "verify": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）"
     }
    ]

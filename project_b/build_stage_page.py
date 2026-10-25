@@ -287,6 +287,13 @@ def tour_layer_html() -> str:
         f'（可信度 {esc(r.get("trust"))}）</li>'
         for r in (t.get("live_vs_studio") or []) if r.get("kind") == "B1 复现")
     sv = next((r for r in (t.get("live_vs_studio") or []) if r.get("kind") == "同曲对照"), None)
+    _st = json.loads((ROOT / "data" / "stage_states.json").read_text(encoding="utf-8"))
+    _c = _st.get("counts") or {}
+    st_total = sum(_c.values()) or 0
+    st_claim = _c.get("claimable", 0)
+    st_desc = _c.get("descriptive", 0)
+    st_pend = _c.get("pending", 0)
+    st_excl = _c.get("excluded", 0)
     return f'''<h2>一、王晰主导巡演现场（能力证据层）</h2>
 <div class="hl">
 <strong>《{esc(lo["song"] or "游离")}》该场本曲已测段落最低 {esc(lo["note"])}（{lo["hz"]} Hz）</strong>——{esc(lo["city"])} {esc(lo["date"])}{esc(_src_note(lo))}。
@@ -323,6 +330,17 @@ def tour_layer_html() -> str:
 <div class="method">
 <strong>两个词要说清：</strong>「未过门槛」是<strong>测量筛选结果</strong>（时长/HNR/强度不足），不是对演唱质量的评价；
 「待判」是<strong>归属或复核未完成</strong>，同样不是否定。
+</div>
+<div class="method">
+<strong>条目三态（本页 {st_total} 条素材）：</strong>
+<ul style="margin:6px 0 0;padding-left:22px">
+<li><strong>可形成结论</strong>：{st_claim} 条——过复核门槛且可引用，进入统计与发布</li>
+<li><strong>只能描述素材</strong>：{st_desc} 条——有录音与读数，但未达可引用门槛，不推出复现或能力结论</li>
+<li><strong>待核</strong>：{st_pend} 条——归属或复核未完成，留档待查</li>
+<li><strong>排除</strong>：{st_excl} 条——已有明确原因（失真/人声否决等），留档不计数</li>
+</ul>
+<p style="margin:6px 0 0">「未过门槛」是测量筛选结果，不是对演唱质量的评价；「待核」不是否定；
+「暂停主张」只改变发布状态，不否定素材本身。</p>
 </div>
 <h3>巡次汇总</h3>
 <table>

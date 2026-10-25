@@ -1,0 +1,8081 @@
+{
+ "schema": "stage_states/v1",
+ "counts": {
+  "claimable": 646,
+  "descriptive": 32,
+  "pending": 128,
+  "excluded": 1
+ },
+ "items": [
+  {
+   "entry_id": "stage:一巡厦门20191221_p2_跟着你到天边",
+   "song": "跟着你到天边",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p19_谁",
+   "song": "谁",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p14_山楂2",
+   "song": "山楂2",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p9_李彦锋红眼睛",
+   "song": "李彦锋红眼睛",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p14_一生守候+很长一段内心独白",
+   "song": "一生守候+很长一段内心独白",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p5_跟着你到天边",
+   "song": "跟着你到天边",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p7_一生守候",
+   "song": "一生守候",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p31_忘词版海阔天空",
+   "song": "忘词版海阔天空",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p6_贝加尔湖畔",
+   "song": "贝加尔湖畔",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p12_心动+被吐槽的我只在乎你",
+   "song": "心动+被吐槽的我只在乎你",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p16_云一定知道",
+   "song": "云一定知道",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p17_你不要担心",
+   "song": "你不要担心",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p22_告别语+友谊地久天长",
+   "song": "告别语+友谊地久天长",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p20_你不要担心",
+   "song": "你不要担心",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p23_mxh兄弟们的祝福",
+   "song": "mxh兄弟们的祝福",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p33_吃播",
+   "song": "吃播",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p24_痒1",
+   "song": "痒1",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p13_贝加尔湖",
+   "song": "贝加尔湖",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20191012_BV1ME411Z7YE",
+   "song": "慢慢喜欢你",
+   "date": "2019-10-12",
+   "city": "南宁",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p4_再见我的爱人",
+   "song": "再见我的爱人",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p4_问候妆容和打光所有场最美！",
+   "song": "问候妆容和打光所有场最美！",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p21_亲爱的中国，我的爱",
+   "song": "亲爱的中国，我的爱",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p6_晚风暖暖",
+   "song": "晚风暖暖",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:重庆20191019_BV1RE411y79N",
+   "song": "重庆野玫瑰",
+   "date": "2019-10-19",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:重庆20191019_BV1qE411k72B",
+   "song": "重庆野玫瑰",
+   "date": "2019-10-19",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p16_钢铁小毛驴",
+   "song": "钢铁小毛驴",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p11_往日时光",
+   "song": "往日时光",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:上海20191103_BV1FE411B7je",
+   "song": "小毛驴",
+   "date": "2019-11-03",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p7_Yourman",
+   "song": "Yourman",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p20_她来听我的演唱会",
+   "song": "她来听我的演唱会",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p23_yourman",
+   "song": "Yourman",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p15_她来听我的演唱会",
+   "song": "她来听我的演唱会",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:厦门20191221_BV14J411W74i",
+   "song": "Come to Me",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:重庆20191019_BV1EX4y1w7hT",
+   "song": "重游往昔",
+   "date": "2019-10-19",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:重庆20191019_BV1sJ41127cF",
+   "song": "重游往昔",
+   "date": "2019-10-19",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p22_cometome",
+   "song": "cometome",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:厦门20191221_BV1bJ411x7eQ",
+   "song": "Your Man",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡南京20190728_BV1Lt411u7qq",
+   "song": "让她降落",
+   "date": "2019-07-28",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京20200102_BV1mw411R7yo",
+   "song": "让她降落",
+   "date": "2020-01-02",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p26_野狼disco+青藏高原",
+   "song": "野狼disco+青藏高原",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京20200102b_BV1KJ41177fC",
+   "song": "让她降落",
+   "date": "2020-01-02",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20200102_BV15K411w7Sj",
+   "song": "让她降落",
+   "date": "2020-01-02",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p25_痒2",
+   "song": "痒2",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:佛山20191201_BV1CJ411z7xC",
+   "song": "月亮代表我的心",
+   "date": "2019-12-01",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p1_玛莲娜",
+   "song": "玛莲娜",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p24_同门的祝福",
+   "song": "同门的祝福",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:厦门20191221_BV1FJ411x7cX",
+   "song": "恋人",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p30_日语歌恋人哟",
+   "song": "日语歌恋人哟",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p2_玛莲娜",
+   "song": "玛莲娜",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p5_心动",
+   "song": "心动",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p18_暖风",
+   "song": "暖风",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p1_让她降落",
+   "song": "让她降落",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:海口20191116_BV1wJ411U7Wh",
+   "song": "天边",
+   "date": "2019-11-16",
+   "city": "海口",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:太原20191228_BV1jq4y1x76d",
+   "song": "难忘今宵",
+   "date": "2019-12-28",
+   "city": "太原",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p3_花样年华",
+   "song": "花样年华",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p18_笑之歌",
+   "song": "笑之歌",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p28_迷迭香+人间",
+   "song": "迷迭香+人间",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p3_花样年华",
+   "song": "花样年华",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20191215_BV12J411V7nH",
+   "song": "光之心",
+   "date": "2019-12-15",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20200102_BV1xJ411j7oN",
+   "song": "友谊地久天长",
+   "date": "2020-01-02",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:重庆20191019_BV13E411r7op",
+   "song": "宝贝",
+   "date": "2019-10-19",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p13_山楂",
+   "song": "山楂",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p32_我的太阳",
+   "song": "我的太阳",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p19_Cometome",
+   "song": "cometome",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:海口20191116_BV1tK4y1M7YF",
+   "song": "抗风桐",
+   "date": "2019-11-16",
+   "city": "海口",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p29_山楂树",
+   "song": "山楂树",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:海口20191116_BV1GJ411m7Bv",
+   "song": "南海姑娘",
+   "date": "2019-11-16",
+   "city": "海口",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20191201_BV1UJ411B7gu",
+   "song": "月牙湾",
+   "date": "2019-12-01",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p27_直到世界尽头",
+   "song": "直到世界尽头",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡厦门20191221_p10_李彦锋2",
+   "song": "李彦锋2",
+   "date": "2019-12-21",
+   "city": "厦门",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p9_心脏",
+   "song": "心脏",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:佛山20191201_BV1xJ411y7KQ",
+   "song": "City of Stars",
+   "date": "2019-12-01",
+   "city": "佛山",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:珠海20191129_BV1FJ411v79w",
+   "song": "野狼disco",
+   "date": "2019-11-29",
+   "city": "珠海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡北京收官20200102_p21_云一定知道",
+   "song": "云一定知道",
+   "date": "2020-01-02",
+   "city": "北京收官",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡北京20201129__BV1sK4y1f7n2",
+   "song": "",
+   "date": "2020-11-29",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210308_BV1Eh4y1872Y",
+   "song": "哭砂",
+   "date": "2021-03-08",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:上海20210308_BV1hjB4YhEN7",
+   "song": "后会无期",
+   "date": "2021-03-08",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20210411 王晰二巡南京收官站全场__BV__P01_20210411 王晰二巡南京收官站上半场",
+   "song": "",
+   "date": "2021-04-11",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p01_【王晰】2020个人巡回音乐会 11.21佛山场 p01 01 花儿为",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p05_【王晰】2020个人巡回音乐会 11.21佛山场 p05 05 后会无",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡宁波20210327_BV1Ey4y147Nc",
+   "song": "花儿为什么这样红",
+   "date": "2021-03-27",
+   "city": "宁波",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_BV17A411x7fH",
+   "song": "全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20201205_BV1kZ4y1G77g",
+   "song": "一帘幽梦",
+   "date": "2020-12-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20210411 王晰二巡南京收官站全场__BV__P02_20210411 王晰二巡南京收官站下半场1080",
+   "song": "",
+   "date": "2021-04-11",
+   "city": "南京",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p15_【王晰】2020个人巡回音乐会 11.21佛山场 p15 15 慢慢组",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p11_【王晰】2020个人巡回音乐会 11.21佛山场 p11 11 唠嗑了",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p26_【王晰】2020个人巡回音乐会 11.21佛山场 p26 26 点歌环",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p14_【王晰】2020个人巡回音乐会 11.21佛山场 p14 14 爱情",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210308_BV1gA411T7T6",
+   "song": "美酒加咖啡",
+   "date": "2021-03-08",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p16_【王晰】2020个人巡回音乐会 11.21佛山场 p16 16 你们发",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p25_【王晰】2020个人巡回音乐会 11.21佛山场 p25 25 点歌环",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20201205_BV14Z4y1g7CD",
+   "song": "像雾像雨又像风",
+   "date": "2020-12-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p13_【王晰】2020个人巡回音乐会 11.21佛山场 p13 13 如果云",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p22_【王晰】2020个人巡回音乐会 11.21佛山场 p22 22 唠嗑",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20210411 王晰二巡南京收官站全场__BV__P03_20210411 王晰二巡南京收官站 Encore",
+   "song": "",
+   "date": "2021-04-11",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南宁20201219_BV153411877D",
+   "song": "你",
+   "date": "2020-12-19",
+   "city": "南宁",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:武汉20210110_BV1xo4y1R7x7",
+   "song": "茕茕",
+   "date": "2021-01-10",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20201205_BV1wp4y1676f",
+   "song": "歌颂",
+   "date": "2020-12-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p30_【王晰】2020个人巡回音乐会 11.21佛山场 p30 30 你",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p03_【王晰】2020个人巡回音乐会 11.21佛山场 p03 03 茕茕",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p06_【王晰】2020个人巡回音乐会 11.21佛山场 p06 06 别离的",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p18_【王晰】2020个人巡回音乐会 11.21佛山场 p18 18 一定要",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p20_【王晰】2020个人巡回音乐会 11.21佛山场 p20 20 唠嗑part",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p27_【王晰】2020个人巡回音乐会 11.21佛山场 p27 27 点歌环",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p07_【王晰】2020个人巡回音乐会 11.21佛山场 p07 07 唠嗑 邓",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p10_【王晰】2020个人巡回音乐会 11.21佛山场 p10 10 哭砂",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p09_【王晰】2020个人巡回音乐会 11.21佛山场 p09 09 唠嗑 说",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p19_【王晰】2020个人巡回音乐会 11.21佛山场 p19 19 Dear frien",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p08_【王晰】2020个人巡回音乐会 11.21佛山场 p08 08 怂",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡南京20210411b_BV1SZ4y1c7Xb",
+   "song": "让她降落",
+   "date": "2021-04-11",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p23_【王晰】2020个人巡回音乐会 11.21佛山场 p23 23 歌颂",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20201205_BV15y4y1S7ti",
+   "song": "王牌就是我",
+   "date": "2020-12-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p31_【王晰】2020个人巡回音乐会 11.21佛山场 p31 31 等一等",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p02_【王晰】2020个人巡回音乐会 11.21佛山场 p02 02 City of st",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210307_BV1Gr421F7at",
+   "song": "City of Stars",
+   "date": "2021-03-07",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p24_【王晰】2020个人巡回音乐会 11.21佛山场 p24 24 点歌环",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p28_【王晰】2020个人巡回音乐会 11.21佛山场 p28 28 唠嗑结",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p17_【王晰】2020个人巡回音乐会 11.21佛山场 p17 17 像雾像",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:武汉20210110_BV1hS4y197kb",
+   "song": "等一等昨天",
+   "date": "2021-01-10",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210308_BV1a14y1B7zy",
+   "song": "红豆",
+   "date": "2021-03-08",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡南京20210411_串烧窗口_BV1S54y1b7HW",
+   "song": "让她降落",
+   "date": "2021-04-11",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20201205_BV1Uz4y167hL",
+   "song": "今宵多珍重",
+   "date": "2020-12-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:佛山20201121_BV1Zs4y1G7do",
+   "song": "匆匆",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20210109_BV1dCy8YcEKo",
+   "song": "匆匆",
+   "date": "2021-01-09",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20210110_BV12Q4y1B7BG",
+   "song": "漫长的告别",
+   "date": "2021-01-10",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p04_【王晰】2020个人巡回音乐会 11.21佛山场 p04 04 匆匆",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20201114_BV1kz4y1y7iD",
+   "song": "别离的预感",
+   "date": "2020-11-14",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡南京20210411_BV1pL411n7Ns",
+   "song": "让她降落",
+   "date": "2021-04-11",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p21_【王晰】2020个人巡回音乐会 11.21佛山场 p21 21 追幸福",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210308_BV1tX4y137U7",
+   "song": "Dear Friend",
+   "date": "2021-03-08",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20210109_BV1Jf4y1y7Di",
+   "song": "雪地里寄不出的求救信",
+   "date": "2021-01-09",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:武汉20210110_BV1Kz4y1U7G9",
+   "song": "雪地里寄不出的求救信",
+   "date": "2021-01-10",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p12_【王晰】2020个人巡回音乐会 11.21佛山场 p12 12 雪地里",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:佛山20201121_BV1ft4y1e7ER",
+   "song": "雪孩子（滑雪歌）",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:宁波20210327_BV1jy4y1t7JZ",
+   "song": "追幸福的人",
+   "date": "2021-03-27",
+   "city": "宁波",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20201205_BV1LZ4y1g7tY",
+   "song": "雪地里寄不出的求救信",
+   "date": "2020-12-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡佛山20201121_p29_【王晰】2020个人巡回音乐会 11.21佛山场 p29 29 王牌就",
+   "song": "佛山全场",
+   "date": "2020-11-21",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p01_王晰三巡上海站 20220110 p01 送别",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p09_王晰三巡上海站 20220110 p09 You needed me",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p05_王晰三巡0624长沙全场（自存） p05 突然想爱你 眼泪",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:切片1_MoonRiver",
+   "song": "Moon River",
+   "date": "2021-12-04",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p07_王晰三巡0624长沙全场（自存） p07 玩笑 倒叙 钢伴组曲 点歌",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p01_王晰三巡0624长沙全场（自存） p01 送别 Moonriver 知晓",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P01_送别 moonriver 知晓",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p04_王晰三巡0624长沙全场（自存） p04 但凡能…脱",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p02_王晰三巡0624长沙全场（自存） p02 哑光 惑许 达尔文 车站",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p06_王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:切片3_YouNeededMe",
+   "song": "You Needed Me",
+   "date": "2021-12-04",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p04_王晰三巡上海站 20220110 p04 唠嗑1",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:切片2_CloseToYou",
+   "song": "Close to You",
+   "date": "2021-12-04",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:武汉20220917_BV1Qe4y1877s",
+   "song": "牵手",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P13_为爱痴狂 牵手 可爱的一朵玫瑰花",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P03_惑许 达尔文 车站 橄榄树",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p09_王晰三巡0624长沙全场（自存） p09 高级动物 爱你",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P17_爱你",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P05_一生中最爱",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P14_talk 洪湖水浪打浪",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p10_王晰三巡上海站 20220110 p10 唠嗑3",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:深圳20230623_BV1Sm4y1e7ZZ",
+   "song": "无与伦比的美丽",
+   "date": "2023-06-23",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡深圳20230623_BV1QP411v7KR",
+   "song": "静止了的夜晚",
+   "date": "2023-06-23",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南宁20230520_BV1Yh4y1x72g",
+   "song": "我要你",
+   "date": "2023-05-20",
+   "city": "南宁",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220717_BV1WF411K75D",
+   "song": "朋友别哭",
+   "date": "2022-07-17",
+   "city": "鄂尔多斯",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P09_talk",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P02_哑光",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡舟山20260523_BV13MVK6uEa9",
+   "song": "一生中最爱",
+   "date": "2026-05-23",
+   "city": "舟山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p08_王晰三巡上海站 20220110 p08 唠嗑2",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P11_玩笑 倒叙",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p16_王晰三巡上海站 20220110 p16 让我欢喜让我忧",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20220110_BV1hY41187D7",
+   "song": "让我欢喜让我忧",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P06_close to you",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p13_王晰三巡上海站 20220110 p13 这世界有那么多人",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:郑州20230501_BV1xa4y1G7Rj",
+   "song": "再回首",
+   "date": "2023-05-01",
+   "city": "郑州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p18_王晰三巡上海站 20220110 p18 撒娇～",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20_王晰三巡上海站 20220110 p20 爱你",
+   "song": "全场_第二场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P12_这世界那么多人 暧昧 叶子 同类",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:太原20220717_BV1Rg411o7uU",
+   "song": "知晓",
+   "date": "2022-07-17",
+   "city": "鄂尔多斯",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20220717_BV19r4y1j7Xj",
+   "song": "惑许",
+   "date": "2022-07-17",
+   "city": "鄂尔多斯",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p02_王晰三巡上海站 20220110 p02 Moon River",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P08_分岔",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡太原20220715_BV1bN4y1T7wR",
+   "song": "点歌环节",
+   "date": "2022-07-15",
+   "city": "太原",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p11_王晰三巡上海站 20220110 p11 倒叙",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:深圳20230623_BV1aV4y1y7tq",
+   "song": "时空",
+   "date": "2023-06-23",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡无锡20220109_BV1rZ4y1S7uc",
+   "song": "点歌环节",
+   "date": "2022-01-09",
+   "city": "无锡",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P04_突然想爱你 眼泪",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220109_BV1LL41157MQ",
+   "song": "送别",
+   "date": "2022-01-09",
+   "city": "无锡",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20220409_BV17L4y1F7k2",
+   "song": "月半弯",
+   "date": "2022-04-09",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p07_王晰三巡上海站 20220110 p07 橄榄树",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡广州20211204_BV1D34y1R7fC",
+   "song": "橄榄树",
+   "date": "2021-12-04",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P07_月半弯",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P15_军港之夜",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P10_时空",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p06_王晰三巡上海站 20220110 p06 达尔文+车站",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20220409_BV1Au411v7ia",
+   "song": "光阴的故事",
+   "date": "2022-04-09",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p03_王晰三巡0624长沙全场（自存） p03 橄榄树",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p20_王晰三巡上海站 20220110 p20 爱你",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p03_王晰三巡上海站 20220110 p03 知晓",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220109_BV1TF411v7Ed",
+   "song": "爱你",
+   "date": "2022-01-09",
+   "city": "无锡",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p17_王晰三巡上海站 20220110 p17 某火锅店生日快乐",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220109_BV1TP4y1J7M4",
+   "song": "惑许",
+   "date": "2022-01-09",
+   "city": "无锡",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20220409_BV1c3411n782",
+   "song": "爱你",
+   "date": "2022-04-09",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p14_王晰三巡上海站 20220110 p14 虫儿飞",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p19_王晰三巡上海站 20220110 p19 高级动物",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p05_王晰三巡上海站 20220110 p05 惑许（后半段）",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20220110_BV1pB4y117uB",
+   "song": "高级动物",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p15_王晰三巡上海站 20220110 p15 敖包相会",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰三巡·图景】20220917 武汉全程____P16_高级动物",
+   "song": "",
+   "date": "2022-09-17",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡长沙20220624_p08_王晰三巡0624长沙全场（自存） p08 点歌 第三首",
+   "song": "三巡长沙全场",
+   "date": "2022-06-24",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p12_王晰三巡上海站 20220110 p12 “彩胶”",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:21_王晰三巡上海站 20220110 p21 拜拜",
+   "song": "全场_第二场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三巡上海20220110_p21_王晰三巡上海站 20220110 p21 拜拜",
+   "song": "三巡上海全场",
+   "date": "2022-01-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p6_朝凤",
+   "song": "朝凤",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p1_多听有益",
+   "song": "多听有益",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:肆益杭州站_BV1ArKxe7E8H",
+   "song": "多听有益",
+   "date": "2024",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p9_关于妖娆",
+   "song": "关于妖娆",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p31_BesameMucho",
+   "song": "Besamemucho",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p19_剧院刮刮乐",
+   "song": "剧院刮刮乐",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v25",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v05",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p13_海然海然+嘎达梅林",
+   "song": "海然海然+嘎达梅林",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:重庆20240330_BV1Bm411k72j",
+   "song": "美丽的草原我的家",
+   "date": "2024-03-30",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p17_想游泳的星",
+   "song": "想游泳的星",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p29_有点小害羞的应援观后感",
+   "song": "有点小害羞的应援观后感",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p8_crystalstore",
+   "song": "crystalstore",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p2_迷雾",
+   "song": "迷雾",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v16",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v13",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p10_永不失联的爱",
+   "song": "永不失联的爱",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v23",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v27",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v11",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡 直拍_BV1Ab4y1g7Wj",
+   "song": "多听有益",
+   "date": "2023-2024",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v10",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v34",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p33_崇拜",
+   "song": "崇拜",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v19",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p16_爱的箴言",
+   "song": "爱的箴言",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p24_北国之春",
+   "song": "北国之春",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p18_人世间",
+   "song": "人世间",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v22",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p28_绝美玫瑰雨",
+   "song": "绝美玫瑰雨",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p15_矜持+难以抗拒你的容颜+为你我受冷风吹",
+   "song": "矜持+难以抗拒你的容颜+为你我受冷风吹",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v33",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v09",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v29",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v26",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v20",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p27_生日part",
+   "song": "生日part",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p5_小河",
+   "song": "小河",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p26_着魔",
+   "song": "着魔",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v07",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p22_甩啦甩啦",
+   "song": "甩啦甩啦",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v21",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p30_生日快乐歌",
+   "song": "生日快乐歌",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p12_友谊地久天长",
+   "song": "友谊地久天长",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p14_追梦人",
+   "song": "追梦人",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v15",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v01",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:重庆20240330_BV1LH4y1u7FA",
+   "song": "新不了情",
+   "date": "2024-03-30",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p21_猫模狗样",
+   "song": "猫模狗样",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:武汉20240916_BV1b4sye8E76",
+   "song": "Fly Me to the Moon",
+   "date": "2024-09-16",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20240816_BV1u2p9eDE1c",
+   "song": "黄昏放牛",
+   "date": "2024-08-16",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v04",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v30",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p4_也许",
+   "song": "也许",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v28",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:四巡南京20240127b_BV1qy421a7FR",
+   "song": "友谊地久天长",
+   "date": "2024-01-27",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海生日20240406_p25_梦醒时分",
+   "song": "梦醒时分",
+   "date": "2024-04-06",
+   "city": "上海生日",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:重庆20240330_BV1Gm421n7ef",
+   "song": "亲爱的小孩",
+   "date": "2024-03-30",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡南京20240127_BV1pc411v7gU",
+   "song": "友谊地久天长",
+   "date": "2024-01-27",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v06",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v08",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:肆益收官 武汉琴台_BV1iWtUefEkm",
+   "song": "多听有益",
+   "date": "2024",
+   "city": "武汉",
+   "state": "excluded",
+   "reason": "高频失真：1–4kHz 占 33.4%、峰值 0 dBFS（2026-10-24 实测）",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v17",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡武汉20240916_v01",
+   "song": "",
+   "date": "2024-09-16",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v24",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v35",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v32",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v03",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:广州20231210_BV1hi4y1v7VC",
+   "song": "阿瓦尔古丽",
+   "date": "2023-12-10",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v18",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v31",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:四巡上海20231231_v36",
+   "song": "",
+   "date": "2023-12-31",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121203939 0034 住口6 talk 在路上 talk 勿扰 talk",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:20251121211941 0038 talk 雷美替胺",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:20251121193244 Westway+Wellerman 我很好 My Oh My",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:杭州20260131_BV13v6xBdEuu",
+   "song": "暗潮涌动",
+   "date": "2026-01-31",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20251121_BV1NwUnBpEmo",
+   "song": "好久不见",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:长沙20250101_BV1yQrcYHE4V",
+   "song": "祝我们随遇而安",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:杭州20241221_BV1e3nqzAERf",
+   "song": "勿扰",
+   "date": "2024-12-21",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:杭州20241221_BV1RjkYYbEF8",
+   "song": "My Oh My",
+   "date": "2024-12-21",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121212548 0039 好久不见 你怎么值得我难过 约定",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20250405_BV1ipdcYGEUf",
+   "song": "情歌",
+   "date": "2025-04-05",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121210423 0037 talk 明白 talk 鹅毛信",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121195344 0028 床前明月光 暗潮涌动 我真的受伤了",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121214316 0040 talk 祝我们随遇而安 talk",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20250101_BV1JErWYVEYs",
+   "song": "鹅毛信",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20241221_BV1wrkYYVEXA",
+   "song": "在路上",
+   "date": "2024-12-21",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121194904 0027 玫瑰人生（La Vie en Rose）",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20250101_BV1AK6oYqEPL",
+   "song": "钟爱一生",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20260410_BV11NoQBFEKv",
+   "song": "哭砂",
+   "date": "2026-04-10",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20250101_BV1G26dYnEWN",
+   "song": "床前明月光",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:广州20250524_BV16J7LziEVc",
+   "song": "住口",
+   "date": "2025-05-24",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121205734 0036 无尽的夜里第2遍",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20250101_BV1shrwYREjc",
+   "song": "晚婚",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南昌20241229_BV1QK6GYZE3g",
+   "song": "恋曲1990",
+   "date": "2024-12-29",
+   "city": "南昌",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20260410_BV1UCRuBjESn",
+   "song": "钟爱一生",
+   "date": "2026-04-10",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20260131_BV1HmftBcEWs",
+   "song": "奉献",
+   "date": "2026-01-31",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:20251121205303 0035 无尽的夜里第1遍",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20260410_BV1AFQABrEdx",
+   "song": "我变了我没变",
+   "date": "2026-04-10",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20250405_BV1NJRZYmEne",
+   "song": "天黑黑",
+   "date": "2025-04-05",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20250524_BV1AxjKzmES3",
+   "song": "你快乐所以我快乐",
+   "date": "2025-05-24",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20260131_BV1aU6pBJEnQ",
+   "song": "心有独钟",
+   "date": "2026-01-31",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20250101_BV16H6kYFEZN",
+   "song": "雷美替胺",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:杭州20241221_BV1a9kbYmErn",
+   "song": "耶利亚女郎",
+   "date": "2024-12-21",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20250101_BV1by6kY5EQA",
+   "song": "梦里水乡",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20260410_BV1Z2oCBFEuU",
+   "song": "十年",
+   "date": "2026-04-10",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20260131_BV1NGFkzLEWZ",
+   "song": "Yes or No",
+   "date": "2026-01-31",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20250524_BV1bkj3z3Eid",
+   "song": "爱情转移",
+   "date": "2025-05-24",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20260410_BV1t39DBxEdU",
+   "song": "给电影人的情书",
+   "date": "2026-04-10",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南昌20241229_BV1Vc6vYhEXj",
+   "song": "无尽的夜里",
+   "date": "2024-12-29",
+   "city": "南昌",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20260410_BV1ZSDQBqExx",
+   "song": "给电影人的情书",
+   "date": "2026-04-10",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20250101_BV1C7rDYZEzo",
+   "song": "原来你也在这里",
+   "date": "2025-01-01",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20250405_BV1JZdcYEE73",
+   "song": "世界赠予我的",
+   "date": "2025-04-05",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20250405_BV1zD5mz9ErQ",
+   "song": "世界赠予我的",
+   "date": "2025-04-05",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20260131_BV1sAFLziEfK",
+   "song": "奉献",
+   "date": "2026-01-31",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20250524_BV1JvjKzrECr",
+   "song": "囚鸟",
+   "date": "2025-05-24",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20241221_BV16dryYBE8v",
+   "song": "敕勒歌",
+   "date": "2024-12-21",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121203901 0033 住口5",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121203713 0029 住口1",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121203851 0032 住口4",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20250524_BV1H2jNz5E5u",
+   "song": "我很好",
+   "date": "2025-05-24",
+   "city": "广州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:20251121203815 0030 住口2",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251121194832 0026 talk1",
+   "song": "",
+   "date": "2025-11-21",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡重庆20260613__BV1KwJx6iEza",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_5338418712415061_上半场_花",
+   "song": "",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p15_女人花+水中花",
+   "song": "女人花+水中花",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_1_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_12_Autumn Leaves",
+   "song": "Autumn Leaves",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p1_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P01_花儿为什么这样红",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P04_Close to You",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_5_Close to You",
+   "song": "Close to You",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p5_Closetoyou",
+   "song": "Closetoyou",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p18_情网②",
+   "song": "情网②",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_19_夜色",
+   "song": "夜色",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_18_情网",
+   "song": "情网",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_13_情网",
+   "song": "情网",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p7_再见我的爱人",
+   "song": "再见我的爱人",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_7_再见我的爱人",
+   "song": "再见我的爱人",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_9_一生守候",
+   "song": "一生守候",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P12_Autumn Leaves",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p9_一生守候",
+   "song": "一生守候",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_14_平凡又美好的晚上",
+   "song": "平凡又美好的晚上",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P15_女人花mix水中花",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p14_平凡又美好的晚上",
+   "song": "平凡又美好的晚上",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P14_平凡又美好的晚上",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p6_月半弯",
+   "song": "月半弯",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P02_像雾像雨又像风",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_10_让她降落",
+   "song": "让她降落",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_5338768493512616_中段_Ye",
+   "song": "",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_BV13PtB6AEKe",
+   "song": "让她降落",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P03_Yesterday Once More",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_4_Yesterday Once More",
+   "song": "Yesterday Once More",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p12_Autumnleaves",
+   "song": "Autumnleaves",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p4_Yesterdayoncemore",
+   "song": "Yesterdayoncemore",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P17_Your Man-2",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_15_女人花+水中花",
+   "song": "女人花+水中花",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p3_像雾像雨又像风",
+   "song": "像雾像雨又像风",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p2_橄榄树",
+   "song": "橄榄树",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p10_让她降落",
+   "song": "让她降落",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_v03",
+   "song": "",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡重庆20260613_BV1zEJA6xEr2",
+   "song": "让她降落",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P16_Your Man-1",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_16_Your Man",
+   "song": "Your Man",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_5339130699449225_下半场_让",
+   "song": "",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P09_一生守候",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p8_心动",
+   "song": "心动",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p19_夜色",
+   "song": "夜色",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P11_Bésame Mucho",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州20260823b_BV1hHtU68Eoj",
+   "song": "让她降落",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P07_Goodbye My Love-2",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_6_月半弯",
+   "song": "月半弯",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P05_月半弯",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P06_Goodbye My Love-1",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_2_橄榄树",
+   "song": "橄榄树",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡重庆20260613c_BV176LR6bE2B",
+   "song": "让她降落",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P10_让她降落",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P08_心动",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡重庆20260613b_BV1SEJP6LEUw",
+   "song": "让她降落",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p16_Yourman",
+   "song": "Yourman",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p13_情网",
+   "song": "情网",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P13_情网",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_17_Your Man",
+   "song": "Your Man",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p17_Yourman②",
+   "song": "Yourman②",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_3_像雾像雨又像风",
+   "song": "像雾像雨又像风",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_11_Bésame Mucho",
+   "song": "Bésame Mucho",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州20260823_回_p11_Besamemucho",
+   "song": "Besamemucho",
+   "date": "2026-08-23",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P19_夜色.mp3",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰「回×重庆」20260613 回溯之巡 重逢__P18_彩蛋-生日快乐",
+   "song": "",
+   "date": "2026-06-13",
+   "city": "重庆",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P05_游离",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:下半场2",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】2020全国个人巡回音乐会-南宁站 全程__P01_上半场",
+   "song": "",
+   "date": "2020",
+   "city": "南宁",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20190821_BV1i4411d7MJ",
+   "song": "静止了的夜晚",
+   "date": "2019-08-21",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会20190414_BV1M4411w735",
+   "song": "静止了的夜晚",
+   "date": "2019-04-14",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:B面图景杭州签唱20211127__BV1YF411b7G5",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P11_如果云知道+云一定知道",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P01_全部歌曲合在一个视频里了",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰个人音乐会六巡《回》广州站__BV1ZX4d__P01_上半场",
+   "song": "",
+   "date": "",
+   "city": "广州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰三巡鄂尔多斯站全场__BV1XU4y1i7s__P01_王晰三巡鄂尔多斯全场上",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P03_哑光",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:06_达尔文+駅",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未归属20151102_v04",
+   "song": "",
+   "date": "2015-11-02",
+   "city": "",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】20201007杭州签唱会 现场live__P05_《歌颂》",
+   "song": "",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】20201007杭州签唱会 现场live__P01_全程",
+   "song": "",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20200128_BV1H7411r745",
+   "song": "心动",
+   "date": "2020-01-28",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上半场",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】2021全国个人巡回音乐会-武汉站  全__P02_下半场①",
+   "song": "",
+   "date": "2021",
+   "city": "武汉",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:北京20220412_BV1s94y1d7e7",
+   "song": "爱你",
+   "date": "2022-04-12",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p10_后会无期3.7手机渣画质",
+   "song": "后会无期3.7手机渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P05_5. 后会无期 （中间断了一点因为拍到一半效果太差被自己气死了",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p12_后会无期3.8手机渣画质",
+   "song": "后会无期3.8手机渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未归属20240820_v02",
+   "song": "",
+   "date": "2024-08-20",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20180826_BV1Zx411o7Rw",
+   "song": "我要你",
+   "date": "2018-08-26",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:下半场1",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:南宁20201229_BV1sh411f7X9",
+   "song": "歌颂",
+   "date": "2020-12-29",
+   "city": "南宁",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p17_哭砂",
+   "song": "哭砂",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_双人_BV1EZph65Ebh",
+   "song": "敕勒歌_乌兰巴托的夜",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:07_橄榄树",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州微博_3_Autumn_Leaves",
+   "song": "Autumn Leaves",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P06_小毛驴reaction",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡深圳__BV1LJ411K78S_p1",
+   "song": "",
+   "date": "",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:B面图景杭州签唱全场62min__BV1NQ4y1e7rf",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰《B面图景》杭州签唱会全场__BV1NQ4y__P03_下半场",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰三巡鄂尔多斯站全场__BV1XU4y1i7s__P03_鄂尔多斯全场下2",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰《B面图景》杭州签唱会全场__BV1NQ4y__P01_上半场",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P04_《小河》+《朝凤》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P07_talk+清唱被遗忘的时光",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P22_talk合辑（字幕）",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part9_BV1G4ph6vE86",
+   "song": "part9",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part2_BV1Mvph6FEuc",
+   "song": "part2",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_广州_2_BV1z4411R7DL_p2",
+   "song": "",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_上海__BV1fJ411x7nV",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P03_talk",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】2021全国个人巡回音乐会-武汉站  全__P03_下半场②",
+   "song": "",
+   "date": "2021",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P07_7.歌迷祝福VCR",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰个人音乐会六巡《回》广州站__BV1ZX4d__P02_下半场",
+   "song": "",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part3_BV1Yxph6KEVB",
+   "song": "part3",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:新素材11j7s7_BV19J411j7s7",
+   "song": "一生守候",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:BV1no4y1K7dP_maxq",
+   "song": "渡荆门送别",
+   "date": "2023-06-04",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州微博_1_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_上半场_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20230225_BV1Nj411F7p1",
+   "song": "四季歌",
+   "date": "2023-02-25",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20201007_BV1cV41127jk",
+   "song": "雪地里寄不出的求救信",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P09_点歌",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】2021全国个人巡回音乐会-武汉站  全__P01_上半场",
+   "song": "",
+   "date": "2021",
+   "city": "武汉",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20201223_BV1XK4y1V7y7",
+   "song": "乌兰巴托的夜",
+   "date": "2020-12-23",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P03_《也许》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P21_碎碎念",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p6_茕茕",
+   "song": "茕茕",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_BV1ZppG6sEEr",
+   "song": "全场_第二场",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】2021全国个人巡回音乐会-长沙站  全__P01_上半场",
+   "song": "",
+   "date": "2021",
+   "city": "长沙",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P12_《人世间》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰三巡鄂尔多斯站全场__BV1XU4y1i7s__P02_鄂尔多斯全场下1",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20250501_p01_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
+   "song": "签唱会上海全场",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P19_生日祝福 蛋糕",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P05_talk",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p1_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "date": "2021",
+   "city": "上海",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P11_《想游泳的星》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p11_后会无期",
+   "song": "后会无期",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P05_后会无期",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20211127_BV1Ef4y1K7NJ",
+   "song": "小毛驴",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:新素材y167VR_BV1Ct4y167VR",
+   "song": "乌兰巴托的夜",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20201116_BV1fr4y1F769",
+   "song": "花儿为什么这样红",
+   "date": "2020-11-16",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:13_时空",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P01_花儿为什么这样红",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20200517_BV1Re411p7XL",
+   "song": "一生守候",
+   "date": "2020-05-17",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_2_Close_to_You",
+   "song": "Close to You",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20201226_BV1z5411H7yg",
+   "song": "花儿为什么这样红",
+   "date": "2020-12-26",
+   "city": "杭州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】2020全国个人巡回音乐会-南宁站 全程__P03_下半场②",
+   "song": "",
+   "date": "2020",
+   "city": "南宁",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P01_1. 花儿为什么这样红",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P05_《crystal stone》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P04_come to me",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:切片1_MoonRiver_BV1SQ4y1e7Dg",
+   "song": "Moon River",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:成都首唱会2019_BV1W7411R7Hv",
+   "song": "静止了的夜晚",
+   "date": "2019",
+   "city": "成都",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】2021全国个人巡回音乐会-长沙站  全__P03_下半场②",
+   "song": "",
+   "date": "2021",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P09_祝我们随遇而安_钟爱一生",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P17_歌颂",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:01_送别",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p23_爱情",
+   "song": "爱情",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:深圳20230704_BV1CN411S72E",
+   "song": "Close to You",
+   "date": "2023-07-04",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part7_BV1YWph6qE6P",
+   "song": "part7",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:11_月半弯",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南京20190730_BV1dt411F7wt",
+   "song": "女儿情",
+   "date": "2019-07-30",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响20261010_BV1Cfpj6jExn",
+   "song": "我要你",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P06_《永不失联的爱》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_南京_14_BV1rt411K7wc_p14",
+   "song": "",
+   "date": "",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20200608_BV1wv411677D",
+   "song": "Love Me Tender",
+   "date": "2020-06-08",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】2021全国个人巡回音乐会-长沙站  全__P02_下半场①",
+   "song": "",
+   "date": "2021",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:03_知晓",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P01_雪地里寄不出的求救信+talk",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:01嘎达梅林+海然海然02追梦人",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P16_13.《偏偏》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_南京_13_BV1rt411K7wc_p13",
+   "song": "",
+   "date": "",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P20_《Besame Mucho》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p7_茕茕",
+   "song": "茕茕",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P04_舞后talk",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:17_旋木",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20230409_王晰新专辑《X自选集》生日签唱会全场",
+   "song": "签唱会上海全场",
+   "date": "2023-04-09",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20250501_p04_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
+   "song": "签唱会上海全场",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】2020全国个人巡回音乐会-南宁站 全程__P02_下半场①",
+   "song": "",
+   "date": "2020",
+   "city": "南宁",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P03_3. 茕茕 +talk  （对不起，我手癌）",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P03_3.问答环节",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:19_在水一方",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P16_点歌《北国之春》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P09_《追梦人》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20191229_BV1TJ411a7Kk",
+   "song": "亲密爱人",
+   "date": "2019-12-29",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P18_点歌《着魔》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_4_再见我的爱人",
+   "song": "再见我的爱人",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P11_11.如果云知道+云一定知道",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南京20190731_BV1Mt411w7cx",
+   "song": "南屏晚钟",
+   "date": "2019-07-31",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_王晰_BV1K6ph6dEsq",
+   "song": "哭砂",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:六巡广州微博_6_女人花＋水中花",
+   "song": "女人花＋水中花",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220418_BV11a411v7jk",
+   "song": "分岔",
+   "date": "2022-04-18",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P06_别离的预感",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P10_雪孩子",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P10_10.雪孩子",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:南宁20201220_BV1Lf4y1e72A",
+   "song": "女人花",
+   "date": "2020-12-20",
+   "city": "南宁",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20230505_BV15X4y127ER",
+   "song": "人世间",
+   "date": "2023-05-05",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20181221_BV1nt411Y7aj",
+   "song": "我要你",
+   "date": "2018-12-21",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190111_BV1At411W7V8",
+   "song": "我要你",
+   "date": "2019-01-11",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20240925_BV1YMxgeBEe8",
+   "song": "玫瑰人生（La Vie en Rose）",
+   "date": "2024-09-25",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】20201007杭州签唱会 现场live__P02_《云一定知道》",
+   "song": "",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P02_《迷雾》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_6_一生守候",
+   "song": "一生守候",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P13_13.慢系列",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P10_《难以抗拒你容颜》+《为你我受冷风吹》+《爱的箴言》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:工作室中控台20261014_video1_5353988652270759",
+   "song": "南屏晚钟",
+   "date": "2026-10-14",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P17_点歌《梦醒时分》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:成都20191128_BV1HJ411978y",
+   "song": "我要你",
+   "date": "2019-11-28",
+   "city": "成都",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P04_4.匆匆 【好爱这一首改编版的匆匆，层层递进的推进情绪，高潮部分小军鼓配合着舞台灯光",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:10人世间",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_3_月半弯",
+   "song": "月半弯",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P12_12.爱情",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20210717_BV1HU4y1n7Hv",
+   "song": "晚风",
+   "date": "2021-07-17",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:2024.8.16-3四巡北京第二场下半场",
+   "song": "",
+   "date": "2024",
+   "city": "北京",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:16点歌3茉莉花（图兰朵版+鲜花调版）",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P09_9. 雪地里寄不出的求救信",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P13_时光慢旅+慢慢地+从前慢+慢慢喜欢你",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:video",
+   "song": "微醺23点08分",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_5_平凡又美好的晚上",
+   "song": "平凡又美好的晚上",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190914_BV1SJ411w72G",
+   "song": "南屏晚钟",
+   "date": "2019-09-14",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20250501_p03_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
+   "song": "签唱会上海全场",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P08_8. 哭砂",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P13_刮刮乐",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_点歌段_BV1GTpn6BEFm",
+   "song": "南屏晚钟",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190802_BV1Ut411F7Cp",
+   "song": "我要你",
+   "date": "2019-08-02",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20230225_BV1Qg4y1H7XH",
+   "song": "晚风",
+   "date": "2023-02-25",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P14_14.像雾像雨又像风",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P12_爱情",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:一巡·Che_广州_1_BV1z4411R7DL_p1",
+   "song": "",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P22_《崇拜》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P18_生日快乐歌+漫长的告别+战士的第二个故乡+喀秋莎",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20201206_BV1Mi4y157F6",
+   "song": "像雾像雨又像风",
+   "date": "2020-12-06",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p22_爱情",
+   "song": "爱情",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:25_【王晰】2020个人巡回音乐会 11.21佛山场 p25 25 点歌环",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P01_Wellerman_我很好_My oh My_La Vie en Rose",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P01_1.《不需要结果》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_点歌段_BV1DtpQ6sE8c",
+   "song": "南屏晚钟",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20201127_BV1nZ4y1G7Zq",
+   "song": "像雾像雨又像风",
+   "date": "2020-11-27",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P14_像雾像雨又像风",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20240202_BV1UJ4m1t7m5",
+   "song": "亲密爱人",
+   "date": "2024-02-02",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P08_哭砂",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P03_茕茕",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P14_《猫模狗样》+《甩啦甩啦》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part5_BV1YWph6qEok",
+   "song": "part5",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p24_慢系列",
+   "song": "慢系列",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P08_《海然海然》+《嘎达梅林》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P23_《北国之春》纯享",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20220419_BV1eB4y1U7sP",
+   "song": "玩笑",
+   "date": "2022-04-19",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20230409_BV1EL411m76f",
+   "song": "雪地里寄不出的求救信",
+   "date": "2023-04-09",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P03_玫瑰人生",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:佛山20201126_BV1Ap4y1z7bw",
+   "song": "天边",
+   "date": "2020-11-26",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_1_Yesterday_Once_More",
+   "song": "Yesterday Once More",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_中段_Yesterday_Once_More",
+   "song": "Yesterday Once More",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:10_Close to You",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P07_鹅毛信_雷美替胺_情歌_世界赠予我的_天黑黑",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P02_水手船歌+我很好+My Oh My （+中间talk）",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:09_You Needed Me",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20210720_BV1tV411p7Ny",
+   "song": "晚风",
+   "date": "2021-07-20",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20251124182425 0042 钟爱一生",
+   "song": "",
+   "date": "2025-11-24",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P18_祝我们随遇而安",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p16_哭砂",
+   "song": "哭砂",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20191230_BV13K4y1t782",
+   "song": "新不了情",
+   "date": "2019-12-30",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P07_《友谊地久天长》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20200904_BV1of4y1Q73V",
+   "song": "哭砂",
+   "date": "2020-09-04",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P06_钢伴with崔迪老师（我真的受伤了+遗憾+从前的我+萱草花）",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:22_【王晰】2020个人巡回音乐会 11.21佛山场 p22 22 唠嗑",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P03_住口_在路上_勿扰_无尽的夜里_无尽的夜里",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P05_暗潮涌动",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20200101_BV1XJ411b7yd",
+   "song": "新不了情",
+   "date": "2020-01-01",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p25_如果云知道+云一定知道",
+   "song": "如果云知道+云一定知道",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20241012_BV1Mz6fYXELH",
+   "song": "勿扰",
+   "date": "2024-10-12",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_王晰_BV1GhpY66EGL",
+   "song": "小毛驴",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p40_你3.7手机制渣画质",
+   "song": "你3.7手机制渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190809_BV1mt411N77U",
+   "song": "着魔",
+   "date": "2019-08-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20240607_BV1T142117Bq",
+   "song": "人世间",
+   "date": "2024-06-07",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20230409_王晰【小河】【竖版】《X自选集》生日签唱会上海2023.4.9",
+   "song": "小河",
+   "date": "2023-04-09",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20191112_BV1tE411e7T2",
+   "song": "牵手",
+   "date": "2019-11-12",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:20_【王晰】2020个人巡回音乐会 11.21佛山场 p20 20 唠嗑part",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:27_【王晰】2020个人巡回音乐会 11.21佛山场 p27 27 点歌环",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20241026_BV1orwNeTEV6",
+   "song": "鹅毛信",
+   "date": "2024-10-26",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P01_惑许",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:深圳20190918_BV1rJ411w7JC",
+   "song": "Your Man",
+   "date": "2019-09-18",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P19_钟爱一生",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P06_你",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:03迷雾",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P04_4.《朝凤》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:05小河",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:无尽的夜里第2遍",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P02_时光",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P04_分岔",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P02_怂",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_3_像雾像雨又像风",
+   "song": "像雾像雨又像风",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:18_朋友别哭",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P20_你",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p14_怂3.7手机渣画质",
+   "song": "怂3.7手机渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20210718_BV16B4y1N7ac",
+   "song": "亲密爱人",
+   "date": "2021-07-18",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:14_玩笑",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:04_哑光",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20190818_BV1N4411o7Ld",
+   "song": "Your Man",
+   "date": "2019-08-18",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:工作室中控台20261014_video2_5353988652270759",
+   "song": "一生中最爱",
+   "date": "2026-10-14",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20190805_BV1ht411M7EH",
+   "song": "Your Man",
+   "date": "2019-08-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_杭州_04_BV184411P7rh_p4",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:上海20250501_BV1Tr5KzSEMT",
+   "song": "祝我们随遇而安",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20190609_BV184411T7KZ",
+   "song": "Your Man",
+   "date": "2019-06-09",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:佛山20201122_BV1Za411c7Sc",
+   "song": "滚滚红尘",
+   "date": "2020-11-22",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P02_2.《小河》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:21_嘎达梅林",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P06_6. 别离的预感",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20191230_BV1TJ411Y7MH",
+   "song": "Your Man",
+   "date": "2019-12-30",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20250501_BV1QWVzzjEnM",
+   "song": "祝我们随遇而安",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P07_（下半场）住口",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20200104_BV1wJ41177BZ",
+   "song": "Your Man",
+   "date": "2020-01-04",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20191006_BV1cE411f7Gs",
+   "song": "一生守候",
+   "date": "2019-10-06",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20230409_BV1M14y117E1",
+   "song": "猫模狗样",
+   "date": "2023-04-09",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:太原20191229_BV1WJ411a7zj",
+   "song": "让她降落",
+   "date": "2019-12-29",
+   "city": "太原",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P08_生贺环节",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:南京20190731_BV1qt411c7Sm",
+   "song": "Your Man",
+   "date": "2019-07-31",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220227_BV1oS4y1F7Vz",
+   "song": "Your Man",
+   "date": "2022-02-27",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p41_你",
+   "song": "你",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P04_床前明月光",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_7_Your_Man",
+   "song": "Your Man",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:16_这世界那么多人+暧昧+叶子+同类",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:工作室中控台20261012_video2_5353266315265746",
+   "song": "亲密爱人",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20191222_BV1sJ411s7hj",
+   "song": "Your Man",
+   "date": "2019-12-22",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20250501_p05_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
+   "song": "签唱会上海全场",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:广州20190805_BV1Ct411M734",
+   "song": "让她降落",
+   "date": "2019-08-05",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:05_惑许",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20211127_BV19U4y1K7Yz",
+   "song": "让她降落",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《歌颂》北京签唱会__BV1hK411N7X__P08_等一等昨天",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:26_【王晰】2020个人巡回音乐会 11.21佛山场 p26 26 点歌环",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190610_BV1X4411N7gs",
+   "song": "Your Man",
+   "date": "2019-06-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南京20190730_BV1Rt411F7aV",
+   "song": "只要有你",
+   "date": "2019-07-30",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20191231_BV1yJ411G7z2",
+   "song": "新不了情",
+   "date": "2019-12-31",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_1_让她降落",
+   "song": "让她降落",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:04微醺 23点08分",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_下半场_让她降落",
+   "song": "让她降落",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part6_BV1YWph6qErx",
+   "song": "part6",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P13_雷美替胺",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p2_花儿为什么这样红",
+   "song": "花儿为什么这样红",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:无尽的夜里第1遍",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P04_City of star",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:切片2",
+   "song": "Moon River",
+   "date": "2026-10-09",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:三亚20230225_BV1UX4y197Lu",
+   "song": "晚风",
+   "date": "2023-02-25",
+   "city": "三亚",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P06_左右中区分别talk",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:佛山20191203_BV1iJ411q7Ee",
+   "song": "月亮代表我的心",
+   "date": "2019-12-03",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190818_BV1x4411f7i9",
+   "song": "南屏晚钟",
+   "date": "2019-08-18",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p32_歌颂",
+   "song": "歌颂",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p5_cityofstar",
+   "song": "cityofstar",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P19_王牌就是我",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20240418_BV11u4m1F7tL",
+   "song": "多听有益",
+   "date": "2024-04-18",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P02_床前明月光_暗潮涌动_我真的受伤了_遗憾_从前的我_萱草花",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:02_Moon River",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20200917_BV1uT4y1A7XC",
+   "song": "翠湖寒",
+   "date": "2020-09-17",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P02_2. city of star   （全程曝光，对不起小狐狸的美貌）",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P01_《多听有益》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:12_分岔",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P05_5.喝水 转场",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20230504_BV1dk4y1E7zM",
+   "song": "人世间",
+   "date": "2023-05-04",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_5_心动",
+   "song": "心动",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:21_【王晰】2020个人巡回音乐会 11.21佛山场 p21 21 追幸福",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20210430_BV1By4y1s7sL",
+   "song": "City of Stars",
+   "date": "2021-04-30",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p38_王牌就是我",
+   "song": "王牌就是我",
+   "date": "2021",
+   "city": "上海",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part1_BV1Mvph6FEx3",
+   "song": "part1",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:23_爱你",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_南京_05_BV1rt411K7wc_p5",
+   "song": "",
+   "date": "",
+   "city": "南京",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part10_BV1ACph69Efz",
+   "song": "part10",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_双人_BV1mWpe6PESm",
+   "song": "美酒加咖啡",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p8_匆匆",
+   "song": "匆匆",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:17多听有益",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p9_匆匆",
+   "song": "匆匆",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:23_【王晰】2020个人巡回音乐会 11.21佛山场 p23 23 歌颂",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p4_cityofstar3.7手机渣画质",
+   "song": "cityofstar3.7手机渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:24_【王晰】2020个人巡回音乐会 11.21佛山场 p24 24 点歌环",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:19崇拜",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:11猫模狗样",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220718_BV1M94y1X76n",
+   "song": "倒叙",
+   "date": "2022-07-18",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:南京20190730_BV1Mt411c7hz",
+   "song": "心动",
+   "date": "2019-07-30",
+   "city": "南京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P06_6.《猫模狗样》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:09也许",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P12_鹅毛信",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P08_8.合唱生日快乐歌+许愿",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南昌20260909_BV19ZYs6LEfA",
+   "song": "当爱已成往事",
+   "date": "2026-09-09",
+   "city": "南昌",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:06永不失联的爱",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:15_倒叙",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:一巡·Che_南京_04_BV1rt411K7wc_p4",
+   "song": "",
+   "date": "",
+   "city": "南京",
+   "state": "descriptive",
+   "reason": "有录音与读数，但未达可引用门槛",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20231013_BV1FH4y1d7u1",
+   "song": "一生守候",
+   "date": "2023-10-13",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰《B面图景》杭州签唱会全场__BV1NQ4y__P02_中场签名talk",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:28_【王晰】2020个人巡回音乐会 11.21佛山场 p28 28 唠嗑结",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_2_橄榄树",
+   "song": "橄榄树",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P14_点歌-敕勒川",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20250413_BV1L7dkYoEAr",
+   "song": "像雾像雨又像风",
+   "date": "2025-04-13",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20201017_BV1dy4y1b7j7",
+   "song": "雪地里寄不出的求救信",
+   "date": "2020-10-17",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:切片3",
+   "song": "Love Me Tender",
+   "date": "2026-10-09",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P02_匆匆",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part8_BV13bph6PE6q",
+   "song": "part8",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_双人_BV13hpY66EkA",
+   "song": "心恋",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P08_在路上",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P10_无尽的夜里",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:太原20220716_BV1JY4y177Sh",
+   "song": "月半弯",
+   "date": "2022-07-16",
+   "city": "太原",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p20_雪地里寄不出的求救信3.7手机渣画质",
+   "song": "雪地里寄不出的求救信3.7手机渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_双人_BV1tEp36uEoM",
+   "song": "Love is over",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_双人_BV1tEp36uEoM",
+   "song": "Love is over",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210310_BV1qK4y1D798",
+   "song": "雪地里寄不出的求救信",
+   "date": "2021-03-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:07友谊地久天长",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P09_勿扰",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20221015_BV14e411L7VE",
+   "song": "红豆",
+   "date": "2022-10-15",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P15_12.大合影",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_part4_BV1Vxph6KEKw",
+   "song": "part4",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20201209_BV1Lf4y1i7HC",
+   "song": "像雾像雨又像风",
+   "date": "2020-12-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:长沙20191222_BV1WJ411s7MR",
+   "song": "在水一方",
+   "date": "2019-12-22",
+   "city": "长沙",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P07_怂",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20201118_BV1er4y1F7Nr",
+   "song": "像雾像雨又像风",
+   "date": "2020-11-18",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:工作室中控台20261012_video1_5353266315265746",
+   "song": "哭砂",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P21_等一等昨天",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:切片1",
+   "song": "Smoke Gets in Your Eyes",
+   "date": "2026-10-09",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261009_双人_BV154pY6VEaF",
+   "song": "嘎达梅林",
+   "date": "2026-10-09",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:未知20200905_BV1B54y127bY",
+   "song": "听海",
+   "date": "2020-09-05",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_4_情网",
+   "song": "情网",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:广州20210515_BV1Q64y1C7Sr",
+   "song": "歌颂",
+   "date": "2021-05-15",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】「吾」个人音乐会 五巡生日场_4K全程___P05_明白",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】20201007杭州签唱会 现场live__P03_《怂》",
+   "song": "",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20190912_BV1hJ411P7bS",
+   "song": "莫斯科郊外的晚上",
+   "date": "2019-09-12",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:签唱会上海20250501_p02_【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
+   "song": "签唱会上海全场",
+   "date": "2025-05-01",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p21_雪孩子",
+   "song": "雪孩子",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:22_高级动物",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:08_突然想爱你+眼泪",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P11_明白",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p42_等一等昨天",
+   "song": "等一等昨天",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】二巡歌颂 201129北京场 全场 更新__P07_7. 怂",
+   "song": "",
+   "date": "",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P17_点歌-耶利亚女郎",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P17_14.嗷嗷待哺的签售准备",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P14_11.2《等一等昨天》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P16_点歌-大海啊故乡",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P08_拜拜啦",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p15_怂",
+   "song": "怂",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p13_别离的预感",
+   "song": "别离的预感",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_p2_BV1Mypv6zECb",
+   "song": "全场_第二场",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》",
+   "song": "",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:15点歌2心动",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P15_dear friend",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p31_追幸福的人",
+   "song": "追幸福的人",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p27_像雾像雨又像风",
+   "song": "像雾像雨又像风",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:北京20201201_BV1Jt4y1Y7fh",
+   "song": "雪地里寄不出的求救信",
+   "date": "2020-12-01",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:20_敖包相会",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P16_追幸福的人",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:13甩了甩了",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20200103_BV1qJ411j7H2",
+   "song": "小毛驴",
+   "date": "2020-01-03",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20230228_BV1zb411X7eR",
+   "song": "敖包相会",
+   "date": "2023-02-28",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p28_Dearfriend",
+   "song": "Dearfriend",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20220602_BV1jt4y1W7Wo",
+   "song": "凄美地",
+   "date": "2022-06-02",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:南昌20250104_BV1LKrpYYEtN",
+   "song": "是否",
+   "date": "2025-01-04",
+   "city": "南昌",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】五巡首场杭州 全部歌曲 自录202412__P15_点歌-敕勒川再来一遍！",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_2_Bésame_Mucho",
+   "song": "Bésame Mucho",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:六巡广州微博_8_夜色",
+   "song": "夜色",
+   "date": "",
+   "city": "广州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20250413_BV14kouYsEhY",
+   "song": "敕勒歌",
+   "date": "2025-04-13",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20230409_BV1iP41187X7",
+   "song": "雪地里寄不出的求救信",
+   "date": "2023-04-09",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:12Bésame Mucho",
+   "song": "",
+   "date": "",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20191105_BV17E411B7xm",
+   "song": "小毛驴",
+   "date": "2019-11-05",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P09_雪地里寄不出的求救信",
+   "song": "",
+   "date": "",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P13_11.1虚假的点歌流程3",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:北京20201017_BV1ev411k7wK",
+   "song": "雪地里寄不出的求救信",
+   "date": "2020-10-17",
+   "city": "北京",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:杭州20201007_BV1q54y1k7tM",
+   "song": "雪地里寄不出的求救信",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:上海20210310_BV1DK4y1J7qB",
+   "song": "雪地里寄不出的求救信",
+   "date": "2021-03-10",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P12_10.2《雪地里寄不出的求救信》",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰B面图景杭州签售自录存档 20211127___P07_签售",
+   "song": "",
+   "date": "2021-11-27",
+   "city": "杭州",
+   "state": "pending",
+   "reason": "归属或复核未完成",
+   "in_stats": false,
+   "in_publish": false
+  },
+  {
+   "entry_id": "stage:深圳20230625_BV1g14y127yw",
+   "song": "凄美地",
+   "date": "2023-06-25",
+   "city": "深圳",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:沉响与长歌20261010_p2_BV1Mypv6zECb",
+   "song": "全场_第二场",
+   "date": "2026-10-10",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P09_9.1虚假的点歌流程1",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p3_花儿为什么这样红3.8手机渣画质",
+   "song": "花儿为什么这样红3.8手机渣画质",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【自存档】王晰 四巡“肆益” 上海生日场__BV__P15_《甩啦甩啦》",
+   "song": "",
+   "date": "",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:二巡上海2021_全程_p39_王牌就是我",
+   "song": "王牌就是我",
+   "date": "2021",
+   "city": "上海",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:【王晰】20201007杭州签唱会 现场live__P06_《王牌就是我》",
+   "song": "",
+   "date": "2020-10-07",
+   "city": "杭州",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:未知20210723_BV1Cv411n77a",
+   "song": "歌颂",
+   "date": "2021-07-23",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:29_【王晰】2020个人巡回音乐会 11.21佛山场 p29 29 王牌就",
+   "song": "全场_第二场",
+   "date": "2020",
+   "city": "佛山",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  },
+  {
+   "entry_id": "stage:王晰2023.4.9《X自选集》生日签唱会__B__P11_10.1.虚假的点歌流程2",
+   "song": "",
+   "date": "2023",
+   "city": "",
+   "state": "claimable",
+   "reason": "过复核门槛且可引用",
+   "in_stats": true,
+   "in_publish": true
+  }
+ ]
+}
