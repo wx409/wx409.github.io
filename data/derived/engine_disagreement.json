@@ -601,5 +601,11 @@
   "一致性≠准确率：两法可能共同锁错",
   "现场窗口用已登记低音时刻定位，存在定位偏差",
   "样本为探索性，不可外推为总体比例"
- ]
+ ],
+ "raw_frames_available": false,
+ "segment_recoverable": {
+  "录音室人声轨": false,
+  "现场混音": true
+ },
+ "audit_note": "2026-10-25 审查：未保存 Praat 逐帧原始输出；录音室 20 段因 file 字段为 htdemucs 而不可唯一恢复，已暂停补跑（见 docs/Parselmouth原始F0缺口_20261025.md）"
 }
