@@ -1,13 +1,15 @@
 {
- "schema": "claims/v2",
- "generated_at": "2026-10-24",
- "principle": "站内对外句子只能从本文件审核通过的条目派生；整批主张的可信度受最弱必要环节限制。",
+ "schema": "claims/v3",
+ "generated_at": "2026-10-25",
+ "principle": "对外句子只能从审核通过的主张派生；整批可信度受最弱必要环节限制；精确读数须经敏感性分析后才可对外给出范围。",
+ "grading_rules": {
+  "M2": "归属达到规定等级（人耳确认或双源一致）＋音高经独立复核＋敏感性通过（不改变音级、且读数范围已报告）",
+  "M1": "归属或复核达到基本要求，但敏感性、独立归属等仍有缺项",
+  "M0": "归属或读数只能作线索",
+  "note": "按本规则，敏感性完成前，五份均不得仅凭逐帧测量标 M2。"
+ },
  "axes": {
-  "measurement": {
-   "M2": "归属明确（人耳确认/多源一致），多方法或人工复核，敏感性通过",
-   "M1": "归属较明确，单方法测量，参数影响有限",
-   "M0": "归属或测量仍存疑，只作线索"
-  },
+  "measurement": ["M0", "M1", "M2"],
   "inference_scope": {
    "S1": "描述单个片段",
    "S2": "描述同一首歌的多个版本",
@@ -19,55 +21,60 @@
  "claims": [
   {
    "id": "C1-duoting-c2-repro",
-   "claim": "《多听有益》五份已核现场素材的最低稳定音读数集中在 C2（65.2–65.4Hz）",
+   "claim": "《多听有益》五份已核现场素材的**目标低音段**，F0 读数集中在 C2 附近",
    "claim_type": "复现",
    "inference_scope": "S2",
    "measurement": "M1",
-   "measurement_note": "整批按最弱环节定级：上海/杭州为混音谐波列复核，未做人耳确认；北京两晚与乐华达 M2。故整批不标 M2。",
+   "measurement_note": "整批按最弱环节 M1：① 上海、杭州仅有谐波列复核，未人耳确认；② 五份中仅乐华、北京两晚做了参数敏感性，上海、杭州、北京11-12 未做；③ 乐华与北京的方法不同（自相关 vs YIN），不构成同管线复算。",
+   "naming_note": "本主张测的是「目标低音段」，不是「整首作品的最低稳定音」——两者不可混用。",
    "materials": [
-    {"name": "北京 2023-11-12", "attribution": "谐波列＋逐帧", "pitch_check": "逐帧测量", "hz": 65.3, "sensitivity": "未做", "usable": "S2", "m": "M2"},
-    {"name": "北京 2023-11-13", "attribution": "人耳确认", "pitch_check": "逐帧测量", "hz": 65.40, "sensitivity": "未做", "usable": "S2", "m": "M2"},
-    {"name": "乐华家族演唱会 2024-08-24", "attribution": "人耳确认", "pitch_check": "逐帧测量", "hz": 65.31, "sensitivity": "未做", "usable": "S2", "m": "M2"},
-    {"name": "四巡上海生日 2024-04-06", "attribution": "谐波列复核（未人耳）", "pitch_check": "谐波列", "hz": 65.2, "sensitivity": "未做", "usable": "S2", "m": "M1"},
-    {"name": "四巡杭州 2024", "attribution": "谐波列复核（未人耳）", "pitch_check": "谐波列", "hz": 65.2, "sensitivity": "未做", "usable": "S2", "m": "M1"}
+    {"name": "乐华家族演唱会 2024-08-24", "input": "原始混音", "method": "50–95Hz 自相关，帧 4096", "window": "65–72s", "reported_hz": 65.31, "attribution": "人耳确认", "sensitivity": "已做（YIN 网格 18 组：65.6–66.6Hz）", "usable": "S2", "m": "M1"},
+    {"name": "北京 2023-11-13", "input": "原始混音", "method": "50–95Hz 自相关，帧 4096", "window": "143–148.5s", "reported_hz": 65.40, "attribution": "人耳确认", "sensitivity": "已做（18 组：65.4–65.6Hz）", "usable": "S2", "m": "M1"},
+    {"name": "北京 2023-11-12", "input": "分离人声＋混音", "method": "YIN（frame 2048 / hop 512 / fmin 55 / fmax 1100）＋混音谐波列", "window": "整曲", "reported_hz": 65.3, "attribution": "谐波列（未人耳）", "sensitivity": "未做", "usable": "S2", "m": "M1"},
+    {"name": "四巡上海生日 2024-04-06", "input": "分离人声＋混音", "method": "YIN ＋混音谐波列", "window": "55.8s 附近", "reported_hz": 65.2, "attribution": "谐波列（未人耳）", "sensitivity": "未做", "usable": "S2", "m": "M1"},
+    {"name": "四巡杭州 2024", "input": "分离人声＋混音", "method": "YIN ＋混音谐波列", "window": "整曲", "reported_hz": 65.2, "attribution": "谐波列（未人耳）", "sensitivity": "未做", "usable": "S2", "m": "M1"}
    ],
-   "weakest_link": "归属依据最弱的两份（上海、杭州）决定整批等级",
-   "definition": "最低稳定音＝音符 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音本身 ≥0.2s",
-   "algorithm": "自研 numpy YIN（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）＋混音谐波列",
-   "calibration": "第一层合成基准：120 次运行全部判对，绝对误差中位 3.4 音分、P90 9.2、最大 12.4（容差 ±50）",
+   "weakest_link": "上海、杭州未人耳归属；三份未做敏感性；两种方法混用",
+   "definition": "目标低音段＝该曲最低音所在乐句；读数取窗内逐帧中位（不是单帧极值）",
+   "algorithm": "见 materials[].method（**不同素材方法不同，不可写成同一条管线**）",
+   "calibration": "第一层合成基准：120 次运行全部判对，绝对误差中位 3.4 / P90 9.2 / 最大 12.4 音分（容差 ±50）",
    "calibration_scope": "仅覆盖理想谐波复音的音高提取；不覆盖真实素材的颤音/元音/分离伪影",
-   "sensitivity": "未做（现场素材多参数敏感性待补）",
-   "comparability": "同曲同段落意图；场次与编配不同，可比性中等",
+   "sensitivity_result": {
+    "乐华": {"method": "YIN 参数网格 18 组", "range_hz": [65.6, 66.6], "cent_shift_vs_reported": 23, "all_in_C2": true},
+    "北京11-13": {"method": "YIN 参数网格 18 组", "range_hz": [65.4, 65.6], "cent_shift_vs_reported": 2, "all_in_C2": true},
+    "conclusion": "音级（C2）稳健；具体赫兹不稳健——换方法可漂约 23 音分，因此不得再给「65.2–65.4」这种窄区间"
+   },
+   "comparability": "同曲同段落意图；场次与编配不同，可比性中等；方法不同，交叉比较需注明",
    "can_write": [
-    "五份已核素材的目标段读数集中在 65.2–65.4Hz",
-    "横跨 2023-11 至 2024-08，不同场地与舞台性质多次出现同一读数"
+    "五份已核素材的目标低音段读数均落在 C2 附近（音级一致）",
+    "横跨 2023-11 至 2024-08 的不同场地与舞台性质，多次出现同一音级",
+    "读数受方法与参数影响：同一段素材换方法可漂约 20 音分以上，故只报音级与范围，不报窄区间"
    ],
    "cannot_write": [
     "所有现场都唱 C2",
-    "实际演唱只波动 5 音分（5 音分是读数差；管线在合成信号上的中位误差已达 3.4 音分，真实素材未估）",
+    "五场合计只波动 5 音分（该区间已因敏感性分析失效）",
+    "读数为 65.2–65.4Hz（除非注明所用方法与参数）",
     "因此其唱功优于其他男低音"
    ],
-   "fails_if": "人耳否决任一份素材的归属；或补做敏感性分析后 F0 漂移超过 ±50 音分",
+   "fails_if": {
+    "precise_reading": "合理参数变化后结果不再落在所报范围 → 必须改为敏感性后的完整范围",
+    "pitch_class": "结果不再稳定归入 C2，或出现无法排除的倍频/次谐波/伴奏归属问题 → 暂停「C2 复现」主张"
+   },
    "reviewer": "用户本人（听辨）＋本站（测量）",
-   "date": "2026-10-24"
+   "date": "2026-10-25"
   },
   {
    "id": "C2-jingzhi-b1",
-   "claim": "《静止了的夜晚》录音室最低稳定音 B1 61.5Hz，经谐波列与复核状态确认",
+   "claim": "《静止了的夜晚》录音室最低稳定音 B1 61.5Hz",
    "claim_type": "描述",
    "inference_scope": "S1",
    "measurement": "M2",
-   "materials": [{"name": "录音室专辑《重游往昔》320k", "attribution": "人声分离＋谐波列", "pitch_check": "逐帧", "hz": 61.5, "sensitivity": "跨源一致性已做", "m": "M2"}],
-   "definition": "同上（稳定音口径）",
-   "algorithm": "同上",
-   "calibration": "同上",
-   "sensitivity": "跨源：CD 无损与 320k 同段谐波结构一致（26 首对照，质心比 Δ ≤0.001）",
-   "comparability": "比男低音标志音 Low C（C2 65.4Hz）低约 1 个半音",
-   "can_write": ["这是本站已测 72 首录音室曲目中的最低稳定音"],
+   "materials": [{"name": "录音室《重游往昔》320k", "input": "分离人声＋混音", "method": "YIN＋谐波列", "reported_hz": 61.5, "attribution": "谐波列＋跨源一致", "sensitivity": "跨源一致性已做", "m": "M2"}],
+   "can_write": ["本站已测 72 首录音室曲目中的最低稳定音"],
    "cannot_write": ["他能唱 A1（触达未过门槛）", "该读数代表生理极限"],
-   "fails_if": "更高证据级别复核否定该读数",
+   "fails_if": {"precise_reading": "更高证据级别复核改变读数", "pitch_class": "复核否定 B1 归级"},
    "reviewer": "本站",
-   "date": "2026-10-24"
+   "date": "2026-10-25"
   },
   {
    "id": "C3-bright-mechanism",
@@ -77,15 +84,14 @@
    "measurement": "M0",
    "status": "暂停",
    "findings": [
-    "三种方法（自研 LPC／倒谱／Praat Burg）F1 从 237 到 1482Hz，互不一致",
-    "Praat：B1 段 F1≈453Hz（约 H7），基频距 F1 约 7 个谐波——Bozeman 该机制的前提（基频接近 F1）不满足"
+    "三种方法 F1 从 237 到 1482Hz，互不一致",
+    "Praat：B1 段 F1≈453Hz（约 H7），基频距 F1 约 7 个谐波——该机制前提不满足"
    ],
    "can_write": ["本轮未得到可引用的 F1/F2 结论", "该机制不适用于 61.7Hz 这一音高"],
-   "cannot_write": ["用 F1/F2 解释低音亮度", "把低音亮度归因于主动元音修饰"],
-   "fails_if": "——",
+   "cannot_write": ["用 F1/F2 解释低音亮度", "归因于主动元音修饰"],
    "resume_when": "稳定元音段 + 参考标注 + 敏感性分析 + 人工复核全部完成",
    "reviewer": "本站",
-   "date": "2026-10-24"
+   "date": "2026-10-25"
   }
  ]
 }

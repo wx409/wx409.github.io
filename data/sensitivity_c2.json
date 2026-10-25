@@ -1,0 +1,516 @@
+{
+ "schema": "sensitivity/c2-v1",
+ "target_hz": 65.41,
+ "frozen": {
+  "hop": 512,
+  "fmax": 1100.0,
+  "sr": 22050,
+  "frames": [
+   1024,
+   2048,
+   4096
+  ],
+  "fmins": [
+   50.0,
+   55.0
+  ],
+  "threshs": [
+   0.1,
+   0.15,
+   0.2
+  ]
+ },
+ "materials": [
+  "乐华 2024-08-24",
+  "北京 2023-11-13",
+  "录音室 320k（参考）"
+ ],
+ "rows": [
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 65.93,
+   "cents": 13.6,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 65.93,
+   "cents": 13.6,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 65.93,
+   "cents": 13.6,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 66.64,
+   "cents": 32.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 66.64,
+   "cents": 32.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 66.64,
+   "cents": 32.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 66.44,
+   "cents": 27.1,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 66.44,
+   "cents": 27.1,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 66.44,
+   "cents": 27.1,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 66.48,
+   "cents": 28.1,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 66.48,
+   "cents": 28.1,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 66.48,
+   "cents": 28.1,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 65.61,
+   "cents": 5.4,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 65.61,
+   "cents": 5.4,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 65.61,
+   "cents": 5.4,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 65.76,
+   "cents": 9.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 65.76,
+   "cents": 9.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "乐华 2024-08-24",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 65.76,
+   "cents": 9.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 65.42,
+   "cents": 0.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 65.42,
+   "cents": 0.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 65.42,
+   "cents": 0.3,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 65.56,
+   "cents": 4.0,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 65.56,
+   "cents": 4.0,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 65.56,
+   "cents": 4.0,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 65.45,
+   "cents": 1.2,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 65.45,
+   "cents": 1.2,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 65.45,
+   "cents": 1.2,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 65.48,
+   "cents": 1.9,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 65.48,
+   "cents": 1.9,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 65.48,
+   "cents": 1.9,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 65.43,
+   "cents": 0.4,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 65.43,
+   "cents": 0.4,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 65.43,
+   "cents": 0.4,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 65.44,
+   "cents": 0.9,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 65.44,
+   "cents": 0.9,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "北京 2023-11-13",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 65.44,
+   "cents": 0.9,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 66.97,
+   "cents": 40.8,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 66.97,
+   "cents": 40.8,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 1024,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 66.97,
+   "cents": 40.8,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 87.9,
+   "cents": 511.6,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 87.9,
+   "cents": 511.6,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 1024,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 87.9,
+   "cents": 511.6,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 69.35,
+   "cents": 101.3,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 69.35,
+   "cents": 101.3,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 2048,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 69.35,
+   "cents": 101.3,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 70.24,
+   "cents": 123.4,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 70.24,
+   "cents": 123.4,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 2048,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 70.24,
+   "cents": 123.4,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.1,
+   "median": 64.64,
+   "cents": -20.5,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.15,
+   "median": 64.64,
+   "cents": -20.5,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 4096,
+   "fmin": 50.0,
+   "thresh": 0.2,
+   "median": 64.64,
+   "cents": -20.5,
+   "cls": "in-C2"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.1,
+   "median": 68.39,
+   "cents": 77.2,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.15,
+   "median": 68.39,
+   "cents": 77.2,
+   "cls": "shifted"
+  },
+  {
+   "mat": "录音室 320k（参考）",
+   "frame": 4096,
+   "fmin": 55.0,
+   "thresh": 0.2,
+   "median": 68.39,
+   "cents": 77.2,
+   "cls": "shifted"
+  }
+ ]
+}
