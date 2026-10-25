@@ -12,7 +12,8 @@
    "scope": "72 首录音室曲目",
    "boundary": "已测 72 首里的最低音，不代表生理极限",
    "source": "archive_vocal_albums#summary.lowest",
-   "snapshot": "albums"
+   "snapshot": "albums",
+   "claim_id": "C2-jingzhi-b1"
   },
   {
    "id": "F-studio-span",
@@ -24,7 +25,8 @@
    "scope": "72 首录音室曲目",
    "boundary": "跨度是单曲最低到最高的距离，不是唱功评分",
    "source": "archive_vocal_albums#summary.span_median_octaves",
-   "snapshot": "albums"
+   "snapshot": "albums",
+   "claim_id": null
   },
   {
    "id": "F-studio-stability",
@@ -36,7 +38,8 @@
    "scope": "72 首录音室曲目",
    "boundary": "单音内部抖动，不是整曲音准",
    "source": "archive_vocal_albums#summary.stability",
-   "snapshot": "albums"
+   "snapshot": "albums",
+   "claim_id": null
   },
   {
    "id": "F-vibrato-range",
@@ -48,7 +51,8 @@
    "scope": "8 张录音室作品",
    "boundary": "跨作品差异，不等于时间稳定性",
    "source": "derived/vibrato_spread#release",
-   "snapshot": "snap-2026-09-21"
+   "snapshot": "snap-2026-09-21",
+   "claim_id": "C6-vibrato-spread"
   },
   {
    "id": "F-stage-scale",
@@ -60,7 +64,8 @@
    "scope": "11 个巡次 / 236 首曲目",
    "boundary": "素材条数不等于场次数：一场可有多个上传或剪辑",
    "source": "archive_stage_tour#summary",
-   "snapshot": "stage"
+   "snapshot": "stage",
+   "claim_id": null
   },
   {
    "id": "F-stage-span",
@@ -72,7 +77,8 @@
    "scope": "排除人耳否决读数（n=682）",
    "boundary": "含全部读数为 2.73，两值不可混用",
    "source": "archive_stage_tour#summary",
-   "snapshot": "stage"
+   "snapshot": "stage",
+   "claim_id": null
   },
   {
    "id": "F-song-让她降落",
@@ -84,7 +90,8 @@
    "scope": "5 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-01-rangta"
   },
   {
    "id": "F-song-让她降落-range",
@@ -96,7 +103,8 @@
    "scope": "18 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-01-rangta"
   },
   {
    "id": "F-song-哭砂",
@@ -108,7 +116,8 @@
    "scope": "4 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-02-kusha"
   },
   {
    "id": "F-song-哭砂-range",
@@ -120,7 +129,8 @@
    "scope": "5 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-02-kusha"
   },
   {
    "id": "F-song-Your Man",
@@ -132,7 +142,8 @@
    "scope": "3 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-03-yourman"
   },
   {
    "id": "F-song-Your Man-range",
@@ -144,7 +155,8 @@
    "scope": "12 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-03-yourman"
   },
   {
    "id": "F-song-雪地里寄不出的求救信",
@@ -156,7 +168,8 @@
    "scope": "3 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-04-xuedi"
   },
   {
    "id": "F-song-雪地里寄不出的求救信-range",
@@ -168,7 +181,8 @@
    "scope": "12 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-04-xuedi"
   },
   {
    "id": "F-song-像雾像雨又像风",
@@ -180,7 +194,8 @@
    "scope": "3 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-05-xiangwu"
   },
   {
    "id": "F-song-像雾像雨又像风-range",
@@ -192,7 +207,8 @@
    "scope": "9 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-05-xiangwu"
   },
   {
    "id": "F-song-花儿为什么这样红",
@@ -204,7 +220,8 @@
    "scope": "3 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-06-huaer"
   },
   {
    "id": "F-song-花儿为什么这样红-range",
@@ -216,7 +233,8 @@
    "scope": "5 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-06-huaer"
   },
   {
    "id": "F-song-一生守候",
@@ -228,7 +246,8 @@
    "scope": "3 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-07-yisheng"
   },
   {
    "id": "F-song-一生守候-range",
@@ -240,7 +259,8 @@
    "scope": "8 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-07-yisheng"
   },
   {
    "id": "F-song-再见我的爱人",
@@ -252,7 +272,8 @@
    "scope": "3 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-08-zaijian"
   },
   {
    "id": "F-song-再见我的爱人-range",
@@ -264,7 +285,8 @@
    "scope": "4 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-08-zaijian"
   },
   {
    "id": "F-song-我要你",
@@ -276,7 +298,8 @@
    "scope": "2 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-09-woyaoni"
   },
   {
    "id": "F-song-我要你-range",
@@ -288,7 +311,8 @@
    "scope": "6 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-09-woyaoni"
   },
   {
    "id": "F-song-多听有益",
@@ -300,7 +324,8 @@
    "scope": "2 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-10-duoting"
   },
   {
    "id": "F-song-多听有益-range",
@@ -312,7 +337,8 @@
    "scope": "4 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-10-duoting"
   },
   {
    "id": "F-song-静止了的夜晚",
@@ -324,7 +350,8 @@
    "scope": "2 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-11-jingzhi"
   },
   {
    "id": "F-song-静止了的夜晚-range",
@@ -336,7 +363,8 @@
    "scope": "3 个纳入版本",
    "boundary": "不同版本调性可能不同，不能当能力对比",
    "source": "live_versions#low_range_semitones",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-11-jingzhi"
   },
   {
    "id": "F-song-后会无期",
@@ -348,7 +376,8 @@
    "scope": "2 个巡次",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
    "source": "live_versions#songs",
-   "snapshot": "versions"
+   "snapshot": "versions",
+   "claim_id": "C-song-12-houhui"
   }
  ]
 }

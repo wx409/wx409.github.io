@@ -28,15 +28,19 @@ def main() -> None:
     stg = load(D / "archive_stage_tour.json")
     lv = load(D / "live_versions.json")
     vs = load(D / "derived" / "vibrato_spread.json")
+    cl = load(D / "claims.json")
+    song_claim = {c.get("song"): c["id"] for c in cl.get("claims", []) if c.get("song")}
+    CLAIM_MAP = {"F-vibrato-range": "C6-vibrato-spread", "F-studio-lowest": "C2-jingzhi-b1"}
     a = alb.get("summary", {})
     s = stg.get("summary", {})
 
     facts = []
 
-    def add(fid, kind, subject, metric, value, unit, scope, boundary, source, snapshot=""):
+    def add(fid, kind, subject, metric, value, unit, scope, boundary, source, snapshot="", claim_id=None):
         facts.append({"id": fid, "kind": kind, "subject": subject, "metric": metric,
                       "value": value, "unit": unit, "scope": scope,
-                      "boundary": boundary, "source": source, "snapshot": snapshot})
+                      "boundary": boundary, "source": source, "snapshot": snapshot,
+                      "claim_id": claim_id or CLAIM_MAP.get(fid) or song_claim.get(subject)})
 
     lo = a.get("lowest") or {}
     add("F-studio-lowest", "extreme", "录音室全量", "最低稳定音",

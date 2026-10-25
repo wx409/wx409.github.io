@@ -1,35 +1,62 @@
 {
- "schema": "quotes_generated/v1",
- "count": 31,
+ "schema": "quotes_generated/v2",
+ "count": 24,
+ "skipped": 5,
  "quotes": [
+  {
+   "text": "录音室全量：最低稳定音为 B1 61.5Hz（72 首录音室曲目）。",
+   "fact_ids": [
+    "F-studio-lowest"
+   ],
+   "claim_id": "C2-jingzhi-b1",
+   "claim_version": "22105b25",
+   "snapshot_id": "albums",
+   "status": "可用",
+   "boundary": "已测 72 首里的最低音，不代表生理极限",
+   "sources": [
+    "archive_vocal_albums#summary.lowest"
+   ]
+  },
+  {
+   "text": "专辑层：逐碟颤音速率中位极差为 0.27Hz（8 张录音室作品）。",
+   "fact_ids": [
+    "F-vibrato-range"
+   ],
+   "claim_id": "C6-vibrato-spread",
+   "claim_version": "a4a25a3a",
+   "snapshot_id": "snap-2026-09-21",
+   "status": "可用",
+   "boundary": "跨作品差异，不等于时间稳定性",
+   "sources": [
+    "derived/vibrato_spread#release"
+   ]
+  },
   {
    "text": "让她降落：登记 20 个版本，18 个纳入统计（待判 2）。",
    "fact_ids": [
     "F-song-让她降落"
    ],
-   "mode": "short",
+   "claim_id": "C-song-01-rangta",
+   "claim_version": "459ec86b",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "让她降落：登记 20 个版本，18 个纳入统计（待判 2）；目标段读数极差约 5.75 半音（18 个纳入版本）。",
+   "text": "让她降落：目标段读数极差为 5.75半音（18 个纳入版本）。",
    "fact_ids": [
-    "F-song-让她降落",
     "F-song-让她降落-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-01-rangta",
+   "claim_version": "459ec86b",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -37,29 +64,27 @@
    "fact_ids": [
     "F-song-哭砂"
    ],
-   "mode": "short",
+   "claim_id": "C-song-02-kusha",
+   "claim_version": "0b352281",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "哭砂：登记 7 个版本，5 个纳入统计（待判 2）；目标段读数极差约 8.88 半音（5 个纳入版本）。",
+   "text": "哭砂：目标段读数极差为 8.88半音（5 个纳入版本）。",
    "fact_ids": [
-    "F-song-哭砂",
     "F-song-哭砂-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-02-kusha",
+   "claim_version": "0b352281",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -67,29 +92,27 @@
    "fact_ids": [
     "F-song-Your Man"
    ],
-   "mode": "short",
+   "claim_id": "C-song-03-yourman",
+   "claim_version": "fc5e4993",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "Your Man：登记 14 个版本，12 个纳入统计（待判 2）；目标段读数极差约 4.14 半音（12 个纳入版本）。",
+   "text": "Your Man：目标段读数极差为 4.14半音（12 个纳入版本）。",
    "fact_ids": [
-    "F-song-Your Man",
     "F-song-Your Man-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-03-yourman",
+   "claim_version": "fc5e4993",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -97,29 +120,27 @@
    "fact_ids": [
     "F-song-雪地里寄不出的求救信"
    ],
-   "mode": "short",
+   "claim_id": "C-song-04-xuedi",
+   "claim_version": "55f8313b",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "雪地里寄不出的求救信：登记 12 个版本，12 个纳入统计；目标段读数极差约 14.5 半音（12 个纳入版本）。",
+   "text": "雪地里寄不出的求救信：目标段读数极差为 14.5半音（12 个纳入版本）。",
    "fact_ids": [
-    "F-song-雪地里寄不出的求救信",
     "F-song-雪地里寄不出的求救信-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-04-xuedi",
+   "claim_version": "55f8313b",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -127,29 +148,27 @@
    "fact_ids": [
     "F-song-像雾像雨又像风"
    ],
-   "mode": "short",
+   "claim_id": "C-song-05-xiangwu",
+   "claim_version": "b8652536",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "像雾像雨又像风：登记 10 个版本，9 个纳入统计（待判 1）；目标段读数极差约 6.57 半音（9 个纳入版本）。",
+   "text": "像雾像雨又像风：目标段读数极差为 6.57半音（9 个纳入版本）。",
    "fact_ids": [
-    "F-song-像雾像雨又像风",
     "F-song-像雾像雨又像风-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-05-xiangwu",
+   "claim_version": "b8652536",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -157,29 +176,27 @@
    "fact_ids": [
     "F-song-花儿为什么这样红"
    ],
-   "mode": "short",
+   "claim_id": "C-song-06-huaer",
+   "claim_version": "d951a41f",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "花儿为什么这样红：登记 9 个版本，5 个纳入统计（待判 1）；目标段读数极差约 4.96 半音（5 个纳入版本）。",
+   "text": "花儿为什么这样红：目标段读数极差为 4.96半音（5 个纳入版本）。",
    "fact_ids": [
-    "F-song-花儿为什么这样红",
     "F-song-花儿为什么这样红-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-06-huaer",
+   "claim_version": "d951a41f",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -187,29 +204,27 @@
    "fact_ids": [
     "F-song-一生守候"
    ],
-   "mode": "short",
+   "claim_id": "C-song-07-yisheng",
+   "claim_version": "b50ee62f",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "一生守候：登记 8 个版本，8 个纳入统计；目标段读数极差约 6.78 半音（8 个纳入版本）。",
+   "text": "一生守候：目标段读数极差为 6.78半音（8 个纳入版本）。",
    "fact_ids": [
-    "F-song-一生守候",
     "F-song-一生守候-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-07-yisheng",
+   "claim_version": "b50ee62f",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -217,29 +232,27 @@
    "fact_ids": [
     "F-song-再见我的爱人"
    ],
-   "mode": "short",
+   "claim_id": "C-song-08-zaijian",
+   "claim_version": "7e48a948",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "再见我的爱人：登记 4 个版本，4 个纳入统计；目标段读数极差约 0.14 半音（4 个纳入版本）。",
+   "text": "再见我的爱人：目标段读数极差为 0.14半音（4 个纳入版本）。",
    "fact_ids": [
-    "F-song-再见我的爱人",
     "F-song-再见我的爱人-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-08-zaijian",
+   "claim_version": "7e48a948",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -247,29 +260,27 @@
    "fact_ids": [
     "F-song-我要你"
    ],
-   "mode": "short",
+   "claim_id": "C-song-09-woyaoni",
+   "claim_version": "9a0c1eda",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "我要你：登记 7 个版本，6 个纳入统计（待判 1）；目标段读数极差约 1.5 半音（6 个纳入版本）。",
+   "text": "我要你：目标段读数极差为 1.5半音（6 个纳入版本）。",
    "fact_ids": [
-    "F-song-我要你",
     "F-song-我要你-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-09-woyaoni",
+   "claim_version": "9a0c1eda",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -277,29 +288,27 @@
    "fact_ids": [
     "F-song-多听有益"
    ],
-   "mode": "short",
+   "claim_id": "C-song-10-duoting",
+   "claim_version": "a569d201",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "多听有益：登记 5 个版本，4 个纳入统计（排除 1）；目标段读数极差约 6.55 半音（4 个纳入版本）。",
+   "text": "多听有益：目标段读数极差为 6.55半音（4 个纳入版本）。",
    "fact_ids": [
-    "F-song-多听有益",
     "F-song-多听有益-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-10-duoting",
+   "claim_version": "a569d201",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
+    "live_versions#low_range_semitones"
    ]
   },
   {
@@ -307,160 +316,27 @@
    "fact_ids": [
     "F-song-静止了的夜晚"
    ],
-   "mode": "short",
+   "claim_id": "C-song-11-jingzhi",
+   "claim_version": "3a7539c1",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
     "live_versions#songs"
    ]
   },
   {
-   "text": "静止了的夜晚：登记 4 个版本，3 个纳入统计；目标段读数极差约 5.49 半音（3 个纳入版本）。",
+   "text": "静止了的夜晚：目标段读数极差为 5.49半音（3 个纳入版本）。",
    "fact_ids": [
-    "F-song-静止了的夜晚",
     "F-song-静止了的夜晚-range"
    ],
-   "mode": "full",
+   "claim_id": "C-song-11-jingzhi",
+   "claim_version": "3a7539c1",
+   "snapshot_id": "versions",
+   "status": "可用",
    "boundary": "不同版本调性可能不同，不能当能力对比",
-   "snapshots": [
-    "versions"
-   ],
    "sources": [
-    "live_versions#low_range_semitones",
-    "live_versions#songs"
-   ]
-  },
-  {
-   "text": "后会无期：登记 2 个版本，0 个纳入统计（待判 2）。",
-   "fact_ids": [
-    "F-song-后会无期"
-   ],
-   "mode": "short",
-   "boundary": "纳入与未纳入分开计，不合并成「全部版本」",
-   "snapshots": [
-    "versions"
-   ],
-   "sources": [
-    "live_versions#songs"
-   ]
-  },
-  {
-   "text": "录音室全量：最低稳定音B1 61.5Hz；跨度中位2.23八度（72 首录音室曲目）。",
-   "fact_ids": [
-    "F-studio-lowest",
-    "F-studio-span"
-   ],
-   "mode": "full",
-   "boundary": "已测 72 首里的最低音，不代表生理极限；跨度是单曲最低到最高的距离，不是唱功评分",
-   "snapshots": [
-    "albums"
-   ],
-   "sources": [
-    "archive_vocal_albums#summary.lowest",
-    "archive_vocal_albums#summary.span_median_octaves"
-   ]
-  },
-  {
-   "text": "录音室全量：最低稳定音B1 61.5Hz；音符内稳定性中位7.25音分（72 首录音室曲目）。",
-   "fact_ids": [
-    "F-studio-lowest",
-    "F-studio-stability"
-   ],
-   "mode": "full",
-   "boundary": "已测 72 首里的最低音，不代表生理极限；单音内部抖动，不是整曲音准",
-   "snapshots": [
-    "albums"
-   ],
-   "sources": [
-    "archive_vocal_albums#summary.lowest",
-    "archive_vocal_albums#summary.stability"
-   ]
-  },
-  {
-   "text": "现场全量：实测素材807条；跨度中位2.72八度（排除人耳否决读数（n=682））。",
-   "fact_ids": [
-    "F-stage-scale",
-    "F-stage-span"
-   ],
-   "mode": "full",
-   "boundary": "素材条数不等于场次数：一场可有多个上传或剪辑；含全部读数为 2.73，两值不可混用",
-   "snapshots": [
-    "stage"
-   ],
-   "sources": [
-    "archive_stage_tour#summary"
-   ]
-  },
-  {
-   "text": "录音室全量的最低稳定音是 B1 61.5Hz（72 首录音室曲目）。",
-   "fact_ids": [
-    "F-studio-lowest"
-   ],
-   "mode": "short",
-   "boundary": "已测 72 首里的最低音，不代表生理极限",
-   "snapshots": [
-    "albums"
-   ],
-   "sources": [
-    "archive_vocal_albums#summary.lowest"
-   ]
-  },
-  {
-   "text": "录音室全量的跨度中位是 2.23八度（72 首录音室曲目）。",
-   "fact_ids": [
-    "F-studio-span"
-   ],
-   "mode": "short",
-   "boundary": "跨度是单曲最低到最高的距离，不是唱功评分",
-   "snapshots": [
-    "albums"
-   ],
-   "sources": [
-    "archive_vocal_albums#summary.span_median_octaves"
-   ]
-  },
-  {
-   "text": "专辑层的逐碟颤音速率中位极差是 0.27Hz（8 张录音室作品）。",
-   "fact_ids": [
-    "F-vibrato-range"
-   ],
-   "mode": "short",
-   "boundary": "跨作品差异，不等于时间稳定性",
-   "snapshots": [
-    "snap-2026-09-21"
-   ],
-   "sources": [
-    "derived/vibrato_spread#release"
-   ]
-  },
-  {
-   "text": "现场全量的实测素材是 807条（11 个巡次 / 236 首曲目）。",
-   "fact_ids": [
-    "F-stage-scale"
-   ],
-   "mode": "short",
-   "boundary": "素材条数不等于场次数：一场可有多个上传或剪辑",
-   "snapshots": [
-    "stage"
-   ],
-   "sources": [
-    "archive_stage_tour#summary"
-   ]
-  },
-  {
-   "text": "现场全量的跨度中位是 2.72八度（排除人耳否决读数（n=682））。",
-   "fact_ids": [
-    "F-stage-span"
-   ],
-   "mode": "short",
-   "boundary": "含全部读数为 2.73，两值不可混用",
-   "snapshots": [
-    "stage"
-   ],
-   "sources": [
-    "archive_stage_tour#summary"
+    "live_versions#low_range_semitones"
    ]
   }
  ]

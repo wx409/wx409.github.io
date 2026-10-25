@@ -1,78 +1,62 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""句子装配厂：用「事实原子 + 模板」生成可核查的句子。
+"""证据底句生成器（内部工具，不是宣传文案机器）。
 
-规则（写死在代码里，不靠人记）：
-  1. 句子里每个数字都必须来自某条事实；
-  2. 不同范围（录音室/现场/专辑）的事实不得混成一句而不label；
-  3. 每条句子都带 boundary 与 fact_ids，可回查；
-  4. 数据更新 → 重建事实 → 重生成句子，旧句子自然消失（不手改）。
+纪律（按评审确定，不再扩展）：
+  1. 只做「单事实 → 单主张」装配；不做多事实自由组合。
+  2. 每条句子必须携带 claim_id / claim_version / snapshot_id / status。
+  3. 事实若无绑定主张，或主张非「可用」，不生成可发布句。
+  4. 不生成比喻、不生成口语变体（比喻会引入数字回读发现不了的语义错误）。
+  5. 三个固定反例见 docs/证据底句生成器_边界.md。
 """
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 D = ROOT / "data"
-FACTS = D / "fact_atoms.json"
 OUT = D / "quotes_generated.json"
 
 
+def claim_version(c: dict) -> str:
+    key = json.dumps([c.get("can_write"), c.get("scope")], ensure_ascii=False, sort_keys=True)
+    return hashlib.sha256(key.encode()).hexdigest()[:8]
+
+
 def main() -> None:
-    facts = json.loads(FACTS.read_text(encoding="utf-8"))["facts"]
-    by_id = {f["id"]: f for f in facts}
-    songs = {}
+    facts = json.loads((D / "fact_atoms.json").read_text(encoding="utf-8"))["facts"]
+    claims = {c["id"]: c for c in json.loads((D / "claims.json").read_text(encoding="utf-8"))["claims"]}
+
+    quotes, skipped = [], []
     for f in facts:
+        cid = f.get("claim_id")
+        c = claims.get(cid) if cid else None
+        if not c or c.get("status") != "可用":
+            skipped.append((f["id"], "无主张或不可用"))
+            continue
         if f["kind"] == "song_versions":
-            songs[f["subject"]] = {"versions": f}
-        elif f["kind"] == "song_range":
-            songs.setdefault(f["subject"], {})["range"] = f
-    layers = {f["id"]: f for f in facts if f["kind"] in ("extreme", "distribution", "scale")}
+            text = f'{f["subject"]}：{f["value"]}。'
+        else:
+            text = f'{f["subject"]}：{f["metric"]}为 {f["value"]}{f["unit"]}（{f["scope"]}）。'
+        quotes.append({
+            "text": text,
+            "fact_ids": [f["id"]],
+            "claim_id": cid,
+            "claim_version": claim_version(c),
+            "snapshot_id": f.get("snapshot") or "",
+            "status": c.get("status"),
+            "boundary": f["boundary"],
+            "sources": [f["source"]],
+        })
 
-    quotes = []
-
-    def emit(text, fids, mode, boundary):
-        quotes.append({"text": text, "fact_ids": fids, "mode": mode,
-                       "boundary": boundary,
-                       "snapshots": sorted({by_id[i]["snapshot"] for i in fids if by_id[i]["snapshot"]}),
-                       "sources": sorted({by_id[i]["source"] for i in fids})})
-
-    # T1 单事实：某首歌的版本分布
-    for song, g in songs.items():
-        v = g.get("versions")
-        if not v:
-            continue
-        emit(f'{song}：{v["value"]}。', [v["id"]], "short", v["boundary"])
-        if g.get("range"):
-            r = g["range"]
-            emit(f'{song}：{v["value"]}；{r["metric"]}约 {r["value"]} 半音（{r["scope"]}）。',
-                 [v["id"], r["id"]], "full", r["boundary"])
-
-    # T2 同层两事实：录音室层
-    pairs = [("F-studio-lowest", "F-studio-span"), ("F-studio-lowest", "F-studio-stability"),
-             ("F-stage-scale", "F-stage-span")]
-    for a, b in pairs:
-        if a not in by_id or b not in by_id:
-            continue
-        fa, fb = by_id[a], by_id[b]
-        emit(f'{fa["subject"]}：{fa["metric"]}{fa["value"]}{fa["unit"]}；'
-             f'{fb["metric"]}{fb["value"]}{fb["unit"]}（{fb["scope"]}）。',
-             [a, b], "full", f"{fa['boundary']}；{fb['boundary']}")
-
-    # T3 单层事实
-    for fid in ("F-studio-lowest", "F-studio-span", "F-vibrato-range", "F-stage-scale", "F-stage-span"):
-        if fid not in by_id:
-            continue
-        f = by_id[fid]
-        emit(f'{f["subject"]}的{f["metric"]}是 {f["value"]}{f["unit"]}（{f["scope"]}）。',
-             [fid], "short", f["boundary"])
-
-    out = {"schema": "quotes_generated/v1", "count": len(quotes), "quotes": quotes}
+    out = {"schema": "quotes_generated/v2", "count": len(quotes),
+           "skipped": len(skipped), "quotes": quotes}
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"生成 {len(quotes)} 条 -> data/quotes_generated.json")
-    for q in quotes[:6]:
-        print(f'  [{q["mode"]}] {q["text"]}')
+    print(f"底句 {len(quotes)} 条（跳过 {len(skipped)} 条：{', '.join(s[0] for s in skipped[:6])}…）")
+    for q in quotes[:5]:
+        print(f'  [{q["claim_id"]}@{q["claim_version"]}] {q["text"]}')
 
 
 if __name__ == "__main__":

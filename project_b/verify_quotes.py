@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""句子回读校验：每条句子里的数字必须能在它引用的事实里找到；
-边界必须存在；事实 id 必须存在。
-
-这是「自动生成」能成立的前提：机器造句子，机器也能验句子。
-"""
+"""底句回读校验：数字有出处 + 主张绑定有效 + 不做多事实组合 + 快照必填。"""
 from __future__ import annotations
 
 import json
@@ -18,21 +14,36 @@ D = ROOT / "data"
 
 def main() -> None:
     facts = {f["id"]: f for f in json.loads((D / "fact_atoms.json").read_text(encoding="utf-8"))["facts"]}
+    claims = {c["id"]: c for c in json.loads((D / "claims.json").read_text(encoding="utf-8"))["claims"]}
     quotes = json.loads((D / "quotes_generated.json").read_text(encoding="utf-8"))["quotes"]
     bad = []
     for q in quotes:
+        cid = q.get("claim_id")
+        c = claims.get(cid) if cid else None
+        if not c:
+            bad.append(f"未绑定主张：{q['text'][:30]}")
+            continue
+        if c.get("status") != "可用":
+            bad.append(f"主张非可用却进入发布句：{cid}")
+        if not q.get("snapshot_id"):
+            bad.append(f"缺快照：{q['text'][:30]}")
+        if len(q["fact_ids"]) != 1:
+            bad.append(f"出现多事实组合：{q['text'][:30]}")
         for fid in q["fact_ids"]:
-            if fid not in facts:
+            f = facts.get(fid)
+            if not f:
                 bad.append(f"未知事实 {fid}")
-        nums = re.findall(r"\d+(?:\.\d+)?", q["text"])
+                continue
+            if f.get("claim_id") != cid:
+                bad.append(f"事实 {fid} 绑定的主张与句子不一致")
         pool = " ".join(str(facts[i][k]) for i in q["fact_ids"] if i in facts
                         for k in ("value", "scope", "boundary"))
-        for n in nums:
+        for n in re.findall(r"\d+(?:\.\d+)?", q["text"]):
             if n not in pool:
-                bad.append(f"数字 {n} 不在事实池里：{q['text'][:40]}")
-        if not q["boundary"].strip():
-            bad.append(f"缺边界：{q['text'][:40]}")
-    print(f"句子 {len(quotes)} 条｜事实 {len(facts)} 条｜问题 {len(bad)}")
+                bad.append(f"数字 {n} 不在事实池：{q['text'][:30]}")
+        if not q.get("boundary", "").strip():
+            bad.append(f"缺边界：{q['text'][:30]}")
+    print(f"底句 {len(quotes)}｜问题 {len(bad)}")
     for b in bad[:10]:
         print("  ·", b)
     sys.exit(1 if bad else 0)
