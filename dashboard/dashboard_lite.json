@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-10-25 23:16",
- "last_update": "2026-10-25 23:16",
+ "timestamp": "2026-10-25 23:56",
+ "last_update": "2026-10-25 23:56",
  "date_range": "2023-01-01 ~ 2026-10-25",
  "total": 284244,
  "complete_rate": 20.2,
@@ -102,7 +102,7 @@
   560.0,
   597.0,
   610.0,
-  382.0
+  381.0
  ],
  "song_count_trend": [
   197,
@@ -206,8 +206,8 @@
  ],
  "top_songs": [
   {
-   "name": "重庆野玫瑰",
-   "trend": -12.1,
+   "name": "南屏晚钟",
+   "trend": -35.0,
    "score": 35,
    "tag": "上涨"
   },
@@ -218,14 +218,14 @@
    "tag": "上涨"
   },
   {
-   "name": "再叙",
-   "trend": -73.1,
+   "name": "重庆野玫瑰",
+   "trend": -11.7,
    "score": 35,
    "tag": "上涨"
   },
   {
-   "name": "Sound of Silence",
-   "trend": -46.1,
+   "name": "再叙",
+   "trend": -73.1,
    "score": 35,
    "tag": "上涨"
   },
@@ -236,15 +236,9 @@
    "tag": "上涨"
   },
   {
-   "name": "南屏晚钟",
-   "trend": -35.0,
+   "name": "Sound of Silence",
+   "trend": -46.1,
    "score": 35,
-   "tag": "上涨"
-  },
-  {
-   "name": "她真漂亮",
-   "trend": -36.8,
-   "score": 25,
    "tag": "上涨"
   },
   {
@@ -258,78 +252,100 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 64.1,
-   "raw": 337.0,
-   "trend_pct": 1.8,
-   "trend_label": "flat"
+   "share_pct": 60.0,
+   "raw": 280.0,
+   "trend_pct": -15.4,
+   "trend_label": "down"
   },
   {
    "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 7.6,
-   "raw": 40.0,
-   "trend_pct": 48.1,
+   "song": "在路上",
+   "share_pct": 7.3,
+   "raw": 34.0,
+   "trend_pct": 25.9,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "山楂树",
-   "share_pct": 6.3,
-   "raw": 33.0,
-   "trend_pct": 22.2,
+   "song": "月弯弯",
+   "share_pct": 6.6,
+   "raw": 31.0,
+   "trend_pct": 14.8,
    "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "一生中最爱",
-   "share_pct": 5.9,
-   "raw": 31.0,
-   "trend_pct": 121.4,
-   "trend_label": "up"
-  },
-  {
-   "rank": 5,
-   "song": "在路上",
-   "share_pct": 5.3,
-   "raw": 28.0,
-   "trend_pct": 3.7,
+   "song": "山楂树",
+   "share_pct": 5.8,
+   "raw": 27.0,
+   "trend_pct": 0.0,
    "trend_label": "flat"
   },
   {
+   "rank": 5,
+   "song": "她真漂亮",
+   "share_pct": 4.1,
+   "raw": 19.0,
+   "trend_pct": -13.6,
+   "trend_label": "down"
+  },
+  {
    "rank": 6,
-   "song": "Sound of Silence",
-   "share_pct": 4.6,
-   "raw": 24.0,
-   "trend_pct": 50.0,
+   "song": "亲密爱人",
+   "share_pct": 4.1,
+   "raw": 19.0,
+   "trend_pct": 35.7,
    "trend_label": "up"
   },
   {
    "rank": 7,
-   "song": "亲密爱人",
-   "share_pct": 3.0,
-   "raw": 16.0,
-   "trend_pct": 14.3,
+   "song": "一生中最爱",
+   "share_pct": 3.9,
+   "raw": 18.0,
+   "trend_pct": 28.6,
    "trend_label": "up"
   },
   {
    "rank": 8,
-   "song": "南屏晚钟",
-   "share_pct": 2.1,
-   "raw": 11.0,
-   "trend_pct": -26.7,
-   "trend_label": "down"
+   "song": "Sound of Silence",
+   "share_pct": 3.6,
+   "raw": 17.0,
+   "trend_pct": 6.2,
+   "trend_label": "up"
   },
   {
    "rank": 9,
+   "song": "南屏晚钟",
+   "share_pct": 3.6,
+   "raw": 17.0,
+   "trend_pct": 13.3,
+   "trend_label": "up"
+  },
+  {
+   "rank": 10,
    "song": "重庆野玫瑰",
    "share_pct": 1.1,
-   "raw": 6.0,
+   "raw": 5.0,
    "trend_pct": null,
    "trend_label": "new"
   }
  ],
- "daily_anomalies": [],
- "latest_anomaly": null,
+ "daily_anomalies": [
+  {
+   "song": "她真漂亮",
+   "type": "📈 排名飙升",
+   "metric": "排名",
+   "change_pct": null,
+   "desc": "排名较昨日上升 3,029 位"
+  }
+ ],
+ "latest_anomaly": {
+  "song": "她真漂亮",
+  "type": "📈 排名飙升",
+  "metric": "排名",
+  "change_pct": null,
+  "desc": "排名较昨日上升 3,029 位"
+ },
  "weekend_workday": [
   424.0,
   439.0
@@ -1175,7 +1191,7 @@
     {
      "name": "月弯弯",
      "value": [
-      -13083378.0,
+      -13083477.1,
       1.35,
       100,
       "上升期"
@@ -8404,7 +8420,7 @@
     {
      "name": "山楂树",
      "value": [
-      3572.8,
+      3636.5,
       5.79,
       11.3,
       "经典沉淀期"
@@ -8414,7 +8430,7 @@
     {
      "name": "在路上",
      "value": [
-      2718.4,
+      2781.6,
       4.09,
       0.2,
       "经典沉淀期"
@@ -8434,7 +8450,7 @@
     {
      "name": "月弯弯",
      "value": [
-      5555.7,
+      5654.7,
       3.69,
       6.6,
       "经典沉淀期"
@@ -8454,7 +8470,7 @@
     {
      "name": "Sound of Silence",
      "value": [
-      5149.4,
+      5200.7,
       2.84,
       1.4,
       "上升期"
@@ -8474,10 +8490,10 @@
     {
      "name": "重庆野玫瑰",
      "value": [
-      7876.6,
-      2.61,
-      10.9,
-      "稳定期"
+      13658.6,
+      2.67,
+      11.1,
+      "上升期"
      ],
      "uid": "L:001Dqjgu1Widly"
     },
@@ -8495,7 +8511,7 @@
      "name": "南屏晚钟",
      "value": [
       7563.8,
-      2.4,
+      2.39,
       2.3,
       "上升期"
      ],
@@ -8504,10 +8520,10 @@
     {
      "name": "她真漂亮",
      "value": [
-      6340.4,
-      2.37,
-      4.3,
-      "上升期"
+      6401.2,
+      2.35,
+      4.2,
+      "稳定期"
      ],
      "uid": "L:0008yoRC49h4PQ"
     },
@@ -8585,7 +8601,7 @@
   },
   {
    "date": "2026-10-25",
-   "avg_index": 419.6,
+   "avg_index": 395.1,
    "total_songs": 253,
    "complete": true
   }
