@@ -79,6 +79,9 @@ def section(s: dict) -> str:
     if s.get("low_range_semitones"):
         bits.append(f'版本间极差 <b>{s["low_range_semitones"]:.1f} 半音</b>')
     h.append('<p class="sub">' + "｜".join(bits) + "</p>")
+    vd = verdict(s)
+    if vd:
+        h.append(f'<p class="sub" style="color:#8a6d3b">怎么读：{vd}</p>')
     h.append("<table><tr><th>巡次</th><th>日期</th><th>城市</th><th>最低音</th><th>最高音</th>"
              "<th>跨度</th><th>稳定(音分)</th><th>颤音(Hz)</th><th>状态</th></tr>")
     for v in s["versions"]:
@@ -97,6 +100,25 @@ def section(s: dict) -> str:
                 stt))
     h.append("</table>")
     return "\n".join(h)
+
+
+
+def verdict(s: dict) -> str:
+    """由数据派生一句判读，不写死。"""
+    bits = []
+    if s.get("n_versions", 0) >= 15:
+        bits.append(f'版本最多的一首（{s["n_versions"]} 个），适合看同一首歌怎么随场次变化')
+    rng = s.get("low_range_semitones")
+    if rng is not None and rng < 0.5:
+        bits.append(f'版本间极差只有 {rng:.2f} 半音，几乎落在同一个音上')
+    elif rng is not None:
+        bits.append(f'版本间极差 {rng:.1f} 半音——不同调性，不能当能力对比')
+    pend = sum(1 for v in s.get("versions", []) if v.get("state") == "pending")
+    if pend:
+        bits.append(f'含 {pend} 条「待判」读数，未计入中位')
+    if not s.get("studio"):
+        bits.append('本站未收该曲录音室实测，只作现场内部比较')
+    return "；".join(bits[:3]) + ('。' if bits else '')
 
 
 def main() -> None:
@@ -162,6 +184,11 @@ def main() -> None:
         '「待判」条目照原样展示但不进中位统计。跨场最低音差异主要来自当场调性与编配，'
         '本页不据此做能力排名。数据源 <code>data/live_versions.json</code>，由 '
         '<code>project_b/build_live_versions.py</code> 生成。</div>',
+        '<details class="note"><summary><b>怎么读这张表</b>（点开／收起）</summary>'
+        '<p>① <b>音名 vs 频率</b>：音名（如 C2）是乐理写法，Hz 是实测；同一音名可以差几十音分，所以本页同时给赫兹。</p>'
+        '<p>② <b>稳定音 vs 待判</b>：过复核门槛的才叫稳定音，能进统计；标「待判」的照原样展示，但不进中位、不作能力依据。</p>'
+        '<p>③ <b>「与录音室」那一列</b>：正值＝现场比录音室高几个半音。半音＝钢琴相邻两键的距离；1 半音＝100 音分。</p>'
+        '<p>④ <b>术语</b>：<i>音分</i>＝半音的一百分之一；<i>跨度</i>＝一首歌里最低到最高的距离；<i>颤音速率</i>＝每秒音高起伏的次数。</p></details>',
         "<h2>一眼总览</h2>",
         table_all(doc),
         '<p class="foot">「与录音室」按该曲录音室最低稳定音对照（无录音室记录者留空）；'
@@ -170,6 +197,13 @@ def main() -> None:
     for s in doc["songs"]:
         body.append(section(s))
     body += [
+        '<h2>可以直接抄走的三句</h2>',
+        '<div class="note"><p>① 同一首歌在不同场次的最低音会变，主要是调性和编配不同，'
+        '不能拿来给状态打分。</p>'
+        '<p>② 这里统计的是「最低稳定音」——过复核门槛、能进乐句的那个音，不是单帧扫到的低频。</p>'
+        '<p>③ 版本间极差越小的曲目（如 0.1–0.5 半音），越能说明他能在不同场次回到同一个音高坐标。</p></div>',
+        '<p class="foot">口径：稳定音（音符 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB；极值音本身 ≥0.2s）；'
+        '待判读数不进统计。数据源 <code>data/live_versions.json</code>。</p>',
         '<p class="foot">方法：QQ 音乐 320k / 现场素材 → demucs htdemucs 人声分离 → 自研 YIN 逐帧 F0'
         '（fmin 55 / fmax 1100 / frame 2048 / hop 512 / sr 22050）→ 音符切分（≥80ms、抖动 &lt;0.6 半音）'
         '→ 稳健过滤（时长 ≥0.15s、HNR ≥5dB、强度 ≥中位−25dB）；低音读数另做原始混音谐波列判定。'
