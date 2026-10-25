@@ -218,13 +218,23 @@ def cmd_summary() -> None:
         p = ADJ / 'materials' / r['adjudication_id'] / 'form.json'
         forms.append(load(p) if p.exists() else {})
     pending = sum(1 for f in forms if f.get('f0_verdict', {}).get('status') == 'pending')
+    att_done = sum(1 for f in forms if f.get('attribution', {}).get('status') == 'done')
+    f0_done = sum(1 for f in forms if f.get('f0_verdict', {}).get('status') == 'done')
+    att_target = sum(1 for f in forms if f.get('attribution', {}).get('target_singer'))
+    att_other = sum(1 for f in forms if f.get('attribution', {}).get('not_target_singer')
+                    or f.get('attribution', {}).get('accompaniment_or_other_voice'))
+    att_unclear = sum(1 for f in forms if f.get('attribution', {}).get('unclear'))
     by_cat = {}
     for r in adj:
         by_cat.setdefault(r['category'], 0)
         by_cat[r['category']] += 1
     out = {
         "experiment_id": "exp-20261025-01", "status": "exploratory", "publishable": False,
-        "windows": len(adj), "pending_reviews": pending, "completed_reviews": len(adj) - pending,
+        "windows": len(adj),
+        "attribution_done": att_done, "f0_done": f0_done,
+        "attribution_counts": {"target_singer": att_target, "not_target_or_accompaniment": att_other,
+                               "unclear": att_unclear, "pending": len(adj) - att_done},
+        "pending_reviews": pending, "completed_reviews": f0_done,
         "by_category": by_cat,
         "by_layer": {l: sum(1 for r in adj if r['layer'] == l) for l in ('录音室人声轨', '现场混音')},
         "verdicts": {"note": "全部 pending：无真实听者，不生成裁决统计"},

@@ -1,11 +1,11 @@
 {
  "adjudication_id": "adj-11",
  "attribution": {
-  "target_singer": null,
+  "target_singer": true,
   "not_target_singer": null,
   "accompaniment_or_other_voice": null,
   "unclear": null,
-  "status": "pending"
+  "status": "done"
  },
  "f0_verdict": {
   "candidate_A_more_reasonable": null,
@@ -17,7 +17,8 @@
  },
  "evidence_used": [],
  "reason": "",
- "reviewer": "",
- "review_date": "",
- "confidence_or_unjudgeable_reason": "pending human review"
+ "reviewer": "star",
+ "review_date": "2026-10-25",
+ "confidence_or_unjudgeable_reason": "pending human review",
+ "partial": true
 }
