@@ -47,7 +47,7 @@ def esc(s) -> str:
 
 
 def table_all(doc: dict) -> str:
-    h = ['<table>', '<tr><th>曲目</th><th>版本</th><th>巡次</th><th>稳定音中位</th>'
+    h = ['<table>', '<tr><th>曲目</th><th>版本</th><th>巡次</th><th>目标段读数中位</th>'
          '<th>与录音室</th><th>版本间极差</th></tr>']
     for s in doc["songs"]:
         d = s.get("vs_studio_semitones")
@@ -73,7 +73,7 @@ def section(s: dict) -> str:
         h.append('<p class="sub">录音室参照：本站未收该曲录音室实测，仅列现场。</p>')
     bits = [f'{s["n_tours"]} 个巡次', f'{s["n_versions"]} 个版本']
     if s.get("low_median") is not None:
-        bits.append(f'稳定音中位 <b>{s["low_median"]} Hz</b>')
+        bits.append(f'目标段读数中位 <b>{s["low_median"]} Hz</b>')
     if s.get("vs_studio_semitones") is not None:
         bits.append(f'与录音室相差 <b>{s["vs_studio_semitones"]:+.1f} 半音</b>')
     if s.get("low_range_semitones"):
