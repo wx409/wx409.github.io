@@ -63,6 +63,20 @@ out = {
         "suspicious": sum(1 for x in rows if x['category'].startswith('agree')
                           and x['f0_verdict'] in ('both_unreliable', 'unresolved')),
     },
+    "target_only": {
+        "n": sum(1 for x in rows if x['attribution'] == 'target_singer'),
+        "yin": sum(1 for x in rows if x['attribution'] == 'target_singer' and x['yin_or_praat'] == 'YIN'),
+        "praat": sum(1 for x in rows if x['attribution'] == 'target_singer' and x['yin_or_praat'] == 'Praat'),
+        "unresolved": sum(1 for x in rows if x['attribution'] == 'target_singer'
+                          and x['f0_verdict'] == 'unresolved'),
+    },
+    "final_no_target": [x['adjudication_id'] for x in rows
+                        if x['attribution'] in ('accompaniment_or_other_voice', 'unclear')
+                        and x['f0_verdict'] == 'unresolved'],
+    "needs_relisten": [x['adjudication_id'] for x in rows
+                       if x['attribution'] == 'target_singer' and x['f0_verdict'] == 'unresolved'],
+    "inconsistent": [x['adjudication_id'] for x in rows
+                     if x['attribution'] == 'not_target_singer' and x['yin_or_praat']],
     "rows": rows,
 }
 (ADJ / 'adjudication_verdicts.json').write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
