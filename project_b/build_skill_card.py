@@ -138,7 +138,7 @@ def build_pool() -> list[dict]:
                 f"现场实测最低稳定音 **{hz_note(r.get('low_note'), r.get('low_hz'))}**（{r.get('date')}）。",
                 f"复核状态 **{r.get('a3_final_note')}**"
                 + (f"（YIN {fmt(r.get('a3_yin_hz'),1)} Hz ↔ CREPE {fmt(r.get('a3_crepe_hz'),1)} Hz）" if r.get("a3_crepe_hz") else "") + "。",
-                f"同场跨度 **{fmt(r.get('span_octaves'),2)} 个八度**，稳定性中位 {fmt(r.get('stability_cents'),1)} 音分，"
+                f"该场该曲：同场跨度 **{fmt(r.get('span_octaves'),2)} 个八度**，稳定性中位 {fmt(r.get('stability_cents'),1)} 音分（**单场口径**，不可与 72 曲层中位混读），"
                 f"颤音 {fmt(r.get('vibrato_hz'),2)} Hz。出处：B站 {r.get('bv')}（{r.get('source_verdict') or '来源见台账'}）。",
             ],
             "source": "data/archive_stage_tour.json",

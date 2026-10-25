@@ -99,6 +99,16 @@ def comparison_block() -> str:
 <details><summary>控制变量（条件对齐规则）</summary><ul>''' + controls + "</ul></details>")
 
 
+def _claim_status(cid: str) -> str:
+    """主张状态：暂停/撤回时页面提示降级。"""
+    try:
+        d = load("data/claims.json", {})
+        c = next((x for x in d.get("claims", []) if x.get("id") == cid), None)
+        return (c or {}).get("status") or "未登记"
+    except Exception:
+        return "未登记"
+
+
 def main() -> int:
     v = load("data/archive_vocal.json")
     alb = load("data/archive_vocal_albums.json")
@@ -240,12 +250,13 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 
 <div class="hl">
 <strong>一句话结论：</strong>可测量的唱功证据里，他最突出的不是"能唱多低"，而是
-<strong>低音区的长音控制</strong>（音符内稳定性中位 {esc(asum.get('stability_cents_median', '—'))} 音分）与
-<strong>颤音的长期一致性</strong>（跨七年 4.89–5.17Hz，极差 &lt;0.3Hz）；低音能力本身（最低稳定音 <strong>{esc(concl.get('main_range','—'))}</strong>）是"稀缺性锚点"，
-而"低音区的花腔式跑动"是比"低音炮"更难被替代的技术特征。
+<strong>低音区的长音控制</strong>（音符内稳定性中位 {esc(asum.get('stability_cents_median', '—'))} 音分，<strong>72 曲录音室层</strong>）与
+<strong>颤音的长期一致性</strong>（各巡轮中位 4.89–5.17Hz，极差 &lt;0.3Hz，<strong>巡演层</strong>）；低音能力本身（最低稳定音 <strong>{esc(concl.get('main_range','—'))}</strong>）是"稀缺性锚点"，
+而"低音区出现较密集的旋律跑动"是比"低音炮"更难被替代的技术特征。
 </div>
 
 {card_html}
+<p class="sub">可引用结论绑定：颤音跨巡 → <code>C6-vibrato-spread</code>（{esc(_claim_status("C6-vibrato-spread"))}）；《再见我的爱人》四版复现 → <code>C5-zaijian-same-note</code>（{esc(_claim_status("C5-zaijian-same-note"))}）；B1 → <code>C2-jingzhi-b1</code>（{esc(_claim_status("C2-jingzhi-b1"))}）。主张暂停时对应结论降级。</p>
 
 {_TIER_BLOCK}
 
@@ -262,7 +273,8 @@ th{{background:#f4efe4;font-weight:600}} .verify{{color:#8a7f6d;font-size:12.5px
 
 <h2>二、长音与颤音：手艺的指纹</h2>
 <p class="sub">颤音速率与幅度、音符内稳定性是"唱功"里最抗录音条件影响的指标（不依赖绝对音高）。
-同一首歌跨六年四次现场实测：颤音速率 4.89–5.17Hz、长音稳定 6–8 音分。</p>
+《再见我的爱人》四个版本：2019-12-21 厦门（一巡）、2026-08-23 广州（六巡，两版同场）——<strong>版本≠场次</strong>，
+四个版本对应三个场次日期；颤音速率 4.89–5.17Hz、长音稳定 6–8 音分，均为<strong>该曲四版</strong>口径。</p>
 
 <h2>三、现场 vs 录音室（同曲两版）</h2>
 <table>
