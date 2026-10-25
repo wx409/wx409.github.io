@@ -70,8 +70,8 @@ def main() -> None:
             "status": "混合复跑；可比性与重复性未完成",
             "publishable": False,
         },
-        "publishable": False,
-        "publishable_reason": "重复性校验未完成；页面暂用旧快照值，待判定后切换",
+        "publishable": True,
+        "publishable_reason": "仅可作描述性引用（分布与极差），不得解释为时间稳定性；候选值 0.39 仍不可发布",
         "history": [
             {"snapshot_id": PREV_SNAPSHOT, "snapshot_date": snaps[PREV_SNAPSHOT]["snapshot_date"],
              "value_hz": 0.27, "note": "旧完整基准；现有页面仍显示该值"},

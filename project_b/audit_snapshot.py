@@ -54,26 +54,31 @@ def main() -> None:
     if fp != derived["input_fingerprint"]:
         errors.append(f"E3 输入指纹 {fp} ≠ 快照记录 {derived['input_fingerprint']}（数据改了但快照未升）")
 
-    # 页面引用检查
+    # 页面引用检查：release 值永远允许；candidate 值只在研究页且标注「候选」时允许
+    rv = (derived.get("release") or {}).get("value_hz")
+    cv = (derived.get("candidate") or {}).get("value_hz")
+    cand_pub = bool((derived.get("candidate") or {}).get("publishable"))
     for name in PAGES:
         p = ROOT / name
         if not p.exists():
             continue
         txt = re.sub(r"<[^>]+>", " ", p.read_text(encoding="utf-8", errors="ignore"))
         for m in re.finditer(r"0\.(27|39)\s*Hz", txt):
-            val = m.group(0).replace(" ", "")
-            if val.startswith("0.27") and derived.get("publishable"):
-                errors.append(f"E4 {name} 仍用旧快照值 {val}，而派生结果已可发布")
-            elif val.startswith("0.39") and not derived.get("publishable"):
+            val = float("0." + m.group(1))
+            is_cand = cv is not None and abs(val - cv) < 0.005
+            is_rel = rv is not None and abs(val - rv) < 0.005
+            if is_cand and not cand_pub:
                 ctx = txt[max(0, m.start() - 160): m.end() + 160]
                 if name.startswith("share"):
-                    errors.append(f"E4 {name} 属于分享出口，无论是否标注「候选」都不得出现 {val}")
+                    errors.append(f"E4 {name} 属于分享出口，无论是否标注「候选」都不得出现 {val}Hz")
                 elif "候选" in ctx:
-                    warns.append(f"{name} 标注为候选值 {val}（允许，但不得进发布出口）")
+                    warns.append(f"{name} 标注为候选值 {val}Hz（允许，但不得进发布出口）")
                 else:
-                    errors.append(f"E4 {name} 使用了未达发布条件的新值 {val} 且未标「候选」")
-            else:
-                warns.append(f"{name} 引用 {val}（待页面统一）")
+                    errors.append(f"E4 {name} 使用了未达发布条件的新值 {val}Hz 且未标「候选」")
+            elif is_cand and cand_pub and is_rel:
+                pass
+            elif not is_rel and not is_cand:
+                warns.append(f"{name} 引用 {val}Hz（既非当前发布值也非候选值）")
 
     # hook 检查
     if HOOKS.exists():

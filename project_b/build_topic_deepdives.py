@@ -75,7 +75,7 @@ for x in alb:
 av = {k: st.median(v) for k, v in by_alb.items()}
 tv = [t.get("vibrato_rate_hz_median") for t in tour.get("by_tour", []) if t.get("vibrato_rate_hz_median")]
 T.append({
-    "id": "vibrato", "title": "颤音指纹：七张专辑与一张数字 EP只漂 0.27Hz",
+    "id": "vibrato", "title": "颤音指纹：七张专辑与一张数字 EP极差 0.27Hz",
     "phenomenon": f"录音室 72 曲颤音速率中位 {st.median(vib):.2f}Hz；七张专辑与一张数字 EP各自中位仅 "
                   f"{min(av.values()):.2f}–{max(av.values()):.2f}Hz（漂移 {max(av.values())-min(av.values()):.2f}Hz）；"
                   f"六轮巡演 {min(tv):.2f}–{max(tv):.2f}Hz。",

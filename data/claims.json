@@ -604,6 +604,32 @@
    "reviewer": "本站",
    "date": "2026-10-25",
    "status": "待核"
+  },
+  {
+   "id": "C6-vibrato-spread",
+   "claim": "七张专辑与一张数字 EP 的逐碟颤音速率中位数分布（4.95–5.34Hz，极差 0.27Hz）",
+   "claim_type": "描述",
+   "inference_scope": "S3",
+   "measurement": "M1",
+   "scope": {
+    "albums": 8,
+    "songs": 72,
+    "snapshot_id": "snap-2026-09-21",
+    "snapshot_date": "2026-09-21",
+    "definition": "逐碟取中位后，max−min"
+   },
+   "can_write": [
+    "七张专辑与一张数字 EP，逐碟颤音速率中位数为 4.95–5.34Hz，极差 0.27Hz（2026-09-21 快照，覆盖 72 首曲目）。该极差描述不同作品之间的离散程度。"
+   ],
+   "cannot_write": [
+    "时间稳定性（该指标是跨专辑差异，不是十年漂移）",
+    "嗓音状态或唱功水平",
+    "把 0.27 与 0.39 混用（后者为混合复跑候选）"
+   ],
+   "fails_if": "重复性校验显示该极差不可复现",
+   "reviewer": "本站",
+   "date": "2026-10-25",
+   "status": "可用"
   }
  ]
 }
