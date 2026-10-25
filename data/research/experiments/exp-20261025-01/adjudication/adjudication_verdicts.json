@@ -3,7 +3,7 @@
  "publishable": false,
  "windows": 24,
  "caveat": "听者参考了 listening_cheatsheet.md（机器预筛提示）；本轮裁决不宜视为完全独立的人耳基准，需独立听者复核后再升级证据等级。",
- "overall": {
+ "overall_all_windows": {
   "n": 24,
   "yin_more_reasonable": 8,
   "praat_more_reasonable": 8,
@@ -12,6 +12,16 @@
   "unresolved": 8,
   "attribution_target": 18,
   "attribution_other_or_unclear": 6
+ },
+ "overall": {
+  "n": 18,
+  "yin_more_reasonable": 7,
+  "praat_more_reasonable": 8,
+  "both_reasonable": 0,
+  "both_unreliable": 0,
+  "unresolved": 3,
+  "attribution_target": 18,
+  "attribution_other_or_unclear": 0
  },
  "by_layer": {
   "录音室人声轨": {

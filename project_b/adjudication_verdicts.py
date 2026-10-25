@@ -51,7 +51,8 @@ out = {
     "windows": len(rows),
     "caveat": ("听者参考了 listening_cheatsheet.md（机器预筛提示）；"
                "本轮裁决不宜视为完全独立的人耳基准，需独立听者复核后再升级证据等级。"),
-    "overall": tallies(rows),
+    "overall_all_windows": tallies(rows),
+    "overall": tallies([x for x in rows if x['attribution'] == 'target_singer']),
     "by_layer": {l: tallies([x for x in rows if x['layer'] == l])
                  for l in ('录音室人声轨', '现场混音')},
     "by_category": {c: tallies([x for x in rows if x['category'] == c])

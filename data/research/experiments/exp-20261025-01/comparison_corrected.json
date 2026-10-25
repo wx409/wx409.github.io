@@ -1,0 +1,25 @@
+{
+ "experiment_id": "exp-20261025-01",
+ "status": "exploratory",
+ "publishable": false,
+ "excluded_segments": [
+  "stu-20"
+ ],
+ "note": "剔除非目标歌手窗口后重算；仅描述本批有效窗口",
+ "summary": {
+  "录音室人声轨": {
+   "segments": 19,
+   "agree_pct_median": 60.5,
+   "octave_pct_median": 0.9,
+   "nonctave_pct_median": 35.2,
+   "abs_cents_median": 27.3
+  },
+  "现场混音": {
+   "segments": 20,
+   "agree_pct_median": 60.2,
+   "octave_pct_median": 9.8,
+   "nonctave_pct_median": 28.2,
+   "abs_cents_median": 26.2
+  }
+ }
+}

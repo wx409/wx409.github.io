@@ -1,0 +1,19 @@
+{
+ "experiment_id": "exp-20261025-01",
+ "status": "correction",
+ "invalid": [
+  {
+   "segment_id": "stu-20",
+   "identity": "赵鹏/叶塞尼亚",
+   "reason": "非目标歌手（赵鹏），不应进入王晰录音室层"
+  }
+ ],
+ "flagged": [
+  {
+   "segment_id": "stu-04",
+   "identity": "龙源之声/002Y5kqS2ZL5XH",
+   "reason": "合辑来源、曲名不可识别，归属待核"
+  }
+ ],
+ "note": "原始清单与逐帧文件保持不动；以下为更正与重算"
+}
