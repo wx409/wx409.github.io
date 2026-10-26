@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-26 18:56",
+  "timestamp": "2026-10-26 19:22",
   "total": 284497,
   "success": 57386,
   "complete_rate": 20.2,
@@ -209457,9 +209457,9 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 7,
+    "active_count": 8,
     "total_tracked": 383,
-    "concentration_top3": 72.9,
+    "concentration_top3": 73.5,
     "as_of": "2026-10-26",
     "too_small": true,
     "sample_tier": "small",
@@ -209469,62 +209469,70 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 57.1,
-      "raw": 533.0,
-      "trend_pct": 90.4,
+      "share_pct": 58.0,
+      "raw": 528.0,
+      "trend_pct": 88.6,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "一生中最爱",
-      "share_pct": 8.0,
+      "share_pct": 8.2,
       "raw": 75.0,
       "trend_pct": 316.7,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "山楂树",
-      "share_pct": 7.8,
-      "raw": 73.0,
-      "trend_pct": 170.4,
+      "song": "在路上",
+      "share_pct": 7.3,
+      "raw": 66.0,
+      "trend_pct": 94.1,
       "trend_label": "up"
     },
     {
       "rank": 4,
       "song": "月弯弯",
-      "share_pct": 7.5,
-      "raw": 70.0,
-      "trend_pct": 125.8,
+      "share_pct": 6.4,
+      "raw": 58.0,
+      "trend_pct": 87.1,
       "trend_label": "up"
     },
     {
       "rank": 5,
+      "song": "山楂树",
+      "share_pct": 5.8,
+      "raw": 53.0,
+      "trend_pct": 96.3,
+      "trend_label": "up"
+    },
+    {
+      "rank": 6,
       "song": "滚滚长江东逝水",
-      "share_pct": 7.5,
-      "raw": 70.0,
+      "share_pct": 5.4,
+      "raw": 49.0,
       "trend_pct": null,
       "trend_label": "new"
     },
     {
-      "rank": 6,
-      "song": "在路上",
-      "share_pct": 6.9,
-      "raw": 64.0,
-      "trend_pct": 88.2,
+      "rank": 7,
+      "song": "Sound of Silence",
+      "share_pct": 4.7,
+      "raw": 43.0,
+      "trend_pct": 152.9,
       "trend_label": "up"
     },
     {
-      "rank": 7,
-      "song": "Sound of Silence",
-      "share_pct": 5.2,
-      "raw": 49.0,
-      "trend_pct": 188.2,
-      "trend_label": "up"
+      "rank": 8,
+      "song": "神魂颠倒",
+      "share_pct": 4.2,
+      "raw": 38.0,
+      "trend_pct": null,
+      "trend_label": "new"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-26 18:56",
+  "last_update": "2026-10-26 19:22",
   "today_batches": 1272,
   "daily_new_records": 0,
   "recent_7days": [
@@ -209586,13 +209594,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4359,
-      "success": 4359,
+      "total": 4360,
+      "success": 4360,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1728669,
+      "before": 1728922,
       "after": 295057
     },
     "index_calibration": {
@@ -209866,7 +209874,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-26 18:56",
+    "generated_at": "2026-10-26 19:22",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
