@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-10-26 21:08
+# 生成时间：2026-10-27 00:15
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -44,6 +44,13 @@ $t = New-ScheduledTaskTrigger -Daily -At 23:40
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew
 Register-ScheduledTask -TaskName 'wx409_propagation_watch_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_propagation_watch_daily'
+
+# --- wx409_index_freshness ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\check_index_freshness.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_index_freshness' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_index_freshness'
 
 # --- QQMusicDashboardAutoStart ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\QQ音乐大屏生成器_GEO优化版_源码.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'

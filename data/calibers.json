@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26 21:08",
+ "generated_at": "2026-10-27 00:15",
  "count": 73,
  "calibers": [
   {
@@ -29,7 +29,7 @@
   {
    "id": "songs_meta",
    "label": "歌曲元数据条目",
-   "value": 688,
+   "value": 689,
    "scope": "含元信息（时长/专辑/发行等）的曲目",
    "source": "data/songs_meta.json",
    "note": ""
@@ -141,7 +141,7 @@
   {
    "id": "netease_songs",
    "label": "网易云曲库曲目",
-   "value": 125,
+   "value": 126,
    "scope": "网易云音乐侧可核验曲目",
    "source": "data/netease_catalog.json",
    "note": "另一平台口径，不与 QQ 音乐池混用"
@@ -189,7 +189,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1670,
+   "value": 1671,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -197,7 +197,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2317,
+   "value": 2318,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5593,
+   "value": 5595,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -245,10 +245,10 @@
   {
    "id": "index_days",
    "label": "指数数据覆盖天数",
-   "value": 1329,
+   "value": 1330,
    "scope": "站点图表所用指数长表的实际覆盖天数",
    "source": "（文本挖掘产物目录）\\music_index_long.csv",
-   "note": "已发布长表唯一日期；2022-12-31 至 2026-10-24；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+   "note": "已发布长表唯一日期；2022-12-31 至 2026-10-25；原始库文件覆盖 1271 天（少算补充来源 11 天）"
   },
   {
    "id": "pairing_full_56",

@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-26 16:01:04",
+ "updated_at": "2026-10-27 00:07:46",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4007,6 +4007,70 @@
    "title": "⚠ 大屏数据超过 120 分钟未更新",
    "content": "daemon 进程在（PID [6952]），但 dashboard_data.json 已 168.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
    "category": "通知"
+  },
+  {
+   "time": "2026-10-26 21:51:44",
+   "title": "指数缺日：2026-10-26",
+   "content": "长表末日期 2026-10-25，缺 2026-10-26；候选 14 个（详见 temp/index_freshness.log）",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-26 22:01:02",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 32020）。此前 dashboard_data.json 距上次更新 28.1 分钟。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-26 22:17:53",
+   "title": "数据大屏未随输入更新",
+   "content": "数据大屏未随输入更新。\n页面：dashboard\\index.html（时间 2026-10-26 22:03:28）\n输入：dashboard\\dashboard_data.json（时间 2026-10-26 22:03:27）\n输入：music_index_long.csv（时间 2026-10-26 22:17:36）\n输入：data\\archive_baseline.json（时间 2026-10-26 22:17:37）\n输入比页面新 849.6 秒。\n机制：大屏由常驻 daemon（计划任务 QQMusicDashboardAutoStart）定时重建；daemon 未运行时会停在上一版。\n自愈：每日任务 wx409_music_index_daily 会调用本哨兵 --ensure，用生成器 --rebuild 补建。",
+   "category": "运维",
+   "source": "dashboard_freshness.py"
+  },
+  {
+   "time": "2026-10-27 00:07:46",
+   "title": "🎵 QQ新歌 · 火光",
+   "content": "专辑/单曲：火光\n已写入候选清单，后续自动补歌词/班底。",
+   "category": "QQ新歌",
+   "source": "QQ音乐"
+  },
+  {
+   "time": "2026-10-27 00:07:46",
+   "title": "🎵 网易云新歌 · 火光",
+   "content": "专辑/单曲：火光\n已写入候选清单，后续自动补歌词/班底。",
+   "category": "网易云新歌",
+   "source": "网易云"
+  },
+  {
+   "time": "2026-10-27 00:07:46",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛稀缺的真&#183;男低音（Bass-baritone）——姚峰称他「作为 Bass-baritone 的 …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-10-27 00:07:46",
+   "title": "📣 王晰真的是男低音么？ - 知乎",
+   "content": "2020年4月26日&ensp;&#0183;&ensp;首先，《歌手》修音的程度之严重我就不想说什么了； 其次，本人其实不大喜欢王晰的演唱（请注意不是声音是演 …\n链接：https://www.zhihu.com/question/40568290",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/40568290"
+  },
+  {
+   "time": "2026-10-27 00:07:46",
+   "title": "📣 用声音丈量热土，醇厚嗓音唱响草原乐章 |《东方艺享家》专访 ...",
+   "content": "2026年6月17日&ensp;&#0183;&ensp;从深耕低音唱腔，到跨界歌舞剧舞台，王晰做客《东方艺享家》，畅谈独属于他的音乐求索之路。年少苦练声乐，与 …\n链接：https://www.bilibili.com/zh-Hans/video/BV13LLR61EFE/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/zh-Hans/video/BV13LLR61EFE/"
+  },
+  {
+   "time": "2026-10-27 00:07:46",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 1 首 / 网易云 1 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
