@@ -4970,6 +4970,13 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
 
     date_range = f"{df_all['data_date'].min().strftime('%Y-%m-%d')} ~ {df_all['data_date'].max().strftime('%Y-%m-%d')}"
     batch_count = int(df_all["data_date"].nunique())
+    # ★ 2026-10-26 数据源收口：today_batches 改读长表（单一事实源 music_index_long.csv），
+    #   不再沿用 df_all 的历史扫描（两者会因导入顺序不同而出现 1329/1330 这类不一致）。
+    try:
+        _lt_df = pd.read_csv(r"E:\wx\wx_textmine_out\music_index_long.csv", usecols=["date"])
+        _lt_days = int(pd.to_datetime(_lt_df["date"], errors="coerce").dt.strftime("%Y-%m-%d").nunique())
+    except Exception:
+        _lt_days = batch_count
     tracked_links = len(track_mids) if track_mids else len(registry_info.get("mid2name", {}))
 
     # 指令4：高级分析维度（全部以比率/偏离度/趋势表达，无新绝对数值）
@@ -5080,7 +5087,7 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
         "daily_listen_trend": daily_listen["trend"],        # 今日份额 TOP20 + 环比趋势（无绝对人数）
         "daily_new_today": daily_listen["new_today"],       # 昨日无指数、今日出现指数的歌曲
         "last_update": now.strftime("%Y-%m-%d %H:%M"),      # 日报层：数据快照时间（与 timestamp 同源）
-        "today_batches": batch_count,        # 修正：当日批次不可得，展示数据覆盖天数
+        "today_batches": _lt_days,           # ★ 2026-10-26：改读长表（单一事实源），不再用 df_all 历史扫描
         "daily_new_records": daily_fresh["daily_new_records"],  # 较昨日新增歌曲数
         "recent_7days": daily_fresh["recent_7days"],            # 最近7日追踪曲目池平均指数
         "latest_anomaly": daily_fresh["latest_anomaly"],        # 今日最显著异动（无异动为 null）
