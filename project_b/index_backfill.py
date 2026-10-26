@@ -145,7 +145,7 @@ def main() -> int:
     found, absent = [], []
     for d in target:
         cand = idx.get(d) or []
-        if not cand:
+        if not cand or not [p for p in cand if has_index_col(p)]:
             _hit = same_day_override(d)
             if _hit:
                 print(f"  [自愈] {d}：发现同日文件 {_hit}（含音乐指数列）→ 已登记 override")
