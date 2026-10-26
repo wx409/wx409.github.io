@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-26 23:16",
+  "timestamp": "2026-10-26 23:17",
   "total": 284497,
   "success": 57396,
   "complete_rate": 20.2,
@@ -209497,25 +209497,25 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 58.0,
+      "share_pct": 58.1,
       "raw": 343.0,
       "trend_pct": 22.5,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "山楂树",
-      "share_pct": 6.9,
-      "raw": 41.0,
-      "trend_pct": 51.9,
-      "trend_label": "up"
-    },
-    {
-      "rank": 3,
       "song": "在路上",
       "share_pct": 6.8,
       "raw": 40.0,
       "trend_pct": 17.6,
+      "trend_label": "up"
+    },
+    {
+      "rank": 3,
+      "song": "山楂树",
+      "share_pct": 6.8,
+      "raw": 40.0,
+      "trend_pct": 48.1,
       "trend_label": "up"
     },
     {
@@ -209576,8 +209576,8 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-26 23:16",
-  "today_batches": 1330,
+  "last_update": "2026-10-26 23:17",
+  "today_batches": 1272,
   "daily_new_records": 0,
   "recent_7days": [
     {
@@ -209638,13 +209638,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4364,
-      "success": 4364,
+      "total": 4365,
+      "success": 4365,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1731705,
+      "before": 1731958,
       "after": 295057
     },
     "index_calibration": {
@@ -209931,7 +209931,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-26 23:16",
+    "generated_at": "2026-10-26 23:17",
     "overview": "共 89 场活动 / 3108 个歌曲观测，正涨幅 1294（42%），显著带动≥20% 占 13%，平均 -0.0%、中位 -3.4%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
