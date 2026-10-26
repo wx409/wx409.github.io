@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-10-24 13:38",
+ "generated_at": "2026-10-26 21:55",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 223,
-  "dispatch": 223,
+  "menu_items": 242,
+  "dispatch": 242,
   "deploy_steps": 93,
-  "scheduled_tasks": 15
+  "scheduled_tasks": 16
  },
  "tasks": [
   {
@@ -542,16 +542,6 @@
    "path": "E:\\wx\\论文素材_王晰作传\\音域分析\\生成他人主导报告.py"
   },
   {
-   "script": "build_stage_page.py",
-   "in_deploy": true,
-   "deploy_desc": "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）",
-   "critical": false,
-   "menu": 79,
-   "title": "生成舞台实测页 stage.html",
-   "menu_label": "stage_page",
-   "path": "D:\\wx409.github.io\\project_b\\build_stage_page.py"
-  },
-  {
    "script": "复核十曲严格口径.py",
    "menu": 80,
    "title": "复核十曲严格口径（新旧口径逐曲对照）",
@@ -868,7 +858,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/10/24 22:00:00",
+    "next": "2026/10/26 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -930,7 +920,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
-    "next": "2026/10/25 10:00:00",
+    "next": "2026/11/1 10:00:00",
     "type": "Weekly",
     "start": "10:00:00"
    },
@@ -1372,7 +1362,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/10/25 10:00:00",
+    "next": "2026/10/27 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1480,7 +1470,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/10/25 12:00:00",
+    "next": "2026/10/27 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1586,7 +1576,7 @@
     "name": "wx409_show_intake",
     "script": "night_show_intake.py",
     "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
-    "next": "2026/10/24 23:30:00",
+    "next": "2026/10/26 23:30:00",
     "type": "Daily",
     "start": "23:30:00"
    },
@@ -1715,7 +1705,7 @@
     "name": "wx409_propagation_watch_daily",
     "script": "propagation_watch.py",
     "cmd": "D:\\wx409.github.io\\run_propagation_watch_daily.bat",
-    "next": "2026/10/24 23:40:00",
+    "next": "2026/10/26 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -1747,9 +1737,169 @@
    "deploy_desc": "语言画像 data/text_profile.json（句式/意象/分期/跨源）",
    "critical": false,
    "menu": 224,
-   "title": "[洞察层] 生成 insight.html（结论+四形态文案+证据+禁忌｜语言画像｜措辞差表｜钩子池）",
+   "title": "[采集] 查看默认播放/录音设备",
    "menu_label": "insight_page",
    "path": "D:\\wx409.github.io\\project_b\\build_language_profile.py"
+  },
+  {
+   "script": "check_index_freshness.py",
+   "menu": 225,
+   "title": "[采集] 链路自检（测试音自录自判，过了才录）",
+   "menu_label": "index_freshness",
+   "schedule": {
+    "name": "wx409_index_freshness",
+    "script": "check_index_freshness.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\check_index_freshness.py >> temp\\index_freshness_task.log 2>&1",
+    "next": "2026/10/27 9:40:00",
+    "type": "Daily",
+    "start": "9:40:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\check_index_freshness.py"
+  },
+  {
+   "script": "record_cable.py",
+   "menu": 226,
+   "title": "[采集] 直播录制（切 CABLE Input → 录 → 自动恢复）",
+   "menu_label": "cap_record",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\record_cable.py"
+  },
+  {
+   "script": "audio_probe.py",
+   "menu": 227,
+   "title": "[采集] 素材体检（40-80Hz 占比三档判定）",
+   "menu_label": "cap_probe",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audio_probe.py"
+  },
+  {
+   "script": "menu:228",
+   "menu": 228,
+   "title": "[采集] 打开直播采集 SOP",
+   "menu_label": "cap_sop",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "build_fact_atoms.py",
+   "menu": 229,
+   "title": "[证据] 重建事实原子（数据→facts）",
+   "menu_label": "ev_facts",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_fact_atoms.py"
+  },
+  {
+   "script": "gen_quotes.py",
+   "menu": 230,
+   "title": "[证据] 生成证据底句（单主张装配）",
+   "menu_label": "ev_quotes",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\gen_quotes.py"
+  },
+  {
+   "script": "verify_quotes.py",
+   "menu": 231,
+   "title": "[证据] 底句回读校验（数字必须落在事实池）",
+   "menu_label": "ev_verify",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\verify_quotes.py"
+  },
+  {
+   "script": "build_derived.py",
+   "menu": 232,
+   "title": "[证据] 重建派生值（颤音极差 release/candidate）",
+   "menu_label": "ev_derived",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_derived.py"
+  },
+  {
+   "script": "audit_snapshot.py",
+   "menu": 233,
+   "title": "[证据] 快照一致性审计（0.27/0.39 分流）",
+   "menu_label": "ev_snap",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_snapshot.py"
+  },
+  {
+   "script": "chain_check.py",
+   "menu": 235,
+   "title": "[证据] 协议链绑定检查（主张→出口→页面）",
+   "menu_label": "ev_chain",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\chain_check.py"
+  },
+  {
+   "script": "publish_check.py",
+   "menu": 236,
+   "title": "[证据] 发布前措辞检查（粘贴文案）",
+   "menu_label": "ev_publish",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\publish_check.py"
+  },
+  {
+   "script": "build_versions_page.py",
+   "menu": 237,
+   "title": "[页面] 重建 versions 页（同曲跨场）",
+   "menu_label": "pg_versions",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_versions_page.py"
+  },
+  {
+   "script": "build_stage_page.py",
+   "in_deploy": true,
+   "deploy_desc": "现场音域双层页 stage.html（王晰主导巡演现场 + 他人主导舞台）",
+   "critical": false,
+   "menu": 238,
+   "title": "[页面] 重建 stage 页（现场证据）",
+   "menu_label": "pg_stage",
+   "path": "D:\\wx409.github.io\\project_b\\build_stage_page.py"
+  },
+  {
+   "script": "generate_voice_page.py",
+   "in_deploy": true,
+   "deploy_desc": "声部·音域页 voice.html（读 data/archive_vocal.json）",
+   "critical": false,
+   "menu": 239,
+   "title": "[页面] 重建 voice 页（录音室音域）",
+   "menu_label": "pg_voice",
+   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_voice_page.py"
+  },
+  {
+   "script": "build_skill_page.py",
+   "in_deploy": true,
+   "deploy_desc": "唱功实测页 skill.html（七维实测 + 今日唱功卡片）",
+   "critical": false,
+   "menu": 240,
+   "title": "[页面] 重建 skill 页（能力维度）",
+   "menu_label": "pg_skill",
+   "path": "D:\\wx409.github.io\\project_b\\build_skill_page.py"
+  },
+  {
+   "script": "build_acoustic_report.py",
+   "in_deploy": true,
+   "deploy_desc": "粉丝声学全量报告 acoustic-report.html（理论+实测+台账+图表+选曲，随数据自动刷新）",
+   "critical": false,
+   "menu": 241,
+   "title": "[页面] 重建 acoustic-report（方法总站）",
+   "menu_label": "pg_report",
+   "path": "D:\\wx409.github.io\\project_b\\build_acoustic_report.py"
+  },
+  {
+   "script": "audit_versions_matrix.py",
+   "menu": 242,
+   "title": "[证据] 六项审计一键跑（全绿才算过）",
+   "menu_label": "ev_audit_all",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\audit_versions_matrix.py"
+  },
+  {
+   "script": "menu:243",
+   "menu": 243,
+   "title": "[证据] 打开阶段基线 v1 文档",
+   "menu_label": "ev_baseline",
+   "in_deploy": false,
+   "path": ""
   },
   {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
@@ -1805,13 +1955,6 @@
    "deploy_desc": "新歌入声学记录·只检测不改数据（--check；实测需人工确认后手动跑）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\auto_new_song_vocal.py"
-  },
-  {
-   "script": "build_acoustic_report.py",
-   "in_deploy": true,
-   "deploy_desc": "粉丝声学全量报告 acoustic-report.html（理论+实测+台账+图表+选曲，随数据自动刷新）",
-   "critical": false,
-   "path": "D:\\wx409.github.io\\project_b\\build_acoustic_report.py"
   },
   {
    "script": "build_auto_cards.py",
@@ -1920,7 +2063,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\wx409.github.io\\project_b\\build_music_index.py --wait --push",
-    "next": "2026/10/24 23:58:00",
+    "next": "2026/10/26 23:58:00",
     "type": "Daily",
     "start": "23:58:00"
    },
@@ -1946,13 +2089,6 @@
    "deploy_desc": "歌单索引页 live/setlists.html",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\build_setlists_page.py"
-  },
-  {
-   "script": "build_skill_page.py",
-   "in_deploy": true,
-   "deploy_desc": "唱功实测页 skill.html（七维实测 + 今日唱功卡片）",
-   "critical": false,
-   "path": "D:\\wx409.github.io\\project_b\\build_skill_page.py"
   },
   {
    "script": "build_songs_meta.py",
@@ -2011,13 +2147,6 @@
    "path": "D:\\wx409.github.io\\generate_tour_index.py"
   },
   {
-   "script": "generate_voice_page.py",
-   "in_deploy": true,
-   "deploy_desc": "声部·音域页 voice.html（读 data/archive_vocal.json）",
-   "critical": false,
-   "path": "E:\\wx\\论文素材_王晰作传\\基线口径\\generate_voice_page.py"
-  },
-  {
    "script": "inject_index_facts.py",
    "in_deploy": true,
    "deploy_desc": "注入复跑：首页事实块",
@@ -2058,7 +2187,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/10/24 13:41:00",
+    "next": "2026/10/26 22:01:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2071,7 +2200,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/10/24 21:00:00",
+    "next": "2026/10/26 22:00:00",
     "type": "Daily",
     "start": "21:00:00"
    },
@@ -2084,7 +2213,7 @@
     "name": "wx409_index_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_index_daily.bat",
-    "next": "2026/10/25 9:10:00",
+    "next": "2026/10/27 9:10:00",
     "type": "Daily",
     "start": "9:10:00"
    },
@@ -2097,7 +2226,7 @@
     "name": "wx409_insight_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_insight_daily.bat",
-    "next": "2026/10/24 22:00:00",
+    "next": "2026/10/26 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -2110,7 +2239,7 @@
     "name": "wx409_night_shutdown",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_night_shutdown.bat",
-    "next": "2026/10/25 1:30:00",
+    "next": "2026/10/27 1:30:00",
     "type": "Daily",
     "start": "1:30:00"
    },
@@ -2123,7 +2252,7 @@
     "name": "wx409_social_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_social_daily.bat",
-    "next": "2026/10/25 9:30:00",
+    "next": "2026/10/27 9:30:00",
     "type": "Daily",
     "start": "9:30:00"
    },

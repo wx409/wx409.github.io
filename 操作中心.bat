@@ -547,6 +547,7 @@ echo    223. [钩子发现] 规则化抽钩子候选池（talk/评论/声学事件）+ 勾选后出卡
 
 
 echo    224. [洞察层] 生成 insight.html（结论+四形态文案+证据+禁忌｜语言画像｜措辞差表｜钩子池）
+echo    225. [指数] 新鲜度断言（长表末日期应=昨天；缺则列候选文件+列名+通知）
 
 
 echo  [T · 直播采集（VB-Cable · 线上演唱会/平台直播）]
@@ -1064,6 +1065,7 @@ if "%op%"=="242" goto ev_audit_all
 if "%op%"=="243" goto ev_baseline
 
 if "%op%"=="224" goto insight_page
+if "%op%"=="225" goto index_freshness
 
 echo   [!] 无效选项，请重试
 
@@ -6442,3 +6444,13 @@ pause
 
 goto menu
 
+
+
+:index_freshness
+cls
+echo  [指数] 新鲜度断言：长表末日期应等于昨天
+echo.
+python -X utf8 project_b\check_index_freshness.py
+echo.
+pause
+goto menu
