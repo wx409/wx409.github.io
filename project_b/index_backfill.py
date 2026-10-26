@@ -177,6 +177,18 @@ def main() -> int:
         if r.returncode != 0:
             print("[X] 重建失败 → 不覆盖既有长表？注意：00_build_matrix 只在成功时写出")
             rec["error"] = (r.stderr or "")[-400:]
+        else:
+            # ★ 2026-10-26 补：重建成功后立刻刷新大屏。
+            #   根因：大屏 daemon 在启动时读长表并缓存，若导入发生在它启动之后，
+            #   页面会一直显示旧数字（1319/10-24 那类），直到下一次重启。
+            #   这里显式触发一次 ensure，让「导入 → 长表 → 大屏」在同一条链里完成。
+            try:
+                _df = Path(__file__).resolve().parents[1] / "project_b" / "dashboard_freshness.py"
+                subprocess.run([sys.executable, "-X", "utf8", str(_df), "--ensure", "--target", "dashboard"],
+                               capture_output=True, timeout=1800)
+                print("   [大屏] 已触发 rebuild 并复查（dashboard_freshness --ensure）")
+            except Exception as _e:
+                print("   [!] 大屏刷新失败（不影响长表）:", type(_e).__name__)
 
     after = gaps(expect)
     rec["gaps_after"] = len(after)
