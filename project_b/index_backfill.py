@@ -178,6 +178,15 @@ def main() -> int:
             print("[X] 重建失败 → 不覆盖既有长表？注意：00_build_matrix 只在成功时写出")
             rec["error"] = (r.stderr or "")[-400:]
         else:
+            # ★ 2026-10-26 补：长表写完 → 立刻重建基线（否则基线 json 会落后于长表）
+            try:
+                _bl = Path(r"E:\wx\论文素材_王晰作传\基线口径\compute_baseline_v1.py")
+                if _bl.exists():
+                    rb = subprocess.run([sys.executable, "-X", "utf8", str(_bl)],
+                                        capture_output=True, timeout=1800, cwd=str(_bl.parent))
+                    print("   [基线] 已重建（compute_baseline_v1）rc=%d" % rb.returncode)
+            except Exception as _e:
+                print("   [!] 基线重建失败（不影响长表）:", type(_e).__name__)
             # ★ 2026-10-26 补：重建成功后立刻刷新大屏。
             #   根因：大屏 daemon 在启动时读长表并缓存，若导入发生在它启动之后，
             #   页面会一直显示旧数字（1319/10-24 那类），直到下一次重启。

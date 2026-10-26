@@ -48,8 +48,10 @@ WATCHES = {
     "dashboard": {
         "label": "数据大屏",
         "page": ROOT / "dashboard" / "index.html",
-        "inputs": [ROOT / "dashboard" / "dashboard_data.json"],
-        "mode": "age",                       # 年龄阈值判据（保持既有口径不变）
+        "inputs": [ROOT / "dashboard" / "dashboard_data.json",
+                   Path(r"E:\wx\wx_textmine_out\music_index_long.csv"),
+                   ROOT / "data" / "archive_baseline.json"],
+        "mode": "input_newer",               # ★ 2026-10-26：长表/基线比页面新即需重建（原 age 判据看不到“数据已更新、页面还没重建”）
         "why": "大屏由常驻 daemon（计划任务 QQMusicDashboardAutoStart）定时重建；daemon 未运行时会停在上一版",
         "fix": "每日任务 wx409_music_index_daily 会调用本哨兵 --ensure，用生成器 --rebuild 补建",
     },
