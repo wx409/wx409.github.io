@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-27 21:00:32",
+ "updated_at": "2026-10-27 22:01:02",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4127,6 +4127,12 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-10-27 22:01:02",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 12476）。此前 dashboard_data.json 距上次更新 28.1 分钟。",
+   "category": "通知"
   }
  ]
 }
