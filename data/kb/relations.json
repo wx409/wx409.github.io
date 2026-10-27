@@ -11697,6 +11697,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:火光",
+  "type": "belongs_to_album",
+  "target": "album:火光",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:爱会和海风一起抵达",
   "type": "belongs_to_album",
   "target": "album:爱会和海风一起抵达",
@@ -13170,13 +13177,6 @@
   "source": "song:鹅毛信",
   "type": "belongs_to_album",
   "target": "album:鹅毛信",
-  "context": "",
-  "source_ref": "songs_meta.json"
- },
- {
-  "source": "song:火光",
-  "type": "belongs_to_album",
-  "target": "album:火光",
   "context": "",
   "source_ref": "songs_meta.json"
  },
