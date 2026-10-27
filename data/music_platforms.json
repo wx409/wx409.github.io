@@ -1,0 +1,25 @@
+{
+ "schema": "music_platforms/v1",
+ "platforms": [
+  {
+   "id": "qqmusic",
+   "name": "QQ音乐",
+   "collector": "project_b/watch_releases.py",
+   "auto": true
+  },
+  {
+   "id": "netease",
+   "name": "网易云音乐",
+   "collector": "project_b/watch_netease.py",
+   "auto": true
+  },
+  {
+   "id": "soda",
+   "name": "汽水音乐",
+   "collector": null,
+   "auto": false,
+   "note": "待接入：汽水音乐无公开搜索 API，需用其 App/H5 接口或人工核对；发现新歌请走候选箱"
+  }
+ ],
+ "updated": "2026-10-28"
+}

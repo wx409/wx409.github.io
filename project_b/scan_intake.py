@@ -30,6 +30,8 @@ COOKIE = Path(r'E:\wx\私有工具\weibo_proxy\weibo_cookie.json')
 
 KEYS = ('新歌', '单曲', '发行', '上线', '官宣', '开票', '预售', '首演', '定档')
 NOISE = ('直拍', '花絮', '返图', '转发', '后台', '排练', '混剪')
+# 官方账号：命中官宣词即自动入库，不用人工确认
+OFFICIAL_UIDS = {1292815744: '王晰本人', 7215995153: '王晰工作室'}
 
 
 def parse_wb_date(s: str) -> str:
@@ -72,7 +74,8 @@ def fetch_weibo_search(days: int, max_pages: int = 3):
                 if not txt or not day or day < since:
                     continue
                 got += 1
-                out.append({"date": day, "text": txt, "id": mb.get('id')})
+                out.append({"date": day, "text": txt, "id": mb.get('id'),
+                            "uid": (mb.get("user") or {}).get("id")})
         if got == 0:
             break
     return out
@@ -132,6 +135,15 @@ def main() -> None:
         if any(k in txt for k in known):
             continue
         nid = f"c{len(inbox['items'])+1:03d}"
+        official = p.get('uid') in OFFICIAL_UIDS
+        if official:
+            tl = json.loads(TIMELINE.read_text(encoding='utf-8'))
+            tl.append({"date": p['date'], "type": "media",
+                       "title": f"官宣：{title[:36]}",
+                       "source": f"{OFFICIAL_UIDS[p['uid']]}微博 {p.get('id')}",
+                       "stage": "官方"})
+            tl.sort(key=lambda e: e.get('date', ''))
+            TIMELINE.write_text(json.dumps(tl, ensure_ascii=False, indent=1), encoding='utf-8')
         inbox['items'].append({
             "id": nid, "kind": "activity", "title": title, "date": p['date'],
             "city": "", "source": f"微博搜索/归档 {p.get('id')}",
