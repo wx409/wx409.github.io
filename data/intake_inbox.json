@@ -1,0 +1,27 @@
+{
+ "schema": "intake_inbox/v1",
+ "items": [
+  {
+   "id": "c001",
+   "kind": "song",
+   "title": "新歌《火光》",
+   "date": "2026-10-24",
+   "city": "",
+   "source": "用户告知（日期待核）",
+   "note": "songs_meta 已有 mid；未入 albums/timeline",
+   "status": "pending",
+   "detected_at": "2026-10-28"
+  },
+  {
+   "id": "c002",
+   "kind": "show",
+   "title": "音乐舞蹈诗剧《长城长》后续场次（需确认王晰卡）",
+   "date": "2026-11-01",
+   "city": "",
+   "source": "大麦/东演官宣（待查）",
+   "note": "需确认该场卡司是否含王晰",
+   "status": "pending",
+   "detected_at": "2026-10-28"
+  }
+ ]
+}

@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-10-20T22:29:16",
- "n_events": 459,
+ "generated_at": "2026-10-28T07:08:06",
+ "n_events": 460,
  "n_with_songs": 235,
  "by_source": {
-  "百科版": 204,
+  "百科版": 205,
   "微博核对版": 255
  },
  "by_kind": {
   "综艺/电视": 55,
   "晚会/典礼": 60,
-  "其他": 58,
+  "其他": 59,
   "巡演/音乐会": 284,
   "音乐剧/话剧": 2
  },
@@ -30,7 +30,7 @@
   "2023": 57,
   "2024": 61,
   "2025": 49,
-  "2026": 46
+  "2026": 47
  },
  "song_event_counts": {
   "一生守候": 13,
@@ -6032,56 +6032,6 @@
     ],
     "config": "data/performance_attribution.json",
     "note": "本行为双人/拼盘场次全场曲目；`songs`=全场登记，`songs_subject`=只算主体歌手王晰（已剔除同台嘉宾独唱，但不删数据）。"
-   },
-   "series_id": "沉响与长歌_2026北京",
-   "songs_subject_by_night": {
-    "n": 17,
-    "songs": [
-     "Love Me Tender",
-     "Moon River",
-     "Smoke Gets in Your Eyes",
-     "Yes or No",
-     "Your Man",
-     "乌兰巴托的夜",
-     "亲密爱人",
-     "哭砂",
-     "嘎达梅林",
-     "在路上",
-     "小毛驴",
-     "心恋",
-     "忘不了",
-     "我要你",
-     "敕勒歌",
-     "美酒加咖啡",
-     "酒歌"
-    ]
-   },
-   "songs_subject_series": {
-    "n": 21,
-    "songs": [
-     "Love Is Over",
-     "Love Me Tender",
-     "Moon River",
-     "Smoke Gets in Your Eyes",
-     "Yes or No",
-     "Your Man",
-     "一生中最爱",
-     "乌兰巴托的夜",
-     "亲密爱人",
-     "南屏晚钟",
-     "哭砂",
-     "嘎达梅林",
-     "在路上",
-     "小毛驴",
-     "心恋",
-     "忘不了",
-     "我要你",
-     "敕勒歌",
-     "生日歌",
-     "美酒加咖啡",
-     "酒歌"
-    ],
-    "note": "系列合并口径（两晚并集＋加唱生日歌）"
    }
   },
   {
@@ -6214,58 +6164,17 @@
     ],
     "config": "data/performance_attribution.json",
     "note": "本行为双人/拼盘场次全场曲目；`songs`=全场登记，`songs_subject`=只算主体歌手王晰（已剔除同台嘉宾独唱，但不删数据）。"
-   },
-   "series_id": "沉响与长歌_2026北京",
-   "songs_subject_by_night": {
-    "n": 18,
-    "songs": [
-     "Love Is Over",
-     "Love Me Tender",
-     "Moon River",
-     "Smoke Gets in Your Eyes",
-     "Yes or No",
-     "Your Man",
-     "一生中最爱",
-     "乌兰巴托的夜",
-     "南屏晚钟",
-     "嘎达梅林",
-     "在路上",
-     "小毛驴",
-     "心恋",
-     "忘不了",
-     "我要你",
-     "敕勒歌",
-     "美酒加咖啡",
-     "酒歌"
-    ]
-   },
-   "songs_subject_series": {
-    "n": 21,
-    "songs": [
-     "Love Is Over",
-     "Love Me Tender",
-     "Moon River",
-     "Smoke Gets in Your Eyes",
-     "Yes or No",
-     "Your Man",
-     "一生中最爱",
-     "乌兰巴托的夜",
-     "亲密爱人",
-     "南屏晚钟",
-     "哭砂",
-     "嘎达梅林",
-     "在路上",
-     "小毛驴",
-     "心恋",
-     "忘不了",
-     "我要你",
-     "敕勒歌",
-     "生日歌",
-     "美酒加咖啡",
-     "酒歌"
-    ],
-    "note": "系列合并口径（两晚并集＋加唱生日歌）"
    }
+  },
+  {
+   "date": "2026-10-26",
+   "title": "音乐舞蹈诗剧《长城长》",
+   "city": "石家庄",
+   "note": "音乐舞蹈诗剧；王晰饰战士（声乐演员：王晰、谢素豪）；不对外售票",
+   "songs": [],
+   "source": "百科版",
+   "status": "已核对（百科）",
+   "kind": "其他"
   }
  ]
 }

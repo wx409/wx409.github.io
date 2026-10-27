@@ -47,7 +47,7 @@ events = lc.get("events", [])
 
 
 def shows_for(match: str) -> list[dict]:
-    out = [r for r in rows if match in (r.get("title") or "")]
+    out = [r for r in rows if isinstance(r, dict) and match in (r.get("title") or "")]
     out.sort(key=lambda r: r.get("date") or "")
     return out
 

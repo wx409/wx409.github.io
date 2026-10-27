@@ -172,9 +172,70 @@
      "date": "2026-10-09"
     }
    ]
+  },
+  {
+   "id": "音乐舞蹈诗剧长城长-2026-10-26",
+   "title": "音乐舞蹈诗剧《长城长》",
+   "organizer": "中国东方演艺集团、河北演艺集团",
+   "venue": "石家庄大剧院·大剧场",
+   "city": "石家庄",
+   "show_date": "2026-10-26",
+   "note": "音乐舞蹈诗剧；王晰饰战士（声乐演员：王晰、谢素豪）；不对外售票",
+   "source_url": "大麦演出页 / 小红书官方物料",
+   "milestones": [
+    {
+     "kind": "开演",
+     "date": "2026-10-26",
+     "source": "大麦演出页 / 小红书官方物料",
+     "source_label": "已开演核实",
+     "stats": {
+      "date": "2026-10-26",
+      "windows": {
+       "pre7": {
+        "n_days": 7,
+        "mean_index": 402.8,
+        "median_index": 408.5,
+        "avg_tracked_songs": 10.3,
+        "complete": true
+       },
+       "pre3": {
+        "n_days": 3,
+        "mean_index": 407.5,
+        "median_index": 399.6,
+        "avg_tracked_songs": 10,
+        "complete": true
+       },
+       "d0": {
+        "n_days": 1,
+        "mean_index": 362.2,
+        "median_index": 362.2,
+        "avg_tracked_songs": 11,
+        "complete": true
+       },
+       "post3": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post7": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       }
+      },
+      "n_days": 1331,
+      "delta_pct_post7_vs_pre7": null,
+      "delta_pct_post3_vs_pre3": null
+     }
+    }
+   ]
   }
  ],
- "generated_at": "2026-10-28 00:15",
+ "generated_at": "2026-10-28 07:08",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
  "index_days_local": 1331
 }
