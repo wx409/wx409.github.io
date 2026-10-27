@@ -2,66 +2,147 @@
 # -*- coding: utf-8 -*-
 """官宣扫描 → 候选箱：只收集，不自动入库。
 
-数据源（本地，无网络）：
-  · 工作室微博归档  E:\\wx\\私有工具\\weibo_archive_studio\\posts\\YYYY\\YYYY-MM\\*.json
+数据源（默认两个都扫）：
+  · weibo_search：微博关键词搜索「王晰」（能拿到比账号更早的路人/粉丝动态）
+  · weibo_archive：工作室微博本地归档（兜底）
+
 规则：
-  · 近 N 天；文本命中关键词（新歌/单曲/发行/上线/官宣/巡演/音乐会/首演/开票/剧场）
-  · 与 data/timeline.json、data/intake_inbox.json 去重
-  · 只写 pending 候选，必须人工确认
+  · 命中官宣类关键词（新歌/单曲/发行/上线/官宣/开票/预售/首演/定档）
+  · 排除直拍/花絮/返图/转发等噪声
+  · 与 timeline、候选箱去重
+  · 只写 pending，必须人工确认
 """
 from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8')
 ROOT = Path(r'D:\wx409.github.io')
-ARCHIVE = Path(r'E:\wx\私有工具\weibo_archive_studio\posts')
 INBOX = ROOT / 'data' / 'intake_inbox.json'
 TIMELINE = ROOT / 'data' / 'timeline.json'
+ARCHIVE = Path(r'E:\wx\私有工具\weibo_archive_studio\posts')
+COOKIE = Path(r'E:\wx\私有工具\weibo_proxy\weibo_cookie.json')
+
 KEYS = ('新歌', '单曲', '发行', '上线', '官宣', '开票', '预售', '首演', '定档')
-NOISE = ('直拍', '花絮', '返图', '转发', '后台', '排练')
+NOISE = ('直拍', '花絮', '返图', '转发', '后台', '排练', '混剪')
+
+
+def parse_wb_date(s: str) -> str:
+    try:
+        return datetime.strptime(s, '%a %b %d %H:%M:%S %z %Y').strftime('%Y-%m-%d')
+    except Exception:
+        return ''
+
+
+def fetch_weibo_search(days: int, max_pages: int = 3):
+    import urllib.parse
+    import requests
+    if not COOKIE.exists():
+        print('无 cookie，跳过微博搜索')
+        return []
+    cookie = json.loads(COOKIE.read_text(encoding='utf-8')).get('cookie')
+    S = requests.Session()
+    S.headers.update({'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X)',
+                      'Referer': 'https://m.weibo.cn/', 'Cookie': cookie,
+                      'X-Requested-With': 'XMLHttpRequest'})
+    since = (date.today() - timedelta(days=days)).isoformat()
+    out = []
+    q = urllib.parse.quote('王晰')
+    for page in range(1, max_pages + 1):
+        url = (f'https://m.weibo.cn/api/container/getIndex?containerid=100103type%3D1%26q%3D{q}'
+               f'&page_type=searchall&page={page}')
+        try:
+            r = S.get(url, timeout=25)
+            d = r.json()
+        except Exception as e:
+            print('搜索失败:', e)
+            break
+        cards = (d.get('data') or {}).get('cards') or []
+        got = 0
+        for c in cards:
+            for g in (c.get('card_group') or []):
+                mb = g.get('mblog') or {}
+                txt = re.sub('<[^>]+>', '', mb.get('text') or '')
+                day = parse_wb_date(mb.get('created_at') or '')
+                if not txt or not day or day < since:
+                    continue
+                got += 1
+                out.append({"date": day, "text": txt, "id": mb.get('id')})
+        if got == 0:
+            break
+    return out
+
+
+def fetch_archive(days: int):
+    since = (date.today() - timedelta(days=days)).isoformat()
+    out = []
+    if not ARCHIVE.exists():
+        return out
+    for f in sorted(ARCHIVE.glob('*/*/*.json')):
+        try:
+            d = json.loads(f.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        day = str(d.get('date') or '')
+        if day and day >= since and d.get('text'):
+            out.append({"date": day, "text": d['text'], "id": d.get('id')})
+    return out
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument('--days', type=int, default=14)
+    ap.add_argument('--days', type=int, default=7)
+    ap.add_argument('--source', default='both', choices=['weibo_search', 'weibo_archive', 'both'])
     args = ap.parse_args()
+
     inbox = json.loads(INBOX.read_text(encoding='utf-8')) if INBOX.exists() else {"schema": "intake_inbox/v1", "items": []}
     timeline = json.loads(TIMELINE.read_text(encoding='utf-8'))
     seen = " ".join(e.get('title', '') for e in timeline) + " " + " ".join(x.get('title', '') for x in inbox['items'])
-    since = (date.today() - timedelta(days=args.days)).isoformat()
+
+    # 已知作品/活动名（去书名号），命中即视为“旧事重提”，不再入箱
+    import re as _re
+    known = set()
+    for e in timeline:
+        t = e.get('title', '')
+        for m in _re.findall(r'《([^》]{2,12})》', t):
+            known.add(m)
+        for tok in ('火光', '长城长', '草原之夜', '沉响与长歌'):
+            if tok in t:
+                known.add(tok)
+
+    posts = []
+    if args.source in ('weibo_search', 'both'):
+        posts += fetch_weibo_search(args.days)
+    if args.source in ('weibo_archive', 'both'):
+        posts += fetch_archive(args.days)
+
     added = 0
-    if ARCHIVE.exists():
-        for f in sorted(ARCHIVE.glob('*/*/*.json')):
-            try:
-                d = json.loads(f.read_text(encoding='utf-8'))
-            except Exception:
-                continue
-            day = str(d.get('date') or '')
-            if not day or day < since:
-                continue
-            text = (d.get('text') or '').strip()
-            if not text or not any(k in text for k in KEYS):
-                continue
-            if any(nk in text for nk in NOISE):
-                continue
-            title = text[:40].replace('\n', ' ')
-            if title[:12] in seen:
-                continue
-            nid = f"c{len(inbox['items'])+1:03d}"
-            inbox['items'].append({
-                "id": nid, "kind": "activity", "title": title, "date": day,
-                "city": "", "source": f"微博归档 {d.get('id')}",
-                "note": text[:120], "status": "pending", "detected_at": date.today().isoformat(),
-            })
-            seen += " " + title[:12]
-            added += 1
+    for p in posts:
+        txt = p['text']
+        if not any(k in txt for k in KEYS) or any(nk in txt for nk in NOISE):
+            continue
+        title = txt[:40].replace('\n', ' ')
+        if title[:12] in seen:
+            continue
+        if any(k in txt for k in known):
+            continue
+        nid = f"c{len(inbox['items'])+1:03d}"
+        inbox['items'].append({
+            "id": nid, "kind": "activity", "title": title, "date": p['date'],
+            "city": "", "source": f"微博搜索/归档 {p.get('id')}",
+            "note": txt[:120], "status": "pending",
+            "detected_at": date.today().isoformat(),
+            "matched": [k for k in KEYS if k in txt],
+        })
+        seen += " " + title[:12]
+        added += 1
     INBOX.write_text(json.dumps(inbox, ensure_ascii=False, indent=1), encoding='utf-8')
-    print(f"扫描近 {args.days} 天：新增候选 {added} 条｜候选总数 {len(inbox['items'])}")
+    print(f"扫描 {args.source} 近 {args.days} 天：帖子 {len(posts)}｜新增候选 {added}｜候选总数 {len(inbox['items'])}")
 
 
 if __name__ == '__main__':
