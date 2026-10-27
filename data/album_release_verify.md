@@ -1,6 +1,6 @@
 # 专辑发行日期 · QQ 音乐核验
 
-> 核验时间：2026-10-28 00:09 ｜ 接口：QQ音乐专辑搜索 publicTime ｜ 主键：albumMID == data/albums.json 的 qq_mid
+> 核验时间：2026-10-28 07:23 ｜ 接口：QQ音乐专辑搜索 publicTime ｜ 主键：albumMID == data/albums.json 的 qq_mid
 
 | 专辑 | 原 release | QQ 音乐精确日期 | 状态 | albumMID |
 |---|---|---|---|---|
@@ -12,5 +12,6 @@
 | 重游往昔 | 2017-11 | 2017-11-27 | 命中 | 002OTM4N17x9Qa |
 | Low C的诱惑Ⅱ | 2016-05 | 2016-05-01 | 命中 | 0039mRki2zXB8x |
 | Low C的诱惑 | 2014 | 2014-09-26 | 命中 | 003rX9Zh0RAxcA |
+| 火光 | 2026-10 | — | 未匹配 |  |
 
 说明：`release` 保持年月格式供页面沿用；新增 `release_date` 为精确日期，供「巡演 × 专辑」时序判定与学术引用使用。

@@ -30,6 +30,8 @@ def _doc() -> dict:
 
 def stats() -> dict:
     albums = _doc().get("albums") or []
+    # 单曲（single）不计入「录音室作品」计数，避免把 2026-10 的《火光》算成第九张作品
+    albums = [a for a in albums if str(a.get("kind", "")).lower() != "single"]
     eps = [a for a in albums if str(a.get("kind", "")).lower() == "ep"]
     return {
         "works": len(albums),

@@ -301,6 +301,20 @@
   "source_ref": "timeline.json"
  },
  {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t043",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t044",
+  "context": "album",
+  "source_ref": "timeline.json"
+ },
+ {
   "source": "show:2019-06-07-hangzhou",
   "type": "held_at",
   "target": "venue:杭州剧院",
@@ -11301,6 +11315,13 @@
   "source": "person:wangxi",
   "type": "released",
   "target": "album:Low C的诱惑",
+  "context": "",
+  "source_ref": "albums.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "released",
+  "target": "album:火光",
   "context": "",
   "source_ref": "albums.json"
  },

@@ -274,6 +274,10 @@ def main():
         log("-- 汇总推送（歌曲类 + 消息类）--")
         notify_digest()
 
+    # 1.9 官宣扫描 → 候选箱（只收集，不自动入库；失败不阻断）
+    log("-- scan_intake（官宣扫描，写候选箱）--")
+    run([sys.executable, str(ROOT / "project_b" / "scan_intake.py"), "--days", "7"])
+
     # 2. 构建（deploy_all 自带敏感文件扫描；内部已含 commit）
     log("-- deploy_all --")
     ok = run([sys.executable, str(ROOT / "project_b" / "deploy_all.py")])

@@ -1310,11 +1310,11 @@
    }
   },
   "活动表（事务层）": {
-   "n_docs": 459,
-   "n_sent": 545,
-   "chars": 27620,
-   "chars_per_doc_median": 66,
-   "sent_len_median": 50,
+   "n_docs": 460,
+   "n_sent": 546,
+   "chars": 27667,
+   "chars_per_doc_median": 66.0,
+   "sent_len_median": 49.0,
    "short_sent_pct": 13.6,
    "question_pct": 10.6,
    "first_person_pct": 1.3,
@@ -1357,7 +1357,7 @@
     ]
    ],
    "imagery_doc_pct": {
-    "城市": 49.2,
+    "城市": 49.1,
     "海": 12.2,
     "夜": 10.2,
     "风": 7.2,
