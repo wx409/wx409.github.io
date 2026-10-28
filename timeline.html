@@ -79,7 +79,7 @@
         }
         function stageOf(t) {
             // 优先读数据里的 stage 字段（1985 出生=背景）
-            if (t.stage) return t.stage;
+            if (t.stage && STAGES.some(function (s) { return s.key === t.stage; })) return t.stage;
             var y = dateKey(t.date)[0];
             if (y <= 2010) return '奠基';
             if (y <= 2018) return '海政';
