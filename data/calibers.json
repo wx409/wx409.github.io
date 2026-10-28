@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28 23:40",
+ "generated_at": "2026-10-29 00:17",
  "count": 73,
  "calibers": [
   {
@@ -197,7 +197,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2322,
+   "value": 2323,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5609,
+   "value": 5610,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""

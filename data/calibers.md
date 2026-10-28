@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-10-28 23:40　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-10-29 00:17　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -31,8 +31,8 @@
 | `live_songs` | 有现场记录的曲目 | **305** | 至少在一个场次歌单中出现过的曲目 | `entity_index.json` |
 | `kb_facts` | 知识库事实条数 | **1721** | 结构化事实 | `data/kb/manifest.json` |
 | `kb_entities` | 知识库实体数 | **1676** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
-| `kb_relations` | 知识库关系数 | **2322** | 实体间关系 | `data/kb/manifest.json` |
-| `semantic_docs` | 语义索引文档数 | **5609** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
+| `kb_relations` | 知识库关系数 | **2323** | 实体间关系 | `data/kb/manifest.json` |
+| `semantic_docs` | 语义索引文档数 | **5610** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
 | `qa_pairs` | 问答对数量 | **17** | 可引用问答（GEO 资产） | `data/qa_bank.json` |
 | `shows_tour` | 六轮巡演场次 | **59** | 一巡~六巡的巡演场次（不含签唱会） | `巡演歌单长表（单一事实源）` |
 | `setlist_rows` | 歌单曲目记录行 | **1254** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
