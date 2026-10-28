@@ -1310,18 +1310,18 @@
    }
   },
   "活动表（事务层）": {
-   "n_docs": 461,
-   "n_sent": 547,
-   "chars": 27800,
-   "chars_per_doc_median": 66,
-   "sent_len_median": 48,
+   "n_docs": 462,
+   "n_sent": 548,
+   "chars": 27850,
+   "chars_per_doc_median": 66.0,
+   "sent_len_median": 49.0,
    "short_sent_pct": 13.5,
    "question_pct": 10.6,
    "first_person_pct": 1.3,
    "imagery_top": [
     [
      "城市",
-     227
+     228
     ],
     [
      "海",
@@ -1357,14 +1357,14 @@
     ]
    ],
    "imagery_doc_pct": {
-    "城市": 49.2,
-    "海": 12.4,
+    "城市": 49.4,
+    "海": 12.3,
     "夜": 10.2,
-    "风": 7.2,
+    "风": 7.1,
     "舞台": 2.4,
     "路": 0.9,
-    "身体": 0.7,
-    "酒/茶": 0.7,
+    "身体": 0.6,
+    "酒/茶": 0.6,
     "乐器": 0.2
    },
    "emotion_top": [

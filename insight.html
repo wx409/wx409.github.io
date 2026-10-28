@@ -162,14 +162,14 @@ th{background:#f6efe1;white-space:nowrap}
 <h3>跨源三层对照</h3>
 <div class="tw"><table><tr><th>层</th><th>条/句</th><th>短句率</th><th>含「我」的句子</th><th>句长中位</th><th>容器（字段映射已确认）</th></tr>
 <tr><td>巡演Talk（口语层）</td><td>1459 条 / 1468 句</td><td>80.6</td><td>44.1</td><td>10.0</td><td class="meta">groups[].items[].sentences[]</td></tr>
-<tr><td>活动表（事务层）</td><td>461 条 / 547 句</td><td>13.5</td><td>1.3</td><td>48</td><td class="meta">rows[]（title＋city＋note）</td></tr>
+<tr><td>活动表（事务层）</td><td>462 条 / 548 句</td><td>13.5</td><td>1.3</td><td>49.0</td><td class="meta">rows[]（title＋city＋note）</td></tr>
 <tr><td>巡演长表（曲目层）</td><td>64 条 / 0 句</td><td>—</td><td>—</td><td>—</td><td class="meta">setlists（日期为键）</td></tr>
 </table></div>
 <blockquote>曲目层（巡演长表）是曲名文本，不做句式统计，只用于曲目词表交叉；三层措辞天然不同，本页只作对照，不评优劣。</blockquote>
 <h3>时间演变图（脚本生成）</h3>
 <p><img src="assets/insight/语言演变_分期.png" alt="语言演变_分期.png" style="max-width:100%;border:1px solid #eadfc9;border-radius:6px"><br><span class="meta">语言演变_分期.png｜sha256 486c3b0378014185…</span></p>
 <p><img src="assets/insight/语言演变_逐年.png" alt="语言演变_逐年.png" style="max-width:100%;border:1px solid #eadfc9;border-radius:6px"><br><span class="meta">语言演变_逐年.png｜sha256 1fd725c0e2bc25e2…</span></p>
-<p><img src="assets/insight/跨源三层.png" alt="跨源三层.png" style="max-width:100%;border:1px solid #eadfc9;border-radius:6px"><br><span class="meta">跨源三层.png｜sha256 d127c288316a966c…</span></p>
+<p><img src="assets/insight/跨源三层.png" alt="跨源三层.png" style="max-width:100%;border:1px solid #eadfc9;border-radius:6px"><br><span class="meta">跨源三层.png｜sha256 9d7a0706554d0872…</span></p>
 <p class="meta">图上数字均可在 <code>data/text_profile.json</code> 与 <code>data/share/insight_charts.json</code> 中找到（后者含 PNG sha256 指纹）。</p>
 <h2>③ 跨源措辞差表（同一事件的三层写法）</h2>
 <p class="meta">字段映射已人工确认（登记于 <code>data/cross_source_wording.json#field_map</code>）：活动表取 <code>rows[].title＋city＋note</code>；talk 句在 <code>groups[].items[].sentences[]</code>；长表为按日期为键的字典 <code>setlists</code>。</p>
