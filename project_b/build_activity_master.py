@@ -137,6 +137,20 @@ def main() -> int:
                      "songs": split_songs(r.get("提到歌曲")),
                      "evidence": str(r.get("佐证原文") or "")[:200],
                      "source": "微博核对版", "status": str(r.get("状态") or "")})
+    # 应用人工更正（日期-城市错配）
+    try:
+        corr = json.loads((Path(__file__).resolve().parent.parent / "data" / "activity_corrections.json")
+                          .read_text(encoding="utf-8"))
+        for item in corr.get("items", []):
+            for r in rows:
+                if r["date"] == item["date"] and r.get("city") == item["from_city"]:
+                    r["city"] = item["to_city"]
+                    if item.get("to_title"):
+                        r["title"] = item["to_title"]
+                    r["note"] = (r.get("note") or "") + f"｜更正：{item['reason']}"
+    except Exception as e:
+        print("更正表读取失败:", e)
+
     for r in rows:
         r["kind"] = classify(f"{r['title']} {r['note']}")
     # 去重（同日期+同标题前 12 字）
