@@ -48,6 +48,7 @@ STEPS = [
     (ROOT / "project_b" / "build_home.py", "首页动态槽（最新场次摘要卡）", False),
     (ROOT / "project_b" / "inject_vocal_summary.py", "首页音域摘要块（从实测 JSON 派生，禁手写）", True),
     (ROOT / "project_b" / "inject_index_facts.py", "首页事实块（轮次/城市/覆盖天数/Last updated 派生）", True),
+    (ROOT / "project_b" / "update_songs_meta_tags.py", "歌曲库页头计数（从 songs_meta 派生）", False),
     (ROOT / "project_b" / "build_entity_index.py", "跨站关系 entity_index.json", True),
     (ROOT / "project_b" / "build_kb_graph.py", "知识库三层 data/kb/*.json", True),
     # 必须紧跟 build_kb_graph 之后：后者每次重建 KB，会抹掉声音素材并入的部分
