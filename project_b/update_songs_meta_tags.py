@@ -15,7 +15,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT = Path(r'D:\wx409.github.io')
 data = json.loads((ROOT / 'data' / 'songs_meta.json').read_text(encoding='utf-8'))['songs']
 total = len(data)
-lyr = sum(1 for s in data.values() if s.get('lyrics'))
+lyr = sum(1 for s in data.values() if s.get('lyric_frags'))
 alb = sum(1 for s in data.values() if s.get('album'))
 live = sum(1 for s in data.values() if (s.get('show_count') or 0) > 0)
 

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28 16:25",
+ "generated_at": "2026-10-28 16:45",
  "count": 73,
  "calibers": [
   {
@@ -21,7 +21,7 @@
   {
    "id": "entity_songs",
    "label": "关系图谱曲目",
-   "value": 436,
+   "value": 437,
    "scope": "至少有一条关系（现场/小酒馆/专辑）的曲目",
    "source": "entity_index.json",
    "note": "歌曲↔城市↔场馆↔逐字稿的聚合图谱节点数"
@@ -197,7 +197,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2322,
+   "value": 2321,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5607,
+   "value": 5606,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""

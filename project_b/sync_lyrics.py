@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""把 albums.json 的歌词/制作名单同步到 songs_meta.json（单一事实源：专辑库）。
+"""【已停用】原意：把 albums.json 全文歌词同步到 songs_meta。
+
+停用原因：songs_meta 只允许存歌词片段（版权口径，见 build_songs_meta.py 注释）；
+全文歌词不得进入公开 JSON。保留脚本仅作记录，默认不执行。
 
 背景：歌词长期只存在 albums.json，songs_meta 的 lyrics 字段几乎为空，
 导致 songs.html 显示“42 首含歌词”且新歌无歌词。
