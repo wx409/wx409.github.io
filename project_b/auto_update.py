@@ -274,6 +274,10 @@ def main():
         log("-- 汇总推送（歌曲类 + 消息类）--")
         notify_digest()
 
+    # 1.85 巡演号增量抓取（非致命）
+    log("-- fetch_tour_weibo（巡演号增量，最近 3 页）--")
+    run([sys.executable, str(ROOT / "project_b" / "fetch_tour_weibo.py"), "3"])
+
     # 1.9 官宣扫描 → 候选箱（只收集，不自动入库；失败不阻断）
     log("-- scan_intake（官宣扫描，写候选箱）--")
     run([sys.executable, str(ROOT / "project_b" / "scan_intake.py"), "--days", "7"])

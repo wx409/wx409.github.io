@@ -233,9 +233,70 @@
      }
     }
    ]
+  },
+  {
+   "id": "王晰个人巡回音乐会上海站-2025-05-01",
+   "title": "王晰个人巡回音乐会 上海站",
+   "organizer": "乐华娱乐",
+   "venue": "上海艺海剧院",
+   "city": "上海",
+   "show_date": "2025-05-01",
+   "note": "来源：王晰个人巡回音乐会微博（uid 7091660310）",
+   "source_url": "微博@王晰个人巡回音乐会",
+   "milestones": [
+    {
+     "kind": "开演",
+     "date": "2025-05-01",
+     "source": "微博@王晰个人巡回音乐会",
+     "source_label": "已开演核实",
+     "stats": {
+      "date": "2025-05-01",
+      "windows": {
+       "pre7": {
+        "n_days": 7,
+        "mean_index": 920.7,
+        "median_index": 876.9,
+        "avg_tracked_songs": 48.9,
+        "complete": true
+       },
+       "pre3": {
+        "n_days": 3,
+        "mean_index": 911.8,
+        "median_index": 876.9,
+        "avg_tracked_songs": 51.7,
+        "complete": true
+       },
+       "d0": {
+        "n_days": 1,
+        "mean_index": 1029.3,
+        "median_index": 1029.3,
+        "avg_tracked_songs": 48,
+        "complete": true
+       },
+       "post3": {
+        "n_days": 3,
+        "mean_index": 977.9,
+        "median_index": 953.0,
+        "avg_tracked_songs": 43.7,
+        "complete": true
+       },
+       "post7": {
+        "n_days": 7,
+        "mean_index": 893.3,
+        "median_index": 872.6,
+        "avg_tracked_songs": 47.6,
+        "complete": true
+       }
+      },
+      "n_days": 1331,
+      "delta_pct_post7_vs_pre7": -3.0,
+      "delta_pct_post3_vs_pre3": 7.2
+     }
+    }
+   ]
   }
  ],
- "generated_at": "2026-10-28 07:28",
+ "generated_at": "2026-10-28 08:02",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
  "index_days_local": 1331
 }
