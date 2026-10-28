@@ -1,0 +1,41 @@
+{
+ "schema": "live_praat_check/v1",
+ "status": "exploratory",
+ "note": "两引擎均读原始混音同一窗口；仅说明引擎一致性",
+ "count": 3,
+ "rows": [
+  {
+   "song": "20230409X自选集签唱会",
+   "album": "20230409 《X自选集》生日签唱会·上海",
+   "t_s": 1923.3,
+   "yin_low_hz": 57.27,
+   "praat_low_hz": 59.42,
+   "diff_cents": -63.8,
+   "yield_note": "C2",
+   "yield_hz": 65.0,
+   "status": "ok"
+  },
+  {
+   "song": "20240127 王晰「肆益」个人巡回音乐会南京站上半场",
+   "album": "20240127 四巡·“肆益”个人巡回音乐会·南京",
+   "t_s": 1213.8,
+   "yin_low_hz": 55.57,
+   "praat_low_hz": 58.3,
+   "diff_cents": -83.2,
+   "yield_note": "C#2",
+   "yield_hz": 70.39,
+   "status": "ok"
+  },
+  {
+   "song": "20240127 王晰「肆益」个人巡回音乐会南京站下半场",
+   "album": "20240127 四巡·“肆益”个人巡回音乐会·南京",
+   "t_s": 1735.8,
+   "yin_low_hz": 55.79,
+   "praat_low_hz": 55.65,
+   "diff_cents": 4.1,
+   "yield_note": "A#1",
+   "yield_hz": 57.9,
+   "status": "ok"
+  }
+ ]
+}
