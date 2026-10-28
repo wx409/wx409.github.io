@@ -227,7 +227,7 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t032",
-  "context": "career",
+  "context": "concert",
   "source_ref": "timeline.json"
  },
  {
@@ -248,14 +248,14 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t035",
-  "context": "award",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t036",
-  "context": "career",
+  "context": "award",
   "source_ref": "timeline.json"
  },
  {
@@ -269,7 +269,7 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t038",
-  "context": "tour",
+  "context": "career",
   "source_ref": "timeline.json"
  },
  {
@@ -283,7 +283,7 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t040",
-  "context": "career",
+  "context": "tour",
   "source_ref": "timeline.json"
  },
  {
@@ -311,6 +311,13 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t044",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t045",
   "context": "album",
   "source_ref": "timeline.json"
  },
