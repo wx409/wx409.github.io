@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import time
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -37,6 +38,20 @@ except Exception:
 SITE = Path(r"D:\wx409.github.io")
 CACHE_DIR = Path(r"E:\wx\私有工具\holiday_cache")
 LOG = Path(r"E:\wx\私有工具\night_shutdown_log.jsonl")
+# 长任务锁：存在且未过期（8 小时）时一律不关机，避免跑分析时被关机打断
+LONGJOB_LOCK = Path(r"D:\wx409.github.io\temp\longjob.lock")
+LONGJOB_TTL_H = 8
+
+
+def longjob_active() -> bool:
+    try:
+        if not LONGJOB_LOCK.exists():
+            return False
+        age_h = (time.time() - LONGJOB_LOCK.stat().st_mtime) / 3600
+        return age_h < LONGJOB_TTL_H
+    except Exception:
+        return False
+
 WD = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
 
 
@@ -82,6 +97,10 @@ def log_jsonl(rec: dict) -> None:
 
 
 def main() -> int:
+    if longjob_active():
+        print("检测到长任务锁 temp/longjob.lock（8 小时内），本次不关机")
+        return 0
+
     ap = argparse.ArgumentParser()
     ap.add_argument("--at", default="", help="日期打桩 YYYY-MM-DD（只判定不关机）")
     ap.add_argument("--dry", action="store_true")

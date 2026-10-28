@@ -6556,6 +6556,14 @@ def get_next_run_time():
     return target, t_str, mode
 
 def schedule_shutdown():
+    # 长任务锁：有分析在跑就不关机
+    _lock = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "temp", "longjob.lock")
+    try:
+        if os.path.exists(_lock) and (time.time() - os.path.getmtime(_lock)) < 8 * 3600:
+            logger.info("检测到长任务锁，跳过自动关机")
+            return
+    except Exception:
+        pass
     now = datetime.now()
     target = now.replace(hour=1, minute=30, second=0, microsecond=0)
     if target <= now:
