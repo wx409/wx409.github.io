@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-29 21:14",
+  "timestamp": "2026-10-29 21:31",
   "total": 285257,
   "success": 57432,
   "complete_rate": 20.1,
@@ -177679,7 +177679,7 @@
       "对偏离同形态均值超过1个标准差的场次单独复盘（如2024-06-07北京歌舞剧·音乐剧辐射215.7%、2023-10-29北京「其他」峰值292.8%），区分可复制因素与偶发因素，避免用个案均值指导全局排期。"
     ],
     "data_quality_note": "形态聚合合计65场（个人巡回24、其他24、晚会14、音乐节3），衰减聚合覆盖89场次记录，两者样本口径不同；综艺（n=2）等样本<3的形态均值已标注「样本不足」；政府活动（2025-03-21 南昌）单独列示，不参与均值计算；Top10中2024-08-24上海拼盘演唱会为重复记录，按原始数据保留；歌单内无数据的场次，相关字段留空不填0。",
-    "generated_at": "2026-10-28 23:57:51"
+    "generated_at": "2026-10-29 21:15:10"
   },
   "batch_count": 1275,
   "date_range": "2023-01-01 ~ 2026-10-29",
@@ -201086,7 +201086,7 @@
   "daily_listen_overview": {
     "active_count": 9,
     "total_tracked": 384,
-    "concentration_top3": 72.2,
+    "concentration_top3": 72.7,
     "as_of": "2026-10-29",
     "too_small": true,
     "sample_tier": "small",
@@ -201096,78 +201096,78 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 57.8,
-      "raw": 498.0,
-      "trend_pct": 67.1,
+      "share_pct": 58.7,
+      "raw": 475.0,
+      "trend_pct": 59.4,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "滚滚长江东逝水",
-      "share_pct": 7.4,
-      "raw": 64.0,
-      "trend_pct": 166.7,
+      "song": "月弯弯",
+      "share_pct": 8.2,
+      "raw": 66.0,
+      "trend_pct": 94.1,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "月弯弯",
-      "share_pct": 7.0,
-      "raw": 60.0,
-      "trend_pct": 76.5,
+      "song": "山楂树",
+      "share_pct": 5.8,
+      "raw": 47.0,
+      "trend_pct": 62.1,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 6.4,
-      "raw": 55.0,
-      "trend_pct": 89.7,
+      "song": "滚滚长江东逝水",
+      "share_pct": 5.7,
+      "raw": 46.0,
+      "trend_pct": 91.7,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "一生中最爱",
-      "share_pct": 5.2,
+      "song": "在路上",
+      "share_pct": 5.6,
       "raw": 45.0,
-      "trend_pct": 104.5,
+      "trend_pct": 66.7,
       "trend_label": "up"
     },
     {
       "rank": 6,
-      "song": "在路上",
-      "share_pct": 4.4,
-      "raw": 38.0,
-      "trend_pct": 40.7,
+      "song": "一生中最爱",
+      "share_pct": 5.3,
+      "raw": 43.0,
+      "trend_pct": 95.5,
       "trend_label": "up"
     },
     {
       "rank": 7,
-      "song": "Sound of Silence",
-      "share_pct": 4.4,
-      "raw": 38.0,
-      "trend_pct": 81.0,
-      "trend_label": "up"
-    },
-    {
-      "rank": 8,
       "song": "谁",
-      "share_pct": 3.9,
+      "share_pct": 4.2,
       "raw": 34.0,
       "trend_pct": null,
       "trend_label": "new"
     },
     {
+      "rank": 8,
+      "song": "Sound of Silence",
+      "share_pct": 3.8,
+      "raw": 31.0,
+      "trend_pct": 47.6,
+      "trend_label": "up"
+    },
+    {
       "rank": 9,
       "song": "亲密爱人",
-      "share_pct": 3.5,
-      "raw": 30.0,
-      "trend_pct": 100.0,
+      "share_pct": 2.7,
+      "raw": 22.0,
+      "trend_pct": 46.7,
       "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-29 21:14",
+  "last_update": "2026-10-29 21:31",
   "today_batches": 1333,
   "daily_new_records": 1,
   "recent_7days": [
@@ -201229,13 +201229,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4409,
-      "success": 4409,
+      "total": 4410,
+      "success": 4410,
       "failed": []
     },
     "link_registry": 10558,
     "intraday_merged": {
-      "before": 1744610,
+      "before": 1744864,
       "after": 295817
     },
     "index_calibration": {
@@ -201522,7 +201522,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-29 21:14",
+    "generated_at": "2026-10-29 21:31",
     "overview": "共 91 场活动 / 3178 个歌曲观测，正涨幅 1321（42%），显著带动≥20% 占 13%，平均 -0.2%、中位 -3.5%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
