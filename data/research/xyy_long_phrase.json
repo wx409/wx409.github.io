@@ -1,0 +1,59 @@
+{
+ "schema": "xyy_long_phrase/v1",
+ "song": "想游泳的星",
+ "source": "BV1Qm42177HY（四巡上海 2024-04-06 首唱饭拍）",
+ "method": "htdemucs_6s 人声轨 → CREPE + Praat 双引擎",
+ "phrases": [
+  {
+   "t0": 94.2,
+   "dur": 23.2,
+   "crepe_min": 123.7,
+   "crepe_med": 238.2,
+   "crepe_max": 310.9,
+   "praat_med": 224.8,
+   "praat_n": 2133
+  },
+  {
+   "t0": 247.4,
+   "dur": 15.2,
+   "crepe_min": 125.6,
+   "crepe_med": 221.2,
+   "crepe_max": 257.2,
+   "praat_med": 220.4,
+   "praat_n": 1443
+  },
+  {
+   "t0": 154.6,
+   "dur": 12.3,
+   "crepe_min": 119.1,
+   "crepe_med": 171.8,
+   "crepe_max": 250.1,
+   "praat_med": 166.6,
+   "praat_n": 986
+  },
+  {
+   "t0": 128.7,
+   "dur": 10.9,
+   "crepe_min": 133.5,
+   "crepe_med": 190.5,
+   "crepe_max": 279.7,
+   "praat_med": 190.4,
+   "praat_n": 1004
+  },
+  {
+   "t0": 217.8,
+   "dur": 9.0,
+   "crepe_min": 91.3,
+   "crepe_med": 142.1,
+   "crepe_max": 195.8,
+   "praat_med": 141.7,
+   "praat_n": 897
+  }
+ ],
+ "headline": {
+  "t0": 94.2,
+  "dur": 23.2,
+  "median_hz": 238.2
+ },
+ "note": "15 秒长句得到验证；更长段（94.2s/23.2s）待核是否为多句连唱"
+}
