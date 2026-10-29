@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-29 11:32:15",
+ "updated_at": "2026-10-29 14:00:05",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4291,6 +4291,12 @@
    "category": "声学",
    "source": "live-long-phrase.html / live-intonation.html",
    "url": "/live-long-phrase.html"
+  },
+  {
+   "time": "2026-10-29 14:00:05",
+   "title": "⚠️ 大屏采集漏批：2026-10-29",
+   "content": "应当完成但缺产出的批次：\n缺 11:49 quick\n缺 11:59 quick\n缺 12:18 quick\n缺 13:09 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 42.3 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261029.log",
+   "category": "运维告警"
   }
  ]
 }
