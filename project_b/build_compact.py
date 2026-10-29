@@ -564,6 +564,45 @@ style="width:min(420px,70%);padding:9px 12px;border:1px solid var(--line);border
 
 
 # ---------------------------------------------------------------- 页面 2：works
+
+def _singles_block():
+    """正式单曲 / OST 实测区块（只报音级；数据来自 data/research/singles_analysis.json）。"""
+    try:
+        d = jload("data/research/singles_analysis.json", {})
+        rows = []
+        for s in d.get("songs", []):
+            low = s.get("low_stable") or {}
+            if not low.get("note"):
+                continue
+            rows.append((s.get("title"), low["note"], s.get("span_octaves") or 0,
+                         s.get("stability_cents_median") or 0))
+    except Exception:
+        return ""
+    if not rows:
+        return ""
+    order = {"C": 0, "C#": 1, "D": 2, "D#": 3, "E": 4, "F": 5, "F#": 6,
+             "G": 7, "G#": 8, "A": 9, "A#": 10, "B": 11}
+
+    def key(r):
+        n = r[1][:-1]
+        try:
+            return order[n] + 12 * int(r[1][-1])
+        except Exception:
+            return 99
+    rows.sort(key=key)
+    trs = "".join(
+        f'<tr><td>{i+1}</td><td>{esc(t)}</td><td class="n">{esc(n)}</td>'
+        f'<td class="n">{num(sp, 2)}</td><td class="n">{num(st, 1)}</td></tr>'
+        for i, (t, n, sp, st) in enumerate(rows[:10]))
+    return f"""
+<h2>二之二、正式单曲 / OST 实测（{len(rows)} 首已测）</h2>
+<p>单曲与 OST 的主导权常在制作人与剧方，更能说明<strong>他的声音被怎样使用</strong>。
+下表只报<strong>音级</strong>——单曲多为 320k 有损，频率精度低于无损素材，故不报 Hz。</p>
+<table><tr><th>#</th><th>曲目</th><th>最低音</th><th>跨度（八度）</th><th>稳定性（音分）</th></tr>{trs}</table>
+<p class="sub">按最低音排序，展示前 10 首；已测 {len(rows)} 首。数据源：
+<a href="/data/research/singles_analysis.json">singles_analysis.json</a>（逐曲全量）。</p>
+"""
+
 def build_works():
     atr = ALBUMS.get("songs") or []
     meta = {a.get("name"): a for a in (ALBUM_META.get("albums") or [])}
@@ -640,6 +679,7 @@ def build_works():
              "不。最低音是按已获取并完成实测的录音室素材统计的结果，未实测的合辑/单曲不在该口径内，"
              "因此不构成「全部作品的最低音」。"),
         ]))
+    blocks += _singles_block()
     return page("works.html",
                 "王晰作品与声学实测 | 专辑/曲目逐曲稳定音与跨度",
                 f"王晰 {N_ALBUMS} 张录音室专辑 {N_ALBUM_SONGS} 首曲目逐曲实测：最低稳定音 {N_LOW_NOTE} {N_LOW_HZ}Hz，"
