@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-29 14:00:05",
+ "updated_at": "2026-10-29 17:00:28",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4297,6 +4297,43 @@
    "title": "⚠️ 大屏采集漏批：2026-10-29",
    "content": "应当完成但缺产出的批次：\n缺 11:49 quick\n缺 11:59 quick\n缺 12:18 quick\n缺 13:09 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 42.3 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261029.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-10-29 15:21:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [10464]），但 dashboard_data.json 已 123.5 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-29 17:00:28",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛稀缺的真&#183;男低音（Bass-baritone）——姚峰称他「作为 Bass-baritone 的 …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-10-29 17:00:28",
+   "title": "📣 王晰 Xi Wang (豆瓣)",
+   "content": "中国男低音流行歌手，中国音乐家协会会员。 毕业于辽宁艺术职业学院流行演唱专业，后就读于沈阳音乐学院。 2007年，参加湖南卫 …\n链接：https://www.douban.com/personage/27492697/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.douban.com/personage/27492697/"
+  },
+  {
+   "time": "2026-10-29 17:00:28",
+   "title": "📣 用声音丈量热土，醇厚嗓音唱响草原乐章 |《东方艺享家》专访 ...",
+   "content": "2026年6月17日&ensp;&#0183;&ensp;从深耕低音唱腔，到跨界歌舞剧舞台，王晰做客《东方艺享家》，畅谈独属于他的音乐求索之路。年少苦练声乐，与 …\n链接：https://www.bilibili.com/zh-Hans/video/BV13LLR61EFE/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/zh-Hans/video/BV13LLR61EFE/"
+  },
+  {
+   "time": "2026-10-29 17:00:28",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
