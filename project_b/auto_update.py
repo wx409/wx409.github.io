@@ -278,6 +278,10 @@ def main():
     log("-- fetch_tour_weibo（巡演号增量，最近 3 页）--")
     run([sys.executable, str(ROOT / "project_b" / "fetch_tour_weibo.py"), "3"])
 
+    # 1.88 新歌自动入库（采集清单 / 发行表 / 时间轴；幂等，失败不阻断）
+    log("-- auto_song_intake（新歌自动入各环节）--")
+    run([sys.executable, str(ROOT / "project_b" / "auto_song_intake.py")])
+
     # 1.9 官宣扫描 → 候选箱（只收集，不自动入库；失败不阻断）
     log("-- scan_intake（官宣扫描，写候选箱）--")
     run([sys.executable, str(ROOT / "project_b" / "scan_intake.py"), "--days", "7"])
