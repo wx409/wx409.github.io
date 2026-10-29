@@ -45,6 +45,10 @@ except ImportError:
 
 # ==================== 用户配置 ====================
 EXCEL_INPUT = r"收听人数（2026.7.24）.xlsx"      # 链接清单
+# 若有追加过新歌的副本（主文件被 Excel 占用时使用），优先读它
+_EXCEL_ALT = r"收听人数（2026.7.24）_含火光.xlsx"
+if os.path.exists(_EXCEL_ALT):
+    EXCEL_INPUT = _EXCEL_ALT
 OUTPUT_DIR = r"E:\wx\index_records"              # 采集 Excel 输出目录
 HISTORY_DIR = r"E:\wx\指数\分年指数数据"          # 历史归档目录
 DASHBOARD_DIR = os.path.join(OUTPUT_DIR, "dashboard")  # 网页输出目录

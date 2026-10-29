@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-29 19:22",
+  "timestamp": "2026-10-29 20:31",
   "total": 285256,
   "success": 57423,
   "complete_rate": 20.1,
@@ -203087,7 +203087,7 @@
   "daily_listen_overview": {
     "active_count": 7,
     "total_tracked": 383,
-    "concentration_top3": 74.8,
+    "concentration_top3": 76.4,
     "as_of": "2026-10-29",
     "too_small": true,
     "sample_tier": "small",
@@ -203097,62 +203097,62 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 58.1,
-      "raw": 480.0,
-      "trend_pct": 61.1,
+      "share_pct": 60.3,
+      "raw": 511.0,
+      "trend_pct": 71.5,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "滚滚长江东逝水",
-      "share_pct": 8.7,
-      "raw": 72.0,
-      "trend_pct": 200.0,
+      "song": "一生中最爱",
+      "share_pct": 8.3,
+      "raw": 70.0,
+      "trend_pct": 218.2,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "月弯弯",
-      "share_pct": 8.0,
+      "song": "山楂树",
+      "share_pct": 7.8,
       "raw": 66.0,
-      "trend_pct": 94.1,
+      "trend_pct": 127.6,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 7.3,
-      "raw": 60.0,
-      "trend_pct": 106.9,
+      "song": "月弯弯",
+      "share_pct": 6.6,
+      "raw": 56.0,
+      "trend_pct": 64.7,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "一生中最爱",
-      "share_pct": 7.0,
-      "raw": 58.0,
-      "trend_pct": 163.6,
+      "song": "在路上",
+      "share_pct": 6.4,
+      "raw": 54.0,
+      "trend_pct": 100.0,
       "trend_label": "up"
     },
     {
       "rank": 6,
-      "song": "在路上",
-      "share_pct": 6.7,
-      "raw": 55.0,
-      "trend_pct": 103.7,
+      "song": "滚滚长江东逝水",
+      "share_pct": 6.3,
+      "raw": 53.0,
+      "trend_pct": 120.8,
       "trend_label": "up"
     },
     {
       "rank": 7,
       "song": "Sound of Silence",
-      "share_pct": 4.2,
-      "raw": 35.0,
-      "trend_pct": 66.7,
+      "share_pct": 4.4,
+      "raw": 37.0,
+      "trend_pct": 76.2,
       "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-29 19:22",
+  "last_update": "2026-10-29 20:31",
   "today_batches": 1333,
   "daily_new_records": 0,
   "recent_7days": [
@@ -203210,17 +203210,17 @@
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 130,
-      "pct": 0.0
+      "rows": 1040,
+      "pct": 0.1
     },
     "excel_files": {
-      "total": 4406,
-      "success": 4406,
+      "total": 4407,
+      "success": 4407,
       "failed": []
     },
     "link_registry": 10557,
     "intraday_merged": {
-      "before": 1742078,
+      "before": 1744102,
       "after": 295816
     },
     "index_calibration": {
@@ -203507,7 +203507,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-29 19:22",
+    "generated_at": "2026-10-29 20:31",
     "overview": "共 91 场活动 / 3178 个歌曲观测，正涨幅 1320（42%），显著带动≥20% 占 13%，平均 -0.2%、中位 -3.5%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
