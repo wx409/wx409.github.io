@@ -1,49 +1,9 @@
 {
- "generated_at": "2026-10-25T12:00:22",
+ "generated_at": "2026-10-30T12:00:04",
  "source": "holiday-cn（与 project_b/night_shutdown_gate.py 共用本地缓存）",
  "rule": "关机 ⇔ 周一~周五 且 非法定节假日 且 非调休上班日；周六/周日/节假日/调休一律不关机",
  "window_days": 120,
  "days": [
-  {
-   "date": "2026-10-25",
-   "weekday": "周日",
-   "is_holiday": false,
-   "is_makeup": false,
-   "shutdown_ok": false,
-   "reason": "周末（不关机）"
-  },
-  {
-   "date": "2026-10-26",
-   "weekday": "周一",
-   "is_holiday": false,
-   "is_makeup": false,
-   "shutdown_ok": true,
-   "reason": "普通工作日（关机）"
-  },
-  {
-   "date": "2026-10-27",
-   "weekday": "周二",
-   "is_holiday": false,
-   "is_makeup": false,
-   "shutdown_ok": true,
-   "reason": "普通工作日（关机）"
-  },
-  {
-   "date": "2026-10-28",
-   "weekday": "周三",
-   "is_holiday": false,
-   "is_makeup": false,
-   "shutdown_ok": true,
-   "reason": "普通工作日（关机）"
-  },
-  {
-   "date": "2026-10-29",
-   "weekday": "周四",
-   "is_holiday": false,
-   "is_makeup": false,
-   "shutdown_ok": true,
-   "reason": "普通工作日（关机）"
-  },
   {
    "date": "2026-10-30",
    "weekday": "周五",
@@ -963,6 +923,46 @@
    "is_makeup": false,
    "shutdown_ok": false,
    "reason": "周末（不关机）"
+  },
+  {
+   "date": "2027-02-22",
+   "weekday": "周一",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-23",
+   "weekday": "周二",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-24",
+   "weekday": "周三",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-25",
+   "weekday": "周四",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
+  },
+  {
+   "date": "2027-02-26",
+   "weekday": "周五",
+   "is_holiday": false,
+   "is_makeup": false,
+   "shutdown_ok": true,
+   "reason": "普通工作日（关机）"
   }
  ]
 }

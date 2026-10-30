@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-30 08:21:31",
+ "updated_at": "2026-10-30 14:00:27",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4352,6 +4352,41 @@
    "title": "⚠ 微博 cookie 需要更新",
    "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
    "category": "通知"
+  },
+  {
+   "time": "2026-10-30 09:30:02",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-30 11:21:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [10284]），但 dashboard_data.json 已 126.5 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-30 14:00:27",
+   "title": "📣 王晰作品百科 | 7 张专辑 + 1 张 EP 完整曲目、单曲与官方渠道",
+   "content": "1 天前&ensp;&#0183;&ensp;王晰2014-2024 录音室作品完整曲目（7 张专辑 + 1 张数字 EP《回望》，共 72 首）、代表单曲索引，附官方试听与页面内试 …\n链接：https://wx409.github.io/discography.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/discography.html"
+  },
+  {
+   "time": "2026-10-30 14:00:27",
+   "title": "📣 王晰真的是男低音么？ - 知乎",
+   "content": "2020年4月26日&ensp;&#0183;&ensp;首先，《歌手》修音的程度之严重我就不想说什么了； 其次，本人其实不大喜欢王晰的演唱（请注意不是声音是演 …\n链接：https://www.zhihu.com/question/40568290",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/40568290"
+  },
+  {
+   "time": "2026-10-30 14:00:27",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
