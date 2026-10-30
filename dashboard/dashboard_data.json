@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-30 18:16",
+  "timestamp": "2026-10-30 18:26",
   "total": 285511,
   "success": 57437,
   "complete_rate": 20.1,
@@ -201123,7 +201123,7 @@
   "daily_listen_overview": {
     "active_count": 7,
     "total_tracked": 384,
-    "concentration_top3": 74.0,
+    "concentration_top3": 74.4,
     "as_of": "2026-10-30",
     "too_small": true,
     "sample_tier": "small",
@@ -201133,62 +201133,62 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 58.5,
-      "raw": 681.0,
-      "trend_pct": 126.2,
+      "share_pct": 58.4,
+      "raw": 676.0,
+      "trend_pct": 124.6,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "一生中最爱",
-      "share_pct": 7.9,
-      "raw": 92.0,
-      "trend_pct": 300.0,
+      "share_pct": 8.2,
+      "raw": 95.0,
+      "trend_pct": 313.0,
       "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "滚滚长江东逝水",
-      "share_pct": 7.6,
-      "raw": 88.0,
-      "trend_pct": 363.2,
+      "share_pct": 7.8,
+      "raw": 90.0,
+      "trend_pct": 373.7,
       "trend_label": "up"
     },
     {
       "rank": 4,
       "song": "月弯弯",
-      "share_pct": 7.4,
-      "raw": 86.0,
-      "trend_pct": 186.7,
+      "share_pct": 7.1,
+      "raw": 82.0,
+      "trend_pct": 173.3,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "山楂树",
-      "share_pct": 6.8,
-      "raw": 79.0,
-      "trend_pct": 295.0,
+      "share_pct": 6.9,
+      "raw": 80.0,
+      "trend_pct": 300.0,
       "trend_label": "up"
     },
     {
       "rank": 6,
       "song": "在路上",
-      "share_pct": 6.4,
-      "raw": 74.0,
-      "trend_pct": 252.4,
+      "share_pct": 6.0,
+      "raw": 69.0,
+      "trend_pct": 228.6,
       "trend_label": "up"
     },
     {
       "rank": 7,
       "song": "Sound of Silence",
-      "share_pct": 5.5,
-      "raw": 64.0,
-      "trend_pct": 146.2,
+      "share_pct": 5.7,
+      "raw": 66.0,
+      "trend_pct": 153.8,
       "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-10-30 18:16",
+  "last_update": "2026-10-30 18:26",
   "today_batches": 1334,
   "daily_new_records": 0,
   "recent_7days": [
@@ -201250,13 +201250,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4420,
-      "success": 4420,
+      "total": 4421,
+      "success": 4421,
       "failed": []
     },
     "link_registry": 10558,
     "intraday_merged": {
-      "before": 1747404,
+      "before": 1747658,
       "after": 296071
     },
     "index_calibration": {
@@ -201502,7 +201502,7 @@
       },
       {
         "song": "滚滚长江东逝水",
-        "peak": 88
+        "peak": 90
       },
       {
         "song": "她真漂亮",
@@ -201543,7 +201543,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-10-30 18:16",
+    "generated_at": "2026-10-30 18:26",
     "overview": "共 91 场活动 / 3179 个歌曲观测，正涨幅 1319（41%），显著带动≥20% 占 13%，平均 -0.2%、中位 -3.5%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.0%）",
     "morph_worst": "签唱会（平均 -17.5%）",
