@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-30 21:00:06",
+ "updated_at": "2026-10-30 21:33:36",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4464,6 +4464,12 @@
    "title": "⚠️ 大屏采集漏批：2026-10-30",
    "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 21:00 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 0.0 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261030.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-10-30 21:33:36",
+   "title": "语料库去重完成",
+   "content": "本人微博 972→909（删重 63）｜工作室微博 5494→2256（删重 3301，重复率 60%）｜少城时代 172 无重复｜重复文件移入 （本机盘符）\\wx\\\\wx_textmine_dupes（未删除），映射 _dupes_map.json；四个下游产物已重建",
+   "category": "通知"
   }
  ]
 }
