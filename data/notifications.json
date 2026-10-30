@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-29 22:01:02",
+ "updated_at": "2026-10-30 08:21:31",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4339,6 +4339,18 @@
    "time": "2026-10-29 22:01:02",
    "title": "🔄 大屏 daemon 已被看门狗拉起",
    "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 20296）。此前 dashboard_data.json 距上次更新 27.9 分钟。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-30 08:21:13",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [10284]），但 dashboard_data.json 已 493.4 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-30 08:21:31",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
    "category": "通知"
   }
  ]
