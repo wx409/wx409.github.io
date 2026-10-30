@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30 17:08",
+ "generated_at": "2026-10-30 20:57",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -36,7 +36,7 @@
    "source": "wx_textmine_corpus/声音素材",
    "n": 157,
    "latest": "2026-09-14",
-   "lag_days": 45,
+   "lag_days": 46,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -54,21 +54,21 @@
   {
    "stream": "文本·工作室微博",
    "source": "wx_textmine_corpus/工作室微博",
-   "n": 3275,
-   "latest": "2026-09-28",
-   "lag_days": 32,
-   "new_7d": 0,
-   "gap": "**近期无新增**",
+   "n": 5494,
+   "latest": "2026-10-30",
+   "lag_days": 0,
+   "new_7d": 2219,
+   "gap": "在积攒",
    "note": ""
   },
   {
    "stream": "文本·本人微博",
    "source": "wx_textmine_corpus/本人微博",
-   "n": 934,
-   "latest": "2026-09-28",
-   "lag_days": 32,
-   "new_7d": 0,
-   "gap": "**近期无新增**",
+   "n": 972,
+   "latest": "2026-10-30",
+   "lag_days": 0,
+   "new_7d": 38,
+   "gap": "在积攒",
    "note": ""
   },
   {
@@ -144,12 +144,10 @@
  ],
  "summary": {
   "streams": 14,
-  "accumulating": 2,
+  "accumulating": 4,
   "stale": [
    "文本·声音素材",
    "文本·少城时代",
-   "文本·工作室微博",
-   "文本·本人微博",
    "文本·百家号",
    "文本·百科"
   ],
