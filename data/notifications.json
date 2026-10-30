@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-30 18:01:02",
+ "updated_at": "2026-10-30 21:00:06",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4458,6 +4458,12 @@
    "title": "⚠ 大屏数据超过 120 分钟未更新",
    "content": "daemon 进程在（PID [10284]），但 dashboard_data.json 已 289.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
    "category": "通知"
+  },
+  {
+   "time": "2026-10-30 21:00:06",
+   "title": "⚠️ 大屏采集漏批：2026-10-30",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 21:00 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 0.0 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261030.log",
+   "category": "运维告警"
   }
  ]
 }
