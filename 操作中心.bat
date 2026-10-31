@@ -582,6 +582,15 @@ echo    242. [证据] 六项审计一键跑（全绿才算过）
 echo    243. [证据] 打开阶段基线 v1 文档
 
 
+
+echo  [V · 词句库（骰子素材）]
+
+echo    244. [词句] 新增一句入池（交互输入类型/句子/出处；自动去重并重建骰子与页面）
+
+echo    245. [词句] 从 JSON 批量入池（$E:\wx\_incoming_phrases.json）
+
+echo    246. [词句] 查看词句库统计（各类型条数 + 最近十条）
+
 echo    0. 退出
 
 echo.
@@ -1066,6 +1075,13 @@ if "%op%"=="243" goto ev_baseline
 
 if "%op%"=="224" goto insight_page
 if "%op%"=="225" goto index_freshness
+
+if "%op%"=="244" goto phr_add
+
+if "%op%"=="245" goto phr_bulk
+
+if "%op%"=="246" goto phr_list
+
 
 echo   [!] 无效选项，请重试
 
@@ -6451,6 +6467,45 @@ cls
 echo  [指数] 新鲜度断言：长表末日期应等于昨天
 echo.
 python -X utf8 project_b\check_index_freshness.py
+echo.
+pause
+goto menu
+
+
+:phr_add
+cls
+echo === 词句库 · 新增一句 ===
+echo 类型可选: talk（现场说话）/ lyrics（歌词短句）/ mystic（卦象）/ interview（采访）/ song（歌名说明）
+echo.
+set "ptype="
+set /p ptype=类型: 
+set "ptext="
+set /p ptext=句子: 
+set "psrc="
+set /p psrc=出处（歌名/场次/表内行号，可留空）: 
+echo.
+python -X utf8 project_b\add_phrase.py --type %ptype% --text "%ptext%" --source "%psrc%" --rebuild
+echo.
+pause
+goto menu
+
+
+:phr_bulk
+cls
+echo === 词句库 · 批量入池 ===
+echo 把 JSON 放到 E:\wx\_incoming_phrases.json，格式：
+echo   [{"type":"lyrics","text":"句子","source":"歌词《某某》"}]
+echo.
+if not exist "E:\wx\_incoming_phrases.json" (echo 未找到该文件 & pause & goto menu)
+python -X utf8 project_b\add_phrase.py --from-json "E:\wx\_incoming_phrases.json" --rebuild
+echo.
+pause
+goto menu
+
+
+:phr_list
+cls
+python -X utf8 project_b\add_phrase.py --list
 echo.
 pause
 goto menu

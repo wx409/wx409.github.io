@@ -1,6 +1,4 @@
-"""生成 phrases.html —— 词句骰子页（数据取自 data/dice_sets.json 与 data/phrase_bank.json）
-纪律：不写死数字；玄学标“娱乐向，非占卜”；歌词类只出短句；缺套写“待补”并给原因。
-"""
+"""生成 phrases.html —— 词句骰子页（面含出处；数据取自 data/dice_sets.json 与 data/phrase_bank.json）"""
 import json, html
 from pathlib import Path
 
@@ -16,17 +14,22 @@ by_type = bank.get("by_type") or {}
 
 TABS = []
 for key, v in sets.items():
-    faces = [f for f in (v.get("faces") or []) if f]
+    faces = []
+    for f in (v.get("faces") or []):
+        if isinstance(f, dict) and f.get("text"):
+            faces.append({"text": f["text"], "source": f.get("source", "")})
+        elif isinstance(f, str) and f:
+            faces.append({"text": f, "source": ""})
     if not faces:
         continue
-    TABS.append({"key": key, "name": v["name"], "faces": faces,
-                 "note": v.get("disclaimer", "")})
+    TABS.append({"key": key, "name": v["name"], "faces": faces, "note": v.get("disclaimer", "")})
 
 tabs_json = json.dumps(TABS, ensure_ascii=False)
 
 rows = []
 for t in TABS:
-    lis = "".join("<li>%s</li>" % html.escape(f) for f in t["faces"])
+    lis = "".join("<li>%s<span class='src-inline'>%s</span></li>"
+                  % (html.escape(f["text"]), html.escape(f["source"])) for f in t["faces"])
     rows.append("<section class='set'><h2>%s<span class='n'>%d 面</span></h2><ol>%s</ol><p class='note'>%s</p></section>"
                 % (html.escape(t["name"]), len(t["faces"]), lis, html.escape(t["note"])))
 
@@ -43,7 +46,7 @@ ld = {
     "@type": "Article",
     "headline": "词句｜骰子",
     "about": {"@type": "Person", "name": "王晰"},
-    "description": "把王晰说过的话、歌名、采访与卦象引语做成可抽的骰子；每条带出处。",
+    "description": "把王晰说过的话、歌词片段、采访与卦象引语做成可抽的骰子；每一面都带出处。",
     "isPartOf": {"@type": "WebSite", "url": "https://wx409.github.io/"},
     "url": "https://wx409.github.io/phrases.html",
 }
@@ -61,9 +64,11 @@ h1{{margin:0 0 4px}}h2{{font-size:17px;margin:26px 0 8px;border-left:4px solid #
 .tabs button.on{{background:#a8323d;color:#fff;border-color:#a8323d}}
 .die{{display:flex;align-items:center;justify-content:center;text-align:center;min-height:180px;
  padding:26px 22px;border:1px solid #e3dbcc;border-radius:14px;background:#fffdf8;font-size:22px;line-height:1.6}}
-.src{{color:#777;font-size:.88em;margin:10px 0 0;text-align:center}}
+.src{{color:#777;font-size:.85em;margin:10px 0 0;text-align:center;min-height:1.4em}}
+.src b{{color:#a8323d;font-weight:600}}
 .draw{{display:block;width:100%;font:inherit;font-size:16px;padding:12px;margin-top:12px;border:0;border-radius:10px;background:#a8323d;color:#fff;cursor:pointer}}
-ol{{padding-left:22px}}li{{margin:4px 0}}
+ol{{padding-left:22px}}li{{margin:6px 0}}
+.src-inline{{display:block;color:#8a8a8a;font-size:.8em;margin-top:1px}}
 .set h2 .n{{font-size:12px;color:#999;font-weight:400;margin-left:8px}}
 .note{{color:#816;font-size:.85em;background:#fbf4f6;border-radius:8px;padding:8px 10px}}
 .pending{{color:#666}}
@@ -73,8 +78,8 @@ footer{{margin:34px 0 10px;color:#888;font-size:.85em}}
 </head><body>
 <!-- NAV_START --><!-- NAV_END -->
 <h1>词句｜骰子</h1>
-<p class="meta">把他说过的话、歌名、采访与卦象引语做成可以抽的骰子。共 <b>{total_phrases}</b> 条词句（{html.escape(dist)}），
-现可抽 <b>{total_faces}</b> 面、<b>{len(TABS)}</b> 套；<b>每条都带出处</b>，抽到就能追。</p>
+<p class="meta">把他说过的话、歌词片段、采访与卦象引语做成可以抽的骰子。共 <b>{total_phrases}</b> 条词句（{html.escape(dist)}），
+现可抽 <b>{total_faces}</b> 面、<b>{len(TABS)}</b> 套；<b>每面都标出处</b>，抽到就知道从哪来。</p>
 
 <div class="tabs" id="tabs"></div>
 <div class="die" id="die">点下面的按钮抽一句</div>
@@ -87,9 +92,10 @@ footer{{margin:34px 0 10px;color:#888;font-size:.85em}}
 <h2>说明</h2>
 <ul>
 <li><b>玄学套</b>取自站内整理的卦象解析表，标“娱乐向，非占卜”。</li>
-<li><b>歌名套</b>是歌名＋官方一句说明，不是歌词全文；歌词只做短句引用。</li>
-<li><b>采访套</b>含标题与备注，部分不是逐字引语，已在来源中注明。</li>
-<li>所有条目在 <code>data/phrase_bank.json</code>，可核对、可增补。</li>
+<li><b>歌词套</b>是短句引用，面下小字标注歌名；不放整首、不成集。</li>
+<li><b>情绪套</b>来自现场转写，语音识别未校对，已人工挑选；非逐字引语，引用时请标“转写”。</li>
+<li><b>采访套</b>含标题与备注，部分不是逐字引语，已在出处中注明行号。</li>
+<li>全部条目在 <code>data/phrase_bank.json</code>；新增用 <code>python project_b\add_phrase.py</code>。</li>
 </ul>
 
 <footer>词句来自公开内容整理；玄学为娱乐向；歌词版权归原作者。</footer>
@@ -98,7 +104,7 @@ footer{{margin:34px 0 10px;color:#888;font-size:.85em}}
 var SETS = {tabs_json};
 var cur = 0;
 function render() {{
-  var t = SETS[cur], box = document.getElementById('tabs'), html = '';
+  var box = document.getElementById('tabs'), html = '';
   for (var i = 0; i < SETS.length; i++) {{
     html += '<button data-i="' + i + '" class="' + (i === cur ? 'on' : '') + '">' + SETS[i].name + '</button>';
   }}
@@ -107,12 +113,14 @@ function render() {{
     b.onclick = function () {{ cur = +b.dataset.i; render(); }};
   }});
   document.getElementById('die').textContent = '点下面的按钮抽一句';
-  document.getElementById('src').textContent = '';
+  document.getElementById('src').innerHTML = '';
 }}
 function draw() {{
   var t = SETS[cur], f = t.faces[Math.floor(Math.random() * t.faces.length)];
-  document.getElementById('die').textContent = f;
-  document.getElementById('src').textContent = t.name + '｜' + t.note;
+  document.getElementById('die').textContent = f.text;
+  document.getElementById('src').innerHTML = f.source
+    ? '<b>' + t.name + '</b>｜出处：' + f.source
+    : '<b>' + t.name + '</b>｜' + t.note;
 }}
 document.getElementById('draw').onclick = draw;
 render();
