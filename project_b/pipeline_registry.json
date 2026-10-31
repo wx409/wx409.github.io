@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-10-31 16:15",
+ "generated_at": "2026-10-31 16:17",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 245,
@@ -2160,9 +2160,9 @@
     "name": "wx409_index_backfill_late",
     "script": "index_auto_repair.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\index_auto_repair.py >> temp\\index_freshness.log 2>&1",
-    "next": "2026/10/31 23:50:00",
+    "next": "2026/11/1 0:05:00",
     "type": "Daily",
-    "start": "23:50:00"
+    "start": "0:05:00"
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\index_auto_repair.py"
