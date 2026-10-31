@@ -11,11 +11,11 @@ q = json.load(open(Q, encoding="utf-8"))
 items = q["items"]
 
 # 1) 视频转写
-vids = [it for it in items if it.get("video_path")]
+vids = [it for it in items if it.get("video_path") and not it.get("transcript")]
 if vids:
     from faster_whisper import WhisperModel
-    print("加载 faster-whisper（small/int8）…")
-    model = WhisperModel("small", device="cpu", compute_type="int8")
+    print("加载 faster-whisper（本地 small/int8）…")
+    model = WhisperModel('C:/Users/yezhe/.cache/huggingface/hub/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120', device="cpu", compute_type="int8")
     for it in vids:
         p = os.path.join(VID, it["video_path"])
         if not os.path.exists(p):
