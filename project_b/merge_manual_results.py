@@ -50,4 +50,9 @@ for r in q:
         w = len(open(p, encoding="utf-8", errors="ignore").read())
     md.append("| %s | %s | %s | %d | %s |" % (r["date"], r["title"][:34], kind, w, out[:40]))
 open(os.path.join(BASE, "处理结果.md"), "w", encoding="utf-8").write("\n".join(md) + "\n")
-print("根表 %d 条（新增 %d）｜本次处理 %d 条" % (table["count"], added, len(q)))
+
+# 根表 md 一律由 json 派生，避免两处不一致
+import subprocess
+subprocess.call([__import__("sys").executable, "-X", "utf8",
+                 os.path.join(os.path.dirname(os.path.abspath(__file__)), "slim_root_table.py")])
+print("根表 %d 条（新增 %d）｜本次处理 %d 条（md 已重生成）" % (table["count"], added, len(q)))
