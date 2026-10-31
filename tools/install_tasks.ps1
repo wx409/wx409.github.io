@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-10-31 14:09
+# 生成时间：2026-10-31 16:22
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -65,6 +65,13 @@ $t = New-ScheduledTaskTrigger -Daily -At 23:58
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_music_index_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_music_index_daily'
+
+# --- wx409_index_backfill_late ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\index_auto_repair.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_index_backfill_late' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_index_backfill_late'
 
 # --- wx409_dashboard_watchdog ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 ""' -WorkingDirectory 'D:\wx409.github.io'

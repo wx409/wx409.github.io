@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31 14:08",
+ "generated_at": "2026-10-31 16:21",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -24,12 +24,12 @@
   {
    "stream": "指数·每日指数",
    "source": "music_index_long.csv",
-   "n": 1334,
-   "latest": "2026-10-29",
-   "lag_days": 2,
-   "new_7d": 6,
+   "n": 1335,
+   "latest": "2026-10-30",
+   "lag_days": 1,
+   "new_7d": 7,
    "gap": "在积攒（每日多批次）",
-   "note": "最新 2026-10-29"
+   "note": "最新 2026-10-30"
   },
   {
    "stream": "文本·声音素材",
@@ -46,7 +46,7 @@
    "source": "wx_textmine_corpus/少城时代",
    "n": 172,
    "latest": "2026-09-14",
-   "lag_days": 46,
+   "lag_days": 47,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -134,7 +134,7 @@
   {
    "stream": "文本·采访/杂志/报道",
    "source": "散落于 E:\\wx",
-   "n": 4,
+   "n": 6,
    "latest": "",
    "lag_days": null,
    "new_7d": null,
