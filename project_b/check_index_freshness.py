@@ -85,7 +85,20 @@ def main() -> int:
             print("  候选 %s（%s）列=%s" % (os.path.basename(c["file"]), tag, c["cols"]))
     else:
         print("  无任何候选文件（文件名不含该日期）")
-    notify("指数缺日：%s" % expect, msg + ("；候选 %d 个（详见 temp/index_freshness.log）" % len(cands) if cands else "；无候选文件"))
+    # ★ 2026-10-31：缺日不再只报警——有候选文件就自动补录（长表→基线→大屏一条链）
+    if cands:
+        import subprocess, sys
+        print("  自动补录：index_backfill.py")
+        rc = subprocess.call([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "index_backfill.py")])
+        last2 = last_long_date()
+        if last2 >= expect:
+            notify("指数缺日已自动补齐：%s" % expect, "原缺 %s；补录后长表末日期 %s（rc=%d）" % (expect, last2, rc))
+            print("  补录后最新 %s -> 已补齐" % last2)
+            return 0
+        notify("指数缺日自动补录未成功：%s" % expect, "补录后末日期仍为 %s（rc=%d），需人工看日志" % (last2, rc))
+        return 1
+
+    notify("指数缺日：%s" % expect, msg + "；无候选文件")
     return 1
 
 if __name__ == "__main__":
