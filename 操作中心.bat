@@ -591,6 +591,8 @@ echo    245. [词句] 从 JSON 批量入池（$E:\wx\_incoming_phrases.json）
 
 echo    246. [词句] 查看词句库统计（各类型条数 + 最近十条）
 
+echo    247. [采访] 立刻巡检采访/杂志 → 根表 + 待人工清单 + 站内通知
+
 echo    0. 退出
 
 echo.
@@ -1081,6 +1083,8 @@ if "%op%"=="244" goto phr_add
 if "%op%"=="245" goto phr_bulk
 
 if "%op%"=="246" goto phr_list
+if "%op%"=="247" goto interview_patrol
+
 
 
 echo   [!] 无效选项，请重试
@@ -6507,5 +6511,14 @@ goto menu
 cls
 python -X utf8 project_b\add_phrase.py --list
 echo.
+pause
+goto menu
+
+:interview_patrol
+cls
+echo === 采访/杂志巡检（根表 + 待人工清单 + 通知） ===
+python -X utf8 project_b\interview_daily.py
+echo.
+echo 根表：E:\wx\私有\王晰全文库\采访目录\采访杂志根表.md
 pause
 goto menu

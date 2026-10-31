@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-10-31 16:17",
+ "generated_at": "2026-10-31 20:56",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 245,
-  "dispatch": 245,
+  "menu_items": 246,
+  "dispatch": 246,
   "deploy_steps": 94,
-  "scheduled_tasks": 19
+  "scheduled_tasks": 20
  },
  "tasks": [
   {
@@ -1910,6 +1910,22 @@
    "path": "D:\\wx409.github.io\\project_b\\add_phrase.py"
   },
   {
+   "script": "interview_daily.py",
+   "menu": 247,
+   "title": "[采访] 立刻巡检采访/杂志 → 根表 + 待人工清单 + 站内通知",
+   "menu_label": "interview_patrol",
+   "schedule": {
+    "name": "wx409_interview_daily",
+    "script": "interview_daily.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_daily.py >> temp\\interview_daily.log 2>&1",
+    "next": "2026/11/1 8:20:00",
+    "type": "Daily",
+    "start": "8:20:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\interview_daily.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -2208,7 +2224,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/10/31 16:21:00",
+    "next": "2026/10/31 21:01:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
