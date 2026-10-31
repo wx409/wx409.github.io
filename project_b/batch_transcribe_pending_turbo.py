@@ -62,7 +62,7 @@ print("视频就绪", len(vids), "个")
 md = model_dir()
 if not md:
     print("模型未就绪，等待下载完成…")
-    for _ in range(120):
+    for _ in range(720):
         time.sleep(30)
         md = model_dir()
         if md:
