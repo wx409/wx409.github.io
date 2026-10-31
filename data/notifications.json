@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-31 00:08:00",
+ "updated_at": "2026-10-31 10:04:34",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4569,6 +4569,83 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 10 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-10-31 02:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [41428]），但 dashboard_data.json 已 123.6 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-31 03:01:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [41428]），但 dashboard_data.json 已 173.6 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-31 09:51:03",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [10584]），但 dashboard_data.json 已 583.6 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-10-31 10:00:21",
+   "title": "⚠️ 大屏采集漏批：2026-10-31",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 6.7 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261031.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-10-31 10:00:46",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛稀缺的真&#183;男低音（Bass-baritone）——姚峰称他「作为 Bass-baritone 的 …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-10-31 10:00:46",
+   "title": "📣 王晰【夜色】对你许下诺言：爱你 情深意绵【4k】王晰回个人 ...",
+   "content": "2026年8月24日&ensp;&#0183;&ensp;-, 视频播放量 1761、弹幕量 0、点赞数 86、投硬币枚数 51、收藏人数 39、转发人数 5, 视频作者 不要总是哭唧唧,  …\n链接：https://www.bilibili.com/zh-Hans/video/BV1nvhK6aEKK/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/zh-Hans/video/BV1nvhK6aEKK/"
+  },
+  {
+   "time": "2026-10-31 10:00:46",
+   "title": "📣 王晰的微博_微博",
+   "content": "2024年12月16日&ensp;&#0183;&ensp;王晰，乐华娱乐旗下歌手王晰。王晰的微博主页、个人资料、相册。新浪微博，随时随地分享身边的新鲜事儿。 #勿 …\n链接：https://weibo.com/u/1292815744?tabtype=album",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://weibo.com/u/1292815744?tabtype=album"
+  },
+  {
+   "time": "2026-10-31 10:00:46",
+   "title": "📣 王晰真的是男低音么？ - 知乎",
+   "content": "2020年4月26日&ensp;&#0183;&ensp;首先，《歌手》修音的程度之严重我就不想说什么了； 其次，本人其实不大喜欢王晰的演唱（请注意不是声音是演 …\n链接：https://www.zhihu.com/question/40568290",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/question/40568290"
+  },
+  {
+   "time": "2026-10-31 10:00:46",
+   "title": "📣 王晰超话-微博超话社区",
+   "content": "具体领取条件及实物见图，支持预约。\n链接：https://weibo.com/p/100808a425cb81fcda647a9556adf6206b3417/super_index",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://weibo.com/p/100808a425cb81fcda647a9556adf6206b3417/super_index"
+  },
+  {
+   "time": "2026-10-31 10:00:46",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 5 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-10-31 10:04:34",
+   "title": "少城时代区间全量已收齐",
+   "content": "2016-09-29~2018-12-01（王晰在册期）：2,296 帖、图片 2,515 张 / 2.85 GB、0 失败｜百家号照片年份已按真实年份重归（2019-2026，1,814 张）",
+   "category": "通知"
   }
  ]
 }
