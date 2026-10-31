@@ -1,1160 +1,586 @@
 {
- "generated": "2026-10-27",
- "count": 228,
+ "generated": "2026-10-31",
+ "count": 345,
  "by_type": {
-  "mystic": 128,
-  "interview": 31,
-  "lyrics": 69
+  "mystic": 64,
+  "interview": 29,
+  "song": 68,
+  "lyrics": 124,
+  "talk": 60
  },
- "note": "词句库 v1：自动抽取（玄学=易经卦象表；interview=采访汇编标题/备注；lyrics=歌曲说明，非歌词全文）。歌词全文不入库。",
+ "note": "talk=现场转写短句（未校对 verified=false）；lyrics=歌词片段（仅内部）；song=歌名+官方说明；mystic=卦象整句；interview=标题(mood=title)/备注(mood=note)。",
  "items": [
   {
-   "text": "「天行健，君子以自强不息。",
+   "text": "天行健，君子以自强不息。如王晰《无我》所唱：愿成为夜空中那道光——此即乾德，一往无前。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第2行｜乾为天（刚健）",
+   "source": "易经卦象解析表 第2行｜乾为天（刚健）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "如王晰《无我》所唱：愿成为夜空中那道光——此即乾德，一往无前。",
+   "text": "地势坤，君子以厚德载物。如《平凡又美好的晚上》，岁月如水静静流淌，以柔承刚。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第2行｜乾为天（刚健）",
+   "source": "易经卦象解析表 第3行｜坤为地（柔顺）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「地势坤，君子以厚德载物。",
+   "text": "云雷屯，君子以经纶。此卦如冬末冻土，一阳初动。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第3行｜坤为地（柔顺）",
+   "source": "易经卦象解析表 第4行｜水雷屯（初生）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "如《平凡又美好的晚上》，岁月如水静静流淌，以柔承刚。",
+   "text": "山下出泉，蒙。此卦如晨雾未散，需待启蒙。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第3行｜坤为地（柔顺）",
+   "source": "易经卦象解析表 第5行｜山水蒙（蒙昧）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「云雷屯，君子以经纶。",
+   "text": "云上于天，需。此卦如候雨，时未到，不可急。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第4行｜水雷屯（初生）",
+   "source": "易经卦象解析表 第6行｜水天需（等待）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如冬末冻土，一阳初动。",
+   "text": "天与水违行，讼。此卦如内外相激，需慎言。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第4行｜水雷屯（初生）",
+   "source": "易经卦象解析表 第7行｜天水讼（争讼）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「山下出泉，蒙。",
+   "text": "地中有水，师。此卦如以众克险，需有率。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第5行｜山水蒙（蒙昧）",
+   "source": "易经卦象解析表 第8行｜地水师（行险）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如晨雾未散，需待启蒙。",
+   "text": "地上有水，比。此卦如甘霖润物，上下相亲。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第5行｜山水蒙（蒙昧）",
+   "source": "易经卦象解析表 第9行｜水地比（亲比）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「云上于天，需。",
+   "text": "风行天上，小畜。此卦如密云不雨，尚在蓄力。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第6行｜水天需（等待）",
+   "source": "易经卦象解析表 第10行｜风天小畜（蓄养）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如候雨，时未到，不可急。",
+   "text": "上天下泽，履。此卦如如履薄冰，需慎行。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第6行｜水天需（等待）",
+   "source": "易经卦象解析表 第11行｜天泽履（慎行）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「天与水违行，讼。",
+   "text": "天地交，泰。此卦如阴阳交合，好事将近。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第7行｜天水讼（争讼）",
+   "source": "易经卦象解析表 第12行｜地天泰（通泰）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如内外相激，需慎言。",
+   "text": "天地不交，否。此卦如上下隔阂，需思通变。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第7行｜天水讼（争讼）",
+   "source": "易经卦象解析表 第13行｜天地否（闭塞）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「地中有水，师。",
+   "text": "天与火同人。此卦如日光普照，类族辨物。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第8行｜地水师（行险）",
+   "source": "易经卦象解析表 第14行｜天火同人（和同）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如以众克险，需有率。",
+   "text": "火在天上，大有。此卦如遏恶扬善，丰而有节。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第8行｜地水师（行险）",
+   "source": "易经卦象解析表 第15行｜火天大有（丰有）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「地上有水，比。",
+   "text": "地中有山，谦。此卦如裒多益寡，以退为进。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第9行｜水地比（亲比）",
+   "source": "易经卦象解析表 第16行｜地山谦（谦退）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如甘霖润物，上下相亲。",
+   "text": "雷出地奋，豫。此卦如顺以动，但不可溺于乐。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第9行｜水地比（亲比）",
+   "source": "易经卦象解析表 第17行｜雷地豫（豫乐）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「风行天上，小畜。",
+   "text": "泽中有雷，随。此卦如随时而动，不可固执。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第10行｜风天小畜（蓄养）",
+   "source": "易经卦象解析表 第18行｜泽雷随（随从）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如密云不雨，尚在蓄力。",
+   "text": "山下有风，蛊。此卦如振蛊育德，需革新。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第10行｜风天小畜（蓄养）",
+   "source": "易经卦象解析表 第19行｜山风蛊（腐败）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「上天下泽，履。",
+   "text": "泽上有地，临。此卦如教思无穷，临近光明。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第11行｜天泽履（慎行）",
+   "source": "易经卦象解析表 第20行｜地泽临（临莅）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如如履薄冰，需慎行。",
+   "text": "风行地上，观。此卦如先观后行，不可妄动。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第11行｜天泽履（慎行）",
+   "source": "易经卦象解析表 第21行｜风地观（观瞻）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「天地交，泰。",
+   "text": "雷电噬嗑。此卦如利用狱，需明断。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第12行｜地天泰（通泰）",
+   "source": "易经卦象解析表 第22行｜火雷噬嗑（咬合）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如阴阳交合，好事将近。",
+   "text": "山下有火，贲。此卦如饰外扬中，文不可过。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第12行｜地天泰（通泰）",
+   "source": "易经卦象解析表 第23行｜山火贲（文饰）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「天地不交，否。",
+   "text": "山附于地，剥。此卦如群阴剥阳，需知止。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第13行｜天地否（闭塞）",
+   "source": "易经卦象解析表 第24行｜山地剥（剥落）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如上下隔阂，需思通变。",
+   "text": "雷在地中，复。此卦如一阳来复，七日可候。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第13行｜天地否（闭塞）",
+   "source": "易经卦象解析表 第25行｜地雷复（回复）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「天与火同人。",
+   "text": "天下雷行，无妄。此卦如不妄行，守正可得。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第14行｜天火同人（和同）",
+   "source": "易经卦象解析表 第26行｜天雷无妄（无妄）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如日光普照，类族辨物。",
+   "text": "天在山中，大畜。此卦如止而后行，蓄力待发。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第14行｜天火同人（和同）",
+   "source": "易经卦象解析表 第27行｜山天大畜（蓄止）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「火在天上，大有。",
+   "text": "山下有雷，颐。此卦如慎言语节饮食，养正为先。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第15行｜火天大有（丰有）",
+   "source": "易经卦象解析表 第28行｜山雷颐（颐养）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如遏恶扬善，丰而有节。",
+   "text": "泽灭木，大过。此卦如栋桡之危，不可冒进。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第15行｜火天大有（丰有）",
+   "source": "易经卦象解析表 第29行｜泽风大过（大过）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「地中有山，谦。",
+   "text": "水洊至，习坎。此卦如行有尚，虽险可渡。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第16行｜地山谦（谦退）",
+   "source": "易经卦象解析表 第30行｜坎为水（习坎）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如裒多益寡，以退为进。",
+   "text": "明两作，离。此卦如大人以继明，附丽有道。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第16行｜地山谦（谦退）",
+   "source": "易经卦象解析表 第31行｜离为火（附丽）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「雷出地奋，豫。",
+   "text": "山上有泽，咸。此卦如取女吉，感而遂通。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第17行｜雷地豫（豫乐）",
+   "source": "易经卦象解析表 第32行｜泽山咸（交感）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如顺以动，但不可溺于乐。",
+   "text": "雷风相与，恒。此卦如久于其道，恒而有终。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第17行｜雷地豫（豫乐）",
+   "source": "易经卦象解析表 第33行｜雷风恒（恒久）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「泽中有雷，随。",
+   "text": "天下有山，遁。此卦如远小人，不恶而严。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第18行｜泽雷随（随从）",
+   "source": "易经卦象解析表 第34行｜天山遁（退避）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如随时而动，不可固执。",
+   "text": "雷在天上，大壮。此卦如壮勿妄动，知节不悔。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第18行｜泽雷随（随从）",
+   "source": "易经卦象解析表 第35行｜雷天大壮（大壮）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「山下有风，蛊。",
+   "text": "明出地上，晋。此卦如自昭明德，进而上行。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第19行｜山风蛊（腐败）",
+   "source": "易经卦象解析表 第36行｜火地晋（晋进）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如振蛊育德，需革新。",
+   "text": "明入地中，明夷。此卦如晦而明，内文明而外柔顺。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第19行｜山风蛊（腐败）",
+   "source": "易经卦象解析表 第37行｜地火明夷（明夷）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「泽上有地，临。",
+   "text": "风自火出，家人。此卦如正家而天下定。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第20行｜地泽临（临莅）",
+   "source": "易经卦象解析表 第38行｜风火家人（家人）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如教思无穷，临近光明。",
+   "text": "上火下泽，睽。此卦如求同存异，乖中有合。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第20行｜地泽临（临莅）",
+   "source": "易经卦象解析表 第39行｜火泽睽（乖睽）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「风行地上，观。",
+   "text": "山上有水，蹇。此卦如反身修德，难中有进。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第21行｜风地观（观瞻）",
+   "source": "易经卦象解析表 第40行｜水山蹇（蹇难）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如先观后行，不可妄动。",
+   "text": "雷雨作，解。此卦如赦过宥罪，解而后散。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第21行｜风地观（观瞻）",
+   "source": "易经卦象解析表 第41行｜雷水解（解散）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「雷电噬嗑。",
+   "text": "山下有泽，损。此卦如损下益上，损有余补不足。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第22行｜火雷噬嗑（咬合）",
+   "source": "易经卦象解析表 第42行｜山泽损（减损）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如利用狱，需明断。",
+   "text": "风雷益。此卦如损上益下，积善有余。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第22行｜火雷噬嗑（咬合）",
+   "source": "易经卦象解析表 第43行｜风雷益（增益）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「山下有火，贲。",
+   "text": "泽上于天，夬。此卦如施禄及下，决而能和。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第23行｜山火贲（文饰）",
+   "source": "易经卦象解析表 第44行｜泽天夬（决去）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如饰外扬中，文不可过。",
+   "text": "天下有风，姤。此卦如遇勿用取女，慎始为上。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第23行｜山火贲（文饰）",
+   "source": "易经卦象解析表 第45行｜天风姤（遇合）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「山附于地，剥。",
+   "text": "泽上于地，萃。此卦如聚以正，不乱群。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第24行｜山地剥（剥落）",
+   "source": "易经卦象解析表 第46行｜泽地萃（萃聚）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如群阴剥阳，需知止。",
+   "text": "地中生木，升。此卦如积小高大，柔以时升。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第24行｜山地剥（剥落）",
+   "source": "易经卦象解析表 第47行｜地风升（上升）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「雷在地中，复。",
+   "text": "泽无水，困。此卦如致命遂志，困而有终。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第25行｜地雷复（回复）",
+   "source": "易经卦象解析表 第48行｜泽水困（困穷）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如一阳来复，七日可候。",
+   "text": "木上有水，井。此卦如劳民劝相，井养不穷。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第25行｜地雷复（回复）",
+   "source": "易经卦象解析表 第49行｜水风井（井养）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「天下雷行，无妄。",
+   "text": "泽中有火，革。此卦如顺天应人，革而当悔亡。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第26行｜天雷无妄（无妄）",
+   "source": "易经卦象解析表 第50行｜泽火革（变革）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如不妄行，守正可得。",
+   "text": "木上有火，鼎。此卦如正位凝命，鼎新而立。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第26行｜天雷无妄（无妄）",
+   "source": "易经卦象解析表 第51行｜火风鼎（鼎新）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「天在山中，大畜。",
+   "text": "洊雷震。此卦如恐惧修省，动而有节。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第27行｜山天大畜（蓄止）",
+   "source": "易经卦象解析表 第52行｜震为雷（震动）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如止而后行，蓄力待发。",
+   "text": "兼山艮。此卦如思不出位，止其所止。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第27行｜山天大畜（蓄止）",
+   "source": "易经卦象解析表 第53行｜艮为山（止静）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「山下有雷，颐。",
+   "text": "山上有木，渐。此卦如女归吉，渐进而得。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第28行｜山雷颐（颐养）",
+   "source": "易经卦象解析表 第54行｜风山渐（渐进）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如慎言语节饮食，养正为先。",
+   "text": "泽上有雷，归妹。此卦如征凶无攸利，需待时。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第28行｜山雷颐（颐养）",
+   "source": "易经卦象解析表 第55行｜雷泽归妹（嫁归）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「泽灭木，大过。",
+   "text": "雷电皆至，丰。此卦如折狱致刑，丰而不骄。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第29行｜泽风大过（大过）",
+   "source": "易经卦象解析表 第56行｜雷火丰（丰大）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如栋桡之危，不可冒进。",
+   "text": "山上有火，旅。此卦如明慎用刑，旅而有寄。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第29行｜泽风大过（大过）",
+   "source": "易经卦象解析表 第57行｜火山旅（行旅）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「水洊至，习坎。",
+   "text": "随风巽。此卦如申命行事，巽而顺行。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第30行｜坎为水（习坎）",
+   "source": "易经卦象解析表 第58行｜巽为风（巽入）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如行有尚，虽险可渡。",
+   "text": "丽泽兑。此卦如和悦民，悦而不谄。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第30行｜坎为水（习坎）",
+   "source": "易经卦象解析表 第59行｜兑为泽（悦泽）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「明两作，离。",
+   "text": "风行水上，涣。此卦如先王享于帝立庙，涣而有宗。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第31行｜离为火（附丽）",
+   "source": "易经卦象解析表 第60行｜风水涣（涣散）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如大人以继明，附丽有道。",
+   "text": "泽上有水，节。此卦如制数度议德行，节而不过。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第31行｜离为火（附丽）",
+   "source": "易经卦象解析表 第61行｜水泽节（节制）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「山上有泽，咸。",
+   "text": "泽上有风，中孚。此卦如议狱缓死，孚而有信。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第32行｜泽山咸（交感）",
+   "source": "易经卦象解析表 第62行｜风泽中孚（诚信）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如取女吉，感而遂通。",
+   "text": "山上有雷，小过。此卦如小事吉，过而不过。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第32行｜泽山咸（交感）",
+   "source": "易经卦象解析表 第63行｜雷山小过（小过）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "「雷风相与，恒。",
+   "text": "水在火上，既济。此卦如初吉终乱，济而思患。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第33行｜雷风恒（恒久）",
+   "source": "易经卦象解析表 第64行｜水火既济（既济）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
    "verified": true
   },
   {
-   "text": "此卦如久于其道，恒而有终。",
+   "text": "火在水上，未济。此卦如物不可穷，未济而终。",
    "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第33行｜雷风恒（恒久）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「天下有山，遁。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第34行｜天山遁（退避）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如远小人，不恶而严。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第34行｜天山遁（退避）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「雷在天上，大壮。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第35行｜雷天大壮（大壮）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如壮勿妄动，知节不悔。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第35行｜雷天大壮（大壮）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「明出地上，晋。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第36行｜火地晋（晋进）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如自昭明德，进而上行。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第36行｜火地晋（晋进）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「明入地中，明夷。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第37行｜地火明夷（明夷）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如晦而明，内文明而外柔顺。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第37行｜地火明夷（明夷）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「风自火出，家人。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第38行｜风火家人（家人）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如正家而天下定。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第38行｜风火家人（家人）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「上火下泽，睽。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第39行｜火泽睽（乖睽）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如求同存异，乖中有合。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第39行｜火泽睽（乖睽）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「山上有水，蹇。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第40行｜水山蹇（蹇难）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如反身修德，难中有进。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第40行｜水山蹇（蹇难）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「雷雨作，解。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第41行｜雷水解（解散）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如赦过宥罪，解而后散。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第41行｜雷水解（解散）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「山下有泽，损。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第42行｜山泽损（减损）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如损下益上，损有余补不足。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第42行｜山泽损（减损）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「风雷益。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第43行｜风雷益（增益）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如损上益下，积善有余。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第43行｜风雷益（增益）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽上于天，夬。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第44行｜泽天夬（决去）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如施禄及下，决而能和。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第44行｜泽天夬（决去）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「天下有风，姤。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第45行｜天风姤（遇合）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如遇勿用取女，慎始为上。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第45行｜天风姤（遇合）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽上于地，萃。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第46行｜泽地萃（萃聚）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如聚以正，不乱群。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第46行｜泽地萃（萃聚）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「地中生木，升。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第47行｜地风升（上升）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如积小高大，柔以时升。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第47行｜地风升（上升）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽无水，困。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第48行｜泽水困（困穷）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如致命遂志，困而有终。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第48行｜泽水困（困穷）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「木上有水，井。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第49行｜水风井（井养）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如劳民劝相，井养不穷。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第49行｜水风井（井养）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽中有火，革。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第50行｜泽火革（变革）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如顺天应人，革而当悔亡。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第50行｜泽火革（变革）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「木上有火，鼎。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第51行｜火风鼎（鼎新）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如正位凝命，鼎新而立。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第51行｜火风鼎（鼎新）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「洊雷震。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第52行｜震为雷（震动）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如恐惧修省，动而有节。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第52行｜震为雷（震动）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「兼山艮。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第53行｜艮为山（止静）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如思不出位，止其所止。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第53行｜艮为山（止静）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「山上有木，渐。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第54行｜风山渐（渐进）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如女归吉，渐进而得。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第54行｜风山渐（渐进）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽上有雷，归妹。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第55行｜雷泽归妹（嫁归）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如征凶无攸利，需待时。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第55行｜雷泽归妹（嫁归）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「雷电皆至，丰。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第56行｜雷火丰（丰大）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如折狱致刑，丰而不骄。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第56行｜雷火丰（丰大）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「山上有火，旅。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第57行｜火山旅（行旅）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如明慎用刑，旅而有寄。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第57行｜火山旅（行旅）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「随风巽。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第58行｜巽为风（巽入）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如申命行事，巽而顺行。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第58行｜巽为风（巽入）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「丽泽兑。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第59行｜兑为泽（悦泽）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如和悦民，悦而不谄。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第59行｜兑为泽（悦泽）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「风行水上，涣。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第60行｜风水涣（涣散）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如先王享于帝立庙，涣而有宗。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第60行｜风水涣（涣散）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽上有水，节。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第61行｜水泽节（节制）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如制数度议德行，节而不过。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第61行｜水泽节（节制）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「泽上有风，中孚。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第62行｜风泽中孚（诚信）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如议狱缓死，孚而有信。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第62行｜风泽中孚（诚信）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「山上有雷，小过。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第63行｜雷山小过（小过）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如小事吉，过而不过。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第63行｜雷山小过（小过）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「水在火上，既济。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第64行｜水火既济（既济）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如初吉终乱，济而思患。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第64行｜水火既济（既济）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "「火在水上，未济。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第65行｜火水未济（未济）",
-   "curated": false,
-   "rights": "娱乐向",
-   "mood": "mystic",
-   "verified": true
-  },
-  {
-   "text": "此卦如物不可穷，未济而终。",
-   "type": "mystic",
-   "source": "易经卦象解析表.xlsx 第65行｜火水未济（未济）",
+   "source": "易经卦象解析表 第65行｜火水未济（未济）",
    "curated": false,
    "rights": "娱乐向",
    "mood": "mystic",
@@ -1163,902 +589,2531 @@
   {
    "text": "2012年9月30日《中国文艺》吕继宏专场访谈",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第2行",
+   "source": "采访记录汇编 第2行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "与吕继宏合唱《朋友别哭》，提到“团长经常请大家吃饭”等趣事。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第2行",
+   "source": "采访记录汇编 第2行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2013年《中国艺术报》专访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第3行",
+   "source": "采访记录汇编 第3行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "标题《王晰：我的路，越走越清晰》，回顾从酒吧驻场到获得金钟奖和青歌赛冠军的经历。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第3行",
+   "source": "采访记录汇编 第3行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
-  },
-  {
-   "text": "2013年8月12日金钟奖新闻发布会",
-   "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第4行",
-   "curated": false,
-   "rights": "free",
-   "mood": "interview",
-   "verified": true
   },
   {
    "text": "由中国音协举办，王晰出席并接受采访。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第4行",
+   "source": "采访记录汇编 第4行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2014年11月12日CCTV《天天把歌唱》栏目采访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第5行",
+   "source": "采访记录汇编 第5行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "在演唱《忘不了》之前接受节目的简短采访。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第5行",
+   "source": "采访记录汇编 第5行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2015年北京广播电台974《百字情书》采访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第6行",
+   "source": "采访记录汇编 第6行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "分享歌曲《光阴的故事》。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第6行",
+   "source": "采访记录汇编 第6行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2016年2月15日红网专访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第7行",
+   "source": "采访记录汇编 第7行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "以《歌手4》踢馆新人身份，详细讲述曾做代驾司机的辛酸过往。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第7行",
+   "source": "采访记录汇编 第7行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2016年《歌手》期间采访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第8行",
+   "source": "采访记录汇编 第8行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "透露当年的温馨目标：“当爸爸”。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第8行",
+   "source": "采访记录汇编 第8行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2017年3月11日曹芙嘉演唱会相关采访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第9行",
+   "source": "采访记录汇编 第9行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
-  },
-  {
-   "text": "具体采访内容未详细记录。",
-   "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第9行",
-   "curated": false,
-   "rights": "free",
-   "mood": "interview",
-   "verified": false
   },
   {
    "text": "2017年12月4日《十八般歌艺》直播访谈",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第10行",
+   "source": "采访记录汇编 第10行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "主题为“十年磨一剑，开腔路转粉”。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第10行",
+   "source": "采访记录汇编 第10行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2017年12月23日《法制晚报》采访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第11行",
+   "source": "采访记录汇编 第11行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "2018年11月19日《周到》专访（《声入人心》期间）",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第12行",
+   "source": "采访记录汇编 第12行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
-   "text": "谈到坚持的意义：“在这个路上，有的人上车，有的人下车……能够坚持下来的都是很了不起的。",
+   "text": "谈到坚持的意义：“在这个路上，有的人上车，有的人下车……能够坚持下来的都是很了不起的。”",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第12行",
+   "source": "采访记录汇编 第12行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2019年4月微博博主深度采访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第13行",
+   "source": "采访记录汇编 第13行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "被称为“最真挚和最深入”的采访，展现了王晰在音乐上的使命感和事业心。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第13行",
+   "source": "采访记录汇编 第13行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2020年4月21日百度百家号专访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第14行",
+   "source": "采访记录汇编 第14行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "标题《王晰：在尘埃中开出花朵，成为“男低音”的“救命稻草”》，形容他“矫情”和“真实”。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第14行",
+   "source": "采访记录汇编 第14行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2025年1月2日湖南日报专访",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第15行",
+   "source": "采访记录汇编 第15行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "将巡回音乐会《吾》的新年第一站定在长沙，称其为“梦想开始的地方”。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第15行",
+   "source": "采访记录汇编 第15行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2025年4月11日播客节目访谈",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第16行",
+   "source": "采访记录汇编 第16行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "称低音是“天赐的礼物”，形容低音像“大海，表面平静，内里却汹涌澎湃”。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第16行",
+   "source": "采访记录汇编 第16行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "2025年6月下旬湖南卫视《背后》深度访谈",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第17行",
+   "source": "采访记录汇编 第17行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "title",
    "verified": true
   },
   {
    "text": "坦言对《歌手》舞台留有遗憾，提到“家庭”和“作品”是最坚实的安全区。",
    "type": "interview",
-   "source": "王晰采访记录汇编.xlsx 第17行",
+   "source": "采访记录汇编 第17行",
    "curated": false,
    "rights": "free",
-   "mood": "interview",
+   "mood": "note",
    "verified": false
   },
   {
    "text": "生活该有的样子：演唱网易云特别企划「不期而乐」歌曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第2行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第2行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "蓝色臻爱：品牌单曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第3行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第3行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "你是青山：电视剧《绿水青山带笑颜》主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第4行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第4行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "哭砂：TME「返场」特别企划「华语金曲10 20 30」",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第5行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第5行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "微而足道：电视剧《亲爱的孩子》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第6行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第6行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "相思：网剧《少年游之一寸相思》主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第7行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第7行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "别离的预感：TME特别企划「返场」「君歌年华」系列的第六首(重新填词)",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第8行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第8行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "爱我吗：电视剧《爱我就别想太多》的插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第9行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第9行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "只好背叛地球了：真人互动漫改剧【只好背叛地球了】同名主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第10行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第10行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "把一切给明天：电视剧《二十不惑》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第11行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第11行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "往前：电视剧《局中人》主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第12行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第12行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "爸爸的木匠小屋：纪录片《爸爸的木匠小屋》第三季主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第13行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第13行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "遇见幸福：电视剧《幸福还会来敲门》片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第14行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第14行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "Sunlight：《镜双城》动画歌曲片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第15行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第15行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "追幸福的人：电视剧《幸福还会来敲门》主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第16行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第16行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "到达：电视剧《最美逆行者》“1000公里”篇章主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第17行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第17行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "我们的歌：歌曲是电影《我和我的家乡》推广曲，聚焦东北单元《神笔马亮》",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第18行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第18行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "迷雾：网剧《迷雾追踪》片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第19行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第19行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "如翡：网剧《有翡》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第20行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第20行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "一言千年：电影《长安伏妖》片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第21行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第21行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "剑起山林：天涯明月刀手游真武门派主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第22行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第22行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "萤火：泰剧《王子变青蛙》片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第23行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第23行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "信念：电视剧《巡回检察组》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第24行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第24行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "爱于此生：网剧《上阳赋》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第25行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第25行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "罗辑：喜马拉雅广播剧《三体》第四季人物曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第26行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第26行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
-   "text": "弘扬：《你好呀！",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第27行",
+   "text": "弘扬：《你好呀！故宫——听见你的600年》节目主题曲",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第27行",
    "curated": false,
-   "rights": "仅内部",
-   "mood": "song",
-   "verified": true
-  },
-  {
-   "text": "故宫——听见你的600年》节目主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第27行",
-   "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "小丈夫：网剧《赘婿》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第28行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第28行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "故事慢慢说：网剧《约定》之《来碗鸭血粉丝汤》单元曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第29行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第29行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
-   "text": "灯塔：电视剧《家道颖颖之大 考2020》主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第30行",
+   "text": "灯塔：电视剧《家道颖颖之大\n考2020》主题曲",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第30行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "盲：网剧《山河令》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第31行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第31行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "阳关引：电视剧《大宋宫词》片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第32行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第32行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "盛世：网剧《骊歌行》推广曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第33行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第33行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "铸梦：湖北历史博物馆文物推广曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第34行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第34行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "绝不会和你错过：影视剧《爱上特种兵》的插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第35行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第35行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "生而逢时：《我们的新时代》电视剧插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第36行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第36行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "星空穹顶：《残次品·放逐星空》动画片尾曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第37行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第37行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "一声阿爸：电视剧《阿坝一家人》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第38行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第38行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "时间：王晰演唱《玫瑰行者》网剧插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第39行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第39行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "群落：电影《太空群落》主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第40行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第40行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "说了再见 (男声版)：《说了再见》 (男声版)电视剧《程序员那么可爱》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第41行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第41行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "我可以抱你吗：腾讯音乐娱乐特别企划",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第42行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第42行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "野兽的花：野兽派十周年纪念单曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第43行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第43行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "有你在的美好：《伍六七之玄武国篇》推广曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第44行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第44行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "我的命运：腾讯音乐娱乐特别企划「返场」之重译海外之声",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第45行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第45行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "不赖：电视剧《赖猫的狮子倒影》 片头曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第46行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第46行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "无畏：《特战行动》电视剧插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第47行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第47行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
-   "text": "我们都是运动员：演唱由国务院国资委新闻中心官方新媒体平台国资小新携手咪咕文化科技有限公司、中国唱片集团有限公司原创制作的",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第48行",
+   "text": "我们都是运动员：演唱由国务院国资委新闻中心官方新媒体平台国资小新携手咪咕文化科技有限公司、中国唱片集团有限公司原创制作的歌曲",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第48行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "一个都不落下：以乡村振兴、共同富裕为主题的公益歌曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第49行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第49行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "三十三：电视剧《好好说话》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第50行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第50行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "美好正发声：中国品牌日推广曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第51行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第51行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "梦开始的地方：“中国人的故事·唱给你听”音乐项目第二十五支单曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第52行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第52行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "下潜：梦幻西游电脑端无底洞门派曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第53行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第53行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "也许：《通天塔》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第54行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第54行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "一生中最爱：2022粤港澳大湾区主题音乐企划【粤好听】青春重置计划特别篇",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第55行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第55行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "信仰之路：音乐集《红尘路上》",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第56行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第56行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "午后三点：《超时空罗曼史》心动主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第57行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第57行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "外婆：单曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第58行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第58行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "平凡又美好的晚上：中国青年报·中青在线出品",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第59行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第59行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "无我：声在中国工作室出品",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第60行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第60行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "无心：影视剧少年歌行人物主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第61行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第61行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "苏幕遮：山河之影插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第62行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第62行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "从现在 到未来：杭州第19届亚运会官方主题推广曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第63行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第63行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "过客：2023年生日单曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第64行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第64行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "渡荆门送别：经典咏流传第六季正青春第6期歌曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第65行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第65行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "隐秘的心：电视剧《繁华似锦》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第66行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第66行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "光阴的船：杭州第19届亚运会官方献礼剧电视剧《泳往直前》亲情主题曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第67行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第67行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "玫瑰：电视剧《以爱为营》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第68行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第68行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
   },
   {
    "text": "新的篇章：电视剧《天下同心》插曲",
-   "type": "lyrics",
-   "source": "王晰歌曲信息汇总.xlsx 第73行",
+   "type": "song",
+   "source": "王晰歌曲信息汇总 第73行",
    "curated": false,
-   "rights": "仅内部",
+   "rights": "free",
    "mood": "song",
    "verified": true
+  },
+  {
+   "text": "让我独自在阴雨天，把艳阳留在你身边",
+   "type": "lyrics",
+   "source": "歌词《你要忘了我》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/感伤",
+   "verified": true
+  },
+  {
+   "text": "我希望你能忘了我，让回忆在远处沉默",
+   "type": "lyrics",
+   "source": "歌词《你要忘了我》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/告别",
+   "verified": true
+  },
+  {
+   "text": "我们曾多么甜蜜的瞬间，锁在那些心酸的相片",
+   "type": "lyrics",
+   "source": "歌词《你要忘了我》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "回忆/感伤",
+   "verified": true
+  },
+  {
+   "text": "就让我带着富有的心流浪，好天气给的自由啊",
+   "type": "lyrics",
+   "source": "歌词《带着一颗好心去流浪》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "自由/勇气",
+   "verified": true
+  },
+  {
+   "text": "我将生出胆魄，埋葬了脆弱",
+   "type": "lyrics",
+   "source": "歌词《带着一颗好心去流浪》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "勇气/励志",
+   "verified": true
+  },
+  {
+   "text": "趟过慈悲的河，更懂得澎湃和寂寞",
+   "type": "lyrics",
+   "source": "歌词《带着一颗好心去流浪》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/成长",
+   "verified": true
+  },
+  {
+   "text": "没人拥抱，却了解的快乐",
+   "type": "lyrics",
+   "source": "歌词《带着一颗好心去流浪》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/孤独",
+   "verified": true
+  },
+  {
+   "text": "夜色太美，我还是舍不得睡着",
+   "type": "lyrics",
+   "source": "歌词《晚风暖暖》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "浪漫/深夜",
+   "verified": true
+  },
+  {
+   "text": "我的心，醉倒在晚风里",
+   "type": "lyrics",
+   "source": "歌词《晚风暖暖》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "浪漫/思念",
+   "verified": true
+  },
+  {
+   "text": "窗外星光闪耀，有你刚刚好",
+   "type": "lyrics",
+   "source": "歌词《晚风暖暖》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/浪漫",
+   "verified": true
+  },
+  {
+   "text": "子夜，沉沉呼吸，招揽睡意，拢进身体",
+   "type": "lyrics",
+   "source": "歌词《下沉》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/平静",
+   "verified": true
+  },
+  {
+   "text": "要飞的，让它飞着，撩成风，绕着我",
+   "type": "lyrics",
+   "source": "歌词《下沉》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/平静",
+   "verified": true
+  },
+  {
+   "text": "要坠的，让它坠落，让它坠成个梦，罩着我沉没",
+   "type": "lyrics",
+   "source": "歌词《下沉》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/失眠",
+   "verified": true
+  },
+  {
+   "text": "时间静止了，停在夜晚",
+   "type": "lyrics",
+   "source": "歌词《静止了的夜晚》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "浪漫/深夜",
+   "verified": true
+  },
+  {
+   "text": "在心中盛开的爱情，让好多话沉默，可是沉默，你都听来",
+   "type": "lyrics",
+   "source": "歌词《静止了的夜晚》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/爱情",
+   "verified": true
+  },
+  {
+   "text": "我美丽平凡的爱情，点亮幸运的我",
+   "type": "lyrics",
+   "source": "歌词《静止了的夜晚》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/治愈",
+   "verified": true
+  },
+  {
+   "text": "梦呓幽月，孑然已入月，昼夜泛起思念",
+   "type": "lyrics",
+   "source": "歌词《茕茕》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/深夜",
+   "verified": true
+  },
+  {
+   "text": "一帘思念，好似在前，思忆化明月",
+   "type": "lyrics",
+   "source": "歌词《茕茕》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/感伤",
+   "verified": true
+  },
+  {
+   "text": "日复一日，年复一年，似此星辰并非昨夜",
+   "type": "lyrics",
+   "source": "歌词《茕茕》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "回忆/感伤",
+   "verified": true
+  },
+  {
+   "text": "那就好好对你说声再见",
+   "type": "lyrics",
+   "source": "歌词《好好说再见》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/告别",
+   "verified": true
+  },
+  {
+   "text": "回忆停在旧屋檐，往事风里荡秋千",
+   "type": "lyrics",
+   "source": "歌词《好好说再见》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "回忆/感伤",
+   "verified": true
+  },
+  {
+   "text": "但愿我能看见你笑着，走回命运的原点",
+   "type": "lyrics",
+   "source": "歌词《好好说再见》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "祝福/释怀",
+   "verified": true
+  },
+  {
+   "text": "酒馆里的旧桌椅，半瓶陈酒",
+   "type": "lyrics",
+   "source": "歌词《重游往昔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "回忆/深夜",
+   "verified": true
+  },
+  {
+   "text": "愿我只要想念，就能重游往昔",
+   "type": "lyrics",
+   "source": "歌词《重游往昔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/温暖",
+   "verified": true
+  },
+  {
+   "text": "时光说到底，情意川流不息",
+   "type": "lyrics",
+   "source": "歌词《重游往昔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/回忆",
+   "verified": true
+  },
+  {
+   "text": "我爱你，云一定知道",
+   "type": "lyrics",
+   "source": "歌词《云一定知道》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/浪漫",
+   "verified": true
+  },
+  {
+   "text": "每当思念，掏空了心，剩下一整片蓝色忧郁",
+   "type": "lyrics",
+   "source": "歌词《云一定知道》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/感伤",
+   "verified": true
+  },
+  {
+   "text": "你说思念，看似无形，却化成全世界的大雨",
+   "type": "lyrics",
+   "source": "歌词《云一定知道》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/感伤",
+   "verified": true
+  },
+  {
+   "text": "我们是一对困在水中的鱼，互相伤害又互相安慰宽心",
+   "type": "lyrics",
+   "source": "歌词《双鱼》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/爱情",
+   "verified": true
+  },
+  {
+   "text": "可惜七秒的记忆，只允许一见钟情",
+   "type": "lyrics",
+   "source": "歌词《双鱼》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/浪漫",
+   "verified": true
+  },
+  {
+   "text": "流下的眼泪从来不露痕迹",
+   "type": "lyrics",
+   "source": "歌词《双鱼》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/孤独",
+   "verified": true
+  },
+  {
+   "text": "回忆像幅画，美的不像话",
+   "type": "lyrics",
+   "source": "歌词《等一等昨天》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "回忆/温暖",
+   "verified": true
+  },
+  {
+   "text": "当时的快乐，多简单无暇，幸福没那么复杂",
+   "type": "lyrics",
+   "source": "歌词《等一等昨天》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/温暖",
+   "verified": true
+  },
+  {
+   "text": "当夕阳刷红了我的发，有个她，还放不下",
+   "type": "lyrics",
+   "source": "歌词《等一等昨天》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "回忆/思念",
+   "verified": true
+  },
+  {
+   "text": "我陪你，写求救信，寄不出去，雪人都不理",
+   "type": "lyrics",
+   "source": "歌词《雪地里寄不出的求救信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "孤独/温柔",
+   "verified": true
+  },
+  {
+   "text": "我陪你，把脚印，漏在冰天雪地，逆着光，倒在地，看星星",
+   "type": "lyrics",
+   "source": "歌词《雪地里寄不出的求救信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温柔/治愈",
+   "verified": true
+  },
+  {
+   "text": "一朵花，又绽放，能不能，停下欣赏",
+   "type": "lyrics",
+   "source": "歌词《歌颂》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/平静",
+   "verified": true
+  },
+  {
+   "text": "用尚有的自由，为生命的隙缝，让我们歌颂",
+   "type": "lyrics",
+   "source": "歌词《歌颂》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "自由/治愈",
+   "verified": true
+  },
+  {
+   "text": "雾里有灯，就会有人，愿意一直等",
+   "type": "lyrics",
+   "source": "歌词《游离》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/治愈",
+   "verified": true
+  },
+  {
+   "text": "别问爱多深，远方有灯，注定有人，相信着永恒",
+   "type": "lyrics",
+   "source": "歌词《游离》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/浪漫",
+   "verified": true
+  },
+  {
+   "text": "安静缥缈却奋不顾身，只要有可能",
+   "type": "lyrics",
+   "source": "歌词《游离》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "勇气/治愈",
+   "verified": true
+  },
+  {
+   "text": "有了光的默许，抬眼就看到，平凡奇迹",
+   "type": "lyrics",
+   "source": "歌词《哑光》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/希望",
+   "verified": true
+  },
+  {
+   "text": "不反射谁的光，阿光他默默暗自光亮",
+   "type": "lyrics",
+   "source": "歌词《哑光》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温柔/励志",
+   "verified": true
+  },
+  {
+   "text": "看扬起的微尘，穿越沉寂，有闪光的自己",
+   "type": "lyrics",
+   "source": "歌词《哑光》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "励志/希望",
+   "verified": true
+  },
+  {
+   "text": "习惯了紧跟着人群取暖，一个人回家才不孤单",
+   "type": "lyrics",
+   "source": "歌词《时空》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/孤独",
+   "verified": true
+  },
+  {
+   "text": "哼着歌，总会被听到的",
+   "type": "lyrics",
+   "source": "歌词《时空》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/治愈",
+   "verified": true
+  },
+  {
+   "text": "多么想，一整晚，等月亮探出一小半",
+   "type": "lyrics",
+   "source": "歌词《时空》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/浪漫",
+   "verified": true
+  },
+  {
+   "text": "悬着的才挂念，无解才更想念",
+   "type": "lyrics",
+   "source": "歌词《悬念》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/感伤",
+   "verified": true
+  },
+  {
+   "text": "人都是，悬着的才挂念",
+   "type": "lyrics",
+   "source": "歌词《悬念》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/深夜",
+   "verified": true
+  },
+  {
+   "text": "雾里看的花儿最美",
+   "type": "lyrics",
+   "source": "歌词《悬念》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "浪漫/治愈",
+   "verified": true
+  },
+  {
+   "text": "我的信任，来自本能，这段即兴旅程，没有剧本",
+   "type": "lyrics",
+   "source": "歌词《轻信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "真诚/勇气",
+   "verified": true
+  },
+  {
+   "text": "感性的人，才会幸存",
+   "type": "lyrics",
+   "source": "歌词《轻信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "真诚/治愈",
+   "verified": true
+  },
+  {
+   "text": "若放下防备，相爱才会，当之无愧",
+   "type": "lyrics",
+   "source": "歌词《轻信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "爱情/真诚",
+   "verified": true
+  },
+  {
+   "text": "都曾经过浪漫，浪漫只是无聊上一站",
+   "type": "lyrics",
+   "source": "歌词《分岔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/感伤",
+   "verified": true
+  },
+  {
+   "text": "不要回头看，电视里放着旧日片单",
+   "type": "lyrics",
+   "source": "歌词《分岔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/深夜",
+   "verified": true
+  },
+  {
+   "text": "半生人间游览，分岔路口告别过千万",
+   "type": "lyrics",
+   "source": "歌词《分岔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "离别/释怀",
+   "verified": true
+  },
+  {
+   "text": "多少人为永远，错过了一秒",
+   "type": "lyrics",
+   "source": "歌词《知晓》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/深夜",
+   "verified": true
+  },
+  {
+   "text": "无声中有的答案，不再害怕，或多或少",
+   "type": "lyrics",
+   "source": "歌词《知晓》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/平静",
+   "verified": true
+  },
+  {
+   "text": "别怕，无声，期待，祈祷",
+   "type": "lyrics",
+   "source": "歌词《知晓》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/治愈",
+   "verified": true
+  },
+  {
+   "text": "偏偏你看重的只是简单",
+   "type": "lyrics",
+   "source": "歌词《偏偏》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/爱情",
+   "verified": true
+  },
+  {
+   "text": "偏偏你最懂我心中不安",
+   "type": "lyrics",
+   "source": "歌词《偏偏》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/爱情",
+   "verified": true
+  },
+  {
+   "text": "还好偏偏，巧合的很圆满",
+   "type": "lyrics",
+   "source": "歌词《偏偏》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "浪漫/温暖",
+   "verified": true
+  },
+  {
+   "text": "唱情歌的姿态，如果学得明白，会避免很多失态",
+   "type": "lyrics",
+   "source": "歌词《微醺23点08分》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/幽默",
+   "verified": true
+  },
+  {
+   "text": "无用的小情怀，也许会被淘汰，确实是种无奈",
+   "type": "lyrics",
+   "source": "歌词《微醺23点08分》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/感伤",
+   "verified": true
+  },
+  {
+   "text": "迷惘的世界里，迷茫的你，孤单的心情眼带笑意",
+   "type": "lyrics",
+   "source": "歌词《是你》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "孤独/温柔",
+   "verified": true
+  },
+  {
+   "text": "皎洁的月光下，狡黠的你，自由的追逐永不停息",
+   "type": "lyrics",
+   "source": "歌词《是你》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "自由/温柔",
+   "verified": true
+  },
+  {
+   "text": "孤独的灵魂，相似的姓名",
+   "type": "lyrics",
+   "source": "歌词《是你》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "孤独/深夜",
+   "verified": true
+  },
+  {
+   "text": "若答案，是没有，至少我，曾陪你走过",
+   "type": "lyrics",
+   "source": "歌词《不需要结果》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/温柔",
+   "verified": true
+  },
+  {
+   "text": "不甘错过，只愿相逢",
+   "type": "lyrics",
+   "source": "歌词《不需要结果》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/感伤",
+   "verified": true
+  },
+  {
+   "text": "松开了手，放你远走，其实多想要，将你拥入怀中",
+   "type": "lyrics",
+   "source": "歌词《不需要结果》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/思念",
+   "verified": true
+  },
+  {
+   "text": "月光洒落谁的窗，又抚慰着谁的伤",
+   "type": "lyrics",
+   "source": "歌词《小河》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/治愈",
+   "verified": true
+  },
+  {
+   "text": "小河默默无语在流淌，哪怕经历风霜",
+   "type": "lyrics",
+   "source": "歌词《小河》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/平静",
+   "verified": true
+  },
+  {
+   "text": "走过形形色色的悲伤，走过起起落落的彷徨",
+   "type": "lyrics",
+   "source": "歌词《小河》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/成长",
+   "verified": true
+  },
+  {
+   "text": "前方骄阳笑容朗朗，眼角有一汪，跃动的光",
+   "type": "lyrics",
+   "source": "歌词《在路上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/励志",
+   "verified": true
+  },
+  {
+   "text": "去远方，一路上，浅梦长，天野心茫茫，苍茫春光",
+   "type": "lyrics",
+   "source": "歌词《在路上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "自由/出发",
+   "verified": true
+  },
+  {
+   "text": "或许是没希望的奔忙一场，而它的模样，笑得滚烫，仿佛从来没有受过伤",
+   "type": "lyrics",
+   "source": "歌词《在路上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "励志/治愈",
+   "verified": true
+  },
+  {
+   "text": "自有方向，有它的方向，心的方向，在路上",
+   "type": "lyrics",
+   "source": "歌词《在路上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "出发/希望",
+   "verified": true
+  },
+  {
+   "text": "在无尽的夜里",
+   "type": "lyrics",
+   "source": "歌词《无尽的夜里》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/思念",
+   "verified": true
+  },
+  {
+   "text": "海边吹风，就这样飘过我和你，一起跳着，在黄昏雨后的舞曲",
+   "type": "lyrics",
+   "source": "歌词《无尽的夜里》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "浪漫/思念",
+   "verified": true
+  },
+  {
+   "text": "在我心底，有说不出口的秘密",
+   "type": "lyrics",
+   "source": "歌词《无尽的夜里》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/深夜",
+   "verified": true
+  },
+  {
+   "text": "远方飘落，一封长笺，想念一片一片",
+   "type": "lyrics",
+   "source": "歌词《鹅毛信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/温柔",
+   "verified": true
+  },
+  {
+   "text": "左手有思念，右手有问候",
+   "type": "lyrics",
+   "source": "歌词《鹅毛信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/温暖",
+   "verified": true
+  },
+  {
+   "text": "雪融在心头，希望在左右",
+   "type": "lyrics",
+   "source": "歌词《鹅毛信》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/治愈",
+   "verified": true
+  },
+  {
+   "text": "和孤独自由一起，谁都别来打扰我",
+   "type": "lyrics",
+   "source": "歌词《勿扰》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "孤独/深夜",
+   "verified": true
+  },
+  {
+   "text": "游荡于时间之外，世界请忽略我在",
+   "type": "lyrics",
+   "source": "歌词《勿扰》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/孤独",
+   "verified": true
+  },
+  {
+   "text": "此刻，就让我独自藏身",
+   "type": "lyrics",
+   "source": "歌词《勿扰》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "孤独/深夜",
+   "verified": true
+  },
+  {
+   "text": "原来手放开，世界还在",
+   "type": "lyrics",
+   "source": "歌词《明白》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/治愈",
+   "verified": true
+  },
+  {
+   "text": "爱无需感慨，痛无需释怀，人生最精彩是该，来就会来",
+   "type": "lyrics",
+   "source": "歌词《明白》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/治愈",
+   "verified": true
+  },
+  {
+   "text": "花谢了再开，水凉了添柴",
+   "type": "lyrics",
+   "source": "歌词《明白》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/希望",
+   "verified": true
+  },
+  {
+   "text": "孤独是种习惯，自说自话别见怪",
+   "type": "lyrics",
+   "source": "歌词《雷美替胺》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "失眠/深夜",
+   "verified": true
+  },
+  {
+   "text": "遗忘是种自由，我却无法拥有",
+   "type": "lyrics",
+   "source": "歌词《雷美替胺》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "失眠/感伤",
+   "verified": true
+  },
+  {
+   "text": "夜晚的七点半，黄昏渐渐消散，窗外霓虹绚烂",
+   "type": "lyrics",
+   "source": "歌词《雷美替胺》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "深夜/失眠",
+   "verified": true
+  },
+  {
+   "text": "祝我们随遇而安",
+   "type": "lyrics",
+   "source": "歌词《祝我们随遇而安》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/平静",
+   "verified": true
+  },
+  {
+   "text": "其实幸福，是种本能，要爱过，要伤过，才会懂",
+   "type": "lyrics",
+   "source": "歌词《祝我们随遇而安》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/释怀",
+   "verified": true
+  },
+  {
+   "text": "当黑夜过去，当清晨到来，打开心门，让阳光照进来",
+   "type": "lyrics",
+   "source": "歌词《祝我们随遇而安》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/治愈",
+   "verified": true
+  },
+  {
+   "text": "杯中有浮沉，起落在心间，最是难得几分闲",
+   "type": "lyrics",
+   "source": "歌词《祝我们随遇而安》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "平静/治愈",
+   "verified": true
+  },
+  {
+   "text": "在每一个，平凡又美好的晚上",
+   "type": "lyrics",
+   "source": "歌词《平凡又美好的晚上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/治愈",
+   "verified": true
+  },
+  {
+   "text": "每个晚归的人，都有避风港",
+   "type": "lyrics",
+   "source": "歌词《平凡又美好的晚上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/治愈",
+   "verified": true
+  },
+  {
+   "text": "若你懂得，眼前就是诗和远方",
+   "type": "lyrics",
+   "source": "歌词《平凡又美好的晚上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/温暖",
+   "verified": true
+  },
+  {
+   "text": "无需绽放人海中央，平凡中也能闪光",
+   "type": "lyrics",
+   "source": "歌词《无我》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/励志",
+   "verified": true
+  },
+  {
+   "text": "愿成为夜空中那道光，将孩子前途照亮",
+   "type": "lyrics",
+   "source": "歌词《无我》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/希望",
+   "verified": true
+  },
+  {
+   "text": "黑暗裹挟着星空，点点微光破苍穹",
+   "type": "lyrics",
+   "source": "歌词《微光之名》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/励志",
+   "verified": true
+  },
+  {
+   "text": "前方道阻且漫长，理想遥远却绝不退让",
+   "type": "lyrics",
+   "source": "歌词《微光之名》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "励志/勇气",
+   "verified": true
+  },
+  {
+   "text": "疯狂无需谁原谅，花孤芳也能自赏",
+   "type": "lyrics",
+   "source": "歌词《微光之名》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "自由/励志",
+   "verified": true
+  },
+  {
+   "text": "是有过故事的朋友，对彼此的过往不追究",
+   "type": "lyrics",
+   "source": "歌词《不能靠近的朋友》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "释怀/感伤",
+   "verified": true
+  },
+  {
+   "text": "偶尔想像你握别人的手，我有些落寞，但情愿放你走",
+   "type": "lyrics",
+   "source": "歌词《不能靠近的朋友》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/释怀",
+   "verified": true
+  },
+  {
+   "text": "你别回头，总会有人，代替我给你温柔",
+   "type": "lyrics",
+   "source": "歌词《不能靠近的朋友》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/释怀",
+   "verified": true
+  },
+  {
+   "text": "偶尔也徬徨和迷惘，不需要太勇敢啊，回望，我始终在呢",
+   "type": "lyrics",
+   "source": "歌词《无人岛上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/温暖",
+   "verified": true
+  },
+  {
+   "text": "等你穿过惊涛骇浪一身的风霜，我会用岛上的星光，重新把你照亮",
+   "type": "lyrics",
+   "source": "歌词《无人岛上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "治愈/温暖",
+   "verified": true
+  },
+  {
+   "text": "徘徊不定的步伐，会找到自己的梦想",
+   "type": "lyrics",
+   "source": "歌词《无人岛上》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/励志",
+   "verified": true
+  },
+  {
+   "text": "叹人生，最难欢聚易离别",
+   "type": "lyrics",
+   "source": "歌词《阳关引》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "离别/感伤",
+   "verified": true
+  },
+  {
+   "text": "更尽一杯酒，歌一阕",
+   "type": "lyrics",
+   "source": "歌词《阳关引》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "离别/深夜",
+   "verified": true
+  },
+  {
+   "text": "念故人，千里自此共明月",
+   "type": "lyrics",
+   "source": "歌词《阳关引》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/温暖",
+   "verified": true
+  },
+  {
+   "text": "家是风浪里的那盏灯塔，家是流年中不变的归宿",
+   "type": "lyrics",
+   "source": "歌词《灯塔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "温暖/治愈",
+   "verified": true
+  },
+  {
+   "text": "握紧你的手，不向命运屈服",
+   "type": "lyrics",
+   "source": "歌词《灯塔》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "勇气/温暖",
+   "verified": true
+  },
+  {
+   "text": "我做了，最遥远最熟悉你的过客",
+   "type": "lyrics",
+   "source": "歌词《过客》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/孤独",
+   "verified": true
+  },
+  {
+   "text": "像错过了雨中末班车的乘客，最后剩我，一个",
+   "type": "lyrics",
+   "source": "歌词《过客》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "感伤/孤独",
+   "verified": true
+  },
+  {
+   "text": "学会了消失的不动声色",
+   "type": "lyrics",
+   "source": "歌词《过客》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "孤独/释怀",
+   "verified": true
+  },
+  {
+   "text": "多想成为光，深渊中把来路照亮",
+   "type": "lyrics",
+   "source": "歌词《暗潮涌动》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "希望/勇气",
+   "verified": true
+  },
+  {
+   "text": "有没有一阵狂风，能吹散迷雾重重",
+   "type": "lyrics",
+   "source": "歌词《暗潮涌动》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "勇气/希望",
+   "verified": true
+  },
+  {
+   "text": "我等着没有你的新年，我望着没有你的炊烟",
+   "type": "lyrics",
+   "source": "歌词《塞北年夜》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/感伤",
+   "verified": true
+  },
+  {
+   "text": "我以为我能放下牵挂，放下那些痴缠挣扎",
+   "type": "lyrics",
+   "source": "歌词《塞北年夜》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "思念/释怀",
+   "verified": true
+  },
+  {
+   "text": "在命运的废墟之上，披上不可一世的装",
+   "type": "lyrics",
+   "source": "歌词《火光》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "决绝/力量",
+   "verified": true
+  },
+  {
+   "text": "燃尽了血泪，也要化作火光无悔这一场",
+   "type": "lyrics",
+   "source": "歌词《火光》",
+   "curated": false,
+   "rights": "仅内部",
+   "mood": "热血/坚守",
+   "verified": true
+  },
+  {
+   "text": "她的作品都非常有实情话值得我们去学习",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121194832_0026_talk1",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "那接下来我们为大家唱的是一首",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121194832_0026_talk1",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我觉得今天很多歌都特别适合上来",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121194832_0026_talk1",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "对我觉得也是因为原情话是去到那个祝福",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121203939_0034_住口6_talk_在路上_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "对我觉得对阿杰蒂是的真的很美",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121203939_0034_住口6_talk_在路上_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "西藏我觉得能够给人在一起交流的时候",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121203939_0034_住口6_talk_在路上_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我觉得有很大的区别就是西藏的学山",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121203939_0034_住口6_talk_在路上_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "那一刻我觉得我特别想说点",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121203939_0034_住口6_talk_在路上_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "对然后你再跟他交流然后封在给你的答案",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121203939_0034_住口6_talk_在路上_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "你们知不知道在珠峰大北有个邮局",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": true,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我特别想在那个邮局里写一下想对你们说的话",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": true,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我是一个非常含蓄然后腼腆的人",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": true,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "真的因为你们都了解我真的我非常的诚恳",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "你们承认吧想对你们说但是我觉得每一场都说感谢或者是怎样",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我觉得太伤感了对我这么讲",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "因为我甚至说七八年的时光",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "对其实我彼此都改变了对方",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "就是嗯尤其是我觉得就是在我平时",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我就觉得我非常的开心很幸福",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": true,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "因为可能在我每一场的音乐会里面唱很多歌",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "你们也受到了我对你们的改变",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": true,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "在我没有舞台我这个唱歌的时候",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "其实那段时间我真的是因为你们",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我一想到你们在的话我会非常非常的温暖",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": true,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我相信当你们在工作非常繁忙的时候",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "听到我的时候那这个我的这个歌",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "或者是一想到我的时候我相信",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "努力我不知道大家怎么只要是我们认真的去对待",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "这个非常的好听我希望借大家的这个",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "你们都准备好了哈嗯把这首明白给送给大家",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121210423_0037_talk_明白_talk_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "因为我接下来唱这个歌是我前些天的这个跳舞",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121211941_0038_talk_雷美替胺",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我都喜欢因为我的优势但我发现我现在就是还没到点忧伤",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121211941_0038_talk_雷美替胺",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我现在非常喜欢我自己我相信我们会好大",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121211941_0038_talk_雷美替胺",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "你是我喜欢的是从小学到大学唯一喜欢的国内男歌手",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "感谢你陪我走过所有什么的岁月",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "希望你永远健康幸福是大礼拜吗",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "谢谢啊谢谢大家很开心就是当我看到这首歌的时候",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我觉得哎呀这个时间过得真的非常非常的快",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我非常舍得非常非常的舍得",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "特别希望就是我们都能够健健康",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "真的时间过得非常非常快对年我相信我们",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我们必定会非常就是会好起来啊",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "就是会越来越好然后然后我们的朋友们",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "然后其实我对新的一面还是特别的期待",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "你们都能够达到这个奖金啊",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "参加年会的时候祝你一等奖啊",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "一首歌嗯也是我最深的这个",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "这个这个祝福啊这个祝我们的碎云",
+   "type": "talk",
+   "source": "上海20251121｜吾巡演上海站_20251121214316_0040_talk_祝我们随遇而安_",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "然后还有这个美国的我们,对,时沙岛回来了吗?",
+   "type": "talk",
+   "source": "五巡北京20260410｜上半场_talk01_2430-2460s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "对,就是有我们这个集团的领导",
+   "type": "talk",
+   "source": "五巡北京20260410｜上半场_talk02_2550-2580s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "请坐坐下辛苦你们开心吗?",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk01_1200-1260s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "看到你们开心,我也真的很开心",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk01_1200-1260s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "等一下那就再来一遍你们坐,你们坐就行",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk01_1200-1260s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "真的吗?没有没有,就是我就是客气客气,我就客气客气",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk02_1290-1320s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我就是客气客气,客气客气",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk02_1290-1320s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "好,这样什么?我衣服怎么了?",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk02_1290-1320s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我们可以推下去感谢大家,让我们亮起你手中的闪光灯",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场1_talk04_3420-3450s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我相信我未来会更好的继续加油",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场2_talk01_420-450s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "但说实话,我特别是,我曾经说过《向下扎》跟《向上坡》",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场2_talk01_420-450s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
+  },
+  {
+   "text": "我觉得扎在哪里?我觉得扎在...",
+   "type": "talk",
+   "source": "五巡北京20260410｜下半场2_talk01_420-450s",
+   "curated": false,
+   "rights": "free",
+   "mood": "talk",
+   "verified": false
   }
  ]
 }
