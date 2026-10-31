@@ -21,6 +21,10 @@ os.makedirs(FULLDIR, exist_ok=True)
 WB_CK = r"E:\wx\index_records\wb.txt"
 XIXI_UID = "7215995153"
 QUERIES = ["王晰 采访", "王晰 专访", "王晰 杂志", "王晰 封面"]
+WEB_QUERIES = ["王晰 专访", "王晰 采访 杂志", "王晰 杂志 拍摄"]
+BING = "https://www.bing.com/search?q=%s&setlang=zh-CN&count=20"
+BINGH = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36",
+         "Accept-Language": "zh-CN,zh;q=0.9"}
 MAG = re.compile(r"杂志|封面|内页|写真|专访|采访|访谈|对话|刊")
 
 def sk(path):
@@ -62,14 +66,15 @@ def load_table():
             "items": []}
 
 def key(it):
-    return (it.get("名称", "")[:40], it.get("链接", ""))
+    lk = (it.get("链接", "") or "").split("?")[0]
+    return ("", lk) if lk else (it.get("名称", "")[:40], "")
 
 table = load_table()
 seen = {key(it) for it in table["items"]}
 new_items = []
 
 def add(名称, 类型, 时间, 链接, 渠道, 状态="待抓", 备注="", body=""):
-    k = (名称[:40], 链接)
+    k = ("", (链接 or "").split("?")[0]) if 链接 else (名称[:40], "")
     if k in seen:
         return
     seen.add(k)
@@ -128,6 +133,59 @@ try:
 except Exception as e:
     print("晰息扫描失败", type(e).__name__)
 
+# 2.4) 豆瓣/杂志：扫描「本地已另存」的 HTML（另存即视为已抓到，自动解析入库）
+MAG_DIR = r"E:\wx\私有\王晰全文库\杂志"
+PROC = os.path.join(BASE, "已解析HTML.json")
+done = json.load(open(PROC, encoding="utf-8")) if os.path.exists(PROC) else []
+if os.path.isdir(MAG_DIR):
+    for fn in sorted(os.listdir(MAG_DIR)):
+        if not fn.lower().endswith(".html") or fn in done:
+            continue
+        fp = os.path.join(MAG_DIR, fn)
+        try:
+            h = open(fp, encoding="utf-8", errors="ignore").read()
+            i, j = h.find("topic-richtext"), h.find("comment-item")
+            main = h[i:j] if i >= 0 and j > i else h
+            body = text_of(main)
+            name = re.sub(r"\.html$", "", fn)[:60]
+            fname = re.sub(r"[\\/:*?\"<>|\s]+", "_", name)[:50] + ".txt"
+            open(os.path.join(FULLDIR, fname), "w", encoding="utf-8").write(
+                "名称：%s\n来源：本地另存网页\n\n%s\n" % (name, body))
+            add(name, "杂志", "", "file:///" + fp.replace("\\", "/"), "豆瓣/杂志（本地另存）",
+                备注="本地另存网页", body=body)
+            done.append(fn)
+        except Exception as e:
+            print("本地杂志解析失败", fn, type(e).__name__)
+    json.dump(done, open(PROC, "w", encoding="utf-8"), ensure_ascii=False)
+
+# 2.5) 网页渠道：外部搜索引擎在本机不稳定（Bing 中文失准 / 百度验证码 / 门户 JS 渲染），
+#      改为两条：①「网页待办」文件夹里的另存页自动解析；②待人工清单顶部生成搜索直达链接
+WEB_TODO = os.path.join(BASE, "网页待办")
+os.makedirs(WEB_TODO, exist_ok=True)
+for fn in sorted(os.listdir(WEB_TODO)):
+    if not fn.lower().endswith((".html", ".htm")):
+        continue
+    fp = os.path.join(WEB_TODO, fn)
+    try:
+        body = text_of(open(fp, encoding="utf-8", errors="ignore").read())
+        name = re.sub(r"\.html?$", "", fn)[:60]
+        fname = re.sub(r"[\\/:*?\"<>|\s]+", "_", name)[:50] + ".txt"
+        open(os.path.join(FULLDIR, fname), "w", encoding="utf-8").write(
+            "名称：%s\n来源：网页待办（本地另存）\n\n%s\n" % (name, body))
+        add(name, "网页", "", "file:///" + fp.replace("\\", "/"), "网页待办（本地另存）", body=body)
+        os.replace(fp, os.path.join(BASE, "已解析网页", fn))
+    except Exception as e:
+        print("网页待办解析失败", fn, type(e).__name__)
+
+SEARCH_LINKS = [
+    ("必应：王晰 专访", "https://www.bing.com/search?q=%s" % urllib.parse.quote("王晰 专访")),
+    ("必应：王晰 杂志 封面", "https://www.bing.com/search?q=%s" % urllib.parse.quote("王晰 杂志 封面")),
+    ("百度：王晰 采访 杂志", "https://www.baidu.com/s?wd=%s" % urllib.parse.quote("王晰 采访 杂志")),
+    ("豆瓣搜索：王晰 杂志", "https://www.douban.com/search?q=%s" % urllib.parse.quote("王晰 杂志")),
+    ("微信搜一搜：王晰 专访", "https://weixin.sogou.com/weixin?type=2&query=%s" % urllib.parse.quote("王晰 专访")),
+    ("微博搜索：王晰 杂志", "https://s.weibo.com/weibo?q=%s" % urllib.parse.quote("王晰 杂志")),
+]
+
 # 3) 待补项重试全文
 for it in table["items"] + new_items:
     if it.get("状态", "").startswith("已存") or not it.get("链接"):
@@ -161,7 +219,10 @@ open(os.path.join(BASE, "采访杂志根表.md"), "w", encoding="utf-8").write("
 
 todo = [it for it in items if not it.get("状态", "").startswith("已存")]
 with open(TODO, "w", encoding="utf-8") as f:
-    f.write("# 待人工清单（%d 条）\n\n需要手动打开/搜索的条目，按时间倒序：\n\n" % len(todo))
+    f.write("# 待人工清单（%d 条）\n\n## 搜索直达（点开即可搜，省得自己敲）\n\n" % len(todo))
+    for label, url in SEARCH_LINKS:
+        f.write("- [%s](%s)\n" % (label, url))
+    f.write("\n> 在以上链接里翻到值得收的页面，另存到 `网页待办\\` 或 `杂志\\`，次日会自动解析入库。\n\n## 待处理条目\n\n")
     for it in todo:
         f.write("- [%s] %s（%s）→ %s\n" % (it["时间"] or "—", it["名称"][:60], it["渠道"], it["链接"]))
 
