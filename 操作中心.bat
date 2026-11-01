@@ -614,6 +614,10 @@ echo    255. [×ªĞ´] Ó²×ÖÄ»OCRĞ£Õı£¨BÕ¾ÊÓÆµ³éÖ¡OCR£»¡ï¹ó£º31·ÖÖÓÔ¼20·ÖÖÓ£¬Ö»ÔÚÒªÒ
 
 echo    256. [×ªĞ´] ´ò¿ª¡¶×ªĞ´Óë×ÖÄ»Ğ£ÕıËµÃ÷¡·£¨³É±¾¶Ô±È/²ÎÊı/¿Ó£©
 
+echo    257. [Ğ¡¾Æ¹İ] Æô¶¯/¼ì²éµçÌ¨´úÀí£¨±¾»ú 127.0.0.1:8787£¬È± Cookie »áÌáÊ¾£©
+
+echo    258. [Ğ¡¾Æ¹İ] ²é¿´µçÌ¨´úÀí×´Ì¬£¨ÔËĞĞÖĞ£¿Cookie ÒÑÉèÖÃ£¿£©
+
 echo    0. ÍË³ö
 
 echo.
@@ -1120,6 +1124,10 @@ if "%op%"=="254" goto sp_split
 if "%op%"=="255" goto sub_ocr
 
 if "%op%"=="256" goto sub_doc
+if "%op%"=="257" goto radio_start
+
+if "%op%"=="258" goto radio_status
+
 
 
 
@@ -6650,5 +6658,21 @@ goto menu
 :sub_doc
 cls
 if exist "docs\×ªĞ´Óë×ÖÄ»Ğ£ÕıËµÃ÷.md" (start "" notepad "docs\×ªĞ´Óë×ÖÄ»Ğ£ÕıËµÃ÷.md") else (echo Î´ÕÒµ½ËµÃ÷ÎÄµµ)
+pause
+goto menu
+
+:radio_start
+cls
+echo === µçÌ¨´úÀí ¡¤ Æô¶¯/¼ì²é ===
+python -X utf8 project_b\radio_proxy_guard.py
+echo.
+echo ÒÑÉè Cookie ÔòÖ»Ğè±¾´úÀí³£×¤£»Cookie ¹ıÆÚÊ±µ½ y.qq.com µÇÂ¼ºóÖ´ĞĞÒ»´Î /setcookie¡£
+pause
+goto menu
+
+:radio_status
+cls
+python -X utf8 project_b\radio_proxy_guard.py --status
+echo.
 pause
 goto menu

@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 16:33",
+ "generated_at": "2026-11-01 17:34",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 255,
-  "dispatch": 255,
+  "menu_items": 257,
+  "dispatch": 257,
   "deploy_steps": 94,
-  "scheduled_tasks": 21
+  "scheduled_tasks": 22
  },
  "tasks": [
   {
@@ -1982,6 +1982,22 @@
    "path": ""
   },
   {
+   "script": "radio_proxy_guard.py",
+   "menu": 258,
+   "title": "[小酒馆] 查看电台代理状态（运行中？Cookie 已设置？）",
+   "menu_label": "radio_status",
+   "schedule": {
+    "name": "wx409_radio_proxy",
+    "script": "radio_proxy_guard.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
+    "next": "2026/11/1 18:04:00",
+    "type": "One Time Only, Minute",
+    "start": "17:34:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\radio_proxy_guard.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -2280,7 +2296,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 16:41:00",
+    "next": "2026/11/1 17:41:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
