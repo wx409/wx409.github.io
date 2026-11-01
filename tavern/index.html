@@ -537,32 +537,71 @@ a{color:#00d2ff;text-decoration:none}
 (function(){
   var H=null;
   var TOP={乾:[1,1,1],兑:[0,1,1],离:[1,0,1],震:[0,0,1],巽:[1,1,0],坎:[0,1,0],艮:[1,0,0],坤:[0,0,0]};
+
+  // 问类识别
+  var KINDS=[
+    {k:'感情',re:/感情|爱情|恋爱|喜欢|在一起|分手|表白|结婚|婚姻|他|她|对象|暗恋|复合/},
+    {k:'事业',re:/工作|事业|跳槽|升职|辞职|创业|项目|考试|面试|offer|客户|合作|生意|公司/},
+    {k:'财运',re:/钱|财|收入|投资|股票|亏|赚|工资|奖金|买房|预算/},
+    {k:'学业',re:/学|考试|论文|考研|留学|毕业|读书|专业/},
+    {k:'健康',re:/健康|身体|病|失眠|累|疼|恢复|作息/},
+    {k:'出行',re:/出行|旅行|搬|迁|出差|去|回国|离开|城市/},
+    {k:'人际',re:/朋友|家人|父母|同事|关系|沟通|冲突|误会|和解/},
+    {k:'时机',re:/什么时候|何时|多久|能不能|要不要|该不该|是否|值不值/}
+  ];
+
+  // 语气：顺 / 缓 / 慎
+  var ADVICE={
+    '感情':{顺:'当下宜把话说明白，对方接得住；不必用试探代替表达。',缓:'先别催结果。把注意力放回自己身上，对方反而会靠近。',慎:'此卦提醒你分辨「想要」与「害怕失去」——先稳住自己，再谈关系。'},
+    '事业':{顺:'该推进就推进，此时用力会有回响；把方案摊开谈，比闷头做更有效。',缓:'不是不动，是别急着定局。补齐一个短板，比换赛道划算。',慎:'这卦偏「守」——先护住现有位置与关系，别在情绪里做决定。'},
+    '财运':{顺:'可小幅进，见好就收；大额投入宜分批。',缓:'钱的事宜慢，先把账算清，再谈机会。',慎:'此卦不宜加杠杆、不宜替人担保；稳字当头。'},
+    '学业':{顺:'按部就班即有效，眼下的方法是对的，继续。',缓:'进度慢不等于走错，把基础重过一遍会有跳升。',慎:'别用熬夜换进度，先把作息和节奏调回来。'},
+    '健康':{顺:'身体在恢复中，规律作息就是最好的药。',缓:'累不是意志问题。允许自己停一停，比硬撑更有效。',慎:'此卦提示该去查一查、该歇一歇，别再拿「还好」糊弄自己。'},
+    '出行':{顺:'可以动，路上顺；早订早走，别拖到临时。',缓:'行程先别定死，留出改期余地。',慎:'此事宜缓行一步，先把一个前提确认清楚再动身。'},
+    '人际':{顺:'把话说开就好，对方并没有你想象的那么介意。',缓:'先听，别急着解释；沉默几天比立刻辩白有用。',慎:'此卦重在边界——不必讨好，也别翻旧账。'},
+    '时机':{顺:'时机在近处，不必再等一个「更好的日子」。',缓:'还要等一等，但不是空等：把准备做足，信号自会来。',慎:'现在不是最好的时候；先把自己手里的牌理顺。'},
+    '未明':{顺:'卦象偏吉，所问之事可以往前走一步。',缓:'卦象平缓，宜守不宜攻，先把眼前一件事做好。',慎:'卦象偏警，宜收不宜放；多问一句、多等一天，不会错。'}
+  };
+
   function load(cb){
     if(H) return cb();
     fetch('/data/hexagrams_full.json?v=2026110122').then(function(r){return r.json()})
       .then(function(j){H=j;cb();})
       .catch(function(){document.getElementById('divName').textContent='卦象数据加载失败';});
   }
-  function triName(topToBottom){
-    for(var k in TOP){var v=TOP[k];if(v[0]===topToBottom[0]&&v[1]===topToBottom[1]&&v[2]===topToBottom[2])return k;}
+  function triName(t){
+    for(var k in TOP){var v=TOP[k];if(v[0]===t[0]&&v[1]===t[1]&&v[2]===t[2])return k;}
     return '乾';
   }
-  function lookup(bits){                 // bits 自下而上
+  function lookup(bits){
     var low=bits.slice(0,3), up=bits.slice(3,6);
-    var upName=triName([up[2],up[1],up[0]]);
-    var lowName=triName([low[2],low[1],low[0]]);
-    return {up:upName, low:lowName, rec:((H[upName]||{})[lowName]||{})};
+    var u=triName([up[2],up[1],up[0]]), l=triName([low[2],low[1],low[0]]);
+    return {up:u, low:l, rec:((H[u]||{})[l]||{})};
   }
-  function judge(text){
-    var t=text||'', tags=[];
-    if(/大吉|元吉/.test(t)) tags.push('大吉');
-    else if(/吉/.test(t)) tags.push('吉');
-    if(/凶/.test(t)) tags.push('凶');
-    if(/悔/.test(t)) tags.push('悔');
-    if(/吝/.test(t)) tags.push('吝');
-    if(/無咎|无咎/.test(t)) tags.push('无咎');
-    if(/利/.test(t)) tags.push('利');
-    return tags;
+  function tagsOf(text){
+    var t=text||'', out=[];
+    if(/大吉|元吉/.test(t)) out.push('大吉');
+    else if(/吉/.test(t)) out.push('吉');
+    if(/凶/.test(t)) out.push('凶');
+    if(/悔/.test(t)) out.push('悔');
+    if(/吝/.test(t)) out.push('吝');
+    if(/無咎|无咎/.test(t)) out.push('无咎');
+    if(/利/.test(t)) out.push('利');
+    if(/貞|贞/.test(t)) out.push('贞');
+    return out.filter(function(v,i,a){return a.indexOf(v)===i;});
+  }
+  function toneOf(tags){
+    if(tags.indexOf('凶')>=0) return '慎';
+    if(tags.indexOf('吝')>=0||tags.indexOf('悔')>=0) return '缓';
+    if(tags.indexOf('大吉')>=0||tags.indexOf('吉')>=0) return '顺';
+    if(tags.indexOf('无咎')>=0) return '缓';
+    return '缓';
+  }
+  function kindOf(q){
+    for(var i=0;i<KINDS.length;i++){
+      if(KINDS[i].re.test(q)) return KINDS[i].k;
+    }
+    return '未明';
   }
   function render(vals){
     var bits=vals.map(function(v){return (v===7||v===9)?1:0;});
@@ -579,9 +618,9 @@ a{color:#00d2ff;text-decoration:none}
     document.getElementById('divVirtue').textContent=rec.virtue?('卦德 · '+rec.virtue):'';
     document.getElementById('divText').textContent=rec.guaci||'';
 
-    var extra='';
+    var yaoci='';
     if(moving.length && rec.yaoci){
-      extra='动爻爻辞：'+moving.map(function(i){
+      yaoci='动爻爻辞：'+moving.map(function(i){
         return '「'+(rec.yaoci[i]||'')+'」';
       }).join(' ');
     }
@@ -589,47 +628,60 @@ a{color:#00d2ff;text-decoration:none}
     if(moving.length){
       var r2=lookup(chgBits), rec2=r2.rec||{};
       chgTxt='动爻第'+moving.map(function(i){return i+1;}).join('、')+' 爻　→　变卦：'+
-             (rec2.full||'')+(rec2.virtue?('（'+rec2.virtue+'）'):'')+
-             (rec2.guaci?('　「'+rec2.guaci.split('，')[0]+'」'):'');
-    }else{
+             (rec2.full||'')+(rec2.virtue?('（'+rec2.virtue+'）'):'');
+    } else {
       chgTxt='六爻安静，无动爻，以本卦断。';
     }
-    document.getElementById('divChange').innerHTML=
-      (extra?('<div style="margin-bottom:6px">'+extra+'</div>'):'')+
-      '<div>'+chgTxt+'</div>'+
-      (rec.our_text?('<div style="margin-top:8px;color:#8f97a3;font-size:12px">王晰向读法：'+rec.our_text+'</div>'):'');
 
-    var tags=judge((rec.guaci||'')+' '+(moving.map(function(i){return (rec.yaoci||[])[i]||'';}).join(' ')));
+    var tagSrc=(rec.guaci||'')+' '+moving.map(function(i){return (rec.yaoci||[])[i]||'';}).join(' ');
+    var tags=tagsOf(tagSrc), tone=toneOf(tags);
+    var kind=kindOf((document.getElementById('divQ')||{}).value||'');
+    var advice=(ADVICE[kind]||ADVICE['未明'])[tone];
+
+    var chips=tags.map(function(t){
+      return '<span style="display:inline-block;margin:0 4px;padding:2px 9px;border-radius:999px;font-size:12px;'+
+        'border:1px solid '+(t==='凶'?'#d46a6a':(t==='吉'||t==='大吉'?'#c9a94f':'#7d99b8'))+';'+
+        'color:'+(t==='凶'?'#e08a8a':(t==='吉'||t==='大吉'?'#e0c46f':'#9fb8d4'))+'">'+t+'</span>';
+    }).join('');
+
+    document.getElementById('divChange').innerHTML=
+      (yaoci?('<div style="margin-bottom:6px">'+yaoci+'</div>'):'')+
+      '<div>'+chgTxt+'</div>'+
+      '<div style="margin-top:10px">'+chips+'</div>'+
+      '<div style="margin-top:10px;text-align:left;padding:10px 12px;border-radius:10px;background:rgba(160,190,230,.06);line-height:1.85">'+
+        '<div style="color:#9fc0e8;font-size:12px;margin-bottom:4px">解读 · 所问：'+kind+'｜卦势：'+tone+'</div>'+
+        '<div>'+advice+'</div>'+
+        (rec.our_text?('<div style="margin-top:8px;color:#8f97a3;font-size:12px">王晰向读法：'+rec.our_text+'</div>'):'')+
+      '</div>'+
+      '<div style="margin-top:8px;color:#6e7681;font-size:11px">解读按卦辞/爻辞吉凶与所问类别规则推断，仅供参照，不作决断依据。</div>';
+
     document.getElementById('divCard').dataset.line=
       (rec.full||'')+'（'+vals.map(function(v){return v===6?'老阴':v===7?'少阳':v===8?'少阴':'老阳';}).join('、')+'）';
-    document.getElementById('divCard').dataset.tags=tags.join('/');
   }
   function play(){
-    var vals=[],step=0;
-    for(var i=0;i<6;i++){
-      var s=0; for(var k=0;k<3;k++) s+= (Math.random()<0.5?3:2);
-      vals.push(s);
-    }
-    var cbox=document.getElementById('divCoins');
+    var vals=[];
+    for(var i=0;i<6;i++){var s=0;for(var k=0;k<3;k++)s+=(Math.random()<0.5?3:2);vals.push(s);}
+    var cbox=document.getElementById('divCoins'), step=0;
     var t=setInterval(function(){
       cbox.innerHTML='';
       for(var i=0;i<3;i++) cbox.innerHTML+='<span>'+(Math.random()<0.5?'●':'○')+'</span>';
       step++;
-      if(step>8){ clearInterval(t); render(vals); }
+      if(step>8){clearInterval(t);render(vals);}
     },70);
   }
-  document.getElementById('divRoll').onclick=function(){ load(play); };
+  document.getElementById('divRoll').onclick=function(){load(play);};
   document.getElementById('divCopy').onclick=function(){
     var c=document.getElementById('divCard');
     if(!c.dataset.line) return;
     var txt=c.dataset.line+'\n'+document.getElementById('divName').textContent+
-      '\n'+document.getElementById('divText').textContent+
-      '\n'+document.getElementById('divChange').textContent;
+      '\n'+document.getElementById('divText').textContent+'\n'+
+      document.getElementById('divChange').textContent;
     if(navigator.clipboard) navigator.clipboard.writeText(txt);
   };
   load(function(){});
 })();
 </script>
+
 
 
 
