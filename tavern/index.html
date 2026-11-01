@@ -455,7 +455,7 @@ a{color:#00d2ff;text-decoration:none}
   for(var i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619)>>>0; }
   h^=h>>>13; h=Math.imul(h,0x5bd1e995)>>>0; h^=h>>>15;   // 再混淆一次
   return h;
-});
+}
   function chips(){
     var box=document.getElementById('diceChips'),ks=keys(SETS),h='';
     for(var i=0;i<ks.length;i++){
