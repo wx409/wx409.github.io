@@ -411,6 +411,7 @@ a{color:#00d2ff;text-decoration:none}
   <div class="dice-head"><span class="dice-dot"></span>今 日 签<span class="dice-sub">抽一句，带走</span></div>
   <div class="dice-face" id="diceFace">点下面的按钮，抽一句</div>
   <div class="dice-src" id="diceSrc"></div>
+  <div class="dice-chips" id="diceChips"></div>
   <div class="dice-btns">
     <button data-a="draw">换 一 句</button>
     <button data-a="today">今天那句</button>
@@ -428,6 +429,10 @@ a{color:#00d2ff;text-decoration:none}
   display:flex;align-items:center;justify-content:center;padding:6px 4px}
 .dice-src{color:#9a8f82;font-size:12px;min-height:1.3em;margin:2px 0 12px}
 .dice-src b{color:#e0b64f;font-weight:500}
+.dice-chips{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:0 0 10px}
+.dice-chips button{font:inherit;font-size:12px;padding:4px 11px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid rgba(224,182,79,.22);color:#8f8377}
+.dice-chips button.on{border-color:rgba(224,182,79,.7);color:#e0b64f;background:rgba(224,182,79,.1)}
 .dice-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .dice-btns button{font:inherit;font-size:13px;padding:8px 16px;border-radius:999px;cursor:pointer;
   background:transparent;color:#e7dccb;border:1px solid rgba(224,182,79,.35);transition:.2s}
@@ -453,7 +458,17 @@ a{color:#00d2ff;text-decoration:none}
       var t=document.getElementById('diceFace').textContent+'\n—— '+document.getElementById('diceSrc').textContent;
       if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){b.textContent='已复制';setTimeout(function(){b.textContent='复制';},1200);});};
   });
-  load(function(){show(day());});
+  function chips(){
+    var box=document.getElementById('diceChips'),ks=keys(SETS),h='';
+    for(var i=0;i<ks.length;i++){
+      h+='<button data-i="'+i+'" class="'+(i===cur?'on':'')+'">'+SETS[ks[i]].name.replace('骰','')+'</button>';
+    }
+    box.innerHTML=h;
+    box.querySelectorAll('button').forEach(function(b){
+      b.onclick=function(){cur=+b.dataset.i; chips(); show(day());};
+    });
+  }
+  load(function(){chips(); show(day());});
 })();
 </script>
 
