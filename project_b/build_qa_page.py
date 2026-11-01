@@ -12,6 +12,10 @@ SPEC = ROOT + r"\data\qa_spec.json"
 TOUR = ROOT + r"\data\archive_stage_tour.json"
 OUT = ROOT + r"\qa.html"
 
+import sys as _s, os as _o
+_s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
+import qa_dynamic_answers as _dyn
+
 spec = json.load(open(SPEC, encoding="utf-8"))["items"]
 tour = json.load(open(TOUR, encoding="utf-8"))
 by_tour = {t["tour"]: t for t in tour["by_tour"]}
@@ -26,7 +30,23 @@ def dynamic_of(q):
 
 
 def answer_for(item):
-    d = dynamic_of(item["q"])
+    q = item["q"]
+    if "指数峰值最高" in q:
+        try:
+            return _dyn.peak_songs()
+        except Exception:
+            return item["a"]
+    if "城市开演出" in q or "场次最多" in q:
+        try:
+            return _dyn.city_shows()
+        except Exception:
+            return item["a"]
+    if "现场唱得最多" in q:
+        try:
+            return _dyn.top_songs_onstage()
+        except Exception:
+            return item["a"]
+    d = dynamic_of(q)
     if not d:
         return item["a"]
     t = by_tour.get(d)
