@@ -60,7 +60,10 @@ def load_index():
 def save_index(rec):
     idx = load_index()
     for i, it in enumerate(idx["items"]):
-        if it.get("out") == rec.get("out"):
+        same_out = rec.get("out") and it.get("out") == rec.get("out")
+        same_title = (not rec.get("out")) and it.get("no_speech") and \
+            (it.get("title") or "")[:20] == (rec.get("title") or "")[:20]
+        if same_out or same_title:
             idx["items"][i] = rec
             break
     else:
@@ -97,10 +100,30 @@ def download(url, path):
     return len(data)
 
 
-def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, force=False):
-    out = os.path.join(TXT, "%s_转写_%s.txt" % (slug(title), model_name))
-    if os.path.exists(out) and not force:
-        return ("skip", out, 0)
+def existing_output(title, mid=""):
+    """已存在同一条目（任一模型/任一命名）的转写文件则返回它，用于跳过。"""
+    pats = []
+    if mid:
+        pats.append(os.path.join(TXT, "%s_转写_*.txt" % mid))
+    pats.append(os.path.join(TXT, "%s_转写_*.txt" % slug(title)))
+    for pat in pats:
+        hit = glob.glob(pat)
+        if hit:
+            return hit[0]
+    return ""
+
+
+def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, force=False, mid="", src_hint=""):
+    out = os.path.join(TXT, "%s_转写_%s.txt" % (mid or slug(title), model_name))
+    if not force:
+        ex = existing_output(title, mid)
+        if ex:
+            return ("skip", ex, 0)
+        idx = load_index()
+        for it in idx["items"]:
+            if it.get("no_speech") and ((mid and mid in (it.get("src") or "")) or
+                                        (title[:20] and (it.get("title") or "")[:20] == title[:20])):
+                return ("skip", "", 0)
     t0 = time.time()
     segs, _ = model.transcribe(path, language=lang, vad_filter=True, beam_size=5)
     lines = []
@@ -111,6 +134,9 @@ def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, for
         lines.append(line)
     body = "\n".join(lines)
     if len(body) < min_chars:
+        save_index({"title": title, "src": src_hint, "model": model_name, "out": "",
+                    "chars": len(body), "no_speech": True,
+                    "at": time.strftime("%Y-%m-%d %H:%M")})
         return ("no-speech", "", len(body))
     open(out, "w", encoding="utf-8").write(
         "名称：%s\n模型：faster-whisper %s（本地，未人工校对）\n时长：%d 段\n\n%s\n"
@@ -218,7 +244,11 @@ def main():
     ok = skip = nospeech = 0
     for path, title, src in jobs:
         try:
-            res = transcribe_one(model, path, title, name, a.lang, a.min_chars, a.force)
+            mid_hint = ""
+            m_mid = re.search(r"(?:detail/|weibo\.com/\d+/)(\d{6,})", src or "")
+            if m_mid:
+                mid_hint = m_mid.group(1)
+            res = transcribe_one(model, path, title, name, a.lang, a.min_chars, a.force, mid_hint, src)
         except Exception as e:
             print("  失败 %-30s %s" % (title[:30], type(e).__name__))
             continue
