@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 12:31",
+ "generated_at": "2026-11-01 13:26",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 252,
-  "dispatch": 252,
+  "menu_items": 253,
+  "dispatch": 253,
   "deploy_steps": 94,
   "scheduled_tasks": 21
  },
@@ -1958,6 +1958,14 @@
    "path": "D:\\wx409.github.io\\project_b\\morning_catchup.py"
   },
   {
+   "script": "split_speakers.py",
+   "menu": 254,
+   "title": "[转写] 说话人切分（把他/主持人/混合/未定分开，启发式）",
+   "menu_label": "sp_split",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\split_speakers.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -2256,7 +2264,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 12:41:00",
+    "next": "2026/11/1 13:31:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },

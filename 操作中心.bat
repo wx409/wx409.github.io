@@ -608,6 +608,8 @@ echo    252. [转写] 去重/规范化转写文件（保留 turbo，其余归档）
 
 echo    253. [运维] 早间任务补跑检查（错过开机的任务现在就补）
 
+echo    254. [转写] 说话人切分（把他/主持人/混合/未定分开，启发式）
+
 echo    0. 退出
 
 echo.
@@ -1110,6 +1112,8 @@ if "%op%"=="251" goto tr_info
 if "%op%"=="252" goto tr_dedupe
 
 if "%op%"=="253" goto morning_catchup
+if "%op%"=="254" goto sp_split
+
 
 
 
@@ -6602,6 +6606,17 @@ goto menu
 cls
 echo === 早间任务补跑检查 ===
 python -X utf8 project_b\morning_catchup.py
+echo.
+pause
+goto menu
+
+:sp_split
+cls
+echo === 说话人切分（启发式，非 diarization） ===
+set "sf="
+set /p sf=转写文件路径: 
+if "%sf%"=="" goto menu
+python -X utf8 project_b\split_speakers.py "%sf%"
 echo.
 pause
 goto menu
