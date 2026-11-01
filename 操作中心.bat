@@ -622,6 +622,8 @@ echo    259. [´Ê¾ä] ¡ïÒ»ÌõÁ´½ÓÈ«Á÷³Ì£¨ÏÂÔØ/×ªĞ´¡úÇĞ·ÖËµ»°ÈË¡úÇĞ¾äÈë³Ø¡úÖØ½¨Ò³Ãæ£
 
 echo    260. [´Ê¾ä] ´ÓÎÄ±¾ÎÄ¼şÈë³Ø£¨ÊÖÕª½ğ¾ä/ÕûÀí¸å£¬¸øÂ·¾¶+³ö´¦£©
 
+echo    261. [²É·Ã] ÍøÒ³·ÃÌ¸×Ô¶¯²É¼¯£¨360 ËÑË÷¡ú×¥ÕıÎÄ¡ú³éÔ­»°¡úÖØ½¨£»Ã¿ÈÕ 08:45 ÒÑÅÅ³Ì£©
+
 echo    0. ÍË³ö
 
 echo.
@@ -1134,6 +1136,8 @@ if "%op%"=="258" goto radio_status
 if "%op%"=="259" goto ingest_link
 
 if "%op%"=="260" goto ingest_file
+if "%op%"=="261" goto web_interview
+
 
 
 
@@ -6710,6 +6714,18 @@ set "lsrc2="
 set /p lsrc2=³ö´¦: 
 if "%lsrc2%"=="" set "lsrc2=Î´±ê³ö´¦"
 python -X utf8 project_b\add_phrases_from_file.py --file "%lfile%" --source "%lsrc2%" --type interview --quality mid
+echo.
+pause
+goto menu
+
+:web_interview
+cls
+echo === ÍøÒ³·ÃÌ¸×Ô¶¯²É¼¯ ===
+echo ¹Ø¼ü´Ê°´ÈÕÂÖ»»£»ÒÑ´¦Àí URL ¼ÇÔÚ data\web_interview_seen.json
+set "wmax="
+set /p wmax=±¾ÂÖ×î¶à×¥¼¸Æª£¨»Ø³µ=6£©: 
+if "%wmax%"=="" set "wmax=6"
+python -X utf8 project_b\interview_web_daily.py --max %wmax%
 echo.
 pause
 goto menu

@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 18:04",
+ "generated_at": "2026-11-01 19:47",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 259,
-  "dispatch": 259,
+  "menu_items": 260,
+  "dispatch": 260,
   "deploy_steps": 94,
-  "scheduled_tasks": 22
+  "scheduled_tasks": 23
  },
  "tasks": [
   {
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/1 18:34:00",
+    "next": "2026/11/1 20:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2012,6 +2012,22 @@
    "menu_label": "ingest_file",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\add_phrases_from_file.py"
+  },
+  {
+   "script": "interview_web_daily.py",
+   "menu": 261,
+   "title": "[采访] 网页访谈自动采集（360 搜索→抓正文→抽原话→重建；每日 08:45 已排程）",
+   "menu_label": "web_interview",
+   "schedule": {
+    "name": "wx409_interview_web",
+    "script": "interview_web_daily.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_web_daily.py >> temp\\web_interview.log 2>&1",
+    "next": "2026/11/2 8:45:00",
+    "type": "Daily",
+    "start": "8:45:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\interview_web_daily.py"
   },
   {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
@@ -2193,7 +2209,7 @@
    "in_deploy": true,
    "deploy_desc": "问答库静态页 qa.html（实质问答 + FAQPage；需 build_kb_graph 先跑）",
    "critical": true,
-   "path": "D:\\wx409.github.io\\tools\\build_qa_page.py"
+   "path": "D:\\wx409.github.io\\project_b\\build_qa_page.py"
   },
   {
    "script": "build_setlists_page.py",
@@ -2312,7 +2328,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 18:11:00",
+    "next": "2026/11/1 19:51:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
