@@ -610,6 +610,10 @@ echo    253. [运维] 早间任务补跑检查（错过开机的任务现在就补）
 
 echo    254. [转写] 说话人切分（把他/主持人/混合/未定分开，启发式）
 
+echo    255. [转写] 硬字幕OCR校正（B站视频抽帧OCR；★贵：31分钟约20分钟，只在要引用时用）
+
+echo    256. [转写] 打开《转写与字幕校正说明》（成本对比/参数/坑）
+
 echo    0. 退出
 
 echo.
@@ -1113,6 +1117,10 @@ if "%op%"=="252" goto tr_dedupe
 
 if "%op%"=="253" goto morning_catchup
 if "%op%"=="254" goto sp_split
+if "%op%"=="255" goto sub_ocr
+
+if "%op%"=="256" goto sub_doc
+
 
 
 
@@ -6618,5 +6626,29 @@ set /p sf=转写文件路径:
 if "%sf%"=="" goto menu
 python -X utf8 project_b\split_speakers.py "%sf%"
 echo.
+pause
+goto menu
+
+:sub_ocr
+cls
+echo === 硬字幕 OCR 校正 ====
+echo 成本提醒：31 分钟视频约 20 分钟（1868 帧 x 0.6 秒）。
+echo 只在「要逐字引用原话」的关键访谈上用；普通素材请用 249。
+echo 详细参数与坑见：docs\转写与字幕校正说明.md
+echo.
+set "bvid="
+set /p bvid=输入 BV 号（如 BV1GJFYeuEpb）: 
+if "%bvid%"=="" goto menu
+echo.
+echo 第 1 步：查有没有 CC 字幕（有的话不用 OCR）
+python -X utf8 project_b\fetch_bili_subtitle.py %bvid%
+echo.
+echo 若无字幕轨，再按 docs\转写与字幕校正说明.md 第 3 节手工跑抽帧与 OCR。
+pause
+goto menu
+
+:sub_doc
+cls
+if exist "docs\转写与字幕校正说明.md" (start "" notepad "docs\转写与字幕校正说明.md") else (echo 未找到说明文档)
 pause
 goto menu
