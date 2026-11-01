@@ -618,6 +618,10 @@ echo    257. [小酒馆] 启动/检查电台代理（本机 127.0.0.1:8787，缺 Cookie 会提示）
 
 echo    258. [小酒馆] 查看电台代理状态（运行中？Cookie 已设置？）
 
+echo    259. [词句] ★一条链接全流程（下载/转写→切分说话人→切句入池→重建页面）
+
+echo    260. [词句] 从文本文件入池（手摘金句/整理稿，给路径+出处）
+
 echo    0. 退出
 
 echo.
@@ -1127,6 +1131,10 @@ if "%op%"=="256" goto sub_doc
 if "%op%"=="257" goto radio_start
 
 if "%op%"=="258" goto radio_status
+if "%op%"=="259" goto ingest_link
+
+if "%op%"=="260" goto ingest_file
+
 
 
 
@@ -6673,6 +6681,35 @@ goto menu
 :radio_status
 cls
 python -X utf8 project_b\radio_proxy_guard.py --status
+echo.
+pause
+goto menu
+
+:ingest_link
+cls
+echo === 一条链接全流程 ===
+echo 例：https://m.weibo.cn/detail/5xxxxxxxxxx
+set "lurl="
+set /p lurl=微博链接: 
+if "%lurl%"=="" goto menu
+set "lsrc="
+set /p lsrc=出处（节目名+日期，如 东方艺享家 2026-06-17）: 
+if "%lsrc%"=="" set "lsrc=未标出处"
+python -X utf8 project_b\ingest_link.py --weibo "%lurl%" --source "%lsrc%"
+echo.
+pause
+goto menu
+
+:ingest_file
+cls
+echo === 从文本文件入池 ===
+set "lfile="
+set /p lfile=文件路径: 
+if "%lfile%"=="" goto menu
+set "lsrc2="
+set /p lsrc2=出处: 
+if "%lsrc2%"=="" set "lsrc2=未标出处"
+python -X utf8 project_b\add_phrases_from_file.py --file "%lfile%" --source "%lsrc2%" --type interview --quality mid
 echo.
 pause
 goto menu

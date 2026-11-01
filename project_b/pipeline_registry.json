@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 17:34",
+ "generated_at": "2026-11-01 18:04",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 257,
-  "dispatch": 257,
+  "menu_items": 259,
+  "dispatch": 259,
   "deploy_steps": 94,
   "scheduled_tasks": 22
  },
@@ -1990,12 +1990,28 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/1 18:04:00",
+    "next": "2026/11/1 18:34:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\radio_proxy_guard.py"
+  },
+  {
+   "script": "ingest_link.py",
+   "menu": 259,
+   "title": "[词句] ★一条链接全流程（下载/转写→切分说话人→切句入池→重建页面）",
+   "menu_label": "ingest_link",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\ingest_link.py"
+  },
+  {
+   "script": "add_phrases_from_file.py",
+   "menu": 260,
+   "title": "[词句] 从文本文件入池（手摘金句/整理稿，给路径+出处）",
+   "menu_label": "ingest_file",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\add_phrases_from_file.py"
   },
   {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
@@ -2296,7 +2312,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 17:41:00",
+    "next": "2026/11/1 18:11:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
