@@ -538,29 +538,86 @@ a{color:#00d2ff;text-decoration:none}
   var H=null;
   var TOP={乾:[1,1,1],兑:[0,1,1],离:[1,0,1],震:[0,0,1],巽:[1,1,0],坎:[0,1,0],艮:[1,0,0],坤:[0,0,0]};
 
-  // 问类识别
+  // 八卦象意（象、性、家人、方位）
+  var GUA={
+    乾:['天','刚健','父','西北','健行不息'],
+    坤:['地','柔顺','母','西南','厚德载物'],
+    震:['雷','动','长男','东','奋起'],
+    巽:['风','入','长女','东南','无所不入'],
+    坎:['水','险','中男','北','流动而深'],
+    离:['火','明','中女','南','附丽而明'],
+    艮:['山','止','少男','东北','止而不进'],
+    兑:['泽','悦','少女','西','和悦相通']
+  };
+
+  // 六爻位义
+  var YAO={
+    1:'初爻 —— 事之始，宜潜不宜显',
+    2:'二爻 —— 内卦之中，得中得位则吉',
+    3:'三爻 —— 内卦之极，过刚易折，多凶',
+    4:'四爻 —— 外卦之始，近君位，宜慎',
+    5:'五爻 —— 君位，全卦最吉之位',
+    6:'上爻 —— 事之终，过极则变'
+  };
+
   var KINDS=[
     {k:'感情',re:/感情|爱情|恋爱|喜欢|在一起|分手|表白|结婚|婚姻|他|她|对象|暗恋|复合/},
-    {k:'事业',re:/工作|事业|跳槽|升职|辞职|创业|项目|考试|面试|offer|客户|合作|生意|公司/},
+    {k:'事业',re:/工作|事业|跳槽|升职|晋级|晋升|升一级|提拔|辞职|创业|项目|考试|面试|offer|客户|合作|生意|公司|领导/},
     {k:'财运',re:/钱|财|收入|投资|股票|亏|赚|工资|奖金|买房|预算/},
     {k:'学业',re:/学|考试|论文|考研|留学|毕业|读书|专业/},
     {k:'健康',re:/健康|身体|病|失眠|累|疼|恢复|作息/},
-    {k:'出行',re:/出行|旅行|搬|迁|出差|去|回国|离开|城市/},
+    {k:'出行',re:/出行|旅行|搬|迁|出差|回国|离开|城市/},
     {k:'人际',re:/朋友|家人|父母|同事|关系|沟通|冲突|误会|和解/},
     {k:'时机',re:/什么时候|何时|多久|能不能|要不要|该不该|是否|值不值/}
   ];
 
-  // 语气：顺 / 缓 / 慎
-  var ADVICE={
-    '感情':{顺:'当下宜把话说明白，对方接得住；不必用试探代替表达。',缓:'先别催结果。把注意力放回自己身上，对方反而会靠近。',慎:'此卦提醒你分辨「想要」与「害怕失去」——先稳住自己，再谈关系。'},
-    '事业':{顺:'该推进就推进，此时用力会有回响；把方案摊开谈，比闷头做更有效。',缓:'不是不动，是别急着定局。补齐一个短板，比换赛道划算。',慎:'这卦偏「守」——先护住现有位置与关系，别在情绪里做决定。'},
-    '财运':{顺:'可小幅进，见好就收；大额投入宜分批。',缓:'钱的事宜慢，先把账算清，再谈机会。',慎:'此卦不宜加杠杆、不宜替人担保；稳字当头。'},
-    '学业':{顺:'按部就班即有效，眼下的方法是对的，继续。',缓:'进度慢不等于走错，把基础重过一遍会有跳升。',慎:'别用熬夜换进度，先把作息和节奏调回来。'},
-    '健康':{顺:'身体在恢复中，规律作息就是最好的药。',缓:'累不是意志问题。允许自己停一停，比硬撑更有效。',慎:'此卦提示该去查一查、该歇一歇，别再拿「还好」糊弄自己。'},
-    '出行':{顺:'可以动，路上顺；早订早走，别拖到临时。',缓:'行程先别定死，留出改期余地。',慎:'此事宜缓行一步，先把一个前提确认清楚再动身。'},
-    '人际':{顺:'把话说开就好，对方并没有你想象的那么介意。',缓:'先听，别急着解释；沉默几天比立刻辩白有用。',慎:'此卦重在边界——不必讨好，也别翻旧账。'},
-    '时机':{顺:'时机在近处，不必再等一个「更好的日子」。',缓:'还要等一等，但不是空等：把准备做足，信号自会来。',慎:'现在不是最好的时候；先把自己手里的牌理顺。'},
-    '未明':{顺:'卦象偏吉，所问之事可以往前走一步。',缓:'卦象平缓，宜守不宜攻，先把眼前一件事做好。',慎:'卦象偏警，宜收不宜放；多问一句、多等一天，不会错。'}
+  // 问类 × 卦势 → 三条落点（能／卡／宜）
+  var POINT={
+    '事业':{
+      顺:{can:'此卦利于进取，该争取的时候到了。',block:'阻力主要在流程与考核标准，不在你个人。',do:'把成果整理成可被复述的一页材料，主动递给能拍板的人。'},
+      缓:{can:'能力这条线是够的，但节奏没对上。',block:'卡点在“谁替你说话”，不在业绩本身。',do:'先修一处关系，再谈位置；这一轮别硬提。'},
+      慎:{can:'眼下不是推进的时候，是守成的时候。',block:'外部条件收紧，且内部可能先起摩擦。',do:'把手里的事做稳，别在情绪里提要求或换轨道。'}
+    },
+    '感情':{
+      顺:{can:'对方是接得住的，话可以说透。',block:'阻力多在你自己不肯先开口。',do:'把真实想法讲清楚，别用试探代替表达。'},
+      缓:{can:'关系本身没坏，是节奏错位。',block:'催结果会让对方退。',do:'先把自己过好，给对方一点靠近的空间。'},
+      慎:{can:'此时争对错，只会两败。',block:'有一个旧结没解，新的都绕不开。',do:'先止争，再说爱；边界比讨好有用。'}
+    },
+    '财运':{
+      顺:{can:'可小进，见好就收。',block:'风险在贪多，不在机会本身。',do:'分批、留后手，别一次压满。'},
+      缓:{can:'钱是能挣的，但不是这一笔。',block:'账没算清之前，任何机会都像机会。',do:'先把成本与退出条件写下来，再谈进。'},
+      慎:{can:'此卦不宜加杠杆。',block:'替人担保、合伙出资都要格外小心。',do:'以稳为主，先保本，再谈增。'}
+    },
+    '学业':{
+      顺:{can:'方法是对的，按部就班就有效。',block:'阻力在耐心，不在天赋。',do:'保持节奏，不必再找新方法。'},
+      缓:{can:'进度慢不等于走错。',block:'基础有一处没夯实，往后会反复卡。',do:'回头把那一处补上，比往前赶更划算。'},
+      慎:{can:'此时硬拼效率很低。',block:'作息或状态出了问题，先修状态。',do:'减少无效时长，先把身体和节奏调回来。'}
+    },
+    '健康':{
+      顺:{can:'在恢复中，规律就是最好的药。',block:'阻力在作息反复。',do:'固定睡眠时间，比任何补剂都有效。'},
+      缓:{can:'累不是意志问题。',block:'身体在提醒你减量，你还在加量。',do:'允许自己停一停，把一件事减掉。'},
+      慎:{can:'此卦提示该去查一查。',block:'别再拿“还好”糊弄自己。',do:'做一次检查，把隐患摊开看。'}
+    },
+    '出行':{
+      顺:{can:'可以动，路上顺。',block:'阻力在准备不足，不在路途。',do:'早订早走，别拖到临时。'},
+      缓:{can:'行程不必定死。',block:'有一个前提还没确认。',do:'留出改期的余地，先确认那一件事。'},
+      慎:{can:'此时宜缓行一步。',block:'仓促上路容易返工。',do:'先把关键条件确认，再动身。'}
+    },
+    '人际':{
+      顺:{can:'把话说开就好。',block:'对方没你想象的那么介意。',do:'直接说，比绕弯子省事。'},
+      缓:{can:'关系还在，只是有点僵。',block:'急于解释会让误会更深。',do:'先听，过几天再说，效果更好。'},
+      慎:{can:'此卦重在守边界。',block:'旧账翻出来只会更乱。',do:'不必讨好，也别翻旧账；把界限讲明白。'}
+    },
+    '时机':{
+      顺:{can:'时机在近处。',block:'不必再等一个“更好的日子”。',do:'就在这几天动手，越拖越散。'},
+      缓:{can:'还要等一等。',block:'但不是空等——准备没做足。',do:'把该备的备齐，信号自会来。'},
+      慎:{can:'现在不是最好的时候。',block:'再等一轮，代价小于返工。',do:'先理顺手里的牌，别抢跑。'}
+    },
+    '未明':{
+      顺:{can:'卦象偏吉，所问之事可以往前走一步。',block:'阻力在你自己犹豫。',do:'定一个小的第一步，今天就做。'},
+      缓:{can:'卦象平缓，宜守不宜攻。',block:'条件还差一块，硬推会返工。',do:'先把眼前一件事做好，别开新战场。'},
+      慎:{can:'卦象偏警，宜收不宜放。',block:'此时做大动作，容易牵动别处。',do:'多问一句、多等一天，不会错。'}
+    }
   };
 
   function load(cb){
@@ -578,31 +635,33 @@ a{color:#00d2ff;text-decoration:none}
     var u=triName([up[2],up[1],up[0]]), l=triName([low[2],low[1],low[0]]);
     return {up:u, low:l, rec:((H[u]||{})[l]||{})};
   }
-  function tagsOf(text){
-    var t=text||'', out=[];
-    if(/大吉|元吉/.test(t)) out.push('大吉');
-    else if(/吉/.test(t)) out.push('吉');
-    if(/凶/.test(t)) out.push('凶');
-    if(/悔/.test(t)) out.push('悔');
-    if(/吝/.test(t)) out.push('吝');
-    if(/無咎|无咎/.test(t)) out.push('无咎');
-    if(/利/.test(t)) out.push('利');
-    if(/貞|贞/.test(t)) out.push('贞');
-    return out.filter(function(v,i,a){return a.indexOf(v)===i;});
+  function tagsOf(t){
+    t=t||'';var o=[];
+    if(/大吉|元吉/.test(t))o.push('大吉'); else if(/吉/.test(t))o.push('吉');
+    if(/凶/.test(t))o.push('凶');
+    if(/悔/.test(t))o.push('悔');
+    if(/吝/.test(t))o.push('吝');
+    if(/無咎|无咎/.test(t))o.push('无咎');
+    if(/利/.test(t))o.push('利');
+    if(/貞|贞/.test(t))o.push('贞');
+    return o.filter(function(v,i,a){return a.indexOf(v)===i;});
   }
   function toneOf(tags){
     if(tags.indexOf('凶')>=0) return '慎';
     if(tags.indexOf('吝')>=0||tags.indexOf('悔')>=0) return '缓';
     if(tags.indexOf('大吉')>=0||tags.indexOf('吉')>=0) return '顺';
-    if(tags.indexOf('无咎')>=0) return '缓';
     return '缓';
   }
   function kindOf(q){
-    for(var i=0;i<KINDS.length;i++){
-      if(KINDS[i].re.test(q)) return KINDS[i].k;
-    }
+    for(var i=0;i<KINDS.length;i++) if(KINDS[i].re.test(q)) return KINDS[i].k;
     return '未明';
   }
+  function sec(title,body,color){
+    return '<div style="margin-top:12px;text-align:left">'+
+      '<div style="color:'+(color||'#9fc0e8')+';font-size:12px;letter-spacing:.1em;margin-bottom:4px">'+title+'</div>'+
+      '<div style="line-height:1.9">'+body+'</div></div>';
+  }
+
   function render(vals){
     var bits=vals.map(function(v){return (v===7||v===9)?1:0;});
     var chgBits=vals.map(function(v,i){return (v===6||v===9)?1-bits[i]:bits[i];});
@@ -618,46 +677,74 @@ a{color:#00d2ff;text-decoration:none}
     document.getElementById('divVirtue').textContent=rec.virtue?('卦德 · '+rec.virtue):'';
     document.getElementById('divText').textContent=rec.guaci||'';
 
-    var yaoci='';
-    if(moving.length && rec.yaoci){
-      yaoci='动爻爻辞：'+moving.map(function(i){
-        return '「'+(rec.yaoci[i]||'')+'」';
-      }).join(' ');
+    var guaUp=GUA[r.up]||['','','','',''], guaLow=GUA[r.low]||['','','','',''];
+    var html='';
+
+    // 1) 卦体
+    html+=sec('卦体 · '+r.up+'上'+r.low+'下',
+      '上卦 <b>'+r.up+'</b>（'+guaUp[0]+'·'+guaUp[1]+'）　下卦 <b>'+r.low+'</b>（'+guaLow[0]+'·'+guaLow[1]+'）<br>'+
+      '<span style="color:#8f97a3;font-size:13px">'+r.up+'为'+guaUp[4]+'，'+r.low+'为'+guaLow[4]+
+      '；合而为「'+r.up+'在'+r.low+'上」，卦意为<b>'+(rec.virtue||'')+'</b>。</span>');
+
+    // 2) 卦辞
+    html+=sec('卦辞（周易原文）', '<div style="color:#e6ecf5">「'+(rec.guaci||'')+'」</div>');
+
+    // 3) 彖传
+    if(rec.tuan){
+      var t=rec.tuan.replace(/^彖[︰:]\s*/,'');
+      html+=sec('彖传（释义）', '<span style="color:#c2ccd9;font-size:13px">'+t+'</span>');
     }
-    var chgTxt='';
+
+    // 4) 动爻
+    if(moving.length){
+      var mvTxt=moving.map(function(i){
+        return '<div style="margin:4px 0">「'+(rec.yaoci?rec.yaoci[i]:'')+'」<div style="color:#8f97a3;font-size:12px">'+YAO[i+1]+'</div></div>';
+      }).join('');
+      html+=sec('动爻 · 第'+moving.map(function(i){return i+1;}).join('、')+' 爻', mvTxt);
+    } else {
+      html+=sec('动爻','六爻安静，无动爻，以本卦卦辞断。');
+    }
+
+    // 5) 变卦
     if(moving.length){
       var r2=lookup(chgBits), rec2=r2.rec||{};
-      chgTxt='动爻第'+moving.map(function(i){return i+1;}).join('、')+' 爻　→　变卦：'+
-             (rec2.full||'')+(rec2.virtue?('（'+rec2.virtue+'）'):'');
-    } else {
-      chgTxt='六爻安静，无动爻，以本卦断。';
+      var g2up=GUA[r2.up]||[], g2low=GUA[r2.low]||[];
+      html+=sec('变卦 · '+(rec2.full||''),
+        '<div>上'+r2.up+'（'+g2up[0]+'）下'+r2.low+'（'+g2low[0]+'）　卦德 · '+(rec2.virtue||'')+'</div>'+
+        '<div style="color:#e6ecf5;margin-top:4px">「'+(rec2.guaci||'')+'」</div>'+
+        '<div style="color:#8f97a3;font-size:12px;margin-top:4px">走向：由「'+(rec.virtue||'')+'」趋于「'+(rec2.virtue||'')+'」</div>');
     }
 
+    // 6) 落点
     var tagSrc=(rec.guaci||'')+' '+moving.map(function(i){return (rec.yaoci||[])[i]||'';}).join(' ');
     var tags=tagsOf(tagSrc), tone=toneOf(tags);
-    var kind=kindOf((document.getElementById('divQ')||{}).value||'');
-    var advice=(ADVICE[kind]||ADVICE['未明'])[tone];
+    var q=(document.getElementById('divQ')||{}).value||'';
+    var kind=kindOf(q);
+    var P=(POINT[kind]||POINT['未明'])[tone];
+    html+=sec('落点 · 所问「'+(kind==='未明'?'未明确':kind)+'」｜卦势'+tone,
+      '<div style="margin:4px 0"><b style="color:#c9d8ea">可</b>　'+P.can+'</div>'+
+      '<div style="margin:4px 0"><b style="color:#d8b96a">卡</b>　'+P.block+'</div>'+
+      '<div style="margin:4px 0"><b style="color:#9fd4b0">宜</b>　'+P.do+'</div>');
 
+    // 7) 标签
     var chips=tags.map(function(t){
-      return '<span style="display:inline-block;margin:0 4px;padding:2px 9px;border-radius:999px;font-size:12px;'+
+      return '<span style="display:inline-block;margin:0 4px 4px 0;padding:2px 9px;border-radius:999px;font-size:12px;'+
         'border:1px solid '+(t==='凶'?'#d46a6a':(t==='吉'||t==='大吉'?'#c9a94f':'#7d99b8'))+';'+
         'color:'+(t==='凶'?'#e08a8a':(t==='吉'||t==='大吉'?'#e0c46f':'#9fb8d4'))+'">'+t+'</span>';
     }).join('');
+    html+=sec('吉凶字', chips||'<span style="color:#8f97a3;font-size:13px">本卦未见明显吉凶字</span>');
 
-    document.getElementById('divChange').innerHTML=
-      (yaoci?('<div style="margin-bottom:6px">'+yaoci+'</div>'):'')+
-      '<div>'+chgTxt+'</div>'+
-      '<div style="margin-top:10px">'+chips+'</div>'+
-      '<div style="margin-top:10px;text-align:left;padding:10px 12px;border-radius:10px;background:rgba(160,190,230,.06);line-height:1.85">'+
-        '<div style="color:#9fc0e8;font-size:12px;margin-bottom:4px">解读 · 所问：'+kind+'｜卦势：'+tone+'</div>'+
-        '<div>'+advice+'</div>'+
-        (rec.our_text?('<div style="margin-top:8px;color:#8f97a3;font-size:12px">白话浅释：'+rec.our_text+'</div>'):'')+
-      '</div>'+
-      '<div style="margin-top:8px;color:#6e7681;font-size:11px">解读按卦辞/爻辞吉凶与所问类别规则推断，仅供参照，不作决断依据。</div>';
+    // 8) 白话浅释（我们库里那套）
+    if(rec.our_text) html+=sec('白话浅释','<span style="color:#a7b1bd;font-size:13px">'+rec.our_text+'</span>','#8f97a3');
 
+    html+='<div style="margin-top:12px;color:#6e7681;font-size:11px;text-align:left">'+
+      '解读依周易卦辞、彖传、动爻爻辞与所问类别规则推断，仅供参照，不作决断依据。</div>';
+
+    document.getElementById('divChange').innerHTML=html;
     document.getElementById('divCard').dataset.line=
       (rec.full||'')+'（'+vals.map(function(v){return v===6?'老阴':v===7?'少阳':v===8?'少阴':'老阳';}).join('、')+'）';
   }
+
   function play(){
     var vals=[];
     for(var i=0;i<6;i++){var s=0;for(var k=0;k<3;k++)s+=(Math.random()<0.5?3:2);vals.push(s);}
@@ -673,14 +760,14 @@ a{color:#00d2ff;text-decoration:none}
   document.getElementById('divCopy').onclick=function(){
     var c=document.getElementById('divCard');
     if(!c.dataset.line) return;
-    var txt=c.dataset.line+'\n'+document.getElementById('divName').textContent+
-      '\n'+document.getElementById('divText').textContent+'\n'+
-      document.getElementById('divChange').textContent;
+    var txt=c.dataset.line+'\n'+document.getElementById('divName').textContent+'\n'+
+      document.getElementById('divText').textContent+'\n'+document.getElementById('divChange').textContent;
     if(navigator.clipboard) navigator.clipboard.writeText(txt);
   };
   load(function(){});
 })();
 </script>
+
 
 
 
