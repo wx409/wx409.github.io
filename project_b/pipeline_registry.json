@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 09:40",
+ "generated_at": "2026-11-01 10:13",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 246,
-  "dispatch": 246,
+  "menu_items": 250,
+  "dispatch": 250,
   "deploy_steps": 94,
   "scheduled_tasks": 21
  },
@@ -920,7 +920,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
-    "next": "2026/11/1 10:00:00",
+    "next": "2026/11/8 10:00:00",
     "type": "Weekly",
     "start": "10:00:00"
    },
@@ -1362,7 +1362,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/11/1 10:00:00",
+    "next": "2026/11/2 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1926,6 +1926,14 @@
    "path": "D:\\wx409.github.io\\project_b\\interview_daily.py"
   },
   {
+   "script": "transcribe.py",
+   "menu": 251,
+   "title": "[转写] 查看可用模型 + 已转写索引",
+   "menu_label": "tr_info",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\transcribe.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -2217,7 +2225,7 @@
     "name": "wx409_morning_catchup",
     "script": "morning_catchup.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\morning_catchup.py >> temp\\morning_catchup.log 2>&1",
-    "next": "2026/11/1 9:45:00",
+    "next": "2026/11/2 9:45:00",
     "type": "Daily",
     "start": "9:45:00"
    },
@@ -2237,7 +2245,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 9:41:00",
+    "next": "2026/11/1 10:21:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },

@@ -593,6 +593,17 @@ echo    246. [词句] 查看词句库统计（各类型条数 + 最近十条）
 
 echo    247. [采访] 立刻巡检采访/杂志 → 根表 + 待人工清单 + 站内通知
 
+
+echo  [W · 本地转写（faster-whisper：turbo / small）]
+
+echo    248. [转写] 单条微博链接（给 URL，自动下视频并转写）
+
+echo    249. [转写] 批量补完待办视频（根表/审计里未转写的）
+
+echo    250. [转写] 整个文件夹批量（视频/音频混合）
+
+echo    251. [转写] 查看可用模型 + 已转写索引
+
 echo    0. 退出
 
 echo.
@@ -1084,6 +1095,15 @@ if "%op%"=="245" goto phr_bulk
 
 if "%op%"=="246" goto phr_list
 if "%op%"=="247" goto interview_patrol
+
+if "%op%"=="248" goto tr_weibo
+
+if "%op%"=="249" goto tr_pending
+
+if "%op%"=="250" goto tr_dir
+
+if "%op%"=="251" goto tr_info
+
 
 
 
@@ -6520,5 +6540,44 @@ echo === 采访/杂志巡检（根表 + 待人工清单 + 通知） ===
 python -X utf8 project_b\interview_daily.py
 echo.
 echo 根表：E:\wx\私有\王晰全文库\采访目录\采访杂志根表.md
+pause
+goto menu
+
+:tr_weibo
+cls
+echo === 转写 · 单条微博链接 ===
+set "turl="
+set /p turl=粘贴微博链接: 
+if "%turl%"=="" goto menu
+python -X utf8 project_b\transcribe.py --weibo "%turl%"
+echo.
+pause
+goto menu
+
+:tr_pending
+cls
+echo === 转写 · 批量补完待办视频 ===
+python -X utf8 project_b\transcribe.py --pending
+echo.
+pause
+goto menu
+
+:tr_dir
+cls
+echo === 转写 · 文件夹批量 ===
+set "tdir="
+set /p tdir=文件夹路径: 
+if "%tdir%"=="" goto menu
+python -X utf8 project_b\transcribe.py --dir "%tdir%"
+echo.
+pause
+goto menu
+
+:tr_info
+cls
+python -X utf8 project_b\transcribe.py --list-models
+echo.
+if exist "E:\wx\私有\王晰全文库\采访目录\转写索引.json" type "E:\wx\私有\王晰全文库\采访目录\转写索引.json"
+echo.
 pause
 goto menu
