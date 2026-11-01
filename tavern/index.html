@@ -484,6 +484,73 @@ a{color:#00d2ff;text-decoration:none}
 })();
 </script>
 
+<div class="poem-card" id="poemCard">
+  <div class="poem-head"><span class="poem-dot"></span>掷 卦 成 诗<span class="poem-sub">六爻各抽一词，拼成一句</span></div>
+  <div class="poem-line" id="poemLine"></div>
+  <div class="poem-meta" id="poemMeta"></div>
+  <div class="poem-btns">
+    <button id="poemRoll">掷 一 卦</button>
+    <button id="poemCopy">复制</button>
+  </div>
+</div>
+<style>
+.poem-card{margin:16px auto 0;max-width:640px;padding:18px 20px 14px;border-radius:14px;
+  background:linear-gradient(180deg,rgba(140,170,220,.08),rgba(140,170,220,.02));
+  border:1px solid rgba(160,190,230,.22);text-align:center}
+.poem-head{color:#9fc0e8;font-size:13px;letter-spacing:.28em;margin-bottom:10px;
+  display:flex;align-items:center;justify-content:center;gap:10px}
+.poem-dot{width:6px;height:6px;border-radius:50%;background:#9fc0e8;box-shadow:0 0 8px #9fc0e8}
+.poem-sub{letter-spacing:0;color:#8f8377;font-size:11px}
+.poem-line{color:#f0f4fa;font:24px/2 Georgia,"Songti SC","Microsoft YaHei",serif;min-height:96px;
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 14px;padding:6px 4px}
+.poem-line span{opacity:0;transform:translateY(6px);animation:poemIn .45s forwards}
+@keyframes poemIn{to{opacity:1;transform:none}}
+.poem-meta{color:#8f97a3;font-size:12px;min-height:1.3em;margin:2px 0 12px}
+.poem-btns{display:flex;gap:8px;justify-content:center}
+.poem-btns button{font:inherit;font-size:13px;padding:8px 18px;border-radius:999px;cursor:pointer;
+  background:transparent;color:#dfe8f3;border:1px solid rgba(160,190,230,.35);transition:.2s}
+.poem-btns button:hover{background:rgba(160,190,230,.14);color:#fff}
+</style>
+<script>
+(function(){
+  var G=null;
+  function load(cb){
+    if(G) return cb();
+    fetch('/data/dice_sets.json?v=2026110122').then(function(r){return r.json()}).then(function(j){
+      var p=(j.sets||{}).poem||{}; G=p.groups||[]; cb();
+    }).catch(function(){document.getElementById('poemLine').textContent='诗卦数据加载失败';});
+  }
+  function roll(){
+    if(!G||!G.length) return;
+    var six=G.slice(0,6), picks=[], html='';
+    six.forEach(function(g,i){
+      var w=g.words[Math.floor(Math.random()*g.words.length)];
+      picks.push(w.text);
+      html+='<span style="animation-delay:'+(i*0.12)+'s">'+w.text+'</span>';
+    });
+    document.getElementById('poemLine').innerHTML=html;
+    var extra=[];
+    [6,7,8].forEach(function(gi,idx){
+      var label=['天时','地利','人和'][idx];
+      if(G[gi]&&Math.random()<0.5){
+        var w=G[gi].words[Math.floor(Math.random()*G[gi].words.length)];
+        extra.push(label+' · '+w.text);
+      }
+    });
+    document.getElementById('poemMeta').textContent='初爻 → 上爻'+(extra.length?('　'+extra.join('　')):'');
+    document.getElementById('poemCard').dataset.line=picks.join(' ');
+  }
+  document.getElementById('poemRoll').onclick=function(){ load(roll); };
+  document.getElementById('poemCopy').onclick=function(){
+    var line=document.getElementById('poemCard').dataset.line||'';
+    if(!line) return;
+    if(navigator.clipboard) navigator.clipboard.writeText(line+'\n—— 王晰六爻诗卦');
+  };
+  load(roll);
+})();
+</script>
+
+
     </div>
   </div>
 
