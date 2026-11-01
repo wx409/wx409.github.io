@@ -848,6 +848,14 @@ a{color:#00d2ff;text-decoration:none}
   var keeper = new TavernKeeper({ base: './' });
   var state = { mood: null, song: '' };
   var songPoolReady = false;
+  var PLAYABLE_MIDS = null;   /* Set<mid>：实测能取到直链的曲目 */
+  fetch('/data/song_playable.json?v=2026110123')
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      PLAYABLE_MIDS = {};
+      (j.playable || []).forEach(function (x) { PLAYABLE_MIDS[x.mid] = 1; });
+    })
+    .catch(function () {});
 
   /* ---------- 深夜电台：播放器初始化 ---------- */
   var radio = TavernPlayer.init({
@@ -1550,7 +1558,22 @@ a{color:#00d2ff;text-decoration:none}
       if (withUid.length) songObj = withUid[Math.floor(Math.random() * withUid.length)];
     }
     if (songObj && songObj.uid) {
-      radioSetSong({ mid: String(songObj.uid).replace(/^L:/, ''), title: songObj.name });
+      var pickMid = String(songObj.uid).replace(/^L:/, '');
+      var swapped = '';
+      if (PLAYABLE_MIDS && pickMid && !PLAYABLE_MIDS[pickMid]) {
+        var pool2 = ((keeper._songPool && keeper._songPool.list) || []).filter(function (s) {
+          var m = String(s.uid || '').replace(/^L:/, '');
+          return m && PLAYABLE_MIDS[m];
+        });
+        if (pool2.length) {
+          songObj = pool2[Math.floor(Math.random() * pool2.length)];
+          pickMid = String(songObj.uid).replace(/^L:/, '');
+          swapped = '此曲需会员，已换一首可播的：' + songObj.name;
+        }
+      }
+      radioSetSong({ mid: pickMid, title: songObj.name });
+      var st = document.getElementById('radioState');
+      if (st && swapped) { st.textContent = '｜' + swapped; }
     }
     if (d.tavern && d.tavern.episode) {
       /* 期次 songmid 在 transcripts 中，懒加载后填充。
