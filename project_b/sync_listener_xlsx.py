@@ -123,10 +123,17 @@ def main():
         ws.cell(row, status_col, "在用")
         added += 1
 
-    # 已有行补「在用」标记（未标记的）
-    for m, r in existing.items():
-        if m in pool_mids and not ws.cell(r, status_col).value:
+    # 已有行补状态（未标记的）
+    for r in range(2, ws.max_row + 1):
+        if ws.cell(r, status_col).value:
+            continue
+        mid = mid_of_link(ws.cell(r, 4).value) or mid_of_link(ws.cell(r, 5).value)
+        if not mid:
+            ws.cell(r, status_col, "无 mid（无法播放）")
+        elif mid in pool_mids:
             ws.cell(r, status_col, "在用")
+        else:
+            ws.cell(r, status_col, "已下架（曲库无此曲）")
 
     wb.save(XLSX)
     print("已追加 %d 行｜表总行数 %d" % (added, ws.max_row))
