@@ -407,6 +407,56 @@ a{color:#00d2ff;text-decoration:none}
         受王晰<b>「日木斤深夜小酒馆」</b>节目（2022 · 107 期 · 用故事下酒，一夜好梦到天明）启发而建的粉丝互动页。
         选一个今晚的心情，挑一首王晰的歌，<b>主理人</b>会用歌词、采访与金句为你调一杯专属的酒——杯底还藏着来自<b>数据大屏</b>的小小洞察。
       </div>
+<div class="dice-card" id="dice">
+  <div class="dice-head"><span class="dice-dot"></span>今 日 签<span class="dice-sub">抽一句，带走</span></div>
+  <div class="dice-face" id="diceFace">点下面的按钮，抽一句</div>
+  <div class="dice-src" id="diceSrc"></div>
+  <div class="dice-btns">
+    <button data-a="draw">换 一 句</button>
+    <button data-a="today">今天那句</button>
+    <button data-a="copy">复制</button>
+  </div>
+</div>
+<style>
+.dice-card{margin:26px auto 0;max-width:640px;padding:18px 20px 14px;border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,252,244,.07),rgba(255,252,244,.03));
+  border:1px solid rgba(224,182,79,.28);backdrop-filter:blur(3px);text-align:center}
+.dice-head{color:#e0b64f;font-size:13px;letter-spacing:.28em;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px}
+.dice-dot{width:6px;height:6px;border-radius:50%;background:#e0b64f;box-shadow:0 0 8px #e0b64f}
+.dice-sub{letter-spacing:0;color:#8f8377;font-size:11px}
+.dice-face{color:#f4ece0;font:20px/1.75 Georgia,"Songti SC","Microsoft YaHei",serif;min-height:78px;
+  display:flex;align-items:center;justify-content:center;padding:6px 4px}
+.dice-src{color:#9a8f82;font-size:12px;min-height:1.3em;margin:2px 0 12px}
+.dice-src b{color:#e0b64f;font-weight:500}
+.dice-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.dice-btns button{font:inherit;font-size:13px;padding:8px 16px;border-radius:999px;cursor:pointer;
+  background:transparent;color:#e7dccb;border:1px solid rgba(224,182,79,.35);transition:.2s}
+.dice-btns button:hover{background:rgba(224,182,79,.14);color:#fff}
+</style>
+<script>
+(function(){
+  var SETS=null,cur=0;
+  function load(cb){ if(SETS)return cb();
+    fetch('/data/dice_sets.json').then(function(r){return r.json()}).then(function(j){SETS=j.sets||{};cb();})
+      .catch(function(){document.getElementById('diceFace').textContent='词句数据加载失败';});}
+  function keys(o){return Object.keys(o).filter(function(k){return (o[k].faces||[]).length;});}
+  function show(i){var k=keys(SETS)[cur],set=SETS[k],f=set.faces[i%set.faces.length];
+    document.getElementById('diceFace').textContent=f.text;
+    document.getElementById('diceSrc').innerHTML='<b>'+set.name+'</b> · '+(f.source||set.disclaimer||'');}
+  function day(){var d=new Date(),s=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(),h=0;
+    for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h;}
+  document.querySelectorAll('#dice .dice-btns button').forEach(function(b){
+    var a=b.dataset.a;
+    if(a==='draw')b.onclick=function(){load(function(){show(Math.floor(Math.random()*9999));});};
+    if(a==='today')b.onclick=function(){load(function(){show(day());});};
+    if(a==='copy')b.onclick=function(){
+      var t=document.getElementById('diceFace').textContent+'\n—— '+document.getElementById('diceSrc').textContent;
+      if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){b.textContent='已复制';setTimeout(function(){b.textContent='复制';},1200);});};
+  });
+  load(function(){show(day());});
+})();
+</script>
+
     </div>
   </div>
 
@@ -1391,69 +1441,6 @@ a{color:#00d2ff;text-decoration:none}
     }
   }
   parseDeepLink();
-})();
-</script>
-
-<section id="dice" style="margin:48px auto;max-width:760px;padding:0 16px">
-  <h2 style="border-left:4px solid #a8323d;padding-left:10px">抽 一 句</h2>
-  <p style="color:#8a7a66;font-size:14px;margin:6px 0 16px">
-    从他说过的话、歌词片段与卦象引语里抽一句。每句都带出处；玄学套仅供娱乐。
-  </p>
-  <div id="diceTabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px"></div>
-  <div id="diceFace" style="min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;
-       padding:26px 22px;border:1px solid #e3dbcc;border-radius:14px;background:#fffdf8;font-size:20px;line-height:1.65">
-    点下面的按钮抽一句
-  </div>
-  <p id="diceSrc" style="color:#8a8a8a;font-size:13px;text-align:center;margin:10px 0 0;min-height:1.4em"></p>
-  <div style="display:flex;gap:10px;margin-top:14px">
-    <button id="diceDraw" style="flex:1;font:inherit;font-size:16px;padding:12px;border:0;border-radius:10px;background:#a8323d;color:#fff;cursor:pointer">抽 一 句</button>
-    <button id="diceToday" style="font:inherit;padding:12px 16px;border:1px solid #d8cfc0;background:#fbf8f3;border-radius:10px;cursor:pointer">今天那句</button>
-    <button id="diceCopy" style="font:inherit;padding:12px 16px;border:1px solid #d8cfc0;background:#fbf8f3;border-radius:10px;cursor:pointer">复制</button>
-  </div>
-  <p style="color:#a9a094;font-size:12px;text-align:center;margin-top:10px">
-    每日一句：当天所有人都抽到同一句（按日期做种子）｜全部词句见 <a href="/phrases.html" style="color:#a8323d">词句页</a>
-  </p>
-</section>
-<script>
-(function(){
-  var SETS = null, cur = 0;
-  function load(cb){
-    if (SETS) return cb();
-    fetch('/data/dice_sets.json').then(function(r){return r.json()}).then(function(j){
-      SETS = j.sets || {}; cb();
-    }).catch(function(){ document.getElementById('diceFace').textContent='词句数据加载失败'; });
-  }
-  function keys(o){ return Object.keys(o).filter(function(k){ return (o[k].faces||[]).length; }); }
-  function hashDay(){
-    var d = new Date(); var s = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); var h=0;
-    for (var i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))>>>0; }
-    return h;
-  }
-  function show(i){
-    var k = keys(SETS)[cur], set = SETS[k], faces = set.faces;
-    var f = faces[i % faces.length];
-    document.getElementById('diceFace').textContent = f.text;
-    document.getElementById('diceSrc').innerHTML = '<b style="color:#a8323d">'+set.name+'</b>｜出处：'+(f.source||set.disclaimer||'');
-  }
-  function renderTabs(){
-    var box = document.getElementById('diceTabs'), ks = keys(SETS), html='';
-    for (var i=0;i<ks.length;i++){
-      html += '<button data-i="'+i+'" style="font:inherit;padding:7px 14px;border-radius:999px;cursor:pointer;'+
-        (i===cur?'background:#a8323d;color:#fff;border:1px solid #a8323d':'background:#fbf8f3;border:1px solid #d8cfc0')+'">'+
-        SETS[ks[i]].name+'</button>';
-    }
-    box.innerHTML = html;
-    box.querySelectorAll('button').forEach(function(b){
-      b.onclick=function(){ cur=+b.dataset.i; renderTabs(); document.getElementById('diceFace').textContent='点下面的按钮抽一句'; document.getElementById('diceSrc').textContent=''; };
-    });
-  }
-  document.getElementById('diceDraw').onclick = function(){ load(function(){ show(Math.floor(Math.random()*999)); }); };
-  document.getElementById('diceToday').onclick = function(){ load(function(){ show(hashDay()); }); };
-  document.getElementById('diceCopy').onclick = function(){
-    var t = document.getElementById('diceFace').textContent + '\n—— ' + document.getElementById('diceSrc').textContent;
-    navigator.clipboard.writeText(t).then(function(){ alert('已复制'); }).catch(function(){ alert('复制失败，请手选'); });
-  };
-  load(function(){ renderTabs(); });
 })();
 </script>
 
