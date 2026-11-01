@@ -111,9 +111,12 @@ function show(i){{
   document.getElementById('die').textContent=f.text;
   document.getElementById('dsrc').innerHTML='<b style="color:#a8323d">'+t.name+'</b>｜出处：'+(f.source||t.note||'');
 }}
-function daySeed(){{
-  var d=new Date(), s=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(), h=0;
-  for(var i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))>>>0;
+function daySeed(){{{
+  var d=new Date(), s=d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()
+    +'|'+(d.getFullYear()*37+d.getMonth());
+  var h=2166136261;
+  for(var i=0;i<s.length;i++){{ h^=s.charCodeAt(i); h=Math.imul(h,16777619)>>>0; }}
+  h^=h>>>13; h=Math.imul(h,0x5bd1e995)>>>0; h^=h>>>15;
   return h;
 }}
 document.getElementById('draw').onclick=function(){{show(Math.floor(Math.random()*9999));}};

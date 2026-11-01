@@ -448,16 +448,14 @@ a{color:#00d2ff;text-decoration:none}
   function show(i){var k=keys(SETS)[cur],set=SETS[k],f=set.faces[i%set.faces.length];
     document.getElementById('diceFace').textContent=f.text;
     document.getElementById('diceSrc').innerHTML='<b>'+set.name+'</b> · '+(f.source||set.disclaimer||'');}
-  function day(){var d=new Date(),s=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(),h=0;
-    for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h;}
-  document.querySelectorAll('#dice .dice-btns button').forEach(function(b){
-    var a=b.dataset.a;
-    if(a==='draw')b.onclick=function(){load(function(){show(Math.floor(Math.random()*9999));});};
-    if(a==='today')b.onclick=function(){load(function(){show(day());});};
-    if(a==='copy')b.onclick=function(){
-      var t=document.getElementById('diceFace').textContent+'\n—— '+document.getElementById('diceSrc').textContent;
-      if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){b.textContent='已复制';setTimeout(function(){b.textContent='复制';},1200);});};
-  });
+  function day(){
+  var d=new Date(), s=d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()
+    +'|'+(d.getFullYear()*37+d.getMonth());
+  var h=2166136261;                       // FNV-1a
+  for(var i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619)>>>0; }
+  h^=h>>>13; h=Math.imul(h,0x5bd1e995)>>>0; h^=h>>>15;   // 再混淆一次
+  return h;
+});
   function chips(){
     var box=document.getElementById('diceChips'),ks=keys(SETS),h='';
     for(var i=0;i<ks.length;i++){
