@@ -624,6 +624,8 @@ echo    260. [词句] 从文本文件入池（手摘金句/整理稿，给路径+出处）
 
 echo    261. [采访] 网页访谈自动采集（360 搜索→抓正文→抽原话→重建；每日 08:45 已排程）
 
+echo    262. [曲库] 同步「收听人数」表（补缺失 mid / 标已下架；每日 23:40 已排程）
+
 echo    0. 退出
 
 echo.
@@ -1137,6 +1139,8 @@ if "%op%"=="259" goto ingest_link
 
 if "%op%"=="260" goto ingest_file
 if "%op%"=="261" goto web_interview
+if "%op%"=="262" goto sync_listener
+
 
 
 
@@ -6726,6 +6730,15 @@ set "wmax="
 set /p wmax=本轮最多抓几篇（回车=6）: 
 if "%wmax%"=="" set "wmax=6"
 python -X utf8 project_b\interview_web_daily.py --max %wmax%
+echo.
+pause
+goto menu
+
+:sync_listener
+cls
+echo === 同步收听人数表 ===
+echo 曲库有 mid 但表里没有的歌会被追加；表里已下架的会标状态。
+python -X utf8 project_b\sync_listener_xlsx.py
 echo.
 pause
 goto menu

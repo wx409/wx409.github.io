@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 19:47",
+ "generated_at": "2026-11-01 23:39",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 260,
-  "dispatch": 260,
+  "menu_items": 261,
+  "dispatch": 261,
   "deploy_steps": 94,
-  "scheduled_tasks": 23
+  "scheduled_tasks": 24
  },
  "tasks": [
   {
@@ -858,7 +858,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6",
-    "next": "2026/11/1 22:00:00",
+    "next": "2026/11/2 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -1576,7 +1576,7 @@
     "name": "wx409_show_intake",
     "script": "night_show_intake.py",
     "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
-    "next": "2026/11/1 23:30:00",
+    "next": "2026/11/2 23:30:00",
     "type": "Daily",
     "start": "23:30:00"
    },
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/1 20:04:00",
+    "next": "2026/11/2 0:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2028,6 +2028,22 @@
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\interview_web_daily.py"
+  },
+  {
+   "script": "sync_listener_xlsx.py",
+   "menu": 262,
+   "title": "[曲库] 同步「收听人数」表（补缺失 mid / 标已下架；每日 23:40 已排程）",
+   "menu_label": "sync_listener",
+   "schedule": {
+    "name": "wx409_sync_listener_xlsx",
+    "script": "sync_listener_xlsx.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\sync_listener_xlsx.py >> temp\\listener_sync.log 2>&1",
+    "next": "2026/11/1 23:40:00",
+    "type": "Daily",
+    "start": "23:40:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\sync_listener_xlsx.py"
   },
   {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
@@ -2328,7 +2344,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 19:51:00",
+    "next": "2026/11/1 23:41:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2341,7 +2357,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/11/1 21:00:00",
+    "next": "2026/11/2 0:00:00",
     "type": "Daily",
     "start": "21:00:00"
    },
@@ -2367,7 +2383,7 @@
     "name": "wx409_insight_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_insight_daily.bat",
-    "next": "2026/11/1 22:00:00",
+    "next": "2026/11/2 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
