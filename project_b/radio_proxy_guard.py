@@ -35,6 +35,28 @@ def start():
                      stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
+
+
+def probe_vkey(mid=None):
+    """取一首歌试 vkey；purl 为空说明 Cookie 失效或无该曲版权。"""
+    import json as _j
+    if not mid:
+        try:
+            d = _j.load(open(r"D:\wx409.github.io\data\tavern_audio.json", encoding="utf-8"))
+            eps = d if isinstance(d, list) else (d.get("episodes") or d.get("items") or [])
+            mid = eps[0].get("mid") if eps else None
+        except Exception:
+            mid = None
+    if not mid:
+        return None
+    try:
+        r = _j.loads(urllib.request.urlopen(
+            "http://127.0.0.1:%d/vkey?mid=%s" % (PORT, mid), timeout=20).read().decode("utf-8", "ignore"))
+        urls = r.get("urls") or []
+        return bool(urls and urls[0])
+    except Exception:
+        return None
+
 def main():
     st = health()
     if "--status" in sys.argv:
@@ -45,7 +67,16 @@ def main():
         return 0
 
     if st and st.get("cookie"):
-        print("电台代理：运行中，Cookie 已设置 ✅")
+        okv = probe_vkey()
+        if okv:
+            print("电台代理：运行中，Cookie 有效 ✅（试取音频成功）")
+            return 0
+        if okv is False:
+            print("电台代理：运行中，Cookie 已设置，但**取不到音频直链** —— Cookie 很可能已过期 ❌")
+            print("  修复：浏览器登录 https://y.qq.com → F12 → Console 执行：")
+            print('  fetch("http://127.0.0.1:%d/setcookie?cookie=" + encodeURIComponent(document.cookie))' % PORT)
+            return 3
+        print("电台代理：运行中，Cookie 已设置（未能探测音频，可能网络问题）")
         return 0
     if st and not st.get("cookie"):
         print("电台代理：运行中，但 Cookie 未设置 —— 需要在 y.qq.com 登录后执行一次 /setcookie")
