@@ -118,6 +118,45 @@ def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, for
     return ("ok", out, len(body), round(time.time() - t0))
 
 
+ROOT_TABLE = os.path.join(BASE, "采访杂志根表.json")
+
+
+def register_to_root(src, title, out_name, chars, model_name, date_hint=""):
+    """把转写结果并回采访杂志根表（按链接去重），并重生成 md。"""
+    if not os.path.exists(ROOT_TABLE):
+        return False
+    table = json.load(open(ROOT_TABLE, encoding="utf-8"))
+    key = (src or "").split("?")[0]
+    hit = None
+    for it in table["items"]:
+        if key and (it.get("链接") or "").split("?")[0] == key:
+            hit = it
+            break
+        if not key and (it.get("名称") or "")[:20] == (title or "")[:20]:
+            hit = it
+            break
+    if hit is None:
+        hit = {"名称": (title or "")[:80], "类型": "采访", "时间": date_hint,
+               "链接": src, "全文路径": "", "字数": 0,
+               "渠道": "转写入口（手工/链接）", "状态": "", "备注": ""}
+        table["items"].append(hit)
+    hit["全文路径"] = out_name
+    hit["字数"] = chars
+    hit["状态"] = "已存（本地转写·%s）" % model_name
+    hit["备注"] = (hit.get("备注") or "转写入口登记").strip("｜")
+    table["count"] = len(table["items"])
+    table["updated"] = time.strftime("%Y-%m-%d")
+    json.dump(table, open(ROOT_TABLE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    # md 由 json 派生
+    try:
+        import subprocess
+        subprocess.call([sys.executable, "-X", "utf8",
+                         os.path.join(os.path.dirname(os.path.abspath(__file__)), "slim_root_table.py")])
+    except Exception:
+        pass
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--weibo")
@@ -129,6 +168,7 @@ def main():
     ap.add_argument("--min-chars", type=int, default=100)
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--list-models", action="store_true")
+    ap.add_argument("--no-register", action="store_true", help="不写入采访杂志根表")
     a = ap.parse_args()
 
     if a.list_models:
@@ -187,6 +227,8 @@ def main():
             print("  ✅ %-30s %d 字 %.0fs" % (title[:30], res[2], res[3]))
             save_index({"title": title, "src": src, "model": name, "out": os.path.basename(res[1]),
                         "chars": res[2], "at": time.strftime("%Y-%m-%d %H:%M")})
+            if not a.no_register:
+                register_to_root(src, title, os.path.basename(res[1]), res[2], name)
         elif res[0] == "skip":
             skip += 1
         else:
