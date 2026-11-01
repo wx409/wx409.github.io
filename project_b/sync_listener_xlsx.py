@@ -19,9 +19,18 @@ import pandas as pd
 
 XLSX = r"E:\wx\收听人数（2026.7.24）.xlsx"
 COMPACT = r"D:\wx409.github.io\tavern\songs_compact.json"
+PODCAST = r"D:\wx409.github.io\data\podcast_mids.json"
 TPL = ("https://y.qq.com/m/client/music_index/index.html?ADTAG=cbshare"
        "&channelId=10036163&mid=%s&openinqqmusic=1&type=%s")
 STATUS_COL_NAME = "状态"
+
+
+def load_podcast():
+    try:
+        d = json.load(open(PODCAST, encoding="utf-8"))
+        return {p["mid"]: p for p in d}
+    except Exception:
+        return {}
 
 
 def load_pool():
@@ -78,12 +87,32 @@ def main():
     print("需追加 %d 首" % len(todo))
 
     # 标记已下架
-    stale = [m for m in existing if m not in pool_mids]
+    pod = load_podcast()
+    stale = [m for m in existing if m not in pool_mids and m not in pod]
     print("表中已不在曲库的 mid %d 个 → 标「已下架」" % len(stale))
     for m in stale:
         r = existing[m]
         if not a.dry:
             ws.cell(r, status_col, "已下架（曲库无此曲）")
+
+    pod_fixed = 0
+    for m, r in existing.items():
+        p = pod.get(m)
+        if not p:
+            continue
+        album = p.get("album") or ""
+        if "小酒馆" in album:
+            st = "播客（小酒馆·在架）"
+        elif "城市漫行" in album:
+            st = "播客（城市漫行·在架）"
+        else:
+            st = "播客（在架）"
+        if ws.cell(r, status_col).value != st:
+            if not a.dry:
+                ws.cell(r, status_col, st)
+            pod_fixed += 1
+    if pod_fixed:
+        print("修正播客状态 %d 行" % pod_fixed)
 
     if a.dry:
         for p in todo[:10]:
