@@ -688,8 +688,8 @@ def render_md(items: list[dict], generated_at: str) -> str:
     for x in items:
         lines.append(f"| `{x['id']}` | {x['label']} | **{x['value']}** | {x['scope']} | `{x['source']}` |")
     lines += ["", "## 常见误用", "",
-              "- ❌ 把 `song_archive`(748) 当作'追踪曲目'——追踪曲目是 `tracked_songs`(383)。",
-              "- ❌ 把 `tracked_links`(383) 与 `tracked_songs` 混为一谈——前者是链接单位。",
+              "- ❌ 把 `song_archive`(748) 当作'追踪曲目'——追踪曲目是 `tracked_songs`（见上方登记值）。",
+              "- ❌ 把 `tracked_links` 与 `tracked_songs` 混为一谈——前者是链接单位。",
               "- ❌ 用'60 场'或'65 场'描述巡演——正确是 `shows_tour`(59) 或 `shows_all`(64)。",
               "- ❌ 跨平台比曲目数（QQ 池 vs 网易云）——平台口径不同，不可相加或相减。",
               ""]
