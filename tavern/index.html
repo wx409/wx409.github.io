@@ -1393,6 +1393,70 @@ a{color:#00d2ff;text-decoration:none}
   parseDeepLink();
 })();
 </script>
+
+<section id="dice" style="margin:48px auto;max-width:760px;padding:0 16px">
+  <h2 style="border-left:4px solid #a8323d;padding-left:10px">抽 一 句</h2>
+  <p style="color:#8a7a66;font-size:14px;margin:6px 0 16px">
+    从他说过的话、歌词片段与卦象引语里抽一句。每句都带出处；玄学套仅供娱乐。
+  </p>
+  <div id="diceTabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px"></div>
+  <div id="diceFace" style="min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;
+       padding:26px 22px;border:1px solid #e3dbcc;border-radius:14px;background:#fffdf8;font-size:20px;line-height:1.65">
+    点下面的按钮抽一句
+  </div>
+  <p id="diceSrc" style="color:#8a8a8a;font-size:13px;text-align:center;margin:10px 0 0;min-height:1.4em"></p>
+  <div style="display:flex;gap:10px;margin-top:14px">
+    <button id="diceDraw" style="flex:1;font:inherit;font-size:16px;padding:12px;border:0;border-radius:10px;background:#a8323d;color:#fff;cursor:pointer">抽 一 句</button>
+    <button id="diceToday" style="font:inherit;padding:12px 16px;border:1px solid #d8cfc0;background:#fbf8f3;border-radius:10px;cursor:pointer">今天那句</button>
+    <button id="diceCopy" style="font:inherit;padding:12px 16px;border:1px solid #d8cfc0;background:#fbf8f3;border-radius:10px;cursor:pointer">复制</button>
+  </div>
+  <p style="color:#a9a094;font-size:12px;text-align:center;margin-top:10px">
+    每日一句：当天所有人都抽到同一句（按日期做种子）｜全部词句见 <a href="/phrases.html" style="color:#a8323d">词句页</a>
+  </p>
+</section>
+<script>
+(function(){
+  var SETS = null, cur = 0;
+  function load(cb){
+    if (SETS) return cb();
+    fetch('/data/dice_sets.json').then(function(r){return r.json()}).then(function(j){
+      SETS = j.sets || {}; cb();
+    }).catch(function(){ document.getElementById('diceFace').textContent='词句数据加载失败'; });
+  }
+  function keys(o){ return Object.keys(o).filter(function(k){ return (o[k].faces||[]).length; }); }
+  function hashDay(){
+    var d = new Date(); var s = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); var h=0;
+    for (var i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))>>>0; }
+    return h;
+  }
+  function show(i){
+    var k = keys(SETS)[cur], set = SETS[k], faces = set.faces;
+    var f = faces[i % faces.length];
+    document.getElementById('diceFace').textContent = f.text;
+    document.getElementById('diceSrc').innerHTML = '<b style="color:#a8323d">'+set.name+'</b>｜出处：'+(f.source||set.disclaimer||'');
+  }
+  function renderTabs(){
+    var box = document.getElementById('diceTabs'), ks = keys(SETS), html='';
+    for (var i=0;i<ks.length;i++){
+      html += '<button data-i="'+i+'" style="font:inherit;padding:7px 14px;border-radius:999px;cursor:pointer;'+
+        (i===cur?'background:#a8323d;color:#fff;border:1px solid #a8323d':'background:#fbf8f3;border:1px solid #d8cfc0')+'">'+
+        SETS[ks[i]].name+'</button>';
+    }
+    box.innerHTML = html;
+    box.querySelectorAll('button').forEach(function(b){
+      b.onclick=function(){ cur=+b.dataset.i; renderTabs(); document.getElementById('diceFace').textContent='点下面的按钮抽一句'; document.getElementById('diceSrc').textContent=''; };
+    });
+  }
+  document.getElementById('diceDraw').onclick = function(){ load(function(){ show(Math.floor(Math.random()*999)); }); };
+  document.getElementById('diceToday').onclick = function(){ load(function(){ show(hashDay()); }); };
+  document.getElementById('diceCopy').onclick = function(){
+    var t = document.getElementById('diceFace').textContent + '\n—— ' + document.getElementById('diceSrc').textContent;
+    navigator.clipboard.writeText(t).then(function(){ alert('已复制'); }).catch(function(){ alert('复制失败，请手选'); });
+  };
+  load(function(){ renderTabs(); });
+})();
+</script>
+
 <!-- FOOTER_NAV_START -->
 <footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
 <strong style="color:#333;">🧭 全站索引</strong><span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，保证每个页面都有入口、可被爬虫抓取）</span>
