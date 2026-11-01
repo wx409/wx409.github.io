@@ -28,7 +28,7 @@ for f in sorted(glob.glob(os.path.join(T, "*转写_*.txt"))):
             n_drop += 1
             continue
         out.append(line)
-    if len(out) == len(lines):
+    if out == lines:
         continue
     bak = os.path.join(BAK, os.path.basename(f))
     if not os.path.exists(bak):
