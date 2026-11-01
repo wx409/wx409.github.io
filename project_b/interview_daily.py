@@ -10,9 +10,15 @@
 通知：project_b/notify.record（站内通告）
 """
 import json, os, re, ssl, time, urllib.parse, urllib.request
+sys_path = os.path.dirname(os.path.abspath(__file__))
+import sys as _sys
+if sys_path not in _sys.path:
+    _sys.path.insert(0, sys_path)
+import event_filter
 from datetime import date
 
 BASE = r"E:\wx\私有\王晰全文库\采访目录"
+PATROL_SEEN = os.path.join(BASE, ".patrol_seen.json")
 ROOT_TABLE = os.path.join(BASE, "采访杂志根表.json")
 TODO = os.path.join(BASE, "待人工清单.md")
 FULLDIR = os.path.join(BASE, "全文")
@@ -65,16 +71,34 @@ def load_table():
             "fields": ["名称", "类型", "时间", "链接", "全文路径", "字数", "渠道", "状态", "备注"],
             "items": []}
 
+def _norm_link(lk):
+    """微博链接统一成 mid，避免 m.weibo.cn / weibo.com 两种写法被当成两条"""
+    import re as _re
+    m = _re.search(r"(?:detail/|weibo\.com/\d+/)(\d{6,})", lk or "")
+    return "weibo:" + m.group(1) if m else (lk or "").split("?")[0]
+
+
 def key(it):
-    lk = (it.get("链接", "") or "").split("?")[0]
+    lk = _norm_link(it.get("链接", "") or "")
     return ("", lk) if lk else (it.get("名称", "")[:40], "")
 
+def _load_seen():
+    try:
+        return set(json.load(open(PATROL_SEEN, encoding="utf-8")))
+    except Exception:
+        return set()
+
+
+def _save_seen(s):
+    json.dump(sorted(s), open(PATROL_SEEN, "w", encoding="utf-8"), ensure_ascii=False)
+
+
 table = load_table()
-seen = {key(it) for it in table["items"]}
+seen = {key(it) for it in table["items"]} | {("", x) for x in _load_seen()}
 new_items = []
 
 def add(名称, 类型, 时间, 链接, 渠道, 状态="待抓", 备注="", body=""):
-    k = ("", (链接 or "").split("?")[0]) if 链接 else (名称[:40], "")
+    k = ("", _norm_link(链接 or "")) if 链接 else (名称[:40], "")
     if k in seen:
         return
     seen.add(k)
@@ -86,6 +110,15 @@ def add(名称, 类型, 时间, 链接, 渠道, 状态="待抓", 备注="", body
             "名称：%s\n链接：%s\n时间：%s\n\n%s\n" % (it["名称"], 链接, 时间, body))
         it["全文路径"], it["字数"], it["状态"] = fn, len(body), "已存（微博原文）"
     new_items.append(it)
+
+# 0) Fast Path：夜间安静期 / 距上次<2h 且上次无新增 → 直接跳过抓取
+_force = "--force" in _sys.argv
+_go, _why = event_filter.should_run("interview_patrol", force=_force)
+if not _go:
+    print("[FastPath] 跳过本轮抓取：%s" % _why)
+    print("  （要强制跑：python -X utf8 project_b\\interview_daily.py --force）")
+    raise SystemExit(0)
+print("[FastPath] 放行：%s" % _why)
 
 # 1) 微博搜索
 for q in QUERIES:
@@ -280,6 +313,8 @@ try:
 except Exception:
     pass
 
+_save_seen({k[1] for k in seen if k[1]})
+event_filter.done("interview_patrol", new_count=len(new_items), note="auto")
 print("根表 %d 条（新增 %d）｜待人工 %d｜已存全文 %d"
       % (len(items), len(new_items), len(todo),
          sum(1 for it in items if it.get("状态", "").startswith("已存"))))
