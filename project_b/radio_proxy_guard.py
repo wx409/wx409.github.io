@@ -61,7 +61,12 @@ def main():
     st = health()
     if "--status" in sys.argv:
         if st:
-            print("电台代理：运行中 ｜ Cookie：%s" % ("已设置 ✅" if st.get("cookie") else "未设置 ❌"))
+            if not st.get("cookie"):
+                print("电台代理：运行中 ｜ Cookie：未设置 ❌")
+            else:
+                okv = probe_vkey()
+                print("电台代理：运行中 ｜ Cookie：%s"
+                      % ("有效 ✅（能取到音频直链）" if okv else "已设置但取不到直链（多半已过期）❌"))
         else:
             print("电台代理：未运行 ❌（执行不带参数的命令可拉起）")
         return 0
