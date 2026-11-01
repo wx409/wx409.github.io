@@ -11,6 +11,7 @@ from collections import Counter
 
 PAGES = r"E:\wx\私有\王晰全文库\采访目录\网页"
 BANK = r"D:\wx409.github.io\data\phrase_bank.json"
+LEDGER = r"D:\wx409.github.io\data\web_pages_imported.json"
 
 QA = re.compile(r"王晰[：:]\s*(.+?)(?=(?:记者|主持人|问[：:]|【|——|$))", re.S)
 QUOTE = re.compile(r"[“「]([^”」]{12,90})[”」]")
@@ -29,7 +30,15 @@ def sentences(text):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--force", action="store_true", help="重扫所有页面")
     a = ap.parse_args()
+
+    ledger = {}
+    if os.path.exists(LEDGER):
+        try:
+            ledger = json.load(open(LEDGER, encoding="utf-8"))
+        except Exception:
+            ledger = {}
 
     bank = json.load(open(BANK, encoding="utf-8"))
     exist = {re.sub(r"\s", "", i["text"]) for i in bank["items"]}
@@ -40,6 +49,9 @@ def main():
         head, _, body = raw.partition("\n\n")
         title = (re.search(r"标题：(.+)", head).group(1).strip() if "标题：" in head else "")
         if any(s in title for s in SKIP_TITLE):
+            continue
+        base = os.path.basename(p)
+        if not a.force and base in ledger:
             continue
         src = "网页访谈｜%s" % (title[:34] or os.path.basename(p)[:24])
 
@@ -62,6 +74,7 @@ def main():
             added.append({"text": s, "type": "interview", "source": src,
                           "curated": False, "rights": "free", "mood": "quote_mag",
                           "verified": False, "quality": "mid"})
+        ledger[os.path.basename(p)] = {"added": len(added) - n0, "title": title[:60]}
         print("%-42s +%d" % (os.path.basename(p)[:40], len(added) - n0))
 
     print("\n合计新增 %d 条" % len(added))
@@ -70,6 +83,12 @@ def main():
             print("  ", x["text"][:56], "|", x["source"][:26])
         return 0
 
+    if not added:
+        print("没有新句子（全部重复或无可抽内容）")
+        json.dump(ledger, open(LEDGER, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        return 0
+
+    json.dump(ledger, open(LEDGER, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     bank["items"].extend(added)
     bank["count"] = len(bank["items"])
     bank["by_type"] = dict(Counter(i["type"] for i in bank["items"]))
