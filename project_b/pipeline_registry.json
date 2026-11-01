@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01 10:13",
+ "generated_at": "2026-11-01 12:31",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 250,
-  "dispatch": 250,
+  "menu_items": 252,
+  "dispatch": 252,
   "deploy_steps": 94,
   "scheduled_tasks": 21
  },
@@ -1470,7 +1470,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/11/1 12:00:00",
+    "next": "2026/11/2 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1934,6 +1934,30 @@
    "path": "D:\\wx409.github.io\\project_b\\transcribe.py"
   },
   {
+   "script": "dedupe_transcripts.py",
+   "menu": 252,
+   "title": "[转写] 去重/规范化转写文件（保留 turbo，其余归档）",
+   "menu_label": "tr_dedupe",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\dedupe_transcripts.py"
+  },
+  {
+   "script": "morning_catchup.py",
+   "menu": 253,
+   "title": "[运维] 早间任务补跑检查（错过开机的任务现在就补）",
+   "menu_label": "morning_catchup",
+   "schedule": {
+    "name": "wx409_morning_catchup",
+    "script": "morning_catchup.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\morning_catchup.py >> temp\\morning_catchup.log 2>&1",
+    "next": "2026/11/2 9:45:00",
+    "type": "Daily",
+    "start": "9:45:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\morning_catchup.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -2220,19 +2244,6 @@
    "path": "D:\\wx409.github.io\\project_b\\inject_top_verified.py"
   },
   {
-   "script": "morning_catchup.py",
-   "schedule": {
-    "name": "wx409_morning_catchup",
-    "script": "morning_catchup.py",
-    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\morning_catchup.py >> temp\\morning_catchup.log 2>&1",
-    "next": "2026/11/2 9:45:00",
-    "type": "Daily",
-    "start": "9:45:00"
-   },
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\morning_catchup.py"
-  },
-  {
    "script": "redact_local_paths.py",
    "in_deploy": true,
    "deploy_desc": "公开文件本机路径净化（notifications/calibers/essay_quotes）",
@@ -2245,7 +2256,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/1 10:21:00",
+    "next": "2026/11/1 12:41:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },

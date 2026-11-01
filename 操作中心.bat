@@ -604,6 +604,10 @@ echo    250. [转写] 整个文件夹批量（视频/音频混合）
 
 echo    251. [转写] 查看可用模型 + 已转写索引
 
+echo    252. [转写] 去重/规范化转写文件（保留 turbo，其余归档）
+
+echo    253. [运维] 早间任务补跑检查（错过开机的任务现在就补）
+
 echo    0. 退出
 
 echo.
@@ -1103,6 +1107,10 @@ if "%op%"=="249" goto tr_pending
 if "%op%"=="250" goto tr_dir
 
 if "%op%"=="251" goto tr_info
+if "%op%"=="252" goto tr_dedupe
+
+if "%op%"=="253" goto morning_catchup
+
 
 
 
@@ -6578,6 +6586,22 @@ cls
 python -X utf8 project_b\transcribe.py --list-models
 echo.
 if exist "E:\wx\私有\王晰全文库\采访目录\转写索引.json" type "E:\wx\私有\王晰全文库\采访目录\转写索引.json"
+echo.
+pause
+goto menu
+
+:tr_dedupe
+cls
+echo === 转写文件去重 / 规范化 ===
+python -X utf8 project_b\dedupe_transcripts.py
+echo.
+pause
+goto menu
+
+:morning_catchup
+cls
+echo === 早间任务补跑检查 ===
+python -X utf8 project_b\morning_catchup.py
 echo.
 pause
 goto menu
