@@ -101,6 +101,7 @@
   /* ============================================================
    * TavernKeeper
    * ============================================================ */
+  function cleanMid(u){return String(u==null?'':u).replace(/^L:/i,'').replace(/^\s+|\s+$/g,'');}
   function TavernKeeper(options) {
     options = options || {};
     this.base = options.base || './';
@@ -156,7 +157,7 @@
     var fromDashboard = fetchJSON('../dashboard/dashboard_data.json', 12000)
       .then(function (data) {
         var list = (data.song_index || []).map(function (s) {
-          return { uid: s.uid, name: s.name, attr: s.attr, release: s.release,
+          return { uid: cleanMid(s.uid), name: s.name, attr: s.attr, release: s.release,
                    latest: s.latest, mean30: s.mean30, peak: s.peak, lifecycle: s.lifecycle };
         });
         return { source: 'dashboard_data.json', version: data.timestamp || '', list: list };
