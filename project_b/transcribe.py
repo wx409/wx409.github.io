@@ -137,6 +137,10 @@ def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, for
         save_index({"title": title, "src": src_hint, "model": model_name, "out": "",
                     "chars": len(body), "no_speech": True,
                     "at": time.strftime("%Y-%m-%d %H:%M")})
+        try:
+            register_to_root(src_hint, title, "", len(body), model_name, status="无对白（跳过）")
+        except Exception:
+            pass
         return ("no-speech", "", len(body))
     open(out, "w", encoding="utf-8").write(
         "名称：%s\n模型：faster-whisper %s（本地，未人工校对）\n时长：%d 段\n\n%s\n"
@@ -147,7 +151,7 @@ def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, for
 ROOT_TABLE = os.path.join(BASE, "采访杂志根表.json")
 
 
-def register_to_root(src, title, out_name, chars, model_name, date_hint=""):
+def register_to_root(src, title, out_name, chars, model_name, date_hint="", status=None):
     """把转写结果并回采访杂志根表（按链接去重），并重生成 md。"""
     if not os.path.exists(ROOT_TABLE):
         return False
@@ -166,9 +170,10 @@ def register_to_root(src, title, out_name, chars, model_name, date_hint=""):
                "链接": src, "全文路径": "", "字数": 0,
                "渠道": "转写入口（手工/链接）", "状态": "", "备注": ""}
         table["items"].append(hit)
-    hit["全文路径"] = out_name
+    if out_name:
+        hit["全文路径"] = out_name
     hit["字数"] = chars
-    hit["状态"] = "已存（本地转写·%s）" % model_name
+    hit["状态"] = status or ("已存（本地转写·%s）" % model_name)
     hit["备注"] = (hit.get("备注") or "转写入口登记").strip("｜")
     table["count"] = len(table["items"])
     table["updated"] = time.strftime("%Y-%m-%d")
