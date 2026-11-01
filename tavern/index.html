@@ -979,9 +979,8 @@ a{color:#00d2ff;text-decoration:none}
     freeTrying = true;
     radioHideOpen();
     var shuffled = pool.slice().sort(function () { return Math.random() - 0.5; });
-    var cands = shuffled.slice(0, 20).map(function (s) {
-      return { mid: s.uid, title: s.name };
-    });
+    var cands = shuffled.filter(function (s) { return s.uid; }).slice(0, 20)
+      .map(function (s) { return { mid: s.uid, title: s.name }; });
     TavernPlayer.playFirstAvailable(cands).then(function () { freeTrying = false; });
   });
 

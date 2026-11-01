@@ -101,13 +101,18 @@
   /* ============================================================
    * TavernKeeper
    * ============================================================ */
-  function cleanMid(u){return String(u==null?'':u).replace(/^L:/i,'').replace(/^\s+|\s+$/g,'');}
+  function cleanMid(u){
+    var x = String(u == null ? '' : u).trim();
+    if (/^L:/i.test(x)) return x.slice(2);      // L: 后面是可用 mid
+    if (/^N:/i.test(x)) return '';              // N: 只有名字，取不到直链
+    return x;
+  }
   function TavernKeeper(options) {
     options = options || {};
     this.base = options.base || './';
     this._assets = null;        // {lyrics, interview, golden, tavern}
     this._songPool = null;      // {list: [{name,...}], data: dashboard原始对象或compact}
-    this._songCacheKey = '__tavern_songs_v1__';
+    this._songCacheKey = '__tavern_songs_v2__';
     this._assetsPromise = null;
     this._songsPromise = null;
     this._transcripts = null;   // 完整逐字稿 {EP01_P1: {text, theme, ...}, ...}
@@ -163,7 +168,10 @@
         return { source: 'dashboard_data.json', version: data.timestamp || '', list: list };
       });
     var fromCompact = fetchJSON(this.base + 'songs_compact.json', 8000)
-      .then(function (data) { return { source: 'songs_compact.json', version: data.generated_at || '', list: data.songs || [] }; });
+      .then(function (data) { return { source: 'songs_compact.json', version: data.generated_at || '', list: (data.songs || []).map(function (x) {
+        return { uid: cleanMid(x.uid), name: x.name, attr: x.attr, release: x.release,
+                 latest: x.latest, mean30: x.mean30, peak: x.peak, lifecycle: x.lifecycle };
+      }) }; });
 
     this._songsPromise = fromDashboard
       .catch(function () { return fromCompact; })
