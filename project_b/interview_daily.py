@@ -226,12 +226,57 @@ with open(TODO, "w", encoding="utf-8") as f:
     for it in todo:
         f.write("- [%s] %s（%s）→ %s\n" % (it["时间"] or "—", it["名称"][:60], it["渠道"], it["链接"]))
 
+# 4) 新视频自动转写（每日上限 5 条，避免整轮跑太久）
+MAX_TR = 5
+VID_HINT = ("微博视频", "视频", "cut", "采访", "专访", "访谈")
+try:
+    cand = []
+    for it in new_items:
+        lk = it.get("链接") or ""
+        if "m.weibo.cn/detail/" not in lk:
+            continue
+        if it.get("状态", "").startswith("已存"):
+            continue
+        cand.append(lk)
+    done_tr = 0
+    seen_video = 0
+    for lk in cand:
+        if done_tr >= MAX_TR:
+            break
+        mid = lk.rsplit("/", 1)[-1].split("?")[0]
+        try:
+            j = json.loads(get("https://m.weibo.cn/statuses/show?id=%s" % mid, WBH).decode("utf-8", "ignore"))
+            pi = (j.get("data") or {}).get("page_info") or {}
+            if not pi.get("media_info"):
+                continue
+            seen_video += 1
+        except Exception:
+            continue
+        import subprocess as _sp
+        rc = _sp.call([sys.executable, "-X", "utf8",
+                       os.path.join(os.path.dirname(os.path.abspath(__file__)), "transcribe.py"),
+                       "--weibo", lk])
+        if rc == 0:
+            done_tr += 1
+        print("  自动转写", "成功" if rc == 0 else "失败", mid)
+    if cand:
+        print("候选链接 %d 条｜含视频 %d 条｜本次转写 %d 条" % (len(cand), seen_video, done_tr))
+except Exception as e:
+    print("自动转写环节异常", type(e).__name__)
+
 # 根表只留已核对/已处理；md 由 json 派生
 try:
     import subprocess as _sp
     import sys as _sy
     _sp.call([_sy.executable, "-X", "utf8",
               os.path.join(os.path.dirname(os.path.abspath(__file__)), "slim_root_table.py")])
+except Exception:
+    pass
+
+try:
+    _t = json.load(open(ROOT_TABLE, encoding="utf-8"))
+    table["count"] = _t["count"]
+    table["items"] = _t["items"]
 except Exception:
     pass
 
