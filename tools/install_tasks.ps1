@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-11-01 17:08
+# 生成时间：2026-11-01 21:09
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -65,6 +65,20 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_morning_catchup' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_morning_catchup'
+
+# --- wx409_radio_proxy ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\radio_proxy_guard.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_radio_proxy' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_radio_proxy'
+
+# --- wx409_interview_web ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\interview_web_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_interview_web' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_interview_web'
 
 # --- QQMusicDashboardAutoStart ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\QQ音乐大屏生成器_GEO优化版_源码.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
