@@ -226,6 +226,15 @@ with open(TODO, "w", encoding="utf-8") as f:
     for it in todo:
         f.write("- [%s] %s（%s）→ %s\n" % (it["时间"] or "—", it["名称"][:60], it["渠道"], it["链接"]))
 
+# 根表只留已核对/已处理；md 由 json 派生
+try:
+    import subprocess as _sp
+    import sys as _sy
+    _sp.call([_sy.executable, "-X", "utf8",
+              os.path.join(os.path.dirname(os.path.abspath(__file__)), "slim_root_table.py")])
+except Exception:
+    pass
+
 print("根表 %d 条（新增 %d）｜待人工 %d｜已存全文 %d"
       % (len(items), len(new_items), len(todo),
          sum(1 for it in items if it.get("状态", "").startswith("已存"))))
