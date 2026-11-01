@@ -32,7 +32,9 @@ for up in TRIGS:
     for i, low in enumerate(TRIGS):
         short = MATRIX[up][i]
         rec = (ours.get(up) or {}).get(low) or {}
-        d = DETAIL.get(S2T.convert(short)) or DETAIL.get(short)
+        ALIAS = {"遁": "遯", "兑": "兌", "离": "離"}
+        d = (DETAIL.get(S2T.convert(short)) or DETAIL.get(short)
+             or DETAIL.get(ALIAS.get(short, "")))
         if not d:
             missing.append(short)
             continue
