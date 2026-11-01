@@ -466,7 +466,21 @@ a{color:#00d2ff;text-decoration:none}
       b.onclick=function(){cur=+b.dataset.i; chips(); show(day());};
     });
   }
-  load(function(){chips(); show(day());});
+  function bindButtons(){
+    var box=document.querySelectorAll('#dice .dice-btns button');
+    box.forEach(function(b){
+      var a=b.dataset.a;
+      if(a==='draw'){ b.onclick=function(){ show(Math.floor(Math.random()*999999)); }; }
+      if(a==='today'){ b.onclick=function(){ show(day()); }; }
+      if(a==='copy'){ b.onclick=function(){
+        var t=document.getElementById('diceFace').textContent+'\n—— '+document.getElementById('diceSrc').textContent;
+        if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){
+          var old=b.textContent; b.textContent='已复制'; setTimeout(function(){b.textContent=old;},1200);
+        }); }
+      }; }
+    });
+  }
+  load(function(){chips(); bindButtons(); show(day());});
 })();
 </script>
 
