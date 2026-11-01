@@ -12,6 +12,7 @@ import pandas as pd
 
 CSV = r"E:\wx\wx_textmine_out\music_index_long.csv"
 TOUR = r"D:\wx409.github.io\data\archive_stage_tour.json"
+SONG_ARCHIVE = r"D:\wx409.github.io\data\song_archive.json"
 
 
 def peak_songs(top=5):
@@ -28,16 +29,21 @@ def peak_songs(top=5):
 
 
 def city_shows(top=8):
-    """按（城市 + 日期）去重，统计有现场素材的演出日；不宣称场次总数，避免与 64 场口径冲突。"""
-    rows = json.load(open(TOUR, encoding="utf-8"))["rows"]
-    pairs = {(r.get("city"), r.get("date")) for r in rows if r.get("city") and r.get("date")}
-    c = Counter(city for city, _ in pairs)
-    top_txt = "、".join("%s %d 次" % (k, v) for k, v in c.most_common(top))
-    return ("按「城市 + 日期」去重，站内**有现场素材**的演出日共 %d 个，分布在 %d 座城市。\n\n"
-            "出现最多：%s。\n\n"
-            "口径：只统计有现场音视频素材的演出日，**不是全站场次总数**——全站场次为 64 场"
-            "（六轮巡演 59 + 签唱会 5），两者不可混读。"
-            % (len(pairs), len(c), top_txt))
+    """按 data/song_archive.json 的演出记录（日期+城市+场馆）去重 → 全站场次口径（64 场）。"""
+    songs = json.load(open(SONG_ARCHIVE, encoding="utf-8"))["songs"]
+    shows = set()
+    for sg in songs:
+        for pf in sg.get("performances") or []:
+            key = (pf.get("date"), pf.get("city"), pf.get("venue"))
+            if all(key):
+                shows.add(key)
+    c = Counter(city for _, city, _ in shows)
+    top_txt = "、".join("%s %d 场" % (k, v) for k, v in c.most_common(top))
+    return ("按站内演出记录（日期 + 城市 + 场馆去重，一场演多首歌只计 1 场）统计，巡演共 **%d 场**、**%d 座城市**。\n\n"
+            "场次最多：%s。\n\n"
+            "口径：与数据大屏一致（全站 64 场 = 巡演 59 + 签唱会 5）；本表只含巡演，未计签唱会；"
+            "不含仅有现场素材但无演出记录的场次。"
+            % (len(shows), len(c), top_txt))
 
 
 def top_songs_onstage(top=8, min_shows=4):
