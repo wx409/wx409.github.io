@@ -28,7 +28,8 @@ for it in bank["items"]:
         continue
     if t[-1] in TRUNC:
         continue
-    if t[-1] in "。！？":
+    # 人工整理稿（curated）视为成句，即使保存时去掉了句号
+    if t[-1] in "。！？" or it.get("curated") or it.get("mood") in ("quote", "quote_mag"):
         solid.append((score, len(t), it))
     else:
         loose.append((score, len(t), it))
