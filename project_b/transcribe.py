@@ -143,8 +143,8 @@ def transcribe_one(model, path, title, model_name, lang="zh", min_chars=100, for
             pass
         return ("no-speech", "", len(body))
     open(out, "w", encoding="utf-8").write(
-        "名称：%s\n模型：faster-whisper %s（本地，未人工校对）\n时长：%d 段\n\n%s\n"
-        % (title, model_name, len(lines), body))
+        "名称：%s\n链接：%s\n模型：faster-whisper %s（本地，未人工校对）\n时间：%s\n时长：%d 段\n\n%s\n"
+        % (title, src_hint or "", model_name, time.strftime("%Y-%m-%d"), len(lines), body))
     return ("ok", out, len(body), round(time.time() - t0))
 
 

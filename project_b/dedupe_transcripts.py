@@ -16,10 +16,16 @@ ARCH = r"E:\wx\私有\王晰全文库\采访目录\全文_重复归档"
 os.makedirs(ARCH, exist_ok=True)
 
 
-def key_of(name):
+def key_of(name, path=None):
     m = re.match(r"(\d{15,20})_", name)
     if m:
         return m.group(1)
+    # 文件名没 mid 时，从正文头部的链接里找
+    if path:
+        head = open(path, encoding="utf-8", errors="ignore").read(400)
+        m2 = re.search(r"detail/(\d{15,20})", head) or re.search(r"weibo\.com/\d+/(\d{15,20})", head)
+        if m2:
+            return m2.group(1)
     return re.sub(r"_转写.*", "", name)[:30]
 
 
@@ -31,7 +37,7 @@ def model_of(path):
 
 groups = {}
 for f in glob.glob(os.path.join(T, "*转写*.txt")):
-    groups.setdefault(key_of(os.path.basename(f)), []).append(f)
+    groups.setdefault(key_of(os.path.basename(f), f), []).append(f)
 
 kept = moved = renamed = 0
 for k, files in groups.items():
