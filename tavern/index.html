@@ -484,82 +484,146 @@ a{color:#00d2ff;text-decoration:none}
 })();
 </script>
 
-<div class="poem-card" id="poemCard">
-  <div class="poem-head"><span class="poem-dot"></span>掷 卦 成 诗<span class="poem-sub">六爻各抽一词，拼成一句</span></div>
-  <div class="poem-line" id="poemLine"></div>
-  <div class="poem-meta" id="poemMeta"></div>
-  <div class="poem-btns">
-    <button id="poemRoll">掷 一 卦</button>
-    <button id="poemCopy">复制</button>
+<div class="div-card" id="divCard">
+  <div class="div-head"><span class="div-dot"></span>六 爻 起 卦<span class="div-sub">三枚铜钱，掷六次，得一卦</span></div>
+  <div class="div-stage">
+    <div class="div-coins" id="divCoins"></div>
+    <div class="div-lines" id="divLines"></div>
   </div>
+  <div class="div-result">
+    <div class="div-name" id="divName">静心，想着你的问题，然后掷卦</div>
+    <div class="div-virtue" id="divVirtue"></div>
+    <div class="div-text" id="divText"></div>
+    <div class="div-change" id="divChange"></div>
+  </div>
+  <div class="div-btns">
+    <button id="divRoll">掷 一 卦</button>
+    <button id="divCopy">复制</button>
+  </div>
+  <p class="div-note">六爻法：三枚铜钱投六次，自下而上成爻；老阳老阴为动爻，动则生变卦。</p>
 </div>
 <style>
-.poem-card{margin:16px auto 0;max-width:640px;padding:18px 20px 14px;border-radius:14px;
+.div-card{margin:16px auto 0;max-width:640px;padding:18px 20px 14px;border-radius:14px;
   background:linear-gradient(180deg,rgba(140,170,220,.08),rgba(140,170,220,.02));
   border:1px solid rgba(160,190,230,.22);text-align:center}
-.poem-head{color:#9fc0e8;font-size:13px;letter-spacing:.28em;margin-bottom:10px;
+.div-head{color:#9fc0e8;font-size:13px;letter-spacing:.28em;margin-bottom:12px;
   display:flex;align-items:center;justify-content:center;gap:10px}
-.poem-dot{width:6px;height:6px;border-radius:50%;background:#9fc0e8;box-shadow:0 0 8px #9fc0e8}
-.poem-sub{letter-spacing:0;color:#8f8377;font-size:11px}
-.poem-line{color:#f0f4fa;font:24px/2 Georgia,"Songti SC","Microsoft YaHei",serif;min-height:96px;
-  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 14px;padding:6px 4px}
-.poem-line span{opacity:0;transform:translateY(6px);animation:poemIn .45s forwards}
-@keyframes poemIn{to{opacity:1;transform:none}}
-.poem-meta{color:#8f97a3;font-size:12px;min-height:1.3em;margin:2px 0 12px}
-.poem-btns{display:flex;gap:8px;justify-content:center}
-.poem-btns button{font:inherit;font-size:13px;padding:8px 18px;border-radius:999px;cursor:pointer;
+.div-dot{width:6px;height:6px;border-radius:50%;background:#9fc0e8;box-shadow:0 0 8px #9fc0e8}
+.div-sub{letter-spacing:0;color:#8f8377;font-size:11px}
+.div-stage{display:flex;gap:18px;justify-content:center;align-items:center;min-height:130px}
+.div-coins{display:flex;gap:8px;font-size:22px}
+.div-coins span{display:inline-block;width:30px;height:30px;line-height:30px;border-radius:50%;
+  border:1px solid rgba(200,200,200,.5);color:#e8d9a8;background:rgba(255,255,255,.04)}
+.div-lines{display:flex;flex-direction:column-reverse;gap:5px}
+.div-lines i{display:block;width:104px;height:9px;border-radius:2px;background:rgba(160,190,230,.25);
+  position:relative;font-style:normal}
+.div-lines i.y{background:#dfe8f3}
+.div-lines i.b::after{content:'';position:absolute;left:44px;top:0;width:16px;height:9px;
+  background:rgba(20,26,36,.95)}
+.div-lines i.mv{box-shadow:0 0 0 1px #e0b64f}
+.div-name{color:#f0f4fa;font:22px/1.7 Georgia,"Songti SC","Microsoft YaHei",serif;margin-top:8px}
+.div-virtue{color:#e0b64f;font-size:13px;margin:2px 0 8px}
+.div-text{color:#c9d3e0;font-size:14px;line-height:1.8;padding:0 6px;min-height:1em}
+.div-change{color:#9fc0e8;font-size:13px;margin-top:8px;min-height:1.2em}
+.div-btns{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.div-btns button{font:inherit;font-size:13px;padding:8px 18px;border-radius:999px;cursor:pointer;
   background:transparent;color:#dfe8f3;border:1px solid rgba(160,190,230,.35);transition:.2s}
-.poem-btns button:hover{background:rgba(160,190,230,.14);color:#fff}
+.div-btns button:hover{background:rgba(160,190,230,.14);color:#fff}
+.div-note{color:#7d848f;font-size:11px;margin:10px 0 0}
 </style>
 <script>
 (function(){
-  var G=null;
-  var TPL=[
-    function(w){return '在'+w[0]+'里，'+w[1]+'着'+w[2]+'；'+w[3]+'之上，'+w[4]+'成了'+w[5];},
-    function(w){return w[0]+'与'+w[1]+'，'+w[2]+'过'+w[3]+'，'+w[4]+'即是'+w[5];},
-    function(w){return '听'+w[0]+'的'+w[1]+'，'+w[2]+'一段'+w[3]+'；抬头是'+w[4]+'，低头是'+w[5];},
-    function(w){return '若'+w[0]+'不止'+w[1]+'，就让'+w[2]+'去'+w[3]+'；'+w[4]+'以外，还有'+w[5];},
-    function(w){return '把'+w[0]+'留给'+w[1]+'，把'+w[2]+'交给'+w[3]+'；'+w[4]+'里种下'+w[5];},
-    function(w){return w[0]+'之上是'+w[1]+'，'+w[2]+'之后是'+w[3]+'；而'+w[4]+'，始终'+w[5];},
-    function(w){return w[0]+'慢下来，'+w[1]+'便有了'+w[2]+'；'+w[3]+'与'+w[4]+'，都指向'+w[5];},
-    function(w){return '穿过'+w[0]+'的'+w[1]+'，抵达'+w[2]+'的'+w[3]+'；'+w[4]+'尽头，是'+w[5];},
-    function(w){return w[0]+'还未'+w[1]+'，'+w[2]+'已在'+w[3]+'；我把'+w[4]+'，写进'+w[5];},
-    function(w){return '若问'+w[0]+'，答以'+w[1]+'；'+w[2]+'是'+w[3]+'，'+w[4]+'是'+w[5];}
-  ];
+  var H=null, P=null;
+  var BIN={乾:[1,1,1],兑:[0,1,1],离:[1,0,1],震:[0,0,1],巽:[1,1,0],坎:[0,1,0],艮:[1,0,0],坤:[0,0,0]};
+  var TRI=[['乾','兑','离','震','巽','坎','艮','坤']];
   function load(cb){
-    if(G) return cb();
-    fetch('/data/dice_sets.json?v=2026110122').then(function(r){return r.json()}).then(function(j){
-      var p=(j.sets||{}).poem||{}; G=p.groups||[]; cb();
-    }).catch(function(){document.getElementById('poemLine').textContent='诗卦数据加载失败';});
+    if(H&&P) return cb();
+    Promise.all([
+      fetch('/data/hexagrams.json?v=2026110122').then(function(r){return r.json()}),
+      fetch('/data/dice_sets.json?v=2026110122').then(function(r){return r.json()})
+    ]).then(function(a){ H=a[0]; P=((a[1].sets||{}).poem||{}).groups||[]; cb(); })
+     .catch(function(){ document.getElementById('divName').textContent='卦象数据加载失败'; });
   }
-  function roll(){
-    if(!G||!G.length) return;
-    var w=G.slice(0,6).map(function(g){
-      return g.words[Math.floor(Math.random()*g.words.length)].text;
-    });
-    var tpl=TPL[Math.floor(Math.random()*TPL.length)];
-    document.getElementById('poemLine').textContent=tpl(w);
-    var extra=[];
-    [6,7,8].forEach(function(gi,idx){
-      var label=['天时','地利','人和'][idx];
-      if(G[gi]&&Math.random()<0.5){
-        var x=G[gi].words[Math.floor(Math.random()*G[gi].words.length)];
-        extra.push(label+' · '+x.text);
+  function key(bits){                       // bits: 自下而上 6 位
+    var low=bits.slice(0,3), up=bits.slice(3,6);
+    function name(b){
+      for(var k in BIN){
+        var v=BIN[k];
+        if(v[0]===b[2]&&v[1]===b[1]&&v[2]===b[0]) return k;   // BIN 自上而下
       }
-    });
-    document.getElementById('poemMeta').textContent =
-      '六爻取词：'+w.join(' · ')+(extra.length?('　｜　'+extra.join('　')):'');
-    document.getElementById('poemCard').dataset.line=tpl(w);
+      return '乾';
+    }
+    return [name(up), name(low)];
   }
-  document.getElementById('poemRoll').onclick=function(){ load(roll); };
-  document.getElementById('poemCopy').onclick=function(){
-    var line=document.getElementById('poemCard').dataset.line||'';
-    if(!line) return;
-    if(navigator.clipboard) navigator.clipboard.writeText(line+'\n—— 王晰六爻诗卦');
+  function cast(){
+    var vals=[], html='';
+    for(var i=0;i<6;i++){
+      var coins=[0,0,0].map(function(){return Math.random()<0.5?3:2;});  // 2=阴面 3=阳面
+      var s=coins[0]+coins[1]+coins[2];   // 6老阴 7少阳 8少阴 9老阳
+      vals.push(s);
+    }
+    return vals;
+  }
+  function render(vals){
+    var bits=vals.map(function(v){return (v===7||v===9)?1:0;});
+    var chg=vals.map(function(v){return (v===6||v===9)?1-bits[vals.indexOf(v)]:null;});
+    var chgBits=vals.map(function(v,i){ return (v===6||v===9)?1-bits[i]:bits[i]; });
+    var moving=vals.map(function(v,i){return (v===6||v===9)?i:-1;}).filter(function(i){return i>=0;});
+
+    var lines='';
+    vals.forEach(function(v,i){
+      var yang=(v===7||v===9);
+      var mv=(v===6||v===9)?' mv':'';
+      lines += '<i class="'+(yang?'y':'b')+mv+'" title="第'+(i+1)+'爻"></i>';
+    });
+    document.getElementById('divLines').innerHTML=lines;
+
+    var k=key(bits), up=k[0], low=k[1];
+    var rec=(H[up]||{})[low]||{};
+    document.getElementById('divName').textContent=rec.name||(up+low);
+    document.getElementById('divVirtue').textContent=rec.virtue?('卦德 · '+rec.virtue):'';
+    document.getElementById('divText').textContent=rec.text||'';
+
+    var chgTxt='';
+    if(moving.length){
+      var k2=key(chgBits), rec2=(H[k2[0]]||{})[k2[1]]||{};
+      chgTxt='动爻：第'+moving.map(function(i){return i+1;}).join('、')+' 爻'+
+             (rec2.name?('　→　变卦：'+rec2.name+(rec2.virtue?('（'+rec2.virtue+'）'):'')):'');
+    } else {
+      chgTxt='六爻安静，无动爻（以本卦断）';
+    }
+    document.getElementById('divChange').textContent=chgTxt;
+
+    var flat=vals.map(function(v){return v===6?'老阴':v===7?'少阳':v===8?'少阴':'老阳';});
+    document.getElementById('divCard').dataset.line=(rec.name||'')+'（'+flat.join('、')+'）';
+    return {name:rec.name, text:rec.text, flat:flat};
+  }
+  function play(){
+    var vals=cast(), step=0;
+    var cbox=document.getElementById('divCoins');
+    var timer=setInterval(function(){
+      cbox.innerHTML='';
+      for(var i=0;i<3;i++){
+        var coin=Math.random()<0.5?'●':'○';
+        cbox.innerHTML+='<span>'+coin+'</span>';
+      }
+      step++;
+      if(step>8){ clearInterval(timer); render(vals); }
+    }, 70);
+  }
+  document.getElementById('divRoll').onclick=function(){ load(play); };
+  document.getElementById('divCopy').onclick=function(){
+    var t=document.getElementById('divCard').dataset.line||'';
+    if(!t) return;
+    var x=t+'　'+document.getElementById('divName').textContent+'\n'+document.getElementById('divText').textContent;
+    if(navigator.clipboard) navigator.clipboard.writeText(x);
   };
-  load(roll);
+  load(function(){});
 })();
 </script>
+
+
+
 
 
     </div>
