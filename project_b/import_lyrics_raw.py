@@ -9,6 +9,13 @@ RAW = r"D:\wx409.github.io\data\lyrics_raw"
 BANK = r"D:\wx409.github.io\data\phrase_bank.json"
 DICE = r"D:\wx409.github.io\data\dice_sets.json"
 
+LABEL_LINE = re.compile(r"^[\u4e00-\u9fffA-Za-z]{1,8}[:：]")
+
+TITLE_LINE = re.compile(
+    r"王晰|Elvis\\s*Wang|ElvisWang|"
+    r"^[^-—–]{1,24}[-—–][^-—–]{1,24}(?:\\([^)]{1,16}\\))?$|"
+    r"^《.+》$")
+
 bank = json.load(open(BANK, encoding="utf-8"))
 exist = {re.sub(r"\s", "", i["text"]) for i in bank["items"]}
 
@@ -29,6 +36,8 @@ for p in files:
         if re.fullmatch(r"[啊哦嗯吧呢啦呀]+", s):
             continue
         if not re.search(r"[\u4e00-\u9fff]", s):
+            continue
+        if TITLE_LINE.search(s) or LABEL_LINE.match(s):
             continue
         if s in exist:
             continue
