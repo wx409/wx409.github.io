@@ -111,7 +111,7 @@ function show(i){{
   document.getElementById('die').textContent=f.text;
   document.getElementById('dsrc').innerHTML='<b style="color:#a8323d">'+t.name+'</b>｜出处：'+(f.source||t.note||'');
 }}
-function daySeed(){{{
+function daySeed(){{
   var d=new Date(), s=d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()
     +'|'+(d.getFullYear()*37+d.getMonth());
   var h=2166136261;
