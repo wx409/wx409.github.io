@@ -1,9 +1,9 @@
 {
  "summary": {
-  "generated_at": "2026-11-01T21:08:52",
-  "rows": 807,
+  "generated_at": "2026-11-02T00:16:59",
+  "rows": 808,
   "levels": {
-   "L1": 380,
+   "L1": 381,
    "L6": 26,
    "L3": 45,
    "未认领": 353,
@@ -152,8 +152,8 @@
    "claimable": 16
   },
   "2024-05-25": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2023-12-31": {
    "n": 33,
@@ -3466,6 +3466,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2024-03-30",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "杭州20240525_BV1hn4y1o7w6",
+   "song": "我曾用心爱着你",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024-05-25",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-05-25",
    "level": 1,
    "why": "日期直配"
   },

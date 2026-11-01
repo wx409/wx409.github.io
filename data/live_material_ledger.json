@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-01T21:08:52",
+ "generated_at": "2026-11-02T00:16:59",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8972,
   "songs": 262,
-  "processed_materials": 807,
-  "processed_songs": 236,
-  "gap_songs": 104,
-  "coverage_pct": 90.1,
+  "processed_materials": 808,
+  "processed_songs": 237,
+  "gap_songs": 103,
+  "coverage_pct": 90.5,
   "status": {
-   "已完成": 278,
-   "候选": 8641,
+   "已完成": 279,
+   "候选": 8640,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -75,7 +75,6 @@
   "我只在乎你",
   "我可以抱你吗",
   "我和我的祖国",
-  "我曾用心爱着你",
   "把悲伤留给自己",
   "新年好",
   "旋木",
@@ -75033,17 +75032,20 @@
    "bv": "BV1hn4y1o7w6",
    "title": "王晰【我曾用心爱着你】复古又洋气【4K字幕】【点歌part】【cover潘美辰】肆益巡回音乐会20240525杭州站",
    "song": "我曾用心爱着你",
-   "tour": "",
-   "city": "",
-   "date": "2024-05-26",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024-05-25",
    "kind": "4K字幕",
    "fetched_at": "2024-05-26",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Yi421S7fd",

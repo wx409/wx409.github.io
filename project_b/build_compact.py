@@ -98,10 +98,24 @@ VS = ALBUMS.get("summary", {})
 VCONC = VOCAL.get("conclusion", {})
 
 
-def cal(cid, field="value", default="—"):
-    c = CAL.get(cid) or {}
-    v = c.get(field, default)
-    return v if v is not None else default
+_MISSING = object()
+
+
+def cal(cid, field="value", default=_MISSING):
+    """读口径登记表。
+
+    默认「严格模式」：口径不存在/为空 → 直接报错，禁止用旧数字兜底发布。
+    仅在确实可选时显式传 default=...。
+    """
+    c = CAL.get(cid)
+    v = (c or {}).get(field) if c else None
+    if v is None or v == "" or v == "—":
+        if default is _MISSING:
+            raise SystemExit(
+                "口径缺失：%s.%s —— 请先运行 project_b/build_calibers.py 重新登记；"
+                "拒绝用兜底数字生成页面。" % (cid, field))
+        return default
+    return v
 
 
 def num(x, nd=0):
@@ -124,16 +138,16 @@ N_INTON = VS.get("intonation_cents_median", 9.0)
 N_VIB = VS.get("vibrato_rate_hz_median", 5.17)
 N_VIB_C = VS.get("vibrato_extent_cents_median", 86.0)
 N_DENS = VS.get("note_density_median", 1.85)
-SHOWS_ALL = cal("shows_all", default=64)
-SHOWS_TOUR = cal("shows_tour", default=59)
-N_CITY = cal("cities", default=22)
-N_TRACKED = cal("tracked_songs", default=383)
-N_QA = cal("qa_pairs", default=315)
-N_FACTS = cal("kb_facts", default=1151)
-N_ENT = cal("kb_entities", default=1419)
-N_REL = cal("kb_relations", default=1945)
-N_SEM = cal("semantic_docs", default=4709)
-N_IDX_DAYS = cal("index_days", default=1286)
+SHOWS_ALL = cal("shows_all")
+SHOWS_TOUR = cal("shows_tour")
+N_CITY = cal("cities")
+N_TRACKED = cal("tracked_songs")
+N_QA = cal("qa_pairs")
+N_FACTS = cal("kb_facts")
+N_ENT = cal("kb_entities")
+N_REL = cal("kb_relations")
+N_SEM = cal("semantic_docs")
+N_IDX_DAYS = cal("index_days")
 
 N_LIT = sum(len(s.get("items") or []) for s in (LIT.get("sections") or []))
 N_LIT_SEC = len(LIT.get("sections") or [])
@@ -722,7 +736,7 @@ def build_live():
 <tr><th>层面</th><th>口径</th><th>最低稳定音</th><th>结论</th></tr>
 <tr><td>录音室专辑层</td><td class="n">{N_ALBUM_SONGS} 首</td><td class="n">{N_LOW_NOTE} {N_LOW_HZ}Hz（《{N_LOW_SONG}》）</td>
 <td>基准层；全部曲目完成人声分离 + 逐帧 F0</td></tr>
-<tr><td>王晰主导巡演现场</td><td class="n">已实测素材</td><td class="n">{esc(cal("stage_lowest_hz", default="79.9"))}Hz</td>
+<tr><td>王晰主导巡演现场</td><td class="n">已实测素材</td><td class="n">{esc(cal("stage_lowest_hz"))}Hz</td>
 <td>巡演现场素材逐条实测</td></tr>
 <tr><td>他人主导舞台/综艺</td><td class="n">{STAGE_N} 个素材</td>
 <td class="n">{esc(STAGE_LOW.get("note", "C2"))} {num(STAGE_LOW.get("hz"), 1)}Hz</td>

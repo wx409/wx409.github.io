@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-01T21:08:53",
+  "generated_at": "2026-11-02T00:17:00",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8469,
+  "files_scanned": 8474,
   "measured_shows_site": 59,
   "shows_with_claimable_site": 58,
-  "bv_mapped": 143
+  "bv_mapped": 144
  },
  "shows": [
   {
@@ -1864,16 +1864,36 @@
    "evidence": [
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1hn4y1o7w6｜我曾用心爱着你｜杭州20240525"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "杭州｜四巡·\"肆益\"个人巡回音乐会"
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "杭州20240525_BV1hn4y1o7w6｜我曾用心爱着你"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1hn4y1o7w6"
+    },
+    {
+     "level": 1,
      "src": "路径日期",
-     "detail": "杭州20240525_BV1hn4y1o7w6.m4a"
+     "detail": "杭州20240525_BV1hn4y1o7w6.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1hn4y1o7w6"
     }
    ],
-   "n_evidence": 2
+   "n_evidence": 15
   },
   {
    "date": "2024-08-16",
