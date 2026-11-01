@@ -269,6 +269,12 @@
     return { text: hit.text, episode: hit.episode || '', note: hit.note || '', has_transcript: hit.has_transcript !== false };
   }
 
+  /* 从歌词出处里解析歌名：歌词《小河》 → 小河 */
+  function songNameOfLyric(source) {
+    var m = /《([^》]+)》/.exec(String(source || ""));
+    return m ? m[1].trim() : "";
+  }
+
   /* ---------- 调酒 ---------- */
   TavernKeeper.prototype.makeDrink = function (moodKey, songName, opts) {
     opts = opts || {};
@@ -276,9 +282,18 @@
     var mood = MOODS[moodKey] || MOODS.healing;
     var song = this.findSong(songName);
 
-    /* 歌词 */
+    /* 歌词：先取指定歌的片段，没有再按情绪补 */
     var lyric = collectLyrics(assets, song ? song.name : null, moodKey);
     if (!lyric) lyric = { text: FALLBACK.lyric, source: '' };
+
+    /* 让「播放的歌」与「显示的歌词」对齐：
+       若歌词来自另一首歌，则以那首为准（歌词在前，曲子跟后） */
+    var lyricSong = songNameOfLyric(lyric.source);
+    var playSong = song;
+    if (lyricSong && (!song || song.name !== lyricSong)) {
+      var alt = this.findSong(lyricSong);
+      if (alt) playSong = alt;
+    }
 
     /* 采访 */
     var ivPool = collectByMood(assets.interview, moodKey);
@@ -292,12 +307,12 @@
     var tav = collectTavern(assets.tavern, moodKey);
 
     /* 数据洞察 */
-    var insight = this.insight(song, opts.pool || undefined);
+    var insight = this.insight(playSong, opts.pool || undefined);
 
     /* 酒名 */
     var drinkName = mood.drink;
-    if (song && song.name) {
-      drinkName = mood.drink + ' · ' + song.name;
+    if (playSong && playSong.name) {
+      drinkName = mood.drink + ' · ' + playSong.name;
     } else if (songName && songName.trim()) {
       drinkName = mood.drink + ' · 「' + songName.trim() + '」';
     }
@@ -315,7 +330,8 @@
       golden: gd ? { topic: gd.topic, text: gd.item.text } : null,
       insight: insight,
       goodnight: pick(GOODNIGHTS[moodKey] || GOODNIGHTS.healing),
-      songFound: !!song,
+      playSongName: (playSong && playSong.name) || '',
+      songFound: !!playSong,
       generatedAt: opts.generatedAt || new Date().toISOString()
     };
   };

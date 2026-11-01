@@ -1534,8 +1534,9 @@ a{color:#00d2ff;text-decoration:none}
     radioSetSong(null);
     radioSetEp(null);
     var songObj = null;
-    if (d.songFound && d.insight && d.insight.name) {
-      songObj = keeper.findSong(d.insight.name);
+    var wantName = d.playSongName || (d.insight && d.insight.name) || '';
+    if (d.songFound && wantName) {
+      songObj = keeper.findSong(wantName);
     }
     if (!songObj && d.lyric && d.lyric.source) {
       /* 兜底1：从歌词出处提取歌名（如《把一切给明天》 → 把一切给明天） */
