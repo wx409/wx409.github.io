@@ -442,7 +442,7 @@ a{color:#00d2ff;text-decoration:none}
 (function(){
   var SETS=null,cur=0;
   function load(cb){ if(SETS)return cb();
-    fetch('/data/dice_sets.json').then(function(r){return r.json()}).then(function(j){SETS=j.sets||{};cb();})
+    fetch('/data/dice_sets.json?v=2026110121').then(function(r){return r.json()}).then(function(j){SETS=j.sets||{};cb();})
       .catch(function(){document.getElementById('diceFace').textContent='词句数据加载失败';});}
   function keys(o){return Object.keys(o).filter(function(k){return (o[k].faces||[]).length;});}
   function show(i){var k=keys(SETS)[cur],set=SETS[k],f=set.faces[i%set.faces.length];

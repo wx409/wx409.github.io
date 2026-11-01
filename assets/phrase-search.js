@@ -90,7 +90,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     var input = document.getElementById("psInput");
     if (!input) return;
-    fetch("/data/phrase_index.json").then(function (r) { return r.json(); }).then(function (j) {
+    fetch("/data/phrase_index.json?v=2026110121").then(function (r) { return r.json(); }).then(function (j) {
       idx = j; build(j.items); chips();
       var hint = document.getElementById("psHint");
       if (hint) hint.textContent = "索引 " + j.n + " 条；默认先给「他说过的话」，歌词单独列在下面。";
