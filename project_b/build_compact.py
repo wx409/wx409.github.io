@@ -155,8 +155,12 @@ B1_ALBUM = VCONC.get("album_b1_songs") or ["知晓", "渔光曲", "多听有益"
 B1_LAYER = VCONC.get("b1_songs") or ["静止了的夜晚", "多听有益", "知晓"]
 N_B1_ALBUM = len(B1_ALBUM)
 N_B1_LAYER = len(B1_LAYER)
-N_VOCAL = VOCAL.get("count", 17)
-STAGE_N = (STAGE.get("source") or {}).get("analyzed", 32)
+N_VOCAL = VOCAL.get("count")
+if not N_VOCAL:
+    raise SystemExit("data/archive_vocal.json 缺 count 字段 —— 请先跑 generate_vocal.py")
+STAGE_N = (STAGE.get("source") or {}).get("analyzed")
+if not STAGE_N:
+    raise SystemExit("data/archive_stage.json 缺 source.analyzed —— 请先重跑现场层")
 STAGE_LOW = (STAGE.get("summary") or {}).get("lowest", {})
 N_ALBUMS = len(ALBUM_META.get("albums") or [])
 try:
