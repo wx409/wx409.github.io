@@ -5,6 +5,12 @@ import re
 QQ = json.load(open(r"D:\wx409.github.io\data\qq_singer_songs.json", encoding="utf-8"))
 COMPACT = r"D:\wx409.github.io\tavern\songs_compact.json"
 
+try:
+    _ex = json.load(open(r"D:\wx409.github.io\data\excluded_songs.json", encoding="utf-8"))
+    EXCLUDED = {x["mid"] for x in (_ex.get("items") or [])}
+except Exception:
+    EXCLUDED = set()
+
 songs = QQ["songs"]
 missing = QQ["missing_in_local"]
 print("平台去重 %d 首｜本地缺 %d 首" % (len(songs), len(missing)))
@@ -16,7 +22,7 @@ have = {str(x.get("uid"))[2:] for x in items if str(x.get("uid", "")).startswith
 added = 0
 for s in missing:
     mid = s.get("mid")
-    if not mid or mid in have:
+    if not mid or mid in have or mid in EXCLUDED:
         continue
     items.append({"uid": "L:" + mid, "name": s.get("name"), "attr": None,
                   "release": None, "latest": None, "mean30": None, "peak": None})

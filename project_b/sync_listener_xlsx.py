@@ -20,9 +20,18 @@ import pandas as pd
 XLSX = r"E:\wx\收听人数（2026.7.24）.xlsx"
 COMPACT = r"D:\wx409.github.io\tavern\songs_compact.json"
 PODCAST = r"D:\wx409.github.io\data\podcast_mids.json"
+EXCLUDED = r"D:\wx409.github.io\data\excluded_songs.json"
 TPL = ("https://y.qq.com/m/client/music_index/index.html?ADTAG=cbshare"
        "&channelId=10036163&mid=%s&openinqqmusic=1&type=%s")
 STATUS_COL_NAME = "状态"
+
+
+def load_excluded():
+    try:
+        d = json.load(open(EXCLUDED, encoding="utf-8"))
+        return {x["mid"] for x in (d.get("items") or [])}
+    except Exception:
+        return set()
 
 
 def load_podcast():
@@ -83,7 +92,8 @@ def main():
     print("表内已有 mid %d 个" % len(existing))
 
     pool_mids = {p["mid"] for p in pool}
-    todo = [p for p in pool if p["mid"] not in existing]
+    bad = load_excluded()
+    todo = [p for p in pool if p["mid"] not in existing and p["mid"] not in bad]
     print("需追加 %d 首" % len(todo))
 
     # 标记已下架
