@@ -514,6 +514,18 @@ a{color:#00d2ff;text-decoration:none}
 <script>
 (function(){
   var G=null;
+  var TPL=[
+    function(w){return '在'+w[0]+'里，'+w[1]+'着'+w[2]+'；'+w[3]+'之上，'+w[4]+'成了'+w[5];},
+    function(w){return w[0]+'与'+w[1]+'，'+w[2]+'过'+w[3]+'，'+w[4]+'即是'+w[5];},
+    function(w){return '听'+w[0]+'的'+w[1]+'，'+w[2]+'一段'+w[3]+'；抬头是'+w[4]+'，低头是'+w[5];},
+    function(w){return '若'+w[0]+'不止'+w[1]+'，就让'+w[2]+'去'+w[3]+'；'+w[4]+'以外，还有'+w[5];},
+    function(w){return '把'+w[0]+'留给'+w[1]+'，把'+w[2]+'交给'+w[3]+'；'+w[4]+'里种下'+w[5];},
+    function(w){return w[0]+'之上是'+w[1]+'，'+w[2]+'之后是'+w[3]+'；而'+w[4]+'，始终'+w[5];},
+    function(w){return w[0]+'慢下来，'+w[1]+'便有了'+w[2]+'；'+w[3]+'与'+w[4]+'，都指向'+w[5];},
+    function(w){return '穿过'+w[0]+'的'+w[1]+'，抵达'+w[2]+'的'+w[3]+'；'+w[4]+'尽头，是'+w[5];},
+    function(w){return w[0]+'还未'+w[1]+'，'+w[2]+'已在'+w[3]+'；我把'+w[4]+'，写进'+w[5];},
+    function(w){return '若问'+w[0]+'，答以'+w[1]+'；'+w[2]+'是'+w[3]+'，'+w[4]+'是'+w[5];}
+  ];
   function load(cb){
     if(G) return cb();
     fetch('/data/dice_sets.json?v=2026110122').then(function(r){return r.json()}).then(function(j){
@@ -522,23 +534,22 @@ a{color:#00d2ff;text-decoration:none}
   }
   function roll(){
     if(!G||!G.length) return;
-    var six=G.slice(0,6), picks=[], html='';
-    six.forEach(function(g,i){
-      var w=g.words[Math.floor(Math.random()*g.words.length)];
-      picks.push(w.text);
-      html+='<span style="animation-delay:'+(i*0.12)+'s">'+w.text+'</span>';
+    var w=G.slice(0,6).map(function(g){
+      return g.words[Math.floor(Math.random()*g.words.length)].text;
     });
-    document.getElementById('poemLine').innerHTML=html;
+    var tpl=TPL[Math.floor(Math.random()*TPL.length)];
+    document.getElementById('poemLine').textContent=tpl(w);
     var extra=[];
     [6,7,8].forEach(function(gi,idx){
       var label=['天时','地利','人和'][idx];
       if(G[gi]&&Math.random()<0.5){
-        var w=G[gi].words[Math.floor(Math.random()*G[gi].words.length)];
-        extra.push(label+' · '+w.text);
+        var x=G[gi].words[Math.floor(Math.random()*G[gi].words.length)];
+        extra.push(label+' · '+x.text);
       }
     });
-    document.getElementById('poemMeta').textContent='初爻 → 上爻'+(extra.length?('　'+extra.join('　')):'');
-    document.getElementById('poemCard').dataset.line=picks.join(' ');
+    document.getElementById('poemMeta').textContent =
+      '六爻取词：'+w.join(' · ')+(extra.length?('　｜　'+extra.join('　')):'');
+    document.getElementById('poemCard').dataset.line=tpl(w);
   }
   document.getElementById('poemRoll').onclick=function(){ load(roll); };
   document.getElementById('poemCopy').onclick=function(){
