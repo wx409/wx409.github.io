@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-31 22:01:02",
+ "updated_at": "2026-11-01 09:30:53",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -4761,6 +4761,36 @@
    "title": "🔄 大屏 daemon 已被看门狗拉起",
    "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 28312）。此前 dashboard_data.json 距上次更新 27.7 分钟。",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-01 00:27:09",
+   "title": "视频转写完成（turbo）",
+   "content": "本次 17 条：转写 11 条、跳过 6 条（无有效语音）｜明细见 采访目录\\全文\\*_转写_*.txt",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-01 00:43:36",
+   "title": "turbo 转写全部完成",
+   "content": "共 3 个转写文件、19805 字｜17 条视频中 11 条有语音可转、6 条为纯演唱/无对白已跳过｜旧 small 版已归档到 全文_旧small",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-01 02:11:01",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [28312]），但 dashboard_data.json 已 123.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-01 03:01:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [28312]），但 dashboard_data.json 已 173.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-01 09:30:53",
+   "title": "⚠️ 大屏采集漏批：2026-11-01",
+   "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 8:25 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 3.7 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261101.log",
+   "category": "运维告警"
   }
  ]
 }
