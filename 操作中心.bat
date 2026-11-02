@@ -626,6 +626,8 @@ echo    261. [采访] 网页访谈自动采集（360 搜索→抓正文→抽原话→重建；每日 08:45
 
 echo    262. [曲库] 同步「收听人数」表（补缺失 mid / 标已下架；每日 23:40 已排程）
 
+echo    263. [备份] 关键数据打包到网盘目录（默认 G:\网站备份，含排除凭据；每周日 12:30 已排程）
+
 echo    0. 退出
 
 echo.
@@ -1140,6 +1142,8 @@ if "%op%"=="259" goto ingest_link
 if "%op%"=="260" goto ingest_file
 if "%op%"=="261" goto web_interview
 if "%op%"=="262" goto sync_listener
+if "%op%"=="263" goto backup_key
+
 
 
 
@@ -6739,6 +6743,17 @@ cls
 echo === 同步收听人数表 ===
 echo 曲库有 mid 但表里没有的歌会被追加；表里已下架的会标状态。
 python -X utf8 project_b\sync_listener_xlsx.py
+echo.
+pause
+goto menu
+
+:backup_key
+cls
+echo === 关键数据备份 ===
+set "bkd="
+set /p bkd=备份目录（回车=G:\网站备份）: 
+if "%bkd%"=="" set "bkd=G:\网站备份"
+python -X utf8 project_b\backup_key_data.py --dest "%bkd%"
 echo.
 pause
 goto menu
