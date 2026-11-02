@@ -1,0 +1,74 @@
+{
+ "schema": "ability_highlights/v1",
+ "generated_at": "2026-11-02T23:27:59",
+ "stability": {
+  "all_shows_median_cents": 6.9,
+  "by_year": {
+   "2019": 6.4,
+   "2020": 7.5,
+   "2021": 6.9,
+   "2022": 6.8,
+   "2023": 6.7,
+   "2024": 7.2
+  },
+  "note": "音符内稳定性（越小越稳）；数据源 live_intonation.json"
+ },
+ "cross_version": {
+  "examples": [
+   {
+    "song": "再见我的爱人",
+    "n": 4,
+    "range": 0.14
+   },
+   {
+    "song": "我要你",
+    "n": 7,
+    "range": 1.5
+   },
+   {
+    "song": "Your Man",
+    "n": 14,
+    "range": 4.14
+   },
+   {
+    "song": "花儿为什么这样红",
+    "n": 9,
+    "range": 4.96
+   },
+   {
+    "song": "静止了的夜晚",
+    "n": 4,
+    "range": 5.49
+   }
+  ],
+  "note": "同一首歌不同场次最低音读数的极差（半音）；数据源 live_versions.json"
+ },
+ "long_phrase": {
+  "seconds": 15.2,
+  "song": "想游泳的星",
+  "breath_gap_s": [
+   0.67,
+   1.03
+  ],
+  "breath_gap_db": [
+   12,
+   20
+  ],
+  "note": "六轨人声 + CREPE/Praat 双引擎；气口由能量包络定位"
+ },
+ "live_vs_studio": {
+  "db": -3.2,
+  "centroid_studio": 2860,
+  "centroid_live": 1956,
+  "song": "无尽的夜里",
+  "date": "2025-11-21",
+  "note": "同段落对照；现场更轻更暗"
+ },
+ "firelight_three": {
+  "note": "火光『向前闯』三次：音高逐帧重合、各 2.55 秒",
+  "third_hnr_drop_db": 3.6,
+  "subharmonic": 0.01,
+  "high_freq": "更暗而非更亮"
+ },
+ "discipline": "只收『差距远大于误差』的指标；极值音不在此表"
+}

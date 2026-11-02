@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-02T21:08:24",
+  "generated_at": "2026-11-02T23:34:18",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8474,
+  "files_scanned": 8508,
   "measured_shows_site": 59,
   "shows_with_claimable_site": 58,
-  "bv_mapped": 144
+  "bv_mapped": 150
  },
  "shows": [
   {
@@ -1669,31 +1669,31 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV14c411U7Vn｜三个人的晚餐｜广州20231210"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1jb4y157LR｜Crystal Store｜广州20231210"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "广州｜四巡·\"肆益\"个人巡回音乐会"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "广州20231210_BV1hi4y1v7VC｜阿瓦尔古丽"
+     "detail": "广州20231210_BV1jb4y157LR｜Crystal Store"
     },
     {
      "level": 1,
-     "src": "路径日期",
-     "detail": "广州20231210_BV1jb4y157LR.m4a"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1hi4y1v7VC"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "广州20231210_BV1hi4y1v7VC.wav"
+     "src": "站点实测",
+     "detail": "广州20231210_BV14c411U7Vn｜三个人的晚餐"
     }
    ],
-   "n_evidence": 17
+   "n_evidence": 43
   },
   {
    "date": "2023-12-31",
@@ -1799,6 +1799,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Ru4m1T7Ue｜遇见｜重庆20240330"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "重庆｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1806,14 +1811,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "重庆20240330_BV1Bm411k72j｜美丽的草原我的家"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "重庆20240330_BV1LH4y1u7FA｜新不了情"
     }
    ],
-   "n_evidence": 43
+   "n_evidence": 57
   },
   {
    "date": "2024-04-06",
@@ -1869,31 +1869,31 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1bn4y1R7Ah｜是你｜杭州20240525"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1et421T7Js｜再回首｜杭州20240525"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "杭州｜四巡·\"肆益\"个人巡回音乐会"
     },
     {
      "level": 1,
      "src": "站点实测",
+     "detail": "杭州20240525_BV1bn4y1R7Ah｜是你"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
      "detail": "杭州20240525_BV1hn4y1o7w6｜我曾用心爱着你"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1hn4y1o7w6"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "杭州20240525_BV1hn4y1o7w6.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1hn4y1o7w6"
     }
    ],
-   "n_evidence": 15
+   "n_evidence": 43
   },
   {
    "date": "2024-08-16",
@@ -1909,6 +1909,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1ZQpReKEdf｜梦一场｜北京20240816"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "北京｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1919,21 +1924,16 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "北京20240816_BV1ZQpReKEdf｜梦一场"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
-     "detail": "BV1u2p9eDE1c"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "北京20240816_BV1u2p9eDE1c.wav"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "四巡北京20240816__BV17hWtefEra.wav"
+     "detail": "BV1ZQpReKEdf"
     }
    ],
-   "n_evidence": 19
+   "n_evidence": 33
   },
   {
    "date": "2024-09-16",

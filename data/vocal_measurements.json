@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-02 21:08",
+ "generated_at": "2026-11-02 23:34",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 977,
+  "total": 983,
   "by_layer": {
    "studio_album": 72,
    "precision": 51,
-   "tour_live": 811,
+   "tour_live": 817,
    "stage_other": 32,
    "single": 11
   },
@@ -25,14 +25,14 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 624,
+   "谐波列复核通过": 628,
    "双引擎一致": 9,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "待复核": 1,
-   "待复核（谐波列待判）": 138,
+   "待复核（谐波列待判）": 140,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 300
+  "songs": 303
  },
  "rows": [
   {
@@ -12195,6 +12195,38 @@
    }
   },
   {
+   "id": "tour_live|Crystal Store|广州20231210_BV1jb4y157LR",
+   "song": "Crystal Store",
+   "version": "广州20231210_BV1jb4y157LR",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "广州",
+   "date": "2023-12-10",
+   "source_ref": "BV1jb4y157LR",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.7,
+    "stability_cents": 8.2,
+    "intonation_cents": 24.3,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 92.0,
+    "density_per_s": 1.84,
+    "hnr_db": 4.3,
+    "duration_s": 226.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 124
+   }
+  },
+  {
    "id": "tour_live||四巡上海20231231_v22",
    "song": "",
    "version": "四巡上海20231231_v22",
@@ -12858,6 +12890,76 @@
    }
   },
   {
+   "id": "tour_live|是你|杭州20240525_BV1bn4y1R7Ah",
+   "song": "是你",
+   "version": "杭州20240525_BV1bn4y1R7Ah",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024-05-25",
+   "source_ref": "BV1bn4y1R7Ah",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.5,
+    "high_note": "D#5",
+    "high_hz": 634.4,
+    "span_octaves": 2.81,
+    "stability_cents": 7.5,
+    "intonation_cents": 20.2,
+    "vibrato_hz": 4.96,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.93,
+    "hnr_db": 10.0,
+    "duration_s": 269.1
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 138
+   }
+  },
+  {
+   "id": "tour_live|遇见|重庆20240330_BV1Ru4m1T7Ue",
+   "song": "遇见",
+   "version": "重庆20240330_BV1Ru4m1T7Ue",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "source_ref": "BV1Ru4m1T7Ue",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 90.8,
+    "high_note": "D4",
+    "high_hz": 287.6,
+    "span_octaves": 1.66,
+    "stability_cents": 7.4,
+    "intonation_cents": 22.7,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 77.0,
+    "density_per_s": 1.56,
+    "hnr_db": 3.9,
+    "duration_s": 96.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 127
+   }
+  },
+  {
    "id": "tour_live|新不了情|重庆20240330_BV1LH4y1u7FA",
    "song": "新不了情",
    "version": "重庆20240330_BV1LH4y1u7FA",
@@ -13207,6 +13309,41 @@
    }
   },
   {
+   "id": "tour_live|梦一场|北京20240816_BV1ZQpReKEdf",
+   "song": "梦一场",
+   "version": "北京20240816_BV1ZQpReKEdf",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2024-08-16",
+   "source_ref": "BV1ZQpReKEdf",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 104.7,
+    "high_note": "D4",
+    "high_hz": 296.0,
+    "span_octaves": 1.5,
+    "stability_cents": 6.7,
+    "intonation_cents": 28.2,
+    "vibrato_hz": 4.66,
+    "vibrato_cents": 79.0,
+    "density_per_s": 2.02,
+    "hnr_db": 7.1,
+    "duration_s": 114.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 128
+   }
+  },
+  {
    "id": "tour_live|亲爱的小孩|重庆20240330_BV1Gm421n7ef",
    "song": "亲爱的小孩",
    "version": "重庆20240330_BV1Gm421n7ef",
@@ -13274,6 +13411,76 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 131
+   }
+  },
+  {
+   "id": "tour_live|再回首|杭州20240525_BV1et421T7Js",
+   "song": "再回首",
+   "version": "杭州20240525_BV1et421T7Js",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "杭州",
+   "date": "2024-05-25",
+   "source_ref": "BV1et421T7Js",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 105.9,
+    "high_note": "A3",
+    "high_hz": 222.4,
+    "span_octaves": 1.07,
+    "stability_cents": 8.5,
+    "intonation_cents": 21.6,
+    "vibrato_hz": 4.84,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.58,
+    "hnr_db": 6.8,
+    "duration_s": 122.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 132
+   }
+  },
+  {
+   "id": "tour_live|三个人的晚餐|广州20231210_BV14c411U7Vn",
+   "song": "三个人的晚餐",
+   "version": "广州20231210_BV14c411U7Vn",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "广州",
+   "date": "2023-12-10",
+   "source_ref": "BV14c411U7Vn",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "A2",
+    "low_hz": 108.3,
+    "high_note": "F#4",
+    "high_hz": 369.7,
+    "span_octaves": 1.77,
+    "stability_cents": 8.2,
+    "intonation_cents": 26.3,
+    "vibrato_hz": 4.7,
+    "vibrato_cents": 85.0,
+    "density_per_s": 1.94,
+    "hnr_db": 7.9,
+    "duration_s": 110.3
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 135
    }
   },
   {

@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-02T21:08:38",
+  "generated_at": "2026-11-02T23:34:35",
   "since": "2026-11-02",
-  "batches": 363,
-  "files": 2611,
-  "gb": 82.64,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1448,
-  "stage_rows": 808,
-  "claimable": 648,
-  "claimable_soft": 330
+  "batches": 366,
+  "files": 2621,
+  "gb": 82.81,
+  "new_files": 10,
+  "new_mb": 167.6,
+  "stats_total": 1454,
+  "stage_rows": 814,
+  "claimable": 652,
+  "claimable_soft": 332
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 358,
-   "mb": 17643.1,
+   "files": 364,
+   "mb": 17801.1,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-01"
+   "new_files": 6,
+   "new_mb": 158.0,
+   "newest": "2026-11-02"
   },
   {
    "batch": "wav_十年现场语料",
@@ -1256,6 +1256,15 @@
    "newest": "2026-09-21"
   },
   {
+   "batch": "再回首",
+   "files": 2,
+   "mb": 7.9,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.9,
+   "newest": "2026-11-02"
+  },
+  {
    "batch": "天边",
    "files": 2,
    "mb": 7.8,
@@ -1455,15 +1464,6 @@
   },
   {
    "batch": "你的样子",
-   "files": 1,
-   "mb": 5.9,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-13"
-  },
-  {
-   "batch": "再回首",
    "files": 1,
    "mb": 5.9,
    "stats": 0,
@@ -1713,6 +1713,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
+  },
+  {
+   "batch": "是你",
+   "files": 1,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 4.4,
+   "newest": "2026-11-02"
   },
   {
    "batch": "生活该有的样子.mp3",
@@ -2894,6 +2903,15 @@
    "newest": "2026-09-25"
   },
   {
+   "batch": "梦一场",
+   "files": 1,
+   "mb": 1.8,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.8,
+   "newest": "2026-11-02"
+  },
+  {
    "batch": "亲爱的小孩",
    "files": 1,
    "mb": 1.7,
@@ -2955,6 +2973,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-25"
+  },
+  {
+   "batch": "遇见",
+   "files": 1,
+   "mb": 1.5,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.5,
+   "newest": "2026-11-02"
   },
   {
    "batch": "南海姑娘",

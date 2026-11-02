@@ -119,6 +119,7 @@ STEPS = [
     (ROOT / "project_b" / "build_insight_charts.py", "洞察图 assets/insight/*（图＋sha256 指纹入 data/share/insight_charts.json）", False),
     (ROOT / "project_b" / "build_insight_page.py", "洞察页 insight.html（不进主导航、进底部索引与 sitemap）", False),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
+    (ROOT / "project_b" / "inject_ability_blocks.py", "能力主线区块（稳/准/气/控，派生数字）", False),
     # ── 注入复跑守卫（2026-09-21）：compact 会重建 7 个公开页，注入块必须在其后重跑 ──
     (ROOT / "project_b" / "inject_vocal_summary.py", "注入复跑：首页音域摘要块", False),
     (ROOT / "project_b" / "inject_index_facts.py", "注入复跑：首页事实块", False),
