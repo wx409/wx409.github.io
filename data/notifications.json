@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-02 21:00:06",
+ "updated_at": "2026-11-02 22:00:05",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5234,6 +5234,12 @@
    "title": "⚠️ 大屏采集漏批：2026-11-02",
    "content": "应当完成但缺产出的批次：\n缺 12:18 quick\n缺 18:05 quick\n缺 21:00 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 2 个)；tasklist=在(命中)）；日志 0.0 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261102.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-11-02 22:00:05",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 19952）。此前 dashboard_data.json 距上次更新 26.0 分钟。",
+   "category": "通知"
   }
  ]
 }
