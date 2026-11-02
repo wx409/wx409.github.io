@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-11-02 00:17
+# 生成时间：2026-11-02 09:08
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -87,6 +87,13 @@ $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_sync_listener_xlsx' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_sync_listener_xlsx'
 
+# --- wx409_backup_weekly ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\backup_key_data.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_backup_weekly' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_backup_weekly'
+
 # --- QQMusicDashboardAutoStart ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\QQ音乐大屏生成器_GEO优化版_源码.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
 $t = New-ScheduledTaskTrigger -AtLogOn
@@ -107,6 +114,13 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_index_backfill_late' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_index_backfill_late'
+
+# --- wx409_baseline_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\publish_baseline_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_baseline_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_baseline_daily'
 
 # --- wx409_dashboard_watchdog ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 ""' -WorkingDirectory 'D:\wx409.github.io'
