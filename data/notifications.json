@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-02 08:01:13",
+ "updated_at": "2026-11-02 08:37:05",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5084,6 +5084,14 @@
    "title": "⚠ 大屏数据超过 120 分钟未更新",
    "content": "daemon 进程在（PID [11880]），但 dashboard_data.json 已 470.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-02 08:37:05",
+   "title": "备份已跑通：G 盘周备份可用",
+   "content": "关键数据备份首次实测成功。\n路径：（本机盘符）\\网站备份\\\\weekly\\\\site_backup_20261102_0836.zip\n体积：5.3 MB（312 个文件，解压 33.5 MB）\n校验：压缩包完整性 OK｜凭据类文件 0 个｜音频 0 个\n排程：每周日 12:30 自动执行（任务 wx409_backup_weekly），保留最近 8 份。\n排除项：cookie / dpapi / qqmusic.txt / .env / secrets / 音频 / 日志。",
+   "category": "运维",
+   "source": "backup_key_data.py",
+   "url": "https://wx409.github.io/notifications.html"
   }
  ]
 }
