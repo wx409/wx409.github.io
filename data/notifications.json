@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-02 08:37:05",
+ "updated_at": "2026-11-02 08:39:09",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5089,6 +5089,14 @@
    "time": "2026-11-02 08:37:05",
    "title": "备份已跑通：G 盘周备份可用",
    "content": "关键数据备份首次实测成功。\n路径：（本机盘符）\\网站备份\\\\weekly\\\\site_backup_20261102_0836.zip\n体积：5.3 MB（312 个文件，解压 33.5 MB）\n校验：压缩包完整性 OK｜凭据类文件 0 个｜音频 0 个\n排程：每周日 12:30 自动执行（任务 wx409_backup_weekly），保留最近 8 份。\n排除项：cookie / dpapi / qqmusic.txt / .env / secrets / 音频 / 日志。",
+   "category": "运维",
+   "source": "backup_key_data.py",
+   "url": "https://wx409.github.io/notifications.html"
+  },
+  {
+   "time": "2026-11-02 08:39:09",
+   "title": "备份已加磁盘标记校验",
+   "content": "移动硬盘备份现在会先校验标记文件，防止盘符被别的盘占用写错地方。\n标记：（本机盘符）\\网站备份\\\\.backup_target（purpose=wx409-keydata-backup｜host=WXS2527）\n反向测试：篡改 host 后脚本退出码 4 并拒绝写入。\nG: 已同时设为网盘同步文件夹，每周备份会自动上传云端。",
    "category": "运维",
    "source": "backup_key_data.py",
    "url": "https://wx409.github.io/notifications.html"

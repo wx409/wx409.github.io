@@ -76,6 +76,8 @@ def main():
     ap.add_argument("--dest", default=DEFAULT_DEST)
     ap.add_argument("--keep", type=int, default=8, help="保留最近几份")
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--init-marker", action="store_true",
+                    help="在目标目录写入标记文件（首次配置移动硬盘时用）")
     a = ap.parse_args()
 
     files = collect()
@@ -92,6 +94,33 @@ def main():
         print("！备份目录不存在：%s" % a.dest)
         print("  请先创建（网盘同步目录 / 移动硬盘），或改用 --dest 指定其他路径")
         return 3
+
+    # ---- 磁盘标记校验：防止盘符被别的盘占用 ----
+    marker = os.path.join(a.dest, ".backup_target")
+    if a.init_marker:
+        with open(marker, "w", encoding="utf-8") as f:
+            f.write("purpose=wx409-keydata-backup\nhost=%s\ncreated=%s\n"
+                    % (os.environ.get("COMPUTERNAME", "?"), time.strftime("%Y-%m-%d %H:%M")))
+        print("已写入标记文件：%s" % marker)
+        return 0
+
+    if not os.path.exists(marker):
+        print("！目标目录缺少标记文件：%s" % marker)
+        print("  若这是首次使用（新硬盘/新网盘目录），先执行一次：")
+        print("     python -X utf8 project_b\\backup_key_data.py --dest \"%s\" --init-marker" % a.dest)
+        print("  若盘符接错了盘，请换回正确的盘再跑。")
+        return 4
+
+    with open(marker, encoding="utf-8") as f:
+        mk = f.read()
+    if "wx409-keydata-backup" not in mk:
+        print("！标记文件内容异常，疑似接错盘：%s" % marker)
+        return 4
+    host = os.environ.get("COMPUTERNAME", "?")
+    if ("host=" + host) not in mk:
+        print("！标记文件不属于本机（host 不匹配）：%s" % mk.replace("\n", " "))
+        print("  继续前请确认这块盘是不是配错机器了。")
+        return 4
 
     outdir = os.path.join(a.dest, "weekly")
     os.makedirs(outdir, exist_ok=True)
