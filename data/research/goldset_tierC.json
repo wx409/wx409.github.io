@@ -1,0 +1,545 @@
+{
+ "schema": "goldset_tierC/v1",
+ "rows": [
+  {
+   "song": "08 心动",
+   "album": "s02_20191116",
+   "note": "D2",
+   "claimed_hz": 74.7,
+   "diff_cents": -10.2,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "08 心动",
+   "album": "s02_20191116",
+   "note": "D#2",
+   "claimed_hz": 77.5,
+   "diff_cents": -11.0,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "08 心动",
+   "album": "s02_20191116",
+   "note": "G2",
+   "claimed_hz": 99.9,
+   "diff_cents": -4.5,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "03 知晓",
+   "album": "s19_20220109",
+   "note": "E2",
+   "claimed_hz": 82.1,
+   "diff_cents": -84.4,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "03 知晓",
+   "album": "s19_20220109",
+   "note": "F2",
+   "claimed_hz": 86.9,
+   "diff_cents": 312.5,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "03 知晓",
+   "album": "s19_20220109",
+   "note": "F2",
+   "claimed_hz": 88.2,
+   "diff_cents": 19.9,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "11 月半弯",
+   "album": "s29_20230520",
+   "note": "E2",
+   "claimed_hz": 81.8,
+   "diff_cents": -6.7,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "11 月半弯",
+   "album": "s29_20230520",
+   "note": "E2",
+   "claimed_hz": 82.3,
+   "diff_cents": 193.2,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "11 月半弯",
+   "album": "s29_20230520",
+   "note": "F#2",
+   "claimed_hz": 93.0,
+   "diff_cents": -1116.1,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "05 晚风暖暖",
+   "album": "s05_20191228",
+   "note": "G2",
+   "claimed_hz": 96.0,
+   "diff_cents": -614.0,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 晚风暖暖",
+   "album": "s05_20191228",
+   "note": "G2",
+   "claimed_hz": 96.7,
+   "diff_cents": -8.2,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 晚风暖暖",
+   "album": "s05_20191228",
+   "note": "G2",
+   "claimed_hz": 97.2,
+   "diff_cents": -8.4,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "21 高级动物",
+   "album": "s19_20220109",
+   "note": "C2",
+   "claimed_hz": 64.9,
+   "diff_cents": 5.3,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "21 高级动物",
+   "album": "s19_20220109",
+   "note": "C2",
+   "claimed_hz": 65.1,
+   "diff_cents": 3.6,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "21 高级动物",
+   "album": "s19_20220109",
+   "note": "A2",
+   "claimed_hz": 111.0,
+   "diff_cents": -1199.3,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "17 一江水",
+   "album": "s17_20211204",
+   "note": "E2",
+   "claimed_hz": 83.3,
+   "diff_cents": -34.4,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "17 一江水",
+   "album": "s17_20211204",
+   "note": "E2",
+   "claimed_hz": 84.0,
+   "diff_cents": -621.3,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "17 一江水",
+   "album": "s17_20211204",
+   "note": "F#2",
+   "claimed_hz": 92.6,
+   "diff_cents": -121.1,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "19 遇见",
+   "album": "s35_20240330",
+   "note": "F#2",
+   "claimed_hz": 91.3,
+   "diff_cents": 60.9,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "19 遇见",
+   "album": "s35_20240330",
+   "note": "F#2",
+   "claimed_hz": 92.5,
+   "diff_cents": 16.6,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "19 遇见",
+   "album": "s35_20240330",
+   "note": "F#2",
+   "claimed_hz": 93.1,
+   "diff_cents": 41.1,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 Crystal Store",
+   "album": "s34_20240127",
+   "note": "C#2",
+   "claimed_hz": 70.5,
+   "diff_cents": -1111.7,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 Crystal Store",
+   "album": "s34_20240127",
+   "note": "D2",
+   "claimed_hz": 73.0,
+   "diff_cents": 88.4,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 Crystal Store",
+   "album": "s34_20240127",
+   "note": "D#2",
+   "claimed_hz": 76.3,
+   "diff_cents": -51.5,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 后会无期",
+   "album": "s07_20201121",
+   "note": "D2",
+   "claimed_hz": 72.9,
+   "diff_cents": 14.7,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 后会无期",
+   "album": "s07_20201121",
+   "note": "D2",
+   "claimed_hz": 73.2,
+   "diff_cents": -151.0,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "05 后会无期",
+   "album": "s07_20201121",
+   "note": "D#2",
+   "claimed_hz": 76.5,
+   "diff_cents": -392.6,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "15 甩了甩了",
+   "album": "s36_20240406",
+   "note": "B2",
+   "claimed_hz": 122.1,
+   "diff_cents": -473.3,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "15 甩了甩了",
+   "album": "s36_20240406",
+   "note": "B2",
+   "claimed_hz": 123.4,
+   "diff_cents": -19.0,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "15 甩了甩了",
+   "album": "s36_20240406",
+   "note": "C#3",
+   "claimed_hz": 138.5,
+   "diff_cents": -670.1,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "12 分岔",
+   "album": "s25_20220917",
+   "note": "A#1",
+   "claimed_hz": 57.8,
+   "diff_cents": -234.9,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "12 分岔",
+   "album": "s25_20220917",
+   "note": "C2",
+   "claimed_hz": 66.2,
+   "diff_cents": -88.1,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "12 分岔",
+   "album": "s25_20220917",
+   "note": "D#2",
+   "claimed_hz": 77.1,
+   "diff_cents": -56.1,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "12 Besame Mucho",
+   "album": "s31_20231112",
+   "note": "F2",
+   "claimed_hz": 84.9,
+   "diff_cents": 14.7,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "12 Besame Mucho",
+   "album": "s31_20231112",
+   "note": "F2",
+   "claimed_hz": 85.2,
+   "diff_cents": 8.4,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "12 Besame Mucho",
+   "album": "s31_20231112",
+   "note": "G2",
+   "claimed_hz": 97.9,
+   "diff_cents": 9.6,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "12 猫模狗样",
+   "album": "s34_20240127",
+   "note": "A#1",
+   "claimed_hz": 57.8,
+   "diff_cents": -1.8,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "12 猫模狗样",
+   "album": "s34_20240127",
+   "note": "A#1",
+   "claimed_hz": 58.4,
+   "diff_cents": -1204.6,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "12 猫模狗样",
+   "album": "s34_20240127",
+   "note": "A#1",
+   "claimed_hz": 58.6,
+   "diff_cents": -23.4,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "09 突然想爱你 眼泪",
+   "album": "s17_20211204",
+   "note": "D#2",
+   "claimed_hz": 77.2,
+   "diff_cents": -51.7,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "09 突然想爱你 眼泪",
+   "album": "s17_20211204",
+   "note": "F2",
+   "claimed_hz": 88.5,
+   "diff_cents": -9.8,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "09 突然想爱你 眼泪",
+   "album": "s17_20211204",
+   "note": "F#2",
+   "claimed_hz": 93.4,
+   "diff_cents": -448.6,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "09 雪地里寄不出的求救信",
+   "album": "s10_20201219",
+   "note": "B2",
+   "claimed_hz": 127.0,
+   "diff_cents": 32.1,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "09 雪地里寄不出的求救信",
+   "album": "s10_20201219",
+   "note": "C3",
+   "claimed_hz": 129.8,
+   "diff_cents": 11.9,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "09 雪地里寄不出的求救信",
+   "album": "s10_20201219",
+   "note": "C3",
+   "claimed_hz": 133.5,
+   "diff_cents": 21.9,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "17 梦醒时分",
+   "album": "s36_20240406",
+   "note": "G#2",
+   "claimed_hz": 103.6,
+   "diff_cents": -1437.0,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "17 梦醒时分",
+   "album": "s36_20240406",
+   "note": "A2",
+   "claimed_hz": 107.5,
+   "diff_cents": -1166.8,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "17 梦醒时分",
+   "album": "s36_20240406",
+   "note": "B2",
+   "claimed_hz": 120.9,
+   "diff_cents": -9.7,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "07 友谊地久天长",
+   "album": "s32_20231210",
+   "note": "G2",
+   "claimed_hz": 97.4,
+   "diff_cents": -14.2,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "07 友谊地久天长",
+   "album": "s32_20231210",
+   "note": "G2",
+   "claimed_hz": 97.6,
+   "diff_cents": -17.4,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "07 友谊地久天长",
+   "album": "s32_20231210",
+   "note": "G2",
+   "claimed_hz": 98.1,
+   "diff_cents": -0.0,
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "song": "01 让她降落",
+   "album": "s01_20190908",
+   "note": "F#2",
+   "claimed_hz": 91.6,
+   "diff_cents": -11.2,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "01 让她降落",
+   "album": "s01_20190908",
+   "note": "F#2",
+   "claimed_hz": 94.1,
+   "diff_cents": -299.1,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "01 让她降落",
+   "album": "s01_20190908",
+   "note": "A2",
+   "claimed_hz": 108.5,
+   "diff_cents": -1096.6,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "13 时光慢旅 慢慢地 从前慢 慢慢喜欢你",
+   "album": "s14_20210308",
+   "note": "D2",
+   "claimed_hz": 73.5,
+   "diff_cents": -682.2,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "13 时光慢旅 慢慢地 从前慢 慢慢喜欢你",
+   "album": "s14_20210308",
+   "note": "D#2",
+   "claimed_hz": 77.5,
+   "diff_cents": -539.2,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "13 时光慢旅 慢慢地 从前慢 慢慢喜欢你",
+   "album": "s14_20210308",
+   "note": "E2",
+   "claimed_hz": 81.0,
+   "diff_cents": -429.7,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "18 朋友别哭",
+   "album": "s24_20220717",
+   "note": "F#2",
+   "claimed_hz": 90.8,
+   "diff_cents": 309.1,
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "song": "18 朋友别哭",
+   "album": "s24_20220717",
+   "note": "A2",
+   "claimed_hz": 110.1,
+   "diff_cents": -720.4,
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "song": "18 朋友别哭",
+   "album": "s24_20220717",
+   "note": "A2",
+   "claimed_hz": 113.0,
+   "diff_cents": 12.2,
+   "harm_ok": false,
+   "pass": false
+  }
+ ]
+}

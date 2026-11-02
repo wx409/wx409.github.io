@@ -1,0 +1,1560 @@
+{
+ "schema": "extreme_recheck/v1",
+ "rule": "|diff|<=50c 且 1f0 不弱于 2f0 超过 10dB",
+ "rows": [
+  {
+   "show": "s01_20190908",
+   "song": "05 晚风暖暖",
+   "note": "C2",
+   "claimed_hz": 65.0,
+   "diff_cents": -7.0,
+   "harm": [
+    36.9,
+    54.5,
+    55.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s01_20190908",
+   "song": "05 晚风暖暖",
+   "note": "C2",
+   "claimed_hz": 65.3,
+   "diff_cents": 5.3,
+   "harm": [
+    36.9,
+    50.5,
+    48.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s01_20190908",
+   "song": "12 谁",
+   "note": "C2",
+   "claimed_hz": 66.5,
+   "diff_cents": 31.5,
+   "harm": [
+    6.7,
+    41.6,
+    47.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s02_20191116",
+   "song": "16 云一定知道",
+   "note": "A#1",
+   "claimed_hz": 58.5,
+   "diff_cents": -30.3,
+   "harm": [
+    19.8,
+    24.9,
+    56.0
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s02_20191116",
+   "song": "03 花样年华",
+   "note": "C2",
+   "claimed_hz": 65.1,
+   "diff_cents": -172.8,
+   "harm": [
+    32.7,
+    33.2,
+    53.3
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s02_20191116",
+   "song": "05 晚风暖暖",
+   "note": "C2",
+   "claimed_hz": 65.4,
+   "diff_cents": 7.1,
+   "harm": [
+    38.4,
+    47.8,
+    55.0
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s03_20191129",
+   "song": "04 跟着你到天边",
+   "note": "C#2",
+   "claimed_hz": 69.0,
+   "diff_cents": -404.6,
+   "harm": [
+    -5.5,
+    38.9,
+    57.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s03_20191129",
+   "song": "10 一生守候",
+   "note": "C#2",
+   "claimed_hz": 70.7,
+   "diff_cents": -1213.6,
+   "harm": [
+    24.7,
+    53.2,
+    46.4
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s03_20191129",
+   "song": "10 一生守候",
+   "note": "C#2",
+   "claimed_hz": 70.9,
+   "diff_cents": -1203.3,
+   "harm": [
+    24.4,
+    53.3,
+    45.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s04_20191201",
+   "song": "08 心动",
+   "note": "A#1",
+   "claimed_hz": 57.7,
+   "diff_cents": 15.6,
+   "harm": [
+    -10.3,
+    38.3,
+    54.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s04_20191201",
+   "song": "13 她真漂亮（feat.高杨）",
+   "note": "C2",
+   "claimed_hz": 66.7,
+   "diff_cents": 35.2,
+   "harm": [
+    1.2,
+    36.0,
+    60.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s04_20191201",
+   "song": "13 她真漂亮（feat.高杨）",
+   "note": "C#2",
+   "claimed_hz": 68.7,
+   "diff_cents": -22.3,
+   "harm": [
+    38.9,
+    42.8,
+    47.0
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s05_20191228",
+   "song": "07 再见，我的爱人",
+   "note": "B1",
+   "claimed_hz": 61.7,
+   "diff_cents": -252.7,
+   "harm": [
+    21.9,
+    47.6,
+    53.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s05_20191228",
+   "song": "04 跟着你到天边",
+   "note": "C#2",
+   "claimed_hz": 70.0,
+   "diff_cents": -4.7,
+   "harm": [
+    1.7,
+    15.7,
+    60.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s05_20191228",
+   "song": "03 花样年华",
+   "note": "D2",
+   "claimed_hz": 71.6,
+   "diff_cents": 5.6,
+   "harm": [
+    40.4,
+    51.4,
+    61.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s06_20201114",
+   "song": "12 爱情",
+   "note": "C2",
+   "claimed_hz": 65.0,
+   "diff_cents": -4.3,
+   "harm": [
+    -17.4,
+    49.8,
+    50.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s06_20201114",
+   "song": "07 怂",
+   "note": "C2",
+   "claimed_hz": 65.1,
+   "diff_cents": -107.5,
+   "harm": [
+    19.5,
+    56.0,
+    59.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s06_20201114",
+   "song": "13 时光慢旅 慢慢地 从前慢 慢慢喜欢你",
+   "note": "C#2",
+   "claimed_hz": 69.2,
+   "diff_cents": 7.4,
+   "harm": [
+    -8.0,
+    44.1,
+    48.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s07_20201121",
+   "song": "10 雪孩子",
+   "note": "C2",
+   "claimed_hz": 65.6,
+   "diff_cents": -12.5,
+   "harm": [
+    4.7,
+    20.2,
+    56.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s07_20201121",
+   "song": "05 后会无期",
+   "note": "D2",
+   "claimed_hz": 72.9,
+   "diff_cents": 19.0,
+   "harm": [
+    14.3,
+    42.1,
+    67.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s07_20201121",
+   "song": "01 花儿为什么这样红",
+   "note": "D2",
+   "claimed_hz": 72.9,
+   "diff_cents": -872.8,
+   "harm": [
+    36.8,
+    19.5,
+    48.0
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s08_20201129",
+   "song": "03 茕茕",
+   "note": "A#1",
+   "claimed_hz": 58.8,
+   "diff_cents": 9.4,
+   "harm": [
+    0.5,
+    56.2,
+    26.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s08_20201129",
+   "song": "03 茕茕",
+   "note": "B1",
+   "claimed_hz": 63.3,
+   "diff_cents": 1.8,
+   "harm": [
+    30.2,
+    40.6,
+    57.4
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s08_20201129",
+   "song": "09 雪地里寄不出的求救信",
+   "note": "C2",
+   "claimed_hz": 65.1,
+   "diff_cents": -5.1,
+   "harm": [
+    43.1,
+    39.7,
+    56.8
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s09_20201205",
+   "song": "13 时光慢旅 慢慢地 从前慢 慢慢喜欢你",
+   "note": "A1",
+   "claimed_hz": 55.9,
+   "diff_cents": 110.5,
+   "harm": [
+    33.8,
+    52.9,
+    68.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s09_20201205",
+   "song": "05 后会无期",
+   "note": "A#1",
+   "claimed_hz": 58.8,
+   "diff_cents": 33.0,
+   "harm": [
+    11.1,
+    25.5,
+    60.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s09_20201205",
+   "song": "08 哭砂",
+   "note": "C2",
+   "claimed_hz": 64.5,
+   "diff_cents": -247.0,
+   "harm": [
+    -2.9,
+    50.2,
+    57.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s10_20201219",
+   "song": "07 怂",
+   "note": "A#1",
+   "claimed_hz": 58.7,
+   "diff_cents": 393.8,
+   "harm": [
+    34.7,
+    53.9,
+    58.4
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s10_20201219",
+   "song": "11 如果云知道 云一定知道",
+   "note": "A#1",
+   "claimed_hz": 59.1,
+   "diff_cents": 57.0,
+   "harm": [
+    0.9,
+    12.4,
+    57.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s10_20201219",
+   "song": "01 花儿为什么这样红",
+   "note": "C2",
+   "claimed_hz": 65.4,
+   "diff_cents": -3.9,
+   "harm": [
+    0.0,
+    10.5,
+    41.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s11_20210109",
+   "song": "09 雪地里寄不出的求救信",
+   "note": "C2",
+   "claimed_hz": 65.2,
+   "diff_cents": 17.3,
+   "harm": [
+    31.2,
+    47.1,
+    56.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s11_20210109",
+   "song": "09 雪地里寄不出的求救信",
+   "note": "C2",
+   "claimed_hz": 65.3,
+   "diff_cents": -776.8,
+   "harm": [
+    30.1,
+    45.7,
+    60.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s11_20210109",
+   "song": "12 爱情",
+   "note": "C#2",
+   "claimed_hz": 67.3,
+   "diff_cents": 0.9,
+   "harm": [
+    -16.8,
+    53.8,
+    55.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s12_20210110",
+   "song": "06 别离的预感",
+   "note": "A#1",
+   "claimed_hz": 58.6,
+   "diff_cents": 32.7,
+   "harm": [
+    29.3,
+    46.9,
+    58.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s12_20210110",
+   "song": "05 后会无期",
+   "note": "C2",
+   "claimed_hz": 65.0,
+   "diff_cents": 2.1,
+   "harm": [
+    30.2,
+    57.9,
+    63.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s12_20210110",
+   "song": "01 花儿为什么这样红",
+   "note": "C#2",
+   "claimed_hz": 67.5,
+   "diff_cents": -1356.1,
+   "harm": [
+    23.2,
+    57.9,
+    55.4
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s13_20210307",
+   "song": "14 像雾像雨又像风",
+   "note": "C2",
+   "claimed_hz": 65.7,
+   "diff_cents": 10.0,
+   "harm": [
+    15.8,
+    58.6,
+    54.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s13_20210307",
+   "song": "01 花儿为什么这样红",
+   "note": "D2",
+   "claimed_hz": 71.9,
+   "diff_cents": -142.4,
+   "harm": [
+    29.0,
+    53.6,
+    51.1
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s13_20210307",
+   "song": "03 茕茕",
+   "note": "D2",
+   "claimed_hz": 72.0,
+   "diff_cents": 1003.4,
+   "harm": [
+    29.5,
+    56.0,
+    57.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s14_20210308",
+   "song": "08 哭砂",
+   "note": "C2",
+   "claimed_hz": 65.2,
+   "diff_cents": -693.6,
+   "harm": [
+    0.8,
+    51.8,
+    62.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s14_20210308",
+   "song": "08 哭砂",
+   "note": "C2",
+   "claimed_hz": 65.5,
+   "diff_cents": -343.1,
+   "harm": [
+    14.5,
+    62.9,
+    60.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s14_20210308",
+   "song": "17 歌颂",
+   "note": "C2",
+   "claimed_hz": 65.9,
+   "diff_cents": -340.6,
+   "harm": [
+    -11.0,
+    40.4,
+    48.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s15_20210327",
+   "song": "03 茕茕",
+   "note": "D2",
+   "claimed_hz": 72.2,
+   "diff_cents": 47.3,
+   "harm": [
+    26.3,
+    42.2,
+    44.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s15_20210327",
+   "song": "01 花儿为什么这样红",
+   "note": "D2",
+   "claimed_hz": 72.4,
+   "diff_cents": 64.4,
+   "harm": [
+    28.3,
+    46.9,
+    39.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s15_20210327",
+   "song": "01 花儿为什么这样红",
+   "note": "D2",
+   "claimed_hz": 72.8,
+   "diff_cents": 1211.1,
+   "harm": [
+    40.9,
+    48.6,
+    52.4
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s16_20210411",
+   "song": "06 别离的预感",
+   "note": "C2",
+   "claimed_hz": 65.4,
+   "diff_cents": -121.8,
+   "harm": [
+    33.7,
+    52.0,
+    61.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s16_20210411",
+   "song": "21 往日时光",
+   "note": "C2",
+   "claimed_hz": 66.2,
+   "diff_cents": -334.1,
+   "harm": [
+    -20.7,
+    56.2,
+    60.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s16_20210411",
+   "song": "05 后会无期",
+   "note": "D2",
+   "claimed_hz": 71.8,
+   "diff_cents": -57.3,
+   "harm": [
+    -20.6,
+    53.8,
+    40.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s17_20211204",
+   "song": "05 哑光",
+   "note": "B1",
+   "claimed_hz": 61.9,
+   "diff_cents": 46.5,
+   "harm": [
+    31.3,
+    42.8,
+    62.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s17_20211204",
+   "song": "05 哑光",
+   "note": "B1",
+   "claimed_hz": 62.1,
+   "diff_cents": 44.8,
+   "harm": [
+    25.8,
+    42.7,
+    63.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s17_20211204",
+   "song": "19 这世界那么多人 暧昧 叶子 同类",
+   "note": "B1",
+   "claimed_hz": 62.4,
+   "diff_cents": -332.6,
+   "harm": [
+    -20.3,
+    13.0,
+    64.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s18_20211218",
+   "song": "03 知晓",
+   "note": "C2",
+   "claimed_hz": 65.6,
+   "diff_cents": 26.1,
+   "harm": [
+    37.4,
+    44.5,
+    53.3
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s18_20211218",
+   "song": "03 知晓",
+   "note": "C2",
+   "claimed_hz": 65.8,
+   "diff_cents": 27.1,
+   "harm": [
+    39.3,
+    46.2,
+    49.9
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s18_20211218",
+   "song": "08 分岔",
+   "note": "E2",
+   "claimed_hz": 80.4,
+   "diff_cents": -31.5,
+   "harm": [
+    27.0,
+    58.8,
+    55.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s19_20220109",
+   "song": "05 惑许",
+   "note": "B1",
+   "claimed_hz": 62.0,
+   "diff_cents": 5.4,
+   "harm": [
+    5.9,
+    33.2,
+    15.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s19_20220109",
+   "song": "20 生日快乐歌",
+   "note": "C2",
+   "claimed_hz": 64.8,
+   "diff_cents": 23.2,
+   "harm": [
+    19.3,
+    37.0,
+    51.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s19_20220109",
+   "song": "21 高级动物",
+   "note": "C2",
+   "claimed_hz": 64.9,
+   "diff_cents": 4.1,
+   "harm": [
+    20.9,
+    27.1,
+    44.2
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s20_20220110",
+   "song": "04 哑光",
+   "note": "B1",
+   "claimed_hz": 61.7,
+   "diff_cents": -1195.4,
+   "harm": [
+    33.6,
+    46.6,
+    51.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s20_20220110",
+   "song": "01 送别",
+   "note": "D2",
+   "claimed_hz": 71.8,
+   "diff_cents": -42.3,
+   "harm": [
+    -22.2,
+    49.3,
+    23.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s20_20220110",
+   "song": "03 知晓",
+   "note": "D2",
+   "claimed_hz": 72.9,
+   "diff_cents": -19.9,
+   "harm": [
+    22.8,
+    49.8,
+    46.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s21_20220409",
+   "song": "11 云一定知道",
+   "note": "A#1",
+   "claimed_hz": 57.8,
+   "diff_cents": -34.2,
+   "harm": [
+    9.2,
+    50.5,
+    45.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s21_20220409",
+   "song": "12 You Needed Me",
+   "note": "A#1",
+   "claimed_hz": 57.8,
+   "diff_cents": 28.9,
+   "harm": [
+    12.8,
+    45.9,
+    42.1
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s21_20220409",
+   "song": "18 倒叙",
+   "note": "A#1",
+   "claimed_hz": 58.3,
+   "diff_cents": -63.3,
+   "harm": [
+    38.8,
+    39.3,
+    32.2
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s22_20220624",
+   "song": "08 突然想爱你 眼泪",
+   "note": "C#2",
+   "claimed_hz": 68.5,
+   "diff_cents": -19.6,
+   "harm": [
+    26.3,
+    46.5,
+    63.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s22_20220624",
+   "song": "15 倒叙",
+   "note": "C#2",
+   "claimed_hz": 68.9,
+   "diff_cents": -1204.8,
+   "harm": [
+    -16.6,
+    32.0,
+    58.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s22_20220624",
+   "song": "13 时空",
+   "note": "D2",
+   "claimed_hz": 71.9,
+   "diff_cents": -66.4,
+   "harm": [
+    17.4,
+    46.1,
+    57.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s23_20220715",
+   "song": "06 达尔文 駅",
+   "note": "C2",
+   "claimed_hz": 65.5,
+   "diff_cents": 142.2,
+   "harm": [
+    -13.9,
+    22.0,
+    56.4
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s23_20220715",
+   "song": "07 橄榄树",
+   "note": "C2",
+   "claimed_hz": 65.9,
+   "diff_cents": 100.1,
+   "harm": [
+    -14.2,
+    38.5,
+    25.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s23_20220715",
+   "song": "12 分岔",
+   "note": "D2",
+   "claimed_hz": 73.5,
+   "diff_cents": 676.4,
+   "harm": [
+    -3.2,
+    52.0,
+    57.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s24_20220717",
+   "song": "10 Close to You",
+   "note": "A#1",
+   "claimed_hz": 56.8,
+   "diff_cents": -39.5,
+   "harm": [
+    30.8,
+    41.5,
+    67.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s24_20220717",
+   "song": "08 突然想爱你 眼泪",
+   "note": "D2",
+   "claimed_hz": 72.7,
+   "diff_cents": -4.1,
+   "harm": [
+    29.0,
+    55.5,
+    56.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s24_20220717",
+   "song": "15 倒叙",
+   "note": "D2",
+   "claimed_hz": 73.0,
+   "diff_cents": 2.2,
+   "harm": [
+    24.6,
+    40.6,
+    53.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s25_20220917",
+   "song": "12 分岔",
+   "note": "A#1",
+   "claimed_hz": 57.8,
+   "diff_cents": -227.8,
+   "harm": [
+    0.3,
+    39.9,
+    50.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s25_20220917",
+   "song": "01 送别",
+   "note": "B1",
+   "claimed_hz": 60.6,
+   "diff_cents": 57.5,
+   "harm": [
+    -9.3,
+    47.5,
+    62.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s25_20220917",
+   "song": "14 玩笑",
+   "note": "B1",
+   "claimed_hz": 61.3,
+   "diff_cents": -0.9,
+   "harm": [
+    20.2,
+    38.3,
+    59.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s26_20230409",
+   "song": "03 朝凤",
+   "note": "C2",
+   "claimed_hz": 65.0,
+   "diff_cents": -1085.5,
+   "harm": [
+    37.6,
+    30.0,
+    48.3
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s26_20230409",
+   "song": "08 偏偏",
+   "note": "C2",
+   "claimed_hz": 67.1,
+   "diff_cents": -58.2,
+   "harm": [
+    -3.5,
+    42.8,
+    49.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s26_20230409",
+   "song": "08 偏偏",
+   "note": "D2",
+   "claimed_hz": 73.6,
+   "diff_cents": -17.2,
+   "harm": [
+    1.1,
+    48.6,
+    53.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s27_20230501",
+   "song": "12 分岔",
+   "note": "A#1",
+   "claimed_hz": 58.2,
+   "diff_cents": 23.3,
+   "harm": [
+    -36.9,
+    19.7,
+    45.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s27_20230501",
+   "song": "10 Close to You",
+   "note": "B1",
+   "claimed_hz": 63.1,
+   "diff_cents": -192.7,
+   "harm": [
+    21.7,
+    52.1,
+    61.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s27_20230501",
+   "song": "07 橄榄树",
+   "note": "C2",
+   "claimed_hz": 66.3,
+   "diff_cents": -52.1,
+   "harm": [
+    -17.9,
+    38.1,
+    37.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s28_20230503",
+   "song": "08 突然想爱你 眼泪",
+   "note": "C2",
+   "claimed_hz": 65.8,
+   "diff_cents": -4.1,
+   "harm": [
+    30.3,
+    33.2,
+    47.0
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s28_20230503",
+   "song": "02 Moon River",
+   "note": "C2",
+   "claimed_hz": 65.9,
+   "diff_cents": -21.6,
+   "harm": [
+    24.1,
+    33.6,
+    54.1
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s28_20230503",
+   "song": "15 倒叙",
+   "note": "C#2",
+   "claimed_hz": 68.7,
+   "diff_cents": -1703.8,
+   "harm": [
+    14.4,
+    39.0,
+    54.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s29_20230520",
+   "song": "10 Close to You",
+   "note": "A#1",
+   "claimed_hz": 58.0,
+   "diff_cents": 26.6,
+   "harm": [
+    14.5,
+    32.0,
+    49.4
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s29_20230520",
+   "song": "04 哑光",
+   "note": "B1",
+   "claimed_hz": 61.2,
+   "diff_cents": 23.2,
+   "harm": [
+    31.5,
+    42.7,
+    57.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s29_20230520",
+   "song": "12 分岔",
+   "note": "B1",
+   "claimed_hz": 61.4,
+   "diff_cents": 1870.1,
+   "harm": [
+    -20.6,
+    15.7,
+    34.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s30_20230623",
+   "song": "11 月半弯",
+   "note": "B1",
+   "claimed_hz": 61.3,
+   "diff_cents": -333.2,
+   "harm": [
+    50.1,
+    40.3,
+    59.2
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s30_20230623",
+   "song": "08 突然想爱你 眼泪",
+   "note": "C2",
+   "claimed_hz": 66.2,
+   "diff_cents": 2.2,
+   "harm": [
+    40.3,
+    54.8,
+    48.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s30_20230623",
+   "song": "15 倒叙",
+   "note": "C2",
+   "claimed_hz": 66.8,
+   "diff_cents": -127.2,
+   "harm": [
+    3.7,
+    53.2,
+    48.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s31_20231112",
+   "song": "11 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.5,
+   "diff_cents": -1026.0,
+   "harm": [
+    29.0,
+    45.1,
+    57.5
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s31_20231112",
+   "song": "06 永不失联的爱",
+   "note": "B1",
+   "claimed_hz": 61.4,
+   "diff_cents": 76.6,
+   "harm": [
+    -16.9,
+    -1.0,
+    57.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s31_20231112",
+   "song": "01 海然海然 嘎达梅林",
+   "note": "C2",
+   "claimed_hz": 65.1,
+   "diff_cents": 1188.3,
+   "harm": [
+    -2.5,
+    47.5,
+    58.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s32_20231210",
+   "song": "03 迷雾",
+   "note": "A#1",
+   "claimed_hz": 58.2,
+   "diff_cents": 123.7,
+   "harm": [
+    7.6,
+    25.2,
+    42.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s32_20231210",
+   "song": "12 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.3,
+   "diff_cents": 51.5,
+   "harm": [
+    25.9,
+    39.6,
+    50.3
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s32_20231210",
+   "song": "12 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.5,
+   "diff_cents": -0.0,
+   "harm": [
+    32.9,
+    41.9,
+    52.5
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s33_20231231",
+   "song": "13 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.7,
+   "diff_cents": -0.3,
+   "harm": [
+    51.2,
+    42.9,
+    44.5
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s33_20231231",
+   "song": "13 猫模狗样",
+   "note": "C2",
+   "claimed_hz": 65.2,
+   "diff_cents": -41.8,
+   "harm": [
+    53.1,
+    40.6,
+    52.4
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s33_20231231",
+   "song": "20 崇拜",
+   "note": "C2",
+   "claimed_hz": 65.9,
+   "diff_cents": -512.5,
+   "harm": [
+    4.4,
+    43.1,
+    33.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s34_20240127",
+   "song": "12 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 57.8,
+   "diff_cents": -0.2,
+   "harm": [
+    32.5,
+    38.8,
+    59.4
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s34_20240127",
+   "song": "12 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.4,
+   "diff_cents": -1206.0,
+   "harm": [
+    22.7,
+    28.6,
+    56.6
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s34_20240127",
+   "song": "09 追梦人",
+   "note": "C#2",
+   "claimed_hz": 68.0,
+   "diff_cents": 90.9,
+   "harm": [
+    31.8,
+    38.7,
+    67.4
+   ],
+   "harm_ok": true,
+   "pass": false
+  },
+  {
+   "show": "s35_20240330",
+   "song": "10 矜持 难以抗拒你容颜 为你我受冷风吹 爱的箴言",
+   "note": "A#1",
+   "claimed_hz": 58.5,
+   "diff_cents": 93.1,
+   "harm": [
+    -27.8,
+    9.0,
+    43.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s35_20240330",
+   "song": "12 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.7,
+   "diff_cents": 138.1,
+   "harm": [
+    18.1,
+    35.3,
+    52.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s35_20240330",
+   "song": "12 猫模狗样",
+   "note": "A#1",
+   "claimed_hz": 58.8,
+   "diff_cents": -144.9,
+   "harm": [
+    16.3,
+    35.6,
+    48.7
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s36_20240406",
+   "song": "04 小河",
+   "note": "B1",
+   "claimed_hz": 60.9,
+   "diff_cents": -107.5,
+   "harm": [
+    28.6,
+    47.2,
+    58.6
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s36_20240406",
+   "song": "20 崇拜",
+   "note": "B1",
+   "claimed_hz": 61.7,
+   "diff_cents": 84.5,
+   "harm": [
+    -4.1,
+    25.3,
+    61.0
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s36_20240406",
+   "song": "05 朝凤",
+   "note": "C2",
+   "claimed_hz": 65.6,
+   "diff_cents": 70.0,
+   "harm": [
+    4.0,
+    23.8,
+    31.8
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s37_20241221",
+   "song": "18 祝我们随遇而安",
+   "note": "B1",
+   "claimed_hz": 61.7,
+   "diff_cents": 26.6,
+   "harm": [
+    48.6,
+    30.6,
+    64.6
+   ],
+   "harm_ok": true,
+   "pass": true
+  },
+  {
+   "show": "s37_20241221",
+   "song": "01 Westway Wellerman",
+   "note": "D2",
+   "claimed_hz": 72.0,
+   "diff_cents": 770.0,
+   "harm": [
+    29.6,
+    51.5,
+    41.9
+   ],
+   "harm_ok": false,
+   "pass": false
+  },
+  {
+   "show": "s37_20241221",
+   "song": "03 My oh My",
+   "note": "D2",
+   "claimed_hz": 72.3,
+   "diff_cents": -55.7,
+   "harm": [
+    40.1,
+    54.3,
+    50.2
+   ],
+   "harm_ok": false,
+   "pass": false
+  }
+ ]
+}
