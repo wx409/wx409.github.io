@@ -1,0 +1,1535 @@
+{
+ "schema": "goldset_verification/v1",
+ "rows": [
+  {
+   "song": "01嘎达梅林+海然海然02追梦人",
+   "album": "h5_bj_20231112",
+   "note": "D2",
+   "claimed_hz": 72.8,
+   "t": 1.6,
+   "yin_med": 144.6,
+   "crepe_med": 145.3,
+   "diff_cents": -9.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    4.8,
+    52.6,
+    26.2
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "01嘎达梅林+海然海然02追梦人",
+   "album": "h5_bj_20231112",
+   "note": "D2",
+   "claimed_hz": 74.6,
+   "t": 279.5,
+   "yin_med": 303.3,
+   "crepe_med": 295.7,
+   "diff_cents": 43.9,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    27.4,
+    20.6,
+    24.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "01嘎达梅林+海然海然02追梦人",
+   "album": "h5_bj_20231112",
+   "note": "D#2",
+   "claimed_hz": 78.4,
+   "t": 116.1,
+   "yin_med": 207.6,
+   "crepe_med": 198.2,
+   "diff_cents": 80.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    32.8,
+    25.5,
+    50.2
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "03迷雾",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 87.3,
+   "t": 78.2,
+   "yin_med": 170.9,
+   "crepe_med": 172.9,
+   "diff_cents": -20.2,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    -1.0,
+    31.6,
+    24.9
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "03迷雾",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 96.9,
+   "t": 220.4,
+   "yin_med": 211.5,
+   "crepe_med": 232.6,
+   "diff_cents": -165.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    32.2,
+    39.3,
+    41.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "03迷雾",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 98.1,
+   "t": 220.7,
+   "yin_med": 148.0,
+   "crepe_med": 233.6,
+   "diff_cents": -790.0,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    34.5,
+    40.0,
+    43.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "04微醺 23点08分",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 87.7,
+   "t": 185.6,
+   "yin_med": 117.4,
+   "crepe_med": 261.3,
+   "diff_cents": -1385.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    19.8,
+    6.8,
+    24.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "04微醺 23点08分",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 91.8,
+   "t": 94.0,
+   "yin_med": 181.9,
+   "crepe_med": 184.6,
+   "diff_cents": -24.9,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    34.5,
+    44.2,
+    35.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "04微醺 23点08分",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 92.4,
+   "t": 94.2,
+   "yin_med": 181.8,
+   "crepe_med": 184.5,
+   "diff_cents": -25.2,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    24.7,
+    45.1,
+    36.5
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "05小河",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 86.0,
+   "t": 171.5,
+   "yin_med": 169.5,
+   "crepe_med": 169.7,
+   "diff_cents": -2.0,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    39.4,
+    41.2,
+    31.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "05小河",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 87.5,
+   "t": 41.6,
+   "yin_med": 122.2,
+   "crepe_med": 174.7,
+   "diff_cents": -619.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    44.4,
+    41.9,
+    25.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "05小河",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 89.4,
+   "t": 115.0,
+   "yin_med": 120.3,
+   "crepe_med": 175.7,
+   "diff_cents": -656.5,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    41.6,
+    50.2,
+    30.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "06永不失联的爱",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 90.6,
+   "t": 138.9,
+   "yin_med": 142.2,
+   "crepe_med": 135.9,
+   "diff_cents": 78.3,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    54.0,
+    47.4,
+    36.2
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "06永不失联的爱",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 100.6,
+   "t": 142.0,
+   "yin_med": 141.7,
+   "crepe_med": 145.2,
+   "diff_cents": -42.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    39.6,
+    41.9,
+    34.2
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "06永不失联的爱",
+   "album": "h5_bj_20231112",
+   "note": "G#2",
+   "claimed_hz": 102.0,
+   "t": 170.9,
+   "yin_med": 140.8,
+   "crepe_med": 143.6,
+   "diff_cents": -34.5,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    40.3,
+    44.1,
+    30.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "07友谊地久天长",
+   "album": "h5_bj_20231112",
+   "note": "G#2",
+   "claimed_hz": 102.5,
+   "t": 140.2,
+   "yin_med": 218.3,
+   "crepe_med": 207.6,
+   "diff_cents": 87.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    34.3,
+    52.0,
+    19.6
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "07友谊地久天长",
+   "album": "h5_bj_20231112",
+   "note": "A2",
+   "claimed_hz": 107.6,
+   "t": 22.6,
+   "yin_med": 110.5,
+   "crepe_med": 107.6,
+   "diff_cents": 46.4,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    44.3,
+    49.4,
+    23.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "07友谊地久天长",
+   "album": "h5_bj_20231112",
+   "note": "A#2",
+   "claimed_hz": 119.7,
+   "t": 196.5,
+   "yin_med": 292.5,
+   "crepe_med": 246.2,
+   "diff_cents": 298.5,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    50.6,
+    43.1,
+    28.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
+   "album": "h5_bj_20231112",
+   "note": "D2",
+   "claimed_hz": 71.4,
+   "t": 147.4,
+   "yin_med": 143.1,
+   "crepe_med": 143.5,
+   "diff_cents": -5.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    2.9,
+    52.2,
+    44.0
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 85.6,
+   "t": 350.8,
+   "yin_med": 99.0,
+   "crepe_med": 86.8,
+   "diff_cents": 228.8,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    34.2,
+    28.4,
+    22.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 85.7,
+   "t": 279.2,
+   "yin_med": 135.2,
+   "crepe_med": 159.5,
+   "diff_cents": -285.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    36.0,
+    40.8,
+    35.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "09也许",
+   "album": "h5_bj_20231112",
+   "note": "G#2",
+   "claimed_hz": 101.1,
+   "t": 54.4,
+   "yin_med": 132.5,
+   "crepe_med": 134.2,
+   "diff_cents": -22.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    32.3,
+    34.6,
+    8.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "09也许",
+   "album": "h5_bj_20231112",
+   "note": "G#2",
+   "claimed_hz": 101.4,
+   "t": 30.5,
+   "yin_med": 100.5,
+   "crepe_med": 99.8,
+   "diff_cents": 11.4,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    32.3,
+    31.0,
+    20.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "09也许",
+   "album": "h5_bj_20231112",
+   "note": "G#2",
+   "claimed_hz": 104.5,
+   "t": 154.8,
+   "yin_med": 103.2,
+   "crepe_med": 206.9,
+   "diff_cents": -1204.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    36.6,
+    40.5,
+    20.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "10人世间",
+   "album": "h5_bj_20231112",
+   "note": "D#2",
+   "claimed_hz": 79.5,
+   "t": 24.1,
+   "yin_med": 79.5,
+   "crepe_med": 79.5,
+   "diff_cents": -0.6,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    40.1,
+    38.4,
+    36.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "10人世间",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 89.9,
+   "t": 55.3,
+   "yin_med": 101.9,
+   "crepe_med": 100.5,
+   "diff_cents": 25.5,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    38.7,
+    45.4,
+    27.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "10人世间",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 90.4,
+   "t": 24.6,
+   "yin_med": 79.5,
+   "crepe_med": 178.1,
+   "diff_cents": -1395.4,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    34.2,
+    43.8,
+    27.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "11猫模狗样",
+   "album": "h5_bj_20231112",
+   "note": "A#1",
+   "claimed_hz": 58.5,
+   "t": 84.8,
+   "yin_med": 235.3,
+   "crepe_med": 233.0,
+   "diff_cents": 16.6,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    45.0,
+    38.9,
+    38.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "11猫模狗样",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 99.1,
+   "t": 46.6,
+   "yin_med": 130.5,
+   "crepe_med": 132.1,
+   "diff_cents": -20.8,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    37.5,
+    45.4,
+    27.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "11猫模狗样",
+   "album": "h5_bj_20231112",
+   "note": "A2",
+   "claimed_hz": 107.5,
+   "t": 52.9,
+   "yin_med": 129.7,
+   "crepe_med": 154.6,
+   "diff_cents": -303.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    39.7,
+    46.0,
+    28.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "12Bésame Mucho",
+   "album": "h5_bj_20231112",
+   "note": "B2",
+   "claimed_hz": 122.8,
+   "t": 47.5,
+   "yin_med": 130.4,
+   "crepe_med": 129.5,
+   "diff_cents": 11.0,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    49.7,
+    46.8,
+    36.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "12Bésame Mucho",
+   "album": "h5_bj_20231112",
+   "note": "B2",
+   "claimed_hz": 125.5,
+   "t": 50.5,
+   "yin_med": 134.2,
+   "crepe_med": 139.5,
+   "diff_cents": -67.3,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    48.5,
+    43.4,
+    41.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "12Bésame Mucho",
+   "album": "h5_bj_20231112",
+   "note": "B2",
+   "claimed_hz": 125.8,
+   "t": 88.2,
+   "yin_med": 144.4,
+   "crepe_med": 145.3,
+   "diff_cents": -10.8,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    43.2,
+    41.8,
+    39.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "13甩了甩了",
+   "album": "h5_bj_20231112",
+   "note": "A#2",
+   "claimed_hz": 117.2,
+   "t": 227.7,
+   "yin_med": 128.9,
+   "crepe_med": 139.0,
+   "diff_cents": -129.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    41.1,
+    43.2,
+    31.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "13甩了甩了",
+   "album": "h5_bj_20231112",
+   "note": "B2",
+   "claimed_hz": 120.0,
+   "t": 150.6,
+   "yin_med": 134.9,
+   "crepe_med": 140.3,
+   "diff_cents": -67.3,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    50.0,
+    46.7,
+    37.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "13甩了甩了",
+   "album": "h5_bj_20231112",
+   "note": "B2",
+   "claimed_hz": 120.7,
+   "t": 139.4,
+   "yin_med": 131.3,
+   "crepe_med": 145.5,
+   "diff_cents": -177.8,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    47.7,
+    43.6,
+    32.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "14",
+   "album": "h5_bj_20231112",
+   "note": "A2",
+   "claimed_hz": 111.0,
+   "t": 10.8,
+   "yin_med": 140.9,
+   "crepe_med": 171.4,
+   "diff_cents": -339.5,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    37.3,
+    39.1,
+    23.7
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "14",
+   "album": "h5_bj_20231112",
+   "note": "A2",
+   "claimed_hz": 111.2,
+   "t": 69.5,
+   "yin_med": 122.5,
+   "crepe_med": 152.8,
+   "diff_cents": -383.8,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    37.0,
+    29.5,
+    17.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "14",
+   "album": "h5_bj_20231112",
+   "note": "A#2",
+   "claimed_hz": 113.4,
+   "t": 15.8,
+   "yin_med": 113.9,
+   "crepe_med": 115.4,
+   "diff_cents": -22.9,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    40.8,
+    46.4,
+    25.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "15点歌2心动",
+   "album": "h5_bj_20231112",
+   "note": "C2",
+   "claimed_hz": 67.1,
+   "t": 19.6,
+   "yin_med": 136.9,
+   "crepe_med": 137.0,
+   "diff_cents": -1.3,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    -6.7,
+    43.4,
+    43.3
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "15点歌2心动",
+   "album": "h5_bj_20231112",
+   "note": "A#2",
+   "claimed_hz": 118.9,
+   "t": 17.6,
+   "yin_med": 119.6,
+   "crepe_med": 161.6,
+   "diff_cents": -521.0,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    44.0,
+    26.1,
+    17.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "15点歌2心动",
+   "album": "h5_bj_20231112",
+   "note": "A#2",
+   "claimed_hz": 119.4,
+   "t": 93.1,
+   "yin_med": 183.1,
+   "crepe_med": 180.4,
+   "diff_cents": 25.4,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    44.0,
+    39.5,
+    29.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "16点歌3茉莉花（图兰朵版+鲜花调版）",
+   "album": "h5_bj_20231112",
+   "note": "D#2",
+   "claimed_hz": 79.9,
+   "t": 59.4,
+   "yin_med": 100.1,
+   "crepe_med": 197.0,
+   "diff_cents": -1172.3,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    26.5,
+    33.7,
+    12.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "16点歌3茉莉花（图兰朵版+鲜花调版）",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 88.4,
+   "t": 45.4,
+   "yin_med": 86.6,
+   "crepe_med": 87.7,
+   "diff_cents": -21.4,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    33.8,
+    32.2,
+    34.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "16点歌3茉莉花（图兰朵版+鲜花调版）",
+   "album": "h5_bj_20231112",
+   "note": "F2",
+   "claimed_hz": 88.9,
+   "t": 44.1,
+   "yin_med": 59.6,
+   "crepe_med": 89.9,
+   "diff_cents": -712.3,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    28.0,
+    21.7,
+    15.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "17多听有益",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 97.8,
+   "t": 172.2,
+   "yin_med": 140.2,
+   "crepe_med": 146.2,
+   "diff_cents": -71.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    47.1,
+    53.8,
+    46.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "17多听有益",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 98.9,
+   "t": 98.6,
+   "yin_med": 119.3,
+   "crepe_med": 139.8,
+   "diff_cents": -274.0,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    49.1,
+    50.6,
+    41.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "17多听有益",
+   "album": "h5_bj_20231112",
+   "note": "A2",
+   "claimed_hz": 111.6,
+   "t": 42.8,
+   "yin_med": 132.2,
+   "crepe_med": 131.4,
+   "diff_cents": 10.3,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    41.8,
+    51.7,
+    39.8
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "19崇拜",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 89.9,
+   "t": 207.3,
+   "yin_med": 231.6,
+   "crepe_med": 271.2,
+   "diff_cents": -273.7,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    49.4,
+    47.9,
+    44.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "19崇拜",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 99.3,
+   "t": 53.4,
+   "yin_med": 125.3,
+   "crepe_med": 124.0,
+   "diff_cents": 17.8,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    32.0,
+    34.9,
+    10.2
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "19崇拜",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 100.2,
+   "t": 67.3,
+   "yin_med": 124.2,
+   "crepe_med": 123.9,
+   "diff_cents": 3.5,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    36.2,
+    38.8,
+    13.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "生日快乐歌",
+   "album": "h5_bj_20231112",
+   "note": "F#2",
+   "claimed_hz": 95.0,
+   "t": 20.2,
+   "yin_med": 127.9,
+   "crepe_med": 147.7,
+   "diff_cents": -248.4,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    36.6,
+    46.8,
+    29.0
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "生日快乐歌",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 97.3,
+   "t": 4.0,
+   "yin_med": 146.0,
+   "crepe_med": 190.2,
+   "diff_cents": -458.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    31.3,
+    44.3,
+    28.1
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "生日快乐歌",
+   "album": "h5_bj_20231112",
+   "note": "G2",
+   "claimed_hz": 100.1,
+   "t": 18.9,
+   "yin_med": 100.7,
+   "crepe_med": 103.4,
+   "diff_cents": -44.5,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    37.3,
+    43.5,
+    28.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "聊天1新专辑",
+   "album": "h5_bj_20231112",
+   "note": "D2",
+   "claimed_hz": 71.8,
+   "t": 12.1,
+   "yin_med": 53.3,
+   "crepe_med": 72.3,
+   "diff_cents": -528.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    24.1,
+    36.7,
+    23.5
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "聊天1新专辑",
+   "album": "h5_bj_20231112",
+   "note": "D2",
+   "claimed_hz": 73.7,
+   "t": 41.1,
+   "yin_med": 69.2,
+   "crepe_med": 74.1,
+   "diff_cents": -119.8,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    17.8,
+    25.9,
+    21.8
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "聊天1新专辑",
+   "album": "h5_bj_20231112",
+   "note": "D2",
+   "claimed_hz": 75.2,
+   "t": 63.0,
+   "yin_med": 74.4,
+   "crepe_med": 75.1,
+   "diff_cents": -17.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    28.2,
+    30.8,
+    23.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "聊天2微醺前聊天",
+   "album": "h5_bj_20231112",
+   "note": "C#2",
+   "claimed_hz": 70.3,
+   "t": 41.7,
+   "yin_med": 131.9,
+   "crepe_med": 70.7,
+   "diff_cents": 1080.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    15.6,
+    29.2,
+    21.8
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "聊天2微醺前聊天",
+   "album": "h5_bj_20231112",
+   "note": "E2",
+   "claimed_hz": 82.2,
+   "t": 32.7,
+   "yin_med": 82.6,
+   "crepe_med": 181.4,
+   "diff_cents": -1361.8,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    25.8,
+    32.5,
+    24.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "聊天2微醺前聊天",
+   "album": "h5_bj_20231112",
+   "note": "A2",
+   "claimed_hz": 107.6,
+   "t": 27.1,
+   "yin_med": 109.4,
+   "crepe_med": 208.0,
+   "diff_cents": -1112.5,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    27.4,
+    38.1,
+    20.1
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "20251121194904_0027_玫瑰人生（La Vie en Rose）",
+   "album": "h5_sh_20251121_ok",
+   "note": "D2",
+   "claimed_hz": 75.2,
+   "t": 276.5,
+   "yin_med": 75.1,
+   "crepe_med": 76.5,
+   "diff_cents": -32.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    59.0,
+    52.2,
+    52.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121194904_0027_玫瑰人生（La Vie en Rose）",
+   "album": "h5_sh_20251121_ok",
+   "note": "E2",
+   "claimed_hz": 80.1,
+   "t": 50.8,
+   "yin_med": 80.2,
+   "crepe_med": 79.7,
+   "diff_cents": 11.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    57.6,
+    63.0,
+    56.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121194904_0027_玫瑰人生（La Vie en Rose）",
+   "album": "h5_sh_20251121_ok",
+   "note": "E2",
+   "claimed_hz": 81.1,
+   "t": 34.4,
+   "yin_med": 85.8,
+   "crepe_med": 85.2,
+   "diff_cents": 12.9,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    57.0,
+    61.1,
+    47.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121195344_0028_床前明月光_暗潮涌动_我真的受伤了",
+   "album": "h5_sh_20251121_ok",
+   "note": "A#1",
+   "claimed_hz": 58.6,
+   "t": 671.9,
+   "yin_med": 181.5,
+   "crepe_med": 174.8,
+   "diff_cents": 65.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    53.3,
+    54.1,
+    66.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121195344_0028_床前明月光_暗潮涌动_我真的受伤了",
+   "album": "h5_sh_20251121_ok",
+   "note": "C#2",
+   "claimed_hz": 70.6,
+   "t": 51.6,
+   "yin_med": 65.1,
+   "crepe_med": 166.8,
+   "diff_cents": -1627.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    42.7,
+    46.1,
+    34.2
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121195344_0028_床前明月光_暗潮涌动_我真的受伤了",
+   "album": "h5_sh_20251121_ok",
+   "note": "D2",
+   "claimed_hz": 75.2,
+   "t": 335.2,
+   "yin_med": 72.9,
+   "crepe_med": 74.6,
+   "diff_cents": -39.5,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    52.9,
+    47.9,
+    46.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203713_0029_住口1",
+   "album": "h5_sh_20251121_ok",
+   "note": "G2",
+   "claimed_hz": 96.4,
+   "t": 23.1,
+   "yin_med": 163.1,
+   "crepe_med": 177.5,
+   "diff_cents": -147.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    60.3,
+    62.6,
+    42.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203713_0029_住口1",
+   "album": "h5_sh_20251121_ok",
+   "note": "B2",
+   "claimed_hz": 121.1,
+   "t": 16.6,
+   "yin_med": 121.9,
+   "crepe_med": 124.9,
+   "diff_cents": -43.3,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    52.5,
+    58.5,
+    63.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203713_0029_住口1",
+   "album": "h5_sh_20251121_ok",
+   "note": "B2",
+   "claimed_hz": 123.5,
+   "t": 9.3,
+   "yin_med": 122.9,
+   "crepe_med": 127.0,
+   "diff_cents": -56.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    57.5,
+    55.2,
+    55.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203815_0030_住口2",
+   "album": "h5_sh_20251121_ok",
+   "note": "D#3",
+   "claimed_hz": 158.5,
+   "t": 6.0,
+   "yin_med": 164.6,
+   "crepe_med": 163.8,
+   "diff_cents": 8.5,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    64.1,
+    58.3,
+    54.8
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203815_0030_住口2",
+   "album": "h5_sh_20251121_ok",
+   "note": "E3",
+   "claimed_hz": 164.5,
+   "t": 5.5,
+   "yin_med": 164.5,
+   "crepe_med": 163.7,
+   "diff_cents": 8.6,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    67.0,
+    52.3,
+    58.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203815_0030_住口2",
+   "album": "h5_sh_20251121_ok",
+   "note": "E3",
+   "claimed_hz": 165.1,
+   "t": 12.8,
+   "yin_med": 165.6,
+   "crepe_med": 165.2,
+   "diff_cents": 3.9,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    67.6,
+    54.5,
+    54.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203851_0032_住口4",
+   "album": "h5_sh_20251121_ok",
+   "note": "C3",
+   "claimed_hz": 128.2,
+   "t": 0.1,
+   "yin_med": 128.2,
+   "crepe_med": 130.8,
+   "diff_cents": -35.1,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    62.7,
+    55.1,
+    44.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203851_0032_住口4",
+   "album": "h5_sh_20251121_ok",
+   "note": "E3",
+   "claimed_hz": 161.5,
+   "t": 3.9,
+   "yin_med": 172.2,
+   "crepe_med": 168.7,
+   "diff_cents": 35.4,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    61.6,
+    62.7,
+    48.7
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203851_0032_住口4",
+   "album": "h5_sh_20251121_ok",
+   "note": "E3",
+   "claimed_hz": 163.8,
+   "t": 4.9,
+   "yin_med": 171.2,
+   "crepe_med": 164.9,
+   "diff_cents": 64.8,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    67.4,
+    59.6,
+    46.8
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203901_0033_住口5",
+   "album": "h5_sh_20251121_ok",
+   "note": "B2",
+   "claimed_hz": 120.6,
+   "t": 4.2,
+   "yin_med": 122.0,
+   "crepe_med": 123.1,
+   "diff_cents": -15.3,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    55.0,
+    62.2,
+    59.3
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203901_0033_住口5",
+   "album": "h5_sh_20251121_ok",
+   "note": "D#3",
+   "claimed_hz": 158.9,
+   "t": 10.4,
+   "yin_med": 160.0,
+   "crepe_med": 159.4,
+   "diff_cents": 7.4,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    68.3,
+    56.8,
+    44.5
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121203901_0033_住口5",
+   "album": "h5_sh_20251121_ok",
+   "note": "E3",
+   "claimed_hz": 161.9,
+   "t": 9.9,
+   "yin_med": 167.0,
+   "crepe_med": 163.4,
+   "diff_cents": 37.6,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    60.2,
+    54.4,
+    42.9
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121205303_0035_无尽的夜里第1遍",
+   "album": "h5_sh_20251121_ok",
+   "note": "F#2",
+   "claimed_hz": 93.3,
+   "t": 67.6,
+   "yin_med": 94.2,
+   "crepe_med": 93.1,
+   "diff_cents": 20.2,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    61.9,
+    62.6,
+    53.2
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121205303_0035_无尽的夜里第1遍",
+   "album": "h5_sh_20251121_ok",
+   "note": "G2",
+   "claimed_hz": 97.2,
+   "t": 19.7,
+   "yin_med": 91.4,
+   "crepe_med": 180.9,
+   "diff_cents": -1182.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    52.0,
+    58.2,
+    35.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121205303_0035_无尽的夜里第1遍",
+   "album": "h5_sh_20251121_ok",
+   "note": "G2",
+   "claimed_hz": 97.7,
+   "t": 69.9,
+   "yin_med": 117.1,
+   "crepe_med": 116.9,
+   "diff_cents": 2.8,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    57.4,
+    60.0,
+    51.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121205734_0036_无尽的夜里第2遍",
+   "album": "h5_sh_20251121_ok",
+   "note": "D#2",
+   "claimed_hz": 79.8,
+   "t": 54.7,
+   "yin_med": 79.8,
+   "crepe_med": 169.6,
+   "diff_cents": -1304.7,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    47.8,
+    53.8,
+    37.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121205734_0036_无尽的夜里第2遍",
+   "album": "h5_sh_20251121_ok",
+   "note": "F2",
+   "claimed_hz": 86.9,
+   "t": 152.0,
+   "yin_med": 87.4,
+   "crepe_med": 88.1,
+   "diff_cents": -13.9,
+   "agree_50c": true,
+   "harm_1_2_3": [
+    58.4,
+    51.8,
+    58.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121205734_0036_无尽的夜里第2遍",
+   "album": "h5_sh_20251121_ok",
+   "note": "F2",
+   "claimed_hz": 87.4,
+   "t": 312.4,
+   "yin_med": 103.0,
+   "crepe_med": 174.5,
+   "diff_cents": -912.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    53.5,
+    64.0,
+    54.3
+   ],
+   "harm_ok": false
+  },
+  {
+   "song": "20251121212548_0039_好久不见_你怎么值得我难过_约定",
+   "album": "h5_sh_20251121_ok",
+   "note": "D2",
+   "claimed_hz": 74.2,
+   "t": 450.3,
+   "yin_med": 75.4,
+   "crepe_med": 171.0,
+   "diff_cents": -1418.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    49.5,
+    54.3,
+    42.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121212548_0039_好久不见_你怎么值得我难过_约定",
+   "album": "h5_sh_20251121_ok",
+   "note": "D#2",
+   "claimed_hz": 75.6,
+   "t": 40.7,
+   "yin_med": 76.3,
+   "crepe_med": 158.7,
+   "diff_cents": -1267.9,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    50.6,
+    53.2,
+    50.6
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251121212548_0039_好久不见_你怎么值得我难过_约定",
+   "album": "h5_sh_20251121_ok",
+   "note": "D#2",
+   "claimed_hz": 78.7,
+   "t": 11.9,
+   "yin_med": 80.4,
+   "crepe_med": 172.2,
+   "diff_cents": -1319.2,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    49.9,
+    53.1,
+    47.1
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251124182425_0042_钟爱一生",
+   "album": "h5_sh_20251121_ok",
+   "note": "E2",
+   "claimed_hz": 84.0,
+   "t": 267.6,
+   "yin_med": 87.8,
+   "crepe_med": 83.7,
+   "diff_cents": 82.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    59.2,
+    68.8,
+    53.0
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251124182425_0042_钟爱一生",
+   "album": "h5_sh_20251121_ok",
+   "note": "F2",
+   "claimed_hz": 87.2,
+   "t": 265.3,
+   "yin_med": 90.1,
+   "crepe_med": 132.0,
+   "diff_cents": -661.7,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    63.0,
+    65.9,
+    43.4
+   ],
+   "harm_ok": true
+  },
+  {
+   "song": "20251124182425_0042_钟爱一生",
+   "album": "h5_sh_20251121_ok",
+   "note": "F2",
+   "claimed_hz": 87.4,
+   "t": 268.2,
+   "yin_med": 98.5,
+   "crepe_med": 84.7,
+   "diff_cents": 261.1,
+   "agree_50c": false,
+   "harm_1_2_3": [
+    58.5,
+    66.1,
+    49.3
+   ],
+   "harm_ok": true
+  }
+ ]
+}
