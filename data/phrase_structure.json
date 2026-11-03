@@ -1,0 +1,666 @@
+{
+ "schema": "phrase_structure/v1",
+ "songs_analyzed": 73,
+ "end_dir_median_semitones": -0.03,
+ "end_down_share_median": 0.329,
+ "low_pos_median": 0.451,
+ "songs": [
+  {
+   "title": "倒叙",
+   "file": "倒叙_f0.csv",
+   "phrases": 50,
+   "end_dir_median": -0.02,
+   "end_down_share": 0.341,
+   "low_pos_median": 0.233,
+   "n_low": 31
+  },
+  {
+   "title": "分岔",
+   "file": "分岔_f0.csv",
+   "phrases": 46,
+   "end_dir_median": 0.11,
+   "end_down_share": 0.256,
+   "low_pos_median": 0.461,
+   "n_low": 24
+  },
+  {
+   "title": "哑光",
+   "file": "哑光_f0.csv",
+   "phrases": 54,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.32,
+   "low_pos_median": 0.54,
+   "n_low": 33
+  },
+  {
+   "title": "悬念",
+   "file": "悬念_f0.csv",
+   "phrases": 58,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.423,
+   "low_pos_median": 0.429,
+   "n_low": 31
+  },
+  {
+   "title": "惑许",
+   "file": "惑许_f0.csv",
+   "phrases": 61,
+   "end_dir_median": -0.0,
+   "end_down_share": 0.367,
+   "low_pos_median": 0.451,
+   "n_low": 22
+  },
+  {
+   "title": "时空",
+   "file": "时空_f0.csv",
+   "phrases": 57,
+   "end_dir_median": -0.06,
+   "end_down_share": 0.381,
+   "low_pos_median": 0.48,
+   "n_low": 33
+  },
+  {
+   "title": "游离",
+   "file": "游离_f0.csv",
+   "phrases": 63,
+   "end_dir_median": -0.11,
+   "end_down_share": 0.443,
+   "low_pos_median": 0.459,
+   "n_low": 42
+  },
+  {
+   "title": "玩笑",
+   "file": "玩笑_f0.csv",
+   "phrases": 48,
+   "end_dir_median": -0.37,
+   "end_down_share": 0.5,
+   "low_pos_median": 0.5,
+   "n_low": 24
+  },
+  {
+   "title": "知晓",
+   "file": "知晓_f0.csv",
+   "phrases": 72,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.238,
+   "low_pos_median": 0.475,
+   "n_low": 34
+  },
+  {
+   "title": "轻信",
+   "file": "轻信_f0.csv",
+   "phrases": 50,
+   "end_dir_median": 0.19,
+   "end_down_share": 0.362,
+   "low_pos_median": 0.45,
+   "n_low": 35
+  },
+  {
+   "title": "再回首",
+   "file": "再回首_f0.csv",
+   "phrases": 69,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.327,
+   "low_pos_median": 0.209,
+   "n_low": 40
+  },
+  {
+   "title": "千言万语",
+   "file": "千言万语_f0.csv",
+   "phrases": 46,
+   "end_dir_median": -0.12,
+   "end_down_share": 0.343,
+   "low_pos_median": 0.529,
+   "n_low": 21
+  },
+  {
+   "title": "南屏晚钟",
+   "file": "南屏晚钟_f0.csv",
+   "phrases": 50,
+   "end_dir_median": -0.46,
+   "end_down_share": 0.581,
+   "low_pos_median": 0.532,
+   "n_low": 21
+  },
+  {
+   "title": "夜半歌声",
+   "file": "夜半歌声_f0.csv",
+   "phrases": 38,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.314,
+   "low_pos_median": 0.136,
+   "n_low": 20
+  },
+  {
+   "title": "当爱已成往事",
+   "file": "当爱已成往事_f0.csv",
+   "phrases": 52,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.22,
+   "low_pos_median": 0.28,
+   "n_low": 23
+  },
+  {
+   "title": "忘不了",
+   "file": "忘不了_f0.csv",
+   "phrases": 43,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.353,
+   "low_pos_median": 0.347,
+   "n_low": 32
+  },
+  {
+   "title": "我的心里只有你没有他",
+   "file": "我的心里只有你没有他_f0.csv",
+   "phrases": 39,
+   "end_dir_median": -0.21,
+   "end_down_share": 0.441,
+   "low_pos_median": 0.098,
+   "n_low": 23
+  },
+  {
+   "title": "晚风",
+   "file": "晚风_f0.csv",
+   "phrases": 61,
+   "end_dir_median": -0.02,
+   "end_down_share": 0.224,
+   "low_pos_median": 0.274,
+   "n_low": 31
+  },
+  {
+   "title": "渔光曲",
+   "file": "渔光曲_f0.csv",
+   "phrases": 63,
+   "end_dir_median": 0.18,
+   "end_down_share": 0.13,
+   "low_pos_median": 0.309,
+   "n_low": 17
+  },
+  {
+   "title": "爱情",
+   "file": "爱情_f0.csv",
+   "phrases": 54,
+   "end_dir_median": -0.2,
+   "end_down_share": 0.395,
+   "low_pos_median": 0.507,
+   "n_low": 22
+  },
+  {
+   "title": "绿岛小夜曲",
+   "file": "绿岛小夜曲_f0.csv",
+   "phrases": 40,
+   "end_dir_median": 0.19,
+   "end_down_share": 0.15,
+   "low_pos_median": 0.487,
+   "n_low": 20
+  },
+  {
+   "title": "至少还有你",
+   "file": "至少还有你_f0.csv",
+   "phrases": 69,
+   "end_dir_median": -0.0,
+   "end_down_share": 0.274,
+   "low_pos_median": 0.176,
+   "n_low": 43
+  },
+  {
+   "title": "乌兰巴托的夜晚",
+   "file": "乌兰巴托的夜晚_f0.csv",
+   "phrases": 85,
+   "end_dir_median": -0.02,
+   "end_down_share": 0.403,
+   "low_pos_median": 0.398,
+   "n_low": 40
+  },
+  {
+   "title": "他不爱我",
+   "file": "他不爱我_f0.csv",
+   "phrases": 52,
+   "end_dir_median": 0.03,
+   "end_down_share": 0.227,
+   "low_pos_median": 0.526,
+   "n_low": 13
+  },
+  {
+   "title": "几多愁",
+   "file": "几多愁_f0.csv",
+   "phrases": 42,
+   "end_dir_median": 0.23,
+   "end_down_share": 0.088,
+   "low_pos_median": 0.698,
+   "n_low": 15
+  },
+  {
+   "title": "叶塞尼亚",
+   "file": "叶塞尼亚_f0.csv",
+   "phrases": 47,
+   "end_dir_median": -0.18,
+   "end_down_share": 0.486,
+   "low_pos_median": 0.096,
+   "n_low": 23
+  },
+  {
+   "title": "多年以后",
+   "file": "多年以后_f0.csv",
+   "phrases": 76,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.288,
+   "low_pos_median": 0.539,
+   "n_low": 23
+  },
+  {
+   "title": "如梦令",
+   "file": "如梦令_f0.csv",
+   "phrases": 45,
+   "end_dir_median": 0.05,
+   "end_down_share": 0.229,
+   "low_pos_median": 0.5,
+   "n_low": 19
+  },
+  {
+   "title": "微风细雨",
+   "file": "微风细雨_f0.csv",
+   "phrases": 70,
+   "end_dir_median": 0.18,
+   "end_down_share": 0.233,
+   "low_pos_median": 0.423,
+   "n_low": 43
+  },
+  {
+   "title": "月光",
+   "file": "月光_f0.csv",
+   "phrases": 85,
+   "end_dir_median": -0.1,
+   "end_down_share": 0.329,
+   "low_pos_median": 0.387,
+   "n_low": 37
+  },
+  {
+   "title": "月圆花好",
+   "file": "月圆花好_f0.csv",
+   "phrases": 43,
+   "end_dir_median": 0.22,
+   "end_down_share": 0.27,
+   "low_pos_median": 0.648,
+   "n_low": 23
+  },
+  {
+   "title": "葬心",
+   "file": "葬心_f0.csv",
+   "phrases": 61,
+   "end_dir_median": 0.03,
+   "end_down_share": 0.213,
+   "low_pos_median": 0.5,
+   "n_low": 27
+  },
+  {
+   "title": "贝加尔湖畔",
+   "file": "贝加尔湖畔_f0.csv",
+   "phrases": 54,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.41,
+   "low_pos_median": 0.189,
+   "n_low": 27
+  },
+  {
+   "title": "重庆野玫瑰",
+   "file": "重庆野玫瑰_f0.csv",
+   "phrases": 48,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.25,
+   "low_pos_median": 0.206,
+   "n_low": 18
+  },
+  {
+   "title": "Crystal Store",
+   "file": "Crystal Store_f0.csv",
+   "phrases": 50,
+   "end_dir_median": -0.12,
+   "end_down_share": 0.444,
+   "low_pos_median": 0.389,
+   "n_low": 23
+  },
+  {
+   "title": "不需要结果",
+   "file": "不需要结果_f0.csv",
+   "phrases": 51,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.34,
+   "low_pos_median": 0.526,
+   "n_low": 28
+  },
+  {
+   "title": "偏偏",
+   "file": "偏偏_f0.csv",
+   "phrases": 59,
+   "end_dir_median": -0.09,
+   "end_down_share": 0.288,
+   "low_pos_median": 0.232,
+   "n_low": 26
+  },
+  {
+   "title": "多听有益",
+   "file": "多听有益_武汉收官_f0.csv",
+   "phrases": 74,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.109,
+   "low_pos_median": 0.5,
+   "n_low": 17
+  },
+  {
+   "title": "小河",
+   "file": "小河_f0.csv",
+   "phrases": 50,
+   "end_dir_median": -0.57,
+   "end_down_share": 0.614,
+   "low_pos_median": 0.252,
+   "n_low": 42
+  },
+  {
+   "title": "微醺23点08分",
+   "file": "微醺23点08分_f0.csv",
+   "phrases": 70,
+   "end_dir_median": -0.42,
+   "end_down_share": 0.532,
+   "low_pos_median": 0.214,
+   "n_low": 25
+  },
+  {
+   "title": "是你",
+   "file": "是你_f0.csv",
+   "phrases": 57,
+   "end_dir_median": 0.1,
+   "end_down_share": 0.18,
+   "low_pos_median": 0.33,
+   "n_low": 33
+  },
+  {
+   "title": "朝凤",
+   "file": "朝凤_f0.csv",
+   "phrases": 56,
+   "end_dir_median": -0.19,
+   "end_down_share": 0.48,
+   "low_pos_median": 0.472,
+   "n_low": 34
+  },
+  {
+   "title": "猫模狗样",
+   "file": "猫模狗样_f0.csv",
+   "phrases": 62,
+   "end_dir_median": -0.2,
+   "end_down_share": 0.452,
+   "low_pos_median": 0.48,
+   "n_low": 46
+  },
+  {
+   "title": "住口",
+   "file": "住口_f0.csv",
+   "phrases": 63,
+   "end_dir_median": -0.13,
+   "end_down_share": 0.434,
+   "low_pos_median": 0.493,
+   "n_low": 36
+  },
+  {
+   "title": "勿扰",
+   "file": "勿扰_f0.csv",
+   "phrases": 82,
+   "end_dir_median": -0.82,
+   "end_down_share": 0.556,
+   "low_pos_median": 0.5,
+   "n_low": 30
+  },
+  {
+   "title": "在路上",
+   "file": "在路上_f0.csv",
+   "phrases": 65,
+   "end_dir_median": 0.01,
+   "end_down_share": 0.302,
+   "low_pos_median": 0.406,
+   "n_low": 36
+  },
+  {
+   "title": "无尽的夜里",
+   "file": "无尽的夜里_f0.csv",
+   "phrases": 73,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.381,
+   "low_pos_median": 0.5,
+   "n_low": 46
+  },
+  {
+   "title": "明白",
+   "file": "明白_f0.csv",
+   "phrases": 64,
+   "end_dir_median": 0.01,
+   "end_down_share": 0.333,
+   "low_pos_median": 0.441,
+   "n_low": 29
+  },
+  {
+   "title": "祝我们随遇而安",
+   "file": "祝我们随遇而安_f0.csv",
+   "phrases": 53,
+   "end_dir_median": 0.06,
+   "end_down_share": 0.298,
+   "low_pos_median": 0.393,
+   "n_low": 36
+  },
+  {
+   "title": "雷美替胺",
+   "file": "雷美替胺_f0.csv",
+   "phrases": 55,
+   "end_dir_median": 0.01,
+   "end_down_share": 0.292,
+   "low_pos_median": 0.419,
+   "n_low": 35
+  },
+  {
+   "title": "鹅毛信",
+   "file": "鹅毛信_f0.csv",
+   "phrases": 53,
+   "end_dir_median": -0.0,
+   "end_down_share": 0.273,
+   "low_pos_median": 0.443,
+   "n_low": 24
+  },
+  {
+   "title": "不能靠近的朋友",
+   "file": "不能靠近的朋友_f0.csv",
+   "phrases": 65,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.25,
+   "low_pos_median": 0.506,
+   "n_low": 34
+  },
+  {
+   "title": "微光之名",
+   "file": "微光之名_f0.csv",
+   "phrases": 51,
+   "end_dir_median": -0.02,
+   "end_down_share": 0.261,
+   "low_pos_median": 0.603,
+   "n_low": 27
+  },
+  {
+   "title": "无人岛上",
+   "file": "无人岛上_f0.csv",
+   "phrases": 56,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.3,
+   "low_pos_median": 0.534,
+   "n_low": 26
+  },
+  {
+   "title": "Come to Me",
+   "file": "Come to Me_f0.csv",
+   "phrases": 56,
+   "end_dir_median": -0.23,
+   "end_down_share": 0.457,
+   "low_pos_median": 0.572,
+   "n_low": 34
+  },
+  {
+   "title": "云一定知道",
+   "file": "云一定知道_f0.csv",
+   "phrases": 64,
+   "end_dir_median": 0.01,
+   "end_down_share": 0.288,
+   "low_pos_median": 0.5,
+   "n_low": 35
+  },
+  {
+   "title": "偏执",
+   "file": "偏执_f0.csv",
+   "phrases": 61,
+   "end_dir_median": -0.18,
+   "end_down_share": 0.444,
+   "low_pos_median": 0.46,
+   "n_low": 27
+  },
+  {
+   "title": "双鱼",
+   "file": "双鱼_f0.csv",
+   "phrases": 62,
+   "end_dir_median": 0.04,
+   "end_down_share": 0.2,
+   "low_pos_median": 0.477,
+   "n_low": 32
+  },
+  {
+   "title": "歌颂",
+   "file": "歌颂_f0.csv",
+   "phrases": 49,
+   "end_dir_median": -0.18,
+   "end_down_share": 0.359,
+   "low_pos_median": 0.434,
+   "n_low": 25
+  },
+  {
+   "title": "王牌就是我",
+   "file": "王牌就是我_f0.csv",
+   "phrases": 81,
+   "end_dir_median": -0.31,
+   "end_down_share": 0.511,
+   "low_pos_median": 0.362,
+   "n_low": 35
+  },
+  {
+   "title": "等一等昨天",
+   "file": "等一等昨天_f0.csv",
+   "phrases": 70,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.255,
+   "low_pos_median": 0.406,
+   "n_low": 27
+  },
+  {
+   "title": "雪地里寄不出的求救信",
+   "file": "雪地里寄不出的求救信_f0.csv",
+   "phrases": 61,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.347,
+   "low_pos_median": 0.543,
+   "n_low": 36
+  },
+  {
+   "title": "下沉",
+   "file": "下沉_f0.csv",
+   "phrases": 40,
+   "end_dir_median": -0.16,
+   "end_down_share": 0.25,
+   "low_pos_median": 0.398,
+   "n_low": 21
+  },
+  {
+   "title": "你要忘了我",
+   "file": "你要忘了我_f0.csv",
+   "phrases": 45,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.325,
+   "low_pos_median": 0.19,
+   "n_low": 26
+  },
+  {
+   "title": "好好说再见",
+   "file": "好好说再见_f0.csv",
+   "phrases": 48,
+   "end_dir_median": -0.17,
+   "end_down_share": 0.343,
+   "low_pos_median": 0.44,
+   "n_low": 23
+  },
+  {
+   "title": "带着一颗好心去流浪",
+   "file": "带着一颗好心去流浪_f0.csv",
+   "phrases": 63,
+   "end_dir_median": 0.22,
+   "end_down_share": 0.283,
+   "low_pos_median": 0.491,
+   "n_low": 32
+  },
+  {
+   "title": "晚风暖暖",
+   "file": "晚风暖暖_f0.csv",
+   "phrases": 57,
+   "end_dir_median": -0.19,
+   "end_down_share": 0.455,
+   "low_pos_median": 0.412,
+   "n_low": 39
+  },
+  {
+   "title": "茕茕",
+   "file": "茕茕_f0.csv",
+   "phrases": 36,
+   "end_dir_median": 0.11,
+   "end_down_share": 0.324,
+   "low_pos_median": 0.211,
+   "n_low": 26
+  },
+  {
+   "title": "重游往昔",
+   "file": "重游往昔_f0.csv",
+   "phrases": 56,
+   "end_dir_median": -0.08,
+   "end_down_share": 0.341,
+   "low_pos_median": 0.562,
+   "n_low": 33
+  },
+  {
+   "title": "静止了的夜晚",
+   "file": "静止了的夜晚_f0.csv",
+   "phrases": 59,
+   "end_dir_median": -0.22,
+   "end_down_share": 0.46,
+   "low_pos_median": 0.158,
+   "n_low": 34
+  },
+  {
+   "title": "下潜",
+   "file": "下潜_f0.csv",
+   "phrases": 24,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.304,
+   "low_pos_median": 0.468,
+   "n_low": 17
+  },
+  {
+   "title": "渡荆门送别",
+   "file": "渡荆门送别_f0.csv",
+   "phrases": 251,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.468,
+   "low_pos_median": 0.592,
+   "n_low": 129
+  },
+  {
+   "title": "爱于此生",
+   "file": "爱于此生_f0.csv",
+   "phrases": 67,
+   "end_dir_median": -0.17,
+   "end_down_share": 0.386,
+   "low_pos_median": 0.5,
+   "n_low": 30
+  }
+ ]
+}
