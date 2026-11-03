@@ -1,0 +1,196 @@
+{
+ "schema": "studio_characteristics/v1",
+ "stats": {
+  "total": 155,
+  "album": 72,
+  "single": 83,
+  "stability": {
+   "median": 6.5,
+   "album_median": 7.25,
+   "single_median": 6.0,
+   "le8_share": 83.9,
+   "le6_share": 38.7,
+   "album_vs_single_stability_cents": [
+    7.25,
+    6.0
+   ]
+  },
+  "span": {
+   "median": 2.24,
+   "max": 3.41,
+   "ge2_5_share": 32.3,
+   "album_vs_single_span_octaves": [
+    2.23,
+    2.33
+   ]
+  },
+  "vibrato": {
+   "rate_median": 5.12,
+   "extent_median": 81.5
+  },
+  "density": {
+   "median": 1.85,
+   "album_vs_single_density": [
+    1.86,
+    1.79
+   ]
+  },
+  "register": {
+   "below_C3_median": 0.17,
+   "mid_median": 0.68,
+   "high_median": 0.08
+  },
+  "low": {
+   "le_C2": 14,
+   "le_D2": 49,
+   "b1": [
+    "知晓",
+    "渔光曲",
+    "多听有益",
+    "静止了的夜晚",
+    "无我",
+    "遇见幸福"
+   ],
+   "lowest": [
+    55.2,
+    "如翡",
+    "A1"
+   ]
+  },
+  "high": {
+   "highest": [
+    1029.1,
+    "新的篇章",
+    "C6"
+   ]
+  }
+ },
+ "top": {
+  "most_stable": [
+   {
+    "title": "有你在的美好",
+    "source": "single",
+    "v": 3.4
+   },
+   {
+    "title": "只好背叛地球了",
+    "source": "single",
+    "v": 3.8
+   },
+   {
+    "title": "相思",
+    "source": "single",
+    "v": 4.0
+   },
+   {
+    "title": "野兽的花",
+    "source": "single",
+    "v": 4.3
+   },
+   {
+    "title": "信念",
+    "source": "single",
+    "v": 4.3
+   },
+   {
+    "title": "一言千年",
+    "source": "single",
+    "v": 4.4
+   },
+   {
+    "title": "火光",
+    "source": "single",
+    "v": 4.4
+   },
+   {
+    "title": "无尽的夜里",
+    "source": "album",
+    "v": 4.5
+   }
+  ],
+  "widest": [
+   {
+    "title": "勿扰",
+    "source": "album",
+    "v": 3.41
+   },
+   {
+    "title": "无荒",
+    "source": "single",
+    "v": 3.4
+   },
+   {
+    "title": "新的篇章",
+    "source": "single",
+    "v": 3.38
+   },
+   {
+    "title": "爱于此生",
+    "source": "single",
+    "v": 3.35
+   },
+   {
+    "title": "梦开始的地方",
+    "source": "single",
+    "v": 3.34
+   },
+   {
+    "title": "阳关引",
+    "source": "single",
+    "v": 3.34
+   },
+   {
+    "title": "故事慢慢说",
+    "source": "single",
+    "v": 3.32
+   },
+   {
+    "title": "再叙",
+    "source": "single",
+    "v": 3.25
+   }
+  ],
+  "highest_share": [
+   {
+    "title": "相思",
+    "source": "single",
+    "v": 0.603
+   },
+   {
+    "title": "生活该有的样子",
+    "source": "single",
+    "v": 0.562
+   },
+   {
+    "title": "往前",
+    "source": "single",
+    "v": 0.56
+   },
+   {
+    "title": "王牌就是我",
+    "source": "album",
+    "v": 0.477
+   },
+   {
+    "title": "火光",
+    "source": "single",
+    "v": 0.431
+   },
+   {
+    "title": "一言千年",
+    "source": "single",
+    "v": 0.427
+   },
+   {
+    "title": "葬心",
+    "source": "album",
+    "v": 0.411
+   },
+   {
+    "title": "罗辑",
+    "source": "single",
+    "v": 0.408
+   }
+  ]
+ }
+}

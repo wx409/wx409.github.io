@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -54,6 +55,49 @@ def block_live() -> str:
 <!-- ABILITY_END -->"""
 
 
+
+
+def add_context_column(html: str) -> str:
+    """给「附一 最低稳定音」表加一列「语境」（录音室/现场/央视）。"""
+    marker = '<th>曲目</th><th>最低稳定音'
+    if marker not in html or '<th>语境</th>' in html:
+        return html
+    html = html.replace(marker, '<th>曲目</th><th>语境</th><th>最低稳定音', 1)
+    # 逐行给数据行插入语境单元格（该表以「素材来源」列为第 6 格）
+    def fix_row(m):
+        row = m.group(0)
+        if '<th>' in row:
+            return row
+        cells = re.findall(r'<td[^>]*>.*?</td>', row, re.S)
+        if len(cells) < 4:
+            return row
+        texts = [re.sub('<[^>]+>', '', c) for c in cells]
+        env = None
+        for t in texts:
+            tags = []
+            if '央视' in t:
+                tags.append('央视')
+            if '现场' in t or '巡演' in t:
+                tags.append('现场')
+            if '录音室' in t:
+                tags.append('录音室')
+            if tags:
+                env = ' / '.join(dict.fromkeys(tags))
+                break
+        if env is None:
+            env = '录音室' if any('全曲口径' in t for t in texts) else '—'
+        return row.replace(cells[0], cells[0] + f'<td>{env}</td>', 1)
+
+    # 只处理附一那张表：从 marker 到 </table>
+    i = html.find('<th>曲目</th><th>语境</th>')
+    j = html.find('</table>', i)
+    if i < 0 or j < 0:
+        return html
+    seg = html[i:j]
+    seg2 = re.sub(r'<tr[^>]*>.*?</tr>', fix_row, seg, flags=re.S)
+    return html[:i] + seg2 + html[j:]
+
+
 def inject(path: Path, block: str) -> bool:
     s = path.read_text(encoding='utf-8')
     if '<!-- ABILITY_START -->' in s:
@@ -66,6 +110,8 @@ def inject(path: Path, block: str) -> bool:
         if i < 0:
             print('未找到 h1，跳过', path.name); return False
         s = s[:i+5] + '\n' + block + s[i+5:]
+    if path.name == 'voice.html':
+        s = add_context_column(s)
     path.write_text(s, encoding='utf-8')
     return True
 
