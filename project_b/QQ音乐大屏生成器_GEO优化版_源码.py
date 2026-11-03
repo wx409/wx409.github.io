@@ -5733,10 +5733,13 @@ def generate_dashboard(payload, dashboard_dir):
                     return True
             return False
 
-        for _k in ("new_songs", "daily_rank", "top_songs", "detail_songs", "song_index",
-                   "songs", "listener_peaks", "song_peaks", "peak_songs", "rank_groups"):
-            if isinstance(payload.get(_k), list):
-                payload[_k] = [x for x in payload[_k] if not _bad(x)]
+        def _prune(_o):
+            if isinstance(_o, dict):
+                return {k: _prune(v) for k, v in _o.items()}
+            if isinstance(_o, list):
+                return [_prune(x) for x in _o if not _bad(x)]
+            return _o
+        payload = _prune(payload)
         for _k in ("name_uids", "link_uids"):
             if isinstance(payload.get(_k), dict):
                 payload[_k] = {kk: vv for kk, vv in payload[_k].items() if vv not in _uids}
