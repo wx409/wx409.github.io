@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-03T21:25:26",
+  "generated_at": "2026-11-03T22:22:36",
   "since": "2026-11-03",
-  "batches": 365,
-  "files": 2620,
-  "gb": 82.8,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1454,
-  "stage_rows": 814,
-  "claimable": 652,
-  "claimable_soft": 332
+  "batches": 368,
+  "files": 2632,
+  "gb": 83.01,
+  "new_files": 12,
+  "new_mb": 216.6,
+  "stats_total": 1460,
+  "stage_rows": 820,
+  "claimable": 657,
+  "claimable_soft": 334
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 364,
-   "mb": 17801.1,
+   "files": 370,
+   "mb": 17989.9,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-02"
+   "new_files": 6,
+   "new_mb": 188.8,
+   "newest": "2026-11-03"
   },
   {
    "batch": "wav_十年现场语料",
@@ -1112,6 +1112,15 @@
    "newest": "2026-09-10"
   },
   {
+   "batch": "倒叙",
+   "files": 2,
+   "mb": 9.7,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 4.9,
+   "newest": "2026-11-03"
+  },
+  {
    "batch": "光阴的故事",
    "files": 1,
    "mb": 9.6,
@@ -1137,6 +1146,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-12"
+  },
+  {
+   "batch": "玩笑",
+   "files": 2,
+   "mb": 9.3,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 6.8,
+   "newest": "2026-11-03"
   },
   {
    "batch": "别离的预感",
@@ -1263,6 +1281,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-11-02"
+  },
+  {
+   "batch": "悬念",
+   "files": 1,
+   "mb": 7.8,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 7.8,
+   "newest": "2026-11-03"
   },
   {
    "batch": "天边",
@@ -1553,6 +1580,15 @@
    "newest": "2026-09-16"
   },
   {
+   "batch": "白鸽",
+   "files": 2,
+   "mb": 5.5,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.2,
+   "newest": "2026-11-03"
+  },
+  {
    "batch": "长声23秒待核_20260917",
    "files": 3,
    "mb": 5.4,
@@ -1632,15 +1668,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-29"
-  },
-  {
-   "batch": "倒叙",
-   "files": 1,
-   "mb": 4.8,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-21"
   },
   {
    "batch": "杨洪基对照_分段_20260916",
@@ -1733,6 +1760,15 @@
    "newest": "2026-09-21"
   },
   {
+   "batch": "我可以抱你吗",
+   "files": 1,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 4.4,
+   "newest": "2026-11-03"
+  },
+  {
    "batch": "怂",
    "files": 1,
    "mb": 4.4,
@@ -1749,15 +1785,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
-  },
-  {
-   "batch": "白鸽",
-   "files": 1,
-   "mb": 4.2,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-18"
   },
   {
    "batch": "走过咖啡屋",
@@ -2678,6 +2705,15 @@
    "newest": "2026-09-26"
   },
   {
+   "batch": "可爱的一朵玫瑰花",
+   "files": 1,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 2.7,
+   "newest": "2026-11-03"
+  },
+  {
    "batch": "天黑黑",
    "files": 1,
    "mb": 2.6,
@@ -2748,15 +2784,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-12"
-  },
-  {
-   "batch": "玩笑",
-   "files": 1,
-   "mb": 2.5,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-23"
   },
   {
    "batch": "玫瑰人生（La Vie en Rose）",

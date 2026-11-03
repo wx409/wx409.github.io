@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-03 21:12:53",
+ "updated_at": "2026-11-03 22:00:03",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5360,6 +5360,12 @@
    "time": "2026-11-03 21:12:53",
    "title": "⚠️ 自动更新失败：deploy_all 出错",
    "content": "详情见 logs/ 目录",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-03 22:00:03",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 41620）。此前 dashboard_data.json 距上次更新 25.8 分钟。",
    "category": "通知"
   }
  ]

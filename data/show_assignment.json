@@ -1,9 +1,9 @@
 {
  "summary": {
-  "generated_at": "2026-11-03T21:25:12",
-  "rows": 814,
+  "generated_at": "2026-11-03T22:22:21",
+  "rows": 820,
   "levels": {
-   "L1": 387,
+   "L1": 393,
    "L6": 26,
    "L3": 45,
    "未认领": 353,
@@ -108,24 +108,24 @@
    "claimable": 21
   },
   "2022-06-24": {
-   "n": 9,
-   "claimable": 2
+   "n": 10,
+   "claimable": 3
   },
   "2021-12-04": {
-   "n": 5,
-   "claimable": 4
+   "n": 6,
+   "claimable": 5
   },
   "2022-09-17": {
-   "n": 18,
-   "claimable": 16
+   "n": 20,
+   "claimable": 17
   },
   "2023-06-23": {
    "n": 4,
    "claimable": 4
   },
   "2023-05-20": {
-   "n": 1,
-   "claimable": 1
+   "n": 2,
+   "claimable": 2
   },
   "2022-07-17": {
    "n": 3,
@@ -135,6 +135,10 @@
    "n": 1,
    "claimable": 0
   },
+  "2022-04-09": {
+   "n": 5,
+   "claimable": 4
+  },
   "2022-07-15": {
    "n": 2,
    "claimable": 1
@@ -142,10 +146,6 @@
   "2022-01-09": {
    "n": 4,
    "claimable": 4
-  },
-  "2022-04-09": {
-   "n": 4,
-   "claimable": 3
   },
   "2024-04-06": {
    "n": 18,
@@ -1946,6 +1946,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "武汉20220917_BV1m8UKY4E4C",
+   "song": "倒叙",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2022-09-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡长沙20220624_p07_王晰三巡0624长沙全场（自存） p07 玩笑 倒叙 钢伴组曲 点歌",
    "song": "三巡长沙全场",
    "tour": "三巡",
@@ -2354,6 +2366,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "未知20220409_BV1cq4y1Y7LW",
+   "song": "我可以抱你吗",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-04-09",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "太原20220717_BV1Rg411o7uU",
    "song": "知晓",
    "tour": "三巡",
@@ -2374,6 +2398,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-07-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "广州20211204_BV1Sr4y1W7Qj",
+   "song": "悬念",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-12-04",
    "level": 1,
    "why": "日期直配"
   },
@@ -2458,6 +2494,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-09-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "长沙20220624_BV1NF411F7kV",
+   "song": "玩笑",
+   "tour": "三巡",
+   "city": "长沙",
+   "date": "2022-06-24",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-06-24",
    "level": 1,
    "why": "日期直配"
   },
@@ -2606,6 +2654,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "南宁20230520_BV1LeY7eJE3y",
+   "song": "白鸽",
+   "tour": "三巡",
+   "city": "南宁",
+   "date": "2023-05-20",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-05-20",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "未知20220109_BV1TF411v7Ed",
    "song": "爱你",
    "tour": "三巡",
@@ -2698,6 +2758,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "武汉20220917_BV1vG4y1B74X",
+   "song": "可爱的一朵玫瑰花",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-09-17",
    "level": 1,
    "why": "日期直配"
   },

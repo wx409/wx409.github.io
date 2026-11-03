@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-03T21:25:12",
+  "generated_at": "2026-11-03T22:22:22",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8508,
+  "files_scanned": 8544,
   "measured_shows_site": 59,
   "shows_with_claimable_site": 58,
-  "bv_mapped": 150
+  "bv_mapped": 156
  },
  "shows": [
   {
@@ -1138,6 +1138,11 @@
      "detail": "BV1SQ4y1e7Dg｜Moon River｜三巡广州20211204"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Sr4y1W7Qj｜悬念｜广州20211204"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "切片1_MoonRiver｜Moon River"
@@ -1151,14 +1156,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "切片2_CloseToYou｜Close to You"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡广州20211204_BV1D34y1R7fC｜橄榄树"
     }
    ],
-   "n_evidence": 28
+   "n_evidence": 42
   },
   {
    "date": "2022-01-09",
@@ -1263,22 +1263,22 @@
      "detail": "BV17L4y1F7k2｜月半弯｜北京20220409"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1cq4y1Y7LW｜我可以抱你吗｜未知20220409"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20220409_BV1cq4y1Y7LW｜我可以抱你吗"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "北京20220409_BV17L4y1F7k2｜月半弯"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "北京20220409_BV1Au411v7ia｜光阴的故事"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "北京20220409_BV1c3411n782｜爱你"
     }
    ],
-   "n_evidence": 42
+   "n_evidence": 56
   },
   {
    "date": "2022-06-24",
@@ -1287,6 +1287,11 @@
    "songs": 21,
    "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1NF411F7kV｜玩笑｜长沙20220624"
+    },
     {
      "level": 1,
      "src": "站点实测",
@@ -1311,14 +1316,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "三巡长沙20220624_p02_王晰三巡0624长沙全场（自存） p02 哑光 惑许 达尔文 车站｜三巡长沙全场"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡长沙20220624_p06_王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半｜三巡长沙全场"
     }
    ],
-   "n_evidence": 54
+   "n_evidence": 68
   },
   {
    "date": "2022-07-15",
@@ -1418,27 +1418,27 @@
      "detail": "BV1Qe4y1877s｜牵手｜武汉20220917"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1vG4y1B74X｜可爱的一朵玫瑰花｜武汉20220917"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1m8UKY4E4C｜倒叙｜武汉20220917"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "武汉20220917_BV1m8UKY4E4C｜倒叙"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "【王晰三巡·图景】20220917 武汉全程____P01_送别 moonriver 知晓｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "武汉20220917_BV1Qe4y1877s｜牵手"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰三巡·图景】20220917 武汉全程____P13_为爱痴狂 牵手 可爱的一朵玫瑰花｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "【王晰三巡·图景】20220917 武汉全程____P03_惑许 达尔文 车站 橄榄树｜"
     }
    ],
-   "n_evidence": 199
+   "n_evidence": 227
   },
   {
    "date": "2023-04-09",
@@ -1549,6 +1549,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1LeY7eJE3y｜白鸽｜南宁20230520"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "南宁｜三巡·王晰2021-2022“图景”"
     },
@@ -1559,13 +1564,8 @@
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV1Yh4y1x72g"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "南宁20230520_BV1Yh4y1x72g.wav"
+     "src": "站点实测",
+     "detail": "南宁20230520_BV1LeY7eJE3y｜白鸽"
     },
     {
      "level": 1,
@@ -1573,7 +1573,7 @@
      "detail": "BV1Yh4y1x72g"
     }
    ],
-   "n_evidence": 19
+   "n_evidence": 33
   },
   {
    "date": "2023-06-23",
