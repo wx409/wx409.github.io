@@ -5706,6 +5706,25 @@ def generate_dashboard(payload, dashboard_dir):
         _e["live_url"] = live_map.get(_e.get("date"))
 
     json_path = os.path.join(dashboard_dir, "dashboard_data.json")
+    # 排除清单：按 uid 剔除（用户指定不再收录的歌曲）
+    try:
+        _ex_path = r"D:\wx409.github.io\data\excluded_songs.json"
+        _ex = json.load(open(_ex_path, encoding="utf-8"))
+        _uids = {i.get("uid") for i in _ex.get("items", []) if i.get("uid")}
+        if _uids:
+            _keys = ("new_songs", "daily_rank", "top_songs", "detail_songs", "song_index",
+                     "songs", "listener_peaks", "song_peaks", "peak_songs")
+            for _k in _keys:
+                if isinstance(payload.get(_k), list):
+                    payload[_k] = [x for x in payload[_k]
+                                   if not (isinstance(x, dict) and x.get("uid") in _uids)]
+            # 其它以 uid 索引的字典
+            for _k in ("name_uids", "link_uids"):
+                if isinstance(payload.get(_k), dict):
+                    payload[_k] = {kk: vv for kk, vv in payload[_k].items() if vv not in _uids}
+    except Exception:
+        pass
+
     payload["analysis"] = _build_analysis(payload)
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(_clean_nan(payload), f, ensure_ascii=False, indent=2)
