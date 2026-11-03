@@ -5706,22 +5706,40 @@ def generate_dashboard(payload, dashboard_dir):
         _e["live_url"] = live_map.get(_e.get("date"))
 
     json_path = os.path.join(dashboard_dir, "dashboard_data.json")
-    # 排除清单：按 uid 剔除（用户指定不再收录的歌曲）
+    # 排除清单：按 uid + 名称剔除（本地清单含名称，不进仓库）
     try:
-        _ex_path = r"D:\wx409.github.io\data\excluded_songs.json"
-        _ex = json.load(open(_ex_path, encoding="utf-8"))
-        _uids = {i.get("uid") for i in _ex.get("items", []) if i.get("uid")}
-        if _uids:
-            _keys = ("new_songs", "daily_rank", "top_songs", "detail_songs", "song_index",
-                     "songs", "listener_peaks", "song_peaks", "peak_songs")
-            for _k in _keys:
-                if isinstance(payload.get(_k), list):
-                    payload[_k] = [x for x in payload[_k]
-                                   if not (isinstance(x, dict) and x.get("uid") in _uids)]
-            # 其它以 uid 索引的字典
-            for _k in ("name_uids", "link_uids"):
-                if isinstance(payload.get(_k), dict):
-                    payload[_k] = {kk: vv for kk, vv in payload[_k].items() if vv not in _uids}
+        _uids, _names = set(), []
+        for _p in (r"D:\\wx409.github.io\\data\\excluded_songs.json",
+                   r"E:\\wx\\index_records\\excluded_songs_local.json"):
+            try:
+                _ex = json.load(open(_p, encoding="utf-8"))
+            except Exception:
+                continue
+            for _i in (_ex.get("items") or []):
+                if _i.get("uid"):
+                    _uids.add(_i["uid"])
+            for _u in (_ex.get("uids") or []):
+                _uids.add(_u)
+            _names += [_n.replace(" ", "") for _n in (_ex.get("names") or []) if _n]
+
+        def _bad(_o):
+            if not isinstance(_o, dict):
+                return False
+            if _o.get("uid") in _uids:
+                return True
+            _n = str(_o.get("name", "")).replace(" ", "")
+            return bool(_n) and any(_x and _x in _n for _x in _names)
+
+        for _k in ("new_songs", "daily_rank", "top_songs", "detail_songs", "song_index",
+                   "songs", "listener_peaks", "song_peaks", "peak_songs", "rank_groups"):
+            if isinstance(payload.get(_k), list):
+                payload[_k] = [x for x in payload[_k] if not _bad(x)]
+        for _k in ("name_uids", "link_uids"):
+            if isinstance(payload.get(_k), dict):
+                payload[_k] = {kk: vv for kk, vv in payload[_k].items() if vv not in _uids}
+        for _tn in (payload.get("timeline_narrative") or []):
+            _pts = _tn.get("points") or []
+            _tn["points"] = [x for x in _pts if not _bad(x)]
     except Exception:
         pass
 
