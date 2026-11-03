@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-03 19:19",
+ "generated_at": "2026-11-03 20:25",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -25,9 +25,10 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 628,
+   "谐波列复核通过": 625,
    "双引擎一致": 9,
    "待复核（legacy 短读，未过 CREPE）": 7,
+   "谐波列复核通过（全曲口径对账）": 3,
    "待复核": 1,
    "待复核（谐波列待判）": 140,
    "谐波列复核通过（同刻三源）": 1
@@ -2169,6 +2170,27 @@
    }
   },
   {
+   "id": "precision|渔光曲|stable",
+   "song": "渔光曲",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "",
+   "metrics": {
+    "low_note": "B1",
+    "low_hz": 61.7,
+    "hnr_db": 8.1,
+    "duration_s": 0.26
+   },
+   "verify": {
+    "state": "已核验",
+    "evidence": "锚点320k重测 + 网易云交叉（D#2 79.7Hz）"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
    "id": "precision|知晓|stable",
    "song": "知晓",
    "version": "十曲精测·稳定音",
@@ -2347,6 +2369,26 @@
    }
   },
   {
+   "id": "precision|雪地里寄不出的求救信|stable",
+   "song": "雪地里寄不出的求救信",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.3,
+    "duration_s": 0.25541950113378686
+   },
+   "verify": {
+    "state": "谐波列复核通过（全曲口径对账）",
+    "evidence": "archive_stage_tour·杭州20201007_BV1cV41127jk"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
    "id": "precision|晚风暖暖|stable",
    "song": "晚风暖暖",
    "version": "十曲精测·稳定音",
@@ -2419,6 +2461,26 @@
    "verify": {
     "state": "人耳确认（听辨）",
     "evidence": "archive_stage_tour·一巡厦门20191221_p14_山楂2"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
+   }
+  },
+  {
+   "id": "precision|勿扰|stable",
+   "song": "勿扰",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室、巡演现场",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.6,
+    "duration_s": 0.25541950113378686
+   },
+   "verify": {
+    "state": "谐波列复核通过（全曲口径对账）",
+    "evidence": "archive_stage_tour·未知20241012_BV1Mz6fYXELH"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",
@@ -2642,26 +2704,6 @@
     "measured_by": "复核十曲严格口径",
     "legacy": "archive_vocal.json",
     "note": "触达音不作能力依据"
-   }
-  },
-  {
-   "id": "precision|雪地里寄不出的求救信|stable",
-   "song": "雪地里寄不出的求救信",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "录音室、巡演现场",
-   "metrics": {
-    "low_note": "C#2",
-    "low_hz": 70.1,
-    "duration_s": 0.25541950113378686
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "evidence": "archive_stage_tour·杭州20201007_BV1cV41127jk"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
    }
   },
   {
@@ -2961,27 +3003,6 @@
    }
   },
   {
-   "id": "precision|渔光曲|stable",
-   "song": "渔光曲",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "",
-   "metrics": {
-    "low_note": "D#2",
-    "low_hz": 79.2,
-    "hnr_db": 8.1,
-    "duration_s": 0.26
-   },
-   "verify": {
-    "state": "已核验",
-    "evidence": "真 320k（M800）复测：稳定音为 D#2 79.2Hz（0.26s，HNR 8.1dB）；B1 61.6Hz 时刻谱峰在位但未达稳定门槛 → 降为触达级"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
-   }
-  },
-  {
    "id": "precision|歌颂|stable",
    "song": "歌颂",
    "version": "十曲精测·稳定音",
@@ -2989,32 +3010,12 @@
    "source_ref": "录音室、巡演现场",
    "metrics": {
     "low_note": "F2",
-    "low_hz": 85.9,
+    "low_hz": 85.3,
     "duration_s": 0.5572789115646258
    },
    "verify": {
-    "state": "谐波列复核通过",
+    "state": "谐波列复核通过（全曲口径对账）",
     "evidence": "archive_stage_tour·广州20201205_BV1wp4y1676f"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
-   }
-  },
-  {
-   "id": "precision|勿扰|stable",
-   "song": "勿扰",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "录音室、巡演现场",
-   "metrics": {
-    "low_note": "F2",
-    "low_hz": 86.3,
-    "duration_s": 0.25541950113378686
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "evidence": "archive_stage_tour·未知20241012_BV1Mz6fYXELH"
    },
    "provenance": {
     "measured_by": "复核十曲严格口径",

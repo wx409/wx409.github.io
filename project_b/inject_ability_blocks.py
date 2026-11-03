@@ -27,7 +27,7 @@ def block_voice() -> str:
 <tr><td style="padding:8px 10px;border:1px solid #e5e5e5"><b style="font-size:20px;color:#c41e3a">{L['seconds']}</b> 秒</td>
 <td style="padding:8px 10px;border:1px solid #e5e5e5">《{L['song']}》那句一气呵成的长度；气口只有 {L['breath_gap_s'][0]}–{L['breath_gap_s'][1]} 秒、比演唱低 {L['breath_gap_db'][0]}–{L['breath_gap_db'][1]} dB。</td></tr>
 </table>
-<p style="margin:.8em 0 0;color:#555;font-size:14px">换句话说：<b>他的强项不是"能唱多低"，是"低下去之后还稳得住"。</b></p>
+<p style="margin:.8em 0 0;color:#555;font-size:14px">换句话说：<b>他不只是"能唱低"——低到 B1 之后，声音还能稳住、还能听清。</b></p>
 </section>
 <!-- ABILITY_END -->"""
 
