@@ -1,0 +1,795 @@
+{
+ "schema": "phrase_structure_audit/v1",
+ "rules": {
+  "frame": "逐帧 F0（hop 512 @44.1k ≈ 11.6ms）",
+  "segment": "帧间隔 >0.3s 切段；称“自动分段”，不等同乐句/句子",
+  "low_threshold": "全曲 MIDI 的 P10 及以下",
+  "end_direction": "段末 8 帧中位 − 段末前 16–30 帧中位",
+  "min_frames": 200,
+  "min_segments": 5
+ },
+ "counts": {
+  "included": 84,
+  "excluded": 1,
+  "low_events": 11657
+ },
+ "low_pos_distribution": {
+  "0-0.25": "30.2%",
+  "0.75-1.0": "18.1%",
+  "0.5-0.75": "28.3%",
+  "0.25-0.5": "23.5%"
+ },
+ "per_song_equal_weight": {
+  "low_pos_median": 0.49,
+  "end_dir_median": -0.03
+ },
+ "per_low_event_pooled": {
+  "low_pos_median": 0.468,
+  "end_dir_median": -0.03
+ },
+ "included": [
+  {
+   "title": "倒叙",
+   "file": "三巡上海20220110_p11_王晰三巡上海站 20220110 p11 倒叙_f0.csv",
+   "phrases": 66,
+   "low_events": 37,
+   "low_pos_median": 0.402,
+   "end_dir_median": -0.09,
+   "end_down_share": 0.341
+  },
+  {
+   "title": "分岔",
+   "file": "【王晰三巡·图景】20220917 武汉全程____P08_分岔_f0.csv",
+   "phrases": 53,
+   "low_events": 31,
+   "low_pos_median": 0.486,
+   "end_dir_median": 0.15,
+   "end_down_share": 0.303
+  },
+  {
+   "title": "哑光",
+   "file": "04_哑光_f0.csv",
+   "phrases": 72,
+   "low_events": 40,
+   "low_pos_median": 0.337,
+   "end_dir_median": -0.12,
+   "end_down_share": 0.42
+  },
+  {
+   "title": "悬念",
+   "file": "悬念_f0.csv",
+   "phrases": 58,
+   "low_events": 31,
+   "low_pos_median": 0.429,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.423
+  },
+  {
+   "title": "惑许",
+   "file": "三巡长沙20220624_p02_王晰三巡0624长沙全场（自存） p02 哑光 惑许 达尔文 车站_f0.csv",
+   "phrases": 316,
+   "low_events": 134,
+   "low_pos_median": 0.452,
+   "end_dir_median": -0.13,
+   "end_down_share": 0.402
+  },
+  {
+   "title": "时空",
+   "file": "【王晰三巡·图景】20220917 武汉全程____P10_时空_f0.csv",
+   "phrases": 64,
+   "low_events": 37,
+   "low_pos_median": 0.335,
+   "end_dir_median": -0.06,
+   "end_down_share": 0.422
+  },
+  {
+   "title": "游离",
+   "file": "王晰B面图景杭州签售自录存档 20211127___P05_游离_f0.csv",
+   "phrases": 85,
+   "low_events": 58,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.386
+  },
+  {
+   "title": "玩笑",
+   "file": "三巡长沙20220624_p07_王晰三巡0624长沙全场（自存） p07 玩笑 倒叙 钢伴组曲 点歌_f0.csv",
+   "phrases": 415,
+   "low_events": 180,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.343
+  },
+  {
+   "title": "知晓",
+   "file": "三巡长沙20220624_p01_王晰三巡0624长沙全场（自存） p01 送别 Moonriver 知晓_f0.csv",
+   "phrases": 222,
+   "low_events": 101,
+   "low_pos_median": 0.488,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.378
+  },
+  {
+   "title": "轻信",
+   "file": "轻信_f0.csv",
+   "phrases": 50,
+   "low_events": 35,
+   "low_pos_median": 0.45,
+   "end_dir_median": 0.19,
+   "end_down_share": 0.362
+  },
+  {
+   "title": "再回首",
+   "file": "再回首_f0.csv",
+   "phrases": 69,
+   "low_events": 40,
+   "low_pos_median": 0.209,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.327
+  },
+  {
+   "title": "千言万语",
+   "file": "千言万语_f0.csv",
+   "phrases": 46,
+   "low_events": 21,
+   "low_pos_median": 0.529,
+   "end_dir_median": -0.12,
+   "end_down_share": 0.343
+  },
+  {
+   "title": "南屏晚钟",
+   "file": "南屏晚钟_f0.csv",
+   "phrases": 50,
+   "low_events": 21,
+   "low_pos_median": 0.532,
+   "end_dir_median": -0.46,
+   "end_down_share": 0.581
+  },
+  {
+   "title": "夜半歌声",
+   "file": "夜半歌声_f0.csv",
+   "phrases": 38,
+   "low_events": 20,
+   "low_pos_median": 0.136,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.314
+  },
+  {
+   "title": "当爱已成往事",
+   "file": "当爱已成往事_f0.csv",
+   "phrases": 52,
+   "low_events": 23,
+   "low_pos_median": 0.28,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.22
+  },
+  {
+   "title": "忘不了",
+   "file": "忘不了_f0.csv",
+   "phrases": 43,
+   "low_events": 32,
+   "low_pos_median": 0.347,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.353
+  },
+  {
+   "title": "我的心里只有你没有他",
+   "file": "我的心里只有你没有他_f0.csv",
+   "phrases": 39,
+   "low_events": 23,
+   "low_pos_median": 0.098,
+   "end_dir_median": -0.21,
+   "end_down_share": 0.441
+  },
+  {
+   "title": "晚风",
+   "file": "BV1tV411p7Ny_【王晰】乐华十二周年演唱会 《晚风》正面视角想要的响指都有！_f0.csv",
+   "phrases": 84,
+   "low_events": 40,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.09,
+   "end_down_share": 0.279
+  },
+  {
+   "title": "渔光曲",
+   "file": "渔光曲_f0.csv",
+   "phrases": 63,
+   "low_events": 17,
+   "low_pos_median": 0.309,
+   "end_dir_median": 0.18,
+   "end_down_share": 0.13
+  },
+  {
+   "title": "爱情",
+   "file": "二巡佛山20201121_p14_【王晰】2020个人巡回音乐会 11.21佛山场 p14 14 爱情_f0.csv",
+   "phrases": 83,
+   "low_events": 34,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.05,
+   "end_down_share": 0.333
+  },
+  {
+   "title": "绿岛小夜曲",
+   "file": "绿岛小夜曲_f0.csv",
+   "phrases": 40,
+   "low_events": 20,
+   "low_pos_median": 0.487,
+   "end_dir_median": 0.19,
+   "end_down_share": 0.15
+  },
+  {
+   "title": "至少还有你",
+   "file": "至少还有你_f0.csv",
+   "phrases": 69,
+   "low_events": 43,
+   "low_pos_median": 0.176,
+   "end_dir_median": -0.0,
+   "end_down_share": 0.274
+  },
+  {
+   "title": "乌兰巴托的夜晚",
+   "file": "王晰live_乌兰巴托的夜晚_BV1Ct4y167VR_f0.csv",
+   "phrases": 115,
+   "low_events": 55,
+   "low_pos_median": 0.329,
+   "end_dir_median": -0.06,
+   "end_down_share": 0.439
+  },
+  {
+   "title": "他不爱我",
+   "file": "他不爱我_f0.csv",
+   "phrases": 52,
+   "low_events": 13,
+   "low_pos_median": 0.526,
+   "end_dir_median": 0.03,
+   "end_down_share": 0.227
+  },
+  {
+   "title": "几多愁",
+   "file": "几多愁_f0.csv",
+   "phrases": 42,
+   "low_events": 15,
+   "low_pos_median": 0.698,
+   "end_dir_median": 0.23,
+   "end_down_share": 0.088
+  },
+  {
+   "title": "叶塞尼亚",
+   "file": "赵鹏_叶塞尼亚_BV1JN411V7px_f0.csv",
+   "phrases": 54,
+   "low_events": 24,
+   "low_pos_median": 0.059,
+   "end_dir_median": -0.18,
+   "end_down_share": 0.391
+  },
+  {
+   "title": "多年以后",
+   "file": "多年以后_f0.csv",
+   "phrases": 76,
+   "low_events": 23,
+   "low_pos_median": 0.539,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.288
+  },
+  {
+   "title": "如梦令",
+   "file": "如梦令_f0.csv",
+   "phrases": 45,
+   "low_events": 19,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.05,
+   "end_down_share": 0.229
+  },
+  {
+   "title": "微风细雨",
+   "file": "微风细雨_f0.csv",
+   "phrases": 70,
+   "low_events": 43,
+   "low_pos_median": 0.423,
+   "end_dir_median": 0.18,
+   "end_down_share": 0.233
+  },
+  {
+   "title": "月光",
+   "file": "【王晰】五巡首场杭州 全部歌曲 自录202412__P04_床前明月光_f0.csv",
+   "phrases": 90,
+   "low_events": 37,
+   "low_pos_median": 0.475,
+   "end_dir_median": -0.08,
+   "end_down_share": 0.389
+  },
+  {
+   "title": "月圆花好",
+   "file": "月圆花好_f0.csv",
+   "phrases": 43,
+   "low_events": 23,
+   "low_pos_median": 0.648,
+   "end_dir_median": 0.22,
+   "end_down_share": 0.27
+  },
+  {
+   "title": "葬心",
+   "file": "葬心_f0.csv",
+   "phrases": 61,
+   "low_events": 27,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.03,
+   "end_down_share": 0.213
+  },
+  {
+   "title": "贝加尔湖畔",
+   "file": "贝加尔湖畔_f0.csv",
+   "phrases": 54,
+   "low_events": 27,
+   "low_pos_median": 0.189,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.41
+  },
+  {
+   "title": "重庆野玫瑰",
+   "file": "重庆野玫瑰_f0.csv",
+   "phrases": 48,
+   "low_events": 18,
+   "low_pos_median": 0.206,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.25
+  },
+  {
+   "title": "Crystal Store",
+   "file": "Crystal Store_f0.csv",
+   "phrases": 50,
+   "low_events": 23,
+   "low_pos_median": 0.389,
+   "end_dir_median": -0.12,
+   "end_down_share": 0.444
+  },
+  {
+   "title": "不需要结果",
+   "file": "不需要结果_f0.csv",
+   "phrases": 51,
+   "low_events": 28,
+   "low_pos_median": 0.526,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.34
+  },
+  {
+   "title": "偏偏",
+   "file": "王晰2023.4.9《X自选集》生日签唱会__B__P16_13.《偏偏》_f0.csv",
+   "phrases": 65,
+   "low_events": 36,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.04,
+   "end_down_share": 0.372
+  },
+  {
+   "title": "多听有益",
+   "file": "多听有益_武汉收官_f0.csv",
+   "phrases": 74,
+   "low_events": 17,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.109
+  },
+  {
+   "title": "小河",
+   "file": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P04_《小河》+《朝凤》_f0.csv",
+   "phrases": 197,
+   "low_events": 86,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.15,
+   "end_down_share": 0.406
+  },
+  {
+   "title": "微醺23点08分",
+   "file": "微醺23点08分_f0.csv",
+   "phrases": 70,
+   "low_events": 25,
+   "low_pos_median": 0.214,
+   "end_dir_median": -0.42,
+   "end_down_share": 0.532
+  },
+  {
+   "title": "是你",
+   "file": "是你_f0.csv",
+   "phrases": 57,
+   "low_events": 33,
+   "low_pos_median": 0.33,
+   "end_dir_median": 0.1,
+   "end_down_share": 0.18
+  },
+  {
+   "title": "朝凤",
+   "file": "王晰2023.4.9《X自选集》生日签唱会__B__P04_4.《朝凤》_f0.csv",
+   "phrases": 65,
+   "low_events": 41,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.13,
+   "end_down_share": 0.333
+  },
+  {
+   "title": "猫模狗样",
+   "file": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P14_《猫模狗样》+《甩啦甩啦》_f0.csv",
+   "phrases": 188,
+   "low_events": 69,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.23,
+   "end_down_share": 0.458
+  },
+  {
+   "title": "住口",
+   "file": "【王晰】五巡首场杭州 全部歌曲 自录202412__P07_（下半场）住口_f0.csv",
+   "phrases": 83,
+   "low_events": 31,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.73,
+   "end_down_share": 0.31
+  },
+  {
+   "title": "勿扰",
+   "file": "勿扰_f0.csv",
+   "phrases": 82,
+   "low_events": 30,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.82,
+   "end_down_share": 0.556
+  },
+  {
+   "title": "在路上",
+   "file": "20251121203939 0034 住口6 talk 在路上 talk 勿扰 talk_f0.csv",
+   "phrases": 216,
+   "low_events": 63,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.393
+  },
+  {
+   "title": "无尽的夜里",
+   "file": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P03_住口_在路上_勿扰_无尽的夜里_无尽的夜里_f0.csv",
+   "phrases": 443,
+   "low_events": 119,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.03,
+   "end_down_share": 0.347
+  },
+  {
+   "title": "明白",
+   "file": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P05_明白_f0.csv",
+   "phrases": 158,
+   "low_events": 35,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.25,
+   "end_down_share": 0.474
+  },
+  {
+   "title": "祝我们随遇而安",
+   "file": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P09_祝我们随遇而安_钟爱一生_f0.csv",
+   "phrases": 255,
+   "low_events": 109,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.05,
+   "end_down_share": 0.351
+  },
+  {
+   "title": "雷美替胺",
+   "file": "【王晰】「吾」个人音乐会 五巡生日场_4K全程___P07_鹅毛信_雷美替胺_情歌_世界赠予我的_天黑黑_f0.csv",
+   "phrases": 263,
+   "low_events": 105,
+   "low_pos_median": 0.462,
+   "end_dir_median": 0.03,
+   "end_down_share": 0.283
+  },
+  {
+   "title": "鹅毛信",
+   "file": "20251121210423 0037 talk 明白 talk 鹅毛信_f0.csv",
+   "phrases": 222,
+   "low_events": 87,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.02,
+   "end_down_share": 0.345
+  },
+  {
+   "title": "不能靠近的朋友",
+   "file": "不能靠近的朋友_f0.csv",
+   "phrases": 65,
+   "low_events": 34,
+   "low_pos_median": 0.506,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.25
+  },
+  {
+   "title": "微光之名",
+   "file": "微光之名_f0.csv",
+   "phrases": 51,
+   "low_events": 27,
+   "low_pos_median": 0.603,
+   "end_dir_median": -0.02,
+   "end_down_share": 0.261
+  },
+  {
+   "title": "无人岛上",
+   "file": "无人岛上_f0.csv",
+   "phrases": 56,
+   "low_events": 26,
+   "low_pos_median": 0.534,
+   "end_dir_median": -0.01,
+   "end_down_share": 0.3
+  },
+  {
+   "title": "Come to Me",
+   "file": "Come to Me_f0.csv",
+   "phrases": 56,
+   "low_events": 34,
+   "low_pos_median": 0.572,
+   "end_dir_median": -0.23,
+   "end_down_share": 0.457
+  },
+  {
+   "title": "云一定知道",
+   "file": "一巡厦门20191221_p16_云一定知道_f0.csv",
+   "phrases": 80,
+   "low_events": 40,
+   "low_pos_median": 0.468,
+   "end_dir_median": -0.0,
+   "end_down_share": 0.388
+  },
+  {
+   "title": "偏执",
+   "file": "BV1zmRHBwExo_王晰汪小敏《偏执》_f0.csv",
+   "phrases": 67,
+   "low_events": 32,
+   "low_pos_median": 0.38,
+   "end_dir_median": 0.01,
+   "end_down_share": 0.298
+  },
+  {
+   "title": "双鱼",
+   "file": "双鱼_f0.csv",
+   "phrases": 62,
+   "low_events": 32,
+   "low_pos_median": 0.477,
+   "end_dir_median": 0.04,
+   "end_down_share": 0.2
+  },
+  {
+   "title": "歌颂",
+   "file": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P18_生日快乐歌+漫长的告别+战士的第二个故乡+喀秋莎_f0.csv",
+   "phrases": 264,
+   "low_events": 137,
+   "low_pos_median": 0.437,
+   "end_dir_median": 0.12,
+   "end_down_share": 0.26
+  },
+  {
+   "title": "王牌就是我",
+   "file": "王牌就是我_f0.csv",
+   "phrases": 81,
+   "low_events": 35,
+   "low_pos_median": 0.362,
+   "end_dir_median": -0.31,
+   "end_down_share": 0.511
+  },
+  {
+   "title": "等一等昨天",
+   "file": "王晰《歌颂》北京签唱会__BV1hK411N7X__P08_等一等昨天_f0.csv",
+   "phrases": 74,
+   "low_events": 39,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.2,
+   "end_down_share": 0.423
+  },
+  {
+   "title": "雪地里寄不出的求救信",
+   "file": "【王晰】20201007杭州签唱会 现场live__P04_《雪地里寄不出的求救信》_f0.csv",
+   "phrases": 98,
+   "low_events": 44,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.32,
+   "end_down_share": 0.5
+  },
+  {
+   "title": "下沉",
+   "file": "下沉_f0.csv",
+   "phrases": 40,
+   "low_events": 21,
+   "low_pos_median": 0.398,
+   "end_dir_median": -0.16,
+   "end_down_share": 0.25
+  },
+  {
+   "title": "你要忘了我",
+   "file": "你要忘了我_f0.csv",
+   "phrases": 45,
+   "low_events": 26,
+   "low_pos_median": 0.19,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.325
+  },
+  {
+   "title": "好好说再见",
+   "file": "好好说再见_f0.csv",
+   "phrases": 48,
+   "low_events": 23,
+   "low_pos_median": 0.44,
+   "end_dir_median": -0.17,
+   "end_down_share": 0.343
+  },
+  {
+   "title": "带着一颗好心去流浪",
+   "file": "带着一颗好心去流浪_f0.csv",
+   "phrases": 63,
+   "low_events": 32,
+   "low_pos_median": 0.491,
+   "end_dir_median": 0.22,
+   "end_down_share": 0.283
+  },
+  {
+   "title": "晚风暖暖",
+   "file": "一巡北京收官20200102_p6_晚风暖暖_f0.csv",
+   "phrases": 80,
+   "low_events": 55,
+   "low_pos_median": 0.489,
+   "end_dir_median": -0.17,
+   "end_down_share": 0.42
+  },
+  {
+   "title": "茕茕",
+   "file": "二巡佛山20201121_p03_【王晰】2020个人巡回音乐会 11.21佛山场 p03 03 茕茕_f0.csv",
+   "phrases": 53,
+   "low_events": 33,
+   "low_pos_median": 0.349,
+   "end_dir_median": -0.1,
+   "end_down_share": 0.395
+  },
+  {
+   "title": "重游往昔",
+   "file": "重游往昔_f0.csv",
+   "phrases": 56,
+   "low_events": 33,
+   "low_pos_median": 0.562,
+   "end_dir_median": -0.08,
+   "end_down_share": 0.341
+  },
+  {
+   "title": "静止了的夜晚",
+   "file": "静止了的夜晚_f0.csv",
+   "phrases": 59,
+   "low_events": 34,
+   "low_pos_median": 0.158,
+   "end_dir_median": -0.22,
+   "end_down_share": 0.46
+  },
+  {
+   "title": "渡荆门送别",
+   "file": "渡荆门送别_f0.csv",
+   "phrases": 251,
+   "low_events": 129,
+   "low_pos_median": 0.592,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.468
+  },
+  {
+   "title": "下潜",
+   "file": "下潜_f0.csv",
+   "phrases": 24,
+   "low_events": 17,
+   "low_pos_median": 0.468,
+   "end_dir_median": 0.0,
+   "end_down_share": 0.304
+  },
+  {
+   "title": "爱于此生",
+   "file": "爱于此生_f0.csv",
+   "phrases": 67,
+   "low_events": 30,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.17,
+   "end_down_share": 0.386
+  },
+  {
+   "title": "玫瑰",
+   "file": "【王晰三巡·图景】20220917 武汉全程____P13_为爱痴狂 牵手 可爱的一朵玫瑰花_f0.csv",
+   "phrases": 102,
+   "low_events": 49,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.04,
+   "end_down_share": 0.397
+  },
+  {
+   "title": "暗潮涌动",
+   "file": "20251121195344 0028 床前明月光 暗潮涌动 我真的受伤了_f0.csv",
+   "phrases": 381,
+   "low_events": 186,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.1,
+   "end_down_share": 0.425
+  },
+  {
+   "title": "别离的预感",
+   "file": "二巡上海2021_全程_p13_别离的预感_f0.csv",
+   "phrases": 96,
+   "low_events": 28,
+   "low_pos_median": 0.5,
+   "end_dir_median": 0.03,
+   "end_down_share": 0.324
+  },
+  {
+   "title": "一生中最爱",
+   "file": "【王晰三巡·图景】20220917 武汉全程____P05_一生中最爱_f0.csv",
+   "phrases": 91,
+   "low_events": 54,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.43,
+   "end_down_share": 0.537
+  },
+  {
+   "title": "迷雾",
+   "file": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P02_《迷雾》_f0.csv",
+   "phrases": 72,
+   "low_events": 51,
+   "low_pos_median": 0.455,
+   "end_dir_median": 0.02,
+   "end_down_share": 0.393
+  },
+  {
+   "title": "也许",
+   "file": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P03_《也许》_f0.csv",
+   "phrases": 74,
+   "low_events": 35,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.05,
+   "end_down_share": 0.278
+  },
+  {
+   "title": "追幸福的人",
+   "file": "二巡上海2021_全程_p31_追幸福的人_f0.csv",
+   "phrases": 58,
+   "low_events": 33,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.0,
+   "end_down_share": 0.375
+  },
+  {
+   "title": "平凡又美好的晚上",
+   "file": "王晰「回×重庆」20260613 回溯之巡 重逢__P14_平凡又美好的晚上_f0.csv",
+   "phrases": 83,
+   "low_events": 37,
+   "low_pos_median": 0.5,
+   "end_dir_median": -0.29,
+   "end_down_share": 0.5
+  },
+  {
+   "title": "哭砂",
+   "file": "二巡佛山20201121_p10_【王晰】2020个人巡回音乐会 11.21佛山场 p10 10 哭砂_f0.csv",
+   "phrases": 84,
+   "low_events": 28,
+   "low_pos_median": 0.46,
+   "end_dir_median": -0.02,
+   "end_down_share": 0.321
+  },
+  {
+   "title": "一声阿爸",
+   "file": "一声阿爸_f0.csv",
+   "phrases": 49,
+   "low_events": 30,
+   "low_pos_median": 0.268,
+   "end_dir_median": -0.12,
+   "end_down_share": 0.267
+  },
+  {
+   "title": "三十三",
+   "file": "三十三_f0.csv",
+   "phrases": 77,
+   "low_events": 48,
+   "low_pos_median": 0.38,
+   "end_dir_median": 0.02,
+   "end_down_share": 0.4
+  }
+ ],
+ "excluded": [
+  {
+   "title": "住口",
+   "file": "20251121203851 0032 住口4_f0.csv",
+   "reason": "帧数不足(142)"
+  }
+ ]
+}
