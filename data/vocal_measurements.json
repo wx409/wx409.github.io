@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-03 20:48",
+ "generated_at": "2026-11-03 21:12",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -2170,27 +2170,6 @@
    }
   },
   {
-   "id": "precision|渔光曲|stable",
-   "song": "渔光曲",
-   "version": "十曲精测·稳定音",
-   "layer": "precision",
-   "source_ref": "录音室（全曲口径）",
-   "metrics": {
-    "low_note": "B1",
-    "low_hz": 61.7,
-    "hnr_db": 8.1,
-    "duration_s": 0.26
-   },
-   "verify": {
-    "state": "已核验",
-    "evidence": "锚点320k重测 + 网易云交叉（D#2 79.7Hz）"
-   },
-   "provenance": {
-    "measured_by": "复核十曲严格口径",
-    "legacy": "archive_vocal.json"
-   }
-  },
-  {
    "id": "precision|知晓|stable",
    "song": "知晓",
    "version": "十曲精测·稳定音",
@@ -3000,6 +2979,27 @@
     "measured_by": "复核十曲严格口径",
     "legacy": "archive_vocal.json",
     "note": "触达音不作能力依据"
+   }
+  },
+  {
+   "id": "precision|渔光曲|stable",
+   "song": "渔光曲",
+   "version": "十曲精测·稳定音",
+   "layer": "precision",
+   "source_ref": "录音室（全曲口径）",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.2,
+    "hnr_db": 8.1,
+    "duration_s": 0.26
+   },
+   "verify": {
+    "state": "已核验",
+    "evidence": "真 320k（M800）复测：稳定音为 D#2 79.2Hz（0.26s，HNR 8.1dB）；B1 61.6Hz 时刻谱峰在位但未达稳定门槛 → 降为触达级"
+   },
+   "provenance": {
+    "measured_by": "复核十曲严格口径",
+    "legacy": "archive_vocal.json"
    }
   },
   {

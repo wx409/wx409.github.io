@@ -98,6 +98,21 @@ def add_context_column(html: str) -> str:
     return html[:i] + seg2 + html[j:]
 
 
+
+
+def block_voice_extra() -> str:
+    return """<!-- EXTRA_START -->
+<section style="margin:26px 0;padding:18px 20px;background:#f7f7fa;border-left:5px solid #555;border-radius:6px">
+<h2 style="margin:.2em 0 .4em;border:0;padding:0">合唱不进榜单，声部不由音区决定</h2>
+<p style="margin:.2em 0 .8em;color:#666;font-size:14px">两条口径修正，都是为了不拿别人的声音给他作证。</p>
+<p><b>一、合唱曲单独处理。</b>录音室 155 首里，<b>13 首是合唱</b>（如《无荒》谭维维/王晰、《相思》王晰/弦子、《生活该有的样子》A-Lin/王晰）。合唱曲里的高音可能是女声，因此<b>不进入任何能力榜单</b>；能力榜只统计独唱 <b>142 首</b>。</p>
+<p><b>二、“中音区占比高”不能说明他是中音。</b>音符分布描述的是<b>作品</b>（流行歌写在哪个音区由编曲决定），声部描述的是<b>嗓子</b>（换声点、音色、低音是否可靠）。任何男低音唱流行歌，大多数音符也都在自己的中段。</p>
+<p>准确说法：<b>他的作品大多写在中间音区，但低音一出现就低过男低音下限 E2——这是低音声部的用法：不常驻低处，但随时下得去。</b></p>
+<p>声乐分类上，他是 <b>bass-baritone（低男中音）</b>；姚峰（深圳音协主席）的评价是“Bass-baritone……流行圈内恐怕就是孤本”。</p>
+</section>
+<!-- EXTRA_END -->"""
+
+
 def inject(path: Path, block: str) -> bool:
     s = path.read_text(encoding='utf-8')
     if '<!-- ABILITY_START -->' in s:
@@ -112,6 +127,10 @@ def inject(path: Path, block: str) -> bool:
         s = s[:i+5] + '\n' + block + s[i+5:]
     if path.name == 'voice.html':
         s = add_context_column(s)
+        if '<!-- EXTRA_START -->' not in s:
+            k = s.find('<!-- ABILITY_END -->')
+            if k > 0:
+                s = s[:k + len('<!-- ABILITY_END -->')] + '\n' + block_voice_extra() + s[k + len('<!-- ABILITY_END -->'):]
     path.write_text(s, encoding='utf-8')
     return True
 

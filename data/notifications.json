@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-03 21:00:03",
+ "updated_at": "2026-11-03 21:12:53",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5325,6 +5325,42 @@
    "title": "⚠️ 大屏采集漏批：2026-11-03",
    "content": "应当完成但缺产出的批次：\n缺 8:05 quick\n缺 8:15 quick\n缺 21:00 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 2 个)；tasklist=在(命中)）；日志 0.0 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261103.log",
    "category": "运维告警"
+  },
+  {
+   "time": "2026-11-03 21:04:15",
+   "title": "🎵 网易云新歌 · 从现在 到未来",
+   "content": "专辑/单曲：从现在 到未来\n已写入候选清单，后续自动补歌词/班底。",
+   "category": "网易云新歌",
+   "source": "网易云"
+  },
+  {
+   "time": "2026-11-03 21:04:15",
+   "title": "📣 不说（王晰个人音乐专辑）_百度百科",
+   "content": "《不说》是王晰第七张个人音乐专辑，于2024年12月16日发行，由乐华圆娱发行。 该专辑由音乐人崔迪历时两年为其量身打造，融入 …\n链接：https://baike.baidu.com/item/%E4%B8%8D%E8%AF%B4/65215075",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.baidu.com/item/%E4%B8%8D%E8%AF%B4/65215075"
+  },
+  {
+   "time": "2026-11-03 21:04:15",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛稀缺的真&#183;男低音（Bass-baritone）——姚峰称他「作为 Bass-baritone 的 …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-11-03 21:04:15",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 1 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-11-03 21:12:53",
+   "title": "⚠️ 自动更新失败：deploy_all 出错",
+   "content": "详情见 logs/ 目录",
+   "category": "通知"
   }
  ]
 }
