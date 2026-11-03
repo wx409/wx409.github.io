@@ -1,20 +1,11 @@
 {
- "generated_at": "2026-11-03T00:05:04",
+ "generated_at": "2026-11-03T09:45:05",
  "expect_last": "2026-11-02",
- "gaps_before": 66,
- "handled": 1,
- "findable": [
-  "2026-11-02"
- ],
+ "gaps_before": 65,
+ "handled": 0,
+ "findable": [],
  "missing_no_source": [],
- "rebuild": {
-  "rc": 0,
-  "tail": [
-   "   gap: 2025-03-25 -> 2025-03-27",
-   "   gap: 2025-04-11 -> 2025-04-13",
-   "输出: E:\\wx\\wx_textmine_out\\music_index_long.csv"
-  ]
- },
+ "rebuild": null,
  "gaps_after": 65,
  "remaining_recent": [
   "2026-01-15",
