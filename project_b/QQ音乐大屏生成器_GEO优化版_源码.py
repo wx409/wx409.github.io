@@ -5727,8 +5727,11 @@ def generate_dashboard(payload, dashboard_dir):
                 return False
             if _o.get("uid") in _uids:
                 return True
-            _n = str(_o.get("name", "")).replace(" ", "")
-            return bool(_n) and any(_x and _x in _n for _x in _names)
+            for _f in ("name", "song", "title"):
+                _n = str(_o.get(_f, "")).replace(" ", "")
+                if _n and any(_x and _x in _n for _x in _names):
+                    return True
+            return False
 
         for _k in ("new_songs", "daily_rank", "top_songs", "detail_songs", "song_index",
                    "songs", "listener_peaks", "song_peaks", "peak_songs", "rank_groups"):
@@ -5763,6 +5766,12 @@ def generate_dashboard(payload, dashboard_dir):
          ("date", "scene", "city", "content_type", "tour", "total_uplift", "pattern", "top_songs")}
         for _e in (payload.get("tour_song_effects") or [])
     ]
+    try:
+        for _k, _v in list(_lite.items()):
+            if isinstance(_v, list):
+                _lite[_k] = [x for x in _v if not _bad(x)]
+    except Exception:
+        pass
     with open(os.path.join(dashboard_dir, "dashboard_lite.json"), "w", encoding="utf-8") as _f:
         json.dump(_clean_nan(_lite), _f, ensure_ascii=False, indent=1)
     logger.info(f"助手实时检索精简数据已写出: dashboard_lite.json（{len(json.dumps(_lite, ensure_ascii=False))//1024}KB）")
