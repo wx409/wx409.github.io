@@ -85,7 +85,7 @@ def add_context_column(html: str) -> str:
                 env = ' / '.join(dict.fromkeys(tags))
                 break
         if env is None:
-            env = '录音室' if any('全曲口径' in t for t in texts) else '—'
+            env = '录音室' if any(('全曲口径' in t or '人工复核' in t) for t in texts) else '—'
         return row.replace(cells[0], cells[0] + f'<td>{env}</td>', 1)
 
     # 只处理附一那张表：从 marker 到 </table>
