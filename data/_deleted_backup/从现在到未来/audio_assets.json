@@ -1,0 +1,3311 @@
+{
+ "summary": {
+  "generated_at": "2026-11-03T17:07:23",
+  "since": "2026-11-03",
+  "batches": 366,
+  "files": 2621,
+  "gb": 82.81,
+  "new_files": 0,
+  "new_mb": 0.0,
+  "stats_total": 1454,
+  "stage_rows": 814,
+  "claimable": 652,
+  "claimable_soft": 332
+ },
+ "batches": [
+  {
+   "batch": "wav",
+   "files": 364,
+   "mb": 17801.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-02"
+  },
+  {
+   "batch": "wav_十年现场语料",
+   "files": 337,
+   "mb": 16622.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "wav_分P逐曲",
+   "files": 182,
+   "mb": 9317.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "wav_六巡含歌",
+   "files": 16,
+   "mb": 9184.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "wav_新源现场",
+   "files": 128,
+   "mb": 4906.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "wav_一巡现场",
+   "files": 12,
+   "mb": 2785.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "舞台对照·QQ官方版",
+   "files": 81,
+   "mb": 2205.2,
+   "stats": 54,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "音频",
+   "files": 36,
+   "mb": 1461.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "_核验素材_20260911_多听有益B1",
+   "files": 39,
+   "mb": 1272.8,
+   "stats": 10,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "wav_自录视频",
+   "files": 40,
+   "mb": 1219.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "Low C的诱惑Ⅱ",
+   "files": 36,
+   "mb": 1100.0,
+   "stats": 24,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "Low C的诱惑",
+   "files": 37,
+   "mb": 972.8,
+   "stats": 25,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "歌颂",
+   "files": 34,
+   "mb": 928.8,
+   "stats": 20,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-28"
+  },
+  {
+   "batch": "B面图景",
+   "files": 31,
+   "mb": 792.2,
+   "stats": 20,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "wav_四巡北京231112",
+   "files": 16,
+   "mb": 789.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "沉响20261009_分段",
+   "files": 19,
+   "mb": 784.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "wav_广州逐曲",
+   "files": 20,
+   "mb": 774.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "X自选集",
+   "files": 28,
+   "mb": 734.5,
+   "stats": 18,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-24"
+  },
+  {
+   "batch": "wav_五巡上海20251121",
+   "files": 19,
+   "mb": 674.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "wav_五巡北京260410",
+   "files": 3,
+   "mb": 654.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "不说",
+   "files": 24,
+   "mb": 637.4,
+   "stats": 16,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-24"
+  },
+  {
+   "batch": "wav_四巡北京240816",
+   "files": 3,
+   "mb": 629.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "_jiu_tmp",
+   "files": 7,
+   "mb": 616.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "沉响20261009_v2_块",
+   "files": 11,
+   "mb": 606.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "沉响20261009_v4_块",
+   "files": 18,
+   "mb": 586.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "沉响20261009_v3_块",
+   "files": 13,
+   "mb": 556.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "wav_鄂尔多斯2022",
+   "files": 23,
+   "mb": 414.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "回望",
+   "files": 9,
+   "mb": 284.5,
+   "stats": 6,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "三巡长沙全场",
+   "files": 9,
+   "mb": 242.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "签唱会上海全场",
+   "files": 6,
+   "mb": 187.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "佛山全场",
+   "files": 31,
+   "mb": 183.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "wav_赵鹏对照_赵鹏版",
+   "files": 8,
+   "mb": 164.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "全场_1010全量",
+   "files": 1,
+   "mb": 158.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "全场_第二场_全量",
+   "files": 32,
+   "mb": 150.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "wav_四轨",
+   "files": 4,
+   "mb": 142.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-10"
+  },
+  {
+   "batch": "vocals.wav",
+   "files": 4,
+   "mb": 140.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-30"
+  },
+  {
+   "batch": "多听有益",
+   "files": 4,
+   "mb": 127.8,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-12"
+  },
+  {
+   "batch": "低音共鸣",
+   "files": 3,
+   "mb": 118.0,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "wav_赵鹏对照",
+   "files": 8,
+   "mb": 116.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "wav_广州微博",
+   "files": 3,
+   "mb": 111.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "龙源之声",
+   "files": 4,
+   "mb": 107.1,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "月光森林 (赵鹏人声低音炮2)",
+   "files": 3,
+   "mb": 105.5,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "上阳赋 电视剧原声专辑",
+   "files": 3,
+   "mb": 98.1,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "让她降落",
+   "files": 16,
+   "mb": 92.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-20"
+  },
+  {
+   "batch": "震撼2020",
+   "files": 3,
+   "mb": 88.3,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "赵鹏",
+   "files": 3,
+   "mb": 87.2,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "闪亮的日子 (赵鹏人声低音炮1)",
+   "files": 3,
+   "mb": 87.0,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "wav_串烧切片",
+   "files": 6,
+   "mb": 84.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "三巡上海全场",
+   "files": 21,
+   "mb": 82.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "大江东去",
+   "files": 3,
+   "mb": 81.4,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "sep",
+   "files": 2,
+   "mb": 77.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "雪地里寄不出的求救信",
+   "files": 12,
+   "mb": 74.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-16"
+  },
+  {
+   "batch": "Your Man",
+   "files": 11,
+   "mb": 72.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-15"
+  },
+  {
+   "batch": "part9",
+   "files": 1,
+   "mb": 52.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "重游往昔",
+   "files": 12,
+   "mb": 51.8,
+   "stats": 16,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
+  },
+  {
+   "batch": "像雾像雨又像风",
+   "files": 6,
+   "mb": 43.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
+   "batch": "static_night_320k.wav",
+   "files": 1,
+   "mb": 43.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-10"
+  },
+  {
+   "batch": "wav_一生中最爱",
+   "files": 1,
+   "mb": 42.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "wav_金钟之星2025",
+   "files": 1,
+   "mb": 40.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "全场_第二场",
+   "files": 2,
+   "mb": 40.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "全量待复核_20260916",
+   "files": 81,
+   "mb": 40.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "_zp2_tmp",
+   "files": 8,
+   "mb": 36.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "沉响20261009_v2",
+   "files": 52,
+   "mb": 34.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "wav_过山车两首",
+   "files": 2,
+   "mb": 34.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "_zp_tmp",
+   "files": 8,
+   "mb": 34.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "Moon River",
+   "files": 2,
+   "mb": 33.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "part3",
+   "files": 1,
+   "mb": 33.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "工作室点歌20261012",
+   "files": 4,
+   "mb": 32.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "爱你",
+   "files": 3,
+   "mb": 31.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-21"
+  },
+  {
+   "batch": "wav_滚滚长江东逝水",
+   "files": 1,
+   "mb": 31.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "wav_工作室中控台",
+   "files": 4,
+   "mb": 29.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "(根目录)",
+   "files": 2,
+   "mb": 29.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-09"
+  },
+  {
+   "batch": "多听有益_工作室现场_20261024",
+   "files": 17,
+   "mb": 29.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-24"
+  },
+  {
+   "batch": "花儿为什么这样红",
+   "files": 3,
+   "mb": 28.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "wav_俄罗斯决赛_电视版",
+   "files": 1,
+   "mb": 27.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "静止了的夜晚",
+   "files": 4,
+   "mb": 27.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-18"
+  },
+  {
+   "batch": "wav_杨洪基QQ版",
+   "files": 1,
+   "mb": 25.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "Moon River_切片",
+   "files": 3,
+   "mb": 24.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "牵手",
+   "files": 2,
+   "mb": 24.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-12"
+  },
+  {
+   "batch": "wav_五巡北京_talk",
+   "files": 8,
+   "mb": 24.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "晚风",
+   "files": 4,
+   "mb": 23.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "小毛驴",
+   "files": 5,
+   "mb": 23.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "点歌环节",
+   "files": 2,
+   "mb": 22.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "乌兰巴托的夜",
+   "files": 2,
+   "mb": 20.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "女儿情",
+   "files": 1,
+   "mb": 20.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "wav_微醺深圳0926",
+   "files": 1,
+   "mb": 19.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "练声降A",
+   "files": 3,
+   "mb": 19.4,
+   "stats": 1,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "woyaoni1010_mix.wav",
+   "files": 1,
+   "mb": 19.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "part4",
+   "files": 1,
+   "mb": 19.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "wav_风格两首",
+   "files": 2,
+   "mb": 18.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "沉响20261009_v5",
+   "files": 28,
+   "mb": 18.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "我要你",
+   "files": 7,
+   "mb": 18.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-18"
+  },
+  {
+   "batch": "哭砂",
+   "files": 4,
+   "mb": 17.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "沉响20261009",
+   "files": 26,
+   "mb": 17.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "心动",
+   "files": 2,
+   "mb": 16.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "亲密爱人",
+   "files": 3,
+   "mb": 16.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-20"
+  },
+  {
+   "batch": "新不了情",
+   "files": 4,
+   "mb": 16.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "part5",
+   "files": 1,
+   "mb": 16.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "wav_俄罗斯决赛",
+   "files": 1,
+   "mb": 16.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "月半弯",
+   "files": 2,
+   "mb": 15.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-21"
+  },
+  {
+   "batch": "wav_相亲相爱一家人",
+   "files": 1,
+   "mb": 14.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "一生守候",
+   "files": 4,
+   "mb": 14.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-22"
+  },
+  {
+   "batch": "重庆野玫瑰",
+   "files": 2,
+   "mb": 14.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
+  },
+  {
+   "batch": "祝我们随遇而安",
+   "files": 3,
+   "mb": 14.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-25"
+  },
+  {
+   "batch": "为爱痴狂",
+   "files": 1,
+   "mb": 14.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-12"
+  },
+  {
+   "batch": "红豆",
+   "files": 3,
+   "mb": 14.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "惑许",
+   "files": 2,
+   "mb": 14.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-23"
+  },
+  {
+   "batch": "友谊地久天长",
+   "files": 3,
+   "mb": 13.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "旋木",
+   "files": 1,
+   "mb": 13.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "朋友别哭",
+   "files": 1,
+   "mb": 13.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "沉响20261010_块级",
+   "files": 37,
+   "mb": 12.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
+   "batch": "让我欢喜让我忧",
+   "files": 1,
+   "mb": 12.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-12"
+  },
+  {
+   "batch": "音源",
+   "files": 1,
+   "mb": 12.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-10"
+  },
+  {
+   "batch": "美酒加咖啡",
+   "files": 2,
+   "mb": 12.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "五巡北京_talk判据确认_20260917",
+   "files": 7,
+   "mb": 11.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "人世间",
+   "files": 3,
+   "mb": 11.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-22"
+  },
+  {
+   "batch": "part2",
+   "files": 1,
+   "mb": 11.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "待复核_20260916",
+   "files": 22,
+   "mb": 10.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "Love Me Tender",
+   "files": 1,
+   "mb": 10.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-19"
+  },
+  {
+   "batch": "南屏晚钟",
+   "files": 5,
+   "mb": 10.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "part8",
+   "files": 1,
+   "mb": 10.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "001gW7th0K2rgc.mp3",
+   "files": 2,
+   "mb": 9.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-10"
+  },
+  {
+   "batch": "光阴的故事",
+   "files": 1,
+   "mb": 9.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "月圆花好",
+   "files": 1,
+   "mb": 9.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "当爱已成往事",
+   "files": 2,
+   "mb": 9.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-12"
+  },
+  {
+   "batch": "别离的预感",
+   "files": 1,
+   "mb": 9.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "part6",
+   "files": 1,
+   "mb": 9.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "月亮代表我的心",
+   "files": 2,
+   "mb": 8.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "Dear Friend",
+   "files": 1,
+   "mb": 8.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "_yhj_tmp",
+   "files": 1,
+   "mb": 8.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "送别",
+   "files": 1,
+   "mb": 8.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-18"
+  },
+  {
+   "batch": "全场",
+   "files": 1,
+   "mb": 8.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "匆匆",
+   "files": 2,
+   "mb": 8.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
+   "batch": "敕勒歌",
+   "files": 2,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "英文串烧",
+   "files": 1,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "英文串烧_切片",
+   "files": 3,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "part10",
+   "files": 1,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "橄榄树",
+   "files": 1,
+   "mb": 8.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "再回首",
+   "files": 2,
+   "mb": 7.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-02"
+  },
+  {
+   "batch": "天边",
+   "files": 2,
+   "mb": 7.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "part7",
+   "files": 1,
+   "mb": 7.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "给电影人的情书",
+   "files": 3,
+   "mb": 7.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "高级动物",
+   "files": 1,
+   "mb": 7.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-12"
+  },
+  {
+   "batch": "王牌就是我",
+   "files": 1,
+   "mb": 7.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "钟爱一生",
+   "files": 2,
+   "mb": 7.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-29"
+  },
+  {
+   "batch": "无与伦比的美丽",
+   "files": 1,
+   "mb": 7.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "C6待确认_20260916",
+   "files": 12,
+   "mb": 7.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "从现在 到未来.mp3",
+   "files": 1,
+   "mb": 7.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "part1",
+   "files": 1,
+   "mb": 7.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "女人花",
+   "files": 1,
+   "mb": 6.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "恋曲1990",
+   "files": 1,
+   "mb": 6.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-24"
+  },
+  {
+   "batch": "凄美地",
+   "files": 2,
+   "mb": 6.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-23"
+  },
+  {
+   "batch": "后会无期",
+   "files": 1,
+   "mb": 6.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
+   "batch": "知晓",
+   "files": 1,
+   "mb": 6.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-18"
+  },
+  {
+   "batch": "俄罗斯决赛_小河淌水段_20260916",
+   "files": 5,
+   "mb": 6.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "好久不见",
+   "files": 1,
+   "mb": 6.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-24"
+  },
+  {
+   "batch": "约定",
+   "files": 1,
+   "mb": 6.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-24"
+  },
+  {
+   "batch": "City of Stars",
+   "files": 3,
+   "mb": 6.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "翠湖寒",
+   "files": 1,
+   "mb": 6.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-22"
+  },
+  {
+   "batch": "雷美替胺",
+   "files": 1,
+   "mb": 6.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "奉献",
+   "files": 3,
+   "mb": 6.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "你的样子",
+   "files": 1,
+   "mb": 5.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "袖手旁观",
+   "files": 1,
+   "mb": 5.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "Close to You",
+   "files": 1,
+   "mb": 5.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "听辨_B1候选_20260911",
+   "files": 15,
+   "mb": 5.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "多听有益_全C6核验_20260917",
+   "files": 7,
+   "mb": 5.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "无尽的夜里",
+   "files": 1,
+   "mb": 5.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-26"
+  },
+  {
+   "batch": "小河",
+   "files": 1,
+   "mb": 5.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "耶利亚女郎",
+   "files": 1,
+   "mb": 5.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "金钟之星2025_20260917",
+   "files": 6,
+   "mb": 5.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "我很好",
+   "files": 1,
+   "mb": 5.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "过山车段_月亮出来亮汪汪_20260916",
+   "files": 4,
+   "mb": 5.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "长声23秒待核_20260917",
+   "files": 3,
+   "mb": 5.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "鹅毛信",
+   "files": 2,
+   "mb": 5.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "晚婚",
+   "files": 1,
+   "mb": 5.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "多听有益_人声轨_20260917",
+   "files": 3,
+   "mb": 5.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "想游泳的星.mp3",
+   "files": 1,
+   "mb": 5.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "向着太阳.mp3",
+   "files": 1,
+   "mb": 4.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "我变了我没变",
+   "files": 1,
+   "mb": 4.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-25"
+  },
+  {
+   "batch": "俄罗斯决赛_在路上_20260916",
+   "files": 6,
+   "mb": 4.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "勿扰",
+   "files": 2,
+   "mb": 4.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-29"
+  },
+  {
+   "batch": "倒叙",
+   "files": 1,
+   "mb": 4.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-21"
+  },
+  {
+   "batch": "杨洪基对照_分段_20260916",
+   "files": 5,
+   "mb": 4.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "三十三.mp3",
+   "files": 1,
+   "mb": 4.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "猫模狗样",
+   "files": 1,
+   "mb": 4.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-24"
+  },
+  {
+   "batch": "把一切给明天.mp3",
+   "files": 1,
+   "mb": 4.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "群落.mp3",
+   "files": 1,
+   "mb": 4.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "抗风桐",
+   "files": 1,
+   "mb": 4.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "新的篇章.mp3",
+   "files": 1,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "是你",
+   "files": 1,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-02"
+  },
+  {
+   "batch": "生活该有的样子.mp3",
+   "files": 1,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "四季歌",
+   "files": 2,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "怂",
+   "files": 1,
+   "mb": 4.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-28"
+  },
+  {
+   "batch": "一个都不落下.mp3",
+   "files": 1,
+   "mb": 4.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "白鸽",
+   "files": 1,
+   "mb": 4.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-18"
+  },
+  {
+   "batch": "走过咖啡屋",
+   "files": 1,
+   "mb": 4.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-18"
+  },
+  {
+   "batch": "滚滚红尘",
+   "files": 1,
+   "mb": 4.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "四条千赫兹核验_20260917",
+   "files": 7,
+   "mb": 4.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "夜.mp3",
+   "files": 1,
+   "mb": 4.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "专辑层高音区复核_第2批_20260916",
+   "files": 8,
+   "mb": 4.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "专辑层高音区复核_20260916",
+   "files": 8,
+   "mb": 4.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "往前.mp3",
+   "files": 1,
+   "mb": 4.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "再叙.mp3",
+   "files": 1,
+   "mb": 4.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "时空",
+   "files": 1,
+   "mb": 4.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-23"
+  },
+  {
+   "batch": "剑心铸梦.mp3",
+   "files": 1,
+   "mb": 3.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "铸梦.mp3",
+   "files": 1,
+   "mb": 3.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "一生中最爱.mp3",
+   "files": 1,
+   "mb": 3.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "欢迎来到我的世界.mp3",
+   "files": 1,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "故事慢慢说.mp3",
+   "files": 1,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "_tv_tmp",
+   "files": 1,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "过客.mp3",
+   "files": 1,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "外婆.mp3",
+   "files": 1,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "一声阿爸.mp3",
+   "files": 1,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "世界赠予我的",
+   "files": 2,
+   "mb": 3.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "一言千年.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "下潜.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "也许.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "如翡.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "无荒.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "火光.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "灯塔.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "罗辑.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "苏幕遮.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "说了再见 (男声版).mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "向着太阳.m4a",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "时间.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "玫瑰.mp3",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "_rc_tmp",
+   "files": 2,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "黄昏放牛",
+   "files": 1,
+   "mb": 3.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "镜中的自己.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "爱我吗.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "Sunlight.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "光阴的船.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "哭砂.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "我们的歌.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "无心.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "无畏.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "梦开始的地方.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "盛世.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "萤火.mp3",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "敕勒歌_乌兰巴托的夜",
+   "files": 1,
+   "mb": 3.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "四巡北京231112_高音核验",
+   "files": 6,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "俄罗斯决赛_电视版_20260916",
+   "files": 6,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "六巡含歌_极值核验_20260917",
+   "files": 6,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "_赵鹏",
+   "files": 1,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "相思.mp3",
+   "files": 1,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "不赖.mp3",
+   "files": 1,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "Love is over",
+   "files": 1,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
+   "batch": "信仰之路.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "别离的预感.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "剑起山林.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "午后三点.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "如龙.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "弘扬.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "我的命运.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "暗潮涌动.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "来得及.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "渡荆门送别.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "生而逢时.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "蓝色臻爱.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "着魔",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-22"
+  },
+  {
+   "batch": "野兽的花.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "分岔",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-23"
+  },
+  {
+   "batch": "南屏晚钟.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "漫长的告别",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "Crystal Store",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "微而足道.mp3",
+   "files": 1,
+   "mb": 3.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-29"
+  },
+  {
+   "batch": "床前明月光",
+   "files": 1,
+   "mb": 3.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-29"
+  },
+  {
+   "batch": "追幸福的人.mp3",
+   "files": 1,
+   "mb": 3.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "你",
+   "files": 1,
+   "mb": 3.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "信念.mp3",
+   "files": 1,
+   "mb": 3.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "鹅毛信.mp3",
+   "files": 1,
+   "mb": 3.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "到达.mp3",
+   "files": 1,
+   "mb": 3.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "My Oh My",
+   "files": 1,
+   "mb": 3.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "皮囊之下.mp3",
+   "files": 1,
+   "mb": 3.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "只好背叛地球了.mp3",
+   "files": 1,
+   "mb": 3.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "心有独钟",
+   "files": 1,
+   "mb": 3.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-26"
+  },
+  {
+   "batch": "嘎达梅林",
+   "files": 1,
+   "mb": 3.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "一生中最爱",
+   "files": 1,
+   "mb": 3.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "专辑层C6复核_20260916",
+   "files": 6,
+   "mb": 3.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "月光C6复核_20260916",
+   "files": 6,
+   "mb": 3.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "暗潮涌动",
+   "files": 1,
+   "mb": 3.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-26"
+  },
+  {
+   "batch": "_rv_tmp",
+   "files": 1,
+   "mb": 3.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "六巡含歌_A5待核_20260917",
+   "files": 5,
+   "mb": 2.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "鄂尔多斯千赫兹_20260917",
+   "files": 5,
+   "mb": 2.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "我们都是运动员.mp3",
+   "files": 1,
+   "mb": 2.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "遇见幸福.mp3",
+   "files": 1,
+   "mb": 2.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-28"
+  },
+  {
+   "batch": "惑许.mp3",
+   "files": 1,
+   "mb": 2.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "莫斯科郊外的晚上",
+   "files": 1,
+   "mb": 2.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-17"
+  },
+  {
+   "batch": "在路上.mp3",
+   "files": 1,
+   "mb": 2.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-08"
+  },
+  {
+   "batch": "_xx_tmp",
+   "files": 1,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "audio",
+   "files": 1,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-13"
+  },
+  {
+   "batch": "等一等昨天",
+   "files": 1,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "俄罗斯决赛_王晰段高音_20260916",
+   "files": 4,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "友谊地久天长_C6定位_正确源_20260916",
+   "files": 4,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "在路上",
+   "files": 1,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-24"
+  },
+  {
+   "batch": "住口",
+   "files": 1,
+   "mb": 2.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-26"
+  },
+  {
+   "batch": "天黑黑",
+   "files": 1,
+   "mb": 2.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-25"
+  },
+  {
+   "batch": "友谊地久天长_C6定位_20260916",
+   "files": 5,
+   "mb": 2.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "Come to Me",
+   "files": 1,
+   "mb": 2.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-15"
+  },
+  {
+   "batch": "恋人",
+   "files": 1,
+   "mb": 2.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "待听辨_20260924",
+   "files": 6,
+   "mb": 2.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-24"
+  },
+  {
+   "batch": "爱情转移",
+   "files": 1,
+   "mb": 2.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "一帘幽梦",
+   "files": 1,
+   "mb": 2.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-08"
+  },
+  {
+   "batch": "是否",
+   "files": 1,
+   "mb": 2.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-12"
+  },
+  {
+   "batch": "玩笑",
+   "files": 1,
+   "mb": 2.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-23"
+  },
+  {
+   "batch": "玫瑰人生（La Vie en Rose）",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-18"
+  },
+  {
+   "batch": "只要有你",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "梦里水乡",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-23"
+  },
+  {
+   "batch": "茕茕",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-11"
+  },
+  {
+   "batch": "光之心",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "小星星",
+   "files": 1,
+   "mb": 2.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "敖包相会",
+   "files": 1,
+   "mb": 2.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-20"
+  },
+  {
+   "batch": "录音室_打两份工_20260916",
+   "files": 3,
+   "mb": 2.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "Yes or No",
+   "files": 1,
+   "mb": 2.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "白月光",
+   "files": 1,
+   "mb": 2.0,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "月牙湾",
+   "files": 1,
+   "mb": 1.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-15"
+  },
+  {
+   "batch": "你快乐所以我快乐",
+   "files": 1,
+   "mb": 1.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-11"
+  },
+  {
+   "batch": "三个人的晚餐",
+   "files": 1,
+   "mb": 1.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-25"
+  },
+  {
+   "batch": "我曾用心爱着你",
+   "files": 1,
+   "mb": 1.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-24"
+  },
+  {
+   "batch": "情歌",
+   "files": 1,
+   "mb": 1.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-25"
+  },
+  {
+   "batch": "梦一场",
+   "files": 1,
+   "mb": 1.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-02"
+  },
+  {
+   "batch": "亲爱的小孩",
+   "files": 1,
+   "mb": 1.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "今宵多珍重",
+   "files": 1,
+   "mb": 1.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-14"
+  },
+  {
+   "batch": "难忘今宵",
+   "files": 1,
+   "mb": 1.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
+  },
+  {
+   "batch": "十年",
+   "files": 1,
+   "mb": 1.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "在路上_高音补查_20260916",
+   "files": 3,
+   "mb": 1.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "心恋",
+   "files": 1,
+   "mb": 1.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "囚鸟",
+   "files": 1,
+   "mb": 1.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-25"
+  },
+  {
+   "batch": "遇见",
+   "files": 1,
+   "mb": 1.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-02"
+  },
+  {
+   "batch": "南海姑娘",
+   "files": 1,
+   "mb": 1.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-15"
+  },
+  {
+   "batch": "Fly Me to the Moon",
+   "files": 1,
+   "mb": 1.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "A#1复核_20260916",
+   "files": 2,
+   "mb": 1.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "阿瓦尔古丽",
+   "files": 1,
+   "mb": 1.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "美丽的草原我的家",
+   "files": 1,
+   "mb": 1.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-20"
+  },
+  {
+   "batch": "宝贝",
+   "files": 1,
+   "mb": 1.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-15"
+  },
+  {
+   "batch": "听海",
+   "files": 1,
+   "mb": 1.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-20"
+  },
+  {
+   "batch": "原来你也在这里",
+   "files": 1,
+   "mb": 1.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-26"
+  },
+  {
+   "batch": "追幸福的人",
+   "files": 1,
+   "mb": 1.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-10"
+  },
+  {
+   "batch": "慢慢喜欢你",
+   "files": 1,
+   "mb": 1.1,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-17"
+  },
+  {
+   "batch": "定位复核_Besamemucho",
+   "files": 2,
+   "mb": 0.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-16"
+  },
+  {
+   "batch": "长声C5归属核验_20260921",
+   "files": 2,
+   "mb": 0.7,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "在水一方",
+   "files": 1,
+   "mb": 0.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-18"
+  },
+  {
+   "batch": "B_C5长音_t220_人声轨.wav",
+   "files": 1,
+   "mb": 0.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "B_C5长音_t220_混音.wav",
+   "files": 1,
+   "mb": 0.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "长声F5归属核验_20260921",
+   "files": 2,
+   "mb": 0.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-21"
+  },
+  {
+   "batch": "雪孩子（滑雪歌）",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-18"
+  },
+  {
+   "batch": "A_C6候选_t158_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "A_C6候选_t158_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "C_对照_t60_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "C_对照_t60_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "D_对照_t100_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "D_对照_t100_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "亲密爱人_D#2_76.8Hz_t23.8_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "亲密爱人_D#2_76.8Hz_t23.8_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "像雾像雨又像风_E2_81.9Hz_t93.8_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "像雾像雨又像风_E2_81.9Hz_t93.8_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "友谊地久天长_A2_109.9Hz_t60.6_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "友谊地久天长_A2_109.9Hz_t60.6_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "友谊地久天长_G#2_103.6Hz_t8.6_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "友谊地久天长_G#2_103.6Hz_t8.6_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "祝我们随遇而安_F#2_89.9Hz_t28.5_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "祝我们随遇而安_F#2_89.9Hz_t28.5_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "让她降落_F#2_90.3Hz_t115.5_人声轨.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "让她降落_F#2_90.3Hz_t115.5_混音.wav",
+   "files": 1,
+   "mb": 0.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-09-15"
+  },
+  {
+   "batch": "野狼disco",
+   "files": 1,
+   "mb": 0.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-10-22"
+  }
+ ]
+}
