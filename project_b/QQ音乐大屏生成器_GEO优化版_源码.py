@@ -2543,7 +2543,7 @@ CDN_LOADER = """<script>
     if(i>=cdns.length){document.dispatchEvent(new Event("echarts-fail"));return;}
     var s=document.createElement("script");
     s.src=cdns[i++];
-    s.onload=function(){document.dispatchEvent(new Event("echarts-ready"));};
+    s.onload=function(){ if(typeof echarts!=='undefined'){document.dispatchEvent(new Event("echarts-ready"));} else {loadNext();} };
     s.onerror=loadNext;
     document.head.appendChild(s);
   }
@@ -2585,7 +2585,7 @@ def build_echarts_tag():
     if(i>=cdns.length){document.dispatchEvent(new Event("echarts-fail"));return;}
     var s=document.createElement("script");
     s.src=cdns[i++];
-    s.onload=function(){document.dispatchEvent(new Event("echarts-ready"));};
+    s.onload=function(){ if(typeof echarts!=='undefined'){document.dispatchEvent(new Event("echarts-ready"));} else {loadNext();} };
     s.onerror=loadNext;
     document.head.appendChild(s);
   }
@@ -2866,6 +2866,8 @@ h2.chart-title{font-size:15px;font-weight:600}
 .micro-trend-box h2{margin-bottom:6px;}
 .footer{text-align:center;padding:25px;color:#3a4a6c;font-size:12px;border-top:1px solid rgba(0,210,255,0.08);margin-top:20px;letter-spacing:1px;}
 @media(max-width:1200px){.grid{grid-template-columns:repeat(2,1fr)}.bottom-row{grid-template-columns:1fr}.dim-row{grid-template-columns:1fr}.geo-summary ul{columns:1}.listen-pulse-bar{flex-direction:column;align-items:flex-start;}.daily-trend-list{flex-direction:column;}.data-freshness-bar{flex-direction:column;align-items:flex-start;gap:10px;}.anomaly-mini-list{margin-left:0;}}
+@media(max-width:640px){.container{padding:12px 10px}.grid,.bottom-row,.dim-row{grid-template-columns:1fr!important}table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}th,td{white-space:nowrap}.chart-box,.chart-container{min-width:0!important}#arch-mount,#kai-banner{max-width:100%!important;padding-left:10px;padding-right:10px}#kai-banner{font-size:12.5px;color:#4a3a00}}
+</style>ction:column;align-items:flex-start;gap:10px;}.anomaly-mini-list{margin-left:0;}}
 </style>
 <style id="kai-fold-css">
   .kai-nav{position:sticky;top:0;z-index:60;background:rgba(15,18,34,.92);display:flex;gap:6px;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid #334;max-width:1200px;margin:0 auto}
@@ -2876,7 +2878,7 @@ h2.chart-title{font-size:15px;font-weight:600}
 </head>
 <body>
 <div id="wx-freshbar">__FRESHNESS_BAR__</div>
-<div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：论文素材_王晰作传\基线口径\compute_baseline_v1.py</div>
+<div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6;color:#4a3a00"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：论文素材_王晰作传\基线口径\compute_baseline_v1.py</div>
 <div class="container">
   <div class="data-freshness-bar" id="freshnessBar">
     <span class="fresh-item">📊 数据快照 <strong id="snapTime">--</strong></span>
@@ -4563,11 +4565,19 @@ else{
   </div>
   <script id="arch-loader">
   (function(){
-    function loadJson(urls){ return Promise.all(urls.map(function(u){ return fetch(u).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); })); }
-    var bases = [ (location.href.indexOf('/dashboard/') >= 0 ? '../data/' : 'data/'), 'data/' ];
+    // 顺序尝试两个基址：先按页面所在位置取正确路径，取不到才试另一个（不再并发探测 → 消除 404 噪音）
+    var P = (location.href.indexOf('/dashboard/') >= 0 ? '../data/' : 'data/');
+    var F = (P === 'data/' ? '../data/' : 'data/');
+    function loadOne(name){
+      function attempt(base){
+        return fetch(base + name).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+      }
+      return attempt(P).then(function(v){ return v ? v : attempt(F); });
+    }
+    function loadJson(names){ return Promise.all(names.map(loadOne)); }
     function tryLoad(){
-      loadJson([bases[0]+'archive_baseline.json', bases[0]+'archive_digest.json', bases[1]+'archive_baseline.json', bases[1]+'archive_digest.json']).then(function(arr){
-        var bl = arr[0] || arr[2], dg = arr[1] || arr[3];
+      loadJson(['archive_baseline.json', 'archive_digest.json']).then(function(arr){
+        var bl = arr[0], dg = arr[1];
         var box = document.getElementById('arch-body');
         if (!box) return;
         if (!bl && !dg) { box.innerHTML = '<div style="color:#b00;font-size:12px">档案数据未找到（data/archive_*.json 缺失或未生成）。请在仓库运行 操作中心 44 档案一键全量。</div>'; return; }
@@ -4594,8 +4604,8 @@ else{
         box.innerHTML = h;
       });
       // 命题卡层：读 archive_propositions.json 渲染"矛盾驱动的命题卡 + 宣传词条"
-      loadJson([bases[0]+'archive_propositions.json', bases[1]+'archive_propositions.json']).then(function(arr){
-        var pp = arr[0] || arr[1];
+      loadJson(['archive_propositions.json']).then(function(arr){
+        var pp = arr[0];
         var box = document.getElementById('arch-body');
         if (!pp || !pp.cards || !pp.cards.length) return;
         var cards = pp.cards.map(function(c){
@@ -4610,8 +4620,8 @@ else{
         box.insertAdjacentHTML('beforeend', h2);
       });
       // 音域层：读 archive_vocal.json 渲染"人声分离实测音域谱 + 权威背书"
-      loadJson([bases[0]+'archive_vocal.json', bases[1]+'archive_vocal.json']).then(function(arr){
-        var vv = arr[0] || arr[1];
+      loadJson(['archive_vocal.json']).then(function(arr){
+        var vv = arr[0];
         var box = document.getElementById('arch-body');
         if (!vv || !vv.songs || !vv.songs.length) return;
         var rows = vv.songs.map(function(s){
