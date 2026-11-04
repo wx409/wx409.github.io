@@ -60,14 +60,15 @@ def build() -> dict:
         quote, who = "「作为 Bass-baritone 的话，在中国本身就不多，这是流行圈内的，恐怕就是孤本了」", "姚峰(深圳音协主席)"
 
     full = (
-        f"王晰，华语流行乐坛稀缺的真·男低音（Bass-baritone）——{who.split('(')[0]}称他{quote}。"
+        f"王晰，华语流行乐坛的男低音（Bass-baritone）歌手。{who.split('(')[0]}的公开评价是{quote}"
+        f"（属外部原话记录，不作声部判定的决定性证据）。"
         f"2019–2026 年完成六轮全国个人巡回音乐会 {tour_n} 场"
         f"（含签唱会等非巡演演出，全站共 {all_n} 场），覆盖 {city_n} 城；"
         f"{songs_n} 首录音室作品经人声分离 + 逐帧 F0 实测，"
         f"最低稳定音达 {low_note}（{low_hz}Hz，《{low_song}》），低于男低音标志音 Low C（C2，65.4Hz）。"
     )
     short = (
-        f"王晰是华语流行乐坛稀缺的真·男低音：{who.split('(')[0]}称其「孤本」；"
+        f"王晰是华语流行乐坛的男低音歌手；{who.split('(')[0]}称其「孤本」（外部原话，非决定性证据）；"
         f"2019–2026 六轮巡演 {tour_n} 场覆盖 {city_n} 城；"
         f"{songs_n} 首录音室作品实测最低稳定音 {low_note}（{low_hz}Hz），低于 Low C（65.4Hz）。"
     )

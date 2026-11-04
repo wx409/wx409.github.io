@@ -113,6 +113,8 @@ def desc_candidates(h, body, title):
             continue
         if c.startswith("|") or c.count("|") >= 3:
             continue  # 表格行，不当摘要
+        if c.count("｜") >= 2 or "数据截至" in c:
+            continue  # 「日期｜场馆｜数据截至」这类元信息行，不作为摘要
         if re.match(r"(生成|数据更新)\s*20\d{2}", c) or "经验性认知（非官方）" in c:
             continue  # 过程稿标记
         seen.add(c)
@@ -140,6 +142,8 @@ def desc_issue(h):
         return "与标题相同"
     if len(d) < 20:
         return "过短"
+    if "数据截至" in d:
+        return "元信息行"  # 「日期｜场馆｜数据截至」不是摘要
     return ""
 
 

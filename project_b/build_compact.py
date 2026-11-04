@@ -239,6 +239,14 @@ footer.site-index{{max-width:900px;margin:36px auto;padding:16px 18px;border-top
 font-size:13px;color:#666;line-height:2}}
 .card{{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:12px 0}}
 .warn{{background:#fff8f0;border:1px solid #eddcc0;border-radius:8px;padding:12px 16px;font-size:14px}}
+/* 手机端（≤640px）：宽表在自己的框里横向滚动，不再把整页撑出视口 */
+@media(max-width:640px){{
+ .wrap{{padding:16px 12px 8px}}
+ table{{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+ th,td{{white-space:nowrap}}
+ td,th{{padding:6px 7px}}
+ footer.site-index{{padding:14px 12px}}
+}}
 </style>
 </head>
 <body>
@@ -544,9 +552,9 @@ style="width:min(420px,70%);padding:9px 12px;border:1px solid var(--line);border
 <tr><td><a href="/community.html">参与</a></td><td>访客参与入口</td></tr>
 </table>
 
-<h2>权威定性</h2>
+<h2>外部评价（原话记录，非本站定性）</h2>
 <div class="card">{esc(quote)}<div class="src">—— {esc(quote_who)}</div></div>
-<p class="sub">权威表述均为外部原话的档案记录；本站不替代、不改写，也不据此做排名或唯一性断言。</p>
+<p class="sub">这段是行业人士的公开原话，按档案口径原样记录，<strong>不作声部判定的决定性证据</strong>：声部归属不能由本站曲库数据独立判定，本站也不据此做排名或唯一性断言。</p>
 
 {source_caveat()}
 """
@@ -1414,8 +1422,13 @@ def sitemap_pages():
 
 
 def build_sitemap():
-    """站点地图：对外页全量（完整档案页仍收录）+ 站点级文件。"""
-    pri = {"index.html": "1.0"}
+    """【已停用】sitemap 唯一出口是 project_b/site_fix.py（含 noindex/失效页/XML 结构校验）。
+
+    2026-11-04：本函数曾把一份 127 条的旧清单（无 tavern 逐字稿、含 noindex 分享页）
+    在每次重建时写回，覆盖掉全量 sitemap。保留仅为可追溯，不要再调用。
+    """
+    raise RuntimeError("sitemap 由 project_b/site_fix.py 统一生成，build_sitemap 已停用")
+    pri = {"index.html": "1.0"}  # noqa: F821 - 以下为停用前的旧实现，仅留档
     freq = {"index.html": "weekly"}
     for fn, _ in BUILDERS:
         pri.setdefault(fn, "0.9" if fn in ("works.html", "live.html", "vocal.html") else "0.8")
@@ -1444,7 +1457,6 @@ def main():
     print("=" * 70)
     drift = []
     targets = [(fn, builder()) for fn, builder in BUILDERS]
-    targets.append(("sitemap.xml", build_sitemap()))
     for fn, out in targets:
         path = os.path.join(ROOT, fn)
         old = ""
@@ -1461,10 +1473,24 @@ def main():
             with io.open(path, "w", encoding="utf-8") as f:
                 f.write(out)
             print(f"  {fn:<16} 已生成  ({len(out)} 字节)")
+
+    # sitemap 不再由本脚本生成：唯一出口是 project_b/site_fix.py（含 noindex/失效页校验）。
+    # 2026-11-04 事故：本脚本旧 sitemap 清单（127 条、无逐字稿）会在每次重建时覆盖全量 sitemap。
+    if not args.check:
+        import subprocess
+        r = subprocess.run([sys.executable, "-X", "utf8",
+                            os.path.join(ROOT, "project_b", "site_fix.py")],
+                           cwd=ROOT, capture_output=True, text=True,
+                           encoding="utf-8", errors="replace")
+        tail = (r.stdout or "").strip().splitlines()
+        print("  sitemap.xml     " + (tail[0] if tail else "site_fix 静默")
+              + (" / 已生成" if r.returncode == 0 else " / site_fix 报错"))
+        if r.returncode != 0:
+            print("[WARN] site_fix.py 退出码", r.returncode, (r.stderr or "")[-300:])
     if args.check and drift:
         print(f"\n[FAIL] {len(drift)} 个文件与数据源不一致：{', '.join(drift)}")
         return 1
-    print(f"\n[OK] 共 {len(targets)} 个文件")
+    print(f"\n[OK] 共 {len(targets)} 个页面文件（sitemap 由 site_fix.py 统一生成）")
     return 0
 
 

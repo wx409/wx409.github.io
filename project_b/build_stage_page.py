@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -60,6 +61,13 @@ details.dense[open]>summary{margin-bottom:6px;border-bottom:1px solid var(--bord
 img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid var(--border)}
 .method{background:#eef4f0;border:1px solid #cfe3d6;border-radius:8px;padding:12px 16px;font-size:13.5px;margin:12px 0;color:#3a5545}
 .caveat{font-size:12.5px;color:var(--muted);margin-top:28px;border-top:1px dashed #ccc;padding-top:14px}
+/* 手机端（≤640px）：宽表在自己的框里横向滚动，避免整页被撑出视口 */
+@media(max-width:640px){
+ body{padding:16px 12px}
+ table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ th,td{white-space:nowrap;padding:6px 7px}
+ details.dense{padding:4px 8px}
+}
 """
 
 
@@ -86,6 +94,7 @@ def _highlights_block() -> str:
     rows = [r for r in (t.get("rows") or []) if r.get("low_hz")]
     if not rows:
         return ""
+    n_have_low = len(rows)  # 有最低音读数、进首屏高亮与跨度中位的那一组
     def nm(r, k):
         return f'{esc(r.get(k + "_note"))} {r.get(k + "_hz")} Hz'
     lo = min(rows, key=lambda r: r["low_hz"])
@@ -94,20 +103,34 @@ def _highlights_block() -> str:
              key=lambda r: r["span_octaves"], default=None)
     newest = [r for r in rows if str(r.get("tag", "")).startswith(
         ("六巡广州20260823_回", "二巡上海2021", "一巡厦门", "一巡北京收官", "四巡上海生日"))]
+    # 跨度一律由显示的那一对音现算，防止数据里残留旧派生值（上游曾在极值被降级后没重算）
+    def span_calc(r):
+        if r.get("low_hz") and r.get("high_hz"):
+            return round(math.log2(r["high_hz"] / r["low_hz"]), 2)
+        return None
     parts = [
         f'<li><strong>现场最低稳定音</strong>：{nm(lo, "low")}'
-        f'（《{esc(_song_of(lo))}》{esc(lo.get("tour"))}｜{esc(lo.get("city"))}）</li>',
+        f'（《{esc(_song_of(lo))}》{esc(lo.get("tour"))}｜{esc(lo.get("city"))} '
+        f'{esc(lo.get("date"))}）——这是<strong>该场、该素材已测目标段</strong>的读数，'
+        f'不是无条件的人身音域下限；复核状态：{esc(lo.get("review_status") or lo.get("a3_final_note") or lo.get("verify") or "—")}</li>',
     ]
     if hi:
         parts.append(f'<li><strong>现场最高稳定音</strong>：{nm(hi, "high")}'
                      f'（《{esc(_song_of(hi))}》{esc(hi.get("tour"))}｜{esc(hi.get("city"))}）</li>')
     if sp:
-        parts.append(f'<li><strong>最宽跨度</strong>：<strong>{sp.get("span_octaves")} 个八度</strong>'
+        parts.append(f'<li><strong>最宽跨度</strong>：<strong>{span_calc(sp) or sp.get("span_octaves")} 个八度</strong>'
                      f'（《{esc(_song_of(sp))}》{esc(sp.get("tour"))}｜{esc(sp.get("city"))}：'
-                     f'{nm(sp, "low")} → {nm(sp, "high")}）</li>')
-    parts.append(f'<li><strong>实测规模</strong>：{len(rows)} 条素材'
-                 f'（其中本轮新增 {len(newest)} 首来自分P单曲源）｜'
-                 f'{"、".join(sorted({esc(r.get("tour")) for r in rows if r.get("tour")}))}</li>')
+                     f'{nm(sp, "low")} → {nm(sp, "high")}；同一对音现算）</li>')
+    try:
+        _st = json.loads((ROOT / "data" / "stage_states.json").read_text(encoding="utf-8"))
+        st_total = sum((_st.get("counts") or {}).values())
+    except Exception:
+        st_total = None
+    tour_join = "、".join(sorted({esc(r.get("tour")) for r in rows if r.get("tour")}))
+    parts.append(f'<li><strong>实测规模（三个分母，不可混用）</strong>：素材共 {len(t.get("rows") or [])} 条；'
+                 f'其中有最低音读数、参与本页高亮与跨度中位的 {len(rows)} 条；'
+                 + (f'进入三态台账的 {st_total} 条（其余为不可复核/未归态）。' if st_total else '')
+                 + "｜" + tour_join + "</li>")
     return ('<div class="hl" style="border-left:4px solid #a8323d">'
             '<strong>📌 本页要点</strong><ul style="margin:6px 0 0 18px">'
             + "".join(parts) + '</ul></div>')
@@ -138,6 +161,7 @@ def tour_layer_html() -> str:
     lo = s["lowest"]
     n = s.get("n_materials")
     ver = s.get("n_verified")
+    n_have_low = sum(1 for r in rows if r.get("low_hz"))
     def dash(v):
         return "—" if v is None or v == "" else v
 
@@ -267,9 +291,9 @@ def tour_layer_html() -> str:
                      "<table><tr><th>曲目</th><th>现场（巡次·城市）</th><th>现场最低稳定音</th>"
                      "<th>录音室专辑</th><th>录音室最低稳定音</th><th>差(半音)</th></tr>"
                      + pair_rows + "</table>"
-                     "<p class='sub' style='margin-top:0'>同一首歌的现场版与录音室版由<strong>完全相同</strong>的测量管线得出"
-                     "（分离 + 逐帧 F0 + 稳健过滤），因此差值可比：正值=现场比录音室高。"
-                     "差值反映当场的调性/编配选择，不是能力差。两表覆盖范围随后续实测自动扩大。</p>"
+                     "<p class='sub' style='margin-top:0'>同一套测量管线（分离 + 逐帧 F0 + 稳健过滤）只能把方法差异降到最小；"
+                     "现场与录音室在定调、编配、录音与后期上仍然不同，因此差值只用于观察版本差异，不是能力比较。"
+                     "两表覆盖范围随后续实测自动扩大。</p>"
                      + (lambda ps: (f'<p class="sub" style="margin-top:0">另有 <strong>{ps.get("excluded_pending")} 组</strong>未列入：'
                                     "现场侧读数未过复核门槛（"
                                     + esc("；".join(f'{p.get("song")} {p.get("tour")} {p.get("note")} {p.get("hz")}Hz（{p.get("verify")}）'
@@ -326,14 +350,15 @@ def tour_layer_html() -> str:
 <div class="method">
 <strong>为什么这一层才算「现场能力」：</strong>巡演由他本人主导——选曲、调性、编排、曲目位置由他决定，唱什么、唱到多低是他自己的选择。
 他人主导的舞台（综艺/晚会/商演/饭拍）由节目组选曲、电视混音、伴唱叠加共同决定，<strong>只能作互证，不能当作他的现场能力上限</strong>。
-两层的测量管线完全相同（人声分离 → 逐帧 F0 → 稳健过滤），差别只在语料归属。
+两层的测量管线相同（人声分离 → 逐帧 F0 → 稳健过滤），方法差异已被压到最小；
+但曲目、定调、编配、录音条件与归属判定仍然不同，所以两层只能互证，不能直接相减。
 </div>
 <div class="method">
 <strong>数量口径（五种数量不可混用）：</strong>
 <ul style="margin:6px 0 0;padding-left:22px">
 <li><strong>巡演轮次</strong>：本页实测覆盖 {s.get("n_tours")} 个巡次标签（含巡演与签售等场次类型；与「六轮巡演」不是同一统计范围，后者专指个人巡回音乐会）</li>
 <li><strong>独立场次</strong>：全站 64 场＝六轮巡演 59 + 签唱会 5（不与素材条数混算）</li>
-<li><strong>上传／剪辑素材</strong>：{n} 条（同一场可有多个上传或剪辑，仍按素材计）</li>
+<li><strong>上传／剪辑素材</strong>：{n} 条（同一场可有多个上传或剪辑，仍按素材计）；其中 <strong>{n_have_low}</strong> 条有最低音读数（首屏高亮、跨度中位按这一组算）</li>
 <li><strong>进入统计的读数</strong>：{ver} 条过复核门槛；其中达到 claimable 规则 {s.get("n_claimable")} 条——<strong>该状态不等同于 {s.get("n_claimable")} 条独立发布主张</strong></li>
 <li><strong>同曲跨场版本</strong>：102 个（12 首，见 <a href="versions.html">同曲跨场矩阵</a>；与"场次""素材"是不同单位）</li>
 </ul>
@@ -354,7 +379,7 @@ def tour_layer_html() -> str:
 「待判」是<strong>归属或复核未完成</strong>，同样不是否定。
 </div>
 <div class="method">
-<strong>条目三态（本页 {st_total} 条素材）：</strong>
+<strong>条目三态（{st_total} 条已归态素材；素材总 {n} 条，其余 {n - st_total} 条为不可复核/未归态，不进三态统计）：</strong>
 <ul style="margin:6px 0 0;padding-left:22px">
 <li><strong>达到测量复核门槛</strong>：{st_claim} 条——可参与已登记主张；<strong>实际发布仍取决于主张绑定及其状态</strong>（claimable 是读数状态，publishable 是主张与出口状态）</li>
 <li><strong>只能描述素材</strong>：{st_desc} 条——有录音与读数，但未达可引用门槛，不推出复现或能力结论</li>
@@ -649,7 +674,8 @@ def main() -> None:
         url="https://wx409.github.io/stage.html",
         description=(
             f"同一测量管线分两层语料：能力层为王晰本人主导的巡演现场（{tour_n or '—'} 条已实测素材，"
-            f"现场最低稳定音 {_t_lo.get('note','—')}（{_t_lo.get('hz','—')} Hz））；"
+            f"其中已测目标段的最低稳定音为 {_t_lo.get('note','—')}（{_t_lo.get('hz','—')} Hz，"
+            f"属该场该素材的读数，不等于无条件下限））；"
             f"对照层为他人主导场景的 {src['analyzed']} 个舞台素材，"
             "并与 72 首录音室曲目做 Mann–Whitney U 组间对比，用于区分「能力极限」与「使用模式」两类差异。"
         ),
@@ -679,12 +705,14 @@ def main() -> None:
           f"{_t_lo.get('city','')} {_t_lo.get('date','')} 场，复核状态为{_t_lo.get('verify','—')}"
           + (f"，并做了 CREPE 交叉校验（{_t_lo.get('crepe_hz')} Hz）" if _t_lo.get("crepe_hz") else "")
           + f"；{tour_n} 条中 {_t_ver} 条过复核门槛。"
+          "这一读数是<strong>该场、该素材已测目标段</strong>的最低稳定音，不是无条件的人身音域下限；"
           "能力主张只看「最低稳定音」口径（音符本身 ≥0.2s、HNR ≥5dB、强度达标），未过门槛的读数只列不判。")
          if _t_lo else "巡演现场层数据待首次实测。"),
         ("为什么要把「巡演现场」和「他人主导舞台」分开？",
          "巡演由他本人主导：选曲、调性、编排与曲目位置由他决定，属于他自己的现场选择；"
          "综艺/晚会/商演/饭拍由节目组选曲、电视混音与伴唱叠加共同决定，"
-         "因此那一层只作互证，不能当作他的现场能力上限。两层使用完全相同的测量管线，差别只在语料归属。"),
+         "因此那一层只作互证，不能当作他的现场能力上限。两层用的测量管线相同，"
+         "但曲目、定调、编配、录音条件与归属判定都不同，所以只能互证，不能把两层读数直接相减。"),
         ("他人主导的综艺/晚会上，王晰的音域会变窄吗？",
          (f"按现行稳健口径，「王晰主导（录音室专辑）」与「他人主导（舞台）」的最低稳定音差异不显著"
           f"（p={_lowp:.3f}），" if isinstance(_lowp, float) else "按现行稳健口径，最低稳定音差异不显著，")
@@ -735,8 +763,9 @@ def main() -> None:
         "@context": "https://schema.org",
         "@type": "Dataset",
         "name": f"王晰现场音域实测数据集（王晰主导巡演现场 {tour_n or '—'} 条 + 他人主导舞台 {src['analyzed']} 个素材）",
-        "description": (f"分两层：能力层为王晰本人主导的巡演现场 {tour_n or '—'} 条已实测素材（最低稳定音 "
-                        f"{_t_lo.get('note','—')}（{_t_lo.get('hz','—')}Hz））；对照层为他人主导场景（综艺/晚会/盛典商演/饭拍）"
+        "description": (f"分两层：能力层为王晰本人主导的巡演现场 {tour_n or '—'} 条已实测素材（其中已测目标段的最低稳定音为 "
+                        f"{_t_lo.get('note','—')}（{_t_lo.get('hz','—')}Hz），属该场该素材的读数，不等于无条件下限）；"
+                        f"对照层为他人主导场景（综艺/晚会/盛典商演/饭拍）"
                         f"{src['analyzed']} 个素材：最低音读数（<strong>取证状态见表</strong>） {s['lowest']['note']}（{s['lowest']['hz']}Hz），"
                         f"最高 {s['highest']['note']}（{s['highest']['hz']}Hz，含和声层可能），跨度中位 {s['span_median']} 个八度，"
                         f"音符内稳定性中位 {s['stability_median']} 音分，颤音 {s['vibrato_hz_median']}Hz/{s['vibrato_cents_median']:.0f} 音分。"),
@@ -757,10 +786,10 @@ def main() -> None:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>王晰现场音域实测｜巡演现场（能力层）与综艺晚会（对照层）双层实测</title>
-<meta name="description" content="王晰现场音域双层实测：能力层为他本人主导的巡演现场 {tour_n or '—'} 条素材（最低稳定音 {_t_lo.get('note','—')} {_t_lo.get('hz','—')}Hz）；对照层为综艺/晚会/盛典商演/饭拍 {src['analyzed']} 个素材（可信最低稳定音 {esc(s['lowest']['note'])} {s['lowest']['hz']}Hz，跨度中位 {s['span_median']} 个八度）。含巡次汇总、同曲跨巡对比、巡演×专辑对照、逐条明细与分层口径说明。">
+<meta name="description" content="王晰现场音域双层实测：能力层为他本人主导的巡演现场 {tour_n or '—'} 条素材（已测目标段最低稳定音 {_t_lo.get('note','—')} {_t_lo.get('hz','—')}Hz，属该场读数、非无条件下限）；对照层为综艺/晚会/盛典商演/饭拍 {src['analyzed']} 个素材（可信最低稳定音 {esc(s['lowest']['note'])} {s['lowest']['hz']}Hz，跨度中位 {s['span_median']} 个八度）。含巡次汇总、同曲跨巡对比、巡演×专辑对照、逐条明细与分层口径说明。">
 <link rel="canonical" href="https://wx409.github.io/stage.html">
 <meta property="og:title" content="王晰现场音域实测 · 双层">
-<meta property="og:description" content="能力层：巡演现场 {tour_n or '—'} 条素材，最低稳定音 {_t_lo.get('note','—')} {_t_lo.get('hz','—')}Hz；对照层：他人主导 {src['analyzed']} 个素材，可信最低 {esc(s['lowest']['note'])}，跨度中位 {s['span_median']} 个八度。">
+<meta property="og:description" content="能力层：巡演现场 {tour_n or '—'} 条素材，已测目标段最低稳定音 {_t_lo.get('note','—')} {_t_lo.get('hz','—')}Hz（该场读数，非无条件下限）；对照层：他人主导 {src['analyzed']} 个素材，可信最低 {esc(s['lowest']['note'])}，跨度中位 {s['span_median']} 个八度。">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://wx409.github.io/assets/voice/stage_range.png">
 <script type="application/ld+json">
