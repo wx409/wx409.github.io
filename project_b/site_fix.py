@@ -9,22 +9,37 @@ import re
 import sys
 from datetime import date
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, unquote
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://wx409.github.io/"
 SM = ROOT / "sitemap.xml"
 SKIP = {"404.html", "weibo-oauth-callback.html", "social_wall.html"}  # 后两个是嵌入片段，无 <head>
 DIRS = ("tavern", "live", "map", "data", "culture", "dashboard", "debate")
+ROBOTS_RE = re.compile(r'<meta[^>]*name=["\']robots["\'][^>]*>', re.I)
 
 
-def pages():
+def is_noindex(p):
+    """页面自己声明了 noindex → 不得进 sitemap（自相矛盾会被搜索引擎判软 404）。"""
+    try:
+        h, _ = head(read(p))
+    except (UnicodeDecodeError, OSError):
+        return False
+    m = ROBOTS_RE.search(h)
+    return bool(m and "noindex" in m.group(0).lower())
+
+
+def candidates():
     ps = [p for p in ROOT.glob("*.html")
           if p.name not in SKIP and not p.name.startswith(("_", "live_template"))]
     for d in DIRS:
         ps += [p for p in (ROOT / d).rglob("*.html")
                if not p.name.startswith("_") and "rendered" not in p.parts]  # rendered = 卡片片段
     return sorted(ps)
+
+
+def pages():
+    return [p for p in candidates() if not is_noindex(p)]
 
 
 def url(p):
@@ -82,6 +97,24 @@ def lack(t):
                            ("canonical", 'rel="canonical"')) if s not in h]
 
 
+def stale_entries(locs):
+    """sitemap 里不该有的条目：noindex 页 / 文件已不存在的 .html。"""
+    bad = []
+    for u in locs:
+        rel = u[len(SITE):] if u.startswith(SITE) else None
+        if rel is None:
+            continue
+        rel = unquote(rel)  # sitemap 里 CJK 路径是 percent-encoded
+        if not rel.endswith(".html"):
+            continue
+        p = ROOT / rel
+        if not p.exists():
+            bad.append((u, "文件不存在"))
+        elif is_noindex(p):
+            bad.append((u, "页面声明 noindex"))
+    return bad
+
+
 def main():
     check = "--check" in sys.argv
     ps, bad_meta = pages(), []
@@ -96,12 +129,16 @@ def main():
     sm = read(SM)
     locs = set(re.findall(r"<loc>(.*?)</loc>", sm))
     missing = [p for p in ps if url(p) not in locs]
+    stale = stale_entries(locs)
 
-    print("页面 %d | sitemap 缺 %d | 元信息缺 %d" % (len(ps), len(missing), len(bad_meta)))
+    print("页面 %d | sitemap 缺 %d | sitemap 多余 %d | 元信息缺 %d"
+          % (len(ps), len(missing), len(stale), len(bad_meta)))
     for p in missing[:10]:
         print("  缺收录:", url(p))
+    for u, why in stale[:10]:
+        print("  多余收录(%s):" % why, u)
     if check:
-        return 1 if (missing or bad_meta) else 0
+        return 1 if (missing or stale or bad_meta) else 0
 
     if missing:
         add = "".join(
@@ -110,10 +147,16 @@ def main():
             for p in missing)
         sm = sm.replace("</urlset>", add + "</urlset>")
 
-    # 清掉不属于站点页面的条目（嵌入片段）
-    frag = re.compile(r"[ \t]*<url><loc>%s(?:social_wall\.html|data/share/rendered/[^<]*)</loc>.*?</url>\n?"
-                      % re.escape(SITE))
-    sm = frag.sub("", sm)
+    # 清掉不属于站点页面的条目（嵌入片段 / noindex 页 / 已删除文件）
+    drop = {u for u, _ in stale}
+    drop.add(SITE + "social_wall.html")
+    lines = []
+    for line in sm.splitlines(keepends=True):
+        m = re.search(r"<loc>(.*?)</loc>", line)
+        if m and (m.group(1) in drop or "data/share/rendered/" in m.group(1)):
+            continue
+        lines.append(line)
+    sm = "".join(lines)
     write(SM, sm)
 
     n = 0
