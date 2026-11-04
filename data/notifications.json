@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-04 08:46:33",
+ "updated_at": "2026-11-04 14:00:31",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5402,6 +5402,41 @@
    "title": "网页访谈自动采集",
    "content": "本轮新抓 2 篇，已抽句入池（见 phrases.html）",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-04 11:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [12124]），但 dashboard_data.json 已 122.0 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-04 14:00:04",
+   "title": "⚠️ 大屏采集漏批：2026-11-04",
+   "content": "应当完成但缺产出的批次：\n缺 11:59 quick\n缺 12:18 quick\n缺 13:09 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 2 个)；tasklist=在(命中)）；日志 50.8 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261104.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-11-04 14:00:31",
+   "title": "📣 王晰 - 知乎",
+   "content": "2017年11月27日&ensp;&#0183;&ensp;王晰，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，毕业于辽宁艺术职业学院流行演唱专业， …\n链接：https://www.zhihu.com/topic/20039893/intro",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/topic/20039893/intro"
+  },
+  {
+   "time": "2026-11-04 14:00:31",
+   "title": "📣 王晰【Yesterday once more】【4K双字幕】妈呀谁懂在首场 ...",
+   "content": "2026年6月18日&ensp;&#0183;&ensp;唱商美商极高之人…，王晰【女人花 x 水中花】唱商一流拍手叫绝的MIX【4k字幕】王晰回个人巡回音乐会重庆 …\n链接：https://www.bilibili.com/zh-Hans/video/BV1QELo6nEwi/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/zh-Hans/video/BV1QELo6nEwi/"
+  },
+  {
+   "time": "2026-11-04 14:00:31",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
