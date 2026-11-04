@@ -119,6 +119,11 @@ def main() -> int:
     have = {(u.findtext("sm:loc", default="", namespaces=NS) or "").strip()
             for u in tree.findall("sm:url", NS)}
     added: list[str] = []
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import site_fix as _sf  # 与唯一出口共用 noindex 判定，避免两套策略打架
+    except Exception:
+        _sf = None
     for page in sorted(ROOT.glob("*.html")):
         if page.name in ("404.html", "index.html", "kb-semantic.html", "archive-index.html",
                          "weibo-oauth-callback.html"):
@@ -127,6 +132,8 @@ def main() -> int:
             # 2026-09-13 曾因本脚本的「补登记遗漏页」把它加回去，故在此显式排除。
             # weibo-oauth-callback.html 是 OAuth 回调页（noindex，无内容，不进 sitemap/不推送）。
             continue
+        if _sf is not None and (page.name in _sf.SKIP or _sf.is_noindex(page)):
+            continue  # 2026-11-04：noindex 页 与 无 <head> 的嵌入片段（social_wall 等）都不许补登记
         loc = BASE + page.name
         if loc in have:
             continue
