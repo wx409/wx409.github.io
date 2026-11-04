@@ -23,7 +23,7 @@ ALBUMS = ROOT / "data" / "archive_vocal_albums.json"
 SNAPS = ROOT / "data" / "snapshots.json"
 DERIVED = ROOT / "data" / "derived" / "vibrato_spread.json"
 HOOKS = ROOT / "data" / "hooks_pool.json"
-PAGES = ["topic-vibrato.html", "series-vibrato.html", "share.html", "insight.html",
+PAGES = ["topic-vibrato.html", "series-vibrato.html", "share/index.html", "insight.html",
          "facts.html", "versions.html", "stage.html", "voice.html", "vocal.html", "skill.html"]
 
 

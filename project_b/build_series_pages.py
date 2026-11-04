@@ -71,7 +71,7 @@ def main() -> int:
             mark = "（当前）" if t["id"] == s["id"] else ""
             H.append(f'<li><a href="series-{t["id"]}.html">{html.escape(t["title"])}</a>{mark}</li>')
         H.append('</ul><div class="nav">' + (nav[0] if nav else "") + " " + (nav[1] if len(nav) > 1 else "") + "</div>")
-        H.append('<p class="meta"><a href="stories.html">场次故事</a>｜<a href="share.html">素材与引用</a></p></body></html>')
+        H.append('<p class="meta"><a href="stories.html">场次故事</a>｜<a href="../share/index.html">素材与引用</a></p></body></html>')
         out = SITE / f"series-{s['id']}.html"
         out.write_text("\n".join(H), encoding="utf-8")
         pages.append(out.name)

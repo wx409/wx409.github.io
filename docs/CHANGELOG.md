@@ -60,7 +60,7 @@
 
 **首屏瘦身（已上线）**
 - 三个只读聚合指标的页面改读 `dashboard_lite.json`（210KB／gzip 26KB，原读 3106KB／gzip 252KB）：
-  `data-timeline.html`、`live/hui-回-广州-2026.html`、`story-hui-guangzhou-2026.html`
+  `data-timeline.html`、`live/hui-回-广州-2026.html`、`../stories/story-hui-guangzhou-2026.html`
 - 大屏新增 `dashboard_view.json`（704KB／gzip 133KB）：从同一 payload 派生，只剔除页面 JS 从不读取的
   `song_index`（663KB）；`dashboard/index.html` 首屏读它，读不到自动回退全量 `dashboard_data.json`。
   **数据契约不变**——`dashboard_data.json` 仍是唯一数据出口与开放数据集

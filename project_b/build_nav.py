@@ -63,7 +63,7 @@ FOOTER_GROUPS = [
               # 检索意图视图（2026-10-11 新增；只加视图，不动已有 URL）
               "index-by-song.html", "index-by-event.html", "index-by-question.html"]),
     ("场次故事", ["stories.html"]),
-    ("来源与引用", ["press.html", "share.html"]),
+    ("来源与引用", ["press.html", "share/"]),
     ("声学·内容", ["topic-vibrato.html", "voice.html", "skill.html", "stage.html", "live-materials.html", "academic.html", "qa.html",
                     "jazz.html", "gallery.html", "city-guides.html", "culture/index.html",
                     # 演唱实测说明（2026-10-14 新增；文章版 + 可转发短句版。不进主导航）
@@ -72,7 +72,7 @@ FOOTER_GROUPS = [
     ("关于与工具", ["about.html", "submit.html", "search.html", "archive-index.html",
                     # 2026-10-14：素材与引用**不进顶部主导航**（不稀释主站），
                     # 但必须在底部全站索引入口（可达性修复：此前只在 community 强链，用户找不到）
-                    "share.html",
+                    "share/",
                     # 2026-10-14：洞察层（结论＋成稿文案＋出处）同样不进主导航、进底部索引
                     "insight.html",
                     "acoustic-report.html", "feed.xml", "sitemap.xml", "llms.txt"]),
@@ -83,10 +83,10 @@ FOOTER_GROUPS = [
 #   - archive-index.html：完整档案索引页（仍是私密页，不进主导航）
 SKIP = {"404.html", "kb-semantic.html", "social_wall.html", "archive-index.html",
         # 2026-10-11：素材与引用与竖屏分享卡**不进主导航**（用户拍板；仅从 community 强链）
-        "share.html",
+        "share/index.html",
         # 2026-10-13：竖屏分享卡改为**按目录派生**——新增卡片自动纳入 SKIP，
         # 避免新卡漏网后被注入顶部导航条（与其余竖屏卡样式不一致）
-        *{p.name for p in ROOT.glob("share-*.html")},
+        *{p.name for p in (ROOT / "share").glob("share-*.html")},
         "weibo-oauth-callback.html"}
 
 # 「完整档案」页清单（2026-09-13 瘦身 2.0）。**已更正 2026-09-13 晚**：
@@ -102,7 +102,7 @@ ARCHIVE_PAGES = {
     "culture/index.html", "academic.html", "dashboard/index.html",
     "acoustic-report.html",
     "tavern/index.html", "gallery.html", "submit.html", "search.html",
-    "story-hui-guangzhou-2026.html",
+    "stories/story-hui-guangzhou-2026.html",
     "topic-vibrato.html",
     "index-by-song.html", "index-by-event.html", "index-by-question.html",
     "versions.html",
@@ -138,7 +138,8 @@ LABELS = {
 }
 
 # 处理范围（相对仓库根）：根页面 + 有统一导航的内容子目录；dashboard/map 为应用页（自带布局）不处理
-PAGE_GLOBS = ["*.html", "culture/*.html", "data/*.html", "live/*.html", "tavern/*.html"]
+PAGE_GLOBS = ["*.html", "culture/*.html", "data/*.html", "live/*.html", "tavern/*.html",
+              "stories/*.html", "share/*.html"]
 
 
 def target_pages() -> list[Path]:
@@ -147,6 +148,14 @@ def target_pages() -> list[Path]:
     for g in PAGE_GLOBS:
         for p in sorted(ROOT.glob(g)):
             if p.name in SKIP or ".bak" in p.name or p.name.endswith(".utf8"):
+                continue
+            # 旧 URL 的 meta-refresh 跳转页：保持最小骨架（noindex + canonical），
+            # 不注入导航/底部索引，也不被 robots 守卫改成 index,follow
+            try:
+                head = p.read_text(encoding="utf-8", errors="ignore")[:1500]
+            except OSError:
+                continue
+            if 'http-equiv="refresh"' in head:
                 continue
             out.append(p)
     return out
@@ -166,9 +175,12 @@ def render_footer() -> str:
     parts = [FOOT_START,
              '<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;'
              'border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">',
-             '<strong style="color:#333;">🧭 全站索引</strong>'
-             '<span style="color:#999;font-size:12px;">（本区块由 project_b/build_nav.py 自动生成，'
-             '保证每个页面都有入口、可被爬虫抓取）</span>']
+             # 2026-11-04：整块收进 <details>——DOM 仍在（爬虫照读），真人不必滚三屏。
+             '<details class="site-index-fold">'
+             '<summary style="cursor:pointer;color:#333;font-weight:700;font-size:13px;">'
+             '🧭 全站索引 <span style="color:#999;font-size:12px;font-weight:400;">'
+             '（点开；由 project_b/build_nav.py 自动生成，每个页面都有入口、爬虫可抓取）</span></summary>',
+             '<div style="margin-top:6px;">']
     for name, items in FOOTER_GROUPS:
         links = []
         for it in items:
@@ -180,6 +192,7 @@ def render_footer() -> str:
             links.append(f'<a href="{href}" style="color:#c41e3a;text-decoration:none;">{label}</a>')
         if links:
             parts.append(f'<div style="margin-top:6px;"><b>{name}：</b>' + " · ".join(links) + "</div>")
+    parts.append("</div></details>")
     parts.append("</footer>")
     parts.append(FOOT_END)
     return "\n".join(parts)

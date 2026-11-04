@@ -56,12 +56,12 @@ def share_promo(single_quote: bool = False) -> str:
     q = "'" if single_quote else '"'
     # 2026-10-14 可达性修复：由「一行文字」升级为**首屏显眼按钮**
     # （share.html 按用户决策不进顶部主导航，因此这里与底部全站索引是仅有的站内直连入口）
-    btn = (f"<a href={q}share.html{q} style={q}display:inline-block;margin-top:8px;"
+    btn = (f"<a href={q}share/{q} style={q}display:inline-block;margin-top:8px;"
            f"background:#a8323d;color:#fff;padding:10px 20px;border-radius:8px;"
            f"font-weight:700;font-size:15px;text-decoration:none{q}>"
            f"素材与引用 →</a>")
     hint = (f"<span style={q}color:#8a7f6d;font-size:12.5px;margin-left:10px{q}>"
-            f"直达 <code>wx409.github.io/share.html</code></span>")
+            f"直达 <code>wx409.github.io/share/</code></span>")
     return (f"<div style={q}background:#fffbe8;border-left:3px solid #d9c46a;padding:12px 14px;"
             f"margin:12px 0{q}>🧰 <b>素材与引用</b>：{n} 张专题卡（{names}）＋ 单曲 TOP10 ＋ "
             f"三层挖词表 ＋ 作战地图 ＋ 平台模板与使用纪律（经验性认知，非官方）<br>{btn}{hint}</div>")

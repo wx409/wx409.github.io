@@ -176,7 +176,7 @@ INDEXNOW_URLS = [
     "https://wx409.github.io/timeline.html",
     "https://wx409.github.io/data-timeline.html",
     "https://wx409.github.io/story.html",
-    "https://wx409.github.io/story-hui-guangzhou-2026.html",
+    "https://wx409.github.io/stories/story-hui-guangzhou-2026.html",
     "https://wx409.github.io/notifications.html",
     "https://wx409.github.io/voice.html",
     "https://wx409.github.io/stage.html",

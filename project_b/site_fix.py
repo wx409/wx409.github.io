@@ -17,7 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://wx409.github.io/"
 SM = ROOT / "sitemap.xml"
 SKIP = {"404.html", "weibo-oauth-callback.html", "social_wall.html"}  # 后两个是嵌入片段，无 <head>
-DIRS = ("tavern", "live", "map", "data", "culture", "dashboard", "debate")
+DIRS = ("tavern", "live", "map", "data", "culture", "dashboard", "debate",
+        "stories", "share")  # 2026-11-04 归档：场次故事 / 分享卡
 ROBOTS_RE = re.compile(r'<meta[^>]*name=["\']robots["\'][^>]*>', re.I)
 
 

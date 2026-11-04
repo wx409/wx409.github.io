@@ -292,7 +292,7 @@ def main() -> int:
     USAGE_MD.parent.mkdir(parents=True, exist_ok=True)
     USAGE_MD.write_text("\n".join([
         "# 使用说明 · 四件套", "",
-        "**① 打开哪**：站内 `share.html` →「①d 一键成稿」；或本地 `data/share/rendered/copy_pipeline.html`。",
+        "**① 打开哪**：站内 `../share/index.html` →「①d 一键成稿」；或本地 `data/share/rendered/copy_pipeline.html`。",
         "**② 三处怎么填**：留白都是**选项式**——① 〔选一个：10-09 首场 / 10-10 第二场〕"
         "② 〔从三句里挑一句，或改成你自己的〕③ 〔填一句当天的小细节〕；不想填就删掉方括号。",
         "**③ 不想填**：直接复制每套的「**零填版**」（已删掉方括号），能发但信息量低、可能平淡。", "",

@@ -19,7 +19,7 @@ OLD_NEW = [
 FILES = [SITE / "project_b" / "build_share_page.py", SITE / "project_b" / "build_compact.py",
          SITE / "project_b" / "build_nav.py", SITE / "project_b" / "build_copy_usage_page.py",
          SITE / "project_b" / "deploy_all.py"]
-PAGES = [SITE / "share.html", SITE / "index.html", SITE / "community.html"]
+PAGES = [SITE / "share" / "index.html", SITE / "index.html", SITE / "community.html"]
 
 changed = []
 for p in FILES + PAGES:

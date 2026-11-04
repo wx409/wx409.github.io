@@ -96,14 +96,14 @@ def main() -> int:
         H = ["<!DOCTYPE html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\">",
              "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
              f"<title>{html.escape(title)}｜三幕故事</title>",
-             f"<link rel=\"canonical\" href=\"https://wx409.github.io/story-{slug}.html\">",
+             f"<link rel=\"canonical\" href=\"https://wx409.github.io/stories/story-{slug}.html\">",
              "<script type=\"application/ld+json\">" + json.dumps({
                  "@context": "https://schema.org", "@type": "Article", "headline": title,
                  "datePublished": s["date"],
                  "about": {"@type": "MusicEvent", "name": title, "startDate": s["date"],
                            "location": {"@type": "Place", "name": s["venue"] or s["city"]}},
                  "isAccessibleForFree": True,
-                 "url": f"https://wx409.github.io/story-{slug}.html"}, ensure_ascii=False) + "</script>",
+                 "url": f"https://wx409.github.io/stories/story-{slug}.html"}, ensure_ascii=False) + "</script>",
              "<style>body{font:15px/1.8 -apple-system,Segoe UI,Microsoft YaHei,sans-serif;max-width:820px;"
              "margin:24px auto;padding:0 16px}h2{margin-top:1.6em;font-size:1.15em}.meta{color:#666;font-size:.9em}"
              "figure{margin:14px 0;padding:10px;background:#fafafa;border-radius:6px}figcaption{color:#555;"
@@ -170,8 +170,8 @@ def main() -> int:
             H.append(f'<li>同城：<a href="story-{slug_for(x["date"], x["city"])}.html">{x["date"]} {html.escape(x["city"])}</a></li>')
         for x in same_tour:
             H.append(f'<li>同巡：<a href="story-{slug_for(x["date"], x["city"])}.html">{x["date"]} {html.escape(x["city"])}</a></li>')
-        H.append('</ul><p class="meta"><a href="stories.html">← 全部故事</a></p></body></html>')
-        (SITE / f"story-{slug}.html").write_text("\n".join(H), encoding="utf-8")
+        H.append('</ul><p class="meta"><a href="../stories.html">← 全部故事</a></p></body></html>')
+        (SITE / "stories" / f"story-{slug}.html").write_text("\n".join(H), encoding="utf-8")
         built.append({**s, "slug": slug, "songs_n": len(s["songs"])})
 
     # 分组：巡次 + 双人/特别场 + 专题
@@ -199,20 +199,20 @@ def main() -> int:
             continue
         I.append(f"<h2>{g}（{len(vs)} 场）</h2><ul>")
         for v in vs:
-            I.append(f'<li><a href="story-{v["slug"]}.html">{v["date"]} {html.escape(v["city"])}</a>'
+            I.append(f'<li><a href="stories/story-{v["slug"]}.html">{v["date"]} {html.escape(v["city"])}</a>'
                      f'<span class="meta">（曲目 {v["songs_n"]}｜素材 {v["materials"]}'
                      + (f'｜反馈 {v["feedback"]}' if v["feedback"] else "") + '）</span></li>')
         I.append("</ul>")
-    I.append("<h2>专题</h2><ul><li><a href=\"story-hui-guangzhou-2026.html\">六巡广州站单场复盘</a>"
-             "<span class=\"meta\">（专题页，保留原 URL）</span></li></ul>")
+    I.append("<h2>专题</h2><ul><li><a href=\"stories/story-hui-guangzhou-2026.html\">六巡广州站单场复盘</a>"
+             "<span class=\"meta\">（专题页）</span></li></ul>")
     # 磁盘集合校验：未入索引的 story-*.html 自动补一条并告警
     listed = {f"story-{v['slug']}.html" for v in built}
-    disk = {x.name for x in SITE.glob("story-*.html")}
+    disk = {x.name for x in (SITE / "stories").glob("story-*.html")}
     missing = sorted(disk - listed - {"story-hui-guangzhou-2026.html"})
     if missing:
         I.append(f"<h2>未入索引（自动补 {len(missing)}）</h2><ul>")
         for m in missing:
-            I.append(f'<li><a href="{m}">{m}</a><span class="meta">（磁盘存在，索引生成时未覆盖，已自动补链）</span></li>')
+            I.append(f'<li><a href="stories/{m}">{m}</a><span class="meta">（磁盘存在，索引生成时未覆盖，已自动补链）</span></li>')
         I.append("</ul>")
         print(f"[warn] 有 {len(missing)} 个故事页未入索引，已补链：{missing[:5]}")
     I.append(f"<h2>待补（{len(pend)} 场）</h2><ul>")

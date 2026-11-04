@@ -42,7 +42,7 @@ def main() -> int:
          f"｜人味标尺来自真语料 {st.get('n_posts')} 条笔记 / {st.get('n_comments')} 条评论"
          f"｜<b>只预览，不自动发布</b></p>",
          "<h2>① 从哪里打开</h2><ul>",
-         "<li>站内：<a href=\"share.html\">share.html</a> →「①d 一键成稿」区（本页从同一区链出）</li>",
+         "<li>站内：<a href=\"share/\">share.html</a> →「①d 一键成稿」区（本页从同一区链出）</li>",
          "<li>本地：<code>data/share/rendered/copy_pipeline.html</code>"
          "（数据 <code>data/share/copy_pipeline.json</code>）</li>",
          "<li>人味标尺：<code>data/share/copy_style.json</code>（由 <code>project_b/copy_style_audit.py</code> 统计）</li></ul>",
@@ -72,12 +72,12 @@ def main() -> int:
     for it in items:
         H.append(f"<li>{it['hook']}　<span class=\"meta\">{it['usage']['预计发布时机']}</span></li>")
     H += ["</ul>", "<p class=\"meta\">音视频不入 git、不上页面；不接外部自动发布接口。</p>",
-          "<p><a href=\"share.html\">← 回 share.html</a></p></body></html>"]
+          "<p><a href=\"share/\">← 回 share/</a></p></body></html>"]
     OUT.write_text("\n".join(H), encoding="utf-8")
     print("[OK]", OUT, OUT.stat().st_size, "B")
 
     # share.html 顶部链接（幂等）
-    sp = SITE / "share.html"
+    sp = SITE / "share" / "index.html"
     if sp.exists():
         t = sp.read_text(encoding="utf-8")
         if "使用说明-四件套.html" not in t:

@@ -24,7 +24,8 @@ D = SITE / "data"
 SH = D / "share"
 CARDS = SH / "cards"
 RENDER = SH / "rendered"
-OUT = SITE / "share.html"
+# 2026-11-04 归档：分享作战页从站点根迁到 /share/（旧 share.html 留跳转页）
+OUT = SITE / "share" / "index.html"
 TODAY = date.today().isoformat()
 
 DISCIPLINE = [
@@ -245,7 +246,7 @@ def main():
         + "</ul>" for k, v in (tpl.get("templates") or {}).items() if isinstance(v, dict))
     disc = "".join(f"<li>{d}</li>" for d in (tpl.get("discipline") or DISCIPLINE))
     js = json.dumps({"@context": "https://schema.org", "@type": "CollectionPage",
-                     "name": "素材与引用", "url": "https://wx409.github.io/share.html",
+                     "name": "素材与引用", "url": "https://wx409.github.io/share/index.html",
                      "isPartOf": {"@type": "WebSite", "name": "AI 可读数字档案｜GEO 资料站",
                                   "url": "https://wx409.github.io/"},
                      "hasPart": [{"@type": "CreativeWork", "name": c["title"],
@@ -255,7 +256,7 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>素材与引用｜{n_cards} 张卡 + {n_entries} 条词条 + 平台模板 + 使用纪律｜AI 可读数字档案｜GEO 资料站</title>
 <meta name="description" content="AI 可读数字档案｜GEO 资料站素材与引用：{n_cards} 张专题卡（{card_names_slash}）、{n_entries} 条可传播词条（钩子＋证据＋出处＋证据等级＋禁忌写法）、单曲 TOP10、三层挖词表、作战地图、小红书与抖音模板、使用纪律六条。经验性认知（非官方）。">
-<link rel="canonical" href="https://wx409.github.io/share.html">
+<link rel="canonical" href="https://wx409.github.io/share/index.html">
 <script type="application/ld+json">{js}</script>
 <style>
 body{{max-width:960px;margin:0 auto;padding:18px;font:15px/1.75 -apple-system,"Microsoft YaHei",sans-serif;color:#2b2320;background:#faf6ef}}
@@ -329,7 +330,7 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
     OUT.write_text(html, encoding="utf-8")
     for c in cards:
         frag = (RENDER / f"card_{c['id']}.html").read_text(encoding="utf-8")
-        (SITE / f"share-{c['id']}.html").write_text(
+        (SITE / "share" / f"share-{c['id']}.html").write_text(
             f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{esc(c['title'])}（分享卡）｜AI 可读数字档案｜GEO 资料站</title>
