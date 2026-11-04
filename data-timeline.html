@@ -126,7 +126,7 @@
         }
 
         Promise.all([
-            fetch('dashboard/dashboard_data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }),
+            fetch('dashboard/dashboard_lite.json', { cache: 'no-store' }).then(function (r) { return r.json(); }),
             fetch('data/timeline.json', { cache: 'no-store' }).then(function (r) { return r.json(); })
         ]).then(function (res) {
             var d = res[0], life = res[1];

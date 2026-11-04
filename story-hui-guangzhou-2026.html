@@ -220,7 +220,7 @@ blockquote{border-left:3px solid #c41e3a;margin:12px 0;padding:6px 14px;color:#5
     rows.forEach(function(r){ h += '<tr>'+r.map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>'; });
     return h + '</table>';
   }
-  fetch('dashboard/dashboard_data.json').then(function(r){ return r.json(); }).then(function(d){
+  fetch('dashboard/dashboard_lite.json').then(function(r){ return r.json(); }).then(function(d){
     var list = (d && d.tour_song_effects) || [];
     function find(date){ for (var i=0;i<list.length;i++){ if (list[i].date===date){ return list[i]; } } return null; }
     var e = find('2026-08-23');

@@ -36,6 +36,9 @@ CROSS = ROOT / "data" / "archive_crosscheck.json"
 CTX = ROOT / "data" / "archive_context_compare.json"
 TOUR = ROOT / "data" / "archive_stage_tour.json"
 OUT = ROOT / "stage.html"
+# 长表折叠用：<details> 内的表格默认不绘制，但 DOM 仍在（爬虫仍可读、正文不删）；
+# content-visibility:auto 让屏外行不参与布局，滚动到附近才渲染。
+CV_STYLE = "<div style='content-visibility:auto;contain-intrinsic-size:auto 600px'>"
 
 STYLE = """
 :root{--primary:#a8323d;--gold:#b8912e;--ink:#3a322a;--muted:#8a7f6d;--bg:#faf6ef;--card:#fffdf8;--border:rgba(184,145,46,.28)}
@@ -50,6 +53,9 @@ h2{color:var(--ink);margin-top:32px;border-left:4px solid var(--primary);padding
 table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;background:var(--card)}
 th{background:#f0ead9;text-align:left;padding:8px 10px;font-size:12.5px;color:#5a4a30;border-bottom:2px solid var(--gold)}
 td{padding:7px 10px;border-bottom:1px solid #efe6d2}
+details.dense{margin:10px 0 18px;border:1px solid var(--border);border-radius:8px;background:var(--card);padding:6px 12px}
+details.dense>summary{cursor:pointer;color:var(--primary);font-weight:600;font-size:13.5px;padding:6px 2px}
+details.dense[open]>summary{margin-bottom:6px;border-bottom:1px solid var(--border)}
 .low{color:#a8323d;font-weight:700}
 img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;border:1px solid var(--border)}
 .method{background:#eef4f0;border:1px solid #cfe3d6;border-radius:8px;padding:12px 16px;font-size:13.5px;margin:12px 0;color:#3a5545}
@@ -221,9 +227,10 @@ def tour_layer_html() -> str:
     solo_html = ""
     if solo_rows:
         solo_html = ("<h3>单版本素材（目前仅 1 个现场版本，暂无可比对象）</h3>"
-                     "<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th>"
+                     f"<details class='dense'><summary>展开 {len(solo_rows)} 条单版本读数（爬虫可读，正文不删）</summary>"
+                     f"{CV_STYLE}<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th>"
                      "<th>最高音</th><th>复核</th><th>来源</th></tr>"
-                     + "\n".join(solo_rows) + "</table>"
+                     + "\n".join(solo_rows) + "</table></div></details>"
                      f"<p class='sub' style='margin-top:0'>共 <strong>{len(solo_rows)} 条</strong>。"
                      "这些曲目目前只有一次现场实测记录，因此没有跨版本差值可比；"
                      "一旦补录同曲第二场，会自动升入上表参与对照。</p>")
@@ -231,9 +238,10 @@ def tour_layer_html() -> str:
     if cross_rows:
         n_songs = len({r.split("</td>")[0] for r in cross_rows})
         cross_html = ("<h3>同曲对照 B：现场 ↔ 现场（跨巡同一首歌）</h3>"
-                      "<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th><th>最高音</th>"
+                      f"<details class='dense'><summary>展开 {len(cross_rows)} 行逐版本读数（爬虫可读，正文不删）</summary>"
+                      f"{CV_STYLE}<table><tr><th>曲目</th><th>版本（巡次·城市 日期）</th><th>最低稳定音</th><th>最高音</th>"
                       "<th>与最早版本差(半音)</th><th>复核</th><th>来源</th></tr>"
-                      + "\n".join(cross_rows) + "</table>"
+                      + "\n".join(cross_rows) + "</table></div></details>"
                       "<p class='sub' style='margin-top:0'>同一首歌在不同巡次/城市的现场读数，"
                       "差值相对该曲<strong>最早的现场版本</strong>（半音，正=比最早版本高）。"
                       "不同场次的调性、编配、录音条件都会影响读数，差值用于观察版本差异，不作能力排序。</p>"
@@ -385,10 +393,11 @@ def tour_layer_html() -> str:
 部分原唱以<strong>单曲/影视歌</strong>形式发行、未进上述目录（如《让她降落》《天边》），故实际原唱占比只会更高。
 「备注」列的「唱前巡曲目」只有六巡《回》显著（66.7%），其中原唱即《平凡又美好的晚上》。</p>
 <h3>逐素材明细</h3>
-<table>
+<details class="dense"><summary>展开 {len(rows)} 条逐场读数（含复核状态与测量入口；爬虫可读，正文不删）</summary>
+{CV_STYLE}<table>
 <tr><th>巡次</th><th>城市</th><th>日期</th><th>最低稳定音</th><th>Hz</th><th>最高稳定音</th><th>跨度</th><th>稳定性</th><th>颤音(Hz/音分)</th><th>复核</th><th>测量入口</th><th>来源</th></tr>
 {detail_rows}
-</table>
+</table></div></details>
 <p class="sub" style="margin-top:0">本层两个测量入口、同一口径：<strong>场次音频实测</strong>（巡演现场音轨 → 人声分离 → 逐帧 F0，含跨度/颤音等全指标）与
 <strong>十曲精测</strong>（早前逐曲核验的现场个案，只有最低稳定音读数，相应列显示 —）。两者都按「最低稳定音」口径引用。</p>
 <p class="sub" style="margin-top:0">⚠️ 标「待复核」「仅参考」的读数只列不判，不作能力依据；现场素材为公开视频音轨，非官方音源。</p>
