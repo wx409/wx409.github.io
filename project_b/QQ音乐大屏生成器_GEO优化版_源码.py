@@ -2904,7 +2904,7 @@ h2.chart-title{font-size:15px;font-weight:600}
 .micro-trend-box h2{margin-bottom:6px;}
 .footer{text-align:center;padding:25px;color:#3a4a6c;font-size:12px;border-top:1px solid rgba(0,210,255,0.08);margin-top:20px;letter-spacing:1px;}
 @media(max-width:1200px){.grid{grid-template-columns:repeat(2,1fr)}.bottom-row{grid-template-columns:1fr}.dim-row{grid-template-columns:1fr}.geo-summary ul{columns:1}.listen-pulse-bar{flex-direction:column;align-items:flex-start;}.daily-trend-list{flex-direction:column;}.data-freshness-bar{flex-direction:column;align-items:flex-start;gap:10px;}.anomaly-mini-list{margin-left:0;}}
-@media(max-width:640px){.container{padding:12px 10px}.grid,.bottom-row,.dim-row{grid-template-columns:1fr!important}table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}th,td{white-space:nowrap}.chart-box,.chart-container{min-width:0!important}#arch-mount,#kai-banner{max-width:100%!important;padding-left:10px;padding-right:10px}#kai-banner{font-size:12.5px;color:#4a3a00}}
+@media(max-width:640px){.container{padding:12px 10px}.grid,.bottom-row,.dim-row{grid-template-columns:1fr!important}table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}th,td{white-space:nowrap}.chart-box,.chart-container{min-width:0!important}#arch-mount,#kai-banner{max-width:100%!important;padding-left:10px;padding-right:10px}#monthlyBody{grid-template-columns:1fr!important;gap:10px}#monthlyBody>div{min-width:0}#kai-banner{font-size:12.5px;color:#4a3a00}}
 </style>
 <style id="kai-fold-css">
   .kai-nav{position:sticky;top:0;z-index:60;background:rgba(15,18,34,.92);display:flex;gap:6px;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid #334;max-width:1200px;margin:0 auto}
