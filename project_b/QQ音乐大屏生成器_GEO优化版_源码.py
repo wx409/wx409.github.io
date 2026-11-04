@@ -3093,25 +3093,26 @@ __ABOUT_SECTION__
   <div class="footer">数据仅供个人研究使用 · 链接身份唯一识别 · 历史趋势分析面板 · 原始数据归档</div>
 </div>
 <script>
-// 数据加载：改为从独立的 dashboard_data.json 加载（不再内嵌进 HTML）。
+// 数据加载：从独立的 JSON 加载（不再内嵌进 HTML）。
+// 首屏读 dashboard_view.json（同一数据源派生，已剔除页面从不读取的 song_index，约 -660KB）；
+// 读不到时回退到全量 dashboard_data.json，保证渲染逻辑与字段完全不变。
 // 用带时间戳的 URL 绕过 CDN/浏览器缓存，确保每批次数据即时生效。
 // 同步加载保证下方渲染代码（依赖 dashboardData）在就绪后才执行，改动最小、最可靠。
 (function(){
-  var url = 'dashboard_data.json?t=' + Date.now();
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', url, false);            // 同步：阻塞直到数据就绪
-  try {
-    xhr.send(null);
-    if (xhr.status === 200) {
-      window.dashboardData = JSON.parse(xhr.responseText);
-    } else {
-      window.dashboardData = null;
-      console.error('数据加载失败 HTTP ' + xhr.status);
+  function fetchJSON(u) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', u, false);            // 同步：阻塞直到数据就绪
+    try {
+      xhr.send(null);
+      if (xhr.status === 200) return JSON.parse(xhr.responseText);
+      console.error('数据加载失败 HTTP ' + xhr.status + ' ' + u);
+    } catch (e) {
+      console.error('数据加载异常: ' + e.message);
     }
-  } catch (e) {
-    window.dashboardData = null;
-    console.error('数据加载异常: ' + e.message);
+    return null;
   }
+  var ts = '?t=' + Date.now();
+  window.dashboardData = fetchJSON('dashboard_view.json' + ts) || fetchJSON('dashboard_data.json' + ts);
 })();
 var dashboardData = window.dashboardData || {};
 if (!window.dashboardData) {
@@ -5778,6 +5779,14 @@ def generate_dashboard(payload, dashboard_dir):
     with open(os.path.join(dashboard_dir, "dashboard_lite.json"), "w", encoding="utf-8") as _f:
         json.dump(_clean_nan(_lite), _f, ensure_ascii=False, indent=1)
     logger.info(f"助手实时检索精简数据已写出: dashboard_lite.json（{len(json.dumps(_lite, ensure_ascii=False))//1024}KB）")
+
+    # 大屏首屏视图（单一数据源派生，不是新数据）：只剔除页面 JS 从不读取的 song_index
+    # （约 660KB，留给 dashboard/search_engine.js 按需读全量），其余字段原样保留；
+    # dashboard_data.json 的输出契约不变，仍是唯一数据出口与开放数据集。
+    _view = {_k: _v for _k, _v in payload.items() if _k != "song_index"}
+    with open(os.path.join(dashboard_dir, "dashboard_view.json"), "w", encoding="utf-8") as _f:
+        json.dump(_clean_nan(_view), _f, ensure_ascii=False, separators=(",", ":"))
+    logger.info(f"大屏首屏视图已写出: dashboard_view.json（{len(json.dumps(_view, ensure_ascii=False))//1024}KB，已剔除 song_index）")
 
     head_info = (f'<div class="subtitle" style="margin-top:6px;color:#3a7bd5">'
                  f'数据周期: {payload["date_range"]} | 共 {payload["batch_count"]} 批次 | '
