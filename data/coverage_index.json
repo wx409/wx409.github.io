@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-11-04T21:11:53",
+  "generated_at": "2026-11-05T00:20:51",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 58,
-  "L2_强": 2,
+  "L1_精确": 59,
+  "L2_强": 1,
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8544,
-  "measured_shows_site": 59,
-  "shows_with_claimable_site": 58,
-  "bv_mapped": 156
+  "files_scanned": 8580,
+  "measured_shows_site": 60,
+  "shows_with_claimable_site": 59,
+  "bv_mapped": 161
  },
  "shows": [
   {
@@ -20,15 +20,40 @@
    "city": "杭州",
    "tour": "一巡",
    "songs": 20,
-   "level": 2,
+   "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV164411T7Pr｜葫芦娃｜杭州20190607"
+    },
     {
      "level": 2,
      "src": "巡演目录",
      "detail": "一巡·“Cherish珍晰”王晰｜杭州"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "杭州20190607_BV164411T7Pr｜葫芦娃"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV164411T7Pr"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "杭州20190607_BV164411T7Pr.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV164411T7Pr"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 15
   },
   {
    "date": "2019-06-15",
@@ -383,22 +408,22 @@
      "detail": "BV1xJ411y7KQ｜City of Stars｜佛山20191201"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1uJ411i7LR｜白月光｜未知20191201"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "未知20191201_BV1uJ411i7LR｜白月光"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "佛山20191201_BV1CJ411z7xC｜月亮代表我的心"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "未知20191201_BV1UJ411B7gu｜月牙湾"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "佛山20191201_BV1xJ411y7KQ｜City of Stars"
     }
    ],
-   "n_evidence": 43
+   "n_evidence": 57
   },
   {
    "date": "2019-12-15",
@@ -413,9 +438,19 @@
      "detail": "BV12J411V7nH｜光之心｜长沙20191215"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1tG4y1877o｜麋鹿王｜长沙20191215"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "长沙20191215_BV12J411V7nH｜光之心"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "长沙20191215_BV1tG4y1877o｜麋鹿王"
     },
     {
      "level": 1,
@@ -426,19 +461,9 @@
      "level": 1,
      "src": "路径日期",
      "detail": "长沙20191215_BV12J411V7nH.wav"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV12J411V7nH"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "长沙20191215_BV12J411V7nH_f0.csv"
     }
    ],
-   "n_evidence": 16
+   "n_evidence": 30
   },
   {
    "date": "2019-12-21",
@@ -1704,6 +1729,11 @@
    "evidence": [
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1mg4y1m7Nf｜听海｜上海20231231"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "上海｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1726,14 +1756,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "四巡上海20231231_v13｜"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "四巡上海20231231_v23｜"
     }
    ],
-   "n_evidence": 208
+   "n_evidence": 222
   },
   {
    "date": "2024-01-27",
@@ -1914,26 +1939,26 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1N5WAevEA3｜千万次的问｜北京20240816"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "北京｜四巡·\"肆益\"个人巡回音乐会"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "北京20240816_BV1u2p9eDE1c｜黄昏放牛"
+     "detail": "北京20240816_BV1N5WAevEA3｜千万次的问"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "北京20240816_BV1ZQpReKEdf｜梦一场"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1ZQpReKEdf"
+     "detail": "北京20240816_BV1u2p9eDE1c｜黄昏放牛"
     }
    ],
-   "n_evidence": 33
+   "n_evidence": 47
   },
   {
    "date": "2024-09-16",

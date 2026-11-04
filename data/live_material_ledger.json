@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-04T21:11:52",
+ "generated_at": "2026-11-05T00:20:50",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8974,
   "songs": 264,
-  "processed_materials": 820,
-  "processed_songs": 246,
-  "gap_songs": 96,
-  "coverage_pct": 93.2,
+  "processed_materials": 826,
+  "processed_songs": 251,
+  "gap_songs": 91,
+  "coverage_pct": 95.1,
   "status": {
-   "已完成": 291,
-   "候选": 8630,
+   "已完成": 297,
+   "候选": 8624,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -43,7 +43,6 @@
   "军港之夜",
   "冬天里的一把火",
   "凡人歌",
-  "千万次的问",
   "千言万语",
   "叶塞尼亚",
   "哑光",
@@ -90,16 +89,13 @@
   "生日快乐",
   "甩了甩了",
   "痒",
-  "白月光",
   "直到时间尽头",
   "真的爱你",
   "矜持",
-  "离人",
   "竹蜻蜓",
   "红眼睛",
   "约定",
   "自然醒",
-  "葫芦娃",
   "虫儿飞",
   "袖手旁观",
   "被遗忘的时光",
@@ -111,8 +107,7 @@
   "那些花儿",
   "青藏高原",
   "饮酒歌",
-  "鸿雁",
-  "麋鹿王"
+  "鸿雁"
  ],
  "rows": [
   {
@@ -68770,17 +68765,20 @@
    "bv": "BV1N5WAevEA3",
    "title": "王晰【千万次的问】一人实现横跨高低八度【4k字幕】【点歌part】20240816肆益巡演北京站",
    "song": "千万次的问",
-   "tour": "",
-   "city": "",
-   "date": "2024-08-18",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2024-08-16",
    "kind": "4K字幕",
    "fetched_at": "2024-08-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1EE826rEau",
@@ -70362,17 +70360,20 @@
    "bv": "BV1mg4y1m7Nf",
    "title": "王晰【听海】这片海未免也太多情【4K字幕】【点歌part】肆益巡回音乐会上海站20231231",
    "song": "听海",
-   "tour": "",
-   "city": "",
-   "date": "2024-01-16",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
    "kind": "4K字幕",
    "fetched_at": "2024-01-16",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1euGL6vEDf",
@@ -81438,17 +81439,20 @@
    "bv": "BV1Yu4y1t7H3",
    "title": "【王晰】《离人》《心动》《茉莉花》丨四巡·北京站  点歌环节直拍",
    "song": "离人",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "北京",
    "date": "2023-11-13",
    "kind": "直拍",
    "fetched_at": "2023-11-13",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Zz4y1F7n5",
@@ -130714,17 +130718,20 @@
    "bv": "BV1uJ411i7LR",
    "title": "《他真漂亮》—王晰&amp;高杨 珍晰个人音乐会20191201 小羊和晰哥这首真的是声里的白月光",
    "song": "白月光",
-   "tour": "",
-   "city": "",
-   "date": "2019-12-05",
+   "tour": "一巡",
+   "city": "佛山",
+   "date": "2019-12-01",
    "kind": "其他",
    "fetched_at": "2019-12-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1L7411e7UN",
@@ -134058,17 +134065,20 @@
    "bv": "BV164411T7Pr",
    "title": "20190607 王晰 杭州个巡 串场 小燕子和葫芦娃",
    "song": "葫芦娃",
-   "tour": "",
-   "city": "",
-   "date": "2019-06-09",
+   "tour": "一巡",
+   "city": "杭州",
+   "date": "2019-06-07",
    "kind": "其他",
    "fetched_at": "2019-06-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1M54y1a7iy",
@@ -141459,17 +141469,20 @@
    "bv": "BV1tG4y1877o",
    "title": "石凯 《麋鹿王》20191215王晰长沙演唱会嘉宾表演",
    "song": "麋鹿王",
-   "tour": "",
-   "city": "",
-   "date": "2022-11-05",
+   "tour": "一巡",
+   "city": "长沙",
+   "date": "2019-12-15",
    "kind": "其他",
    "fetched_at": "2022-11-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ba4y1x7ze",

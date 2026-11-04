@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-11-04T21:11:53",
-  "rows": 820,
+  "generated_at": "2026-11-05T00:20:50",
+  "rows": 826,
   "levels": {
-   "L1": 393,
+   "L1": 398,
    "L6": 26,
-   "L3": 45,
+   "L3": 46,
    "未认领": 353,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 59,
-  "shows_with_claimable": 58,
+  "shows_with_material": 60,
+  "shows_with_claimable": 59,
   "shows_total": 64
  },
  "per_show": {
@@ -26,6 +26,10 @@
   "2019-12-28": {
    "n": 10,
    "claimable": 8
+  },
+  "2019-12-01": {
+   "n": 5,
+   "claimable": 4
   },
   "2019-10-12": {
    "n": 1,
@@ -43,17 +47,17 @@
    "n": 6,
    "claimable": 6
   },
-  "2019-12-01": {
-   "n": 4,
-   "claimable": 3
+  "2019-06-07": {
+   "n": 2,
+   "claimable": 2
   },
   "2019-11-16": {
    "n": 3,
    "claimable": 3
   },
   "2019-12-15": {
-   "n": 2,
-   "claimable": 2
+   "n": 3,
+   "claimable": 3
   },
   "2019-11-29": {
    "n": 1,
@@ -156,12 +160,16 @@
    "claimable": 3
   },
   "2023-12-31": {
-   "n": 33,
+   "n": 34,
    "claimable": 30
   },
   "2024-03-30": {
    "n": 13,
    "claimable": 12
+  },
+  "2024-08-16": {
+   "n": 3,
+   "claimable": 2
   },
   "2023-12-10": {
    "n": 3,
@@ -170,10 +178,6 @@
   "2024-09-16": {
    "n": 3,
    "claimable": 3
-  },
-  "2024-08-16": {
-   "n": 2,
-   "claimable": 2
   },
   "2024-01-27": {
    "n": 2,
@@ -235,6 +239,10 @@
    "n": 5,
    "claimable": 5
   },
+  "2023-11-12": {
+   "n": 1,
+   "claimable": 1
+  },
   "2019-08-16": {
    "n": 1,
    "claimable": 1
@@ -242,10 +250,6 @@
   "2019-08-04": {
    "n": 2,
    "claimable": 2
-  },
-  "2019-06-07": {
-   "n": 1,
-   "claimable": 1
   },
   "2020-10-17": {
    "n": 2,
@@ -372,6 +376,18 @@
    "show_date": "2020-01-02",
    "level": 6,
    "why": "巡次+日期±2天唯一"
+  },
+  {
+   "tag": "未知20191201_BV1uJ411i7LR",
+   "song": "白月光",
+   "tour": "一巡",
+   "city": "佛山",
+   "date": "2019-12-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-01",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "一巡厦门20191221_p16_云一定知道",
@@ -854,6 +870,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "杭州20190607_BV164411T7Pr",
+   "song": "葫芦娃",
+   "tour": "一巡",
+   "city": "杭州",
+   "date": "2019-06-07",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-06-07",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "一巡厦门20191221_p18_暖风",
    "song": "暖风",
    "tour": "一巡",
@@ -1090,6 +1118,18 @@
    "review_status": "待复核（谐波列待判）",
    "claimable": false,
    "show_date": "2019-12-21",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "长沙20191215_BV1tG4y1877o",
+   "song": "麋鹿王",
+   "tour": "一巡",
+   "city": "长沙",
+   "date": "2019-12-15",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-12-15",
    "level": 1,
    "why": "日期直配"
   },
@@ -3002,6 +3042,18 @@
    "why": "巡次+日期±2天唯一"
   },
   {
+   "tag": "北京20240816_BV1N5WAevEA3",
+   "song": "千万次的问",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2024-08-16",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2024-08-16",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p2_迷雾",
    "song": "迷雾",
    "tour": "四巡",
@@ -3141,6 +3193,18 @@
    "date": "2023-12-31",
    "review_status": "谐波列通过",
    "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "上海20231231_BV1mg4y1m7Nf",
+   "song": "听海",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": "2023-12-31",
    "level": 1,
    "why": "日期直配"
@@ -7320,6 +7384,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "北京20231113_BV1Yu4y1t7H3",
+   "song": "离人",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2023-11-13",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-11-12",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "【自存档】王晰 四巡“肆益” 上海生日场__BV__P08_《海然海然》+《嘎达梅林》",
