@@ -1,5 +1,40 @@
 # CHANGELOG.md — 重大变更
 
+## 2026-11-04 首屏瘦身 + 元信息质量 + sitemap 结构闸门
+
+**起因**：外部体检指出 sitemap 漏 160+ 页、大页面偏重、元信息缺失。核对后一半成立、一半是口径偏差。
+
+**sitemap（已上线）**
+- 补齐 135 条缺页（逐字稿 106 期全部在列），线上 **127 → 226 条**
+- 反向修：**18 条 noindex 页面**（`archive-index` / `kb-semantic` / `debate/*` / 14 张 `share-*.html`）
+  被上一版补齐脚本顺手塞进 sitemap，属自相矛盾（noindex 进 sitemap 会被判「已提交但被排除」），已剔除
+- `site_fix.py` 升级为双向闸门：缺收录 / 多余收录（noindex 或文件已不存在）/ **sitemap XML 结构错误**
+  三者任一命中即 `exit 1`；按整 `<url>` 块删除（上一版按行删 `<loc>` 会留下无 loc 残块，已修）
+- 新增 `project_b/indexnow_submit.py`：走官方 **POST 批量**接口（原 `deploy_all.py` 逐条 GET，245 条 = 245 次请求）
+
+**首屏瘦身（已上线）**
+- 三个只读聚合指标的页面改读 `dashboard_lite.json`（210KB／gzip 26KB，原读 3106KB／gzip 252KB）：
+  `data-timeline.html`、`live/hui-回-广州-2026.html`、`story-hui-guangzhou-2026.html`
+- 大屏新增 `dashboard_view.json`（704KB／gzip 133KB）：从同一 payload 派生，只剔除页面 JS 从不读取的
+  `song_index`（663KB）；`dashboard/index.html` 首屏读它，读不到自动回退全量 `dashboard_data.json`。
+  **数据契约不变**——`dashboard_data.json` 仍是唯一数据出口与开放数据集
+- 口径说明：GitHub Pages 是 gzip 传输，磁盘 3106KB 实际下载 252KB。「2.3MB 整包」是未压缩体积，
+  真实成本在同步 XHR 阻塞首屏，而非字节数
+
+**元信息质量（已上线）**
+- 「缺 description 0」是数字达标、质量未达标：实测 **74 页 description 与 title 完全相同**，
+  82 页不足 40 字（最短 6 字）。重写 `site_fix.pick_desc` 规则：禁用 title 兜底，
+  改按 og → JSON-LD → `<h1>` 后首段合成，并过滤表格行/过程稿标记，**59 页重写**
+
+**stage.html（已上线）**
+- 三张长表（逐场 826 / 跨版本 363 / 单版本 166 行）收进 `<details>` + `content-visibility:auto`：
+  **行数一条不删**（爬虫仍可读），只改视觉长度与屏外布局。
+- 未做 JS 分页懒加载：全页 gzip 仅 51.7KB／1512 行，懒加载会把 826 行逐场读数挡在爬虫之外，
+  与「可查、可引用」的目标冲突
+
+**核验**：`site_fix --check` / `audit_caliber` / `audit_nav` / `audit_jsonld` / `audit_live` 全 exit 0；
+线上 `dashboard_view.json` 200、stage 页 3 个折叠块、226 条 sitemap 与本地一致。
+
 ## 2026-09-15（续）人耳听辨 6 条定案 + 复核闭环（stage.html 可见）
 
 **用户人耳听辨结论**：6 条「待复核（谐波列待判）」全部确认为**王晰本人演唱**
