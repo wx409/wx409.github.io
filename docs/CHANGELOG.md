@@ -1,5 +1,32 @@
 # CHANGELOG.md — 重大变更
 
+## 2026-11-05 URL 归档 + 首页索引折叠 + 仓库体检
+
+**归档：68 个顶层页面进子目录**
+- `story-*.html`（53）→ `/stories/`；`share-*.html`（14 + `share.html`）→ `/share/`（入口变 `share/index.html`）
+- 旧 URL 保留 **meta-refresh 跳转页 + canonical 指向新地址 + noindex**（GitHub Pages 不能 301，
+  只能靠跳转页 + canonical 收敛）
+- 全站引用改写：绝对 `/`、全 URL、裸相对三种形态；`/stories/`、`/share/` 内部页面统一补 `../`
+- 生成器同步：`build_show_story.py`（输出目录/canonical/索引链接/磁盘校验）、`build_share_page.py`（OUT 与卡片目录）、
+  `build_nav.py`（底部索引路径、`PAGE_GLOBS` 增加 `stories/*.html`/`share/*.html`、跳转页不注入导航也不被 robots 守卫翻成 index）、
+  `site_fix.py`（`DIRS` 增加两目录）、`build_compact.py`/`build_copy_usage_page.py`（share 链接）
+
+**首页底部「全站索引」改折叠**
+- 整块收进 `<details>`：默认收起高度 **52px**，展开 **510px**；53 个入口链接仍在 DOM 里（爬虫照读）
+
+**验证**
+- 内链解析检查：262 个 HTML，断链 **9 条（全部为迁移前既有，与本次无关）**
+- `audit_nav` 页面 111｜孤儿 0｜漂移 0｜死锚点 0
+- `site_fix --check` / `audit_caliber` / `audit_jsonld` / `audit_live` 全 exit 0
+- Playwright 实测：旧 URL 自动跳到 `/stories/...`（200）｜`/share/` 200｜首页 `scrollWidth=390`（0 横向溢出）
+
+**仓库体检（澄清一个误判）**
+- 「704MB 接近 Pages 1GB 上限」不成立：**实际发布内容 113MB / 1698 个文件**；
+  700MB 里的 **564MB 是本地 `temp/`（gitignore，从不入库）**
+- `.git` 143.9MB → `git gc --aggressive --prune=now` 后 **116.7MB**（pack 129.5 → 115.6MB）
+- 历史里最大的对象是 1796 个版本的 `dashboard/dashboard_data.json`（每版 ~8MB 未压缩）；
+  要进一步瘦身只能改写历史（SHA 全变 + force-push），本轮未执行
+
 ## 2026-11-04（二）口径收尾：事实表述 / 大屏运行错误 / 手机端布局
 
 本轮针对外部验收意见，只修事实、运行错误与版式，不动声学研究与数据采集。
