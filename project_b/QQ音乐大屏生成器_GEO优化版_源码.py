@@ -2554,11 +2554,12 @@ CDN_LOADER = """<script>
 (function(){
   if (typeof window.echarts !== 'undefined') return;
   var pend = [];
+  var _lg = function(o){ return { colorStops: (o && o.colorStops) || [] }; };
   var stub = { init: function(el){
     return { setOption: function(o){ pend.push({el: el, o: o}); },
              resize: function(){}, dispose: function(){}, on: function(){}, off: function(){},
              getOption: function(){ return {}; }, showLoading: function(){}, hideLoading: function(){} };
-  }};
+  }, graphic: { LinearGradient: _lg, RadialGradient: _lg } };
   window.echarts = stub;
   document.addEventListener("echarts-ready", function(){
     var real = window.echarts;
@@ -2614,11 +2615,12 @@ def build_echarts_tag():
 (function(){
   if (typeof window.echarts !== 'undefined') return;
   var pend = [];
+  var _lg = function(o){ return { colorStops: (o && o.colorStops) || [] }; };
   var stub = { init: function(el){
     return { setOption: function(o){ pend.push({el: el, o: o}); },
              resize: function(){}, dispose: function(){}, on: function(){}, off: function(){},
              getOption: function(){ return {}; }, showLoading: function(){}, hideLoading: function(){} };
-  }};
+  }, graphic: { LinearGradient: _lg, RadialGradient: _lg } };
   window.echarts = stub;
   document.addEventListener("echarts-ready", function(){
     var real = window.echarts;
