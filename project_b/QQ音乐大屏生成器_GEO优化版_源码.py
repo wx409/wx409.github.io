@@ -2549,6 +2549,24 @@ CDN_LOADER = """<script>
   }
   loadNext();
 })();
+// 占位壳：页面里有些图表初始化会立即执行，若此刻 echarts 还没加载完会抛
+// 「echarts is not defined」。这里先给一个无副作用的壳，就绪后再把 setOption 重放一遍。
+(function(){
+  if (typeof window.echarts !== 'undefined') return;
+  var pend = [];
+  var stub = { init: function(el){
+    return { setOption: function(o){ pend.push({el: el, o: o}); },
+             resize: function(){}, dispose: function(){}, on: function(){}, off: function(){},
+             getOption: function(){ return {}; }, showLoading: function(){}, hideLoading: function(){} };
+  }};
+  window.echarts = stub;
+  document.addEventListener("echarts-ready", function(){
+    var real = window.echarts;
+    if (!real || real === stub || !real.init) return;
+    pend.forEach(function(x){ try { real.init(x.el).setOption(x.o); } catch(e){} });
+    pend.length = 0;
+  });
+})();
 </script>"""
 
 def build_echarts_tag():
@@ -2590,6 +2608,24 @@ def build_echarts_tag():
     document.head.appendChild(s);
   }
   loadNext();
+})();
+// 占位壳：页面里有些图表初始化会立即执行，若此刻 echarts 还没加载完会抛
+// 「echarts is not defined」。这里先给一个无副作用的壳，就绪后再把 setOption 重放一遍。
+(function(){
+  if (typeof window.echarts !== 'undefined') return;
+  var pend = [];
+  var stub = { init: function(el){
+    return { setOption: function(o){ pend.push({el: el, o: o}); },
+             resize: function(){}, dispose: function(){}, on: function(){}, off: function(){},
+             getOption: function(){ return {}; }, showLoading: function(){}, hideLoading: function(){} };
+  }};
+  window.echarts = stub;
+  document.addEventListener("echarts-ready", function(){
+    var real = window.echarts;
+    if (!real || real === stub || !real.init) return;
+    pend.forEach(function(x){ try { real.init(x.el).setOption(x.o); } catch(e){} });
+    pend.length = 0;
+  });
 })();
 </script>"""
     return CDN_LOADER
