@@ -2998,6 +2998,55 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
   <div class="chart-box" id="esBox" style="margin-bottom:14px;">
+    <h2 class="chart-title">📅 月度事件脉络 · 每月变化与异常月归因
+      <a href="monthly.html" style="font-size:13px;font-weight:400;color:#7fb0ff;margin-left:10px;text-decoration:none">见完整页（含归因表）→</a></h2>
+    <p class="chart-insight">现阶段演出密度低，逐场 CAR 窗口内常只有一个观测。按月看更稳：异常月（稳健 z≥2.5 或环比≥20%）自动标出，并列出同月/前一月的巡演、演出晚会、新歌发行作为<strong>候选解释</strong>（非因果）。</p>
+    <div id="monthlyMini" style="width:100%;height:230px"></div>
+  </div>
+  <script id="monthlyMiniScript">
+  (function(){
+    var tries = 0, data = null, done = false;
+    function draw(){
+      if (done) return;
+      if (typeof echarts === 'undefined') { if (++tries > 40) return; return setTimeout(draw, 250); }
+      if (!data) return setTimeout(draw, 250);
+      var el = document.getElementById('monthlyMini');
+      if (!el) return;
+      done = true;
+      var ms = data.months || [];
+      var chart = echarts.init(el);
+      chart.setOption({
+        backgroundColor:'transparent',
+        grid:{left:52,right:18,top:18,bottom:40},
+        tooltip:{trigger:'axis', formatter:function(ps){
+          var m = ms[ps[0].dataIndex];
+          var evs = (m.events||[]).slice(0,3).map(function(e){return '· '+e.title.slice(0,32);}).join('<br>');
+          return '<b>'+m.month+'</b> 指数 '+m.index+'（'+m.n_days+' 天）<br>环比 '+
+                 (m.mom_pct==null?'—':m.mom_pct+'%')+(evs?('<br>'+evs):'');
+        }},
+        xAxis:{type:'category', data:ms.map(function(m){return m.month;}),
+               axisLabel:{color:'#8c98b8', rotate:45, fontSize:9}, axisLine:{lineStyle:{color:'#33406b'}}},
+        yAxis:{type:'value', axisLabel:{color:'#8c98b8'}, splitLine:{lineStyle:{color:'#1e2740'}}},
+        series:[{type:'line', smooth:true, symbolSize:4,
+                 data:ms.map(function(m){return m.index;}),
+                 lineStyle:{color:'#7fb0ff', width:2}, itemStyle:{color:'#7fb0ff'},
+                 areaStyle:{color:'rgba(127,176,255,.10)'},
+                 markPoint:{symbol:'circle', symbolSize:8, label:{show:false},
+                   data:ms.filter(function(m){return m.anomaly;}).map(function(m){
+                     return {coord:[m.month, m.index], itemStyle:{color:'#ff7a7a'}};
+                   })}}]
+      });
+      window.addEventListener('resize', function(){ chart.resize(); });
+    }
+    setTimeout(draw, 300);
+    fetch('../data/monthly_events.json', {cache:'no-store'})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(j){ data = j; draw(); })
+      .catch(function(){ var el=document.getElementById('monthlyMini');
+        if (el) el.innerHTML = '<div style="color:#8c98b8;padding:14px;font-size:12.5px">月度数据未生成（运行 project_b/build_monthly_events.py）</div>'; });
+  })();
+  </script>
+  <div class="chart-box" id="esBox" style="margin-bottom:14px;">
     <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
     <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
     <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
