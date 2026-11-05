@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-05 21:09",
+ "generated_at": "2026-11-06 00:20",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 995,
+  "total": 1000,
   "by_layer": {
    "studio_album": 72,
    "precision": 51,
-   "tour_live": 829,
+   "tour_live": 834,
    "stage_other": 32,
    "single": 11
   },
@@ -25,15 +25,15 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 634,
+   "谐波列复核通过": 638,
    "双引擎一致": 9,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "谐波列复核通过（全曲口径对账）": 3,
    "待复核": 1,
-   "待复核（谐波列待判）": 143,
+   "待复核（谐波列待判）": 144,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 311
+  "songs": 313
  },
  "rows": [
   {
@@ -9568,6 +9568,41 @@
    }
   },
   {
+   "id": "tour_live|为爱痴狂|武汉20220917_BV18pgq6EEg5",
+   "song": "为爱痴狂",
+   "version": "武汉20220917_BV18pgq6EEg5",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
+   "source_ref": "BV18pgq6EEg5",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 79.7,
+    "high_note": "D#4",
+    "high_hz": 309.0,
+    "span_octaves": 1.96,
+    "stability_cents": 7.7,
+    "intonation_cents": 24.6,
+    "vibrato_hz": 4.31,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.37,
+    "hnr_db": 7.1,
+    "duration_s": 112.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 217
+   }
+  },
+  {
    "id": "tour_live|无与伦比的美丽|深圳20230623_BV1Sm4y1e7ZZ",
    "song": "无与伦比的美丽",
    "version": "深圳20230623_BV1Sm4y1e7ZZ",
@@ -9947,6 +9982,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 314
+   }
+  },
+  {
+   "id": "tour_live|哑光|未知20220409_BV1WY4y1H7c7",
+   "song": "哑光",
+   "version": "未知20220409_BV1WY4y1H7c7",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "source_ref": "BV1WY4y1H7c7",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.0,
+    "high_note": "C4",
+    "high_hz": 261.6,
+    "span_octaves": 1.67,
+    "stability_cents": 6.2,
+    "intonation_cents": 8.3,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.9,
+    "hnr_db": 6.6,
+    "duration_s": 260.1
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 130
    }
   },
   {
@@ -24489,6 +24559,41 @@
    }
   },
   {
+   "id": "tour_live|敖包相会|未知20220725_BV1nd4y1D7ix",
+   "song": "敖包相会",
+   "version": "未知20220725_BV1nd4y1D7ix",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-25",
+   "source_ref": "BV1nd4y1D7ix",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 82.7,
+    "high_note": "B5",
+    "high_hz": 989.7,
+    "span_octaves": 3.58,
+    "stability_cents": 6.5,
+    "intonation_cents": 22.1,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 66.0,
+    "density_per_s": 1.86,
+    "hnr_db": 5.4,
+    "duration_s": 154.7
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 104
+   }
+  },
+  {
    "id": "tour_live|离人|北京20231113_BV1Yu4y1t7H3",
    "song": "离人",
    "version": "北京20231113_BV1Yu4y1t7H3",
@@ -27816,6 +27921,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|虫儿飞|上海20220111_BV1rq4y1y7Rh",
+   "song": "虫儿飞",
+   "version": "上海20220111_BV1rq4y1y7Rh",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2022-01-11",
+   "source_ref": "BV1rq4y1y7Rh",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 93.2,
+    "high_note": "B4",
+    "high_hz": 497.9,
+    "span_octaves": 2.42,
+    "stability_cents": 6.8,
+    "intonation_cents": 18.9,
+    "vibrato_hz": 5.12,
+    "vibrato_cents": 70.0,
+    "density_per_s": 1.57,
+    "hnr_db": 5.6,
+    "duration_s": 324.2
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 319
    }
   },
   {
@@ -31965,6 +32105,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|虫儿飞|上海20260122_BV1pKz7BSEga",
+   "song": "虫儿飞",
+   "version": "上海20260122_BV1pKz7BSEga",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2026-01-22",
+   "source_ref": "BV1pKz7BSEga",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "B2",
+    "low_hz": 126.4,
+    "high_note": "D#4",
+    "high_hz": 310.1,
+    "span_octaves": 1.3,
+    "stability_cents": 8.5,
+    "intonation_cents": 17.6,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 69.0,
+    "density_per_s": 1.45,
+    "hnr_db": 8.0,
+    "duration_s": 88.9
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 227
    }
   },
   {
