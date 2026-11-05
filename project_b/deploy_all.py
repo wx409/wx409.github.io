@@ -119,6 +119,8 @@ STEPS = [
     (ROOT / "project_b" / "build_insight_charts.py", "洞察图 assets/insight/*（图＋sha256 指纹入 data/share/insight_charts.json）", False),
     (ROOT / "project_b" / "build_insight_page.py", "洞察页 insight.html（不进主导航、进底部索引与 sitemap）", False),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
+    (ROOT / "project_b" / "build_monthly_events.py", "月度事件脉络数据（data/monthly_events.json：月度指数+事件归因）", False),
+    (ROOT / "project_b" / "build_monthly_page.py", "月度事件脉络页（dashboard/monthly.html）", False),
     (ROOT / "project_b" / "inject_ability_blocks.py", "能力主线区块（稳/准/气/控，派生数字）", False),
     (ROOT / "project_b" / "apply_song_exclusions.py", "按排除清单剔除歌曲（生成后过滤）", False),
     # ── 注入复跑守卫（2026-09-21）：compact 会重建 7 个公开页，注入块必须在其后重跑 ──
