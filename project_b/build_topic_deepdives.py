@@ -74,8 +74,10 @@ for x in alb:
         by_alb[x["album"]].append(x["vibrato_hz"])
 av = {k: st.median(v) for k, v in by_alb.items()}
 tv = [t.get("vibrato_rate_hz_median") for t in tour.get("by_tour", []) if t.get("vibrato_rate_hz_median")]
+_vib_drift = max(av.values()) - min(av.values())
 T.append({
-    "id": "vibrato", "title": "颤音指纹：七张专辑与一张数字 EP极差 0.27Hz",
+    "id": "vibrato",
+    "title": f"颤音指纹：七张专辑与一张数字 EP 极差 {_vib_drift:.2f}Hz",
     "phenomenon": f"录音室 72 曲颤音速率中位 {st.median(vib):.2f}Hz；七张专辑与一张数字 EP各自中位仅 "
                   f"{min(av.values()):.2f}–{max(av.values()):.2f}Hz（漂移 {max(av.values())-min(av.values()):.2f}Hz）；"
                   f"六轮巡演 {min(tv):.2f}–{max(tv):.2f}Hz。",
@@ -85,7 +87,7 @@ T.append({
     "counter": "① 颤音速率按本站分层属「组内可纵比、跨组谨慎」——修音基本不动速率，但幅度可能受影响；"
                "② 现场比录音室系统性慢 0.2–0.3Hz，属演出状态差异，不是能力下降；"
                "③ 这只说明「稳定性达到可作指纹的程度」，不构成「好/坏」评价。",
-    "quotes": ["“一台十年校准误差 0.27Hz 的乐器。”",
+    "quotes": [f"“一台十年校准误差 {_vib_drift:.2f}Hz 的乐器。”",
                "“颤音速率是人类声带很难长期稳定的指标——十年间几乎不动，稳定到可以作为指纹。”"],
 })
 
