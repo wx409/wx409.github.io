@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-05T21:08:58",
+ "generated_at": "2026-11-06T00:19:51",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 826,
-  "processed_songs": 251,
-  "gap_songs": 92,
-  "coverage_pct": 94.7,
+  "processed_materials": 831,
+  "processed_songs": 254,
+  "gap_songs": 89,
+  "coverage_pct": 95.8,
   "status": {
-   "已完成": 297,
-   "候选": 8625,
+   "已完成": 304,
+   "候选": 8618,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -27,7 +27,6 @@
   "下沉",
   "东方之珠",
   "两只老虎",
-  "为爱痴狂",
   "乌兰巴托的夜晚",
   "乡恋",
   "云与海",
@@ -45,7 +44,6 @@
   "凡人歌",
   "千言万语",
   "叶塞尼亚",
-  "哑光",
   "嘴巴嘟嘟",
   "在梵高的星空下",
   "城里的月光",
@@ -97,7 +95,6 @@
   "红眼睛",
   "约定",
   "自然醒",
-  "虫儿飞",
   "袖手旁观",
   "被遗忘的时光",
   "读你",
@@ -46206,17 +46203,20 @@
    "bv": "BV1WY4y1H7c7",
    "title": "【王晰】关键词：小人物丨《哑光》丨用24首歌走进王晰",
    "song": "哑光",
-   "tour": "",
-   "city": "",
+   "tour": "三巡",
+   "city": "北京",
    "date": "2022-04-09",
    "kind": "其他",
    "fetched_at": "2022-04-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1gg411w7oy",
@@ -49531,17 +49531,20 @@
    "bv": "BV1rq4y1y7Rh",
    "title": "王晰 《虫儿飞》《敖包相会》《让我欢喜让我忧》三巡点唱环节 上海站「MOON丨TBC」",
    "song": "敖包相会",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "上海",
    "date": "2022-01-11",
    "kind": "其他",
    "fetched_at": "2022-01-11",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1SS4y1T7NY",
@@ -49563,17 +49566,20 @@
    "bv": "BV1nd4y1D7ix",
    "title": "王晰 敖包相会 图景个人巡回音乐会鄂尔多斯站",
    "song": "敖包相会",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2022-07-25",
    "kind": "其他",
    "fetched_at": "2022-07-25",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Rs41147rW",
@@ -56626,33 +56632,39 @@
    "bv": "BV1pKz7BSEga",
    "title": "【王晰】点歌：《虫儿飞》4K字幕 | 妈咪……好温柔的妈咪…… | 王晰2021-2023『图景』个人巡回音乐会 上海东方艺术中心",
    "song": "虫儿飞",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "上海",
    "date": "2026-01-22",
    "kind": "4K字幕",
    "fetched_at": "2026-01-22",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1rq4y1y7Rh",
    "title": "王晰 《虫儿飞》《敖包相会》《让我欢喜让我忧》三巡点唱环节 上海站「MOON丨TBC」",
    "song": "虫儿飞",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "上海",
    "date": "2022-01-11",
    "kind": "其他",
    "fetched_at": "2022-01-11",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1GS4y1471Q",
@@ -57141,17 +57153,20 @@
    "bv": "BV18pgq6EEg5",
    "title": "【王晰】点歌：《为爱痴狂》4K字幕 | 2021-2023『图景』个人巡回音乐会 20220917 武汉 琴台大剧院",
    "song": "为爱痴狂",
-   "tour": "",
-   "city": "",
-   "date": "2026-07-24",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
    "kind": "4K字幕",
    "fetched_at": "2026-07-24",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1G4411E7cW",
@@ -60484,17 +60499,20 @@
    "bv": "BV1rq4y1y7Rh",
    "title": "王晰 《虫儿飞》《敖包相会》《让我欢喜让我忧》三巡点唱环节 上海站「MOON丨TBC」",
    "song": "让我欢喜让我忧",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "上海",
    "date": "2022-01-11",
    "kind": "其他",
    "fetched_at": "2022-01-11",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1jm4y1D7sA",

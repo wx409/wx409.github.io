@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-05T21:08:59",
+  "generated_at": "2026-11-06T00:19:53",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8580,
+  "files_scanned": 8611,
   "measured_shows_site": 60,
   "shows_with_claimable_site": 59,
-  "bv_mapped": 161
+  "bv_mapped": 163
  },
  "shows": [
   {
@@ -1293,17 +1293,17 @@
      "detail": "BV1cq4y1Y7LW｜我可以抱你吗｜未知20220409"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "未知20220409_BV1cq4y1Y7LW｜我可以抱你吗"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1WY4y1H7c7｜哑光｜未知20220409"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "北京20220409_BV17L4y1F7k2｜月半弯"
+     "detail": "未知20220409_BV1WY4y1H7c7｜哑光"
     }
    ],
-   "n_evidence": 56
+   "n_evidence": 70
   },
   {
    "date": "2022-06-24",
@@ -1453,17 +1453,17 @@
      "detail": "BV1m8UKY4E4C｜倒叙｜武汉20220917"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "武汉20220917_BV1m8UKY4E4C｜倒叙"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV18pgq6EEg5｜为爱痴狂｜武汉20220917"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "【王晰三巡·图景】20220917 武汉全程____P01_送别 moonriver 知晓｜"
+     "detail": "武汉20220917_BV1m8UKY4E4C｜倒叙"
     }
    ],
-   "n_evidence": 227
+   "n_evidence": 241
   },
   {
    "date": "2023-04-09",

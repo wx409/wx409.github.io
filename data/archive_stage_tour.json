@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-05 21:08",
+ "generated_at": "2026-11-06 00:19",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,27 +9,27 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 826,
-  "n_stage_measured": 823,
+  "n_materials": 831,
+  "n_stage_measured": 828,
   "n_from_precision": 3,
-  "n_songs": 251,
+  "n_songs": 254,
   "n_tours": 11,
-  "n_verified": 676,
-  "n_claimable": 661,
+  "n_verified": 680,
+  "n_claimable": 665,
   "n_claimable_soft": 336,
   "hnr_gate_db": 5.0,
   "hnr_low_n": 437,
   "n_unverifiable": 5,
   "review_status_dist": {
-   "谐波列通过": 611,
-   "待复核（谐波列待判）": 132,
+   "谐波列通过": 615,
+   "待复核（谐波列待判）": 133,
    "人耳确认": 50,
    "人耳否决（非王晰）": 25,
    "不可复核（缺混音/时间）": 5,
    "谐波列通过（HNR 异常，疑分离失败）": 2,
    "未复核": 1
   },
-  "n_harmonic_reviewed": 621,
+  "n_harmonic_reviewed": 625,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -40,20 +40,20 @@
    "verify": "谐波列复核通过",
    "crepe_hz": null
   },
-  "span_median_octaves": 2.72,
+  "span_median_octaves": 2.71,
   "stability_median_cents": 6.8,
   "vibrato_rate_hz_median": 4.92,
   "vibrato_extent_cents_median": 75.0,
   "verify_dist": {
    "人耳确认（听辨）": 50,
-   "待复核（谐波列待判）": 143,
-   "谐波列复核通过": 620,
+   "待复核（谐波列待判）": 144,
+   "谐波列复核通过": 624,
    "未复核": 7,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 826,
+  "n_stat_basis": 831,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -130,8 +130,8 @@
   },
   {
    "tour": "三巡",
-   "n_materials": 79,
-   "n_claimable": 61,
+   "n_materials": 81,
+   "n_claimable": 63,
    "cities": [
     "上海",
     "北京",
@@ -157,11 +157,11 @@
    "lowest_hz_all": 58.5,
    "lowest_verify_all": "待复核（谐波列待判）",
    "lowest_pending_under": true,
-   "span_median_octaves": 2.42,
+   "span_median_octaves": 2.39,
    "stability_median_cents": 6.4,
-   "vibrato_rate_hz_median": 4.84,
+   "vibrato_rate_hz_median": 4.82,
    "stat_basis": "可主张（复核通过）",
-   "n_stat_basis": 61,
+   "n_stat_basis": 63,
    "generator_version": "stage-report v4 / 2026-09-21"
   },
   {
@@ -9416,6 +9416,62 @@
    "claimable_soft": true
   },
   {
+   "tag": "武汉20220917_BV18pgq6EEg5",
+   "song": "为爱痴狂",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
+   "bv": "BV18pgq6EEg5",
+   "owner": "一只小陆____",
+   "title": "【王晰】点歌：《为爱痴狂》4K字幕 | 2021-2023『图景』个人巡回音乐会 20220917 武汉 琴台大剧院",
+   "bandwidth_kbps": 217,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "D#2",
+   "low_hz": 79.7,
+   "low_t_s": 36.1534693877551,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "D#4",
+   "high_hz": 309.0,
+   "span_octaves": 1.96,
+   "stability_cents": 7.7,
+   "intonation_cents": 24.6,
+   "vibrato_hz": 4.31,
+   "vibrato_cents": 80.0,
+   "density_per_s": 1.37,
+   "hnr_db": 7.1,
+   "duration_s": 112.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "D#2",
+    "hz": 79.7,
+    "why": "1f0 差 -2.4dB、3f0 在（50.4dB）",
+    "fund_gap_db": -2.4,
+    "floor_db": 19.6,
+    "t_s": 36.153,
+    "dur_s": 0.232,
+    "partials": [
+     55.8,
+     55.5,
+     50.1,
+     58.2,
+     50.4,
+     40.9,
+     35.5,
+     31.2
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
+  },
+  {
    "tag": "深圳20230623_BV1Sm4y1e7ZZ",
    "song": "无与伦比的美丽",
    "tour": "三巡",
@@ -10025,6 +10081,62 @@
      44.9,
      29.3,
      23.7
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
+  },
+  {
+   "tag": "未知20220409_BV1WY4y1H7c7",
+   "song": "哑光",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "bv": "BV1WY4y1H7c7",
+   "owner": "王晰的小仓库",
+   "title": "【王晰】关键词：小人物丨《哑光》丨用24首歌走进王晰",
+   "bandwidth_kbps": 130,
+   "source_verdict": "官方直传",
+   "low_note": "E2",
+   "low_hz": 82.0,
+   "low_t_s": 97.38448979591837,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "C4",
+   "high_hz": 261.6,
+   "span_octaves": 1.67,
+   "stability_cents": 6.2,
+   "intonation_cents": 8.3,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 80.0,
+   "density_per_s": 1.9,
+   "hnr_db": 6.6,
+   "duration_s": 260.1,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "E2",
+    "hz": 82.0,
+    "why": "1f0 差 +0.0dB、3f0 在（47.1dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 32.6,
+    "t_s": 97.384,
+    "dur_s": 0.209,
+    "partials": [
+     58.3,
+     53.5,
+     46.6,
+     40.2,
+     36.9,
+     40.2,
+     47.1,
+     36.0
     ]
    },
    "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
@@ -33731,6 +33843,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "未知20220725_BV1nd4y1D7ix",
+   "song": "敖包相会",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-25",
+   "bv": "BV1nd4y1D7ix",
+   "owner": "小狐狸尾巴摇啊摇",
+   "title": "王晰 敖包相会 图景个人巡回音乐会鄂尔多斯站",
+   "bandwidth_kbps": 104,
+   "source_verdict": "官方直传",
+   "low_note": "E2",
+   "low_hz": 82.7,
+   "low_t_s": 147.21451247165533,
+   "low_dur_s": 0.25541950113378686,
+   "high_note": "B5",
+   "high_hz": 989.7,
+   "span_octaves": 3.58,
+   "stability_cents": 6.5,
+   "intonation_cents": 22.1,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 66.0,
+   "density_per_s": 1.86,
+   "hnr_db": 5.4,
+   "duration_s": 154.7,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "待复核（谐波列待判）",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "E2",
+    "hz": 82.7,
+    "why": "1f0 差 -58.6dB",
+    "fund_gap_db": -58.6,
+    "floor_db": -9.5,
+    "t_s": 147.215,
+    "dur_s": 0.255,
+    "partials": [
+     2.2,
+     5.5,
+     60.8,
+     15.3,
+     16.1,
+     50.2,
+     50.7,
+     16.8
+    ]
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "hnr_low": false,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "claimable_soft": false
+  },
+  {
    "tag": "北京20231113_BV1Yu4y1t7H3",
    "song": "离人",
    "tour": "其他演出",
@@ -39142,6 +39310,62 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "claimable_soft": true
+  },
+  {
+   "tag": "上海20220111_BV1rq4y1y7Rh",
+   "song": "虫儿飞",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2022-01-11",
+   "bv": "BV1rq4y1y7Rh",
+   "owner": "MOON丨TBC",
+   "title": "王晰 《虫儿飞》《敖包相会》《让我欢喜让我忧》三巡点唱环节 上海站「MOON丨TBC」",
+   "bandwidth_kbps": 319,
+   "source_verdict": "官方直传",
+   "low_note": "F#2",
+   "low_hz": 93.2,
+   "low_t_s": 234.75374149659865,
+   "low_dur_s": 0.5804988662131519,
+   "high_note": "B4",
+   "high_hz": 497.9,
+   "span_octaves": 2.42,
+   "stability_cents": 6.8,
+   "intonation_cents": 18.9,
+   "vibrato_hz": 5.12,
+   "vibrato_cents": 70.0,
+   "density_per_s": 1.57,
+   "hnr_db": 5.6,
+   "duration_s": 324.2,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 93.2,
+    "why": "1f0 差 -11.3dB、3f0 在（55.0dB）",
+    "fund_gap_db": -11.3,
+    "floor_db": 12.1,
+    "t_s": 234.754,
+    "dur_s": 0.58,
+    "partials": [
+     55.4,
+     66.7,
+     55.0,
+     52.7,
+     36.4,
+     15.2,
+     25.4,
+     32.3
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
   },
   {
    "tag": "无尽的夜里第1遍",
@@ -45926,6 +46150,62 @@
    "claimable_soft": true
   },
   {
+   "tag": "上海20260122_BV1pKz7BSEga",
+   "song": "虫儿飞",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2026-01-22",
+   "bv": "BV1pKz7BSEga",
+   "owner": "一只小陆____",
+   "title": "【王晰】点歌：《虫儿飞》4K字幕 | 妈咪……好温柔的妈咪…… | 王晰2021-2023『图景』个人巡回音乐会 上海东",
+   "bandwidth_kbps": 227,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "B2",
+   "low_hz": 126.4,
+   "low_t_s": 54.659773242630386,
+   "low_dur_s": 0.5108390022675737,
+   "high_note": "D#4",
+   "high_hz": 310.1,
+   "span_octaves": 1.3,
+   "stability_cents": 8.5,
+   "intonation_cents": 17.6,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 69.0,
+   "density_per_s": 1.45,
+   "hnr_db": 8.0,
+   "duration_s": 88.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "B2",
+    "hz": 126.4,
+    "why": "1f0 差 +0.0dB、3f0 在（49.4dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 10.4,
+    "t_s": 54.66,
+    "dur_s": 0.511,
+    "partials": [
+     66.2,
+     62.2,
+     49.4,
+     33.6,
+     30.3,
+     29.2,
+     34.0,
+     20.5
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
+  },
+  {
    "tag": "王晰2023.4.9《X自选集》生日签唱会__B__P13_11.1虚假的点歌流程3",
    "song": "",
    "tour": "其他演出",
@@ -49128,6 +49408,34 @@
    ]
   },
   {
+   "song": "为爱痴狂",
+   "n_versions": 1,
+   "tours": [
+    "三巡"
+   ],
+   "lowest_note": "D#2",
+   "lowest_hz": 79.7,
+   "lowest_tag": "武汉20220917_BV18pgq6EEg5",
+   "span_median_octaves": 1.96,
+   "versions": [
+    {
+     "tour": "三巡",
+     "city": "武汉",
+     "date": "2022-09-17",
+     "low_note": "D#2",
+     "low_hz": 79.7,
+     "high_note": "D#4",
+     "high_hz": 309.0,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.96,
+     "verify": "谐波列复核通过",
+     "bv": "BV18pgq6EEg5"
+    }
+   ]
+  },
+  {
    "song": "乌兰巴托的夜",
    "n_versions": 2,
    "tours": [],
@@ -51619,6 +51927,34 @@
    ]
   },
   {
+   "song": "哑光",
+   "n_versions": 1,
+   "tours": [
+    "三巡"
+   ],
+   "lowest_note": "E2",
+   "lowest_hz": 82.0,
+   "lowest_tag": "未知20220409_BV1WY4y1H7c7",
+   "span_median_octaves": 1.67,
+   "versions": [
+    {
+     "tour": "三巡",
+     "city": "北京",
+     "date": "2022-04-09",
+     "low_note": "E2",
+     "low_hz": 82.0,
+     "high_note": "C4",
+     "high_hz": 261.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.67,
+     "verify": "谐波列复核通过",
+     "bv": "BV1WY4y1H7c7"
+    }
+   ]
+  },
+  {
    "song": "哭砂",
    "n_versions": 7,
    "tours": [
@@ -53760,13 +54096,28 @@
   },
   {
    "song": "敖包相会",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [],
-   "lowest_note": "B2",
-   "lowest_hz": 121.0,
-   "lowest_tag": "未知20230228_BV1zb411X7eR",
-   "span_median_octaves": 2.98,
+   "lowest_note": "E2",
+   "lowest_hz": 82.7,
+   "lowest_tag": "未知20220725_BV1nd4y1D7ix",
+   "span_median_octaves": 3.28,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2022-07-25",
+     "low_note": "E2",
+     "low_hz": 82.7,
+     "high_note": "B5",
+     "high_hz": 989.7,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.58,
+     "verify": "待复核（谐波列待判）",
+     "bv": "BV1nd4y1D7ix"
+    },
     {
      "tour": "其他演出",
      "city": "",
@@ -56491,6 +56842,47 @@
    ]
   },
   {
+   "song": "虫儿飞",
+   "n_versions": 2,
+   "tours": [],
+   "lowest_note": "F#2",
+   "lowest_hz": 93.2,
+   "lowest_tag": "上海20220111_BV1rq4y1y7Rh",
+   "span_median_octaves": 1.86,
+   "versions": [
+    {
+     "tour": "其他演出",
+     "city": "上海",
+     "date": "2022-01-11",
+     "low_note": "F#2",
+     "low_hz": 93.2,
+     "high_note": "B4",
+     "high_hz": 497.9,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.42,
+     "verify": "谐波列复核通过",
+     "bv": "BV1rq4y1y7Rh"
+    },
+    {
+     "tour": "其他演出",
+     "city": "上海",
+     "date": "2026-01-22",
+     "low_note": "B2",
+     "low_hz": 126.4,
+     "high_note": "D#4",
+     "high_hz": 310.1,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 1.3,
+     "verify": "谐波列复核通过",
+     "bv": "BV1pKz7BSEga"
+    }
+   ]
+  },
+  {
    "song": "让她降落",
    "n_versions": 20,
    "tours": [
@@ -58561,6 +58953,22 @@
    "delta_semitones": 3.5
   },
   {
+   "song": "哑光",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "bv": "BV1WY4y1H7c7",
+   "source_layer": "场次音频实测",
+   "live_note": "E2",
+   "live_hz": 82.0,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "B面图景",
+   "studio_note": "E2",
+   "studio_hz": 81.9,
+   "studio_span": 1.68,
+   "delta_semitones": 0.0
+  },
+  {
    "song": "在路上",
    "tour": "五巡",
    "city": "杭州",
@@ -59662,7 +60070,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-11-05 21:08",
+   "generated_at": "2026-11-06 00:19",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -60976,72 +61384,9 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-11-05 21:08",
+  "generated_at": "2026-11-06 00:19",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"
- },
- "highest_verified": {
-  "what": "现场最高音（人耳确认）",
-  "why": "所有 >1000Hz 的算法读数必须人耳确认才可引用；截至 2026-09-17，共 43 条千赫兹级读数，仅 2 条经确认为本人。",
-  "caliber": "现场读数属修音中等敏感层，可作「现场最高音」记录，不宜与录音室最高音直接比较",
-  "items": [
-   {
-    "hz": 1074.0,
-    "note": "C6",
-    "song": "鄂尔多斯三巡 2022-07-17 · 22高级动物",
-    "listener": "用户本人（人耳听辨）",
-    "date": "2026-09-17",
-    "source": "鄂尔多斯千赫兹_20260917"
-   },
-   {
-    "hz": 1048.7,
-    "note": "C6",
-    "song": "鄂尔多斯三巡 2022-07-17 · 07橄榄树",
-    "listener": "用户本人（人耳听辨）",
-    "date": "2026-09-17",
-    "source": "鄂尔多斯千赫兹_20260917"
-   },
-   {
-    "hz": 968.0,
-    "note": "B5",
-    "song": "在路上（俄罗斯决赛·电视版）",
-    "listener": "用户本人（人耳听辨）",
-    "date": "2026-09-16",
-    "source": "俄罗斯决赛_王晰段高音_20260916"
-   },
-   {
-    "hz": 706.0,
-    "note": "F5",
-    "song": "带着一颗好心去流浪",
-    "listener": "用户本人（人耳听辨）",
-    "date": "2026-09-16",
-    "source": "专辑层高音区复核_第2批_20260916"
-   },
-   {
-    "hz": 699.5,
-    "note": "F5",
-    "song": "勿扰",
-    "listener": "用户本人（人耳听辨）",
-    "date": "2026-09-16",
-    "source": "专辑层高音区复核_第2批_20260916"
-   },
-   {
-    "hz": 642.1,
-    "note": "E5",
-    "song": "当爱已成往事",
-    "listener": "用户本人（人耳听辨）",
-    "date": "2026-09-16",
-    "source": "专辑层高音区复核_第2批_20260916"
-   },
-   {
-    "hz": 263.9,
-    "note": "C4",
-    "song": "你不要担心",
-    "listener": "用户（听辨）",
-    "date": "2026-09-24",
-    "source": null
-   }
-  ]
  }
 }

@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-11-05T21:08:58",
-  "rows": 826,
+  "generated_at": "2026-11-06T00:19:52",
+  "rows": 831,
   "levels": {
-   "L1": 398,
+   "L1": 400,
    "L6": 26,
-   "L3": 46,
-   "未认领": 353,
+   "L3": 47,
+   "未认领": 355,
    "L4": 2,
    "L2": 1
   },
@@ -108,8 +108,8 @@
    "claimable": 1
   },
   "2022-01-10": {
-   "n": 25,
-   "claimable": 21
+   "n": 26,
+   "claimable": 22
   },
   "2022-06-24": {
    "n": 10,
@@ -120,8 +120,8 @@
    "claimable": 5
   },
   "2022-09-17": {
-   "n": 20,
-   "claimable": 17
+   "n": 21,
+   "claimable": 18
   },
   "2023-06-23": {
    "n": 4,
@@ -135,13 +135,13 @@
    "n": 3,
    "claimable": 2
   },
+  "2022-04-09": {
+   "n": 6,
+   "claimable": 5
+  },
   "2023-05-01": {
    "n": 1,
    "claimable": 0
-  },
-  "2022-04-09": {
-   "n": 5,
-   "claimable": 4
   },
   "2022-07-15": {
    "n": 2,
@@ -2202,6 +2202,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "武汉20220917_BV18pgq6EEg5",
+   "song": "为爱痴狂",
+   "tour": "三巡",
+   "city": "武汉",
+   "date": "2022-09-17",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-09-17",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "深圳20230623_BV1Sm4y1e7ZZ",
    "song": "无与伦比的美丽",
    "tour": "三巡",
@@ -2330,6 +2342,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20220409_BV1WY4y1H7c7",
+   "song": "哑光",
+   "tour": "三巡",
+   "city": "北京",
+   "date": "2022-04-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-04-09",
    "level": 1,
    "why": "日期直配"
   },
@@ -7386,6 +7410,18 @@
    "why": ""
   },
   {
+   "tag": "未知20220725_BV1nd4y1D7ix",
+   "song": "敖包相会",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-25",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "北京20231113_BV1Yu4y1t7H3",
    "song": "离人",
    "tour": "其他演出",
@@ -8536,6 +8572,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "上海20220111_BV1rq4y1y7Rh",
+   "song": "虫儿飞",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2022-01-11",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-10",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "无尽的夜里第1遍",
@@ -9971,6 +10019,18 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "上海20260122_BV1pKz7BSEga",
+   "song": "虫儿飞",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2026-01-22",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
