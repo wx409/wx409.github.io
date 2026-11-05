@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-11-05 22:01",
- "last_update": "2026-11-05 22:01",
+ "timestamp": "2026-11-05 23:16",
+ "last_update": "2026-11-05 23:16",
  "date_range": "2023-01-01 ~ 2026-11-05",
  "total": 291573,
  "complete_rate": 20.1,
@@ -104,7 +104,7 @@
   597.0,
   610.0,
   374.0,
-  376.0
+  377.0
  ],
  "song_count_trend": [
   197,
@@ -210,25 +210,19 @@
  "top_songs": [
   {
    "name": "滚滚长江东逝水",
-   "trend": 91.3,
+   "trend": 94.4,
    "score": 55,
    "tag": "飙升"
   },
   {
    "name": "她真漂亮",
-   "trend": -41.9,
+   "trend": -42.1,
    "score": 35,
    "tag": "上涨"
   },
   {
-   "name": "Sound of Silence",
-   "trend": -48.7,
-   "score": 35,
-   "tag": "上涨"
-  },
-  {
-   "name": "南屏晚钟",
-   "trend": -25.7,
+   "name": "一生中最爱",
+   "trend": -74.3,
    "score": 35,
    "tag": "上涨"
   },
@@ -239,14 +233,14 @@
    "tag": "上涨"
   },
   {
-   "name": "哭砂",
-   "trend": -12.8,
+   "name": "Sound of Silence",
+   "trend": -48.3,
    "score": 25,
    "tag": "上涨"
   },
   {
    "name": "山楂树",
-   "trend": -50.3,
+   "trend": -50.4,
    "score": 20,
    "tag": "上涨"
   }
@@ -255,80 +249,88 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 56.3,
-   "raw": 484.0,
-   "trend_pct": 81.3,
+   "share_pct": 58.5,
+   "raw": 346.0,
+   "trend_pct": 29.6,
    "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "一生中最爱",
-   "share_pct": 6.9,
-   "raw": 59.0,
-   "trend_pct": 210.5,
+   "song": "月弯弯",
+   "share_pct": 8.3,
+   "raw": 49.0,
+   "trend_pct": 40.0,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "滚滚长江东逝水",
-   "share_pct": 6.9,
-   "raw": 59.0,
-   "trend_pct": 181.0,
+   "song": "一生中最爱",
+   "share_pct": 7.4,
+   "raw": 44.0,
+   "trend_pct": 131.6,
    "trend_label": "up"
   },
   {
    "rank": 4,
    "song": "山楂树",
-   "share_pct": 6.0,
-   "raw": 52.0,
-   "trend_pct": 116.7,
+   "share_pct": 5.9,
+   "raw": 35.0,
+   "trend_pct": 45.8,
    "trend_label": "up"
   },
   {
    "rank": 5,
    "song": "在路上",
-   "share_pct": 5.1,
-   "raw": 44.0,
-   "trend_pct": 18.9,
-   "trend_label": "up"
+   "share_pct": 3.9,
+   "raw": 23.0,
+   "trend_pct": -37.8,
+   "trend_label": "down"
   },
   {
    "rank": 6,
-   "song": "月弯弯",
-   "share_pct": 5.0,
-   "raw": 43.0,
-   "trend_pct": 22.9,
-   "trend_label": "up"
+   "song": "滚滚长江东逝水",
+   "share_pct": 3.7,
+   "raw": 22.0,
+   "trend_pct": 4.8,
+   "trend_label": "flat"
   },
   {
    "rank": 7,
-   "song": "她真漂亮",
-   "share_pct": 4.9,
-   "raw": 42.0,
-   "trend_pct": 82.6,
-   "trend_label": "up"
+   "song": "Sound of Silence",
+   "share_pct": 3.2,
+   "raw": 19.0,
+   "trend_pct": -24.0,
+   "trend_label": "down"
   },
   {
    "rank": 8,
-   "song": "Sound of Silence",
-   "share_pct": 3.6,
-   "raw": 31.0,
-   "trend_pct": 24.0,
-   "trend_label": "up"
+   "song": "她真漂亮",
+   "share_pct": 2.7,
+   "raw": 16.0,
+   "trend_pct": -30.4,
+   "trend_label": "down"
   },
   {
    "rank": 9,
-   "song": "南屏晚钟",
-   "share_pct": 2.8,
-   "raw": 24.0,
-   "trend_pct": 84.6,
-   "trend_label": "up"
+   "song": "哭砂",
+   "share_pct": 2.5,
+   "raw": 15.0,
+   "trend_pct": -6.2,
+   "trend_label": "down"
   },
   {
    "rank": 10,
+   "song": "南屏晚钟",
+   "share_pct": 2.0,
+   "raw": 12.0,
+   "trend_pct": -7.7,
+   "trend_label": "down"
+  },
+  {
+   "rank": 11,
    "song": "神魂颠倒",
-   "share_pct": 2.6,
-   "raw": 22.0,
+   "share_pct": 1.7,
+   "raw": 10.0,
    "trend_pct": null,
    "trend_label": "new"
   }
@@ -337,7 +339,7 @@
  "latest_anomaly": null,
  "weekend_workday": [
   418.0,
-  418.0
+  416.0
  ],
  "tour_events": [
   [
@@ -8567,9 +8569,9 @@
     {
      "name": "黎明前的黑暗",
      "value": [
-      201.8,
-      51.35,
-      10.8,
+      159.1,
+      51.13,
+      10.7,
       "经典沉淀期"
      ],
      "uid": "L:003kT6Nu080HGU"
@@ -8577,9 +8579,9 @@
     {
      "name": "山楂树",
      "value": [
-      898.9,
-      6.41,
-      17.6,
+      597.8,
+      6.38,
+      17.4,
       "上升期"
      ],
      "uid": "L:004P06zD0JBO4K"
@@ -8587,19 +8589,19 @@
     {
      "name": "一生中最爱",
      "value": [
-      1805.8,
-      4.43,
-      4.8,
-      "经典沉淀期"
+      1523.1,
+      4.64,
+      5.0,
+      "上升期"
      ],
      "uid": "L:001aGOYZ4NJSv1"
     },
     {
      "name": "滚滚长江东逝水",
      "value": [
-      2235.2,
-      4.39,
-      81.7,
+      1907.8,
+      4.49,
+      83.1,
       "经典沉淀期"
      ],
      "uid": "L:002UOJKJ1hHHPB"
@@ -8607,9 +8609,9 @@
     {
      "name": "月弯弯",
      "value": [
-      1597.9,
-      4.27,
-      12.1,
+      917.8,
+      4.17,
+      11.7,
       "经典沉淀期"
      ],
      "uid": "L:0004SGwr3j7Yrv"
@@ -8617,8 +8619,8 @@
     {
      "name": "Sound of Silence",
      "value": [
-      2008.6,
-      3.78,
+      1813.6,
+      3.86,
       1.7,
       "上升期"
      ],
@@ -8627,9 +8629,9 @@
     {
      "name": "在路上",
      "value": [
-      -343.6,
-      3.58,
-      18.7,
+      -1008.0,
+      3.53,
+      18.4,
       "经典沉淀期"
      ],
      "uid": "L:001sDK6v0Wg8mv"
@@ -8637,68 +8639,68 @@
     {
      "name": "南屏晚钟",
      "value": [
-      2282.0,
-      2.97,
-      17.7,
-      "上升期"
+      1715.4,
+      2.86,
+      16.9,
+      "经典沉淀期"
      ],
      "uid": "L:002eILQB0vjEBF"
     },
     {
      "name": "她真漂亮",
      "value": [
-      974.7,
-      2.68,
-      4.9,
+      458.7,
+      2.63,
+      4.7,
       "上升期"
      ],
      "uid": "L:0008yoRC49h4PQ"
     },
     {
-     "name": "哭砂",
+     "name": "神魂颠倒",
      "value": [
-      1335.5,
-      2.24,
-      9.9,
-      "上升期"
+      -871.2,
+      2.25,
+      8.6,
+      "经典沉淀期"
      ],
-     "uid": "L:000yYD5z1lHBFG"
+     "uid": "L:000k0cHz2GarPp"
     },
     {
      "name": "再叙",
      "value": [
       1642.9,
-      2.21,
+      2.23,
       8.5,
       "经典沉淀期"
      ],
      "uid": "L:003DjjRg41B5Az"
     },
     {
+     "name": "哭砂",
+     "value": [
+      399.0,
+      2.21,
+      9.7,
+      "经典沉淀期"
+     ],
+     "uid": "L:000yYD5z1lHBFG"
+    },
+    {
      "name": "谁",
      "value": [
       2011.8,
-      2.19,
+      2.2,
       9.8,
       "经典沉淀期"
      ],
      "uid": "L:003CZT4V0twz41"
     },
     {
-     "name": "神魂颠倒",
-     "value": [
-      1006.8,
-      2.14,
-      8.2,
-      "经典沉淀期"
-     ],
-     "uid": "L:000k0cHz2GarPp"
-    },
-    {
      "name": "亲密爱人",
      "value": [
       2780.0,
-      2.12,
+      2.14,
       5.0,
       "上升期"
      ],
@@ -8742,13 +8744,13 @@
   },
   {
    "date": "2026-11-04",
-   "avg_index": 371.4,
+   "avg_index": 373.8,
    "total_songs": 600,
    "complete": true
   },
   {
    "date": "2026-11-05",
-   "avg_index": null,
+   "avg_index": 377.5,
    "total_songs": 600,
    "complete": true
   }
