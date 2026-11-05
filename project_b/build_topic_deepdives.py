@@ -104,7 +104,7 @@ T.append({
     "numbers": {"自有中位": ra.get("own_live_low_median"), "自有n": ra.get("own_n"),
                 "翻唱中位": ra.get("cover_live_low_median"), "翻唱n": ra.get("cover_n"),
                 "≥3 版本曲目": mv.get("songs_with_3plus"), "同曲跨场 CV 中位": mv.get("low_cv_median")},
-    "counter": "① 两组样本严重不对称（自有 21 vs 翻唱 121），只能当倾向，不能当结论；"
+    "counter": f"① 两组样本严重不对称（自有 {ra.get('own_n')} vs 翻唱 {ra.get('cover_n')}），只能当倾向，不能当结论；"
                "② 自有/翻唱的划分依赖「发行归属」，个别曲目存在合作/翻唱界定争议；"
                "③ 现场选曲受场次与点歌影响，不是纯粹的创作选择。",
     "quotes": ["“他给自己写的歌，比唱别人的歌更低——低音是留给作品的签名。”",
