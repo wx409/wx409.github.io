@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-11-05 15:49",
- "last_update": "2026-11-05 15:49",
+ "timestamp": "2026-11-05 18:06",
+ "last_update": "2026-11-05 18:06",
  "date_range": "2023-01-01 ~ 2026-11-05",
  "total": 291573,
  "complete_rate": 20.1,
@@ -205,7 +205,7 @@
   33.8,
   34.2,
   21.3,
-  1.7
+  1.8
  ],
  "top_songs": [
   {
@@ -255,116 +255,62 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 51.4,
-   "raw": 267.0,
-   "trend_pct": -19.6,
-   "trend_label": "down"
+   "share_pct": 60.0,
+   "raw": 686.0,
+   "trend_pct": 156.9,
+   "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "在路上",
-   "share_pct": 7.1,
-   "raw": 37.0,
-   "trend_pct": 32.1,
+   "song": "一生中最爱",
+   "share_pct": 9.0,
+   "raw": 103.0,
+   "trend_pct": 442.1,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "月弯弯",
-   "share_pct": 6.7,
-   "raw": 35.0,
-   "trend_pct": 2.9,
-   "trend_label": "flat"
+   "song": "滚滚长江东逝水",
+   "share_pct": 7.2,
+   "raw": 82.0,
+   "trend_pct": 290.5,
+   "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "Sound of Silence",
-   "share_pct": 4.8,
-   "raw": 25.0,
-   "trend_pct": 4.2,
-   "trend_label": "flat"
+   "song": "月弯弯",
+   "share_pct": 6.9,
+   "raw": 79.0,
+   "trend_pct": 125.7,
+   "trend_label": "up"
   },
   {
    "rank": 5,
    "song": "山楂树",
-   "share_pct": 4.6,
-   "raw": 24.0,
-   "trend_pct": -11.1,
-   "trend_label": "down"
+   "share_pct": 6.3,
+   "raw": 72.0,
+   "trend_pct": 200.0,
+   "trend_label": "up"
   },
   {
    "rank": 6,
-   "song": "她真漂亮",
-   "share_pct": 4.4,
-   "raw": 23.0,
-   "trend_pct": 15.0,
+   "song": "Sound of Silence",
+   "share_pct": 5.8,
+   "raw": 66.0,
+   "trend_pct": 164.0,
    "trend_label": "up"
   },
   {
    "rank": 7,
-   "song": "滚滚长江东逝水",
-   "share_pct": 4.0,
-   "raw": 21.0,
-   "trend_pct": -8.7,
-   "trend_label": "down"
-  },
-  {
-   "rank": 8,
-   "song": "谁",
-   "share_pct": 4.0,
-   "raw": 21.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 9,
-   "song": "一生中最爱",
-   "share_pct": 3.7,
-   "raw": 19.0,
-   "trend_pct": -32.1,
-   "trend_label": "down"
-  },
-  {
-   "rank": 10,
-   "song": "再叙",
-   "share_pct": 3.5,
-   "raw": 18.0,
-   "trend_pct": 80.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 11,
-   "song": "哭砂",
-   "share_pct": 3.1,
-   "raw": 16.0,
-   "trend_pct": 77.8,
-   "trend_label": "up"
-  },
-  {
-   "rank": 12,
-   "song": "南屏晚钟",
-   "share_pct": 2.5,
-   "raw": 13.0,
-   "trend_pct": 44.4,
+   "song": "在路上",
+   "share_pct": 4.8,
+   "raw": 55.0,
+   "trend_pct": 48.6,
    "trend_label": "up"
   }
  ],
- "daily_anomalies": [
-  {
-   "song": "她真漂亮",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 4,971 位"
-  }
- ],
- "latest_anomaly": {
-  "song": "她真漂亮",
-  "type": "📈 排名飙升",
-  "metric": "排名",
-  "change_pct": null,
-  "desc": "排名较昨日上升 4,971 位"
- },
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   418.0,
   418.0
@@ -8741,12 +8687,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-10-29",
-   "avg_index": 316.4,
-   "total_songs": 254,
-   "complete": true
-  },
-  {
    "date": "2026-10-30",
    "avg_index": 348.9,
    "total_songs": 254,
@@ -8779,6 +8719,12 @@
   {
    "date": "2026-11-04",
    "avg_index": 371.4,
+   "total_songs": 600,
+   "complete": true
+  },
+  {
+   "date": "2026-11-05",
+   "avg_index": null,
    "total_songs": 600,
    "complete": true
   }
