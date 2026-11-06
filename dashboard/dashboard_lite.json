@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-11-06 12:19",
- "last_update": "2026-11-06 12:19",
+ "timestamp": "2026-11-06 13:10",
+ "last_update": "2026-11-06 13:10",
  "date_range": "2023-01-01 ~ 2026-11-06",
  "total": 292173,
  "complete_rate": 20.0,
@@ -249,90 +249,42 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 55.5,
-   "raw": 294.0,
-   "trend_pct": 10.1,
+   "share_pct": 68.8,
+   "raw": 485.0,
+   "trend_pct": 65.0,
    "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 8.3,
-   "raw": 44.0,
-   "trend_pct": 25.7,
+   "song": "一生中最爱",
+   "share_pct": 9.9,
+   "raw": 70.0,
+   "trend_pct": 250.0,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "山楂树",
-   "share_pct": 6.2,
-   "raw": 33.0,
-   "trend_pct": 37.5,
+   "song": "滚滚长江东逝水",
+   "share_pct": 9.9,
+   "raw": 70.0,
+   "trend_pct": 159.3,
    "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "滚滚长江东逝水",
-   "share_pct": 5.1,
-   "raw": 27.0,
-   "trend_pct": 28.6,
-   "trend_label": "up"
+   "song": "月弯弯",
+   "share_pct": 5.7,
+   "raw": 40.0,
+   "trend_pct": -9.1,
+   "trend_label": "down"
   },
   {
    "rank": 5,
-   "song": "她真漂亮",
-   "share_pct": 4.7,
-   "raw": 25.0,
-   "trend_pct": 8.7,
+   "song": "山楂树",
+   "share_pct": 5.7,
+   "raw": 40.0,
+   "trend_pct": 21.2,
    "trend_label": "up"
-  },
-  {
-   "rank": 6,
-   "song": "Sound of Silence",
-   "share_pct": 4.7,
-   "raw": 25.0,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 7,
-   "song": "在路上",
-   "share_pct": 4.2,
-   "raw": 22.0,
-   "trend_pct": -40.5,
-   "trend_label": "down"
-  },
-  {
-   "rank": 8,
-   "song": "一生中最爱",
-   "share_pct": 3.8,
-   "raw": 20.0,
-   "trend_pct": 5.3,
-   "trend_label": "up"
-  },
-  {
-   "rank": 9,
-   "song": "南屏晚钟",
-   "share_pct": 2.6,
-   "raw": 14.0,
-   "trend_pct": 7.7,
-   "trend_label": "up"
-  },
-  {
-   "rank": 10,
-   "song": "神魂颠倒",
-   "share_pct": 2.5,
-   "raw": 13.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 11,
-   "song": "哭砂",
-   "share_pct": 2.5,
-   "raw": 13.0,
-   "trend_pct": -18.8,
-   "trend_label": "down"
   }
  ],
  "daily_anomalies": [],
@@ -8713,12 +8665,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-10-30",
-   "avg_index": 348.9,
-   "total_songs": 254,
-   "complete": true
-  },
-  {
    "date": "2026-10-31",
    "avg_index": 377.5,
    "total_songs": 254,
@@ -8751,6 +8697,12 @@
   {
    "date": "2026-11-05",
    "avg_index": 386.5,
+   "total_songs": 600,
+   "complete": true
+  },
+  {
+   "date": "2026-11-06",
+   "avg_index": null,
    "total_songs": 600,
    "complete": true
   }
