@@ -1,170 +1,20 @@
 {
- "schema": "monthly-events/v1",
- "generated_at": "2026-11-06 07:48",
- "caliber": "追踪曲目池日均（每日对当日有数据曲目取均值，再按月平均）",
- "window": "先算相对过去 12 个月中位的偏离(%)，再对偏离做稳健 z(中位+MAD)；|z|≥2.5 且 |偏离|≥20%",
+ "schema": "monthly-events/v3",
+ "generated_at": "2026-11-06 08:02",
+ "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
+ "caliber": "逐曲自身基线归一：ratio = 当日指数 / 该曲前 90 天中位（需 ≥30 个历史观测）；月度热度 = 当月全部 [曲×日] ratio 的中位；1.00 = 与自身基线持平",
+ "method": "异常判定跑在热度上：稳健 z（相对过去 12 个月中位偏离）≥2.5 或 环比 ≥20%；广度 = ratio>1 的 [曲×日] 占比。池均值 index 仅作对照",
  "min_days": 15,
- "z_flag": 2.5,
  "months": [
   {
-   "month": "2022-12",
-   "index": 1368.3,
-   "median": 1368.3,
-   "n_days": 1,
-   "mom_pct": null,
-   "dev_pct": null,
-   "z": null,
-   "events": [],
-   "n_events": 0,
-   "kinds": [],
-   "coverage_ok": false,
-   "trigger": [],
-   "anomaly": false,
-   "note": "覆盖不足（1 天 < 15），不参与异常判定"
-  },
-  {
-   "month": "2023-01",
-   "index": 2090.6,
-   "median": 1580.3,
-   "n_days": 27,
-   "mom_pct": 52.8,
-   "dev_pct": null,
-   "z": null,
-   "events": [
-    {
-     "kind": "发行",
-     "title": "2023-01-06 《无心》发行（OST/单曲）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-05 《微醺23点08分》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-05 《朝凤》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-05 《是你》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-05 《猫模狗样》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-05 《不需要结果》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-12 《Crystal Store》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-12 《小河》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "发行",
-     "title": "2023-01-12 《多听有益》发行（专辑）",
-     "sub": ""
-    },
-    {
-     "kind": "演出/晚会",
-     "title": "2023-01-06 优酷《朝阳打歌中心》·北京",
-     "sub": "演出"
-    },
-    {
-     "kind": "演出/晚会",
-     "title": "2023-01-14 2023央视网络春晚·北京",
-     "sub": "晚会"
-    }
-   ],
-   "n_events": 11,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
-   "coverage_ok": true,
-   "trigger": [
-    "mom"
-   ],
-   "anomaly": true,
-   "attribution": {
-    "same_month": [
-     {
-      "kind": "发行",
-      "title": "2023-01-06 《无心》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《微醺23点08分》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《朝凤》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《是你》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《猫模狗样》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《不需要结果》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-12 《Crystal Store》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-12 《小河》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-12 《多听有益》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-01-06 优酷《朝阳打歌中心》·北京",
-      "sub": "演出"
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-01-14 2023央视网络春晚·北京",
-      "sub": "晚会"
-     }
-    ],
-    "prev_month": [],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
-   }
-  },
-  {
    "month": "2023-02",
+   "heat": 1.0,
+   "breadth": 0.5,
+   "n_ratios": 1800,
+   "n_days": 26,
    "index": 1347.4,
-   "median": 1325.2,
-   "n_days": 28,
-   "mom_pct": -35.5,
+   "n_songs": 80,
+   "mom_pct": null,
    "dev_pct": null,
    "z": null,
    "events": [
@@ -180,94 +30,19 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [
-    "mom"
-   ],
-   "anomaly": true,
-   "attribution": {
-    "same_month": [
-     {
-      "kind": "发行",
-      "title": "2023-02-08 《想游泳的星》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-02-25 翻浪四季歌会·三亚",
-      "sub": "演唱会"
-     }
-    ],
-    "prev_month": [
-     {
-      "kind": "发行",
-      "title": "2023-01-06 《无心》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《微醺23点08分》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《朝凤》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《是你》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《猫模狗样》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-05 《不需要结果》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-12 《Crystal Store》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-12 《小河》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-01-12 《多听有益》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-01-06 优酷《朝阳打歌中心》·北京",
-      "sub": "演出"
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-01-14 2023央视网络春晚·北京",
-      "sub": "晚会"
-     }
-    ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
-   }
+   "trigger": [],
+   "anomaly": false
   },
   {
    "month": "2023-03",
-   "index": 1496.4,
-   "median": 1314.7,
+   "heat": 0.99,
+   "breadth": 0.476,
+   "n_ratios": 2061,
    "n_days": 30,
-   "mom_pct": 11.1,
+   "index": 1496.4,
+   "n_songs": 73,
+   "mom_pct": -1.0,
    "dev_pct": null,
    "z": null,
    "events": [
@@ -278,19 +53,19 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "发行"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2023-04",
-   "index": 1179.0,
-   "median": 997.6,
+   "heat": 0.545,
+   "breadth": 0.106,
+   "n_ratios": 1505,
    "n_days": 28,
-   "mom_pct": -21.2,
+   "index": 1179.0,
+   "n_songs": 59,
+   "mom_pct": -44.9,
    "dev_pct": null,
    "z": null,
    "events": [
@@ -306,10 +81,6 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "发行",
-    "巡演"
-   ],
    "coverage_ok": true,
    "trigger": [
     "mom"
@@ -335,15 +106,18 @@
       "sub": ""
      }
     ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
    }
   },
   {
    "month": "2023-05",
-   "index": 808.9,
-   "median": 779.8,
+   "heat": 0.436,
+   "breadth": 0.018,
+   "n_ratios": 1424,
    "n_days": 31,
-   "mom_pct": -31.4,
+   "index": 808.9,
+   "n_songs": 47,
+   "mom_pct": -20.0,
    "dev_pct": null,
    "z": null,
    "events": [
@@ -369,10 +143,6 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [
     "mom"
@@ -413,17 +183,20 @@
       "sub": ""
      }
     ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
    }
   },
   {
    "month": "2023-06",
-   "index": 804.3,
-   "median": 783.8,
+   "heat": 0.79,
+   "breadth": 0.145,
+   "n_ratios": 1291,
    "n_days": 30,
-   "mom_pct": -0.6,
-   "dev_pct": -40.8,
-   "z": -1.81,
+   "index": 804.3,
+   "n_songs": 44,
+   "mom_pct": 81.2,
+   "dev_pct": null,
+   "z": null,
    "events": [
     {
      "kind": "巡演",
@@ -447,23 +220,70 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "巡演",
+      "title": "2023-06-23 三巡·王晰2021-2022“图景”全国个人巡回音乐会 深圳站",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2023-06-04 《渡荆门送别》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2023-06-27 《隐秘的心》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2023-06-04 央视《经典咏流传·正青春》·渡荆门送别·北京（CCTV-1）",
+      "sub": "演出"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "巡演",
+      "title": "2023-05-01 三巡·王晰2021-2022“图景”全国个人巡回音乐会 郑州站",
+      "sub": ""
+     },
+     {
+      "kind": "巡演",
+      "title": "2023-05-03 三巡·王晰2021-2022“图景”全国个人巡回音乐会 昆明站",
+      "sub": ""
+     },
+     {
+      "kind": "巡演",
+      "title": "2023-05-20 三巡·王晰2021-2022“图景”全国个人巡回音乐会 南宁站",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2023-05-04 《人世间》视听交响音乐会（特邀嘉宾）·北京",
+      "sub": "演唱会"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2023-07",
-   "index": 756.1,
-   "median": 739.2,
+   "heat": 0.742,
+   "breadth": 0.128,
+   "n_ratios": 1119,
    "n_days": 30,
-   "mom_pct": -6.0,
-   "dev_pct": -43.9,
-   "z": -1.98,
+   "index": 756.1,
+   "n_songs": 38,
+   "mom_pct": -6.1,
+   "dev_pct": null,
+   "z": null,
    "events": [
     {
      "kind": "演出/晚会",
@@ -472,21 +292,21 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2023-08",
-   "index": 659.1,
-   "median": 656.5,
+   "heat": 0.735,
+   "breadth": 0.133,
+   "n_ratios": 952,
    "n_days": 30,
-   "mom_pct": -12.8,
-   "dev_pct": -47.8,
-   "z": -2.19,
+   "index": 659.1,
+   "n_songs": 32,
+   "mom_pct": -0.9,
+   "dev_pct": -4.0,
+   "z": -0.34,
    "events": [
     {
      "kind": "演出/晚会",
@@ -495,21 +315,21 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2023-09",
-   "index": 654.0,
-   "median": 644.4,
+   "heat": 0.762,
+   "breadth": 0.166,
+   "n_ratios": 783,
    "n_days": 30,
-   "mom_pct": -0.8,
-   "dev_pct": -44.5,
-   "z": -2.01,
+   "index": 654.0,
+   "n_songs": 26,
+   "mom_pct": 3.7,
+   "dev_pct": 2.7,
+   "z": -0.02,
    "events": [
     {
      "kind": "发行",
@@ -518,21 +338,21 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "发行"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2023-10",
-   "index": 582.6,
-   "median": 566.9,
+   "heat": 0.64,
+   "breadth": 0.078,
+   "n_ratios": 566,
    "n_days": 29,
-   "mom_pct": -10.9,
-   "dev_pct": -41.4,
-   "z": -1.84,
+   "index": 582.6,
+   "n_songs": 20,
+   "mom_pct": -16.0,
+   "dev_pct": -14.9,
+   "z": -0.87,
    "events": [
     {
      "kind": "演出/晚会",
@@ -546,21 +366,21 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2023-11",
-   "index": 1125.0,
-   "median": 1030.2,
+   "heat": 0.77,
+   "breadth": 0.135,
+   "n_ratios": 498,
    "n_days": 30,
-   "mom_pct": 93.1,
-   "dev_pct": 39.1,
-   "z": 2.61,
+   "index": 1125.0,
+   "n_songs": 17,
+   "mom_pct": 20.3,
+   "dev_pct": 3.8,
+   "z": 0.03,
    "events": [
     {
      "kind": "巡演",
@@ -574,13 +394,8 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "发行",
-    "巡演"
-   ],
    "coverage_ok": true,
    "trigger": [
-    "z",
     "mom"
    ],
    "anomaly": true,
@@ -609,17 +424,20 @@
       "sub": "演出"
      }
     ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
    }
   },
   {
    "month": "2023-12",
-   "index": 768.4,
-   "median": 715.1,
+   "heat": 0.884,
+   "breadth": 0.32,
+   "n_ratios": 538,
    "n_days": 30,
-   "mom_pct": -31.7,
-   "dev_pct": -20.5,
-   "z": -0.68,
+   "index": 768.4,
+   "n_songs": 18,
+   "mom_pct": 14.8,
+   "dev_pct": 17.6,
+   "z": 0.69,
    "events": [
     {
      "kind": "巡演",
@@ -648,66 +466,21 @@
     }
    ],
    "n_events": 5,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [
-    "mom"
-   ],
-   "anomaly": true,
-   "attribution": {
-    "same_month": [
-     {
-      "kind": "巡演",
-      "title": "2023-12-10 四巡·\"肆益\"个人巡回音乐会 广州站",
-      "sub": ""
-     },
-     {
-      "kind": "巡演",
-      "title": "2023-12-31 四巡·\"肆益\"个人巡回音乐会 上海（跨年）站",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-12-17 2023北京榜样颁奖典礼·北京",
-      "sub": "晚会"
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-12-17 中国唱片光影音乐节·成都",
-      "sub": "演出"
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2023-12-31 踏上新征程2024 BRTV跨年之夜·北京",
-      "sub": "晚会"
-     }
-    ],
-    "prev_month": [
-     {
-      "kind": "巡演",
-      "title": "2023-11-12 四巡·\"肆益\"个人巡回音乐会 北京（首场）站",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2023-11-06 《玫瑰》发行（OST/单曲）",
-      "sub": ""
-     }
-    ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
-   }
+   "trigger": [],
+   "anomaly": false
   },
   {
    "month": "2024-01",
-   "index": 678.4,
-   "median": 682.0,
+   "heat": 1.037,
+   "breadth": 0.548,
+   "n_ratios": 651,
    "n_days": 30,
-   "mom_pct": -11.7,
-   "dev_pct": -15.9,
-   "z": -0.43,
+   "index": 678.4,
+   "n_songs": 22,
+   "mom_pct": 17.3,
+   "dev_pct": 36.1,
+   "z": 1.58,
    "events": [
     {
      "kind": "巡演",
@@ -726,22 +499,21 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-02",
-   "index": 627.9,
-   "median": 620.9,
+   "heat": 0.895,
+   "breadth": 0.337,
+   "n_ratios": 561,
    "n_days": 28,
-   "mom_pct": -7.4,
-   "dev_pct": -20.2,
-   "z": -0.67,
+   "index": 627.9,
+   "n_songs": 20,
+   "mom_pct": -13.7,
+   "dev_pct": 16.8,
+   "z": 0.66,
    "events": [
     {
      "kind": "演出/晚会",
@@ -750,21 +522,21 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-03",
-   "index": 635.4,
-   "median": 614.5,
+   "heat": 0.958,
+   "breadth": 0.409,
+   "n_ratios": 695,
    "n_days": 31,
-   "mom_pct": 1.2,
-   "dev_pct": -16.6,
-   "z": -0.47,
+   "index": 635.4,
+   "n_songs": 23,
+   "mom_pct": 7.0,
+   "dev_pct": 25.1,
+   "z": 1.05,
    "events": [
     {
      "kind": "巡演",
@@ -773,21 +545,21 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "巡演"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-04",
-   "index": 734.2,
-   "median": 658.4,
+   "heat": 1.014,
+   "breadth": 0.523,
+   "n_ratios": 671,
    "n_days": 29,
-   "mom_pct": 15.5,
-   "dev_pct": 2.4,
-   "z": 0.58,
+   "index": 734.2,
+   "n_songs": 23,
+   "mom_pct": 5.8,
+   "dev_pct": 32.4,
+   "z": 1.4,
    "events": [
     {
      "kind": "巡演",
@@ -806,23 +578,21 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-05",
-   "index": 853.5,
-   "median": 855.9,
+   "heat": 1.003,
+   "breadth": 0.505,
+   "n_ratios": 637,
    "n_days": 31,
-   "mom_pct": 16.2,
-   "dev_pct": 20.8,
-   "z": 1.6,
+   "index": 853.5,
+   "n_songs": 21,
+   "mom_pct": -1.1,
+   "dev_pct": 28.6,
+   "z": 1.22,
    "events": [
     {
      "kind": "巡演",
@@ -841,22 +611,21 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-06",
-   "index": 1042.7,
-   "median": 1067.6,
+   "heat": 1.468,
+   "breadth": 0.673,
+   "n_ratios": 1249,
    "n_days": 30,
-   "mom_pct": 22.2,
-   "dev_pct": 47.6,
-   "z": 3.08,
+   "index": 1042.7,
+   "n_songs": 43,
+   "mom_pct": 46.4,
+   "dev_pct": 75.4,
+   "z": 3.47,
    "events": [
     {
      "kind": "发行",
@@ -875,10 +644,6 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [
     "z",
@@ -920,17 +685,20 @@
       "sub": "演出"
      }
     ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
    }
   },
   {
    "month": "2024-07",
-   "index": 1053.5,
-   "median": 1059.9,
+   "heat": 1.277,
+   "breadth": 0.715,
+   "n_ratios": 1396,
    "n_days": 29,
-   "mom_pct": 1.0,
-   "dev_pct": 49.2,
-   "z": 3.17,
+   "index": 1053.5,
+   "n_songs": 52,
+   "mom_pct": -13.0,
+   "dev_pct": 43.6,
+   "z": 1.94,
    "events": [
     {
      "kind": "发行",
@@ -944,56 +712,21 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [
-    "z"
-   ],
-   "anomaly": true,
-   "attribution": {
-    "same_month": [
-     {
-      "kind": "发行",
-      "title": "2024-07-03 《绝不放手》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2024-07-13 2024青春芒果夜·长沙",
-      "sub": "演出"
-     }
-    ],
-    "prev_month": [
-     {
-      "kind": "发行",
-      "title": "2024-06-18 《无荒》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2024-06-07 音乐剧《光影少年》饰演幻影（首演）·北京",
-      "sub": "音乐剧"
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2024-06-16 中国影视之夜·上海",
-      "sub": "演出"
-     }
-    ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
-   }
+   "trigger": [],
+   "anomaly": false
   },
   {
    "month": "2024-08",
-   "index": 936.3,
-   "median": 916.5,
+   "heat": 1.013,
+   "breadth": 0.524,
+   "n_ratios": 1403,
    "n_days": 28,
-   "mom_pct": -11.1,
-   "dev_pct": 32.6,
-   "z": 2.25,
+   "index": 936.3,
+   "n_songs": 53,
+   "mom_pct": -20.7,
+   "dev_pct": 9.3,
+   "z": 0.3,
    "events": [
     {
      "kind": "巡演",
@@ -1012,22 +745,55 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "巡演",
+      "title": "2024-08-16 四巡·\"肆益\"个人巡回音乐会 北京（二场·五载纪念）站",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2024-08-24 乐华2024年家族演唱会·上海",
+      "sub": "演唱会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2024-08-24 乐华家族演唱会上海站·上海",
+      "sub": "演唱会"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "发行",
+      "title": "2024-07-03 《绝不放手》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2024-07-13 2024青春芒果夜·长沙",
+      "sub": "演出"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2024-09",
-   "index": 924.3,
-   "median": 924.1,
+   "heat": 0.949,
+   "breadth": 0.376,
+   "n_ratios": 1468,
    "n_days": 30,
-   "mom_pct": -1.3,
-   "dev_pct": 23.0,
-   "z": 1.72,
+   "index": 924.3,
+   "n_songs": 50,
+   "mom_pct": -6.3,
+   "dev_pct": -3.2,
+   "z": -0.3,
    "events": [
     {
      "kind": "巡演",
@@ -1046,53 +812,55 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-10",
-   "index": 963.6,
-   "median": 962.0,
+   "heat": 0.934,
+   "breadth": 0.352,
+   "n_ratios": 1414,
    "n_days": 31,
-   "mom_pct": 4.3,
-   "dev_pct": 18.8,
-   "z": 1.49,
+   "index": 963.6,
+   "n_songs": 46,
+   "mom_pct": -1.6,
+   "dev_pct": -4.7,
+   "z": -0.38,
    "events": [],
    "n_events": 0,
-   "kinds": [],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-11",
-   "index": 994.9,
-   "median": 1001.8,
+   "heat": 1.023,
+   "breadth": 0.542,
+   "n_ratios": 1414,
    "n_days": 30,
-   "mom_pct": 3.2,
-   "dev_pct": 11.9,
-   "z": 1.11,
+   "index": 994.9,
+   "n_songs": 47,
+   "mom_pct": 9.5,
+   "dev_pct": 4.3,
+   "z": 0.06,
    "events": [],
    "n_events": 0,
-   "kinds": [],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2024-12",
-   "index": 1141.4,
-   "median": 1025.0,
+   "heat": 0.977,
+   "breadth": 0.439,
+   "n_ratios": 1311,
    "n_days": 29,
-   "mom_pct": 14.7,
-   "dev_pct": 28.4,
-   "z": 2.02,
+   "index": 1141.4,
+   "n_songs": 50,
+   "mom_pct": -4.5,
+   "dev_pct": -3.1,
+   "z": -0.3,
    "events": [
     {
      "kind": "巡演",
@@ -1166,23 +934,21 @@
     }
    ],
    "n_events": 14,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-01",
-   "index": 880.7,
-   "median": 884.0,
+   "heat": 0.874,
+   "breadth": 0.261,
+   "n_ratios": 1289,
    "n_days": 30,
-   "mom_pct": -22.8,
-   "dev_pct": -5.3,
-   "z": 0.16,
+   "index": 880.7,
+   "n_songs": 50,
+   "mom_pct": -10.5,
+   "dev_pct": -13.3,
+   "z": -0.79,
    "events": [
     {
      "kind": "巡演",
@@ -1191,120 +957,38 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "巡演"
-   ],
    "coverage_ok": true,
-   "trigger": [
-    "mom"
-   ],
-   "anomaly": true,
-   "attribution": {
-    "same_month": [
-     {
-      "kind": "巡演",
-      "title": "2025-01-01 五巡·王晰吾个人巡回音乐会 长沙（元旦）站",
-      "sub": ""
-     }
-    ],
-    "prev_month": [
-     {
-      "kind": "巡演",
-      "title": "2024-12-21 五巡·王晰吾个人巡回音乐会 杭州（首场）站",
-      "sub": ""
-     },
-     {
-      "kind": "巡演",
-      "title": "2024-12-29 五巡·王晰吾个人巡回音乐会 南昌站",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-06 《新的篇章》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-19 《皮囊之下》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-21 《暗潮涌动》发行（OST/单曲）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《在路上》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《无尽的夜里》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《鹅毛信》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《勿扰》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《住口》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《明白》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《雷美替胺》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "发行",
-      "title": "2024-12-16 《祝我们随遇而安》发行（专辑）",
-      "sub": ""
-     },
-     {
-      "kind": "演出/晚会",
-      "title": "2024-12-22 2024往日时光音乐会·上海",
-      "sub": "演唱会"
-     }
-    ],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
-   }
+   "trigger": [],
+   "anomaly": false
   },
   {
    "month": "2025-02",
-   "index": 799.5,
-   "median": 794.4,
+   "heat": 0.867,
+   "breadth": 0.276,
+   "n_ratios": 1395,
    "n_days": 28,
-   "mom_pct": -9.2,
-   "dev_pct": -14.1,
-   "z": -0.33,
+   "index": 799.5,
+   "n_songs": 50,
+   "mom_pct": -0.8,
+   "dev_pct": -12.4,
+   "z": -0.75,
    "events": [],
    "n_events": 0,
-   "kinds": [],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-03",
-   "index": 884.4,
-   "median": 890.9,
+   "heat": 0.986,
+   "breadth": 0.472,
+   "n_ratios": 1600,
    "n_days": 30,
-   "mom_pct": 10.6,
-   "dev_pct": -4.9,
-   "z": 0.18,
+   "index": 884.4,
+   "n_songs": 53,
+   "mom_pct": 13.7,
+   "dev_pct": -0.4,
+   "z": -0.17,
    "events": [
     {
      "kind": "演出/晚会",
@@ -1318,21 +1002,21 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-04",
-   "index": 878.6,
-   "median": 874.9,
+   "heat": 1.001,
+   "breadth": 0.502,
+   "n_ratios": 1513,
    "n_days": 29,
-   "mom_pct": -0.7,
-   "dev_pct": -5.6,
-   "z": 0.14,
+   "index": 878.6,
+   "n_songs": 52,
+   "mom_pct": 1.5,
+   "dev_pct": 0.7,
+   "z": -0.12,
    "events": [
     {
      "kind": "巡演",
@@ -1351,22 +1035,21 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-05",
-   "index": 923.8,
-   "median": 858.3,
+   "heat": 0.961,
+   "breadth": 0.395,
+   "n_ratios": 1437,
    "n_days": 30,
-   "mom_pct": 5.1,
-   "dev_pct": -0.7,
-   "z": 0.41,
+   "index": 923.8,
+   "n_songs": 48,
+   "mom_pct": -4.0,
+   "dev_pct": -3.3,
+   "z": -0.31,
    "events": [
     {
      "kind": "巡演",
@@ -1390,23 +1073,21 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-06",
-   "index": 869.4,
-   "median": 853.5,
+   "heat": 0.736,
+   "breadth": 0.079,
+   "n_ratios": 1094,
    "n_days": 30,
-   "mom_pct": -5.9,
-   "dev_pct": -6.5,
-   "z": 0.09,
+   "index": 869.4,
+   "n_songs": 38,
+   "mom_pct": -23.4,
+   "dev_pct": -25.0,
+   "z": -1.35,
    "events": [
     {
      "kind": "发行",
@@ -1425,22 +1106,65 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "发行",
+      "title": "2025-06-12 《来得及》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-06-28 《你好时光》播出·北京",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-06-29 湖南卫视/芒果TV《背后》·长沙",
+      "sub": "演出"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "巡演",
+      "title": "2025-05-01 《不说》签唱会 上海站",
+      "sub": ""
+     },
+     {
+      "kind": "巡演",
+      "title": "2025-05-24 五巡·王晰吾个人巡回音乐会 广州站",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2025-05-30 《致我们的小宇宙》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-05-01 王晰个人巡回音乐会 上海站·上海",
+      "sub": "演唱会"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2025-07",
-   "index": 859.1,
-   "median": 855.4,
+   "heat": 0.765,
+   "breadth": 0.087,
+   "n_ratios": 720,
    "n_days": 21,
-   "mom_pct": -1.2,
-   "dev_pct": -7.0,
-   "z": 0.06,
+   "index": 859.1,
+   "n_songs": 35,
+   "mom_pct": 3.9,
+   "dev_pct": -21.1,
+   "z": -1.16,
    "events": [
     {
      "kind": "发行",
@@ -1449,36 +1173,38 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "发行"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-08",
-   "index": 980.9,
-   "median": 979.9,
+   "heat": 0.802,
+   "breadth": 0.203,
+   "n_ratios": 749,
    "n_days": 25,
-   "mom_pct": 14.2,
-   "dev_pct": 8.5,
-   "z": 0.92,
+   "index": 980.9,
+   "n_songs": 30,
+   "mom_pct": 4.8,
+   "dev_pct": -16.0,
+   "z": -0.92,
    "events": [],
    "n_events": 0,
-   "kinds": [],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2025-09",
-   "index": 831.2,
-   "median": 830.5,
+   "heat": 0.547,
+   "breadth": 0.031,
+   "n_ratios": 575,
    "n_days": 28,
-   "mom_pct": -15.3,
-   "dev_pct": -8.1,
-   "z": 0.0,
+   "index": 831.2,
+   "n_songs": 21,
+   "mom_pct": -31.8,
+   "dev_pct": -41.9,
+   "z": -2.16,
    "events": [
     {
      "kind": "演出/晚会",
@@ -1502,21 +1228,49 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-03 2025年纪念抗战胜利80周年\"九三\"文艺晚会·北京",
+      "sub": "晚会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-13 《你好时光》\"再见音乐会\"（CCTV-3）·央视演播厅（CCTV-3综艺，无固定演出地）",
+      "sub": "演唱会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-20 俄罗斯\"国际视界\"国际音乐大赛（中国代表）·莫斯科",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-26 王晰参演有故事的歌音乐剧全明星音乐会·深圳",
+      "sub": "音乐剧"
+     }
+    ],
+    "prev_month": [],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2025-10",
-   "index": 802.9,
-   "median": 778.4,
+   "heat": 0.742,
+   "breadth": 0.146,
+   "n_ratios": 560,
    "n_days": 28,
-   "mom_pct": -3.4,
-   "dev_pct": -9.0,
-   "z": -0.05,
+   "index": 802.9,
+   "n_songs": 20,
+   "mom_pct": 35.6,
+   "dev_pct": -17.9,
+   "z": -1.01,
    "events": [
     {
      "kind": "演出/晚会",
@@ -1550,21 +1304,80 @@
     }
    ],
    "n_events": 6,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-06 中国原创音乐盛典巅峰之夜·深圳",
+      "sub": "晚会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-10 央视频《乘着大巴看中国·新疆行》·新疆",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-18 《乘着大巴看中国》新疆行（鸿雁）·新疆",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-21 《2025中国乡村音乐大会》播出·保定",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-25 第十五届中国音乐金钟奖金钟之星音乐会·成都",
+      "sub": "演唱会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-29 2025央视重阳晚会·北京",
+      "sub": "晚会"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-03 2025年纪念抗战胜利80周年\"九三\"文艺晚会·北京",
+      "sub": "晚会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-13 《你好时光》\"再见音乐会\"（CCTV-3）·央视演播厅（CCTV-3综艺，无固定演出地）",
+      "sub": "演唱会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-20 俄罗斯\"国际视界\"国际音乐大赛（中国代表）·莫斯科",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-09-26 王晰参演有故事的歌音乐剧全明星音乐会·深圳",
+      "sub": "音乐剧"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2025-11",
-   "index": 833.6,
-   "median": 833.3,
+   "heat": 0.973,
+   "breadth": 0.432,
+   "n_ratios": 535,
    "n_days": 28,
-   "mom_pct": 3.8,
-   "dev_pct": -5.2,
-   "z": 0.16,
+   "index": 833.6,
+   "n_songs": 20,
+   "mom_pct": 31.1,
+   "dev_pct": 11.8,
+   "z": 0.42,
    "events": [
     {
      "kind": "巡演",
@@ -1598,23 +1411,90 @@
     }
    ],
    "n_events": 6,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "巡演",
+      "title": "2025-11-21 五巡·王晰吾个人巡回音乐会 上海（返场）站",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2025-11-19 《欢迎来到我的世界》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2025-11-17 《如龙》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-11-12 2025年国际艺术体操邀请赛暨北京艺术体操公开赛开幕式·北京",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-11-15 国际艺术体操公开赛闭幕式·北京",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-11-23 中国东方演艺集团《美在东方》歌舞晚会·北京",
+      "sub": "晚会"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-06 中国原创音乐盛典巅峰之夜·深圳",
+      "sub": "晚会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-10 央视频《乘着大巴看中国·新疆行》·新疆",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-18 《乘着大巴看中国》新疆行（鸿雁）·新疆",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-21 《2025中国乡村音乐大会》播出·保定",
+      "sub": "演出"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-25 第十五届中国音乐金钟奖金钟之星音乐会·成都",
+      "sub": "演唱会"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2025-10-29 2025央视重阳晚会·北京",
+      "sub": "晚会"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2025-12",
-   "index": 789.8,
-   "median": 779.2,
+   "heat": 1.03,
+   "breadth": 0.565,
+   "n_ratios": 487,
    "n_days": 25,
-   "mom_pct": -5.3,
-   "dev_pct": -9.6,
-   "z": -0.08,
+   "index": 789.8,
+   "n_songs": 20,
+   "mom_pct": 5.9,
+   "dev_pct": 18.3,
+   "z": 0.73,
    "events": [
     {
      "kind": "演出/晚会",
@@ -1633,21 +1513,21 @@
     }
    ],
    "n_events": 3,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-01",
-   "index": 824.8,
-   "median": 808.7,
+   "heat": 1.213,
+   "breadth": 0.767,
+   "n_ratios": 627,
    "n_days": 26,
-   "mom_pct": 4.4,
-   "dev_pct": -4.6,
-   "z": 0.2,
+   "index": 824.8,
+   "n_songs": 25,
+   "mom_pct": 17.8,
+   "dev_pct": 39.3,
+   "z": 1.74,
    "events": [
     {
      "kind": "巡演",
@@ -1671,23 +1551,21 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "发行",
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-02",
-   "index": 792.3,
-   "median": 789.7,
+   "heat": 0.964,
+   "breadth": 0.454,
+   "n_ratios": 522,
    "n_days": 27,
-   "mom_pct": -3.9,
-   "dev_pct": -6.4,
-   "z": 0.1,
+   "index": 792.3,
+   "n_songs": 21,
+   "mom_pct": -20.5,
+   "dev_pct": 5.5,
+   "z": 0.11,
    "events": [
     {
      "kind": "发行",
@@ -1711,22 +1589,70 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "发行",
+      "title": "2026-02-04 《爱会和海风一起抵达》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2026-02-15 《塞北年夜》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-02-11 老兵年味特别节目《本色华年》·北京",
+      "sub": "综艺"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-02-12 《光从东方来》视听盛会（抖音+新华社）·西安",
+      "sub": "演出"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "巡演",
+      "title": "2026-01-31 五巡·王晰吾个人巡回音乐会 杭州（返场·金沙湖）站",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2026-01-14 《埋下记忆》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-01-17 草原之夜——来自可克达拉的歌谣·北京",
+      "sub": "音乐剧"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-01-18 草原之夜——来自可克达拉的歌谣·北京",
+      "sub": "音乐剧"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2026-03",
-   "index": 700.0,
-   "median": 662.5,
+   "heat": 0.766,
+   "breadth": 0.101,
+   "n_ratios": 485,
    "n_days": 30,
-   "mom_pct": -11.6,
-   "dev_pct": -17.3,
-   "z": -0.51,
+   "index": 700.0,
+   "n_songs": 17,
+   "mom_pct": -20.5,
+   "dev_pct": -20.4,
+   "z": -1.13,
    "events": [
     {
      "kind": "演出/晚会",
@@ -1740,21 +1666,60 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
-   "trigger": [],
-   "anomaly": false
+   "trigger": [
+    "mom"
+   ],
+   "anomaly": true,
+   "attribution": {
+    "same_month": [
+     {
+      "kind": "演出/晚会",
+      "title": "2026-03-27 草原之夜——来自可克达拉的歌谣·南京",
+      "sub": "音乐剧"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-03-28 草原之夜——来自可克达拉的歌谣·南京",
+      "sub": "音乐剧"
+     }
+    ],
+    "prev_month": [
+     {
+      "kind": "发行",
+      "title": "2026-02-04 《爱会和海风一起抵达》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "发行",
+      "title": "2026-02-15 《塞北年夜》发行（OST/单曲）",
+      "sub": ""
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-02-11 老兵年味特别节目《本色华年》·北京",
+      "sub": "综艺"
+     },
+     {
+      "kind": "演出/晚会",
+      "title": "2026-02-12 《光从东方来》视听盛会（抖音+新华社）·西安",
+      "sub": "演出"
+     }
+    ],
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
+   }
   },
   {
    "month": "2026-04",
-   "index": 664.1,
-   "median": 650.9,
+   "heat": 0.917,
+   "breadth": 0.3,
+   "n_ratios": 513,
    "n_days": 29,
-   "mom_pct": -5.1,
-   "dev_pct": -20.2,
-   "z": -0.67,
+   "index": 664.1,
+   "n_songs": 18,
+   "mom_pct": 19.7,
+   "dev_pct": 4.0,
+   "z": 0.04,
    "events": [
     {
      "kind": "巡演",
@@ -1763,21 +1728,21 @@
     }
    ],
    "n_events": 1,
-   "kinds": [
-    "巡演"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-05",
-   "index": 636.8,
-   "median": 622.9,
+   "heat": 0.984,
+   "breadth": 0.474,
+   "n_ratios": 536,
    "n_days": 31,
-   "mom_pct": -4.1,
-   "dev_pct": -23.1,
-   "z": -0.83,
+   "index": 636.8,
+   "n_songs": 17,
+   "mom_pct": 7.3,
+   "dev_pct": 14.5,
+   "z": 0.54,
    "events": [
     {
      "kind": "演出/晚会",
@@ -1791,21 +1756,21 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-06",
-   "index": 610.6,
-   "median": 610.1,
+   "heat": 0.993,
+   "breadth": 0.471,
+   "n_ratios": 518,
    "n_days": 29,
-   "mom_pct": -4.1,
-   "dev_pct": -25.0,
-   "z": -0.93,
+   "index": 610.6,
+   "n_songs": 18,
+   "mom_pct": 0.9,
+   "dev_pct": 15.5,
+   "z": 0.59,
    "events": [
     {
      "kind": "巡演",
@@ -1819,22 +1784,21 @@
     }
    ],
    "n_events": 2,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-07",
-   "index": 628.3,
-   "median": 634.1,
+   "heat": 0.961,
+   "breadth": 0.413,
+   "n_ratios": 506,
    "n_days": 30,
-   "mom_pct": 2.9,
-   "dev_pct": -21.2,
-   "z": -0.72,
+   "index": 628.3,
+   "n_songs": 17,
+   "mom_pct": -3.2,
+   "dev_pct": 2.2,
+   "z": -0.05,
    "events": [
     {
      "kind": "发行",
@@ -1858,22 +1822,21 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-08",
-   "index": 652.5,
-   "median": 670.5,
+   "heat": 0.997,
+   "breadth": 0.492,
+   "n_ratios": 518,
    "n_days": 31,
-   "mom_pct": 3.9,
-   "dev_pct": -17.5,
-   "z": -0.52,
+   "index": 652.5,
+   "n_songs": 17,
+   "mom_pct": 3.7,
+   "dev_pct": 3.6,
+   "z": 0.02,
    "events": [
     {
      "kind": "巡演",
@@ -1907,37 +1870,38 @@
     }
    ],
    "n_events": 6,
-   "kinds": [
-    "巡演",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-09",
-   "index": 683.6,
-   "median": 659.3,
+   "heat": 1.119,
+   "breadth": 0.706,
+   "n_ratios": 554,
    "n_days": 30,
-   "mom_pct": 4.8,
-   "dev_pct": -8.2,
-   "z": -0.0,
+   "index": 683.6,
+   "n_songs": 18,
+   "mom_pct": 12.2,
+   "dev_pct": 15.5,
+   "z": 0.59,
    "events": [],
    "n_events": 0,
-   "kinds": [],
    "coverage_ok": true,
    "trigger": [],
    "anomaly": false
   },
   {
    "month": "2026-10",
-   "index": 409.4,
-   "median": 399.0,
+   "heat": 0.526,
+   "breadth": 0.03,
+   "n_ratios": 335,
    "n_days": 31,
-   "mom_pct": -40.1,
-   "dev_pct": -40.8,
-   "z": -1.81,
+   "index": 409.4,
+   "n_songs": 11,
+   "mom_pct": -53.0,
+   "dev_pct": -46.2,
+   "z": -2.37,
    "events": [
     {
      "kind": "发行",
@@ -1961,10 +1925,6 @@
     }
    ],
    "n_events": 4,
-   "kinds": [
-    "发行",
-    "演出/晚会"
-   ],
    "coverage_ok": true,
    "trigger": [
     "mom"
@@ -1994,20 +1954,22 @@
      }
     ],
     "prev_month": [],
-    "note": "候选解释，非因果；月度粒度无法拆分同月多事件"
+    "note": "候选解释，非因果；月度粒度不能拆分同月多事件"
    }
   },
   {
    "month": "2026-11",
-   "index": 391.9,
-   "median": 394.3,
+   "heat": 0.576,
+   "breadth": 0.073,
+   "n_ratios": 55,
    "n_days": 5,
-   "mom_pct": -4.3,
-   "dev_pct": -41.8,
-   "z": -1.86,
+   "index": 391.9,
+   "n_songs": 11,
+   "mom_pct": 9.5,
+   "dev_pct": -41.1,
+   "z": -2.12,
    "events": [],
    "n_events": 0,
-   "kinds": [],
    "coverage_ok": false,
    "trigger": [],
    "anomaly": false,
@@ -2015,9 +1977,10 @@
   }
  ],
  "summary": {
-  "n_months": 48,
-  "n_anomaly": 10,
-  "n_low_coverage": 2,
-  "n_events": 134
+  "n_months": 46,
+  "n_anomaly": 13,
+  "n_low_coverage": 1,
+  "n_events": 123,
+  "n_songs_total": 211
  }
 }

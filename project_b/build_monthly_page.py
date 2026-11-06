@@ -65,12 +65,7 @@ tr.anom td{background:rgba(255,122,122,.06)}
 <p class="lead">原来按「单场演出后逐日 CAR」看效应，现阶段演出密度低、窗口内常常只有一个观测。
 这里改成按月：<strong>先看变化，再解释</strong>——异常月自动标出，并列出同月与前一月的巡演 / 演出晚会 / 新歌发行作为<strong>候选解释</strong>。</p>
 
-<div class="note"><strong>口径</strong>：指数 = 追踪曲目池<b>日均</b>（每日先对当日有数据的曲目取均值，再按月平均）；当月有效天数 &lt; __MIN_DAYS__ 天的月份标「覆盖不足」，不参与异常判定。
-<strong>异常判定</strong>：__WINDOW__。<strong>归因边界</strong>：月度粒度无法拆分同月多事件，所列事件是解释线索，不是因果结论。
-<br><strong>已知偏差（2026-11 复核）</strong>：月度均值受「当月有数据的曲目数」直接影响——2023-10 约 <b>20 首</b>、2024-10 约 <b>46 首</b>、2026-10 约 <b>11 首</b>，
-池子变小/变大本身就会抬升或压低均值，因此 2026-10 的 −40% 不能全部算作收听下降。
-<br><strong>关于「十月偏低」</strong>：10 月相对当年均值，2023 年 <b>−43.0%</b>、2024 年 <b>+9.2%</b>、2025 年 <b>−6.8%</b>、2026 年 <b>−38.0%</b>——4 年里 3 年偏低、1 年偏高，
-样本不足以判定季节性；且固定面板（15 首）复算后同样不稳定。结论：<b>先看池子与覆盖，再谈季节</b>。</div>
+<div class="note"><strong>口径（v3）</strong>：先给每首歌做自身基线归一——<code>ratio = 当日指数 / 该曲前 90 天中位</code>（需 ≥30 个历史观测），月度<b>热度</b>取当月全部 [曲×日] ratio 的中位：<b>1.00 = 与它自己近 90 天持平</b>。这样池子进出、单曲体量差异都被消掉，月份之间才可比。<br><strong>广度</strong> = 当月 ratio&gt;1 的 [曲×日] 占比（多少歌同时在升），比单一均值更能说明"是不是普遍在涨"。<br><strong>异常判定</strong>：__WINDOW__。<br><strong>对照列</strong>：池均值（旧口径）与在池曲目数一起列出——旧口径受池子大小支配（2023-10 约 20 首、2024-10 约 46 首、2026-10 约 11 首），仅供对照，不作为结论依据。<br><strong>归因边界</strong>：月度粒度无法拆分同月多事件，所列事件是解释线索，不是因果结论。</div>
 
 <div class="kpis" id="kpis"></div>
 <div id="chart"></div>
@@ -99,10 +94,9 @@ tr.anom td{background:rgba(255,122,122,.06)}
     '<div class="kpi"><b>'+s.n_low_coverage+'</b><span>覆盖不足月份</span></div>';
 
   var xs = months.map(function(m){return m.month;});
-  var ys = months.map(function(m){return m.index;});
+  var ys = months.map(function(m){return m.heat;});
   var pts = months.filter(function(m){return m.anomaly;}).map(function(m){
-    return {name:m.month, value:[m.month, m.index], coord:[m.month, m.index],
-            itemStyle:{color:'#ff7a7a'}};
+    return {name:m.month, coord:[m.month, m.heat], itemStyle:{color:'#ff7a7a'}};
   });
 
   function render(){
@@ -114,13 +108,13 @@ tr.anom td{background:rgba(255,122,122,.06)}
       tooltip:{trigger:'axis', formatter:function(ps){
         var i = ps[0].dataIndex, m = months[i];
         var evs = (m.events||[]).slice(0,4).map(function(e){return '· '+esc(e.title).slice(0,40);}).join('<br>');
-        return '<b>'+m.month+'</b><br>指数 '+fmt(m.index)+'（'+m.n_days+' 天）<br>'+
-               '环比 '+(m.mom_pct==null?'—':(m.mom_pct>0?'+':'')+m.mom_pct+'%')+
-               ' · 趋势偏离 '+(m.dev_pct==null?'—':m.dev_pct+'%')+
+        return '<b>'+m.month+'</b><br>热度 '+fmt(m.heat,2)+'（在池 '+fmt(m.n_songs,0)+' 首 · '+m.n_days+' 天）<br>'+
+               '广度 '+(m.breadth==null?'—':Math.round(m.breadth*100)+'%')+
+               ' · 环比 '+(m.mom_pct==null?'—':(m.mom_pct>0?'+':'')+m.mom_pct+'%')+
                (m.events&&m.events.length?('<br>'+evs):'');
       }},
       xAxis:{type:'category', data:xs, axisLabel:{color:'#8c98b8', rotate:45, fontSize:10}, axisLine:{lineStyle:{color:'#33406b'}}},
-      yAxis:{type:'value', name:'指数', nameTextStyle:{color:'#8c98b8'}, axisLabel:{color:'#8c98b8'}, splitLine:{lineStyle:{color:'#1e2740'}}},
+      yAxis:{type:'value', name:'热度（1=自身基线）', nameTextStyle:{color:'#8c98b8'}, axisLabel:{color:'#8c98b8'}, splitLine:{lineStyle:{color:'#1e2740'}}},
       series:[{
         type:'line', data:ys, smooth:true, symbolSize:5,
         lineStyle:{color:'#7fb0ff', width:2}, itemStyle:{color:'#7fb0ff'},
@@ -148,12 +142,12 @@ tr.anom td{background:rgba(255,122,122,.06)}
   function rowHtml(m, withEvents){
     var cls = m.anomaly ? ' class="anom"' : '';
     var h = '<tr'+cls+'><td>'+esc(m.month)+'</td>'+
-      '<td class="num">'+fmt(m.index)+'</td>'+
-      '<td class="num">'+m.n_days+'</td>'+
+      '<td class="num">'+fmt(m.heat,2)+'</td>'+
+      '<td class="num">'+(m.breadth==null?'—':Math.round(m.breadth*100)+'%')+'</td>'+
       '<td class="num">'+(m.mom_pct==null?'—':(m.mom_pct>0?'+':'')+m.mom_pct+'%')+'</td>'+
-      '<td class="num">'+(m.dev_pct==null?'—':m.dev_pct+'%')+'</td>'+
       '<td class="num">'+(m.z==null?'—':m.z)+'</td>'+
-      '<td class="num">'+m.n_events+'</td>';
+      '<td class="num">'+fmt(m.index)+'</td>'+
+      '<td class="num">'+fmt(m.n_songs,0)+'</td>';
     if (withEvents){
       var evs = (m.events||[]).map(function(e){return kindTag(e.kind)+esc(e.title);}).join('<br>') || '—';
       h += '<td class="ev">'+evs+'</td>';
@@ -162,7 +156,7 @@ tr.anom td{background:rgba(255,122,122,.06)}
   }
 
   var anom = months.filter(function(m){return m.anomaly;});
-  var at = '<table><tr><th>月份</th><th>指数</th><th>天数</th><th>环比</th><th>趋势偏离</th><th>z</th><th>事件</th><th>同月事件（候选解释）</th></tr>';
+  var at = '<table><tr><th>月份</th><th>热度</th><th>广度</th><th>环比</th><th>z</th><th>池均值</th><th>在池曲目</th><th>同月事件（候选解释）</th></tr>';
   anom.forEach(function(m){
     at += rowHtml(m, false).replace('</tr>', '<td class="ev">'+
       ((m.events||[]).map(function(e){return kindTag(e.kind)+esc(e.title);}).join('<br>') || '—')+
@@ -174,7 +168,7 @@ tr.anom td{background:rgba(255,122,122,.06)}
   document.getElementById('anomTable').innerHTML = at + '</table>' +
     '<p class="lead" style="margin-top:8px">同月事件 = 该月登记的巡演 / 演出晚会 / 发行；前 1 月事件用于捕捉「宣发提前」。多个事件同月时无法拆分贡献。</p>';
 
-  var all = '<table><tr><th>月份</th><th>指数</th><th>天数</th><th>环比</th><th>趋势偏离</th><th>z</th><th>事件数</th></tr>';
+  var all = '<table><tr><th>月份</th><th>热度</th><th>广度</th><th>环比</th><th>z</th><th>池均值</th><th>在池曲目</th></tr>';
   months.forEach(function(m){ all += rowHtml(m, false); });
   document.getElementById('allTable').innerHTML = all + '</table>';
 
