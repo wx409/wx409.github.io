@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06 08:46:36",
+ "updated_at": "2026-11-06 14:00:27",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5516,6 +5516,27 @@
    "title": "网页访谈自动采集",
    "content": "本轮新抓 3 篇，已抽句入池（见 phrases.html）",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-06 11:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [11756]），但 dashboard_data.json 已 121.9 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-06 14:00:27",
+   "title": "📣 王晰生涯时间轴 | 已核验节点与语录",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;王晰生涯时间轴（47 条已核验节点）：出生、赛事、获奖、专辑与巡演里程碑，每条附来源；另含语录档案。\n链接：https://wx409.github.io/history.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/history.html"
+  },
+  {
+   "time": "2026-11-06 14:00:27",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
