@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-11-06 20:56",
+  "timestamp": "2026-11-06 21:01",
   "total": 292173,
   "success": 58478,
   "complete_rate": 20.0,
   "index_rate": 20.0,
-  "active_rate": 50.2,
-  "total_songs": 1058,
-  "active_songs": 531,
-  "link_uids": 644,
-  "name_uids": 414,
-  "tracked_links": 10662,
+  "active_rate": 52.4,
+  "total_songs": 733,
+  "active_songs": 384,
+  "link_uids": 641,
+  "name_uids": 92,
+  "tracked_links": 733,
   "time_labels": [
     "2023-01",
     "2023-02",
@@ -158,30 +158,30 @@
     603
   ],
   "listener_ratio_trend": [
-    35.8,
-    2.0,
-    7.4,
-    24.6,
-    23.0,
-    25.7,
-    20.7,
-    14.2,
-    17.9,
-    18.7,
-    17.3,
-    16.5,
-    13.6,
-    13.4,
-    12.1,
-    12.4,
-    12.3,
+    41.1,
+    2.3,
+    8.3,
+    27.8,
+    25.8,
+    28.4,
+    22.7,
+    15.6,
+    18.9,
+    19.4,
+    17.8,
+    16.2,
+    13.7,
+    13.8,
+    12.8,
+    12.9,
+    12.5,
     12.2,
-    11.3,
-    8.4,
-    26.4,
-    26.8,
-    16.7,
-    1.8
+    11.4,
+    9.4,
+    33.8,
+    34.2,
+    21.3,
+    2.3
   ],
   "listener_labels": [
     "2024-12",
@@ -127848,7 +127848,7 @@
       "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
       "total_uplift": -14.3,
       "total_uplift_wk": -23.4,
-      "base_polluted": null,
+      "base_polluted": 16,
       "setlist_uplift": 22.8,
       "radiance_uplift": -8.6,
       "daily_series": {
@@ -128199,7 +128199,7 @@
       "tour": "央视《经典咏流传·正青春》·渡荆门送别",
       "total_uplift": 0.9,
       "total_uplift_wk": -17.3,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": null,
       "radiance_uplift": 4.7,
       "daily_series": {
@@ -128530,7 +128530,7 @@
       "tour": "三巡·王晰2021-2022“图景”全国个人巡回音乐会",
       "total_uplift": -14.7,
       "total_uplift_wk": -28.9,
-      "base_polluted": null,
+      "base_polluted": 9,
       "setlist_uplift": 4.1,
       "radiance_uplift": -10.0,
       "daily_series": {
@@ -129572,7 +129572,7 @@
       "tour": "第九届文荣奖（特邀演唱嘉宾）",
       "total_uplift": 10.4,
       "total_uplift_wk": -3.9,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": null,
       "radiance_uplift": 17.9,
       "daily_series": {
@@ -130365,7 +130365,7 @@
       "tour": "四巡·\"肆益\"个人巡回音乐会",
       "total_uplift": 18.9,
       "total_uplift_wk": -12.6,
-      "base_polluted": null,
+      "base_polluted": 8,
       "setlist_uplift": 35.5,
       "radiance_uplift": 14.7,
       "daily_series": {
@@ -130521,7 +130521,7 @@
       "tour": "踏上新征程2024 BRTV跨年之夜",
       "total_uplift": 18.9,
       "total_uplift_wk": -12.6,
-      "base_polluted": null,
+      "base_polluted": 8,
       "setlist_uplift": null,
       "radiance_uplift": 16.8,
       "daily_series": {
@@ -130677,7 +130677,7 @@
       "tour": "2024世界之窗花漾音乐嘉年华",
       "total_uplift": -3.2,
       "total_uplift_wk": null,
-      "base_polluted": null,
+      "base_polluted": 9,
       "setlist_uplift": -4.0,
       "radiance_uplift": -5.4,
       "daily_series": {
@@ -130862,7 +130862,7 @@
       "tour": "四巡·\"肆益\"个人巡回音乐会",
       "total_uplift": 3.8,
       "total_uplift_wk": -14.8,
-      "base_polluted": null,
+      "base_polluted": 5,
       "setlist_uplift": -28.6,
       "radiance_uplift": 3.0,
       "daily_series": {
@@ -131053,7 +131053,7 @@
       "tour": "2024星月榜样盛典",
       "total_uplift": 4.9,
       "total_uplift_wk": -20.1,
-      "base_polluted": null,
+      "base_polluted": 5,
       "setlist_uplift": -35.1,
       "radiance_uplift": 3.4,
       "daily_series": {
@@ -131243,7 +131243,7 @@
       "tour": "同心向未来——2024网络视听盛典",
       "total_uplift": -4.3,
       "total_uplift_wk": -23.9,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": null,
       "radiance_uplift": -2.3,
       "daily_series": {
@@ -132547,7 +132547,7 @@
       "tour": "音乐剧《光影少年》饰演幻影（首演）",
       "total_uplift": 182.5,
       "total_uplift_wk": 144.4,
-      "base_polluted": null,
+      "base_polluted": 6,
       "setlist_uplift": null,
       "radiance_uplift": 215.7,
       "daily_series": {
@@ -135239,7 +135239,7 @@
       "tour": "不老的爱情第五届庐山音乐爱情电影周",
       "total_uplift": -3.9,
       "total_uplift_wk": -13.1,
-      "base_polluted": null,
+      "base_polluted": 11,
       "setlist_uplift": null,
       "radiance_uplift": -8.8,
       "daily_series": {
@@ -135600,7 +135600,7 @@
       "tour": "五巡·王晰吾个人巡回音乐会",
       "total_uplift": -10.2,
       "total_uplift_wk": -15.5,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": null,
       "radiance_uplift": -8.8,
       "daily_series": {
@@ -136242,7 +136242,7 @@
       "tour": "五巡·王晰吾个人巡回音乐会",
       "total_uplift": -59.7,
       "total_uplift_wk": -3.2,
-      "base_polluted": null,
+      "base_polluted": 6,
       "setlist_uplift": -81.8,
       "radiance_uplift": -13.6,
       "daily_series": {
@@ -136553,7 +136553,7 @@
       "tour": "五巡·王晰吾个人巡回音乐会",
       "total_uplift": -54.2,
       "total_uplift_wk": -11.5,
-      "base_polluted": null,
+      "base_polluted": 14,
       "setlist_uplift": -70.4,
       "radiance_uplift": -16.3,
       "daily_series": {
@@ -138625,7 +138625,7 @@
       "tour": "《不说》签唱会",
       "total_uplift": -6.8,
       "total_uplift_wk": -11.9,
-      "base_polluted": null,
+      "base_polluted": 10,
       "setlist_uplift": 0.4,
       "radiance_uplift": -9.4,
       "daily_series": {
@@ -138986,7 +138986,7 @@
       "tour": "王晰个人巡回音乐会 上海站",
       "total_uplift": -6.8,
       "total_uplift_wk": -11.9,
-      "base_polluted": null,
+      "base_polluted": 10,
       "setlist_uplift": null,
       "radiance_uplift": -8.4,
       "daily_series": {
@@ -141020,7 +141020,7 @@
       "tour": "中国原创音乐盛典巅峰之夜",
       "total_uplift": -5.6,
       "total_uplift_wk": -18.5,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": null,
       "radiance_uplift": -0.9,
       "daily_series": {
@@ -141205,7 +141205,7 @@
       "tour": "央视频《乘着大巴看中国·新疆行》",
       "total_uplift": -7.4,
       "total_uplift_wk": -16.2,
-      "base_polluted": null,
+      "base_polluted": 7,
       "setlist_uplift": 14.7,
       "radiance_uplift": -0.0,
       "daily_series": {
@@ -141562,7 +141562,7 @@
       "tour": "《2025中国乡村音乐大会》播出",
       "total_uplift": -1.3,
       "total_uplift_wk": -17.0,
-      "base_polluted": null,
+      "base_polluted": 5,
       "setlist_uplift": null,
       "radiance_uplift": 3.2,
       "daily_series": {
@@ -141912,7 +141912,7 @@
       "tour": "2025央视重阳晚会",
       "total_uplift": 6.6,
       "total_uplift_wk": -4.4,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": 34.1,
       "radiance_uplift": 5.5,
       "daily_series": {
@@ -142436,7 +142436,7 @@
       "tour": "五巡·王晰吾个人巡回音乐会",
       "total_uplift": -2.4,
       "total_uplift_wk": -17.8,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": -11.6,
       "radiance_uplift": -3.2,
       "daily_series": {
@@ -142621,7 +142621,7 @@
       "tour": "中国东方演艺集团《美在东方》歌舞晚会",
       "total_uplift": -2.1,
       "total_uplift_wk": -21.9,
-      "base_polluted": null,
+      "base_polluted": 5,
       "setlist_uplift": null,
       "radiance_uplift": -4.3,
       "daily_series": {
@@ -142802,7 +142802,7 @@
       "tour": "总台《CMG童声歌会》播出",
       "total_uplift": -5.5,
       "total_uplift_wk": null,
-      "base_polluted": null,
+      "base_polluted": 7,
       "setlist_uplift": null,
       "radiance_uplift": 1.3,
       "daily_series": {
@@ -143929,7 +143929,7 @@
       "tour": "老兵年味特别节目《本色华年》",
       "total_uplift": -22.3,
       "total_uplift_wk": -26.0,
-      "base_polluted": null,
+      "base_polluted": 5,
       "setlist_uplift": null,
       "radiance_uplift": -17.7,
       "daily_series": {
@@ -144119,7 +144119,7 @@
       "tour": "《光从东方来》视听盛会（抖音+新华社）",
       "total_uplift": -26.0,
       "total_uplift_wk": -29.6,
-      "base_polluted": null,
+      "base_polluted": 5,
       "setlist_uplift": 15.2,
       "radiance_uplift": -21.3,
       "daily_series": {
@@ -144659,7 +144659,7 @@
       "tour": "五巡·王晰吾个人巡回音乐会",
       "total_uplift": -5.0,
       "total_uplift_wk": -53.2,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": 27.0,
       "radiance_uplift": 10.5,
       "daily_series": {
@@ -145142,7 +145142,7 @@
       "tour": "六巡·王晰回个人巡回音乐会",
       "total_uplift": 4.2,
       "total_uplift_wk": -9.0,
-      "base_polluted": null,
+      "base_polluted": 4,
       "setlist_uplift": 18.9,
       "radiance_uplift": 2.3,
       "daily_series": {
@@ -145308,7 +145308,7 @@
       "tour": "CMG夏日歌会",
       "total_uplift": 2.4,
       "total_uplift_wk": -7.5,
-      "base_polluted": null,
+      "base_polluted": 8,
       "setlist_uplift": null,
       "radiance_uplift": 1.2,
       "daily_series": {
@@ -172056,81 +172056,89 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 9,
-    "total_tracked": 1058,
-    "concentration_top3": 74.8,
+    "active_count": 10,
+    "total_tracked": 733,
+    "concentration_top3": 71.7,
     "as_of": "2026-11-06",
-    "too_small": true,
-    "sample_tier": "small",
+    "too_small": false,
+    "sample_tier": "normal",
     "recent7_median_n": 12.0
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 59.4,
-      "raw": 526.0,
-      "trend_pct": 78.9,
+      "share_pct": 57.2,
+      "raw": 499.0,
+      "trend_pct": 69.7,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "滚滚长江东逝水",
-      "share_pct": 8.2,
-      "raw": 73.0,
-      "trend_pct": 170.4,
+      "share_pct": 7.4,
+      "raw": 65.0,
+      "trend_pct": 140.7,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "一生中最爱",
-      "share_pct": 7.2,
-      "raw": 64.0,
-      "trend_pct": 220.0,
+      "song": "月弯弯",
+      "share_pct": 7.1,
+      "raw": 62.0,
+      "trend_pct": 40.9,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "山楂树",
-      "share_pct": 5.9,
-      "raw": 52.0,
-      "trend_pct": 57.6,
+      "song": "一生中最爱",
+      "share_pct": 5.6,
+      "raw": 49.0,
+      "trend_pct": 145.0,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "月弯弯",
-      "share_pct": 5.5,
-      "raw": 49.0,
-      "trend_pct": 11.4,
+      "song": "山楂树",
+      "share_pct": 5.4,
+      "raw": 47.0,
+      "trend_pct": 42.4,
       "trend_label": "up"
     },
     {
       "rank": 6,
       "song": "在路上",
-      "share_pct": 4.4,
-      "raw": 39.0,
-      "trend_pct": 77.3,
+      "share_pct": 3.9,
+      "raw": 34.0,
+      "trend_pct": 54.5,
       "trend_label": "up"
     },
     {
       "rank": 7,
       "song": "Sound of Silence",
-      "share_pct": 4.4,
-      "raw": 39.0,
-      "trend_pct": 56.0,
+      "share_pct": 3.9,
+      "raw": 34.0,
+      "trend_pct": 36.0,
       "trend_label": "up"
     },
     {
       "rank": 8,
       "song": "神魂颠倒",
-      "share_pct": 2.6,
-      "raw": 23.0,
-      "trend_pct": 76.9,
+      "share_pct": 3.7,
+      "raw": 32.0,
+      "trend_pct": 146.2,
       "trend_label": "up"
     },
     {
       "rank": 9,
+      "song": "谁",
+      "share_pct": 3.4,
+      "raw": 30.0,
+      "trend_pct": null,
+      "trend_label": "new"
+    },
+    {
+      "rank": 10,
       "song": "南屏晚钟",
       "share_pct": 2.4,
       "raw": 21.0,
@@ -172139,7 +172147,7 @@
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-11-06 20:56",
+  "last_update": "2026-11-06 21:01",
   "today_batches": 1341,
   "daily_new_records": 0,
   "recent_7days": [
@@ -172191,23 +172199,23 @@
   "chart_summaries": {
     "sankey": "作品成长生态流转分析（近60日窗口）：15 首作品在上升期、稳定期、经典沉淀期之间健康流转，其中 8 首沉淀为经典，经典沉淀期占比最高，说明作品具有长尾生命力，无衰退迹象。",
     "weekend_premium": "听众时间偏好洞察：专辑类作品周末溢价 1.15，高于 OST/单曲的 0.94，表明专辑具有周末沉浸式聆听特质，而非通勤背景音属性。",
-    "timeline": "月度竞争格局时间轴（2023-01 至 2026-11）：47 个月共 1058 首作品的份额争夺与巡演发行事件叠加，自动播放展示每帧 Top15 竞争态势。",
+    "timeline": "月度竞争格局时间轴（2023-01 至 2026-11）：47 个月共 733 首作品的份额争夺与巡演发行事件叠加，自动播放展示每帧 Top15 竞争态势。",
     "waterfall": "排名战争瀑布图：展示 10 首作品全站排名变化的逐日累积效应，上升用绿色、下降用红色，直观呈现每首作品在竞争中的进退轨迹。",
     "tour_song_effects": "巡演歌曲级效应：共 91 场演出有歌曲级监测数据，每场分追踪曲目池/歌单内（直接效应）/辐射带动（歌单外）三口径统计演出后7日较前基线涨幅。三亚(2023-02-25)追踪曲目池+1.8%歌单内-9.7%辐射带动+1.7%；上海(2023-04-09)追踪曲目池-51.6%歌单内-38.7%辐射带动-45.0%；郑州(2023-05-01)追踪曲目池-21.1%歌单内-15.3%辐射带动-15.3%；昆明(2023-05-03)追踪曲目池-17.1%歌单内-35.6%辐射带动-9.8%；北京(2023-05-04)追踪曲目池-21.6%歌单内+None%辐射带动-10.1%；南宁(2023-05-20)追踪曲目池-14.3%歌单内+22.8%辐射带动-8.6%；北京(2023-06-04)追踪曲目池+0.9%歌单内+None%辐射带动+4.7%；深圳(2023-06-23)追踪曲目池-14.7%歌单内+4.1%辐射带动-10.0%；澳门(2023-07-22)追踪曲目池-16.1%歌单内-0.8%辐射带动-16.2%；北京(2023-08-19)追踪曲目池-4.6%歌单内+None%辐射带动+4.5%；北京(2023-10-01)追踪曲目池-14.2%歌单内+None%辐射带动-10.0%；北京(2023-10-29)追踪曲目池+10.4%歌单内+None%辐射带动+17.9%；北京(2023-11-12)追踪曲目池-1.5%歌单内+59.7%辐射带动-1.4%；广州(2023-12-10)追踪曲目池-37.2%歌单内-14.5%辐射带动-8.4%；北京(2023-12-17)追踪曲目池-30.9%歌单内+None%辐射带动+4.5%；成都(2023-12-17)追踪曲目池-30.9%歌单内+None%辐射带动+4.5%；上海(2023-12-31)追踪曲目池+18.9%歌单内+35.5%辐射带动+14.7%；北京(2023-12-31)追踪曲目池+18.9%歌单内+None%辐射带动+16.8%；深圳(2024-01-14)追踪曲目池-3.2%歌单内-4.0%辐射带动-5.4%；南京(2024-01-27)追踪曲目池+3.8%歌单内-28.6%辐射带动+3.0%；北京(2024-01-28)追踪曲目池+4.9%歌单内-35.1%辐射带动+3.4%；北京(2024-02-03)追踪曲目池-4.3%歌单内+None%辐射带动-2.3%；重庆(2024-03-30)追踪曲目池+0.9%歌单内-2.0%辐射带动+11.4%；河南(2024-04-04)追踪曲目池+2.0%歌单内+132.6%辐射带动+6.5%；上海(2024-04-06)追踪曲目池+4.0%歌单内+6.6%辐射带动+8.9%；上海(2024-05-01)追踪曲目池+5.6%歌单内+None%辐射带动+6.6%；延边(2024-05-10)追踪曲目池-18.1%歌单内+None%辐射带动-4.4%；杭州(2024-05-25)追踪曲目池+3.5%歌单内+18.5%辐射带动-5.1%；北京(2024-06-07)追踪曲目池+182.5%歌单内+None%辐射带动+215.7%；上海(2024-06-16)追踪曲目池+99.8%歌单内+187.7%辐射带动+96.1%；长沙(2024-07-13)追踪曲目池+4.5%歌单内+None%辐射带动+28.9%；北京(2024-08-16)追踪曲目池-11.2%歌单内+6.8%辐射带动-18.2%；上海(2024-08-24)追踪曲目池-6.2%歌单内+28.7%辐射带动+14.4%；上海(2024-08-24)追踪曲目池-6.2%歌单内+28.7%辐射带动+14.4%；武汉(2024-09-16)追踪曲目池-3.1%歌单内-19.4%辐射带动-6.9%；庐山(2024-09-25)追踪曲目池-3.9%歌单内+None%辐射带动-8.8%；杭州(2024-12-21)追踪曲目池-10.2%歌单内+None%辐射带动-8.8%；上海(2024-12-22)追踪曲目池-11.2%歌单内+1.6%辐射带动-11.3%；南昌(2024-12-29)追踪曲目池-59.7%歌单内-81.8%辐射带动-13.6%；长沙(2025-01-01)追踪曲目池-54.2%歌单内-70.4%辐射带动-16.3%；成都(2025-03-15)追踪曲目池+13.4%歌单内+None%辐射带动+11.5%；南昌(2025-03-21)追踪曲目池+8.6%歌单内+508.3%辐射带动+1.9%；北京(2025-04-05)追踪曲目池-8.3%歌单内-20.2%辐射带动-2.6%；上海(2025-04-09)追踪曲目池-0.9%歌单内+None%辐射带动+6.1%；杭州(2025-04-12)追踪曲目池+3.8%歌单内+32.3%辐射带动+8.1%；上海(2025-05-01)追踪曲目池-6.8%歌单内+0.4%辐射带动-9.4%；上海(2025-05-01)追踪曲目池-6.8%歌单内+None%辐射带动-8.4%；广州(2025-05-24)追踪曲目池-3.2%歌单内-5.2%辐射带动-4.0%；北京(2025-06-28)追踪曲目池-0.3%歌单内+6.9%辐射带动-4.3%；长沙(2025-06-29)追踪曲目池-0.5%歌单内+None%辐射带动-4.5%；北京(2025-09-03)追踪曲目池-41.7%歌单内+None%辐射带动-36.2%；(2025-09-13)追踪曲目池-16.2%歌单内+3.3%辐射带动-13.7%；莫斯科(2025-09-20)追踪曲目池-3.2%歌单内+24.9%辐射带动-0.9%；深圳(2025-09-26)追踪曲目池+5.5%歌单内-1.2%辐射带动+2.6%；深圳(2025-10-06)追踪曲目池-5.6%歌单内+None%辐射带动-0.9%；新疆(2025-10-10)追踪曲目池-7.4%歌单内+14.7%辐射带动+-0.0%；新疆(2025-10-18)追踪曲目池-0.2%歌单内+None%辐射带动+0.1%；保定(2025-10-21)追踪曲目池-1.3%歌单内+None%辐射带动+3.2%；成都(2025-10-25)追踪曲目池+6.1%歌单内+None%辐射带动+6.7%；北京(2025-10-29)追踪曲目池+6.6%歌单内+34.1%辐射带动+5.5%；北京(2025-11-12)追踪曲目池+4.5%歌单内+None%辐射带动+1.8%；北京(2025-11-15)追踪曲目池+0.5%歌单内-7.7%辐射带动-1.9%；上海(2025-11-21)追踪曲目池-2.4%歌单内-11.6%辐射带动-3.2%；北京(2025-11-23)追踪曲目池-2.1%歌单内+None%辐射带动-4.3%；北京(2025-12-06)追踪曲目池-5.5%歌单内+None%辐射带动+1.3%；新疆(2025-12-14)追踪曲目池-7.5%歌单内+19.8%辐射带动-0.1%；山西吕梁新区体育中心(2025-12-31)追踪曲目池+24.5%歌单内+30.6%辐射带动+21.1%；北京(2026-01-17)追踪曲目池+8.4%歌单内+None%辐射带动+8.0%；北京(2026-01-18)追踪曲目池+5.2%歌单内+None%辐射带动+5.7%；杭州(2026-01-31)追踪曲目池-6.7%歌单内-32.1%辐射带动-6.6%；北京(2026-02-11)追踪曲目池-22.3%歌单内+None%辐射带动-17.7%；西安(2026-02-12)追踪曲目池-26.0%歌单内+15.2%辐射带动-21.3%；南京(2026-03-27)追踪曲目池+-0.0%歌单内+None%辐射带动-0.8%；南京(2026-03-28)追踪曲目池+1.3%歌单内+None%辐射带动+0.1%；北京(2026-04-10)追踪曲目池-5.0%歌单内+27.0%辐射带动+10.5%；上海(2026-05-03)追踪曲目池-4.5%歌单内-11.0%辐射带动-0.1%；舟山(2026-05-23)追踪曲目池-4.7%歌单内-6.9%辐射带动-4.6%；重庆(2026-06-13)追踪曲目池+4.2%歌单内+18.9%辐射带动+2.3%；北京(2026-06-20)追踪曲目池+2.4%歌单内+None%辐射带动+1.2%；伊宁(2026-07-29)追踪曲目池-15.7%歌单内+None%辐射带动-14.3%；伊宁(2026-07-30)追踪曲目池-20.6%歌单内+None%辐射带动-20.5%；伊宁(2026-07-31)追踪曲目池-22.9%歌单内+None%辐射带动-22.6%；伊宁(2026-08-04)追踪曲目池-7.8%歌单内+None%辐射带动-4.0%；乌鲁木齐(2026-08-06)追踪曲目池-3.0%歌单内+None%辐射带动-1.3%；乌鲁木齐(2026-08-07)追踪曲目池+0.1%歌单内+None%辐射带动-1.4%；乌鲁木齐(2026-08-15)追踪曲目池+21.7%歌单内+None%辐射带动+16.8%；乌鲁木齐(2026-08-16)追踪曲目池+21.0%歌单内+None%辐射带动+17.4%；广州(2026-08-23)追踪曲目池+13.2%歌单内-8.5%辐射带动+15.5%；北京(2026-10-09)追踪曲目池-59.1%歌单内-53.0%辐射带动-51.5%；北京(2026-10-10)追踪曲目池-56.9%歌单内-52.2%辐射带动-48.6%；石家庄(2026-10-26)追踪曲目池-3.8%歌单内+None%辐射带动-4.5%。"
   },
   "lineage": {
     "nonsong_filtered": {
-      "rows": 0,
+      "rows": 133,
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4552,
-      "success": 4552,
+      "total": 4553,
+      "success": 4553,
       "failed": []
     },
-    "link_registry": 10662,
+    "link_registry": 10754,
     "intraday_merged": {
-      "before": 1811942,
+      "before": 1812556,
       "after": 302733
     },
     "index_calibration": {
@@ -172424,7 +172432,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-11-06 20:56",
+    "generated_at": "2026-11-06 21:01",
     "overview": "共 91 场活动 / 3167 个歌曲观测，正涨幅 1294（41%），显著带动≥20% 占 13%，平均 +0.5%、中位 -3.7%。",
     "morph_best": "歌舞剧·音乐剧（平均 +22.9%）",
     "morph_worst": "签唱会（平均 -17.5%）",
@@ -172478,7 +172486,7 @@
       },
       {
         "title": "口径修正发现：同星期基线揭示双向偏差",
-        "text": "同星期对齐基线复算 82 场：68 场变动≥5个百分点、27% 方向反转——原口径存在双向偏差：①周末/节日场效应被高估（跨年上海 +18.9%→同星期 -12.6%、六巡重庆 +4.2%→-9.0%）；②极端负值被宣发基线放大（南昌 -59.7%→-3.2%、长沙 -54.2%→-11.5%）；③爆点仍稳健（光影少年 +182.5%→+144.4%、影视之夜 +99.8%→+60.5%，量级不变）。 建议：重度污染场次（0 场）以同星期基线为报告口径。",
+        "text": "同星期对齐基线复算 82 场：68 场变动≥5个百分点、27% 方向反转——原口径存在双向偏差：①周末/节日场效应被高估（跨年上海 +18.9%→同星期 -12.6%、六巡重庆 +4.2%→-9.0%）；②极端负值被宣发基线放大（南昌 -59.7%→-3.2%、长沙 -54.2%→-11.5%）；③爆点仍稳健（光影少年 +182.5%→+144.4%、影视之夜 +99.8%→+60.5%，量级不变）。 建议：重度污染场次（29 场）以同星期基线为报告口径。",
         "evidence": "数据：Δ最大 2026-08-06 乌鲁木齐 原-3.0%→同星期153.9%",
         "drill": "method"
       }
