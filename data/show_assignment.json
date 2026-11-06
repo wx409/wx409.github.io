@@ -1,9 +1,9 @@
 {
  "summary": {
-  "generated_at": "2026-11-06T21:08:11",
-  "rows": 831,
+  "generated_at": "2026-11-07T00:16:43",
+  "rows": 837,
   "levels": {
-   "L1": 400,
+   "L1": 406,
    "L6": 26,
    "L3": 47,
    "未认领": 355,
@@ -152,8 +152,8 @@
    "claimable": 4
   },
   "2024-04-06": {
-   "n": 18,
-   "claimable": 16
+   "n": 19,
+   "claimable": 17
   },
   "2024-05-25": {
    "n": 4,
@@ -164,22 +164,26 @@
    "claimable": 30
   },
   "2024-03-30": {
-   "n": 13,
-   "claimable": 12
+   "n": 15,
+   "claimable": 14
   },
   "2024-08-16": {
    "n": 3,
    "claimable": 2
   },
   "2023-12-10": {
-   "n": 3,
-   "claimable": 2
-  },
-  "2024-09-16": {
-   "n": 3,
+   "n": 4,
    "claimable": 3
   },
+  "2024-09-16": {
+   "n": 4,
+   "claimable": 4
+  },
   "2024-01-27": {
+   "n": 2,
+   "claimable": 2
+  },
+  "2023-11-12": {
    "n": 2,
    "claimable": 2
   },
@@ -238,10 +242,6 @@
   "2023-04-09": {
    "n": 5,
    "claimable": 5
-  },
-  "2023-11-12": {
-   "n": 1,
-   "claimable": 1
   },
   "2019-08-16": {
    "n": 1,
@@ -3486,6 +3486,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "重庆20240330_BV1zm41167PE",
+   "song": "翠湖寒",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-03-30",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海20231231_v15",
    "song": "",
    "tour": "四巡",
@@ -3666,6 +3678,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "重庆20240330_BV17m421n7Pe",
+   "song": "Love Me Tender",
+   "tour": "四巡",
+   "city": "重庆",
+   "date": "2024-03-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-03-30",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "重庆20240330_BV1Gm421n7ef",
    "song": "亲爱的小孩",
    "tour": "四巡",
@@ -3762,6 +3786,30 @@
    "why": "巡次城市唯一"
   },
   {
+   "tag": "武汉20240916_BV1pktheXEmB",
+   "song": "城里的月光",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024-09-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-09-16",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20231112_BV1Zz4y1F7n5",
+   "song": "离人",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2023-11-12",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-11-12",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海20231231_v17",
    "song": "",
    "tour": "四巡",
@@ -3794,6 +3842,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "上海20240406_BV19A4m1F7Z5",
+   "song": "甩了甩了",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2024-04-06",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-04-06",
    "level": 1,
    "why": "日期直配"
   },
@@ -3836,6 +3896,18 @@
   {
    "tag": "广州20231210_BV1hi4y1v7VC",
    "song": "阿瓦尔古丽",
+   "tour": "四巡",
+   "city": "广州",
+   "date": "2023-12-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-10",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "广州20231210_BV1s94y1P7JF",
+   "song": "读你",
    "tour": "四巡",
    "city": "广州",
    "date": "2023-12-10",

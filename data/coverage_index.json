@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-06T21:08:12",
+  "generated_at": "2026-11-07T00:16:44",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8611,
+  "files_scanned": 8647,
   "measured_shows_site": 60,
   "shows_with_claimable_site": 59,
-  "bv_mapped": 163
+  "bv_mapped": 169
  },
  "shows": [
   {
@@ -1664,21 +1664,21 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Zz4y1F7n5｜离人｜北京20231112"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "北京｜四巡·\"肆益\"个人巡回音乐会"
     },
     {
      "level": 1,
-     "src": "BV命中",
-     "detail": "BV15c411X71m"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV15c411X71m"
+     "src": "站点实测",
+     "detail": "北京20231112_BV1Zz4y1F7n5｜离人"
     }
    ],
-   "n_evidence": 60
+   "n_evidence": 74
   },
   {
    "date": "2023-12-10",
@@ -1704,6 +1704,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1s94y1P7JF｜读你｜广州20231210"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "广州｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1711,14 +1716,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "广州20231210_BV1jb4y157LR｜Crystal Store"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "广州20231210_BV14c411U7Vn｜三个人的晚餐"
     }
    ],
-   "n_evidence": 43
+   "n_evidence": 57
   },
   {
    "date": "2023-12-31",
@@ -1829,16 +1829,16 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "重庆｜四巡·\"肆益\"个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1zm41167PE｜翠湖寒｜重庆20240330"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "重庆20240330_BV1Bm411k72j｜美丽的草原我的家"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV17m421n7Pe｜Love Me Tender｜重庆20240330"
     }
    ],
-   "n_evidence": 57
+   "n_evidence": 85
   },
   {
    "date": "2024-04-06",
@@ -1847,6 +1847,11 @@
    "songs": 18,
    "level": 1,
    "evidence": [
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV19A4m1F7Z5｜甩了甩了｜上海20240406"
+    },
     {
      "level": 2,
      "src": "shows_tour表",
@@ -1871,14 +1876,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "四巡上海生日20240406_p31_BesameMucho｜Besamemucho"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "四巡上海生日20240406_p19_剧院刮刮乐｜剧院刮刮乐"
     }
    ],
-   "n_evidence": 365
+   "n_evidence": 379
   },
   {
    "date": "2024-05-25",
@@ -1974,6 +1974,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1pktheXEmB｜城里的月光｜武汉20240916"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "武汉｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1985,20 +1990,15 @@
     {
      "level": 1,
      "src": "站点实测",
+     "detail": "武汉20240916_BV1pktheXEmB｜城里的月光"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
      "detail": "四巡武汉20240916_v01｜"
-    },
-    {
-     "level": 1,
-     "src": "BV命中",
-     "detail": "BV1b4sye8E76"
-    },
-    {
-     "level": 1,
-     "src": "路径日期",
-     "detail": "武汉20240916_BV1b4sye8E76.m4a"
     }
    ],
-   "n_evidence": 22
+   "n_evidence": 36
   },
   {
    "date": "2024-12-21",
