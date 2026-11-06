@@ -1,0 +1,115 @@
+{
+ "schema": "event-did/v1",
+ "design": "歌单内(处理) vs 同期其它歌(对照) 的 DiD；基线 [D-21,D-7]，效应窗 [D+1,D+7]",
+ "why": "没有外部对照组时，用同一歌手同一平台的'未唱歌曲'吸收大盘与曲库整体变化；再用假日期做安慰剂得到零分布",
+ "window": {
+  "pre": [
+   -21,
+   -7
+  ],
+  "post": [
+   1,
+   7
+  ]
+ },
+ "n_shows": 9,
+ "median_effect_pct": -10.83,
+ "placebo": {
+  "n": 91,
+  "median_pct": 0.64,
+  "p_two_sided": 0.261
+ },
+ "shows": [
+  {
+   "date": "2023-04-09",
+   "city": "上海",
+   "tour": "签唱会",
+   "scene": "上海",
+   "n_setlist": 7,
+   "effect": 16.55,
+   "n_treated": 4,
+   "n_control": 52
+  },
+  {
+   "date": "2023-06-23",
+   "city": "深圳",
+   "tour": "三巡",
+   "scene": "深圳",
+   "n_setlist": 21,
+   "effect": 2.94,
+   "n_treated": 3,
+   "n_control": 40
+  },
+  {
+   "date": "2024-08-16",
+   "city": "北京",
+   "tour": "四巡",
+   "scene": "北京（二场·五载纪念）",
+   "n_setlist": 18,
+   "effect": 12.78,
+   "n_treated": 5,
+   "n_control": 48
+  },
+  {
+   "date": "2024-09-16",
+   "city": "武汉",
+   "tour": "四巡",
+   "scene": "武汉（收官·中秋前）",
+   "n_setlist": 19,
+   "effect": -10.83,
+   "n_treated": 5,
+   "n_control": 43
+  },
+  {
+   "date": "2024-12-29",
+   "city": "南昌",
+   "tour": "五巡",
+   "scene": "南昌",
+   "n_setlist": 19,
+   "effect": -60.62,
+   "n_treated": 6,
+   "n_control": 41
+  },
+  {
+   "date": "2025-01-01",
+   "city": "长沙",
+   "tour": "五巡",
+   "scene": "长沙（元旦）",
+   "n_setlist": 19,
+   "effect": -50.09,
+   "n_treated": 9,
+   "n_control": 40
+  },
+  {
+   "date": "2025-04-05",
+   "city": "北京",
+   "tour": "五巡",
+   "scene": "北京（生日场）",
+   "n_setlist": 20,
+   "effect": -21.61,
+   "n_treated": 8,
+   "n_control": 42
+  },
+  {
+   "date": "2025-05-01",
+   "city": "上海",
+   "tour": "签唱会",
+   "scene": "上海",
+   "n_setlist": 6,
+   "effect": 4.34,
+   "n_treated": 6,
+   "n_control": 42
+  },
+  {
+   "date": "2025-05-24",
+   "city": "广州",
+   "tour": "五巡",
+   "scene": "广州",
+   "n_setlist": 20,
+   "effect": -11.55,
+   "n_treated": 8,
+   "n_control": 40
+  }
+ ],
+ "generated_at": "2026-11-06"
+}
