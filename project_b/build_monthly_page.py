@@ -69,6 +69,9 @@ tr.anom td{background:rgba(255,122,122,.06)}
 
 <div class="kpis" id="kpis"></div>
 <div id="chart"></div>
+<h2>年 × 月 热度矩阵（颜色 = 热度，1.00 = 与该曲自身基线持平）</h2>
+<p class="lead">横向看是同一年的 12 个月，纵向看是同一个月的 4 年。<strong>如果某列普遍偏冷，才叫季节性偏低。</strong></p>
+<div id="heatmap" style="width:100%;height:280px"></div>
 
 <h2>异常月与同期事件</h2>
 <div id="anomTable"></div>
@@ -124,6 +127,45 @@ tr.anom td{background:rgba(255,122,122,.06)}
     });
     window.addEventListener('resize', function(){ chart.resize(); });
   }
+  function renderHeatmap(){
+    var el = document.getElementById('heatmap');
+    if (!el || typeof echarts === 'undefined') return;
+    var years = [];
+    months.forEach(function(m){
+      var y = m.month.slice(0,4);
+      if (years.indexOf(y) < 0) years.push(y);
+    });
+    years.sort();
+    var data = [];
+    months.forEach(function(m){
+      var y = m.month.slice(0,4), mm = parseInt(m.month.slice(5,7), 10);
+      if (m.heat == null) return;
+      data.push([mm - 1, years.indexOf(y), m.heat, m.month]);
+    });
+    var vals = data.map(function(d){return d[2];});
+    var chart = echarts.init(el);
+    chart.setOption({
+      backgroundColor:'transparent',
+      grid:{left:56,right:20,top:16,bottom:40},
+      tooltip:{formatter:function(pp){
+        return pp.data[3] + '<br>热度 ' + pp.data[2] + '（1.00=自身基线）';
+      }},
+      xAxis:{type:'category', data:['1','2','3','4','5','6','7','8','9','10','11','12'],
+             name:'月', nameTextStyle:{color:'#8c98b8'},
+             axisLabel:{color:'#8c98b8'}, axisLine:{lineStyle:{color:'#33406b'}},
+             splitArea:{show:true}},
+      yAxis:{type:'category', data:years, axisLabel:{color:'#8c98b8'},
+             axisLine:{lineStyle:{color:'#33406b'}}, splitArea:{show:true}},
+      visualMap:{min:Math.min.apply(null, vals), max:Math.max.apply(null, vals),
+                 calculable:true, orient:'horizontal', left:'center', bottom:0,
+                 textStyle:{color:'#8c98b8'}, inRange:{color:['#2a3f6b','#3f6fb0','#7fb0ff','#ffd479','#ff7a7a']}},
+      series:[{type:'heatmap', data:data, label:{show:true, color:'#0b1020', fontSize:10,
+               formatter:function(pp){return pp.data[2].toFixed(2);}},
+               emphasis:{itemStyle:{borderColor:'#fff', borderWidth:1}}}]
+    });
+    window.addEventListener('resize', function(){ chart.resize(); });
+  }
+
   function loadEcharts(){
     if (typeof echarts !== 'undefined') { render(); return; }
     var srcs = ['./echarts.min.js','../dashboard/echarts.min.js',
@@ -173,6 +215,7 @@ tr.anom td{background:rgba(255,122,122,.06)}
   document.getElementById('allTable').innerHTML = all + '</table>';
 
   loadEcharts();
+  setTimeout(function(){ renderHeatmap(); }, 600);
 })();
 </script>
 </body>
@@ -186,7 +229,7 @@ def main() -> int:
             .replace("__DATA__", json.dumps(d, ensure_ascii=False).replace("</", "<\\/"))
             .replace("__GEN__", d.get("generated_at", ""))
             .replace("__MIN_DAYS__", str(d.get("min_days", 15)))
-            .replace("__WINDOW__", d.get("window", "")))
+            .replace("__WINDOW__", d.get("method") or d.get("window") or "稳健 z≥2.5 或 环比≥20%"))
     OUT.write_text(html, encoding="utf-8", newline="")
     kb = len(html.encode()) / 1024
     print("已生成 %s（%.0f KB｜%d 个月｜异常 %d）" % (
