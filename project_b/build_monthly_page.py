@@ -46,6 +46,11 @@ h2{font-size:17px;margin:26px 0 10px;color:var(--gold)}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:150px}
 .kpi b{display:block;font-size:20px;color:var(--gold)}
 .kpi span{color:var(--muted);font-size:12px}
+table.hm{width:100%;border-collapse:separate;border-spacing:3px;font-size:12.5px}
+table.hm th{background:none;border:0;color:#8c98b8;font-weight:500;text-align:center}
+table.hm td{border:0;border-radius:6px;text-align:center;padding:8px 4px;color:#0b1020;font-variant-numeric:tabular-nums}
+table.hm td.na{background:#1a2138;color:#4a5578}
+.hm-legend{color:#8c98b8;font-size:12px;margin:6px 0 0}
 table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{background:#1b2340;color:#c9d4f2;font-weight:600;white-space:nowrap}
@@ -71,7 +76,7 @@ tr.anom td{background:rgba(255,122,122,.06)}
 <div id="chart"></div>
 <h2>年 × 月 热度矩阵（颜色 = 热度，1.00 = 与该曲自身基线持平）</h2>
 <p class="lead">横向看是同一年的 12 个月，纵向看是同一个月的 4 年。<strong>如果某列普遍偏冷，才叫季节性偏低。</strong></p>
-<div id="heatmap" style="width:100%;height:280px"></div>
+__HEATMAP__
 
 <h2>异常月与同期事件</h2>
 <div id="anomTable"></div>
@@ -127,51 +132,6 @@ tr.anom td{background:rgba(255,122,122,.06)}
     });
     window.addEventListener('resize', function(){ chart.resize(); });
   }
-  var _hmDone = false, _hmTry = 0;
-  function renderHeatmap(){
-    var el = document.getElementById('heatmap');
-    if (!el || _hmDone) return;
-    if (typeof echarts === 'undefined') {
-      if (++_hmTry < 40) setTimeout(renderHeatmap, 250);
-      return;
-    }
-    _hmDone = true;
-    var years = [];
-    months.forEach(function(m){
-      var y = m.month.slice(0,4);
-      if (years.indexOf(y) < 0) years.push(y);
-    });
-    years.sort();
-    var data = [];
-    months.forEach(function(m){
-      var y = m.month.slice(0,4), mm = parseInt(m.month.slice(5,7), 10);
-      if (m.heat == null) return;
-      data.push([mm - 1, years.indexOf(y), m.heat, m.month]);
-    });
-    var vals = data.map(function(d){return d[2];});
-    var chart = echarts.init(el);
-    chart.setOption({
-      backgroundColor:'transparent',
-      grid:{left:56,right:20,top:16,bottom:40},
-      tooltip:{formatter:function(pp){
-        return pp.data[3] + '<br>热度 ' + pp.data[2] + '（1.00=自身基线）';
-      }},
-      xAxis:{type:'category', data:['1','2','3','4','5','6','7','8','9','10','11','12'],
-             name:'月', nameTextStyle:{color:'#8c98b8'},
-             axisLabel:{color:'#8c98b8'}, axisLine:{lineStyle:{color:'#33406b'}},
-             splitArea:{show:true}},
-      yAxis:{type:'category', data:years, axisLabel:{color:'#8c98b8'},
-             axisLine:{lineStyle:{color:'#33406b'}}, splitArea:{show:true}},
-      visualMap:{min:Math.min.apply(null, vals), max:Math.max.apply(null, vals),
-                 calculable:true, orient:'horizontal', left:'center', bottom:0,
-                 textStyle:{color:'#8c98b8'}, inRange:{color:['#2a3f6b','#3f6fb0','#7fb0ff','#ffd479','#ff7a7a']}},
-      series:[{type:'heatmap', data:data, label:{show:true, color:'#0b1020', fontSize:10,
-               formatter:function(pp){return pp.data[2].toFixed(2);}},
-               emphasis:{itemStyle:{borderColor:'#fff', borderWidth:1}}}]
-    });
-    window.addEventListener('resize', function(){ chart.resize(); });
-  }
-
   function loadEcharts(){
     if (typeof echarts !== 'undefined') { render(); return; }
     var srcs = ['./echarts.min.js','../dashboard/echarts.min.js',
@@ -221,12 +181,70 @@ tr.anom td{background:rgba(255,122,122,.06)}
   document.getElementById('allTable').innerHTML = all + '</table>';
 
   loadEcharts();
-  setTimeout(function(){ renderHeatmap(); }, 600);
 })();
 </script>
 </body>
 </html>
 """
+
+
+def heatmap_html(months) -> str:
+    """年×月色块表：行=年，列=1..12 月，颜色=热度。服务端渲染，不依赖 JS。"""
+    import html as _h
+    by = {}
+    years = []
+    for m in months:
+        y = str(m.get("month", ""))[:4]
+        mm = int(str(m.get("month", "0000-00"))[5:7]) if len(str(m.get("month", ""))) >= 7 else 0
+        if not y or not mm:
+            continue
+        if y not in years:
+            years.append(y)
+        by.setdefault(y, {})[mm] = m
+    years.sort()
+    heats = [m["heat"] for m in months if m.get("heat") is not None]
+    if not heats:
+        return "<p class=\"lead\">（无热度数据）</p>"
+    lo, hi = min(heats), max(heats)
+
+    def color(h):
+        if h is None:
+            return None
+        t = 0.0 if hi == lo else max(0.0, min(1.0, (h - lo) / (hi - lo)))
+        # 蓝 → 灰蓝 → 黄 → 红
+        stops = [(0.0, (42, 63, 107)), (0.35, (63, 111, 176)), (0.6, (127, 176, 255)),
+                 (0.8, (255, 212, 121)), (1.0, (255, 122, 122))]
+        for k in range(len(stops) - 1):
+            a, ca = stops[k]
+            b2, cb = stops[k + 1]
+            if a <= t <= b2:
+                f = (t - a) / (b2 - a) if b2 > a else 0
+                c = tuple(round(ca[i] + (cb[i] - ca[i]) * f) for i in range(3))
+                return c
+        return stops[-1][1]
+
+    out = ['<table class="hm">', '<tr><th></th>' +
+           ''.join('<th>%d月</th>' % m for m in range(1, 13)) + '<th>年热度中位</th></tr>']
+    for y in years:
+        row = ['<tr><th>%s</th>' % y]
+        vals = []
+        for mm in range(1, 13):
+            rec = by.get(y, {}).get(mm)
+            h = rec.get("heat") if rec else None
+            if h is None:
+                row.append('<td class="na">—</td>')
+                continue
+            vals.append(h)
+            c = color(h)
+            row.append('<td style="background:rgb(%d,%d,%d)">%.2f</td>' % (c[0], c[1], c[2], h))
+        med = sorted(vals)[len(vals) // 2] if vals else None
+        row.append('<td style="background:transparent;color:%s">%s</td>'
+                   % ("#8c98b8", ("%.2f" % med) if med is not None else "—"))
+        out.append("".join(row) + "</tr>")
+    out.append("</table>")
+    out.append('<p class="hm-legend">色阶：深蓝=偏冷（低于自身基线）· 黄=略高 · 红=显著偏热；'
+               '范围 %.2f–%.2f。单元格数字为当月热度中位。</p>' % (lo, hi))
+    return "\n".join(out)
 
 
 def main() -> int:
@@ -235,7 +253,8 @@ def main() -> int:
             .replace("__DATA__", json.dumps(d, ensure_ascii=False).replace("</", "<\\/"))
             .replace("__GEN__", d.get("generated_at", ""))
             .replace("__MIN_DAYS__", str(d.get("min_days", 15)))
-            .replace("__WINDOW__", d.get("method") or d.get("window") or "稳健 z≥2.5 或 环比≥20%"))
+            .replace("__WINDOW__", d.get("method") or d.get("window") or "稳健 z≥2.5 或 环比≥20%")
+            .replace("__HEATMAP__", heatmap_html(d.get("months") or [])))
     OUT.write_text(html, encoding="utf-8", newline="")
     kb = len(html.encode()) / 1024
     print("已生成 %s（%.0f KB｜%d 个月｜异常 %d）" % (
