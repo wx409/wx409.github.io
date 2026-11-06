@@ -42,10 +42,13 @@ tr.anom td{background:rgba(255,122,122,.06)}
 <p class="lead">原来按「单场演出后逐日 CAR」看效应，现阶段演出密度低、窗口内常常只有一个观测。
 这里改成按月：<strong>先看变化，再解释</strong>——异常月自动标出，并列出同月与前一月的巡演 / 演出晚会 / 新歌发行作为<strong>候选解释</strong>。</p>
 
-<div class="note"><strong>口径（v3）</strong>：先给每首歌做自身基线归一——<code>ratio = 当日指数 / 该曲前 90 天中位</code>（需 ≥30 个历史观测），月度<b>热度</b>取当月全部 [曲×日] ratio 的中位：<b>1.00 = 与它自己近 90 天持平</b>。这样池子进出、单曲体量差异都被消掉，月份之间才可比。<br><strong>广度</strong> = 当月 ratio&gt;1 的 [曲×日] 占比（多少歌同时在升），比单一均值更能说明"是不是普遍在涨"。<br><strong>异常判定</strong>：。<br><strong>对照列</strong>：池均值（旧口径）与在池曲目数一起列出——旧口径受池子大小支配（2023-10 约 20 首、2024-10 约 46 首、2026-10 约 11 首），仅供对照，不作为结论依据。<br><strong>归因边界</strong>：月度粒度无法拆分同月多事件，所列事件是解释线索，不是因果结论。</div>
+<div class="note"><strong>口径（v3）</strong>：先给每首歌做自身基线归一——<code>ratio = 当日指数 / 该曲前 90 天中位</code>（需 ≥30 个历史观测），月度<b>热度</b>取当月全部 [曲×日] ratio 的中位：<b>1.00 = 与它自己近 90 天持平</b>。这样池子进出、单曲体量差异都被消掉，月份之间才可比。<br><strong>广度</strong> = 当月 ratio&gt;1 的 [曲×日] 占比（多少歌同时在升），比单一均值更能说明"是不是普遍在涨"。<br><strong>异常判定</strong>：异常判定跑在热度上：稳健 z（相对过去 12 个月中位偏离）≥2.5 或 环比 ≥20%；广度 = ratio>1 的 [曲×日] 占比。池均值 index 仅作对照。<br><strong>对照列</strong>：池均值（旧口径）与在池曲目数一起列出——旧口径受池子大小支配（2023-10 约 20 首、2024-10 约 46 首、2026-10 约 11 首），仅供对照，不作为结论依据。<br><strong>归因边界</strong>：月度粒度无法拆分同月多事件，所列事件是解释线索，不是因果结论。</div>
 
 <div class="kpis" id="kpis"></div>
 <div id="chart"></div>
+<h2>年 × 月 热度矩阵（颜色 = 热度，1.00 = 与该曲自身基线持平）</h2>
+<p class="lead">横向看是同一年的 12 个月，纵向看是同一个月的 4 年。<strong>如果某列普遍偏冷，才叫季节性偏低。</strong></p>
+<div id="heatmap" style="width:100%;height:280px"></div>
 
 <h2>异常月与同期事件</h2>
 <div id="anomTable"></div>
@@ -101,6 +104,45 @@ tr.anom td{background:rgba(255,122,122,.06)}
     });
     window.addEventListener('resize', function(){ chart.resize(); });
   }
+  function renderHeatmap(){
+    var el = document.getElementById('heatmap');
+    if (!el || typeof echarts === 'undefined') return;
+    var years = [];
+    months.forEach(function(m){
+      var y = m.month.slice(0,4);
+      if (years.indexOf(y) < 0) years.push(y);
+    });
+    years.sort();
+    var data = [];
+    months.forEach(function(m){
+      var y = m.month.slice(0,4), mm = parseInt(m.month.slice(5,7), 10);
+      if (m.heat == null) return;
+      data.push([mm - 1, years.indexOf(y), m.heat, m.month]);
+    });
+    var vals = data.map(function(d){return d[2];});
+    var chart = echarts.init(el);
+    chart.setOption({
+      backgroundColor:'transparent',
+      grid:{left:56,right:20,top:16,bottom:40},
+      tooltip:{formatter:function(pp){
+        return pp.data[3] + '<br>热度 ' + pp.data[2] + '（1.00=自身基线）';
+      }},
+      xAxis:{type:'category', data:['1','2','3','4','5','6','7','8','9','10','11','12'],
+             name:'月', nameTextStyle:{color:'#8c98b8'},
+             axisLabel:{color:'#8c98b8'}, axisLine:{lineStyle:{color:'#33406b'}},
+             splitArea:{show:true}},
+      yAxis:{type:'category', data:years, axisLabel:{color:'#8c98b8'},
+             axisLine:{lineStyle:{color:'#33406b'}}, splitArea:{show:true}},
+      visualMap:{min:Math.min.apply(null, vals), max:Math.max.apply(null, vals),
+                 calculable:true, orient:'horizontal', left:'center', bottom:0,
+                 textStyle:{color:'#8c98b8'}, inRange:{color:['#2a3f6b','#3f6fb0','#7fb0ff','#ffd479','#ff7a7a']}},
+      series:[{type:'heatmap', data:data, label:{show:true, color:'#0b1020', fontSize:10,
+               formatter:function(pp){return pp.data[2].toFixed(2);}},
+               emphasis:{itemStyle:{borderColor:'#fff', borderWidth:1}}}]
+    });
+    window.addEventListener('resize', function(){ chart.resize(); });
+  }
+
   function loadEcharts(){
     if (typeof echarts !== 'undefined') { render(); return; }
     var srcs = ['./echarts.min.js','../dashboard/echarts.min.js',
@@ -150,6 +192,7 @@ tr.anom td{background:rgba(255,122,122,.06)}
   document.getElementById('allTable').innerHTML = all + '</table>';
 
   loadEcharts();
+  setTimeout(function(){ renderHeatmap(); }, 600);
 })();
 </script>
 </body>

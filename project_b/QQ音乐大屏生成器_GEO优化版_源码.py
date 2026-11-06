@@ -2923,6 +2923,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <span class="fresh-item">较昨日新增追踪 <strong id="dailyDelta">--</strong> 首</span>
     <span class="fresh-item" id="anomalyAlert">今日监测平稳</span>
     <div id="anomalyMiniList" class="anomaly-mini-list"></div>
+    <a class="open-data-link" href="monthly.html" title="月度事件脉络：热度曲线 + 异常月归因">📅 月度事件脉络 ↗</a>
     <a class="open-data-link" href="dashboard_data.json" download title="开放数据 JSON（Schema.org Dataset 分发）">开放数据 JSON ↗</a>
   </div>
   <details class="lineage-panel" id="songEcoPanel">
