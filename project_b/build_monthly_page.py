@@ -127,9 +127,15 @@ tr.anom td{background:rgba(255,122,122,.06)}
     });
     window.addEventListener('resize', function(){ chart.resize(); });
   }
+  var _hmDone = false, _hmTry = 0;
   function renderHeatmap(){
     var el = document.getElementById('heatmap');
-    if (!el || typeof echarts === 'undefined') return;
+    if (!el || _hmDone) return;
+    if (typeof echarts === 'undefined') {
+      if (++_hmTry < 40) setTimeout(renderHeatmap, 250);
+      return;
+    }
+    _hmDone = true;
     var years = [];
     months.forEach(function(m){
       var y = m.month.slice(0,4);
