@@ -919,9 +919,9 @@
    "schedule": {
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
-    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply --keep-full-days 3",
     "next": "2026/11/8 10:00:00",
-    "type": "Weekly",
+    "type": "Daily",
     "start": "10:00:00"
    },
    "in_deploy": false,

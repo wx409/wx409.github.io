@@ -64,7 +64,7 @@ def gen_ps1(doc: dict) -> str:
         path = t.get("path") or ""
         name = sch["name"]
         if "每晚增量" in path or "prune_raw_archive" in path:
-            args = "-X utf8 \"%s\" %s" % (path, "--limit 6" if "每晚增量" in path else "--apply")
+            args = "-X utf8 \"%s\" %s" % (path, "--limit 6" if "每晚增量" in path else "--apply --keep-full-days 3")
         else:
             args = "-X utf8 \"%s\"" % path
         lines += [
@@ -75,7 +75,9 @@ def gen_ps1(doc: dict) -> str:
             lines.append("$t = New-ScheduledTaskTrigger -Daily -At 22:00")
             lines.append("$s = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 1) -MultipleInstances IgnoreNew")
         elif name == "wx409_prune_raw_archive":
-            lines.append("$t = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 10:00")
+            # 2026-11-08：由「每周日 + 保留 7 天」改为「每天 + 保留 3 天」。
+            # 原因是每周跑一次却保留 7 天全量 → 永远删不到本周新产生的文件，raw_archive 常年卡在 55 GB。
+            lines.append("$t = New-ScheduledTaskTrigger -Daily -At 10:00")
             lines.append("$s = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30)")
         elif name == "wx409_music_index_daily":
             lines.append("$t = New-ScheduledTaskTrigger -Daily -At 23:58")
