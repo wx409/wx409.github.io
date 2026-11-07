@@ -152,6 +152,8 @@ pwsh -File D:\wx409.github.io\analysis\run_all.ps1
 
 判断依据：`git log -- dashboard/index.html` 里，除本次外全是「自动部署: dashboard 数据更新」。
 
+母版在 `E:\wx\QQ音乐大屏生成器_GEO优化版_源码.py`；`project_b\` 里那份是同步副本，会被「自动部署」覆盖（00:09 复现一次）。标注已改在母版上，两边都保留了 `.bak_before_label` 备份。
+
 ## 八、接主大屏的方式
 
 主大屏 `dashboard/index.html` 目前未改动。最小改法是在「巡演带动效应」图下方加一行：
