@@ -1,0 +1,60 @@
+{
+ "schema": "variance-components/v1",
+ "model": "y ~ 1 + hnr_db + (1|show) + (1|song)",
+ "note": "方差成分（REML）：show=同场多条素材，song=同曲跨场；hnr_db 作测量质量代理；城市不进模型（与录音条件共线）",
+ "data": {
+  "vibrato_hz": {
+   "label": "颤音速率 Hz",
+   "n": 476,
+   "n_shows": 156,
+   "n_songs": 244,
+   "mean": 4.916,
+   "sd_total": 0.288,
+   "icc_show_pct": 4.9,
+   "icc_song_pct": 0.0,
+   "resid_show_pct": 95.1,
+   "resid_song_pct": 100.0,
+   "with_tour": false
+  },
+  "vibrato_cents": {
+   "label": "颤音幅度 音分",
+   "n": 476,
+   "n_shows": 156,
+   "n_songs": 244,
+   "mean": 77.95,
+   "sd_total": 55.619,
+   "icc_show_pct": 0.0,
+   "icc_song_pct": 0.0,
+   "resid_show_pct": 100.0,
+   "resid_song_pct": 100.0,
+   "with_tour": false
+  },
+  "stability_cents": {
+   "label": "音符内稳定性 音分",
+   "n": 477,
+   "n_shows": 156,
+   "n_songs": 244,
+   "mean": 7.015,
+   "sd_total": 1.449,
+   "icc_show_pct": 0.0,
+   "icc_song_pct": 0.0,
+   "resid_show_pct": 100.0,
+   "resid_song_pct": 100.0,
+   "with_tour": false
+  },
+  "intonation_cents": {
+   "label": "音准偏差 音分",
+   "n": 477,
+   "n_shows": 156,
+   "n_songs": 244,
+   "mean": 21.26,
+   "sd_total": 3.974,
+   "icc_show_pct": 0.0,
+   "icc_song_pct": 0.0,
+   "resid_show_pct": 100.0,
+   "resid_song_pct": 100.0,
+   "with_tour": false
+  }
+ },
+ "generated_at": "2026-11-07"
+}
