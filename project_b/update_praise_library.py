@@ -55,6 +55,7 @@ def main() -> int:
     apr = load("data/approach_all.json")
     claims = load("data/citable_claims.json")
     var = load("data/variance_bootstrap.json")
+    dash = load("dashboard/dashboard_data.json")
 
     songs = alb.get("songs") or []
     low5 = [s for s in songs if s.get("low_hz")]
@@ -74,6 +75,8 @@ def main() -> int:
         "n_mat": state.get("n_mat") or 0,
         "direct_pct": state.get("direct_pct"),
         "claims": state.get("claims") or [],
+        "releases": state.get("releases") or [],
+        "tours": state.get("tours") or [],
         "last_append": state.get("last_append"),
     }
 
@@ -120,6 +123,31 @@ def main() -> int:
     new_claims = [c for c in (claims.get("claims") or []) if c.get("id") not in old["claims"] and c.get("sentence")]
     for c in new_claims[:3]:
         insights.append("**新记录：** %s" % (c.get("sentence") or "").strip())
+
+    # ⑥ 新歌发行 / 新演出（首次运行只登记，不追加）
+    rel_now = [str(x[1]) for x in (dash.get("release_events") or []) if len(x) > 1]
+    tour_now = [str(x[1]) for x in (dash.get("tour_events") or []) if len(x) > 1]
+    first_time = not (state.get("releases") or state.get("tours"))
+    if not first_time:
+        for t in rel_now:
+            if t not in old["releases"]:
+                insights.append("**新歌上线：%s。** 发行之后通常两三天内能在指数上看到动静，"
+                                "值得盯一下它有没有把整个曲目池带起来。" % t)
+        for t in tour_now:
+            if t not in old["tours"]:
+                insights.append("**新演出登记：%s。** 现场的低声区是最好听的证据，"
+                                "等这批素材测完，可以补一句「这场他又唱到哪」。" % t)
+
+    if first_time:
+        STATE.write_text(json.dumps({
+            "b1": [x.get("title") for x in b1],
+            "min_hz": min_song["low_hz"] if min_song else None,
+            "n_mat": n_mat, "direct_pct": direct_pct, "claims": claim_ids,
+            "releases": rel_now, "tours": tour_now,
+            "last_append": state.get("last_append"),
+        }, ensure_ascii=False, indent=1), encoding="utf-8")
+        print("首次登记：发行 %d 条、巡演 %d 条，未追加" % (len(rel_now), len(tour_now)))
+        return 0
 
     if not insights:
         print("没有新发现，未写入")
