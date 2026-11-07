@@ -2922,8 +2922,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <span class="fresh-item">数据覆盖 <strong id="todayBatches">--</strong> 天</span>
     <span class="fresh-item">较昨日新增追踪 <strong id="dailyDelta">--</strong> 首</span>
     <span class="fresh-item" id="anomalyAlert">今日监测平稳</span>
-    <div id="anomalyMiniList" class="anomaly-mini-list"></div>
-    <a class="open-data-link" href="story.html" title="数据故事：结构/描述/排序/预测/单曲">📖 数据故事 ↗</a>
+    <div id="anomalyMiniList" class="anomaly-mini-list"></div>`n    <a class="open-data-link" href="story.html" title="数据故事：结构/描述/排序/预测/单曲">📖 数据故事 ↗</a>
     <a class="open-data-link" href="monthly.html" title="月度事件脉络：热度曲线 + 异常月归因">📅 月度事件脉络 ↗</a>
     <a class="open-data-link" href="dashboard_data.json" download title="开放数据 JSON（Schema.org Dataset 分发）">开放数据 JSON ↗</a>
   </div>
@@ -3128,7 +3127,7 @@ __STATUS_INFO__
     <div class="chart-box"><h2 class="chart-title">头部集中度 &amp; 峰值半衰期</h2><div id="advancedMetrics" style="padding:12px 16px;color:#8896b3;font-size:13px;line-height:1.8"></div></div>
   </div>
   <div class="dim-row" style="grid-template-columns:1fr 1fr">
-    <div class="chart-box"><h2 class="chart-title">巡演带动效应（曲目池口径：事件后 7 日 vs 21~7 日基线｜非「同场对照」，不可与重算结论混用）</h2><div class="chart-container" id="tourFxChart" style="height:300px"></div><p class="chart-insight">同场对照重算：演出当天至第 2 天 +7.0~7.9%（95% CI 0.8–14.7），第 7 天回到 0 附近（n=38–45 场）· <a href="analysis-v2.html" style="color:#5bc2e7">方法与口径敏感性</a></p></div>
+    <div class="chart-box"><h2 class="chart-title">巡演带动效应（曲目池口径：事件后 7 日 vs 21~7 日基线｜非「同场对照」，不可与重算结论混用）</h2><div class="chart-container" id="tourFxChart" style="height:300px"></div><p class="chart-insight"><span id="insightAuto">同场对照重算：数据读取中…</span> · <a href="analysis-v2.html" style="color:#5bc2e7">方法与口径敏感性</a></p><script>fetch("stats-v2.json").then(function(r){return r.json()}).then(function(d){var c=d.tour.curve.filter(function(x){return x.rel<=2});var p=c.reduce(function(a,b){return b.effect_pct>a.effect_pct?b:a});var t7=d.tour.curve.filter(function(x){return x.rel===7})[0];var s="同场对照重算：演出后前 3 天最高 "+p.effect_pct.toFixed(1)+"%（95% CI "+p.ci_lo_pct.toFixed(1)+"–"+p.ci_hi_pct.toFixed(1)+"，n="+p.n_events+" 场）";if(t7){s+="，第 7 天 "+t7.effect_pct.toFixed(1)+"%"}var n=document.getElementById("insightAuto");if(n){n.textContent=s}}).catch(function(){});</script></div>
     <div class="chart-box"><h2 class="chart-title">新歌发行14日表现（平均指数 / 峰值）</h2><div class="chart-container" id="releaseFxChart" style="height:300px"></div></div>
   </div>
   <div class="dim-row">
