@@ -40,6 +40,35 @@ def table(rows: list[list], head: list[str], cls: str = "") -> str:
     return f'<table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table>'
 
 
+
+
+def _build_claims_section():
+    """从 data/citable_claims.json 现读，渲染成「可引用句」表。"""
+    import json as _json
+    from pathlib import Path as _P
+    fp = _P(__file__).resolve().parent.parent / "data" / "citable_claims.json"
+    try:
+        d = _json.loads(fp.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    claims = [c for c in (d.get("claims") or []) if c.get("sentence")]
+    rows = []
+    for c in claims:
+        rows.append(
+            "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
+                esc(c.get("song") or "—"), esc(c.get("version") or "—"),
+                esc(c.get("timestamp") or "—"), esc(c.get("metric") or "—"),
+                esc(c.get("sentence") or "")))
+    head = ('<section id="claims"><h2>可引用句（曲目 / 版本 / 时间戳 / 口径）</h2>'
+            '<p class="lead">只放能从数据逐条复算的句子。缺任何一项，它就不能对外引用。'
+            '机器可读版本：<code>data/citable_claims.json</code>；取窗与门槛：<code>%s</code>。</p>'
+            '<table><tr><th>曲目</th><th>版本</th><th>时间戳</th><th>口径</th><th>可直接引用的一句话</th></tr>'
+            % esc(d.get("caliber") or ""))
+    tail = ('</table><p class="lead" style="margin-top:8px">⚠️ 摆幅/时长随取窗变化，'
+            '引用必须连窗口一起写；极值音仍以台账复核状态为准。</p></section>')
+    return head + "\n".join(rows) + tail
+
+
 def main() -> int:
     alb = load("archive_vocal_albums.json")
     voc = load("archive_vocal.json")
@@ -669,19 +698,9 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 </section>
 
 
-<section id="claims"><h2>可引用句（四件套：曲目 / 版本 / 时间戳 / 口径）</h2>
-<p class="lead">这一节只放<b>能从数据逐条对上</b>的句子。每条都注明曲目、版本、时间戳与口径——
-缺任何一项，它就只是一句没头没尾的话，不能对外引用。</p>
-<table>
-<tr><th>曲目</th><th>版本</th><th>时间戳</th><th>口径</th><th>可直接引用的一句话</th><th>出处</th></tr>
-<tr><td>静止了的夜晚</td><td>录音室（专辑：重游往昔）</td><td>待补（该曲未生成逐帧文件，仅有全曲统计）</td><td>最低稳定音（≥0.15s、HNR≥5dB、过复核门槛）</td><td>录音室作品里最低的稳定音是 B1（61.5Hz），出自《静止了的夜晚》。</td><td><code>data/archive_vocal_albums.json</code></td></tr>
-<tr><td>多听有益</td><td>见文件名（含场次/版本）</td><td>2:33.00–2:33.60</td><td>逐帧 F0，取 ±0.8 半音内最低连续段</td><td>《多听有益》这一版，最低音 61.9Hz 出现在 2:33.00–2:33.60，连续 0.60 秒，段内音高摆幅约 50 音分。</td><td><code>音域分析/分析结果/多听有益_f0.csv</code></td></tr>
-<tr><td>多听有益_杭州站</td><td>见文件名（含场次/版本）</td><td>1:54.29–1:55.15</td><td>逐帧 F0，取 ±0.8 半音内最低连续段</td><td>《多听有益_杭州站》这一版，最低音 65.2Hz 出现在 1:54.29–1:55.15，连续 0.86 秒，段内音高摆幅约 70 音分。</td><td><code>音域分析/分析结果/多听有益_杭州站_f0.csv</code></td></tr>
-<tr><td>全场块级（23 段歌单，按段归属）</td><td>现场 2026-10-09 北京天桥艺术中心·大剧场</td><td>各块见 data/show_blocks/沉响与长歌_20261009.json 的 t0_hms/t1_hms</td><td>演唱音高中位（MIDI），块级中位</td><td>2026-10-09 北京天桥艺术中心《沉响与长歌》，同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。</td><td><code>data/show_blocks/沉响与长歌_20261009.json + data/block_analysis.json</code></td></tr>
-</table>
-<p class="lead" style="margin-top:8px">⚠️ <b>摆幅/时长随取窗变化</b>：同一段音高，±0.8 半音窗口与 ±1 半音窗口会给出不同的秒数与音分数。
-引用时必须连窗口一起写，否则数字不可复算。机器可读版本见 <code>data/citable_claims.json</code>。</p>
-</section>
+__CLAIMS_SECTION__
+
+
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>
 <ul>
@@ -768,6 +787,7 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
     _bad = re.findall(r">(\d{5,}(?:\.\d+)?)<", html)
     assert not _bad, f"检出异常 Hz 读数（疑似音名+Hz 串列）：{_bad[:5]}"
 
+    html = html.replace("__CLAIMS_SECTION__", _build_claims_section())
     OUT.write_text(html, encoding="utf-8")
 
     # ---- 本地留存副本（同一份内容，随每日部署一起刷新）----

@@ -1,49 +1,199 @@
 {
- "schema": "citable-claims/v1",
+ "schema": "citable-claims/v2",
+ "caliber": "逐帧 F0；最低连续段窗口 ±0.5 半音、时长 ≥0.15s；摆幅=段内极差",
+ "n_album_files": 72,
+ "n_stage_files": 16,
+ "global_studio_min": 61.5,
  "claims": [
   {
-   "id": "studio-lowest",
-   "sentence": "录音室作品里最低的稳定音是 B1（61.5Hz），出自《静止了的夜晚》。",
+   "id": "studio-静止了的夜晚",
    "song": "静止了的夜晚",
    "version": "录音室（专辑：重游往昔）",
-   "timestamp": "待补（该曲未生成逐帧文件，仅有全曲统计）",
-   "metric": "最低稳定音（≥0.15s、HNR≥5dB、过复核门槛）",
-   "review": "—",
-   "source": "data/archive_vocal_albums.json",
-   "caveat": "全曲统计，不含逐帧时间戳；引用时写「录音室曲目」"
+   "timestamp": "3:11.33–3:11.66",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《静止了的夜晚》（重游往昔）最低稳定音 B1（61.5Hz），出现在 3:11.33–3:11.66，持续 0.33 秒。",
+   "source": "音域分析/专辑音频_分析/重游往昔/静止了的夜晚_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
   },
   {
-   "id": "f0-多听有益",
-   "sentence": "《多听有益》这一版，最低音 61.9Hz 出现在 2:33.00–2:33.60，连续 0.60 秒，段内音高摆幅约 50 音分。",
+   "id": "studio-多听有益",
    "song": "多听有益",
-   "version": "见文件名（含场次/版本）",
-   "timestamp": "2:33.00–2:33.60",
-   "metric": "逐帧 F0，取 ±0.8 半音内最低连续段",
-   "review": "逐帧文件（复核状态见台账）",
-   "source": "音域分析/分析结果/多听有益_f0.csv",
-   "caveat": "摆幅为段内极差，含颤音与测量噪声"
+   "version": "录音室（专辑：X自选集）",
+   "timestamp": "3:18.04–3:18.37",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《多听有益》（X自选集）最低稳定音 B1（61.7Hz），出现在 3:18.04–3:18.37，持续 0.32 秒。",
+   "source": "音域分析/专辑音频_分析/X自选集/多听有益_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
   },
   {
-   "id": "f0-多听有益_杭州站",
-   "sentence": "《多听有益_杭州站》这一版，最低音 65.2Hz 出现在 1:54.29–1:55.15，连续 0.86 秒，段内音高摆幅约 70 音分。",
-   "song": "多听有益_杭州站",
-   "version": "见文件名（含场次/版本）",
-   "timestamp": "1:54.29–1:55.15",
-   "metric": "逐帧 F0，取 ±0.8 半音内最低连续段",
-   "review": "逐帧文件（复核状态见台账）",
+   "id": "studio-忘不了",
+   "song": "忘不了",
+   "version": "录音室（专辑：Low C的诱惑）",
+   "timestamp": "1:14.81–1:15.00",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《忘不了》（Low C的诱惑）最低稳定音 C2（65.3Hz），出现在 1:14.81–1:15.00，持续 0.19 秒。",
+   "source": "音域分析/专辑音频_分析/Low C的诱惑/忘不了_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-鹅毛信",
+   "song": "鹅毛信",
+   "version": "录音室（专辑：不说）",
+   "timestamp": "2:42.10–2:42.31",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《鹅毛信》（不说）最低稳定音 C2（65.3Hz），出现在 2:42.10–2:42.31，持续 0.21 秒。",
+   "source": "音域分析/专辑音频_分析/不说/鹅毛信_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-雪地里寄不出的求救信",
+   "song": "雪地里寄不出的求救信",
+   "version": "录音室（专辑：歌颂）",
+   "timestamp": "3:46.74–3:47.02",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《雪地里寄不出的求救信》（歌颂）最低稳定音 C2（65.3Hz），出现在 3:46.74–3:47.02，持续 0.28 秒。",
+   "source": "音域分析/专辑音频_分析/歌颂/雪地里寄不出的求救信_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-晚风暖暖",
+   "song": "晚风暖暖",
+   "version": "录音室（专辑：重游往昔）",
+   "timestamp": "2:57.61–2:57.94",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《晚风暖暖》（重游往昔）最低稳定音 C2（65.3Hz），出现在 2:57.61–2:57.94，持续 0.33 秒。",
+   "source": "音域分析/专辑音频_分析/重游往昔/晚风暖暖_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-勿扰",
+   "song": "勿扰",
+   "version": "录音室（专辑：不说）",
+   "timestamp": "该曲逐帧文件中未定位到稳定段",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《勿扰》（不说）最低稳定音 C2（65.6Hz）。",
+   "source": "音域分析/专辑音频_分析/不说/勿扰_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-偏执",
+   "song": "偏执",
+   "version": "录音室（专辑：歌颂）",
+   "timestamp": "1:26.28–1:28.10",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《偏执》（歌颂）最低稳定音 C2（65.7Hz），出现在 1:26.28–1:28.10，持续 1.81 秒。",
+   "source": "音域分析/专辑音频_分析/歌颂/偏执_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-知晓",
+   "song": "知晓",
+   "version": "录音室（专辑：B面图景）",
+   "timestamp": "3:38.62–3:39.01",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《知晓》（B面图景）最低稳定音 C2（65.8Hz），出现在 3:38.62–3:39.01，持续 0.39 秒。",
+   "source": "音域分析/专辑音频_分析/B面图景/知晓_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "studio-多年以后",
+   "song": "多年以后",
+   "version": "录音室（专辑：Low C的诱惑Ⅱ）",
+   "timestamp": "1:33.28–1:33.90",
+   "metric": "最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）",
+   "sentence": "《多年以后》（Low C的诱惑Ⅱ）最低稳定音 C2（65.9Hz），出现在 1:33.28–1:33.90，持续 0.63 秒。",
+   "source": "音域分析/专辑音频_分析/Low C的诱惑Ⅱ/多年以后_stats.json",
+   "caveat": "音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位"
+  },
+  {
+   "id": "stage-多听有益_f0",
+   "song": "多听有益_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "1:19.61–1:19.88",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《多听有益_f0》最低音 61.6Hz，出现在 1:19.61–1:19.88，连续 0.27 秒。",
+   "source": "音域分析/分析结果/多听有益_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-渡荆门送别_f0",
+   "song": "渡荆门送别_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "6:42.54–6:42.75",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《渡荆门送别_f0》最低音 64.1Hz，出现在 6:42.54–6:42.75，连续 0.21 秒。",
+   "source": "音域分析/分析结果/渡荆门送别_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-多听有益_杭州站_f0",
+   "song": "多听有益_杭州站_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "1:54.56–1:55.16",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《多听有益_杭州站_f0》最低音 65.2Hz，出现在 1:54.56–1:55.16，连续 0.60 秒。",
    "source": "音域分析/分析结果/多听有益_杭州站_f0.csv",
-   "caveat": "摆幅为段内极差，含颤音与测量噪声"
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-雾里_f0",
+   "song": "雾里_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "2:16.37–2:16.72",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《雾里_f0》最低音 66.0Hz，出现在 2:16.37–2:16.72，连续 0.35 秒。",
+   "source": "音域分析/分析结果/雾里_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-向着太阳_f0",
+   "song": "向着太阳_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "0:04.62–0:04.90",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《向着太阳_f0》最低音 66.4Hz，出现在 0:04.62–0:04.90，连续 0.28 秒。",
+   "source": "音域分析/分析结果/向着太阳_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-鹅毛信_f0",
+   "song": "鹅毛信_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "0:36.73–0:37.13",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《鹅毛信_f0》最低音 74.5Hz，出现在 0:36.73–0:37.13，连续 0.39 秒。",
+   "source": "音域分析/分析结果/鹅毛信_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-多听有益_四巡直拍_f0",
+   "song": "多听有益_四巡直拍_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "3:57.31–3:57.49",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《多听有益_四巡直拍_f0》最低音 75.8Hz，出现在 3:57.31–3:57.49，连续 0.19 秒。",
+   "source": "音域分析/分析结果/多听有益_四巡直拍_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
+  },
+  {
+   "id": "stage-南屏晚钟_f0",
+   "song": "南屏晚钟_f0",
+   "version": "现场/精测（见文件名）",
+   "timestamp": "1:24.81–1:24.98",
+   "metric": "逐帧 F0，±0.5 半音窗口，连续 ≥0.15s",
+   "sentence": "现场版《南屏晚钟_f0》最低音 76.4Hz，出现在 1:24.81–1:24.98，连续 0.17 秒。",
+   "source": "音域分析/分析结果/南屏晚钟_f0.csv",
+   "caveat": "现场音轨受混音与伴奏影响；极值音以台账复核状态为准"
   },
   {
    "id": "duet-pitch",
-   "sentence": "2026-10-09 北京天桥艺术中心《沉响与长歌》，同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。",
-   "song": "全场块级（23 段歌单，按段归属）",
-   "version": "现场 2026-10-09 北京天桥艺术中心·大剧场",
+   "song": "全场块级（23 段歌单按段归属）",
+   "version": "现场 2026-10-09 北京天桥艺术中心·大剧场《沉响与长歌》",
    "timestamp": "各块见 data/show_blocks/沉响与长歌_20261009.json 的 t0_hms/t1_hms",
    "metric": "演唱音高中位（MIDI），块级中位",
-   "review": "who_confirmed（人耳确认块归属）",
-   "source": "data/show_blocks/沉响与长歌_20261009.json + data/block_analysis.json",
-   "caveat": "两人曲目不同、n=2 场；只作描述不作因果"
+   "sentence": "同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。",
+   "source": "data/block_analysis.json + data/show_blocks/",
+   "caveat": "两人曲目不同、n=2 场；只作描述，不作因果"
   }
  ]
 }

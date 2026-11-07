@@ -44,6 +44,18 @@ footer{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px solid
 @media print{aside,#q{display:none}.wrap{display:block;max-width:none}.scroll{max-height:none}}
 @media(max-width:820px){.wrap{grid-template-columns:1fr}aside{position:static;border:none;max-height:none}}
 </style></head><body>
+<!-- NAV_START -->
+<div class="nav">
+    <a href="/index.html">🏠 首页</a>
+    <a href="/works.html">🎵 作品</a>
+    <a href="/live.html">🎤 现场</a>
+    <a href="/vocal.html" style="color:#a8323d;">🎼 声音数据</a>
+    <a href="/history.html">📅 生涯</a>
+    <a href="/research.html">📚 研究</a>
+    <a href="/community.html">💬 参与</a>
+</div>
+<!-- NAV_END -->
+
 <div class="wrap">
 <aside>
 <div class="g">导读</div>
@@ -69,7 +81,7 @@ footer{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px solid
 </aside>
 <main>
 <h1>王晰声学全量报告</h1>
-<p class="lead">粉丝自建 · 权威口径 · 可复算 · 自动更新｜生成于 2026-11-07 23:13</p>
+<p class="lead">粉丝自建 · 权威口径 · 可复算 · 自动更新｜生成于 2026-11-07 23:19</p>
 <input id="q" type="search" placeholder="在本报告内搜索（曲名 / 音名 / 城市 / 巡次 / 「和声」「次谐波」…）">
 
 <section id="what"><h2>这本报告是什么</h2>
@@ -333,19 +345,27 @@ DiD 中位 1.6%。结论：<b>设计成立、样本不足</b>；要跑通得先�
 </section>
 
 
-<section id="claims"><h2>可引用句（四件套：曲目 / 版本 / 时间戳 / 口径）</h2>
-<p class="lead">这一节只放<b>能从数据逐条对上</b>的句子。每条都注明曲目、版本、时间戳与口径——
-缺任何一项，它就只是一句没头没尾的话，不能对外引用。</p>
-<table>
-<tr><th>曲目</th><th>版本</th><th>时间戳</th><th>口径</th><th>可直接引用的一句话</th><th>出处</th></tr>
-<tr><td>静止了的夜晚</td><td>录音室（专辑：重游往昔）</td><td>待补（该曲未生成逐帧文件，仅有全曲统计）</td><td>最低稳定音（≥0.15s、HNR≥5dB、过复核门槛）</td><td>录音室作品里最低的稳定音是 B1（61.5Hz），出自《静止了的夜晚》。</td><td><code>data/archive_vocal_albums.json</code></td></tr>
-<tr><td>多听有益</td><td>见文件名（含场次/版本）</td><td>2:33.00–2:33.60</td><td>逐帧 F0，取 ±0.8 半音内最低连续段</td><td>《多听有益》这一版，最低音 61.9Hz 出现在 2:33.00–2:33.60，连续 0.60 秒，段内音高摆幅约 50 音分。</td><td><code>音域分析/分析结果/多听有益_f0.csv</code></td></tr>
-<tr><td>多听有益_杭州站</td><td>见文件名（含场次/版本）</td><td>1:54.29–1:55.15</td><td>逐帧 F0，取 ±0.8 半音内最低连续段</td><td>《多听有益_杭州站》这一版，最低音 65.2Hz 出现在 1:54.29–1:55.15，连续 0.86 秒，段内音高摆幅约 70 音分。</td><td><code>音域分析/分析结果/多听有益_杭州站_f0.csv</code></td></tr>
-<tr><td>全场块级（23 段歌单，按段归属）</td><td>现场 2026-10-09 北京天桥艺术中心·大剧场</td><td>各块见 data/show_blocks/沉响与长歌_20261009.json 的 t0_hms/t1_hms</td><td>演唱音高中位（MIDI），块级中位</td><td>2026-10-09 北京天桥艺术中心《沉响与长歌》，同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。</td><td><code>data/show_blocks/沉响与长歌_20261009.json + data/block_analysis.json</code></td></tr>
-</table>
-<p class="lead" style="margin-top:8px">⚠️ <b>摆幅/时长随取窗变化</b>：同一段音高，±0.8 半音窗口与 ±1 半音窗口会给出不同的秒数与音分数。
-引用时必须连窗口一起写，否则数字不可复算。机器可读版本见 <code>data/citable_claims.json</code>。</p>
-</section>
+<section id="claims"><h2>可引用句（曲目 / 版本 / 时间戳 / 口径）</h2><p class="lead">只放能从数据逐条复算的句子。缺任何一项，它就不能对外引用。机器可读版本：<code>data/citable_claims.json</code>；取窗与门槛：<code>逐帧 F0；最低连续段窗口 ±0.5 半音、时长 ≥0.15s；摆幅=段内极差</code>。</p><table><tr><th>曲目</th><th>版本</th><th>时间戳</th><th>口径</th><th>可直接引用的一句话</th></tr><tr><td>静止了的夜晚</td><td>录音室（专辑：重游往昔）</td><td>3:11.33–3:11.66</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《静止了的夜晚》（重游往昔）最低稳定音 B1（61.5Hz），出现在 3:11.33–3:11.66，持续 0.33 秒。</td></tr>
+<tr><td>多听有益</td><td>录音室（专辑：X自选集）</td><td>3:18.04–3:18.37</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《多听有益》（X自选集）最低稳定音 B1（61.7Hz），出现在 3:18.04–3:18.37，持续 0.32 秒。</td></tr>
+<tr><td>忘不了</td><td>录音室（专辑：Low C的诱惑）</td><td>1:14.81–1:15.00</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《忘不了》（Low C的诱惑）最低稳定音 C2（65.3Hz），出现在 1:14.81–1:15.00，持续 0.19 秒。</td></tr>
+<tr><td>鹅毛信</td><td>录音室（专辑：不说）</td><td>2:42.10–2:42.31</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《鹅毛信》（不说）最低稳定音 C2（65.3Hz），出现在 2:42.10–2:42.31，持续 0.21 秒。</td></tr>
+<tr><td>雪地里寄不出的求救信</td><td>录音室（专辑：歌颂）</td><td>3:46.74–3:47.02</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《雪地里寄不出的求救信》（歌颂）最低稳定音 C2（65.3Hz），出现在 3:46.74–3:47.02，持续 0.28 秒。</td></tr>
+<tr><td>晚风暖暖</td><td>录音室（专辑：重游往昔）</td><td>2:57.61–2:57.94</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《晚风暖暖》（重游往昔）最低稳定音 C2（65.3Hz），出现在 2:57.61–2:57.94，持续 0.33 秒。</td></tr>
+<tr><td>勿扰</td><td>录音室（专辑：不说）</td><td>该曲逐帧文件中未定位到稳定段</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《勿扰》（不说）最低稳定音 C2（65.6Hz）。</td></tr>
+<tr><td>偏执</td><td>录音室（专辑：歌颂）</td><td>1:26.28–1:28.10</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《偏执》（歌颂）最低稳定音 C2（65.7Hz），出现在 1:26.28–1:28.10，持续 1.81 秒。</td></tr>
+<tr><td>知晓</td><td>录音室（专辑：B面图景）</td><td>3:38.62–3:39.01</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《知晓》（B面图景）最低稳定音 C2（65.8Hz），出现在 3:38.62–3:39.01，持续 0.39 秒。</td></tr>
+<tr><td>多年以后</td><td>录音室（专辑：Low C的诱惑Ⅱ）</td><td>1:33.28–1:33.90</td><td>最低稳定音（stats.json low_stable，过 ≥0.15s/HNR 门槛）</td><td>《多年以后》（Low C的诱惑Ⅱ）最低稳定音 C2（65.9Hz），出现在 1:33.28–1:33.90，持续 0.63 秒。</td></tr>
+<tr><td>多听有益_f0</td><td>现场/精测（见文件名）</td><td>1:19.61–1:19.88</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《多听有益_f0》最低音 61.6Hz，出现在 1:19.61–1:19.88，连续 0.27 秒。</td></tr>
+<tr><td>渡荆门送别_f0</td><td>现场/精测（见文件名）</td><td>6:42.54–6:42.75</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《渡荆门送别_f0》最低音 64.1Hz，出现在 6:42.54–6:42.75，连续 0.21 秒。</td></tr>
+<tr><td>多听有益_杭州站_f0</td><td>现场/精测（见文件名）</td><td>1:54.56–1:55.16</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《多听有益_杭州站_f0》最低音 65.2Hz，出现在 1:54.56–1:55.16，连续 0.60 秒。</td></tr>
+<tr><td>雾里_f0</td><td>现场/精测（见文件名）</td><td>2:16.37–2:16.72</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《雾里_f0》最低音 66.0Hz，出现在 2:16.37–2:16.72，连续 0.35 秒。</td></tr>
+<tr><td>向着太阳_f0</td><td>现场/精测（见文件名）</td><td>0:04.62–0:04.90</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《向着太阳_f0》最低音 66.4Hz，出现在 0:04.62–0:04.90，连续 0.28 秒。</td></tr>
+<tr><td>鹅毛信_f0</td><td>现场/精测（见文件名）</td><td>0:36.73–0:37.13</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《鹅毛信_f0》最低音 74.5Hz，出现在 0:36.73–0:37.13，连续 0.39 秒。</td></tr>
+<tr><td>多听有益_四巡直拍_f0</td><td>现场/精测（见文件名）</td><td>3:57.31–3:57.49</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《多听有益_四巡直拍_f0》最低音 75.8Hz，出现在 3:57.31–3:57.49，连续 0.19 秒。</td></tr>
+<tr><td>南屏晚钟_f0</td><td>现场/精测（见文件名）</td><td>1:24.81–1:24.98</td><td>逐帧 F0，±0.5 半音窗口，连续 ≥0.15s</td><td>现场版《南屏晚钟_f0》最低音 76.4Hz，出现在 1:24.81–1:24.98，连续 0.17 秒。</td></tr>
+<tr><td>全场块级（23 段歌单按段归属）</td><td>现场 2026-10-09 北京天桥艺术中心·大剧场《沉响与长歌》</td><td>各块见 data/show_blocks/沉响与长歌_20261009.json 的 t0_hms/t1_hms</td><td>演唱音高中位（MIDI），块级中位</td><td>同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。</td></tr></table><p class="lead" style="margin-top:8px">⚠️ 摆幅/时长随取窗变化，引用必须连窗口一起写；极值音仍以台账复核状态为准。</p></section>
+
+
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>
 <ul>
@@ -424,4 +444,18 @@ DiD 中位 1.6%。结论：<b>设计成立、样本不足</b>；要跑通得先�
   if(window.echarts) init(); else window.addEventListener('load',init);
 })();
 </script>
+<!-- FOOTER_NAV_START -->
+<footer class="site-index" style="margin:40px auto;max-width:1100px;padding:18px 22px;border-top:1px solid #e5e5e5;font-size:13px;color:#666;line-height:2;">
+<details class="site-index-fold"><summary style="cursor:pointer;color:#333;font-weight:700;font-size:13px;">🧭 全站索引 <span style="color:#999;font-size:12px;font-weight:400;">（点开；由 project_b/build_nav.py 自动生成，每个页面都有入口、爬虫可抓取）</span></summary>
+<div style="margin-top:6px;">
+<div style="margin-top:6px;"><b>主入口：</b><a href="/index.html" style="color:#c41e3a;text-decoration:none;">首页</a> · <a href="/works.html" style="color:#c41e3a;text-decoration:none;">作品</a> · <a href="/live.html" style="color:#c41e3a;text-decoration:none;">现场</a> · <a href="/vocal.html" style="color:#c41e3a;text-decoration:none;">声音数据</a> · <a href="/history.html" style="color:#c41e3a;text-decoration:none;">生涯</a> · <a href="/research.html" style="color:#c41e3a;text-decoration:none;">研究</a> · <a href="/community.html" style="color:#c41e3a;text-decoration:none;">参与</a></div>
+<div style="margin-top:6px;"><b>核心内容：</b><a href="/live-reviews.html" style="color:#c41e3a;text-decoration:none;">现场实录</a> · <a href="/discography.html" style="color:#c41e3a;text-decoration:none;">作品百科</a> · <a href="/songs.html" style="color:#c41e3a;text-decoration:none;">歌曲库</a> · <a href="/dongyan.html" style="color:#c41e3a;text-decoration:none;">东演合作专区</a> · <a href="/timeline.html" style="color:#c41e3a;text-decoration:none;">生涯时间轴</a> · <a href="/data-timeline.html" style="color:#c41e3a;text-decoration:none;">数据时间线</a> · <a href="/story.html" style="color:#c41e3a;text-decoration:none;">数据故事</a> · <a href="/story-hui-guangzhou-2026.html" style="color:#c41e3a;text-decoration:none;">六巡广州站数据复盘</a> · <a href="/notifications.html" style="color:#c41e3a;text-decoration:none;">自动通知</a></div>
+<div style="margin-top:6px;"><b>数据：</b><a href="/dashboard/" style="color:#c41e3a;text-decoration:none;">数据大屏</a> · <a href="/map/" style="color:#c41e3a;text-decoration:none;">巡演地图</a> · <a href="/live/" style="color:#c41e3a;text-decoration:none;">演出详情目录</a> · <a href="/live/setlists.html" style="color:#c41e3a;text-decoration:none;">setlists.html</a> · <a href="/data/music-index.html" style="color:#c41e3a;text-decoration:none;">音乐数据周报</a> · <a href="/data/calibers.md" style="color:#c41e3a;text-decoration:none;">口径登记表（数字字典）</a> · <a href="/data/kb/kb_digest.md" style="color:#c41e3a;text-decoration:none;">知识库摘要</a> · <a href="/index-by-song.html" style="color:#c41e3a;text-decoration:none;">按歌索引</a> · <a href="/index-by-event.html" style="color:#c41e3a;text-decoration:none;">按事件索引</a> · <a href="/index-by-question.html" style="color:#c41e3a;text-decoration:none;">按问题索引</a></div>
+<div style="margin-top:6px;"><b>场次故事：</b><a href="/stories.html" style="color:#c41e3a;text-decoration:none;">stories.html</a></div>
+<div style="margin-top:6px;"><b>来源与引用：</b><a href="/press.html" style="color:#c41e3a;text-decoration:none;">press.html</a> · <a href="/share/" style="color:#c41e3a;text-decoration:none;">share</a></div>
+<div style="margin-top:6px;"><b>声学·内容：</b><a href="/topic-vibrato.html" style="color:#c41e3a;text-decoration:none;">🎻 颤音指纹专题</a> · <a href="/voice.html" style="color:#c41e3a;text-decoration:none;">音域实测</a> · <a href="/skill.html" style="color:#c41e3a;text-decoration:none;">唱功实测</a> · <a href="/stage.html" style="color:#c41e3a;text-decoration:none;">现场音域实测</a> · <a href="/live-materials.html" style="color:#c41e3a;text-decoration:none;">live-materials.html</a> · <a href="/academic.html" style="color:#c41e3a;text-decoration:none;">学术研究</a> · <a href="/qa.html" style="color:#c41e3a;text-decoration:none;">问答库</a> · <a href="/jazz.html" style="color:#c41e3a;text-decoration:none;">爵士专题</a> · <a href="/gallery.html" style="color:#c41e3a;text-decoration:none;">视觉记录</a> · <a href="/city-guides.html" style="color:#c41e3a;text-decoration:none;">城市攻略</a> · <a href="/culture/index.html" style="color:#c41e3a;text-decoration:none;">文化足迹</a> · <a href="/singing.html" style="color:#c41e3a;text-decoration:none;">singing.html</a> · <a href="/singing-social.html" style="color:#c41e3a;text-decoration:none;">singing-social.html</a> · <a href="/tavern/" style="color:#c41e3a;text-decoration:none;">深夜小酒馆</a></div>
+<div style="margin-top:6px;"><b>关于与工具：</b><a href="/about.html" style="color:#c41e3a;text-decoration:none;">关于本站</a> · <a href="/submit.html" style="color:#c41e3a;text-decoration:none;">投稿</a> · <a href="/search.html" style="color:#c41e3a;text-decoration:none;">🔎 查询与问答</a> · <a href="/archive-index.html" style="color:#c41e3a;text-decoration:none;">🔒 完整档案索引</a> · <a href="/share/" style="color:#c41e3a;text-decoration:none;">share</a> · <a href="/insight.html" style="color:#c41e3a;text-decoration:none;">insight.html</a> · <a href="/acoustic-report.html" style="color:#c41e3a;text-decoration:none;">📊 声学全量报告</a> · <a href="/feed.xml" style="color:#c41e3a;text-decoration:none;">RSS 订阅</a> · <a href="/sitemap.xml" style="color:#c41e3a;text-decoration:none;">站点地图</a> · <a href="/llms.txt" style="color:#c41e3a;text-decoration:none;">AI 摘要（llms.txt）</a></div>
+</div></details>
+</footer>
+<!-- FOOTER_NAV_END -->
 </body></html>
