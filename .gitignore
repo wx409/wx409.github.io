@@ -58,3 +58,10 @@ logs/
 tmp/
 tmp/analysis/
 
+# impeccable 分析环境（不进库）
+analysis/.venv/
+analysis/.mplcache/
+analysis/out/
+# 本次分析引入的备份（不进库）
+*.bak_before_insight
+*.bak_before_prewindow
