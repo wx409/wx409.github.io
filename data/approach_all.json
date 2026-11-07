@@ -33841,5 +33841,83 @@
    "path": "_staging_现场_分析\\s37_20241221\\19 钟爱一生_f0.csv"
   }
  ],
- "generated_at": "2026-11-07"
+ "generated_at": "2026-11-07",
+ "strata": {
+  "现场": {
+   "n": 2266,
+   "pct": {
+    "direct": 72.8,
+    "slide": 16.1,
+    "jump": 6.3,
+    "head": 4.8
+   },
+   "low_hz_median": 77.9,
+   "dur_median": 0.23
+  },
+  "录音室": {
+   "n": 72,
+   "pct": {
+    "direct": 80.6,
+    "slide": 13.9,
+    "jump": 1.4,
+    "head": 4.2
+   },
+   "low_hz_median": 73.2,
+   "dur_median": 0.23
+  },
+  "他人主导": {
+   "n": 20,
+   "pct": {
+    "direct": 70.0,
+    "slide": 20.0,
+    "jump": 10.0,
+    "head": 0.0
+   },
+   "low_hz_median": 79.4,
+   "dur_median": 0.26
+  },
+  "对照(QQ)": {
+   "n": 54,
+   "pct": {
+    "direct": 66.7,
+    "slide": 20.4,
+    "jump": 9.3,
+    "head": 3.7
+   },
+   "low_hz_median": 78.0,
+   "dur_median": 0.21
+  }
+ },
+ "studio_by_pitch_third": {
+  "lowest": {
+   "n": 24,
+   "pct": {
+    "direct": 75.0,
+    "slide": 20.8,
+    "jump": 0.0,
+    "head": 4.2
+   },
+   "low_hz_median": 65.3
+  },
+  "middle": {
+   "n": 24,
+   "pct": {
+    "direct": 75.0,
+    "slide": 16.7,
+    "jump": 4.2,
+    "head": 4.2
+   },
+   "low_hz_median": 73.2
+  },
+  "highest": {
+   "n": 24,
+   "pct": {
+    "direct": 91.7,
+    "slide": 4.2,
+    "jump": 0.0,
+    "head": 4.2
+   },
+   "low_hz_median": 88.7
+  }
+ }
 }
