@@ -23,7 +23,46 @@ SRC = ROOT / "data" / "archive_stage_tour.json"
 OUT = ROOT / "data" / "measurement_audit.json"
 
 
+LIB = Path(r"E:\wx\论文素材_王晰作传\音域分析\轨迹\轨迹素材库.json")
+
+
+def load_bv_map():
+    """BV → source_verdict / owner / title（来自轨迹素材库）。"""
+    m = {}
+    try:
+        d = json.loads(LIB.read_text(encoding="utf-8"))
+    except Exception:
+        return m
+    for song, blob in (d.get("songs") or {}).items():
+        for it in (blob.get("items") or []):
+            bv = (it.get("bv") or "").strip()
+            if bv:
+                m[bv] = {"verdict": it.get("source_verdict") or "",
+                         "owner": it.get("owner") or "",
+                         "title": it.get("title") or ""}
+    return m
+
+
+BV_MAP = load_bv_map()
+
+
 def kind_of(r):
+    # ① 先用 BV 查素材库的权威判定
+    bv = (r.get("bv") or "").strip()
+    if not bv:
+        import re as _re
+        mm = _re.search(r"(BV[0-9A-Za-z]{10})", (r.get("tag") or "") + " " + (r.get("title") or ""))
+        bv = mm.group(1) if mm else ""
+    if bv and bv in BV_MAP:
+        v = BV_MAP[bv]["verdict"]
+        if "官方" in v:
+            return "官方"
+        if "重制" in v or "混剪" in v:
+            return "二创/混剪"
+    return _kind_heuristic(r)
+
+
+def _kind_heuristic(r):
     tag = (r.get("tag") or "") + " " + (r.get("title") or "")
     sv = r.get("source_verdict") or ""
     tour = r.get("tour") or ""

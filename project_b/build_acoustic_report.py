@@ -448,6 +448,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <a href="#assets">资产台账与来源构成</a>
 <a href="#arc">风格与能力弧线</a>
 <a href="#case968">案例卡·莫斯科968Hz</a>
+<a href="#claims">可引用句</a>
 <a href="#limits">已知边界</a>
 </aside>
 <main>
@@ -665,6 +666,21 @@ DiD 中位 {did.get('did_median_pct','—')}%。结论：<b>设计成立、样�
 <p class="lead">⚠️ 已按「长声表 × 否决台账」反连接处理 <b>{len(_ln_flag)}</b> 条同音区存疑（如《葬心》A5 11.0s：
 该曲 1054Hz 读数曾判为女和声）——它们<b>留档但不进榜单、不进共识句</b>，理由写在
 <code>data/archive_long_notes.json → verdict_check</code>。</p>
+</section>
+
+
+<section id="claims"><h2>可引用句（四件套：曲目 / 版本 / 时间戳 / 口径）</h2>
+<p class="lead">这一节只放<b>能从数据逐条对上</b>的句子。每条都注明曲目、版本、时间戳与口径——
+缺任何一项，它就只是一句没头没尾的话，不能对外引用。</p>
+<table>
+<tr><th>曲目</th><th>版本</th><th>时间戳</th><th>口径</th><th>可直接引用的一句话</th><th>出处</th></tr>
+<tr><td>静止了的夜晚</td><td>录音室（专辑：重游往昔）</td><td>待补（该曲未生成逐帧文件，仅有全曲统计）</td><td>最低稳定音（≥0.15s、HNR≥5dB、过复核门槛）</td><td>录音室作品里最低的稳定音是 B1（61.5Hz），出自《静止了的夜晚》。</td><td><code>data/archive_vocal_albums.json</code></td></tr>
+<tr><td>多听有益</td><td>见文件名（含场次/版本）</td><td>2:33.00–2:33.60</td><td>逐帧 F0，取 ±0.8 半音内最低连续段</td><td>《多听有益》这一版，最低音 61.9Hz 出现在 2:33.00–2:33.60，连续 0.60 秒，段内音高摆幅约 50 音分。</td><td><code>音域分析/分析结果/多听有益_f0.csv</code></td></tr>
+<tr><td>多听有益_杭州站</td><td>见文件名（含场次/版本）</td><td>1:54.29–1:55.15</td><td>逐帧 F0，取 ±0.8 半音内最低连续段</td><td>《多听有益_杭州站》这一版，最低音 65.2Hz 出现在 1:54.29–1:55.15，连续 0.86 秒，段内音高摆幅约 70 音分。</td><td><code>音域分析/分析结果/多听有益_杭州站_f0.csv</code></td></tr>
+<tr><td>全场块级（23 段歌单，按段归属）</td><td>现场 2026-10-09 北京天桥艺术中心·大剧场</td><td>各块见 data/show_blocks/沉响与长歌_20261009.json 的 t0_hms/t1_hms</td><td>演唱音高中位（MIDI），块级中位</td><td>2026-10-09 北京天桥艺术中心《沉响与长歌》，同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。</td><td><code>data/show_blocks/沉响与长歌_20261009.json + data/block_analysis.json</code></td></tr>
+</table>
+<p class="lead" style="margin-top:8px">⚠️ <b>摆幅/时长随取窗变化</b>：同一段音高，±0.8 半音窗口与 ±1 半音窗口会给出不同的秒数与音分数。
+引用时必须连窗口一起写，否则数字不可复算。机器可读版本见 <code>data/citable_claims.json</code>。</p>
 </section>
 
 <section id="limits"><h2>已知边界（诚实披露）</h2>
