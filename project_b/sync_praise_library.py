@@ -107,6 +107,19 @@ def main() -> int:
         print("目标文件不存在：", TARGET)
         return 1
     text = TARGET.read_text(encoding="utf-8")
+    # 纯手写模式：只检查有没有新句子还没写进来
+    import json as _json
+    try:
+        d = _json.loads(CLAIMS.read_text(encoding="utf-8"))
+    except Exception:
+        print("可引用句数据缺失")
+        return 1
+    missing = [c for c in (d.get("claims") or [])
+               if c.get("sentence") and c["sentence"][:12] not in text]
+    print("库里可引用句 %d 条｜灵感库缺失 %d 条" % (len(d.get("claims") or []), len(missing)))
+    for c in missing[:10]:
+        print("  待补：", (c.get("song") or "")[:12], "|", c["sentence"][:60])
+    return 0 if not missing else 1
     if START not in text or END not in text:
         print("找不到 AUTO 标记，请先补标记")
         return 1
