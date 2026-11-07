@@ -3049,7 +3049,7 @@ h2.chart-title{font-size:15px;font-weight:600}
   })();
   </script>
   <div class="chart-box" id="esBox" style="margin-bottom:14px;">
-    <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（仅 T+，缺前窗；规范版见「重算」页）</h2>
+    <h2 class="chart-title">📉 事件研究曲线 · 演出后逐日效应（CAR 式，daily_series）</h2>
     <p class="chart-insight">以演出日为 D0，展示追踪曲目池逐日较基线的变化（T+1~T+14）；7 日窗口可能截断冷门老歌回春（数周长尾），故延伸至 T+14。切换重点场次对比形态。</p>
     <div id="esPicker" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;"></div>
     <div id="esChart" style="width:100%;height:250px"></div>
@@ -3128,7 +3128,7 @@ __STATUS_INFO__
     <div class="chart-box"><h2 class="chart-title">头部集中度 &amp; 峰值半衰期</h2><div id="advancedMetrics" style="padding:12px 16px;color:#8896b3;font-size:13px;line-height:1.8"></div></div>
   </div>
   <div class="dim-row" style="grid-template-columns:1fr 1fr">
-    <div class="chart-box"><h2 class="chart-title">巡演带动效应（曲目池口径：事件后 7 日 vs 21~7 日基线｜非「同场对照」，不可与重算结论混用）</h2><div class="chart-container" id="tourFxChart" style="height:300px"></div><p class="chart-insight">同场对照重算：演出当天至第 2 天 +7.0~7.9%（95% CI 0.8–14.7），第 7 天回到 0 附近（n=38–45 场）· <a href="analysis-v2.html" style="color:#5bc2e7">方法与口径敏感性</a></p></div>
+    <div class="chart-box"><h2 class="chart-title">巡演带动效应（事件后7日 vs 基线，追踪曲目池日均指数涨幅%）</h2><div class="chart-container" id="tourFxChart" style="height:300px"></div></div>
     <div class="chart-box"><h2 class="chart-title">新歌发行14日表现（平均指数 / 峰值）</h2><div class="chart-container" id="releaseFxChart" style="height:300px"></div></div>
   </div>
   <div class="dim-row">
