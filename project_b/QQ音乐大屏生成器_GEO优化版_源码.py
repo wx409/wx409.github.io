@@ -2041,8 +2041,7 @@ def tour_song_effects(df_all, setlists, topn=5):
                 _b = _s[(_s.index >= _bl_lo) & (_s.index < _bl_hi)]
                 if len(_b) >= 3 and _b.mean() > 0:
                     _base_vals.append(_b.mean())
-                # 2026-11-07：把事件前窗口 T-7..T-1 一并落盘（原来只存 T+1..T+14，导致预趋势无法检验）
-                for _off in range(-7, 15):
+                for _off in range(1, 15):
                     _td = d + pd.Timedelta(days=_off)
                     if _td in _s.index:
                         _v = _s.loc[_td]
