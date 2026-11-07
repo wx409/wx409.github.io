@@ -1,0 +1,132 @@
+{
+ "schema": "block-analysis/v1",
+ "generated_at": "2026-11-07",
+ "design": "同场同录音链的两位歌手交替演唱 → 场内对照；块级指标为整块中位，不做逐音归属",
+ "n_blocks": 24,
+ "n_wang": 13,
+ "n_aori": 10,
+ "metrics": {
+  "f0_median_midi": {
+   "label": "演唱音高中位（MIDI）",
+   "n_wang": 9,
+   "n_aori": 5,
+   "median_wang": 56.2,
+   "median_aori": 60.59,
+   "diff": -4.39,
+   "U": 2.0,
+   "p": 0.004,
+   "r": 0.91
+  },
+  "low_ratio_db": {
+   "label": "低频占比（dB）",
+   "n_wang": 9,
+   "n_aori": 5,
+   "median_wang": -6.4,
+   "median_aori": -12.6,
+   "diff": 6.2,
+   "U": 38.0,
+   "p": 0.0453,
+   "r": 0.69
+  },
+  "stability_cents_median": {
+   "label": "音符内稳定性（音分）",
+   "n_wang": 13,
+   "n_aori": 10,
+   "median_wang": 8.2,
+   "median_aori": 15.68,
+   "diff": -7.48,
+   "U": 66.0,
+   "p": 0.9752,
+   "r": 0.02
+  },
+  "intonation_cents_median": {
+   "label": "音准偏差（音分）",
+   "n_wang": 13,
+   "n_aori": 10,
+   "median_wang": 24.3,
+   "median_aori": 18.03,
+   "diff": 6.27,
+   "U": 85.0,
+   "p": 0.2262,
+   "r": 0.31
+  },
+  "vibrato_hz_median": {
+   "label": "颤音速率（Hz）",
+   "n_wang": 13,
+   "n_aori": 10,
+   "median_wang": 4.79,
+   "median_aori": 4.79,
+   "diff": 0.0,
+   "U": 75.5,
+   "p": 0.5319,
+   "r": 0.16
+  },
+  "vibrato_cents_median": {
+   "label": "颤音幅度（音分）",
+   "n_wang": 9,
+   "n_aori": 5,
+   "median_wang": 75.0,
+   "median_aori": 73.0,
+   "diff": 2.0,
+   "U": 29.5,
+   "p": 0.3851,
+   "r": 0.31
+  },
+  "density_per_s": {
+   "label": "音符密度（/s）",
+   "n_wang": 13,
+   "n_aori": 10,
+   "median_wang": 0.43,
+   "median_aori": 0.47,
+   "diff": -0.04,
+   "U": 55.5,
+   "p": 0.5754,
+   "r": 0.15
+  },
+  "hnr_db_median": {
+   "label": "HNR（dB）",
+   "n_wang": 9,
+   "n_aori": 5,
+   "median_wang": 4.6,
+   "median_aori": 7.5,
+   "diff": -2.9,
+   "U": 4.0,
+   "p": 0.0162,
+   "r": 0.82
+  }
+ },
+ "icc": {
+  "f0_median_midi": {
+   "by_show": null,
+   "by_singer": null
+  },
+  "low_ratio_db": {
+   "by_show": null,
+   "by_singer": null
+  },
+  "stability_cents_median": {
+   "by_show": null,
+   "by_singer": 0.0
+  },
+  "intonation_cents_median": {
+   "by_show": null,
+   "by_singer": 0.0
+  },
+  "vibrato_hz_median": {
+   "by_show": null,
+   "by_singer": 2.3
+  },
+  "vibrato_cents_median": {
+   "by_show": null,
+   "by_singer": null
+  },
+  "density_per_s": {
+   "by_show": null,
+   "by_singer": 4.5
+  },
+  "hnr_db_median": {
+   "by_show": null,
+   "by_singer": null
+  }
+ }
+}
