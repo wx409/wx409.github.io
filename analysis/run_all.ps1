@@ -1,4 +1,4 @@
-# 一键重算：build → 面板 → 事件研究 → 敏感性 → 曲线 → 唱功 → 页面数据
+﻿# 一键重算：build → 面板 → 事件研究 → 敏感性 → 曲线 → 唱功 → 页面数据
 # 用法：pwsh -File D:\wx409.github.io\analysis\run_all.ps1
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
