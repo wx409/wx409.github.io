@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07 17:11",
+ "generated_at": "2026-11-07 21:08",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -36,7 +36,7 @@
    "source": "wx_textmine_corpus/声音素材",
    "n": 157,
    "latest": "2026-09-14",
-   "lag_days": 53,
+   "lag_days": 54,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -56,7 +56,7 @@
    "source": "wx_textmine_corpus/工作室微博",
    "n": 2256,
    "latest": "2026-10-30",
-   "lag_days": 7,
+   "lag_days": 8,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -66,7 +66,7 @@
    "source": "wx_textmine_corpus/本人微博",
    "n": 909,
    "latest": "2026-10-30",
-   "lag_days": 7,
+   "lag_days": 8,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -148,6 +148,8 @@
   "stale": [
    "文本·声音素材",
    "文本·少城时代",
+   "文本·工作室微博",
+   "文本·本人微博",
    "文本·百家号",
    "文本·百科"
   ],
