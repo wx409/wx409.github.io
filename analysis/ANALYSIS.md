@@ -144,6 +144,14 @@ pwsh -File D:\wx409.github.io\analysis\run_all.ps1
 - 回滚：`QQ音乐大屏生成器_GEO优化版_源码.py.bak_before_prewindow`
 - 验证程度：**只做了语法检查**（内存 compile 通过）。真实抓取需要 Edge/DrissionPage 与登录态，没有实跑
 - 待办：`event_study.json`（只 5 场）是另一处产物，若前端要直接读它的前窗，需要在那边同样落负期
+### 7.1 一个坑：`dashboard/index.html` 是生成物
+
+第一次把「口径标注 + 链接」直接改在仓库的 `dashboard/index.html` 上，当晚 23:59 被「自动部署: dashboard 数据更新」覆盖掉了——该文件每次由生成器重写，再自动 commit/push。
+
+所以标注必须落在生成器模板里：已改 `project_b/QQ音乐大屏生成器_GEO优化版_源码.py`（巡演带动标题、事件曲线标题、tourFx 下的一行结论与链接），并同步了 `E:\wx\index_records\dashboard\index.html` 这份当前产物。补丁脚本 `analysis/patch_template.py` 幂等，可重复执行。
+
+判断依据：`git log -- dashboard/index.html` 里，除本次外全是「自动部署: dashboard 数据更新」。
+
 ## 八、接主大屏的方式
 
 主大屏 `dashboard/index.html` 目前未改动。最小改法是在「巡演带动效应」图下方加一行：
