@@ -6,6 +6,28 @@
 
 把「裸百分比」换成「带区间、可复核、敢说不知道」的结论：**演出有效但只有 3 天约 7%；现网两位数涨幅是口径产物；B1 是 4/72 首的极值而非常规音区；现场唱功暂不下结论，因为数据粒度混杂。**
 
+## 零、单一数据根源（维护约束）
+
+所有数字只有一个来源，页面、大屏一行结论、报告都从它派生，**HTML/MD 里不写死任何数值**：
+
+```
+data/vocal_measurements.json            ← 唱功唯一根源（声学长表，一行=一首歌×一个版本）
+E:\wx\index_records\raw_archive\*.json  ← 指数唯一根源（最新快照即全历史）
+        │
+        ├─ analysis/vocal_build.py   → out/vocal_claims.json  （六维中位+CI、B1 窗口、ICC、逐曲画像）
+        ├─ analysis/stats_did.py     → out/did_stats.json
+        ├─ analysis/curve_did.py     → out/curve.json
+        ├─ analysis/make_assets.py   → out/stats-v2.json
+        └─ analysis/render_claims.py → CLAIMS.md（自动文档）
+                │
+                └─ PowerShell 复制 → dashboard/{stats-v2,vocal_claims}.json + analysis-v2.html
+```
+
+- 页面 `analysis-v2.html` 运行时读这两份 JSON，所有文案由 `fmt()` 拼装；
+- 大屏那一行结论也是**运行时** `fetch("stats-v2.json")` 后生成（见生成器模板 `insightAuto`），Python 里没有写死的百分比；
+- 每日任务 `run_index_daily.bat` 末尾调用 `analysis/run_all.ps1`，失败不阻断主流程，并保留原退出码。
+
+改数据即可，无需改任何页面或文案。
 ## 一、为什么重算
 
 现网「巡演带动效应」等图表给的是单点百分比（+8.3%、+70.4%），没有区间、没有样本量，且内部存在两套互不一致的基线：

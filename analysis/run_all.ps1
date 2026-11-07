@@ -17,7 +17,9 @@ $steps = @(
     'curve_did.py',
     'vocal_stats.py',
     'vocal_live.py',
-    'make_assets.py'
+    'vocal_build.py',
+    'make_assets.py',
+    'render_claims.py'
 )
 
 $sw = [Diagnostics.Stopwatch]::StartNew()
@@ -28,6 +30,9 @@ foreach ($s in $steps) {
 }
 
 # python 进程写不进 dashboard/（ACL），由 PowerShell 复制产物
-Copy-Item (Join-Path $root 'out\stats-v2.json') 'D:\wx409.github.io\dashboard\stats-v2.json' -Force
+# python 进程写不进 dashboard/（ACL）：产物在 out/，由 PowerShell 复制
+Copy-Item (Join-Path $root 'out\stats-v2.json')          'D:\wx409.github.io\dashboard\stats-v2.json' -Force
+Copy-Item (Join-Path $root 'out\vocal_claims.min.json')  'D:\wx409.github.io\dashboard\vocal_claims.json' -Force
+Copy-Item (Join-Path $root 'page_template.html')         'D:\wx409.github.io\dashboard\analysis-v2.html' -Force
 $sw.Stop()
 Write-Host ("完成，用时 {0:N1}s → dashboard\stats-v2.json" -f $sw.Elapsed.TotalSeconds) -ForegroundColor Green

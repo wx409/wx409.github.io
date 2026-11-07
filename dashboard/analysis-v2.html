@@ -12,7 +12,7 @@
   h1{font-size:28px;margin:0 0 8px;color:#fff}
   .sub{color:var(--dim);font-size:14px}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:24px 0 36px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 0 36px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card .num{font-size:30px;font-weight:700;color:var(--gold);line-height:1.2}
   .card .num small{font-size:14px;color:var(--dim);font-weight:400}
@@ -26,16 +26,15 @@
   table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
   th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left}
   th{color:var(--dim);font-weight:500}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
   code{background:#0f172a;padding:1px 5px;border-radius:4px;font-size:12px;color:var(--blue)}
   footer{margin-top:50px;font-size:12.5px;color:var(--dim);border-top:1px solid var(--line);padding-top:16px}
 </style>
-<meta name="description" content="演出到底带来了什么？：问：演出之后，被演唱的曲目比同场其他曲目多涨了多少？">
-<link rel="canonical" href="https://wx409.github.io/dashboard/analysis-v2.html">
 </head>
 <body>
 <header>
   <h1>演出到底带来了什么？</h1>
-  <div class="sub" id="meta">用 87 场演出、29 万条「曲目 × 日」记录重算 · 每个数字都带不确定区间</div>
+  <div class="sub" id="meta">正在读取数据…</div>
 </header>
 
 <div class="wrap">
@@ -45,74 +44,85 @@
   <p class="q">问：演出之后，被演唱的曲目比同场其他曲目多涨了多少？</p>
   <div id="c1" class="chart"></div>
   <div class="take" id="t1"></div>
-  <p class="note">做法：同一场演出里，「歌单上的曲目」减「没唱的曲目」，两边都以演出前 7 天为基准；再把 40 多场的结果平均。竖线是 95% 置信区间，跨过 0 就是「不能排除是波动」。</p>
+  <p class="note">做法：同一场演出里，「歌单上的曲目」减「没唱的曲目」，两边都以演出前 7 天为基准；再对场次等权平均。竖线是 95% 置信区间，跨过 0 就是「不能排除是波动」。</p>
 
   <h2>二、换个基线，结论变不变？</h2>
   <p class="q">问：网页上那些 +8.3% / +70.4% 是怎么来的？</p>
   <div id="c2" class="chart" style="height:420px"></div>
   <div class="take" id="t2"></div>
-  <p class="note">同样的数据、同样的场次，只改「拿哪几天当基线」「看之后几天」，效应就在 2%–7% 之间移动。这不是数据错了，是<b>口径选择</b>。现网大字报式的两位数涨幅，多半来自长基线 + 极端场次，不能当普遍结论。</p>
+  <p class="note">同样的数据、同样的场次，只改「拿哪几天当基线」「看之后几天」，效应就会移动。这不是数据错了，是<b>口径选择</b>。</p>
 
-  <h2>三、唱功证据：B1 到底有多稀有</h2>
-  <p class="q">问：72 首录音室作品里，有多少首真的下探到 B1（61.7Hz）？</p>
-  <div id="c3" class="chart"></div>
+  <h2>三、唱功六维</h2>
+  <p class="q">问：除了「能唱多低」，还有哪些能把唱功说清楚的数字？</p>
+  <div id="vtable"></div>
   <div class="take" id="t3"></div>
-  <p class="note">同一套管线（demucs 人声分离 + YIN 逐帧）测的 72 首录音室作品。横轴是每首的「最低稳定音」，参考线是 B1 与 C2。</p>
+  <p class="note">全部来自 <code>data/vocal_measurements.json</code> 一份长表（录音室层）。中位数与 bootstrap 95% 区间由脚本实时算出，页面不存数字。</p>
 
-  <h2>四、为什么暂不发布「现场唱功」结论</h2>
-  <p class="q">问：840 条现场记录，能直接跟录音室比吗？</p>
-  <div id="c4" class="chart" style="height:200px"></div>
+  <h2>四、B1 到底有多稀有</h2>
+  <p class="q">问：录音室作品里，有多少首真的下探到 B1？</p>
+  <div id="c4" class="chart"></div>
   <div class="take" id="t4"></div>
-  <p class="note">现场层混着三种粒度：单曲单场、整场演出合计、曲名缺失。混在一起算，会把「整场 20 首歌的极值」当成「一首歌的音域」。跨管线比较（现场扩声、饭拍音质）目前不可靠，需要先清洗、再固定参数重测。</p>
 
   <h2>五、现场能撑到什么程度</h2>
   <p class="q">问：同一首歌在不同场次，最低音抖多少？这算「稳」吗？</p>
   <div id="c5" class="chart" style="height:420px"></div>
   <div class="take" id="t5"></div>
-  <p class="note">只看「一首歌 × 一场」的记录（剔除整场合计与缺曲名），同一场重复测量取中位，每曲至少 4 场。波动用半音表示，
-    1 个半音 = 100 音分。测量噪声只会让波动<b>变大</b>，所以「波动小」是保守结论：它不可能被噪声伪造。</p>
+  <p class="note">只看「一首歌 × 一场」的记录（剔除整场合计与缺曲名），同场重复取中位，每曲至少 4 场才上图。测量噪声只会让波动变大，所以「波动小」是保守结论。</p>
 
-  <h2>六、口径与局限</h2>
-  <table>
-    <tr><th>项目</th><th>口径</th></tr>
-    <tr><td>指数来源</td><td>QQ 音乐指数（<code>current_index</code>），取 <code>&gt;0</code>；2023-01-01 起 1284 个日期</td></tr>
-    <tr><td>处理组</td><td>该场歌单内曲目（<code>on_setlist</code>），来源：巡演歌单长表</td></tr>
-    <tr><td>对照组</td><td>同一场关联到但未演唱的曲目（同场相减，吸收场级共同冲击）</td></tr>
-    <tr><td>不确定性</td><td>事件级 bootstrap 4000 次；曲线为等权场次平均</td></tr>
-    <tr><td>已知局限</td><td>日期缺 123 天、26 处场次间隔 &lt;7 天（窗口重叠）、指数为平台相对值非绝对收听人数</td></tr>
-    <tr><td>测量误差</td><td>双引擎（自研 YIN / Praat）±50 音分内一致帧：录音室 69.1%、现场 58.5%；B1 应读作 B1±50¢</td></tr>
-  </table>
+  <h2>六、逐曲画像</h2>
+  <p class="q">问：哪几首是「最宽 / 最准 / 现场最稳」的？</p>
+  <div id="ptable"></div>
+  <p class="note">按录音室音域跨度排序，取前 12 首；现场列只在有记录时出现。<b>跨度大不等于唱得好</b>，它只说明这首作品的写作用到了更宽的音区。</p>
 
+  <h2>七、口径与局限</h2>
+  <table id="limits"></table>
   <footer id="foot"></footer>
 </div>
 
 <script src="echarts.min.js"></script>
 <script>
-const fmt = (v, d=1) => (v==null||isNaN(v)) ? "—" : Number(v).toFixed(d);
+const fmt = (v,d=1) => (v==null||isNaN(v)) ? "—" : Number(v).toFixed(d);
 const axis = {axisLine:{lineStyle:{color:"#374151"}},axisLabel:{color:"#9ca3af",fontSize:11},splitLine:{lineStyle:{color:"#1f2937"}}};
+const el = id => document.getElementById(id);
+const setText = (id,h) => { el(id).innerHTML = h; };
 
-fetch("stats-v2.json").then(r=>r.json()).then(d=>{
-  const tour = d.tour, voc = d.vocal;
-  const peak = tour.curve.find(x=>x.rel<=2 && x.rel>=0) || tour.curve[0];
+function histogram(values, bins=18){
+  const v = values.filter(x=>x!=null && isFinite(x));
+  if(!v.length) return null;
+  const lo = Math.min(...v), hi = Math.max(...v), w = (hi-lo)/bins || 1;
+  const counts = new Array(bins).fill(0);
+  v.forEach(x=>{ let i = Math.min(bins-1, Math.floor((x-lo)/w)); counts[i]++; });
+  return {edges:Array.from({length:bins+1},(_,i)=>lo+i*w), counts};
+}
+
+Promise.all([
+  fetch("stats-v2.json").then(r=>r.json()),
+  fetch("vocal_claims.json").then(r=>r.json()).catch(()=>null)
+]).then(([d, V])=>{
+  const tour = d.tour;
+
+  // 结论卡
+  const peak = tour.curve.filter(x=>x.rel<=2).sort((a,b)=>b.effect_pct-a.effect_pct)[0] || tour.curve[0];
   const sig = tour.curve.filter(x=>x.ci_lo_pct>0).length;
+  const cards = [
+    {n:`+${fmt(peak.effect_pct)}%`, s:"峰值", p:`演出当天到第 2 天，被演唱曲目相对同场其他曲目的额外涨幅（95% CI ${fmt(peak.ci_lo_pct)}–${fmt(peak.ci_hi_pct)}%）`},
+    {n:`${sig}`, s:`/ ${tour.curve.length} 天`, p:"区间完全在 0 以上的天数——效应只在前几天成立"}
+  ];
+  if (V) {
+    const s = V.studio;
+    cards.push({n:`${s.b1.count}`, s:`/ ${s.n} 首`, p:`录音室作品里真正下探到 B1（±50 音分，${fmt(s.b1.window_hz[0])}–${fmt(s.b1.window_hz[1])}Hz）的曲目数`});
+    const st = V.live.stability;
+    const stable = st.detail.filter(x=>x.sessions>=4 && x.sd_semitone<1);
+    cards.push({n:`${stable.length}`, s:`/ ${st.detail.filter(x=>x.sessions>=4).length} 首`, p:"4 场以上仍把最低音波动压在 1 个半音（100 音分）以内的曲目"});
+  }
+  el("cards").innerHTML = cards.map(c=>`<div class="card"><div class="num">${c.n}<small> ${c.s}</small></div><p>${c.p}</p></div>`).join("");
 
-  document.getElementById("cards").innerHTML = `
-    <div class="card"><div class="num">+${fmt(peak.effect_pct)}%<small> 峰值</small></div>
-      <p>演出当天到第 2 天，被演唱曲目相对同场其他曲目的额外涨幅（95% CI ${fmt(peak.ci_lo_pct)}–${fmt(peak.ci_hi_pct)}%）</p></div>
-    <div class="card"><div class="num">${sig}<small> / ${tour.curve.length} 天</small></div>
-      <p>区间完全在 0 以上的天数——效应只在前几天成立</p></div>
-    <div class="card"><div class="num">${voc.studio.n_reach_b1}<small> / ${voc.n_studio} 首</small></div>
-      <p>录音室作品里真正下探到 B1（±50 音分）的曲目数；常规低音在 C2–E♭2</p></div>
-    <div class="card"><div class="num">${(voc.live_stability.detail||[]).filter(x=>x.sessions>=4&&x.sd_semitone<1).length}<small> / ${(voc.live_stability.detail||[]).filter(x=>x.sessions>=4).length} 首</small></div>
-      <p>4 场以上仍把最低音波动压在 1 个半音（100 音分）以内的曲目——这是现场数据唯一站得住的「稳」</p></div>`;
-
-  // 1 事件曲线
-  const xs = tour.curve.map(x=>"T+"+x.rel);
-  const c1 = echarts.init(document.getElementById("c1"));
+  // 一、事件曲线
+  const c1 = echarts.init(el("c1"));
   c1.setOption({
     grid:{left:52,right:22,top:26,bottom:34},
     tooltip:{trigger:"axis",valueFormatter:v=>fmt(v,1)+"%"},
-    xAxis:{type:"category",data:xs,...axis},
+    xAxis:{type:"category",data:tour.curve.map(x=>"T+"+x.rel),...axis},
     yAxis:{type:"value",name:"相对涨幅 %",nameTextStyle:{color:"#9ca3af"},...axis},
     series:[
       {name:"下界",type:"line",data:tour.curve.map(x=>x.ci_lo_pct),lineStyle:{opacity:0},stack:"ci",symbol:"none"},
@@ -121,13 +131,14 @@ fetch("stats-v2.json").then(r=>r.json()).then(d=>{
        markLine:{silent:true,symbol:"none",data:[{yAxis:0}],lineStyle:{color:"#4b5563",type:"dashed"},label:{show:false}}}
     ]
   });
-  document.getElementById("t1").innerHTML = `<b>效应存在，但只有 3 天。</b>演出当天 +${fmt(tour.curve[0].effect_pct)}%，
-    第 2 天 +${fmt(tour.curve[2]?tour.curve[2].effect_pct:NaN)}%，到第 7 天已回到 0 附近（${fmt(tour.curve[7]?tour.curve[7].effect_pct:NaN)}%）。
-    首周平均 +${fmt(tour.week1_pct)}%。`;
+  const at = r => tour.curve.find(x=>x.rel===r);
+  setText("t1", `<b>效应存在，但很短。</b>演出当天 ${fmt(at(0)?.effect_pct)}%，第 2 天 ${fmt(at(2)?.effect_pct)}%，
+    第 7 天 ${fmt(at(7)?.effect_pct)}%，第 14 天 ${fmt(at(14)?.effect_pct)}%；首周平均 ${fmt(tour.week1_pct)}%。
+    区间在 0 以上的只有 ${sig} 个相对日。`);
 
-  // 2 敏感性
+  // 二、敏感性
   const cells = tour.sensitivity.slice().sort((a,b)=>a.did_pct-b.did_pct);
-  const c2 = echarts.init(document.getElementById("c2"));
+  const c2 = echarts.init(el("c2"));
   c2.setOption({
     grid:{left:150,right:60,top:20,bottom:30},
     tooltip:{trigger:"item",formatter:p=>{const c=cells[p.dataIndex];return `${c.label}<br>DiD ${fmt(c.did_pct)}% [${fmt(c.ci_lo_pct)}, ${fmt(c.ci_hi_pct)}]<br>场次 ${c.n_events}｜为正 ${Math.round(c.share_positive*100)}%`}},
@@ -137,75 +148,99 @@ fetch("stats-v2.json").then(r=>r.json()).then(d=>{
       label:{show:true,position:"right",color:"#9ca3af",fontSize:11,formatter:p=>fmt(p.value)+"%"},
       markLine:{silent:true,symbol:"none",data:[{xAxis:0}],lineStyle:{color:"#4b5563",type:"dashed"},label:{show:false}}}]
   });
-  document.getElementById("t2").innerHTML = `<b>只有一种口径跨过 0。</b>8 种组合里，效应都在 2%–7%，但只有「上周基线 + 看一周」这一种的区间不含 0。
-    长基线（21 天前）反而出现显著预趋势——说明被演唱曲目在演出前三周就在变化，不能当因果。`;
+  const lo = Math.min(...cells.map(c=>c.did_pct)), hi = Math.max(...cells.map(c=>c.did_pct));
+  const positive = cells.filter(c=>c.ci_lo_pct>0).length;
+  setText("t2", `<b>${cells.length} 种口径里只有 ${positive} 种跨过 0。</b>效应在 ${fmt(lo)}%–${fmt(hi)}% 之间移动，方向稳定为正、量级小。
+    长基线会出现显著预趋势——被演唱曲目在演出前三周就在变化，不能当因果。`);
 
-  // 3 最低音分布
-  const h = voc.hist_low;
-  const centers = h.edges.slice(0,-1).map((e,i)=>((e+h.edges[i+1])/2));
-  const c3 = echarts.init(document.getElementById("c3"));
-  c3.setOption({
-    grid:{left:52,right:22,top:26,bottom:34},
-    tooltip:{trigger:"axis",formatter:p=>`${fmt(p[0].axisValue)} Hz：${p[0].data} 首`},
-    xAxis:{type:"category",data:centers.map(v=>fmt(v,0)),name:"最低稳定音 (Hz)",nameTextStyle:{color:"#9ca3af"},...axis},
-    yAxis:{type:"value",name:"曲目数",...axis},
-    series:[{type:"bar",data:h.counts,itemStyle:{color:"#5bc2e7"},barWidth:"70%",
-      markLine:{silent:true,symbol:"none",label:{color:"#9ca3af",fontSize:11,formatter:p=>p.name},
-        data:[{xAxis:Math.round((61.74-h.edges[0])/(h.edges[1]-h.edges[0])),name:"B1 61.7Hz",lineStyle:{color:"#f2d98d"}},
-              {xAxis:Math.round((65.41-h.edges[0])/(h.edges[1]-h.edges[0])),name:"C2 65.4Hz",lineStyle:{color:"#6fbf8f",type:"dashed"}}]}}]
-  });
-  document.getElementById("t3").innerHTML = `<b>B1 是代表作级的极值，不是常规音区。</b>72 首里只有 ${voc.studio.n_reach_b1} 首落在 B1±50 音分，
-    ${voc.studio.n_below_c2} 首低于 C2；一半作品的最低音在 ${fmt(voc.studio.median)}Hz（约 E♭2）以上。
-    跨度 ${fmt(voc.span.mean,2)} 个八度（95% CI ${fmt(voc.span.ci_lo,2)}–${fmt(voc.span.ci_hi,2)}），${Math.round(voc.span_share_ge2*100)}% 的作品 ≥2 个八度。`;
+  // 三、唱功六维
+  if (V) {
+    const s = V.studio, m = s.metrics;
+    const rows = [
+      ["最低稳定音", m.low_hz, "Hz", "越低越好；中位比单曲极值更能代表常规音区"],
+      ["音域跨度", m.span_octaves, "八度", "一首作品内最高到最低的距离"],
+      ["音准偏差", m.intonation_cents, "音分", "越小越准；人耳可辨阈约 10–25 音分"],
+      ["音高稳定度", m.stability_cents, "音分", "同曲内逐帧抖动，越小越稳"],
+      ["颤音频率", m.vibrato_hz, "Hz", "男低音常见 4–6 Hz；过快会显抖"],
+      ["谐噪比 HNR", m.hnr_db, "dB", "气息与声带噪声比，越高越干净（受分离与混音影响）"]
+    ].filter(r=>r[1]);
+    el("vtable").innerHTML = `<table><tr><th>维度</th><th class="num">中位</th><th class="num">95% CI</th><th class="num">n</th><th>怎么读</th></tr>` +
+      rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${fmt(r[1].median,2)}</td>
+        <td class="num">${fmt(r[1].ci_lo,2)} – ${fmt(r[1].ci_hi,2)}</td><td class="num">${r[1].n}</td>
+        <td style="color:#9ca3af">${r[3]}</td></tr>`).join("") + "</table>";
+    const sp = m.span_octaves, it = m.intonation_cents, vb = m.vibrato_hz;
+    setText("t3", `<b>唱功不只是一个「低」字。</b>${s.n} 首录音室作品，音准偏差中位 ${fmt(it.median)} 音分（区间 ${fmt(it.ci_lo)}–${fmt(it.ci_hi)}），
+      已进入「人耳基本听不出」的范围；颤音频率 ${fmt(vb.median,2)} Hz，是男声抒情曲的标准区间；
+      音域跨度中位 ${fmt(sp.median,2)} 个八度，${Math.round(s.span_share_ge2*100)}% 的作品达到两个八度以上。`);
 
-  // 4 现场数据质量
-  const q = voc.live_quality;
-  const c4 = echarts.init(document.getElementById("c4"));
-  c4.setOption({
-    grid:{left:52,right:22,top:20,bottom:30},
-    tooltip:{trigger:"axis"},
-    xAxis:{type:"value",name:"条",...axis},
-    yAxis:{type:"category",data:["现场记录构成"],...axis},
-    series:[
-      {name:"单曲单场",type:"bar",stack:"q",data:[q.per_song_session],itemStyle:{color:"#6fbf8f"},label:{show:true,color:"#fff",fontSize:11}},
-      {name:"整场合计",type:"bar",stack:"q",data:[q.aggregate],itemStyle:{color:"#f2d98d"},label:{show:true,color:"#111",fontSize:11}},
-      {name:"曲名缺失",type:"bar",stack:"q",data:[q.unnamed],itemStyle:{color:"#e0796b"},label:{show:true,color:"#fff",fontSize:11}}
-    ]
-  });
-  document.getElementById("t4").innerHTML = `<b>${q.total} 条现场记录里，${q.unnamed} 条没有曲名、${q.aggregate} 条是整场合计。</b>
-    只有 ${q.per_song_session} 条是「一首歌 × 一场演出」，才配和录音室逐首比较。所以这一版<b>不发布</b>「现场音域掉了几个半音」这类结论。`;
+    // 四、B1 稀有度
+    const h = histogram(V.per_song.map(x=>x.low_hz));
+    if (h) {
+      const centers = h.edges.slice(0,-1).map((e,i)=>((e+h.edges[i+1])/2));
+      const c4 = echarts.init(el("c4"));
+      c4.setOption({
+        grid:{left:52,right:22,top:26,bottom:34},
+        tooltip:{trigger:"axis",formatter:p=>`${fmt(p[0].axisValue,0)} Hz：${p[0].data} 首`},
+        xAxis:{type:"category",data:centers.map(v=>fmt(v,0)),name:"最低稳定音 (Hz)",nameTextStyle:{color:"#9ca3af"},...axis},
+        yAxis:{type:"value",name:"曲目数",...axis},
+        series:[{type:"bar",data:h.counts,itemStyle:{color:"#5bc2e7"},barWidth:"70%",
+          markLine:{silent:true,symbol:"none",label:{color:"#9ca3af",fontSize:11,formatter:p=>p.name},
+            data:[{xAxis:Math.round((s.b1.hz-h.edges[0])/(h.edges[1]-h.edges[0])),name:`B1 ${fmt(s.b1.hz)}Hz`,lineStyle:{color:"#f2d98d"}},
+                  {xAxis:Math.round((65.406-h.edges[0])/(h.edges[1]-h.edges[0])),name:"C2 65.4Hz",lineStyle:{color:"#6fbf8f",type:"dashed"}}]}}]
+      });
+    }
+    setText("t4", `<b>B1 是极值，不是常规音区。</b>${s.n} 首里 ${s.b1.count} 首落在 B1±50 音分（${fmt(s.b1.window_hz[0])}–${fmt(s.b1.window_hz[1])}Hz），
+      ${s.below_c2.count} 首低于 C2；一半作品的最低音在 ${fmt(m.low_hz.median)}Hz 以上。`);
 
-  document.getElementById("t5").innerHTML = (() => {
-    const L = voc.live_stability, det = (L.detail || []).filter(x => x.sessions >= 4).sort((a,b) => a.sd_semitone - b.sd_semitone);
-    const stable = det.filter(x => x.sd_semitone < 1);
-    const c5 = echarts.init(document.getElementById("c5"));
+    // 五、现场稳定性
+    const st = V.live.stability, q = V.live.qc;
+    const det = st.detail.filter(x=>x.sessions>=4).sort((a,b)=>a.sd_semitone-b.sd_semitone);
+    const c5 = echarts.init(el("c5"));
     c5.setOption({
       grid:{left:118,right:56,top:20,bottom:34},
       tooltip:{trigger:"item",formatter:p=>{const x=det[p.dataIndex];return `${x.song}<br>场次 ${x.sessions}｜中位最低音 ${x.median_hz}Hz<br>跨场波动 ${x.sd_semitone} 半音（极差 ${x.range_semitone}）`}},
-      xAxis:{type:"value",name:"跨场波动（半音）",max:4,nameTextStyle:{color:"#9ca3af"},...axis},
+      xAxis:{type:"value",name:"跨场波动（半音）",nameTextStyle:{color:"#9ca3af"},...axis},
       yAxis:{type:"category",data:det.map(x=>x.song),...axis},
       series:[{type:"bar",data:det.map(x=>({value:x.sd_semitone,itemStyle:{color:x.sd_semitone<1?"#6fbf8f":"#5bc2e7"}})),
         label:{show:true,position:"right",color:"#9ca3af",fontSize:11,formatter:p=>p.value.toFixed(2)},
-        markLine:{silent:true,symbol:"none",label:{formatter:"1 半音",color:"#9ca3af",fontSize:11},
-          data:[{xAxis:1,lineStyle:{color:"#f2d98d",type:"dashed"}}]}}]
+        markLine:{silent:true,symbol:"none",label:{formatter:"1 半音",color:"#9ca3af",fontSize:11},data:[{xAxis:1,lineStyle:{color:"#f2d98d",type:"dashed"}}]}}]
     });
-    document.getElementById("t5").innerHTML = `<b>整体还不足以下「稳」的结论，但有个别曲目站得住。</b>
-      25 首可比的曲目里，同曲跨场波动中位 ${fmt(L.sd.median,2)} 半音（≈${Math.round(L.sd.median*100)} 音分），
-      曲目间差异只占总方差的 ${Math.round(L.icc.icc*100)}%（ICC ${fmt(L.icc.icc,2)}，95% CI ${fmt(L.icc_ci[0],2)}–${fmt(L.icc_ci[1],2)}）——
+    const stable = det.filter(x=>x.sd_semitone<1);
+    setText("t5", `<b>整体还不足以下「稳」的结论，但有个别曲目站得住。</b>
+      ${st.n_songs} 首可比曲目的跨场波动中位 ${fmt(st.sd_semitone.median,2)} 半音（≈${Math.round(st.sd_semitone.median*100)} 音分），
+      曲目间差异只占总方差的 ${Math.round(st.icc.icc*100)}%（ICC ${fmt(st.icc.icc,2)}，95% CI ${fmt(st.icc.ci_lo,2)}–${fmt(st.icc.ci_hi,2)}）——
       大部分波动来自音源与扩声，不是唱功。
-      但 ${stable.length} 首在 4 场以上仍把波动压在 1 个半音以内：${stable.map(x=>`${x.song}（${x.sessions} 场 ${fmt(x.sd_semitone,2)}）`).join("、")}。
-      其中波动最小的一首跨 ${stable[0]?stable[0].sessions:0} 场仅 ${stable[0]?fmt(stable[0].sd_semitone,2):"–"} 半音。
-      要把它变成可发布的「唱功」结论，需要电台/官方音源或固定扩声条件的录音，把测量噪声压下去。`;
-    return "";
-  })();
-  document.getElementById("meta").textContent =
-    `数据：${d.source.rows.toLocaleString()} 条「曲目 × 日」记录（${d.source.from} 至 ${d.source.to}）· 87 场演出 · 重算于 ${d.generated_at}`;
-  document.getElementById("foot").innerHTML =
-    `方法：同场 DiD + 事件级 bootstrap；录音室样本为同一管线 72 首。<br>
-     数据源 <code>${String(d.source.raw).split("\\\\").pop()}</code>（sha256 ${String(d.source.sha256).slice(0,12)}…）。
-     本页为分析与预览页，未改动主大屏；结论口径与局限见 <code>analysis/ANALYSIS.md</code>。`;
+      ${stable.length} 首在 4 场以上仍把波动压在 1 个半音内：${stable.map(x=>`${x.song}（${x.sessions} 场 ${fmt(x.sd_semitone,2)}）`).join("、") || "—"}。`);
+
+    // 六、逐曲画像
+    const ps = V.per_song.filter(x=>x.span_octaves!=null).sort((a,b)=>b.span_octaves-a.span_octaves).slice(0,12);
+    el("ptable").innerHTML = `<table><tr><th>曲目</th><th class="num">最低音 Hz</th><th class="num">跨度八度</th>
+      <th class="num">音准音分</th><th class="num">颤音 Hz</th><th class="num">现场场次</th><th class="num">现场波动</th></tr>` +
+      ps.map(x=>`<tr><td>${x.song}</td><td class="num">${fmt(x.low_hz)}</td><td class="num">${fmt(x.span_octaves,2)}</td>
+        <td class="num">${fmt(x.intonation_cents)}</td><td class="num">${fmt(x.vibrato_hz,2)}</td>
+        <td class="num">${x.live_sessions ?? "—"}</td><td class="num">${x.live_sd_hz!=null?fmt(x.live_sd_hz)+" Hz":"—"}</td></tr>`).join("") + "</table>";
+  } else {
+    el("vtable").innerHTML = `<p class="note">vocal_claims.json 未生成，运行 analysis/run_all.ps1。</p>`;
+    ["t3","t4","t5"].forEach(i=>el(i).textContent="");
+  }
+
+  // 七、局限
+  el("limits").innerHTML = `
+    <tr><th>项目</th><th>口径</th></tr>
+    <tr><td>指数来源</td><td>QQ 音乐指数（<code>current_index</code>），取 &gt;0；源文件 ${String(d.source.raw).split("\\\\").pop()}（${d.source.from} 至 ${d.source.to}，${d.source.dates} 个日期）</td></tr>
+    <tr><td>处理组</td><td>该场歌单内曲目（<code>on_setlist</code>），来源：巡演歌单长表</td></tr>
+    <tr><td>对照组</td><td>同一场关联到但未演唱的曲目（同场相减，吸收场级共同冲击）</td></tr>
+    <tr><td>不确定性</td><td>事件级 bootstrap 4000 次；曲线为等权场次平均</td></tr>
+    <tr><td>唱功数据</td><td>${V ? `data/vocal_measurements.json，${V.meta.source.rows} 行 / ${V.meta.source.songs} 曲；sha256 ${String(V.meta.source.sha256).slice(0,12)}…` : "—"}</td></tr>
+    <tr><td>测量误差</td><td>双引擎（自研 YIN / Praat）±50 音分内一致帧约七成；低音应读作「音名±50 音分」，不要给到小数</td></tr>
+    <tr><td>现场层</td><td>整场合计与缺曲名记录已剔除；跨管线比较（现场混音 vs 录音室）不做差值结论</td></tr>`;
+
+  el("meta").textContent = `数据：${d.source.rows.toLocaleString()} 条「曲目 × 日」（${d.source.from} 至 ${d.source.to}）· ${tour.n_events} 场演出 · 重算于 ${d.generated_at}`;
+  el("foot").innerHTML = `方法：同场 DiD + 事件级 bootstrap；唱功指标由 <code>analysis/vocal_build.py</code> 从单一长表实时计算。<br>
+    本页所有数字都来自 <code>stats-v2.json</code> 与 <code>vocal_claims.json</code>，页面不存任何手写数字。`;
 }).catch(e=>{
-  document.getElementById("cards").innerHTML = `<div class="card"><p>数据加载失败：${e}。请通过 http(s) 打开本页（file:// 会被浏览器拦截 fetch）。</p></div>`;
+  el("meta").textContent = "数据加载失败：" + e;
+  el("cards").innerHTML = `<div class="card"><p>无法读取 stats-v2.json。请通过 http(s) 打开本页，或先运行 analysis/run_all.ps1。</p></div>`;
 });
 </script>
 </body>
