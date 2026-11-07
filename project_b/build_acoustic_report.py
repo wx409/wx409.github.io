@@ -69,6 +69,63 @@ def _build_claims_section():
     return head + "\n".join(rows) + tail
 
 
+
+
+def _build_approach_section():
+    """从 data/approach_all.json 现读，渲染分层表 + 解释。"""
+    import json as _json
+    from pathlib import Path as _P
+    fp = _P(__file__).resolve().parent.parent / "data" / "approach_all.json"
+    try:
+        d = _json.loads(fp.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    strata = d.get("strata") or {}
+    if not strata:
+        return ""
+    rows = []
+    for k in ("录音室", "现场", "对照(QQ)", "他人主导"):
+        v = strata.get(k)
+        if not v:
+            continue
+        q = v.get("pct") or {}
+        rows.append(
+            "<tr><td>" + esc(k) + "</td><td>" + str(v.get("n", 0)) + "</td><td>"
+            + str(q.get("direct", 0)) + "</td><td>" + str(q.get("slide", 0)) + "</td><td>"
+            + str(q.get("jump", 0)) + "</td><td>" + str(q.get("head", 0)) + "</td><td>"
+            + str(v.get("low_hz_median", 0)) + "Hz</td></tr>")
+
+    thirds = d.get("studio_by_pitch_third") or {}
+    trow = ""
+    if thirds:
+        tr = []
+        for k, lab in (("lowest", "最低 1/3"), ("middle", "中间 1/3"), ("highest", "最高 1/3")):
+            v = thirds.get(k)
+            if v:
+                q = v.get("pct") or {}
+                tr.append("<tr><td>" + lab + "</td><td>" + str(v.get("n", 0)) + "</td><td>"
+                          + str(q.get("direct", 0)) + "</td><td>" + str(q.get("slide", 0))
+                          + "</td><td>" + str(v.get("low_hz_median", 0)) + "Hz</td></tr>")
+        lo = (thirds.get("lowest", {}).get("pct") or {}).get("slide", 0)
+        hi = (thirds.get("highest", {}).get("pct") or {}).get("slide", 0)
+        trow = ("<p class='lead' style='margin-top:14px'><b>录音室内部按音高切三段</b>："
+                "越往低走，滑入比例越高（最高段 " + str(hi) + "% → 最低段 " + str(lo) + "%）——"
+                "低音区他更常用「走过去」而不是「站上去」。</p>"
+                "<table><tr><th>音区</th><th>n</th><th>直接咬住 %</th><th>滑入 %</th><th>极值音中位</th></tr>"
+                + "".join(tr) + "</table>")
+
+    head = ("<section id='approach'><h2>极值音的「到达方式」（" + str(d.get("n_files", 0)) + " 个逐帧文件）</h2>"
+            "<p class='lead'>最低音不是只看「到过没有」，还要看<b>怎么到的</b>："
+            "直接咬住＝起音前已定好目标；滑入＝用短滑音走过去（更稳、也更抒情）；"
+            "跳进＝0.4 秒内下跳 ≥3 半音。「段落起点」是测量边界，不是唱法。</p>"
+            "<table><tr><th>语料</th><th>n</th><th>直接咬住 %</th><th>滑入 %</th><th>跳进 %</th>"
+            "<th>边界 %</th><th>极值音中位</th></tr>" + "".join(rows) + "</table>" + trow)
+    tail = ("<p class='lead' style='margin-top:8px'>口径：音符块 ≥0.15s/≥5 帧、±0.5 半音；"
+            "到达方式看块前 2 秒轨迹。<b>该统计已排除 sub-B1（A1 一类）读数</b>，"
+            "按三级读数制度，它们不进引用。</p></section>")
+    return head + tail
+
+
 def main() -> int:
     alb = load("archive_vocal_albums.json")
     voc = load("archive_vocal.json")
@@ -477,6 +534,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 <a href="#assets">资产台账与来源构成</a>
 <a href="#arc">风格与能力弧线</a>
 <a href="#case968">案例卡·莫斯科968Hz</a>
+<a href="#approach">到达方式</a>
 <a href="#claims">可引用句</a>
 <a href="#limits">已知边界</a>
 </aside>
@@ -787,7 +845,7 @@ __CLAIMS_SECTION__
     _bad = re.findall(r">(\d{5,}(?:\.\d+)?)<", html)
     assert not _bad, f"检出异常 Hz 读数（疑似音名+Hz 串列）：{_bad[:5]}"
 
-    html = html.replace("__CLAIMS_SECTION__", _build_claims_section())
+    html = html.replace("__CLAIMS_SECTION__", _build_approach_section() + _build_claims_section())
     OUT.write_text(html, encoding="utf-8")
 
     # ---- 本地留存副本（同一份内容，随每日部署一起刷新）----
