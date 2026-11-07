@@ -82,6 +82,14 @@ def collect() -> list[dict]:
     add("tracked_songs", "追踪曲目池", _count(dash, "total_songs"),
         "主动追踪并采集指数的曲目清单（池内）", "dashboard/dashboard_data.json",
         "站内绝大多数'热度'结论的样本范围；池逐年缩小，跨年比较须注意")
+    ap = _load("data/approach_all.json") or {}
+    add("f0_files", "逐帧 F0 文件数", _count(ap, "n_files"),
+        "音域分析目录下全部 *_f0.csv（含专辑/场次/他人主导/沉响分段/staging）",
+        "data/approach_all.json",
+        "每个文件=一首歌的一个版本；「到达方式」统计的样本量就是它")
+    add("approach_window", "极值音到达方式取窗", "±0.5 半音 / ≥0.15s",
+        "音符块切分与极值音判定口径", "project_b/analyze_approach_all.py",
+        "窗口变化会改变时长与摆幅读数，引用必须连窗口一起写")
     add("tracked_links", "追踪链接数", _count(dash, "tracked_links"),
         "同一首歌的多个平台链接（一首歌可有多条链接）", "dashboard/dashboard_data.json",
         "与曲目数不同：链接是采集单位，曲目是分析单位")
