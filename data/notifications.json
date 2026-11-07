@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-07 08:46:32",
+ "updated_at": "2026-11-07 14:00:27",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -5696,6 +5696,47 @@
    "title": "网页访谈自动采集",
    "content": "本轮新抓 3 篇，已抽句入池（见 phrases.html）",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-07 09:30:02",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-07 09:45:10",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-07 11:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [35888]），但 dashboard_data.json 已 122.0 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-07 14:00:27",
+   "title": "📣 王晰 - 知乎",
+   "content": "2017年11月27日&ensp;&#0183;&ensp;王晰，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，毕业于辽宁艺术职业学院流行演唱专业， …\n链接：https://www.zhihu.com/topic/20039893/intro",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.zhihu.com/topic/20039893/intro"
+  },
+  {
+   "time": "2026-11-07 14:00:27",
+   "title": "📣 王晰职业时间轴 | 1985-2026 人生与事业年表",
+   "content": "4 天之前&ensp;&#0183;&ensp;王晰 1985-2026 职业时间轴：出生、快乐男声、金钟奖、青歌赛、我是歌手、声入人心、六张专辑、六轮巡演、格涅辛国际 …\n链接：https://wx409.github.io/timeline.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/timeline.html"
+  },
+  {
+   "time": "2026-11-07 14:00:27",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
