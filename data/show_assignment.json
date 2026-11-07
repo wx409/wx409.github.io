@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-11-07T21:08:09",
-  "rows": 837,
+  "generated_at": "2026-11-08T00:17:19",
+  "rows": 843,
   "levels": {
    "L1": 406,
    "L6": 26,
-   "L3": 47,
-   "未认领": 355,
+   "L3": 50,
+   "未认领": 358,
    "L4": 2,
    "L2": 1
   },
   "shows_with_material": 60,
-  "shows_with_claimable": 59,
+  "shows_with_claimable": 60,
   "shows_total": 64
  },
  "per_show": {
@@ -116,8 +116,8 @@
    "claimable": 3
   },
   "2021-12-04": {
-   "n": 6,
-   "claimable": 5
+   "n": 7,
+   "claimable": 6
   },
   "2022-09-17": {
    "n": 21,
@@ -128,8 +128,8 @@
    "claimable": 4
   },
   "2023-05-20": {
-   "n": 2,
-   "claimable": 2
+   "n": 3,
+   "claimable": 3
   },
   "2022-07-17": {
    "n": 3,
@@ -140,8 +140,8 @@
    "claimable": 5
   },
   "2023-05-01": {
-   "n": 1,
-   "claimable": 0
+   "n": 2,
+   "claimable": 1
   },
   "2022-07-15": {
    "n": 2,
@@ -8130,6 +8130,18 @@
    "why": ""
   },
   {
+   "tag": "广州20211210_BV1HQ4y1e7wj",
+   "song": "分岔",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2021-12-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-12-04",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "14_玩笑",
    "song": "",
    "tour": "其他演出",
@@ -8946,6 +8958,18 @@
    "why": ""
   },
   {
+   "tag": "南宁20230523_BV1hk4y1s7T4",
+   "song": "走过咖啡屋",
+   "tour": "其他演出",
+   "city": "南宁",
+   "date": "2023-05-23",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-05-20",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "23_爱你",
    "song": "",
    "tour": "其他演出",
@@ -8975,6 +8999,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "2026-10-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "郑州20230509_BV1vh4y1b7n2",
+   "song": "你的样子",
+   "tour": "其他演出",
+   "city": "郑州",
+   "date": "2023-05-09",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -9078,11 +9114,35 @@
    "why": ""
   },
   {
+   "tag": "长沙20220802_BV1bg411C7oE",
+   "song": "四季歌",
+   "tour": "其他演出",
+   "city": "长沙",
+   "date": "2022-08-02",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "11猫模狗样",
    "song": "",
    "tour": "其他演出",
    "city": "",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "长沙20230920_BV1wu411w7Bi",
+   "song": "四季歌",
+   "tour": "其他演出",
+   "city": "长沙",
+   "date": "2023-09-20",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -9640,6 +9700,18 @@
    "show_date": "2020-10-07",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "郑州20230506_BV1tM4y1b7VW",
+   "song": "袖手旁观",
+   "tour": "其他演出",
+   "city": "郑州",
+   "date": "2023-05-06",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-05-01",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "未知20190912_BV1hJ411P7bS",

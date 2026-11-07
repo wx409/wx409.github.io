@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-07T21:08:26",
+ "generated_at": "2026-11-08T00:17:36",
  "stat": {
-  "generated_at": "2026-11-07T21:08:25",
+  "generated_at": "2026-11-08T00:17:36",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 41,
+  "songs_with_3plus": 42,
   "rows": [
    {
     "song": "佛山全场",
@@ -526,14 +526,14 @@
     "low_cv": 0.0085
    }
   ],
-  "low_cv_median": 0.1278,
+  "low_cv_median": 0.1344,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 85.6,
-  "cover_live_low_median": 91.8,
+  "cover_live_low_median": 92.1,
   "own_n": 43,
-  "cover_n": 215,
+  "cover_n": 218,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-07T21:08:09",
+ "generated_at": "2026-11-08T00:17:19",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 837,
-  "processed_songs": 257,
-  "gap_songs": 86,
-  "coverage_pct": 97.0,
+  "processed_materials": 843,
+  "processed_songs": 260,
+  "gap_songs": 83,
+  "coverage_pct": 98.1,
   "status": {
-   "已完成": 310,
-   "候选": 8612,
+   "已完成": 316,
+   "候选": 8606,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -35,7 +35,6 @@
   "今夜无人入睡",
   "何日君再来",
   "你怎么舍得我难过",
-  "你的样子",
   "你的眼神",
   "你眼里的星光",
   "偿还",
@@ -93,9 +92,7 @@
   "红眼睛",
   "约定",
   "自然醒",
-  "袖手旁观",
   "被遗忘的时光",
-  "走过咖啡屋",
   "路过人间",
   "迷迭香",
   "邂逅回忆",
@@ -41880,17 +41877,20 @@
    "bv": "BV1vh4y1b7n2",
    "title": "王晰《你的样子》 图景个人巡回音乐会郑州站 点歌环节",
    "song": "你的样子",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "郑州",
    "date": "2023-05-09",
    "kind": "其他",
    "fetched_at": "2023-05-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV15k4y177fL",
@@ -45045,17 +45045,20 @@
    "bv": "BV1HQ4y1e7wj",
    "title": "王晰《分岔》三巡广州站 「MOON丨TBC」",
    "song": "分岔",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "广州",
    "date": "2021-12-10",
    "kind": "其他",
    "fetched_at": "2021-12-10",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1yr4y1v79N",
@@ -46532,17 +46535,20 @@
    "bv": "BV1bg411C7oE",
    "title": "王晰《四季歌》 图景个人巡回音乐会长沙站 点歌环节",
    "song": "四季歌",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "长沙",
    "date": "2022-08-02",
    "kind": "其他",
    "fetched_at": "2022-08-02",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1eV4y1S7jW",
@@ -46580,17 +46586,20 @@
    "bv": "BV1wu411w7Bi",
    "title": "王晰翻唱《四季歌》属于民歌的美好·三巡长沙点歌",
    "song": "四季歌",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "长沙",
    "date": "2023-09-20",
    "kind": "其他",
    "fetched_at": "2023-09-20",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV19s411q7Pr",
@@ -59933,17 +59942,20 @@
    "bv": "BV1tM4y1b7VW",
    "title": "王晰《袖手旁观》 图景个人巡回音乐会郑州站点歌环节",
    "song": "袖手旁观",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "郑州",
    "date": "2023-05-06",
    "kind": "其他",
    "fetched_at": "2023-05-06",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Hh411F7E4",
@@ -60806,17 +60818,20 @@
    "bv": "BV1hk4y1s7T4",
    "title": "王晰《走过咖啡屋》 图景个人巡回音乐会南宁站 点歌环节",
    "song": "走过咖啡屋",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南宁",
    "date": "2023-05-23",
    "kind": "其他",
    "fetched_at": "2023-05-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Ft411W7Vb",

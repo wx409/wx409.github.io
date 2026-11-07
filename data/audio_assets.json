@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-07T21:08:24",
-  "since": "2026-11-07",
+  "generated_at": "2026-11-08T00:17:35",
+  "since": "2026-11-08",
   "batches": 377,
-  "files": 2667,
-  "gb": 83.59,
+  "files": 2679,
+  "gb": 83.73,
   "new_files": 0,
   "new_mb": 0.0,
-  "stats_total": 1477,
-  "stage_rows": 837,
-  "claimable": 671,
-  "claimable_soft": 338
+  "stats_total": 1483,
+  "stage_rows": 843,
+  "claimable": 677,
+  "claimable_soft": 340
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 387,
-   "mb": 18509.2,
+   "files": 393,
+   "mb": 18644.0,
    "stats": 0,
    "new_files": 0,
    "new_mb": 0.0,
-   "newest": "2026-11-06"
+   "newest": "2026-11-07"
   },
   {
    "batch": "wav_十年现场语料",
@@ -1022,6 +1022,15 @@
    "newest": "2026-10-13"
   },
   {
+   "batch": "分岔",
+   "files": 2,
+   "mb": 12.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-07"
+  },
+  {
    "batch": "沉响20261010_块级",
    "files": 37,
    "mb": 12.5,
@@ -1391,6 +1400,24 @@
    "newest": "2026-09-29"
   },
   {
+   "batch": "袖手旁观",
+   "files": 2,
+   "mb": 7.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-07"
+  },
+  {
+   "batch": "四季歌",
+   "files": 4,
+   "mb": 7.2,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-07"
+  },
+  {
    "batch": "无与伦比的美丽",
    "files": 1,
    "mb": 7.1,
@@ -1434,6 +1461,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-24"
+  },
+  {
+   "batch": "你的样子",
+   "files": 2,
+   "mb": 6.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-07"
   },
   {
    "batch": "凄美地",
@@ -1517,24 +1553,6 @@
    "newest": "2026-10-10"
   },
   {
-   "batch": "你的样子",
-   "files": 1,
-   "mb": 5.9,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-13"
-  },
-  {
-   "batch": "袖手旁观",
-   "files": 1,
-   "mb": 5.9,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-13"
-  },
-  {
    "batch": "Close to You",
    "files": 1,
    "mb": 5.8,
@@ -1596,6 +1614,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-17"
+  },
+  {
+   "batch": "走过咖啡屋",
+   "files": 2,
+   "mb": 5.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-07"
   },
   {
    "batch": "我很好",
@@ -1805,15 +1832,6 @@
    "newest": "2026-10-28"
   },
   {
-   "batch": "四季歌",
-   "files": 2,
-   "mb": 4.4,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-21"
-  },
-  {
    "batch": "我可以抱你吗",
    "files": 1,
    "mb": 4.4,
@@ -1839,15 +1857,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
-  },
-  {
-   "batch": "走过咖啡屋",
-   "files": 1,
-   "mb": 4.2,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-18"
   },
   {
    "batch": "滚滚红尘",
@@ -2460,15 +2469,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
-  },
-  {
-   "batch": "分岔",
-   "files": 1,
-   "mb": 3.4,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-23"
   },
   {
    "batch": "南屏晚钟.mp3",
