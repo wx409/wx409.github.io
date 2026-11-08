@@ -63,8 +63,12 @@ def gen_ps1(doc: dict) -> str:
         seen.add(t.get("script"))
         path = t.get("path") or ""
         name = sch["name"]
-        if "每晚增量" in path or "prune_raw_archive" in path:
-            args = "-X utf8 \"%s\" %s" % (path, "--limit 6" if "每晚增量" in path else "--apply --keep-full-days 3")
+        if "每晚增量" in path:
+            args = "-X utf8 \"%s\" %s" % (path, "--limit 6")
+        elif "prune_raw_archive" in path:
+            args = "-X utf8 \"%s\" --apply --keep-full-days 3" % path
+        elif "disk_hygiene" in path:
+            args = "-X utf8 \"%s\" --apply" % path
         else:
             args = "-X utf8 \"%s\"" % path
         lines += [

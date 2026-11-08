@@ -928,6 +928,20 @@
    "path": "D:\\wx409.github.io\\project_b\\prune_raw_archive.py"
   },
   {
+   "script": "disk_hygiene.py",
+   "title": "定期磁盘保洁（只清可证明的冗余：input_ascii 副本 / 缓存 / 临时文件）",
+   "schedule": {
+    "name": "wx409_disk_hygiene",
+    "script": "disk_hygiene.py",
+    "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\disk_hygiene.py\" --apply",
+    "next": "2026/11/8 9:00:00",
+    "type": "Daily",
+    "start": "9:00:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\disk_hygiene.py"
+  },
+  {
    "script": "build_vocal_longtable.py",
    "in_deploy": true,
    "deploy_desc": "长表与旧源一致性校验（漂移即告警）",
