@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-08T21:09:22",
+ "generated_at": "2026-11-09T00:16:52",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 843,
-  "processed_songs": 260,
-  "gap_songs": 83,
-  "coverage_pct": 98.1,
+  "processed_materials": 849,
+  "processed_songs": 261,
+  "gap_songs": 82,
+  "coverage_pct": 98.5,
   "status": {
-   "已完成": 316,
-   "候选": 8606,
+   "已完成": 322,
+   "候选": 8600,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -82,7 +82,6 @@
   "爆裂",
   "爱",
   "爱的代价",
-  "独角戏",
   "生日快乐",
   "痒",
   "直到时间尽头",
@@ -44258,17 +44257,20 @@
    "bv": "BV1Wa4y1A79Y",
    "title": "王晰《凄美地》 图景个人巡回音乐会深圳站 点歌环节",
    "song": "凄美地",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "深圳",
    "date": "2023-06-25",
    "kind": "其他",
    "fetched_at": "2023-06-25",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1iW4y1o7fX",
@@ -54552,17 +54554,20 @@
    "bv": "BV1Aa411d7Zz",
    "title": "王晰《独角戏》 图景个人巡回音乐会无锡站 点歌环节",
    "song": "独角戏",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2022-08-16",
    "kind": "其他",
    "fetched_at": "2022-08-16",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV188411s7UU",
@@ -55787,17 +55792,20 @@
    "bv": "BV1GG41147af",
    "title": "王晰《莫斯科郊外的晚上》 图景个人巡回音乐会无锡站 点歌环节",
    "song": "莫斯科郊外的晚上",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2022-08-18",
    "kind": "其他",
    "fetched_at": "2022-08-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Qs411X7ss",
@@ -56676,17 +56684,20 @@
    "bv": "BV1GS4y1471Q",
    "title": "王晰《虫儿飞》 图景个人巡回音乐会上海站 点歌环节",
    "song": "虫儿飞",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "上海",
    "date": "2022-08-05",
    "kind": "其他",
    "fetched_at": "2022-08-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1fs411R79r",
@@ -57917,17 +57928,20 @@
    "bv": "BV1Hd4y1U7Qi",
    "title": "王晰《在水一方》 图景个人巡回音乐会鄂尔多斯站 点歌环节",
    "song": "在水一方",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2022-07-30",
    "kind": "其他",
    "fetched_at": "2022-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1dz421b776",
@@ -59894,17 +59908,20 @@
    "bv": "BV1oh411L7cD",
    "title": "王晰郑州三巡点歌 袖手旁观",
    "song": "袖手旁观",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "郑州",
    "date": "2023-05-02",
    "kind": "其他",
    "fetched_at": "2023-05-02",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV19z4y1Y7Wh",

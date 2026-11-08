@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-11-08T21:09:22",
-  "rows": 843,
+  "generated_at": "2026-11-09T00:16:52",
+  "rows": 849,
   "levels": {
    "L1": 406,
    "L6": 26,
-   "L3": 50,
-   "未认领": 358,
+   "L3": 52,
+   "未认领": 362,
    "L4": 2,
    "L2": 1
   },
@@ -124,8 +124,8 @@
    "claimable": 18
   },
   "2023-06-23": {
-   "n": 4,
-   "claimable": 4
+   "n": 5,
+   "claimable": 5
   },
   "2023-05-20": {
    "n": 3,
@@ -140,7 +140,7 @@
    "claimable": 5
   },
   "2023-05-01": {
-   "n": 2,
+   "n": 3,
    "claimable": 1
   },
   "2022-07-15": {
@@ -7674,6 +7674,18 @@
    "why": ""
   },
   {
+   "tag": "郑州20230502_BV1oh411L7cD",
+   "song": "袖手旁观",
+   "tour": "其他演出",
+   "city": "郑州",
+   "date": "2023-05-02",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2023-05-01",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "【王晰】五巡首场杭州 全部歌曲 自录202412__P18_祝我们随遇而安",
    "song": "",
    "tour": "其他演出",
@@ -8730,6 +8742,18 @@
    "why": ""
   },
   {
+   "tag": "未知20220730_BV1Hd4y1U7Qi",
+   "song": "在水一方",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-30",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "佛山20191203_BV1iJ411q7Ee",
    "song": "月亮代表我的心",
    "tour": "其他演出",
@@ -9618,11 +9642,35 @@
    "why": ""
   },
   {
+   "tag": "未知20220816_BV1Aa411d7Zz",
+   "song": "独角戏",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-08-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "切片1",
    "song": "Smoke Gets in Your Eyes",
    "tour": "东演双人场（待核）",
    "city": "北京",
    "date": "2026-10-09",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20220818_BV1GG41147af",
+   "song": "莫斯科郊外的晚上",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-08-18",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -10110,6 +10158,18 @@
    "why": ""
   },
   {
+   "tag": "深圳20230625_BV1Wa4y1A79Y",
+   "song": "凄美地",
+   "tour": "其他演出",
+   "city": "深圳",
+   "date": "2023-06-25",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-06-23",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "未知20250413_BV14kouYsEhY",
    "song": "敕勒歌",
    "tour": "其他演出",
@@ -10163,6 +10223,18 @@
    "tour": "其他演出",
    "city": "杭州",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "上海20220805_BV1GS4y1471Q",
+   "song": "虫儿飞",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2022-08-05",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
