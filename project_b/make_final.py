@@ -23,6 +23,7 @@ import imageio_ffmpeg
 BASE = Path(r"E:\wx\论文素材_王晰作传")
 BG = BASE / "场景_酒馆_手绘v4.png"
 SEQ = BASE / "blender_out3" / "f_%04d.png"
+CLIP = sorted((BASE / "剪辑素材").glob("BV1i4411d7MJ_*_merged.mp4"))[0]
 SING = BASE / "_staging_现场" / "s36_20240406" / "12 想游泳的星.wav"
 OUT = BASE / "样片_最终_15s.mp4"
 FPS = 25
@@ -47,7 +48,7 @@ def main() -> int:
     # ① TTS（一次事件循环）
     async def go():
         for i, t in enumerate(LINES):
-            await edge_tts.Communicate(t, "zh-CN-YunjianNeural", rate="+0%").save(str(tmp / ("v%d.mp3" % i)))
+            await edge_tts.Communicate(t, "zh-CN-XiaoyiNeural", rate="+6%", pitch="+28Hz").save(str(tmp / ("v%d.mp3" % i)))
     asyncio.run(go())
     tts = tmp / "talk.wav"
     run([ff, "-y", "-i", str(tmp / "v0.mp3"), "-i", str(tmp / "v1.mp3"),
@@ -80,13 +81,19 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
     # ③ 视频轨（无声）
     video = tmp / "video.mp4"
-    filt = ("[0:v]scale=1080:1920,fps=%d[bg];[1:v]format=rgba[ch];"
-            "[bg][ch]overlay=0:0:format=auto[v];"
-            "[v]ass='%s',format=yuv420p[out]"
-            % (FPS, str(ass).replace("\\", "/").replace(":", "\\:")))
+    filt = ("[0:v]scale=1080:1920,fps=%d[bg];"
+            "[1:v]format=rgba[ch];"
+            "[bg][ch]overlay=0:0:format=auto[v1];"
+            "[2:v]trim=start=0:end=%.2f,setpts=PTS-STARTPTS,scale=420:236:force_original_aspect_ratio=increase,crop=420:236,setsar=1,fps=%d[p0];"
+            "[p0][3:v]alphamerge[p1];"
+            "[v1][p1]overlay=620:150:format=auto[v2];"
+            "[v2]ass='%s',format=yuv420p[out]"
+            % (FPS, TOTAL, FPS, str(ass).replace("\\", "/").replace(":", "\\:")))
     rc, err = run([ff, "-y",
                    "-loop", "1", "-t", str(TOTAL), "-i", str(BG),
                    "-framerate", str(FPS), "-stream_loop", "-1", "-t", str(TOTAL), "-i", str(SEQ),
+                   "-ss", "199.5", "-t", str(TOTAL), "-i", str(CLIP),
+                   "-loop", "1", "-t", str(TOTAL), "-i", str(BASE / "_pipmask.png"),
                    "-filter_complex", filt, "-map", "[out]",
                    "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-an", str(video)])
     if rc != 0:
@@ -98,10 +105,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     fa = ("[0:a]atrim=0:%.2f,asetpts=PTS-STARTPTS,adelay=%d|%d[a1];"
           "[1:a]adelay=%d|%d,volume=1.5[a2];"
           "[2:a]atrim=0:%.2f,asetpts=PTS-STARTPTS,adelay=%d|%d[a3];"
-          "[a1][a2][a3]amix=inputs=3:normalize=0:duration=longest,alimiter=limit=0.95[aout]"
+          "[a1][a2][a3]amix=inputs=3:normalize=0:duration=longest,alimiter=limit=0.95,afade=t=out:st=%.1f:d=1.2[aout]"
           % (T_SING1, int(T0_SING1 * 1000), int(T0_SING1 * 1000),
              int(T0_TALK * 1000), int(T0_TALK * 1000),
-             T_SING2, int(T0_SING2 * 1000), int(T0_SING2 * 1000)))
+             T_SING2, int(T0_SING2 * 1000), int(T0_SING2 * 1000), TOTAL - 1.2))
     rc, err = run([ff, "-y",
                    "-ss", "233.7", "-t", str(T_SING1), "-i", str(SING),
                    "-i", str(tts),

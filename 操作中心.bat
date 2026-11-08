@@ -3969,7 +3969,7 @@ echo  [ц©мМиЫя╖тЖа©] ж╩╢╕юМн╢й╣╡Б╣дпбЁ║╢нкь╡дё╗д╛хоиооч 6 лУё╘ё╩╢╝иу/вИгЗвт╤╞лЬ╧
 
 cd /d "E:\wx\бшндкь╡д_мУнЗвВ╢╚\рТсР╥жнЖ"
 
-python -X utf8 ╧Л╪ё\ц©мМтЖа©.py --limit 6
+python -X utf8 ╧Л╪ё\ц©мМтЖа©.py --limit 15
 
 echo  [OK] ря╩ьп╢ data/archive_stage_tour.jsonё╩рЁцФжь╫╗сиц©ху deploy_all ╫с╧э
 
@@ -5293,7 +5293,7 @@ cd /d "E:\wx\бшндкь╡д_мУнЗвВ╢╚\рТсР╥жнЖ\╧Л╪ё"
 
 python -X utf8 ╡╧кяя╡ящгЗд©.py --limit 8
 
-python -X utf8 ц©мМтЖа©.py --limit 6
+python -X utf8 ц©мМтЖа©.py --limit 15
 
 cd /d "E:\wx\бшндкь╡д_мУнЗвВ╢╚\рТсР╥жнЖ\╧Л╪ё"
 

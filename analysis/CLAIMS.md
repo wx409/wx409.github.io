@@ -1,6 +1,6 @@
 # 自动生成的事实清单
 
-> 生成时间 2026-11-08 00:37；数据根源 `data\vocal_measurements.json`（1012 行 / 319 曲，sha256 `b8a8e1ed239e…`）。
+> 生成时间 2026-11-08 09:11；数据根源 `data\vocal_measurements.json`（1012 行 / 319 曲，sha256 `b06567686f08…`）。
 > **本文件由 `analysis/render_claims.py` 生成，勿手改。** 页面与大屏结论都读同一份 JSON。
 
 ## 一、演出效应（同场 DiD，事件级 bootstrap）
