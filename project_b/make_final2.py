@@ -23,8 +23,8 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 BASE = Path(r"E:\wx\论文素材_王晰作传")
 BG = BASE / "场景_酒馆_手绘v4.png"
 SEQ = BASE / "blender_out3" / "f_%04d.png"
-CLIP = sorted((BASE / "剪辑素材").glob("BV1i4411d7MJ_*_merged.mp4"))[0]
-SING = BASE / "_staging_现场" / "s36_20240406" / "12 想游泳的星.wav"
+CLIP = sorted((BASE / "现场录音-补充").glob("BV1Qm42177HY_*想游泳的星*.mp4"))[0]
+SING = sorted((BASE / "现场录音-补充").glob("BV1Qm42177HY_*想游泳的星*.wav"))[0]
 F0 = BASE / "音域分析" / "分析结果" / "想游泳的星_f0.csv"
 MASK = BASE / "_pipmask.png"
 OUT = BASE / "样片_最终_15s.mp4"
@@ -33,7 +33,7 @@ ff = imageio_ffmpeg.get_ffmpeg_exe()
 tmp = Path(tempfile.mkdtemp(prefix="fin2_"))
 FONT = r"C:\Windows\Fonts\msyhbd.ttc"
 
-T_TITLE, T_SING1, T_TALK, T_SING2 = 2.0, 6.0, 4.5, 2.5
+T_TITLE, T_SING1, T_TALK, T_SING2 = 2.0, 14.8, 4.5, 3.0
 TOTAL = T_TITLE + T_SING1 + T_TALK + T_SING2
 T0_SING1 = T_TITLE
 T0_TALK = T_TITLE + T_SING1
@@ -82,10 +82,10 @@ def make_overlays():
         ov = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
         do = ImageDraw.Draw(ov)
         if T0_SING1 <= t <= T0_SING1 + T_SING1:
-            sec = min(5.7, max(0.0, t - T0_SING1))
+            sec = min(14.8, max(0.0, t - T0_SING1))
             do.rounded_rectangle([70, 1440, 1010, 1560], radius=18, fill=(9, 13, 17, 175))
             do.text((100, 1452), "%.1f 秒" % sec, font=fnt(56), fill=(150, 225, 255))
-            bw = int(560 * min(1.0, sec / 5.7))
+            bw = int(560 * min(1.0, sec / 14.8))
             do.rounded_rectangle([360, 1490, 920, 1526], radius=16, fill=(30, 40, 52, 220))
             do.rounded_rectangle([360, 1490, 360 + bw, 1526], radius=16, fill=(106, 208, 255, 240))
             do.text((640, 1452), "A3 · 220.6Hz", font=fnt(40), fill=(255, 210, 160))
@@ -146,7 +146,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                    "-framerate", str(FPS), "-stream_loop", "-1", "-t", str(TOTAL), "-i", str(SEQ),
                    "-framerate", str(FPS), "-t", str(TOTAL), "-i", str(tmp / "c_%04d.png"),
                    "-framerate", str(FPS), "-t", str(TOTAL), "-i", str(tmp / "t_%04d.png"),
-                   "-ss", "199.5", "-t", str(TOTAL), "-i", str(CLIP),
+                   "-ss", str(SING_AT - T0_SING1), "-t", str(TOTAL), "-i", str(CLIP),
                    "-loop", "1", "-t", str(TOTAL), "-i", str(MASK),
                    "-ss", str(SING_AT), "-t", str(T_SING1), "-i", str(SING),
                    "-filter_complex", filt, "-map", "[out]",
