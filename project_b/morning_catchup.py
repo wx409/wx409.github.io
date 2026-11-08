@@ -24,20 +24,44 @@ TASKS = [
 ]
 
 def last_run(task):
+    """查计划任务上次运行时间。schtasks 的输出编码随控制台代码页变化（UTF-8/GBK），
+    这里按字节取回再逐个解码尝试，避免中文标签变乱码导致误判「未知」。"""
     try:
         r = subprocess.run(["schtasks", "/query", "/tn", task, "/fo", "list", "/v"],
-                           capture_output=True, text=True, encoding="utf-8", errors="replace")
-        for line in (r.stdout or "").splitlines():
+                           capture_output=True)
+        raw = r.stdout or b""
+        out = None
+        for enc in ("utf-8", "gbk", "mbcs"):
+            try:
+                txt = raw.decode(enc)
+            except Exception:
+                continue
+            if "上次运行时间" in txt or "Last Run Time" in txt:
+                out = txt
+                break
+        if out is None:
+            out = raw.decode("utf-8", "replace")
+        for line in out.splitlines():
             if "上次运行时间" in line or "Last Run Time" in line:
                 v = line.split(":", 1)[1].strip()
-                for fmt in ("%Y/%m/%d %H:%M:%S", "%m/%d/%Y %H:%M:%S"):
+                for fmt in ("%Y/%m/%d %H:%M:%S", "%m/%d/%Y %H:%M:%S", "%Y/%m/%d %H:%M"):
                     try:
                         return dt.datetime.strptime(v, fmt)
                     except Exception:
                         pass
     except Exception:
         pass
+    # 兜底：日志今天被写过，也视为今天跑过（只用于「要不要补跑」，不用于结论）
+    try:
+        log = Path(r"D:\wx409.github.io\temp\index_daily.log")
+        if log.exists():
+            mt = dt.datetime.fromtimestamp(log.stat().st_mtime)
+            if mt.date() == dt.datetime.now().date():
+                return mt
+    except Exception:
+        pass
     return None
+
 
 now = dt.datetime.now()
 print("现在", now.strftime("%Y-%m-%d %H:%M"))
@@ -53,7 +77,8 @@ for name, hhmm, cmd in TASKS:
         continue
     print("  补跑", name, "（上次", lr.strftime("%Y-%m-%d %H:%M") if lr else "未知", "）")
     try:
-        rc = subprocess.call(cmd, timeout=3600)
+        rc = subprocess.call(cmd, timeout=3600,
+                             creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         print("    rc=%d" % rc)
     except Exception as e:
         print("    失败", type(e).__name__)
