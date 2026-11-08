@@ -182,20 +182,21 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                     % (int(B0 * 1000), int(B0 * 1000), int(C0 * 1000), int(C0 * 1000)),
                     "-map", "[m]", "-t", str(total), str(audio)], capture_output=True)
 
-    # 视频
+    # 视频：单画布
     filt = (
         "[0:v]scale=1080:1920,fps=%d[bg];"
-        "[1:v]format=rgba[c0];[3:v]format=rgba[mth];[c0][mth]overlay=0:0[c1];"
+        "[1:v]format=rgba[c0];[2:v]format=rgba[mth];[c0][mth]overlay=0:0[c1];"
         "[bg][c1]overlay=331:'610+4*sin(2*PI*t/3.2)':format=auto[v1];"
-        "[2:v]trim=start=0:end=%d,setpts=PTS-STARTPTS,scale=-1:1920,crop=1080:1920:(iw-1080)/2:0,fps=%d[s1];"
-        "[2:v]trim=start=0:end=%d,setpts=PTS-STARTPTS,scale=420:236:force_original_aspect_ratio=increase,crop=420:236,fps=%d,setsar=1[p0];"
-        "[p0][4:v]alphamerge[p1];"
-        "[v1][p1]overlay=620:150:format=auto[v2];"
-        "[s1][v2]concat=n=2:v=1:a=0,ass='%s',format=yuv420p[v]"
-        % (FPS, D1 - A0, FPS, D1 - A0, FPS,
-           str(ass).replace("\\", "/").replace(":", "\\:"))
+        "[3:v]split=2[full0][pip0];"
+        "[full0]scale=-1:1920,crop=1080:1920:(iw-1080)/2:0,setsar=1,fps=%d[full];"
+        "[pip0]scale=420:236:force_original_aspect_ratio=increase,crop=420:236,setsar=1,fps=%d[pp];"
+        "[pp][4:v]alphamerge[pipm];"
+        "[v1][full]overlay=0:0:enable='between(t,0,%.2f)'[v2];"
+        "[v2][pipm]overlay=620:150:enable='gte(t,%.2f)'[v3];"
+        "[v3]ass='%s',format=yuv420p[v]"
+        % (FPS, FPS, FPS, A1, A1, str(ass).replace("\\", "/").replace(":", "\\:"))
     )
-    # 蒙版
+
     m = Image.new("L", (420, 236), 0)
     ImageDraw.Draw(m).rounded_rectangle([0, 0, 419, 235], radius=26, fill=255)
     m.filter(ImageFilter.GaussianBlur(6)).save(tmp / "mask.png")
@@ -203,14 +204,14 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     cmd = [ff, "-y",
            "-loop", "1", "-t", str(total), "-i", str(SCENE),
            "-loop", "1", "-t", str(total), "-i", str(char),
-           "-ss", str(LOW_T - 3.6), "-t", str(total), "-i", str(CLIP),
            "-framerate", str(FPS), "-t", str(total), "-i", str(tmp / "m_%04d.png"),
+           "-ss", str(LOW_T - 3.6), "-t", str(total), "-i", str(CLIP),
            "-loop", "1", "-t", str(total), "-i", str(tmp / "mask.png"),
            "-i", str(audio),
            "-filter_complex", filt, "-map", "[v]", "-map", "5:a",
            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
            "-c:a", "aac", "-b:a", "160k", "-t", str(total), str(OUT)]
-    print("[render] 合成…")
+    print("[render] 单画布合成…")
     r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     if r.returncode != 0:
         print((r.stderr or "")[-900:]); return 4
