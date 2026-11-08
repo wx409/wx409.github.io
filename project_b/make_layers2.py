@@ -49,6 +49,23 @@ def crop_save(box, name):
     c.save(OUT / name)
     return {"file": name, "box": list(box), "w": c.width, "h": c.height}
 
+# 头发：蓝色像素，按高度切成前发/后发
+px2 = im.load()
+front = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+back = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+fp, bp = front.load(), back.load()
+cut = int(h * 0.62)
+for y in range(h):
+    for x in range(w):
+        r, g, b, a2 = px2[x, y]
+        if a2 > 200 and b > r + 25 and b > g + 10:
+            if y < cut:
+                fp[x, y] = (r, g, b, a2)
+            else:
+                bp[x, y] = (r, g, b, a2)
+front.save(OUT / "hair_front.png")
+back.save(OUT / "hair_back.png")
+
 meta = {"size": [w, h], "base": "base.png",
         "parts": [crop_save(EYES[0], "eye_l.png"), crop_save(EYES[1], "eye_r.png"),
                   crop_save(MOUTH, "mouth.png")]}
