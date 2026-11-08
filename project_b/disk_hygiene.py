@@ -45,6 +45,20 @@ SCAN_ROOTS = [Path(r"E:\wx"), ROOT]
 REPORT_DIR = ROOT / "temp"
 SKIP_DIRS = {".git", "node_modules", ".venv", "venv", "dist", "build", ".next"}
 
+# 并发护栏（2026-11-08 加）：
+# `批量专辑音域.py::separate_vocals` 会先 sanitize_filename() 创建 input_ascii.wav，
+# 再判断 vocals.wav 是否已存在；tools/analyze.py::separate 同样先复制后短路。
+# 也就是说「分离进行中」的那一刻，input_ascii.wav 同样满足"与源文件 MD5 一致"，
+# 只按哈希删会把人正在跑的任务打断。因此加两道门：
+#   · 分离已产出 vocals.wav（这次分离确实已经用完输入）
+#   · 文件 mtime 超过 24 小时（避开正在复制/正在分离的时间窗）
+MIN_AGE_H = 24
+
+
+def _separation_done(p: Path) -> bool:
+    """分离产物已落盘 = 这份 input_ascii.wav 的使命已经结束。"""
+    return (p.parent / "htdemucs" / "input_ascii" / "vocals.wav").is_file()
+
 
 def md5(p: Path) -> str | None:
     h = hashlib.md5()
@@ -68,10 +82,13 @@ def disk_free() -> dict[str, float]:
     return out
 
 
-def find_input_ascii_dupes() -> tuple[list[Path], int]:
-    """返回（可删列表, 保留字节数）。只对"源树里有同尺寸候选"的做 MD5。"""
+def find_input_ascii_dupes() -> tuple[list[Path], int, int]:
+    """返回（可删列表, 保留字节数, 因并发护栏而暂缓的个数）。
+
+    只对"源树里有同尺寸候选"的文件做 MD5；无候选的直接跳过（不读盘）。
+    """
     if not AUDIO.is_dir():
-        return [], 0
+        return [], 0, 0
     inputs = sorted(AUDIO.rglob("input_ascii.wav"))
     idx_cache: dict[str, dict[int, list[Path]]] = {}
 
@@ -90,11 +107,17 @@ def find_input_ascii_dupes() -> tuple[list[Path], int]:
             idx_cache[key] = idx
         return idx_cache[key]
 
-    dupes, keep_bytes = [], 0
+    dupes, keep_bytes, busy = [], 0, 0
     for p in inputs:
         try:
-            sz = p.stat().st_size
+            st = p.stat()
         except OSError:
+            continue
+        sz = st.st_size
+        # —— 并发护栏：正在分离 / 刚生成的，一律放过 ——
+        if not _separation_done(p) or (time.time() - st.st_mtime) / 3600 < MIN_AGE_H:
+            keep_bytes += sz
+            busy += 1
             continue
         top = p.relative_to(AUDIO).parts[0]
         src_top = top[:-3] if top.endswith("_分离") else top
@@ -107,7 +130,7 @@ def find_input_ascii_dupes() -> tuple[list[Path], int]:
             dupes.append(p)
         else:
             keep_bytes += sz
-    return dupes, keep_bytes
+    return dupes, keep_bytes, busy
 
 
 def find_caches() -> list[Path]:
@@ -182,11 +205,12 @@ def main() -> int:
     L.append("")
 
     # 1) input_ascii 冗余
-    dupes, keep_bytes = find_input_ascii_dupes()
+    dupes, keep_bytes, busy = find_input_ascii_dupes()
     dup_gb = size_of(dupes) / 1024 ** 3
     L += ["## 1. input_ascii.wav 冗余副本", "",
           f"- 可删除（MD5 与源文件完全一致）：**{len(dupes)}** 个 / {dup_gb:.2f} GB",
-          f"- 保留（无同哈希源，属唯一副本）：{keep_bytes/1024**3:.2f} GB", ""]
+          f"- 保留（无同哈希源，属唯一副本）：{keep_bytes/1024**3:.2f} GB",
+          f"- 暂缓（分离未完成或 24 小时内有过写入）：{busy} 个 —— 并发护栏", ""]
 
     # 2) 缓存
     caches = find_caches()
