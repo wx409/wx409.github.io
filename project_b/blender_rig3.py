@@ -97,7 +97,9 @@ def main():
 
     random.seed(7)
     blinks, t = [], 1.2
-    while t < FRAMES / FPS:
+    if env.get("blink", True) is False:
+        blinks = []
+    while (env.get("blink", True) is not False) and t < FRAMES / FPS:
         blinks.append(t)
         t += random.uniform(3.0, 5.0)
 

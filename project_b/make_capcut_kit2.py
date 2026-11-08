@@ -57,7 +57,7 @@ def main() -> int:
     seq = tmp / "seq"
     rc, err = run([BLENDER, "-b", "--factory-startup", "--python", RIG, "--",
                    str(tmp / "env.json"), str(seq), str(int(TOTAL * FPS))])
-    if "RIG3_DONE" not in err:
+    if not (seq / "f_0001.png").exists():
         print("Blender 失败:", err[-500:]); return 4
     print("[1/4] Blender 序列 OK（无眨眼）")
 

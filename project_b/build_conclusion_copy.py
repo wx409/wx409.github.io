@@ -125,14 +125,14 @@ add("low_baseline", "低音是整本曲库的基线",
     "声乐爱好者 / 泛路人")
 
 add("long_note", "一口气的长度",
-    f"保留榜最长单音 {F['long_s']} 秒（{F['long_note']}，《{F['long_song']}》），录音室最长 {F['long2_s']} 秒"
+    f"保留榜最长 {F['long_s']} 秒（{F['long_note']}，《{F['long_song']}》），录音室最长 {F['long2_s']} 秒——**待核（未做分离复核）**"
     f"（《{F['long2_song']}》）。",
     "data/archive_long_notes.json#top[0]、#top[1]",
     "长声口径为连续同音高段（抖动 <0.6 半音，≥6 秒入榜，talk 已排除）；"
     "不得据此推断「秒数越长唱功越好」。",
-    f"《{F['long_song']}》里有一句没有换气，一个 {F['long_note']} 的音从起声到收尾是 {F['long_s']} 秒，"
+    f"《{F['long_song']}》里有一段（未做换气复核）一个 {F['long_note']} 的音从起声到收尾是 {F['long_s']} 秒，"
     f"是他保留素材里最长的一条。录音室那边最长的一条是 {F['long2_s']} 秒，出自《{F['long2_song']}》。",
-    f"一句歌词，{F['long_s']} 秒没有换气。\n"
+    f"一句歌词，{F['long_s']} 秒（待核：未做换气复核）。\n"
     f"音高是 {F['long_note']}，出自《{F['long_song']}》。\n"
     f"录音室最长的一条是 {F['long2_s']} 秒。\n"
     f"小词：长声 / 一口气 / {F['long_note']}",

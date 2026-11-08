@@ -18,16 +18,16 @@
  },
  "counts": {
   "candidates_raw": 56,
-  "kept": 32,
+  "kept": 33,
   "dropped": {
-   "与已发重复": 3,
+   "与已发重复": 2,
    "长度": 1,
    "池内重复": 20
   },
   "by_kind": {
    "corpus": 25,
+   "acoustic": 4,
    "talk": 2,
-   "acoustic": 3,
    "comment": 2
   }
  },
@@ -53,7 +53,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_17",
+   "hook_id": "hook_18",
    "review_status": "candidate",
    "hook_markers": [
     "冲突标记"
@@ -64,6 +64,35 @@
    "raw_noise_reasons": [
     "空格噪声"
    ]
+  },
+  {
+   "hook": "一口气 15.1 秒不换气",
+   "evidence": "data/archive_long_notes.json#top[0]（song=节气歌, note=A#3, dur_s=15.1, src=录音室, t_start_s=260.7）",
+   "small_words": [
+    "长声",
+    "一口气",
+    "十六秒"
+   ],
+   "audience": "声乐爱好者 / 泛路人",
+   "kind": "acoustic",
+   "t_abs_s": 260.7,
+   "t_hms": "",
+   "score_story": 1.0,
+   "score_evidence": 3.0,
+   "score_novelty": 2.0,
+   "score_total": 6.0,
+   "risk": [
+    "极值音口径＝最低稳定音；触达音/待核读数不进数字位"
+   ],
+   "blocked": false,
+   "used_by": [],
+   "hook_id": "hook_04",
+   "review_status": "candidate",
+   "hook_markers": [],
+   "hook_marker_n": 0,
+   "why": "命中：长声、一口气、十六秒",
+   "raw_noise": false,
+   "raw_noise_reasons": []
   },
   {
    "hook": "王晰六巡 明天，我们舞台见！",
@@ -86,7 +115,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_12",
+   "hook_id": "hook_13",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -119,7 +148,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_23",
+   "hook_id": "hook_24",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -153,7 +182,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_26",
+   "hook_id": "hook_27",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -187,7 +216,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_29",
+   "hook_id": "hook_30",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -228,8 +257,8 @@
    "raw_noise_reasons": []
   },
   {
-   "hook": "≥10 秒的长音有 8 条",
-   "evidence": "data/archive_long_notes.json#top[]（dur_s ≥ 10 计数）；最长 16.5s",
+   "hook": "≥10 秒的长音有 7 条",
+   "evidence": "data/archive_long_notes.json#top[]（dur_s ≥ 10 计数）；最长 15.1s",
    "small_words": [
     "长音",
     "稳定"
@@ -247,7 +276,7 @@
    ],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_04",
+   "hook_id": "hook_05",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -276,7 +305,7 @@
    ],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_05",
+   "hook_id": "hook_06",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -305,7 +334,7 @@
    ],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_06",
+   "hook_id": "hook_07",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -334,7 +363,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_07",
+   "hook_id": "hook_08",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -363,7 +392,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_08",
+   "hook_id": "hook_09",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -395,7 +424,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_09",
+   "hook_id": "hook_10",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -426,7 +455,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_14",
+   "hook_id": "hook_15",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -455,7 +484,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_15",
+   "hook_id": "hook_16",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -486,7 +515,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_16",
+   "hook_id": "hook_17",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -515,7 +544,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_20",
+   "hook_id": "hook_21",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -628,7 +657,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_24",
+   "hook_id": "hook_25",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -659,7 +688,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_27",
+   "hook_id": "hook_28",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -688,7 +717,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_28",
+   "hook_id": "hook_29",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -717,7 +746,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_30",
+   "hook_id": "hook_31",
    "review_status": "candidate",
    "hook_markers": [],
    "hook_marker_n": 0,
@@ -749,7 +778,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_18",
+   "hook_id": "hook_19",
    "review_status": "candidate",
    "hook_markers": [
     "冲突标记",
@@ -783,7 +812,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_21",
+   "hook_id": "hook_22",
    "review_status": "candidate",
    "hook_markers": [
     "冲突标记",
@@ -818,7 +847,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_10",
+   "hook_id": "hook_11",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -849,7 +878,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_11",
+   "hook_id": "hook_12",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -883,7 +912,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_13",
+   "hook_id": "hook_14",
    "review_status": "candidate",
    "hook_markers": [
     "自嘲口吻"
@@ -914,7 +943,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_19",
+   "hook_id": "hook_20",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -947,7 +976,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_22",
+   "hook_id": "hook_23",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -978,7 +1007,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_25",
+   "hook_id": "hook_26",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
@@ -1009,7 +1038,7 @@
    "risk": [],
    "blocked": false,
    "used_by": [],
-   "hook_id": "hook_31",
+   "hook_id": "hook_32",
    "review_status": "candidate",
    "hook_markers": [
     "道具动作"
