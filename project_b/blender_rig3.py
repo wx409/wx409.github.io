@@ -82,8 +82,10 @@ def main():
     hair_front = plane(LAYERS / "hair_front.png", "hair_front", W, H, 0, 0, 0.06) if (LAYERS / "hair_front.png").exists() else None
 
     eyes = []
+    eyes_w = eyes_h = 1.0
     for p in meta["parts"][:2]:
         cx, cy, w, h = box2xy(p["box"])
+        eyes_w, eyes_h = w, h
         eyes.append(plane(LAYERS / p["file"], p["file"], w, h, cx, cy, 0.10))
     mcx, mcy, mw, mh = box2xy(meta["parts"][2]["box"])
     mouth = plane(LAYERS / "mouth.png", "mouth", mw, mh, mcx, mcy, 0.20)
@@ -122,8 +124,8 @@ def main():
 
         blink = any(abs(tt - b) < 0.08 for b in blinks)
         for ob in eyes:
-            sx, sy, sz = ob.scale
-            ob.scale = (sx, 0.05 if blink else 1.0, sz)
+            _, hh, _ = ob.scale
+            ob.scale = (eyes_w, eyes_h * (0.04 if blink else 1.0), 1)
             ob.keyframe_insert("scale", frame=f)
 
         mouth.scale = (mw * (1 + 0.18 * v), mh * (1 + 1.5 * v), 1)
