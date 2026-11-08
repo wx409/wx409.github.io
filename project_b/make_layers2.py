@@ -28,6 +28,20 @@ for b in EYES:
     dm.ellipse([b[0] - 8, b[1] - 8, b[2] + 8, b[3] + 8], fill=255)
 dm.ellipse([MOUTH[0] - 6, MOUTH[1] - 6, MOUTH[2] + 6, MOUTH[3] + 6], fill=255)
 base = Image.composite(base.filter(ImageFilter.GaussianBlur(2.0)), base, mask)
+# 穿衣服：白围裙 + 深蓝马甲 + 腰带
+ap = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+da = ImageDraw.Draw(ap)
+top, bot = int(h * 0.615), int(h * 0.90)
+da.polygon([(int(w * .41), top), (int(w * .59), top),
+            (int(w * .64), bot), (int(w * .36), bot)], fill=(247, 250, 252, 232))
+da.line([(int(w * .43), int(h * .50)), (int(w * .43), top)], fill=(247, 250, 252, 232), width=8)
+da.line([(int(w * .57), int(h * .50)), (int(w * .57), top)], fill=(247, 250, 252, 232), width=8)
+da.polygon([(int(w * .35), int(h * .60)), (int(w * .41), int(h * .60)),
+            (int(w * .41), int(h * .86)), (int(w * .34), int(h * .86))], fill=(38, 62, 104, 220))
+da.polygon([(int(w * .65), int(h * .60)), (int(w * .59), int(h * .60)),
+            (int(w * .59), int(h * .86)), (int(w * .66), int(h * .86))], fill=(38, 62, 104, 220))
+da.rectangle([int(w * .39), int(h * .625), int(w * .61), int(h * .645)], fill=(30, 48, 82, 225))
+base = Image.alpha_composite(base, ap.filter(ImageFilter.GaussianBlur(0.6)))
 base.save(OUT / "base.png")
 
 def crop_save(box, name):
