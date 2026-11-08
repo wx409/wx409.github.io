@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-08T00:00:07",
+ "generated_at": "2026-11-08T21:00:12",
  "what": "钩子候选池（规则化抽取 + 离线评分；宁缺勿滥）",
  "rules": {
   "时间标记": {
@@ -179,8 +179,8 @@
    "raw_noise_reasons": []
   },
   {
-   "hook": "一口气 16.5 秒不换气",
-   "evidence": "data/archive_long_notes.json#top[0]（song=我真的受伤了, note=D2, dur_s=16.5, src=现场, t_start_s=695.9）",
+   "hook": "一口气 15.1 秒不换气",
+   "evidence": "data/archive_long_notes.json#top[0]（song=节气歌, note=A#3, dur_s=15.1, src=录音室, t_start_s=260.7）",
    "small_words": [
     "长声",
     "一口气",
@@ -188,7 +188,7 @@
    ],
    "audience": "声乐爱好者 / 泛路人",
    "kind": "acoustic",
-   "t_abs_s": 695.9,
+   "t_abs_s": 260.7,
    "t_hms": "",
    "score_story": 1.0,
    "score_evidence": 3.0,
@@ -229,7 +229,7 @@
   },
   {
    "hook": "≥10 秒的长音有 8 条",
-   "evidence": "data/archive_long_notes.json#top[]（dur_s ≥ 10 计数）；最长 16.5s",
+   "evidence": "data/archive_long_notes.json#top[]（dur_s ≥ 10 计数）；最长 15.1s",
    "small_words": [
     "长音",
     "稳定"
