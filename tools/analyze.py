@@ -67,35 +67,61 @@ def _ascii_copy(src: str, workdir: str) -> str:
     return out
 
 
+def _vocals_path(src: str, stems_dir: str) -> str:
+    """不创建任何临时文件，算出 vocals.wav 的预期路径。
+
+    `_ascii_copy` 会把 CJK 路径换成 input_ascii.wav，所以产物目录名取决于源是否纯 ASCII。
+    """
+    try:
+        os.path.abspath(str(src)).encode("ascii")
+        stem = os.path.splitext(os.path.basename(str(src)))[0]
+    except UnicodeEncodeError:
+        stem = "input_ascii"
+    return os.path.join(stems_dir, "htdemucs", stem, "vocals.wav")
+
+
 def separate(src: str, stems_dir: str, gpu: bool = True) -> str:
-    import numpy as np
-    src = _ascii_copy(src, stems_dir)
-    out = os.path.join(stems_dir, "htdemucs",
-                       os.path.splitext(os.path.basename(src))[0], "vocals.wav")
+    """分离出 vocals.wav。
+
+    2026-11-08 修正（空间泄漏）：旧写法先把源复制成 `input_ascii.wav`、再判断
+    `vocals.wav` 是否已存在，导致**已完成项**每次调用都会重建一份与源等大的临时副本。
+    现在先算产物路径、已存在则直接返回；分离结束后无论成败都清掉临时副本。
+    """
+    out = _vocals_path(src, stems_dir)
     if os.path.exists(out):
         return out
+    src_used = _ascii_copy(src, stems_dir)
+    made_copy = os.path.abspath(src_used) != os.path.abspath(str(src))
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    import numpy as np
     import soundfile as sf
     import torch
     _install_sphn_stub()
     from demucs.api import Separator
-    y, sr = sf.read(src, dtype="float32", always_2d=True)
-    if y.shape[1] == 1:                      # demucs htdemucs 需要双声道输入
-        y = np.repeat(y, 2, axis=1)
-    if sr != 44100:
-        from math import gcd
-        from scipy.signal import resample_poly
-        g = gcd(int(sr), 44100)
-        y = resample_poly(y, 44100 // g, int(sr) // g, axis=0).astype("float32")
-        sr = 44100
-    device = "cuda" if (gpu and torch.cuda.is_available()) else "cpu"
-    sep = Separator(model="htdemucs", device=device, progress=False)
-    _, parts = sep.separate_tensor(torch.from_numpy(y.T.copy()), sr)
-    vocals = parts["vocals"].cpu().numpy().T
-    sf.write(out, vocals, sr, subtype="PCM_16")
-    del sep
-    if device == "cuda":
-        torch.cuda.empty_cache()
+    try:
+        y, sr = sf.read(src_used, dtype="float32", always_2d=True)
+        if y.shape[1] == 1:                  # demucs htdemucs 需要双声道输入
+            y = np.repeat(y, 2, axis=1)
+        if sr != 44100:
+            from math import gcd
+            from scipy.signal import resample_poly
+            g = gcd(int(sr), 44100)
+            y = resample_poly(y, 44100 // g, int(sr) // g, axis=0).astype("float32")
+            sr = 44100
+        device = "cuda" if (gpu and torch.cuda.is_available()) else "cpu"
+        sep = Separator(model="htdemucs", device=device, progress=False)
+        _, parts = sep.separate_tensor(torch.from_numpy(y.T.copy()), sr)
+        vocals = parts["vocals"].cpu().numpy().T
+        sf.write(out, vocals, sr, subtype="PCM_16")
+        del sep
+        if device == "cuda":
+            torch.cuda.empty_cache()
+    finally:
+        if made_copy:
+            try:
+                os.remove(src_used)
+            except OSError:
+                pass
     return out
 
 

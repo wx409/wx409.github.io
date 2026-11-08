@@ -54,6 +54,16 @@ SKIP_DIRS = {".git", "node_modules", ".venv", "venv", "dist", "build", ".next"}
 #   · 文件 mtime 超过 24 小时（避开正在复制/正在分离的时间窗）
 MIN_AGE_H = 24
 
+# 重点目录的「体积预算」：超过阈值就在报告里标红。
+# 这些是"新素材必然要占的空间"，不能自动删——但必须让人在爆之前看见。
+WATCH = [
+    (Path(r"E:\wx\论文素材_王晰作传\音域分析\场次音频"), 300.0),
+    (Path(r"E:\wx\论文素材_王晰作传\_staging_现场"), 60.0),
+    (Path(r"E:\wx\论文素材_王晰作传\_staging_现场_分离"), 90.0),
+    (Path(r"E:\wx\论文素材_王晰作传\现场录音-小卡带"), 130.0),
+    (Path(r"E:\wx\index_records\raw_archive"), 25.0),
+]
+
 
 def _separation_done(p: Path) -> bool:
     """分离产物已落盘 = 这份 input_ascii.wav 的使命已经结束。"""
@@ -226,6 +236,18 @@ def main() -> int:
     if baks:
         L.append("  示例：" + "、".join(f"`{p.name}`" for p in baks[:5]))
         L.append("")
+
+    # 4) 重点目录体积预算（只报告，不删）
+    L += ["## 4. 重点目录体积预算（只报告，不删）", "",
+          "| 目录 | 实际 GB | 预算 GB | 状态 |", "|---|---|---|---|"]
+    for path, budget in WATCH:
+        if not path.exists():
+            L.append(f"| `{path.name}` | — | {budget} | 不存在 |")
+            continue
+        gb = size_of([path]) / 1024 ** 3
+        flag = "⚠️ 超预算" if gb > budget else "正常"
+        L.append(f"| `{path.name}` | {gb:.1f} | {budget} | {flag} |")
+    L.append("")
 
     reclaimed = 0
     if a.apply:
