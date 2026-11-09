@@ -1,13 +1,13 @@
 {
- "timestamp": "2026-11-09 08:07",
- "last_update": "2026-11-09 08:07",
- "date_range": "2023-01-01 ~ 2026-11-08",
- "total": 293373,
+ "timestamp": "2026-11-09 08:16",
+ "last_update": "2026-11-09 08:16",
+ "date_range": "2023-01-01 ~ 2026-11-09",
+ "total": 293973,
  "complete_rate": 19.9,
  "total_songs": 733,
  "active_songs": 384,
  "active_rate": 52.4,
- "batch_count": 1285,
+ "batch_count": 1286,
  "time_labels": [
   "2023-01",
   "2023-02",
@@ -205,15 +205,9 @@
   33.8,
   34.2,
   21.3,
-  3.0
+  3.2
  ],
  "top_songs": [
-  {
-   "name": "滚滚长江东逝水",
-   "trend": 114.1,
-   "score": 75,
-   "tag": "飙升"
-  },
   {
    "name": "哭砂",
    "trend": -37.1,
@@ -222,43 +216,49 @@
   },
   {
    "name": "一生中最爱",
-   "trend": -68.8,
+   "trend": -67.1,
+   "score": 35,
+   "tag": "上涨"
+  },
+  {
+   "name": "滚滚长江东逝水",
+   "trend": 0.0,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "南屏晚钟",
-   "trend": -18.5,
+   "trend": -17.3,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "相思",
-   "trend": -38.2,
+   "trend": -37.4,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "黎明前的黑暗",
-   "trend": -55.3,
+   "trend": -54.2,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "神魂颠倒",
-   "trend": -55.0,
+   "trend": -53.7,
    "score": 20,
    "tag": "上涨"
   },
   {
    "name": "谁",
-   "trend": -49.6,
+   "trend": -49.0,
    "score": 20,
    "tag": "上涨"
   },
   {
    "name": "山楂树",
-   "trend": -47.3,
+   "trend": -46.0,
    "score": 20,
    "tag": "上涨"
   }
@@ -365,7 +365,7 @@
  "latest_anomaly": null,
  "weekend_workday": [
   404.0,
-  414.0
+  413.0
  ],
  "tour_events": [
   [
