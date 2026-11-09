@@ -1,6 +1,6 @@
 {
  "schema": "monthly-events/v3",
- "generated_at": "2026-11-09 21:08",
+ "generated_at": "2026-11-10 00:17",
  "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
  "caliber": "逐曲自身基线归一：ratio = 当日指数 / 该曲前 90 天中位（需 ≥30 个历史观测）；月度热度 = 当月全部 [曲×日] ratio 的中位；1.00 = 与自身基线持平",
  "method": "异常判定跑在热度上：稳健 z（相对过去 12 个月中位偏离）≥2.5 或 环比 ≥20%；广度 = ratio>1 的 [曲×日] 占比。池均值 index 仅作对照",
@@ -1959,21 +1959,21 @@
   },
   {
    "month": "2026-11",
-   "heat": 0.581,
-   "breadth": 0.118,
-   "n_ratios": 93,
-   "n_days": 8,
-   "index": 388.2,
+   "heat": 0.585,
+   "breadth": 0.132,
+   "n_ratios": 106,
+   "n_days": 9,
+   "index": 384.8,
    "n_songs": 12,
-   "mom_pct": 10.5,
-   "dev_pct": -40.6,
-   "z": -2.1,
+   "mom_pct": 11.2,
+   "dev_pct": -40.2,
+   "z": -2.08,
    "events": [],
    "n_events": 0,
    "coverage_ok": false,
    "trigger": [],
    "anomaly": false,
-   "note": "覆盖不足（8 天 < 15），不参与异常判定"
+   "note": "覆盖不足（9 天 < 15），不参与异常判定"
   }
  ],
  "summary": {

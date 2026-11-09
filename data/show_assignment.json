@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-11-09T21:08:24",
-  "rows": 849,
+  "generated_at": "2026-11-10T00:16:59",
+  "rows": 855,
   "levels": {
-   "L1": 406,
+   "L1": 411,
    "L6": 26,
    "L3": 52,
-   "未认领": 362,
+   "未认领": 363,
    "L4": 2,
    "L2": 1
   },
@@ -108,16 +108,16 @@
    "claimable": 1
   },
   "2022-01-10": {
-   "n": 26,
-   "claimable": 22
+   "n": 27,
+   "claimable": 23
   },
   "2022-06-24": {
    "n": 10,
    "claimable": 3
   },
   "2021-12-04": {
-   "n": 7,
-   "claimable": 6
+   "n": 8,
+   "claimable": 7
   },
   "2022-09-17": {
    "n": 21,
@@ -176,16 +176,16 @@
    "claimable": 3
   },
   "2024-09-16": {
-   "n": 4,
-   "claimable": 4
+   "n": 5,
+   "claimable": 5
   },
   "2024-01-27": {
    "n": 2,
    "claimable": 2
   },
   "2023-11-12": {
-   "n": 2,
-   "claimable": 2
+   "n": 4,
+   "claimable": 4
   },
   "2025-11-21": {
    "n": 16,
@@ -2574,6 +2574,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "未知20211204_BV1p341147Aw",
+   "song": "分岔",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-12-04",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "未知20220109_BV1LL41157MQ",
    "song": "送别",
    "tour": "三巡",
@@ -2582,6 +2594,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-09",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "未知20220110_BV1AZ4y1D7Cz",
+   "song": "莫斯科郊外的晚上",
+   "tour": "三巡",
+   "city": "上海",
+   "date": "2022-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2022-01-10",
    "level": 1,
    "why": "日期直配"
   },
@@ -3582,6 +3606,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "武汉20240916_BV1WrtheWEKx",
+   "song": "明月千里寄相思",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024-09-16",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2024-09-16",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "北京20240816_BV1u2p9eDE1c",
    "song": "黄昏放牛",
    "tour": "四巡",
@@ -3846,6 +3882,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "北京20231112_BV1rw411W7z6",
+   "song": "心动",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2023-11-12",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": "2023-11-12",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "上海20240406_BV19A4m1F7Z5",
    "song": "甩了甩了",
    "tour": "四巡",
@@ -3866,6 +3914,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
+   "tag": "北京20231112_BV1ng4y1X78f",
+   "song": "心动",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2023-11-12",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": "2023-11-12",
    "level": 1,
    "why": "日期直配"
   },
@@ -9995,6 +10055,18 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20220731_BV1rd4y1K7mS",
+   "song": "旋木",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2022-07-31",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,

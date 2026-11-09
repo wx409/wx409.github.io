@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-09T21:08:24",
+ "generated_at": "2026-11-10T00:16:58",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 849,
-  "processed_songs": 261,
-  "gap_songs": 82,
-  "coverage_pct": 98.5,
+  "processed_materials": 855,
+  "processed_songs": 263,
+  "gap_songs": 80,
+  "coverage_pct": 99.2,
   "status": {
-   "已完成": 322,
-   "候选": 8600,
+   "已完成": 328,
+   "候选": 8594,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -68,9 +68,7 @@
   "我和我的祖国",
   "把悲伤留给自己",
   "新年好",
-  "旋木",
   "日文歌片段",
-  "明月千里寄相思",
   "明白",
   "月圆花好",
   "月弯弯",
@@ -7862,33 +7860,39 @@
    "bv": "BV1rw411W7z6",
    "title": "怎能不为你心动 | 王晰《心动》【王晰四巡肆益个人巡回音乐会北京首站点歌 20231112】",
    "song": "心动",
-   "tour": "",
-   "city": "",
-   "date": "2023-11-15",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2023-11-12",
    "kind": "其他",
    "fetched_at": "2023-11-15",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ng4y1X78f",
    "title": "王晰点歌part【心动】【4K字幕】梦回一巡的心动·肆益巡回音乐会北京场20231112",
    "song": "心动",
-   "tour": "",
-   "city": "",
-   "date": "2023-11-18",
+   "tour": "四巡",
+   "city": "北京",
+   "date": "2023-11-12",
    "kind": "4K字幕",
    "fetched_at": "2023-11-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Bdj26uEbd",
@@ -17743,17 +17747,20 @@
    "bv": "BV1WrtheWEKx",
    "title": "王晰【明月千里寄相思】【点歌part】人隔千里路悠悠 请明月带问候【4k字幕】肆益巡演武汉站20240916",
    "song": "明月千里寄相思",
-   "tour": "",
-   "city": "",
-   "date": "2024-09-17",
+   "tour": "四巡",
+   "city": "武汉",
+   "date": "2024-09-16",
    "kind": "4K字幕",
    "fetched_at": "2024-09-17",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1K4411E7jM",
@@ -45015,17 +45022,20 @@
    "bv": "BV1p341147Aw",
    "title": "【王晰】分岔 @ 20211204 圖景個巡 廣州站",
    "song": "分岔",
-   "tour": "",
-   "city": "",
-   "date": "2021-12-05",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
    "kind": "其他",
    "fetched_at": "2021-12-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV17r4y1X7bu",
@@ -55776,17 +55786,20 @@
    "bv": "BV1AZ4y1D7Cz",
    "title": "【王晰】图景 无锡场 《莫斯科郊外的晚上》",
    "song": "莫斯科郊外的晚上",
-   "tour": "",
-   "city": "",
+   "tour": "三巡",
+   "city": "上海",
    "date": "2022-01-10",
    "kind": "其他",
    "fetched_at": "2022-01-10",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1GG41147af",
@@ -58942,17 +58955,20 @@
    "bv": "BV1rd4y1K7mS",
    "title": "王晰《旋木》 图景个人巡回音乐会鄂尔多斯站 点歌环节",
    "song": "旋木",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2022-07-31",
    "kind": "其他",
    "fetched_at": "2022-07-31",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1os411x7iF",

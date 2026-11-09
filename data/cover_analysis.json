@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-09T21:08:41",
+ "generated_at": "2026-11-10T00:17:21",
  "stat": {
-  "generated_at": "2026-11-09T21:08:41",
+  "generated_at": "2026-11-10T00:17:21",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 44,
+  "songs_with_3plus": 46,
   "rows": [
    {
     "song": "佛山全场",
@@ -256,6 +256,15 @@
     "low_cv": 0.1278
    },
    {
+    "song": "心动",
+    "versions": 7,
+    "low_median": 97.6,
+    "low_iqr": 13.0,
+    "low_range": 54.8,
+    "high_median": 447.9,
+    "low_cv": 0.1695
+   },
+   {
     "song": "哭砂",
     "versions": 7,
     "low_median": 80.7,
@@ -299,15 +308,6 @@
     "low_range": 51.9,
     "high_median": 867.8,
     "low_cv": 0.2166
-   },
-   {
-    "song": "心动",
-    "versions": 5,
-    "low_median": 97.1,
-    "low_iqr": 3.7,
-    "low_range": 36.1,
-    "high_median": 763.7,
-    "low_cv": 0.1471
    },
    {
     "song": "歌颂",
@@ -481,6 +481,24 @@
     "low_cv": 0.1542
    },
    {
+    "song": "分岔",
+    "versions": 3,
+    "low_median": 88.7,
+    "low_iqr": 11.1,
+    "low_range": 22.2,
+    "high_median": 587.8,
+    "low_cv": 0.1021
+   },
+   {
+    "song": "莫斯科郊外的晚上",
+    "versions": 3,
+    "low_median": 110.5,
+    "low_iqr": 5.0,
+    "low_range": 9.9,
+    "high_median": 788.8,
+    "low_cv": 0.0392
+   },
+   {
     "song": "爱你",
     "versions": 3,
     "low_median": 109.3,
@@ -506,34 +524,16 @@
     "low_range": 20.1,
     "high_median": 711.2,
     "low_cv": 0.1127
-   },
-   {
-    "song": "夜色",
-    "versions": 3,
-    "low_median": 97.0,
-    "low_iqr": 23.3,
-    "low_range": 46.6,
-    "high_median": 316.0,
-    "low_cv": 0.1934
-   },
-   {
-    "song": "平凡又美好的晚上",
-    "versions": 3,
-    "low_median": 80.3,
-    "low_iqr": 0.8,
-    "low_range": 1.6,
-    "high_median": 520.4,
-    "low_cv": 0.0085
    }
   ],
-  "low_cv_median": 0.1316,
+  "low_cv_median": 0.1255,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 85.6,
-  "cover_live_low_median": 92.4,
+  "own_live_low_median": 87.6,
+  "cover_live_low_median": 92.7,
   "own_n": 43,
-  "cover_n": 219,
+  "cover_n": 221,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
@@ -541,7 +541,7 @@
    },
    "心动": {
     "orig": "陈洁仪",
-    "live_low_median": 97.1
+    "live_low_median": 97.6
    },
    "玫瑰人生（La Vie en Rose）": {
     "orig": "Edith Piaf",

@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-09T21:08:25",
+  "generated_at": "2026-11-10T00:17:00",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8127,
+  "files_scanned": 8157,
   "measured_shows_site": 60,
   "shows_with_claimable_site": 60,
-  "bv_mapped": 169
+  "bv_mapped": 174
  },
  "shows": [
   {
@@ -1168,6 +1168,11 @@
      "detail": "BV1Sr4y1W7Qj｜悬念｜广州20211204"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1p341147Aw｜分岔｜未知20211204"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "切片1_MoonRiver｜Moon River"
@@ -1176,14 +1181,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "切片3_YouNeededMe｜You Needed Me"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "切片2_CloseToYou｜Close to You"
     }
    ],
-   "n_evidence": 37
+   "n_evidence": 49
   },
   {
    "date": "2022-01-09",
@@ -1243,6 +1243,11 @@
      "detail": "BV1hY41187D7｜让我欢喜让我忧｜上海20220110"
     },
     {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1AZ4y1D7Cz｜莫斯科郊外的晚上｜未知20220110"
+    },
+    {
      "level": 1,
      "src": "站点实测",
      "detail": "三巡上海20220110_p01_王晰三巡上海站 20220110 p01 送别｜三巡上海全场"
@@ -1256,14 +1261,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "三巡上海20220110_p04_王晰三巡上海站 20220110 p04 唠嗑1｜三巡上海全场"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡上海20220110_p10_王晰三巡上海站 20220110 p10 唠嗑3｜三巡上海全场"
     }
    ],
-   "n_evidence": 162
+   "n_evidence": 174
   },
   {
    "date": "2022-04-09",
@@ -1669,16 +1669,16 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "北京｜四巡·\"肆益\"个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1ng4y1X78f｜心动｜北京20231112"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "北京20231112_BV1Zz4y1F7n5｜离人"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1rw411W7z6｜心动｜北京20231112"
     }
    ],
-   "n_evidence": 63
+   "n_evidence": 87
   },
   {
    "date": "2023-12-10",
@@ -1979,6 +1979,11 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1WrtheWEKx｜明月千里寄相思｜武汉20240916"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "武汉｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1990,15 +1995,10 @@
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "武汉20240916_BV1pktheXEmB｜城里的月光"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "四巡武汉20240916_v01｜"
+     "detail": "武汉20240916_BV1WrtheWEKx｜明月千里寄相思"
     }
    ],
-   "n_evidence": 31
+   "n_evidence": 43
   },
   {
    "date": "2024-12-21",
