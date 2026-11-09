@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-11-09 00:20　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-11-09 09:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -11,7 +11,7 @@
 | `f0_files` | 逐帧 F0 文件数 | **2412** | 音域分析目录下全部 *_f0.csv（含专辑/场次/他人主导/沉响分段/staging） | `data/approach_all.json` |
 | `approach_window` | 极值音到达方式取窗 | **±0.5 半音 / ≥0.15s** | 音符块切分与极值音判定口径 | `project_b/analyze_approach_all.py` |
 | `tracked_links` | 追踪链接数 | **733** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
-| `entity_songs` | 关系图谱曲目 | **437** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
+| `entity_songs` | 关系图谱曲目 | **436** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
 | `songs_meta` | 歌曲元数据条目 | **714** | 含元信息（时长/专辑/发行等）的曲目 | `data/songs_meta.json` |
 | `song_archive` | 歌曲档案条目 | **748** | 档案库收录的全部曲目条目（含未追踪/无指数） | `data/song_archive.json` |
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
