@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-10 21:08",
+ "generated_at": "2026-11-11 00:17",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,22 +10,22 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 1024,
+  "total": 1030,
   "by_layer": {
    "studio_album": 72,
    "precision": 51,
-   "tour_live": 858,
+   "tour_live": 864,
    "stage_other": 32,
    "single": 11
   },
   "by_verify": {
    "未复核": 122,
-   "人耳确认（听辨）": 58,
+   "人耳确认（听辨）": 60,
    "已取证": 8,
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 659,
+   "谐波列复核通过": 663,
    "双引擎一致": 9,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "谐波列复核通过（全曲口径对账）": 3,
@@ -33,7 +33,7 @@
    "待复核（谐波列待判）": 145,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 322
+  "songs": 324
  },
  "rows": [
   {
@@ -13273,6 +13273,41 @@
    }
   },
   {
+   "id": "tour_live|微醺23点08分|上海20231231_BV1bN4y1i7Kr",
+   "song": "微醺23点08分",
+   "version": "上海20231231_BV1bN4y1i7Kr",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "BV1bN4y1i7Kr",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "E2",
+    "low_hz": 83.3,
+    "high_note": "G#4",
+    "high_hz": 425.0,
+    "span_octaves": 2.35,
+    "stability_cents": 7.2,
+    "intonation_cents": 21.3,
+    "vibrato_hz": 5.07,
+    "vibrato_cents": 75.0,
+    "density_per_s": 1.99,
+    "hnr_db": 4.3,
+    "duration_s": 190.6
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 128
+   }
+  },
+  {
    "id": "tour_live|友谊地久天长|四巡上海生日20240406_p12_友谊地久天长",
    "song": "友谊地久天长",
    "version": "四巡上海生日20240406_p12_友谊地久天长",
@@ -13585,6 +13620,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|夜上海|上海20231231_BV1Pp4y1R7QG",
+   "song": "夜上海",
+   "version": "上海20231231_BV1Pp4y1R7QG",
+   "layer": "tour_live",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "source_ref": "BV1Pp4y1R7QG",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F#2",
+    "low_hz": 92.2,
+    "high_note": "A4",
+    "high_hz": 430.3,
+    "span_octaves": 2.22,
+    "stability_cents": 10.6,
+    "intonation_cents": 38.6,
+    "vibrato_hz": 4.93,
+    "vibrato_cents": 92.0,
+    "density_per_s": 1.35,
+    "hnr_db": 1.4,
+    "duration_s": 31.8
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 125
    }
   },
   {
@@ -22891,6 +22961,41 @@
    }
   },
   {
+   "id": "tour_live|Besame Mucho|广州20231213_BV1K64y1V77x",
+   "song": "Besame Mucho",
+   "version": "广州20231213_BV1K64y1V77x",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2023-12-13",
+   "source_ref": "BV1K64y1V77x",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.9,
+    "high_note": "A5",
+    "high_hz": 888.7,
+    "span_octaves": 3.53,
+    "stability_cents": 4.4,
+    "intonation_cents": 17.9,
+    "vibrato_hz": 4.61,
+    "vibrato_cents": 61.0,
+    "density_per_s": 1.67,
+    "hnr_db": 4.6,
+    "duration_s": 280.8
+   },
+   "verify": {
+    "state": "人耳确认（听辨）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 192
+   }
+  },
+  {
    "id": "tour_live|再见我的爱人|六巡广州微博_4_再见我的爱人",
    "song": "再见我的爱人",
    "version": "六巡广州微博_4_再见我的爱人",
@@ -26049,6 +26154,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
+   }
+  },
+  {
+   "id": "tour_live|微醺23点08分|北京20240901_BV1o7HNepE3L",
+   "song": "微醺23点08分",
+   "version": "北京20240901_BV1o7HNepE3L",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2024-09-01",
+   "source_ref": "BV1o7HNepE3L",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.6,
+    "high_note": "G#4",
+    "high_hz": 422.1,
+    "span_octaves": 2.28,
+    "stability_cents": 7.1,
+    "intonation_cents": 24.9,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 75.0,
+    "density_per_s": 1.98,
+    "hnr_db": 5.1,
+    "duration_s": 196.4
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 197
    }
   },
   {
@@ -30073,6 +30213,41 @@
    }
   },
   {
+   "id": "tour_live|Besame Mucho|未知20240918_BV1bCtqejEwS",
+   "song": "Besame Mucho",
+   "version": "未知20240918_BV1bCtqejEwS",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-09-18",
+   "source_ref": "BV1bCtqejEwS",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 102.0,
+    "high_note": "B5",
+    "high_hz": 999.2,
+    "span_octaves": 3.29,
+    "stability_cents": 7.2,
+    "intonation_cents": 18.8,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 81.0,
+    "density_per_s": 1.63,
+    "hnr_db": 6.1,
+    "duration_s": 297.6
+   },
+   "verify": {
+    "state": "人耳确认（听辨）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 249
+   }
+  },
+  {
    "id": "tour_live||06永不失联的爱",
    "song": "",
    "version": "06永不失联的爱",
@@ -30385,6 +30560,41 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": 217
+   }
+  },
+  {
+   "id": "tour_live|微醺23点08分|北京20231115_BV1SG411S7cD",
+   "song": "微醺23点08分",
+   "version": "北京20231115_BV1SG411S7cD",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2023-11-15",
+   "source_ref": "BV1SG411S7cD",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "G#2",
+    "low_hz": 104.1,
+    "high_note": "F4",
+    "high_hz": 351.2,
+    "span_octaves": 1.75,
+    "stability_cents": 2.7,
+    "intonation_cents": 9.6,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 56.0,
+    "density_per_s": 0.51,
+    "hnr_db": -0.9,
+    "duration_s": 249.7
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 187
    }
   },
   {

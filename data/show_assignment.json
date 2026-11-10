@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-11-10T21:08:36",
-  "rows": 855,
+  "generated_at": "2026-11-11T00:17:14",
+  "rows": 861,
   "levels": {
-   "L1": 411,
+   "L1": 413,
    "L6": 26,
-   "L3": 52,
-   "未认领": 363,
+   "L3": 54,
+   "未认领": 365,
    "L4": 2,
    "L2": 1
   },
@@ -160,8 +160,8 @@
    "claimable": 3
   },
   "2023-12-31": {
-   "n": 34,
-   "claimable": 30
+   "n": 36,
+   "claimable": 32
   },
   "2024-03-30": {
    "n": 15,
@@ -172,8 +172,8 @@
    "claimable": 2
   },
   "2023-12-10": {
-   "n": 4,
-   "claimable": 3
+   "n": 5,
+   "claimable": 4
   },
   "2024-09-16": {
    "n": 5,
@@ -184,8 +184,8 @@
    "claimable": 2
   },
   "2023-11-12": {
-   "n": 4,
-   "claimable": 4
+   "n": 5,
+   "claimable": 5
   },
   "2025-11-21": {
    "n": 16,
@@ -3486,6 +3486,18 @@
    "why": "巡次+日期±2天唯一"
   },
   {
+   "tag": "上海20231231_BV1bN4y1i7Kr",
+   "song": "微醺23点08分",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "四巡上海生日20240406_p12_友谊地久天长",
    "song": "友谊地久天长",
    "tour": "四巡",
@@ -3592,6 +3604,18 @@
    "show_date": "2024-03-30",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "上海20231231_BV1Pp4y1R7QG",
+   "song": "夜上海",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-12-31",
+   "level": 1,
+   "why": "日期直配"
   },
   {
    "tag": "武汉20240916_BV1b4sye8E76",
@@ -6834,6 +6858,18 @@
    "why": ""
   },
   {
+   "tag": "广州20231213_BV1K64y1V77x",
+   "song": "Besame Mucho",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2023-12-13",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": "2023-12-10",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "六巡广州微博_4_再见我的爱人",
    "song": "再见我的爱人",
    "tour": "其他演出",
@@ -7919,6 +7955,18 @@
    "tour": "其他演出",
    "city": "上海",
    "date": "2021",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "北京20240901_BV1o7HNepE3L",
+   "song": "微醺23点08分",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2024-09-01",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -9318,6 +9366,18 @@
    "why": ""
   },
   {
+   "tag": "未知20240918_BV1bCtqejEwS",
+   "song": "Besame Mucho",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2024-09-18",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "06永不失联的爱",
    "song": "",
    "tour": "其他演出",
@@ -9424,6 +9484,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "北京20231115_BV1SG411S7cD",
+   "song": "微醺23点08分",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2023-11-15",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2023-11-12",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "北京20201017_BV1dy4y1b7j7",

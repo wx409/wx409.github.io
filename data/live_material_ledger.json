@@ -1,24 +1,23 @@
 {
  "schema": 1,
- "generated_at": "2026-11-10T21:08:36",
+ "generated_at": "2026-11-11T00:17:13",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 855,
-  "processed_songs": 263,
-  "gap_songs": 80,
-  "coverage_pct": 99.2,
+  "processed_materials": 861,
+  "processed_songs": 265,
+  "gap_songs": 78,
+  "coverage_pct": 100.0,
   "status": {
-   "已完成": 328,
-   "候选": 8594,
+   "已完成": 336,
+   "候选": 8586,
    "跳过-串烧需人工切分": 53
   }
  },
  "gap_songs": [
   "Besame",
-  "Besame Mucho",
   "DI DA DI",
   "Don't Break My Heart",
   "Nature Boy",
@@ -45,7 +44,6 @@
   "叶塞尼亚",
   "嘴巴嘟嘟",
   "在梵高的星空下",
-  "夜上海",
   "夜半歌声",
   "夜来香",
   "大地飞歌",
@@ -941,17 +939,20 @@
    "bv": "BV1K64y1V77x",
    "title": "王晰《Besame Mucho》四巡广州站【MOON丨TBC】",
    "song": "Besame Mucho",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "广州",
    "date": "2023-12-13",
    "kind": "其他",
    "fetched_at": "2023-12-13",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1fZ421e7NJ",
@@ -973,17 +974,20 @@
    "bv": "BV1bCtqejEwS",
    "title": "【王晰】在他脚下听四巡收官场Besame Mucho",
    "song": "Besame Mucho",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2024-09-18",
    "kind": "其他",
    "fetched_at": "2024-09-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1kqCNYNEsc",
@@ -12587,17 +12591,20 @@
    "bv": "BV1K64y1V77x",
    "title": "王晰《Besame Mucho》四巡广州站【MOON丨TBC】",
    "song": "Besame",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "广州",
    "date": "2023-12-13",
    "kind": "其他",
    "fetched_at": "2023-12-13",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1fZ421e7NJ",
@@ -12619,17 +12626,20 @@
    "bv": "BV1bCtqejEwS",
    "title": "【王晰】在他脚下听四巡收官场Besame Mucho",
    "song": "Besame",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2024-09-18",
    "kind": "其他",
    "fetched_at": "2024-09-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1kqCNYNEsc",
@@ -71553,17 +71563,20 @@
    "bv": "BV1Pp4y1R7QG",
    "title": "王晰清唱【夜上海】扭得太对味儿了！肆益巡回音乐会上海站20231231",
    "song": "夜上海",
-   "tour": "",
-   "city": "",
-   "date": "2024-01-01",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
    "kind": "其他",
    "fetched_at": "2024-01-01",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1rs411C72r",
@@ -74145,17 +74158,20 @@
    "bv": "BV1SG411S7cD",
    "title": "【王晰】律动起来属实是性感 没有喝酒但是已经【微醺23点08分】肆益北京站",
    "song": "微醺23点08分",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "北京",
    "date": "2023-11-15",
    "kind": "其他",
    "fetched_at": "2023-11-15",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ij411p71E",
@@ -74177,17 +74193,20 @@
    "bv": "BV1bN4y1i7Kr",
    "title": "王晰【微醺23点08分】这首歌是可以让王老师扭起来的！肆益巡回音乐会上海站20231231",
    "song": "微醺23点08分",
-   "tour": "",
-   "city": "",
-   "date": "2024-01-03",
+   "tour": "四巡",
+   "city": "上海",
+   "date": "2023-12-31",
    "kind": "其他",
    "fetched_at": "2024-01-03",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1kp4y1R7mR",
@@ -74225,17 +74244,20 @@
    "bv": "BV1o7HNepE3L",
    "title": "王晰 《微醺23点08分》【肆益个人巡回音乐会北京站】",
    "song": "微醺23点08分",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "北京",
    "date": "2024-09-01",
    "kind": "其他",
    "fetched_at": "2024-09-01",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1EMYs6SEAW",
