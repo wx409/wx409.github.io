@@ -1,12 +1,12 @@
 {
- "timestamp": "2026-11-11 20:27",
- "last_update": "2026-11-11 20:27",
+ "timestamp": "2026-11-11 20:55",
+ "last_update": "2026-11-11 20:55",
  "date_range": "2023-01-01 ~ 2026-11-11",
  "total": 295218,
  "complete_rate": 19.8,
- "total_songs": 733,
- "active_songs": 384,
- "active_rate": 52.4,
+ "total_songs": 1067,
+ "active_songs": 532,
+ "active_rate": 49.9,
  "batch_count": 1288,
  "time_labels": [
   "2023-01",
@@ -182,30 +182,30 @@
   "2026-11"
  ],
  "listener_ratio_trend": [
-  41.4,
-  2.3,
-  8.4,
-  28.1,
+  35.3,
+  2.0,
+  7.3,
+  24.3,
+  22.7,
+  25.3,
+  20.4,
+  14.0,
+  17.6,
+  18.4,
+  17.0,
+  16.2,
+  13.4,
+  13.2,
+  12.0,
+  12.3,
+  12.2,
+  12.1,
+  11.2,
+  8.2,
   26.1,
-  28.7,
-  22.9,
-  15.8,
-  19.1,
-  19.6,
-  18.0,
-  16.4,
-  13.8,
-  13.9,
-  13.0,
-  13.0,
-  12.6,
-  12.4,
-  11.5,
-  9.5,
-  34.1,
-  34.6,
-  21.5,
-  4.0
+  26.4,
+  16.5,
+  3.2
  ],
  "top_songs": [
   {
@@ -267,147 +267,70 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 53.1,
-   "raw": 292.0,
-   "trend_pct": 5.8,
+   "share_pct": 55.1,
+   "raw": 562.0,
+   "trend_pct": 92.5,
    "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "山楂树",
-   "share_pct": 6.2,
-   "raw": 34.0,
-   "trend_pct": 25.9,
+   "song": "一生中最爱",
+   "share_pct": 11.3,
+   "raw": 115.0,
+   "trend_pct": 325.9,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "在路上",
-   "share_pct": 5.8,
-   "raw": 32.0,
-   "trend_pct": 33.3,
+   "song": "月弯弯",
+   "share_pct": 7.7,
+   "raw": 79.0,
+   "trend_pct": 216.0,
    "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "一生中最爱",
-   "share_pct": 4.9,
-   "raw": 27.0,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
+   "song": "滚滚长江东逝水",
+   "share_pct": 7.4,
+   "raw": 75.0,
+   "trend_pct": 275.0,
+   "trend_label": "up"
   },
   {
    "rank": 5,
-   "song": "谁",
-   "share_pct": 4.9,
-   "raw": 27.0,
-   "trend_pct": 8.0,
+   "song": "山楂树",
+   "share_pct": 7.1,
+   "raw": 72.0,
+   "trend_pct": 111.8,
    "trend_label": "up"
   },
   {
    "rank": 6,
-   "song": "月弯弯",
-   "share_pct": 4.5,
-   "raw": 25.0,
-   "trend_pct": -30.6,
-   "trend_label": "down"
+   "song": "在路上",
+   "share_pct": 5.6,
+   "raw": 57.0,
+   "trend_pct": 78.1,
+   "trend_label": "up"
   },
   {
    "rank": 7,
-   "song": "滚滚长江东逝水",
-   "share_pct": 3.6,
-   "raw": 20.0,
-   "trend_pct": 17.6,
+   "song": "谁",
+   "share_pct": 4.2,
+   "raw": 43.0,
+   "trend_pct": 59.3,
    "trend_label": "up"
   },
   {
    "rank": 8,
-   "song": "南屏晚钟",
-   "share_pct": 2.7,
-   "raw": 15.0,
-   "trend_pct": 50.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 9,
-   "song": "Sound of Silence",
-   "share_pct": 2.5,
-   "raw": 14.0,
-   "trend_pct": -17.6,
-   "trend_label": "down"
-  },
-  {
-   "rank": 10,
-   "song": "一生守候",
-   "share_pct": 2.4,
-   "raw": 13.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 11,
-   "song": "神魂颠倒",
-   "share_pct": 2.2,
-   "raw": 12.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 12,
-   "song": "她真漂亮",
-   "share_pct": 2.0,
-   "raw": 11.0,
-   "trend_pct": -47.6,
-   "trend_label": "down"
-  },
-  {
-   "rank": 13,
-   "song": "哭砂",
-   "share_pct": 2.0,
-   "raw": 11.0,
-   "trend_pct": 22.2,
-   "trend_label": "up"
-  },
-  {
-   "rank": 14,
-   "song": "亲密爱人",
-   "share_pct": 2.0,
-   "raw": 11.0,
-   "trend_pct": 0.0,
-   "trend_label": "flat"
-  },
-  {
-   "rank": 15,
    "song": "相思",
-   "share_pct": 1.1,
-   "raw": 6.0,
-   "trend_pct": -33.3,
-   "trend_label": "down"
+   "share_pct": 1.7,
+   "raw": 17.0,
+   "trend_pct": 183.3,
+   "trend_label": "up"
   }
  ],
- "daily_anomalies": [
-  {
-   "song": "谁",
-   "type": "🔥 指数突增",
-   "metric": "指数",
-   "change_pct": 0.313,
-   "desc": "指数较7日均值 +31.3%"
-  },
-  {
-   "song": "她真漂亮",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 4,347 位"
-  }
- ],
- "latest_anomaly": {
-  "song": "谁",
-  "type": "🔥 指数突增",
-  "metric": "指数",
-  "change_pct": 0.313,
-  "desc": "指数较7日均值 +31.3%"
- },
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   404.0,
   406.0
@@ -8784,12 +8707,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-11-04",
-   "avg_index": 373.8,
-   "total_songs": 600,
-   "complete": true
-  },
-  {
    "date": "2026-11-05",
    "avg_index": 391.6,
    "total_songs": 600,
@@ -8823,6 +8740,12 @@
    "date": "2026-11-10",
    "avg_index": 311.4,
    "total_songs": 610,
+   "complete": true
+  },
+  {
+   "date": "2026-11-11",
+   "avg_index": null,
+   "total_songs": 600,
    "complete": true
   }
  ],
