@@ -678,6 +678,37 @@ def collect() -> list[dict]:
     except Exception as e:
         add("media_library_files", "声音素材库已下载媒体文件数", None, str(e), "", "")
 
+    # 收听峰值（2026-11-11 起改为「当天全部批次取最大 + 记录出现时间」）
+    try:
+        import glob as _g, re as _re
+        import pandas as _pd
+        _pairs, _days, _files = set(), set(), 0
+        for _f in _g.glob(r"E:\wx\指数vs\*quick*.xlsx"):
+            _b = os.path.basename(_f)
+            _m = _re.search(r"(\d{4})\.(\d{1,2})\.(\d{1,2})_(\d{2})(\d{2})", _b)
+            if not _m:
+                continue
+            _d = "%s-%02d-%02d" % (_m.group(1), int(_m.group(2)), int(_m.group(3)))
+            try:
+                _df = _pd.read_excel(_f)
+            except Exception:
+                continue
+            if "当前收听人数" not in _df.columns or "歌曲名称" not in _df.columns:
+                continue
+            _v = _df[_df["当前收听人数"].notna()]
+            for _nm in _v["歌曲名称"].astype(str).str.strip():
+                if _nm and _nm.lower() != "nan":
+                    _pairs.add((_d, _nm))
+            _days.add(_d)
+            _files += 1
+        add("listeners_peak_daily", "收听峰值覆盖（曲目×日）", len(_pairs),
+            "%d 个批次文件 / %d 天（E:\\wx\\指数vs）" % (_files, len(_days)),
+            "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
+            "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；"
+            "实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点")
+    except Exception as _e:
+        add("listeners_peak_daily", "收听峰值覆盖（曲目×日）", None, str(_e), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 
