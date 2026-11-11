@@ -782,18 +782,18 @@ def load_all_history(dirs, use_cache=True):
     mid2name, name2mids = build_link_registry(df_all)
     df_all, name_map = assign_uids(df_all, mid2name, name2mids)
 
-    # 当日收听峰值(晚间口径)：当日存在 18:00 后(_seq>=1800)批次且该批有收听 -> 取其中最大收听；
-    # 当日无 18 点后批次 -> 退回当日有收听数据批次的收听峰值（供 compute_monthly「当月收听峰值 Top」用）
+    # 当日收听峰值：不再预设「18 点后」，改为比较当天全部批次，取最大值并记录出现在哪一批
     _eve_series = None
+    _eve_src = None
     if "listeners" in df_all.columns and "_seq" in df_all.columns and df_all["listeners"].notna().any():
         _t = df_all[df_all["listeners"].notna()].copy()
-        _t["_seq"] = _t["_seq"].fillna(0)
-        _e18 = _t[_t["_seq"] >= 1800].groupby(["uid", "data_date"])["listeners"].max()
-        _eda = _t.groupby(["uid", "data_date"])["listeners"].max()
-        _eve_series = pd.DataFrame({"_e18": _e18, "_eda": _eda})
-        _eve_series["_v"] = _eve_series["_e18"].where(_eve_series["_e18"] > 0, _eve_series["_eda"])
-        _eve_series = _eve_series["_v"].rename("listeners_eve")
-        logger.info(f"晚间收听峰值(listeners_eve)预计算: {len(_eve_series)} 条(18点后批次优先, 无则当日最大)")
+        _t["_seq"] = _t["_seq"].fillna(0).astype(int)
+        _g = _t.groupby(["uid", "data_date"])
+        _eve_series = _g["listeners"].max().rename("listeners_eve")
+        _ix = _g["listeners"].idxmax().dropna()
+        _eve_src = _t.loc[_ix].set_index(["uid", "data_date"])["_seq"].apply(
+            lambda v: ("%04d" % int(v)) if pd.notna(v) else "").rename("listeners_eve_src")
+        logger.info(f"收听峰值(listeners_eve)=当天全部批次最大: {len(_eve_series)} 条")
 
     # 同一首歌同一天：日内多批次按字段取最新有效值（解决 23:39/23:55 取舍，互相补全）
     # 向量化：按 _seq 排序后，每列取组内（uid, data_date）_seq 最大的有效值（原 groupby.agg 逐组 Python 调用，由分钟级降到秒级）
@@ -826,6 +826,8 @@ def load_all_history(dirs, use_cache=True):
     if _eve_series is not None:
         _eve_df = _eve_series.reset_index()
         _eve_df.columns = ["uid", "data_date", "listeners_eve"]
+        if _eve_src is not None:
+            _eve_df = _eve_df.merge(_eve_src.reset_index(), on=["uid", "data_date"], how="left")
         df_all = df_all.merge(_eve_df, on=["uid", "data_date"], how="left")
         logger.info(f"listeners_eve 已并入 df_all（当日18点后收听峰值，无则当日最大）")
 
@@ -1556,7 +1558,7 @@ def compute_monthly(df_all, month=None):
                days=当月「新上榜」事件次数（含回流段数）, chart_days=当月有指数天数（回流日也计入）,
                peak_index=当月最高指数）
     top_index: 当月日均指数 Top15（current_index 均值，指数口径）
-    top_listeners: 当月收听峰值 Top15（listeners_eve 口径：每日峰值取 18 点后批次收听，无则当日有收听的最大值）"""
+    top_listeners: 当月收听峰值 Top15（listeners_eve 口径：每日峰值取当天全部批次的最大值，并记录峰值出现时间）"""
     if df_all is None or df_all.empty:
         return None
     df = df_all.copy()
@@ -1638,10 +1640,22 @@ def compute_monthly(df_all, month=None):
     lpk_col = "listeners_eve" if "listeners_eve" in mdf.columns else ("listeners" if "listeners" in mdf.columns else None)
     top_lp = []
     if lpk_col:
-        lpk = mdf.groupby("uid")[lpk_col].max().reset_index()
+        _ix = mdf.groupby("uid")[lpk_col].idxmax().dropna()
+        _cols = ["uid", lpk_col] + [c for c in ("listeners_eve_src", "data_date") if c in mdf.columns]
+        lpk = mdf.loc[_ix, _cols].copy() if len(_ix) else mdf.iloc[0:0][_cols]
         lpk = lpk[lpk[lpk_col] > 0].sort_values(lpk_col, ascending=False).head(15)
-        top_lp = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "peak": int(r[lpk_col])}
-                  for _, r in lpk.iterrows()]
+        for _, r in lpk.iterrows():
+            _day = (str(r.get("data_date"))[:10] if pd.notna(r.get("data_date")) else "")
+            _src = r.get("listeners_eve_src")
+            _hhmm = ""
+            if pd.notna(_src) and str(_src).strip().isdigit():
+                _s4 = str(_src).zfill(4)
+                _hhmm = "%s:%s" % (_s4[:2], _s4[2:])
+            top_lp.append({
+                "song": str(uid2disp.get(r["uid"], r["uid"])),
+                "peak": int(r[lpk_col]),
+                "peak_at": (("%s %s" % (_day, _hhmm)).strip() if _day or _hhmm else None),
+            })
     return {"month": m, "new_songs": new_songs, "top_index": top_idx, "top_listeners": top_lp}
 
 
