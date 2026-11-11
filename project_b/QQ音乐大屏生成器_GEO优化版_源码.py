@@ -784,33 +784,16 @@ def load_all_history(dirs, use_cache=True):
 
     # 当日收听峰值(晚间口径)：当日存在 18:00 后(_seq>=1800)批次且该批有收听 -> 取其中最大收听；
     # 当日无 18 点后批次 -> 退回当日有收听数据批次的收听峰值（供 compute_monthly「当月收听峰值 Top」用）
-    _eve_df = None
+    _eve_series = None
     if "listeners" in df_all.columns and "_seq" in df_all.columns and df_all["listeners"].notna().any():
         _t = df_all[df_all["listeners"].notna()].copy()
-        _t["_seq"] = _t["_seq"].fillna(0).astype(int)
-        _eve = _t[_t["_seq"] >= 1800]
-        _g = _eve.groupby(["uid", "data_date"])
-        _e18 = _g["listeners"].max().rename("_e18")
-        _n18 = _g.size().rename("_n18")
-        if len(_eve):
-            _src = _eve.loc[_g["listeners"].idxmax()].set_index(["uid", "data_date"])["_seq"].rename("_src")
-        else:
-            _src = pd.Series(dtype=float, name="_src")
-        _eda = _t.groupby(["uid", "data_date"])["listeners"].max().rename("_eda")
-        _dft = pd.concat([_e18, _eda], axis=1)
-        _dft["_n18"] = _n18.reindex(_dft.index).fillna(0).astype(int)
-        _dft["_src"] = _src.reindex(_dft.index)
-        _dft["listeners_eve"] = _dft["_e18"].where(_dft["_e18"] > 0, _dft["_eda"])
-        # 质量：18 点后样本 >=3 → ok；1–2 → low；0 → fallback（用白天数据兜底，页面必须标出来）
-        _dft["listeners_eve_quality"] = np.select(
-            [_dft["_n18"] >= 3, _dft["_n18"] >= 1], ["ok", "low"], default="fallback")
-        _dft["listeners_eve_n"] = _dft["_n18"].astype(int)
-        _dft["listeners_eve_src"] = _dft["_src"].apply(
-            lambda v: ("%04d" % int(v)) if pd.notna(v) else "")
-        _eve_df = _dft[["listeners_eve", "listeners_eve_n",
-                        "listeners_eve_quality", "listeners_eve_src"]].reset_index()
-        _qc = _dft["listeners_eve_quality"].value_counts().to_dict()
-        logger.info(f"晚间收听峰值(listeners_eve): {len(_dft)} 条 | 质量分布 {_qc}")
+        _t["_seq"] = _t["_seq"].fillna(0)
+        _e18 = _t[_t["_seq"] >= 1800].groupby(["uid", "data_date"])["listeners"].max()
+        _eda = _t.groupby(["uid", "data_date"])["listeners"].max()
+        _eve_series = pd.DataFrame({"_e18": _e18, "_eda": _eda})
+        _eve_series["_v"] = _eve_series["_e18"].where(_eve_series["_e18"] > 0, _eve_series["_eda"])
+        _eve_series = _eve_series["_v"].rename("listeners_eve")
+        logger.info(f"晚间收听峰值(listeners_eve)预计算: {len(_eve_series)} 条(18点后批次优先, 无则当日最大)")
 
     # 同一首歌同一天：日内多批次按字段取最新有效值（解决 23:39/23:55 取舍，互相补全）
     # 向量化：按 _seq 排序后，每列取组内（uid, data_date）_seq 最大的有效值（原 groupby.agg 逐组 Python 调用，由分钟级降到秒级）
@@ -840,9 +823,11 @@ def load_all_history(dirs, use_cache=True):
     logger.info(f"日内多批次合并: {before} -> {after} 行（按字段取最新有效值，前批次补全后批次缺失）")
     LINEAGE["intraday_merged"] = {"before": int(before), "after": int(after)}
 
-    if _eve_df is not None:
+    if _eve_series is not None:
+        _eve_df = _eve_series.reset_index()
+        _eve_df.columns = ["uid", "data_date", "listeners_eve"]
         df_all = df_all.merge(_eve_df, on=["uid", "data_date"], how="left")
-        logger.info("listeners_eve 已并入 df_all（含样本数/质量/来源批次；fallback=无18点后批次）")
+        logger.info(f"listeners_eve 已并入 df_all（当日18点后收听峰值，无则当日最大）")
 
     # 校验：display_name 不应泄漏 uid 格式（L:/N:）
     leak = int(df_all["display_name"].astype(str).str.match(r"^[LN]:[A-Za-z0-9]+$").sum())
@@ -1653,22 +1638,10 @@ def compute_monthly(df_all, month=None):
     lpk_col = "listeners_eve" if "listeners_eve" in mdf.columns else ("listeners" if "listeners" in mdf.columns else None)
     top_lp = []
     if lpk_col:
-        _ix = mdf.groupby("uid")[lpk_col].idxmax().dropna()
-        _cols = ["uid", lpk_col] + [c for c in ("listeners_eve_n", "listeners_eve_quality",
-                                                "listeners_eve_src", "data_date") if c in mdf.columns]
-        lpk = mdf.loc[_ix, _cols].copy() if len(_ix) else mdf.iloc[0:0][_cols]
+        lpk = mdf.groupby("uid")[lpk_col].max().reset_index()
         lpk = lpk[lpk[lpk_col] > 0].sort_values(lpk_col, ascending=False).head(15)
-        for _, r in lpk.iterrows():
-            _q = r.get("listeners_eve_quality")
-            _n = r.get("listeners_eve_n")
-            top_lp.append({
-                "song": str(uid2disp.get(r["uid"], r["uid"])),
-                "peak": int(r[lpk_col]),
-                "samples": (int(_n) if pd.notna(_n) else None),
-                "quality": (str(_q) if pd.notna(_q) else None),
-                "peak_batch": (str(r.get("listeners_eve_src")) if pd.notna(r.get("listeners_eve_src")) else None),
-                "peak_date": (str(r.get("data_date"))[:10] if pd.notna(r.get("data_date")) else None),
-            })
+        top_lp = [{"song": str(uid2disp.get(r["uid"], r["uid"])), "peak": int(r[lpk_col])}
+                  for _, r in lpk.iterrows()]
     return {"month": m, "new_songs": new_songs, "top_index": top_idx, "top_listeners": top_lp}
 
 
