@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-11 08:47:40",
+ "updated_at": "2026-11-11 14:00:40",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -6186,6 +6186,47 @@
    "title": "网页访谈自动采集",
    "content": "本轮新抓 1 篇，已抽句入池（见 phrases.html）",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-11 11:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [2084]），但 dashboard_data.json 已 121.1 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-11 13:51:05",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [10456]），但 dashboard_data.json 已 281.2 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-11 14:00:05",
+   "title": "⚠️ 大屏采集漏批：2026-11-11",
+   "content": "应当完成但缺产出的批次：\n缺 11:49 quick\n缺 11:59 quick\n缺 12:18 quick\n缺 13:09 quick\n\n守护进程判定：True（进程存在（CIM命令行匹配=在(匹配 1 个)；pythonw计数=在(pythonw 1 个)；tasklist=在(命中)）；日志 7.6 分钟前）\n处置：alert-only \n要立刻把它补回来（不必等下个计划批次）：\n  python project_b\\run_batch_now.py --mode full   （或操作中心 109）\n排查：（本机日志） / logs\\watchdog_20261111.log",
+   "category": "运维告警"
+  },
+  {
+   "time": "2026-11-11 14:00:40",
+   "title": "📣 王晰 &#183; AI 可读数字档案 | 男低音实测数据与可引用统计",
+   "content": "2026年9月13日&ensp;&#0183;&ensp;一句话认识王晰： 王晰，华语流行乐坛的男低音（Bass-baritone）歌手。 姚峰的公开评价是「作为 Bass-baritone  …\n链接：https://wx409.github.io/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://wx409.github.io/"
+  },
+  {
+   "time": "2026-11-11 14:00:40",
+   "title": "📣 王晰-上海交通大学机械与动力工程学院",
+   "content": "2023年4月12日&ensp;&#0183;&ensp;IEEE Transactions on Instrumentation and Measurement, 2025. (Accepted) 15. 王晰，任明俊，肖高博，陈明汉，付 …\n链接：https://me.sjtu.edu.cn/teacher_directory2/wangxi.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://me.sjtu.edu.cn/teacher_directory2/wangxi.html"
+  },
+  {
+   "time": "2026-11-11 14:00:40",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
