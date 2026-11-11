@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-11T21:09:16",
+ "generated_at": "2026-11-12T00:16:24",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 861,
-  "processed_songs": 265,
-  "gap_songs": 78,
-  "coverage_pct": 100.0,
+  "processed_materials": 867,
+  "processed_songs": 266,
+  "gap_songs": 77,
+  "coverage_pct": 100.4,
   "status": {
-   "已完成": 336,
-   "候选": 8586,
+   "已完成": 342,
+   "候选": 8580,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -23,7 +23,6 @@
   "Nature Boy",
   "S'Wonderful",
   "一江水",
-  "下沉",
   "东方之珠",
   "两只老虎",
   "乌兰巴托的夜晚",
@@ -96539,17 +96538,20 @@
    "bv": "BV1Bh411X7ps",
    "title": "王晰又是现场修音响的王牌就是我怎么可以唱的这么好看不是是怎么能长得这么好听唱歌的时候您就是我的王跟着晰晰不疯狂不对味",
    "song": "王牌就是我",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-09-21",
    "kind": "其他",
    "fetched_at": "2020-09-21",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Cv411n77a",
@@ -101737,17 +101739,20 @@
    "bv": "BV1nE411e73T",
    "title": "《Come to Me》【首唱】【4K字幕】【王晰】【保利Art音乐节in西安】【20191108】",
    "song": "Come to Me",
-   "tour": "",
-   "city": "",
-   "date": "2019-11-12",
+   "tour": "其他演出",
+   "city": "西安",
+   "date": "2019-11-08",
    "kind": "4K字幕",
    "fetched_at": "2019-11-12",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV14J411W74i",
@@ -103164,17 +103169,20 @@
    "bv": "BV1f4411d7K4",
    "title": "现场改歌单可还行我可真是太难了的下沉哈哈哈哈哈哈by王晰",
    "song": "下沉",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-08-18",
    "kind": "其他",
    "fetched_at": "2019-08-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Lt411u7nf",
@@ -106351,17 +106359,20 @@
    "bv": "BV1HE41197AK",
    "title": "【王晰】《亲爱的中国，我的爱》4K高清FOCUS--深圳爱我中华文艺晚会20190929",
    "song": "亲爱的中国，我的爱",
-   "tour": "",
-   "city": "",
-   "date": "2019-10-02",
+   "tour": "其他演出",
+   "city": "深圳",
+   "date": "2019-09-29",
    "kind": "4K字幕",
    "fetched_at": "2019-10-02",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1LP8fzSEw5",
@@ -115022,17 +115033,19 @@
    "bv": "BV165ouYCEyu",
    "title": "有生之年也是又一次听到王晰现场唱《女儿情》了呜呜呜混合着风声真是太美妙了【艺尚音乐节点歌part 20250413】",
    "song": "女儿情",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
-   "date": "2025-04-17",
+   "date": "2025-04-13",
    "kind": "其他",
    "fetched_at": "2025-04-17",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Tt411w7td",
@@ -122361,17 +122374,19 @@
    "bv": "BV14J411S76G",
    "title": "《慢慢喜欢你》【4K超清字幕】【王晰Focus】【保利Art音乐节in西安】【20191108】",
    "song": "慢慢喜欢你",
-   "tour": "",
-   "city": "",
-   "date": "2019-11-13",
+   "tour": "其他演出",
+   "city": "西安",
+   "date": "2019-11-08",
    "kind": "4K字幕",
    "fetched_at": "2019-11-13",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Zb411G7EY",
