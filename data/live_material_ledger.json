@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-12T21:08:13",
+ "generated_at": "2026-11-13T00:16:40",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 867,
-  "processed_songs": 266,
-  "gap_songs": 77,
-  "coverage_pct": 100.4,
+  "processed_materials": 873,
+  "processed_songs": 267,
+  "gap_songs": 76,
+  "coverage_pct": 100.8,
   "status": {
-   "已完成": 342,
-   "候选": 8580,
+   "已完成": 348,
+   "候选": 8574,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -43,7 +43,6 @@
   "叶塞尼亚",
   "嘴巴嘟嘟",
   "在梵高的星空下",
-  "夜半歌声",
   "夜来香",
   "大地飞歌",
   "大海啊故乡",
@@ -92522,17 +92521,20 @@
    "bv": "BV1kx411o74d",
    "title": "【贾凡&amp;王晰】《女人花（Live）》蓝巡深圳场调色字幕版",
    "song": "女人花",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "深圳",
    "date": "2019-06-24",
    "kind": "4K字幕",
    "fetched_at": "2019-06-24",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ex41197c4",
@@ -106343,17 +106345,20 @@
    "bv": "BV16E411X785",
    "title": "【单曲】王晰 | 亲爱的中国,我的爱 Live 双语字幕",
    "song": "亲爱的中国，我的爱",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-10-01",
    "kind": "4K字幕",
    "fetched_at": "2019-10-01",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1HE41197AK",
@@ -106378,17 +106383,20 @@
    "bv": "BV1LP8fzSEw5",
    "title": "王晰《亲爱的中国我的爱》福州百年风华 【4k】20210705",
    "song": "亲爱的中国，我的爱",
-   "tour": "",
-   "city": "",
-   "date": "2025-07-30",
+   "tour": "其他演出",
+   "city": "福州",
+   "date": "2021-07-05",
    "kind": "其他",
    "fetched_at": "2025-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1E4411a7iT",
@@ -114233,17 +114241,20 @@
    "bv": "BV1tJ411P7pp",
    "title": "王晰 夜半歌声 这个低音清唱真的太sha了",
    "song": "夜半歌声",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-09-12",
    "kind": "其他",
    "fetched_at": "2019-09-12",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1cT4y1e75u",
@@ -115051,17 +115062,20 @@
    "bv": "BV1Tt411w7td",
    "title": "王晰 女儿情 清唱 南京场",
    "song": "女儿情",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南京",
    "date": "2019-07-31",
    "kind": "其他",
    "fetched_at": "2019-07-31",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ft411w7fq",
@@ -135454,17 +135468,20 @@
    "bv": "BV157411T7cB",
    "title": "王晰是不是以为这样就能帮我们成功脱敏听谁不哭吗哈哈哈您想多了",
    "song": "谁",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-02-25",
    "kind": "其他",
    "fetched_at": "2020-02-25",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1YB4y1N79w",

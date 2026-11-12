@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-11-12T21:08:13",
-  "rows": 867,
+  "generated_at": "2026-11-13T00:16:41",
+  "rows": 873,
   "levels": {
    "L1": 413,
    "L6": 26,
-   "L3": 54,
-   "未认领": 371,
+   "L3": 55,
+   "未认领": 376,
    "L4": 2,
    "L2": 1
   },
@@ -44,8 +44,8 @@
    "claimable": 2
   },
   "2019-07-28": {
-   "n": 6,
-   "claimable": 6
+   "n": 7,
+   "claimable": 7
   },
   "2019-06-07": {
    "n": 2,
@@ -5682,6 +5682,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "未知20200225_BV157411T7cB",
+   "song": "谁",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-02-25",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "二巡上海2021_全程_p10_后会无期3.7手机渣画质",
    "song": "后会无期3.7手机渣画质",
    "tour": "其他演出",
@@ -5836,6 +5848,18 @@
    "show_date": "2021-11-27",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "未知20190912_BV1tJ411P7pp",
+   "song": "夜半歌声",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-09-12",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
   },
   {
    "tag": "一巡深圳__BV1LJ411K78S_p1",
@@ -7506,6 +7530,18 @@
    "why": ""
   },
   {
+   "tag": "深圳20190624_BV1kx411o74d",
+   "song": "女人花",
+   "tour": "其他演出",
+   "city": "深圳",
+   "date": "2019-06-24",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20201127_BV1nZ4y1G7Zq",
    "song": "像雾像雨又像风",
    "tour": "其他演出",
@@ -8862,6 +8898,18 @@
    "why": ""
   },
   {
+   "tag": "未知20191001_BV16E411X785",
+   "song": "亲爱的中国，我的爱",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-10-01",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "三亚20230225_BV1UX4y197Lu",
    "song": "晚风",
    "tour": "其他演出",
@@ -9085,6 +9133,18 @@
    "date": "",
    "review_status": "人耳确认",
    "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "福州20210705_BV1LP8fzSEw5",
+   "song": "亲爱的中国，我的爱",
+   "tour": "其他演出",
+   "city": "福州",
+   "date": "2021-07-05",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
    "show_date": null,
    "level": 0,
    "why": ""
@@ -9962,6 +10022,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2023-05-01",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "南京20190731_BV1Tt411w7td",
+   "song": "女儿情",
+   "tour": "其他演出",
+   "city": "南京",
+   "date": "2019-07-31",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-07-28",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
   },

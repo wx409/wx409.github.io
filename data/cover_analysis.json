@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-12T21:08:30",
+ "generated_at": "2026-11-13T00:17:04",
  "stat": {
-  "generated_at": "2026-11-12T21:08:29",
+  "generated_at": "2026-11-13T00:17:02",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 47,
+  "songs_with_3plus": 49,
   "rows": [
    {
     "song": "佛山全场",
@@ -346,6 +346,15 @@
     "low_cv": 0.0031
    },
    {
+    "song": "亲爱的中国，我的爱",
+    "versions": 4,
+    "low_median": 92.2,
+    "low_iqr": 7.0,
+    "low_range": 19.9,
+    "high_median": 702.2,
+    "low_cv": 0.0836
+   },
+   {
     "song": "友谊地久天长",
     "versions": 4,
     "low_median": 105.4,
@@ -515,24 +524,15 @@
     "low_range": 47.0,
     "high_median": 853.4,
     "low_cv": 0.2246
-   },
-   {
-    "song": "Love Me Tender",
-    "versions": 3,
-    "low_median": 104.3,
-    "low_iqr": 15.3,
-    "low_range": 30.7,
-    "high_median": 467.6,
-    "low_cv": 0.1517
    }
   ],
   "low_cv_median": 0.1232,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 85.3,
-  "cover_live_low_median": 92.7,
-  "own_n": 44,
+  "own_live_low_median": 84.9,
+  "cover_live_low_median": 93.3,
+  "own_n": 45,
   "cover_n": 223,
   "female_origin_covers": {
    "橄榄树": {
