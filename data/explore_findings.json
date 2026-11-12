@@ -47,12 +47,12 @@
    "question": "他给自己的歌 vs 别人的歌，现场唱得更低吗？",
    "finding": "自有曲现场最低音中位略低于翻唱曲（方向一致，但样本不对称，仅作倾向）",
    "numbers": {
-    "自有": 87.6,
-    "自有n": 43,
-    "翻唱": 92.4,
+    "自有": 85.3,
+    "自有n": 44,
+    "翻唱": 92.7,
     "翻唱n": 223
    },
-   "n": 266,
+   "n": 267,
    "caliber": "现场层最低音中位",
    "confidence": "B 中"
   },
@@ -175,21 +175,21 @@
   {
    "cat": "方法·材料",
    "question": "这份档案的素材基础有多大、从哪来？",
-   "finding": "382 个采集批次、2705 个音频文件、83.8 GB、1501 个逐曲分析产物",
+   "finding": "384 个采集批次、2717 个音频文件、84.06 GB、1507 个逐曲分析产物",
    "numbers": {
-    "generated_at": "2026-11-11T21:09:32",
-    "since": "2026-11-11",
-    "batches": 382,
-    "files": 2705,
-    "gb": 83.8,
+    "generated_at": "2026-11-12T00:16:42",
+    "since": "2026-11-12",
+    "batches": 384,
+    "files": 2717,
+    "gb": 84.06,
     "new_files": 0,
     "new_mb": 0.0,
-    "stats_total": 1501,
-    "stage_rows": 861,
-    "claimable": 694,
-    "claimable_soft": 347
+    "stats_total": 1507,
+    "stage_rows": 867,
+    "claimable": 697,
+    "claimable_soft": 349
    },
-   "n": 2705,
+   "n": 2717,
    "caliber": "本地资产盘点（不含二次分发）",
    "confidence": "A 高"
   },
@@ -237,7 +237,7 @@
    "question": "他唱过多少首歌、巡演覆盖如何",
    "finding": "选曲 None 首；场次覆盖：有素材 64/64、已定位 60、站点层 60",
    "numbers": {
-    "generated_at": "2026-11-12T00:16:26",
+    "generated_at": "2026-11-12T09:08:27",
     "shows_total": 64,
     "covered": 64,
     "missing": 0,
@@ -246,7 +246,7 @@
     "L3_中": 0,
     "L4_弱": 4,
     "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-    "files_scanned": 8217,
+    "files_scanned": 8216,
     "measured_shows_site": 60,
     "shows_with_claimable_site": 60,
     "bv_mapped": 176
