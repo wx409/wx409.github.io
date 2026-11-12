@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-11-12 23:16",
- "last_update": "2026-11-12 23:16",
+ "timestamp": "2026-11-12 23:56",
+ "last_update": "2026-11-12 23:56",
  "date_range": "2023-01-01 ~ 2026-11-12",
  "total": 295818,
  "complete_rate": 19.8,
@@ -228,13 +228,13 @@
   },
   {
    "name": "谁",
-   "trend": -47.9,
+   "trend": -47.8,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "她真漂亮",
-   "trend": -36.5,
+   "trend": -36.4,
    "score": 25,
    "tag": "上涨"
   },
@@ -255,105 +255,105 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 51.4,
-   "raw": 336.0,
-   "trend_pct": 20.9,
-   "trend_label": "up"
+   "share_pct": 48.5,
+   "raw": 271.0,
+   "trend_pct": -2.5,
+   "trend_label": "flat"
   },
   {
    "rank": 2,
-   "song": "一生中最爱",
-   "share_pct": 8.1,
-   "raw": 53.0,
-   "trend_pct": 47.2,
+   "song": "滚滚长江东逝水",
+   "share_pct": 6.3,
+   "raw": 35.0,
+   "trend_pct": 45.8,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "月弯弯",
-   "share_pct": 6.9,
-   "raw": 45.0,
-   "trend_pct": 60.7,
-   "trend_label": "up"
+   "song": "一生中最爱",
+   "share_pct": 6.1,
+   "raw": 34.0,
+   "trend_pct": -5.6,
+   "trend_label": "down"
   },
   {
    "rank": 4,
-   "song": "滚滚长江东逝水",
-   "share_pct": 5.5,
-   "raw": 36.0,
-   "trend_pct": 50.0,
+   "song": "在路上",
+   "share_pct": 6.1,
+   "raw": 34.0,
+   "trend_pct": 70.0,
    "trend_label": "up"
   },
   {
    "rank": 5,
-   "song": "山楂树",
-   "share_pct": 4.7,
+   "song": "月弯弯",
+   "share_pct": 5.5,
    "raw": 31.0,
-   "trend_pct": 34.8,
+   "trend_pct": 10.7,
    "trend_label": "up"
   },
   {
    "rank": 6,
+   "song": "她真漂亮",
+   "share_pct": 5.2,
+   "raw": 29.0,
+   "trend_pct": null,
+   "trend_label": "new"
+  },
+  {
+   "rank": 7,
    "song": "谁",
-   "share_pct": 4.1,
+   "share_pct": 4.8,
    "raw": 27.0,
    "trend_pct": 22.7,
    "trend_label": "up"
   },
   {
-   "rank": 7,
-   "song": "她真漂亮",
-   "share_pct": 4.0,
-   "raw": 26.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
    "rank": 8,
-   "song": "Sound of Silence",
-   "share_pct": 3.8,
-   "raw": 25.0,
-   "trend_pct": 47.1,
-   "trend_label": "up"
+   "song": "山楂树",
+   "share_pct": 3.9,
+   "raw": 22.0,
+   "trend_pct": -4.3,
+   "trend_label": "flat"
   },
   {
    "rank": 9,
-   "song": "在路上",
-   "share_pct": 3.7,
-   "raw": 24.0,
-   "trend_pct": 20.0,
+   "song": "哭砂",
+   "share_pct": 3.8,
+   "raw": 21.0,
+   "trend_pct": 110.0,
    "trend_label": "up"
   },
   {
    "rank": 10,
-   "song": "神魂颠倒",
-   "share_pct": 2.6,
-   "raw": 17.0,
-   "trend_pct": 6.2,
+   "song": "Sound of Silence",
+   "share_pct": 3.4,
+   "raw": 19.0,
+   "trend_pct": 11.8,
    "trend_label": "up"
   },
   {
    "rank": 11,
-   "song": "哭砂",
-   "share_pct": 2.3,
-   "raw": 15.0,
-   "trend_pct": 50.0,
-   "trend_label": "up"
-  },
-  {
-   "rank": 12,
    "song": "南屏晚钟",
-   "share_pct": 2.1,
-   "raw": 14.0,
+   "share_pct": 2.7,
+   "raw": 15.0,
    "trend_pct": null,
    "trend_label": "new"
   },
   {
-   "rank": 13,
+   "rank": 12,
    "song": "相思",
-   "share_pct": 0.8,
-   "raw": 5.0,
-   "trend_pct": -37.5,
+   "share_pct": 2.5,
+   "raw": 14.0,
+   "trend_pct": 75.0,
+   "trend_label": "up"
+  },
+  {
+   "rank": 13,
+   "song": "神魂颠倒",
+   "share_pct": 1.3,
+   "raw": 7.0,
+   "trend_pct": -56.2,
    "trend_label": "down"
   }
  ],
@@ -362,23 +362,30 @@
    "song": "在路上",
    "type": "🔥 指数突增",
    "metric": "指数",
-   "change_pct": 0.864,
-   "desc": "指数较7日均值 +86.4%"
+   "change_pct": 0.889,
+   "desc": "指数较7日均值 +88.9%"
   },
   {
    "song": "神魂颠倒",
    "type": "📈 排名飙升",
    "metric": "排名",
    "change_pct": null,
-   "desc": "排名较昨日上升 3,458 位"
+   "desc": "排名较昨日上升 4,140 位"
+  },
+  {
+   "song": "哭砂",
+   "type": "📈 排名飙升",
+   "metric": "排名",
+   "change_pct": null,
+   "desc": "排名较昨日上升 3,461 位"
   }
  ],
  "latest_anomaly": {
   "song": "在路上",
   "type": "🔥 指数突增",
   "metric": "指数",
-  "change_pct": 0.864,
-  "desc": "指数较7日均值 +86.4%"
+  "change_pct": 0.889,
+  "desc": "指数较7日均值 +88.9%"
  },
  "weekend_workday": [
   404.0,
@@ -8612,8 +8619,8 @@
     {
      "name": "黎明前的黑暗",
      "value": [
-      175.4,
-      45.38,
+      182.2,
+      45.4,
       10.6,
       "经典沉淀期"
      ],
@@ -8622,7 +8629,7 @@
     {
      "name": "山楂树",
      "value": [
-      1109.2,
+      1179.1,
       6.02,
       18.3,
       "上升期"
@@ -8632,7 +8639,7 @@
     {
      "name": "一生中最爱",
      "value": [
-      1965.2,
+      2017.4,
       4.74,
       5.7,
       "上升期"
@@ -8642,9 +8649,9 @@
     {
      "name": "滚滚长江东逝水",
      "value": [
-      2195.7,
-      4.6,
-      94.8,
+      2254.8,
+      4.59,
+      94.9,
       "经典沉淀期"
      ],
      "uid": "L:002UOJKJ1hHHPB"
@@ -8652,8 +8659,8 @@
     {
      "name": "月弯弯",
      "value": [
-      651.1,
-      3.68,
+      767.5,
+      3.69,
       11.5,
       "经典沉淀期"
      ],
@@ -8662,8 +8669,8 @@
     {
      "name": "Sound of Silence",
      "value": [
-      1358.5,
-      3.25,
+      1577.1,
+      3.26,
       1.6,
       "经典沉淀期"
      ],
@@ -8672,7 +8679,7 @@
     {
      "name": "在路上",
      "value": [
-      -691.7,
+      -525.3,
       3.24,
       18.8,
       "上升期"
@@ -8683,7 +8690,7 @@
      "name": "南屏晚钟",
      "value": [
       2338.4,
-      2.94,
+      2.93,
       19.4,
       "经典沉淀期"
      ],
@@ -8692,7 +8699,7 @@
     {
      "name": "哭砂",
      "value": [
-      579.6,
+      800.5,
       2.49,
       12.2,
       "经典沉淀期"
@@ -8702,8 +8709,8 @@
     {
      "name": "谁",
      "value": [
-      2232.9,
-      2.31,
+      2377.9,
+      2.32,
       11.5,
       "上升期"
      ],
@@ -8712,7 +8719,7 @@
     {
      "name": "相思",
      "value": [
-      1521.7,
+      1885.2,
       2.29,
       19.3,
       "上升期"
@@ -8722,7 +8729,7 @@
     {
      "name": "她真漂亮",
      "value": [
-      528.2,
+      756.7,
       2.24,
       4.5,
       "上升期"
@@ -8742,7 +8749,7 @@
     {
      "name": "神魂颠倒",
      "value": [
-      353.8,
+      451.3,
       2.07,
       8.8,
       "上升期"
@@ -8793,7 +8800,7 @@
   },
   {
    "date": "2026-11-12",
-   "avg_index": 350.2,
+   "avg_index": 358.3,
    "total_songs": 600,
    "complete": true
   }
