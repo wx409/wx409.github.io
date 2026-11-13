@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-11-13 20:08",
+ "generated_at": "2026-11-13 21:10",
  "count": 76,
  "calibers": [
   {
    "id": "tracked_songs",
    "label": "追踪曲目池",
-   "value": 1067,
+   "value": 733,
    "scope": "主动追踪并采集指数的曲目清单（池内）",
    "source": "dashboard/dashboard_data.json",
    "note": "站内绝大多数'热度'结论的样本范围；池逐年缩小，跨年比较须注意"
@@ -29,7 +29,7 @@
   {
    "id": "tracked_links",
    "label": "追踪链接数",
-   "value": 10670,
+   "value": 733,
    "scope": "同一首歌的多个平台链接（一首歌可有多条链接）",
    "source": "dashboard/dashboard_data.json",
    "note": "与曲目数不同：链接是采集单位，曲目是分析单位"
@@ -261,10 +261,10 @@
   {
    "id": "index_days",
    "label": "指数数据覆盖天数",
-   "value": 1348,
+   "value": 1349,
    "scope": "站点图表所用指数长表的实际覆盖天数",
    "source": "（文本挖掘产物目录）\\music_index_long.csv",
-   "note": "已发布长表唯一日期；2022-12-31 至 2026-11-12；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+   "note": "已发布长表唯一日期；2022-12-31 至 2026-11-13；原始库文件覆盖 1271 天（少算补充来源 11 天）"
   },
   {
    "id": "pairing_full_56",
@@ -605,8 +605,8 @@
   {
    "id": "listeners_peak_daily",
    "label": "收听峰值覆盖（曲目×日）",
-   "value": 1698,
-   "scope": "1586 个批次文件 / 109 天（（本机 E 盘）指数vs）",
+   "value": 1700,
+   "scope": "1588 个批次文件 / 109 天（（本机 E 盘）指数vs）",
    "source": "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
    "note": "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点"
   }
