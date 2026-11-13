@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-13T21:28:37",
+ "generated_at": "2026-11-14T00:16:08",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 873,
-  "processed_songs": 267,
-  "gap_songs": 76,
-  "coverage_pct": 100.8,
+  "processed_materials": 879,
+  "processed_songs": 271,
+  "gap_songs": 72,
+  "coverage_pct": 102.3,
   "status": {
-   "已完成": 348,
-   "候选": 8574,
+   "已完成": 354,
+   "候选": 8568,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -36,7 +36,6 @@
   "你的眼神",
   "你眼里的星光",
   "偿还",
-  "军港之夜",
   "冬天里的一把火",
   "凡人歌",
   "千言万语",
@@ -57,7 +56,6 @@
   "恭喜发财",
   "恰似你的温柔",
   "恼人的秋风",
-  "情人",
   "我",
   "我不再爱你",
   "我只在乎你",
@@ -89,8 +87,6 @@
   "路过人间",
   "迷迭香",
   "邂逅回忆",
-  "那些花儿",
-  "青藏高原",
   "饮酒歌",
   "鸿雁"
  ],
@@ -109672,17 +109668,20 @@
    "bv": "BV14E411c77x",
    "title": "王晰唱着唱着忽然凶巴巴狐狸毛都炸到尾巴根儿的你不要担心",
    "song": "你不要担心",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-03-23",
    "kind": "其他",
    "fetched_at": "2020-03-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1X4411K7Eu",
@@ -110731,17 +110730,20 @@
    "bv": "BV1Tb411C73G",
    "title": "【王晰】演绎六个版本的《军港之夜》",
    "song": "军港之夜",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-02-02",
    "kind": "其他",
    "fetched_at": "2019-02-02",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1bE411o7S9",
@@ -122132,17 +122134,19 @@
    "bv": "BV1bs41197HB",
    "title": "【王晰 姚贝娜】情人的眼泪 Live（20110901第8届金钟奖流行音乐大赛男子组晋级赛）",
    "song": "情人",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
-   "date": "2016-02-22",
+   "date": "2011-09-01",
    "kind": "其他",
    "fetched_at": "2016-02-22",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1XJ411Q7Rw",
@@ -133302,17 +133306,20 @@
    "bv": "BV1QJ411q78y",
    "title": "王晰 在我心上开了一枪大佬版的花样年华",
    "song": "花样年华",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-04",
    "kind": "其他",
    "fetched_at": "2019-12-04",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1cJ411q7Tv",
@@ -136721,17 +136728,20 @@
    "bv": "BV1Zt411F7BV",
    "title": "王晰 那些花儿 清唱",
    "song": "那些花儿",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-07-30",
    "kind": "其他",
    "fetched_at": "2019-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV14s411z7Lt",
@@ -140213,17 +140223,20 @@
    "bv": "BV1zt4y1q7MH",
    "title": "我延迟尖叫王晰的史上最低青藏高原太太太强了我觉得我的夸奖能力需要去清北进修才能配的上我们晰晰的业务能力啊啊啊",
    "song": "青藏高原",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-09-19",
    "kind": "其他",
    "fetched_at": "2020-09-19",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1EJ411x71V",

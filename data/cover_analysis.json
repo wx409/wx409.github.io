@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-13T21:28:54",
+ "generated_at": "2026-11-14T00:16:25",
  "stat": {
-  "generated_at": "2026-11-13T21:28:54",
+  "generated_at": "2026-11-14T00:16:25",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 49,
+  "songs_with_3plus": 51,
   "rows": [
    {
     "song": "佛山全场",
@@ -463,6 +463,15 @@
     "low_cv": 0.0651
    },
    {
+    "song": "你不要担心",
+    "versions": 3,
+    "low_median": 74.1,
+    "low_iqr": 10.7,
+    "low_range": 21.4,
+    "high_median": 566.4,
+    "low_cv": 0.1234
+   },
+   {
     "song": "Yourman",
     "versions": 3,
     "low_median": 87.2,
@@ -470,6 +479,15 @@
     "low_range": 23.4,
     "high_median": 857.8,
     "low_cv": 0.1138
+   },
+   {
+    "song": "花样年华",
+    "versions": 3,
+    "low_median": 106.4,
+    "low_iqr": 2.5,
+    "low_range": 4.9,
+    "high_median": 664.5,
+    "low_cv": 0.0209
    },
    {
     "song": "City of Stars",
@@ -506,24 +524,6 @@
     "low_range": 22.2,
     "high_median": 587.8,
     "low_cv": 0.1021
-   },
-   {
-    "song": "莫斯科郊外的晚上",
-    "versions": 3,
-    "low_median": 110.5,
-    "low_iqr": 5.0,
-    "low_range": 9.9,
-    "high_median": 788.8,
-    "low_cv": 0.0392
-   },
-   {
-    "song": "爱你",
-    "versions": 3,
-    "low_median": 109.3,
-    "low_iqr": 23.5,
-    "low_range": 47.0,
-    "high_median": 853.4,
-    "low_cv": 0.2246
    }
   ],
   "low_cv_median": 0.1232,
@@ -531,9 +531,9 @@
  },
  "register_adapt": {
   "own_live_low_median": 84.9,
-  "cover_live_low_median": 93.3,
+  "cover_live_low_median": 92.7,
   "own_n": 45,
-  "cover_n": 223,
+  "cover_n": 227,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
