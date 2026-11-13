@@ -1,16 +1,16 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-11-13 00:20　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-11-13 20:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
 
 | id | 名称 | 数值 | 范围 | 来源 |
 |---|---|---|---|---|
-| `tracked_songs` | 追踪曲目池 | **733** | 主动追踪并采集指数的曲目清单（池内） | `dashboard/dashboard_data.json` |
+| `tracked_songs` | 追踪曲目池 | **1067** | 主动追踪并采集指数的曲目清单（池内） | `dashboard/dashboard_data.json` |
 | `f0_files` | 逐帧 F0 文件数 | **2412** | 音域分析目录下全部 *_f0.csv（含专辑/场次/他人主导/沉响分段/staging） | `data/approach_all.json` |
 | `approach_window` | 极值音到达方式取窗 | **±0.5 半音 / ≥0.15s** | 音符块切分与极值音判定口径 | `project_b/analyze_approach_all.py` |
-| `tracked_links` | 追踪链接数 | **733** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
+| `tracked_links` | 追踪链接数 | **10670** | 同一首歌的多个平台链接（一首歌可有多条链接） | `dashboard/dashboard_data.json` |
 | `entity_songs` | 关系图谱曲目 | **436** | 至少有一条关系（现场/小酒馆/专辑）的曲目 | `entity_index.json` |
 | `songs_meta` | 歌曲元数据条目 | **714** | 含元信息（时长/专辑/发行等）的曲目 | `data/songs_meta.json` |
 | `song_archive` | 歌曲档案条目 | **748** | 档案库收录的全部曲目条目（含未追踪/无指数） | `data/song_archive.json` |
@@ -82,7 +82,7 @@
 | `event_effects_edges` | 事件×歌曲 效应边数 | **32668** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
 | `media_library_files` | 声音素材库已下载媒体文件数 | **157** | 本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 | `media_library_pending` | 声音素材库待采条目数 | **2** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
-| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1690** | 1580 个批次文件 / 108 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
+| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1698** | 1586 个批次文件 / 109 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
 
 ## 常见误用
 
