@@ -709,6 +709,23 @@ def collect() -> list[dict]:
     except Exception as _e:
         add("listeners_peak_daily", "收听峰值覆盖（曲目×日）", None, str(_e), "", "")
 
+    # 长表 listeners 列（2026-11-13 起）：quick 批次的当日最高收听，日期取文件名当天
+    try:
+        import pandas as _pd2
+        _lp = r"E:\\wx\\wx_textmine_out\\music_index_long.csv"
+        _lg = _pd2.read_csv(_lp)
+        if "listeners" in _lg.columns:
+            _n = int(_lg["listeners"].notna().sum())
+            _days = int(_pd2.to_datetime(_lg.loc[_lg["listeners"].notna(), "date"]).dt.date.nunique())
+            _songs = int(_lg.loc[_lg["listeners"].notna(), "song"].nunique())
+            add("long_table_listeners", "指数长表·收听列（曲目×日）", _n,
+                "%d 天 / %d 首（music_index_long.csv 的 listeners 列）" % (_days, _songs),
+                "E:\\wx\\wx_textmine\\00_build_matrix.py",
+                "quick 批次取当日最高收听，日期用文件名当天（不回退）；"
+                "index 列是昨日音乐指数（full 文件，日期回退一天），两列互补不互相覆盖")
+    except Exception as _e2:
+        add("long_table_listeners", "指数长表·收听列（曲目×日）", None, str(_e2), "", "")
+
     return [x for x in out if x["value"] is not None]
 
 
