@@ -4,7 +4,7 @@
   "version": "0.1",
   "generated_at": "2026-08-22 13:54:07",
   "说明": "预生成问答库，前端 search.html 语义检索匹配。支持按用户提问增量扩充（人机协作闭环）。",
-  "count": 69,
+  "count": 101,
   "data_fingerprint": "90a6343d99cf8e1be17278fe565a7c2a"
  },
  "items": [
@@ -1457,6 +1457,633 @@
    "category": "知识库自动生成",
    "source": "data/kb/facts.json",
    "generated_at": "2026-11-15"
+  },
+  {
+   "id": "qa_stage_01",
+   "question": "王晰现场唱到的最低音是哪一场、哪首歌？",
+   "aliases": [
+    "现场最低音",
+    "最低音 哪一场"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "最低音",
+    "现场",
+    "B1"
+   ],
+   "answer": "按站内现场实测（最低稳定音口径，仅计已过复核的读数）：《静止了的夜晚》（2019-08-21） 最低音 A#1 58.2Hz，出现在 3:21，持续 0.35 秒，原视频 https://www.bilibili.com/video/BV1i4411d7MJ；《静止了的夜晚》（2019-04-14） 最低音 A#1 58.2Hz，出现在 3:13，持续 0.30 秒，原视频 https://www.bilibili.com/video/BV1M4411w735；《跟着你到天边》（厦门 2019-12-21） 最低音 B1 61.2Hz，出现在 3:45，持续 0.51 秒。出处：现场条件检索 https://wx409.github.io/stage.html#stage-query",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_02",
+   "question": "王晰现场有哪些 B1 或更低的音被确认？",
+   "aliases": [
+    "现场 B1",
+    "B1 现场 有哪些"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "B1",
+    "A#1",
+    "现场"
+   ],
+   "answer": "站内记录中，可引用（过复核）的 B1/A#1 现场有 4 条：《静止了的夜晚》（2019-08-21） 最低音 A#1 58.2Hz，出现在 3:21，持续 0.35 秒，原视频 https://www.bilibili.com/video/BV1i4411d7MJ；《静止了的夜晚》（2019-04-14） 最低音 A#1 58.2Hz，出现在 3:13，持续 0.30 秒，原视频 https://www.bilibili.com/video/BV1M4411w735；《跟着你到天边》（厦门 2019-12-21） 最低音 B1 61.2Hz，出现在 3:45，持续 0.51 秒；《青藏高原》（2020-09-19） 最低音 B1 63.1Hz，出现在 3:06，持续 0.21 秒，原视频 https://www.bilibili.com/video/BV1zt4y1q7MH。出处：现场条件检索页。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_03",
+   "question": "王晰现场哪个低音站得最久？",
+   "aliases": [
+    "低音 站得久",
+    "长音 现场"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "长音",
+    "低音",
+    "时长"
+   ],
+   "answer": "按「最低音持续时间」排序：《月牙湾》（佛山 2019-12-01） 最低音 C3 128.3Hz，出现在 0:49，持续 0.98 秒，原视频 https://www.bilibili.com/video/BV1UJ411B7gu；《月半弯》（太原 2022-07-16） 最低音 A2 107.1Hz，出现在 0:57，持续 0.95 秒，原视频 https://www.bilibili.com/video/BV1JY4y177Sh；《让她降落》（北京收官 2020-01-02） 最低音 G2 98.5Hz，出现在 1:34，持续 0.81 秒。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_04",
+   "question": "王晰有哪些现场属于弱唱？",
+   "aliases": [
+    "弱唱 现场",
+    "轻唱 现场"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "弱唱",
+    "轻声"
+   ],
+   "answer": "站内标记为弱唱（claimable_soft）的现场有 212 条：《哭砂》（上海 2021） 最低音 C2 66.0Hz，出现在 4:00，持续 0.26 秒；《Autumn Leaves》（广州 ） 最低音 C2 67.0Hz，出现在 0:15，持续 0.60 秒；《夜半歌声》（2019-09-12） 最低音 C2 67.2Hz，出现在 0:49，持续 0.42 秒，原视频 https://www.bilibili.com/video/BV1tJ411P7pp；《关于妖娆》（上海生日 2024-04-06） 最低音 C#2 68.6Hz，出现在 0:16，持续 0.39 秒。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_05",
+   "question": "王晰在厦门唱到的最低音是哪个？",
+   "aliases": [
+    "厦门 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "厦门",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《跟着你到天边》（厦门 2019-12-21） 最低音 B1 61.2Hz，出现在 3:45，持续 0.51 秒。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_06",
+   "question": "王晰在广州唱到的最低音是哪个？",
+   "aliases": [
+    "广州 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "广州",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《Moon River》（广州 2021-12-04） 最低音 C2 65.1Hz，出现在 1:19，持续 0.23 秒，原视频 https://www.bilibili.com/video/BV1SQ4y1e7Dg。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_07",
+   "question": "王晰在上海生日唱到的最低音是哪个？",
+   "aliases": [
+    "上海生日 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "上海生日",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《多听有益》（上海生日 2024-04-06） 最低音 C2 65.2Hz，出现在 0:55，持续 0.21 秒。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_08",
+   "question": "王晰在杭州唱到的最低音是哪个？",
+   "aliases": [
+    "杭州 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "杭州",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《多听有益》（杭州 2024） 最低音 C2 65.2Hz，原视频 https://www.bilibili.com/video/BV1ArKxe7E8H。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_09",
+   "question": "王晰在北京唱到的最低音是哪个？",
+   "aliases": [
+    "北京 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "北京",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《爱你》（北京 2022-04-12） 最低音 C2 65.3Hz，出现在 3:24，持续 0.23 秒，原视频 https://www.bilibili.com/video/BV1s94y1d7e7。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_10",
+   "question": "王晰在上海唱到的最低音是哪个？",
+   "aliases": [
+    "上海 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "上海",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《后会无期3.7手机渣画质》（上海 2021） 最低音 C2 65.4Hz，出现在 1:21，持续 0.39 秒。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_01",
+   "question": "《静止了的夜晚》的最低稳定音是多少？",
+   "aliases": [
+    "静止了的夜晚 最低音",
+    "静止了的夜晚 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "静止了的夜晚",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《静止了的夜晚》（重游往昔）最低稳定音 B1（61.5Hz），出现在 3:11.33–3:11.66，持续 0.33 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/重游往昔/静止了的夜晚_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/重游往昔/静止了的夜晚_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_02",
+   "question": "《多听有益》的最低稳定音是多少？",
+   "aliases": [
+    "多听有益 最低音",
+    "多听有益 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "多听有益",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《多听有益》（X自选集）最低稳定音 B1（61.7Hz），出现在 3:18.04–3:18.37，持续 0.32 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/X自选集/多听有益_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/X自选集/多听有益_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_03",
+   "question": "《忘不了》的最低稳定音是多少？",
+   "aliases": [
+    "忘不了 最低音",
+    "忘不了 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "忘不了",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《忘不了》（Low C的诱惑）最低稳定音 C2（65.3Hz），出现在 1:14.81–1:15.00，持续 0.19 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/Low C的诱惑/忘不了_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/Low C的诱惑/忘不了_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_04",
+   "question": "《鹅毛信》的最低稳定音是多少？",
+   "aliases": [
+    "鹅毛信 最低音",
+    "鹅毛信 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "鹅毛信",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《鹅毛信》（不说）最低稳定音 C2（65.3Hz），出现在 2:42.10–2:42.31，持续 0.21 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/不说/鹅毛信_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/不说/鹅毛信_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_05",
+   "question": "《雪地里寄不出的求救信》的最低稳定音是多少？",
+   "aliases": [
+    "雪地里寄不出的求救信 最低音",
+    "雪地里寄不出的求救信 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "雪地里寄不出的求救信",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《雪地里寄不出的求救信》（歌颂）最低稳定音 C2（65.3Hz），出现在 3:46.74–3:47.02，持续 0.28 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/歌颂/雪地里寄不出的求救信_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/歌颂/雪地里寄不出的求救信_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_06",
+   "question": "《晚风暖暖》的最低稳定音是多少？",
+   "aliases": [
+    "晚风暖暖 最低音",
+    "晚风暖暖 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "晚风暖暖",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《晚风暖暖》（重游往昔）最低稳定音 C2（65.3Hz），出现在 2:57.61–2:57.94，持续 0.33 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/重游往昔/晚风暖暖_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/重游往昔/晚风暖暖_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_07",
+   "question": "《勿扰》的最低稳定音是多少？",
+   "aliases": [
+    "勿扰 最低音",
+    "勿扰 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "勿扰",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《勿扰》（不说）最低稳定音 C2（65.6Hz）。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/不说/勿扰_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/不说/勿扰_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_08",
+   "question": "《偏执》的最低稳定音是多少？",
+   "aliases": [
+    "偏执 最低音",
+    "偏执 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "偏执",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《偏执》（歌颂）最低稳定音 C2（65.7Hz），出现在 1:26.28–1:28.10，持续 1.81 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/歌颂/偏执_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/歌颂/偏执_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_09",
+   "question": "《知晓》的最低稳定音是多少？",
+   "aliases": [
+    "知晓 最低音",
+    "知晓 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "知晓",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《知晓》（B面图景）最低稳定音 C2（65.8Hz），出现在 3:38.62–3:39.01，持续 0.39 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/B面图景/知晓_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/B面图景/知晓_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_10",
+   "question": "《多年以后》的最低稳定音是多少？",
+   "aliases": [
+    "多年以后 最低音",
+    "多年以后 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "多年以后",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《多年以后》（Low C的诱惑Ⅱ）最低稳定音 C2（65.9Hz），出现在 1:33.28–1:33.90，持续 0.63 秒。\n\n口径提示：音高来自 stats.json 的 low_stable；时间戳由逐帧文件按同一音高定位\n\n出处：音域分析/专辑音频_分析/Low C的诱惑Ⅱ/多年以后_stats.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/专辑音频_分析/Low C的诱惑Ⅱ/多年以后_stats.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_11",
+   "question": "《多听有益_f0》的最低稳定音是多少？",
+   "aliases": [
+    "多听有益_f0 最低音",
+    "多听有益_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "多听有益_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《多听有益_f0》最低音 61.6Hz，出现在 1:19.61–1:19.88，连续 0.27 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/多听有益_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/多听有益_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_12",
+   "question": "《渡荆门送别_f0》的最低稳定音是多少？",
+   "aliases": [
+    "渡荆门送别_f0 最低音",
+    "渡荆门送别_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "渡荆门送别_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《渡荆门送别_f0》最低音 64.1Hz，出现在 6:42.54–6:42.75，连续 0.21 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/渡荆门送别_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/渡荆门送别_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_13",
+   "question": "《多听有益_杭州站_f0》的最低稳定音是多少？",
+   "aliases": [
+    "多听有益_杭州站_f0 最低音",
+    "多听有益_杭州站_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "多听有益_杭州站_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《多听有益_杭州站_f0》最低音 65.2Hz，出现在 1:54.56–1:55.16，连续 0.60 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/多听有益_杭州站_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/多听有益_杭州站_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_14",
+   "question": "《雾里_f0》的最低稳定音是多少？",
+   "aliases": [
+    "雾里_f0 最低音",
+    "雾里_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "雾里_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《雾里_f0》最低音 66.0Hz，出现在 2:16.37–2:16.72，连续 0.35 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/雾里_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/雾里_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_15",
+   "question": "《向着太阳_f0》的最低稳定音是多少？",
+   "aliases": [
+    "向着太阳_f0 最低音",
+    "向着太阳_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "向着太阳_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《向着太阳_f0》最低音 66.4Hz，出现在 0:04.62–0:04.90，连续 0.28 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/向着太阳_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/向着太阳_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_16",
+   "question": "《鹅毛信_f0》的最低稳定音是多少？",
+   "aliases": [
+    "鹅毛信_f0 最低音",
+    "鹅毛信_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "鹅毛信_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《鹅毛信_f0》最低音 74.5Hz，出现在 0:36.73–0:37.13，连续 0.39 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/鹅毛信_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/鹅毛信_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_17",
+   "question": "《多听有益_四巡直拍_f0》的最低稳定音是多少？",
+   "aliases": [
+    "多听有益_四巡直拍_f0 最低音",
+    "多听有益_四巡直拍_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "多听有益_四巡直拍_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《多听有益_四巡直拍_f0》最低音 75.8Hz，出现在 3:57.31–3:57.49，连续 0.19 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/多听有益_四巡直拍_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/多听有益_四巡直拍_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_18",
+   "question": "《南屏晚钟_f0》的最低稳定音是多少？",
+   "aliases": [
+    "南屏晚钟_f0 最低音",
+    "南屏晚钟_f0 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "南屏晚钟_f0",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "现场版《南屏晚钟_f0》最低音 76.4Hz，出现在 1:24.81–1:24.98，连续 0.17 秒。\n\n口径提示：现场音轨受混音与伴奏影响；极值音以台账复核状态为准\n\n出处：音域分析/分析结果/南屏晚钟_f0.csv；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "音域分析/分析结果/南屏晚钟_f0.csv"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_19",
+   "question": "《全场块级（23 段歌单按段归属）》的最低稳定音是多少？",
+   "aliases": [
+    "全场块级（23 段歌单按段归属） 最低音",
+    "全场块级（23 段歌单按段归属） 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "全场块级（23 段歌单按段归属）",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "同一套录音里，王晰的演唱音高中位比同台歌手低 4.4 个半音（56.20 vs 60.59 MIDI，p=0.004）。\n\n口径提示：两人曲目不同、n=2 场；只作描述，不作因果\n\n出处：data/block_analysis.json + data/show_blocks/；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "data/block_analysis.json + data/show_blocks/"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_20",
+   "question": "《六巡广州20260823_回》的最低稳定音是多少？",
+   "aliases": [
+    "六巡广州20260823_回 最低音",
+    "六巡广州20260823_回 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "六巡广州20260823_回",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《六巡广州20260823_回》这一版，61.0Hz 的最低音是**直接咬住**的（0.30 秒，前 2 秒没有滑音准备），出现在 2:57.15–2:57.45。\n\n口径提示：到达方式由 F0 轨迹反推；极低音仍以台账复核状态为准\n\n出处：data/approach_all.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "data/approach_all.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_21",
+   "question": "《二巡歌颂 201129北京场 全场 》的最低稳定音是多少？",
+   "aliases": [
+    "二巡歌颂 201129北京场 全场  最低音",
+    "二巡歌颂 201129北京场 全场  音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "二巡歌颂 201129北京场 全场 ",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《二巡歌颂 201129北京场 全场 》这一版，61.1Hz 的最低音是**直接咬住**的（0.23 秒，前 2 秒没有滑音准备），出现在 0:24.31–0:24.54。\n\n口径提示：到达方式由 F0 轨迹反推；极低音仍以台账复核状态为准\n\n出处：data/approach_all.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "data/approach_all.json"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_claim_22",
+   "question": "《六巡重庆20260613》的最低稳定音是多少？",
+   "aliases": [
+    "六巡重庆20260613 最低音",
+    "六巡重庆20260613 音域"
+   ],
+   "category": "声学实测",
+   "keywords": [
+    "六巡重庆20260613",
+    "最低稳定音",
+    "音域"
+   ],
+   "answer": "《六巡重庆20260613》这一版，61.1Hz 的最低音是**直接咬住**的（0.51 秒，前 2 秒没有滑音准备），出现在 2:18.51–2:19.02。\n\n口径提示：到达方式由 F0 轨迹反推；极低音仍以台账复核状态为准\n\n出处：data/approach_all.json；汇总页 https://wx409.github.io/vocal.html",
+   "sources": [
+    "data/approach_all.json"
+   ],
+   "verified": true,
+   "confidence": "high"
   }
  ]
 }
