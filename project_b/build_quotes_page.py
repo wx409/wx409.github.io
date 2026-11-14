@@ -89,6 +89,7 @@ def main() -> int:
 <div class="note">共 <b>{len(items)}</b> 条，其中 <b>{len(with_t)}</b> 条带时间码。每条都标出处（期次 + 时间），可直接引用。
 机器可读版：<a href="data/tavern_citable.json">data/tavern_citable.json</a>（JSON，含 episode/quote/time/url/moods）。
 ⚠️ 逐字稿全文留本地不公开，此处只摘短句。</div>
+<div class="note">交叉核对：<a href="voice.html">音域实测</a> · <a href="stage.html#stage-query">现场条件检索</a> · <a href="works.html">作品库</a> · <a href="tavern/">深夜小酒馆全部期次</a></div>
 <div class="bar"><input id="q" placeholder="搜索：句子 / 期次 / 关键词" style="width:320px"></div>
 <div id="list">
 {''.join(blocks)}

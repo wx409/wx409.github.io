@@ -171,6 +171,7 @@ def stage_query_html() -> str:
     return """
 <section id="stage-query">
 <h2>条件检索：哪一站、哪首歌</h2>
+<p class="note">配套阅读：<a href="../quotes.html">王晰可引用金句总表</a>（278 条，带时间码）。</p>
 <p class="note">下方表格由 <code>data/archive_stage_tour.json</code> 实时筛选（纯前端，不上传任何数据）。
 常用：<b>低音</b> 最低音 ≤ 70Hz；<b>长音</b> 低音时长 ≥ 0.5 秒；<b>弱唱</b> 勾选“只看弱唱”；<b>一字一音</b> 密度 ≥ 1.8。</p>
 <div class="qbar">

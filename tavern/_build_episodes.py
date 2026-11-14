@@ -9,6 +9,7 @@
 .quote{margin:10px 0;font-style:italic;color:#cfe6ff;border-left:3px solid #3aa0d8;padding-left:12px}
 .qsrc{font-style:normal;color:#8aa4bb;font-size:12px}
 .mood{display:inline-block;background:rgba(58,160,216,.16);color:#8fd3ff;border-radius:12px;padding:2px 10px;font-size:12px;margin:3px 6px 3px 0}
+.rel{font-size:14px;line-height:2;padding-left:20px}
 .citable{background:rgba(58,160,216,.10);border-left:4px solid #3aa0d8;padding:12px 16px;margin:12px 0;font-size:15px;color:#dbeaf7}
 """
 import html
@@ -272,6 +273,17 @@ def build_episode_page(key, ep, prev_key=None, next_key=None):
     if parts:
         prev_next_html = '<nav class="pn-nav">' + "".join(parts) + "</nav>"
 
+    # ---- P3 三向互链：期页 → 作品 / 音域实测 / 现场检索 / 金句总表 ----
+    related_html = (
+        '<h2 class="blk">相关数据（可交叉核对）</h2>'
+        '<ul class="rel">'
+        f'<li><a href="{SITE}/works.html">作品与曲目库</a> —— 本期提到的歌在站内的作品页</li>'
+        f'<li><a href="{SITE}/voice.html">音域实测</a> —— 录音室 72 首逐帧 F0（最低稳定音 B1 61.5Hz）</li>'
+        f'<li><a href="{SITE}/stage.html#stage-query">现场条件检索</a> —— 按最低音/长音/弱唱筛巡演素材</li>'
+        f'<li><a href="{SITE}/quotes.html">可引用金句总表</a> —— 全部 278 条，带时间码</li>'
+        '</ul>'
+    )
+
     page = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -306,6 +318,7 @@ def build_episode_page(key, ep, prev_key=None, next_key=None):
 {mood_html}
 {cite_html}
 {song_html}
+{related_html}
 {prev_next_html}
 <p class="footer">本页为粉丝创作，非官方内容。素材来自王晰公开节目与作品。</p>
 </div>
