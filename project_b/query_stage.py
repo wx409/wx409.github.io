@@ -44,6 +44,7 @@ def main() -> int:
     ap.add_argument("--desc", action="store_true", help="降序")
     ap.add_argument("--limit", type=int, default=15)
     ap.add_argument("--md", help="同时写出 markdown 表格")
+    ap.add_argument("--video", action="store_true", help="素材模式：输出时间点+B站链接")
     a = ap.parse_args()
 
     rows = [r for r in load() if r.get("song")]
@@ -82,16 +83,31 @@ def main() -> int:
 
     print(f"命中 {len(rows)} / {n0} 条｜条件: " + ", ".join(
         f"{k}={v}" for k, v in vars(a).items() if v not in (None, False, "", 15, "low_hz")) or "（无）")
-    print("-" * 96)
-    print("%-16s %-10s %-10s %-6s %-7s %6s %6s %5s %6s %6s" %
-          ("曲目", "城市", "日期", "最低音", "Hz", "时长s", "密度", "稳定", "颤音", "可引用"))
-    for r in hit:
-        print("%-16s %-10s %-10s %-6s %7.1f %6.2f %6.2f %5.1f %6.2f %6s" % (
-            str(r.get("song"))[:16], str(r.get("city"))[:10], str(r.get("date"))[:10],
-            str(r.get("low_note") or "—"), num(r, "low_hz") or 0,
-            num(r, "low_dur_s") or 0, num(r, "density_per_s") or 0,
-            num(r, "stability_cents") or 0, num(r, "vibrato_hz") or 0,
-            "✓" if r.get("claimable") else ""))
+    def mmss(v):
+        if not isinstance(v, (int, float)):
+            return "—"
+        return "%d:%02d" % (int(v) // 60, int(v) % 60)
+
+    print("-" * 100)
+    if a.video:
+        print("%-16s %-9s %-10s %-6s %7s %7s %6s  %s" %
+              ("曲目", "城市", "日期", "最低音", "Hz", "时间点", "时长s", "链接"))
+        for r in hit:
+            link = ("https://www.bilibili.com/video/" + str(r.get("bv"))) if r.get("bv") else "（本地素材）"
+            print("%-16s %-9s %-10s %-6s %7.1f %7s %6.2f  %s" % (
+                str(r.get("song"))[:16], str(r.get("city") or "—")[:9], str(r.get("date") or "")[:10],
+                str(r.get("low_note") or "—"), num(r, "low_hz") or 0,
+                mmss(r.get("low_t_s")), num(r, "low_dur_s") or 0, link))
+    else:
+        print("%-16s %-10s %-10s %-6s %-7s %6s %6s %5s %6s %6s" %
+              ("曲目", "城市", "日期", "最低音", "Hz", "时长s", "密度", "稳定", "颤音", "可引用"))
+        for r in hit:
+            print("%-16s %-10s %-10s %-6s %7.1f %6.2f %6.2f %5.1f %6.2f %6s" % (
+                str(r.get("song"))[:16], str(r.get("city"))[:10], str(r.get("date"))[:10],
+                str(r.get("low_note") or "—"), num(r, "low_hz") or 0,
+                num(r, "low_dur_s") or 0, num(r, "density_per_s") or 0,
+                num(r, "stability_cents") or 0, num(r, "vibrato_hz") or 0,
+                "✓" if r.get("claimable") else ""))
 
     if a.md:
         lines = ["| 曲目 | 城市 | 日期 | 最低音 | Hz | 时长s | 密度 | 稳定(音分) | 颤音Hz | 可引用 |",

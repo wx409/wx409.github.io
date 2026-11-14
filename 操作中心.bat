@@ -627,6 +627,8 @@ echo    261. [采访] 网页访谈自动采集（360 搜索→抓正文→抽原话→重建；每日 08:45
 echo    262. [曲库] 同步「收听人数」表（补缺失 mid / 标已下架；每日 23:40 已排程）
 
 echo    263. [备份] 关键数据打包到网盘目录（默认 G:\网站备份，含排除凭据；每周日 12:30 已排程）
+echo    264. [素材] 低音素材清单（B站链接 + 最低音时间点，做视频用）
+echo    265. [素材] 长音/弱唱/高密度素材（可按城市或曲目筛）
 
 echo    0. 退出
 
@@ -1141,6 +1143,8 @@ if "%op%"=="259" goto ingest_link
 
 if "%op%"=="260" goto ingest_file
 if "%op%"=="261" goto web_interview
+if "%op%"=="264" goto mat_low
+if "%op%"=="265" goto mat_other
 if "%op%"=="262" goto sync_listener
 if "%op%"=="263" goto backup_key
 
@@ -6755,5 +6759,35 @@ set /p bkd=备份目录（回车=G:\网站备份）:
 if "%bkd%"=="" set "bkd=G:\网站备份"
 python -X utf8 project_b\backup_key_data.py --dest "%bkd%"
 echo.
+pause
+goto menu
+
+:mat_low
+cls
+echo === 低音素材清单（做视频用）===
+echo 输出：曲目 / 城市 / 日期 / 最低音 / Hz / 视频时间点 / B站链接
+echo 默认取全场次最低音前 25 条；只看可对外引用请加 --claimable。
+python -X utf8 project_b\query_stage.py --low 78 --video --sort low_hz --limit 25
+echo.
+echo 提示：想缩小范围，把上面命令里的 --low 78 改成更小（如 65）即可。
+pause
+goto menu
+
+:mat_other
+cls
+echo === 长音 / 弱唱 / 高密度 素材 ===
+echo 1) 低音站得久（长音）  2) 弱唱  3) 一字一音高密度
+set /p mt=选择（1/2/3，回车=1）: 
+if "%mt%"=="2" goto mat_soft
+if "%mt%"=="3" goto mat_dense
+python -X utf8 project_b\query_stage.py --long 0.5 --sort low_dur_s --desc --video --limit 25
+pause
+goto menu
+:mat_soft
+python -X utf8 project_b\query_stage.py --soft --video --limit 25
+pause
+goto menu
+:mat_dense
+python -X utf8 project_b\query_stage.py --dense 1.8 --video --limit 25
 pause
 goto menu
