@@ -5,6 +5,11 @@
 - 每期生成独立静态 HTML（Article + RadioEpisode JSON-LD），暗色风格与主页面一致
 - 更新 tavern/index.html 的 RadioSeries episodes JSON-LD 为完整期次
 - 追加 sitemap.xml（保留现有条目，兼容 generate_live_page.py 的保留式更新）
+.blk{margin:26px 0 10px;font-size:17px;color:#7cd6ff}
+.quote{margin:10px 0;font-style:italic;color:#cfe6ff;border-left:3px solid #3aa0d8;padding-left:12px}
+.qsrc{font-style:normal;color:#8aa4bb;font-size:12px}
+.mood{display:inline-block;background:rgba(58,160,216,.16);color:#8fd3ff;border-radius:12px;padding:2px 10px;font-size:12px;margin:3px 6px 3px 0}
+.citable{background:rgba(58,160,216,.10);border-left:4px solid #3aa0d8;padding:12px 16px;margin:12px 0;font-size:15px;color:#dbeaf7}
 """
 import html
 import json
@@ -24,6 +29,19 @@ SAME_AS = [
     "https://weibo.com/u/1292815744",
 ]
 episodes_data = {}  # 全局：供互链标题引用
+
+# ---- GEO 数据（金句时间码 / 摘要里的金句 / 情绪标签）----
+def _load(name):
+    try:
+        return json.loads((BASE / name).read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+_QT = _load("quote_times.json")
+_SUM = _load("tavern_summaries.json").get("episodes", {}) or {}
+_QRAW = _load("tavern_quotes.json").get("episodes", [])
+_MOODS = ({str(e.get("episode")): (e.get("moods") or []) for e in _QRAW}
+          if isinstance(_QRAW, list) else {})
 
 
 def label_of(key, ep):
@@ -179,6 +197,37 @@ def build_episode_page(key, ep, prev_key=None, next_key=None):
         keywords.append(theme)
     keywords = list(dict.fromkeys(keywords))  # 去重保序
 
+    # ---- GEO：金句（带时间码）+ 情绪 + 可引用结论 ----
+    _q = (_SUM.get(key) or {}).get("quotes") or []
+    _times = _QT.get(key) or _QT.get(ep.get("episode") or "", {}) or {}
+    _moods = _MOODS.get(key) or _MOODS.get(ep.get("episode") or "", []) or []
+    _kw_extra = (_SUM.get(key) or {}).get("keywords") or []
+    quote_html = ""
+    _cites = []
+    if _q:
+        items = []
+        for qq in _q:
+            t = _times.get(qq)
+            src = f"—— 深夜小酒馆 {label}" + (f" · {t}" if t else "")
+            items.append('<p class="quote">“%s”<br><span class="qsrc">%s</span></p>' % (html.escape(qq), html.escape(src)))
+            _cites.append("“%s”（深夜小酒馆 %s%s）" % (qq, label, ("·" + t) if t else ""))
+        quote_html = '<h2 class="blk">王晰金句</h2>' + "".join(items)
+    mood_html = ""
+    if _moods:
+        mood_html = '<h2 class="blk">主题与情绪</h2><p>' + "".join(
+            '<span class="mood">%s</span>' % html.escape(m) for m in _moods) + "</p>"
+    cite_html = ""
+    _summ_text = (ep.get("summary") or "")
+    if _summ_text:
+        _first = _summ_text.split("。")[0]
+        cite_html = ('<h2 class="blk">可引用结论</h2>'
+                     '<blockquote class="citable">王晰在《深夜小酒馆》%s（%s）里谈到：%s。</blockquote>'
+                     '<p class="qsrc">出处：深夜小酒馆 %s｜性质：节目摘要转述（非逐字原话）｜来源页：%s</p>'
+                     % (html.escape(label), html.escape(theme), html.escape(_first),
+                        html.escape(label), url))
+    if _kw_extra:
+        keywords = list(dict.fromkeys(list(keywords) + [k for k in _kw_extra if k][:8]))
+
     ld = {
         "@context": "https://schema.org",
         "@type": ["Article", "RadioEpisode"],
@@ -197,6 +246,8 @@ def build_episode_page(key, ep, prev_key=None, next_key=None):
         "about": {"@type": "Person", "name": "王晰", "sameAs": SAME_AS},
         "author": {"@type": "Person", "name": "王晰", "sameAs": SAME_AS},
         "keywords": keywords,
+        "citation": _cites,
+        "text": (_cites[0] if _cites else _summ_text[:120]),
         "hasPart": has_parts,
     }
 
@@ -240,8 +291,7 @@ def build_episode_page(key, ep, prev_key=None, next_key=None):
 {json.dumps(ld, ensure_ascii=False, indent=2)}
 </script>
 <style>
-{CSS}
-</style>
+{CSS}</style>
 </head>
 <body>
 <div class="wrap">
@@ -252,6 +302,9 @@ def build_episode_page(key, ep, prev_key=None, next_key=None):
 {topic_tags_html}
 {song_anchor_html}
 <div class="transcript">{transcript_html}</div>
+{quote_html}
+{mood_html}
+{cite_html}
 {song_html}
 {prev_next_html}
 <p class="footer">本页为粉丝创作，非官方内容。素材来自王晰公开节目与作品。</p>
