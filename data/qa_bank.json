@@ -4,7 +4,7 @@
   "version": "0.1",
   "generated_at": "2026-08-22 13:54:07",
   "说明": "预生成问答库，前端 search.html 语义检索匹配。支持按用户提问增量扩充（人机协作闭环）。",
-  "count": 17,
+  "count": 69,
   "data_fingerprint": "90a6343d99cf8e1be17278fe565a7c2a"
  },
  "items": [
@@ -335,6 +335,1128 @@
    "category": "知识库自动生成",
    "source": "data/kb/facts.json",
    "generated_at": "2026-11-14"
+  },
+  {
+   "id": "qa_tavern_01",
+   "question": "王晰在《深夜小酒馆》里怎么谈「治愈」？",
+   "aliases": [
+    "治愈 王晰",
+    "王晰 治愈",
+    "治愈 小酒馆"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "治愈",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "他在节目里至少提过 3 次，原话包括：“将闲事去心头，便是人间好时节。”（营业预告 · 00:55）；“当酒杯空了，心也许就满了。”（营业预告 · 00:19）；“敬你的孤独择日而终。”（营业预告 · 00:35）。以上均为节目原话摘引，时间码由逐字稿定位；完整上下文见对应期次页面。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_02",
+   "question": "王晰在《深夜小酒馆》里怎么谈「真诚」？",
+   "aliases": [
+    "真诚 王晰",
+    "王晰 真诚",
+    "真诚 小酒馆"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "真诚",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "他在节目里至少提过 3 次，原话包括：“将闲事去心头，便是人间好时节。”（营业预告 · 00:55）；“当酒杯空了，心也许就满了。”（营业预告 · 00:19）；“敬你的孤独择日而终。”（营业预告 · 00:35）。以上均为节目原话摘引，时间码由逐字稿定位；完整上下文见对应期次页面。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_03",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「生活」的话？",
+   "aliases": [
+    "王晰 生活",
+    "生活 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "生活",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「生活」相关的原话有 3 条：“生活里的每一个瞬间都要快乐。”（EP02_P2 · 01:04）；“察言观色是最低等的生活方式”（EP06_P1 · 05:55）；“生活向前，时间不停，与其担心，不如放轻松期待未来。”（EP12_P2 · 01:32）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP02_P2.html",
+    "https://wx409.github.io/tavern/ep/EP06_P1.html",
+    "https://wx409.github.io/tavern/ep/EP12_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_04",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「春天」的话？",
+   "aliases": [
+    "王晰 春天",
+    "春天 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "春天",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「春天」相关的原话有 3 条：“一场樱花盛世，便是武汉迎接每一个春天的仪式。”（EP40_P1 · 03:29）；“没有一个冬天不会过去，没有一个春天不会到来。”（EP41_P1 · 07:15）；“又是新鲜的春天了，我也是新鲜的。”（EP41_P1 · 06:38）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP40_P1.html",
+    "https://wx409.github.io/tavern/ep/EP41_P1.html",
+    "https://wx409.github.io/tavern/ep/EP41_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_05",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「快乐」的话？",
+   "aliases": [
+    "王晰 快乐",
+    "快乐 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "快乐",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「快乐」相关的原话有 3 条：“生活里的每一个瞬间都要快乐。”（EP02_P2 · 01:04）；“祝你快乐，晚安了。”（EP16_P1 · 07:44）；“寻找快乐，嗨起来，烦恼通通甩掉。”（EP37_P2 · 01:35）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP02_P2.html",
+    "https://wx409.github.io/tavern/ep/EP16_P1.html",
+    "https://wx409.github.io/tavern/ep/EP37_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_06",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「时间」的话？",
+   "aliases": [
+    "王晰 时间",
+    "时间 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "时间",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「时间」相关的原话有 3 条：“生活向前，时间不停，与其担心，不如放轻松期待未来。”（EP12_P2 · 01:32）；“设置目标，制定计划，严格执行，你会知道自己需要多少时间去完成任务。”（EP14_P2 · 01:00）；“我真希望时间能过得慢一点，再慢一点。”（EP24_P1 · 04:59）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP12_P2.html",
+    "https://wx409.github.io/tavern/ep/EP14_P2.html",
+    "https://wx409.github.io/tavern/ep/EP24_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_07",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「爱情」的话？",
+   "aliases": [
+    "王晰 爱情",
+    "爱情 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "爱情",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「爱情」相关的原话有 3 条：“无论多忙，都一定要记得独属于爱情的仪式感。”（EP28_P1 · 03:40）；“有一种爱情，叫做我的余光中都是你吧。”（EP33_P1 · 05:16）；“爱情可是一门很深的学问啊，不急，慢慢参悟。”（EP33_P1 · 05:52）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP28_P1.html",
+    "https://wx409.github.io/tavern/ep/EP33_P1.html",
+    "https://wx409.github.io/tavern/ep/EP33_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_08",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「冬天」的话？",
+   "aliases": [
+    "王晰 冬天",
+    "冬天 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "冬天",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「冬天」相关的原话有 3 条：“热饮呢，真的是冬天里最好的慰藉呀。”（EP23_P1 · 01:28）；“梅花像极了冬天的知己。”（EP24_P1 · 03:57）；“冬天虽冷，但也自有一番趣味。”（EP34_P1 · 05:38）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP23_P1.html",
+    "https://wx409.github.io/tavern/ep/EP24_P1.html",
+    "https://wx409.github.io/tavern/ep/EP34_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_09",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「治愈」的话？",
+   "aliases": [
+    "王晰 治愈",
+    "治愈 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "治愈",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「治愈」相关的原话有 3 条：“将闲事去心头，便是人间好时节。”（营业预告 · 00:55）；“当酒杯空了，心也许就满了。”（营业预告 · 00:19）；“敬你的孤独择日而终。”（营业预告 · 00:35）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_10",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「晚安」的话？",
+   "aliases": [
+    "王晰 晚安",
+    "晚安 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "晚安",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「晚安」相关的原话有 3 条：“祝你快乐，晚安了。”（EP16_P1 · 07:44）；“快躺好，关灯闭眼，晚安”（EP20_P2 · 01:36）；“好呀，那今晚就让我们在歌声中进入悠悠梦乡吧，晚安。”（EP35_P2 · 00:37）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP16_P1.html",
+    "https://wx409.github.io/tavern/ep/EP20_P2.html",
+    "https://wx409.github.io/tavern/ep/EP35_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_11",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「自然」的话？",
+   "aliases": [
+    "王晰 自然",
+    "自然 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "自然",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「自然」相关的原话有 3 条：“能顺其自然，其实啊，是一种幸福；而随经应变是一种能力。”（EP12_P2 · 01:13）；“爱情该发生的时候啊，自然会发生了。”（EP39_P2 · 01:00）；“雨声可以让大脑无意识的放松，堪称自然催眠曲”（EP44_P1 · 04:32）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP12_P2.html",
+    "https://wx409.github.io/tavern/ep/EP39_P2.html",
+    "https://wx409.github.io/tavern/ep/EP44_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_12",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「青春」的话？",
+   "aliases": [
+    "王晰 青春",
+    "青春 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "青春",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「青春」相关的原话有 3 条：“青春并不局限于在某个年纪，只要你想出发，那就无时不刻在青春的路上。”（EP04_P1 · 08:42）；“青春不是年纪，更是一种生命绽放的状态。”（EP04_P1 · 08:51）；“青春是每一个让你感到幸福的瞬间。”（EP04_P1 · 09:04）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP04_P1.html",
+    "https://wx409.github.io/tavern/ep/EP04_P1.html",
+    "https://wx409.github.io/tavern/ep/EP04_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_13",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「音乐」的话？",
+   "aliases": [
+    "王晰 音乐",
+    "音乐 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "音乐",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「音乐」相关的原话有 3 条：“不能出门的日子，我会通过音乐、书籍、电影或者纪录片去看看外面的世界”（EP09_P2 · 01:05）；“美酒暖身，音乐暖心。”（EP34_P1 · 06:28）；“音乐是最好的心灵抚慰剂。”（EP34_P1 · 01:38）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP09_P2.html",
+    "https://wx409.github.io/tavern/ep/EP34_P1.html",
+    "https://wx409.github.io/tavern/ep/EP34_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_14",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「秋天」的话？",
+   "aliases": [
+    "王晰 秋天",
+    "秋天 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "秋天",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「秋天」相关的原话有 3 条：“就像在秋天，总要有些随风，有些入梦，有些长留在心中。”（EP18_P1 · 03:10）；“秋天真美呀，仅是一串串葡萄上挂着的深秋的露水，就该让人心醉了吧。”（EP22_P1 · 06:19）；“夏天让人想喝酒，秋天让人想生活。”（EP23_P1 · 01:51）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP18_P1.html",
+    "https://wx409.github.io/tavern/ep/EP22_P1.html",
+    "https://wx409.github.io/tavern/ep/EP23_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_15",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「遗憾」的话？",
+   "aliases": [
+    "王晰 遗憾",
+    "遗憾 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "遗憾",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「遗憾」相关的原话有 3 条：“即便没有曲终的遗憾，也不乏满满的真情实感”（EP11_P2 · 02:12）；“我很喜欢这首诗和这个充满遗憾的故事。”（EP15_P1 · 06:07）；“遗憾和错过，谁也无能为力。而我们能做的，大概也只有别忘掉。”（EP18_P1 · 08:08）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP11_P2.html",
+    "https://wx409.github.io/tavern/ep/EP15_P1.html",
+    "https://wx409.github.io/tavern/ep/EP18_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_16",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「幸福」的话？",
+   "aliases": [
+    "王晰 幸福",
+    "幸福 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "幸福",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「幸福」相关的原话有 3 条：“青春是每一个让你感到幸福的瞬间。”（EP04_P1 · 09:04）；“能顺其自然，其实啊，是一种幸福；而随经应变是一种能力。”（EP12_P2 · 01:13）；“约上三两好友一起吃热气腾腾的铜锅涮羊肉，再配上一杯小酒，简直就是幸福感爆棚啊。”（EP25_P1 · 00:43）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP04_P1.html",
+    "https://wx409.github.io/tavern/ep/EP12_P2.html",
+    "https://wx409.github.io/tavern/ep/EP25_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_17",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「真诚」的话？",
+   "aliases": [
+    "王晰 真诚",
+    "真诚 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "真诚",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「真诚」相关的原话有 3 条：“将闲事去心头，便是人间好时节。”（营业预告 · 00:55）；“当酒杯空了，心也许就满了。”（营业预告 · 00:19）；“敬你的孤独择日而终。”（营业预告 · 00:35）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html",
+    "https://wx409.github.io/tavern/ep/营业预告.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_18",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「生命」的话？",
+   "aliases": [
+    "王晰 生命",
+    "生命 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "生命",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「生命」相关的原话有 3 条：“青春不是年纪，更是一种生命绽放的状态。”（EP04_P1 · 08:51）；“生命是一场飙车，我有权自毁。”（EP20_P1 · 04:13）；“生命的过程，无论是阳春白雪，青菜豆腐，我都得尝尝是什么滋味，才不忘走这么一遭。”（EP46_P1 · 05:08）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP04_P1.html",
+    "https://wx409.github.io/tavern/ep/EP20_P1.html",
+    "https://wx409.github.io/tavern/ep/EP46_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_19",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「小酒馆」的话？",
+   "aliases": [
+    "王晰 小酒馆",
+    "小酒馆 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "小酒馆",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「小酒馆」相关的原话有 3 条：“进了小酒馆的门，今晚你可以卸掉所有标签，就只是一个来听我讲故事的人。”（EP02_P1 · 00:54）；“希望如今在我的小酒馆里听故事的每一位，都可以勇敢去爱，不辜负每一段心动。”（EP02_P1 · 09:02）；“小酒馆有休馆的时候，我们也可以在人生的旅途中适当停下脚步，整理自己，再重新出发。”（EP52_P1 · 07:09）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP02_P1.html",
+    "https://wx409.github.io/tavern/ep/EP02_P1.html",
+    "https://wx409.github.io/tavern/ep/EP52_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_20",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「自由」的话？",
+   "aliases": [
+    "王晰 自由",
+    "自由 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "自由",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「自由」相关的原话有 3 条：“生活的方式不只有一种，你也要让自己更自由一些哦”（EP17_P1 · 07:45）；“秋日是金灿灿的，心是舒展的，生活是浪漫且自由的。”（EP22_P1 · 06:08）；“少一点选择就是多一份自由”（EP31_P2 · 00:59）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP17_P1.html",
+    "https://wx409.github.io/tavern/ep/EP22_P1.html",
+    "https://wx409.github.io/tavern/ep/EP31_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_21",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「电影」的话？",
+   "aliases": [
+    "王晰 电影",
+    "电影 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "电影",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「电影」相关的原话有 3 条：“不能出门的日子，我会通过音乐、书籍、电影或者纪录片去看看外面的世界”（EP09_P2 · 01:05）；“电影是一扇神奇的感官传送门。”（EP22_P2 · 01:06）；“选一部想看的电影，对于我来说就是雨天最好的治愈”（EP44_P2 · 01:01）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP09_P2.html",
+    "https://wx409.github.io/tavern/ep/EP22_P2.html",
+    "https://wx409.github.io/tavern/ep/EP44_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_22",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「陪伴」的话？",
+   "aliases": [
+    "王晰 陪伴",
+    "陪伴 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "陪伴",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「陪伴」相关的原话有 3 条：“我会一直在这里等着你，陪伴你。”（EP12_P1 · 00:56）；“友谊就是这样纯粹，你我互相鼓励，互相陪伴。”（EP26_P1 · 04:22）；“懂你的人总会默默支持和陪伴你去做任何别人不理解的事。”（EP46_P1 · 04:45）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP12_P1.html",
+    "https://wx409.github.io/tavern/ep/EP26_P1.html",
+    "https://wx409.github.io/tavern/ep/EP46_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_23",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「收获」的话？",
+   "aliases": [
+    "王晰 收获",
+    "收获 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "收获",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「收获」相关的原话有 3 条：“偶尔按下忙碌生活的暂停键，一块格子餐布，一个圆顶帐篷，一方六角形天幕，就会收获片刻的安宁和松懈”（EP17_P1 · 07:20）；“感兴趣的小伙伴可以找来原文仔细品读，或许你会有不一样的收获哦。”（EP24_P2 · 02:39）；“你从不乏追求理想生活的勇气，也能够这个春天收获美好的爱情和自己。”（EP46_P1 · 06:04）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP17_P1.html",
+    "https://wx409.github.io/tavern/ep/EP24_P2.html",
+    "https://wx409.github.io/tavern/ep/EP46_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_24",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「坚持」的话？",
+   "aliases": [
+    "王晰 坚持",
+    "坚持 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "坚持",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「坚持」相关的原话有 3 条：“你可以坚持你的内心所想，但不要用不听不理、冷漠疏远来回应。”（EP06_P2 · 01:48）；“计划要具体，越具体越好，因为这样你越容易去执行和坚持。”（EP29_P1 · 04:50）；“和人分享的计划会更加容易坚持。”（EP29_P1 · 05:42）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP06_P2.html",
+    "https://wx409.github.io/tavern/ep/EP29_P1.html",
+    "https://wx409.github.io/tavern/ep/EP29_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_25",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「计划」的话？",
+   "aliases": [
+    "王晰 计划",
+    "计划 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "计划",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「计划」相关的原话有 3 条：“设置目标，制定计划，严格执行，你会知道自己需要多少时间去完成任务。”（EP14_P2 · 01:00）；“计划要具体，越具体越好，因为这样你越容易去执行和坚持。”（EP29_P1 · 04:50）；“和人分享的计划会更加容易坚持。”（EP29_P1 · 05:42）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP14_P2.html",
+    "https://wx409.github.io/tavern/ep/EP29_P1.html",
+    "https://wx409.github.io/tavern/ep/EP29_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_26",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「仪式感」的话？",
+   "aliases": [
+    "王晰 仪式感",
+    "仪式感 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "仪式感",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「仪式感」相关的原话有 3 条：“给生活制造一点小小的氛围感和仪式感。”（EP22_P2 · 01:19）；“告别秋天的仪式感是这么简单而美好。”（EP23_P1 · 06:40）；“无论多忙，都一定要记得独属于爱情的仪式感。”（EP28_P1 · 03:40）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP22_P2.html",
+    "https://wx409.github.io/tavern/ep/EP23_P1.html",
+    "https://wx409.github.io/tavern/ep/EP28_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_27",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「樱花」的话？",
+   "aliases": [
+    "王晰 樱花",
+    "樱花 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "樱花",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「樱花」相关的原话有 3 条：“樱花飘落的速度是秒速五厘米。”（EP40_P1 · 00:48）；“一场樱花盛世，便是武汉迎接每一个春天的仪式。”（EP40_P1 · 03:29）；“如果可以，一定要约上心爱的人，在春日边樱花盛开的时候，去武汉。”（EP40_P1 · 06:18）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP40_P1.html",
+    "https://wx409.github.io/tavern/ep/EP40_P1.html",
+    "https://wx409.github.io/tavern/ep/EP40_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_28",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「心动」的话？",
+   "aliases": [
+    "王晰 心动",
+    "心动 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "心动",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「心动」相关的原话有 3 条：“希望如今在我的小酒馆里听故事的每一位，都可以勇敢去爱，不辜负每一段心动。”（EP02_P1 · 09:02）；“心动容易，行动很难。”（EP39_P1 · 03:37）；“没有遇到那个让自己心动的人，才是最大的问题。”（EP39_P1 · 05:46）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP02_P1.html",
+    "https://wx409.github.io/tavern/ep/EP39_P1.html",
+    "https://wx409.github.io/tavern/ep/EP39_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_29",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「选择」的话？",
+   "aliases": [
+    "王晰 选择",
+    "选择 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "选择",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「选择」相关的原话有 2 条：“让他们感受到你已经思虑周全了，你能够为自己的选择负责。”（EP06_P2 · 02:03）；“少一点选择就是多一份自由”（EP31_P2 · 00:59）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP06_P2.html",
+    "https://wx409.github.io/tavern/ep/EP31_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_30",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「内心」的话？",
+   "aliases": [
+    "王晰 内心",
+    "内心 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "内心",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「内心」相关的原话有 2 条：“你可以坚持你的内心所想，但不要用不听不理、冷漠疏远来回应。”（EP06_P2 · 01:48）；“愿你在经历过所有世事沧桑之后，内心依然充满积极向上的希望。”（EP42_P1 · 02:22）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP06_P2.html",
+    "https://wx409.github.io/tavern/ep/EP42_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_31",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「理想」的话？",
+   "aliases": [
+    "王晰 理想",
+    "理想 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "理想",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「理想」相关的原话有 2 条：“我们可以一起在这个春天，为了理想的生活一起努力哦。”（EP42_P2 · 01:05）；“你从不乏追求理想生活的勇气，也能够这个春天收获美好的爱情和自己。”（EP46_P1 · 06:04）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP42_P2.html",
+    "https://wx409.github.io/tavern/ep/EP46_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_32",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「当下」的话？",
+   "aliases": [
+    "王晰 当下",
+    "当下 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "当下",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「当下」相关的原话有 2 条：“不要投支烦恼，认真尽力的把握当下就好了。”（EP30_P2 · 01:22）；“所有人的当下都只是行走在未来的漂浮不定的记忆中罢了”（EP47_P1 · 04:17）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP30_P2.html",
+    "https://wx409.github.io/tavern/ep/EP47_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_33",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「纪录片」的话？",
+   "aliases": [
+    "王晰 纪录片",
+    "纪录片 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "纪录片",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「纪录片」相关的原话有 2 条：“不能出门的日子，我会通过音乐、书籍、电影或者纪录片去看看外面的世界”（EP09_P2 · 01:05）；“通过这部纪录片，我们能够感受到中国民以食为天的饮食文化。”（EP25_P2 · 01:00）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP09_P2.html",
+    "https://wx409.github.io/tavern/ep/EP25_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_34",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「友谊」的话？",
+   "aliases": [
+    "王晰 友谊",
+    "友谊 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "友谊",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「友谊」相关的原话有 2 条：“没有怜悯，没有特殊对待，友谊建立的默契很奇妙。”（EP26_P1 · 02:40）；“友谊就是这样纯粹，你我互相鼓励，互相陪伴。”（EP26_P1 · 04:22）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP26_P1.html",
+    "https://wx409.github.io/tavern/ep/EP26_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_35",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「落叶」的话？",
+   "aliases": [
+    "王晰 落叶",
+    "落叶 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "落叶",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「落叶」相关的原话有 2 条：“秋风生渭水，落叶满长安。”（EP15_P1 · 02:49）；“落叶坠落以后是重生的美。”（EP23_P2 · 00:54）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP15_P1.html",
+    "https://wx409.github.io/tavern/ep/EP23_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_36",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「放松」的话？",
+   "aliases": [
+    "王晰 放松",
+    "放松 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "放松",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「放松」相关的原话有 2 条：“不妨放松自己，慢下来，或许会有发现呢。”（EP21_P2 · 00:55）；“雨声可以让大脑无意识的放松，堪称自然催眠曲”（EP44_P1 · 04:32）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP21_P2.html",
+    "https://wx409.github.io/tavern/ep/EP44_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_37",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「行动」的话？",
+   "aliases": [
+    "王晰 行动",
+    "行动 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "行动",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「行动」相关的原话有 2 条：“心动容易，行动很难。”（EP39_P1 · 03:37）；“焦虑的反义词就是行动，一件件去攻克。”（EP51_P2 · 01:39）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP39_P1.html",
+    "https://wx409.github.io/tavern/ep/EP51_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_38",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「满足」的话？",
+   "aliases": [
+    "王晰 满足",
+    "满足 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "满足",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「满足」相关的原话有 2 条：“你为什么来这里？你害怕死亡吗？你满足吗？”（EP10_P2 · 01:08）；“满足 自洽 优雅的老去”（EP19_P2 · 01:10）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP10_P2.html",
+    "https://wx409.github.io/tavern/ep/EP19_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_39",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「梅花」的话？",
+   "aliases": [
+    "王晰 梅花",
+    "梅花 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "梅花",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「梅花」相关的原话有 2 条：“梅花像极了冬天的知己。”（EP24_P1 · 03:57）；“这二十六条写的正是欣赏梅花时应具备和追求的标准。”（EP24_P2 · 02:15）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP24_P1.html",
+    "https://wx409.github.io/tavern/ep/EP24_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_40",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「铜锅涮羊肉」的话？",
+   "aliases": [
+    "王晰 铜锅涮羊肉",
+    "铜锅涮羊肉 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "铜锅涮羊肉",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「铜锅涮羊肉」相关的原话有 2 条：“约上三两好友一起吃热气腾腾的铜锅涮羊肉，再配上一杯小酒，简直就是幸福感爆棚啊。”（EP25_P1 · 00:43）；“希望我们在梦里也能一起吃铜锅涮羊肉。”（EP25_P1 · 06:05）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP25_P1.html",
+    "https://wx409.github.io/tavern/ep/EP25_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_41",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「美食」的话？",
+   "aliases": [
+    "王晰 美食",
+    "美食 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "美食",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「美食」相关的原话有 2 条：“不管涮羊肉来源于哪个朝代，它都成为历史上一道美食佳肴。”（EP25_P1 · 05:46）；“欢迎大家有时间去沈阳走一走，感受一下古都奉天的美食文化。”（EP45_P2 · 01:02）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP25_P1.html",
+    "https://wx409.github.io/tavern/ep/EP45_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_42",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「温暖」的话？",
+   "aliases": [
+    "王晰 温暖",
+    "温暖 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "温暖",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「温暖」相关的原话有 2 条：“困沌时为你解惑，挫败时给你力量，像一束温暖的火光。”（EP12_P1 · 07:55）；“在这漫漫长冬，总有一个人会温暖你的。”（EP26_P1 · 06:05）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP12_P1.html",
+    "https://wx409.github.io/tavern/ep/EP26_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_43",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「完成」的话？",
+   "aliases": [
+    "王晰 完成",
+    "完成 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "完成",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「完成」相关的原话有 2 条：“设置目标，制定计划，严格执行，你会知道自己需要多少时间去完成任务。”（EP14_P2 · 01:00）；“新的一年呢，希望把之前想做却又没做的那些事罗列出来，一一打卡完成。”（EP29_P2 · 00:26）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP14_P2.html",
+    "https://wx409.github.io/tavern/ep/EP29_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_44",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「黄酒」的话？",
+   "aliases": [
+    "王晰 黄酒",
+    "黄酒 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "黄酒",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「黄酒」相关的原话有 2 条：“黄酒里那份历经世事而愈加醇厚的特质啊，才是动人心魂的魅力。”（EP30_P1 · 03:40）；“闻一壶冬酿黄酒微醺着茂冬，岂不悠哉。”（EP30_P1 · 06:14）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP30_P1.html",
+    "https://wx409.github.io/tavern/ep/EP30_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_45",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「焦虑」的话？",
+   "aliases": [
+    "王晰 焦虑",
+    "焦虑 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "焦虑",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「焦虑」相关的原话有 2 条：“按照自己的步骤踏实的生长，不必焦虑。”（EP41_P2 · 00:41）；“焦虑的反义词就是行动，一件件去攻克。”（EP51_P2 · 01:39）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP41_P2.html",
+    "https://wx409.github.io/tavern/ep/EP51_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_46",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「遇见」的话？",
+   "aliases": [
+    "王晰 遇见",
+    "遇见 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "遇见",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「遇见」相关的原话有 2 条：“人与梅的相逢，是这世间最美的遇见。”（EP24_P1 · 05:53）；“很高兴遇见你，我的朋友。”（EP52_P1 · 01:30）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP24_P1.html",
+    "https://wx409.github.io/tavern/ep/EP52_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_47",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「歌声」的话？",
+   "aliases": [
+    "王晰 歌声",
+    "歌声 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "歌声",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「歌声」相关的原话有 2 条：“用歌声和表演为祖国各地的海军战友们带去更多的力量。”（EP27_P2 · 01:23）；“好呀，那今晚就让我们在歌声中进入悠悠梦乡吧，晚安。”（EP35_P2 · 00:37）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP27_P2.html",
+    "https://wx409.github.io/tavern/ep/EP35_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_48",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「武汉」的话？",
+   "aliases": [
+    "王晰 武汉",
+    "武汉 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "武汉",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「武汉」相关的原话有 2 条：“一场樱花盛世，便是武汉迎接每一个春天的仪式。”（EP40_P1 · 03:29）；“如果可以，一定要约上心爱的人，在春日边樱花盛开的时候，去武汉。”（EP40_P1 · 06:18）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP40_P1.html",
+    "https://wx409.github.io/tavern/ep/EP40_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_49",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「新鲜」的话？",
+   "aliases": [
+    "王晰 新鲜",
+    "新鲜 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "新鲜",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「新鲜」相关的原话有 2 条：“又是新鲜的春天了，我也是新鲜的。”（EP41_P1 · 06:38）；“现在就是时候回家做一碗新鲜热汤给他尝试，给他一个拥抱。”（EP48_P1 · 06:26）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP41_P1.html",
+    "https://wx409.github.io/tavern/ep/EP48_P1.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_50",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「努力」的话？",
+   "aliases": [
+    "王晰 努力",
+    "努力 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "努力",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「努力」相关的原话有 2 条：“每一个人都在努力的活着，但父母永远不会停止爱你啊。”（EP14_P2 · 00:35）；“我们可以一起在这个春天，为了理想的生活一起努力哦。”（EP42_P2 · 01:05）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP14_P2.html",
+    "https://wx409.github.io/tavern/ep/EP42_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_51",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「助眠」的话？",
+   "aliases": [
+    "王晰 助眠",
+    "助眠 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "助眠",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「助眠」相关的原话有 2 条：“雨生助眠，很幸福”（EP44_P1 · 06:56）；“雨声真的很助眠啊”（EP44_P2 · 00:42）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP44_P1.html",
+    "https://wx409.github.io/tavern/ep/EP44_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_tavern_52",
+   "question": "王晰在《深夜小酒馆》里说过哪些关于「慰藉」的话？",
+   "aliases": [
+    "王晰 慰藉",
+    "慰藉 王晰说过"
+   ],
+   "category": "小酒馆金句",
+   "keywords": [
+    "慰藉",
+    "深夜小酒馆",
+    "金句"
+   ],
+   "answer": "与「慰藉」相关的原话有 2 条：“热饮呢，真的是冬天里最好的慰藉呀。”（EP23_P1 · 01:28）；“愿我们都能在书中获得小小的慰藉”（EP47_P2 · 01:11）。以上为节目原话摘引，时间码由逐字稿定位。",
+   "sources": [
+    "https://wx409.github.io/tavern/ep/EP23_P1.html",
+    "https://wx409.github.io/tavern/ep/EP47_P2.html"
+   ],
+   "verified": true,
+   "confidence": "high"
   }
  ]
 }
