@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14 20:18",
+ "generated_at": "2026-11-14 20:39",
  "count": 77,
  "calibers": [
   {
@@ -605,8 +605,8 @@
   {
    "id": "listeners_peak_daily",
    "label": "收听峰值覆盖（曲目×日）",
-   "value": 1710,
-   "scope": "1603 个批次文件 / 110 天（（本机 E 盘）指数vs）",
+   "value": 1712,
+   "scope": "1604 个批次文件 / 110 天（（本机 E 盘）指数vs）",
    "source": "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
    "note": "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点"
   },
