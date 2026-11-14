@@ -93,9 +93,18 @@ def build_page(key, v, moods=None, prev_ep=None, next_ep=None, times=None):
             _l.append(f'<a href="{html.escape(next_ep)}.html">下一期 →</a>')
         nav_html = '<div class="nav2">' + ' · '.join(_l) + '</div>'
 
+    _kw = [k for k in (kws or []) if k]
+    _cites = []
+    for _q in (quotes or []):
+        _t = (times or {}).get(_q)
+        _cites.append(f"“{_q}”（深夜小酒馆 {ep}{'·' + _t if _t else ''}）")
     jsonld = {
         "@context": "https://schema.org",
         "@type": "RadioEpisode",
+        "keywords": _kw,
+        "about": [{"@type": "Thing", "name": k} for k in _kw[:6]],
+        "citation": _cites,
+        "text": (_cites[0] if _cites else (summary or "")[:120]),
         "name": title,
         "description": f"深夜小酒馆「{theme}」摘要（合规：已去逐字稿全文，仅保留主题/喜好/金句/关键词）。",
         "inLanguage": "zh-CN",
