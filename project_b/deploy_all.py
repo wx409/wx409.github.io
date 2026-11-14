@@ -230,7 +230,9 @@ def notify_indexnow() -> bool:
     ok = 0
     for u in urls:
         try:
-            url = f"https://api.indexnow.org/indexnow?url={u}&key={key}"
+            from urllib.parse import quote as _q
+            _u = _q(u, safe=":/?#[]@!$&'()*+,;=%")
+            url = f"https://api.indexnow.org/indexnow?url={_u}&key={key}"
             with urllib.request.urlopen(url, timeout=20) as resp:
                 if resp.status == 200:
                     ok += 1
