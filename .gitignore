@@ -65,3 +65,7 @@ analysis/out/
 # 本次分析引入的备份（不进库）
 *.bak_before_insight
 *.bak_before_prewindow
+
+# 可见性探测的运行数据（保留脚本与最新报告）
+analysis/citeprobe/history/
+analysis/citeprobe/probe.log
