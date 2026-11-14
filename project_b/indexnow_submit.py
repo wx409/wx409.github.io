@@ -50,12 +50,18 @@ def sitemap_urls() -> list[str]:
     return sorted(dict.fromkeys(urls))
 
 
+def _enc(u: str) -> str:
+    """把含中文的 URL 转成 ASCII 安全的百分号编码（保留协议与分隔符）。"""
+    from urllib.parse import quote
+    return quote(u, safe=":/?#[]@!$&'()*+,;=%")
+
+
 def post_batch(urls: list[str], key: str, key_location: str, retries: int = 3) -> tuple[bool, str]:
     body = json.dumps({
         "host": HOST,
         "key": key,
         "keyLocation": key_location,
-        "urlList": urls,
+        "urlList": [_enc(u) for u in urls],
     }).encode("utf-8")
     last = ""
     for attempt in range(retries):
