@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-11-14 09:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-11-14 14:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -82,7 +82,7 @@
 | `event_effects_edges` | 事件×歌曲 效应边数 | **32668** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
 | `media_library_files` | 声音素材库已下载媒体文件数 | **157** | 本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 | `media_library_pending` | 声音素材库待采条目数 | **2** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
-| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1701** | 1592 个批次文件 / 110 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
+| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1704** | 1596 个批次文件 / 110 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
 | `long_table_listeners` | 指数长表·收听列（曲目×日） | **1618** | 109 天 / 39 首（music_index_long.csv 的 listeners 列） | `E:\wx\wx_textmine\00_build_matrix.py` |
 
 ## 常见误用

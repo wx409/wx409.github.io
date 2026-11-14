@@ -148,6 +148,114 @@ def esc(s) -> str:
     return html.escape(str(s if s is not None else ""), quote=True)
 
 
+def stage_query_html() -> str:
+    """现场层条件检索（2026-11-14）：把 879 行做成可筛表，纯前端，无后端。"""
+    try:
+        t = json.loads(TOUR.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    rows = t.get("rows") or []
+    if not rows:
+        return ""
+    slim = []
+    for r in rows:
+        if not r.get("song"):
+            continue
+        slim.append([
+            str(r.get("song", ""))[:40], str(r.get("city", ""))[:20], str(r.get("date", ""))[:10],
+            str(r.get("low_note") or ""), r.get("low_hz"), r.get("low_dur_s"),
+            r.get("density_per_s"), r.get("stability_cents"), r.get("vibrato_hz"),
+            1 if r.get("claimable") else 0, 1 if r.get("claimable_soft") else 0,
+        ])
+    data = json.dumps(slim, ensure_ascii=False)
+    return """
+<section id="stage-query">
+<h2>条件检索：哪一站、哪首歌</h2>
+<p class="note">下方表格由 <code>data/archive_stage_tour.json</code> 实时筛选（纯前端，不上传任何数据）。
+常用：<b>低音</b> 最低音 ≤ 70Hz；<b>长音</b> 低音时长 ≥ 0.5 秒；<b>弱唱</b> 勾选“只看弱唱”；<b>一字一音</b> 密度 ≥ 1.8。</p>
+<div class="qbar">
+  <label>最低音 ≤ <input id="qLow" type="number" value="999" step="1"></label>
+  <label>低音时长 ≥ <input id="qDur" type="number" value="0" step="0.1"></label>
+  <label>密度 ≥ <input id="qDense" type="number" value="0" step="0.1"></label>
+  <label>曲目 <input id="qSong" type="text" placeholder="如 绒花"></label>
+  <label>城市 <input id="qCity" type="text" placeholder="如 上海"></label>
+  <label><input id="qSoft" type="checkbox"> 只看弱唱</label>
+  <label><input id="qClaim" type="checkbox"> 只看可引用</label>
+  <button id="qReset" type="button">重置</button>
+  <span id="qCount" class="sub"></span>
+</div>
+<div class="table-wrap"><table id="qTable">
+<thead><tr><th>曲目</th><th>城市</th><th>日期</th><th>最低音</th><th>Hz</th><th>时长s</th><th>密度</th><th>稳定(音分)</th><th>颤音Hz</th><th>标记</th></tr></thead>
+<tbody></tbody></table></div>
+<script>
+(function(){
+  var D = """ + data + """;
+  var tb = document.querySelector('#qTable tbody');
+  function render(){
+    var lo = parseFloat(document.getElementById('qLow').value) || 999;
+    var du = parseFloat(document.getElementById('qDur').value) || 0;
+    var de = parseFloat(document.getElementById('qDense').value) || 0;
+    var so = (document.getElementById('qSong').value || '').trim();
+    var ci = (document.getElementById('qCity').value || '').trim();
+    var sf = document.getElementById('qSoft').checked;
+    var cl = document.getElementById('qClaim').checked;
+    var out = [], n = 0;
+    for (var i=0;i<D.length;i++){
+      var r = D[i];
+      if (r[4] != null && r[4] > lo) continue;
+      if ((r[5] || 0) < du) continue;
+      if ((r[6] || 0) < de) continue;
+      if (so && r[0].indexOf(so) < 0) continue;
+      if (ci && r[1].indexOf(ci) < 0) continue;
+      if (sf && r[10] !== 1) continue;
+      if (cl && r[9] !== 1) continue;
+      n++;
+      if (out.length < 200) out.push(r);
+    }
+    out.sort(function(a,b){ return (a[4]||9999) - (b[4]||9999); });
+    var html = '';
+    for (var j=0;j<out.length;j++){
+      var r = out[j];
+      html += '<tr><td>' + r[0] + '</td><td>' + (r[1]||'—') + '</td><td>' + (r[2]||'—') + '</td>'
+            + '<td class="low">' + (r[3]||'—') + '</td><td>' + (r[4] != null ? r[4] : '—') + '</td>'
+            + '<td>' + (r[5] != null ? r[5].toFixed(2) : '—') + '</td>'
+            + '<td>' + (r[6] != null ? r[6].toFixed(2) : '—') + '</td>'
+            + '<td>' + (r[7] != null ? r[7].toFixed(1) : '—') + '</td>'
+            + '<td>' + (r[8] != null ? r[8].toFixed(2) : '—') + '</td>'
+            + '<td>' + (r[10] ? '弱唱' : (r[9] ? '可引用' : '')) + '</td></tr>';
+    }
+    tb.innerHTML = html;
+    document.getElementById('qCount').textContent = '命中 ' + n + ' 条' + (n > 200 ? '（显示前 200）' : '');
+  }
+  ['qLow','qDur','qDense','qSong','qCity','qSoft','qClaim'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', render); el.addEventListener('change', render);
+  });
+  document.getElementById('qReset').addEventListener('click', function(){
+    document.getElementById('qLow').value = 999;
+    document.getElementById('qDur').value = 0;
+    document.getElementById('qDense').value = 0;
+    document.getElementById('qSong').value = '';
+    document.getElementById('qCity').value = '';
+    document.getElementById('qSoft').checked = false;
+    document.getElementById('qClaim').checked = false;
+    render();
+  });
+  render();
+})();
+</script>
+<style>
+#stage-query .qbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+#stage-query .qbar input[type=number]{width:80px}
+#stage-query .qbar input[type=text]{width:120px}
+#stage-query table{width:100%;border-collapse:collapse;font-size:13px}
+#stage-query th,#stage-query td{border-bottom:1px solid rgba(255,255,255,.08);padding:6px 8px;text-align:left}
+#stage-query td.low{color:#ffc864;font-weight:600}
+</style>
+</section>
+"""
+
+
 def tour_layer_html() -> str:
     """王晰主导巡演现场层（第一层，2026-09-11）：全部数字由 data/archive_stage_tour.json 派生。"""
     try:
@@ -650,7 +758,7 @@ def main() -> None:
     from research_ld import research_project, faq_page, dataset_ref
 
     # 巡演现场层（第一层）：数据与 HTML 都必须在下方 rp/faq 之前就位
-    tour_html = tour_layer_html()
+    tour_html = tour_layer_html() + stage_query_html()
     try:
         _tj = json.loads(TOUR.read_text(encoding="utf-8"))
         tour_n = (_tj.get("summary") or {}).get("n_materials")
