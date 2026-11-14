@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-14 21:15",
+ "generated_at": "2026-11-14 21:48",
  "streams": [
   {
    "stream": "声学·现场层",
    "source": "data/archive_stage_tour.json",
-   "n": 879,
+   "n": 884,
    "latest": "2026-11-14",
    "lag_days": 0,
    "new_7d": null,
@@ -14,22 +14,22 @@
   {
    "stream": "声学·音频资产",
    "source": "data/audio_assets.json",
-   "n": 2741,
+   "n": 2752,
    "latest": "2026-11-14",
    "lag_days": 0,
-   "new_7d": 0,
+   "new_7d": 11,
    "gap": "在积攒",
-   "note": "本日新增 0 个"
+   "note": "本日新增 11 个"
   },
   {
    "stream": "指数·每日指数",
    "source": "music_index_long.csv",
-   "n": 1349,
-   "latest": "2026-11-13",
-   "lag_days": 1,
-   "new_7d": 7,
+   "n": 1350,
+   "latest": "2026-11-14",
+   "lag_days": 0,
+   "new_7d": 8,
    "gap": "在积攒（每日多批次）",
-   "note": "最新 2026-11-13"
+   "note": "最新 2026-11-14"
   },
   {
    "stream": "文本·声音素材",
@@ -114,7 +114,7 @@
   {
    "stream": "知识库·问答库",
    "source": "data/qa_bank.json",
-   "n": 17,
+   "n": 69,
    "latest": "2026-11-14",
    "lag_days": 0,
    "new_7d": null,
@@ -144,7 +144,7 @@
  ],
  "summary": {
   "streams": 14,
-  "accumulating": 1,
+  "accumulating": 2,
   "stale": [
    "文本·声音素材",
    "文本·少城时代",

@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-11-14 21:07:01",
+ "generated_at": "2026-11-14 21:41:20",
  "model": "BAAI/bge-small-zh-v1.5",
  "dim": 512,
  "quant": "int8 scale=127",
- "doc_count": 5660,
+ "doc_count": 5712,
  "topk": 8,
- "size_bytes": 2897920,
+ "size_bytes": 2924544,
  "types": {
   "album": 9,
   "city": 22,
@@ -14,7 +14,7 @@
   "media": 485,
   "org": 10,
   "person": 2,
-  "qa": 17,
+  "qa": 69,
   "quote": 7,
   "relation": 2221,
   "show": 66,

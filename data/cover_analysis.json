@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-14T21:15:50",
+ "generated_at": "2026-11-14T21:48:37",
  "stat": {
-  "generated_at": "2026-11-14T21:15:49",
+  "generated_at": "2026-11-14T21:48:36",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 51,
+  "songs_with_3plus": 53,
   "rows": [
    {
     "song": "佛山全场",
@@ -472,6 +472,15 @@
     "low_cv": 0.1234
    },
    {
+    "song": "慢慢喜欢你",
+    "versions": 3,
+    "low_median": 100.3,
+    "low_iqr": 18.6,
+    "low_range": 37.3,
+    "high_median": 676.3,
+    "low_cv": 0.1622
+   },
+   {
     "song": "Yourman",
     "versions": 3,
     "low_median": 87.2,
@@ -499,6 +508,15 @@
     "low_cv": 0.456
    },
    {
+    "song": "你",
+    "versions": 3,
+    "low_median": 90.5,
+    "low_iqr": 3.1,
+    "low_range": 6.2,
+    "high_median": 955.2,
+    "low_cv": 0.0319
+   },
+   {
     "song": "茕茕",
     "versions": 3,
     "low_median": 75.0,
@@ -506,24 +524,6 @@
     "low_range": 14.0,
     "high_median": 776.3,
     "low_cv": 0.0769
-   },
-   {
-    "song": "Moon River",
-    "versions": 3,
-    "low_median": 73.4,
-    "low_iqr": 14.2,
-    "low_range": 28.4,
-    "high_median": 583.6,
-    "low_cv": 0.1542
-   },
-   {
-    "song": "分岔",
-    "versions": 3,
-    "low_median": 88.7,
-    "low_iqr": 11.1,
-    "low_range": 22.2,
-    "high_median": 587.8,
-    "low_cv": 0.1021
    }
   ],
   "low_cv_median": 0.1232,
@@ -531,9 +531,9 @@
  },
  "register_adapt": {
   "own_live_low_median": 84.9,
-  "cover_live_low_median": 92.7,
+  "cover_live_low_median": 92.6,
   "own_n": 45,
-  "cover_n": 227,
+  "cover_n": 228,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

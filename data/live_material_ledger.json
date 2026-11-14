@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-14T21:15:33",
+ "generated_at": "2026-11-14T21:48:07",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 879,
-  "processed_songs": 271,
-  "gap_songs": 72,
-  "coverage_pct": 102.3,
+  "processed_materials": 884,
+  "processed_songs": 272,
+  "gap_songs": 71,
+  "coverage_pct": 102.6,
   "status": {
-   "已完成": 354,
-   "候选": 8568,
+   "已完成": 361,
+   "候选": 8561,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -59,7 +59,6 @@
   "我",
   "我不再爱你",
   "我只在乎你",
-  "我和我的祖国",
   "把悲伤留给自己",
   "新年好",
   "日文歌片段",
@@ -90147,17 +90146,20 @@
    "bv": "BV1bt411F7DF",
    "title": "王晰 你不要担心 南京场",
    "song": "你",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南京",
    "date": "2019-08-01",
    "kind": "其他",
    "fetched_at": "2019-08-01",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1HJ411978y",
@@ -94494,17 +94496,20 @@
    "bv": "BV1iy4y1y7iC",
    "title": "王晰我恨自己太怂看到你都会脸红不脸红不正常吧哥哥这荷尔蒙爆棚的我都快要熟了脸红请扣1冷静请扣2冷静的脸激动的心请扣3",
    "song": "怂",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-09-17",
    "kind": "其他",
    "fetched_at": "2020-09-17",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1TK4y1p7hV",
@@ -105701,17 +105706,20 @@
    "bv": "BV11J411P72i",
    "title": "王晰 开口跪您习惯了吗的 云一定知道 成都",
    "song": "云一定知道",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "成都",
    "date": "2019-09-13",
    "kind": "其他",
    "fetched_at": "2019-09-13",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1BE411X7Bp",
@@ -109604,17 +109612,20 @@
    "bv": "BV1bt411F7DF",
    "title": "王晰 你不要担心 南京场",
    "song": "你不要担心",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南京",
    "date": "2019-08-01",
    "kind": "其他",
    "fetched_at": "2019-08-01",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV14E411d7K8",
@@ -122410,17 +122421,19 @@
    "bv": "BV1Zb411G7EY",
    "title": "【王晰】慢慢喜欢你 高清大头focus 天津巡演返场",
    "song": "慢慢喜欢你",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "天津",
    "date": "2019-04-20",
    "kind": "其他",
    "fetched_at": "2019-04-20",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Wb411b7WU",
@@ -123643,17 +123656,20 @@
    "bv": "BV1oh411h766",
    "title": "【王晰】王晰/张也《我和我的祖国》",
    "song": "我",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-07-09",
    "kind": "其他",
    "fetched_at": "2021-07-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1it4y1M7GY",
@@ -124814,17 +124830,20 @@
    "bv": "BV1oh411h766",
    "title": "【王晰】王晰/张也《我和我的祖国》",
    "song": "我和我的祖国",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-07-09",
    "kind": "其他",
    "fetched_at": "2021-07-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV13s4y1A7zf",
