@@ -11,6 +11,8 @@ from pathlib import Path
 ROOT = Path(r"D:\wx409.github.io")
 EP = ROOT / "tavern" / "ep"
 SUMMARIES = ROOT / "tavern" / "tavern_summaries.json"
+QUOTES = ROOT / "tavern" / "tavern_quotes.json"
+QTIMES = ROOT / "tavern" / "quote_times.json"
 
 CSS = """
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;line-height:1.8;max-width:760px;margin:0 auto;padding:20px;color:#333}
@@ -26,11 +28,15 @@ a{color:#7c3aed;text-decoration:none}
 .likes{background:#f0fdf4;padding:12px 16px;border-radius:8px;margin:12px 0}
 .likes li{margin:4px 0;font-size:14px}
 .quote{font-style:italic;color:#7c3aed;border-left:3px solid #b79be3;padding-left:12px;margin:8px 0;font-size:15px}
+.src{font-style:normal;color:#999;font-size:12px}
+.citable{background:#f7f4ff;border-left:4px solid #7c3aed;padding:12px 16px;margin:12px 0;font-size:15px}
+.mood{display:inline-block;background:#efe7ff;color:#5b3fa8;border-radius:12px;padding:2px 10px;font-size:12px;margin:3px 6px 3px 0}
+.nav2{margin:22px 0;padding:12px;background:#f4f0fb;border-radius:8px;font-size:14px}
 .kw{display:inline-block;background:#eee;border-radius:12px;padding:2px 10px;font-size:12px;margin:3px 4px 3px 0;color:#555}
 """
 
 
-def build_page(key, v):
+def build_page(key, v, moods=None, prev_ep=None, next_ep=None, times=None):
     ep = v.get('episode', key)
     theme = v.get('theme', '')
     category = v.get('category', '')
@@ -47,11 +53,45 @@ def build_page(key, v):
         likes_html = '<h2>王晰的喜好</h2><ul class="likes">' + ''.join(f'<li>{html.escape(l)}</li>' for l in likes) + '</ul>'
     songs_html = ''
     if songs:
-        songs_html = '<h2>本期提到</h2><p>' + ' · '.join(html.escape(s) for s in songs) + '</p>'
+        _items = []
+        for _s in songs:
+            _q = html.escape(_s)
+            _items.append('<a href="../..//search.html?q=' + _q + '">' + html.escape(_s) + '</a>')
+        songs_html = '<h2>本期提到的歌</h2><p>' + ' · '.join(_items) + '</p>'
     quotes_html = ''
     if quotes:
-        quotes_html = '<h2>王晰金句</h2>' + ''.join(f'<p class="quote">“{html.escape(q)}”</p>' for q in quotes)
+        _parts = []
+        for q in quotes:
+            _t = (times or {}).get(q)
+            _src = '—— 深夜小酒馆 ' + html.escape(ep) + ((' · ' + _t) if _t else '')
+            _parts.append(f'<p class="quote">“{html.escape(q)}”<br><span class="src">{_src}</span></p>')
+        quotes_html = '<h2>王晰金句</h2>' + ''.join(_parts)
     kw_html = '<p>' + ''.join(f'<span class="kw">{html.escape(k)}</span>' for k in kws) + '</p>'
+
+    mood_html = ''
+    if moods:
+        mood_html = '<h2>主题与情绪</h2><p>' + ''.join(
+            f'<span class="mood">{html.escape(m)}</span>' for m in moods) + '</p>'
+
+    # 可引用结论：只用摘要里的事实，明确标注「摘要转述」，不冒充原话
+    _first = (summary or '').split('。')[0]
+    citable = ''
+    if _first:
+        citable = ('<h2>可引用结论</h2><blockquote class="citable">'
+                   + f'王晰在《深夜小酒馆》{html.escape(ep)}（{html.escape(theme)}）里谈到：'
+                   + html.escape(_first) + '。</blockquote>'
+                   + '<p class="src">出处：深夜小酒馆 ' + html.escape(ep)
+                   + '｜性质：节目摘要转述（非逐字原话）｜来源页：/tavern/ep/' + html.escape(ep) + '.html</p>')
+
+    nav_html = ''
+    if prev_ep or next_ep:
+        _l = []
+        if prev_ep:
+            _l.append(f'<a href="{html.escape(prev_ep)}.html">← 上一期</a>')
+        _l.append('<a href="../index.html#episodes">节目单</a>')
+        if next_ep:
+            _l.append(f'<a href="{html.escape(next_ep)}.html">下一期 →</a>')
+        nav_html = '<div class="nav2">' + ' · '.join(_l) + '</div>'
 
     jsonld = {
         "@context": "https://schema.org",
@@ -87,7 +127,10 @@ def build_page(key, v):
 {likes_html}
 {songs_html}
 {quotes_html}
+{mood_html}
 <h2>关键词</h2>{kw_html}
+{citable}
+{nav_html}
 <hr>
 <p class="back"><a href="../index.html">← 返回小酒馆</a> · 本页为摘要版；节目音频及逐字稿版权归原作者。</p>
 </body>
@@ -104,16 +147,32 @@ def main():
 
     d = json.loads(SUMMARIES.read_text(encoding='utf-8'))
     eps = d.get('episodes', {})
+    try:
+        _qt = json.loads(QTIMES.read_text(encoding='utf-8'))
+    except Exception:
+        _qt = {}
+    try:
+        _qraw = json.loads(QUOTES.read_text(encoding='utf-8')).get('episodes', {})
+        _q = ({str(e.get('episode')): e for e in _qraw} if isinstance(_qraw, list) else _qraw)
+    except Exception:
+        _q = {}
     keys = list(eps.keys())
     if not a.all:
         keys = keys[:a.limit]
 
     made = 0
-    for key in keys:
+    for i, key in enumerate(keys):
         v = eps[key]
         ep = v.get('episode', key)
         # 生成摘要页覆盖原 ep 页（全文已备份）
-        page = build_page(key, v)
+        _moods = (_q.get(ep) or {}).get('moods') or (_q.get(key) or {}).get('moods') or []
+        _prev = keys[i - 1] if i > 0 else None
+        _next = keys[i + 1] if i + 1 < len(keys) else None
+        def _epname(k):
+            return eps[k].get('episode', k)
+        page = build_page(key, v, moods=_moods, times=_qt.get(ep) or {},
+                          prev_ep=_epname(_prev) if _prev else None,
+                          next_ep=_epname(_next) if _next else None)
         f = EP / f"{ep}.html"
         f.write_text(page, encoding='utf-8')
         made += 1
