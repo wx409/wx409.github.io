@@ -286,6 +286,13 @@ def main():
     log("-- scan_intake（官宣扫描，写候选箱）--")
     run([sys.executable, str(ROOT / "project_b" / "scan_intake.py"), "--days", "7"])
 
+    # 1.5 GEO：问答自动生长（幂等；新素材/新金句/新实测会自动变成 Q&A）
+    for _qa in ("build_qa_from_tavern.py", "build_qa_from_stage.py", "build_qa_from_claims.py"):
+        _p = ROOT / "project_b" / _qa
+        if _p.exists():
+            log(f"-- {_qa} --")
+            run([sys.executable, str(_p)])
+
     # 2. 构建（deploy_all 自带敏感文件扫描；内部已含 commit）
     log("-- deploy_all --")
     ok = run([sys.executable, str(ROOT / "project_b" / "deploy_all.py")])
