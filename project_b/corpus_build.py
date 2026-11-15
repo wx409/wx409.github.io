@@ -219,9 +219,9 @@ def main() -> int:
             rows += 1
 
     con.commit()
+    _actual = con.execute("select count(*) from posts").fetchone()[0]
     stat = con.execute("select platform,count(*) from posts group by platform").fetchall()
     con.close()
-    _actual = con.execute("select count(*) from posts").fetchone()[0]
     print(f"写入 {rows} 次｜去重后 {_actual} 条 → {DB}")
     for p, c in stat:
         print(f"  {p}: {c}")
