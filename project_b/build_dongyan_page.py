@@ -147,9 +147,13 @@ for p in proj.get("projects", []):
                     "，覆盖 %s" % "、".join(cities) if cities else "",
                     conv or ("共 <b>%d</b> 首（按长表去重）" % len(sg))))
     parts.append('<p class="lead">%s</p>' % esc(p.get("summary", "")))
-    if p.get("facts"):
+    facts = list(p.get("facts") or [])
+    if sh:
+        facts = ["共 %d 场（%s，%s），场次由 `data/activity_master.json` 派生、非手写"
+                 % (len(sh), span, "、".join(cities))] + facts
+    if facts:
         parts.append("<h3>可引用要点</h3><ul>%s</ul>"
-                     % "".join("<li>%s</li>" % esc(f) for f in p["facts"]))
+                     % "".join("<li>%s</li>" % esc(f) for f in facts))
     if p.get("credits"):
         parts.append("<h3>关键主创（已核实）</h3><table><tr><th>职务</th><th>姓名</th><th>最亮眼履历</th><th>出处</th></tr>%s</table>"
                      % "".join("<tr><td>%s</td><td><b>%s</b></td><td>%s</td><td class=meta>%s</td></tr>"

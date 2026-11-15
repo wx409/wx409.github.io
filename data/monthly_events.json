@@ -1,6 +1,6 @@
 {
  "schema": "monthly-events/v3",
- "generated_at": "2026-11-15 21:26",
+ "generated_at": "2026-11-15 21:48",
  "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
  "caliber": "逐曲自身基线归一：ratio = 当日指数 / 该曲前 90 天中位（需 ≥30 个历史观测）；月度热度 = 当月全部 [曲×日] ratio 的中位；1.00 = 与自身基线持平",
  "method": "异常判定跑在热度上：稳健 z（相对过去 12 个月中位偏离）≥2.5 或 环比 ≥20%；广度 = ratio>1 的 [曲×日] 占比。池均值 index 仅作对照",
@@ -1968,8 +1968,19 @@
    "mom_pct": 13.5,
    "dev_pct": -39.0,
    "z": -2.02,
-   "events": [],
-   "n_events": 0,
+   "events": [
+    {
+     "kind": "演出/晚会",
+     "title": "2026-11-20 草原之夜——来自可克达拉的歌谣·苏州",
+     "sub": "音乐剧"
+    },
+    {
+     "kind": "演出/晚会",
+     "title": "2026-11-21 草原之夜——来自可克达拉的歌谣·苏州",
+     "sub": "音乐剧"
+    }
+   ],
+   "n_events": 2,
    "coverage_ok": false,
    "trigger": [],
    "anomaly": false,
@@ -1980,7 +1991,7 @@
   "n_months": 46,
   "n_anomaly": 13,
   "n_low_coverage": 1,
-  "n_events": 123,
+  "n_events": 125,
   "n_songs_total": 211
  }
 }

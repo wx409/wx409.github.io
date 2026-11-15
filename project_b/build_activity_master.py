@@ -118,12 +118,18 @@ def main() -> int:
         d = pd.to_datetime(r.get("时间"), errors="coerce")
         if pd.isna(d):
             continue
+        _note = str(r.get("备注") or "").strip()
+        _status = "已核对（百科）"
+        # 长表里若显式标注「来源：大麦…」，出处按标注显示（如票务页登记的新场次）
+        _src = re.search(r"来源[:：]\s*(大麦[^；;｜]*)", _note)
+        if _src:
+            _status = "长表登记（来源：%s）" % _src.group(1).strip()
         rows.append({"date": d.strftime("%Y-%m-%d"),
                      "title": str(r.get("演出名称") or "").strip(),
                      "city": str(r.get("地点") or "").strip(),
-                     "note": str(r.get("备注") or "").strip(),
+                     "note": _note,
                      "songs": split_songs(r.get("演唱曲目")),
-                     "source": "百科版", "status": "已核对（百科）"})
+                     "source": "百科版", "status": _status})
     # ② 微博核对版
     df2 = pd.read_excel(B, sheet_name=0)
     for _, r in df2.iterrows():

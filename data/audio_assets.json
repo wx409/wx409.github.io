@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-15T21:25:25",
+  "generated_at": "2026-11-15T21:46:44",
   "since": "2026-11-15",
-  "batches": 396,
-  "files": 2915,
-  "gb": 88.37,
-  "new_files": 105,
-  "new_mb": 3417.4,
-  "stats_total": 1606,
-  "stage_rows": 884,
-  "claimable": 711,
-  "claimable_soft": 353
+  "batches": 397,
+  "files": 2927,
+  "gb": 88.59,
+  "new_files": 117,
+  "new_mb": 3650.7,
+  "stats_total": 1612,
+  "stage_rows": 890,
+  "claimable": 717,
+  "claimable_soft": 359
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 434,
-   "mb": 19956.7,
+   "files": 440,
+   "mb": 20146.9,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-14"
+   "new_files": 6,
+   "new_mb": 190.2,
+   "newest": "2026-11-15"
   },
   {
    "batch": "wav_十年现场语料",
@@ -464,6 +464,15 @@
    "newest": "2026-10-14"
   },
   {
+   "batch": "雪地里寄不出的求救信",
+   "files": 13,
+   "mb": 82.6,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 8.4,
+   "newest": "2026-11-15"
+  },
+  {
    "batch": "三巡上海全场",
    "files": 21,
    "mb": 82.5,
@@ -489,15 +498,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-13"
-  },
-  {
-   "batch": "雪地里寄不出的求救信",
-   "files": 12,
-   "mb": 74.2,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-16"
   },
   {
    "batch": "Your Man",
@@ -743,6 +743,15 @@
    "newest": "2026-10-14"
   },
   {
+   "batch": "怂",
+   "files": 3,
+   "mb": 24.6,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 10.4,
+   "newest": "2026-11-15"
+  },
+  {
    "batch": "女儿情",
    "files": 3,
    "mb": 24.5,
@@ -750,6 +759,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-11-12"
+  },
+  {
+   "batch": "青藏高原",
+   "files": 2,
+   "mb": 24.5,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 5.2,
+   "newest": "2026-11-15"
   },
   {
    "batch": "牵手",
@@ -786,6 +804,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-10"
+  },
+  {
+   "batch": "王牌就是我",
+   "files": 3,
+   "mb": 23.2,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 7.9,
+   "newest": "2026-11-15"
   },
   {
    "batch": "亲爱的中国，我的爱",
@@ -851,15 +878,6 @@
    "newest": "2026-10-13"
   },
   {
-   "batch": "青藏高原",
-   "files": 1,
-   "mb": 19.3,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-13"
-  },
-  {
    "batch": "part4",
    "files": 1,
    "mb": 19.1,
@@ -894,6 +912,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-18"
+  },
+  {
+   "batch": "红豆",
+   "files": 4,
+   "mb": 17.9,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.5,
+   "newest": "2026-11-15"
   },
   {
    "batch": "哭砂",
@@ -1013,15 +1040,6 @@
    "newest": "2026-11-10"
   },
   {
-   "batch": "王牌就是我",
-   "files": 2,
-   "mb": 15.2,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-11"
-  },
-  {
    "batch": "wav_相亲相爱一家人",
    "files": 1,
    "mb": 14.9,
@@ -1058,15 +1076,6 @@
    "newest": "2026-09-25"
   },
   {
-   "batch": "红豆",
-   "files": 3,
-   "mb": 14.3,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-14"
-  },
-  {
    "batch": "旋木",
    "files": 2,
    "mb": 14.3,
@@ -1074,15 +1083,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-11-09"
-  },
-  {
-   "batch": "怂",
-   "files": 2,
-   "mb": 14.2,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-14"
   },
   {
    "batch": "惑许",
@@ -1497,6 +1497,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-14"
+  },
+  {
+   "batch": "玛莲娜",
+   "files": 1,
+   "mb": 7.7,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 7.7,
+   "newest": "2026-11-15"
   },
   {
    "batch": "离人",

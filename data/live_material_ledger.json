@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-15T21:25:04",
+ "generated_at": "2026-11-15T21:46:21",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 884,
+  "processed_materials": 890,
   "processed_songs": 272,
   "gap_songs": 71,
   "coverage_pct": 102.6,
   "status": {
-   "已完成": 361,
-   "候选": 8561,
+   "已完成": 367,
+   "候选": 8555,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -94515,17 +94515,20 @@
    "bv": "BV1TK4y1p7hV",
    "title": "讲道理这首怂被王晰用这么色气的发音唱出来的时候谁还顾得上它是不是世界上最短的情书啊",
    "song": "怂",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-02-02",
    "kind": "其他",
    "fetched_at": "2021-02-02",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV195411V7zT",
@@ -96611,17 +96614,20 @@
    "bv": "BV1cy4y1r7SB",
    "title": "世间再狗也抵不过王晰实力太强太能打我永远为唱歌的晰晰而臣服的王牌就是我",
    "song": "王牌就是我",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-10-12",
    "kind": "其他",
    "fetched_at": "2020-10-12",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ED4y197uH",
@@ -97193,17 +97199,20 @@
    "bv": "BV1c5411P75s",
    "title": "王晰的Bossa风红豆直接把我变成了海草不停摇摆摇摆摇摆浪的停不下来怎么办",
    "song": "红豆",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-03-09",
    "kind": "其他",
    "fetched_at": "2021-03-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1gA411T7T6",
@@ -100011,17 +100020,19 @@
    "bv": "BV1qf4y147zn",
    "title": "王晰：我当然知道我好看呀～哈哈哈得意满满的傲娇小狐狸尾巴都要藏不住了啊喂雪地里寄不出的求救信",
    "song": "雪地里寄不出的求救信",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-03-11",
    "kind": "其他",
    "fetched_at": "2021-03-11",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1554y1i7Eh",
@@ -130599,17 +130610,20 @@
    "bv": "BV1tx411d7EF",
    "title": "玛莲娜 王晰",
    "song": "玛莲娜",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-06-27",
    "kind": "其他",
    "fetched_at": "2019-06-27",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1S4411U7TS",
@@ -140210,17 +140224,20 @@
    "bv": "BV1MJ411x7mx",
    "title": "王晰什么都会唱的好听的青藏高原",
    "song": "青藏高原",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-23",
    "kind": "其他",
    "fetched_at": "2019-12-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Gj411f7ww",
