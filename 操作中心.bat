@@ -632,6 +632,9 @@ echo    265. [素材] 长音/弱唱/高密度素材（可按城市或曲目筛）
 echo    266. [曲谱] 打开「网友扒谱」本地文件夹（授权，仅本地）
 echo    267. [曲谱] 生成「谱子有、站内未测」清单 → 批量加入待测
 echo    268. [曲谱] 重新抓取扒谱合集（微博 @柯烬）
+echo    269. [语料] 重建全平台语料索引（微博/工作室/百家号/抖音）
+echo    270. [语料] 全文搜索（找哪一期/哪条/哪首，含视频转写）
+echo    271. [语料] 本地 Whisper 转写（视频/音频→文字，离线）
 
 echo    0. 退出
 
@@ -1149,6 +1152,9 @@ if "%op%"=="261" goto web_interview
 if "%op%"=="264" goto mat_low
 if "%op%"=="266" goto score_open
 if "%op%"=="267" goto score_untested
+if "%op%"=="269" goto corpus_build
+if "%op%"=="270" goto corpus_search
+if "%op%"=="271" goto corpus_trans
 if "%op%"=="268" goto score_grab
 if "%op%"=="265" goto mat_other
 if "%op%"=="262" goto sync_listener
@@ -6816,5 +6822,28 @@ goto menu
 cls
 echo === 重新抓取扒谱合集（微博 @柯烬，需 wb.txt cookie 有效）===
 python -X utf8 project_b\grab_weibo_scores_batch.py
+pause
+goto menu
+
+:corpus_build
+cls
+echo === 重建全平台语料索引 ===
+python -X utf8 project_b\corpus_build.py
+pause
+goto menu
+
+:corpus_search
+cls
+echo === 全文搜索（微博/工作室/百家号/抖音 + 视频转写）===
+set /p kw=关键词（如 送别）: 
+python -X utf8 project_b\corpus_search.py "%kw%" --limit 15
+pause
+goto menu
+
+:corpus_trans
+cls
+echo === 本地 Whisper 转写（离线，GPU）===
+set HF_HUB_OFFLINE=1
+python -X utf8 project_b\corpus_transcribe.py
 pause
 goto menu
