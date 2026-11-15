@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15 16:01",
+ "generated_at": "2026-11-15 17:19",
  "count": 77,
  "calibers": [
   {
@@ -285,7 +285,7 @@
   {
    "id": "pairing_p_full",
    "label": "配对差异 p 值（全部配对）",
-   "value": 0.1973,
+   "value": 0.9906,
    "scope": "自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对）",
    "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all",
    "note": ""
@@ -293,7 +293,7 @@
   {
    "id": "pairing_p_solo_only",
    "label": "配对差异 p 值（仅独唱）",
-   "value": 0.1834,
+   "value": 0.9641,
    "scope": "同一检验的敏感性口径（仅独唱场次）",
    "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo",
    "note": ""
