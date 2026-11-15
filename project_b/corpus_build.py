@@ -24,6 +24,8 @@ SRC = [
     (Path(r"E:\wx\私有工具\weibo_merged\百家号"), "百家号", "百家号"),
 ]
 DOUYIN = Path(r"E:\wx\论文素材_王晰作传\抖音\awemes.json")
+SHAOCHENG = Path(r"E:\wx\私有工具\weibo_shaocheng_archive\index.json")
+XHS_DIR = Path(r"E:\wx\私有工具\xhs_archive")
 TRANS_DIR = ROOT / "data" / "corpus" / "transcripts"
 
 
@@ -129,6 +131,71 @@ def main() -> int:
                          transcript, None, _sg))
             con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
                         (key, text, transcript))
+            rows += 1
+
+    if SHAOCHENG.exists():
+        sd = json.loads(SHAOCHENG.read_text(encoding="utf-8", errors="ignore"))
+        for x in (sd.get("posts") or []):
+            txt = clean(x.get("text") or "")
+            if not txt:
+                continue
+            date = str(x.get("date") or "")[:10]
+            key = f"微博:少城:{x.get('id')}"
+            tr = TRANS_DIR / (re.sub(r"[^\w\-]+", "_", key)[:120] + ".txt")
+            transcript = tr.read_text(encoding="utf-8", errors="ignore") if tr.exists() else ""
+            _blob = txt + " " + transcript
+            _sg = "|".join([n for n in SONGS if n in _blob][:8])
+            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
+                        (key, "微博", "少城", date, txt, "",
+                         "|".join(x.get("pics") or []), transcript, None, _sg))
+            con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
+                        (key, txt, transcript))
+            rows += 1
+
+    # 小红书逐条目录
+    for note in XHS_DIR.rglob("meta.json"):
+        d = note.parent
+        try:
+            m = json.loads(note.read_text(encoding="utf-8", errors="ignore"))
+        except Exception:
+            m = {}
+        ctf = d / "content.txt"
+        txt = clean(ctf.read_text(encoding="utf-8", errors="ignore")) if ctf.exists() else ""
+        title = clean(m.get("title") or m.get("desc") or "")
+        body = (title + " " + txt).strip()
+        if not body:
+            continue
+        nid = d.name.split("_")[0]
+        vid = d / "video.mp4"
+        key = f"小红书:{m.get('author') or d.parent.name}:{nid}"
+        tr = TRANS_DIR / (re.sub(r"[^\w\-]+", "_", key)[:120] + ".txt")
+        transcript = tr.read_text(encoding="utf-8", errors="ignore") if tr.exists() else ""
+        _blob = body + " " + transcript
+        _sg = "|".join([n for n in SONGS if n in _blob][:8])
+        con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
+                    (key, "小红书", m.get("author") or "", str(m.get("date") or "")[:10],
+                     body, m.get("url") or "", str(vid) if vid.exists() else "",
+                     transcript, m.get("duration"), _sg))
+        con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
+                    (key, body, transcript))
+        rows += 1
+
+    xhs_idx = XHS_DIR / "_by_links_summary.json"
+    if xhs_idx.exists():
+        xd = json.loads(xhs_idx.read_text(encoding="utf-8", errors="ignore"))
+        for x in (xd.get("items") or []):
+            txt = clean((x.get("title") or "") + " " + (x.get("desc") or ""))
+            if not txt:
+                continue
+            from datetime import datetime as _dt
+            date = _dt.fromtimestamp(x["date"] / 1000).strftime("%Y-%m-%d") if x.get("date") else ""
+            key = f"小红书:{x.get('author') or '未知'}:{x.get('note_id')}"
+            _sg = "|".join([n for n in SONGS if n in txt][:8])
+            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
+                        (key, "小红书", x.get("author") or "", date, txt,
+                         f"https://www.xiaohongshu.com/explore/{x.get('note_id')}",
+                         "", "", None, _sg))
+            con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)", (key, txt, ""))
             rows += 1
 
     if DOUYIN.exists():
