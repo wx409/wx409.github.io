@@ -629,6 +629,9 @@ echo    262. [曲库] 同步「收听人数」表（补缺失 mid / 标已下架；每日 23:40 已排程
 echo    263. [备份] 关键数据打包到网盘目录（默认 G:\网站备份，含排除凭据；每周日 12:30 已排程）
 echo    264. [素材] 低音素材清单（B站链接 + 最低音时间点，做视频用）
 echo    265. [素材] 长音/弱唱/高密度素材（可按城市或曲目筛）
+echo    266. [曲谱] 打开「网友扒谱」本地文件夹（授权，仅本地）
+echo    267. [曲谱] 生成「谱子有、站内未测」清单 → 批量加入待测
+echo    268. [曲谱] 重新抓取扒谱合集（微博 @柯烬）
 
 echo    0. 退出
 
@@ -1144,6 +1147,9 @@ if "%op%"=="259" goto ingest_link
 if "%op%"=="260" goto ingest_file
 if "%op%"=="261" goto web_interview
 if "%op%"=="264" goto mat_low
+if "%op%"=="266" goto score_open
+if "%op%"=="267" goto score_untested
+if "%op%"=="268" goto score_grab
 if "%op%"=="265" goto mat_other
 if "%op%"=="262" goto sync_listener
 if "%op%"=="263" goto backup_key
@@ -6789,5 +6795,26 @@ pause
 goto menu
 :mat_dense
 python -X utf8 project_b\query_stage.py --dense 1.8 --video --limit 25
+pause
+goto menu
+
+:score_open
+cls
+start "" "E:\wx\论文素材_王晰作传\曲谱_网友扒谱"
+goto menu
+
+:score_untested
+cls
+echo === 生成未测清单并批量加入待测 ===
+python -X utf8 project_b\batch_add_untested.py --dry
+echo.
+echo 确认无误后，去掉 --dry 再跑一次即可真正加入。
+pause
+goto menu
+
+:score_grab
+cls
+echo === 重新抓取扒谱合集（微博 @柯烬，需 wb.txt cookie 有效）===
+python -X utf8 project_b\grab_weibo_scores_batch.py
 pause
 goto menu
