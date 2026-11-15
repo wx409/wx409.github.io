@@ -139,7 +139,7 @@ LABELS = {
 
 # 处理范围（相对仓库根）：根页面 + 有统一导航的内容子目录；dashboard/map 为应用页（自带布局）不处理
 PAGE_GLOBS = ["*.html", "culture/*.html", "data/*.html", "live/*.html", "tavern/*.html",
-              "stories/*.html", "share/*.html"]
+              "stories/*.html", "share/*.html", "listen/*.html"]
 
 
 def target_pages() -> list[Path]:
