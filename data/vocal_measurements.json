@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-15 21:46",
+ "generated_at": "2026-11-15 22:18",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,11 +10,11 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 1128,
+  "total": 1126,
   "by_layer": {
    "studio_album": 72,
    "precision": 51,
-   "tour_live": 893,
+   "tour_live": 891,
    "stage_other": 32,
    "single": 80
   },
@@ -25,7 +25,7 @@
    "已核验": 7,
    "触达级 归属未定（人声/低音乐器）· 不作稳定音": 1,
    "已测": 3,
-   "谐波列复核通过": 685,
+   "谐波列复核通过": 683,
    "双引擎一致": 9,
    "待复核（legacy 短读，未过 CREPE）": 7,
    "谐波列复核通过（全曲口径对账）": 3,
@@ -31581,38 +31581,6 @@
    "metrics": {
     "low_note": "A2",
     "low_hz": 107.2,
-    "stability_cents": 6.3,
-    "intonation_cents": 24.6,
-    "vibrato_hz": 5.07,
-    "vibrato_cents": 82.0,
-    "density_per_s": 1.51,
-    "hnr_db": 5.3,
-    "duration_s": 147.3
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "engines": {},
-    "raw_state": ""
-   },
-   "provenance": {
-    "measured_by": "场次音频实测",
-    "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 198
-   }
-  },
-  {
-   "id": "tour_live|Love is over|沉响与长歌20261010_双人_BV1tEp36uEoM",
-   "song": "Love is over",
-   "version": "沉响与长歌20261010_双人_BV1tEp36uEoM",
-   "layer": "tour_live",
-   "tour": "其他演出",
-   "city": "",
-   "date": "2026-10-10",
-   "source_ref": "BV1tEp36uEoM",
-   "measure_route": "场次音频实测",
-   "metrics": {
-    "low_note": "A2",
-    "low_hz": 107.2,
     "high_note": "F#5",
     "high_hz": 755.7,
     "span_octaves": 2.82,
@@ -33082,41 +33050,6 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
-   }
-  },
-  {
-   "id": "tour_live|全场_第二场|沉响与长歌20261010_p2_BV1Mypv6zECb",
-   "song": "全场_第二场",
-   "version": "沉响与长歌20261010_p2_BV1Mypv6zECb",
-   "layer": "tour_live",
-   "tour": "其他演出",
-   "city": "",
-   "date": "2026-10-10",
-   "source_ref": "BV1Mypv6zECb",
-   "measure_route": "场次音频实测",
-   "metrics": {
-    "low_note": "A#2",
-    "low_hz": 118.4,
-    "high_note": "A5",
-    "high_hz": 904.0,
-    "span_octaves": 2.93,
-    "stability_cents": 4.4,
-    "intonation_cents": 18.0,
-    "vibrato_hz": 5.07,
-    "vibrato_cents": 60.0,
-    "density_per_s": 1.56,
-    "hnr_db": 4.2,
-    "duration_s": 294.0
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "engines": {},
-    "raw_state": ""
-   },
-   "provenance": {
-    "measured_by": "场次音频实测",
-    "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 188
    }
   },
   {
