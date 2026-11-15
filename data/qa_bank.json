@@ -4,7 +4,7 @@
   "version": "0.1",
   "generated_at": "2026-08-22 13:54:07",
   "说明": "预生成问答库，前端 search.html 语义检索匹配。支持按用户提问增量扩充（人机协作闭环）。",
-  "count": 101,
+  "count": 104,
   "data_fingerprint": "90a6343d99cf8e1be17278fe565a7c2a"
  },
  "items": [
@@ -2084,6 +2084,69 @@
    "category": "知识库自动生成",
    "source": "data/kb/facts.json",
    "generated_at": "2026-11-15"
+  },
+  {
+   "id": "qa_disamb_01",
+   "question": "上海交通大学的王晰是歌手王晰吗？",
+   "aliases": [
+    "上海交通大学 王晰",
+    "王晰 学者",
+    "同名 王晰"
+   ],
+   "category": "实体消歧",
+   "keywords": [
+    "王晰",
+    "同名",
+    "音域"
+   ],
+   "answer": "不是。本站所有内容指「华语流行男低音歌手王晰」；上海交通大学的王晰是另一位同名人士（学者），与本档案无关。搜索时请加上「男低音」「歌手」等限定词。",
+   "sources": [
+    "https://wx409.github.io/vocal.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_disamb_02",
+   "question": "「王晰杰青」「浙江王晰小蓝」是歌手王晰吗？",
+   "aliases": [
+    "王晰杰青",
+    "浙江王晰小蓝",
+    "王晰 同名"
+   ],
+   "category": "实体消歧",
+   "keywords": [
+    "王晰",
+    "同名",
+    "音域"
+   ],
+   "answer": "不是。这两个说法指向同名他人（与歌手王晰无关）。本站记录的是流行男低音歌手王晰：录音室最低稳定音 B1 61.5Hz、现场实测与巡演档案。",
+   "sources": [
+    "https://wx409.github.io/vocal.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_disamb_03",
+   "question": "男低音王晰的音域到底有多宽？",
+   "aliases": [
+    "王晰 音域",
+    "男低音 音域 多宽",
+    "王晰 音域 跨度"
+   ],
+   "category": "实体消歧",
+   "keywords": [
+    "王晰",
+    "同名",
+    "音域"
+   ],
+   "answer": "按站内 72 首录音室曲目逐帧实测：最低稳定音 B1（61.5Hz，《静止了的夜晚》），最高稳定音 F5（706Hz），跨度中位 2.22 个八度；低音主区 B1–D2（61.5–75.5Hz）。口径：最低稳定音要求音符 ≥0.15s、HNR≥5dB，并经谐波列复核。来源：/vocal.html",
+   "sources": [
+    "https://wx409.github.io/vocal.html"
+   ],
+   "verified": true,
+   "confidence": "high"
   }
  ]
 }

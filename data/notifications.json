@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-15 08:01:02",
+ "updated_at": "2026-11-15 11:11:02",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -6649,6 +6649,18 @@
    "time": "2026-11-15 08:01:02",
    "title": "⚠ 大屏数据超过 120 分钟未更新",
    "content": "daemon 进程在（PID [39864]），但 dashboard_data.json 已 460.6 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-15 09:30:03",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-15 11:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [39864]），但 dashboard_data.json 已 121.3 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
    "category": "通知"
   }
  ]

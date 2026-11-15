@@ -135,6 +135,7 @@ STEPS = [
     (ROOT / "project_b" / "template_patches.py", "大屏模板补丁（母版→快照同步，漂移即红灯）", True),
     (ROOT / "project_b" / "build_nav.py", "导航单一事实源（顶部导航+底部全站索引，幂等）", True),
     (ROOT / "project_b" / "fix_meta_geo.py", "GEO：补短标题/主页描述（幂等，Bing WMT 建议项）", False),
+    (ROOT / "project_b" / "geo_keywords.py", "GEO：关键页 title/描述对准真实高曝光词（王晰 音域 / 男低音王晰）", False),
     (ROOT / "project_b" / "apply_site_url.py", "生成后单点收口：历史域名统一为 SITE_URL（换域改一处）", True),
     (ROOT / "project_b" / "audit_git_sync.py", "origin 同步巡检（落后即 push 并复查，仍不一致红灯）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),
