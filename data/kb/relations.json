@@ -329,6 +329,20 @@
   "source_ref": "timeline.json"
  },
  {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t047",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t048",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
   "source": "show:2019-06-07-hangzhou",
   "type": "held_at",
   "target": "venue:杭州剧院",

@@ -145,7 +145,8 @@ def collect() -> list[dict]:
         f"（{len(_cy)} 场）＋ 双人演唱会《沉响与长歌》（{len(_cx_files)} 场）",
         "data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）",
         "★ **不得与「巡演 59／全站 64」混加**：64 = 个人巡演 59 + 签唱会 5 属个人巡演口径；"
-        "东演场次为**院团合作场次**，引用须写「东演合作 14 场（草原之夜 12 + 沉响与长歌 2）」。"
+        f"东演场次为**院团合作场次**，引用须写「东演合作 {len(_cy) + len(_cx_files)} 场"
+        f"（草原之夜 {len(_cy)} + 沉响与长歌 {len(_cx_files)}）」。"
         "东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；"
         "两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。")
     # 专题卡数字口径（2026-10-11）：主数字只取 review_status 过门槛的读数

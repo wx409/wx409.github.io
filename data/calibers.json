@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15 21:14",
+ "generated_at": "2026-11-15 21:26",
  "count": 77,
  "calibers": [
   {
@@ -77,15 +77,15 @@
   {
    "id": "dongyan_show_count",
    "label": "东演合作场次（分列）",
-   "value": 14,
-   "scope": "中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（12 场）＋ 双人演唱会《沉响与长歌》（2 场）",
+   "value": 16,
+   "scope": "中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（14 场）＋ 双人演唱会《沉响与长歌》（2 场）",
    "source": "data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）",
-   "note": "★ **不得与「巡演 59／全站 64」混加**：64 = 个人巡演 59 + 签唱会 5 属个人巡演口径；东演场次为**院团合作场次**，引用须写「东演合作 14 场（草原之夜 12 + 沉响与长歌 2）」。东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。"
+   "note": "★ **不得与「巡演 59／全站 64」混加**：64 = 个人巡演 59 + 签唱会 5 属个人巡演口径；东演场次为**院团合作场次**，引用须写「东演合作 16 场（草原之夜 14 + 沉响与长歌 2）」。东演场次**不进** data/songs_shows_index.json（该表是巡演曲目×场次派生源，混入会污染巡演统计与 map/22 城）；两场演出与歌单差异只在 stage=dongyan 的 dongyan.html「东演合作专区」呈现。"
   },
   {
    "id": "topic_card_numbers",
    "label": "专题卡数字口径（14 张卡）",
-   "value": "14 张卡 / 主数字 46 项 / caliber-lock 30 项",
+   "value": "14 张卡 / 主数字 47 项 / caliber-lock 30 项",
    "scope": "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·七张专辑 + 一张数字 EP，颤音极差 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气）",
    "source": "data/share/cards/",
    "note": "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。"
@@ -197,7 +197,7 @@
   {
    "id": "kb_facts",
    "label": "知识库事实条数",
-   "value": 1721,
+   "value": 1723,
    "scope": "结构化事实",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1701,
+   "value": 1703,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -213,7 +213,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2348,
+   "value": 2350,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -221,7 +221,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5747,
+   "value": 5753,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""

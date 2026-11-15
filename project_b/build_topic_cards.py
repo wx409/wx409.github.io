@@ -293,6 +293,9 @@ def main():
 
     # ── ⑥ 巡演规模 ──
     tours = ssi.get("by_tour") or []
+    _am_rows = (json.loads((D / "activity_master.json").read_text(encoding="utf-8")).get("rows") or [])
+    _dongyan_cy = sum(1 for r in _am_rows if isinstance(r, dict) and "草原之夜" in str(r.get("title", "")))
+    _dongyan_cx = sum(1 for r in _am_rows if isinstance(r, dict) and "沉响与长歌" in str(r.get("title", "")))
     cards.append(dict(
         id="tour_scale", no=6, title="巡演规模", subtitle="场次、城市与曲目覆盖",
         pillar="事实（长表派生）",
@@ -304,8 +307,8 @@ def main():
             {"value": ssi.get("song_count"), "unit": "首", "label": "曲目×场次覆盖曲目数",
              "caliber": "—", "source": "data/songs_shows_index.json"},
         ],
-        view_reading=["巡演口径：**全站 64 = 个人巡演 59 + 签唱会 5**；东演合作场次（《草原之夜》12 + "
-                      "《沉响与长歌》2）**单列**，不得并入（见 calibers `dongyan_show_count`）。",
+        view_reading=[f"巡演口径：**全站 64 = 个人巡演 59 + 签唱会 5**；东演合作场次（《草原之夜》{_dongyan_cy} + "
+                      f"《沉响与长歌》{_dongyan_cx}）**单列**，不得并入（见 calibers `dongyan_show_count`）。",
                       f"曲目×场次索引覆盖 {ssi.get('show_count')} 场、{ssi.get('song_count')} 首。",
                       "城市口径另见 `data/cities.json`（22 城）。"],
         view_card=[f"个人巡演 {cal.get('tour_shows', {}).get('value') or 59} 场",
