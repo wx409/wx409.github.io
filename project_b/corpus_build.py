@@ -27,6 +27,29 @@ DOUYIN = Path(r"E:\wx\论文素材_王晰作传\抖音\awemes.json")
 TRANS_DIR = ROOT / "data" / "corpus" / "transcripts"
 
 
+def load_songs():
+    names = set()
+    try:
+        for x in json.loads((ROOT / "data" / "archive_vocal_albums.json").read_text(encoding="utf-8"))["songs"]:
+            if x.get("title"):
+                names.add(x["title"])
+    except Exception:
+        pass
+    try:
+        for x in json.loads(Path(r"E:\wx\论文素材_王晰作传\曲谱_网友扒谱\index.json").read_text(encoding="utf-8"))["items"]:
+            if x.get("song"):
+                names.add(x["song"])
+    except Exception:
+        pass
+    try:
+        for x in json.loads(Path(r"E:\wx\论文素材_王晰作传\单曲音频_汇总.json").read_text(encoding="utf-8"))["songs"]:
+            if x.get("title"):
+                names.add(x["title"])
+    except Exception:
+        pass
+    return sorted({n for n in names if len(n) >= 2}, key=len, reverse=True)
+
+
 def clean(t: str) -> str:
     t = re.sub(r"<[^>]+>", " ", t or "")
     t = re.sub(r"https?://\S+", " ", t)
@@ -76,14 +99,16 @@ def main() -> int:
 
     con = sqlite3.connect(DB)
     con.executescript("""
+    DROP TABLE IF EXISTS posts_fts;
     DROP TABLE IF EXISTS posts;
     CREATE TABLE posts(
       key TEXT PRIMARY KEY, platform TEXT, account TEXT, date TEXT,
-      text TEXT, url TEXT, media TEXT, transcript TEXT, duration REAL);
+      text TEXT, url TEXT, media TEXT, transcript TEXT, duration REAL, songs TEXT);
     CREATE VIRTUAL TABLE posts_fts USING fts5(
       key UNINDEXED, text, transcript, tokenize='unicode61');
     """)
 
+    SONGS = load_songs()
     rows = 0
     for base, platform, account in SRC:
         if not base.exists():
@@ -97,9 +122,11 @@ def main() -> int:
             key = f"{platform}:{account}:{d.name}"
             tr = TRANS_DIR / (re.sub(r"[^\w\-]+", "_", key)[:120] + ".txt")
             transcript = tr.read_text(encoding="utf-8", errors="ignore") if tr.exists() else ""
-            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?)",
+            _blob = text + " " + transcript
+            _sg = "|".join([n for n in SONGS if n in _blob][:8])
+            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
                         (key, platform, account, date, text, "", "|".join(media),
-                         transcript, None))
+                         transcript, None, _sg))
             con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
                         (key, text, transcript))
             rows += 1
@@ -114,10 +141,12 @@ def main() -> int:
             tr = TRANS_DIR / f"抖音_王晰_{vid}.txt"
             transcript = tr.read_text(encoding="utf-8", errors="ignore") if tr.exists() else ""
             mp4 = next(iter(Path(r"E:\wx\论文素材_王晰作传\抖音").glob(f"*_{vid}.mp4")), None)
-            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?)",
+            _blob = (v.get("desc", "") or "") + " " + transcript
+            _sg = "|".join([n for n in SONGS if n in _blob][:8])
+            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
                         (key, "抖音", "王晰", date, v.get("desc", ""),
                          f"https://www.douyin.com/video/{vid}",
-                         str(mp4) if mp4 else "", transcript, v.get("dur")))
+                         str(mp4) if mp4 else "", transcript, v.get("dur"), _sg))
             con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
                         (key, v.get("desc", ""), transcript))
             rows += 1

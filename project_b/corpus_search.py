@@ -20,25 +20,31 @@ def main() -> int:
     ap.add_argument("q")
     ap.add_argument("--platform", default="")
     ap.add_argument("--limit", type=int, default=10)
+    ap.add_argument("--song", default="", help="按曲名过滤")
     a = ap.parse_args()
 
     con = sqlite3.connect(DB)
     like = "%" + a.q + "%"
-    sql = ("select platform, account, date, text, transcript, url, media from posts "
+    sql = ("select platform, account, date, text, transcript, url, media, songs from posts "
            "where (text like ? or transcript like ?)")
     args = [like, like]
     if a.platform:
         sql += " and platform=?"
         args.append(a.platform)
+    if a.song:
+        sql += " and songs like ?"
+        args.append("%" + a.song + "%")
     sql += " order by date desc limit ?"
     args.append(a.limit)
     rows = con.execute(sql, args).fetchall()
     print(f"命中 {len(rows)} 条（显示前 {a.limit}）")
-    for plat, acct, date, text, tr, url, media in rows:
+    for plat, acct, date, text, tr, url, media, songs in rows:
         snip = (tr or text or "")[:120].replace("\n", " ")
         print(f"\n[{plat}/{acct}] {date}\n  {snip}")
         if url:
             print("  ", url)
+        if songs:
+            print("   曲目:", songs)
         if media:
             print("   媒体:", media.split("|")[0])
     con.close()
