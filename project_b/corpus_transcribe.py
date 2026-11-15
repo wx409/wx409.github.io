@@ -33,7 +33,12 @@ def transcribe_one(model, media: str) -> str:
         if r.returncode != 0 or not wav.exists():
             return ""
         segs, _ = model.transcribe(str(wav), language="zh", vad_filter=True, beam_size=1)
-        return "".join(s.text for s in segs).strip()
+        txt = "".join(s.text for s in segs).strip()
+        if not txt:  # 唱段/纯音乐：VAD 会全滤掉，关掉重试
+            segs, _ = model.transcribe(str(wav), language="zh", vad_filter=False, beam_size=5,
+                                       initial_prompt="长亭外，古道边，芳草碧连天。")
+            txt = "".join(s.text for s in segs).strip()
+        return txt
 
 
 def main() -> int:
@@ -48,6 +53,7 @@ def main() -> int:
     con = sqlite3.connect(DB)
     q = ("select key, media from posts where media<>'' and (transcript is null or transcript='')")
     rows = con.execute(q).fetchall()
+    rows = [r for r in rows if Path((r[1] or "").split("|")[0]).exists()]
     if a.limit:
         rows = rows[: a.limit]
     print(f"待转写 {len(rows)} 条")
