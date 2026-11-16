@@ -332,13 +332,20 @@
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t047",
-  "context": "career",
+  "context": "variety",
   "source_ref": "timeline.json"
  },
  {
   "source": "person:wangxi",
   "type": "has_event",
   "target": "event:t048",
+  "context": "career",
+  "source_ref": "timeline.json"
+ },
+ {
+  "source": "person:wangxi",
+  "type": "has_event",
+  "target": "event:t049",
   "context": "career",
   "source_ref": "timeline.json"
  },

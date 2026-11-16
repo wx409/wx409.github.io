@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-16T21:09:21",
+  "generated_at": "2026-11-16T22:14:28",
   "since": "2026-11-16",
-  "batches": 397,
-  "files": 2927,
-  "gb": 88.59,
-  "new_files": 0,
-  "new_mb": 0.0,
-  "stats_total": 1612,
-  "stage_rows": 888,
-  "claimable": 715,
-  "claimable_soft": 358
+  "batches": 399,
+  "files": 2938,
+  "gb": 88.75,
+  "new_files": 11,
+  "new_mb": 155.9,
+  "stats_total": 1617,
+  "stage_rows": 893,
+  "claimable": 718,
+  "claimable_soft": 359
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 440,
-   "mb": 20146.9,
+   "files": 445,
+   "mb": 20281.7,
    "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-15"
+   "new_files": 5,
+   "new_mb": 134.8,
+   "newest": "2026-11-16"
   },
   {
    "batch": "wav_十年现场语料",
@@ -1013,6 +1013,15 @@
    "newest": "2026-09-16"
   },
   {
+   "batch": "你",
+   "files": 3,
+   "mb": 16.1,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.8,
+   "newest": "2026-11-16"
+  },
+  {
    "batch": "虫儿飞",
    "files": 3,
    "mb": 15.9,
@@ -1121,6 +1130,15 @@
    "newest": "2026-11-10"
   },
   {
+   "batch": "女人花",
+   "files": 3,
+   "mb": 12.7,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 1.7,
+   "newest": "2026-11-16"
+  },
+  {
    "batch": "下沉",
    "files": 1,
    "mb": 12.6,
@@ -1146,15 +1164,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-12"
-  },
-  {
-   "batch": "你",
-   "files": 2,
-   "mb": 12.4,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-14"
   },
   {
    "batch": "Love Me Tender",
@@ -1218,15 +1227,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-10"
-  },
-  {
-   "batch": "女人花",
-   "files": 2,
-   "mb": 11.0,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-12"
   },
   {
    "batch": "待复核_20260916",
@@ -1625,6 +1625,15 @@
    "newest": "2026-11-07"
   },
   {
+   "batch": "茕茕",
+   "files": 2,
+   "mb": 6.8,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 4.5,
+   "newest": "2026-11-16"
+  },
+  {
    "batch": "后会无期",
    "files": 1,
    "mb": 6.6,
@@ -1695,6 +1704,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-23"
+  },
+  {
+   "batch": "只要有你",
+   "files": 2,
+   "mb": 6.1,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.8,
+   "newest": "2026-11-16"
   },
   {
    "batch": "奉献",
@@ -2010,6 +2028,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
+  },
+  {
+   "batch": "东方之珠",
+   "files": 1,
+   "mb": 4.2,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 4.2,
+   "newest": "2026-11-16"
   },
   {
    "batch": "滚滚红尘",
@@ -2750,6 +2777,15 @@
    "newest": "2026-11-04"
   },
   {
+   "batch": "往日时光",
+   "files": 1,
+   "mb": 3.1,
+   "stats": 0,
+   "new_files": 1,
+   "new_mb": 3.1,
+   "newest": "2026-11-16"
+  },
+  {
    "batch": "心有独钟",
    "files": 1,
    "mb": 3.1,
@@ -3020,15 +3056,6 @@
    "newest": "2026-09-18"
   },
   {
-   "batch": "只要有你",
-   "files": 1,
-   "mb": 2.3,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-20"
-  },
-  {
    "batch": "梦里水乡",
    "files": 1,
    "mb": 2.3,
@@ -3045,15 +3072,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-11-12"
-  },
-  {
-   "batch": "茕茕",
-   "files": 1,
-   "mb": 2.3,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-11"
   },
   {
    "batch": "光之心",

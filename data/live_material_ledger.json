@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-16T21:09:03",
+ "generated_at": "2026-11-16T22:14:04",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 888,
-  "processed_songs": 272,
-  "gap_songs": 71,
-  "coverage_pct": 102.6,
+  "processed_materials": 893,
+  "processed_songs": 273,
+  "gap_songs": 70,
+  "coverage_pct": 103.0,
   "status": {
-   "已完成": 367,
-   "候选": 8555,
+   "已完成": 373,
+   "候选": 8549,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -23,7 +23,6 @@
   "Nature Boy",
   "S'Wonderful",
   "一江水",
-  "东方之珠",
   "两只老虎",
   "乌兰巴托的夜晚",
   "乡恋",
@@ -90130,17 +90129,20 @@
    "bv": "BV1gt411c7sS",
    "title": "王晰 张瑶 南京 只要有你",
    "song": "你",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南京",
    "date": "2019-07-30",
    "kind": "其他",
    "fetched_at": "2019-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1bt411F7DF",
@@ -92554,17 +92556,20 @@
    "bv": "BV1et411P7pE",
    "title": "王晰 女人花 清唱",
    "song": "女人花",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-07-27",
    "kind": "其他",
    "fetched_at": "2019-07-27",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Lf4y1e72A",
@@ -93565,17 +93570,20 @@
    "bv": "BV1ut411c7YW",
    "title": "王晰 往日时光 清唱",
    "song": "往日时光",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-07-30",
    "kind": "其他",
    "fetched_at": "2019-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1RE411J7wj",
@@ -98638,17 +98646,20 @@
    "bv": "BV1Lf4y1D7nM",
    "title": "【王晰】《茕茕》丨崔迪的小客厅",
    "song": "茕茕",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-09-19",
    "kind": "其他",
    "fetched_at": "2020-09-19",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1xo4y1R7x7",
@@ -103330,17 +103341,20 @@
    "bv": "BV1PE411f7dG",
    "title": "王晰·长江音乐节·《东方之珠》+《军港之夜》清唱",
    "song": "东方之珠",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-10-09",
    "kind": "其他",
    "fetched_at": "2019-10-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV15E41197VG",
@@ -112806,17 +112820,20 @@
    "bv": "BV1gt411c7sS",
    "title": "王晰 张瑶 南京 只要有你",
    "song": "只要有你",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南京",
    "date": "2019-07-30",
    "kind": "其他",
    "fetched_at": "2019-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1wt411c7Lw",

@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-16 21:09",
+ "generated_at": "2026-11-16 22:14",
  "streams": [
   {
    "stream": "声学·现场层",
    "source": "data/archive_stage_tour.json",
-   "n": 888,
+   "n": 893,
    "latest": "2026-11-16",
    "lag_days": 0,
    "new_7d": null,
@@ -104,12 +104,12 @@
   {
    "stream": "知识库·实体",
    "source": "data/kb/manifest.json",
-   "n": 1703,
+   "n": 1704,
    "latest": "2026-11-16",
    "lag_days": 0,
    "new_7d": null,
    "gap": "随内容更新",
-   "note": "事实 1723｜关系 2350｜语声集 157"
+   "note": "事实 1724｜关系 2351｜语声集 157"
   },
   {
    "stream": "知识库·问答库",
