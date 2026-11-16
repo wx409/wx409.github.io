@@ -376,10 +376,60 @@
    "show_date": "2026-11-16",
    "note": "央视新闻微博 2026-11-16 21:46 报道（APEC 前）；与李佳薇合唱亚太歌曲串烧；本地已存 720p 视频+本地转写",
    "source_url": "央视新闻微博（mid 5365996816699863）",
-   "milestones": []
+   "milestones": [
+    {
+     "kind": "开演",
+     "date": "2026-11-16",
+     "source": "",
+     "source_label": "已开演核实",
+     "stats": {
+      "date": "2026-11-16",
+      "windows": {
+       "pre7": {
+        "n_days": 7,
+        "mean_index": 371.1,
+        "median_index": 378.3,
+        "avg_tracked_songs": 12.3,
+        "complete": true
+       },
+       "pre3": {
+        "n_days": 3,
+        "mean_index": 397.6,
+        "median_index": 392.8,
+        "avg_tracked_songs": 11.3,
+        "complete": true
+       },
+       "d0": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post3": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post7": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       }
+      },
+      "n_days": 1351,
+      "delta_pct_post7_vs_pre7": null,
+      "delta_pct_post3_vs_pre3": null
+     }
+    }
+   ]
   }
  ],
- "generated_at": "2026-11-16 22:58",
+ "generated_at": "2026-11-16 23:39",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
  "index_days_local": 1351
 }
