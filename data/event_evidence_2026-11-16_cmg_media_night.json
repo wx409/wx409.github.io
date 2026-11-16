@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "generated_at": "2026-11-16 22:50",
+ "event": {
+  "date": "2026-11-16",
+  "title": "CMG媒体之夜「亚太同心 共创未来」· 王晰 × 李佳薇 亚太歌曲串烧",
+  "city": "深圳",
+  "venue": "待补",
+  "organizer": "中央广播电视总台",
+  "songs": [
+   "山歌好比春江水",
+   "星星索",
+   "爱的感觉",
+   "莫斯科郊外的晚上"
+  ]
+ },
+ "primary_source": {
+  "platform": "微博",
+  "account": "央视新闻",
+  "uid": "2656274875",
+  "mid": "5365996816699863",
+  "url": "https://weibo.com/2656274875/5365996816699863",
+  "created_at": "2026-11-16 21:46:39 (UTC+8)",
+  "excerpt": "【#王晰李佳薇亚太歌曲串烧#】中国的《山歌好比春江水》，印度尼西亚的《星星索》，马来西亚的《爱的感觉》，俄罗斯的《莫斯科郊外的晚上》……“亚太同心，共创未来——#CMG媒体之夜#”上，中国歌手@王晰 和马来西亚歌手@李佳薇Jess 合唱来自亚太地区的歌曲串联。"
+ },
+ "engagement": {
+  "reposts": 192,
+  "comments": 260,
+  "attitudes": 1225,
+  "as_of": "2026-11-16 22:48 (UTC+8)"
+ },
+ "secondary_sources": [
+  {
+   "name": "新浪新闻转载（k.sina）",
+   "url": "http://k.sina.com.cn/article_2656274875_m9e5389bb03302xy8u.html",
+   "readable": true,
+   "snapshot": "sina_k.html"
+  },
+  {
+   "name": "新浪财经/手机新浪网：屏屏闪耀，CMG媒体之夜今晚举行！",
+   "url": "https://finance.sina.cn/2026-11-16/detail-iniyxuex2297809.d.html",
+   "readable": true,
+   "snapshot": "sina_finance.html"
+  },
+  {
+   "name": "央视网原文（snow-book）",
+   "url": "https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=13476940575660575547",
+   "readable": false,
+   "note": "JS 壳，正文需央视新闻客户端；已存 HTML 快照",
+   "snapshot": "cctv.html"
+  }
+ ],
+ "local_assets": {
+  "dir_hint": "原始材料/CMG媒体之夜_20261116（本地留存，未入站、未入 git）",
+  "video": "video_720p.mp4（235.4s；1080p 需微博会员未取）",
+  "transcript": "transcript_whisper.txt（唱段 ASR 不可靠，仅作定位）",
+  "snapshots": [
+   "cctv.html",
+   "sina_k.html",
+   "sina_finance.html",
+   "weibo_status.json"
+  ],
+  "note": "转发列表接口需登录（cookie 过期），仅取得互动计数"
+ },
+ "caveats": [
+  "场馆待补：公开报道仅确认深圳，未见具体场馆",
+  "互动数为 2026-11-16 22:48 截面，会继续变化",
+  "视频/快照仅本地研究留存，不二次分发"
+ ]
+}
