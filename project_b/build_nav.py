@@ -101,6 +101,7 @@ ARCHIVE_PAGES = {
     "dongyan.html",
     "culture/index.html", "academic.html", "dashboard/index.html",
     "acoustic-report.html",
+    "voices.html",
     "tavern/index.html", "gallery.html", "submit.html", "search.html",
     "stories/story-hui-guangzhou-2026.html",
     "topic-vibrato.html",
@@ -113,7 +114,7 @@ ROBOTS_INDEX = '<meta name="robots" content="index, follow">'
 LABELS = {
     "index.html": "首页", "works.html": "作品", "live.html": "现场",
     "vocal.html": "声音数据", "history.html": "生涯", "research.html": "研究",
-    "community.html": "参与",
+    "community.html": "参与", "voices.html": "听众之声",
     "qa.html": "问答库", "notifications.html": "自动通知", "about.html": "关于本站",
     "search.html": "🔎 查询与问答", "acoustic-report.html": "📊 声学全量报告", "dashboard/": "数据大屏", "map/": "巡演地图",
     "live/": "演出详情目录", "live.html#即将开演": "🎫 已开票：沉响与长歌（10/9-10/10）", "data/music-index.html": "音乐数据周报",

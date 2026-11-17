@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-17T21:09:03",
+ "generated_at": "2026-11-17T22:36:29",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 893,
+  "processed_materials": 899,
   "processed_songs": 273,
   "gap_songs": 70,
   "coverage_pct": 103.0,
   "status": {
-   "已完成": 373,
-   "候选": 8549,
+   "已完成": 379,
+   "候选": 8543,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -90234,17 +90234,20 @@
    "bv": "BV1Vz4y1S7Rt",
    "title": "王晰其实你起哪个调都行反正你怎么唱月光都好听啊哈哈哈哈哈",
    "song": "你",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-01-27",
    "kind": "其他",
    "fetched_at": "2021-01-27",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1si4y1D7sE",
@@ -91504,17 +91507,20 @@
    "bv": "BV1bK411M78f",
    "title": "王晰万万没想到再次被二四拍支配竟然是别离的预感来吧我们都是成熟的铁了大家可以的",
    "song": "别离的预感",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-01-03",
    "kind": "其他",
    "fetched_at": "2021-01-03",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1fKoWYLEmD",
@@ -99967,17 +99973,19 @@
    "bv": "BV17h41197Pd",
    "title": "我家的小狐狸偷偷的染了蓝色头发穿了大人皮衣出去装成王晰的样子又唱又跳撒欢儿转圈儿找不到回家的路了发了条雪地里寄不出的求救信可怜巴巴的等我带他回家呢",
    "song": "雪地里寄不出的求救信",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-10-05",
    "kind": "其他",
    "fetched_at": "2020-10-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1WV411a7Ke",
@@ -103229,17 +103237,20 @@
    "bv": "BV1L5411c74z",
    "title": "【王晰】《下沉》丨崔迪的小客厅",
    "song": "下沉",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-04-09",
    "kind": "其他",
    "fetched_at": "2021-04-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1i4411p7p6",
@@ -118234,17 +118245,20 @@
    "bv": "BV13J41137ch",
    "title": "王晰 游刃有余开口跪的山楂树 清唱",
    "song": "山楂树",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-09-19",
    "kind": "其他",
    "fetched_at": "2019-09-19",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Zi4y147GG",
@@ -120234,17 +120248,20 @@
    "bv": "BV1gJ411x75m",
    "title": "王晰万万没有想到竟然唱了日文歌的恋人",
    "song": "恋人",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-23",
    "kind": "其他",
    "fetched_at": "2019-12-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1FJ411x7cX",

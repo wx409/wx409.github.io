@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17 21:10",
+ "generated_at": "2026-11-17 22:37",
  "count": 77,
  "calibers": [
   {
@@ -125,7 +125,7 @@
   {
    "id": "stage_claimable",
    "label": "现场层可主张素材",
-   "value": 718,
+   "value": 723,
    "scope": "过复核门槛（人耳确认/谐波列通过/双引擎一致）的现场素材条数",
    "source": "data/archive_stage_tour.json → summary.n_claimable",
    "note": "行级字段 review_status 已落库（人耳确认/谐波列通过/双引擎一致/待复核/不可复核/人耳否决）；「不可复核（缺混音/时间）」为永久状态，已从能力主张中排除"
@@ -341,7 +341,7 @@
   {
    "id": "stage_low_reviewed",
    "label": "巡演现场低音读数·谐波列复核通过条数",
-   "value": 673,
+   "value": 677,
    "scope": "archive_stage_tour.json 中复核状态为「谐波列复核通过」的素材条数",
    "source": "data\\archive_stage_tour.json",
    "note": "判据：原始混音 1f0–8f0 谐波列完整性 + 同场同刻多源一致；工具 音域分析\\轨迹\\低音复核_谐波列.py（判定表与纪要留在该目录，不上站点）"
@@ -606,7 +606,7 @@
    "id": "listeners_peak_daily",
    "label": "收听峰值覆盖（曲目×日）",
    "value": 1750,
-   "scope": "1646 个批次文件 / 113 天（（本机 E 盘）指数vs）",
+   "scope": "1647 个批次文件 / 113 天（（本机 E 盘）指数vs）",
    "source": "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
    "note": "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点"
   },
