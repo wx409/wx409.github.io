@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-17 22:36",
+ "generated_at": "2026-11-17 23:07",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -63511,17 +63511,17 @@
     "2023-06-23"
    ],
    "songs_unique": 50,
-   "album": "B面图景",
-   "album_ym": "2021-11",
+   "album": "歌颂",
+   "album_ym": "2020-08",
    "album_kind": "专辑",
    "album_same_month": false,
-   "album_prev": "歌颂",
-   "album_prev_ym": "2020-08",
-   "album_prev_hits": 0,
-   "album_prev_total": 10,
-   "album_songs_in_setlist": 8,
+   "album_prev": "重游往昔",
+   "album_prev_ym": "2017-11",
+   "album_prev_hits": 1,
+   "album_prev_total": 8,
+   "album_songs_in_setlist": 0,
    "album_songs_total": 10,
-   "coverage_pct": 80.0,
+   "coverage_pct": 0.0,
    "originals_count": 12,
    "originals_total": 50,
    "originals_pct": 24.0,
@@ -63538,12 +63538,10 @@
    "earlier_tour_share_pct": 8.0,
    "earlier_tour_originals": [],
    "examples": [
-    "倒叙",
-    "分岔",
-    "哑光",
-    "悬念",
-    "惑许",
-    "时空"
+    "光阴的故事",
+    "在水一方",
+    "我要你",
+    "漂洋过海来看你"
    ]
   },
   {
@@ -65426,7 +65424,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-11-17 22:36",
+   "generated_at": "2026-11-17 23:07",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -66740,7 +66738,7 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-11-17 22:36",
+  "generated_at": "2026-11-17 23:07",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"
