@@ -116,6 +116,23 @@ def main() -> int:
                      % (esc(q["text"]), format(q["likes"], ","), esc(q.get("date") or "")))
     parts.append("</div>")
 
+    s = d.get("search") or {}
+    if s.get("n"):
+        parts.append("<h2>王晰广场短帖（受众自述）</h2>")
+        parts.append('<p class="sub">微博搜索「王晰」广场里的公开短帖，共 %s 条；'
+                     "与评论区分开统计——这是受众自己发的，不是回复。</p>" % format(s["n"], ","))
+        if s.get("by_year"):
+            parts.append("<table><tr><th>年份</th><th>短帖数</th></tr>")
+            for x in s["by_year"]:
+                parts.append("<tr><td>%s</td><td>%s</td></tr>" % (esc(x["y"]), format(x["n"], ",")))
+            parts.append("</table>")
+        if s.get("samples"):
+            parts.append("<div class='quotes'>")
+            for q in s["samples"]:
+                parts.append("<div class='q'><p>%s</p><div class='meta'>%s</div></div>"
+                             % (esc(q["text"]), esc(q.get("date") or "")))
+            parts.append("</div>")
+
     parts.append("<h2>讨论最多的帖子</h2><table><tr><th>帖子</th><th>评论文本数</th><th>最高赞</th></tr>")
     for p in top_posts:
         label = "微博 " + str(p.get("post_mid") or "")

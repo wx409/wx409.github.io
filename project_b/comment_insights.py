@@ -27,7 +27,8 @@ def main() -> int:
     con = sqlite3.connect(DB)
     con.row_factory = sqlite3.Row
     n = con.execute("SELECT COUNT(*) n FROM posts WHERE platform='weibo-comment'").fetchone()["n"]
-    posts = con.execute("SELECT COUNT(DISTINCT m.post_mid) n FROM posts p JOIN comment_meta m ON m.key=p.key").fetchone()["n"]
+    posts = con.execute("SELECT COUNT(DISTINCT m.post_mid) n FROM posts p JOIN comment_meta m ON m.key=p.key "
+                        "WHERE p.platform='weibo-comment'").fetchone()["n"]
     years = [dict(r) for r in con.execute(
         "SELECT substr(date,1,4) y, COUNT(*) n FROM posts WHERE platform='weibo-comment' AND date<>'' GROUP BY y ORDER BY y")]
     uniq = con.execute("SELECT COUNT(DISTINCT text) n FROM posts WHERE platform='weibo-comment'").fetchone()["n"]
@@ -61,10 +62,49 @@ def main() -> int:
         top_posts.append({"post": r["url"], "post_mid": r["post_mid"],
                           "comments": r["n"], "top_like": r["top_like"]})
 
+    # 广场短帖（platform=weibo-search）：受众自述，另一类语料
+    def parse_date(s: str) -> str:
+        s = (s or "").strip()
+        today = dt.date.today()
+        if not s:
+            return ""
+        m = re.match(r"(\d{4})-(\d{2})-(\d{2})", s)
+        if m:
+            return m.group(0)
+        if s.startswith("今天") or "分钟前" in s or "小时前" in s:
+            return today.isoformat()
+        if s.startswith("昨天"):
+            return (today - dt.timedelta(days=1)).isoformat()
+        m = re.match(r"(\d{1,2})月(\d{1,2})日", s)
+        if m:
+            return "%d-%02d-%02d" % (today.year, int(m.group(1)), int(m.group(2)))
+        return ""
+
+    srows = con.execute("SELECT text, date, url FROM posts WHERE platform='weibo-search'").fetchall()
+    syears = {}
+    for r in srows:
+        y = parse_date(r["date"])[:4]
+        if y:
+            syears[y] = syears.get(y, 0) + 1
+    ssamples, sseen = [], set()
+    for r in srows:
+        t = clean(r["text"])
+        if not (8 <= len(t) <= 60) or "@" in t or "http" in t.lower() or t in sseen:
+            continue
+        if not re.search(r"王晰|晰哥", t):
+            continue
+        pos = min([p for p in (t.find("王晰"), t.find("晰哥")) if p >= 0] or [999])
+        if pos > 30:
+            continue
+        sseen.add(t)
+        ssamples.append({"text": t, "date": parse_date(r["date"]) or r["date"]})
+        if len(ssamples) >= 8:
+            break
+
     doc = {
         "schema": 1,
         "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "scope": "微博评论（工作室 1100+ 帖 + 王晰本人近 30 帖）",
+        "scope": "微博评论（工作室 1100+ 帖 + 王晰本人近 30 帖）＋ 王晰广场短帖",
         "n_comments": n, "n_posts": posts,
         "n_unique_text": uniq,
         "dup_rate_pct": round((1 - uniq / n) * 100, 1) if n else 0,
@@ -72,12 +112,17 @@ def main() -> int:
         "keywords": kw,
         "quotes": quotes,
         "top_posts": top_posts,
+        "search": {
+            "n": len(srows),
+            "by_year": [{"y": k, "n": v} for k, v in sorted(syears.items())],
+            "samples": ssamples,
+        },
         "coverage_note": "每帖最多 6 页（约 30–50%），非全量；评论为粉丝自选样本，不代表大众",
         "privacy": "uid 已哈希、不含昵称；仅发布聚合与 ≤60 字匿名短引用",
         "source_db": "E:\\wx\\私有\\王晰语料库\\comments.db（本地私有，不入 git）",
     }
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
-    print("写入", OUT, "| 评论", n, "| 帖子", posts, "| 引用", len(quotes))
+    print("写入", OUT, "| 评论", n, "| 帖子", posts, "| 广场", len(srows), "| 引用", len(quotes))
     con.close()
     return 0
 
