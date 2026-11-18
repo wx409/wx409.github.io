@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-18T21:07:27",
+ "generated_at": "2026-11-19T00:17:21",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 899,
-  "processed_songs": 273,
-  "gap_songs": 70,
-  "coverage_pct": 103.0,
+  "processed_materials": 905,
+  "processed_songs": 276,
+  "gap_songs": 67,
+  "coverage_pct": 104.2,
   "status": {
-   "已完成": 379,
-   "候选": 8543,
+   "已完成": 385,
+   "候选": 8537,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -25,7 +25,6 @@
   "一江水",
   "两只老虎",
   "乌兰巴托的夜晚",
-  "乡恋",
   "云与海",
   "人说山西好风光",
   "人间",
@@ -66,14 +65,12 @@
   "月弯弯",
   "流着泪说分手",
   "海然海然",
-  "海阔天空",
   "深夜酒馆",
   "漂洋过海来看你",
   "爆裂",
   "爱",
   "爱的代价",
   "生日快乐",
-  "痒",
   "直到时间尽头",
   "真的爱你",
   "矜持",
@@ -92172,17 +92169,20 @@
    "bv": "BV1fV411v7Tc",
    "title": "王晰后会无期沉船事件之腰封去哪儿了就喜欢看晰晰舞台上被自己逗笑还能唱的让人惊叹不已的样子",
    "song": "后会无期",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-02-09",
    "kind": "其他",
    "fetched_at": "2021-02-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1hjB4YhEN7",
@@ -105406,17 +105406,20 @@
    "bv": "BV1at411k7aN",
    "title": "【王晰】天天向上现场演唱《乡恋》",
    "song": "乡恋",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2018-12-24",
    "kind": "其他",
    "fetched_at": "2018-12-24",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1KJ411a7f7",
@@ -128660,17 +128663,20 @@
    "bv": "BV1MJ411x7SH",
    "title": "王晰我真的太喜欢青歌赛版的海阔天空了",
    "song": "海阔天空",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-23",
    "kind": "其他",
    "fetched_at": "2019-12-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1ts411971R",
@@ -130807,17 +130813,20 @@
    "bv": "BV1PJ411x7uo",
    "title": "王晰来啊谁怕谁啊我一点都不刺挠的痒",
    "song": "痒",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-23",
    "kind": "其他",
    "fetched_at": "2019-12-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1DJ411p7fT",
@@ -135494,17 +135503,20 @@
    "bv": "BV1Kt411c7Kd",
    "title": "王晰 南京 谁",
    "song": "谁",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "南京",
    "date": "2019-07-30",
    "kind": "其他",
    "fetched_at": "2019-07-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1gE411h7Bt",
@@ -139295,17 +139307,20 @@
    "bv": "BV1MJ411Y7Z7",
    "title": "王晰  永远忘不了的男低音的难忘今宵",
    "song": "难忘今宵",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-30",
    "kind": "其他",
    "fetched_at": "2019-12-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1jq4y1x76d",
