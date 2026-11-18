@@ -635,6 +635,7 @@ echo    268. [曲谱] 重新抓取扒谱合集（微博 @柯烬）
 echo    269. [语料] 重建全平台语料索引（微博/工作室/百家号/抖音）
 echo    270. [语料] 全文搜索（找哪一期/哪条/哪首，含视频转写）
 echo    271. [语料] 本地 Whisper 转写（视频/音频→文字，离线）
+echo    272. [采集] 抖音增量同步（主页→对比→下载新增）
 
 echo    0. 退出
 
@@ -1155,6 +1156,7 @@ if "%op%"=="267" goto score_untested
 if "%op%"=="269" goto corpus_build
 if "%op%"=="270" goto corpus_search
 if "%op%"=="271" goto corpus_trans
+if "%op%"=="272" goto douyin_sync
 if "%op%"=="268" goto score_grab
 if "%op%"=="265" goto mat_other
 if "%op%"=="262" goto sync_listener
@@ -6845,5 +6847,12 @@ cls
 echo === 本地 Whisper 转写（离线，GPU）===
 set HF_HUB_OFFLINE=1
 python -X utf8 project_b\corpus_transcribe.py
+pause
+goto menu
+
+:douyin_sync
+cls
+echo === 抖音增量同步（Playwright 监听 aweme/post，下载新增）===
+python -X utf8 project_b\douyin_sync.py --max-scroll 30
 pause
 goto menu
