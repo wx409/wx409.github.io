@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-11-18 07:54　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-11-18 09:08　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -17,7 +17,7 @@
 | `credits_songs` | 署名/演职信息曲目 | **325** | 有公开演职/署名记录的曲目 | `data/credits_full.json` |
 | `stage_tet_intonation` | 现场音准偏差中位（TET，伪影） | **21.0** | 王晰主导巡演/签唱会现场素材（demucs 人声分离后 YIN 逐帧测音准偏差） | `data/archive_stage_tour.json` |
 | `dongyan_show_count` | 东演合作场次（分列） | **16** | 中国东方演艺集团合作项目：歌舞剧《草原之夜——来自可克达拉的歌谣》（14 场）＋ 双人演唱会《沉响与长歌》（2 场） | `data/activity_master.json（草原之夜行数）＋ data/show_setlists/*（沉响场次文件数）` |
-| `topic_card_numbers` | 专题卡数字口径（14 张卡） | **14 张卡 / 主数字 47 项 / caliber-lock 30 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·七张专辑 + 一张数字 EP，颤音极差 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气） | `data/share/cards/` |
+| `topic_card_numbers` | 专题卡数字口径（14 张卡） | **14 张卡 / 主数字 46 项 / caliber-lock 30 项** | data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·七张专辑 + 一张数字 EP，颤音极差 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气） | `data/share/cards/` |
 | `woyaoni_xhs_spread` | 《我要你》北京站小红书端传播实测 | **26 条笔记 / 1542 赞 / 176 条评论** | 样本＝第三方 AI 摘要所列链接集合（去重后 26 条），**非全平台普查**；发布集中度 69.2%（演出当日／次晚）、50.0%（21–23 时） | `data/share/woyaoni_spread.json（由 project_b/build_woyaoni_spread.py 从语料派生）` |
 | `woyaoni_comment_rule` | 《我要你》评论触发点分类口径 | **多命中：编曲 20 / 低音 9；主类：编曲 17 / 低音 6** | 关键词规则分类（可复核） | `data/share/woyaoni_spread.json#comment_categories / #comment_categories_main` |
 | `context_register_share` | 低音区（<C3）声区占比·跨语境 | **21.3% → 14.5% → 10.7%** | 三个语境：A 录音室专辑(n=105)、C 自录无修现场(n=29)、B 他人主导舞台(n=33) | `data/share/context_shares.json（原口径，源：《现场能力三表对照_20260917》）` |
@@ -82,7 +82,7 @@
 | `event_effects_edges` | 事件×歌曲 效应边数 | **32668** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
 | `media_library_files` | 声音素材库已下载媒体文件数 | **157** | 本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 | `media_library_pending` | 声音素材库待采条目数 | **2** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
-| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1750** | 1647 个批次文件 / 113 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
+| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1751** | 1650 个批次文件 / 114 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
 | `long_table_listeners` | 指数长表·收听列（曲目×日） | **1665** | 113 天 / 39 首（music_index_long.csv 的 listeners 列） | `E:\wx\wx_textmine\00_build_matrix.py` |
 
 ## 常见误用
