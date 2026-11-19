@@ -152,6 +152,46 @@ def main() -> int:
                         (key, txt, transcript))
             rows += 1
 
+    # 快手：官方主页视频 + 《晰望你听见》节目视频
+    KUAISHOU = Path(r"E:\wx\论文素材_王晰作传\快手\官方")
+    if KUAISHOU.exists():
+        meta = {}
+        mp = KUAISHOU / "kuaishou_photos.json"
+        if mp.exists():
+            try:
+                meta = json.loads(mp.read_text(encoding="utf-8"))
+            except Exception:
+                meta = {}
+        for f in sorted(KUAISHOU.glob("*.mp4")):
+            stem = f.stem
+            date = ("%s-%s-%s" % (stem[:4], stem[4:6], stem[6:8])) if stem[:8].isdigit() else ""
+            cid = stem.split("_")[-1]
+            text = clean((meta.get(cid) or {}).get("caption") or "")
+            tr = TRANS_DIR / ("快手_王晰_%s.txt" % cid)
+            transcript = tr.read_text(encoding="utf-8", errors="ignore") if tr.exists() else ""
+            blob = text + " " + transcript
+            sg = "|".join([n for n in SONGS if n in blob][:8])
+            key = "快手:王晰:%s" % cid
+            con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
+                        (key, "快手", "王晰", date, text, "", str(f), transcript, None, sg))
+            con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
+                        (key, text, transcript))
+            rows += 1
+        prog = KUAISHOU / "节目_晰望你听见" / "视频"
+        if prog.exists():
+            for f in sorted(prog.glob("*.mp4")):
+                stem = f.stem  # 01_BV1KB4y1v7Au_p1
+                idx = stem.split("_")[0]
+                tr = TRANS_DIR / ("快手_节目_晰望你听见_%s.txt" % idx)
+                transcript = tr.read_text(encoding="utf-8", errors="ignore") if tr.exists() else ""
+                key = "快手:节目:晰望你听见:%s" % idx
+                sg = "|".join([n for n in SONGS if n in transcript][:8])
+                con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
+                            (key, "快手", "节目·晰望你听见", "", "", "", str(f), transcript, None, sg))
+                con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
+                            (key, "", transcript))
+                rows += 1
+
     # 小红书逐条目录
     for note in XHS_DIR.rglob("meta.json"):
         d = note.parent
