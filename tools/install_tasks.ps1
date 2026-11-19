@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-11-19 21:14
+# 生成时间：2026-11-19 21:22
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -128,6 +128,20 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_baseline_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_baseline_daily'
+
+# --- wx409_show_social_pm ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\show_day_social.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_show_social_pm' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_show_social_pm'
+
+# --- wx409_show_social_am ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\show_day_social_am.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_show_social_am' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_show_social_am'
 
 # --- wx409_cite_probe ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 ""' -WorkingDirectory 'D:\wx409.github.io'

@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-18 21:41",
+ "generated_at": "2026-11-19 21:22",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 271,
   "dispatch": 271,
   "deploy_steps": 105,
-  "scheduled_tasks": 29
+  "scheduled_tasks": 31
  },
  "tasks": [
   {
@@ -920,7 +920,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply --keep-full-days 3",
-    "next": "2026/11/19 10:00:00",
+    "next": "2026/11/20 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1362,7 +1362,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/11/19 10:00:00",
+    "next": "2026/11/20 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1470,7 +1470,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/11/19 12:00:00",
+    "next": "2026/11/20 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1576,7 +1576,7 @@
     "name": "wx409_show_intake",
     "script": "night_show_intake.py",
     "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
-    "next": "2026/11/18 23:30:00",
+    "next": "2026/11/19 23:30:00",
     "type": "Daily",
     "start": "23:30:00"
    },
@@ -1705,7 +1705,7 @@
     "name": "wx409_propagation_watch_daily",
     "script": "propagation_watch.py",
     "cmd": "D:\\wx409.github.io\\run_propagation_watch_daily.bat",
-    "next": "2026/11/18 23:40:00",
+    "next": "2026/11/19 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -1750,7 +1750,7 @@
     "name": "wx409_index_freshness",
     "script": "check_index_freshness.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\check_index_freshness.py >> temp\\index_freshness_task.log 2>&1",
-    "next": "2026/11/19 9:40:00",
+    "next": "2026/11/20 9:40:00",
     "type": "Daily",
     "start": "9:40:00"
    },
@@ -1918,7 +1918,7 @@
     "name": "wx409_interview_daily",
     "script": "interview_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_daily.py >> temp\\interview_daily.log 2>&1",
-    "next": "2026/11/19 8:20:00",
+    "next": "2026/11/20 8:20:00",
     "type": "Daily",
     "start": "8:20:00"
    },
@@ -1950,7 +1950,7 @@
     "name": "wx409_morning_catchup",
     "script": "morning_catchup.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\morning_catchup.py >> temp\\morning_catchup.log 2>&1",
-    "next": "2026/11/19 9:45:00",
+    "next": "2026/11/20 9:45:00",
     "type": "Daily",
     "start": "9:45:00"
    },
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/18 22:04:00",
+    "next": "2026/11/19 21:34:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2022,7 +2022,7 @@
     "name": "wx409_interview_web",
     "script": "interview_web_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_web_daily.py >> temp\\web_interview.log 2>&1",
-    "next": "2026/11/19 8:45:00",
+    "next": "2026/11/20 8:45:00",
     "type": "Daily",
     "start": "8:45:00"
    },
@@ -2038,7 +2038,7 @@
     "name": "wx409_sync_listener_xlsx",
     "script": "sync_listener_xlsx.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\sync_listener_xlsx.py >> temp\\listener_sync.log 2>&1",
-    "next": "2026/11/18 23:40:00",
+    "next": "2026/11/19 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -2308,7 +2308,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 D:\\wx409.github.io\\project_b\\build_music_index.py --wait --deadline 00:45 --push >> temp\\music_index_daily.log 2>&1",
-    "next": "2026/11/19 0:10:00",
+    "next": "2026/11/20 0:10:00",
     "type": "Daily",
     "start": "0:10:00"
    },
@@ -2390,7 +2390,7 @@
     "name": "wx409_disk_hygiene",
     "script": "disk_hygiene.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\disk_hygiene.py\" --apply",
-    "next": "2026/11/19 9:00:00",
+    "next": "2026/11/20 9:00:00",
     "type": "Daily",
     "start": "9:00:00"
    },
@@ -2438,7 +2438,7 @@
     "name": "wx409_index_backfill_late",
     "script": "index_auto_repair.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\index_auto_repair.py >> temp\\index_backfill_task.log 2>&1",
-    "next": "2026/11/19 0:05:00",
+    "next": "2026/11/20 0:05:00",
     "type": "Daily",
     "start": "0:05:00"
    },
@@ -2493,7 +2493,7 @@
     "name": "wx409_baseline_daily",
     "script": "publish_baseline_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\publish_baseline_daily.py >> temp\\baseline_daily.log 2>&1",
-    "next": "2026/11/19 0:20:00",
+    "next": "2026/11/20 0:20:00",
     "type": "Daily",
     "start": "0:20:00"
    },
@@ -2506,6 +2506,32 @@
    "deploy_desc": "公开文件本机路径净化（notifications/calibers/essay_quotes）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\redact_local_paths.py"
+  },
+  {
+   "script": "show_day_social.py",
+   "schedule": {
+    "name": "wx409_show_social_pm",
+    "script": "show_day_social.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_day_social.py --slot pm",
+    "next": "2026/11/19 23:10:00",
+    "type": "Daily",
+    "start": "23:10:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\show_day_social.py"
+  },
+  {
+   "script": "show_day_social_am.py",
+   "schedule": {
+    "name": "wx409_show_social_am",
+    "script": "show_day_social_am.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_day_social_am.py",
+    "next": "2026/11/20 9:20:00",
+    "type": "Daily",
+    "start": "9:20:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\show_day_social_am.py"
   },
   {
    "script": "task:wx409_cite_probe",
@@ -2526,7 +2552,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/18 21:51:00",
+    "next": "2026/11/19 21:31:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2539,7 +2565,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/11/18 22:00:00",
+    "next": "2026/11/19 21:30:00",
     "type": "Daily",
     "start": "21:00:00"
    },
@@ -2552,7 +2578,7 @@
     "name": "wx409_index_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_index_daily.bat",
-    "next": "2026/11/19 9:10:00",
+    "next": "2026/11/20 9:10:00",
     "type": "Daily",
     "start": "9:10:00"
    },
@@ -2565,7 +2591,7 @@
     "name": "wx409_insight_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_insight_daily.bat",
-    "next": "2026/11/18 22:00:00",
+    "next": "2026/11/19 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -2578,7 +2604,7 @@
     "name": "wx409_night_shutdown",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_night_shutdown.bat",
-    "next": "2026/11/19 1:30:00",
+    "next": "2026/11/20 1:30:00",
     "type": "Daily",
     "start": "1:30:00"
    },
@@ -2630,7 +2656,7 @@
     "name": "wx409_social_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_social_daily.bat",
-    "next": "2026/11/19 9:30:00",
+    "next": "2026/11/20 9:30:00",
     "type": "Daily",
     "start": "9:30:00"
    },
