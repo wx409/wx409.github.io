@@ -77,6 +77,7 @@
 | 微博合并稿（图/文/视频） | `E:\wx\私有工具\weibo_merged` | 合并 / 微博 / 工作室微博 / 百家号 |
 | 小红书 | `E:\wx\私有工具\xhs_archive\官方账号\王晰` | 129 条 |
 | 抖音 | `E:\wx\论文素材_王晰作传\抖音` | 183 条 mp4 + `awemes.json` |
+| 快手 | `E:\wx\论文素材_王晰作传\抖音\快手` | 与抖音同目录；`project_b\kuaishou_sync.py`（需 kuaishou.txt cookie） |
 | 评论语料（受众） | `E:\wx\私有\王晰语料库\comments.db` | 12.8 万条（私有） |
 | 声学分析 | `E:\wx\论文素材_王晰作传\音域分析` | 约 298 GB |
 | 曲谱（网友扒谱） | `E:\wx\论文素材_王晰作传\曲谱_网友扒谱` | 110 条 |
@@ -86,7 +87,8 @@
 | Cookie（严禁入 git） | `E:\wx\index_records\wb.txt` 等 | — |
 
 **采集命令**：微博本人 `weibo_proxy.py fetch`；工作室 `weibo_proxy_studio.py fetch --all`；
-小红书 `fetch_xhs_user.py`；抖音 `python -X utf8 project_b\douyin_sync.py`。
+小红书 `fetch_xhs_user.py`；抖音 `python -X utf8 project_b\douyin_sync.py`；
+快手 `python -X utf8 project_b\kuaishou_sync.py`（cookie：`E:\wx\index_records\kuaishou.txt`）。
 
 ## 四、声学数据铁律（三级读数制度）
 
