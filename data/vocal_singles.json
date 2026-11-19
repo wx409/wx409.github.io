@@ -128,12 +128,12 @@
    "song": "荒人之歌",
    "low": "G2",
    "low_hz": 98.2,
-   "high": "F5",
-   "high_hz": 710.6,
+   "high": null,
+   "high_hz": null,
    "stability": 5.5,
-   "status": "verified",
-   "note": "F5 710.6 人声轨 CREPE 705.6 + 谐波阶梯确认（无 355Hz）",
-   "span": 2.86
+   "status": "voided",
+   "note": "3:20 处 F5 710.6 经人耳确认非王晰（和声/女声），剔除；最低音 G2 98.2 保留",
+   "span": null
   },
   {
    "song": "梦回长安",

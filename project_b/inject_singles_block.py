@@ -18,7 +18,8 @@ PAGE = ROOT / "voice.html"
 DATA = ROOT / "data" / "vocal_singles.json"
 MARK = "<!-- singles-supplement -->"
 
-LABEL = {"verified": "已复核", "corrected": "已修正", "pending": "待核"}
+LABEL = {"verified": "算法复核（待人耳）", "corrected": "已修正（算法）",
+         "pending": "待核", "voided": "已否决（人耳）"}
 
 
 def row(x: dict) -> str:
@@ -28,7 +29,12 @@ def row(x: dict) -> str:
     lo_txt = "%s · %.1fHz" % (lo, lo_hz) if lo and lo_hz else "—"
     hi = x.get("high")
     hi_hz = x.get("high_hz")
-    hi_txt = "%s · %.1fHz" % (hi, hi_hz) if hi and hi_hz else "<b>待核</b>"
+    if hi and hi_hz:
+        hi_txt = "%s · %.1fHz" % (hi, hi_hz)
+    elif x.get("status") == "voided":
+        hi_txt = "<b>已否决</b>"
+    else:
+        hi_txt = "<b>待核</b>"
     span = x.get("span")
     span_txt = "<b>%.2f 八度</b>" % span if span else "—"
     note = html.escape(str(x.get("note") or ""))
@@ -45,8 +51,9 @@ def build_block() -> str:
     return MARK + """
 <section id="singles-supplement">
 <h2>单曲补充实测（非专辑）</h2>
-<p class="sub">专辑 72 首之外的正式单曲 / OST，按同一口径（QQ音乐 320k → 人声分离 → 逐帧 F0）实测；
-极值音经人声轨 CREPE + 谐波阶梯复核；高音双读数未决的标「待核」，不写数字。</p>
+<p class="sub">专辑 72 首之外的正式单曲 / OST，按同一口径（QQ音乐 320k → 人声分离 → 逐帧 F0）实测。
+极值音须过「人声轨 CREPE + 谐波阶梯」算法复核，**对外引用前还需人耳听辨**；
+已人耳否决的读数已剔除（例：荒人之歌 3:20 处 F5 为女和声），双读数未决的标「待核」、不写数字。</p>
 <table>
 <thead><tr><th>曲目</th><th>最低稳定音</th><th>最高稳定音</th><th>跨度</th><th>状态 / 说明</th></tr></thead>
 <tbody>
