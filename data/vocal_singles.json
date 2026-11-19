@@ -1,0 +1,205 @@
+{
+ "generated_at": "2026-11-20",
+ "method": "QQ音乐 320k → demucs htdemucs → numpy YIN；极值音经人声轨 CREPE（16k）+ 谐波阶梯复核",
+ "note": "verified=通过复核；corrected=按复核修正；pending=双读数待核，高音不写数字",
+ "items": [
+  {
+   "song": "苏幕遮",
+   "low": "C#2",
+   "low_hz": 71.0,
+   "high": "D#5",
+   "high_hz": 621.3,
+   "span": 3.13,
+   "stability": null,
+   "status": "verified",
+   "note": "高音通过谐波复核"
+  },
+  {
+   "song": "爱于此生",
+   "low": "D2",
+   "low_hz": 73.3,
+   "high": "E5",
+   "high_hz": 668.2,
+   "span": 3.19,
+   "stability": null,
+   "status": "verified",
+   "note": "保守值；A5 882 待人耳确认"
+  },
+  {
+   "song": "叶塞尼娅",
+   "low": "D#2",
+   "low_hz": 77.8,
+   "high": "C4",
+   "high_hz": 259.9,
+   "stability": 6.5,
+   "status": "verified",
+   "note": "",
+   "span": 1.74
+  },
+  {
+   "song": "塞北年夜",
+   "low": "E2",
+   "low_hz": 80.8,
+   "high": "B4",
+   "high_hz": 493.3,
+   "stability": 7.0,
+   "status": "verified",
+   "note": "",
+   "span": 2.61
+  },
+  {
+   "song": "最远的心跳",
+   "low": "E2",
+   "low_hz": 82.0,
+   "high": "A#4",
+   "high_hz": 468.0,
+   "stability": 5.2,
+   "status": "verified",
+   "note": "",
+   "span": 2.51
+  },
+  {
+   "song": "以后",
+   "low": "E2",
+   "low_hz": 82.6,
+   "high": "F4",
+   "high_hz": 344.7,
+   "stability": 5.5,
+   "status": "verified",
+   "note": "",
+   "span": 2.06
+  },
+  {
+   "song": "追梦者",
+   "low": "F2",
+   "low_hz": 86.4,
+   "high": null,
+   "high_hz": null,
+   "stability": 5.8,
+   "status": "pending",
+   "note": "A#4 468 与 A#3 234 双读数待核",
+   "span": null
+  },
+  {
+   "song": "着魔",
+   "low": "F2",
+   "low_hz": 86.5,
+   "high": "C4",
+   "high_hz": 262.4,
+   "stability": 7.0,
+   "status": "verified",
+   "note": "",
+   "span": 1.6
+  },
+  {
+   "song": "绝不放手",
+   "low": "F#2",
+   "low_hz": 90.2,
+   "high": "D#5",
+   "high_hz": 623.1,
+   "stability": 6.3,
+   "status": "verified",
+   "note": "",
+   "span": 2.79
+  },
+  {
+   "song": "星空穹顶",
+   "low": "G2",
+   "low_hz": 97.6,
+   "high": "E4",
+   "high_hz": 327.4,
+   "stability": 5.3,
+   "status": "corrected",
+   "note": "原 E5 654.8 八度上锁；CREPE 329Hz，3 次谐波 982Hz 在",
+   "span": 1.75
+  },
+  {
+   "song": "有你在的美好",
+   "low": "G2",
+   "low_hz": 98.2,
+   "high": "F4",
+   "high_hz": 349.2,
+   "stability": 3.1,
+   "status": "verified",
+   "note": "",
+   "span": 1.83
+  },
+  {
+   "song": "荒人之歌",
+   "low": "G2",
+   "low_hz": 98.2,
+   "high": "F5",
+   "high_hz": 710.6,
+   "stability": 5.5,
+   "status": "verified",
+   "note": "F5 710.6 人声轨 CREPE 705.6 + 谐波阶梯确认（无 355Hz）",
+   "span": 2.86
+  },
+  {
+   "song": "梦回长安",
+   "low": "G#2",
+   "low_hz": 104.9,
+   "high": "F4",
+   "high_hz": 350.4,
+   "stability": 6.3,
+   "status": "corrected",
+   "note": "原 F5 700.9 八度上锁；CREPE 350.4Hz，3 次谐波 1051Hz 在",
+   "span": 1.74
+  },
+  {
+   "song": "明月亮",
+   "low": "G#2",
+   "low_hz": 106.2,
+   "high": "C#4",
+   "high_hz": 279.8,
+   "stability": 5.9,
+   "status": "verified",
+   "note": "",
+   "span": 1.4
+  },
+  {
+   "song": "爸爸的木匠小屋",
+   "low": "A2",
+   "low_hz": 108.2,
+   "high": "A3",
+   "high_hz": 219.7,
+   "stability": 6.0,
+   "status": "verified",
+   "note": "",
+   "span": 1.02
+  },
+  {
+   "song": "绝不会和你错过",
+   "low": "A2",
+   "low_hz": 110.3,
+   "high": "E4",
+   "high_hz": 330.3,
+   "stability": 5.4,
+   "status": "corrected",
+   "note": "原 E5 660.5 八度上锁；CREPE 330.5Hz，3 次谐波 991Hz 在",
+   "span": 1.58
+  },
+  {
+   "song": "致我们的小宇宙",
+   "low": "A#2",
+   "low_hz": 118.3,
+   "high": null,
+   "high_hz": null,
+   "stability": 4.9,
+   "status": "pending",
+   "note": "B4 493 与 A#3 247 双读数待核",
+   "span": null
+  },
+  {
+   "song": "小丈夫",
+   "low": "C#3",
+   "low_hz": 139.1,
+   "high": "C#4",
+   "high_hz": 281.1,
+   "stability": 6.5,
+   "status": "corrected",
+   "note": "原 C#2 69.5 次谐波误锁；混音/人声轨 69.5Hz 缺失、139Hz 最强",
+   "span": 1.01
+  }
+ ]
+}

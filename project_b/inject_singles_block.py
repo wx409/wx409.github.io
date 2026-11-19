@@ -1,37 +1,60 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""往 voice.html 注入「单曲补充实测」区块（幂等）。
+"""往 voice.html 注入「单曲补充实测」区块（幂等，数据来自 data/vocal_singles.json）。
 
-内容只写已过复核的数：
-  · 苏幕遮 C#2 71.0Hz → D#5 621.3Hz = 3.13 八度（高音过谐波复核）
-  · 爱于此生 D2 73.3Hz → E5 668.2Hz = 3.19 八度（保守值；A5 882Hz 待核）
-不写：55.3Hz（伴奏低音）、A5 882Hz（待核）、无荒（合唱归属未定）
+只写：
+  · verified / corrected 的读数（corrected 附修正说明）
+  · pending 的高音不写数字，只标「待核」
 """
 from __future__ import annotations
 
+import html
+import json
 import re
 from pathlib import Path
 
 ROOT = Path(r"D:\wx409.github.io")
 PAGE = ROOT / "voice.html"
+DATA = ROOT / "data" / "vocal_singles.json"
 MARK = "<!-- singles-supplement -->"
 
-BLOCK = MARK + """
+LABEL = {"verified": "已复核", "corrected": "已修正", "pending": "待核"}
+
+
+def row(x: dict) -> str:
+    song = html.escape(str(x.get("song") or ""))
+    lo = x.get("low")
+    lo_hz = x.get("low_hz")
+    lo_txt = "%s · %.1fHz" % (lo, lo_hz) if lo and lo_hz else "—"
+    hi = x.get("high")
+    hi_hz = x.get("high_hz")
+    hi_txt = "%s · %.1fHz" % (hi, hi_hz) if hi and hi_hz else "<b>待核</b>"
+    span = x.get("span")
+    span_txt = "<b>%.2f 八度</b>" % span if span else "—"
+    note = html.escape(str(x.get("note") or ""))
+    status = LABEL.get(str(x.get("status")), str(x.get("status")))
+    tail = status + ("：" + note if note else "")
+    return ("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
+            % (song, lo_txt, hi_txt, span_txt, html.escape(tail)))
+
+
+def build_block() -> str:
+    d = json.loads(DATA.read_text(encoding="utf-8"))
+    items = d.get("items") or []
+    rows = "\n".join(row(x) for x in items)
+    return MARK + """
 <section id="singles-supplement">
 <h2>单曲补充实测（非专辑）</h2>
-<p class="sub">专辑 72 首之外的正式单曲 / OST，按同一口径（人声分离 + 逐帧 F0）实测；
-高音读数须通过「原始混音谐波列」复核才计入。</p>
+<p class="sub">专辑 72 首之外的正式单曲 / OST，按同一口径（QQ音乐 320k → 人声分离 → 逐帧 F0）实测；
+极值音经人声轨 CREPE + 谐波阶梯复核；高音双读数未决的标「待核」，不写数字。</p>
 <table>
-<thead><tr><th>曲目</th><th>最低稳定音</th><th>最高（已复核）</th><th>跨度</th><th>说明</th></tr></thead>
+<thead><tr><th>曲目</th><th>最低稳定音</th><th>最高稳定音</th><th>跨度</th><th>状态 / 说明</th></tr></thead>
 <tbody>
-<tr><td>苏幕遮</td><td>C#2 · 71.0Hz</td><td>D#5 · 621.3Hz</td><td><b>3.13 八度</b></td><td>高音通过谐波复核</td></tr>
-<tr><td>爱于此生</td><td>D2 · 73.3Hz</td><td>E5 · 668.2Hz</td><td><b>3.19 八度</b></td><td>保守值；A5 882Hz 待人耳确认</td></tr>
+%s
 </tbody></table>
-<p class="sub">以下读数不计入：55.3Hz 低音（与伴奏低音声部重合，非人声）、A5 882Hz（谐波存疑）、
-《无荒》（与谭维维合唱，音高归属未定）、谱面 5̇（D6，实录未见该音）。</p>
-<p class="sub">曲谱参考：网友 <b>@柯烬</b> 扒谱合集（已获作者授权；谱面仅本地留存，不在本站公开）。</p>
+<p class="sub">方法：%s。%s</p>
 </section>
-"""
+""" % (rows, html.escape(str(d.get("method") or "")), html.escape(str(d.get("note") or "")))
 
 
 def main() -> int:
@@ -42,9 +65,9 @@ def main() -> int:
     if MARK in s:
         s = re.sub(re.escape(MARK) + r".*?</section>\s*", "", s, flags=re.S)
     anchor = "</main>" if "</main>" in s else "</body>"
-    s = s.replace(anchor, BLOCK + "\n" + anchor, 1)
+    s = s.replace(anchor, build_block() + "\n" + anchor, 1)
     PAGE.write_text(s, encoding="utf-8")
-    print("已注入单曲补充区块")
+    print("已注入单曲补充实测：", len(json.loads(DATA.read_text(encoding="utf-8")).get("items") or []), "条")
     return 0
 
 
