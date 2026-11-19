@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-19 14:00:25",
+ "updated_at": "2026-11-19 17:03:22",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -7143,6 +7143,41 @@
    "time": "2026-11-19 14:00:25",
    "title": "自动更新聚合完成",
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 3 条",
+   "category": "汇总",
+   "source": "auto_update"
+  },
+  {
+   "time": "2026-11-19 16:11:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [11832]），但 dashboard_data.json 已 121.5 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-19 17:01:03",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [11832, 11292]），但 dashboard_data.json 已 171.5 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-19 17:03:22",
+   "title": "📣 【王晰】点歌：《独角戏》4K字幕 | 王晰2021-2023『图景 ...",
+   "content": "3 天之前&ensp;&#0183;&ensp;【王晰】点歌：《独角戏》4K字幕 | 王晰2021-2023『图景』个人巡回音乐会 20220109 无锡, 视频播放量 255、弹幕量 0、 …\n链接：https://www.bilibili.com/video/BV166sN6mEvJ/",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://www.bilibili.com/video/BV166sN6mEvJ/"
+  },
+  {
+   "time": "2026-11-19 17:03:22",
+   "title": "📣 王晰 (中国内地男歌手)_360百科",
+   "content": "2018年1月16日&ensp;&#0183;&ensp;王晰,王晰，本名王欣，1985年4月9日出生于辽宁省营口市，中国内地流行乐男低音歌手，中国人民解放军海军政治 …\n链接：https://baike.so.com/doc/5384449-5620859.html",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://baike.so.com/doc/5384449-5620859.html"
+  },
+  {
+   "time": "2026-11-19 17:03:22",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 2 条",
    "category": "汇总",
    "source": "auto_update"
   }
