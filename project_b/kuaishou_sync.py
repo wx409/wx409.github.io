@@ -17,7 +17,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-BASE = Path(r"E:\wx\论文素材_王晰作传\抖音\快手")
+BASE = Path(r"E:\wx\论文素材_王晰作传\快手\官方")
 COOK = Path(r"E:\wx\index_records\kuaishou.txt")
 PROFILE = "https://www.kuaishou.com/profile/3x66gi9wh3fz4dw?source=SEARCH"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
