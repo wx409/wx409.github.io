@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20 00:18",
+ "generated_at": "2026-11-20 07:54",
  "streams": [
   {
    "stream": "声学·现场层",
@@ -14,12 +14,12 @@
   {
    "stream": "声学·音频资产",
    "source": "data/audio_assets.json",
-   "n": 3068,
+   "n": 3080,
    "latest": "2026-11-20",
    "lag_days": 0,
-   "new_7d": 106,
+   "new_7d": 0,
    "gap": "在积攒",
-   "note": "本日新增 106 个"
+   "note": "本日新增 0 个"
   },
   {
    "stream": "指数·每日指数",
@@ -76,7 +76,7 @@
    "source": "wx_textmine_corpus/百家号",
    "n": 1216,
    "latest": "2026-09-28",
-   "lag_days": 52,
+   "lag_days": 53,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -86,7 +86,7 @@
    "source": "wx_textmine_corpus/百科",
    "n": 26,
    "latest": "2026-09-28",
-   "lag_days": 52,
+   "lag_days": 53,
    "new_7d": 0,
    "gap": "**近期无新增**",
    "note": ""
@@ -144,7 +144,7 @@
  ],
  "summary": {
   "streams": 14,
-  "accumulating": 2,
+  "accumulating": 1,
   "stale": [
    "文本·声音素材",
    "文本·少城时代",

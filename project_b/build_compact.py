@@ -420,6 +420,37 @@ jieba 分词 + 规则筛选做主题标注；情感为<strong>词表命中</stro
 <a href="/data/voice_analysis.json">voice_analysis.json</a>。</p>"""
 
 
+def _radio_singles_block() -> str:
+    """单条节目/单曲登记（读 radio_archive.json singles；含下载/复核状态）。"""
+    d = jload("data/radio_archive.json", {})
+    items = d.get("singles") or []
+    if not items:
+        return ""
+    label = {
+        "downloaded_transcribed": "已下载+转写",
+        "downloaded_local": "已下载",
+        "episode_drm_song_local": "剧集不可得 / 歌曲已存",
+        "verified_netease": "已核（网易云）",
+        "url_provided_unverified": "未核",
+    }
+    rows = []
+    for x in items:
+        rows.append(
+            "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
+            % (esc(x.get("title")), esc(x.get("platform")), esc(x.get("date")),
+               esc(label.get(x.get("status"), x.get("status"))),
+               esc((x.get("description") or "")[:120])))
+    return """
+<h2>二之三、单条节目与单曲（登记表）</h2>
+<p class="sub">单期节目、单曲与平台合集，逐条登记下载/复核状态；音频仅本地留存，不公开分发。</p>
+<table>
+<tr><th>条目</th><th>平台</th><th>日期</th><th>状态</th><th>说明</th></tr>
+%s
+</table>
+<p class="src">数据：<a href="/data/radio_archive.json">radio_archive.json</a>（singles 段，共 %d 条）。</p>
+""" % ("".join(rows), len(items))
+
+
 def _cmp_block():
     """7.2 同管线对照（精简版扩展位）：只列已实测维度；未测歌手标「未测·已登记」。"""
     sch = jload("data/comparison_schema.json", {})
@@ -1269,6 +1300,7 @@ def build_research():
 </ul>
 
 {_voice_block()}
+{_radio_singles_block()}
 {_sentences_block()}
 {_style_block()}
 
