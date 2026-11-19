@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-19T21:11:26",
+ "generated_at": "2026-11-20T00:19:09",
  "stat": {
-  "generated_at": "2026-11-19T21:11:25",
+  "generated_at": "2026-11-20T00:19:09",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 60,
+  "songs_with_3plus": 62,
   "rows": [
    {
     "song": "佛山全场",
@@ -283,6 +283,15 @@
     "low_cv": 0.0636
    },
    {
+    "song": "亲爱的中国，我的爱",
+    "versions": 6,
+    "low_median": 92.2,
+    "low_iqr": 15.1,
+    "low_range": 38.9,
+    "high_median": 702.2,
+    "low_cv": 0.162
+   },
+   {
     "song": "签唱会上海全场",
     "versions": 6,
     "low_median": 78.2,
@@ -362,15 +371,6 @@
     "low_range": 0.6,
     "high_median": 706.4,
     "low_cv": 0.0031
-   },
-   {
-    "song": "亲爱的中国，我的爱",
-    "versions": 4,
-    "low_median": 92.2,
-    "low_iqr": 7.0,
-    "low_range": 19.9,
-    "high_median": 702.2,
-    "low_cv": 0.0836
    },
    {
     "song": "友谊地久天长",
@@ -526,13 +526,13 @@
     "low_cv": 0.0112
    }
   ],
-  "low_cv_median": 0.1268,
+  "low_cv_median": 0.1328,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 84.9,
-  "cover_live_low_median": 93.0,
-  "own_n": 45,
+  "own_live_low_median": 85.3,
+  "cover_live_low_median": 93.6,
+  "own_n": 46,
   "cover_n": 232,
   "female_origin_covers": {
    "橄榄树": {

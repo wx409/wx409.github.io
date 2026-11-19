@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-19T21:11:05",
+ "generated_at": "2026-11-20T00:18:50",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 905,
-  "processed_songs": 276,
-  "gap_songs": 67,
-  "coverage_pct": 104.2,
+  "processed_materials": 911,
+  "processed_songs": 277,
+  "gap_songs": 66,
+  "coverage_pct": 104.5,
   "status": {
-   "已完成": 385,
-   "候选": 8537,
+   "已完成": 391,
+   "候选": 8531,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -36,7 +36,6 @@
   "偿还",
   "冬天里的一把火",
   "凡人歌",
-  "千言万语",
   "叶塞尼亚",
   "嘴巴嘟嘟",
   "在梵高的星空下",
@@ -97689,17 +97688,20 @@
    "bv": "BV19i4y1N7EA",
    "title": "酒一杯一杯一杯的喝喝多少杯才能梦到王晰坐我眼前笑眯眯的唱美酒加咖啡啊竟然不是梦！",
    "song": "美酒加咖啡",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-03-10",
    "kind": "其他",
    "fetched_at": "2021-03-10",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1gA411T7T6",
@@ -106477,17 +106479,20 @@
    "bv": "BV164411h7YC",
    "title": "音乐先锋榜#王晰高清饭拍《亲爱的中国，我的爱》现场+官方+领奖+采访",
    "song": "亲爱的中国，我的爱",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-05-12",
    "kind": "其他",
    "fetched_at": "2019-05-12",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1BJ411A7iW",
@@ -106525,17 +106530,20 @@
    "bv": "BV195411W7Tf",
    "title": "【王晰】亲爱的中国我的爱丨飘扬的旗帜·中国音协新兴音乐群体轻骑兵“七一”云上演唱会cut",
    "song": "亲爱的中国，我的爱",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-07-01",
    "kind": "其他",
    "fetched_at": "2020-07-01",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1gA4y197Jv",
@@ -112015,17 +112023,19 @@
    "bv": "BV1xt411A7ye",
    "title": "王晰 千言万语 清唱",
    "song": "千言万语",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-07-29",
    "kind": "其他",
    "fetched_at": "2019-07-29",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Sd4y1B7om",
@@ -118267,17 +118277,19 @@
    "bv": "BV1Zi4y147GG",
    "title": "王晰侧颜杀铁二号事件の山楂树（病的深入人心人设不倒哈哈哈哈）",
    "song": "山楂树",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-05-21",
    "kind": "其他",
    "fetched_at": "2020-05-21",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Rt41167iL",
@@ -122211,17 +122223,20 @@
    "bv": "BV1XJ411Q7Rw",
    "title": "王晰 好听就完事了我不会笑你语速的情人哈哈哈哈哈 珠海",
    "song": "情人",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "珠海",
    "date": "2019-11-30",
    "kind": "其他",
    "fetched_at": "2019-11-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1kJ411Q7aK",

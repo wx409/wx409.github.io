@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-19T21:11:24",
-  "since": "2026-11-19",
-  "batches": 403,
-  "files": 3068,
-  "gb": 91.4,
-  "new_files": 106,
-  "new_mb": 2327.1,
-  "stats_total": 1683,
-  "stage_rows": 905,
-  "claimable": 729,
-  "claimable_soft": 367
+  "generated_at": "2026-11-20T00:19:08",
+  "since": "2026-11-20",
+  "batches": 404,
+  "files": 3080,
+  "gb": 91.57,
+  "new_files": 0,
+  "new_mb": 0.0,
+  "stats_total": 1689,
+  "stage_rows": 911,
+  "claimable": 734,
+  "claimable_soft": 368
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 457,
-   "mb": 20608.0,
+   "files": 463,
+   "mb": 20759.8,
    "stats": 0,
    "new_files": 0,
    "new_mb": 0.0,
-   "newest": "2026-11-18"
+   "newest": "2026-11-19"
   },
   {
    "batch": "wav_十年现场语料",
@@ -63,8 +63,8 @@
    "files": 162,
    "mb": 3605.5,
    "stats": 82,
-   "new_files": 24,
-   "new_mb": 540.4,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-11-19"
   },
   {
@@ -81,8 +81,8 @@
    "files": 106,
    "mb": 2300.6,
    "stats": 53,
-   "new_files": 82,
-   "new_mb": 1786.7,
+   "new_files": 0,
+   "new_mb": 0.0,
    "newest": "2026-11-19"
   },
   {
@@ -680,6 +680,15 @@
    "newest": "2026-10-17"
   },
   {
+   "batch": "亲爱的中国，我的爱",
+   "files": 5,
+   "mb": 29.8,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-19"
+  },
+  {
    "batch": "(根目录)",
    "files": 2,
    "mb": 29.5,
@@ -813,15 +822,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-11-15"
-  },
-  {
-   "batch": "亲爱的中国，我的爱",
-   "files": 3,
-   "mb": 22.9,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-12"
   },
   {
    "batch": "点歌环节",
@@ -1121,6 +1121,15 @@
    "newest": "2026-09-25"
   },
   {
+   "batch": "美酒加咖啡",
+   "files": 3,
+   "mb": 14.6,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-19"
+  },
+  {
    "batch": "旋木",
    "files": 2,
    "mb": 14.3,
@@ -1193,6 +1202,15 @@
    "newest": "2026-10-12"
   },
   {
+   "batch": "山楂树",
+   "files": 2,
+   "mb": 12.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-19"
+  },
+  {
    "batch": "Love Me Tender",
    "files": 2,
    "mb": 12.2,
@@ -1209,15 +1227,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-10"
-  },
-  {
-   "batch": "美酒加咖啡",
-   "files": 2,
-   "mb": 12.0,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-10-10"
   },
   {
    "batch": "云一定知道",
@@ -2048,6 +2057,15 @@
    "newest": "2026-10-28"
   },
   {
+   "batch": "情人",
+   "files": 2,
+   "mb": 4.3,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-19"
+  },
+  {
    "batch": "东方之珠",
    "files": 1,
    "mb": 4.2,
@@ -2543,6 +2561,15 @@
    "newest": "2026-10-11"
   },
   {
+   "batch": "千言万语",
+   "files": 1,
+   "mb": 3.5,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-19"
+  },
+  {
    "batch": "信仰之路.mp3",
    "files": 1,
    "mb": 3.4,
@@ -2730,15 +2757,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
-  },
-  {
-   "batch": "山楂树",
-   "files": 1,
-   "mb": 3.3,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-17"
   },
   {
    "batch": "信念.mp3",
@@ -3126,15 +3144,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-17"
-  },
-  {
-   "batch": "情人",
-   "files": 1,
-   "mb": 2.0,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-13"
   },
   {
    "batch": "录音室_打两份工_20260916",
