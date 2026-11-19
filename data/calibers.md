@@ -1,6 +1,6 @@
 # 口径登记表（单一事实源 · 数字字典）
 
-> 生成时间：2026-11-19 09:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
+> 生成时间：2026-11-19 14:09　｜　生成脚本：`project_b/build_calibers.py`（幂等，部署时自动重跑）
 >
 > **纪律**：任何页面/论文/宣传材料引用数字，必须同时给出本表 id 与范围。
 > 不同范围的数字**不是矛盾**，混用才是错误。场次数必须成对出现（全站 = 巡演 + 签唱会）。
@@ -33,8 +33,8 @@
 | `live_songs` | 有现场记录的曲目 | **305** | 至少在一个场次歌单中出现过的曲目 | `entity_index.json` |
 | `kb_facts` | 知识库事实条数 | **1729** | 结构化事实 | `data/kb/manifest.json` |
 | `kb_entities` | 知识库实体数 | **1705** | 人/歌/专辑/演出/城市等实体 | `data/kb/manifest.json` |
-| `kb_relations` | 知识库关系数 | **2350** | 实体间关系 | `data/kb/manifest.json` |
-| `semantic_docs` | 语义索引文档数 | **5761** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
+| `kb_relations` | 知识库关系数 | **2349** | 实体间关系 | `data/kb/manifest.json` |
+| `semantic_docs` | 语义索引文档数 | **5760** | 可语义检索的文档块 | `data/kb/semantic/manifest.json` |
 | `qa_pairs` | 问答对数量 | **104** | 可引用问答（GEO 资产） | `data/qa_bank.json` |
 | `shows_tour` | 六轮巡演场次 | **59** | 一巡~六巡的巡演场次（不含签唱会） | `巡演歌单长表（单一事实源）` |
 | `setlist_rows` | 歌单曲目记录行 | **1254** | 长表曲目行（含串烧拆分行前的原始记录） | `巡演歌单长表` |
@@ -42,8 +42,8 @@
 | `index_days` | 指数数据覆盖天数 | **1354** | 站点图表所用指数长表的实际覆盖天数 | `E:\wx\wx_textmine_out\music_index_long.csv` |
 | `pairing_full_56` | 同曲配对（主口径·全量） | **73 组 / 中位 1.6 半音 / 39.7% 在 ±1 半音内** | 同一首歌 studio↔现场 的绝对半音差；**主口径＝全量、不做事后离群筛选** | `data/share/cards/card_pair_54.json#main_numbers` |
 | `pairing_excl_outliers_54` | 同曲配对（敏感性·剔除离群） | **71 组 / 1.6 / 40.8%** | 剔除两个约 12 半音的离群配对后的敏感性口径 | `data/share/cards/card_pair_54.json#main_numbers（第 4 项）` |
-| `pairing_p_full` | 配对差异 p 值（全部配对） | **0.9906** | 自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对） | `data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all` |
-| `pairing_p_solo_only` | 配对差异 p 值（仅独唱） | **0.9641** | 同一检验的敏感性口径（仅独唱场次） | `data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo` |
+| `pairing_p_full` | 配对差异 p 值（全部配对） | **0.9954** | 自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对） | `data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all` |
+| `pairing_p_solo_only` | 配对差异 p 值（仅独唱） | **0.9551** | 同一检验的敏感性口径（仅独唱场次） | `data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo` |
 | `songs_page_visible` | 歌曲页可见曲目数 | **682** | songs.html 只渲染「王晰独唱/合唱」；他人独唱（用户确认或归属表剔除）不渲染，数据层保留 | `data/songs_attribution.json + data/songs_page_exclusions.json` |
 | `songs_page_excluded` | 歌曲页剔除曲目数 | **6** | 判为他人独唱、不在 songs.html 渲染的曲目数 | `data/songs_page_exclusions.json` |
 | `point_song_source` | 点歌 4 首测量源（唯一） | **4** | 两晚点歌中**王晰独唱**的 4 首，测量源只能是工作室微博视频（中控台直出）；观众侧素材仅 corroboration_only，不进主读数；缺工作室版本则 missing_studio_source 并剔除，不得顶替 | `data/song_source_of_record.json` |
@@ -82,7 +82,7 @@
 | `event_effects_edges` | 事件×歌曲 效应边数 | **32668** | 事件前后窗口的指数变化（baseline/post/effect_pct/spike_z/significant） | `E:\wx\wx_textmine_out\event_effects.json` |
 | `media_library_files` | 声音素材库已下载媒体文件数 | **157** | 本地留存的音频/视频文件数（跨 20 个条目，18 个条目已下载） | `E:\wx\声音素材库\manifest\media_manifest.json` |
 | `media_library_pending` | 声音素材库待采条目数 | **2** | 因平台限制未下载的条目（荔枝 63 集 / QQ音乐城市漫行 / 三体单曲 / 好梦时刻 等） | `E:\wx\声音素材库\manifest\media_manifest.json` |
-| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1763** | 1667 个批次文件 / 115 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
+| `listeners_peak_daily` | 收听峰值覆盖（曲目×日） | **1763** | 1671 个批次文件 / 115 天（E:\wx\指数vs） | `project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json` |
 | `long_table_listeners` | 指数长表·收听列（曲目×日） | **1676** | 114 天 / 39 首（music_index_long.csv 的 listeners 列） | `E:\wx\wx_textmine\00_build_matrix.py` |
 
 ## 常见误用

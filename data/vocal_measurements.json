@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-19 09:08",
+ "generated_at": "2026-11-19 14:08",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -10,16 +10,16 @@
   "tour_live": "王晰主导巡演现场"
  },
  "counts": {
-  "total": 1143,
+  "total": 1147,
   "by_layer": {
    "studio_album": 72,
    "precision": 51,
    "tour_live": 908,
    "stage_other": 32,
-   "single": 80
+   "single": 84
   },
   "by_verify": {
-   "未复核": 191,
+   "未复核": 195,
    "人耳确认（听辨）": 64,
    "已取证": 8,
    "已核验": 7,
@@ -33,7 +33,7 @@
    "待复核（谐波列待判）": 154,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 392
+  "songs": 396
  },
  "rows": [
   {
@@ -35803,6 +35803,60 @@
    }
   },
   {
+   "id": "single|002uu9ga3TvTlq",
+   "song": "002uu9ga3TvTlq",
+   "version": "录音室·单曲/OST（补充曲目）",
+   "layer": "single",
+   "source_ref": "补充曲目",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.4,
+    "high_note": "A#4",
+    "high_hz": 467.5,
+    "span_octaves": 2.44,
+    "stability_cents": 5.5,
+    "intonation_cents": 7.2,
+    "vibrato_hz": 5.27,
+    "vibrato_cents": 75.0,
+    "density_per_s": 1.91,
+    "hnr_db": 8.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|003Ttr9i0IgAiD",
+   "song": "003Ttr9i0IgAiD",
+   "version": "录音室·单曲/OST（补充曲目）",
+   "layer": "single",
+   "source_ref": "补充曲目",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.8,
+    "high_note": "C4",
+    "high_hz": 259.7,
+    "span_octaves": 1.74,
+    "stability_cents": 6.6,
+    "intonation_cents": 20.2,
+    "vibrato_hz": 5.47,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.16,
+    "hnr_db": 0.6
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
    "id": "single|Sunlight",
    "song": "Sunlight",
    "version": "录音室·单曲/OST（补充曲目）",
@@ -36252,6 +36306,33 @@
     "vibrato_cents": 51.0,
     "density_per_s": 1.83,
     "hnr_db": 8.1
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|叶塞尼娅",
+   "song": "叶塞尼娅",
+   "version": "录音室·单曲/OST（补充曲目）",
+   "layer": "single",
+   "source_ref": "补充曲目",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 77.8,
+    "high_note": "C4",
+    "high_hz": 259.9,
+    "span_octaves": 1.74,
+    "stability_cents": 6.5,
+    "intonation_cents": 21.9,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 86.0,
+    "density_per_s": 1.14,
+    "hnr_db": 0.6
    },
    "verify": {
     "state": "未复核"
@@ -37224,6 +37305,33 @@
     "vibrato_cents": 78.0,
     "density_per_s": 1.74,
     "hnr_db": 6.5
+   },
+   "verify": {
+    "state": "未复核"
+   },
+   "provenance": {
+    "measured_by": "批量专辑音域（QQ 源 OST/单曲）",
+    "legacy": "专辑音域汇总.json"
+   }
+  },
+  {
+   "id": "single|追梦者",
+   "song": "追梦者",
+   "version": "录音室·单曲/OST（补充曲目）",
+   "layer": "single",
+   "source_ref": "补充曲目",
+   "metrics": {
+    "low_note": "F2",
+    "low_hz": 86.4,
+    "high_note": "A#4",
+    "high_hz": 467.6,
+    "span_octaves": 2.44,
+    "stability_cents": 5.8,
+    "intonation_cents": 6.9,
+    "vibrato_hz": 5.38,
+    "vibrato_cents": 75.0,
+    "density_per_s": 1.82,
+    "hnr_db": 8.3
    },
    "verify": {
     "state": "未复核"

@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-11-19 09:01:17",
+ "generated_at": "2026-11-19 14:01:12",
  "model": "BAAI/bge-small-zh-v1.5",
  "dim": 512,
  "quant": "int8 scale=127",
- "doc_count": 5761,
+ "doc_count": 5760,
  "topk": 8,
- "size_bytes": 2949632,
+ "size_bytes": 2949120,
  "types": {
   "album": 9,
   "city": 22,
@@ -16,7 +16,7 @@
   "person": 2,
   "qa": 104,
   "quote": 7,
-  "relation": 2223,
+  "relation": 2222,
   "show": 67,
   "song": 727,
   "tavern": 106,

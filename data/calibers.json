@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19 09:09",
+ "generated_at": "2026-11-19 14:09",
  "count": 77,
  "calibers": [
   {
@@ -213,7 +213,7 @@
   {
    "id": "kb_relations",
    "label": "知识库关系数",
-   "value": 2350,
+   "value": 2349,
    "scope": "实体间关系",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -221,7 +221,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5761,
+   "value": 5760,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -285,7 +285,7 @@
   {
    "id": "pairing_p_full",
    "label": "配对差异 p 值（全部配对）",
-   "value": 0.9906,
+   "value": 0.9954,
    "scope": "自我场 vs 他人主导舞台的最低稳定音差异检验（全部配对）",
    "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_all",
    "note": ""
@@ -293,7 +293,7 @@
   {
    "id": "pairing_p_solo_only",
    "label": "配对差异 p 值（仅独唱）",
-   "value": 0.9641,
+   "value": 0.9551,
    "scope": "同一检验的敏感性口径（仅独唱场次）",
    "source": "data/archive_context_compare.json#sensitivity_solo_only[key=low_stable.midi].p_solo",
    "note": ""
@@ -606,7 +606,7 @@
    "id": "listeners_peak_daily",
    "label": "收听峰值覆盖（曲目×日）",
    "value": 1763,
-   "scope": "1667 个批次文件 / 115 天（（本机 E 盘）指数vs）",
+   "scope": "1671 个批次文件 / 115 天（（本机 E 盘）指数vs）",
    "source": "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
    "note": "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点"
   },
