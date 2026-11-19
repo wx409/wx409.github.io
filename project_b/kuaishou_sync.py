@@ -70,20 +70,23 @@ def main() -> int:
         page = ctx.new_page()
 
         def on_resp(r):
-            if "kuaishou.com" not in r.url:
+            if "rest/v/profile/feed" not in r.url:
                 return
             try:
-                j = r.json()
+                j = json.loads(r.text())
             except Exception:
                 return
-            walk(j, found)
+            for f in j.get("feeds") or []:
+                ph = f.get("photo") or {}
+                if ph.get("id"):
+                    found.append(ph)
 
         page.on("response", on_resp)
         page.goto(PROFILE, wait_until="domcontentloaded", timeout=90000)
         page.wait_for_timeout(6000)
         if "登录" in page.inner_text("body")[:300]:
             print("页面显示登录入口——Cookie 可能失效，仍尝试读取已加载内容")
-        for _ in range(15):
+        for _ in range(30):
             page.mouse.wheel(0, 3200)
             page.wait_for_timeout(1500)
         b.close()
@@ -116,10 +119,11 @@ def main() -> int:
         except Exception:
             ts = 0
         day = datetime.fromtimestamp(ts).strftime("%Y%m%d") if ts else "unknown"
-        url = x.get("photoUrl") or x.get("photoH5Url") or ""
+        urls = x.get("photoUrls") or []
+        url = (urls[0].get("url") if urls and isinstance(urls[0], dict) else "") or x.get("photoUrl") or ""
         out = BASE / ("%s_%s.mp4" % (day, pid))
         meta[pid] = {"id": pid, "caption": x.get("caption") or "", "timestamp": ts,
-                     "url": url, "date": day}
+                     "duration": x.get("duration"), "url": url, "date": day}
         if not url:
             print("跳过（无地址）", pid); continue
         if out.exists() and out.stat().st_size > 10000:
