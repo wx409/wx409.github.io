@@ -44,7 +44,7 @@
 
 ## 三、仓库结构
 
-- **全平台语料库（本地全文搜索）**：`data/corpus/corpus.db`（去重 **6,615 条**：微博 5,644 含少城 800 / 百家号 619 / 抖音 183 / 小红书 129 / 快手 40）；
+- **全平台语料库（本地全文搜索）**：`data/corpus/corpus.db`（去重 **6,616 条**：微博 5,644 含少城 800 / 百家号 619 / 抖音 183 / 小红书 129 / 快手 40 / 声音节目 1）；
   建库 `project_b\corpus_build.py`、检索 `corpus_search.py`、转写 `corpus_transcribe.py`（本地 faster-whisper，**唱段必须关 VAD**）
 - **GEO 内容层**：`/quotes.html`（278 条金句，198 带时间码）、`data/tavern_citable.json`、106 期小酒馆实体页（金句+时间码+可引用结论）
 - **本地数据地图**：`docs/本地数据地图.md`（换会话先读）

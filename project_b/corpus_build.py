@@ -258,6 +258,21 @@ def main() -> int:
                         (key, v.get("desc", ""), transcript))
             rows += 1
 
+    # 声音节目：好梦时刻 第11期（王晰朗读，音频）
+    _hm = Path(r"E:\wx\声音素材库\media\haomeng11\我们的好梦时刻_第11期_王晰_不败于岁月不输于山河.m4a")
+    if _hm.exists():
+        _tr = Path(r"E:\wx\声音素材库\transcripts\haomeng11\我们的好梦时刻_第11期_王晰_不败于岁月不输于山河.txt")
+        _transcript = _tr.read_text(encoding="utf-8", errors="ignore") if _tr.exists() else ""
+        _title = "我们的好梦时刻 第11期：王晰读白落梅《不败于岁月，不输于山河》"
+        _key = "朗读:好梦时刻:11"
+        con.execute("INSERT OR REPLACE INTO posts VALUES(?,?,?,?,?,?,?,?,?,?)",
+                    (_key, "声音节目", "王晰", "2020-05-16", _title,
+                     "https://www.ximalaya.com/sound/283181641/196041909",
+                     str(_hm), _transcript, 784.8, ""))
+        con.execute("INSERT INTO posts_fts(key,text,transcript) VALUES(?,?,?)",
+                    (_key, _title, _transcript))
+        rows += 1
+
     con.commit()
     _actual = con.execute("select count(*) from posts").fetchone()[0]
     stat = con.execute("select platform,count(*) from posts group by platform").fetchall()
