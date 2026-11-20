@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20 21:56",
+ "generated_at": "2026-11-20 23:40",
  "count": 77,
  "calibers": [
   {
@@ -197,7 +197,7 @@
   {
    "id": "kb_facts",
    "label": "知识库事实条数",
-   "value": 1729,
+   "value": 1734,
    "scope": "结构化事实",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1705,
+   "value": 1706,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -221,7 +221,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5760,
+   "value": 5766,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""

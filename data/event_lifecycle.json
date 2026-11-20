@@ -365,7 +365,57 @@
    "show_date": "2026-11-20",
    "note": "两场：2026-11-20/21 19:30；苏州湾大剧院-歌剧厅；大麦票档 180–880 元；王晰饰垦荒者",
    "source_url": "大麦演出页（2026-11-15 采集）+ 苏州湾大剧院排期",
-   "milestones": []
+   "milestones": [
+    {
+     "kind": "开演",
+     "date": "2026-11-20",
+     "source": "",
+     "source_label": "已开演核实",
+     "stats": {
+      "date": "2026-11-20",
+      "windows": {
+       "pre7": {
+        "n_days": 7,
+        "mean_index": 376.6,
+        "median_index": 379.2,
+        "avg_tracked_songs": 12,
+        "complete": true
+       },
+       "pre3": {
+        "n_days": 3,
+        "mean_index": 356.8,
+        "median_index": 353.0,
+        "avg_tracked_songs": 12.3,
+        "complete": true
+       },
+       "d0": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post3": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       },
+       "post7": {
+        "n_days": 0,
+        "mean_index": null,
+        "median_index": null,
+        "avg_tracked_songs": null,
+        "complete": false
+       }
+      },
+      "n_days": 1355,
+      "delta_pct_post7_vs_pre7": null,
+      "delta_pct_post3_vs_pre3": null
+     }
+    }
+   ]
   },
   {
    "id": "CMG媒体之夜亚太同心共-2026-11-16",
@@ -429,7 +479,7 @@
    ]
   }
  ],
- "generated_at": "2026-11-20 21:55",
+ "generated_at": "2026-11-20 23:39",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
  "index_days_local": 1355
 }
