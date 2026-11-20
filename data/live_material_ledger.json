@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T21:08:35",
+ "generated_at": "2026-11-20T21:55:12",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 911,
-  "processed_songs": 277,
-  "gap_songs": 66,
-  "coverage_pct": 104.5,
+  "processed_materials": 917,
+  "processed_songs": 279,
+  "gap_songs": 64,
+  "coverage_pct": 105.3,
   "status": {
-   "已完成": 391,
-   "候选": 8531,
+   "已完成": 397,
+   "候选": 8525,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -22,7 +22,6 @@
   "Don't Break My Heart",
   "Nature Boy",
   "S'Wonderful",
-  "一江水",
   "两只老虎",
   "乌兰巴托的夜晚",
   "云与海",
@@ -71,7 +70,6 @@
   "爱的代价",
   "生日快乐",
   "直到时间尽头",
-  "真的爱你",
   "矜持",
   "竹蜻蜓",
   "红眼睛",
@@ -102548,17 +102546,20 @@
    "bv": "BV1KY411x7BG",
    "title": "虽然不会游泳但是别拦我就让我沉醉在王晰这一江水里吧",
    "song": "一江水",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-12-10",
    "kind": "其他",
    "fetched_at": "2021-12-10",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1SQ4y1e7rh",
@@ -115916,17 +115917,20 @@
    "bv": "BV12J411w7SC",
    "title": "她来听我的演唱会 王晰 深圳",
    "song": "她来听我的演唱会",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "深圳",
    "date": "2019-09-14",
    "kind": "其他",
    "fetched_at": "2019-09-14",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1NJ411Y7Gk",
@@ -125952,17 +125956,20 @@
    "bv": "BV16e411x7es",
    "title": "【王晰】武汉返场 我的太阳",
    "song": "我的太阳",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "武汉",
    "date": "2020-03-31",
    "kind": "其他",
    "fetched_at": "2020-03-31",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1A441157kn",
@@ -131429,17 +131436,20 @@
    "bv": "BV1et411K7Cn",
    "title": "王晰 刘彬濠 真的爱你 清唱 广州",
    "song": "真的爱你",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "广州",
    "date": "2019-08-06",
    "kind": "其他",
    "fetched_at": "2019-08-06",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1u4411K7R1",
@@ -135502,17 +135512,20 @@
    "bv": "BV17t411b7uk",
    "title": "【声入人心】【王晰】【深呼晰】【梅溪湖36子】最后一期彩排现场  王晰-《谁》",
    "song": "谁",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-01-24",
    "kind": "其他",
    "fetched_at": "2019-01-24",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Kt411c7Kd",
@@ -138036,17 +138049,19 @@
    "bv": "BV1Zt411s7iw",
    "title": "【王晰】 《重游往昔》 音乐分享会 全集",
    "song": "重游往昔",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-01-10",
    "kind": "其他",
    "fetched_at": "2019-01-10",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Lt411u7nf",

@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-20T21:08:51",
+ "generated_at": "2026-11-20T21:55:37",
  "stat": {
-  "generated_at": "2026-11-20T21:08:51",
+  "generated_at": "2026-11-20T21:55:36",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 62,
+  "songs_with_3plus": 64,
   "rows": [
    {
     "song": "佛山全场",
@@ -364,6 +364,15 @@
     "low_cv": 0.2214
    },
    {
+    "song": "谁",
+    "versions": 4,
+    "low_median": 69.0,
+    "low_iqr": 12.4,
+    "low_range": 28.3,
+    "high_median": 444.7,
+    "low_cv": 0.1562
+   },
+   {
     "song": "再见我的爱人",
     "versions": 4,
     "low_median": 76.5,
@@ -481,15 +490,6 @@
     "low_cv": 0.0651
    },
    {
-    "song": "谁",
-    "versions": 3,
-    "low_median": 65.4,
-    "low_iqr": 14.2,
-    "low_range": 28.3,
-    "high_median": 590.5,
-    "low_cv": 0.1783
-   },
-   {
     "song": "你不要担心",
     "versions": 3,
     "low_median": 74.1,
@@ -517,23 +517,23 @@
     "low_cv": 0.1138
    },
    {
-    "song": "玛莲娜",
+    "song": "她来听我的演唱会",
     "versions": 3,
-    "low_median": 96.7,
-    "low_iqr": 1.2,
-    "low_range": 2.5,
-    "high_median": 541.1,
-    "low_cv": 0.0112
+    "low_median": 86.5,
+    "low_iqr": 8.0,
+    "low_range": 16.1,
+    "high_median": 463.1,
+    "low_cv": 0.0849
    }
   ],
-  "low_cv_median": 0.1328,
+  "low_cv_median": 0.129,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 85.3,
   "cover_live_low_median": 93.6,
   "own_n": 46,
-  "cover_n": 232,
+  "cover_n": 234,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

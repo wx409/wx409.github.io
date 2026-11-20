@@ -1,17 +1,17 @@
 {
  "summary": {
-  "generated_at": "2026-11-20T21:08:36",
-  "rows": 911,
+  "generated_at": "2026-11-20T21:55:12",
+  "rows": 917,
   "levels": {
    "L1": 413,
    "L6": 26,
-   "L3": 57,
-   "未认领": 412,
+   "L3": 59,
+   "未认领": 416,
    "L4": 2,
    "L2": 1
   },
-  "shows_with_material": 60,
-  "shows_with_claimable": 60,
+  "shows_with_material": 61,
+  "shows_with_claimable": 61,
   "shows_total": 64
  },
  "per_show": {
@@ -239,6 +239,10 @@
    "n": 7,
    "claimable": 3
   },
+  "2019-09-08": {
+   "n": 1,
+   "claimable": 1
+  },
   "2023-04-09": {
    "n": 5,
    "claimable": 5
@@ -248,8 +252,8 @@
    "claimable": 1
   },
   "2019-08-04": {
-   "n": 2,
-   "claimable": 2
+   "n": 3,
+   "claimable": 3
   },
   "2020-10-17": {
    "n": 2,
@@ -6042,6 +6046,18 @@
    "why": ""
   },
   {
+   "tag": "未知20190110_BV1Zt411s7iw",
+   "song": "重游往昔",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-01-10",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "一巡·Che_广州_2_BV1z4411R7DL_p2",
    "song": "",
    "tour": "其他演出",
@@ -6402,6 +6418,18 @@
    "why": ""
   },
   {
+   "tag": "未知20190124_BV17t411b7uk",
+   "song": "谁",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-01-24",
+   "review_status": "人耳确认",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "二巡上海2021_全程_p11_后会无期",
    "song": "后会无期",
    "tour": "其他演出",
@@ -6508,6 +6536,18 @@
    "show_date": null,
    "level": 0,
    "why": ""
+  },
+  {
+   "tag": "深圳20190914_BV12J411w7SC",
+   "song": "她来听我的演唱会",
+   "tour": "其他演出",
+   "city": "深圳",
+   "date": "2019-09-14",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-09-08",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
    "tag": "杭州20201226_BV1z5411H7yg",
@@ -7955,6 +7995,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "2025-11-24",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20211210_BV1KY411x7BG",
+   "song": "一江水",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-12-10",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -10662,6 +10714,18 @@
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
   {
+   "tag": "武汉20200331_BV16e411x7es",
+   "song": "我的太阳",
+   "tour": "其他演出",
+   "city": "武汉",
+   "date": "2020-03-31",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "20_敖包相会",
    "song": "",
    "tour": "其他演出",
@@ -11126,6 +11190,18 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2019-11-29",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
+   "tag": "广州20190806_BV1et411K7Cn",
+   "song": "真的爱你",
+   "tour": "其他演出",
+   "city": "广州",
+   "date": "2019-08-06",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2019-08-04",
    "level": 3,
    "why": "歌单指纹（曲目在歌单且±7天）"
   },
