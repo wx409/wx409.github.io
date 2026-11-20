@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-11-20 17:01",
- "last_update": "2026-11-20 17:01",
+ "timestamp": "2026-11-20 18:06",
+ "last_update": "2026-11-20 18:06",
  "date_range": "2023-01-01 ~ 2026-11-20",
  "total": 300618,
  "complete_rate": 19.5,
@@ -205,7 +205,7 @@
   34.6,
   35.1,
   21.8,
-  7.5
+  7.6
  ],
  "top_songs": [
   {
@@ -255,98 +255,42 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 59.2,
-   "raw": 273.0,
-   "trend_pct": -13.9,
-   "trend_label": "down"
+   "share_pct": 74.0,
+   "raw": 747.0,
+   "trend_pct": 173.6,
+   "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 6.9,
-   "raw": 32.0,
-   "trend_pct": -17.9,
-   "trend_label": "down"
+   "song": "一生中最爱",
+   "share_pct": 8.6,
+   "raw": 87.0,
+   "trend_pct": 480.0,
+   "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "山楂树",
-   "share_pct": 5.6,
-   "raw": 26.0,
-   "trend_pct": 23.8,
+   "song": "在路上",
+   "share_pct": 6.5,
+   "raw": 66.0,
+   "trend_pct": 230.0,
    "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "在路上",
-   "share_pct": 4.3,
-   "raw": 20.0,
-   "trend_pct": -9.1,
-   "trend_label": "down"
+   "song": "月弯弯",
+   "share_pct": 5.7,
+   "raw": 58.0,
+   "trend_pct": 81.2,
+   "trend_label": "up"
   },
   {
    "rank": 5,
-   "song": "Sound of Silence",
-   "share_pct": 4.3,
-   "raw": 20.0,
-   "trend_pct": 5.3,
+   "song": "山楂树",
+   "share_pct": 5.1,
+   "raw": 52.0,
+   "trend_pct": 100.0,
    "trend_label": "up"
-  },
-  {
-   "rank": 6,
-   "song": "哭砂",
-   "share_pct": 3.9,
-   "raw": 18.0,
-   "trend_pct": 63.6,
-   "trend_label": "up"
-  },
-  {
-   "rank": 7,
-   "song": "相思",
-   "share_pct": 3.5,
-   "raw": 16.0,
-   "trend_pct": -15.8,
-   "trend_label": "down"
-  },
-  {
-   "rank": 8,
-   "song": "一生中最爱",
-   "share_pct": 3.3,
-   "raw": 15.0,
-   "trend_pct": -16.7,
-   "trend_label": "down"
-  },
-  {
-   "rank": 9,
-   "song": "滚滚长江东逝水",
-   "share_pct": 2.4,
-   "raw": 11.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 10,
-   "song": "南屏晚钟",
-   "share_pct": 2.4,
-   "raw": 11.0,
-   "trend_pct": 22.2,
-   "trend_label": "up"
-  },
-  {
-   "rank": 11,
-   "song": "神魂颠倒",
-   "share_pct": 2.2,
-   "raw": 10.0,
-   "trend_pct": -23.1,
-   "trend_label": "down"
-  },
-  {
-   "rank": 12,
-   "song": "亲密爱人",
-   "share_pct": 2.0,
-   "raw": 9.0,
-   "trend_pct": null,
-   "trend_label": "new"
   }
  ],
  "daily_anomalies": [],
@@ -8742,12 +8686,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-11-13",
-   "avg_index": 365.3,
-   "total_songs": 600,
-   "complete": true
-  },
-  {
    "date": "2026-11-14",
    "avg_index": 350.2,
    "total_songs": 600,
@@ -8780,6 +8718,12 @@
   {
    "date": "2026-11-19",
    "avg_index": 338.1,
+   "total_songs": 600,
+   "complete": true
+  },
+  {
+   "date": "2026-11-20",
+   "avg_index": null,
    "total_songs": 600,
    "complete": true
   }
