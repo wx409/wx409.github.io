@@ -58,7 +58,7 @@
         "complete": true
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": -5.6,
       "delta_pct_post3_vs_pre3": 1.3
      }
@@ -107,7 +107,7 @@
         "complete": true
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": -19.3,
       "delta_pct_post3_vs_pre3": -19.1
      }
@@ -156,7 +156,7 @@
         "complete": true
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": -12.9,
       "delta_pct_post3_vs_pre3": -13.5
      }
@@ -227,7 +227,7 @@
         "complete": true
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": -8.1,
       "delta_pct_post3_vs_pre3": -16.2
      }
@@ -288,7 +288,7 @@
         "complete": true
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": -3.0,
       "delta_pct_post3_vs_pre3": 7.2
      }
@@ -349,7 +349,7 @@
         "complete": false
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": null,
       "delta_pct_post3_vs_pre3": null
      }
@@ -389,11 +389,11 @@
         "complete": true
        },
        "d0": {
-        "n_days": 0,
-        "mean_index": null,
-        "median_index": null,
-        "avg_tracked_songs": null,
-        "complete": false
+        "n_days": 1,
+        "mean_index": 341.5,
+        "median_index": 341.5,
+        "avg_tracked_songs": 13,
+        "complete": true
        },
        "post3": {
         "n_days": 0,
@@ -410,7 +410,7 @@
         "complete": false
        }
       },
-      "n_days": 1355,
+      "n_days": 1356,
       "delta_pct_post7_vs_pre7": null,
       "delta_pct_post3_vs_pre3": null
      }
@@ -464,22 +464,22 @@
         "complete": true
        },
        "post7": {
-        "n_days": 3,
-        "mean_index": 356.8,
-        "median_index": 353.0,
-        "avg_tracked_songs": 12.3,
+        "n_days": 4,
+        "mean_index": 352.9,
+        "median_index": 347.2,
+        "avg_tracked_songs": 12.5,
         "complete": false
        }
       },
-      "n_days": 1355,
-      "delta_pct_post7_vs_pre7": -3.9,
+      "n_days": 1356,
+      "delta_pct_post7_vs_pre7": -4.9,
       "delta_pct_post3_vs_pre3": -10.3
      }
     }
    ]
   }
  ],
- "generated_at": "2026-11-20 23:39",
+ "generated_at": "2026-11-21 00:17",
  "caliber": "追踪曲目池日均（每日最终指数；口径同 data/archive_baseline.json）",
- "index_days_local": 1355
+ "index_days_local": 1356
 }

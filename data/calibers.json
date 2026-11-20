@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20 23:40",
+ "generated_at": "2026-11-21 00:18",
  "count": 77,
  "calibers": [
   {
@@ -85,7 +85,7 @@
   {
    "id": "topic_card_numbers",
    "label": "专题卡数字口径（14 张卡）",
-   "value": "14 张卡 / 主数字 46 项 / caliber-lock 30 项",
+   "value": "14 张卡 / 主数字 47 项 / caliber-lock 30 项",
    "scope": "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·七张专辑 + 一张数字 EP，颤音极差 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气）",
    "source": "data/share/cards/",
    "note": "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。"
@@ -261,10 +261,10 @@
   {
    "id": "index_days",
    "label": "指数数据覆盖天数",
-   "value": 1355,
+   "value": 1356,
    "scope": "站点图表所用指数长表的实际覆盖天数",
    "source": "（文本挖掘产物目录）\\music_index_long.csv",
-   "note": "已发布长表唯一日期；2022-12-31 至 2026-11-19；原始库文件覆盖 1271 天（少算补充来源 11 天）"
+   "note": "已发布长表唯一日期；2022-12-31 至 2026-11-20；原始库文件覆盖 1271 天（少算补充来源 11 天）"
   },
   {
    "id": "pairing_full_56",
@@ -613,8 +613,8 @@
   {
    "id": "long_table_listeners",
    "label": "指数长表·收听列（曲目×日）",
-   "value": 1686,
-   "scope": "115 天 / 39 首（music_index_long.csv 的 listeners 列）",
+   "value": 1697,
+   "scope": "116 天 / 40 首（music_index_long.csv 的 listeners 列）",
    "source": "（本机 E 盘）wx_textmine\\00_build_matrix.py",
    "note": "quick 批次取当日最高收听，日期用文件名当天（不回退）；index 列是昨日音乐指数（full 文件，日期回退一天），两列互补不互相覆盖"
   }
