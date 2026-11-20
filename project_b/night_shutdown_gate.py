@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """night_shutdown_gate.py —— 凌晨 01:30 关机闸门（**唯一关机决策点**）
 
-规则（用户 2026-10-17 裁决）：
-    关机 ⇔ 该 01:30 所属日期 D 是**周一~周五**，且 D **不是法定放假日**，且 D **不是调休上班日**
-    周六 / 周日 / 法定节假日 / 调休日 → **一律不关机**（让大屏 daemon 继续跑）
+规则（用户 2026-11-20 更新：周末也正常关机）：
+    关机 ⇔ 该 01:30 所属日期 D **不是法定放假日**，且 D **不是调休上班日**
+    周六 / 周日 → **与工作日一样正常关机**（不再周末豁免）
+    法定节假日 / 调休日 → **不关机**（让大屏 daemon 继续跑）
+    存在长任务锁 `temp/longjob.lock`（8 小时内）→ 不关机
 
 日历：复用 `E:\\wx\\私有工具\\holiday_cache\\<年>.json`（与 `holiday_skip_sync.py` **同一份缓存**，
       **不另建日历**）；缓存缺失时才走 `holiday_skip_sync.fetch_year()`（同一数据源）补齐。
@@ -77,13 +79,13 @@ def load_calendar(years: list[int]) -> tuple[set[str], set[str], list[str]]:
 
 
 def decide(d: date, off: set[str], makeup: set[str]) -> tuple[bool, str]:
-    # 顺序：法定节假日 → 调休上班日 → 周末 → 工作日（打桩表要能写出「调休」而非「周末」）
+    # 顺序：法定节假日 → 调休上班日 → 其余（含周末）正常关机
     if d.isoformat() in off:
         return False, "法定节假日"
     if d.isoformat() in makeup:
         return False, "调休上班日（按用户规则：调休一律不关机）"
     if d.weekday() >= 5:
-        return False, f"{WD[d.weekday()]}（周末）"
+        return True, f"{WD[d.weekday()]}（按新规则正常关机）"
     return True, "普通工作日"
 
 
