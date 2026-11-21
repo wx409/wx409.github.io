@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-21 11:01",
+ "generated_at": "2026-11-21 20:36",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 279,
   "dispatch": 279,
-  "deploy_steps": 105,
-  "scheduled_tasks": 37
+  "deploy_steps": 106,
+  "scheduled_tasks": 38
  },
  "tasks": [
   {
@@ -1470,7 +1470,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/11/21 12:00:00",
+    "next": "2026/11/22 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/21 11:04:00",
+    "next": "2026/11/21 21:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2134,7 +2134,7 @@
     "name": "wx409_trend_watch",
     "script": "trend_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/21 11:06:00",
+    "next": "2026/11/21 20:46:00",
     "type": "One Time Only, Minute",
     "start": "9:46:00"
    },
@@ -2182,7 +2182,7 @@
     "name": "wx409_comment_harvest_daily",
     "script": "comment_harvest_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\comment_harvest_daily.py",
-    "next": "2026/11/21 11:30:00",
+    "next": "2026/11/22 11:30:00",
     "type": "Daily",
     "start": "11:30:00"
    },
@@ -2286,6 +2286,13 @@
    "deploy_desc": "自动卡（每周发现／自燃信号；未达条件不出卡）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\build_auto_cards.py"
+  },
+  {
+   "script": "build_comment_themes.py",
+   "in_deploy": true,
+   "deploy_desc": "评论主题/场次聚合 data/comment_themes.json",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_comment_themes.py"
   },
   {
    "script": "build_compact.py",
@@ -2671,7 +2678,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/21 11:11:00",
+    "next": "2026/11/21 20:41:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2801,6 +2808,19 @@
    "deploy_desc": "大屏模板补丁（母版→快照同步，漂移即红灯）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\template_patches.py"
+  },
+  {
+   "script": "transcribe_video_songs.py",
+   "schedule": {
+    "name": "wx409_video_transcribe",
+    "script": "transcribe_video_songs.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\transcribe_video_songs.py --resume --limit 120",
+    "next": "2026/11/22 2:00:00",
+    "type": "Daily",
+    "start": "2:00:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\transcribe_video_songs.py"
   },
   {
    "script": "update_index_table.py",

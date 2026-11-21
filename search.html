@@ -405,5 +405,38 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
 </div></details>
 </footer>
 <!-- FOOTER_NAV_END -->
+
+<script>
+(function(){
+  var inp = document.getElementById('searchInput');
+  if (!inp) return;
+  var KEY = 'wx_search_log_v1';
+  function logQ(q){
+    q = (q || '').trim();
+    if (q.length < 2) return;
+    var a = [];
+    try { a = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
+    a.push({q: q, ts: new Date().toISOString()});
+    if (a.length > 500) a = a.slice(-500);
+    try { localStorage.setItem(KEY, JSON.stringify(a)); } catch(e) {}
+  }
+  inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') logQ(inp.value); });
+  var b = document.createElement('button');
+  b.textContent = '导出搜索日志';
+  b.type = 'button';
+  b.style.cssText = 'margin-left:8px;padding:10px 12px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer;font-size:13px';
+  b.onclick = function(){
+    var a = [];
+    try { a = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
+    var blob = new Blob([JSON.stringify(a, null, 1)], {type:'application/json'});
+    var u = URL.createObjectURL(blob);
+    var x = document.createElement('a');
+    x.href = u; x.download = 'wx_search_log.json'; x.click();
+    setTimeout(function(){ URL.revokeObjectURL(u); }, 1000);
+  };
+  inp.parentNode.appendChild(b);
+})();
+</script>
+
 </body>
 </html>

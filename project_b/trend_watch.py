@@ -196,6 +196,72 @@ def match(topics):
     return hits
 
 
+DRAFTS = Path(r"E:\wx\私有工具\trend_drafts")
+
+
+def _slug(s):
+    return re.sub(r"[^\w\u4e00-\u9fa5\-]+", "-", str(s)).strip("-")[:40]
+
+
+def write_drafts(hits):
+    """命中热点后写 3 个角度草稿（模板化、零 token），供人审。"""
+    try:
+        DRAFTS.mkdir(parents=True, exist_ok=True)
+        for h in hits[:3]:
+            ts = datetime.now().strftime("%Y%m%d_%H%M")
+            fn = DRAFTS / ("%s_%s.md" % (ts, _slug(h["word"])))
+            if fn.exists():
+                continue
+            facts = "\n".join("- " + f for f in h.get("facts") or [])
+            songs = "、".join(h.get("songs") or []) or "—"
+            body = """---
+date: {ts}
+hot: {hot}
+source: {src} 第{rank}
+bridges: {br}
+songs: {songs}
+status: draft
+---
+# 热点草稿：{hot}
+
+## 角度 1｜数据派
+**标题**：从「{hot}」说起：王晰的低音到底低到哪
+**开头 100 字**：热榜上出现「{hot}」，很多人第一反应是“男低音是不是噱头”。王晰的录音室实测给出的是可复核的数字：最低稳定音 B1 61.5Hz、低音主区 B1–D2，全部低于男低音下限 E2。
+**证据**：
+{facts}
+
+## 角度 2｜故事派
+**标题**：他为什么把「{hot}」唱成这样
+**开头 100 字**：同一副嗓子，在录音室是精密仪器，在舞台上是有体温的叙事。王晰的现场层与录音室同管线对照，最低稳定音差异不显著（p=0.197）——他不是“录音棚歌手”。
+**证据**：
+{facts}
+
+## 角度 3｜对比派
+**标题**：「{hot}」里的男低音，和录音室里的王晰
+**开头 100 字**：把热榜里的片段和王晰的 72 首录音室全量放在一起看，差异不在“能不能唱低”，而在“低下去之后还能不能稳住”。跨度中位 2.23 个八度、音符内稳定性中位 7 音分，是这条对比线的硬指标。
+**证据**：
+{facts}
+
+## 本地素材
+- 相关歌曲：{songs}
+- 本地视频：{vc} 条（索引 `E:\\wx\\私有工具\\video_index.json`）
+- 原热点：{url}
+
+## 风险与口径
+- 热点与王晰必须有可验证桥接，无桥接不发；
+- 音域只用「最低稳定音」，不写单帧/瞬时读数；
+- 不蹭灾难/社会新闻；评论限量、人审后发。
+""".format(ts=datetime.now().strftime("%Y-%m-%d %H:%M"), hot=h["word"], src=h["source"],
+           rank=h["rank"], br="、".join(h.get("bridges") or []) or "—",
+           songs=songs, facts=facts,
+           vc=sum(video_counts().get(s, 0) for s in (h.get("songs") or [])),
+           url=h.get("url") or "")
+            fn.write_text(body, encoding="utf-8")
+            log("草稿 %s" % fn.name)
+    except Exception as e:
+        log("[warn] 草稿写入失败：%s" % str(e)[:80])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry", action="store_true")
@@ -250,6 +316,7 @@ def main():
     notify.record("热点雷达：命中 %d 条（王晰相关）" % len(new_hits),
                   "".join(lines) + "<p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
                   category="热点雷达", source="trend_watch")
+    write_drafts(new_hits)
     return 0
 
 

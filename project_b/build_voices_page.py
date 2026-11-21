@@ -141,6 +141,27 @@ def main() -> int:
                      % (esc(link), esc(label), format(p["comments"], ","), format(p["top_like"], ",")))
     parts.append("</table>")
 
+    try:
+        th = json.loads((ROOT / "data" / "comment_themes.json").read_text(encoding="utf-8"))
+        parts.append("<h2>评论主题分布</h2>")
+        parts.append("<p class='sub'>按关键词规则给 12.8 万条评论打主题标签（可多标签）；每条只取 ≤60 字匿名短引用。</p>")
+        parts.append("<table><tr><th>主题</th><th>评论数</th><th>代表性短引用（按赞）</th></tr>")
+        for t in th.get("themes") or []:
+            qs = "；".join("“%s”" % esc(q["text"]) for q in (t.get("quotes") or [])[:2])
+            parts.append("<tr><td>%s</td><td class='n'>%s</td><td>%s</td></tr>"
+                         % (esc(t["name"]), format(t["n"], ","), qs))
+        parts.append("</table>")
+
+        parts.append("<h2>场次相关评论（日期 ±10 天 + 城市/剧名命中）</h2>")
+        parts.append("<table><tr><th>场次</th><th>评论数</th><th>短引用</th></tr>")
+        for s in th.get("by_show") or []:
+            qs = "；".join("“%s”" % esc(q["text"]) for q in (s.get("quotes") or [])[:1])
+            parts.append("<tr><td>%s</td><td class='n'>%s</td><td>%s</td></tr>"
+                         % (esc(s["show"]), format(s["n"], ","), qs))
+        parts.append("</table>")
+    except Exception:
+        pass
+
     parts.append('<div class="note" style="margin-top:26px"><b>口径与局限</b><br>%s<br>'
                  "· 只采公开评论；uid 已哈希、不含昵称；用户删评后本地同步删除。<br>"
                  "· 公开层只发布聚合与 ≤60 字匿名短引用，不搬整串评论、不二次分发原文。</div>"

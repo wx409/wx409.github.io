@@ -100,6 +100,7 @@ STEPS = [
     (ROOT / "tavern" / "_build_episodes.py", "小酒馆逐字稿页", True),
     (ROOT / "project_b" / "build_dongyan_page.py", "东演合作专区页 dongyan.html（草原之夜 / 沉响与长歌；数字从 activity_master 派生）", False),
     (ROOT / "project_b" / "comment_insights.py", "听众之声数据 data/voices.json（私有评论库→公开聚合）", False),
+    (ROOT / "project_b" / "build_comment_themes.py", "评论主题/场次聚合 data/comment_themes.json", False),
     (ROOT / "project_b" / "build_voices_page.py", "听众之声页 voices.html（聚合+匿名短引用）", False),
     (ROOT / "tavern" / "_build_songs_compact.py", "小酒馆歌曲索引", False),
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
