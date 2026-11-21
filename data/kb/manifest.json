@@ -1,34 +1,31 @@
 {
- "generated_at": "2026-11-21 09:01",
- "facts": 1734,
- "relations": 2349,
+ "generated_at": "2026-11-21 10:30",
+ "facts": 1205,
+ "relations": 2073,
  "entities_by_type": {
   "album": 9,
   "city": 22,
   "event": 50,
   "media": 485,
-  "org": 10,
+  "org": 3,
   "person": 2,
   "quote": 7,
   "show": 68,
   "song": 727,
   "tavern": 106,
   "tour": 8,
-  "venue": 37,
-  "voice_episode": 157,
-  "voice_series": 18
+  "venue": 37
  },
  "sources": [
-  "albums.json",
+  "timeline.json",
+  "setlists.json",
   "cities.json",
+  "albums.json",
+  "songs_meta.json",
   "entity_index.json",
   "live_repos.json",
   "quotes.json",
-  "setlists.json",
-  "songs_meta.json",
-  "tavern_transcripts.json",
-  "timeline.json",
   "tour/*.json",
-  "voice_corpus.json"
+  "tavern_transcripts.json"
  ]
 }
