@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-21T21:12:05",
+ "generated_at": "2026-11-22T00:18:30",
  "stat": {
-  "generated_at": "2026-11-21T21:12:05",
+  "generated_at": "2026-11-22T00:18:30",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 64,
+  "songs_with_3plus": 65,
   "rows": [
    {
     "song": "佛山全场",
@@ -194,12 +194,12 @@
    },
    {
     "song": "Your Man",
-    "versions": 14,
+    "versions": 15,
     "low_median": 90.4,
-    "low_iqr": 0.9,
-    "low_range": 23.5,
-    "high_median": 841.6,
-    "low_cv": 0.0592
+    "low_iqr": 1.0,
+    "low_range": 45.4,
+    "high_median": 802.6,
+    "low_cv": 0.1221
    },
    {
     "song": "雪地里寄不出的求救信",
@@ -283,6 +283,15 @@
     "low_cv": 0.0636
    },
    {
+    "song": "南屏晚钟",
+    "versions": 7,
+    "low_median": 80.4,
+    "low_iqr": 3.1,
+    "low_range": 17.3,
+    "high_median": 310.8,
+    "low_cv": 0.0674
+   },
+   {
     "song": "亲爱的中国，我的爱",
     "versions": 6,
     "low_median": 92.2,
@@ -299,15 +308,6 @@
     "low_range": 40.8,
     "high_median": 911.7,
     "low_cv": 0.1654
-   },
-   {
-    "song": "南屏晚钟",
-    "versions": 6,
-    "low_median": 80.6,
-    "low_iqr": 2.1,
-    "low_range": 17.1,
-    "high_median": 272.9,
-    "low_cv": 0.0681
    },
    {
     "song": "小毛驴",
@@ -344,6 +344,15 @@
     "low_range": 69.0,
     "high_median": 604.2,
     "low_cv": 0.2266
+   },
+   {
+    "song": "静止了的夜晚",
+    "versions": 5,
+    "low_median": 61.4,
+    "low_iqr": 15.2,
+    "low_range": 21.7,
+    "high_median": 730.8,
+    "low_cv": 0.1335
    },
    {
     "song": "月半弯",
@@ -418,15 +427,6 @@
     "low_cv": 0.0162
    },
    {
-    "song": "静止了的夜晚",
-    "versions": 4,
-    "low_median": 65.8,
-    "low_iqr": 16.8,
-    "low_range": 21.7,
-    "high_median": 913.2,
-    "low_cv": 0.141
-   },
-   {
     "song": "橄榄树",
     "versions": 4,
     "low_median": 101.8,
@@ -481,6 +481,15 @@
     "low_cv": 0.0641
    },
    {
+    "song": "女人花",
+    "versions": 4,
+    "low_median": 79.9,
+    "low_iqr": 11.5,
+    "low_range": 35.9,
+    "high_median": 491.6,
+    "low_cv": 0.1711
+   },
+   {
     "song": "晚风",
     "versions": 4,
     "low_median": 82.2,
@@ -515,18 +524,9 @@
     "low_range": 23.4,
     "high_median": 857.8,
     "low_cv": 0.1138
-   },
-   {
-    "song": "她来听我的演唱会",
-    "versions": 3,
-    "low_median": 86.5,
-    "low_iqr": 8.0,
-    "low_range": 16.1,
-    "high_median": 463.1,
-    "low_cv": 0.0849
    }
   ],
-  "low_cv_median": 0.129,
+  "low_cv_median": 0.1278,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {

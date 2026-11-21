@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-21 21:00:29",
+ "updated_at": "2026-11-22 00:10:35",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -7397,6 +7397,32 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 5 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-11-21 22:00:06",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 42552）。此前 dashboard_data.json 距上次更新 23.9 分钟。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-21 22:56:02",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>微博 · 第27</b>：央视揭秘网络女主播真实生态<br><span style='color:#666'>王晰多次登央视舞台；2026-11-16 CMG媒体之夜与李佳薇合唱亚太歌曲串烧。</span><br><a href='https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E6%8F%AD%E7%A7%98%E7%BD%91%E7%BB%9C%E5%A5%B3%E4%B8%BB%E6%92%AD%E7%9C%9F%E5%AE%9E%E7%94%9F%E6%80%81'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-21 23:06:02",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>微博 · 第20</b>：央视揭秘网络女主播真实生态<br><span style='color:#666'>王晰多次登央视舞台；2026-11-16 CMG媒体之夜与李佳薇合唱亚太歌曲串烧。</span><br><a href='https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E6%8F%AD%E7%A7%98%E7%BD%91%E7%BB%9C%E5%A5%B3%E4%B8%BB%E6%92%AD%E7%9C%9F%E5%AE%9E%E7%94%9F%E6%80%81'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-22 00:10:35",
+   "title": "指数缺日已自动补齐：2026-11-21",
+   "content": "原缺 2026-11-21；补录后长表末日期 2026-11-21（rc=1）",
+   "category": "通知"
   }
  ]
 }

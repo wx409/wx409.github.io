@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-21T21:11:40",
+ "generated_at": "2026-11-22T00:18:15",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 917,
+  "processed_materials": 923,
   "processed_songs": 279,
   "gap_songs": 64,
   "coverage_pct": 105.3,
   "status": {
-   "已完成": 397,
-   "候选": 8525,
+   "已完成": 403,
+   "候选": 8519,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -5691,17 +5691,20 @@
    "bv": "BV1MJ411S7ke",
    "title": "王晰魔鬼光线也不能让我们抵抗晰晰的音乐修养教学Your Man的二四拍记住了吗同学们",
    "song": "Your Man",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-11-17",
    "kind": "其他",
    "fetched_at": "2019-11-17",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1sJ411s7hj",
@@ -13946,17 +13949,20 @@
    "bv": "BV1ct411W71U",
    "title": "【王晰】演唱《南屏晚钟》大提琴精本人没错了",
    "song": "南屏晚钟",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-01-11",
    "kind": "其他",
    "fetched_at": "2019-01-11",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Mt411w7cx",
@@ -55208,17 +55214,20 @@
    "bv": "BV1Dj411u7Up",
    "title": "最高级的诱惑就是这样不动声色的王晰自顾自的唱着玩笑底下人只想抓着哥哥的小细胳膊嗷嗷叫啊啊啊",
    "song": "玩笑",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2023-03-08",
    "kind": "其他",
    "fetched_at": "2023-03-08",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1j34y197LL",
@@ -62584,17 +62593,20 @@
    "bv": "BV1Kk4y1r7Fy",
    "title": "王晰不是我说穿高领穿的这么禁欲感爆棚还能唱的这么欲的静止了的夜晚让我怎么静止不狼嚎都不错了",
    "song": "静止了的夜晚",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-05-27",
    "kind": "其他",
    "fetched_at": "2020-05-27",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Sm4y1e7ZZ",
@@ -92543,17 +92555,20 @@
    "bv": "BV1ex41197c4",
    "title": "女人花 成都 王晰focus",
    "song": "女人花",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "成都",
    "date": "2019-06-29",
    "kind": "其他",
    "fetched_at": "2019-06-29",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1et411P7pE",
@@ -117107,17 +117122,20 @@
    "bv": "BV1UE411q7VJ",
    "title": "王晰 宝贝 上海",
    "song": "宝贝",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "上海",
    "date": "2019-11-04",
    "kind": "其他",
    "fetched_at": "2019-11-04",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV15E411q7Yz",
