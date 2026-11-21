@@ -281,6 +281,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--date', required=True, help='演出日期 YYYY-MM-DD')
     ap.add_argument('--city', required=True, help='城市')
+    ap.add_argument('--title', default='', help='活动名称（如 草原之夜），用于生成「王晰+活动名」关键词')
     ap.add_argument('--venue', default='', help='场馆（可选）')
     ap.add_argument('--pages', type=int, default=2, help='每关键词微博翻页数')
     ap.add_argument('--bili-pages', type=int, default=2, help='B站每关键词翻页数')
@@ -321,6 +322,12 @@ def main():
         '王晰 %s 现场' % args.city,
         '王晰低音 %s' % args.city,
     ]
+    if args.title:
+        keywords += [
+            '王晰 %s' % args.title,
+            '王晰 %s %s' % (args.title, args.city),
+            '%s 王晰 repo' % args.title,
+        ]
     log('=== 微博搜索（%d 组关键词）===' % len(keywords))
     all_posts = []
     seen = set()
@@ -398,6 +405,12 @@ def run_bili(args, show_date, out_dir, keep):
         '王晰 %s站' % args.city,
         '王晰 %s 直拍' % args.city,
     ]
+    if args.title:
+        bili_kws += [
+            '王晰 %s' % args.title,
+            '王晰 %s %s' % (args.title, args.city),
+            '%s 王晰' % args.title,
+        ]
     bili_all = []
     seen_bv = set()
     n_self = 0
@@ -411,8 +424,11 @@ def run_bili(args, show_date, out_dir, keep):
             pub = datetime.datetime.fromtimestamp(v.get('pubdate') or 0).date() if v.get('pubdate') else None
             if pub and pub < show_date:
                 continue  # 只要演出后的视频
-            # 二次筛选：标题/简介命中歌单歌曲/城市/活动词才拉评论
-            if not keep(v.get('title', '') + ' ' + (v.get('desc') or '')):
+            # 二次筛选：必须出现「王晰」（活动名/城市/歌单再命中其一）
+            _blob = (v.get('title') or '') + ' ' + (v.get('desc') or '')
+            if '王晰' not in _blob:
+                continue
+            if not keep(_blob) and not (args.title and args.title in _blob):
                 continue
             v['comments'] = bili_comments(v['bvid'], topn=3)
             bili_all.append(v)
@@ -438,6 +454,11 @@ def run_bing(args, out_dir, keep):
         'site:xiaohongshu.com 王晰 %s' % args.city,
         'site:bilibili.com 王晰 %s 演唱会' % args.city,
     ]
+    if args.title:
+        bing_qs += [
+            '王晰 %s %s' % (args.title, args.city),
+            '%s 王晰 观后感' % args.title,
+        ]
     bing_all = []
     seen_u = set()
     for q in bing_qs:
