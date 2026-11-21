@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-21 18:56",
+  "timestamp": "2026-11-21 19:22",
   "total": 301218,
   "success": 58708,
   "complete_rate": 19.5,
@@ -155227,9 +155227,9 @@
       "相思"
     ],
     "values": [
-      131.4,
+      129.1,
       128.8,
-      114.6,
+      115.5,
       110.9
     ],
     "spring": [
@@ -163005,82 +163005,98 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 8,
+    "active_count": 10,
     "total_tracked": 733,
-    "concentration_top3": 79.5,
+    "concentration_top3": 72.9,
     "as_of": "2026-11-21",
-    "too_small": true,
-    "sample_tier": "small",
+    "too_small": false,
+    "sample_tier": "normal",
     "recent7_median_n": 13.0
   },
   "daily_listen_trend": [
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 65.7,
-      "raw": 541.0,
-      "trend_pct": 56.8,
+      "share_pct": 60.6,
+      "raw": 490.0,
+      "trend_pct": 42.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
-      "song": "一生中最爱",
-      "share_pct": 7.0,
-      "raw": 58.0,
-      "trend_pct": 81.2,
+      "song": "在路上",
+      "share_pct": 6.8,
+      "raw": 55.0,
+      "trend_pct": 96.4,
       "trend_label": "up"
     },
     {
       "rank": 3,
-      "song": "月弯弯",
-      "share_pct": 6.7,
-      "raw": 55.0,
-      "trend_pct": 175.0,
+      "song": "山楂树",
+      "share_pct": 5.6,
+      "raw": 45.0,
+      "trend_pct": 150.0,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "在路上",
-      "share_pct": 6.3,
-      "raw": 52.0,
-      "trend_pct": 85.7,
+      "song": "月弯弯",
+      "share_pct": 5.1,
+      "raw": 41.0,
+      "trend_pct": 105.0,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 5.0,
-      "raw": 41.0,
-      "trend_pct": 127.8,
+      "song": "Sound of Silence",
+      "share_pct": 4.6,
+      "raw": 37.0,
+      "trend_pct": 85.0,
       "trend_label": "up"
     },
     {
       "rank": 6,
-      "song": "Sound of Silence",
-      "share_pct": 3.6,
-      "raw": 30.0,
-      "trend_pct": 50.0,
+      "song": "她真漂亮",
+      "share_pct": 4.4,
+      "raw": 36.0,
+      "trend_pct": 157.1,
       "trend_label": "up"
     },
     {
       "rank": 7,
-      "song": "哭砂",
+      "song": "一生中最爱",
+      "share_pct": 4.4,
+      "raw": 36.0,
+      "trend_pct": 12.5,
+      "trend_label": "up"
+    },
+    {
+      "rank": 8,
+      "song": "火光",
       "share_pct": 3.3,
       "raw": 27.0,
       "trend_pct": 107.7,
       "trend_label": "up"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "song": "南屏晚钟",
-      "share_pct": 2.3,
-      "raw": 19.0,
-      "trend_pct": 35.7,
+      "share_pct": 2.7,
+      "raw": 22.0,
+      "trend_pct": 57.1,
+      "trend_label": "up"
+    },
+    {
+      "rank": 10,
+      "song": "哭砂",
+      "share_pct": 2.5,
+      "raw": 20.0,
+      "trend_pct": 53.8,
       "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-11-21 18:56",
+  "last_update": "2026-11-21 19:22",
   "today_batches": 1356,
   "daily_new_records": 0,
   "recent_7days": [
@@ -163142,13 +163158,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4821,
-      "success": 4821,
+      "total": 4822,
+      "success": 4822,
       "failed": []
     },
     "link_registry": 10754,
     "intraday_merged": {
-      "before": 1978523,
+      "before": 1979123,
       "after": 311778
     },
     "index_calibration": {
@@ -163441,7 +163457,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-11-21 18:56",
+    "generated_at": "2026-11-21 19:22",
     "overview": "共 92 场活动 / 3183 个歌曲观测，正涨幅 1302（41%），显著带动≥20% 占 13%，平均 +0.5%、中位 -3.7%。",
     "morph_best": "歌舞剧·音乐剧（平均 +22.9%）",
     "morph_worst": "签唱会（平均 -17.5%）",
