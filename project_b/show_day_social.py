@@ -64,13 +64,19 @@ def main() -> int:
 
     cities = sorted({str(x.get("city") or "").strip() for x in shows if x.get("city")})
     log("%s 检出 %d 场：%s（slot=%s）" % (target, len(shows), "、".join(cities) or "城市待补", a.slot))
-    for city in cities:
+    for x in shows:
+        city = str(x.get("city") or "").strip()
+        if not city:
+            continue
+        title = str(x.get("title") or "").strip()
         cmd = [sys.executable, "-X", "utf8", str(COLLECT),
                "--date", target, "--city", city, "--skip-bili"]
+        if title:
+            cmd += ["--title", title]
         if a.dry:
             log("[dry] " + " ".join(cmd))
             continue
-        log("开始收集：" + city)
+        log("开始收集：%s %s" % (city, title))
         r = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True,
                            encoding="utf-8", errors="replace")
         tail = (r.stdout or "")[-400:]

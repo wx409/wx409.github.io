@@ -60,6 +60,8 @@ def xhs_notes(show_date, city):
             if not ct.exists(): continue
             txt = ct.read_text(encoding='utf-8', errors='ignore').strip().replace('\n', ' ')[:80]
             if len(txt) < 10: continue
+            if city not in txt and city not in kd.name:
+                continue  # 按链接归档无日期前缀，至少要求城市命中，避免把外地旧笔记塞进本场
             out.append({'platform': '小红书', 'text': txt,
                         'url': 'https://www.xiaohongshu.com/explore/' + note_id,
                         'tag': classify(txt)})
