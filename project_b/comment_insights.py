@@ -101,16 +101,32 @@ def main() -> int:
         if len(ssamples) >= 8:
             break
 
+    n7 = con.execute("SELECT COUNT(*) n FROM posts WHERE platform='weibo-comment' AND date>=date('now','-7 day')").fetchone()["n"]
+    recent, rseen = [], set()
+    for r in con.execute(
+            "SELECT p.text,p.date,m.likes FROM posts p JOIN comment_meta m ON m.key=p.key "
+            "WHERE p.platform='weibo-comment' AND p.date>=date('now','-30 day') "
+            "ORDER BY RANDOM() LIMIT 300"):
+        t = clean(r["text"])
+        if not (8 <= len(t) <= 60) or "@" in t or "http" in t.lower() or t in rseen:
+            continue
+        rseen.add(t)
+        recent.append({"text": t, "likes": r["likes"], "date": r["date"]})
+        if len(recent) >= 8:
+            break
+
     doc = {
         "schema": 1,
         "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M"),
         "scope": "微博评论（工作室 1100+ 帖 + 王晰本人近 30 帖）＋ 王晰广场短帖",
         "n_comments": n, "n_posts": posts,
+        "n_last7": n7,
         "n_unique_text": uniq,
         "dup_rate_pct": round((1 - uniq / n) * 100, 1) if n else 0,
         "by_year": years,
         "keywords": kw,
         "quotes": quotes,
+        "recent": recent,
         "top_posts": top_posts,
         "search": {
             "n": len(srows),

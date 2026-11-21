@@ -90,6 +90,7 @@ def main() -> int:
 
     parts.append('<div class="cards">')
     parts.append('<div class="card"><b>%s</b><span>评论（已去空/去超短）</span></div>' % format(n, ","))
+    parts.append('<div class="card"><b>%s</b><span>近 7 天新增</span></div>' % format(d.get("n_last7") or 0, ","))
     parts.append('<div class="card"><b>%d</b><span>帖子</span></div>' % posts)
     parts.append('<div class="card"><b>%s–%s</b><span>时间跨度</span></div>' % (y0, y1))
     parts.append('<div class="card"><b>%d</b><span>年份数</span></div>' % len(years))
@@ -140,6 +141,15 @@ def main() -> int:
         parts.append("<tr><td><a href='%s' rel='nofollow noopener' target='_blank'>%s</a></td><td>%s</td><td>%s</td></tr>"
                      % (esc(link), esc(label), format(p["comments"], ","), format(p["top_like"], ",")))
     parts.append("</table>")
+
+    recent = d.get("recent") or []
+    if recent:
+        parts.append("<h2>最近 30 天随机短评</h2>")
+        parts.append("<p class='sub'>从近 30 天评论中随机抽取（不是按赞），用于观察最新语气；每条 ≤60 字、匿名。</p>")
+        parts.append('<div class="quotes">')
+        for q in recent:
+            parts.append('<div class="q">“%s”<div class="src">%s</div></div>' % (esc(q["text"]), esc(q.get("date") or "")))
+        parts.append("</div>")
 
     try:
         th = json.loads((ROOT / "data" / "comment_themes.json").read_text(encoding="utf-8"))
