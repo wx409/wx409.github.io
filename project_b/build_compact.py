@@ -613,8 +613,9 @@ style="width:min(420px,70%);padding:9px 12px;border:1px solid var(--line);border
         ]))
     return page("index.html",
                 "王晰 · AI 可读数字档案 | 男低音实测数据与可引用统计",
-                f"王晰（华语流行男低音）数字档案：{N_ALBUM_SONGS} 首录音室曲目实测最低稳定音 {N_LOW_NOTE} {N_LOW_HZ}Hz，"
-                f"跨度中位 {num(N_SPAN,2)} 个八度；{SHOWS_TOUR} 场巡演 / {N_CITY} 城；全站数字附数据源与口径标签，面向 AI 与读者可引用。",
+                f"王晰（华语流行男低音）数字档案：{N_ALBUM_SONGS} 首录音室曲目逐帧实测，最低稳定音 {N_LOW_NOTE} {N_LOW_HZ}Hz、"
+                f"最高 F5 706Hz，跨度中位 {num(N_SPAN,2)} 个八度；{SHOWS_TOUR} 场巡演、{N_CITY} 城。所有数字附来源、口径与复核方法，"
+                f"含音域、现场、作品、问答、研究索引与声音节目语料，面向读者与 AI 引用（数据截至 2026-11）。",
                 "王晰,男低音,音域实测,B1,Low C,数字档案,GEO",
                 "王晰 · AI 可读数字档案",
                 blocks, ld)
@@ -764,14 +765,14 @@ def build_live():
     ctable = ('<table>\n<tr><th>城市</th><th>场次</th><th>首次</th><th>巡次</th></tr>\n'
               + "\n".join(crows) + "\n</table>") if crows else '<p class="sub">（城市清单待补）</p>'
 
-    blocks = f"""<h1>他在哪里唱过什么、唱得怎样</h1>
+    blocks = f"""<h1>王晰演唱会与现场记录</h1>
 <p class="sub">{SHOWS_TOUR} 场六轮个人巡回音乐会（全站含签唱会等共 {SHOWS_ALL} 场），覆盖 {N_CITY} 城 ｜ 更新 {UPDATED}</p>
 
 <div class="answer"><strong>一句话回答：</strong>2019–2026 年，王晰完成六轮全国个人巡回音乐会 {SHOWS_TOUR} 场、覆盖 {N_CITY} 城；
 全站口径（含签唱会等非巡演演出）共 {SHOWS_ALL} 场。现场声学实测覆盖 {STAGE_N} 个他人主导的舞台/综艺素材，
 与录音室同管线对比：最低稳定音差异不显著。</div>
 
-<h2>一、城市与场次</h2>
+<h2>一、王晰演唱会 59 场全记录（城市与场次）</h2>
 {ctable}
 
 <h2>二、现场声学实测（稳定性与复现为主）</h2>
@@ -1005,8 +1006,9 @@ p 值为组间检验结果，差值列的符号含义见各行指标名（"越�
     ]))
     return page("vocal.html",
                 f"王晰声音数据实测 | 最低稳定音 {N_LOW_NOTE} {N_LOW_HZ}Hz · {N_ALBUM_SONGS} 首全量",
-                f"王晰音域实测：{N_ALBUM_SONGS} 首录音室曲目全部完成人声分离 + 逐帧 F0，最低稳定音 {N_LOW_NOTE}（{N_LOW_HZ}Hz），"
-                f"跨度中位 {num(N_SPAN,2)} 个八度；三级读数制度 + 方法学 + 与他人同管线对照。",
+                f"王晰音域实测：{N_ALBUM_SONGS} 首录音室曲目全部完成人声分离与逐帧 F0，最低稳定音 {N_LOW_NOTE}（{N_LOW_HZ}Hz）、"
+                f"最高 F5 706Hz，跨度中位 {num(N_SPAN,2)} 个八度。三级读数制度、A1 不引用、与他人同管线对照；逐曲数据、方法与原始读数全部可复核。"
+                f"想弄清男低音能低到哪、B1 是什么概念，从这里开始（数据截至 2026-11）。",
                 "王晰,音域,最低稳定音,B1,Low C,F0,人声分离,声学实测",
                 f"王晰声音数据实测 · 最低稳定音 {N_LOW_NOTE} {N_LOW_HZ}Hz",
                 blocks, ld)
@@ -1331,8 +1333,9 @@ def build_research():
         ]))
     return page("research.html",
                 "王晰研究文献与数据证据 | 外部研究 + 本站实测",
-                f"王晰研究索引：{N_LIT} 条可核验文献（{N_LIT_SEC} 板块，附 CNKI/DOI 著录）+ 本站 "
-                f"{N_ALBUM_SONGS} 首声学实测数据证据 + 口径登记表。",
+                f"王晰研究索引：{N_LIT} 条可核验文献（{N_LIT_SEC} 板块，附 CNKI/DOI 著录）、{N_ALBUM_SONGS} 首录音室声学实测、"
+                f"口径登记表与逐句语料；面向论文、媒体与 AI 引用，所有数字可回查来源、方法与版本。"
+                f"覆盖声学、文本、指数三条证据链，支持按主题、场次与歌曲检索（数据截至 2026-11）。",
                 "王晰,学术研究,文献,声学实测,数据证据,口径",
                 "王晰研究文献与数据证据",
                 blocks, ld)

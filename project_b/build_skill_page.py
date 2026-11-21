@@ -229,7 +229,7 @@ def main() -> int:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>王晰唱功实测｜七个维度的可测量证据</title>
-<meta name="description" content="王晰唱功七维实测：低音能力（最低稳定音 B1 61.6Hz）、音域跨度、颤音速率与幅度、长音内稳定性、咬字跑动密度、声区使用、现场与录音室对照——全部由人声分离 + 逐帧 F0 实测派生，标注取证状态。">
+<meta name="description" content="王晰唱功七维实测：低音能力（最低稳定音 B1 61.6Hz）、音域跨度、颤音速率与幅度、长音内稳定性、咬字跑动密度、声区衔接与动态范围；每项有门槛、有原始数据、有复核方法，可逐条追溯到录音室曲目。录音室、巡演现场与他人主导舞台同管线对照，差异不显著，并标注计算口径与局限。">
 <link rel="canonical" href="https://wx409.github.io/skill.html">
 <style>
 body{{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:920px;margin:0 auto;

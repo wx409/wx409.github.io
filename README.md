@@ -1,50 +1,39 @@
-# wx409.github.io · 王晰 GEO 资料站
+# wx409.github.io · 王晰 GEO 数字档案站
 
-GitHub Pages: https://wx409.github.io
+**在线站点：https://wx409.github.io**
 
-## 目录结构（与星厂 v5.0 B 项目对齐）
+围绕华语流行男低音歌手王晰的 AI 可读数字档案：从零挖掘素材、实测声学能力、把数据翻译给普通人，并让 AI 可引用。
 
-```
-wx409.github.io/
-├── index.html              # 首页（含同担动态聚合）
-├── live-reviews.html       # 现场实录
-├── discography.html        # 作品百科
-├── academic.html           # 学术研究
-├── gallery.html            # 视觉记录
-├── city-guides.html        # 城市攻略
-├── data/
-│   ├── music-index.html    # 音乐数据周报（浏览器可读）
-│   ├── music-index.md      # 音乐数据周报（源文件）
-│   ├── weekly/             # 历史周报存档
-│   ├── links.csv           # 社交链接输入（deploy.py）
-│   └── social_links.json   # 社交链接数据
-├── culture/
-│   └── index.html          # 文化足迹（星厂 culture 任务部署）
-├── repo/
-│   └── 2026.md             # 现场 repo 库
-└── deploy.py               # 社交墙一键更新（独立脚本）
-```
+## 先看这几页
 
-## 两种更新方式
+| 页面 | 回答的问题 |
+|---|---|
+| [首页](https://wx409.github.io/) | 王晰是谁；30 秒电梯定义 |
+| [声音数据实测](https://wx409.github.io/vocal.html) | 他的音域到底多宽（72 首全量） |
+| [音域实测（逐曲）](https://wx409.github.io/voice.html) | B1 61.5Hz 是什么概念 |
+| [唱功实测](https://wx409.github.io/skill.html) | 低音/跨度/颤音/稳定性七维 |
+| [现场与巡演](https://wx409.github.io/live.html) | 王晰演唱会 59 场全记录 |
+| [作品与声学](https://wx409.github.io/works.html) | 专辑/曲目逐曲稳定音 |
+| [研究索引](https://wx409.github.io/research.html) | 文献、数据证据与口径 |
+| [问答库](https://wx409.github.io/qa.html) | 关于王晰的常见问题 |
+| [听众之声](https://wx409.github.io/voices.html) | 12.8 万条评论的主题与短引用 |
+| [现场实录](https://wx409.github.io/live-reviews.html) | 各站观众反馈 |
 
-### 1. 星厂 v5.0 管道（推荐）
+## 数据与方法
 
-```bash
-cd /mnt/d/XingWorks/星厂v5.0
-source /mnt/d/XingWorks/venv/bin/activate
+- 公开数据层：`data/`（音域、现场、指数基线、口径登记表、llms.txt）
+- 口径字典：`data/calibers.md`（引用任何数字前先查）
+- 声学方法：demucs 人声分离 → 自研 YIN 逐帧 F0 → 三级读数制度（稳定音/触达音/低音带）
+- 站内搜索与问答：`/search.html`
 
-# 音乐数据周报（每周）
-python3 pipeline.py --project B --task weekly
+## 更新方式
 
-# 文化足迹（有新事件时）
-python3 pipeline.py --project B --task culture
-```
-
-### 2. 社交墙（deploy.py）
-
-编辑 `data/links.csv` 后，在网站目录运行 `python deploy.py`（需配置 DEEPSEEK_API_KEY 和 GITHUB_TOKEN）。
+- 每日：指数大屏、官方发布扫描、观众反馈、评论补采、热点雷达
+- 每次部署：导航/口径/结构化数据/线上核验自动跑
+- 运维命令：`操作中心.bat`（279 项，GBK 编码）
 
 ## 注意事项
 
-- `.env` / `secrets.bat` 不要提交到 Git
-- 文化足迹源数据：`星厂v5.0/project_b/04_文化足迹/culture_events.json`
+- `.env` / `secrets.bat` / cookie / 音频文件不入 git
+- 公开 JSON 不含本地绝对路径
+- 音视频仅本地研究，不二次分发
