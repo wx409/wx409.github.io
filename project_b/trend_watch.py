@@ -96,6 +96,20 @@ def load_songs():
 
 SONGS = load_songs()
 
+VIDEO_INDEX = Path(r"E:\wx\私有工具\video_index.json")
+_VC = None
+
+
+def video_counts():
+    global _VC
+    if _VC is None:
+        try:
+            d = json.loads(VIDEO_INDEX.read_text(encoding="utf-8"))
+            _VC = {k: len(v) for k, v in (d.get("by_song") or {}).items()}
+        except Exception:
+            _VC = {}
+    return _VC
+
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36"
 WB = Path(r"E:\wx\index_records\wb.txt")
 DY = Path(r"E:\wx\index_records\douyin_cookie_raw.txt")
@@ -173,7 +187,9 @@ def match(topics):
             if BRIDGE[b] not in facts:
                 facts.append(BRIDGE[b])
         for s in songs:
-            facts.append("王晰演唱/原唱《%s》；站内可查歌曲页与现场记录。" % s)
+            n = video_counts().get(s, 0)
+            facts.append("王晰演唱/原唱《%s》；本地视频库 %d 条。" % (s, n) if n
+                         else "王晰演唱/原唱《%s》；站内可查歌曲页与现场记录。" % s)
         if not facts:
             facts.append("王晰现场/巡演记录见站内 live 页。")
         hits.append({**t, "bridges": specific + broad, "songs": songs, "facts": facts[:3]})
