@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-21 08:36",
+ "generated_at": "2026-11-21 08:54",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 271,
   "dispatch": 271,
   "deploy_steps": 105,
-  "scheduled_tasks": 35
+  "scheduled_tasks": 36
  },
  "tasks": [
   {
@@ -2022,7 +2022,7 @@
     "name": "wx409_interview_web",
     "script": "interview_web_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_web_daily.py >> temp\\web_interview.log 2>&1",
-    "next": "2026/11/21 8:45:00",
+    "next": "2026/11/22 8:45:00",
     "type": "Daily",
     "start": "8:45:00"
    },
@@ -2391,6 +2391,19 @@
    "path": "D:\\wx409.github.io\\project_b\\build_voices_page.py"
   },
   {
+   "script": "comment_harvest_daily.py",
+   "schedule": {
+    "name": "wx409_comment_harvest_daily",
+    "script": "comment_harvest_daily.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\comment_harvest_daily.py",
+    "next": "2026/11/21 11:30:00",
+    "type": "Daily",
+    "start": "11:30:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\comment_harvest_daily.py"
+  },
+  {
    "script": "comment_insights.py",
    "in_deploy": true,
    "deploy_desc": "听众之声数据 data/voices.json（私有评论库→公开聚合）",
@@ -2604,7 +2617,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/21 8:41:00",
+    "next": "2026/11/21 9:01:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
