@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-21 08:54",
+ "generated_at": "2026-11-21 09:46",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 271,
   "dispatch": 271,
   "deploy_steps": 105,
-  "scheduled_tasks": 36
+  "scheduled_tasks": 37
  },
  "tasks": [
   {
@@ -1750,7 +1750,7 @@
     "name": "wx409_index_freshness",
     "script": "check_index_freshness.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\check_index_freshness.py >> temp\\index_freshness_task.log 2>&1",
-    "next": "2026/11/21 9:40:00",
+    "next": "2026/11/22 9:40:00",
     "type": "Daily",
     "start": "9:40:00"
    },
@@ -1950,7 +1950,7 @@
     "name": "wx409_morning_catchup",
     "script": "morning_catchup.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\morning_catchup.py >> temp\\morning_catchup.log 2>&1",
-    "next": "2026/11/21 9:45:00",
+    "next": "2026/11/22 9:45:00",
     "type": "Daily",
     "start": "9:45:00"
    },
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/21 9:04:00",
+    "next": "2026/11/21 10:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2416,7 +2416,7 @@
     "name": "wx409_disk_hygiene",
     "script": "disk_hygiene.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\disk_hygiene.py\" --apply",
-    "next": "2026/11/21 9:00:00",
+    "next": "2026/11/22 9:00:00",
     "type": "Daily",
     "start": "9:00:00"
    },
@@ -2429,7 +2429,7 @@
     "name": "wx409_douyin_daily",
     "script": "douyin_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\douyin_daily.py",
-    "next": "2026/11/21 9:40:00",
+    "next": "2026/11/22 9:40:00",
     "type": "Daily",
     "start": "9:40:00"
    },
@@ -2578,7 +2578,7 @@
     "name": "wx409_show_social_am",
     "script": "show_day_social_am.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_day_social_am.py",
-    "next": "2026/11/21 9:20:00",
+    "next": "2026/11/22 9:20:00",
     "type": "Daily",
     "start": "9:20:00"
    },
@@ -2617,7 +2617,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/21 9:01:00",
+    "next": "2026/11/21 9:51:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2643,7 +2643,7 @@
     "name": "wx409_index_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_index_daily.bat",
-    "next": "2026/11/21 9:10:00",
+    "next": "2026/11/22 9:10:00",
     "type": "Daily",
     "start": "9:10:00"
    },
@@ -2721,7 +2721,7 @@
     "name": "wx409_social_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_social_daily.bat",
-    "next": "2026/11/21 9:30:00",
+    "next": "2026/11/22 9:30:00",
     "type": "Daily",
     "start": "9:30:00"
    },
@@ -2747,6 +2747,19 @@
    "deploy_desc": "大屏模板补丁（母版→快照同步，漂移即红灯）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\template_patches.py"
+  },
+  {
+   "script": "trend_watch.py",
+   "schedule": {
+    "name": "wx409_trend_watch",
+    "script": "trend_watch.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
+    "next": "2026/11/21 9:56:00",
+    "type": "One Time Only, Minute",
+    "start": "9:46:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\trend_watch.py"
   },
   {
    "script": "update_index_table.py",
