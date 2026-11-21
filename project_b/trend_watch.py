@@ -53,7 +53,48 @@ BRIDGE = {
     "草原之夜": "2026-11-20/21 苏州站；王晰饰垦荒者。",
     "音域": "72 首录音室实测：跨度中位 2.23 八度。",
     "声乐": "王晰声乐科班出身；青歌赛/金钟奖双冠。",
+    "音乐现场": "王晰现场层：巡演 59 场 + 签唱会 5 场；现场稳定音与录音室差异不显著（p=0.197）。",
+    "音乐Live": "同上：王晰现场层实测覆盖 888 条素材。",
+    "演唱会": "王晰六轮巡演 59 场 / 22 城；《沉响与长歌》2026-10-09/10 北京。",
+    "音乐节": "王晰有音乐节/拼盘演出记录，详见时间轴与 live 页。",
+    "巡演": "王晰六轮巡演 59 场 / 22 城。",
+    "现场": "王晰现场层：888 条素材、现场稳定音中位 2.69 八度。",
+    "Live": "同上：现场层与录音室同管线、同口径对照。",
+    "舞台": "王晰舞台记录：巡演、晚会、音乐剧《草原之夜》。",
 }
+
+# 宽泛词：单独命中不提醒，必须叠加「王晰/歌曲/音乐语境」
+BROAD = {"音乐现场", "音乐Live", "演唱会", "音乐节", "巡演", "现场", "Live", "舞台"}
+_CTX = ("音乐", "唱", "歌", "舞台", "翻唱", "原唱", "版本", "现场", "Live")
+
+
+def load_songs():
+    names = set()
+    try:
+        for x in json.loads((ROOT / "data" / "archive_vocal_albums.json").read_text(encoding="utf-8"))["songs"]:
+            if x.get("title"):
+                names.add(x["title"])
+    except Exception:
+        pass
+    try:
+        for k in json.loads((ROOT / "data" / "songs_meta.json").read_text(encoding="utf-8"))["songs"]:
+            if k:
+                names.add(k)
+    except Exception:
+        pass
+    try:
+        sl = json.loads((ROOT / "data" / "setlists.json").read_text(encoding="utf-8")).get("setlists")
+        seq = sl.values() if isinstance(sl, dict) else (sl or [])
+        for show in seq:
+            for s in (show.get("songs") or []) if isinstance(show, dict) else []:
+                if isinstance(s, str) and s:
+                    names.add(s)
+    except Exception:
+        pass
+    return sorted({n for n in names if len(n) >= 2}, key=len, reverse=True)
+
+
+SONGS = load_songs()
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36"
 WB = Path(r"E:\wx\index_records\wb.txt")
@@ -113,13 +154,29 @@ def match(topics):
     hits = []
     for t in topics:
         w = t["word"]
-        bridges = [k for k in BRIDGE if k in w]
-        if "王晰" in w or bridges:
-            facts = ["王晰本人相关"] if "王晰" in w else []
-            for b in bridges:
-                if BRIDGE[b] not in facts:
-                    facts.append(BRIDGE[b])
-            hits.append({**t, "bridges": bridges, "facts": facts[:3]})
+        direct = "王晰" in w
+        specific = [k for k in BRIDGE if k not in BROAD and k in w]
+        broad = [k for k in BROAD if k.lower() in w.lower()]
+        songs = []
+        for s in SONGS:
+            if s in w and (len(s) >= 4 or direct or any(c in w for c in _CTX)):
+                songs.append(s)
+            if len(songs) >= 2:
+                break
+        if not (direct or specific or songs or broad):
+            continue
+        # 宽泛词单独命中不提醒：必须叠加王晰/具体桥接/歌曲
+        if broad and not (direct or specific or songs):
+            continue
+        facts = ["王晰本人相关"] if direct else []
+        for b in specific:
+            if BRIDGE[b] not in facts:
+                facts.append(BRIDGE[b])
+        for s in songs:
+            facts.append("王晰演唱/原唱《%s》；站内可查歌曲页与现场记录。" % s)
+        if not facts:
+            facts.append("王晰现场/巡演记录见站内 live 页。")
+        hits.append({**t, "bridges": specific + broad, "songs": songs, "facts": facts[:3]})
     return hits
 
 
