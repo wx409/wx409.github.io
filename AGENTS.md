@@ -90,6 +90,20 @@
 小红书 `fetch_xhs_user.py`；抖音 `python -X utf8 project_b\douyin_sync.py`；
 快手 `python -X utf8 project_b\kuaishou_sync.py`（cookie：`E:\wx\index_records\kuaishou.txt`）。
 
+## 三之三、热点雷达与本地视频索引（2026-11-21）
+
+- **热点雷达**：`project_b\trend_watch.py`（计划任务 `wx409_trend_watch`，每 10 分钟）
+  微博/抖音/B站热榜 + 桥接词（音乐剧/男低音/OST/央视/新疆/苏州/音乐现场/音乐Live/巡演…）+ 710 首歌名；
+  命中写 `notifications.html` 与 `data/trend_alerts.json`；**零 token**，失败自动冷却 30 分钟。
+- **本地视频索引**：`project_b\build_video_index.py` → `E:\wx\私有工具\video_index.json`
+  （1304 条 / 20.55 GB；字段含 path/platform/date/city/show/songs/duration/width/height；
+  反查 by_song / by_show / by_platform）；公开汇总 `data/video_index_summary.json`（无本地路径）。
+- **演出次日链路**：`project_b\show_feedback_daily.py`（每天 10:30）读 `activity_master` 近 3 天演出 →
+  B站补收（强制含「王晰」）→ 自动建专场页 → `feedback_week --no-collect` 入库/分析/push；
+  `live-reviews.html` 的 `AUTO-SHOWS` 区块随活动表自动更新。
+- **官方发布日扫**：09:30 微博/小红书、09:40 抖音、09:50 快手、09:55 B站空间。
+- **微博评论日采**：`comment_harvest_daily.py`（11:30）→ 私有 `comments.db` + `comments_all.jsonl`。
+
 ## 四、声学数据铁律（三级读数制度）
 
 | 级别 | 定义 | 可否引用 |
@@ -149,7 +163,7 @@
 - `docs/qa抽查_20260913.md` — qa.html 抽查结论（**方案 A 已执行**：16 条实质问答 + 歌曲×场次索引表）
 - `docs/计划外页面清单_20260913.md` — 8 个边界页面报告
 - `temp/运维备忘_20260907.md` — 逐日运维备忘（2611 行，**重大操作前查最近章节**）
-- `操作中心.bat` — 271 项运维命令（GBK 编码）
+- `操作中心.bat` — 279 项运维命令（GBK 编码）
 
 ## 九、遇到不确定时
 
@@ -158,7 +172,7 @@
 
 ## 十、操作中心全图（说人话也能对上号）
 
-- **271 项菜单、12 个分组**（A 采集 / B 演出反馈 / C 转写加工 / D 页面 / E 档案 / F 部署 / G 档案一键 / H 音域 / S 声学自动化 / T 直播 / U 证据链 / V 词句库 / W 本地转写）
+- **279 项菜单**（A 采集 / B 演出反馈 / C 转写加工 / D 页面 / E 档案 / F 部署 / G 档案一键 / H 音域 / S 声学自动化 / T 直播 / U 证据链 / V 词句库 / W 本地转写 / X 热点与索引）
 - 完整「编号 → 标签 → 脚本」表：docs/操作中心全图.md（由 project_b/dump_ops_map.py 从 bat 自动生成，改完 bat 要重跑）
 - **新增素材三种入口**：一条链接 **259**、一段文字 **260**、一批视频 **249**（详见 docs/采编规范.md）
 - 转写体系与成本：docs/转写与字幕校正说明.md（音频转写 3–8 分钟 vs 硬字幕 OCR 约 20 分钟）

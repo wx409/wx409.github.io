@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-11-21 09:46
+# 生成时间：2026-11-21 11:01
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -94,6 +94,27 @@ $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_backup_weekly' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_backup_weekly'
 
+# --- wx409_trend_watch ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\trend_watch.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_trend_watch' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_trend_watch'
+
+# --- wx409_show_feedback_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\show_feedback_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_show_feedback_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_show_feedback_daily'
+
+# --- wx409_comment_harvest_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\comment_harvest_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_comment_harvest_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_comment_harvest_daily'
+
 # --- QQMusicDashboardAutoStart ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\QQ音乐大屏生成器_GEO优化版_源码.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
 $t = New-ScheduledTaskTrigger -AtLogOn
@@ -114,13 +135,6 @@ $t = New-ScheduledTaskTrigger -Daily -At 23:58
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_music_index_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_music_index_daily'
-
-# --- wx409_comment_harvest_daily ---
-$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\comment_harvest_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
-$t = New-ScheduledTaskTrigger -Daily -At 09:00
-$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
-Register-ScheduledTask -TaskName 'wx409_comment_harvest_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
-Write-Host '[OK] wx409_comment_harvest_daily'
 
 # --- wx409_disk_hygiene ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\disk_hygiene.py" --apply' -WorkingDirectory 'D:\wx409.github.io\project_b'
@@ -170,13 +184,6 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_show_social_am' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_show_social_am'
-
-# --- wx409_show_feedback_daily ---
-$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\show_feedback_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
-$t = New-ScheduledTaskTrigger -Daily -At 09:00
-$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
-Register-ScheduledTask -TaskName 'wx409_show_feedback_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
-Write-Host '[OK] wx409_show_feedback_daily'
 
 # --- wx409_cite_probe ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 ""' -WorkingDirectory 'D:\wx409.github.io'
@@ -254,10 +261,3 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_weibo_pipeline_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_weibo_pipeline_daily'
-
-# --- wx409_trend_watch ---
-$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\trend_watch.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
-$t = New-ScheduledTaskTrigger -Daily -At 09:00
-$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
-Register-ScheduledTask -TaskName 'wx409_trend_watch' -Action $a -Trigger $t -Settings $s -Force | Out-Null
-Write-Host '[OK] wx409_trend_watch'

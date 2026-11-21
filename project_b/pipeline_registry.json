@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-21 09:46",
+ "generated_at": "2026-11-21 11:01",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 271,
-  "dispatch": 271,
+  "menu_items": 279,
+  "dispatch": 279,
   "deploy_steps": 105,
   "scheduled_tasks": 37
  },
@@ -920,7 +920,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply --keep-full-days 3",
-    "next": "2026/11/21 10:00:00",
+    "next": "2026/11/22 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1362,7 +1362,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/11/21 10:00:00",
+    "next": "2026/11/22 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1737,14 +1737,14 @@
    "deploy_desc": "语言画像 data/text_profile.json（句式/意象/分期/跨源）",
    "critical": false,
    "menu": 224,
-   "title": "[采集] 查看默认播放/录音设备",
+   "title": "[洞察层] 生成 insight.html（结论+四形态文案+证据+禁忌｜语言画像｜措辞差表｜钩子池）",
    "menu_label": "insight_page",
    "path": "D:\\wx409.github.io\\project_b\\build_language_profile.py"
   },
   {
    "script": "check_index_freshness.py",
    "menu": 225,
-   "title": "[采集] 链路自检（测试音自录自判，过了才录）",
+   "title": "[指数] 新鲜度断言（长表末日期应=昨天；缺则列候选文件+列名+通知）",
    "menu_label": "index_freshness",
    "schedule": {
     "name": "wx409_index_freshness",
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/21 10:04:00",
+    "next": "2026/11/21 11:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2126,6 +2126,86 @@
    "path": "D:\\wx409.github.io\\project_b\\douyin_sync.py"
   },
   {
+   "script": "trend_watch.py",
+   "menu": 274,
+   "title": "[热点] 热点雷达 dry-run（只看命中，不写通知）",
+   "menu_label": "trend_dry",
+   "schedule": {
+    "name": "wx409_trend_watch",
+    "script": "trend_watch.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
+    "next": "2026/11/21 11:06:00",
+    "type": "One Time Only, Minute",
+    "start": "9:46:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\trend_watch.py"
+  },
+  {
+   "script": "build_video_index.py",
+   "menu": 275,
+   "title": "[索引] 重建本地视频索引（场次/歌曲/平台）",
+   "menu_label": "video_index",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_video_index.py"
+  },
+  {
+   "script": "menu:276",
+   "menu": 276,
+   "title": "[索引] 打开本地视频索引统计",
+   "menu_label": "video_stats",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "show_feedback_daily.py",
+   "menu": 277,
+   "title": "[反馈] 演出次日链路（近3天：B站补收+建页+入库）",
+   "menu_label": "show_daily",
+   "schedule": {
+    "name": "wx409_show_feedback_daily",
+    "script": "show_feedback_daily.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_feedback_daily.py",
+    "next": "2026/11/22 10:30:00",
+    "type": "Daily",
+    "start": "10:30:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\show_feedback_daily.py"
+  },
+  {
+   "script": "comment_harvest_daily.py",
+   "menu": 278,
+   "title": "[评论] 微博关键词广场补评论（入私有语料库）",
+   "menu_label": "comment_harvest",
+   "schedule": {
+    "name": "wx409_comment_harvest_daily",
+    "script": "comment_harvest_daily.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\comment_harvest_daily.py",
+    "next": "2026/11/21 11:30:00",
+    "type": "Daily",
+    "start": "11:30:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\comment_harvest_daily.py"
+  },
+  {
+   "script": "menu:281",
+   "menu": 281,
+   "title": "[采集] 查看默认播放/录音设备",
+   "menu_label": "cap_list",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "loopback_selftest.py",
+   "menu": 282,
+   "title": "[采集] 链路自检（测试音自录自判，过了才录）",
+   "menu_label": "cap_selftest",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\loopback_selftest.py"
+  },
+  {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
    "schedule": {
     "name": "QQMusicDashboardAutoStart",
@@ -2193,7 +2273,7 @@
     "name": "wx409_bili_official_daily",
     "script": "bili_official_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_official_daily.py",
-    "next": "2026/11/21 9:55:00",
+    "next": "2026/11/22 9:55:00",
     "type": "Daily",
     "start": "9:55:00"
    },
@@ -2391,19 +2471,6 @@
    "path": "D:\\wx409.github.io\\project_b\\build_voices_page.py"
   },
   {
-   "script": "comment_harvest_daily.py",
-   "schedule": {
-    "name": "wx409_comment_harvest_daily",
-    "script": "comment_harvest_daily.py",
-    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\comment_harvest_daily.py",
-    "next": "2026/11/21 11:30:00",
-    "type": "Daily",
-    "start": "11:30:00"
-   },
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\comment_harvest_daily.py"
-  },
-  {
    "script": "comment_insights.py",
    "in_deploy": true,
    "deploy_desc": "听众之声数据 data/voices.json（私有评论库→公开聚合）",
@@ -2532,7 +2599,7 @@
     "name": "wx409_kuaishou_daily",
     "script": "kuaishou_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\kuaishou_daily.py",
-    "next": "2026/11/21 9:50:00",
+    "next": "2026/11/22 9:50:00",
     "type": "Daily",
     "start": "9:50:00"
    },
@@ -2586,19 +2653,6 @@
    "path": "D:\\wx409.github.io\\project_b\\show_day_social_am.py"
   },
   {
-   "script": "show_feedback_daily.py",
-   "schedule": {
-    "name": "wx409_show_feedback_daily",
-    "script": "show_feedback_daily.py",
-    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_feedback_daily.py",
-    "next": "2026/11/21 10:30:00",
-    "type": "Daily",
-    "start": "10:30:00"
-   },
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\show_feedback_daily.py"
-  },
-  {
    "script": "task:wx409_cite_probe",
    "schedule": {
     "name": "wx409_cite_probe",
@@ -2617,7 +2671,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/21 9:51:00",
+    "next": "2026/11/21 11:11:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2682,7 +2736,7 @@
     "name": "wx409_nightly_bulk_weekend",
     "script": "",
     "cmd": "\\ D:\\wx409.github.io\\run_nightly_bulk.bat\\",
-    "next": "2026/11/21 10:30:00",
+    "next": "2026/11/22 10:30:00",
     "type": "Weekly",
     "start": "10:30:00"
    },
@@ -2747,19 +2801,6 @@
    "deploy_desc": "大屏模板补丁（母版→快照同步，漂移即红灯）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\template_patches.py"
-  },
-  {
-   "script": "trend_watch.py",
-   "schedule": {
-    "name": "wx409_trend_watch",
-    "script": "trend_watch.py",
-    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/21 9:56:00",
-    "type": "One Time Only, Minute",
-    "start": "9:46:00"
-   },
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\trend_watch.py"
   },
   {
    "script": "update_index_table.py",

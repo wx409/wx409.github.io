@@ -554,9 +554,9 @@ echo  [T · 直播采集（VB-Cable · 线上演唱会/平台直播）]
 
 echo  ------------------------------------------------------------------------------
 
-echo    224. [采集] 查看默认播放/录音设备
+echo    281. [采集] 查看默认播放/录音设备
 
-echo    225. [采集] 链路自检（测试音自录自判，过了才录）
+echo    282. [采集] 链路自检（测试音自录自判，过了才录）
 
 echo    226. [采集] 直播录制（切 CABLE Input → 录 → 自动恢复）
 
@@ -636,6 +636,14 @@ echo    269. [语料] 重建全平台语料索引（微博/工作室/百家号/抖音）
 echo    270. [语料] 全文搜索（找哪一期/哪条/哪首，含视频转写）
 echo    271. [语料] 本地 Whisper 转写（视频/音频→文字，离线）
 echo    272. [采集] 抖音增量同步（主页→对比→下载新增）
+
+
+echo    273. [热点] 运行一次热点雷达（微博/抖音/B站→站点通知）
+echo    274. [热点] 热点雷达 dry-run（只看命中，不写通知）
+echo    275. [索引] 重建本地视频索引（场次/歌曲/平台）
+echo    276. [索引] 打开本地视频索引统计
+echo    277. [反馈] 演出次日链路（近3天：B站补收+建页+入库）
+echo    278. [评论] 微博关键词广场补评论（入私有语料库）
 
 echo    0. 退出
 
@@ -1090,9 +1098,9 @@ if "%op%"=="221" goto prop_watch
 if "%op%"=="222" goto share_auto
 
 if "%op%"=="223" goto hook_mine
-if "%op%"=="224" goto cap_list
+if "%op%"=="281" goto cap_list
 
-if "%op%"=="225" goto cap_selftest
+if "%op%"=="282" goto cap_selftest
 
 if "%op%"=="226" goto cap_record
 
@@ -1157,6 +1165,13 @@ if "%op%"=="269" goto corpus_build
 if "%op%"=="270" goto corpus_search
 if "%op%"=="271" goto corpus_trans
 if "%op%"=="272" goto douyin_sync
+if "%op%"=="273" goto trend_watch
+if "%op%"=="274" goto trend_dry
+if "%op%"=="275" goto video_index
+if "%op%"=="276" goto video_stats
+if "%op%"=="277" goto show_daily
+if "%op%"=="278" goto comment_harvest
+
 if "%op%"=="268" goto score_grab
 if "%op%"=="265" goto mat_other
 if "%op%"=="262" goto sync_listener
@@ -6854,5 +6869,46 @@ goto menu
 cls
 echo === 抖音增量同步（Playwright 监听 aweme/post，下载新增）===
 python -X utf8 project_b\douyin_sync.py --max-scroll 30
+pause
+goto menu
+
+:trend_watch
+cls
+echo === 热点雷达（零 token：微博/抖音/B站热榜 + 桥接词）===
+python -X utf8 project_b\trend_watch.py
+pause
+goto menu
+
+:trend_dry
+cls
+echo === 热点雷达 dry-run（只看命中，不写通知）===
+python -X utf8 project_b\trend_watch.py --dry
+pause
+goto menu
+
+:video_index
+cls
+echo === 重建本地视频索引（1304 条，场次/歌曲/平台）===
+python -X utf8 project_b\build_video_index.py
+pause
+goto menu
+
+:video_stats
+cls
+echo === 打开本地视频索引统计 ===
+start "" notepad "E:\wx\私有工具\video_index_stats.md"
+goto menu
+
+:show_daily
+cls
+echo === 演出次日链路（近 3 天：B站补收 + 自动建页 + 反馈入库）===
+python -X utf8 project_b\show_feedback_daily.py --days 3
+pause
+goto menu
+
+:comment_harvest
+cls
+echo === 微博关键词广场补评论（王晰/演出/活动/新歌/现场）===
+python -X utf8 project_b\comment_harvest_daily.py --limit 20
 pause
 goto menu
