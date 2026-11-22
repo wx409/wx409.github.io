@@ -139526,7 +139526,7 @@
       "按半衰期1.0—1.6天的节奏，在演出后48小时内集中投放物料与内容，错过缓释窗口后边际效果快速衰减。"
     ],
     "data_quality_note": "基于98场演出，其中91场含逐日衰减数据；政府活动（2025-03-21 南昌：追踪曲目池+8.6%、歌单内+508.3%、辐射+1.9%）单独列示，不参与形态均值；综艺（n=2）、签唱会与音乐节（n=3）属小样本，均值仅供参考；政府活动（n=1）标注「样本不足」。",
-    "generated_at": "2026-11-22 19:57:51"
+    "generated_at": "2026-11-22 20:32:52"
   },
   "batch_count": 1299,
   "date_range": "2023-01-01 ~ 2026-11-22",
@@ -155373,7 +155373,7 @@
     ],
     "values": [
       147.5,
-      138.9,
+      137.7,
       115.6,
       110.5
     ],
@@ -163161,7 +163161,7 @@
   "daily_listen_overview": {
     "active_count": 10,
     "total_tracked": 733,
-    "concentration_top3": 69.7,
+    "concentration_top3": 69.4,
     "as_of": "2026-11-22",
     "too_small": false,
     "sample_tier": "normal",
@@ -163171,15 +163171,15 @@
     {
       "rank": 1,
       "song": "黎明前的黑暗",
-      "share_pct": 55.6,
-      "raw": 519.0,
-      "trend_pct": 71.3,
+      "share_pct": 55.1,
+      "raw": 511.0,
+      "trend_pct": 68.6,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "一生中最爱",
-      "share_pct": 7.9,
+      "share_pct": 8.0,
       "raw": 74.0,
       "trend_pct": 184.6,
       "trend_label": "up"
@@ -163187,50 +163187,50 @@
     {
       "rank": 3,
       "song": "在路上",
-      "share_pct": 6.2,
+      "share_pct": 6.3,
       "raw": 58.0,
       "trend_pct": 87.1,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "哭砂",
-      "share_pct": 5.1,
-      "raw": 48.0,
-      "trend_pct": 220.0,
+      "song": "月弯弯",
+      "share_pct": 5.3,
+      "raw": 49.0,
+      "trend_pct": 122.7,
       "trend_label": "up"
     },
     {
       "rank": 5,
       "song": "山楂树",
-      "share_pct": 5.0,
+      "share_pct": 5.1,
       "raw": 47.0,
       "trend_pct": 123.8,
       "trend_label": "up"
     },
     {
       "rank": 6,
-      "song": "月弯弯",
-      "share_pct": 4.9,
-      "raw": 46.0,
-      "trend_pct": 109.1,
+      "song": "哭砂",
+      "share_pct": 4.7,
+      "raw": 44.0,
+      "trend_pct": 193.3,
       "trend_label": "up"
     },
     {
       "rank": 7,
+      "song": "谁",
+      "share_pct": 4.7,
+      "raw": 44.0,
+      "trend_pct": null,
+      "trend_label": "new"
+    },
+    {
+      "rank": 8,
       "song": "她真漂亮",
       "share_pct": 4.6,
       "raw": 43.0,
       "trend_pct": 126.3,
       "trend_label": "up"
-    },
-    {
-      "rank": 8,
-      "song": "谁",
-      "share_pct": 4.5,
-      "raw": 42.0,
-      "trend_pct": null,
-      "trend_label": "new"
     },
     {
       "rank": 9,
@@ -163312,13 +163312,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4847,
-      "success": 4847,
+      "total": 4848,
+      "success": 4848,
       "failed": []
     },
     "link_registry": 10754,
     "intraday_merged": {
-      "before": 1997123,
+      "before": 1997723,
       "after": 312378
     },
     "index_calibration": {
