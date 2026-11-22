@@ -2030,22 +2030,14 @@ def tour_song_effects(df_all, setlists, topn=5):
             _wk = [x for x in pre.index if x.weekday() == d.weekday()]
             if len(_wk) >= 2:
                 total_pre_wk.append(s.loc[_wk].mean())
-        if not effects:
-            rows.append({
-                "date": date, "scene": scene, "city": e_city,
-                "city_tier": city_tier_of(e_city),
-                "content_type": venue_type_of(str(info["tour"]), scene),
-                "venue_type": venue_type_of(str(info["tour"]), scene),
-                "tour": info["tour"], "total_uplift": None, "total_uplift_wk": None,
-                "base_polluted": _polluted.get(date), "setlist_uplift": None,
-                "radiance_uplift": None, "daily_series": None, "top_songs": [], "songs": [],
-            })
-            continue
-        total_uplift = ((sum(total_post) / len(total_post)) / (sum(total_pre) / len(total_pre)) - 1) * 100
-        # 同星期基线全站效应（仅当 ≥3 个同星期样本）
-        total_uplift_wk = None
-        if len(total_pre_wk) >= 3 and sum(total_pre_wk) > 0:
-            total_uplift_wk = ((sum(total_post) / len(total_post)) / (sum(total_pre_wk) / len(total_pre_wk)) - 1) * 100
+        if effects:
+            total_uplift = ((sum(total_post) / len(total_post)) / (sum(total_pre) / len(total_pre)) - 1) * 100
+            total_uplift_wk = None
+            if len(total_pre_wk) >= 3 and sum(total_pre_wk) > 0:
+                total_uplift_wk = ((sum(total_post) / len(total_post)) / (sum(total_pre_wk) / len(total_pre_wk)) - 1) * 100
+        else:
+            total_uplift = None
+            total_uplift_wk = None
         on_list = [e for e in effects if e[2]]
         off_list = [e for e in effects if not e[2]]
         setlist_uplift = (sum(e[1] for e in on_list) / len(on_list)) if on_list else None
