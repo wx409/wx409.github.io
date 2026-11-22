@@ -21,6 +21,15 @@ def main():
     c = d.get("conclusion") or {}
     b1 = c.get("main_range") or "B1–D2（61.5–75.5Hz）"
     b1s = "、".join(c.get("b1_songs") or [])
+    try:
+        cal = json.loads((ROOT / "data" / "content_calendar.json").read_text(encoding="utf-8"))
+        cal_html = '<h2>本周内容日历</h2><table><tr><th>日</th><th>类型</th><th>标题</th><th>动作</th></tr>' + "".join(
+            "<tr><td>%s<br>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
+                esc(x.get("day")), esc(x.get("date")), esc(x.get("type")),
+                esc(x.get("title")), esc(x.get("body")))
+            for x in (cal.get("slots") or [])) + "</table>"
+    except Exception:
+        cal_html = ""
     page = """<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>同担弹药库｜王晰安利文案、脚本与事实卡</title>
@@ -40,7 +49,7 @@ a{color:#a8323d;text-decoration:none}
 <h1>同担弹药库</h1>
 <p class="sub">不用从零想文案。挑一条、改两个字、配一张卡、回链出处，就能发。</p>
 <div class="tip">先看 <a href="/moments.html">瞬间库</a> 选素材；这里给的是“怎么写成可传播的内容”。所有数字都要带口径，别把极值当常态。</div>
-
+__CAL__
 <h2>一、15 秒短视频脚本（戴耳机向）</h2>
 <div class="card"><pre>开头 0–2s：黑底白字“戴耳机。否则你听不到他低在哪。”
 2–6s：他开口前的安静 / 一个低音长音（选 B1 附近）
@@ -110,6 +119,7 @@ B1 61.5Hz，比男低音标志音 Low C 还低。
 function copy(btn){var pre=btn.parentElement.querySelector('pre'); if(!pre)return;
 navigator.clipboard.writeText(pre.innerText).then(function(){btn.textContent='已复制';setTimeout(function(){btn.textContent='复制'},1500);});}
 </script></body></html>""" % esc(b1)
+    page = page.replace("__CAL__", cal_html)
     OUT.write_text(page, encoding="utf-8")
     print("写入", OUT, "| b1", b1)
 

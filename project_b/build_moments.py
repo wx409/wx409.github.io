@@ -44,7 +44,8 @@ def pick_quotes(items):
     return [x for _, x in out[:12]]
 
 
-def pick_danmaku(videos):
+def pick_danmaku(videos, timeline=None):
+    tlmap = {x.get("bvid"): x for x in ((timeline or {}).get("videos") or [])}
     rows = []
     for v in videos[:8]:
         bv = v.get("bvid")
@@ -61,8 +62,15 @@ def pick_danmaku(videos):
                 break
         random.seed(7 + len(rows))
         samples = random.sample(lines, min(3, len(lines))) if lines else []
-        rows.append({"bvid": bv, "title": v.get("title"), "author": v.get("author"),
-                     "count": v.get("count") or v.get("danmaku_count"), "samples": samples})
+        peak = (tlmap.get(bv) or {}).get("peaks") or []
+        if peak:
+            rows.append({"bvid": bv, "title": v.get("title"), "author": v.get("author"),
+                         "count": peak[0].get("count") or (v.get("count") or 0),
+                         "peak_t": peak[0].get("t"),
+                         "samples": peak[0].get("samples") or samples})
+        else:
+            rows.append({"bvid": bv, "title": v.get("title"), "author": v.get("author"),
+                         "count": v.get("count") or v.get("danmaku_count"), "samples": samples})
     return rows
 
 
@@ -71,20 +79,28 @@ def main():
     fan = load(ROOT / "data" / "bili_danmaku_fan.json")
     dy = load(ROOT / "data" / "douyin_comments.json")
     quotes = pick_quotes(tav.get("items") or [])
-    screams = pick_danmaku(fan.get("videos") or [])
+    screams = pick_danmaku(fan.get("videos") or [], load(ROOT / "data" / "danmaku_timeline.json"))
     memes = [v for v in (dy.get("videos") or [])][:8]
     doc = {"generated_at": __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M"),
            "quotes": quotes, "screams": screams, "memes": memes}
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
 
     qhtml = "".join(
-        '<div class="card"><div class="q">“%s”</div><div class="meta">%s · %s · <a href="%s">原文</a></div></div>'
-        % (esc(x["quote"]), esc(x.get("episode")), esc(x.get("time")), esc(x.get("url"))) for x in quotes)
-    shtml = "".join(
-        '<div class="card"><div class="t">%s</div><div class="meta">%s · 弹幕 %s 条</div>'
-        '<div class="sample">%s</div><a href="https://www.bilibili.com/video/%s" target="_blank">看原视频</a></div>'
-        % (esc(v["title"]), esc(v["author"]), format(v["count"] or 0, ","),
-           "".join("“%s” " % esc(s) for s in v["samples"]), esc(v["bvid"])) for v in screams)
+        '<div class="card"><img loading="lazy" src="/assets/share/quotes/q%02d.png" alt="王晰金句卡" '
+        'style="width:100%%;border-radius:10px;margin-bottom:8px">'
+        '<div class="q">“%s”</div><div class="meta">%s · %s · <a href="%s">原文</a></div></div>'
+        % (i, esc(x["quote"]), esc(x.get("episode")), esc(x.get("time")), esc(x.get("url")))
+        for i, x in enumerate(quotes, 1))
+    shtml = ""
+    for v in screams:
+        pt = v.get("peak_t")
+        when = ("%d:%02d" % (pt // 60, pt % 60)) if pt is not None else ""
+        href = "https://www.bilibili.com/video/%s%s" % (v["bvid"], ("?t=%d" % pt) if pt is not None else "")
+        meta = "%s · 弹幕峰值 %s 条%s" % (esc(v["author"]), format(v["count"] or 0, ","),
+                                         (" @ " + when) if when else "")
+        shtml += ('<div class="card"><div class="t">%s</div><div class="meta">%s</div>'
+                  '<div class="sample">%s</div><a href="%s" target="_blank">从这一秒看</a></div>'
+                  % (esc(v["title"]), meta, "".join("“%s” " % esc(s) for s in v["samples"]), href))
     mhtml = "".join(
         '<div class="card"><div class="t">%s</div><div class="meta">评论 %s 条</div>'
         '<div class="sample">%s</div><a href="https://www.douyin.com/video/%s" target="_blank">看原视频</a></div>'
