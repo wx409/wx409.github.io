@@ -34,7 +34,7 @@ def main():
         ctx.add_cookies(cookies)
         page = ctx.new_page()
         for vid in IDS:
-            comments, meta = [], {}
+            comments, meta, pages = [], {}, [0]
             def on_resp(r):
                 u = r.url
                 if "comment/list" not in u and "comment/list/reply" not in u:
@@ -43,6 +43,8 @@ def main():
                     j = r.json()
                 except Exception:
                     return
+                pages[0] += 1
+                print("  comment page", pages[0], len(j.get("comments") or []), "cursor", j.get("cursor"), flush=True)
                 for c in j.get("comments") or []:
                     t = (c.get("text") or "").strip()
                     if t:
@@ -50,10 +52,19 @@ def main():
             page.on("response", on_resp)
             try:
                 page.goto("https://www.douyin.com/video/" + vid, wait_until="domcontentloaded", timeout=60000)
-                page.wait_for_timeout(8000)
-                for _ in range(3):
-                    page.mouse.wheel(0, 1200)
-                    page.wait_for_timeout(1500)
+                page.wait_for_timeout(15000)
+                try:
+                    page.locator('[data-e2e="comment-icon"]').first.click(timeout=3000)
+                except Exception:
+                    try:
+                        page.get_by_text("评论", exact=False).first.click(timeout=3000)
+                    except Exception:
+                        pass
+                page.wait_for_timeout(3000)
+                for _ in range(20):
+                    page.mouse.wheel(0, 1000)
+                    page.wait_for_timeout(2000)
+                page.wait_for_timeout(5000)
                 meta = {"title": page.title(), "url": page.url}
             except Exception as e:
                 meta = {"error": str(e)[:120]}
