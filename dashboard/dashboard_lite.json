@@ -1,6 +1,6 @@
 {
- "timestamp": "2026-11-22 20:00",
- "last_update": "2026-11-22 20:00",
+ "timestamp": "2026-11-22 20:32",
+ "last_update": "2026-11-22 20:32",
  "date_range": "2023-01-01 ~ 2026-11-22",
  "total": 301818,
  "complete_rate": 19.5,
@@ -243,81 +243,81 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 55.9,
-   "raw": 501.0,
-   "trend_pct": 65.3,
+   "share_pct": 55.6,
+   "raw": 519.0,
+   "trend_pct": 71.3,
    "trend_label": "up"
   },
   {
    "rank": 2,
    "song": "一生中最爱",
-   "share_pct": 7.4,
-   "raw": 66.0,
-   "trend_pct": 153.8,
+   "share_pct": 7.9,
+   "raw": 74.0,
+   "trend_pct": 184.6,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "月弯弯",
-   "share_pct": 6.6,
-   "raw": 59.0,
-   "trend_pct": 168.2,
+   "song": "在路上",
+   "share_pct": 6.2,
+   "raw": 58.0,
+   "trend_pct": 87.1,
    "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "山楂树",
-   "share_pct": 6.0,
-   "raw": 54.0,
-   "trend_pct": 157.1,
+   "song": "哭砂",
+   "share_pct": 5.1,
+   "raw": 48.0,
+   "trend_pct": 220.0,
    "trend_label": "up"
   },
   {
    "rank": 5,
-   "song": "在路上",
-   "share_pct": 5.1,
-   "raw": 46.0,
-   "trend_pct": 48.4,
+   "song": "山楂树",
+   "share_pct": 5.0,
+   "raw": 47.0,
+   "trend_pct": 123.8,
    "trend_label": "up"
   },
   {
    "rank": 6,
-   "song": "哭砂",
+   "song": "月弯弯",
    "share_pct": 4.9,
-   "raw": 44.0,
-   "trend_pct": 193.3,
+   "raw": 46.0,
+   "trend_pct": 109.1,
    "trend_label": "up"
   },
   {
    "rank": 7,
    "song": "她真漂亮",
    "share_pct": 4.6,
-   "raw": 41.0,
-   "trend_pct": 115.8,
+   "raw": 43.0,
+   "trend_pct": 126.3,
    "trend_label": "up"
   },
   {
    "rank": 8,
-   "song": "Sound of Silence",
-   "share_pct": 3.5,
-   "raw": 31.0,
-   "trend_pct": 19.2,
-   "trend_label": "up"
-  },
-  {
-   "rank": 9,
    "song": "谁",
-   "share_pct": 3.5,
-   "raw": 31.0,
+   "share_pct": 4.5,
+   "raw": 42.0,
    "trend_pct": null,
    "trend_label": "new"
   },
   {
+   "rank": 9,
+   "song": "Sound of Silence",
+   "share_pct": 3.2,
+   "raw": 30.0,
+   "trend_pct": 15.4,
+   "trend_label": "up"
+  },
+  {
    "rank": 10,
    "song": "南屏晚钟",
-   "share_pct": 2.7,
-   "raw": 24.0,
-   "trend_pct": 100.0,
+   "share_pct": 2.9,
+   "raw": 27.0,
+   "trend_pct": 125.0,
    "trend_label": "up"
   }
  ],
@@ -12131,6 +12131,36 @@
    "city": "苏州",
    "content_type": "歌舞剧·音乐剧",
    "tour": "草原之夜——来自可克达拉的歌谣",
+   "total_uplift": null,
+   "pattern": "常态型",
+   "top_songs": []
+  },
+  {
+   "date": "2027-02-26",
+   "scene": "长城长·北京",
+   "city": "苏州",
+   "content_type": "其他",
+   "tour": "长城长",
+   "total_uplift": null,
+   "pattern": "常态型",
+   "top_songs": []
+  },
+  {
+   "date": "2027-02-27",
+   "scene": "长城长·北京",
+   "city": "苏州",
+   "content_type": "其他",
+   "tour": "长城长",
+   "total_uplift": null,
+   "pattern": "常态型",
+   "top_songs": []
+  },
+  {
+   "date": "2027-02-28",
+   "scene": "长城长·北京",
+   "city": "苏州",
+   "content_type": "其他",
+   "tour": "长城长",
    "total_uplift": null,
    "pattern": "常态型",
    "top_songs": []
