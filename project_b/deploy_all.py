@@ -104,6 +104,8 @@ STEPS = [
     (ROOT / "project_b" / "build_voices_page.py", "听众之声页 voices.html（聚合+匿名短引用）", False),
     (ROOT / "project_b" / "build_danmaku_words.py", "弹幕高频词清洗 data/danmaku_words.json", False),
     (ROOT / "project_b" / "build_danmaku_page.py", "弹幕页 danmaku.html（B站+抖音+小红书抽样）", False),
+    (ROOT / "project_b" / "build_moments.py", "瞬间库 moments.html（金句/弹幕/路人梗）", False),
+    (ROOT / "project_b" / "build_ammo.py", "同担弹药库 ammo.html（脚本/文案/事实卡）", False),
     (ROOT / "tavern" / "_build_songs_compact.py", "小酒馆歌曲索引", False),
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
     (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),

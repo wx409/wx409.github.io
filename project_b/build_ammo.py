@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""build_ammo.py —— 同担弹药库（可直接取用的文案/脚本/事实卡）"""
+from __future__ import annotations
+
+import html
+import json
+from pathlib import Path
+
+ROOT = Path(r"D:\wx409.github.io")
+OUT = ROOT / "ammo.html"
+AV = ROOT / "data" / "archive_vocal.json"
+
+
+def esc(s):
+    return html.escape(str(s or ""))
+
+
+def main():
+    d = json.loads(AV.read_text(encoding="utf-8"))
+    c = d.get("conclusion") or {}
+    b1 = c.get("main_range") or "B1–D2（61.5–75.5Hz）"
+    b1s = "、".join(c.get("b1_songs") or [])
+    page = """<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>同担弹药库｜王晰安利文案、脚本与事实卡</title>
+<meta name="description" content="给王晰同担的可直接取用素材：15/30 秒视频脚本、微博/小红书/抖音/豆瓣/知乎文案模板、事实卡、不要这样说清单与发布检查表。每条都可回链出处。">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/ammo.html">
+<style>body{margin:0;background:#faf9f7;color:#1f2328;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:960px;margin:0 auto;padding:28px 20px 60px}h1{font-size:30px;margin:8px 0 4px}.sub{color:#666;margin:0 0 18px}
+h2{font-size:21px;margin:32px 0 12px;border-left:4px solid #a8323d;padding-left:10px}
+.card{background:#fff;border:1px solid #e6e2dc;border-radius:12px;padding:14px 16px;margin:10px 0}
+pre{white-space:pre-wrap;background:#f7f4ef;border:1px solid #e6e2dc;border-radius:8px;padding:12px;font-size:14px;line-height:1.7}
+button{background:#a8323d;color:#fff;border:0;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;margin-top:6px}
+table{width:100%%;border-collapse:collapse;background:#fff;border:1px solid #e6e2dc;border-radius:10px;overflow:hidden}
+th,td{padding:8px 12px;border-bottom:1px solid #e6e2dc;font-size:14px;text-align:left}th{background:#f3efe9}
+.tip{background:#fffdf8;border:1px solid rgba(184,145,46,.35);border-radius:10px;padding:12px 16px;font-size:14px;color:#6b5320}
+a{color:#a8323d;text-decoration:none}
+</style></head><body><main>
+<h1>同担弹药库</h1>
+<p class="sub">不用从零想文案。挑一条、改两个字、配一张卡、回链出处，就能发。</p>
+<div class="tip">先看 <a href="/moments.html">瞬间库</a> 选素材；这里给的是“怎么写成可传播的内容”。所有数字都要带口径，别把极值当常态。</div>
+
+<h2>一、15 秒短视频脚本（戴耳机向）</h2>
+<div class="card"><pre>开头 0–2s：黑底白字“戴耳机。否则你听不到他低在哪。”
+2–6s：他开口前的安静 / 一个低音长音（选 B1 附近）
+6–11s：观众反应或弹幕刷屏
+11–15s：字幕“这不是修音，是现场。王晰《多听有益》。”
+结尾：站内 voice.html 或原视频链接</pre><button onclick="copy(this)">复制脚本</button></div>
+
+<h2>二、30 秒现场安利脚本</h2>
+<div class="card"><pre>0–3s：字幕“华语流行圈，能把低音唱到 B1 的人不多。”
+3–10s：现场一句低音（不要选最高音，选最低最稳的那句）
+10–20s：切观众/舞台全景，字幕“他唱低音的时候，字还是清楚的。”
+20–27s：字幕“72 首录音室实测，B1 61.5Hz；现场和录音室差异不显著。”
+27–30s：站内链接/原视频</pre><button onclick="copy(this)">复制脚本</button></div>
+
+<h2>三、五个平台文案模板</h2>
+<div class="card"><b>微博（140 字内）</b><pre>别人夸他稳，他说“稳是应该的”。
+B1 61.5Hz，72 首录音室实测；现场和录音室最低稳定音差异不显著。
+先听《多听有益》，再决定要不要认识他。
+wx409.github.io/voice.html</pre><button onclick="copy(this)">复制</button></div>
+<div class="card"><b>小红书</b><pre>戴耳机听王晰，你会觉得胸口在震。
+B1 61.5Hz，比男低音标志音 Low C 还低。
+不是“低音炮”三个字能概括的，是低下去还能听清。
+#王晰 #男低音 #B1 #多听有益</pre><button onclick="copy(this)">复制</button></div>
+<div class="card"><b>抖音口播</b><pre>“都说他是男低音，我一开始没概念。直到我戴耳机听了《多听有益》——B1，61.5Hz。手机外放听不到，戴耳机才知道什么叫低到胸口。” </pre><button onclick="copy(this)">复制</button></div>
+<div class="card"><b>豆瓣</b><pre>【数据向安利】72 首录音室全量实测，最低稳定音 B1 61.5Hz（《静止了的夜晚》），低音主区 B1–D2；现场与录音室差异不显著（p=0.197）。不是“只会低音”，是“低下去还能听清”。数据和口径：wx409.github.io/vocal.html</pre><button onclick="copy(this)">复制</button></div>
+<div class="card"><b>知乎</b><pre>先给结论：按录音室实测，他的低音落在男低音区间，且低于 Low C。可复核数据：72 首全量，B1 61.5Hz，低音主区 B1–D2。争议点不在“能不能低”，在“低下去是否清楚、现场是否成立”——这两点他都有数据。详见 wx409.github.io/voice.html</pre><button onclick="copy(this)">复制</button></div>
+
+<h2>四、事实卡（引用时带上口径）</h2>
+<table>
+<tr><th>说法</th><th>可用数字</th></tr>
+<tr><td>最低稳定音</td><td>B1 61.5Hz《静止了的夜晚》；B1 共 4 首</td></tr>
+<tr><td>低音主区</td><td>%s</td></tr>
+<tr><td>跨度</td><td>单曲中位 2.23 个八度；跨曲目极值合计 3.52（极值，不是常态）</td></tr>
+<tr><td>现场</td><td>与录音室最低稳定音差异不显著（p=0.197）</td></tr>
+<tr><td>作品</td><td>9 张录音室专辑 / 72 首；六轮巡演 59 场 / 22 城</td></tr>
+</table>
+
+<h2>五、不要这样说</h2>
+<ul>
+<li>不说“中国第一男低音”（没有权威排名）</li>
+<li>不说“高音到 C6”（没有实证）</li>
+<li>不把 3.52 个八度当常态（单曲中位 2.23）</li>
+<li>不把“稳”当卖点（他自己把稳当底线）</li>
+<li>不伪造引语、不剪掉出处、不把粉丝场合的玩笑当正式声明</li>
+</ul>
+
+<h2>六、发布前检查</h2>
+<ul>
+<li>数字是否有出处/口径？</li>
+<li>是否回链了原视频或站内页？</li>
+<li>是否拿到授权/是否只用了短引用？</li>
+<li>是否带了水印 wx409.github.io？</li>
+<li>是否会被断章取义？</li>
+</ul>
+
+<h2>七、同担分工（3–5 人即可）</h2>
+<table><tr><th>角色</th><th>做什么</th></tr>
+<tr><td>素材</td><td>用视频索引找“哪首歌/哪场/哪个视频”</td></tr>
+<tr><td>剪辑</td><td>15–30 秒竖屏、字幕、水印</td></tr>
+<tr><td>文案</td><td>一条钩子 + 三句事实 + 平台版本</td></tr>
+<tr><td>数据</td><td>核对口径与出处，防止夸大</td></tr>
+<tr><td>发布</td><td>微博/小红书/抖音/B站/豆瓣，统一回链</td></tr></table>
+
+<p class="sub" style="margin-top:28px">配套：<a href="/moments.html">瞬间库</a> · <a href="/voice.html">B1 是什么概念</a> · <a href="/vocal.html">音域实测</a> · <a href="/danmaku.html">观众反应</a></p>
+</main>
+<script>
+function copy(btn){var pre=btn.parentElement.querySelector('pre'); if(!pre)return;
+navigator.clipboard.writeText(pre.innerText).then(function(){btn.textContent='已复制';setTimeout(function(){btn.textContent='复制'},1500);});}
+</script></body></html>""" % esc(b1)
+    OUT.write_text(page, encoding="utf-8")
+    print("写入", OUT, "| b1", b1)
+
+
+if __name__ == "__main__":
+    main()

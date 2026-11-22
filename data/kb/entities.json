@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-22 17:00",
- "entity_count": 1707,
+ "generated_at": "2026-11-22 21:00",
+ "entity_count": 1712,
  "entities": {
   "album:B面图景": {
    "type": "album",
@@ -631,10 +631,55 @@
   },
   "event:t049": {
    "type": "event",
+   "name": "歌舞剧《草原之夜——来自可克达拉的歌谣》苏州站（王晰饰垦荒者）",
+   "aliases": [],
+   "attrs": {
+    "date": "2026-11-20",
+    "type": "career"
+   }
+  },
+  "event:t050": {
+   "type": "event",
    "name": "中国东方演艺集团歌舞剧《草原之夜——来自可克达拉的歌谣》苏州站（饰垦荒者）",
    "aliases": [],
    "attrs": {
     "date": "2026-11-21",
+    "type": "career"
+   }
+  },
+  "event:t051": {
+   "type": "event",
+   "name": "歌舞剧《草原之夜——来自可克达拉的歌谣》苏州站第二场（王晰饰垦荒者）",
+   "aliases": [],
+   "attrs": {
+    "date": "2026-11-21",
+    "type": "career"
+   }
+  },
+  "event:t052": {
+   "type": "event",
+   "name": "音乐舞蹈诗剧《长城长》北京站（王晰饰战士）",
+   "aliases": [],
+   "attrs": {
+    "date": "2027-02-26",
+    "type": "career"
+   }
+  },
+  "event:t053": {
+   "type": "event",
+   "name": "音乐舞蹈诗剧《长城长》北京站第二场（王晰饰战士）",
+   "aliases": [],
+   "attrs": {
+    "date": "2027-02-27",
+    "type": "career"
+   }
+  },
+  "event:t054": {
+   "type": "event",
+   "name": "音乐舞蹈诗剧《长城长》北京站第三场（王晰饰战士）",
+   "aliases": [],
+   "attrs": {
+    "date": "2027-02-28",
     "type": "career"
    }
   },

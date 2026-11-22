@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22 16:08",
+ "generated_at": "2026-11-22 21:07",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 279,
   "dispatch": 279,
-  "deploy_steps": 111,
+  "deploy_steps": 113,
   "scheduled_tasks": 43
  },
  "tasks": [
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/22 16:34:00",
+    "next": "2026/11/22 21:34:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2134,7 +2134,7 @@
     "name": "wx409_trend_watch",
     "script": "trend_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/22 16:16:00",
+    "next": "2026/11/22 21:16:00",
     "type": "One Time Only, Minute",
     "start": "9:46:00"
    },
@@ -2320,6 +2320,13 @@
    "path": "D:\\wx409.github.io\\project_b\\bili_official_daily.py"
   },
   {
+   "script": "build_ammo.py",
+   "in_deploy": true,
+   "deploy_desc": "同担弹药库 ammo.html（脚本/文案/事实卡）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_ammo.py"
+  },
+  {
    "script": "build_auto_cards.py",
    "in_deploy": true,
    "deploy_desc": "自动卡（每周发现／自燃信号；未达条件不出卡）",
@@ -2437,6 +2444,13 @@
    "deploy_desc": "现场素材台账 live-materials.html（每日追加）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\build_live_material_ledger.py"
+  },
+  {
+   "script": "build_moments.py",
+   "in_deploy": true,
+   "deploy_desc": "瞬间库 moments.html（金句/弹幕/路人梗）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_moments.py"
   },
   {
    "script": "build_monthly_events.py",
@@ -2758,7 +2772,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/22 16:11:00",
+    "next": "2026/11/22 21:11:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2771,7 +2785,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/11/22 21:00:00",
+    "next": "2026/11/22 21:30:00",
     "type": "Daily",
     "start": "21:00:00"
    },
