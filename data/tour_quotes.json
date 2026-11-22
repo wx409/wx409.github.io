@@ -1,0 +1,26 @@
+{
+ "schema": "tour-quotes/v1",
+ "what": "巡演现场可引用短句（人工核听/转写，带出处、时间码与场合限制）",
+ "items": [
+  {
+   "id": "wen-shenzhen-20230623",
+   "date": "2023-06-23",
+   "city": "深圳",
+   "tour": "三巡·图景",
+   "occasion": "个人巡回音乐会（自家粉丝场合）",
+   "quote_primary": "上次在西安的时候，看见一个（观众）说“好稳”，我觉得你在侮辱我。",
+   "quote_secondary": "能不稳吗？（对台下，重复三遍）",
+   "timecode": "00:17–00:21（“侮辱我”）；00:27–00:35（“能不稳吗”三连）",
+   "source_title": "【王晰】能不稳吗三连",
+   "source_platform": "B站",
+   "source_bv": "BV1th4y1g7Cf",
+   "source_url": "https://www.bilibili.com/video/BV1th4y1g7Cf",
+   "source_up": "微甜抹茶猫",
+   "duration_s": 46,
+   "transcript_method": "本地 faster-whisper 转写 + 人耳语境判断；原声为准",
+   "context_note": "这是他在自己个巡、面对自家观众的玩笑/回怼，语气张扬；不能剪成“王晰拒绝被夸稳”的正式声明，也不能写成“骂粉丝”。",
+   "usable_angle": "把“稳”从卖点降为底线：他真正想说的是，稳是专业歌手的基本要求，不是值得夸的天赋。",
+   "status": "已核听（语境）/ 转写待逐字校对"
+  }
+ ]
+}
