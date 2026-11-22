@@ -25,7 +25,13 @@ def load(p):
 def main():
     a = load(ROOT / "data" / "bili_danmaku.json")
     b = load(ROOT / "data" / "bili_danmaku_fan.json")
-    videos = (a.get("videos") or []) + (b.get("videos") or [])
+    c = load(ROOT / "data" / "bili_danmaku_dense.json")
+    merged = {}
+    for v in (a.get("videos") or []) + (b.get("videos") or []) + (c.get("videos") or []):
+        key = v.get("bvid") or v.get("title")
+        if key and (key not in merged or (v.get("count") or 0) > (merged[key].get("count") or 0)):
+            merged[key] = v
+    videos = list(merged.values())
     total = sum(v.get("count") or 0 for v in videos)
     emo = {"夸": 0, "笑": 0, "哭": 0, "惊": 0}
     for d in (a, b):
