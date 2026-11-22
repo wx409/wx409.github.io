@@ -1,23 +1,22 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22T21:10:47",
+ "generated_at": "2026-11-23T00:18:54",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 923,
-  "processed_songs": 279,
-  "gap_songs": 64,
-  "coverage_pct": 105.3,
+  "processed_materials": 928,
+  "processed_songs": 280,
+  "gap_songs": 63,
+  "coverage_pct": 105.7,
   "status": {
-   "已完成": 403,
-   "候选": 8519,
+   "已完成": 409,
+   "候选": 8513,
    "跳过-串烧需人工切分": 53
   }
  },
  "gap_songs": [
-  "Besame",
   "DI DA DI",
   "Don't Break My Heart",
   "Nature Boy",
@@ -813,17 +812,20 @@
    "bv": "BV1im421W74X",
    "title": "感受下王晰唱歌就算是坐着也能一嗓子把人拍飞到岸边上的besame mucho",
    "song": "Besame Mucho",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2024-05-04",
    "kind": "其他",
    "fetched_at": "2024-05-04",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1vt411p7jg",
@@ -7818,17 +7820,20 @@
    "bv": "BV1eJ411w7cY",
    "title": "王晰 心动 深圳",
    "song": "心动",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "深圳",
    "date": "2019-09-18",
    "kind": "其他",
    "fetched_at": "2019-09-18",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1H7411r745",
@@ -12436,17 +12441,20 @@
    "bv": "BV1im421W74X",
    "title": "感受下王晰唱歌就算是坐着也能一嗓子把人拍飞到岸边上的besame mucho",
    "song": "Besame",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2024-05-04",
    "kind": "其他",
    "fetched_at": "2024-05-04",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1vt411p7jg",
@@ -65300,17 +65308,20 @@
    "bv": "BV1bJ411B7XC",
    "title": "王晰 高杨 扒拉扒拉我竟然也有两人版的love me tender",
    "song": "Love Me Tender",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-05",
    "kind": "其他",
    "fetched_at": "2019-12-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1wv411677D",
@@ -87206,17 +87217,20 @@
    "bv": "BV16K4y1o7me",
    "title": "王晰这次的dear friend唱的好动情（哪次不动ಥ_ಥ）有种特别的虚弱感意外的更好听了",
    "song": "Dear Friend",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2021-04-20",
    "kind": "其他",
    "fetched_at": "2021-04-20",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV13nt7ehERn",
@@ -106463,17 +106477,20 @@
    "bv": "BV1E4411a7iT",
    "title": "【王晰】饭拍《亲爱的中国，我的爱》| 0511音乐先锋榜",
    "song": "亲爱的中国，我的爱",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-05-12",
    "kind": "其他",
    "fetched_at": "2019-05-12",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1X4411h7CV",

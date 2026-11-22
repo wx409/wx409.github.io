@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-22T21:11:03",
+ "generated_at": "2026-11-23T00:19:15",
  "stat": {
-  "generated_at": "2026-11-22T21:11:03",
+  "generated_at": "2026-11-23T00:19:14",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -257,12 +257,21 @@
    },
    {
     "song": "心动",
-    "versions": 7,
-    "low_median": 97.6,
-    "low_iqr": 13.0,
+    "versions": 8,
+    "low_median": 99.0,
+    "low_iqr": 16.7,
     "low_range": 54.8,
-    "high_median": 447.9,
-    "low_cv": 0.1695
+    "high_median": 434.0,
+    "low_cv": 0.1621
+   },
+   {
+    "song": "亲爱的中国，我的爱",
+    "versions": 7,
+    "low_median": 93.6,
+    "low_iqr": 12.6,
+    "low_range": 38.9,
+    "high_median": 741.1,
+    "low_cv": 0.154
    },
    {
     "song": "哭砂",
@@ -290,15 +299,6 @@
     "low_range": 17.3,
     "high_median": 310.8,
     "low_cv": 0.0674
-   },
-   {
-    "song": "亲爱的中国，我的爱",
-    "versions": 6,
-    "low_median": 92.2,
-    "low_iqr": 15.1,
-    "low_range": 38.9,
-    "high_median": 702.2,
-    "low_cv": 0.162
    },
    {
     "song": "签唱会上海全场",
@@ -463,6 +463,15 @@
     "low_cv": 0.0334
    },
    {
+    "song": "Love Me Tender",
+    "versions": 4,
+    "low_median": 89.2,
+    "low_iqr": 31.5,
+    "low_range": 35.5,
+    "high_median": 391.9,
+    "low_cv": 0.1869
+   },
+   {
     "song": "情网",
     "versions": 4,
     "low_median": 93.4,
@@ -515,15 +524,6 @@
     "low_range": 37.3,
     "high_median": 676.3,
     "low_cv": 0.1622
-   },
-   {
-    "song": "Yourman",
-    "versions": 3,
-    "low_median": 87.2,
-    "low_iqr": 11.7,
-    "low_range": 23.4,
-    "high_median": 857.8,
-    "low_cv": 0.1138
    }
   ],
   "low_cv_median": 0.1278,
@@ -531,9 +531,9 @@
  },
  "register_adapt": {
   "own_live_low_median": 85.3,
-  "cover_live_low_median": 93.6,
+  "cover_live_low_median": 93.4,
   "own_n": 46,
-  "cover_n": 234,
+  "cover_n": 235,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
@@ -541,7 +541,7 @@
    },
    "心动": {
     "orig": "陈洁仪",
-    "live_low_median": 97.6
+    "live_low_median": 99.0
    },
    "玫瑰人生（La Vie en Rose）": {
     "orig": "Edith Piaf",
