@@ -23,6 +23,7 @@ ROOT = Path(r"D:\wx409.github.io")
 INDEX = Path(r"E:\wx\私有工具\video_index.json")
 TRANS = Path(r"E:\wx\私有工具\video_transcripts")
 MODEL = "large-v3-turbo"
+LOCK = ROOT / "temp" / "longjob.lock"
 
 
 def main():
@@ -40,6 +41,8 @@ def main():
         print("没有待转写视频")
         return 0
     TRANS.mkdir(parents=True, exist_ok=True)
+    LOCK.parent.mkdir(parents=True, exist_ok=True)
+    LOCK.touch()
     from faster_whisper import WhisperModel
     model = WhisperModel(MODEL, device="cuda", compute_type="float16")
     sys.path.insert(0, str(ROOT / "project_b"))
@@ -64,6 +67,7 @@ def main():
         v["transcript_path"] = str(tp)
         v["songs"] = sorted(set(v.get("songs") or []) | set(detect_songs(text, v.get("title", ""))))
         done += 1
+        LOCK.touch()
         if done % 10 == 0:
             INDEX.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
         print("[%d/%d] ok %s chars=%d songs=%s" % (i, len(vids), v["id"], len(text), v["songs"]), flush=True)
