@@ -545,6 +545,19 @@ def build_index():
 {share_promo()}
 <p class="sub">华语流行男低音（Bass-baritone）的可查、可问、可引用档案 ｜ 全站数字均可回溯到数据文件与口径标签 ｜ 更新 {UPDATED}</p>
 
+<section style="background:#fffdf8;border:1px solid rgba(184,145,46,.35);border-left:4px solid #b8912e;border-radius:10px;padding:16px 20px;margin:16px 0">
+<p style="font-size:15px;color:#6b5320;margin:0 0 8px"><strong>华语流行圈里，能把低音唱到 B1 61.5Hz 的人不多。</strong></p>
+<h2 style="margin:0 0 8px;font-size:20px">先听这 5 首，再决定要不要认识他</h2>
+<ol style="margin:0 0 10px;padding-left:22px;line-height:1.9">
+<li><b>多听有益</b> — 26 首歌里，唯一唱完指数明显上涨（+54.2%，2 场）</li>
+<li><b>静止了的夜晚</b> — B1 61.5Hz 的出处</li>
+<li><b>小河</b> — 巡演 10 场常唱，先听他的低音区质感</li>
+<li><b>在路上</b> — 9 场常唱，中低音区的叙述感</li>
+<li><b>歌颂</b> — 5 场现场，适合第一次听</li>
+</ol>
+<p style="margin:0;font-size:14px;color:#555">在 QQ 音乐/网易云搜歌名即可。想先看现场 → <a href="/live-reviews.html">现场实录</a>；想弄懂 B1 → <a href="/voice.html">B1 是什么概念</a>；想走完整入门 → <a href="/works.html">作品</a> · <a href="/live.html">现场</a> · <a href="/vocal.html">声音数据</a>。</p>
+</section>
+
 <div class="answer"><strong>一句话认识王晰：</strong>{esc(elev_full)}</div>
 <!-- TOUR-FACTS:START（由 project_b/inject_index_facts.py 生成，勿手改）-->
 <!-- TOUR-FACTS:END -->
