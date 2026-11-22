@@ -85,6 +85,7 @@ def main() -> int:
     parts.append("<style>%s</style>\n</head>\n<body>\n<main>" % CSS)
 
     parts.append("<h1>听众之声</h1>")
+    parts.append('<p class="sub">另见 <a href="/danmaku.html">B站弹幕里的王晰（观众即时反应）</a></p>')
     parts.append('<p class="sub">%d 条微博评论的聚合视图 · %d 条帖子 · %s–%s · 只发布匿名统计与 ≤60 字短引用</p>'
                  % (n, posts, y0, y1))
 
@@ -161,6 +162,19 @@ def main() -> int:
             parts.append("<tr><td>%s</td><td class='n'>%s</td><td>%s</td></tr>"
                          % (esc(t["name"]), format(t["n"], ","), qs))
         parts.append("</table>")
+
+        try:
+            tc = json.loads((ROOT / "data" / "comment_topics.json").read_text(encoding="utf-8"))
+            parts.append("<h2>自动主题图谱（bge 向量 + 聚类）</h2>")
+            parts.append("<p class='sub'>对清洗后的评论做语义聚类，得到 24 个主题；词为 TF-IDF 高权重词，样本为匿名短句。</p>")
+            parts.append("<table><tr><th>主题词</th><th>条数</th><th>样本</th></tr>")
+            for t in (tc.get("topics") or [])[:24]:
+                sample = "；".join("“%s”" % esc(x[:40]) for x in (t.get("samples") or [])[:1])
+                parts.append("<tr><td>%s</td><td class='n'>%s</td><td>%s</td></tr>"
+                             % (esc("、".join(t.get("words") or [])[:8]), format(t.get("count") or 0, ","), sample))
+            parts.append("</table>")
+        except Exception:
+            pass
 
         parts.append("<h2>场次相关评论（日期 ±10 天 + 城市/剧名命中）</h2>")
         parts.append("<table><tr><th>场次</th><th>评论数</th><th>短引用</th></tr>")
