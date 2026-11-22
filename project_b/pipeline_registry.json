@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22 14:10",
+ "generated_at": "2026-11-22 14:18",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 279,
   "dispatch": 279,
-  "deploy_steps": 107,
-  "scheduled_tasks": 38
+  "deploy_steps": 110,
+  "scheduled_tasks": 41
  },
  "tasks": [
   {
@@ -2134,7 +2134,7 @@
     "name": "wx409_trend_watch",
     "script": "trend_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/22 14:16:00",
+    "next": "2026/11/22 14:26:00",
     "type": "One Time Only, Minute",
     "start": "9:46:00"
    },
@@ -2268,6 +2268,45 @@
    "path": "D:\\wx409.github.io\\project_b\\auto_new_song_vocal.py"
   },
   {
+   "script": "bili_danmaku.py",
+   "schedule": {
+    "name": "wx409_bili_danmaku_daily",
+    "script": "bili_danmaku.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_danmaku.py",
+    "next": "2026/11/23 10:45:00",
+    "type": "Daily",
+    "start": "10:45:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\bili_danmaku.py"
+  },
+  {
+   "script": "bili_danmaku_dense.py",
+   "schedule": {
+    "name": "wx409_bili_dense_daily",
+    "script": "bili_danmaku_dense.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_danmaku_dense.py",
+    "next": "2026/11/23 10:50:00",
+    "type": "Daily",
+    "start": "10:50:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\bili_danmaku_dense.py"
+  },
+  {
+   "script": "bili_danmaku_fan.py",
+   "schedule": {
+    "name": "wx409_bili_fan_weekly",
+    "script": "bili_danmaku_fan.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_danmaku_fan.py",
+    "next": "2026/11/29 11:00:00",
+    "type": "Weekly",
+    "start": "11:00:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\bili_danmaku_fan.py"
+  },
+  {
    "script": "bili_official_daily.py",
    "schedule": {
     "name": "wx409_bili_official_daily",
@@ -2321,6 +2360,20 @@
    "deploy_desc": "模板卡四张 + weekly5 + 最近更正",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\build_cut_templates.py"
+  },
+  {
+   "script": "build_danmaku_page.py",
+   "in_deploy": true,
+   "deploy_desc": "弹幕页 danmaku.html（B站+抖音+小红书抽样）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_danmaku_page.py"
+  },
+  {
+   "script": "build_danmaku_words.py",
+   "in_deploy": true,
+   "deploy_desc": "弹幕高频词清洗 data/danmaku_words.json",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_danmaku_words.py"
   },
   {
    "script": "build_entity_index.py",
@@ -2685,7 +2738,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/22 14:11:00",
+    "next": "2026/11/22 14:21:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2842,6 +2895,13 @@
    "deploy_desc": "社媒灵感库自动追加（有新发现才写，幂等）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\update_praise_library.py"
+  },
+  {
+   "script": "update_site_url_list.py",
+   "in_deploy": true,
+   "deploy_desc": "网页列表 Excel 同步（新增/未入 sitemap）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\update_site_url_list.py"
   },
   {
    "script": "update_songs_meta_tags.py",

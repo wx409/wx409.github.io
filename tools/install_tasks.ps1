@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-11-22 14:10
+# 生成时间：2026-11-22 14:18
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -121,6 +121,27 @@ $t = New-ScheduledTaskTrigger -AtLogOn
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'QQMusicDashboardAutoStart' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] QQMusicDashboardAutoStart'
+
+# --- wx409_bili_danmaku_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\bili_danmaku.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_bili_danmaku_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_bili_danmaku_daily'
+
+# --- wx409_bili_dense_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\bili_danmaku_dense.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_bili_dense_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_bili_dense_daily'
+
+# --- wx409_bili_fan_weekly ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\bili_danmaku_fan.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_bili_fan_weekly' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_bili_fan_weekly'
 
 # --- wx409_bili_official_daily ---
 $a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\bili_official_daily.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
