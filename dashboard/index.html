@@ -1074,7 +1074,7 @@ setTimeout(function(){
   var picks = [], seen = {};
   withDs.slice().sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); }).forEach(function(e){
     if (seen[e.date]) return; seen[e.date] = 1;
-    picks.push({label:(e.city||'') + '·' + e.date.slice(2), e:e});
+    picks.push({label:((e.scene&&e.scene.indexOf('·')>=0)?e.scene.split('·').pop():(e.city||'')) + '·' + e.date.slice(2), e:e});
   });
   picks = picks.slice(0, 60);
   // 宣传链数据（event_study.json：发博时序 + 基线污染诊断）

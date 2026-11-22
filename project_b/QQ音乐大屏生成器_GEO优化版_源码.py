@@ -2043,7 +2043,8 @@ def tour_song_effects(df_all, setlists, topn=5):
         setlist_uplift = (sum(e[1] for e in on_list) / len(on_list)) if on_list else None
         radiance_uplift = (sum(e[1] for e in off_list) / len(off_list)) if off_list else None
         candidates = sorted(effects, key=lambda e: e[1], reverse=True)[:topn]
-        e_city = info["city"] if "city" in info else _city_of_name(scene)
+        e_city = (scene.rsplit("·", 1)[-1].strip() if "·" in scene
+                  else (info.get("city") or _city_of_name(scene)))
 
         # ---- 追踪曲目池逐日衰减序列 daily_series：演出后 T+1..T+14 追踪曲目池平均指数 相对基线(baseline)变化率 ----
         daily_series = None
@@ -3598,7 +3599,7 @@ setTimeout(function(){
   var picks = [], seen = {};
   withDs.slice().sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); }).forEach(function(e){
     if (seen[e.date]) return; seen[e.date] = 1;
-    picks.push({label:(e.city||'') + '·' + e.date.slice(2), e:e});
+    picks.push({label:((e.scene&&e.scene.indexOf('·')>=0)?e.scene.split('·').pop():(e.city||'')) + '·' + e.date.slice(2), e:e});
   });
   picks = picks.slice(0, 60);
   // 宣传链数据（event_study.json：发博时序 + 基线污染诊断）
@@ -5062,6 +5063,10 @@ def build_dashboard_payload(df_all, df_stats, dims, song_info, registry_info, hi
     release_fx = release_performance(df_all, song_info.get("release_events", []))
     # 场次后歌曲级效应（长表为唯一输入：直接效应=歌单内，辐射带动=歌单外）
     tour_song_fx = tour_song_effects(df_all, setlists) if setlists else []
+    for _e in tour_song_fx:
+        if "·" in (_e.get("scene") or ""):
+            _e["city"] = _e["scene"].rsplit("·", 1)[-1].strip()
+            _e["city_tier"] = city_tier_of(_e["city"])
     # 演出辐射效能分析（Python 计算 + LLM 措辞，数据变化才重跑 LLM，省 token）
     radiation_analysis = build_radiation_analysis(tour_song_fx) if tour_song_fx else None
 
@@ -5827,6 +5832,9 @@ def generate_dashboard(payload, dashboard_dir):
     live_map = _load_live_url_map(dashboard_dir)
     for _e in payload.get("tour_song_effects") or []:
         _e["live_url"] = live_map.get(_e.get("date"))
+        if "·" in (_e.get("scene") or ""):
+            _e["city"] = _e["scene"].rsplit("·", 1)[-1].strip()
+            _e["city_tier"] = city_tier_of(_e["city"])
 
     json_path = os.path.join(dashboard_dir, "dashboard_data.json")
     # 排除清单：按 uid + 名称剔除（本地清单含名称，不进仓库）
