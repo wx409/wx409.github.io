@@ -36,7 +36,7 @@ def main():
             d = date.fromisoformat(ds)
         except Exception:
             continue
-        if not (today - timedelta(days=30) <= d <= today + timedelta(days=90)):
+        if not (today - timedelta(days=30) <= d <= today + timedelta(days=180)):
             continue
         key = "%s|%s|%s" % (ds, city, title[:20])
         if state.get(key):

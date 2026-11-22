@@ -99,6 +99,7 @@ def esc(s) -> str:
 parts: list[str] = []
 jsonld_events = []
 for p in proj.get("projects", []):
+    conv = ""
     sh = shows_for(p["match"])
     sg = songs_for(p["match"])
     cities = []
@@ -138,6 +139,7 @@ for p in proj.get("projects", []):
                     + "（旧文「19 段 / 26 曲」为早期口径，今以本行为准）")
     except Exception as e:
         conv = f"（口径读取失败：{e}）"
+    song_cell = "暂无曲目数据（歌舞剧以现场为准）" if not sg else (conv or ("共 <b>%d</b> 首（按长表去重）" % len(sg)))
     parts.append('<table><tr><th>王晰的角色</th><td><span class="badge role">%s</span></td></tr>'
                  '<tr><th>主要场馆</th><td>%s</td></tr>'
                  '<tr><th>场次</th><td>共 <b>%d</b> 场%s%s</td></tr>'
@@ -145,7 +147,7 @@ for p in proj.get("projects", []):
                  % (esc(p.get("role", "")), esc(p.get("venue", "")), len(sh),
                     "（%s）" % esc(span) if span else "",
                     "，覆盖 %s" % "、".join(cities) if cities else "",
-                    conv or ("共 <b>%d</b> 首（按长表去重）" % len(sg))))
+                    song_cell))
     parts.append('<p class="lead">%s</p>' % esc(p.get("summary", "")))
     facts = list(p.get("facts") or [])
     if sh:
@@ -163,7 +165,7 @@ for p in proj.get("projects", []):
         parts.append("<h3>曲目（首场全场）</h3><p>%s</p>" % "".join('<span class="tag">%s</span>' % esc(s) for s in sg))
     nts = nights_for(p.get("match", ""))
     if nts:
-        rows = []
+        night_rows = []
         for n in nts:
             extra = []
             if n.get("added"):
@@ -172,14 +174,14 @@ for p in proj.get("projects", []):
                 extra.append("点歌段：" + "、".join(esc(x) for x in n["point_song"]))
             if n.get("no_removed"):
                 extra.append("无曲目被顶掉")
-            rows.append("<tr><td>%s</td><td>%s</td><td>%s</td><td class=meta>%s</td></tr>"
+            night_rows.append("<tr><td>%s</td><td>%s</td><td>%s</td><td class=meta>%s</td></tr>"
                         % (esc(n.get("date")), esc(n.get("segments") or "—"),
                            esc(n.get("songs")), "；".join(extra) or esc(n.get("file"))))
         parts.append("<h3>按夜场次与歌单差异</h3>"
                      "<table><tr><th>日期</th><th>段数</th><th>曲目数</th><th>与首场差异</th></tr>%s</table>"
                      "<p class=meta>数据源：<code>data/show_setlists/*.json</code>（按夜独立歌单）｜"
                      "★ 本页场次属「院团合作场次（东演）」，与个人巡演 59 场<b>分列</b>，不得混加</p>"
-                     % "".join(rows))
+                     % "".join(night_rows))
     if sh:
         parts.append("<h3>场次表</h3><table><tr><th>日期</th><th>城市</th><th>曲目数</th><th>出处</th></tr>%s</table>"
                      % "".join("<tr><td>%s</td><td>%s</td><td>%d</td><td class=meta>%s</td></tr>"
