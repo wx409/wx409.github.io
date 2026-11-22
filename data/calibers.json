@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22 09:13",
+ "generated_at": "2026-11-22 14:25",
  "count": 77,
  "calibers": [
   {
@@ -197,7 +197,7 @@
   {
    "id": "kb_facts",
    "label": "知识库事实条数",
-   "value": 1734,
+   "value": 1739,
    "scope": "结构化事实",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -205,7 +205,7 @@
   {
    "id": "kb_entities",
    "label": "知识库实体数",
-   "value": 1706,
+   "value": 1707,
    "scope": "人/歌/专辑/演出/城市等实体",
    "source": "data/kb/manifest.json",
    "note": ""
@@ -221,7 +221,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5761,
+   "value": 5767,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -605,8 +605,8 @@
   {
    "id": "listeners_peak_daily",
    "label": "收听峰值覆盖（曲目×日）",
-   "value": 1796,
-   "scope": "1718 个批次文件 / 118 天（（本机 E 盘）指数vs）",
+   "value": 1797,
+   "scope": "1722 个批次文件 / 118 天（（本机 E 盘）指数vs）",
    "source": "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
    "note": "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点"
   },
