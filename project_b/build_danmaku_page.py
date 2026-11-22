@@ -59,6 +59,12 @@ def main():
         tops = "；".join("“%s”" % esc(t) for t in (v.get("top") or [])[:3])
         dy_rows += "<tr><td>%s</td><td class='n'>%s</td><td>%s</td></tr>" % (
             esc(v.get("title")), format(v.get("count") or 0, ","), tops)
+    xh = load(ROOT / "data" / "xhs_comments.json")
+    xh_rows = ""
+    for v in xh.get("videos") or []:
+        tops = "；".join("“%s”" % esc(t) for t in (v.get("top") or [])[:3])
+        xh_rows += "<tr><td>%s</td><td class='n'>%s</td><td>%s</td></tr>" % (
+            esc(v.get("id")), format(v.get("count") or 0, ","), tops)
     chips = "".join("<span class='chip'>%s <b>%s</b></span>" % (esc(w), format(n, ",")) for w, n in top)
     html_doc = """<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,9 +94,10 @@ th,td{padding:8px 12px;border-bottom:1px solid #e6e2dc;font-size:14px;text-align
 <h2>高频词</h2><p>%s</p>
 <h2>逐视频弹幕数</h2><table><tr><th>视频</th><th>UP</th><th>播放</th><th>弹幕</th></tr>%s</table>
 <h2>抖音路人评论（抽样）</h2><table><tr><th>视频</th><th>评论数</th><th>高赞短评</th></tr>%s</table>
-<p class="sub">口径：弹幕为 B站公开 API 拉取；情绪为关键词命中（笑/哭/夸/惊），不是模型判定；只做聚合，不复述原文长句。抖音评论为有头浏览器首屏抽样，非全量。</p>
+<h2>小红书评论（抽样）</h2><table><tr><th>笔记</th><th>评论数</th><th>高赞短评</th></tr>%s</table>
+<p class="sub">口径：弹幕为 B站公开 API 拉取；情绪为关键词命中（笑/哭/夸/惊），不是模型判定；只做聚合，不复述原文长句。抖音/小红书评论为有头浏览器抽样，非全量。</p>
 </main></body></html>""" % (total, json.dumps(jsonld, ensure_ascii=False), total, format(total, ","), len(videos),
-                          format(emo.get("夸", 0), ","), format(emo.get("笑", 0), ","), format(emo.get("哭", 0), ","), chips, rows, dy_rows)
+                          format(emo.get("夸", 0), ","), format(emo.get("笑", 0), ","), format(emo.get("哭", 0), ","), chips, rows, dy_rows, xh_rows)
     OUT.write_text(html_doc, encoding="utf-8")
     print("写入", OUT, "|", total, "条弹幕")
 
