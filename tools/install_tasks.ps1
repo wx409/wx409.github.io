@@ -1,5 +1,5 @@
 # 自动生成：由 project_b/pipeline_registry.json 派生（勿手改；改登记表后重跑 build_pipeline_views.py）
-# 生成时间：2026-11-22 14:37
+# 生成时间：2026-11-22 16:08
 $ErrorActionPreference = 'Stop'
 $py = 'C:\Users\yezhe\AppData\Local\Programs\Python\Python310\python.exe'
 
@@ -296,3 +296,10 @@ $t = New-ScheduledTaskTrigger -Daily -At 09:00
 $s = New-ScheduledTaskSettingsSet -StartWhenAvailable
 Register-ScheduledTask -TaskName 'wx409_video_transcribe' -Action $a -Trigger $t -Settings $s -Force | Out-Null
 Write-Host '[OK] wx409_video_transcribe'
+
+# --- wx409_xhs_watch_daily ---
+$a = New-ScheduledTaskAction -Execute $py -Argument '-X utf8 "D:\wx409.github.io\project_b\xhs_watch.py"' -WorkingDirectory 'D:\wx409.github.io\project_b'
+$t = New-ScheduledTaskTrigger -Daily -At 09:00
+$s = New-ScheduledTaskSettingsSet -StartWhenAvailable
+Register-ScheduledTask -TaskName 'wx409_xhs_watch_daily' -Action $a -Trigger $t -Settings $s -Force | Out-Null
+Write-Host '[OK] wx409_xhs_watch_daily'
