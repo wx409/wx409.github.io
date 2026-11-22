@@ -1066,19 +1066,16 @@ setTimeout(function(){
   var chartEl = document.getElementById('esChart');
   if (!picker || !chartEl) return;
   var fx = dashboardData.tour_song_effects || [];
-  var withDs = fx.filter(function(e){ return e.daily_series && Object.keys(e.daily_series).length >= 3; });
+  var withDs = fx.filter(function(e){ return e.daily_series && Object.keys(e.daily_series).length >= 1; });
   if (!withDs.length) return;
   // 重点场次（最新 / 广州 / 重庆 / 最大爆点 / 最强单场）
-  var picks = [];
-  var latest = withDs.slice().sort(function(a,b){ return (b.date||'') < (a.date||'') ? -1 : 1; })[0];
-  if (latest) picks.push({label:'最新·' + (latest.city||latest.date), e:latest});
-  ['2026-08-23','2026-06-13','2024-06-07','2025-03-21'].forEach(function(d){
-    var e = withDs.find(function(x){ return x.date === d; });
-    if (e) picks.push({label:(e.city||'') + '·' + e.date.slice(2), e:e});
+  // 全部场次按日期倒序（不再写死 4 个日期；新演出自动进入）
+  var picks = [], seen = {};
+  withDs.slice().sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); }).forEach(function(e){
+    if (seen[e.date]) return; seen[e.date] = 1;
+    picks.push({label:(e.city||'') + '·' + e.date.slice(2), e:e});
   });
-  // 去重（按 date）
-  var seen = {};
-  picks = picks.filter(function(p){ if (seen[p.e.date]) return false; seen[p.e.date] = true; return true; }).slice(0,5);
+  picks = picks.slice(0, 60);
   // 宣传链数据（event_study.json：发博时序 + 基线污染诊断）
   var esData = null, curEntry = null;
   try {
@@ -1128,13 +1125,24 @@ setTimeout(function(){
       ]
     });
   }
-  picks.forEach(function(p){
+  // 最近 6 个做成按钮，其余收进下拉（不丢历史场次）
+  picks.slice(0,6).forEach(function(p){
     var btn = document.createElement('button');
     btn.textContent = p.label;
     btn.style.cssText = 'background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.3);color:#00d2ff;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;';
     btn.onclick = function(){ draw(p); };
     picker.appendChild(btn);
   });
+  if (picks.length > 6){
+    var sel = document.createElement('select');
+    sel.style.cssText = 'background:#141b3a;color:#cdd6e6;border:1px solid rgba(0,210,255,.3);border-radius:8px;padding:6px 8px;font-size:12px;max-width:220px';
+    var opt0 = document.createElement('option'); opt0.textContent = '选择历史场次…'; opt0.value = ''; sel.appendChild(opt0);
+    picks.forEach(function(p, i){
+      var o = document.createElement('option'); o.value = i; o.textContent = p.label; sel.appendChild(o);
+    });
+    sel.onchange = function(){ if (this.value !== '') draw(picks[+this.value]); };
+    picker.appendChild(sel);
+  }
   if (picks.length) draw(picks[0]);
 })();
 </script>
