@@ -108,7 +108,7 @@ STEPS = [
     (ROOT / "project_b" / "build_moments.py", "瞬间库 moments.html（金句/弹幕/路人梗）", False),
     (ROOT / "project_b" / "make_quote_cards.py", "金句竖屏卡 assets/share/quotes", False),
     (ROOT / "project_b" / "build_content_calendar.py", "每周内容日历 data/content_calendar.json", False),
-    (ROOT / "project_b" / "build_ammo.py", "同担弹药库 ammo.html（脚本/文案/事实卡）", False),
+    (ROOT / "project_b" / "build_ammo.py", "内容补给站 ammo.html（脚本/文案/事实卡）", False),
     (ROOT / "tavern" / "_build_songs_compact.py", "小酒馆歌曲索引", False),
     (ROOT / "project_b" / "build_music_index.py", "音乐数据周报", False),
     (ROOT / "project_b" / "build_feed.py", "Atom Feed feed.xml", False),

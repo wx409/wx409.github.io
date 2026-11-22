@@ -32,8 +32,8 @@ def main():
         cal_html = ""
     page = """<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>同担弹药库｜王晰安利文案、脚本与事实卡</title>
-<meta name="description" content="给王晰同担的可直接取用素材：15/30 秒视频脚本、微博/小红书/抖音/豆瓣/知乎文案模板、事实卡、不要这样说清单与发布检查表。每条都可回链出处。">
+<title>内容补给站｜王晰安利文案、脚本与事实卡</title>
+<meta name="description" content="给王晰听众的可直接取用素材：15/30 秒视频脚本、微博/小红书/抖音/豆瓣/知乎文案模板、事实卡、不要这样说清单与发布检查表。每条都可回链出处。">
 <meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/ammo.html">
 <style>body{margin:0;background:#faf9f7;color:#1f2328;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
 main{max-width:960px;margin:0 auto;padding:28px 20px 60px}h1{font-size:30px;margin:8px 0 4px}.sub{color:#666;margin:0 0 18px}
@@ -46,7 +46,7 @@ th,td{padding:8px 12px;border-bottom:1px solid #e6e2dc;font-size:14px;text-align
 .tip{background:#fffdf8;border:1px solid rgba(184,145,46,.35);border-radius:10px;padding:12px 16px;font-size:14px;color:#6b5320}
 a{color:#a8323d;text-decoration:none}
 </style></head><body><main>
-<h1>同担弹药库</h1>
+<h1>内容补给站</h1>
 <p class="sub">不用从零想文案。挑一条、改两个字、配一张卡、回链出处，就能发。</p>
 <div class="tip">先看 <a href="/moments.html">瞬间库</a> 选素材；这里给的是“怎么写成可传播的内容”。所有数字都要带口径，别把极值当常态。</div>
 __CAL__

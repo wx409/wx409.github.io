@@ -46,8 +46,12 @@ def pick_quotes(items):
 
 def pick_danmaku(videos, timeline=None):
     tlmap = {x.get("bvid"): x for x in ((timeline or {}).get("videos") or [])}
+    bad = ("考古", "没想到", "翻车", "reaction", "后台", "花絮", "采访", "综艺", "黄子", "尚雯婕", "张韶涵", "李琦", "鞠红川", "开车", "盘点", "合集", "直播", "预告", "三份工")
+    good = ("现场", "live", "Live", "低音", "清唱", "官摄", "舞台", "巡演", "多听有益", "让她降落", "青藏高原", "City of Stars", "宝贝", "小毛驴", "女儿情", "雾里")
+    cand = [v for v in videos if "王晰" in (v.get("title") or "") and not any(k in (v.get("title") or "") for k in bad)
+            and any(k in (v.get("title") or "") for k in good)]
     rows = []
-    for v in videos[:8]:
+    for v in (cand or videos)[:8]:
         bv = v.get("bvid")
         lines = []
         for d in (RAW, RAW2):
@@ -74,13 +78,30 @@ def pick_danmaku(videos, timeline=None):
     return rows
 
 
+def pick_memes(videos):
+    bad = ("新年", "直播", "预告", "变装", "拍手", "光影", "乐华", "几巡", "女装", "让她降落", "摸摸毛", "噩梦", "百字明咒")
+    good = ("低音", "声音", "好听", "现场", "开口", "唱", "稳", "鸡皮疙瘩", "耳朵", "震", "大提琴", "磁性", "妖僧", "功德", "按摩", "扭", "性感", "纯欲", "唐装", "西安")
+    scored = []
+    for v in videos:
+        t = v.get("title") or ""
+        if any(k in t for k in bad):
+            continue
+        cs = " ".join(v.get("top") or [])
+        sc = sum(3 for k in good if k in cs) + (v.get("count") or 0) / 100.0
+        if sc <= 0:
+            continue
+        scored.append((sc, v))
+    scored.sort(key=lambda x: -x[0])
+    return [v for _, v in scored[:8]]
+
+
 def main():
     tav = load(ROOT / "data" / "tavern_citable.json")
     fan = load(ROOT / "data" / "bili_danmaku_fan.json")
     dy = load(ROOT / "data" / "douyin_comments.json")
     quotes = pick_quotes(tav.get("items") or [])
     screams = pick_danmaku(fan.get("videos") or [], load(ROOT / "data" / "danmaku_timeline.json"))
-    memes = [v for v in (dy.get("videos") or [])][:8]
+    memes = pick_memes(dy.get("videos") or [])
     doc = {"generated_at": __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M"),
            "quotes": quotes, "screams": screams, "memes": memes}
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")

@@ -29,7 +29,7 @@ def get(url, ref="https://www.bilibili.com/"):
 
 
 def main():
-    vids = (json.loads(FAN.read_text(encoding="utf-8")).get("videos") or [])[:10]
+    vids = (json.loads(FAN.read_text(encoding="utf-8")).get("videos") or [])
     rows = []
     for v in vids:
         bv = v["bvid"]
