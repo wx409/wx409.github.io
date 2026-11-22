@@ -34,9 +34,19 @@ def to_int(v):
         return 0
 
 
+def strip_tags(t):
+    """去掉话题标签（#...#[话题]#、#xxx#、[话题]#），只留正文。"""
+    t = re.sub(r"#[^#\n]{0,40}\[(?:话题|超话)\]#", "", t)
+    t = re.sub(r"#[^#\n]{0,40}#", "", t)
+    t = re.sub(r"#[^\s#]{1,40}", "", t)
+    t = re.sub(r"\[(?:话题|超话)\]", "", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
 def main():
-    subprocess.run([sys.executable, "-X", "utf8", str(CRAWLER),
-                    "--keywords", ",".join(KWS), "--pages", "1"], timeout=600)
+    if "--no-crawl" not in sys.argv:
+        subprocess.run([sys.executable, "-X", "utf8", str(CRAWLER),
+                        "--keywords", ",".join(KWS), "--pages", "1"], timeout=600)
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
     now = datetime.now()
     rows = []
@@ -45,7 +55,8 @@ def main():
             d = json.loads(m.read_text(encoding="utf-8"))
         except Exception:
             continue
-        txt = " ".join([str(d.get("detail_desc") or ""), str(d.get("desc") or ""), str(d.get("title") or "")])
+        raw = " ".join([str(d.get("detail_desc") or ""), str(d.get("desc") or ""), str(d.get("title") or "")])
+        txt = strip_tags(raw)
         if "王晰" not in txt:
             continue
         ds = str(d.get("date") or "")[:10]
