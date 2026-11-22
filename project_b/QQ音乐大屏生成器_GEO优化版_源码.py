@@ -1855,7 +1855,7 @@ def load_performance_events(path):
             date = row.get("时间", None)
             city = str(row.get("地点", "") or "").strip()
             song = str(row.get("演唱曲目", "") or "").strip()
-            if not name or pd.isna(date) or not song:
+            if not name or pd.isna(date):
                 continue
             d = pd.to_datetime(date).strftime("%Y-%m-%d")
             # 场次键用"演出名·城市"避免与巡演长表的 (日期, 城市) 键冲突
@@ -1874,8 +1874,6 @@ def load_performance_events(path):
                     merged.update(p.strip() for p in s.split("+") if len(p.strip()) >= 2)
                 else:
                     merged.add(s)
-            if not merged:
-                continue
             events[(d, scene)] = {"tour": name, "songs": merged, "city": _clean_city(row.get("地点"))}
         logger.info(f"演出活动表: {len(events)} 场演出已加载（辐射带动分析输入，多曲目已拆分）")
     except Exception as e:
@@ -2012,7 +2010,7 @@ def tour_song_effects(df_all, setlists, topn=5):
     rows = []
     for (date, scene), info in setlists.items():
         d = pd.to_datetime(date, errors="coerce")
-        if pd.isna(d) or d < d_min or d > d_max:
+        if pd.isna(d) or d < d_min:
             continue
         pre_lo, pre_hi = d - pd.Timedelta(days=21), d - pd.Timedelta(days=7)
         post_lo, post_hi = d, d + pd.Timedelta(days=7)
@@ -2033,6 +2031,15 @@ def tour_song_effects(df_all, setlists, topn=5):
             if len(_wk) >= 2:
                 total_pre_wk.append(s.loc[_wk].mean())
         if not effects:
+            rows.append({
+                "date": date, "scene": scene, "city": e_city,
+                "city_tier": city_tier_of(e_city),
+                "content_type": venue_type_of(str(info["tour"]), scene),
+                "venue_type": venue_type_of(str(info["tour"]), scene),
+                "tour": info["tour"], "total_uplift": None, "total_uplift_wk": None,
+                "base_polluted": _polluted.get(date), "setlist_uplift": None,
+                "radiance_uplift": None, "daily_series": None, "top_songs": [], "songs": [],
+            })
             continue
         total_uplift = ((sum(total_post) / len(total_post)) / (sum(total_pre) / len(total_pre)) - 1) * 100
         # 同星期基线全站效应（仅当 ≥3 个同星期样本）
@@ -3592,7 +3599,7 @@ setTimeout(function(){
   var chartEl = document.getElementById('esChart');
   if (!picker || !chartEl) return;
   var fx = dashboardData.tour_song_effects || [];
-  var withDs = fx.filter(function(e){ return e.daily_series && Object.keys(e.daily_series).length >= 1; });
+  var withDs = fx.filter(function(e){ return e && e.date; });
   if (!withDs.length) return;
   // 重点场次（最新 / 广州 / 重庆 / 最大爆点 / 最强单场）
   // 全部场次按日期倒序（不再写死 4 个日期；新演出自动进入）
@@ -3631,6 +3638,10 @@ setTimeout(function(){
     var ds = entry.e.daily_series || {};
     var days = Object.keys(ds).sort(function(a,b){ return parseInt(a.slice(2)) - parseInt(b.slice(2)); })
       .filter(function(k){ return parseInt(k.slice(2)) <= 14; });
+    if (!days.length) {
+      chartEl.innerHTML = '<div style="color:#8c98b0;font-size:13px;padding:18px">该场 T+ 数据待更新：指数数据次日入库后自动出现曲线。</div>';
+      return;
+    }
     var data = days.map(function(k){ return ds[k]; });
     // 历史均值带：其他场次同窗口逐日均值
     var otherAvg = {};
