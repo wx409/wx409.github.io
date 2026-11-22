@@ -42,6 +42,12 @@ def main():
         for x in d.get("top_words") or []:
             words[x["w"]] = words.get(x["w"], 0) + x["n"]
     top = sorted(words.items(), key=lambda kv: -kv[1])[:40]
+    try:
+        cw = load(ROOT / "data" / "danmaku_words.json")
+        if cw.get("top_words"):
+            top = [(x["w"], x["n"]) for x in cw["top_words"]]
+    except Exception:
+        pass
     jsonld = {
         "@context": "https://schema.org", "@type": "Dataset",
         "name": "王晰 B站弹幕聚合",
