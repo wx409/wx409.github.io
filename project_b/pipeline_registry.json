@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22 14:32",
+ "generated_at": "2026-11-22 14:37",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 279,
   "dispatch": 279,
   "deploy_steps": 111,
-  "scheduled_tasks": 41
+  "scheduled_tasks": 42
  },
  "tasks": [
   {
@@ -1990,7 +1990,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/22 14:34:00",
+    "next": "2026/11/22 15:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2134,7 +2134,7 @@
     "name": "wx409_trend_watch",
     "script": "trend_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/22 14:36:00",
+    "next": "2026/11/22 14:46:00",
     "type": "One Time Only, Minute",
     "start": "9:46:00"
    },
@@ -2562,6 +2562,19 @@
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\douyin_daily.py"
+  },
+  {
+   "script": "event_notify_sync.py",
+   "schedule": {
+    "name": "wx409_event_notify_daily",
+    "script": "event_notify_sync.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\event_notify_sync.py",
+    "next": "2026/11/23 9:00:00",
+    "type": "Daily",
+    "start": "9:00:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\event_notify_sync.py"
   },
   {
    "script": "fix_meta_geo.py",
