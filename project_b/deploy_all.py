@@ -140,6 +140,7 @@ STEPS = [
     (ROOT / "project_b" / "fix_meta_geo.py", "GEO：补短标题/主页描述（幂等，Bing WMT 建议项）", False),
     (ROOT / "project_b" / "inject_singles_block.py", "单曲补充实测区块（voice.html，幂等）", False),
     (ROOT / "project_b" / "geo_keywords.py", "GEO：关键页 title/描述对准真实高曝光词（王晰 音域 / 男低音王晰）", False),
+    (ROOT / "project_b" / "fix_meta_lengths.py", "GEO：meta description 统一到 150+ 字（Bing 建议项）", False),
     (ROOT / "project_b" / "apply_site_url.py", "生成后单点收口：历史域名统一为 SITE_URL（换域改一处）", True),
     (ROOT / "project_b" / "audit_git_sync.py", "origin 同步巡检（落后即 push 并复查，仍不一致红灯）", True),
     (ROOT / "project_b" / "update_sitemap_lastmod.py", "sitemap.xml lastmod 按 git 自动回填（禁手写日期）", True),
