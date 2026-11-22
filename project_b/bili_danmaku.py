@@ -32,7 +32,11 @@ def get(url):
 
 
 def main():
+    import sys
+    sys.path.insert(0, str(ROOT / "project_b"))
+    from banned_words import is_banned
     items = json.loads(SRC.read_text(encoding="utf-8")).get("items") or []
+    items = [it for it in items if not is_banned((it.get("title") or "") + " " + (it.get("desc") or ""))]
     OUTDIR.mkdir(parents=True, exist_ok=True)
     rows = []
     for it in items:
@@ -63,7 +67,7 @@ def main():
             except Exception:
                 pass
         texts = [re.sub(r"<[^>]+>", "", m).strip() for m in re.findall(r"<d [^>]*>(.*?)</d>", xml.decode("utf-8", "replace"), re.S)]
-        texts = [t for t in texts if t]
+        texts = [t for t in texts if t and not is_banned(t)]
         rows.append({"bvid": bv, "title": it.get("title"), "owner": it.get("owner"),
                      "duration": it.get("duration"), "count": len(texts), "danmaku": texts})
         (OUTDIR / (bv + ".json")).write_text(json.dumps(rows[-1], ensure_ascii=False, indent=1), encoding="utf-8")

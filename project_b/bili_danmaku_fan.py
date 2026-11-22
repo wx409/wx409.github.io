@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(r"D:\wx409.github.io")
 sys.path.insert(0, str(ROOT / "project_b"))
 from collect_show_feedback import bili_search  # noqa
+from banned_words import is_banned
 
 OUTDIR = Path(r"E:\wx\私有工具\bili_danmaku_fan")
 PUB = ROOT / "data" / "bili_danmaku_fan.json"
@@ -41,6 +42,8 @@ def main():
                 continue
             author = (v.get("author") or "")
             title = (v.get("title") or "") + " " + (v.get("desc") or "")
+            if is_banned(title):
+                continue
             if author == "王晰Elvis" or "王晰档案站" in author:
                 continue
             if "王晰" not in title:
@@ -77,7 +80,7 @@ def main():
             except Exception:
                 pass
         texts = [re.sub(r"<[^>]+>", "", m).strip() for m in re.findall(r"<d [^>]*>(.*?)</d>", xml.decode("utf-8", "replace"), re.S)]
-        texts = [t for t in texts if t]
+        texts = [t for t in texts if t and not is_banned(t)]
         rows.append({"bvid": bv, "title": v.get("title"), "author": v.get("author"),
                      "play": v.get("play"), "count": len(texts), "danmaku": texts})
         (OUTDIR / (bv + ".json")).write_text(json.dumps(rows[-1], ensure_ascii=False, indent=1), encoding="utf-8")
