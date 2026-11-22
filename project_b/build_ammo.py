@@ -61,12 +61,12 @@ __CAL__
 <div class="card"><pre>0–3s：字幕“华语流行圈，能把低音唱到 B1 的人不多。”
 3–10s：现场一句低音（不要选最高音，选最低最稳的那句）
 10–20s：切观众/舞台全景，字幕“他唱低音的时候，字还是清楚的。”
-20–27s：字幕“72 首录音室实测，B1 61.5Hz；现场和录音室差异不显著。”
+20–27s：字幕“72 首录音室实测，B1 61.5Hz；现有对照里，现场没有明显掉档。”
 27–30s：站内链接/原视频</pre><button onclick="copy(this)">复制脚本</button></div>
 
 <h2>三、五个平台文案模板</h2>
 <div class="card"><b>微博（140 字内）</b><pre>别人夸他稳，他说“稳是应该的”。
-B1 61.5Hz，72 首录音室实测；现场和录音室最低稳定音差异不显著。
+B1 61.5Hz，72 首录音室实测；专辑与「他人主导舞台」最低稳定音差异不显著（p=0.197）。
 先听《多听有益》，再决定要不要认识他。
 wx409.github.io/voice.html</pre><button onclick="copy(this)">复制</button></div>
 <div class="card"><b>小红书</b><pre>戴耳机听王晰，你会觉得胸口在震。
@@ -74,7 +74,7 @@ B1 61.5Hz，比男低音标志音 Low C 还低。
 不是“低音炮”三个字能概括的，是低下去还能听清。
 #王晰 #男低音 #B1 #多听有益</pre><button onclick="copy(this)">复制</button></div>
 <div class="card"><b>抖音口播</b><pre>“都说他是男低音，我一开始没概念。直到我戴耳机听了《多听有益》——B1，61.5Hz。手机外放听不到，戴耳机才知道什么叫低到胸口。” </pre><button onclick="copy(this)">复制</button></div>
-<div class="card"><b>豆瓣</b><pre>【数据向安利】72 首录音室全量实测，最低稳定音 B1 61.5Hz（《静止了的夜晚》），低音主区 B1–D2；现场与录音室差异不显著（p=0.197）。不是“只会低音”，是“低下去还能听清”。数据和口径：wx409.github.io/vocal.html</pre><button onclick="copy(this)">复制</button></div>
+<div class="card"><b>豆瓣</b><pre>【数据向安利】72 首录音室全量实测，最低稳定音 B1 61.5Hz（《静止了的夜晚》），低音主区 B1–D2；专辑层与「他人主导舞台」最低稳定音差异不显著（p=0.197，样本有限）。不是“只会低音”，是“低下去还能听清”。数据和口径：wx409.github.io/vocal.html</pre><button onclick="copy(this)">复制</button></div>
 <div class="card"><b>知乎</b><pre>先给结论：按录音室实测，他的低音落在男低音区间，且低于 Low C。可复核数据：72 首全量，B1 61.5Hz，低音主区 B1–D2。争议点不在“能不能低”，在“低下去是否清楚、现场是否成立”——这两点他都有数据。详见 wx409.github.io/voice.html</pre><button onclick="copy(this)">复制</button></div>
 
 <h2>四、事实卡（引用时带上口径）</h2>
@@ -83,7 +83,7 @@ B1 61.5Hz，比男低音标志音 Low C 还低。
 <tr><td>最低稳定音</td><td>B1 61.5Hz《静止了的夜晚》；B1 共 4 首</td></tr>
 <tr><td>低音主区</td><td>%s</td></tr>
 <tr><td>跨度</td><td>单曲中位 2.23 个八度；跨曲目极值合计 3.52（极值，不是常态）</td></tr>
-<tr><td>现场</td><td>与录音室最低稳定音差异不显著（p=0.197）</td></tr>
+<tr><td>现场</td><td>专辑层 vs 他人主导舞台最低稳定音差异不显著（p=0.197；样本有限）</td></tr>
 <tr><td>作品</td><td>9 张录音室专辑 / 72 首；六轮巡演 59 场 / 22 城</td></tr>
 </table>
 

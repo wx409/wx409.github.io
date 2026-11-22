@@ -129,6 +129,7 @@ STEPS = [
     (ROOT / "project_b" / "build_insight_charts.py", "洞察图 assets/insight/*（图＋sha256 指纹入 data/share/insight_charts.json）", False),
     (ROOT / "project_b" / "build_insight_page.py", "洞察页 insight.html（不进主导航、进底部索引与 sitemap）", False),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
+    (ROOT / "project_b" / "build_why.py", "深度长文 why.html（为什么被低估，事实/解释/判断分层）", False),
     (ROOT / "project_b" / "build_monthly_events.py", "月度事件脉络数据（data/monthly_events.json：月度指数+事件归因）", False),
     (ROOT / "project_b" / "build_monthly_page.py", "月度事件脉络页（dashboard/monthly.html）", False),
     (ROOT / "project_b" / "update_praise_library.py", "社媒灵感库自动追加（有新发现才写，幂等）", False),
