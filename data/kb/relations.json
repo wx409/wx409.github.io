@@ -11571,6 +11571,13 @@
   "source_ref": "songs_meta.json"
  },
  {
+  "source": "song:好好说再见",
+  "type": "belongs_to_album",
+  "target": "album:好好说再见",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
   "source": "song:如翡",
   "type": "belongs_to_album",
   "target": "album:有翡 电视剧原声带",
@@ -13401,6 +13408,13 @@
   "source": "song:追梦者",
   "type": "belongs_to_album",
   "target": "album:追梦者",
+  "context": "",
+  "source_ref": "songs_meta.json"
+ },
+ {
+  "source": "song:重庆野玫瑰",
+  "type": "belongs_to_album",
+  "target": "album:重庆野玫瑰",
   "context": "",
   "source_ref": "songs_meta.json"
  },
