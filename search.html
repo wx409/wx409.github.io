@@ -292,17 +292,31 @@ mark{background:#ffe08a;color:#333;padding:0 2px;border-radius:2px;}
     current = t;
     rows = t[1];
     var cols = Object.keys(rows[0] || {});
-    var xs = [], ys = [];
+    var xs = [], ys = [], xpref = null, ypref = null;
     cols.forEach(function (c) {
       var vals = rows.map(function (r) { return r[c]; }).filter(function (v) { return v != null && v !== ''; });
       var nums = vals.filter(function (v) { return typeof v === 'number'; });
-      if (nums.length === vals.length && nums.length) ys.push(c);
+      if (nums.length === vals.length && nums.length) {
+        ys.push(c);
+        var nuniq = {};
+        nums.slice(0, 400).forEach(function (v) { nuniq[v] = 1; });
+        if (ypref === null && Object.keys(nuniq).length > 1 && !/^(id|uid|rank)/i.test(c)) ypref = c;
+      }
       var uniq = {};
       vals.slice(0, 400).forEach(function (v) { uniq[v] = 1; });
-      if (Object.keys(uniq).length <= 80) xs.push(c);
+      var un = Object.keys(uniq).length;
+      if (un <= 80) xs.push(c);
+      // 默认维度：优先城市/巡演/歌曲等分类列，避免默认拿唯一 ID 做 X（会每组=1）
+      if (un >= 2 && un <= 30 && !/^(id|uid|rank)/i.test(c)) {
+        var nice = /(city|tour|album|song|kind|type|category|mood|year|month|show)/i;
+        if (xpref === null || (!nice.test(xpref) && nice.test(c))) xpref = c;
+      }
     });
     $('dqX').innerHTML = xs.map(function (c) { return '<option>' + esc(c) + '</option>'; }).join('');
     $('dqY').innerHTML = ys.map(function (c) { return '<option>' + esc(c) + '</option>'; }).join('') || '<option value="">（无数字列，仅计数）</option>';
+    if (xpref) $('dqX').value = xpref;
+    if (ypref) $('dqY').value = ypref;
+    $('dqAgg').value = ys.length ? 'mean' : 'count';
     $('dqMeta').textContent = '当前表：' + t[0] + '｜' + rows.length + ' 行｜' + cols.length + ' 列';
     run();
   }
