@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-23T21:09:20",
+ "generated_at": "2026-11-24T00:18:51",
  "stat": {
-  "generated_at": "2026-11-23T21:09:19",
+  "generated_at": "2026-11-24T00:18:51",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 65,
+  "songs_with_3plus": 66,
   "rows": [
    {
     "song": "佛山全场",
@@ -220,6 +220,15 @@
     "low_cv": 0.7174
    },
    {
+    "song": "花儿为什么这样红",
+    "versions": 10,
+    "low_median": 72.8,
+    "low_iqr": 0.9,
+    "low_range": 23.1,
+    "high_median": 603.5,
+    "low_cv": 0.0854
+   },
+   {
     "song": "像雾像雨又像风",
     "versions": 10,
     "low_median": 96.0,
@@ -227,15 +236,6 @@
     "low_range": 37.5,
     "high_median": 326.2,
     "low_cv": 0.145
-   },
-   {
-    "song": "花儿为什么这样红",
-    "versions": 9,
-    "low_median": 72.7,
-    "low_iqr": 0.9,
-    "low_range": 23.1,
-    "high_median": 603.5,
-    "low_cv": 0.0899
    },
    {
     "song": "三巡长沙全场",
@@ -328,6 +328,15 @@
     "low_cv": 0.1301
    },
    {
+    "song": "茕茕",
+    "versions": 5,
+    "low_median": 75.0,
+    "low_iqr": 13.8,
+    "low_range": 28.0,
+    "high_median": 780.0,
+    "low_cv": 0.138
+   },
+   {
     "song": "歌颂",
     "versions": 5,
     "low_median": 94.6,
@@ -398,15 +407,6 @@
     "low_range": 25.6,
     "high_median": 523.2,
     "low_cv": 0.0991
-   },
-   {
-    "song": "茕茕",
-    "versions": 4,
-    "low_median": 73.2,
-    "low_iqr": 9.6,
-    "low_range": 28.0,
-    "high_median": 778.1,
-    "low_cv": 0.1384
    },
    {
     "song": "匆匆",
@@ -481,6 +481,15 @@
     "low_cv": 0.1841
    },
    {
+    "song": "四季歌",
+    "versions": 4,
+    "low_median": 92.6,
+    "low_iqr": 17.8,
+    "low_range": 30.0,
+    "high_median": 282.9,
+    "low_cv": 0.1378
+   },
+   {
     "song": "亲密爱人",
     "versions": 4,
     "low_median": 85.2,
@@ -515,25 +524,16 @@
     "low_range": 21.4,
     "high_median": 566.4,
     "low_cv": 0.1234
-   },
-   {
-    "song": "慢慢喜欢你",
-    "versions": 3,
-    "low_median": 100.3,
-    "low_iqr": 18.6,
-    "low_range": 37.3,
-    "high_median": 676.3,
-    "low_cv": 0.1622
    }
   ],
-  "low_cv_median": 0.1278,
+  "low_cv_median": 0.1285,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 85.3,
-  "cover_live_low_median": 93.4,
+  "own_live_low_median": 87.2,
+  "cover_live_low_median": 93.3,
   "own_n": 46,
-  "cover_n": 235,
+  "cover_n": 236,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

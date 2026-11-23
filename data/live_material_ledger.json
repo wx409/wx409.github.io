@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T21:09:02",
+ "generated_at": "2026-11-24T00:18:31",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 928,
-  "processed_songs": 280,
-  "gap_songs": 63,
-  "coverage_pct": 105.7,
+  "processed_materials": 933,
+  "processed_songs": 281,
+  "gap_songs": 62,
+  "coverage_pct": 106.0,
   "status": {
-   "已完成": 409,
-   "候选": 8513,
+   "已完成": 415,
+   "候选": 8507,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -53,7 +53,6 @@
   "恼人的秋风",
   "我",
   "我不再爱你",
-  "我只在乎你",
   "把悲伤留给自己",
   "新年好",
   "日文歌片段",
@@ -5011,17 +5010,19 @@
    "bv": "BV1VK4y1S7Ge",
    "title": "【王晰】有国才有家丨《花儿为什么这样红》宁波站官摄",
    "song": "花儿为什么这样红",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "宁波",
    "date": "2021-03-28",
    "kind": "其他",
    "fetched_at": "2021-03-28",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Ey4y147Nc",
@@ -46506,17 +46507,20 @@
    "bv": "BV1mX4y197Yi",
    "title": "FineLIVE翻浪四季歌会｜王晰《知晓》纯享版",
    "song": "四季歌",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2023-02-25",
    "kind": "其他",
    "fetched_at": "2023-02-25",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Nj411F7p1",
@@ -98665,17 +98669,20 @@
    "bv": "BV1xz4y197jV",
    "title": "《茕茕》【超清】【王晰】【咪咕线上音乐会in成都】【20200530】",
    "song": "茕茕",
-   "tour": "",
-   "city": "",
-   "date": "2020-06-04",
+   "tour": "其他演出",
+   "city": "成都",
+   "date": "2020-05-30",
    "kind": "其他",
    "fetched_at": "2020-06-04",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Lf4y1D7nM",
@@ -101855,17 +101862,19 @@
    "bv": "BV1zJ411s7HP",
    "title": "王晰 还是想夸我晰是神仙的不一样的come to me",
    "song": "Come to Me",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-22",
    "kind": "其他",
    "fetched_at": "2019-12-22",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1HJ411e7ao",
@@ -123707,17 +123716,19 @@
    "bv": "BV1zJ411s7HP",
    "title": "王晰 还是想夸我晰是神仙的不一样的come to me",
    "song": "我",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-22",
    "kind": "其他",
    "fetched_at": "2019-12-22",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Gk4y117P5",
@@ -124292,17 +124303,20 @@
    "bv": "BV1wJ411L7Hi",
    "title": "【王晰】200104 晰哥《我只在乎你》 巡演收官站的灯海~",
    "song": "我只在乎你",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-01-05",
    "kind": "其他",
    "fetched_at": "2020-01-05",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Cu411Q7jY",

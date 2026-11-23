@@ -1,12 +1,12 @@
 {
  "summary": {
-  "generated_at": "2026-11-23T21:09:02",
-  "rows": 928,
+  "generated_at": "2026-11-24T00:18:31",
+  "rows": 933,
   "levels": {
    "L1": 413,
    "L6": 26,
-   "L3": 59,
-   "未认领": 427,
+   "L3": 60,
+   "未认领": 431,
    "L4": 2,
    "L2": 1
   },
@@ -80,8 +80,8 @@
    "claimable": 33
   },
   "2021-03-27": {
-   "n": 2,
-   "claimable": 1
+   "n": 3,
+   "claimable": 2
   },
   "2020-12-05": {
    "n": 6,
@@ -6730,6 +6730,18 @@
    "why": ""
   },
   {
+   "tag": "宁波20210328_BV1VK4y1S7Ge",
+   "song": "花儿为什么这样红",
+   "tour": "其他演出",
+   "city": "宁波",
+   "date": "2021-03-28",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": "2021-03-27",
+   "level": 3,
+   "why": "歌单指纹（曲目在歌单且±7天）"
+  },
+  {
    "tag": "沉响与长歌20261009_part7_BV1YWph6qE6P",
    "song": "part7",
    "tour": "其他演出",
@@ -8146,6 +8158,18 @@
    "why": ""
   },
   {
+   "tag": "成都20200530_BV1xz4y197jV",
+   "song": "茕茕",
+   "tour": "其他演出",
+   "city": "成都",
+   "date": "2020-05-30",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "未知20200904_BV1of4y1Q73V",
    "song": "哭砂",
    "tour": "其他演出",
@@ -8199,6 +8223,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20230225_BV1mX4y197Yi",
+   "song": "四季歌",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2023-02-25",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -8684,6 +8720,18 @@
    "show_date": "2025-05-01",
    "level": 1,
    "why": "日期直配"
+  },
+  {
+   "tag": "未知20191222_BV1zJ411s7HP",
+   "song": "Come to Me",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-12-22",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
   },
   {
    "tag": "杭州20190609_BV184411T7KZ",
@@ -9399,6 +9447,18 @@
    "tour": "其他演出",
    "city": "",
    "date": "2020-09-17",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
+   "tag": "未知20200105_BV1wJ411L7Hi",
+   "song": "我只在乎你",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-01-05",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
