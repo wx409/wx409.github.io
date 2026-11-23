@@ -128,11 +128,27 @@ def main():
         % (esc(v["title"]), format(v["count"] or 0, ","),
            "".join("“%s” " % esc(t) for t in (v.get("top") or [])[:3]), esc(v["id"])) for v in memes)
 
+    ldjson = json.dumps({
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "name": "值得转发的王晰｜瞬间库",
+        "description": "王晰的小酒馆金句、B站弹幕峰值与抖音路人评论，每条带出处或原视频。",
+        "url": "https://wx409.github.io/moments.html",
+        "about": {"@type": "Person", "name": "王晰"},
+        "mainEntity": {"@type": "ItemList", "numberOfItems": len(quotes) + len(screams) + len(memes)},
+    }, ensure_ascii=False)
+
     page = """<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>值得转发的王晰｜瞬间库</title>
 <meta name="description" content="王晰值得转发的瞬间：小酒馆里半夜说的话、B站现场的观众弹幕、抖音路人的玩梗评论。每条带出处/时间码/原视频，供同担做内容时直接取用。">
-<meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/moments.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="值得转发的王晰｜瞬间库">
+<meta property="og:description" content="金句、现场弹幕峰值、路人梗；每条带出处，同担可直接取用。">
+<meta property="og:image" content="https://wx409.github.io/assets/share/og_moments.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow"><meta name="llms" content="1"><link rel="canonical" href="https://wx409.github.io/moments.html">
+<script type="application/ld+json">%s</script>
 <style>body{margin:0;background:#faf9f7;color:#1f2328;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
 main{max-width:1000px;margin:0 auto;padding:28px 20px 60px}h1{font-size:30px;margin:8px 0 4px}.sub{color:#666;margin:0 0 20px}
 h2{font-size:21px;margin:34px 0 12px;border-left:4px solid #a8323d;padding-left:10px}
@@ -149,7 +165,7 @@ a{color:#a8323d;text-decoration:none}.tip{background:#fffdf8;border:1px solid rg
 <h2>二、现场的尖叫（B站弹幕）</h2><div class="grid">%s</div>
 <h2>三、路人的梗（抖音评论）</h2><div class="grid">%s</div>
 <p class="sub" style="margin-top:30px">数据：tavern_citable / bili_danmaku_fan / douyin_comments｜更新 %s｜只做聚合与短引用，原视频/原文以链接为准。</p>
-</main></body></html>""" % (qhtml, shtml, mhtml, esc(doc["generated_at"]))
+</main></body></html>""" % (ldjson, qhtml, shtml, mhtml, esc(doc["generated_at"]))
     PAGE.write_text(page, encoding="utf-8")
     print("写入", PAGE, "| quotes", len(quotes), "| screams", len(screams), "| memes", len(memes))
 

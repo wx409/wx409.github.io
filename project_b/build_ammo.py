@@ -30,11 +30,31 @@ def main():
             for x in (cal.get("slots") or [])) + "</table>"
     except Exception:
         cal_html = ""
+    ldjson = json.dumps({
+        "@context": "https://schema.org", "@type": "HowTo",
+        "name": "为王晰做一条可传播的内容",
+        "description": "从瞬间库选素材，按 15/30 秒脚本与平台文案模板，做成可发布的内容。",
+        "url": "https://wx409.github.io/ammo.html",
+        "about": {"@type": "Person", "name": "王晰"},
+        "step": [
+            {"@type": "HowToStep", "name": "选素材", "text": "从瞬间库挑一条金句、现场弹幕峰值或路人评论。"},
+            {"@type": "HowToStep", "name": "写脚本", "text": "按 15 或 30 秒结构：钩子、画面、字幕、落点。"},
+            {"@type": "HowToStep", "name": "配平台", "text": "用微博/小红书/抖音/豆瓣/知乎模板改写，保留出处。"},
+            {"@type": "HowToStep", "name": "发布检查", "text": "核对数字口径、回链、授权与水印。"},
+        ],
+    }, ensure_ascii=False)
     page = """<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>内容补给站｜王晰安利文案、脚本与事实卡</title>
 <meta name="description" content="给王晰听众的可直接取用素材：15/30 秒视频脚本、微博/小红书/抖音/豆瓣/知乎文案模板、事实卡、不要这样说清单与发布检查表。每条都可回链出处。">
-<meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/ammo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="内容补给站｜王晰安利文案、脚本与事实卡">
+<meta property="og:description" content="脚本、五平台文案模板、事实卡与发布检查表；拿来就能发。">
+<meta property="og:image" content="https://wx409.github.io/assets/share/og_ammo.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow"><meta name="llms" content="1"><link rel="canonical" href="https://wx409.github.io/ammo.html">
+__LD__
 <style>body{margin:0;background:#faf9f7;color:#1f2328;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
 main{max-width:960px;margin:0 auto;padding:28px 20px 60px}h1{font-size:30px;margin:8px 0 4px}.sub{color:#666;margin:0 0 18px}
 h2{font-size:21px;margin:32px 0 12px;border-left:4px solid #a8323d;padding-left:10px}
@@ -119,7 +139,7 @@ B1 61.5Hz，比男低音标志音 Low C 还低。
 function copy(btn){var pre=btn.parentElement.querySelector('pre'); if(!pre)return;
 navigator.clipboard.writeText(pre.innerText).then(function(){btn.textContent='已复制';setTimeout(function(){btn.textContent='复制'},1500);});}
 </script></body></html>""" % esc(b1)
-    page = page.replace("__CAL__", cal_html)
+    page = page.replace("__CAL__", cal_html).replace("__LD__", '<script type="application/ld+json">' + ldjson + '</script>')
     OUT.write_text(page, encoding="utf-8")
     print("写入", OUT, "| b1", b1)
 

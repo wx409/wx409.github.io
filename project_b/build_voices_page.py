@@ -80,6 +80,7 @@ def main() -> int:
         "王晰微博评论语料聚合：%d 条评论、%d 条帖子，%s–%s。只发布匿名聚合与短引用。"
         % (n, posts, y0, y1)))
     parts.append('<meta name="robots" content="index, follow">')
+    parts.append('<meta name="llms" content="1">')
     parts.append('<link rel="canonical" href="https://wx409.github.io/voices.html">')
     parts.append('<script type="application/ld+json">%s</script>' % json.dumps(jsonld, ensure_ascii=False))
     parts.append("<style>%s</style>\n</head>\n<body>\n<main>" % CSS)

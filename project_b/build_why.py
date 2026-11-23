@@ -50,7 +50,13 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>为什么王晰被低估：一把用错的尺子｜王晰数字档案</title>
 <meta name="description" content="王晰被低估，不是因为他不够好，而是因为评价他的尺子错了：B1 61.5Hz 的低频体感在手机外放上不可见；主流流行旋律不为男低音写作；他的核心资产是现场、耳机与体验，而非短视频传唱。本文把事实、解释与判断分开写。">
-<meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/why.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么王晰被低估：一把用错的尺子">
+<meta property="og:description" content="不是他不够好，是评价他的尺子错了：手机外放、旋律供给、低频体验赛道。">
+<meta property="og:image" content="https://wx409.github.io/assets/share/og_why.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow"><meta name="llms" content="1"><link rel="canonical" href="https://wx409.github.io/why.html">
 <script type="application/ld+json">{ldjson}</script>
 <style>
 body{{margin:0;background:#faf9f7;color:#1f2328;font:17px/1.85 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}}

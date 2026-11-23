@@ -76,7 +76,7 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>B站弹幕里的王晰｜观众即时反应</title>
 <meta name="description" content="王晰 B站弹幕聚合：本人 15 条视频 + fo 高播放 20 条舞台直拍，共 %d 条弹幕；词频、情绪与逐视频数量，匿名展示。">
-<meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/danmaku.html">
+<meta name="robots" content="index, follow"><meta name="llms" content="1"><link rel="canonical" href="https://wx409.github.io/danmaku.html">
 <script type="application/ld+json">%s</script>
 <style>
 body{margin:0;background:#faf9f7;color:#1f2328;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
