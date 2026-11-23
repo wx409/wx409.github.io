@@ -3408,7 +3408,7 @@ document.querySelectorAll('.ai-summary').forEach(function(el){
   h += '<div><b style="color:#e0645c">最弱形态：</b>' + (a.morph_worst||'—') + '</div>';
   h += '<div><b style="color:#5bc2e7">年度趋势：</b>' + (a.year_trend||'—') + '</div>';
   h += '<div><b style="color:#e0b64f">最大爆点：</b>' + (a.burst||'—') + '</div>';
-  if (a.gz_curve) h += '<div><b style="color:#6fbf8f">广州城效应史：</b>' + a.gz_curve + '（首次转正）</div>';
+  if (a.gz_curve) h += '<div><b style="color:#6fbf8f">广州城效应史：</b>' + a.gz_curve + '（最近一次）</div>';
   if (a.dual_2026) h += '<div><b style="color:#5bc2e7">六巡双路径：</b>' + a.dual_2026 + '</div>';
   if (latest.date) h += '<div><b style="color:#f2d98d">最新场次：</b>' + (latest.date||'') + ' ' + (latest.city||'') + ' [' + (latest.type||'') + '] 全站' + fmt(latest.total) + ' · ' + (latest.pattern||'') + '</div>';
   h += '</div>';
@@ -5620,7 +5620,8 @@ def _build_analysis(payload):
     # 最新场次
     latest = None
     if fx:
-        latest_e = max(fx, key=lambda e: e.get("date") or "")
+        _cand = [e for e in fx if e.get("total_uplift") is not None] or fx
+        latest_e = max(_cand, key=lambda e: e.get("date") or "")
         latest = {"date": latest_e.get("date"), "city": latest_e.get("city"),
                   "type": latest_e.get("content_type"), "total": latest_e.get("total_uplift"),
                   "rl": latest_e.get("radiance_uplift"), "sl": latest_e.get("setlist_uplift"),
