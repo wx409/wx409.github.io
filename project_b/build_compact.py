@@ -558,6 +558,13 @@ def build_index():
 <p style="margin:0;font-size:14px;color:#555">在 QQ 音乐/网易云搜歌名即可。想先看现场 → <a href="/live-reviews.html">现场实录</a>；想弄懂 B1 → <a href="/voice.html">B1 是什么概念</a>；想走完整入门 → <a href="/works.html">作品</a> · <a href="/live.html">现场</a> · <a href="/vocal.html">声音数据</a>。</p>
 </section>
 
+<section style="background:#fff;border:1px solid #e6e2dc;border-radius:10px;padding:16px 20px;margin:16px 0">
+<h2 style="margin:0 0 8px;font-size:20px">接下来，在哪能见到他</h2>
+<div id="upcomingList" style="font-size:14px;line-height:1.9;color:#555">加载中…</div>
+<p class="sub" style="margin:8px 0 0;font-size:13px">只列已官宣、未发生的场次；以主办方开票信息为准。</p>
+</section>
+<script src="/assets/upcoming.js" defer></script>
+
 <div class="answer"><strong>一句话认识王晰：</strong>{esc(elev_full)}</div>
 <!-- TOUR-FACTS:START（由 project_b/inject_index_facts.py 生成，勿手改）-->
 <!-- TOUR-FACTS:END -->
