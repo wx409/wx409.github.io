@@ -184,7 +184,7 @@ def build():
         .nav { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
         .nav a { color: #c41e3a; margin-right: 20px; text-decoration: none; font-weight: 500; }
         .review-card { background: #fafafa; padding: 15px; margin: 15px 0 15px 20px; border-radius: 8px; border-left: 3px solid #c41e3a; }
-        .history-item { background: #fff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; border: 1px solid #eee; }
+        .history-item { background: #fff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; border: 1px solid #eee; content-visibility: auto; contain-intrinsic-size: 520px; contain: layout style paint; }
         /* 档案状态视觉区分 */
         .history-item[data-status="completed"] { border-left: 4px solid #0a7a5a; }
         .history-item[data-status="pending"] { border-left: 4px dashed #bbb; background: #fbfbfb; }
