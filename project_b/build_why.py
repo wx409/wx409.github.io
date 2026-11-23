@@ -35,12 +35,23 @@ def main():
     stab = av.get("stability_cents_median")
     dy_lift = dy.get("avg_lift_pct")
     dy_n = dy.get("shows")
+    ldjson = json.dumps({
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": "为什么王晰被低估：一把用错的尺子",
+        "description": "从手机外放、旋律供给、低频体验赛道三个角度，解释王晰为什么被低估；事实、解释与判断分层。",
+        "datePublished": "2026-11-22", "dateModified": "2026-11-22",
+        "author": {"@type": "Organization", "name": "王晰数字档案"},
+        "publisher": {"@type": "Organization", "name": "王晰数字档案", "url": "https://wx409.github.io/"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://wx409.github.io/why.html"},
+        "about": [{"@type": "Person", "name": "王晰"}, {"@type": "Thing", "name": "男低音"}],
+    }, ensure_ascii=False)
 
     page = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>为什么王晰被低估：一把用错的尺子｜王晰数字档案</title>
 <meta name="description" content="王晰被低估，不是因为他不够好，而是因为评价他的尺子错了：B1 61.5Hz 的低频体感在手机外放上不可见；主流流行旋律不为男低音写作；他的核心资产是现场、耳机与体验，而非短视频传唱。本文把事实、解释与判断分开写。">
 <meta name="robots" content="index, follow"><link rel="canonical" href="https://wx409.github.io/why.html">
+<script type="application/ld+json">{ldjson}</script>
 <style>
 body{{margin:0;background:#faf9f7;color:#1f2328;font:17px/1.85 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}}
 main{{max-width:860px;margin:0 auto;padding:34px 22px 70px}}
