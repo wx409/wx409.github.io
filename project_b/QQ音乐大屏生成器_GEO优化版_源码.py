@@ -5646,18 +5646,21 @@ def _build_analysis(payload):
 
     # ===== 数据驱动洞察（带上下文解释；随数据变化自动更新；措辞用「伴随效应」避免伪因果）=====
     insights = []
-    # ① 广州为何单独受关注（自动检测：显著案例即自动生成，任何城市同理）
-    if gz:
-        gz_seq = sorted(gz, key=lambda e: e.get("date") or "")
-        gz_totals = [e.get("total_uplift") for e in gz_seq if e.get("total_uplift") is not None]
-        if gz_totals and gz_totals[-1] > 0 and all((t or 0) <= 0 for t in gz_totals[:-1]):
+    # ① 最近 7 天变化（每日随数据更新，避免面板变成死水）
+    rd = payload.get("recent_7days") or []
+    if len(rd) >= 2:
+        first, last = rd[0], rd[-1]
+        try:
+            pct = (float(last.get("avg_index")) / float(first.get("avg_index")) - 1) * 100
             insights.append({
-                "title": "广州城效应首次转正（自动检出案例）",
-                "text": (f"广州{len(gz_seq)}场可量化巡演效应为 {'→'.join(str(t) for t in gz_totals)}，最新一场首次转正。"
-                         "该洞察由引擎按「历史为负+最新转正」规则自动生成——任何城市出现同样信号都会自动提示，广州仅是最新触发案例。"),
-                "evidence": f"数据：{gz_curve}",
-                "drill": gz_seq[-1].get("date") if gz_seq else None,
+                "title": "最近 7 天：追踪曲目池 %+.1f%%" % pct,
+                "text": "从 %s 的 %.1f 到 %s 的 %.1f，最近一个完整观测日平均指数变化；样本为追踪曲目池，非全站。" % (
+                    first.get("date"), first.get("avg_index"), last.get("date"), last.get("avg_index")),
+                "evidence": "数据：data/recent_7days（avg_index）；变化 %+.1f%%" % pct,
+                "drill": last.get("date"),
             })
+        except Exception:
+            pass
     # ② 巡演效应解释（蓄能期框架+机制+证据，正面表述但数据诚实）
     tour_ps = [p for p in pairs if p["t"] == "个人巡回"]
     if tour_ps:
@@ -5798,10 +5801,6 @@ def _build_analysis(payload):
         actions.append({"title": "宣传节奏：事件质量 > 发帖数量",
                         "text": f"最大爆点《{top['n']}》+{top['up']:.0f}% 由事件场景（综艺/主题曲）驱动而非宣传帖数量——"
                                 "建议把预算投向「节目曝光+主题曲绑定」，并避免长前置分散宣发（基线污染放大负效应）。"})
-    if gz_curve:
-        actions.append({"title": "城市策略：复制广州出圈模式",
-                        "text": f"广州效应史 {gz_curve}——首次转正由「国民曝光（《光从东方来》）→ 现场 talk 种草 → 辐射带动」驱动，"
-                                "该模式可复制到其他高潜力城市（前置曝光+经典曲目+口播种草）。"})
 
     return {
         "generated_at": payload.get("timestamp") or payload.get("last_update") or "",
