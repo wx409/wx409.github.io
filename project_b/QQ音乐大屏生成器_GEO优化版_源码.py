@@ -3009,7 +3009,7 @@ h2.chart-title{font-size:15px;font-weight:600}
     <div id="actionBody" style="font-size:13px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
   <div id="textArchivePanel" class="dash-card green" style="display:none;">
-    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（微博全源 + 巡演长表 + 活动表）</h3>
+    <h3 style="margin:0 0 6px;color:#6fbf8f;font-size:17px;">📚 文本档案 · 全源语言画像（静态快照 2026-09-01，非日更）</h3>
     <div id="textArchiveBody" style="font-size:12.5px;line-height:1.8;color:#cdd6e6;"></div>
   </div>
   <div class="chart-box" id="esBox" style="margin-bottom:14px;">
