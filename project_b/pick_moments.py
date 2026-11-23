@@ -39,6 +39,11 @@ def main():
     week = date.today().isocalendar()
     PICKS.write_text(json.dumps({"week": "%d-W%02d" % (week[0], week[1]), "picks": want}, ensure_ascii=False, indent=1), encoding="utf-8")
     subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "project_b" / "build_moments.py")], cwd=str(ROOT))
+    subprocess.run(["git", "-C", str(ROOT), "add", "moments.html", "data/moments.json", "data/moments_picks.json"])
+    r = subprocess.run(["git", "-C", str(ROOT), "commit", "-m", "content: 本周精选（%s）" % "、".join(want)],
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode == 0:
+        subprocess.run(["git", "-C", str(ROOT), "push", "origin", "main"])
     print("本周精选：", "、".join(want))
 
 
