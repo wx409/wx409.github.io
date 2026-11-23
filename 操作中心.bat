@@ -645,6 +645,8 @@ echo    276. [索引] 打开本地视频索引统计
 echo    277. [反馈] 演出次日链路（近3天：B站补收+建页+入库）
 echo    278. [评论] 微博关键词广场补评论（入私有语料库）
 
+echo    279. [内容] 本周精选：先看编号，再输入（自动重建 + 推送）
+
 echo    0. 退出
 
 echo.
@@ -1171,6 +1173,7 @@ if "%op%"=="275" goto video_index
 if "%op%"=="276" goto video_stats
 if "%op%"=="277" goto show_daily
 if "%op%"=="278" goto comment_harvest
+if "%op%"=="279" goto pick_moments
 
 if "%op%"=="268" goto score_grab
 if "%op%"=="265" goto mat_other
@@ -6912,3 +6915,15 @@ echo === 微博关键词广场补评论（王晰/演出/活动/新歌/现场）===
 python -X utf8 project_b\comment_harvest_daily.py --limit 20
 pause
 goto menu
+
+:pick_moments
+cls
+echo === 本周精选：先看编号 ===
+python -X utf8 project_b\pick_moments.py --list
+echo.
+set /p ids=输入编号（空格分隔，如 q01 s03 m02 q07 s01）:
+if "%ids%"=="" goto menu
+python -X utf8 project_b\pick_moments.py %ids%
+pause
+goto menu
+

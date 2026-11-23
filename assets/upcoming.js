@@ -14,6 +14,6 @@
         ' · <a href="' + link + '" style="color:#1f2328;text-decoration:none">' + title + '</a>' +
         (x.kind ? ' <span style="color:#999;font-size:12px">' + x.kind + '</span>' : '') +
         '</div>';
-    }).join('');
+    }).join('') + (d.generated_at ? '<div style="color:#999;font-size:12px;margin-top:6px">更新于 ' + d.generated_at + '</div>' : '');
   }).catch(function () { box.textContent = '场次信息加载失败，请到现场页查看。'; });
 })();
