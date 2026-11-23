@@ -20,7 +20,7 @@ import urllib.request
 from datetime import date, datetime
 from pathlib import Path
 
-ROOT = Path(r"D:\wx\私有工具\link_archive")
+ROOT = Path(r"E:\wx\私有工具\link_archive")
 COOKIE = Path(r"E:\wx\index_records\wb.txt")
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36"
 
