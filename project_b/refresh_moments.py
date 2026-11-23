@@ -10,6 +10,8 @@ steps = [
     "project_b/make_quote_cards.py",
     "project_b/build_content_calendar.py",
     "project_b/build_ammo.py",
+    "project_b/build_llms_pages.py",
+    "project_b/inject_analytics.py",
 ]
 for s in steps:
     r = subprocess.run([py, "-X", "utf8", str(ROOT / s)], cwd=str(ROOT))

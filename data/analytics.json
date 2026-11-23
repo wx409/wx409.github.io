@@ -1,5 +1,5 @@
 {
  "provider": "goatcounter",
- "site": "",
+ "site": "wx409",
  "note": "把 site 填成你的 GoatCounter 子域（如 wx409），再跑 project_b/inject_analytics.py；空值不加载、不采集。"
 }
