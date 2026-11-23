@@ -2079,7 +2079,7 @@ def tour_song_effects(df_all, setlists, topn=5):
             "content_type": venue_type_of(str(info["tour"]), scene),
             "venue_type": venue_type_of(str(info["tour"]), scene),
             "tour": info["tour"],
-            "total_uplift": round(float(total_uplift), 1),
+            "total_uplift": round(float(total_uplift), 1) if total_uplift is not None else None,
             "total_uplift_wk": round(float(total_uplift_wk), 1) if total_uplift_wk is not None else None,
             "base_polluted": _polluted.get(date),  # 重度污染宣发帖数（None=无/轻污染）
             "setlist_uplift": round(float(setlist_uplift), 1) if setlist_uplift is not None else None,

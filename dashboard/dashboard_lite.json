@@ -1,13 +1,13 @@
 {
- "timestamp": "2026-11-22 23:56",
- "last_update": "2026-11-22 23:56",
- "date_range": "2023-01-01 ~ 2026-11-22",
- "total": 301818,
- "complete_rate": 19.5,
+ "timestamp": "2026-11-23 19:23",
+ "last_update": "2026-11-23 19:23",
+ "date_range": "2023-01-01 ~ 2026-11-23",
+ "total": 302418,
+ "complete_rate": 19.4,
  "total_songs": 733,
  "active_songs": 385,
  "active_rate": 52.5,
- "batch_count": 1299,
+ "batch_count": 1300,
  "time_labels": [
   "2023-01",
   "2023-02",
@@ -205,42 +205,48 @@
   34.6,
   35.1,
   21.8,
-  8.4
+  8.7
  ],
  "top_songs": [
   {
    "name": "黎明前的黑暗",
-   "trend": -32.7,
+   "trend": -30.7,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "在路上",
-   "trend": -39.6,
+   "trend": -37.6,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "相思",
-   "trend": -18.6,
+   "trend": -16.5,
    "score": 35,
    "tag": "上涨"
   },
   {
    "name": "她真漂亮",
-   "trend": -22.6,
+   "trend": -20.8,
    "score": 35,
    "tag": "上涨"
   },
   {
+   "name": "南屏晚钟",
+   "trend": 8.3,
+   "score": 25,
+   "tag": "活跃"
+  },
+  {
    "name": "神魂颠倒",
-   "trend": -39.7,
+   "trend": -36.3,
    "score": 20,
    "tag": "上涨"
   },
   {
    "name": "再叙",
-   "trend": -52.2,
+   "trend": -47.7,
    "score": 20,
    "tag": "上涨"
   }
@@ -249,149 +255,89 @@
   {
    "rank": 1,
    "song": "黎明前的黑暗",
-   "share_pct": 46.9,
-   "raw": 260.0,
-   "trend_pct": -14.2,
-   "trend_label": "down"
+   "share_pct": 54.6,
+   "raw": 507.0,
+   "trend_pct": 95.0,
+   "trend_label": "up"
   },
   {
    "rank": 2,
-   "song": "月弯弯",
-   "share_pct": 6.3,
-   "raw": 35.0,
-   "trend_pct": 59.1,
+   "song": "在路上",
+   "share_pct": 6.8,
+   "raw": 63.0,
+   "trend_pct": 152.0,
    "trend_label": "up"
   },
   {
    "rank": 3,
-   "song": "山楂树",
-   "share_pct": 6.3,
-   "raw": 35.0,
-   "trend_pct": 66.7,
+   "song": "一生中最爱",
+   "share_pct": 6.4,
+   "raw": 59.0,
+   "trend_pct": 110.7,
    "trend_label": "up"
   },
   {
    "rank": 4,
-   "song": "她真漂亮",
-   "share_pct": 5.6,
-   "raw": 31.0,
-   "trend_pct": 63.2,
+   "song": "山楂树",
+   "share_pct": 6.1,
+   "raw": 57.0,
+   "trend_pct": 62.9,
    "trend_label": "up"
   },
   {
    "rank": 5,
-   "song": "一生中最爱",
-   "share_pct": 5.1,
-   "raw": 28.0,
-   "trend_pct": 7.7,
+   "song": "月弯弯",
+   "share_pct": 5.3,
+   "raw": 49.0,
+   "trend_pct": 40.0,
    "trend_label": "up"
   },
   {
    "rank": 6,
-   "song": "在路上",
-   "share_pct": 4.5,
-   "raw": 25.0,
-   "trend_pct": -19.4,
-   "trend_label": "down"
+   "song": "她真漂亮",
+   "share_pct": 5.3,
+   "raw": 49.0,
+   "trend_pct": 58.1,
+   "trend_label": "up"
   },
   {
    "rank": 7,
    "song": "哭砂",
-   "share_pct": 4.2,
-   "raw": 23.0,
-   "trend_pct": 53.3,
+   "share_pct": 5.0,
+   "raw": 46.0,
+   "trend_pct": 100.0,
    "trend_label": "up"
   },
   {
    "rank": 8,
-   "song": "谁",
-   "share_pct": 4.2,
-   "raw": 23.0,
-   "trend_pct": null,
-   "trend_label": "new"
+   "song": "滚滚长江东逝水",
+   "share_pct": 4.0,
+   "raw": 37.0,
+   "trend_pct": 131.2,
+   "trend_label": "up"
   },
   {
    "rank": 9,
    "song": "Sound of Silence",
-   "share_pct": 3.8,
-   "raw": 21.0,
-   "trend_pct": -19.2,
-   "trend_label": "down"
+   "share_pct": 3.7,
+   "raw": 34.0,
+   "trend_pct": 61.9,
+   "trend_label": "up"
   },
   {
    "rank": 10,
    "song": "南屏晚钟",
-   "share_pct": 3.4,
-   "raw": 19.0,
-   "trend_pct": 58.3,
-   "trend_label": "up"
-  },
-  {
-   "rank": 11,
-   "song": "滚滚长江东逝水",
    "share_pct": 2.9,
-   "raw": 16.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 12,
-   "song": "再叙",
-   "share_pct": 2.5,
-   "raw": 14.0,
-   "trend_pct": null,
-   "trend_label": "new"
-  },
-  {
-   "rank": 13,
-   "song": "亲密爱人",
-   "share_pct": 2.3,
-   "raw": 13.0,
-   "trend_pct": -27.8,
-   "trend_label": "down"
-  },
-  {
-   "rank": 14,
-   "song": "重庆野玫瑰",
-   "share_pct": 2.0,
-   "raw": 11.0,
-   "trend_pct": -21.4,
-   "trend_label": "down"
+   "raw": 27.0,
+   "trend_pct": 42.1,
+   "trend_label": "up"
   }
  ],
- "daily_anomalies": [
-  {
-   "song": "南屏晚钟",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 3,583 位"
-  },
-  {
-   "song": "一生中最爱",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 3,291 位"
-  },
-  {
-   "song": "哭砂",
-   "type": "📈 排名飙升",
-   "metric": "排名",
-   "change_pct": null,
-   "desc": "排名较昨日上升 3,234 位"
-  }
- ],
- "latest_anomaly": {
-  "song": "南屏晚钟",
-  "type": "📈 排名飙升",
-  "metric": "排名",
-  "change_pct": null,
-  "desc": "排名较昨日上升 3,583 位"
- },
+ "daily_anomalies": [],
+ "latest_anomaly": null,
  "weekend_workday": [
   359.0,
-  375.0
+  373.0
  ],
  "tour_events": [
   [
@@ -8780,12 +8726,6 @@
  ],
  "recent_7days": [
   {
-   "date": "2026-11-16",
-   "avg_index": 360.9,
-   "total_songs": 600,
-   "complete": true
-  },
-  {
    "date": "2026-11-17",
    "avg_index": 362.9,
    "total_songs": 600,
@@ -8820,13 +8760,19 @@
    "avg_index": 318.4,
    "total_songs": 600,
    "complete": true
+  },
+  {
+   "date": "2026-11-23",
+   "avg_index": null,
+   "total_songs": 600,
+   "complete": true
   }
  ],
  "tour_song_effects": [
   {
    "date": "2023-01-06",
    "scene": "优酷《朝阳打歌中心》·北京",
-   "city": "广州",
+   "city": "北京",
    "content_type": "其他",
    "tour": "优酷《朝阳打歌中心》",
    "total_uplift": null,
@@ -8836,7 +8782,7 @@
   {
    "date": "2023-01-14",
    "scene": "2023央视网络春晚·北京",
-   "city": "广州",
+   "city": "北京",
    "content_type": "晚会",
    "tour": "2023央视网络春晚",
    "total_uplift": null,
@@ -9062,7 +9008,7 @@
   {
    "date": "2023-06-04",
    "scene": "央视《经典咏流传·正青春》·渡荆门送别·北京（CCTV-1）",
-   "city": "北京",
+   "city": "北京（CCTV-1）",
    "content_type": "其他",
    "tour": "央视《经典咏流传·正青春》·渡荆门送别",
    "total_uplift": 0.9,
@@ -9962,7 +9908,7 @@
   {
    "date": "2024-08-16",
    "scene": "北京（二场·五载纪念）",
-   "city": "北京",
+   "city": "五载纪念）",
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": -11.2,
@@ -10070,7 +10016,7 @@
   {
    "date": "2024-09-16",
    "scene": "武汉（收官·中秋前）",
-   "city": "武汉",
+   "city": "中秋前）",
    "content_type": "个人巡回",
    "tour": "四巡·\"肆益\"个人巡回音乐会",
    "total_uplift": -3.1,
@@ -10682,7 +10628,7 @@
   {
    "date": "2025-09-13",
    "scene": "《你好时光》\"再见音乐会\"（CCTV-3）·央视演播厅（CCTV-3综艺，无固定演出地）",
-   "city": "",
+   "city": "央视演播厅（CCTV-3综艺，无固定演出地）",
    "content_type": "综艺",
    "tour": "《你好时光》\"再见音乐会\"（CCTV-3）",
    "total_uplift": -16.2,
@@ -11330,7 +11276,7 @@
   {
    "date": "2026-01-31",
    "scene": "杭州（返场·金沙湖）",
-   "city": "杭州",
+   "city": "金沙湖）",
    "content_type": "个人巡回",
    "tour": "五巡·王晰吾个人巡回音乐会",
    "total_uplift": -6.7,
@@ -11510,7 +11456,7 @@
   {
    "date": "2026-04-10",
    "scene": "北京（收官·生日特典）",
-   "city": "北京",
+   "city": "生日特典）",
    "content_type": "个人巡回",
    "tour": "五巡·王晰吾个人巡回音乐会",
    "total_uplift": -5.0,
@@ -12230,7 +12176,7 @@
   {
    "date": "2027-02-26",
    "scene": "长城长·北京",
-   "city": "苏州",
+   "city": "北京",
    "content_type": "其他",
    "tour": "长城长",
    "total_uplift": null,
@@ -12240,7 +12186,7 @@
   {
    "date": "2027-02-27",
    "scene": "长城长·北京",
-   "city": "苏州",
+   "city": "北京",
    "content_type": "其他",
    "tour": "长城长",
    "total_uplift": null,
@@ -12250,7 +12196,7 @@
   {
    "date": "2027-02-28",
    "scene": "长城长·北京",
-   "city": "苏州",
+   "city": "北京",
    "content_type": "其他",
    "tour": "长城长",
    "total_uplift": null,
