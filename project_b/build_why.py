@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""build_why.py —— 深度长文：为什么王晰被低估（事实/解释/判断三层）"""
+"""build_why.py —— 深度长文：换一把尺子看王晰（事实/解释/判断三层）"""
 from __future__ import annotations
 
 import html
@@ -37,7 +37,7 @@ def main():
     dy_n = dy.get("shows")
     ldjson = json.dumps({
         "@context": "https://schema.org", "@type": "Article",
-        "headline": "为什么王晰被低估：一把用错的尺子",
+        "headline": "换一把尺子看王晰",
         "description": "从手机外放、旋律供给、低频体验赛道三个角度，解释王晰为什么被低估；事实、解释与判断分层。",
         "datePublished": "2026-11-22", "dateModified": "2026-11-22",
         "author": {"@type": "Organization", "name": "王晰数字档案"},
@@ -48,10 +48,10 @@ def main():
 
     page = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>为什么王晰被低估：一把用错的尺子｜王晰数字档案</title>
+<title>换一把尺子看王晰｜王晰数字档案</title>
 <meta name="description" content="王晰被低估，不是因为他不够好，而是因为评价他的尺子错了：B1 61.5Hz 的低频体感在手机外放上不可见；主流流行旋律不为男低音写作；他的核心资产是现场、耳机与体验，而非短视频传唱。本文把事实、解释与判断分开写。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为什么王晰被低估：一把用错的尺子">
+<meta property="og:title" content="换一把尺子看王晰">
 <meta property="og:description" content="不是他不够好，是评价他的尺子错了：手机外放、旋律供给、低频体验赛道。">
 <meta property="og:image" content="https://wx409.github.io/assets/share/og_why.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
@@ -75,7 +75,7 @@ th,td{{padding:8px 12px;border-bottom:1px solid #e6e2dc;font-size:15px;text-alig
 a{{color:#a8323d;text-decoration:none}}
 .small{{color:#777;font-size:14px}}
 </style></head><body><main>
-<h1>为什么王晰被低估：一把用错的尺子</h1>
+<h1>换一把尺子看王晰</h1>
 <p class="stand">他不是“不够好”，他是“好”的方式，刚好不是这个市场最容易被看见的方式。</p>
 
 <p>先把结论放在前面：<b>王晰的问题，主要不是音域，也不是唱功，而是“产品形态”和“评价体系”错配。</b>他的核心资产是低频体感、现场声压、低音里的清晰度；市场的主要终端是手机外放、短视频、流媒体播放量。这三把尺子，都不测他最强的东西。</p>

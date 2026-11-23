@@ -555,7 +555,7 @@ def build_index():
 <li><b>在路上</b> — 9 场常唱，中低音区的叙述感</li>
 <li><b>歌颂</b> — 5 场现场，适合第一次听</li>
 </ol>
-<p style="margin:0;font-size:14px;color:#555">在 QQ 音乐/网易云搜歌名即可。想先看现场 → <a href="/live-reviews.html">现场实录</a>；想弄懂 B1 → <a href="/voice.html">B1 是什么概念</a>；想走完整入门 → <a href="/works.html">作品</a> · <a href="/live.html">现场</a> · <a href="/vocal.html">声音数据</a>；想做内容 → <a href="/moments.html">瞬间库</a> · <a href="/ammo.html">内容补给站</a> · <a href="/why.html">为什么他被低估</a>。</p>
+<p style="margin:0;font-size:14px;color:#555">在 QQ 音乐/网易云搜歌名即可。想先看现场 → <a href="/live-reviews.html">现场实录</a>；想弄懂 B1 → <a href="/voice.html">B1 是什么概念</a>；想走完整入门 → <a href="/works.html">作品</a> · <a href="/live.html">现场</a> · <a href="/vocal.html">声音数据</a>。</p>
 </section>
 
 <div class="answer"><strong>一句话认识王晰：</strong>{esc(elev_full)}</div>

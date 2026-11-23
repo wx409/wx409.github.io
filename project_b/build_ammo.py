@@ -21,6 +21,7 @@ def main():
     c = d.get("conclusion") or {}
     b1 = c.get("main_range") or "B1–D2（61.5–75.5Hz）"
     b1s = "、".join(c.get("b1_songs") or [])
+    cal = {}
     try:
         cal = json.loads((ROOT / "data" / "content_calendar.json").read_text(encoding="utf-8"))
         cal_html = '<h2>本周内容日历</h2><table><tr><th>日</th><th>类型</th><th>标题</th><th>动作</th></tr>' + "".join(
@@ -30,6 +31,7 @@ def main():
             for x in (cal.get("slots") or [])) + "</table>"
     except Exception:
         cal_html = ""
+    updated = cal.get("generated_at") or "待更新"
     ldjson = json.dumps({
         "@context": "https://schema.org", "@type": "HowTo",
         "name": "为王晰做一条可传播的内容",
@@ -134,12 +136,13 @@ B1 61.5Hz，比男低音标志音 Low C 还低。
 <tr><td>发布</td><td>微博/小红书/抖音/B站/豆瓣，统一回链</td></tr></table>
 
 <p class="sub" style="margin-top:28px">配套：<a href="/moments.html">瞬间库</a> · <a href="/voice.html">B1 是什么概念</a> · <a href="/vocal.html">音域实测</a> · <a href="/danmaku.html">观众反应</a></p>
+<p class="sub">最后更新：__UPDATED__｜每日 11:20 自动刷新</p>
 </main>
 <script>
 function copy(btn){var pre=btn.parentElement.querySelector('pre'); if(!pre)return;
 navigator.clipboard.writeText(pre.innerText).then(function(){btn.textContent='已复制';setTimeout(function(){btn.textContent='复制'},1500);});}
 </script></body></html>""" % esc(b1)
-    page = page.replace("__CAL__", cal_html).replace("__LD__", '<script type="application/ld+json">' + ldjson + '</script>')
+    page = page.replace("__CAL__", cal_html).replace("__UPDATED__", updated).replace("__LD__", '<script type="application/ld+json">' + ldjson + '</script>')
     OUT.write_text(page, encoding="utf-8")
     print("写入", OUT, "| b1", b1)
 

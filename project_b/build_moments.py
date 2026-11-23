@@ -102,9 +102,35 @@ def main():
     quotes = pick_quotes(tav.get("items") or [])
     screams = pick_danmaku(fan.get("videos") or [], load(ROOT / "data" / "danmaku_timeline.json"))
     memes = pick_memes(dy.get("videos") or [])
+    for i, x in enumerate(quotes, 1):
+        x["id"] = "q%02d" % i
+    for i, x in enumerate(screams, 1):
+        x["id"] = "s%02d" % i
+    for i, x in enumerate(memes, 1):
+        x["id"] = "m%02d" % i
     doc = {"generated_at": __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M"),
            "quotes": quotes, "screams": screams, "memes": memes}
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    try:
+        picks = json.loads((ROOT / "data" / "moments_picks.json").read_text(encoding="utf-8")).get("picks") or []
+    except Exception:
+        picks = []
+    by_id = {x["id"]: ("quote", x) for x in quotes}
+    by_id.update({x["id"]: ("scream", x) for x in screams})
+    by_id.update({x["id"]: ("meme", x) for x in memes})
+    pick_cards = []
+    for pid in picks:
+        kind, x = by_id.get(pid, (None, None))
+        if not kind:
+            continue
+        if kind == "quote":
+            pick_cards.append('<div class="card"><div class="q">“%s”</div><div class="meta">★ 本周精选 · %s · %s</div></div>' % (esc(x["quote"]), esc(x.get("episode")), esc(x.get("time"))))
+        elif kind == "scream":
+            pick_cards.append('<div class="card"><div class="t">%s</div><div class="meta">★ 本周精选 · 弹幕峰值 %s 条</div></div>' % (esc(x["title"]), format(x.get("count") or 0, ",")))
+        else:
+            pick_cards.append('<div class="card"><div class="t">%s</div><div class="meta">★ 本周精选 · 评论 %s 条</div></div>' % (esc(x["title"]), format(x.get("count") or 0, ",")))
+    picks_html = ('<h2>★ 本周精选</h2><div class="grid">%s</div>' % "".join(pick_cards)) if pick_cards else ""
 
     qhtml = "".join(
         '<div class="card"><img loading="lazy" src="/assets/share/quotes/q%02d.png" alt="王晰金句卡" '
@@ -161,12 +187,13 @@ a{color:#a8323d;text-decoration:none}.tip{background:#fffdf8;border:1px solid rg
 <h1>值得转发的王晰</h1>
 <p class="sub">不给结论，给素材：每条都带出处、时间码或原视频，同担可直接取用。</p>
 <div class="tip">用法：挑一条 → 复制原话/标题 → 按平台改写成 15 秒脚本或图文 → 回链原视频/本站。不要剪掉出处，不要伪造引语。</div>
+__PICKS__
 <h2>一、半夜的话（小酒馆）</h2><div class="grid">%s</div>
 <h2>二、现场的尖叫（B站弹幕）</h2><div class="grid">%s</div>
 <h2>三、路人的梗（抖音评论）</h2><div class="grid">%s</div>
 <p class="sub" style="margin-top:30px">数据：tavern_citable / bili_danmaku_fan / douyin_comments｜更新 %s｜只做聚合与短引用，原视频/原文以链接为准。</p>
 </main></body></html>""" % (ldjson, qhtml, shtml, mhtml, esc(doc["generated_at"]))
-    PAGE.write_text(page, encoding="utf-8")
+    PAGE.write_text(page.replace("__PICKS__", picks_html), encoding="utf-8")
     print("写入", PAGE, "| quotes", len(quotes), "| screams", len(screams), "| memes", len(memes))
 
 
