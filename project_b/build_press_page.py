@@ -34,6 +34,19 @@ ITEMS = [{
     "related_conclusion": "不追求高低音反差（媒体说法）",
     "verified": False,
     "note": "未取得原文正文，引文待补；不得臆造。全文不入库，只保留链接与引文。",
+}, {
+    "id": "tass-shaman-wangxi-20261123",
+    "media": "俄通-塔斯社",
+    "title": "俄罗斯功勋艺术家沙曼表示愿与王晰合录歌曲",
+    "date": "2026-11-23",
+    "reporter": "",
+    "url": "https://m.weibo.cn/status/5368380228895334",
+    "snapshot_date": date.today().isoformat(),
+    "quotes": [],
+    "related_shows": [],
+    "related_conclusion": "合作意愿，未落地；不是双方签约或合作确认。沙曼原话：“能试一试就太好了。”",
+    "verified": True,
+    "note": "俄通-塔斯社微博 2026-11-23 发布，转述 11-22 沙曼对记者的表态；背景：王晰 2025 年代表中国参加“国际视界”国际歌唱大赛（Sputnik 2025-08-13）。仅记录意愿，不写“将合作”。",
 }]
 
 
