@@ -1,26 +1,26 @@
 {
  "summary": {
-  "generated_at": "2026-11-24T21:17:21",
-  "since": "2026-11-24",
-  "batches": 411,
-  "files": 3126,
-  "gb": 93.22,
+  "generated_at": "2026-11-25T00:19:00",
+  "since": "2026-11-25",
+  "batches": 412,
+  "files": 3132,
+  "gb": 93.35,
   "new_files": 0,
   "new_mb": 0.0,
-  "stats_total": 1711,
-  "stage_rows": 933,
-  "claimable": 752,
-  "claimable_soft": 374
+  "stats_total": 1714,
+  "stage_rows": 936,
+  "claimable": 755,
+  "claimable_soft": 376
  },
  "batches": [
   {
    "batch": "wav",
-   "files": 485,
-   "mb": 22192.6,
+   "files": 488,
+   "mb": 22304.7,
    "stats": 0,
    "new_files": 0,
    "new_mb": 0.0,
-   "newest": "2026-11-23"
+   "newest": "2026-11-24"
   },
   {
    "batch": "wav_十年现场语料",
@@ -617,6 +617,15 @@
    "newest": "2026-09-16"
   },
   {
+   "batch": "晚风",
+   "files": 5,
+   "mb": 35.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-24"
+  },
+  {
    "batch": "沉响20261009_v2",
    "files": 52,
    "mb": 34.7,
@@ -806,15 +815,6 @@
    "newest": "2026-09-17"
   },
   {
-   "batch": "晚风",
-   "files": 4,
-   "mb": 23.7,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-09-21"
-  },
-  {
    "batch": "小毛驴",
    "files": 5,
    "mb": 23.4,
@@ -858,6 +858,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-09-21"
+  },
+  {
+   "batch": "她来听我的演唱会",
+   "files": 2,
+   "mb": 21.4,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-24"
   },
   {
    "batch": "乌兰巴托的夜",
@@ -1290,15 +1299,6 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-11-21"
-  },
-  {
-   "batch": "她来听我的演唱会",
-   "files": 1,
-   "mb": 11.3,
-   "stats": 0,
-   "new_files": 0,
-   "new_mb": 0.0,
-   "newest": "2026-11-20"
   },
   {
    "batch": "part2",
@@ -2217,6 +2217,15 @@
    "new_files": 0,
    "new_mb": 0.0,
    "newest": "2026-10-28"
+  },
+  {
+   "batch": "再见我的爱人",
+   "files": 1,
+   "mb": 3.9,
+   "stats": 0,
+   "new_files": 0,
+   "new_mb": 0.0,
+   "newest": "2026-11-24"
   },
   {
    "batch": "欢迎来到我的世界.mp3",

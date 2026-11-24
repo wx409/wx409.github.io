@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-24T21:17:03",
+ "generated_at": "2026-11-25T00:18:41",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 933,
+  "processed_materials": 936,
   "processed_songs": 281,
   "gap_songs": 62,
   "coverage_pct": 106.0,
   "status": {
-   "已完成": 415,
-   "候选": 8507,
+   "已完成": 418,
+   "候选": 8504,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -7311,17 +7311,20 @@
    "bv": "BV1MJ411M7s2",
    "title": "王晰 爱心大放送雨露均沾的晚风暖暖哈哈哈 深圳",
    "song": "晚风",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "深圳",
    "date": "2019-09-23",
    "kind": "其他",
    "fetched_at": "2019-09-23",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1HU4y1n7Hv",
@@ -115977,17 +115980,20 @@
    "bv": "BV1NJ411Y7Gk",
    "title": "王晰 并没有花半年的积蓄啦哈哈哈她来听我的演唱会",
    "song": "她来听我的演唱会",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2019-12-30",
    "kind": "其他",
    "fetched_at": "2019-12-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1oJ411j7ia",
@@ -143417,17 +143423,20 @@
    "bv": "BV1CJ411v7Q7",
    "title": "《再见我的爱人》【超清】【片段】【王晰】【乐享汇in北京】【20191014】",
    "song": "再见我的爱人",
-   "tour": "",
-   "city": "",
-   "date": "2019-12-19",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2019-10-14",
    "kind": "其他",
    "fetched_at": "2019-12-19",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1z44y1m7Ag",

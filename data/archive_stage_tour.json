@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-24 21:17",
+ "generated_at": "2026-11-25 00:18",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,19 +9,19 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 933,
-  "n_stage_measured": 930,
+  "n_materials": 936,
+  "n_stage_measured": 933,
   "n_from_precision": 3,
   "n_songs": 281,
   "n_tours": 11,
-  "n_verified": 767,
-  "n_claimable": 752,
-  "n_claimable_soft": 374,
+  "n_verified": 770,
+  "n_claimable": 755,
+  "n_claimable_soft": 376,
   "hnr_gate_db": 5.0,
-  "hnr_low_n": 481,
+  "hnr_low_n": 483,
   "n_unverifiable": 5,
   "review_status_dist": {
-   "谐波列通过": 691,
+   "谐波列通过": 694,
    "待复核（谐波列待判）": 148,
    "人耳确认": 61,
    "人耳否决（非王晰）": 25,
@@ -29,7 +29,7 @@
    "谐波列通过（HNR 异常，疑分离失败）": 2,
    "未复核": 1
   },
-  "n_harmonic_reviewed": 701,
+  "n_harmonic_reviewed": 704,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -41,19 +41,19 @@
    "crepe_hz": null
   },
   "span_median_octaves": 2.68,
-  "stability_median_cents": 6.85,
+  "stability_median_cents": 6.8,
   "vibrato_rate_hz_median": 4.92,
   "vibrato_extent_cents_median": 75.0,
   "verify_dist": {
    "人耳确认（听辨）": 61,
    "待复核（谐波列待判）": 159,
-   "谐波列复核通过": 700,
+   "谐波列复核通过": 703,
    "未复核": 7,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 933,
+  "n_stat_basis": 936,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -26625,6 +26625,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "深圳20190923_BV1MJ411M7s2",
+   "song": "晚风",
+   "tour": "其他演出",
+   "city": "深圳",
+   "date": "2019-09-23",
+   "bv": "BV1MJ411M7s2",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 爱心大放送雨露均沾的晚风暖暖哈哈哈 深圳",
+   "bandwidth_kbps": 327,
+   "source_verdict": "官方直传",
+   "low_note": "C2",
+   "low_hz": 66.9,
+   "low_t_s": 9.566621315192744,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "A4",
+   "high_hz": 445.7,
+   "span_octaves": 2.74,
+   "stability_cents": 5.8,
+   "intonation_cents": 18.9,
+   "vibrato_hz": 5.07,
+   "vibrato_cents": 68.0,
+   "density_per_s": 1.86,
+   "hnr_db": 5.1,
+   "duration_s": 299.3,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "C2",
+    "hz": 66.9,
+    "why": "1f0 差 -22.3dB、3f0 在（55.7dB）",
+    "fund_gap_db": -22.3,
+    "floor_db": 15.7,
+    "t_s": 9.567,
+    "dur_s": 0.209,
+    "partials": [
+     33.4,
+     54.3,
+     55.7,
+     50.5,
+     47.9,
+     37.9,
+     36.7,
+     29.8
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
+  },
+  {
    "tag": "07_橄榄树",
    "song": "",
    "tour": "其他演出",
@@ -35764,6 +35820,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "北京20191014_BV1CJ411v7Q7",
+   "song": "再见我的爱人",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2019-10-14",
+   "bv": "BV1CJ411v7Q7",
+   "owner": "After18丨Elvis王晰",
+   "title": "《再见我的爱人》【超清】【片段】【王晰】【乐享汇in北京】【20191014】",
+   "bandwidth_kbps": 330,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "E2",
+   "low_hz": 82.4,
+   "low_t_s": 77.39210884353741,
+   "low_dur_s": 0.25541950113378686,
+   "high_note": "F4",
+   "high_hz": 351.7,
+   "span_octaves": 2.09,
+   "stability_cents": 6.6,
+   "intonation_cents": 18.7,
+   "vibrato_hz": 5.38,
+   "vibrato_cents": 104.0,
+   "density_per_s": 1.6,
+   "hnr_db": 2.7,
+   "duration_s": 98.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "E2",
+    "hz": 82.4,
+    "why": "1f0 差 -8.2dB、3f0 在（60.8dB）",
+    "fund_gap_db": -8.2,
+    "floor_db": 23.9,
+    "t_s": 77.392,
+    "dur_s": 0.255,
+    "partials": [
+     52.6,
+     54.1,
+     60.8,
+     54.2,
+     39.2,
+     53.9,
+     45.1,
+     32.3
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": true,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": true
+  },
+  {
    "tag": "王晰“歌颂”个人巡回音乐会杭州站__BV1Va4__P03_茕茕",
    "song": "",
    "tour": "其他演出",
@@ -37847,6 +37959,62 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "claimable_soft": false
+  },
+  {
+   "tag": "未知20191230_BV1NJ411Y7Gk",
+   "song": "她来听我的演唱会",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2019-12-30",
+   "bv": "BV1NJ411Y7Gk",
+   "owner": "开心不开心王晰说了算",
+   "title": "王晰 并没有花半年的积蓄啦哈哈哈她来听我的演唱会",
+   "bandwidth_kbps": 313,
+   "source_verdict": "官方直传",
+   "low_note": "F2",
+   "low_hz": 85.9,
+   "low_t_s": 107.97278911564626,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "F5",
+   "high_hz": 711.5,
+   "span_octaves": 3.05,
+   "stability_cents": 7.3,
+   "intonation_cents": 24.9,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 70.0,
+   "density_per_s": 1.61,
+   "hnr_db": 4.9,
+   "duration_s": 268.7,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F2",
+    "hz": 85.9,
+    "why": "1f0 差 -18.0dB、3f0 在（53.5dB）",
+    "fund_gap_db": -18.0,
+    "floor_db": 29.4,
+    "t_s": 107.973,
+    "dur_s": 0.232,
+    "partials": [
+     43.7,
+     53.7,
+     53.5,
+     61.7,
+     38.2,
+     32.6,
+     19.3,
+     17.6
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": true,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": true
   },
   {
    "tag": "未知20200101_BV1XJ411b7yd",
@@ -57201,7 +57369,7 @@
   },
   {
    "song": "再见我的爱人",
-   "n_versions": 4,
+   "n_versions": 5,
    "tours": [
     "一巡",
     "六巡"
@@ -57209,7 +57377,7 @@
    "lowest_note": "D#2",
    "lowest_hz": 76.4,
    "lowest_tag": "六巡广州20260823_回_p7_再见我的爱人",
-   "span_median_octaves": 3.21,
+   "span_median_octaves": 3.19,
    "versions": [
     {
      "tour": "六巡",
@@ -57270,6 +57438,21 @@
      "span_octaves": 3.19,
      "verify": "谐波列复核通过",
      "bv": ""
+    },
+    {
+     "tour": "其他演出",
+     "city": "北京",
+     "date": "2019-10-14",
+     "low_note": "E2",
+     "low_hz": 82.4,
+     "high_note": "F4",
+     "high_hz": 351.7,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.09,
+     "verify": "谐波列复核通过",
+     "bv": "BV1CJ411v7Q7"
     }
    ]
   },
@@ -59143,14 +59326,14 @@
   },
   {
    "song": "她来听我的演唱会",
-   "n_versions": 3,
+   "n_versions": 4,
    "tours": [
     "一巡"
    ],
    "lowest_note": "D2",
    "lowest_hz": 73.1,
    "lowest_tag": "深圳20190914_BV12J411w7SC",
-   "span_median_octaves": 2.42,
+   "span_median_octaves": 2.73,
    "versions": [
     {
      "tour": "其他演出",
@@ -59166,6 +59349,21 @@
      "span_octaves": 2.35,
      "verify": "谐波列复核通过",
      "bv": "BV12J411w7SC"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2019-12-30",
+     "low_note": "F2",
+     "low_hz": 85.9,
+     "high_note": "F5",
+     "high_hz": 711.5,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.05,
+     "verify": "谐波列复核通过",
+     "bv": "BV1NJ411Y7Gk"
     },
     {
      "tour": "一巡",
@@ -61362,13 +61560,28 @@
   },
   {
    "song": "晚风",
-   "n_versions": 4,
+   "n_versions": 5,
    "tours": [],
-   "lowest_note": "D#2",
-   "lowest_hz": 79.7,
-   "lowest_tag": "未知20210717_BV1HU4y1n7Hv",
-   "span_median_octaves": 1.56,
+   "lowest_note": "C2",
+   "lowest_hz": 66.9,
+   "lowest_tag": "深圳20190923_BV1MJ411M7s2",
+   "span_median_octaves": 2.15,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "深圳",
+     "date": "2019-09-23",
+     "low_note": "C2",
+     "low_hz": 66.9,
+     "high_note": "A4",
+     "high_hz": 445.7,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.74,
+     "verify": "谐波列复核通过",
+     "bv": "BV1MJ411M7s2"
+    },
     {
      "tour": "其他演出",
      "city": "",
@@ -67054,6 +67267,22 @@
   {
    "song": "晚风",
    "tour": "其他演出",
+   "city": "深圳",
+   "date": "2019-09-23",
+   "bv": "BV1MJ411M7s2",
+   "source_layer": "场次音频实测",
+   "live_note": "C2",
+   "live_hz": 66.9,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "Low C的诱惑",
+   "studio_note": "F2",
+   "studio_hz": 85.6,
+   "studio_span": 1.78,
+   "delta_semitones": -4.3
+  },
+  {
+   "song": "晚风",
+   "tour": "其他演出",
    "city": "",
    "date": "2023-02-25",
    "bv": "BV1Qg4y1H7XH",
@@ -68042,7 +68271,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-11-24 21:17",
+   "generated_at": "2026-11-25 00:18",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -69356,7 +69585,7 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-11-24 21:17",
+  "generated_at": "2026-11-25 00:18",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"

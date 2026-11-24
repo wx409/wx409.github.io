@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-24T21:17:23",
+ "generated_at": "2026-11-25T00:19:02",
  "stat": {
-  "generated_at": "2026-11-24T21:17:22",
+  "generated_at": "2026-11-25T00:19:01",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -310,6 +310,15 @@
     "low_cv": 0.1654
    },
    {
+    "song": "再见我的爱人",
+    "versions": 5,
+    "low_median": 76.5,
+    "low_iqr": 0.5,
+    "low_range": 6.0,
+    "high_median": 701.6,
+    "low_cv": 0.03
+   },
+   {
     "song": "小毛驴",
     "versions": 5,
     "low_median": 86.4,
@@ -382,6 +391,15 @@
     "low_cv": 0.2214
    },
    {
+    "song": "晚风",
+    "versions": 5,
+    "low_median": 80.7,
+    "low_iqr": 4.1,
+    "low_range": 26.7,
+    "high_median": 341.6,
+    "low_cv": 0.1059
+   },
+   {
     "song": "谁",
     "versions": 4,
     "low_median": 69.0,
@@ -391,13 +409,13 @@
     "low_cv": 0.1562
    },
    {
-    "song": "再见我的爱人",
+    "song": "她来听我的演唱会",
     "versions": 4,
-    "low_median": 76.5,
-    "low_iqr": 0.2,
-    "low_range": 0.6,
-    "high_median": 706.4,
-    "low_cv": 0.0031
+    "low_median": 86.2,
+    "low_iqr": 4.5,
+    "low_range": 16.1,
+    "high_median": 587.3,
+    "low_cv": 0.0745
    },
    {
     "song": "友谊地久天长",
@@ -506,24 +524,6 @@
     "low_range": 35.9,
     "high_median": 491.6,
     "low_cv": 0.1711
-   },
-   {
-    "song": "晚风",
-    "versions": 4,
-    "low_median": 82.2,
-    "low_iqr": 5.8,
-    "low_range": 13.9,
-    "high_median": 237.6,
-    "low_cv": 0.0651
-   },
-   {
-    "song": "你不要担心",
-    "versions": 3,
-    "low_median": 74.1,
-    "low_iqr": 10.7,
-    "low_range": 21.4,
-    "high_median": 566.4,
-    "low_cv": 0.1234
    }
   ],
   "low_cv_median": 0.1285,
