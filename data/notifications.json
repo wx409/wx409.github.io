@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-24 00:10:36",
+ "updated_at": "2026-11-24 08:56:02",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -8068,6 +8068,32 @@
    "title": "指数缺日已自动补齐：2026-11-23",
    "content": "原缺 2026-11-23；补录后长表末日期 2026-11-23（rc=1）",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-24 01:26:03",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>抖音 · 第40</b>：那英万妮达十年舞台重逢<br><span style='color:#666'>王晰演唱/原唱《十年》；站内可查歌曲页与现场记录。</span><br><a href='https://www.douyin.com/search/%E9%82%A3%E8%8B%B1%E4%B8%87%E5%A6%AE%E8%BE%BE%E5%8D%81%E5%B9%B4%E8%88%9E%E5%8F%B0%E9%87%8D%E9%80%A2'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-24 06:27:20",
+   "title": "⚠ 微博 cookie 需要更新",
+   "content": "微博登录态：失效。请F12 → Network → 复制请求头 Cookie → 粘进 wb.txt / xhs.txt → 跑 tools\\sync_weibo_cookie.py 或 tools\\sync_xhs_cookie.py",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-24 06:27:22",
+   "title": "ℹ 小红书登录态不可判定（非失效）",
+   "content": "本次未能判定小红书登录态（cookie 文件缺失 / 工具链加载失败 / 网络异常）。**未判定为失效**，请勿急于重置 cookie。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-24 08:56:02",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>抖音 · 第32</b>：贵州威宁少年版海阔天空<br><span style='color:#666'>王晰演唱/原唱《海阔天空》；站内可查歌曲页与现场记录。</span><br><a href='https://www.douyin.com/search/%E8%B4%B5%E5%B7%9E%E5%A8%81%E5%AE%81%E5%B0%91%E5%B9%B4%E7%89%88%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
   }
  ]
 }
