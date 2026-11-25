@@ -5647,7 +5647,7 @@ def _build_analysis(payload):
     # ===== 数据驱动洞察（带上下文解释；随数据变化自动更新；措辞用「伴随效应」避免伪因果）=====
     insights = []
     # ① 最近 7 天变化（每日随数据更新，避免面板变成死水）
-    rd = payload.get("recent_7days") or []
+    rd = [x for x in (payload.get("recent_7days") or []) if x.get("avg_index") is not None]
     if len(rd) >= 2:
         first, last = rd[0], rd[-1]
         try:
