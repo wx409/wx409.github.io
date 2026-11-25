@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-25T21:09:11",
+ "generated_at": "2026-11-26T00:18:18",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 936,
+  "processed_materials": 942,
   "processed_songs": 281,
   "gap_songs": 62,
   "coverage_pct": 106.0,
   "status": {
-   "已完成": 418,
-   "候选": 8504,
+   "已完成": 424,
+   "候选": 8498,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -3315,17 +3315,20 @@
    "bv": "BV1Ab411V71t",
    "title": "srrx 天津巡演 王晰 唱一生守候之前的讲话",
    "song": "一生守候",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "天津",
    "date": "2019-04-19",
    "kind": "其他",
    "fetched_at": "2019-04-19",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1D4411i7Ku",
@@ -16158,17 +16161,20 @@
    "bv": "BV1XJ411Q7hs",
    "title": "王晰 小哥哥看手机的乌兰巴托的夜 珠海",
    "song": "乌兰巴托的夜",
-   "tour": "",
-   "city": "",
+   "tour": "其他演出",
+   "city": "珠海",
    "date": "2019-11-30",
    "kind": "其他",
    "fetched_at": "2019-11-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Tt4y1k7tw",
@@ -46213,17 +46219,20 @@
    "bv": "BV18b4y1q7zV",
    "title": "王晰《哑光》-新浪风尚盛典in北京-20211219",
    "song": "哑光",
-   "tour": "",
-   "city": "",
-   "date": "2021-12-20",
+   "tour": "其他演出",
+   "city": "北京",
+   "date": "2021-12-19",
    "kind": "其他",
    "fetched_at": "2021-12-20",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1WY4y1H7c7",
@@ -73150,17 +73159,20 @@
    "bv": "BV1GH4y1P7EF",
    "title": "王晰【小河】【4k】北大十佳歌手决赛嘉宾表演20240426",
    "song": "小河",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
-   "date": "2024-04-27",
+   "date": "2024-04-26",
    "kind": "其他",
    "fetched_at": "2024-04-27",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1dAyTYcEbS",
@@ -96460,17 +96472,20 @@
    "bv": "BV15p4y1S7PT",
    "title": "【王晰】《漫长的告别》【咪咕线上音乐会in成都】【20200530】王晰",
    "song": "漫长的告别",
-   "tour": "",
-   "city": "",
-   "date": "2020-07-09",
+   "tour": "其他演出",
+   "city": "成都",
+   "date": "2020-05-30",
    "kind": "其他",
    "fetched_at": "2020-07-09",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1KK4y177Lt",
@@ -97230,17 +97245,20 @@
    "bv": "BV1uA411h7GW",
    "title": "【王晰】等到风景都看透，也许你会陪我看细水长流，唱《红豆》的王小晰",
    "song": "红豆",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-03-28",
    "kind": "其他",
    "fetched_at": "2020-03-28",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1c5411P75s",

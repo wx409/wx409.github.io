@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-25T21:09:31",
+ "generated_at": "2026-11-26T00:18:38",
  "stat": {
-  "generated_at": "2026-11-25T21:09:30",
+  "generated_at": "2026-11-26T00:18:38",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 66,
+  "songs_with_3plus": 68,
   "rows": [
    {
     "song": "佛山全场",
@@ -238,6 +238,15 @@
     "low_cv": 0.145
    },
    {
+    "song": "一生守候",
+    "versions": 9,
+    "low_median": 77.8,
+    "low_iqr": 5.5,
+    "low_range": 33.3,
+    "high_median": 291.4,
+    "low_cv": 0.1277
+   },
+   {
     "song": "三巡长沙全场",
     "versions": 9,
     "low_median": 73.1,
@@ -245,15 +254,6 @@
     "low_range": 73.4,
     "high_median": 857.3,
     "low_cv": 0.2729
-   },
-   {
-    "song": "一生守候",
-    "versions": 8,
-    "low_median": 78.0,
-    "low_iqr": 8.4,
-    "low_range": 33.3,
-    "high_median": 307.9,
-    "low_cv": 0.1278
    },
    {
     "song": "心动",
@@ -427,6 +427,15 @@
     "low_cv": 0.0991
    },
    {
+    "song": "红豆",
+    "versions": 4,
+    "low_median": 108.3,
+    "low_iqr": 9.9,
+    "low_range": 39.0,
+    "high_median": 295.4,
+    "low_cv": 0.1359
+   },
+   {
     "song": "匆匆",
     "versions": 4,
     "low_median": 104.9,
@@ -515,22 +524,13 @@
     "low_range": 13.9,
     "high_median": 752.0,
     "low_cv": 0.0641
-   },
-   {
-    "song": "女人花",
-    "versions": 4,
-    "low_median": 79.9,
-    "low_iqr": 11.5,
-    "low_range": 35.9,
-    "high_median": 491.6,
-    "low_cv": 0.1711
    }
   ],
-  "low_cv_median": 0.1285,
+  "low_cv_median": 0.1284,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 87.2,
+  "own_live_low_median": 87.8,
   "cover_live_low_median": 93.3,
   "own_n": 46,
   "cover_n": 236,
