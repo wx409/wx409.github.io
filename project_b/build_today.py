@@ -133,6 +133,25 @@ def save_local(entry):
     (ARCHIVE / (entry["date"] + ".md")).write_text("\n".join(lines), encoding="utf-8")
 
 
+def save_collection(items):
+    ARCHIVE.mkdir(parents=True, exist_ok=True)
+    lines = ["# 王晰 · 每日小作文合集", "",
+             "> 自动汇总；每篇标明日期与来源。网页版：https://wx409.github.io/today.html", ""]
+    for e in sorted(items, key=lambda x: x["date"]):
+        lines += ["## %s" % e["date"], "", "> " + e.get("headline", ""), ""]
+        lines += [p + "\n" for p in e.get("essay") or []]
+        ms = e.get("measurements") or []
+        if ms:
+            lines += ["**当日声学测量**", ""]
+            for m in ms:
+                low = m.get("low") or {}
+                lines.append("- 《%s》 %s · 稳定最低 %s %sHz · 跨度 %s 八度 · 稳定性 %s 音分" % (
+                    m["title"], m.get("bvid"), low.get("note"), low.get("hz"), m.get("span"), m.get("stability")))
+            lines.append("")
+        lines += ["来源：B站官方空间（bili_daily.json）+ 声学初测；网页：https://wx409.github.io/today.html", ""]
+    (ARCHIVE / "每日小作文合集.md").write_text("\n".join(lines), encoding="utf-8")
+
+
 def load_history():
     items = []
     if ARCHIVE.exists():
@@ -154,6 +173,7 @@ def main():
     for x in load_history():
         uniq[x["date"]] = x
     history = sorted(uniq.values(), key=lambda x: x["date"], reverse=True)
+    save_collection(history)
     HIST.write_text(json.dumps(history[:7], ensure_ascii=False, indent=1), encoding="utf-8")
 
     shown = entry if fresh else (history[0] if history else None)
