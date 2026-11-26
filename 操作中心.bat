@@ -661,6 +661,9 @@ echo.
 echo    288. [维护] 历史/一次性（旧导入/补录/单曲专题/自检）
 echo.
 
+echo    289. [今日] 新入库/B站声学/小作文（生成+检查+本地目录）
+echo.
+
 echo    0. 退出
 
 echo.
@@ -1171,6 +1174,8 @@ if "%op%"=="285" goto power_group
 if "%op%"=="286" goto phrase_group
 if "%op%"=="287" goto transcribe_group
 if "%op%"=="288" goto maint_group
+if "%op%"=="289" goto today_group
+
 
 if "%op%"=="279" goto pick_moments
 
@@ -7010,5 +7015,46 @@ if "%sub%"=="5" goto blocks1010
 if "%sub%"=="6" goto crossnight
 if "%sub%"=="7" goto nanping
 if "%sub%"=="8" goto cap_selftest
+goto menu
+:today_group
+cls
+echo === 今日新入库 / 声学 / 小作文 ===
+echo    1. 先补下载，再跑 ingest（转写 + 声学）
+echo    2. 仅重建今日页（today.html）
+echo    3. 今日 watchdog（检查是否更新，失败补跑）
+echo    4. 打开本地每日小作文目录
+set "sub="
+set /p sub=选择: 
+if "%sub%"=="1" goto today_ingest
+if "%sub%"=="2" goto today_build
+if "%sub%"=="3" goto today_watch
+if "%sub%"=="4" goto today_open
+goto menu
+
+:today_ingest
+cls
+echo === B站官方空间补下载 ===
+python -X utf8 project_b\bili_official_daily.py
+echo === 新视频转写 + 声学 ===
+python -X utf8 project_b\bili_daily_ingest.py
+echo === 重建今日页 ===
+python -X utf8 project_b\build_today.py
+pause
+goto menu
+
+:today_build
+cls
+python -X utf8 project_b\build_today.py
+pause
+goto menu
+
+:today_watch
+cls
+python -X utf8 project_b\today_watchdog.py
+pause
+goto menu
+
+:today_open
+start "" "E:\wx\私有工具\每日小作文"
 goto menu
 
