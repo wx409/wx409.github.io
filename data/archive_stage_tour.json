@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-26 21:09",
+ "generated_at": "2026-11-27 00:18",
  "layer": "王晰主导巡演现场",
  "policy": {
   "capability": "最低稳定音（音符≥0.2s、HNR≥5dB、强度≥中位−25dB）",
@@ -9,27 +9,27 @@
   "median": "statistics.median"
  },
  "summary": {
-  "n_materials": 942,
-  "n_stage_measured": 939,
+  "n_materials": 946,
+  "n_stage_measured": 943,
   "n_from_precision": 3,
   "n_songs": 281,
   "n_tours": 11,
-  "n_verified": 774,
-  "n_claimable": 759,
-  "n_claimable_soft": 379,
+  "n_verified": 776,
+  "n_claimable": 761,
+  "n_claimable_soft": 380,
   "hnr_gate_db": 5.0,
-  "hnr_low_n": 487,
+  "hnr_low_n": 489,
   "n_unverifiable": 5,
   "review_status_dist": {
-   "谐波列通过": 698,
-   "待复核（谐波列待判）": 150,
+   "谐波列通过": 700,
+   "待复核（谐波列待判）": 152,
    "人耳确认": 61,
    "人耳否决（非王晰）": 25,
    "不可复核（缺混音/时间）": 5,
    "谐波列通过（HNR 异常，疑分离失败）": 2,
    "未复核": 1
   },
-  "n_harmonic_reviewed": 708,
+  "n_harmonic_reviewed": 710,
   "lowest": {
    "note": "A#1",
    "hz": 57.8,
@@ -46,14 +46,14 @@
   "vibrato_extent_cents_median": 75.0,
   "verify_dist": {
    "人耳确认（听辨）": 61,
-   "待复核（谐波列待判）": 161,
-   "谐波列复核通过": 707,
+   "待复核（谐波列待判）": 163,
+   "谐波列复核通过": 709,
    "未复核": 7,
    "双引擎一致": 5,
    "谐波列复核通过（同刻三源）": 1
   },
   "stat_basis": "全部素材（含待复核/不可复核；仅最低稳定音走 is_good 门槛）",
-  "n_stat_basis": 942,
+  "n_stat_basis": 946,
   "generator_version": "stage-report v4 / 2026-09-21"
  },
  "by_tour": [
@@ -25505,6 +25505,62 @@
    "claimable_soft": false
   },
   {
+   "tag": "未知20210415_BV1Ci4y1E76k",
+   "song": "追幸福的人",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2021-04-15",
+   "bv": "BV1Ci4y1E76k",
+   "owner": "王晰的小仓库",
+   "title": "【王晰】影视留声机《遇见幸福》《夜半歌声》《你是青山》《把一切给明天》《追幸福的人》丨录屏cut（更新20210415《",
+   "bandwidth_kbps": 319,
+   "source_verdict": "官方直传",
+   "low_note": "B1",
+   "low_hz": 62.0,
+   "low_t_s": 47.34548752834467,
+   "low_dur_s": 0.301859410430839,
+   "high_note": "G#4",
+   "high_hz": 422.7,
+   "span_octaves": 2.77,
+   "stability_cents": 4.1,
+   "intonation_cents": 6.3,
+   "vibrato_hz": 5.38,
+   "vibrato_cents": 63.0,
+   "density_per_s": 2.13,
+   "hnr_db": 7.1,
+   "duration_s": 182.4,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "待复核（谐波列待判）",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "B1",
+    "hz": 62.0,
+    "why": "1f0 差 -40.9dB",
+    "fund_gap_db": -40.9,
+    "floor_db": 13.1,
+    "t_s": 47.345,
+    "dur_s": 0.302,
+    "partials": [
+     18.4,
+     12.5,
+     20.2,
+     58.0,
+     59.3,
+     29.2,
+     17.6,
+     49.9
+    ]
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "hnr_low": false,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "claimable_soft": false
+  },
+  {
    "tag": "未知20190818_BV1f4411d7K4",
    "song": "下沉",
    "tour": "其他演出",
@@ -37454,6 +37510,65 @@
    "claimable_soft": false
   },
   {
+   "tag": "未知20200920_BV1Gk4y117P5",
+   "song": "王牌就是我",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-09-20",
+   "bv": "BV1Gk4y117P5",
+   "owner": "不要总是哭唧唧",
+   "title": "【王晰】爆燃摇滚【王牌就是我】首秀LIVE",
+   "bandwidth_kbps": 316,
+   "source_verdict": "官方直传",
+   "low_note": "E2",
+   "low_hz": 84.8,
+   "low_t_s": 237.0292970521542,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": null,
+   "high_hz": null,
+   "span_octaves": null,
+   "stability_cents": 5.6,
+   "intonation_cents": 24.3,
+   "vibrato_hz": 4.53,
+   "vibrato_cents": 65.0,
+   "density_per_s": 1.32,
+   "hnr_db": 2.1,
+   "duration_s": 243.7,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "E2",
+    "hz": 84.8,
+    "why": "1f0 差 -17.7dB、3f0 在（54.0dB）",
+    "fund_gap_db": -17.7,
+    "floor_db": 27.6,
+    "t_s": 237.029,
+    "dur_s": 0.232,
+    "partials": [
+     46.2,
+     63.8,
+     54.0,
+     50.0,
+     33.7,
+     31.6,
+     33.9,
+     26.8
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "c6_status": "待人耳确认（C6 区：人耳抽验 14 条仅 3 条成立）",
+   "high_hz_unconfirmed": 1062.8,
+   "high_note_unconfirmed": "C6",
+   "hnr_low": true,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": true
+  },
+  {
    "tag": "未知20191009_BV1PE411f7dG",
    "song": "东方之珠",
    "tour": "其他演出",
@@ -37900,6 +38015,62 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "claimable_soft": true
+  },
+  {
+   "tag": "未知20230624_BV1cj411S7iA",
+   "song": "无与伦比的美丽",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2023-06-24",
+   "bv": "BV1cj411S7iA",
+   "owner": "开心不开心王晰说了算",
+   "title": "天上风筝在天上飞地上王晰在我心里唱无与伦比的美丽唱的我想把他关我心里再也不放出来",
+   "bandwidth_kbps": 65,
+   "source_verdict": "官方直传",
+   "low_note": "F2",
+   "low_hz": 85.6,
+   "low_t_s": 15.51092970521542,
+   "low_dur_s": 0.23219954648526078,
+   "high_note": "A4",
+   "high_hz": 434.1,
+   "span_octaves": 2.34,
+   "stability_cents": 5.1,
+   "intonation_cents": 21.2,
+   "vibrato_hz": 4.79,
+   "vibrato_cents": 47.0,
+   "density_per_s": 1.46,
+   "hnr_db": 4.5,
+   "duration_s": 89.9,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "待复核（谐波列待判）",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "待判",
+    "note": "F2",
+    "hz": 85.6,
+    "why": "1f0 差 -45.0dB",
+    "fund_gap_db": -45.0,
+    "floor_db": -0.8,
+    "t_s": 15.511,
+    "dur_s": 0.232,
+    "partials": [
+     12.3,
+     49.6,
+     54.8,
+     53.3,
+     21.4,
+     57.3,
+     2.9,
+     34.8
+    ]
+   },
+   "verify_channel": "谐波列筛查已跑，结论待判（基频弱，需人工/听辨定案）",
+   "hnr_low": true,
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "claimable_soft": false
   },
   {
    "tag": "08矜持+难以抗拒你容颜+为你我受冷风吹+爱的箴言",
@@ -43253,6 +43424,62 @@
    "review_status": "人耳确认",
    "claimable": true,
    "claimable_soft": true
+  },
+  {
+   "tag": "上海20240616_BV1Sm421V7TM",
+   "song": "一生守候",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2024-06-16",
+   "bv": "BV1Sm421V7TM",
+   "owner": "不要总是哭唧唧",
+   "title": "王晰【一生守候】【4K字幕】中国影视之夜20240616上海",
+   "bandwidth_kbps": 120,
+   "source_verdict": "重制(二次制作) · 待听辨",
+   "low_note": "F#2",
+   "low_hz": 94.1,
+   "low_t_s": 225.32643990929705,
+   "low_dur_s": 0.2089795918367347,
+   "high_note": "A5",
+   "high_hz": 896.6,
+   "span_octaves": 3.25,
+   "stability_cents": 6.3,
+   "intonation_cents": 7.4,
+   "vibrato_hz": 5.02,
+   "vibrato_cents": 70.0,
+   "density_per_s": 1.38,
+   "hnr_db": 6.4,
+   "duration_s": 250.5,
+   "a3_state": "",
+   "a3_yin_hz": null,
+   "a3_crepe_hz": null,
+   "a3_final_note": "谐波列复核通过",
+   "source_layer": "场次音频实测",
+   "harmonic_screen": {
+    "verdict": "成立",
+    "note": "F#2",
+    "hz": 94.1,
+    "why": "1f0 差 +0.0dB、3f0 在（48.3dB）",
+    "fund_gap_db": 0.0,
+    "floor_db": 32.1,
+    "t_s": 225.326,
+    "dur_s": 0.209,
+    "partials": [
+     56.3,
+     55.3,
+     48.3,
+     54.3,
+     45.1,
+     30.4,
+     28.0,
+     29.1
+    ]
+   },
+   "verify_channel": "谐波列筛查（脚本自动；1f0/3f0 完整性）",
+   "hnr_low": false,
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "claimable_soft": false
   },
   {
    "tag": "未知20220730_BV1Hd4y1U7Qi",
@@ -55127,7 +55354,7 @@
   },
   {
    "song": "一生守候",
-   "n_versions": 9,
+   "n_versions": 10,
    "tours": [
     "一巡",
     "六巡"
@@ -55135,7 +55362,7 @@
    "lowest_note": "C#2",
    "lowest_hz": 69.5,
    "lowest_tag": "新素材11j7s7_BV19J411j7s7",
-   "span_median_octaves": 2.22,
+   "span_median_octaves": 2.28,
    "versions": [
     {
      "tour": "其他演出",
@@ -55256,6 +55483,21 @@
      "span_octaves": 2.69,
      "verify": "谐波列复核通过",
      "bv": "BV1cE411f7Gs"
+    },
+    {
+     "tour": "其他演出",
+     "city": "上海",
+     "date": "2024-06-16",
+     "low_note": "F#2",
+     "low_hz": 94.1,
+     "high_note": "A5",
+     "high_hz": 896.6,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 3.25,
+     "verify": "谐波列复核通过",
+     "bv": "BV1Sm421V7TM"
     },
     {
      "tour": "其他演出",
@@ -61734,14 +61976,14 @@
   },
   {
    "song": "无与伦比的美丽",
-   "n_versions": 1,
+   "n_versions": 2,
    "tours": [
     "三巡"
    ],
    "lowest_note": "D#2",
    "lowest_hz": 79.7,
    "lowest_tag": "深圳20230623_BV1Sm4y1e7ZZ",
-   "span_median_octaves": 3.37,
+   "span_median_octaves": 2.85,
    "versions": [
     {
      "tour": "三巡",
@@ -61757,6 +61999,21 @@
      "span_octaves": 3.37,
      "verify": "谐波列复核通过",
      "bv": "BV1Sm4y1e7ZZ"
+    },
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2023-06-24",
+     "low_note": "F2",
+     "low_hz": 85.6,
+     "high_note": "A4",
+     "high_hz": 434.1,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.34,
+     "verify": "待复核（谐波列待判）",
+     "bv": "BV1cj411S7iA"
     }
    ]
   },
@@ -63159,15 +63416,30 @@
   },
   {
    "song": "王牌就是我",
-   "n_versions": 5,
+   "n_versions": 6,
    "tours": [
     "二巡"
    ],
-   "lowest_note": "F#2",
-   "lowest_hz": 91.8,
-   "lowest_tag": "广州20201205_BV15y4y1S7ti",
+   "lowest_note": "E2",
+   "lowest_hz": 84.8,
+   "lowest_tag": "未知20200920_BV1Gk4y117P5",
    "span_median_octaves": 2.76,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2020-09-20",
+     "low_note": "E2",
+     "low_hz": 84.8,
+     "high_note": null,
+     "high_hz": null,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": null,
+     "verify": "谐波列复核通过",
+     "bv": "BV1Gk4y117P5"
+    },
     {
      "tour": "二巡",
      "city": "广州",
@@ -65510,15 +65782,30 @@
   },
   {
    "song": "追幸福的人",
-   "n_versions": 2,
+   "n_versions": 3,
    "tours": [
     "二巡"
    ],
-   "lowest_note": "A#2",
-   "lowest_hz": 118.7,
-   "lowest_tag": "二巡上海2021_全程_p31_追幸福的人",
-   "span_median_octaves": 2.08,
+   "lowest_note": "B1",
+   "lowest_hz": 62.0,
+   "lowest_tag": "未知20210415_BV1Ci4y1E76k",
+   "span_median_octaves": 2.32,
    "versions": [
+    {
+     "tour": "其他演出",
+     "city": "",
+     "date": "2021-04-15",
+     "low_note": "B1",
+     "low_hz": 62.0,
+     "high_note": "G#4",
+     "high_hz": 422.7,
+     "high_t_s": null,
+     "high_dur_s": null,
+     "high_listen_verified": null,
+     "span_octaves": 2.77,
+     "verify": "待复核（谐波列待判）",
+     "bv": "BV1Ci4y1E76k"
+    },
     {
      "tour": "其他演出",
      "city": "上海",
@@ -67932,6 +68219,22 @@
   },
   {
    "song": "王牌就是我",
+   "tour": "其他演出",
+   "city": "",
+   "date": "2020-09-20",
+   "bv": "BV1Gk4y117P5",
+   "source_layer": "场次音频实测",
+   "live_note": "E2",
+   "live_hz": 84.8,
+   "live_verify": "谐波列复核通过",
+   "studio_album": "歌颂",
+   "studio_note": "G2",
+   "studio_hz": 97.5,
+   "studio_span": 2.03,
+   "delta_semitones": -2.4
+  },
+  {
+   "song": "王牌就是我",
    "tour": "二巡",
    "city": "广州",
    "date": "2020-12-05",
@@ -68729,7 +69032,7 @@
  "show_blocks": [
   {
    "schema": 1,
-   "generated_at": "2026-11-26 21:09",
+   "generated_at": "2026-11-27 00:18",
    "show": {
     "name": "《沉响与长歌》演唱会 北京站",
     "date": "2026-10-09",
@@ -70043,7 +70346,7 @@
  ],
  "show_blocks_meta": {
   "count": 2,
-  "generated_at": "2026-11-26 21:09",
+  "generated_at": "2026-11-27 00:18",
   "caliber": "场次音频切分与歌手归属",
   "note": "双人场次块级数据；**不含极值音/音域主张**。重跑 生成巡演现场报告.py 后需重跑本项目 注入脚本。",
   "source": "data/show_blocks/*.json"

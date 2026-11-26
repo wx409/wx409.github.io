@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-26T21:09:58",
+ "generated_at": "2026-11-27T00:18:39",
  "stat": {
-  "generated_at": "2026-11-26T21:09:58",
+  "generated_at": "2026-11-27T00:18:38",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 68,
+  "songs_with_3plus": 69,
   "rows": [
    {
     "song": "佛山全场",
@@ -220,6 +220,15 @@
     "low_cv": 0.7174
    },
    {
+    "song": "一生守候",
+    "versions": 10,
+    "low_median": 78.0,
+    "low_iqr": 14.3,
+    "low_range": 33.3,
+    "high_median": 307.9,
+    "low_cv": 0.131
+   },
+   {
     "song": "花儿为什么这样红",
     "versions": 10,
     "low_median": 72.8,
@@ -236,15 +245,6 @@
     "low_range": 37.5,
     "high_median": 326.2,
     "low_cv": 0.145
-   },
-   {
-    "song": "一生守候",
-    "versions": 9,
-    "low_median": 77.8,
-    "low_iqr": 5.5,
-    "low_range": 33.3,
-    "high_median": 291.4,
-    "low_cv": 0.1277
    },
    {
     "song": "三巡长沙全场",
@@ -301,6 +301,15 @@
     "low_cv": 0.0674
    },
    {
+    "song": "王牌就是我",
+    "versions": 6,
+    "low_median": 97.4,
+    "low_iqr": 25.8,
+    "low_range": 76.0,
+    "high_median": 604.2,
+    "low_cv": 0.2389
+   },
+   {
     "song": "签唱会上海全场",
     "versions": 6,
     "low_median": 78.2,
@@ -353,15 +362,6 @@
     "low_range": 103.5,
     "high_median": 392.7,
     "low_cv": 0.3337
-   },
-   {
-    "song": "王牌就是我",
-    "versions": 5,
-    "low_median": 97.7,
-    "low_iqr": 28.9,
-    "low_range": 69.0,
-    "high_median": 604.2,
-    "low_cv": 0.2266
    },
    {
     "song": "静止了的夜晚",
@@ -526,7 +526,7 @@
     "low_cv": 0.0641
    }
   ],
-  "low_cv_median": 0.1284,
+  "low_cv_median": 0.1301,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {

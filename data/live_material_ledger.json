@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-26T21:09:35",
+ "generated_at": "2026-11-27T00:18:18",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
-  "processed_materials": 942,
+  "processed_materials": 946,
   "processed_songs": 281,
   "gap_songs": 62,
   "coverage_pct": 106.0,
   "status": {
-   "已完成": 424,
-   "候选": 8498,
+   "已完成": 430,
+   "候选": 8492,
    "跳过-串烧需人工切分": 53
   }
  },
@@ -3583,17 +3583,20 @@
    "bv": "BV1Sm421V7TM",
    "title": "王晰【一生守候】【4K字幕】中国影视之夜20240616上海",
    "song": "一生守候",
-   "tour": "",
-   "city": "",
-   "date": "2024-06-27",
+   "tour": "其他演出",
+   "city": "上海",
+   "date": "2024-06-16",
    "kind": "4K字幕",
    "fetched_at": "2024-06-27",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1jekiYyEZK",
@@ -50637,17 +50640,20 @@
    "bv": "BV1cj411S7iA",
    "title": "天上风筝在天上飞地上王晰在我心里唱无与伦比的美丽唱的我想把他关我心里再也不放出来",
    "song": "无与伦比的美丽",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2023-06-24",
    "kind": "其他",
    "fetched_at": "2023-06-24",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Sm4y1e7ZZ",
@@ -85228,17 +85234,20 @@
    "bv": "BV1Ci4y1E76k",
    "title": "【王晰】影视留声机《遇见幸福》《夜半歌声》《你是青山》《把一切给明天》《追幸福的人》丨录屏cut（更新20210415《遇见幸福》）",
    "song": "遇见",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
-   "date": "2020-09-30",
+   "date": "2021-04-15",
    "kind": "其他",
    "fetched_at": "2020-09-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1Ru4m1T7Ue",
@@ -96644,17 +96653,19 @@
    "bv": "BV1Gk4y117P5",
    "title": "【王晰】爆燃摇滚【王牌就是我】首秀LIVE",
    "song": "王牌就是我",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-09-20",
    "kind": "其他",
    "fetched_at": "2020-09-20",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1kA411J7zP",
@@ -99867,17 +99878,20 @@
    "bv": "BV1Ci4y1E76k",
    "title": "【王晰】影视留声机《遇见幸福》《夜半歌声》《你是青山》《把一切给明天》《追幸福的人》丨录屏cut（更新20210415《遇见幸福》）",
    "song": "追幸福的人",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
-   "date": "2020-09-30",
+   "date": "2021-04-15",
    "kind": "其他",
    "fetched_at": "2020-09-30",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音",
+    "跨度"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV1jy4y1t7JZ",
@@ -123758,17 +123772,19 @@
    "bv": "BV1Gk4y117P5",
    "title": "【王晰】爆燃摇滚【王牌就是我】首秀LIVE",
    "song": "我",
-   "tour": "",
+   "tour": "其他演出",
    "city": "",
    "date": "2020-09-20",
    "kind": "其他",
    "fetched_at": "2020-09-20",
-   "audio": false,
-   "separated": false,
-   "has_f0": false,
-   "metrics": [],
-   "grade": "需人耳",
-   "status": "候选"
+   "audio": true,
+   "separated": true,
+   "has_f0": true,
+   "metrics": [
+    "低音"
+   ],
+   "grade": "实测",
+   "status": "已完成"
   },
   {
    "bv": "BV15y4y1S7ti",
