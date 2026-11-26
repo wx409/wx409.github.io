@@ -132,6 +132,7 @@ STEPS = [
     (ROOT / "project_b" / "build_upcoming.py", "已官宣未发生场次 data/upcoming.json（主页宣传）", False),
     (ROOT / "project_b" / "build_compact.py", "精简版 7 页（index/works/live/vocal/history/research/community）", True),
     (ROOT / "project_b" / "build_why.py", "深度长文 why.html（换一把尺子看王晰）", False),
+    (ROOT / "project_b" / "build_today.py", "今日新入库 today.html（B站/声学/转写）", False),
     (ROOT / "project_b" / "build_monthly_events.py", "月度事件脉络数据（data/monthly_events.json：月度指数+事件归因）", False),
     (ROOT / "project_b" / "build_monthly_page.py", "月度事件脉络页（dashboard/monthly.html）", False),
     (ROOT / "project_b" / "update_praise_library.py", "社媒灵感库自动追加（有新发现才写，幂等）", False),

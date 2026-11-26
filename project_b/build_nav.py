@@ -57,7 +57,7 @@ FOOTER_GROUPS = [
                 "history.html", "research.html", "community.html"]),
     ("核心内容", ["live-reviews.html", "discography.html", "songs.html", "dongyan.html", "timeline.html",
                   "data-timeline.html", "story.html", "story-hui-guangzhou-2026.html",
-                  "why.html", "notifications.html"]),
+                  "why.html", "today.html", "notifications.html"]),
     ("数据", ["dashboard/", "map/", "live/", "live/setlists.html", "data/music-index.html",
               "data/calibers.md", "data/kb/kb_digest.md",
               # 检索意图视图（2026-10-11 新增；只加视图，不动已有 URL）

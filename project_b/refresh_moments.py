@@ -6,6 +6,7 @@ ROOT = Path(r"D:\wx409.github.io")
 py = sys.executable
 steps = [
     "project_b/build_upcoming.py",
+    "project_b/build_today.py",
     "project_b/build_danmaku_timeline.py",
     "project_b/build_moments.py",
     "project_b/make_quote_cards.py",
