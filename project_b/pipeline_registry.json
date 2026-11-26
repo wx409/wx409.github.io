@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-26 22:37",
+ "generated_at": "2026-11-26 22:42",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 264,
@@ -2814,7 +2814,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/26 22:41:00",
+    "next": "2026/11/26 22:51:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
