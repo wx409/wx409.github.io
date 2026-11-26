@@ -136,19 +136,11 @@ def save_local(entry):
 def save_collection(items):
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     lines = ["# 王晰 · 每日小作文合集", "",
-             "> 自动汇总；每篇标明日期与来源。网页版：https://wx409.github.io/today.html", ""]
+             "> 只汇总每日小作文；声学明细请回看当日单篇。网页版：https://wx409.github.io/today.html", ""]
     for e in sorted(items, key=lambda x: x["date"]):
-        lines += ["## %s" % e["date"], "", "> " + e.get("headline", ""), ""]
+        lines += ["## %s" % e["date"], ""]
         lines += [p + "\n" for p in e.get("essay") or []]
-        ms = e.get("measurements") or []
-        if ms:
-            lines += ["**当日声学测量**", ""]
-            for m in ms:
-                low = m.get("low") or {}
-                lines.append("- 《%s》 %s · 稳定最低 %s %sHz · 跨度 %s 八度 · 稳定性 %s 音分" % (
-                    m["title"], m.get("bvid"), low.get("note"), low.get("hz"), m.get("span"), m.get("stability")))
-            lines.append("")
-        lines += ["来源：B站官方空间（bili_daily.json）+ 声学初测；网页：https://wx409.github.io/today.html", ""]
+        lines += ["来源：B站官方空间（bili_daily.json）+ 声学初测；细节见同目录 `%s.md`；网页：https://wx409.github.io/today.html" % e["date"], ""]
     (ARCHIVE / "每日小作文合集.md").write_text("\n".join(lines), encoding="utf-8")
 
 
