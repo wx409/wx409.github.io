@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23 12:55",
+ "generated_at": "2026-11-26 22:07",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
-  "menu_items": 279,
-  "dispatch": 279,
-  "deploy_steps": 119,
+  "menu_items": 264,
+  "dispatch": 264,
+  "deploy_steps": 120,
   "scheduled_tasks": 44
  },
  "tasks": [
   {
    "script": "weibo_proxy_studio.py",
    "menu": 2,
-   "title": "微博全量 - 王晰工作室",
+   "title": "微博手动正文入库",
    "menu_label": "wb_studio",
    "in_deploy": false,
    "path": "E:\\wx\\私有工具\\weibo_proxy\\weibo_proxy_studio.py"
@@ -20,7 +20,7 @@
   {
    "script": "weibo_proxy.py",
    "menu": 3,
-   "title": "微博抓取 - 仅文字图片",
+   "title": "小红书按歌曲入库",
    "menu_label": "wb_novideo",
    "in_deploy": false,
    "path": "E:\\wx\\私有工具\\weibo_proxy\\weibo_proxy.py"
@@ -28,7 +28,7 @@
   {
    "script": "run_weibo_snapshot.py",
    "menu": 4,
-   "title": "微博本地网页快照",
+   "title": "事故验收总检",
    "menu_label": "wb_snapshot",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\run_weibo_snapshot.py"
@@ -36,7 +36,7 @@
   {
    "script": "sync_weibo_cookie.py",
    "menu": 5,
-   "title": "同步 wb.txt Cookie",
+   "title": "沉响 10-10 块级",
    "menu_label": "wb_cookie_sync",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\tools\\sync_weibo_cookie.py"
@@ -44,7 +44,7 @@
   {
    "script": "fetch_xhs_user.py",
    "menu": 6,
-   "title": "小红书全量 - 王晰主页",
+   "title": "沉响同曲跨夜",
    "menu_label": "xhs_user_full",
    "in_deploy": false,
    "path": "E:\\wx\\私有工具\\xhs_proxy\\fetch_xhs_user.py"
@@ -52,7 +52,7 @@
   {
    "script": "fetch_xhs_links.py",
    "menu": 8,
-   "title": "小红书按链接抓取 - 仅文字图片",
+   "title": "采集链路自检",
    "menu_label": "xhs_links_novideo",
    "in_deploy": false,
    "path": "E:\\wx\\私有工具\\xhs_proxy\\fetch_xhs_links.py"
@@ -90,36 +90,12 @@
    "path": "D:\\wx409.github.io\\project_b\\feedback_week.py"
   },
   {
-   "script": "import_tracking_repo.py",
-   "menu": 17,
-   "title": "追踪报告入库",
-   "menu_label": "trk_import",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\import_tracking_repo.py"
-  },
-  {
-   "script": "import_wb_manual.py",
-   "menu": 18,
-   "title": "微博手动正文入库",
-   "menu_label": "wb_manual_import",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\import_wb_manual.py"
-  },
-  {
    "script": "analyze_audience_comments.py",
    "menu": 19,
    "title": "评论多层面分析（默认广州场）",
    "menu_label": "an_analyze",
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\analyze_audience_comments.py"
-  },
-  {
-   "script": "import_xhs_songs.py",
-   "menu": 20,
-   "title": "小红书入库（按歌曲归类）",
-   "menu_label": "xhs_import",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\import_xhs_songs.py"
   },
   {
    "script": "render_gz_quotes.py",
@@ -774,14 +750,6 @@
    "path": "D:\\wx409.github.io\\project_b\\refresh_index_baseline.py"
   },
   {
-   "script": "acceptance_check.py",
-   "menu": 108,
-   "title": "事故验收总检（根因/自愈/口径/数据/站点/任务/产物 一次性体检）",
-   "menu_label": "acceptance_check",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\acceptance_check.py"
-  },
-  {
    "script": "run_batch_now.py",
    "menu": 109,
    "title": "立刻补跑一次采集（全量/极速）+ 自动刷新长表基线",
@@ -858,7 +826,7 @@
     "name": "wx409_vocal_nightly",
     "script": "每晚增量.py",
     "cmd": "cmd.exe cmd /c cd /d D:\\wx409.github.io && C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\每晚增量.py\" --limit 6 >> temp\\vocal_nightly.log 2>&1",
-    "next": "2026/11/23 21:30:00",
+    "next": "2026/11/27 21:30:00",
     "type": "Daily",
     "start": "21:30:00"
    },
@@ -920,7 +888,7 @@
     "name": "wx409_prune_raw_archive",
     "script": "prune_raw_archive.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\prune_raw_archive.py\" --apply --keep-full-days 3",
-    "next": "2026/11/24 10:00:00",
+    "next": "2026/11/27 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1362,7 +1330,7 @@
     "name": "wx409_tour_pool_daily",
     "script": "补搜巡演曲目.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"E:\\wx\\论文素材_王晰作传\\音域分析\\轨迹\\补搜巡演曲目.py\" --limit 12",
-    "next": "2026/11/24 10:00:00",
+    "next": "2026/11/27 10:00:00",
     "type": "Daily",
     "start": "10:00:00"
    },
@@ -1470,7 +1438,7 @@
     "name": "wx409_holiday_skip_daily",
     "script": "holiday_skip_sync.py",
     "cmd": "\"C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe\" -X utf8 \"D:\\wx409.github.io\\project_b\\holiday_skip_sync.py\"",
-    "next": "2026/11/24 12:00:00",
+    "next": "2026/11/27 12:00:00",
     "type": "Daily",
     "start": "12:00:00"
    },
@@ -1542,14 +1510,6 @@
    "path": "D:\\wx409.github.io\\project_b\\build_activity_master.py"
   },
   {
-   "script": "power_schedule.py",
-   "menu": 204,
-   "title": "[关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）",
-   "menu_label": "power_status",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\power_schedule.py"
-  },
-  {
    "script": "add_show.py",
    "menu": 205,
    "title": "[活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）",
@@ -1576,7 +1536,7 @@
     "name": "wx409_show_intake",
     "script": "night_show_intake.py",
     "cmd": "D:\\wx409.github.io\\project_b\\run_show_intake.bat",
-    "next": "2026/11/23 23:30:00",
+    "next": "2026/11/26 23:30:00",
     "type": "Daily",
     "start": "23:30:00"
    },
@@ -1655,30 +1615,6 @@
    "path": "D:\\wx409.github.io\\project_b\\build_share_page.py"
   },
   {
-   "script": "build_show_blocks_1010.py",
-   "menu": 216,
-   "title": "[沉响10-10] 块级生成（回填驱动；不完整则拒绝）",
-   "menu_label": "blocks1010",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\build_show_blocks_1010.py"
-  },
-  {
-   "script": "cross_night_consistency.py",
-   "menu": 217,
-   "title": "[沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）",
-   "menu_label": "crossnight",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\cross_night_consistency.py"
-  },
-  {
-   "script": "measure_nanping_wanchong.py",
-   "menu": 218,
-   "title": "[南屏晚钟] 首次实测（点歌段噪声口径）",
-   "menu_label": "nanping",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\measure_nanping_wanchong.py"
-  },
-  {
    "script": "auto_fetch_social.py",
    "menu": 219,
    "title": "[开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示；登录自启由启动文件夹 wx409_social_boot.cmd 触发）",
@@ -1705,7 +1641,7 @@
     "name": "wx409_propagation_watch_daily",
     "script": "propagation_watch.py",
     "cmd": "D:\\wx409.github.io\\run_propagation_watch_daily.bat",
-    "next": "2026/11/23 23:40:00",
+    "next": "2026/11/26 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -1750,7 +1686,7 @@
     "name": "wx409_index_freshness",
     "script": "check_index_freshness.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\check_index_freshness.py >> temp\\index_freshness_task.log 2>&1",
-    "next": "2026/11/24 9:40:00",
+    "next": "2026/11/27 9:40:00",
     "type": "Daily",
     "start": "9:40:00"
    },
@@ -1902,14 +1838,6 @@
    "path": ""
   },
   {
-   "script": "add_phrase.py",
-   "menu": 246,
-   "title": "[词句] 查看词句库统计（各类型条数 + 最近十条）",
-   "menu_label": "phr_list",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\add_phrase.py"
-  },
-  {
    "script": "interview_daily.py",
    "menu": 247,
    "title": "[采访] 立刻巡检采访/杂志 → 根表 + 待人工清单 + 站内通知",
@@ -1918,20 +1846,12 @@
     "name": "wx409_interview_daily",
     "script": "interview_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_daily.py >> temp\\interview_daily.log 2>&1",
-    "next": "2026/11/24 8:20:00",
+    "next": "2026/11/27 8:20:00",
     "type": "Daily",
     "start": "8:20:00"
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\interview_daily.py"
-  },
-  {
-   "script": "transcribe.py",
-   "menu": 251,
-   "title": "[转写] 查看可用模型 + 已转写索引",
-   "menu_label": "tr_info",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\transcribe.py"
   },
   {
    "script": "dedupe_transcripts.py",
@@ -1950,7 +1870,7 @@
     "name": "wx409_morning_catchup",
     "script": "morning_catchup.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\morning_catchup.py >> temp\\morning_catchup.log 2>&1",
-    "next": "2026/11/24 9:45:00",
+    "next": "2026/11/27 9:45:00",
     "type": "Daily",
     "start": "9:45:00"
    },
@@ -1990,7 +1910,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/23 13:04:00",
+    "next": "2026/11/26 22:34:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2006,14 +1926,6 @@
    "path": "D:\\wx409.github.io\\project_b\\ingest_link.py"
   },
   {
-   "script": "add_phrases_from_file.py",
-   "menu": 260,
-   "title": "[词句] 从文本文件入池（手摘金句/整理稿，给路径+出处）",
-   "menu_label": "ingest_file",
-   "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\add_phrases_from_file.py"
-  },
-  {
    "script": "interview_web_daily.py",
    "menu": 261,
    "title": "[采访] 网页访谈自动采集（360 搜索→抓正文→抽原话→重建；每日 08:45 已排程）",
@@ -2022,7 +1934,7 @@
     "name": "wx409_interview_web",
     "script": "interview_web_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\interview_web_daily.py >> temp\\web_interview.log 2>&1",
-    "next": "2026/11/24 8:45:00",
+    "next": "2026/11/27 8:45:00",
     "type": "Daily",
     "start": "8:45:00"
    },
@@ -2038,7 +1950,7 @@
     "name": "wx409_sync_listener_xlsx",
     "script": "sync_listener_xlsx.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\sync_listener_xlsx.py >> temp\\listener_sync.log 2>&1",
-    "next": "2026/11/23 23:40:00",
+    "next": "2026/11/26 23:40:00",
     "type": "Daily",
     "start": "23:40:00"
    },
@@ -2134,7 +2046,7 @@
     "name": "wx409_trend_watch",
     "script": "trend_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/23 12:56:00",
+    "next": "2026/11/26 22:16:00",
     "type": "One Time Only, Minute",
     "start": "9:46:00"
    },
@@ -2166,7 +2078,7 @@
     "name": "wx409_show_feedback_daily",
     "script": "show_feedback_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_feedback_daily.py",
-    "next": "2026/11/24 10:30:00",
+    "next": "2026/11/27 10:30:00",
     "type": "Daily",
     "start": "10:30:00"
    },
@@ -2182,12 +2094,20 @@
     "name": "wx409_comment_harvest_daily",
     "script": "comment_harvest_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\comment_harvest_daily.py",
-    "next": "2026/11/24 11:30:00",
+    "next": "2026/11/27 11:30:00",
     "type": "Daily",
     "start": "11:30:00"
    },
    "in_deploy": false,
    "path": "D:\\wx409.github.io\\project_b\\comment_harvest_daily.py"
+  },
+  {
+   "script": "pick_moments.py",
+   "menu": 279,
+   "title": "[内容] 本周精选：先看编号，再输入（自动重建 + 推送）",
+   "menu_label": "pick_moments",
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\pick_moments.py"
   },
   {
    "script": "menu:281",
@@ -2198,12 +2118,52 @@
    "path": ""
   },
   {
-   "script": "loopback_selftest.py",
-   "menu": 282,
-   "title": "[采集] 链路自检（测试音自录自判，过了才录）",
-   "menu_label": "cap_selftest",
+   "script": "publish_all.py",
+   "menu": 283,
+   "title": "[重建] 一键重建与把关（导航 + 导航/JSON-LD/口径审计）",
+   "menu_label": "publish",
    "in_deploy": false,
-   "path": "D:\\wx409.github.io\\project_b\\loopback_selftest.py"
+   "path": "D:\\wx409.github.io\\project_b\\publish_all.py"
+  },
+  {
+   "script": "menu:284",
+   "menu": 284,
+   "title": "[B站] 采集/下载/摘要（合并 10-12）",
+   "menu_label": "bili_group",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:285",
+   "menu": 285,
+   "title": "[关机] 档位/长期不关机/预览（合并 202-204）",
+   "menu_label": "power_group",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:286",
+   "menu": 286,
+   "title": "[词句] 新增/批量/统计/文件入池（合并 244-246/260）",
+   "menu_label": "phrase_group",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:287",
+   "menu": 287,
+   "title": "[转写] 单条/批量/文件夹/模型（合并 248-251）",
+   "menu_label": "transcribe_group",
+   "in_deploy": false,
+   "path": ""
+  },
+  {
+   "script": "menu:288",
+   "menu": 288,
+   "title": "[维护] 历史/一次性（旧导入/补录/单曲专题/自检）",
+   "menu_label": "maint_group",
+   "in_deploy": false,
+   "path": ""
   },
   {
    "script": "QQ音乐大屏生成器_GEO优化版_源码.py",
@@ -2273,7 +2233,7 @@
     "name": "wx409_bili_danmaku_daily",
     "script": "bili_danmaku.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_danmaku.py",
-    "next": "2026/11/24 10:45:00",
+    "next": "2026/11/27 10:45:00",
     "type": "Daily",
     "start": "10:45:00"
    },
@@ -2286,7 +2246,7 @@
     "name": "wx409_bili_dense_daily",
     "script": "bili_danmaku_dense.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_danmaku_dense.py",
-    "next": "2026/11/24 10:50:00",
+    "next": "2026/11/27 10:50:00",
     "type": "Daily",
     "start": "10:50:00"
    },
@@ -2312,7 +2272,7 @@
     "name": "wx409_bili_official_daily",
     "script": "bili_official_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\bili_official_daily.py",
-    "next": "2026/11/24 9:55:00",
+    "next": "2026/11/27 9:55:00",
     "type": "Daily",
     "start": "9:55:00"
    },
@@ -2496,7 +2456,7 @@
     "name": "wx409_music_index_daily",
     "script": "build_music_index.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 D:\\wx409.github.io\\project_b\\build_music_index.py --wait --deadline 00:45 --push >> temp\\music_index_daily.log 2>&1",
-    "next": "2026/11/24 0:10:00",
+    "next": "2026/11/27 0:10:00",
     "type": "Daily",
     "start": "0:10:00"
    },
@@ -2559,6 +2519,13 @@
    "path": "D:\\wx409.github.io\\project_b\\build_topic_page.py"
   },
   {
+   "script": "build_upcoming.py",
+   "in_deploy": true,
+   "deploy_desc": "已官宣未发生场次 data/upcoming.json（主页宣传）",
+   "critical": false,
+   "path": "D:\\wx409.github.io\\project_b\\build_upcoming.py"
+  },
+  {
    "script": "build_voices_page.py",
    "in_deploy": true,
    "deploy_desc": "听众之声页 voices.html（聚合+匿名短引用）",
@@ -2568,7 +2535,7 @@
   {
    "script": "build_why.py",
    "in_deploy": true,
-   "deploy_desc": "深度长文 why.html（为什么被低估，事实/解释/判断分层）",
+   "deploy_desc": "深度长文 why.html（换一把尺子看王晰）",
    "critical": false,
    "path": "D:\\wx409.github.io\\project_b\\build_why.py"
   },
@@ -2585,7 +2552,7 @@
     "name": "wx409_disk_hygiene",
     "script": "disk_hygiene.py",
     "cmd": "C:\\Users\\yezhe\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -X utf8 \"D:\\wx409.github.io\\project_b\\disk_hygiene.py\" --apply",
-    "next": "2026/11/24 9:00:00",
+    "next": "2026/11/27 9:00:00",
     "type": "Daily",
     "start": "9:00:00"
    },
@@ -2598,7 +2565,7 @@
     "name": "wx409_douyin_daily",
     "script": "douyin_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\douyin_daily.py",
-    "next": "2026/11/24 9:40:00",
+    "next": "2026/11/27 9:40:00",
     "type": "Daily",
     "start": "9:40:00"
    },
@@ -2611,7 +2578,7 @@
     "name": "wx409_event_notify_daily",
     "script": "event_notify_sync.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\event_notify_sync.py",
-    "next": "2026/11/24 9:00:00",
+    "next": "2026/11/27 9:00:00",
     "type": "Daily",
     "start": "9:00:00"
    },
@@ -2666,7 +2633,7 @@
     "name": "wx409_index_backfill_late",
     "script": "index_auto_repair.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\index_auto_repair.py >> temp\\index_backfill_task.log 2>&1",
-    "next": "2026/11/24 0:05:00",
+    "next": "2026/11/27 0:05:00",
     "type": "Daily",
     "start": "0:05:00"
    },
@@ -2735,7 +2702,7 @@
     "name": "wx409_kuaishou_daily",
     "script": "kuaishou_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\kuaishou_daily.py",
-    "next": "2026/11/24 9:50:00",
+    "next": "2026/11/27 9:50:00",
     "type": "Daily",
     "start": "9:50:00"
    },
@@ -2755,7 +2722,7 @@
     "name": "wx409_baseline_daily",
     "script": "publish_baseline_daily.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\publish_baseline_daily.py >> temp\\baseline_daily.log 2>&1",
-    "next": "2026/11/24 0:20:00",
+    "next": "2026/11/27 0:20:00",
     "type": "Daily",
     "start": "0:20:00"
    },
@@ -2775,7 +2742,7 @@
     "name": "wx409_moments_daily",
     "script": "refresh_moments.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\refresh_moments.py",
-    "next": "2026/11/24 11:20:00",
+    "next": "2026/11/27 11:20:00",
     "type": "Daily",
     "start": "11:20:00"
    },
@@ -2788,7 +2755,7 @@
     "name": "wx409_show_social_pm",
     "script": "show_day_social.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_day_social.py --slot pm",
-    "next": "2026/11/23 23:10:00",
+    "next": "2026/11/26 23:10:00",
     "type": "Daily",
     "start": "23:10:00"
    },
@@ -2801,7 +2768,7 @@
     "name": "wx409_show_social_am",
     "script": "show_day_social_am.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\show_day_social_am.py",
-    "next": "2026/11/24 9:20:00",
+    "next": "2026/11/27 9:20:00",
     "type": "Daily",
     "start": "9:20:00"
    },
@@ -2827,7 +2794,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/23 13:01:00",
+    "next": "2026/11/26 22:11:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2840,7 +2807,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/11/23 21:00:00",
+    "next": "2026/11/26 22:30:00",
     "type": "Daily",
     "start": "21:00:00"
    },
@@ -2853,7 +2820,7 @@
     "name": "wx409_index_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_index_daily.bat",
-    "next": "2026/11/24 9:10:00",
+    "next": "2026/11/27 9:10:00",
     "type": "Daily",
     "start": "9:10:00"
    },
@@ -2866,7 +2833,7 @@
     "name": "wx409_insight_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_insight_daily.bat",
-    "next": "2026/11/23 22:00:00",
+    "next": "2026/11/27 22:00:00",
     "type": "Daily",
     "start": "22:00:00"
    },
@@ -2879,7 +2846,7 @@
     "name": "wx409_night_shutdown",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_night_shutdown.bat",
-    "next": "2026/11/24 1:30:00",
+    "next": "N/A",
     "type": "Daily",
     "start": "1:30:00"
    },
@@ -2931,7 +2898,7 @@
     "name": "wx409_social_daily",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_social_daily.bat",
-    "next": "2026/11/24 9:30:00",
+    "next": "2026/11/27 9:30:00",
     "type": "Daily",
     "start": "9:30:00"
    },
@@ -2964,7 +2931,7 @@
     "name": "wx409_video_transcribe",
     "script": "transcribe_video_songs.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\transcribe_video_songs.py --resume --limit 300",
-    "next": "2026/11/24 2:00:00",
+    "next": "2026/11/27 2:00:00",
     "type": "Daily",
     "start": "2:00:00"
    },
@@ -3005,7 +2972,7 @@
     "name": "wx409_xhs_watch_daily",
     "script": "xhs_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\xhs_watch.py",
-    "next": "2026/11/24 9:30:00",
+    "next": "2026/11/27 9:30:00",
     "type": "Daily",
     "start": "9:30:00"
    },

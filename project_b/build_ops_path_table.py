@@ -7,9 +7,13 @@ s = (ROOT / "操作中心.bat").read_bytes().decode("gbk")
 lines = s.splitlines()
 
 menu, labels, disp = [], {}, {}
+seen_menu = set()
 for i, l in enumerate(lines):
+    if l.strip().lower().startswith("rem"):
+        continue
     m = re.match(r'echo\s+(\d+)\.\s*(.*)', l.strip())
-    if m and int(m.group(1)) > 0:
+    if m and int(m.group(1)) > 0 and int(m.group(1)) not in seen_menu:
+        seen_menu.add(int(m.group(1)))
         menu.append((int(m.group(1)), m.group(2).strip()))
     m = re.match(r':([A-Za-z0-9_]+)', l.strip())
     if m:

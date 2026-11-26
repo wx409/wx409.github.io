@@ -46,11 +46,11 @@ echo    8. 小红书按链接抓取 - 仅文字图片
 
 echo    9. 小红书 summary 重建
 
-echo    10. B站全量 - 王晰空间
+rem [已合并] B站合并到 284｜echo    10. B站全量 - 王晰空间
 
-echo    11. B站下载+摘要 - 视频+文字
+rem [已合并] B站合并到 284｜echo    11. B站下载+摘要 - 视频+文字
 
-echo    12. B站仅文字摘要
+rem [已合并] B站合并到 284｜echo    12. B站仅文字摘要
 
 echo.
 
@@ -66,13 +66,13 @@ echo    15. 歌单候选（反馈反推歌名）
 
 echo    16. 演出反馈一周工作流
 
-echo    17. 追踪报告入库
+rem [已合并] 维护/历史 288｜echo    17. 追踪报告入库
 
-echo    18. 微博手动正文入库
+rem [已合并] 维护/历史 288｜echo    18. 微博手动正文入库
 
 echo    19. 评论多层面分析（默认广州场）
 
-echo    20. 小红书入库（按歌曲归类）
+rem [已合并] 维护/历史 288｜echo    20. 小红书入库（按歌曲归类）
 
 echo    21. 广州整理摘录重渲染
 
@@ -308,7 +308,7 @@ echo    106. 缺失日备用数据源（守护进程准终值，可生成日档案回填）
 
 echo    107. 指数长表+基线刷新（日档案更新后跑；已接入每日 auto_update）
 
-echo    108. 事故验收总检（根因/自愈/口径/数据/站点/任务/产物 一次性体检）
+rem [已合并] 维护/历史 288｜echo    108. 事故验收总检（根因/自愈/口径/数据/站点/任务/产物 一次性体检）
 
 echo    109. 立刻补跑一次采集（全量/极速）+ 自动刷新长表基线
 
@@ -500,11 +500,11 @@ echo    200. 事件窗口分析（演出/综艺/晚会 前后 ±14 天指数响应）
 
 echo    201. 活动总表合并（百科版+微博核对版 → data/activity_master.json）
 
-echo    202. [关机档位] 关机规则查看：每天 01:30 关机（法定节假日/调休除外）
+rem [已合并] 关机合并到 285｜echo    202. [关机档位] 关机规则查看：每天 01:30 关机（法定节假日/调休除外）
 
-echo    203. [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
+rem [已合并] 关机合并到 285｜echo    203. [关机档位] 长期不关机：窗口内所有日期豁免（出差/长期不在工位）
 
-echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
+rem [已合并] 关机合并到 285｜echo    204. [关机判定] 预览当前档位 + 未来 14 天是否会关机（不写文件）
 
 echo    205. [活动登记] 新演出/巡演一次登记全站生效（长表+时间轴+生命周期+全站发布）
 
@@ -528,11 +528,11 @@ echo    214. [专题卡] 生成全部专题卡数据源与渲染片段（张数取自 data/share/cards/
 
 echo    215. [分享] 生成 share.html 五区 + data/share 种子（build_share_page）
 
-echo    216. [沉响10-10] 块级生成（回填驱动；不完整则拒绝）
+rem [已合并] 维护/历史 288｜echo    216. [沉响10-10] 块级生成（回填驱动；不完整则拒绝）
 
-echo    217. [沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）
+rem [已合并] 维护/历史 288｜echo    217. [沉响] 同曲跨夜一致性（第五种证据：同曲跨夜）
 
-echo    218. [南屏晚钟] 首次实测（点歌段噪声口径）
+rem [已合并] 维护/历史 288｜echo    218. [南屏晚钟] 首次实测（点歌段噪声口径）
 
 echo    219. [开机自启] 抓微博(本人+工作室)+小红书官方账号（cookie 三态自检/过期提示；登录自启由启动文件夹 wx409_social_boot.cmd 触发）
 
@@ -556,7 +556,7 @@ echo  --------------------------------------------------------------------------
 
 echo    281. [采集] 查看默认播放/录音设备
 
-echo    282. [采集] 链路自检（测试音自录自判，过了才录）
+rem [已合并] 维护/历史 288｜echo    282. [采集] 链路自检（测试音自录自判，过了才录）
 
 echo    226. [采集] 直播录制（切 CABLE Input → 录 → 自动恢复）
 
@@ -585,24 +585,24 @@ echo    243. [证据] 打开阶段基线 v1 文档
 
 echo  [V · 词句库（骰子素材）]
 
-echo    244. [词句] 新增一句入池（交互输入类型/句子/出处；自动去重并重建骰子与页面）
+rem [已合并] 词句合并到 286｜echo    244. [词句] 新增一句入池（交互输入类型/句子/出处；自动去重并重建骰子与页面）
 
-echo    245. [词句] 从 JSON 批量入池（$E:\wx\_incoming_phrases.json）
+rem [已合并] 词句合并到 286｜echo    245. [词句] 从 JSON 批量入池（$E:\wx\_incoming_phrases.json）
 
-echo    246. [词句] 查看词句库统计（各类型条数 + 最近十条）
+rem [已合并] 词句合并到 286｜echo    246. [词句] 查看词句库统计（各类型条数 + 最近十条）
 
 echo    247. [采访] 立刻巡检采访/杂志 → 根表 + 待人工清单 + 站内通知
 
 
 echo  [W · 本地转写（faster-whisper：turbo / small）]
 
-echo    248. [转写] 单条微博链接（给 URL，自动下视频并转写）
+rem [已合并] 转写合并到 287｜echo    248. [转写] 单条微博链接（给 URL，自动下视频并转写）
 
-echo    249. [转写] 批量补完待办视频（根表/审计里未转写的）
+rem [已合并] 转写合并到 287｜echo    249. [转写] 批量补完待办视频（根表/审计里未转写的）
 
-echo    250. [转写] 整个文件夹批量（视频/音频混合）
+rem [已合并] 转写合并到 287｜echo    250. [转写] 整个文件夹批量（视频/音频混合）
 
-echo    251. [转写] 查看可用模型 + 已转写索引
+rem [已合并] 转写合并到 287｜echo    251. [转写] 查看可用模型 + 已转写索引
 
 echo    252. [转写] 去重/规范化转写文件（保留 turbo，其余归档）
 
@@ -620,7 +620,7 @@ echo    258. [小酒馆] 查看电台代理状态（运行中？Cookie 已设置？）
 
 echo    259. [词句] ★一条链接全流程（下载/转写→切分说话人→切句入池→重建页面）
 
-echo    260. [词句] 从文本文件入池（手摘金句/整理稿，给路径+出处）
+rem [已合并] 词句合并到 286｜echo    260. [词句] 从文本文件入池（手摘金句/整理稿，给路径+出处）
 
 echo    261. [采访] 网页访谈自动采集（360 搜索→抓正文→抽原话→重建；每日 08:45 已排程）
 
@@ -646,6 +646,20 @@ echo    277. [反馈] 演出次日链路（近3天：B站补收+建页+入库）
 echo    278. [评论] 微博关键词广场补评论（入私有语料库）
 
 echo    279. [内容] 本周精选：先看编号，再输入（自动重建 + 推送）
+
+
+echo    283. [重建] 一键重建与把关（导航 + 导航/JSON-LD/口径审计）
+echo.
+echo    284. [B站] 采集/下载/摘要（合并 10-12）
+echo.
+echo    285. [关机] 档位/长期不关机/预览（合并 202-204）
+echo.
+echo    286. [词句] 新增/批量/统计/文件入池（合并 244-246/260）
+echo.
+echo    287. [转写] 单条/批量/文件夹/模型（合并 248-251）
+echo.
+echo    288. [维护] 历史/一次性（旧导入/补录/单曲专题/自检）
+echo.
 
 echo    0. 退出
 
@@ -677,11 +691,8 @@ if "%op%"=="8" goto xhs_links_novideo
 
 if "%op%"=="9" goto xhs_rebuild
 
-if "%op%"=="10" goto bili_space_full
 
-if "%op%"=="11" goto bili_dl
 
-if "%op%"=="12" goto bili_text
 
 if "%op%"=="13" goto fb_collect
 
@@ -691,13 +702,10 @@ if "%op%"=="15" goto fb_candidate
 
 if "%op%"=="16" goto fb_week
 
-if "%op%"=="17" goto trk_import
 
-if "%op%"=="18" goto wb_manual_import
 
 if "%op%"=="19" goto an_analyze
 
-if "%op%"=="20" goto xhs_import
 
 if "%op%"=="21" goto gz_render
 
@@ -873,7 +881,6 @@ if "%op%"=="106" goto fallback_day
 
 if "%op%"=="107" goto refresh_index
 
-if "%op%"=="108" goto acceptance_check
 
 if "%op%"=="109" goto run_batch_now
 
@@ -1057,11 +1064,8 @@ if "%op%"=="200" goto ev_window
 
 if "%op%"=="201" goto act_master
 
-if "%op%"=="202" goto power_normal
 
-if "%op%"=="203" goto power_all
 
-if "%op%"=="204" goto power_status
 
 if "%op%"=="205" goto add_show
 
@@ -1085,11 +1089,8 @@ if "%op%"=="214" goto topic_cards
 
 if "%op%"=="215" goto share_page
 
-if "%op%"=="216" goto blocks1010
 
-if "%op%"=="217" goto crossnight
 
-if "%op%"=="218" goto nanping
 
 if "%op%"=="219" goto social_boot
 
@@ -1102,7 +1103,6 @@ if "%op%"=="222" goto share_auto
 if "%op%"=="223" goto hook_mine
 if "%op%"=="281" goto cap_list
 
-if "%op%"=="282" goto cap_selftest
 
 if "%op%"=="226" goto cap_record
 
@@ -1132,20 +1132,13 @@ if "%op%"=="243" goto ev_baseline
 if "%op%"=="224" goto insight_page
 if "%op%"=="225" goto index_freshness
 
-if "%op%"=="244" goto phr_add
 
-if "%op%"=="245" goto phr_bulk
 
-if "%op%"=="246" goto phr_list
 if "%op%"=="247" goto interview_patrol
 
-if "%op%"=="248" goto tr_weibo
 
-if "%op%"=="249" goto tr_pending
 
-if "%op%"=="250" goto tr_dir
 
-if "%op%"=="251" goto tr_info
 if "%op%"=="252" goto tr_dedupe
 
 if "%op%"=="253" goto morning_catchup
@@ -1158,7 +1151,6 @@ if "%op%"=="257" goto radio_start
 if "%op%"=="258" goto radio_status
 if "%op%"=="259" goto ingest_link
 
-if "%op%"=="260" goto ingest_file
 if "%op%"=="261" goto web_interview
 if "%op%"=="264" goto mat_low
 if "%op%"=="266" goto score_open
@@ -1173,6 +1165,13 @@ if "%op%"=="275" goto video_index
 if "%op%"=="276" goto video_stats
 if "%op%"=="277" goto show_daily
 if "%op%"=="278" goto comment_harvest
+if "%op%"=="283" goto publish
+if "%op%"=="284" goto bili_group
+if "%op%"=="285" goto power_group
+if "%op%"=="286" goto phrase_group
+if "%op%"=="287" goto transcribe_group
+if "%op%"=="288" goto maint_group
+
 if "%op%"=="279" goto pick_moments
 
 if "%op%"=="268" goto score_grab
@@ -2753,7 +2752,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\inject_vocal_summary.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 python -X utf8 project_b\audit_caliber.py
 
@@ -2831,7 +2830,7 @@ echo  [导航统一] 顶部导航 + 底部全站索引（25页，幂等）
 
 cd /d "D:\wx409.github.io"
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 echo  [OK] 导航已统一；生成器重写页面后重跑本项即可恢复
 
@@ -2871,7 +2870,7 @@ python -X utf8 project_b\audit_caliber.py
 
 python -X utf8 project_b\build_calibers.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 python -X utf8 project_b\audit_nav.py
 
@@ -3039,7 +3038,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_academic.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 echo  [OK] 已生成 academic.html（新增文献只需编辑 data\literature.json）
 
@@ -3105,7 +3104,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\inject_vocal_summary.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 python -X utf8 project_b\audit_caliber.py
 
@@ -3229,7 +3228,7 @@ python -X utf8 generate_voice_page.py
 
 cd /d "D:\wx409.github.io"
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 echo  [OK] 报告 情境对比报告.md ；voice.html 板块四已更新
 
@@ -3267,7 +3266,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_stage_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 echo  [OK] stage.html 已更新
 
@@ -3329,7 +3328,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_stage_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 echo  [OK] 双重校验_舞台vsQQ官方.md ；stage.html 已更新
 
@@ -4309,7 +4308,7 @@ python -X utf8 project_b\inject_essay_quotes.py
 
 python -X utf8 project_b\build_songs_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 python -X utf8 project_b\audit_jsonld.py
 
@@ -4885,7 +4884,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_stage_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 python -X utf8 project_b\update_sitemap_lastmod.py
 
@@ -5501,7 +5500,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_topic_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -5817,7 +5816,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_dongyan_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 python -X utf8 project_b\audit_jsonld.py
 
@@ -6015,7 +6014,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_share_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6037,7 +6036,7 @@ python -X utf8 project_b\build_auto_cards.py
 
 python -X utf8 project_b\build_share_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6195,7 +6194,7 @@ python -X utf8 project_b\build_insight_charts.py
 
 python -X utf8 project_b\build_insight_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6454,7 +6453,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_versions_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6471,7 +6470,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_stage_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6490,7 +6489,7 @@ python -X utf8 generate_voice_page.py
 
 cd /d "D:\wx409.github.io"
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6507,7 +6506,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_skill_page.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6524,7 +6523,7 @@ cd /d "D:\wx409.github.io"
 
 python -X utf8 project_b\build_acoustic_report.py
 
-python -X utf8 project_b\build_nav.py
+python -X utf8 project_b\publish_all.py --quick
 
 pause
 
@@ -6925,5 +6924,91 @@ set /p ids=输入编号（空格分隔，如 q01 s03 m02 q07 s01）:
 if "%ids%"=="" goto menu
 python -X utf8 project_b\pick_moments.py %ids%
 pause
+goto menu
+
+:publish
+cls
+echo === 重建与把关：导航 + 审计 ===
+python -X utf8 project_b\publish_all.py
+pause
+goto menu
+
+:bili_group
+cls
+echo === B站采集 ===
+echo    1. 空间全量（元数据）
+echo    2. 下载 + 摘要（默认目录）
+echo    3. 仅文字摘要（不下视频）
+set "sub="
+set /p sub=选择: 
+if "%sub%"=="1" goto bili_space_full
+if "%sub%"=="2" goto bili_dl
+if "%sub%"=="3" goto bili_text
+goto menu
+
+:power_group
+cls
+echo === 关机档位 ===
+echo    1. 工作日模式（01:30 关机）
+echo    2. 长期不关机（出差）
+echo    3. 预览未来 14 天
+set "sub="
+set /p sub=选择: 
+if "%sub%"=="1" goto power_normal
+if "%sub%"=="2" goto power_all
+if "%sub%"=="3" goto power_status
+goto menu
+
+:phrase_group
+cls
+echo === 词句库 ===
+echo    1. 新增一句
+echo    2. 从 JSON 批量
+echo    3. 查看统计
+echo    4. 从文本文件入池
+set "sub="
+set /p sub=选择: 
+if "%sub%"=="1" goto phr_add
+if "%sub%"=="2" goto phr_bulk
+if "%sub%"=="3" goto phr_list
+if "%sub%"=="4" goto ingest_file
+goto menu
+
+:transcribe_group
+cls
+echo === 转写 ===
+echo    1. 单条微博链接
+echo    2. 批量补完待办
+echo    3. 整个文件夹
+echo    4. 模型/索引
+set "sub="
+set /p sub=选择: 
+if "%sub%"=="1" goto tr_weibo
+if "%sub%"=="2" goto tr_pending
+if "%sub%"=="3" goto tr_dir
+if "%sub%"=="4" goto tr_info
+goto menu
+
+:maint_group
+cls
+echo === 维护 / 历史 ===
+echo    1. 追踪报告入库（一次性）
+echo    2. 微博手动正文入库
+echo    3. 小红书按歌曲入库
+echo    4. 事故验收总检
+echo    5. 沉响 10-10 块级
+echo    6. 沉响同曲跨夜
+echo    7. 南屏晚钟实测
+echo    8. 采集链路自检
+set "sub="
+set /p sub=选择: 
+if "%sub%"=="1" goto trk_import
+if "%sub%"=="2" goto wb_manual_import
+if "%sub%"=="3" goto xhs_import
+if "%sub%"=="4" goto acceptance_check
+if "%sub%"=="5" goto blocks1010
+if "%sub%"=="6" goto crossnight
+if "%sub%"=="7" goto nanping
+if "%sub%"=="8" goto cap_selftest
 goto menu
 
