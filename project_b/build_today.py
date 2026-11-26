@@ -6,7 +6,7 @@ from __future__ import annotations
 import html
 import json
 import re
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(r"D:\wx409.github.io")
@@ -147,7 +147,12 @@ def main():
     HIST.write_text(json.dumps(history[:7], ensure_ascii=False, indent=1), encoding="utf-8")
 
     shown = entry if fresh else (history[0] if history else None)
-    status = "今日已更新" if fresh else "今日自动化未完成；下面是最近一篇 %s" % ((shown or {}).get("date", ""))
+    if fresh:
+        status = "今日已更新"
+    elif datetime.now().hour < 10 or (datetime.now().hour == 10 and datetime.now().minute < 30):
+        status = "今天的更新将在 10:10 后开始；先看最近一篇"
+    else:
+        status = "今日自动化未完成；下面是最近一篇 %s" % ((shown or {}).get("date", ""))
     cards = "".join('<div class="card"><div class="t">%s</div><div class="meta">%s · 稳定最低 %s %sHz · 跨度 %s 八度 · 稳定性 %s 音分</div></div>' % (
         esc(m["title"]), esc(m.get("bvid")), esc((m.get("low") or {}).get("note")), esc((m.get("low") or {}).get("hz")),
         esc(m.get("span")), esc(m.get("stability"))) for m in ((shown or {}).get("measurements") or []))
@@ -194,7 +199,8 @@ main{max-width:760px;margin:0 auto;padding:30px 22px 70px}h1{font-size:29px;line
         hist_html or "<p class='sub'>还没有更早的留存。</p>")
 
     OUT.write_text(page, encoding="utf-8")
-    summary = {"date": today, "fresh": fresh, "latest_date": (shown or {}).get("date", ""),
+    summary = {"date": today, "fresh": fresh, "status": status,
+               "latest_date": (shown or {}).get("date", ""),
                "headline": (shown or {}).get("headline", ""),
                "new_count": len(d.get("items") or []),
                "measured_count": len(entry.get("measurements") or []),
