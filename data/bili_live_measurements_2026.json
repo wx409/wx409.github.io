@@ -1,0 +1,164 @@
+{
+ "generated_at": "2026-11-26",
+ "method": "demucs htdemucs + YIN；稳定音门槛同专辑",
+ "tracks": [
+  {
+   "bvid": "BV1Ab4y1g7Wj",
+   "tag": "多听有益",
+   "source": "BV1Ab4y1g7Wj_四巡《多听有益》直拍.mp4",
+   "low_stable": {
+    "midi": 41.0,
+    "note": "F2",
+    "hz": 87.5
+   },
+   "high_stable": {
+    "midi": 71.7,
+    "note": "C5",
+    "hz": 515.1
+   },
+   "f0_min_hz": 64.9,
+   "filter": {
+    "kept": 205,
+    "total": 354,
+    "rule": "dur>=0.15s & HNR>=5dB & rms>=中位-25dB；极值音级需该音符本身>=0.2s"
+   },
+   "span_octaves": 2.56,
+   "stability_cents": 5.6,
+   "intonation_cents": 16.8,
+   "vibrato_hz": 5.02,
+   "note_count": 354,
+   "duration_s": 239.7,
+   "studio": {
+    "title": "多听有益",
+    "low": "B1",
+    "low_hz": 61.7,
+    "span_octaves": 2.97,
+    "stability_cents": 4.7
+   }
+  },
+  {
+   "bvid": "BV1yc411X7PQ",
+   "tag": "甩啦甩啦",
+   "source": "BV1yc411X7PQ_四巡《甩啦甩啦》直拍.mp4",
+   "low_stable": {
+    "midi": 46.6,
+    "note": "B2",
+    "hz": 120.3
+   },
+   "high_stable": {
+    "midi": 81.0,
+    "note": "A5",
+    "hz": 877.6
+   },
+   "f0_min_hz": 92.7,
+   "filter": {
+    "kept": 144,
+    "total": 296,
+    "rule": "dur>=0.15s & HNR>=5dB & rms>=中位-25dB；极值音级需该音符本身>=0.2s"
+   },
+   "span_octaves": 2.87,
+   "stability_cents": 4.1,
+   "intonation_cents": 13.2,
+   "vibrato_hz": 5.38,
+   "note_count": 296,
+   "duration_s": 325.4,
+   "studio": null
+  },
+  {
+   "bvid": "BV1FN41137xb",
+   "tag": "永不失联的爱",
+   "source": "BV1FN41137xb_四巡专场《永不失联的爱》直拍.mp4",
+   "low_stable": {
+    "midi": 41.5,
+    "note": "F#2",
+    "hz": 90.0
+   },
+   "high_stable": {
+    "midi": 83.4,
+    "note": "B5",
+    "hz": 1009.7
+   },
+   "f0_min_hz": 55.7,
+   "filter": {
+    "kept": 253,
+    "total": 455,
+    "rule": "dur>=0.15s & HNR>=5dB & rms>=中位-25dB；极值音级需该音符本身>=0.2s"
+   },
+   "span_octaves": 3.49,
+   "stability_cents": 5.1,
+   "intonation_cents": 17.8,
+   "vibrato_hz": 4.79,
+   "note_count": 455,
+   "duration_s": 295.0,
+   "studio": null
+  },
+  {
+   "bvid": "BV1fW4y1X7wX",
+   "tag": "三首直拍",
+   "source": "BV1fW4y1X7wX_《小河》《不需要结果》《等一等昨天》三首直拍.mp4",
+   "low_stable": {
+    "midi": 41.8,
+    "note": "F#2",
+    "hz": 91.5
+   },
+   "high_stable": {
+    "midi": 82.1,
+    "note": "A#5",
+    "hz": 935.2
+   },
+   "f0_min_hz": 69.3,
+   "filter": {
+    "kept": 411,
+    "total": 661,
+    "rule": "dur>=0.15s & HNR>=5dB & rms>=中位-25dB；极值音级需该音符本身>=0.2s"
+   },
+   "span_octaves": 3.35,
+   "stability_cents": 3.5,
+   "intonation_cents": 19.7,
+   "vibrato_hz": 4.79,
+   "note_count": 661,
+   "duration_s": 664.1,
+   "studio": {
+    "title": "小河",
+    "low": "E2",
+    "low_hz": 81.9,
+    "span_octaves": 1.68,
+    "stability_cents": 7.3
+   }
+  },
+  {
+   "bvid": "BV1rX4y1s7Fa",
+   "tag": "三巡深圳点歌",
+   "source": "BV1rX4y1s7Fa_三巡·深圳（收官站）点歌：《凄美地》《静止了的夜晚》《无与伦比的美丽》.mp4",
+   "low_stable": {
+    "midi": 39.4,
+    "note": "D#2",
+    "hz": 79.7
+   },
+   "high_stable": {
+    "midi": 78.4,
+    "note": "F#5",
+    "hz": 756.1
+   },
+   "f0_min_hz": 76.3,
+   "filter": {
+    "kept": 292,
+    "total": 515,
+    "rule": "dur>=0.15s & HNR>=5dB & rms>=中位-25dB；极值音级需该音符本身>=0.2s"
+   },
+   "span_octaves": 3.25,
+   "stability_cents": 6.4,
+   "intonation_cents": 22.8,
+   "vibrato_hz": 4.79,
+   "note_count": 515,
+   "duration_s": 402.5,
+   "studio": {
+    "title": "静止了的夜晚",
+    "low": "B1",
+    "low_hz": 61.5,
+    "span_octaves": 2.26,
+    "stability_cents": 9.3
+   }
+  }
+ ]
+}
