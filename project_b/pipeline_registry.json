@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "generated_at": "2026-11-26 22:26",
+ "generated_at": "2026-11-26 22:37",
  "model": "派生 + 校验：seed 本表 ← 三处现状；audit_pipeline.py 四处比对；build_pipeline_views.py 生成视图",
  "sources": {
   "menu_items": 264,
   "dispatch": 264,
   "deploy_steps": 121,
-  "scheduled_tasks": 45
+  "scheduled_tasks": 46
  },
  "tasks": [
   {
@@ -1910,7 +1910,7 @@
     "name": "wx409_radio_proxy",
     "script": "radio_proxy_guard.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\radio_proxy_guard.py >> temp\\radio_proxy.log 2>&1",
-    "next": "2026/11/26 22:34:00",
+    "next": "2026/11/26 23:04:00",
     "type": "One Time Only, Minute",
     "start": "17:34:00"
    },
@@ -2046,7 +2046,7 @@
     "name": "wx409_trend_watch",
     "script": "trend_watch.py",
     "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\trend_watch.py",
-    "next": "2026/11/26 22:36:00",
+    "next": "2026/11/26 22:46:00",
     "type": "One Time Only, Minute",
     "start": "9:46:00"
    },
@@ -2814,7 +2814,7 @@
     "name": "wx409_dashboard_watchdog",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_dashboard_watchdog.bat",
-    "next": "2026/11/26 22:31:00",
+    "next": "2026/11/26 22:41:00",
     "type": "One Time Only, Minute",
     "start": "15:01:00"
    },
@@ -2827,7 +2827,7 @@
     "name": "wx409_hook_patrol_evening",
     "script": "",
     "cmd": "D:\\wx409.github.io\\run_hook_patrol.bat",
-    "next": "2026/11/26 22:30:00",
+    "next": "2026/11/26 23:00:00",
     "type": "Daily",
     "start": "21:00:00"
    },
@@ -2944,6 +2944,19 @@
    "deploy_desc": "大屏模板补丁（母版→快照同步，漂移即红灯）",
    "critical": true,
    "path": "D:\\wx409.github.io\\project_b\\template_patches.py"
+  },
+  {
+   "script": "today_watchdog.py",
+   "schedule": {
+    "name": "wx409_today_watchdog",
+    "script": "today_watchdog.py",
+    "cmd": "cmd /c cd /d D:\\wx409.github.io && python -X utf8 project_b\\today_watchdog.py",
+    "next": "2026/11/27 12:10:00",
+    "type": "Daily",
+    "start": "12:10:00"
+   },
+   "in_deploy": false,
+   "path": "D:\\wx409.github.io\\project_b\\today_watchdog.py"
   },
   {
    "script": "transcribe_video_songs.py",

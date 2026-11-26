@@ -28,11 +28,18 @@ def clean_title(t):
 
 def main():
     d = json.loads(SRC.read_text(encoding="utf-8"))
-    items = d.get("items") or []
+    today = date.today().isoformat()
+    fresh = d.get("date") == today
+    items = (d.get("items") or []) if fresh else []
     measured = [x for x in items if x.get("measured")]
     measured.sort(key=lambda x: (x["measured"].get("low", {}).get("hz") or 999))
-    day = d.get("date") or date.today().isoformat()
-    if not items:
+    day = d.get("date") or today
+    status = "今日已更新" if fresh else "今日自动化未完成；显示的是 %s 的旧档案" % day
+    if not fresh:
+        headline = "今天的新入库还没跑完。"
+        bullets = ["不拿旧内容冒充今天；最后成功：%s。" % day,
+                   "下次检查：12:10 自动补跑，失败会发站内告警。"]
+    elif not items:
         headline = "今天没有新的 B站视频入库。"
         bullets = ["没有新视频，不等于没有内容：旧档案还在，可以先听一首。"]
     else:
@@ -79,16 +86,17 @@ h2{font-size:20px;margin:26px 0 8px;border-left:4px solid #a8323d;padding-left:1
 .tip{background:#fffdf8;border:1px solid rgba(184,145,46,.35);border-radius:10px;padding:10px 14px;font-size:14px;color:#6b5320}
 a{color:#a8323d;text-decoration:none}</style></head><body><main>
 <h1>今天，网站新收了什么</h1>
-<p class="sub">%s ｜ 自动汇总 B站官方空间、转写与声学初测</p>
+<p class="sub">%s ｜ %s ｜ 自动汇总 B站官方空间、转写与声学初测</p>
 <div class="tip"><b>%s</b><br>%s</div>
 <h2>声学初测</h2>%s
 <h2>怎么读</h2>
 <p class="sub">稳定最低音按 ≥0.15s、HNR≥5dB、极值音本身≥0.2s 过滤；原始 F0 更低不等于“能唱到”。完整乐队直拍受编曲/混音影响，不用于刷最低音纪录。</p>
 <p class="sub">完整数据：<a href="/dashboard/">数据大屏</a> · <a href="/voice.html">B1 是什么概念</a> · <a href="/vocal.html">音域实测</a></p>
-</main></body></html>""" % (esc(day), esc(headline), "<br>".join(esc(x) for x in bullets), cards or "<p class='sub'>今天没有可测量的歌曲视频。</p>")
+</main></body></html>""" % (esc(day), esc(status), esc(headline), "<br>".join(esc(x) for x in bullets), cards or "<p class='sub'>今天没有可测量的歌曲视频。</p>")
 
     OUT.write_text(page, encoding="utf-8")
-    summary = {"date": day, "new_count": len(items), "measured_count": len(measured),
+    summary = {"date": day, "fresh": fresh, "status": status,
+               "new_count": len(items), "measured_count": len(measured),
                "headline": headline, "bullets": bullets,
                "updated_at": d.get("generated_at") or ""}
     JSONOUT.write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")

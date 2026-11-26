@@ -542,6 +542,8 @@ def build_index():
     quote = (ELEV.get("facts") or {}).get("quote", "")
     quote_who = (ELEV.get("facts") or {}).get("quote_who", "")
     blocks = f"""<h1>王晰 · AI 可读数字档案</h1>
+<div id="todayStrip" style="background:#fffdf8;border:1px solid rgba(184,145,46,.35);border-radius:10px;padding:10px 14px;margin:10px 0;font-size:14px"></div>
+<script src="/assets/today_strip.js" defer></script>
 {share_promo()}
 <p class="sub">华语流行男低音（Bass-baritone）的可查、可问、可引用档案 ｜ 全站数字均可回溯到数据文件与口径标签 ｜ 更新 {UPDATED}</p>
 
