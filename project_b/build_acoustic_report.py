@@ -556,7 +556,7 @@ footer{{color:var(--dim);font-size:12.5px;margin:40px 0 60px;border-top:1px soli
 
 <section id="kpi"><h2>核心数字</h2>
 <div class="kpis">
-<div class="kpi"><b>{summary.get('lowest',{}).get('note','—')} {summary.get('lowest',{}).get('hz','—')} Hz</b><span>现场层最低稳定音（{esc(summary.get('lowest',{}).get('song',''))}）</span></div>
+<div class="kpi"><b>{summary.get('lowest',{}).get('note','—')} {summary.get('lowest',{}).get('hz','—')} Hz</b><span>现场层最低稳定音（《{esc(summary.get('lowest',{}).get('song','')) or '待补'}》）</span></div>
 <div class="kpi"><b>{len(songs)}</b><span>录音室曲目全量实测</span></div>
 <div class="kpi"><b>{summary.get('n_materials','—')}</b><span>现场层素材条数</span></div>
 <div class="kpi"><b>{summary.get('span_median_octaves','—')}</b><span>现场跨度中位（八度）</span></div>

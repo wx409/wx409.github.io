@@ -25,9 +25,11 @@ def _song_of(lo: dict) -> str:
     if song:
         return song
     tag = str(lo.get("tag") or "")
-    m = re.search(r"___P\d+_(.+)$", tag)
+    m = re.search(r"___P\d+_(.+)$", tag) or re.search(r"[_ ]p\d+_(.+)$", tag, re.I)
     if m:
         return m.group(1).strip()
+    if "_" in tag:
+        return tag.rsplit("_", 1)[-1].strip()
     if "全程" in tag or "上半场" in tag:
         return "全场素材（未切分）"
     return "曲目待补"
@@ -277,17 +279,21 @@ def tour_layer_html() -> str:
     def _tour_low_cell(x):
         """最低稳定音单元格：已复核值为主；若未复核里存在更低读数，透明标注（防汇总与明细矛盾）。"""
         note = x.get("lowest_note")
+        song = (x.get("lowest_song") or "").strip() or _song_of({"tag": x.get("lowest_tag")})
+        if song.startswith("BV"):
+            song = "曲目待补（" + song + "）"
+        song_label = song if song.startswith("曲目待补") else "《" + song + "》"
         if not note:
             return ('<td>—（未过复核）<br><span class="sub">未过者最低 '
                     + str(x.get("lowest_note_all")) + " " + str(x.get("lowest_hz_all"))
-                    + " Hz（" + str(x.get("lowest_verify_all")) + "）</span></td>")
+                    + " Hz（" + esc(song_label) + "；" + str(x.get("lowest_verify_all")) + "）</span></td>")
         extra = ""
         if x.get("lowest_pending_under"):
             extra = ('<br><span class="sub">未复核中另有更低 '
                      + str(x.get("lowest_note_all")) + " " + str(x.get("lowest_hz_all"))
-                     + " Hz（" + str(x.get("lowest_verify_all")) + "）</span>")
+                     + " Hz（" + esc(_song_of({"tag": x.get("lowest_tag_all")})) + "；" + str(x.get("lowest_verify_all")) + "）</span>")
         return ('<td class="low">' + esc(note) + "（" + str(x.get("lowest_hz"))
-                + " Hz）" + extra + "</td>")
+                + " Hz，" + esc(song_label) + "）" + extra + "</td>")
 
     tour_rows = "\n".join(
         f'<tr><td>{esc(x["tour"])}</td><td>{esc("、".join(x.get("cities") or []))}</td>'

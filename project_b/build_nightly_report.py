@@ -30,6 +30,11 @@ def main():
         blocks.append(cur)
 
     runs = []
+    try:
+        stage = json.loads((ROOT / "data" / "archive_stage_tour.json").read_text(encoding="utf-8"))
+        low_song = ((stage.get("summary") or {}).get("lowest") or {}).get("song") or ""
+    except Exception:
+        low_song = ""
     for b in blocks:
         text = "\n".join(b)
         if "现场层：素材" not in text:
@@ -56,7 +61,8 @@ def main():
         if r["songs"]:
             lines.append("- 曲目：" + "、".join("《%s》" % x["song"] for x in r["songs"]))
         if r["materials"] is not None:
-            lines.append("- 现场层累计：**%d** 条素材；最低稳定音 **%s**" % (r["materials"], r["lowest"]))
+            label = "%s（《%s》）" % (r["lowest"], low_song) if low_song else r["lowest"]
+            lines.append("- 现场层累计：**%d** 条素材；最低稳定音 **%s**" % (r["materials"], label))
         lines.append("")
     OUT.write_text("\n".join(lines), encoding="utf-8")
     PUB.write_text(json.dumps({"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),

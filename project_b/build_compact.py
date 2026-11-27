@@ -26,6 +26,7 @@ import glob
 import html as _html
 import io
 import json
+import re
 import os
 import sys
 from datetime import datetime
@@ -79,6 +80,11 @@ def esc(s):
     return _html.escape(str(s if s is not None else ""), quote=True)
 
 
+def _song_from_title(t):
+    m = re.search(r"《([^》]+)》", str(t or ""))
+    return m.group(1).strip() if m else ""
+
+
 # ---------------------------------------------------------------- 数据装载
 ELEV = jload("data/elevator_definition.json", {})
 CAL = {c["id"]: c for c in jload("data/calibers.json", {}).get("calibers", [])}
@@ -87,6 +93,7 @@ ALBUMS = jload("data/archive_vocal_albums.json", {})
 LINEAGE = jload("data/vocal_lineage.json", {})
 CTX = jload("data/archive_context_compare.json", {})
 STAGE = jload("data/archive_stage.json", {})
+STAGE_TOUR = jload("data/archive_stage_tour.json", {})
 TIMELINE = jload("data/timeline.json", [])
 LIT = jload("data/literature.json", {})
 CITIES = jload("data/cities.json", {})
@@ -162,6 +169,7 @@ STAGE_N = (STAGE.get("source") or {}).get("analyzed")
 if not STAGE_N:
     raise SystemExit("data/archive_stage.json 缺 source.analyzed —— 请先重跑现场层")
 STAGE_LOW = (STAGE.get("summary") or {}).get("lowest", {})
+STAGE_TOUR_LOW = (STAGE_TOUR.get("summary") or {}).get("lowest", {})
 N_ALBUMS = len(ALBUM_META.get("albums") or [])
 try:
     from album_catalog import phrase as _catalog_phrase, stats as _catalog_stats  # noqa: E402
@@ -802,10 +810,10 @@ def build_live():
 <tr><th>层面</th><th>口径</th><th>最低稳定音</th><th>结论</th></tr>
 <tr><td>录音室专辑层</td><td class="n">{N_ALBUM_SONGS} 首</td><td class="n">{N_LOW_NOTE} {N_LOW_HZ}Hz（《{N_LOW_SONG}》）</td>
 <td>基准层；全部曲目完成人声分离 + 逐帧 F0</td></tr>
-<tr><td>王晰主导巡演现场</td><td class="n">已实测素材</td><td class="n">{esc(cal("stage_lowest_hz"))}Hz</td>
+<tr><td>王晰主导巡演现场</td><td class="n">已实测素材</td><td class="n">{esc(STAGE_TOUR_LOW.get("note") or "A#1")} {num(STAGE_TOUR_LOW.get("hz") or cal("stage_lowest_hz"), 1)}Hz（《{esc(STAGE_TOUR_LOW.get("song") or "待补")}》）</td>
 <td>巡演现场素材逐条实测</td></tr>
 <tr><td>他人主导舞台/综艺</td><td class="n">{STAGE_N} 个素材</td>
-<td class="n">{esc(STAGE_LOW.get("note", "C2"))} {num(STAGE_LOW.get("hz"), 1)}Hz</td>
+<td class="n">{esc(STAGE_LOW.get("note", "C2"))} {num(STAGE_LOW.get("hz"), 1)}Hz（《{esc(STAGE_LOW.get("song") or _song_from_title(STAGE_LOW.get("title")) or "待补")}》）</td>
 <td>综艺/晚会/盛典商演/饭拍；含修音与和声层可能</td></tr>
 </table>
 <p class="sub">三层最低读数不同不是矛盾，是<strong>样本与口径不同</strong>：录音室层是精修录音，
