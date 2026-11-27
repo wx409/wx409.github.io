@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-27T17:08:35",
+  "generated_at": "2026-11-27T21:12:31",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 4,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8823,
+  "files_scanned": 8825,
   "measured_shows_site": 61,
   "shows_with_claimable_site": 61,
-  "bv_mapped": 176
+  "bv_mapped": 177
  },
  "shows": [
   {
@@ -1213,17 +1213,17 @@
      "detail": "BV1TP4y1J7M4｜惑许｜未知20220109"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1v3sN6qEuq｜莫斯科郊外的晚上｜四巡无锡20220109"
     },
     {
      "level": 1,
      "src": "站点实测",
-     "detail": "未知20220109_BV1LL41157MQ｜送别"
+     "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
     }
    ],
-   "n_evidence": 48
+   "n_evidence": 52
   },
   {
    "date": "2022-01-10",
