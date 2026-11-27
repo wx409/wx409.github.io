@@ -1,15 +1,15 @@
 {
  "schema": 1,
- "generated_at": "2026-11-27T21:12:12",
+ "generated_at": "2026-11-28T00:22:05",
  "as_of": "2026-10-14",
  "note": "候选来自轨迹素材池；已处理以现场层逐素材实测（archive_stage_tour）为准；失败/跳过同样落账",
  "summary": {
   "candidates": 8975,
   "songs": 265,
   "processed_materials": 946,
-  "processed_songs": 515,
+  "processed_songs": 517,
   "gap_songs": 61,
-  "coverage_pct": 194.3,
+  "coverage_pct": 195.1,
   "status": {
    "已完成": 430,
    "候选": 8492,
@@ -74317,11 +74317,11 @@
    "date": "2023-07-14",
    "kind": "其他",
    "fetched_at": "2023-07-14",
-   "audio": false,
+   "audio": true,
    "separated": false,
    "has_f0": false,
    "metrics": [],
-   "grade": "需人耳",
+   "grade": "待复核",
    "status": "候选"
   },
   {
@@ -97244,11 +97244,11 @@
    "date": "2023-06-11",
    "kind": "直拍",
    "fetched_at": "2023-06-11",
-   "audio": false,
+   "audio": true,
    "separated": false,
    "has_f0": false,
    "metrics": [],
-   "grade": "需人耳",
+   "grade": "待复核",
    "status": "候选"
   },
   {
@@ -143429,11 +143429,11 @@
    "date": "2019-09-16",
    "kind": "剪辑",
    "fetched_at": "2019-09-16",
-   "audio": false,
+   "audio": true,
    "separated": false,
    "has_f0": false,
    "metrics": [],
-   "grade": "需人耳",
+   "grade": "待复核",
    "status": "候选"
   },
   {
@@ -143445,11 +143445,11 @@
    "date": "2019-07-26",
    "kind": "其他",
    "fetched_at": "2019-07-26",
-   "audio": false,
+   "audio": true,
    "separated": false,
    "has_f0": false,
    "metrics": [],
-   "grade": "需人耳",
+   "grade": "待复核",
    "status": "候选"
   },
   {

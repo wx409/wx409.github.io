@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-27 21:12",
+ "generated_at": "2026-11-28 00:22",
  "note": "声学测量统一长表：一行 = 一首歌 × 一个版本。旧 4 套 JSON 仍是页面视图，本表供跨版本查询与统计",
  "layers": {
   "studio_album": "录音室专辑（QQ音乐 320k）",
@@ -33,7 +33,7 @@
    "待复核（谐波列待判）": 157,
    "谐波列复核通过（同刻三源）": 1
   },
-  "songs": 651
+  "songs": 653
  },
  "rows": [
   {
@@ -8909,41 +8909,6 @@
    }
   },
   {
-   "id": "tour_live|Moon River|切片1_MoonRiver",
-   "song": "Moon River",
-   "version": "切片1_MoonRiver",
-   "layer": "tour_live",
-   "tour": "三巡",
-   "city": "广州",
-   "date": "2021-12-04",
-   "source_ref": "BV1SQ4y1e7Dg",
-   "measure_route": "场次音频实测",
-   "metrics": {
-    "low_note": "C2",
-    "low_hz": 65.1,
-    "high_note": "D5",
-    "high_hz": 583.6,
-    "span_octaves": 3.17,
-    "stability_cents": 6.8,
-    "intonation_cents": 15.8,
-    "vibrato_hz": 4.79,
-    "vibrato_cents": 80.0,
-    "density_per_s": 1.87,
-    "hnr_db": 6.6,
-    "duration_s": 220.0
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "engines": {},
-    "raw_state": ""
-   },
-   "provenance": {
-    "measured_by": "场次音频实测",
-    "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 321
-   }
-  },
-  {
    "id": "tour_live|倒叙|武汉20220917_BV1m8UKY4E4C",
    "song": "倒叙",
    "version": "武汉20220917_BV1m8UKY4E4C",
@@ -9154,6 +9119,41 @@
    }
   },
   {
+   "id": "tour_live|You Needed Me|切片1_MoonRiver_BV1SQ4y1e7Dg",
+   "song": "You Needed Me",
+   "version": "切片1_MoonRiver_BV1SQ4y1e7Dg",
+   "layer": "tour_live",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "source_ref": "BV1SQ4y1e7Dg",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D2",
+    "low_hz": 73.4,
+    "high_note": "F5",
+    "high_hz": 699.3,
+    "span_octaves": 3.25,
+    "stability_cents": 8.2,
+    "intonation_cents": 16.2,
+    "vibrato_hz": 4.97,
+    "vibrato_cents": 84.0,
+    "density_per_s": 1.82,
+    "hnr_db": 7.8,
+    "duration_s": 220.0
+   },
+   "verify": {
+    "state": "待复核（谐波列待判）",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": 321
+   }
+  },
+  {
    "id": "tour_live|王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半|三巡长沙20220624_p06_王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半",
    "song": "王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半",
    "version": "三巡长沙20220624_p06_王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半",
@@ -9256,41 +9256,6 @@
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
     "bandwidth_kbps": null
-   }
-  },
-  {
-   "id": "tour_live|Close to You|切片2_CloseToYou",
-   "song": "Close to You",
-   "version": "切片2_CloseToYou",
-   "layer": "tour_live",
-   "tour": "三巡",
-   "city": "广州",
-   "date": "2021-12-04",
-   "source_ref": "BV1SQ4y1e7Dg",
-   "measure_route": "场次音频实测",
-   "metrics": {
-    "low_note": "D#2",
-    "low_hz": 76.2,
-    "high_note": "B4",
-    "high_hz": 483.5,
-    "span_octaves": 2.67,
-    "stability_cents": 7.4,
-    "intonation_cents": 20.6,
-    "vibrato_hz": 4.98,
-    "vibrato_cents": 83.0,
-    "density_per_s": 1.9,
-    "hnr_db": 5.6,
-    "duration_s": 220.0
-   },
-   "verify": {
-    "state": "谐波列复核通过",
-    "engines": {},
-    "raw_state": ""
-   },
-   "provenance": {
-    "measured_by": "场次音频实测",
-    "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 321
    }
   },
   {
@@ -19758,6 +19723,41 @@
    }
   },
   {
+   "id": "tour_live|MoonRiver|切片1_MoonRiver",
+   "song": "MoonRiver",
+   "version": "切片1_MoonRiver",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "C2",
+    "low_hz": 65.1,
+    "high_note": "D5",
+    "high_hz": 583.6,
+    "span_octaves": 3.17,
+    "stability_cents": 6.8,
+    "intonation_cents": 15.8,
+    "vibrato_hz": 4.79,
+    "vibrato_cents": 80.0,
+    "density_per_s": 1.87,
+    "hnr_db": 6.6,
+    "duration_s": 220.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|下半场①|【王晰】2021全国个人巡回音乐会-武汉站  全__P02_下半场①",
    "song": "下半场①",
    "version": "【王晰】2021全国个人巡回音乐会-武汉站  全__P02_下半场①",
@@ -22452,41 +22452,6 @@
    }
   },
   {
-   "id": "tour_live|Moon River|切片1_MoonRiver_BV1SQ4y1e7Dg",
-   "song": "Moon River",
-   "version": "切片1_MoonRiver_BV1SQ4y1e7Dg",
-   "layer": "tour_live",
-   "tour": "其他演出",
-   "city": "",
-   "date": "",
-   "source_ref": "BV1SQ4y1e7Dg",
-   "measure_route": "场次音频实测",
-   "metrics": {
-    "low_note": "D2",
-    "low_hz": 73.4,
-    "high_note": "F5",
-    "high_hz": 699.3,
-    "span_octaves": 3.25,
-    "stability_cents": 8.2,
-    "intonation_cents": 16.2,
-    "vibrato_hz": 4.97,
-    "vibrato_cents": 84.0,
-    "density_per_s": 1.82,
-    "hnr_db": 7.8,
-    "duration_s": 220.0
-   },
-   "verify": {
-    "state": "待复核（谐波列待判）",
-    "engines": {},
-    "raw_state": ""
-   },
-   "provenance": {
-    "measured_by": "场次音频实测",
-    "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 322
-   }
-  },
-  {
    "id": "tour_live|静止了的夜晚|成都首唱会2019_BV1W7411R7Hv",
    "song": "静止了的夜晚",
    "version": "成都首唱会2019_BV1W7411R7Hv",
@@ -23545,6 +23510,41 @@
    }
   },
   {
+   "id": "tour_live|CloseToYou|切片2_CloseToYou",
+   "song": "CloseToYou",
+   "version": "切片2_CloseToYou",
+   "layer": "tour_live",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "",
+   "measure_route": "场次音频实测",
+   "metrics": {
+    "low_note": "D#2",
+    "low_hz": 76.2,
+    "high_note": "B4",
+    "high_hz": 483.5,
+    "span_octaves": 2.67,
+    "stability_cents": 7.4,
+    "intonation_cents": 20.6,
+    "vibrato_hz": 4.98,
+    "vibrato_cents": 83.0,
+    "density_per_s": 1.9,
+    "hnr_db": 5.6,
+    "duration_s": 220.0
+   },
+   "verify": {
+    "state": "谐波列复核通过",
+    "engines": {},
+    "raw_state": ""
+   },
+   "provenance": {
+    "measured_by": "场次音频实测",
+    "legacy": "archive_stage_tour.json",
+    "bandwidth_kbps": null
+   }
+  },
+  {
    "id": "tour_live|在水一方|19_在水一方",
    "song": "在水一方",
    "version": "19_在水一方",
@@ -24554,14 +24554,14 @@
    }
   },
   {
-   "id": "tour_live|南屏晚钟|工作室中控台20261014_video1_5353988652270759",
-   "song": "南屏晚钟",
+   "id": "tour_live|5353988652270759|工作室中控台20261014_video1_5353988652270759",
+   "song": "5353988652270759",
    "version": "工作室中控台20261014_video1_5353988652270759",
    "layer": "tour_live",
-   "tour": "工作室中控台（点歌段）",
+   "tour": "其他演出",
    "city": "",
    "date": "2026-10-14",
-   "source_ref": "weibo:5353988652270759#video1",
+   "source_ref": "",
    "measure_route": "场次音频实测",
    "metrics": {
     "low_note": "D#2",
@@ -24585,7 +24585,7 @@
    "provenance": {
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 128
+    "bandwidth_kbps": null
    }
   },
   {
@@ -28482,14 +28482,14 @@
    }
   },
   {
-   "id": "tour_live|一生中最爱|工作室中控台20261014_video2_5353988652270759",
-   "song": "一生中最爱",
+   "id": "tour_live|5353988652270759|工作室中控台20261014_video2_5353988652270759",
+   "song": "5353988652270759",
    "version": "工作室中控台20261014_video2_5353988652270759",
    "layer": "tour_live",
-   "tour": "工作室中控台（点歌段）",
+   "tour": "其他演出",
    "city": "",
    "date": "2026-10-14",
-   "source_ref": "weibo:5353988652270759#video2",
+   "source_ref": "",
    "measure_route": "场次音频实测",
    "metrics": {
     "low_note": "F2",
@@ -28513,7 +28513,7 @@
    "provenance": {
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 128
+    "bandwidth_kbps": null
    }
   },
   {
@@ -30214,14 +30214,14 @@
    }
   },
   {
-   "id": "tour_live|Moon River|切片2",
-   "song": "Moon River",
+   "id": "tour_live||切片2",
+   "song": "",
    "version": "切片2",
    "layer": "tour_live",
-   "tour": "东演双人场（待核）",
-   "city": "北京",
-   "date": "2026-10-09",
-   "source_ref": "BV1Mypv6zECb",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "",
    "measure_route": "场次音频实测",
    "metrics": {
     "low_note": "F#2",
@@ -30245,7 +30245,7 @@
    "provenance": {
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 187
+    "bandwidth_kbps": null
    }
   },
   {
@@ -32844,14 +32844,14 @@
    }
   },
   {
-   "id": "tour_live|Love Me Tender|切片3",
-   "song": "Love Me Tender",
+   "id": "tour_live||切片3",
+   "song": "",
    "version": "切片3",
    "layer": "tour_live",
-   "tour": "东演双人场（待核）",
-   "city": "北京",
-   "date": "2026-10-09",
-   "source_ref": "BV1Mypv6zECb",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "",
    "measure_route": "场次音频实测",
    "metrics": {
     "low_note": "G#2",
@@ -32875,7 +32875,7 @@
    "provenance": {
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 186
+    "bandwidth_kbps": null
    }
   },
   {
@@ -33748,14 +33748,14 @@
    }
   },
   {
-   "id": "tour_live|Smoke Gets in Your Eyes|切片1",
-   "song": "Smoke Gets in Your Eyes",
+   "id": "tour_live||切片1",
+   "song": "",
    "version": "切片1",
    "layer": "tour_live",
-   "tour": "东演双人场（待核）",
-   "city": "北京",
-   "date": "2026-10-09",
-   "source_ref": "BV1Mypv6zECb",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "source_ref": "",
    "measure_route": "场次音频实测",
    "metrics": {
     "low_note": "A2",
@@ -33779,7 +33779,7 @@
    "provenance": {
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 187
+    "bandwidth_kbps": null
    }
   },
   {
@@ -36230,13 +36230,13 @@
    }
   },
   {
-   "id": "tour_live|全场_第二场|沉响与长歌20261010_p2_BV1Mypv6zECb",
-   "song": "全场_第二场",
+   "id": "tour_live|美酒加咖啡|沉响与长歌20261010_p2_BV1Mypv6zECb",
+   "song": "美酒加咖啡",
    "version": "沉响与长歌20261010_p2_BV1Mypv6zECb",
    "layer": "tour_live",
-   "tour": "其他演出",
+   "tour": "东演双人场（待核）",
    "city": "",
-   "date": "2026-10-10",
+   "date": "2026-10-09",
    "source_ref": "BV1Mypv6zECb",
    "measure_route": "场次音频实测",
    "metrics": {
@@ -36261,7 +36261,7 @@
    "provenance": {
     "measured_by": "场次音频实测",
     "legacy": "archive_stage_tour.json",
-    "bandwidth_kbps": 188
+    "bandwidth_kbps": null
    }
   },
   {

@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-27T21:12:38",
+ "generated_at": "2026-11-28T00:22:27",
  "stat": {
-  "generated_at": "2026-11-27T21:12:37",
+  "generated_at": "2026-11-28T00:22:27",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,7 +163,7 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 80,
+  "songs_with_3plus": 79,
   "rows": [
    {
     "song": "让她降落",
@@ -283,15 +283,6 @@
     "low_cv": 0.0636
    },
    {
-    "song": "南屏晚钟",
-    "versions": 7,
-    "low_median": 80.4,
-    "low_iqr": 3.1,
-    "low_range": 17.3,
-    "high_median": 310.8,
-    "low_cv": 0.0674
-   },
-   {
     "song": "茕茕",
     "versions": 6,
     "low_median": 78.8,
@@ -319,6 +310,15 @@
     "low_cv": 0.0793
    },
    {
+    "song": "南屏晚钟",
+    "versions": 6,
+    "low_median": 80.6,
+    "low_iqr": 3.4,
+    "low_range": 17.3,
+    "high_median": 317.9,
+    "low_cv": 0.0712
+   },
+   {
     "song": "再见我的爱人",
     "versions": 5,
     "low_median": 76.5,
@@ -344,15 +344,6 @@
     "low_range": 13.3,
     "high_median": 523.2,
     "low_cv": 0.0565
-   },
-   {
-    "song": "Close to You",
-    "versions": 5,
-    "low_median": 74.8,
-    "low_iqr": 2.5,
-    "low_range": 9.7,
-    "high_median": 761.6,
-    "low_cv": 0.0474
    },
    {
     "song": "爱你",
@@ -481,6 +472,15 @@
     "low_cv": 0.1181
    },
    {
+    "song": "美酒加咖啡",
+    "versions": 4,
+    "low_median": 110.8,
+    "low_iqr": 33.2,
+    "low_range": 56.3,
+    "high_median": 355.9,
+    "low_cv": 0.1988
+   },
+   {
     "song": "等一等昨天",
     "versions": 4,
     "low_median": 108.1,
@@ -517,23 +517,23 @@
     "low_cv": 0.2797
    },
    {
-    "song": "Moon River",
+    "song": "惑许",
     "versions": 4,
-    "low_median": 83.5,
-    "low_iqr": 22.7,
-    "low_range": 30.6,
-    "high_median": 641.2,
-    "low_cv": 0.1591
+    "low_median": 91.0,
+    "low_iqr": 6.2,
+    "low_range": 24.4,
+    "high_median": 539.3,
+    "low_cv": 0.1008
    }
   ],
-  "low_cv_median": 0.1245,
+  "low_cv_median": 0.1234,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
   "own_live_low_median": 88.1,
-  "cover_live_low_median": 87.2,
+  "cover_live_low_median": 87.0,
   "own_n": 51,
-  "cover_n": 465,
+  "cover_n": 467,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",

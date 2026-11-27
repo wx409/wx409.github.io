@@ -1,14 +1,13 @@
 {
  "summary": {
-  "generated_at": "2026-11-27T21:12:12",
+  "generated_at": "2026-11-28T00:22:05",
   "rows": 946,
   "levels": {
-   "L1": 413,
+   "L1": 412,
    "L6": 26,
    "L3": 60,
-   "未认领": 444,
-   "L4": 2,
-   "L2": 1
+   "未认领": 446,
+   "L4": 2
   },
   "shows_with_material": 61,
   "shows_with_claimable": 61,
@@ -115,13 +114,13 @@
    "n": 10,
    "claimable": 3
   },
-  "2021-12-04": {
-   "n": 8,
-   "claimable": 7
-  },
   "2022-09-17": {
    "n": 21,
    "claimable": 18
+  },
+  "2021-12-04": {
+   "n": 6,
+   "claimable": 5
   },
   "2023-06-23": {
    "n": 5,
@@ -1978,18 +1977,6 @@
    "why": "日期直配"
   },
   {
-   "tag": "切片1_MoonRiver",
-   "song": "Moon River",
-   "tour": "三巡",
-   "city": "广州",
-   "date": "2021-12-04",
-   "review_status": "谐波列通过",
-   "claimable": true,
-   "show_date": "2021-12-04",
-   "level": 1,
-   "why": "日期直配"
-  },
-  {
    "tag": "武汉20220917_BV1m8UKY4E4C",
    "song": "倒叙",
    "tour": "三巡",
@@ -2062,6 +2049,18 @@
    "why": "日期直配"
   },
   {
+   "tag": "切片1_MoonRiver_BV1SQ4y1e7Dg",
+   "song": "You Needed Me",
+   "tour": "三巡",
+   "city": "广州",
+   "date": "2021-12-04",
+   "review_status": "待复核（谐波列待判）",
+   "claimable": false,
+   "show_date": "2021-12-04",
+   "level": 1,
+   "why": "日期直配"
+  },
+  {
    "tag": "三巡长沙20220624_p06_王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半",
    "song": "王晰三巡0624长沙全场（自存） p06 you needed me Close to you 月半",
    "tour": "三巡",
@@ -2094,18 +2093,6 @@
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": "2022-01-10",
-   "level": 1,
-   "why": "日期直配"
-  },
-  {
-   "tag": "切片2_CloseToYou",
-   "song": "Close to You",
-   "tour": "三巡",
-   "city": "广州",
-   "date": "2021-12-04",
-   "review_status": "谐波列通过",
-   "claimable": true,
-   "show_date": "2021-12-04",
    "level": 1,
    "why": "日期直配"
   },
@@ -5734,6 +5721,18 @@
    "why": ""
   },
   {
+   "tag": "切片1_MoonRiver",
+   "song": "MoonRiver",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "【王晰】2021全国个人巡回音乐会-武汉站  全__P02_下半场①",
    "song": "下半场①",
    "tour": "其他演出",
@@ -6682,18 +6681,6 @@
    "why": ""
   },
   {
-   "tag": "切片1_MoonRiver_BV1SQ4y1e7Dg",
-   "song": "Moon River",
-   "tour": "其他演出",
-   "city": "",
-   "date": "",
-   "review_status": "待复核（谐波列待判）",
-   "claimable": false,
-   "show_date": "2021-12-04",
-   "level": 2,
-   "why": "BV映射 BV1SQ4y1e7Dg"
-  },
-  {
    "tag": "成都首唱会2019_BV1W7411R7Hv",
    "song": "静止了的夜晚",
    "tour": "其他演出",
@@ -7066,6 +7053,18 @@
    "why": ""
   },
   {
+   "tag": "切片2_CloseToYou",
+   "song": "CloseToYou",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
+   "review_status": "谐波列通过",
+   "claimable": true,
+   "show_date": null,
+   "level": 0,
+   "why": ""
+  },
+  {
    "tag": "19_在水一方",
    "song": "在水一方",
    "tour": "其他演出",
@@ -7415,8 +7414,8 @@
   },
   {
    "tag": "工作室中控台20261014_video1_5353988652270759",
-   "song": "南屏晚钟",
-   "tour": "工作室中控台（点歌段）",
+   "song": "5353988652270759",
+   "tour": "其他演出",
    "city": "",
    "date": "2026-10-14",
    "review_status": "谐波列通过",
@@ -8771,8 +8770,8 @@
   },
   {
    "tag": "工作室中控台20261014_video2_5353988652270759",
-   "song": "一生中最爱",
-   "tour": "工作室中控台（点歌段）",
+   "song": "5353988652270759",
+   "tour": "其他演出",
    "city": "",
    "date": "2026-10-14",
    "review_status": "谐波列通过",
@@ -9371,10 +9370,10 @@
   },
   {
    "tag": "切片2",
-   "song": "Moon River",
-   "tour": "东演双人场（待核）",
-   "city": "北京",
-   "date": "2026-10-09",
+   "song": "",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -10283,10 +10282,10 @@
   },
   {
    "tag": "切片3",
-   "song": "Love Me Tender",
-   "tour": "东演双人场（待核）",
-   "city": "北京",
-   "date": "2026-10-09",
+   "song": "",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -10595,10 +10594,10 @@
   },
   {
    "tag": "切片1",
-   "song": "Smoke Gets in Your Eyes",
-   "tour": "东演双人场（待核）",
-   "city": "北京",
-   "date": "2026-10-09",
+   "song": "",
+   "tour": "其他演出",
+   "city": "",
+   "date": "",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
@@ -11459,10 +11458,10 @@
   },
   {
    "tag": "沉响与长歌20261010_p2_BV1Mypv6zECb",
-   "song": "全场_第二场",
-   "tour": "其他演出",
+   "song": "美酒加咖啡",
+   "tour": "东演双人场（待核）",
    "city": "",
-   "date": "2026-10-10",
+   "date": "2026-10-09",
    "review_status": "谐波列通过",
    "claimable": true,
    "show_date": null,
