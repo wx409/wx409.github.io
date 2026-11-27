@@ -235,12 +235,139 @@ def local_bvids():
     return s
 
 
+# ---------------- 定向补全（--fill） ----------------
+
+FILL_REPORT = DATA / "bili_fill_report.json"
+
+
+def weak_shows(levels):
+    try:
+        cov = json.loads((DATA / "coverage_index.json").read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    out = []
+    for s in cov.get("shows") or []:
+        try:
+            lv = int(s.get("level") or 0)
+        except Exception:
+            lv = 0
+        if lv in levels:
+            out.append(s)
+    return out
+
+
+def match_score(text, show):
+    """标题/文件名与场次的匹配分：城市 3、完整日期 5、年份 2。"""
+    city = show.get("city") or ""
+    date8 = (show.get("date") or "").replace("-", "")
+    year = date8[:4]
+    s = 0
+    if city and city in text:
+        s += 3
+    if date8 and date8 in text:
+        s += 5
+    if year and year in text:
+        s += 2
+    return s
+
+
+def fill_quality(title):
+    """补全用的质量分：优先全场/直拍，压掉嘉宾寒暄、花絮、采访。"""
+    q = 0
+    if any(k in title for k in ("全场", "完整", "整场")):
+        q += 2
+    if any(k in title for k in ("直拍", "超清", "4K", "4k")):
+        q += 1
+    if any(k in title for k in ("嘉宾", "非演唱", "花絮", "采访", "专访", "预告", "reaction")):
+        q -= 3
+    return q
+
+
+def run_fill(args, dl, headers):
+    levels = [int(x) for x in str(args.levels).split(",") if x.strip().isdigit()]
+    shows = weak_shows(levels)
+    print(f"待补全场次 {len(shows)} 个（覆盖等级 {levels}）")
+    report = {"at": datetime.now().strftime("%Y-%m-%d %H:%M"), "levels": levels,
+              "shows": [], "picked": []}
+    have = local_bvids()
+    picked = []
+
+    for sh in shows:
+        city = sh.get("city") or ""
+        date8 = (sh.get("date") or "").replace("-", "")
+        year = date8[:4]
+        queries = [f"王晰 {city}", f"王晰 {city} 现场", f"王晰 {city} {year}", f"王晰 {date8}"]
+        found, seen_local = [], set()
+        for q in queries:
+            items, err = collect_search(dl, headers, q)
+            for it in items:
+                if it["bvid"] in seen_local:
+                    continue
+                sc = match_score(it["title"] + " " + it.get("owner", ""), sh)
+                if sc >= 3:
+                    seen_local.add(it["bvid"])
+                    it["match"] = sc
+                    it["query"] = q
+                    found.append(it)
+            print(f"  [{sh.get('tour')} {city} {date8}] 「{q}」→ {len(items)} 条，命中 {len(found)}")
+            time.sleep(REQUEST_GAP)
+
+        found.sort(key=lambda x: (x["match"] + fill_quality(x["title"]), x["play"]), reverse=True)
+        take = found[: max(1, args.per_show)]
+        report["shows"].append({
+            "tour": sh.get("tour"), "city": city, "date": date8, "level": sh.get("level"),
+            "queries": queries, "hits": len(found),
+            "best": [{"bvid": x["bvid"], "title": x["title"], "match": x["match"],
+                      "play": x["play"], "local": x["bvid"] in have} for x in take],
+        })
+        for x in take:
+            if x["bvid"] not in have:
+                picked.append(x)
+        time.sleep(REQUEST_GAP)
+
+    # 按 BV 去重
+    uniq, seen_bv = [], set()
+    for x in picked:
+        if x["bvid"] in seen_bv:
+            continue
+        seen_bv.add(x["bvid"])
+        uniq.append(x)
+    report["picked"] = [{"bvid": x["bvid"], "title": x["title"], "match": x["match"]} for x in uniq]
+
+    print(f"\n定向命中 {sum(1 for s in report['shows'] if s['hits'])}/{len(shows)} 个场次；待下载 {len(uniq)} 条")
+    for s in report["shows"]:
+        best = s["best"][0] if s["best"] else None
+        print(f"  {s['tour']} {s['city']} {s['date']}: 命中 {s['hits']} 条"
+              + (f" | 最佳 {best['bvid']} {best['title'][:34]}" if best else " | 无"))
+
+    if args.dry_run:
+        print("--dry-run：不写文件、不下载")
+        return 0
+
+    FILL_REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("写出:", FILL_REPORT.name)
+
+    if args.download and uniq:
+        CURATED_DIR.mkdir(parents=True, exist_ok=True)
+        txt = Path(tempfile.gettempdir()) / "bili_fill.txt"
+        txt.write_text("\n".join(x["bvid"] for x in uniq), encoding="utf-8")
+        cmd = [sys.executable, "-X", "utf8", str(DL_PY), str(txt), "--out", str(CURATED_DIR)]
+        print("下载:", " ".join(cmd))
+        rc = subprocess.run(cmd, cwd=str(ROOT)).returncode
+        print("下载退出码:", rc)
+        return rc
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--window", type=int, default=120, help="只看最近 N 天的投稿（默认 120）")
     ap.add_argument("--top", type=int, default=8, help="每天最多入选 N 条（默认 8）")
     ap.add_argument("--download", action="store_true", help="下载入选且本地没有的视频")
     ap.add_argument("--dry-run", action="store_true", help="不写任何文件，只打印")
+    ap.add_argument("--fill", action="store_true", help="定向补全：对覆盖最弱的场次做定向搜索")
+    ap.add_argument("--levels", default="4", help="--fill 时针对的覆盖等级（逗号分隔，默认 4）")
+    ap.add_argument("--per-show", type=int, default=1, help="--fill 时每个场次最多取几条（默认 1）")
     args = ap.parse_args()
 
     today = date.today()
@@ -248,6 +375,9 @@ def main():
     headers = make_headers(dl)
     ttl = (headers.get("Cookie") or "")
     print(f"cookie 长度 {len(ttl)}")
+
+    if args.fill:
+        return run_fill(args, dl, headers)
 
     status = {"at": datetime.now().strftime("%Y-%m-%d %H:%M"), "ok": False, "sources": [], "window_days": args.window}
 

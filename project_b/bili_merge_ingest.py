@@ -245,14 +245,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--bv", default="", help="只处理某个 BV")
-    ap.add_argument("--dir", default="", help="指定视频目录（默认 精选 + 官方空间）")
+    ap.add_argument("--dir", default="", help="指定视频目录（默认只扫 精选）")
+    ap.add_argument("--include-official", action="store_true", help="连官方空间一起扫（历史文件多，慎用）")
     args = ap.parse_args()
 
     ffmpeg = find_ffmpeg()
     if not ffmpeg:
         print("!! 找不到 ffmpeg，无法抽音频"); return 2
     song_pool, city_pool = known_songs(), cities()
-    dirs = [Path(args.dir)] if args.dir else [CURATED, OFFICIAL]
+    dirs = [Path(args.dir)] if args.dir else ([CURATED, OFFICIAL] if args.include_official else [CURATED])
     vids = []
     for d in dirs:
         if d.exists():

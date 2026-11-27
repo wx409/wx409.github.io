@@ -1,18 +1,18 @@
 {
  "stat": {
-  "generated_at": "2026-11-27T21:12:31",
+  "generated_at": "2026-11-27T21:47:23",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
-  "L1_精确": 59,
+  "L1_精确": 63,
   "L2_强": 1,
   "L3_中": 0,
-  "L4_弱": 4,
+  "L4_弱": 0,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8825,
+  "files_scanned": 8843,
   "measured_shows_site": 61,
   "shows_with_claimable_site": 61,
-  "bv_mapped": 177
+  "bv_mapped": 182
  },
  "shows": [
   {
@@ -60,30 +60,50 @@
    "city": "武汉",
    "tour": "一巡",
    "songs": 18,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "156 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV15i4y1b7oo｜全场｜未标巡武汉20190615"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV15i4y1b7oo"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未标巡武汉20190615_BV15i4y1b7oo.wav"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 3
   },
   {
    "date": "2019-07-20",
    "city": "大连",
    "tour": "一巡",
    "songs": 19,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "1 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Rt411A7Bx｜再见我的爱人｜一巡20190720"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Rt411A7Bx"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡20190720_BV1Rt411A7Bx.wav"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 3
   },
   {
    "date": "2019-07-28",
@@ -130,15 +150,25 @@
    "city": "广州",
    "tour": "一巡",
    "songs": 22,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "37 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1xt411M7vj｜点歌环节｜未标巡广州20190804"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1xt411M7vj"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未标巡广州20190804_BV1xt411M7vj.wav"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 3
   },
   {
    "date": "2019-08-16",
@@ -175,15 +205,25 @@
    "city": "深圳",
    "tour": "一巡",
    "songs": 22,
-   "level": 4,
+   "level": 1,
    "evidence": [
     {
-     "level": 4,
-     "src": "巡次+城市",
-     "detail": "6 文件"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1SJ411c7jD｜超清｜一巡深圳20190908"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1SJ411c7jD"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡深圳20190908_BV1SJ411c7jD.wav"
     }
    ],
-   "n_evidence": 1
+   "n_evidence": 3
   },
   {
    "date": "2019-10-12",
@@ -1160,11 +1200,6 @@
     {
      "level": 2,
      "src": "来源台账",
-     "detail": "BV1SQ4y1e7Dg｜Moon River｜三巡广州20211204"
-    },
-    {
-     "level": 2,
-     "src": "来源台账",
      "detail": "BV1Sr4y1W7Qj｜悬念｜广州20211204"
     },
     {
@@ -1181,9 +1216,14 @@
      "level": 1,
      "src": "站点实测",
      "detail": "切片3_YouNeededMe｜You Needed Me"
+    },
+    {
+     "level": 1,
+     "src": "站点实测",
+     "detail": "切片2_CloseToYou｜Close to You"
     }
    ],
-   "n_evidence": 49
+   "n_evidence": 48
   },
   {
    "date": "2022-01-09",
@@ -1218,12 +1258,12 @@
      "detail": "BV1v3sN6qEuq｜莫斯科郊外的晚上｜四巡无锡20220109"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "三巡无锡20220109_BV1rZ4y1S7uc｜点歌环节"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV166sN6mEvJ｜独角戏｜四巡无锡20220109"
     }
    ],
-   "n_evidence": 52
+   "n_evidence": 55
   },
   {
    "date": "2022-01-10",
