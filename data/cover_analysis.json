@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-27T00:18:39",
+ "generated_at": "2026-11-27T09:09:15",
  "stat": {
-  "generated_at": "2026-11-27T00:18:38",
+  "generated_at": "2026-11-27T09:09:14",
   "songs_total": 293,
   "own_released": 52,
   "covers": 241,
@@ -163,106 +163,88 @@
   ]
  },
  "multi_version": {
-  "songs_with_3plus": 69,
+  "songs_with_3plus": 80,
   "rows": [
    {
-    "song": "佛山全场",
-    "versions": 31,
-    "low_median": 87.0,
-    "low_iqr": 11.4,
-    "low_range": 89.7,
-    "high_median": 686.1,
-    "low_cv": 0.1945
-   },
-   {
-    "song": "三巡上海全场",
-    "versions": 21,
-    "low_median": 105.4,
-    "low_iqr": 31.4,
-    "low_range": 411.4,
-    "high_median": 570.6,
-    "low_cv": 0.7222
-   },
-   {
     "song": "让她降落",
-    "versions": 20,
-    "low_median": 91.8,
+    "versions": 21,
+    "low_median": 91.9,
     "low_iqr": 8.2,
     "low_range": 35.2,
-    "high_median": 761.0,
-    "low_cv": 0.0898
-   },
-   {
-    "song": "Your Man",
-    "versions": 15,
-    "low_median": 90.4,
-    "low_iqr": 1.0,
-    "low_range": 45.4,
-    "high_median": 802.6,
-    "low_cv": 0.1221
+    "high_median": 716.0,
+    "low_cv": 0.09
    },
    {
     "song": "雪地里寄不出的求救信",
-    "versions": 14,
-    "low_median": 127.5,
-    "low_iqr": 20.4,
+    "versions": 15,
+    "low_median": 127.0,
+    "low_iqr": 17.4,
     "low_range": 91.9,
-    "high_median": 655.4,
-    "low_cv": 0.1836
+    "high_median": 665.5,
+    "low_cv": 0.1772
    },
    {
-    "song": "全场_第二场",
+    "song": "Your Man",
     "versions": 14,
-    "low_median": 94.4,
-    "low_iqr": 15.0,
-    "low_range": 359.2,
-    "high_median": 561.4,
-    "low_cv": 0.7174
-   },
-   {
-    "song": "一生守候",
-    "versions": 10,
-    "low_median": 78.0,
-    "low_iqr": 14.3,
-    "low_range": 33.3,
-    "high_median": 307.9,
-    "low_cv": 0.131
+    "low_median": 90.4,
+    "low_iqr": 1.2,
+    "low_range": 45.4,
+    "high_median": 841.6,
+    "low_cv": 0.1256
    },
    {
     "song": "花儿为什么这样红",
-    "versions": 10,
-    "low_median": 72.8,
-    "low_iqr": 0.9,
+    "versions": 12,
+    "low_median": 72.9,
+    "low_iqr": 1.0,
     "low_range": 23.1,
-    "high_median": 603.5,
-    "low_cv": 0.0854
+    "high_median": 631.1,
+    "low_cv": 0.0784
    },
    {
     "song": "像雾像雨又像风",
-    "versions": 10,
-    "low_median": 96.0,
-    "low_iqr": 26.0,
+    "versions": 12,
+    "low_median": 87.8,
+    "low_iqr": 27.2,
     "low_range": 37.5,
-    "high_median": 326.2,
-    "low_cv": 0.145
+    "high_median": 288.0,
+    "low_cv": 0.1493
    },
    {
-    "song": "三巡长沙全场",
-    "versions": 9,
-    "low_median": 73.1,
-    "low_iqr": 4.8,
-    "low_range": 73.4,
-    "high_median": 857.3,
-    "low_cv": 0.2729
+    "song": "一生守候",
+    "versions": 11,
+    "low_median": 78.2,
+    "low_iqr": 18.8,
+    "low_range": 33.3,
+    "high_median": 324.4,
+    "low_cv": 0.1307
    },
    {
     "song": "心动",
-    "versions": 8,
-    "low_median": 99.0,
-    "low_iqr": 16.7,
+    "versions": 9,
+    "low_median": 100.4,
+    "low_iqr": 14.7,
     "low_range": 54.8,
-    "high_median": 434.0,
-    "low_cv": 0.1621
+    "high_median": 420.2,
+    "low_cv": 0.153
+   },
+   {
+    "song": "哭砂",
+    "versions": 8,
+    "low_median": 81.6,
+    "low_iqr": 10.2,
+    "low_range": 45.0,
+    "high_median": 490.1,
+    "low_cv": 0.1607
+   },
+   {
+    "song": "月半弯",
+    "versions": 8,
+    "low_median": 98.8,
+    "low_iqr": 24.2,
+    "low_range": 33.3,
+    "high_median": 497.6,
+    "low_cv": 0.134
    },
    {
     "song": "亲爱的中国，我的爱",
@@ -274,13 +256,22 @@
     "low_cv": 0.154
    },
    {
-    "song": "哭砂",
+    "song": "你",
     "versions": 7,
-    "low_median": 80.7,
-    "low_iqr": 13.3,
-    "low_range": 45.0,
-    "high_median": 485.6,
-    "low_cv": 0.172
+    "low_median": 88.1,
+    "low_iqr": 4.8,
+    "low_range": 36.0,
+    "high_median": 566.5,
+    "low_cv": 0.1109
+   },
+   {
+    "song": "王牌就是我",
+    "versions": 7,
+    "low_median": 97.1,
+    "low_iqr": 18.5,
+    "low_range": 76.0,
+    "high_median": 604.2,
+    "low_cv": 0.2307
    },
    {
     "song": "我要你",
@@ -301,22 +292,31 @@
     "low_cv": 0.0674
    },
    {
-    "song": "王牌就是我",
+    "song": "茕茕",
     "versions": 6,
-    "low_median": 97.4,
-    "low_iqr": 25.8,
-    "low_range": 76.0,
-    "high_median": 604.2,
-    "low_cv": 0.2389
+    "low_median": 78.8,
+    "low_iqr": 12.2,
+    "low_range": 28.0,
+    "high_median": 780.2,
+    "low_cv": 0.1292
    },
    {
-    "song": "签唱会上海全场",
+    "song": "歌颂",
     "versions": 6,
-    "low_median": 78.2,
-    "low_iqr": 12.9,
-    "low_range": 40.8,
-    "high_median": 911.7,
-    "low_cv": 0.1654
+    "low_median": 90.2,
+    "low_iqr": 30.5,
+    "low_range": 103.5,
+    "high_median": 432.3,
+    "low_cv": 0.3422
+   },
+   {
+    "song": "分岔",
+    "versions": 6,
+    "low_median": 91.2,
+    "low_iqr": 7.9,
+    "low_range": 22.2,
+    "high_median": 373.0,
+    "low_cv": 0.0793
    },
    {
     "song": "再见我的爱人",
@@ -337,31 +337,31 @@
     "low_cv": 0.2166
    },
    {
-    "song": "你",
+    "song": "匆匆",
     "versions": 5,
-    "low_median": 90.5,
-    "low_iqr": 6.2,
-    "low_range": 36.0,
-    "high_median": 566.5,
-    "low_cv": 0.1301
+    "low_median": 105.0,
+    "low_iqr": 13.2,
+    "low_range": 13.3,
+    "high_median": 523.2,
+    "low_cv": 0.0565
    },
    {
-    "song": "茕茕",
+    "song": "Close to You",
     "versions": 5,
-    "low_median": 75.0,
-    "low_iqr": 13.8,
-    "low_range": 28.0,
-    "high_median": 780.0,
-    "low_cv": 0.138
+    "low_median": 74.8,
+    "low_iqr": 2.5,
+    "low_range": 9.7,
+    "high_median": 761.6,
+    "low_cv": 0.0474
    },
    {
-    "song": "歌颂",
+    "song": "爱你",
     "versions": 5,
-    "low_median": 94.6,
-    "low_iqr": 25.3,
-    "low_range": 103.5,
-    "high_median": 392.7,
-    "low_cv": 0.3337
+    "low_median": 97.9,
+    "low_iqr": 31.1,
+    "low_range": 47.0,
+    "high_median": 712.1,
+    "low_cv": 0.196
    },
    {
     "song": "静止了的夜晚",
@@ -373,13 +373,22 @@
     "low_cv": 0.1335
    },
    {
-    "song": "月半弯",
+    "song": "哑光",
     "versions": 5,
-    "low_median": 98.6,
-    "low_iqr": 23.2,
-    "low_range": 27.6,
-    "high_median": 503.7,
-    "low_cv": 0.1232
+    "low_median": 82.0,
+    "low_iqr": 8.2,
+    "low_range": 30.2,
+    "high_median": 499.4,
+    "low_cv": 0.1318
+   },
+   {
+    "song": "橄榄树",
+    "versions": 5,
+    "low_median": 100.3,
+    "low_iqr": 15.2,
+    "low_range": 38.7,
+    "high_median": 880.3,
+    "low_cv": 0.1541
    },
    {
     "song": "多听有益",
@@ -391,6 +400,24 @@
     "low_cv": 0.2214
    },
    {
+    "song": "情网",
+    "versions": 5,
+    "low_median": 110.4,
+    "low_iqr": 34.2,
+    "low_range": 34.8,
+    "high_median": 521.3,
+    "low_cv": 0.1739
+   },
+   {
+    "song": "上半场",
+    "versions": 5,
+    "low_median": 67.9,
+    "low_iqr": 12.2,
+    "low_range": 14.0,
+    "high_median": 691.5,
+    "low_cv": 0.0918
+   },
+   {
     "song": "晚风",
     "versions": 5,
     "low_median": 80.7,
@@ -398,6 +425,24 @@
     "low_range": 26.7,
     "high_median": 341.6,
     "low_cv": 0.1059
+   },
+   {
+    "song": "【王晰】新专辑《不说》签唱会4K全程 @上海艺海剧院 2025.5.1",
+    "versions": 5,
+    "low_median": 80.5,
+    "low_iqr": 15.2,
+    "low_range": 40.8,
+    "high_median": 911.7,
+    "low_cv": 0.1695
+   },
+   {
+    "song": "怂",
+    "versions": 5,
+    "low_median": 109.3,
+    "low_iqr": 8.1,
+    "low_range": 33.6,
+    "high_median": 739.9,
+    "low_cv": 0.1058
    },
    {
     "song": "谁",
@@ -427,6 +472,24 @@
     "low_cv": 0.0991
    },
    {
+    "song": "后会无期",
+    "versions": 4,
+    "low_median": 72.6,
+    "low_iqr": 5.3,
+    "low_range": 21.3,
+    "high_median": 395.3,
+    "low_cv": 0.1181
+   },
+   {
+    "song": "等一等昨天",
+    "versions": 4,
+    "low_median": 108.1,
+    "low_iqr": 9.1,
+    "low_range": 23.1,
+    "high_median": 834.9,
+    "low_cv": 0.0828
+   },
+   {
     "song": "红豆",
     "versions": 4,
     "low_median": 108.3,
@@ -436,112 +499,49 @@
     "low_cv": 0.1359
    },
    {
-    "song": "匆匆",
+    "song": "别离的预感",
     "versions": 4,
-    "low_median": 104.9,
-    "low_iqr": 13.2,
-    "low_range": 13.3,
-    "high_median": 565.4,
-    "low_cv": 0.0632
+    "low_median": 96.1,
+    "low_iqr": 38.0,
+    "low_range": 43.1,
+    "high_median": 673.4,
+    "low_cv": 0.208
    },
    {
-    "song": "Close to You",
+    "song": "追幸福的人",
     "versions": 4,
-    "low_median": 74.2,
-    "low_iqr": 1.6,
-    "low_range": 3.2,
-    "high_median": 865.8,
-    "low_cv": 0.0162
+    "low_median": 119.2,
+    "low_iqr": 22.5,
+    "low_range": 86.6,
+    "high_median": 563.1,
+    "low_cv": 0.2797
    },
    {
-    "song": "橄榄树",
+    "song": "Moon River",
     "versions": 4,
-    "low_median": 101.8,
-    "low_iqr": 6.6,
-    "low_range": 17.5,
-    "high_median": 880.3,
-    "low_cv": 0.0679
-   },
-   {
-    "song": "人世间",
-    "versions": 4,
-    "low_median": 82.4,
-    "low_iqr": 11.4,
-    "low_range": 19.6,
-    "high_median": 750.3,
-    "low_cv": 0.0937
-   },
-   {
-    "song": "微醺23点08分",
-    "versions": 4,
-    "low_median": 84.9,
-    "low_iqr": 8.4,
-    "low_range": 23.8,
-    "high_median": 423.6,
-    "low_cv": 0.1043
-   },
-   {
-    "song": "新不了情",
-    "versions": 4,
-    "low_median": 88.6,
-    "low_iqr": 5.4,
-    "low_range": 6.7,
-    "high_median": 433.6,
-    "low_cv": 0.0334
-   },
-   {
-    "song": "Love Me Tender",
-    "versions": 4,
-    "low_median": 89.2,
-    "low_iqr": 31.5,
-    "low_range": 35.5,
-    "high_median": 391.9,
-    "low_cv": 0.1869
-   },
-   {
-    "song": "情网",
-    "versions": 4,
-    "low_median": 93.4,
-    "low_iqr": 34.2,
-    "low_range": 34.8,
-    "high_median": 351.3,
-    "low_cv": 0.1841
-   },
-   {
-    "song": "四季歌",
-    "versions": 4,
-    "low_median": 92.6,
-    "low_iqr": 17.8,
-    "low_range": 30.0,
-    "high_median": 282.9,
-    "low_cv": 0.1378
-   },
-   {
-    "song": "亲密爱人",
-    "versions": 4,
-    "low_median": 85.2,
-    "low_iqr": 8.1,
-    "low_range": 13.9,
-    "high_median": 752.0,
-    "low_cv": 0.0641
+    "low_median": 83.5,
+    "low_iqr": 22.7,
+    "low_range": 30.6,
+    "high_median": 641.2,
+    "low_cv": 0.1591
    }
   ],
-  "low_cv_median": 0.1301,
+  "low_cv_median": 0.1245,
   "note": "low_cv＝最低稳定音的版本间变异系数；越小＝各场越一致"
  },
  "register_adapt": {
-  "own_live_low_median": 87.8,
-  "cover_live_low_median": 93.3,
-  "own_n": 46,
-  "cover_n": 236,
+  "own_live_low_median": 88.1,
+  "cover_live_low_median": 87.2,
+  "own_n": 51,
+  "cover_n": 465,
   "female_origin_covers": {
    "橄榄树": {
     "orig": "齐豫",
-    "live_low_median": 101.8
+    "live_low_median": 100.3
    },
    "心动": {
     "orig": "陈洁仪",
-    "live_low_median": 99.0
+    "live_low_median": 100.4
    },
    "玫瑰人生（La Vie en Rose）": {
     "orig": "Edith Piaf",
@@ -553,7 +553,7 @@
    },
    "让她降落": {
     "orig": "张惠妹",
-    "live_low_median": 91.8
+    "live_low_median": 91.9
    },
    "亲密爱人": {
     "orig": "梅艳芳",
@@ -561,7 +561,7 @@
    },
    "月半弯": {
     "orig": "陈坤/张学友（男）",
-    "live_low_median": 98.6
+    "live_low_median": 98.8
    },
    "再见我的爱（Goodbye My Love）": {
     "orig": "邓丽君",
