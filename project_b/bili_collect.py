@@ -60,6 +60,9 @@ WHITELIST_MIDS = {
 SONG = ("直拍", "现场", "live", "Live", "点歌", "歌曲", "唱", "多听有益", "哭砂", "微醺", "小河", "甩啦", "巡演")
 BAD = ("专访", "访谈", "纪录片", "幕后", "花絮", "特辑", "hi，", "Vlog", "预告", "reaction", "盘点", "采访", "reaction")
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from bili_rules import exclude_reason  # noqa: E402
+
 REQUEST_GAP = 3.0     # 每次请求间隔（秒），避免 -799
 RETRY_ON_LIMIT = 3
 STATUS = DATA / "bili_fetch_status.json"
@@ -184,6 +187,15 @@ def collect_search(dl, headers, keyword):
 def score_item(it, window_days, today):
     score, reasons = 0, []
     title = it["title"]
+
+    # 硬规则：群星/合唱/串烧/访谈 一律不进候选（见 bili_rules.py）
+    why = exclude_reason(title, it.get("bvid", ""))
+    if why:
+        it["age_days"] = 9999
+        it["score"] = -99
+        it["reasons"] = ["规则排除：" + why]
+        it["representative"] = False
+        return it
 
     if "王晰" in title:
         score += 2; reasons.append("标题含王晰 +2")

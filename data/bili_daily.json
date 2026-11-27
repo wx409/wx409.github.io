@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-27 21:43",
+ "generated_at": "2026-11-27 22:20",
  "date": "2026-11-27",
- "new_count": 8,
- "measured_count": 8,
+ "new_count": 6,
+ "measured_count": 6,
  "items": [
   {
    "bvid": "BV1v3sN6qEuq",
@@ -50,21 +50,6 @@
    "quotes": []
   },
   {
-   "bvid": "BV1G7sN6YEXj",
-   "title": "最新现场【李佳薇✘王晰】亚太歌曲串烧《山歌好比春江水》《星星索》《爱的感觉》《莫斯科郊外的晚上》",
-   "song": true,
-   "measured": {
-    "low": {
-     "midi": 44.9,
-     "note": "A2",
-     "hz": 109.5
-    },
-    "span": 3.27,
-    "stability": 5.4
-   },
-   "quotes": []
-  },
-  {
    "bvid": "BV1Rt411A7Bx",
    "title": "《再见我的爱人》Goodbye My Love 【王晰】 【Cherish珍晰个人巡回演唱会大连站】【20190720】",
    "song": true,
@@ -108,27 +93,21 @@
     "stability": 5.1
    },
    "quotes": []
-  },
-  {
-   "bvid": "BV1XvWX6aE9D",
-   "title": "同唱一首｜《我真的受伤了》王菀之 张学友 张杰 厉娜 陈楚生 王晰 周深 邓紫棋李宇春俞灏明王栎鑫王心凌胡彦斌简美妍莫文蔚言承旭张靓颖于文文周传雄张凌赫方大同",
-   "song": true,
-   "measured": {
-    "low": {
-     "midi": 35.1,
-     "note": "B1",
-     "hz": 62.0
-    },
-    "span": 4.03,
-    "stability": 7.2
-   },
-   "quotes": [
-    "怎么你声音变得冷淡了",
-    "怎么你声音变得冷淡了"
-   ]
   }
  ],
  "fetch_ok": true,
  "fetch_at": "2026-11-27 21:30",
- "fetch_note": "部分来源失败 -> space:official:code=-799 请求过于频繁，请稍后再试"
+ "fetch_note": "部分来源失败 -> space:official:code=-799 请求过于频繁，请稍后再试",
+ "excluded": [
+  {
+   "bvid": "BV1G7sN6YEXj",
+   "title": "最新现场【李佳薇✘王晰】亚太歌曲串烧《山歌好比春江水》《星星索》《爱的感觉》《莫斯科郊外的晚上》",
+   "reason": "关键词排除：串烧"
+  },
+  {
+   "bvid": "BV1XvWX6aE9D",
+   "title": "同唱一首｜《我真的受伤了》王菀之 张学友 张杰 厉娜 陈楚生 王晰 周深 邓紫棋李宇春俞灏明王栎鑫王心凌胡彦斌简美妍莫文蔚言承旭张靓颖于文文周传雄张凌赫方大同",
+   "reason": "人工黑名单(live_exclusions)"
+  }
+ ]
 }

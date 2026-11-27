@@ -6,6 +6,9 @@ from __future__ import annotations
 import html
 import json
 import re
+import sys as _sys
+_sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+from bili_rules import exclude_reason, measurement_ok  # noqa: E402
 from datetime import date, datetime
 from pathlib import Path
 
@@ -46,7 +49,20 @@ def studio_of(title):
 
 def make_entry(d, fresh):
     day = d.get("date") or date.today().isoformat()
-    items = d.get("items") or []
+    # 防御性过滤：群星/合唱/串烧、以及测量不合理的（跨度异常）一律不上页面
+    raw_items = d.get("items") or []
+    items, dropped = [], []
+    for x in raw_items:
+        why = exclude_reason(x.get("title") or "", x.get("bvid") or "")
+        if not why and x.get("measured"):
+            ok, mwhy = measurement_ok(x["measured"].get("span"), x["measured"].get("stability"))
+            if not ok:
+                why = mwhy
+                x = dict(x, measured=None)      # 保留素材，但不把这条数字当结论
+        if why and not x.get("measured"):
+            dropped.append({"bvid": x.get("bvid"), "reason": why})
+            continue
+        items.append(x)
     measured = [x for x in items if x.get("measured")]
     measured.sort(key=lambda x: (x["measured"].get("low", {}).get("hz") or 999))
     try:

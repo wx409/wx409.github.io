@@ -16,6 +16,8 @@ CURATED = Path(r"E:\wx\论文素材_王晰作传\B站\精选")     # bili_collec
 TRANS = Path(r"E:\wx\私有工具\video_transcripts\bili_official")
 MEASURE = Path(r"E:\wx\私有工具\bili_measure")
 STATE = ROOT / "data" / "bili_ingest_state.json"
+sys.path.insert(0, str(ROOT / "project_b"))
+from bili_rules import exclude_reason  # noqa: E402
 OUT = ROOT / "data" / "bili_daily.json"
 FETCH_STATUS = ROOT / "data" / "bili_fetch_status.json"
 
@@ -70,6 +72,8 @@ def main():
     # 声学：只对“歌”候选；每日新增才测
     for f in files:
         bv = f.name.split("_", 1)[0]
+        if exclude_reason(f.name, bv):
+            continue
         if state[bv].get("measured") or not is_song(f.name):
             continue
         print("measure", bv, f.name, flush=True)
@@ -78,6 +82,7 @@ def main():
             state[bv]["measured"] = True
 
     items = []
+    excluded = []
     title_map = {}
     try:
         cand = json.loads((ROOT / "data" / "bili_candidates.json").read_text(encoding="utf-8"))
@@ -103,6 +108,10 @@ def main():
             old = json.loads((ROOT / "data" / "bili_live_measurements_2026.json").read_text(encoding="utf-8")).get("tracks", [])
             m = next(({"low": x["low_stable"], "span": x["span_octaves"], "stability": x["stability_cents"]}
                       for x in old if x["bvid"] == bv), None)
+        why = exclude_reason(title, bv)
+        if why:
+            excluded.append({"bvid": bv, "title": title, "reason": why})
+            continue
         items.append({"bvid": bv, "title": title, "song": is_song(title),
                       "measured": m, "quotes": transcript_quotes(bv)})
 
@@ -119,7 +128,8 @@ def main():
 
     doc = {"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"), "date": date.today().isoformat(),
            "new_count": len(items), "measured_count": sum(1 for x in items if x["measured"]), "items": items,
-           "fetch_ok": fetch_ok, "fetch_at": fetch_at, "fetch_note": fetch_note}
+           "fetch_ok": fetch_ok, "fetch_at": fetch_at, "fetch_note": fetch_note,
+           "excluded": excluded}
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
     print("daily", len(items), "measured", doc["measured_count"])
