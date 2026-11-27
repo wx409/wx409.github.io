@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(r"D:\wx409.github.io")
-VID = Path(r"E:\wx\论文素材_王晰作传\B站\官方空间")
+VIDS = [Path(r"E:\wx\论文素材_王晰作传\B站\官方空间"), Path(r"E:\wx\论文素材_王晰作传\B站\精选")]
 WORK = Path(r"E:\wx\论文素材_王晰作传\音域分析\B站每日")
 OUT = Path(r"E:\wx\私有工具\bili_measure")
 sys.path.insert(0, r"E:\wx\论文素材_王晰作传\音域分析")
@@ -31,7 +31,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bvid", required=True)
     a = ap.parse_args()
-    src = next((p for p in VID.glob(a.bvid + "_*.mp4")), None)
+    src = next((p for d in VIDS if d.exists() for p in d.glob(a.bvid + "_*.mp4")), None)
     if not src:
         raise SystemExit("not found: " + a.bvid)
     WORK.mkdir(parents=True, exist_ok=True)

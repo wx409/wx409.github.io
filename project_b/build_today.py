@@ -25,8 +25,12 @@ def esc(s):
 
 def clean_title(t):
     t = str(t or "").rsplit(".mp4", 1)[0]
-    t = t.split("_", 1)[-1].strip()
-    return t.replace("王晰", "").strip() or t
+    if "_" in t:
+        t = t.split("_", 1)[-1].strip()
+    t = t.replace("王晰", "")
+    t = re.sub(r"^\s*[【\[（(]\s*[】\]）)]\s*", "", t)      # 去掉清空后残留的 【】
+    t = re.sub(r"^[\s:：|｜/]+", "", t)
+    return t.replace("_", " ").strip() or str(t).strip()
 
 
 def studio_of(title):
@@ -70,6 +74,14 @@ def make_entry(d, fresh):
         else:
             essay = ["今天没有新的 B站视频。"]
         headline = "今天没有新的 B站视频。"
+        # 抓取失败 ≠ 没有新视频：如实标注，避免假阴性
+        if d.get("fetch_ok") is False:
+            note = (d.get("fetch_note") or "").strip()
+            headline = "B站抓取没成功，今天是否发了新视频还没确认。"
+            essay = [headline,
+                     ("失败来源：" + note) if note else "抓取接口被限流或风控，稍后会自动重试。",
+                     "这不是“今天没有新视频”，只是这一次没确认；等下一次抓取成功再下结论。",
+                     "今天先记到这里。"]
         tags = ["#王晰", "#旧档案重听"]
     else:
         live = [x for x in measured if ("直拍" in x["title"] or "点歌" in x["title"])]
