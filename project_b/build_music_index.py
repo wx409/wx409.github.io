@@ -7,6 +7,7 @@
 import argparse
 import json
 import subprocess
+import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -208,11 +209,16 @@ def _data_ready():
         ts = str(d.get('timestamp', ''))
     except Exception:
         ts = ''
-    today = datetime.now().strftime('%Y-%m-%d')
-    if ts.startswith(today) and len(ts) >= 16 and ts[11:16] >= READY_AFTER:
+    now = datetime.now()
+    today = now.strftime('%Y-%m-%d')
+    yesterday = (now - timedelta(days=1)).strftime('%Y-%m-%d')
+    # 跨零点修复（2026-11-28）：任务在 00:10 跑，末批时间戳仍是「昨天 23:5x」，
+    # 原来只认 today，导致永远等不到 → 连续 7 天超时跳过。
+    if len(ts) >= 16 and ts[11:16] >= READY_AFTER and ts[:10] in (today, yesterday):
         return True
     mtime = datetime.fromtimestamp(SRC.stat().st_mtime)
-    return mtime.strftime('%Y-%m-%d') == today and mtime.strftime('%H:%M') >= READY_AFTER
+    mt = mtime.strftime('%Y-%m-%d')
+    return mt in (today, yesterday) and mtime.strftime('%H:%M') >= READY_AFTER
 
 
 def _next_occurrence(hhmm):
