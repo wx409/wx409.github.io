@@ -197,7 +197,7 @@ def main() -> int:
     payload = {
         "schema": "monthly-events/v3",
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "source": str(src) if src else "dashboard_data.json",
+        "source": "wx_textmine_out/music_index_long.csv（本地长表）",
         "caliber": caliber,
         "method": method,
         "min_days": MIN_DAYS,

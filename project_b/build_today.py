@@ -240,7 +240,7 @@ main{max-width:760px;margin:0 auto;padding:30px 22px 70px}h1{font-size:29px;line
 <h2>今天的测量</h2>%s
 <h2>最近 7 天</h2>%s
 <p class="sub">稳定最低音按 ≥0.15s、HNR≥5dB、极值音本身≥0.2s 过滤；原始 F0 更低不等于“能唱到”。完整乐队直拍受编曲/混音影响，不用于刷最低音纪录。</p>
-<p class="sub">本地灵感库：<code>E:\\wx\\私有工具\\每日小作文\\YYYY-MM-DD.md</code>（每日一段 + 测量摘要，供发布参考）</p>
+<p class="sub">本地灵感库：<code>每日小作文/YYYY-MM-DD.md</code>（每日一段 + 测量摘要，供发布参考）</p>
 <p class="sub">完整数据：<a href="/dashboard/">数据大屏</a> · <a href="/voice.html">B1 是什么概念</a> · <a href="/vocal.html">音域实测</a></p>
 </main></body></html>""" % (
         esc((shown or {}).get("date", today)), esc(status),

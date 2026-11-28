@@ -292,7 +292,7 @@ table{{border-collapse:collapse;width:100%;font-size:13.5px}} td,th{{border:1px 
 <h2>①c 钩子候选池（已确认 {hk_pub_n} 条 · 本地池另有 {hk_local_n} 条）</h2>
 <p class="meta">规则化抽取：<code>project_b/hook_miner.py</code>（离线评分＝可转述性＋证据强度＋新颖度；规则见 <code>data/hooks_pool.json#rules</code>）</p>
 <p class="meta">可见范围：本站**只展示已确认（review_status=confirmed）的候选**，仅「钩子句 + 建议小词 + 出处」，**不展示风险内部备注**；</p>
-<p class="meta">未确认候选留在本地池（<code>E:\wx\论文素材_王晰作传\传播监测\钩子候选池_&lt;日期&gt;.md</code>），勾选后跑 <code>hook_miner.py --render-picked</code> 出卡。</p>
+<p class="meta">未确认候选留在本地池（<code>传播监测/钩子候选池_&lt;日期&gt;.md</code>），勾选后出卡。</p>
 {hk_html}
 
 <h2>①d 一键成稿（预览 · 不自动发布）</h2>

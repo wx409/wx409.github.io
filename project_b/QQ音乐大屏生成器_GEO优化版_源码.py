@@ -2929,7 +2929,7 @@ h2.chart-title{font-size:15px;font-weight:600}
 </head>
 <body>
 <div id="wx-freshbar">__FRESHNESS_BAR__</div>
-<div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6;color:#4a3a00"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：论文素材_王晰作传\基线口径\compute_baseline_v1.py</div>
+<div id="kai-banner" style="background:#fff3cd;border:1px solid #e0c060;border-radius:6px;padding:8px 14px;margin:10px auto;max-width:1200px;font-size:14px;line-height:1.6;color:#4a3a00"><b>口径横幅：</b>指数=QQ音乐<b>追踪曲目池</b>日均（当日≥2首，<b>非全站</b>）；可量化实证 <b>2023 至今</b>；2007–2022 定性。可复算：基线口径/compute_baseline_v1.py</div>
 <div class="container">
   <div class="data-freshness-bar" id="freshnessBar">
     <span class="fresh-item">📊 数据快照 <strong id="snapTime">--</strong></span>
@@ -4707,7 +4707,7 @@ else{
               '<td style="padding:2px 0 2px 8px;font-size:11px;color:#8a94ab">' + tag + '</td></tr>';
           }).join('');
           h += '<table style="width:100%;border-collapse:collapse;font-size:12.5px"><thead><tr style="color:#8892a6;font-size:11px;text-align:left"><th style="padding:2px 8px 2px 0">年份</th><th>阶段</th><th style="text-align:right">指数日均</th><th style="padding-left:8px">类型</th></tr></thead><tbody>' + rows + '</tbody></table>';
-          h += '<div style="font-size:11px;color:#8892a6;margin-top:6px">年度卡全文（含事件/原话/出处）在 <code>论文素材_王晰作传/档案卡/年度/*.md</code>；本层为展示摘要。</div>';
+          h += '<div style="font-size:11px;color:#8892a6;margin-top:6px">年度卡全文（含事件/原话/出处）在 <code>档案卡/年度/*.md</code>；本层为展示摘要。</div>';
         }
         box.innerHTML = h;
       });
