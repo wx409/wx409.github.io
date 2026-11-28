@@ -66,6 +66,9 @@ def load(n, p):
 DL = load("dl", str(ROOT / "project_b" / "download_bilibili.py"))
 
 
+VIDEO_POLICY = "auto"
+
+
 def headers():
     ck = (DL.get_session_cookie() or "")
     extra = DL.load_bili_cookie() or ""
@@ -128,7 +131,9 @@ def streams(bv, h):
         hi.append(("flac", dash["flac"]["audio"]))
     if dash.get("dolby") and (dash["dolby"].get("audio") or []):
         hi += [("dolby", a) for a in dash["dolby"]["audio"]]
-    best_v = max(vids, key=lambda v: int(v.get("bandwidth") or 0)) if vids else None
+    vmax = {"1080p": 1080, "max": 9999, "auto": 1080, "none": 0}[VIDEO_POLICY]
+    pool_v = [v for v in vids if (v.get("height") or 0) <= vmax] or vids
+    best_v = max(pool_v, key=lambda v: int(v.get("bandwidth") or 0)) if pool_v else None
     pool = hi or [("aac", a) for a in auds]
     best_a = max(pool, key=lambda t: int(t[1].get("bandwidth") or 0)) if pool else None
     out = {
@@ -198,13 +203,20 @@ def fetch(bv, up, h, ws, idx, dry=False):
                             "-vn", "-c:a", "flac", str(aud)], capture_output=True)
         if r.returncode != 0:
             print("  转 FLAC 失败"); return None
-    # 视频（可复用）
-    if not (vid.exists() and vid.stat().st_size > 1000000):
+    # 视频：按策略决定是否下载（none=只存音频；auto=仅整场留 1080p；1080p/max=按上限）
+    keep_video = VIDEO_POLICY in ("1080p", "max") or (
+        VIDEO_POLICY == "auto" and (int(q.get("dur") or 0) >= 2400
+                                    or any(k in title for k in ("全场", "上半场", "下半场", "整场", "完整"))))
+    if keep_video and not (vid.exists() and vid.stat().st_size > 1000000):
         tmp_v = STAGE / f"{bv}.v.m4s"
         if download(q["v_url"], tmp_v, h):
             subprocess.run([str(FFMPEG), "-y", "-loglevel", "error", "-i", str(tmp_v),
                             "-i", str(tmp_a) if tmp_a.exists() else str(aud),
                             "-c", "copy", "-map", "0:v:0", "-map", "1:a:0", str(vid)], capture_output=True)
+            try:
+                tmp_v.unlink()
+            except Exception:
+                pass
     # 探测音频参数
     pr = subprocess.run([str(FFPROBE), "-v", "quiet", "-show_streams", "-select_streams", "a:0",
                          "-of", "json", str(aud)], capture_output=True, text=True)
@@ -232,8 +244,12 @@ def main():
     ap.add_argument("--from-missing", action="store_true")
     ap.add_argument("--top", type=int, default=12)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--video", default="auto", choices=["auto", "none", "1080p", "max"],
+                    help="视频策略：auto=整场留1080p、单曲不留；none=只存音频；1080p/max=按指定上限")
     args = ap.parse_args()
 
+    global VIDEO_POLICY
+    VIDEO_POLICY = args.video
     from openpyxl import load_workbook
     wb = load_workbook(XLSX)
     ws = wb["最优音频"]
