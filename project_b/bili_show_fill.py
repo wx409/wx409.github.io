@@ -47,6 +47,10 @@ TOURWORD = {"一巡": ("Cherish", "珍晰", "一巡"), "二巡": ("二巡",), "�
 BAD = ("混剪", "剪辑", "合集", "群像", "reaction", "盘点", "专访", "访谈", "花絮", "预告")
 
 
+def clean_city(c):
+    return re.sub(r"[（(].*?[)）]", "", str(c or "")).strip()
+
+
 def search(kw, h, dur_filter=4, page=1):
     q = urllib.parse.quote(kw)
     url = (f"https://api.bilibili.com/x/web-interface/search/type?search_type=video"
@@ -69,7 +73,23 @@ def owner_of(bv, h):
         return "B站"
 
 
+def multip_needed(bv, h):
+    """该 BV 是否是多 P（分曲目）投稿；是则返回 P 数。"""
+    j = AB.get(f"https://api.bilibili.com/x/web-interface/view?bvid={bv}", h)
+    pages = ((j or {}).get("data") or {}).get("pages") or []
+    return len(pages)
+
+
+def run_multip(bv, tour, date8, city):
+    """多 P 投稿交给 bili_multip_fetch.py 逐 P 抓。"""
+    import subprocess
+    cmd = [sys.executable, "-X", "utf8", str(ROOT / "project_b" / "bili_multip_fetch.py"),
+           "--bv", bv, "--tour", tour, "--date", date8, "--city", city]
+    return subprocess.run(cmd, cwd=str(ROOT)).returncode
+
+
 def fill_one(city, tour, h, ws, idx, top=6, dry=False):
+    city = clean_city(city)
     words = TOURWORD.get(tour, (tour,))
     cands, seen = [], set()
     for w in (words[0], tour):
@@ -108,7 +128,12 @@ def fill_one(city, tour, h, ws, idx, top=6, dry=False):
     print(f"  → 选 {win['bv']}（{win['a_kbps']}kbps / {win['dur_min']}min）", flush=True)
     if dry:
         return win
-    AB.fetch(win["bv"], owner_of(win["bv"], h), h, ws, idx)
+    if multip_needed(win["bv"], h) > 1:
+        d8, tr, ct = AB.parse(win.get("title") or "")
+        d8 = d8 or (date_hint if "date_hint" in dir() else "") or ""
+        run_multip(win["bv"], tour or tr or "", d8, city or ct or "")
+    else:
+        AB.fetch(win["bv"], owner_of(win["bv"], h), h, ws, idx)
     return win
 
 

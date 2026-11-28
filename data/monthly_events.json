@@ -1,7 +1,7 @@
 {
  "schema": "monthly-events/v3",
- "generated_at": "2026-11-28 21:14",
- "source": "E:\\wx\\wx_textmine_out\\music_index_long.csv",
+ "generated_at": "2026-11-29 00:30",
+ "source": "wx_textmine_out/music_index_long.csv（本地长表）",
  "caliber": "逐曲自身基线归一：ratio = 当日指数 / 该曲前 90 天中位（需 ≥30 个历史观测）；月度热度 = 当月全部 [曲×日] ratio 的中位；1.00 = 与自身基线持平",
  "method": "异常判定跑在热度上：稳健 z（相对过去 12 个月中位偏离）≥2.5 或 环比 ≥20%；广度 = ratio>1 的 [曲×日] 占比。池均值 index 仅作对照",
  "min_days": 15,
@@ -1959,15 +1959,15 @@
   },
   {
    "month": "2026-11",
-   "heat": 0.699,
-   "breadth": 0.114,
-   "n_ratios": 325,
-   "n_days": 27,
+   "heat": 0.706,
+   "breadth": 0.119,
+   "n_ratios": 337,
+   "n_days": 28,
    "index": 367.4,
    "n_songs": 12,
-   "mom_pct": 32.9,
-   "dev_pct": -28.6,
-   "z": -1.52,
+   "mom_pct": 34.2,
+   "dev_pct": -27.8,
+   "z": -1.49,
    "events": [
     {
      "kind": "演出/晚会",

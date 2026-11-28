@@ -49,6 +49,15 @@ def main():
         rcs.append(run("increment", [PY, "-X", "utf8", str(INCREMENT), "--limit", "24", "--video-limit", "0"]))
     else:
         log(f"[increment] 跳过：{INCREMENT} 不存在")
+    # B站补全：先扫 9 个 UP 的未收录（wbi 签名），再抓最高音质音视频（大会员）
+    for name, args_ in (("bili_scan_missing.py", []),
+                        ("bili_best_fetch.py", ["--from-missing", "--top", "6"])):
+        p = ROOT / "project_b" / name
+        if p.exists():
+            rcs.append(run(name, [PY, "-X", "utf8", str(p)] + args_))
+        else:
+            log(f"[{name}] 跳过：不存在")
+
     for name in ("build_edit_list.py", "build_nightly_report.py"):
         p = ROOT / "project_b" / name
         if p.exists():

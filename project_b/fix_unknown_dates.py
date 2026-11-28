@@ -26,6 +26,11 @@ OUT = Path(r"E:\wx\王晰巡演_最优音频")
 COV = ROOT / "data" / "coverage_index.json"
 
 
+def norm_city(c):
+    """去掉「（生日场）（返场·金沙湖）」这类后缀，避免日期回填时对不上。"""
+    return re.sub(r"[（(].*?[)）]", "", str(c or "")).strip()
+
+
 def find_date(text):
     for pat in (r"(20\d{2})(\d{2})(\d{2})",
                 r"(20\d{2})[.\-_/年](\d{1,2})[.\-_/月](\d{1,2})"):
@@ -39,8 +44,12 @@ def find_date(text):
 def main():
     cov = json.loads(COV.read_text(encoding="utf-8"))
     by_tc = {}
+    city_raw = {}
     for s in cov.get("shows") or []:
-        by_tc.setdefault((s.get("tour") or "", s.get("city") or ""), []).append((s.get("date") or "").replace("-", ""))
+        by_tc.setdefault((s.get("tour") or "", norm_city(s.get("city"))), []).append((s.get("date") or "").replace("-", ""))
+        d = (s.get("date") or "").replace("-", "")
+        if d:
+            city_raw[d] = s.get("city") or ""
 
     from openpyxl import load_workbook
     wb = load_workbook(XLSX)
@@ -58,7 +67,7 @@ def main():
         tour, label = rel.parts[0], rel.parts[1]
         if not label.startswith("日期未知"):
             continue
-        city = label.split("_", 1)[1] if "_" in label else ""
+        city = norm_city(label.split("_", 1)[1]) if "_" in label else ""
         if city in ("城市未知", ""):
             continue
         d8 = find_date(p.name)
@@ -71,6 +80,15 @@ def main():
                 pick = [c for c in cands if c[:4] in years]
                 if len(pick) == 1:
                     d8 = pick[0]
+                else:
+                    # 多场同城：用标题里的特征词（生日/返场/收官/加场/首场）区分
+                    KW = ("生日", "返场", "收官", "加场", "首场", "跨年", "元旦")
+                    hints = [k for k in KW if k in p.name]
+                    if hints:
+                        pick2 = [c for c in cands
+                                 if any(k in (city_raw.get(c) or "") for k in hints)]
+                        if len(pick2) == 1:
+                            d8 = pick2[0]
         if not d8:
             continue
         dst_dir = OUT / tour / f"{d8}_{city}"

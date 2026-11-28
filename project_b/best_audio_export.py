@@ -142,10 +142,15 @@ def pick(sh):
     files = sh["files"]
     if not files:
         return []
+    # 政策（2026-11-28 用户要求）：自录与小卡带两份都保留，不因优先级丢弃
+    # tier 1=自录、2=中控台、3=小卡带分曲、4=小卡带整场 —— 1~4 全部保留；仅 5/6 才按优先级取
     top = min(f["tier"] for f in files)
-    if top == 6:                       # 官方直传（码率不足）：不复制，只在 Excel 里登记
+    if top == 6:
         return []
-    cand = [f for f in files if f["tier"] == top]
+    if top <= 4:
+        cand = [f for f in files if f["tier"] <= 4]
+    else:
+        cand = [f for f in files if f["tier"] == top]
     # 自录：同名的 flac 若已有 wav，跳过（避免重复）
     if top == 1:
         wav_stems = {Path(f["path"]).stem for f in cand if Path(f["path"]).suffix.lower() == ".wav"}
