@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-28 21:00:28",
+ "updated_at": "2026-11-29 00:14:11",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -9351,6 +9351,59 @@
    "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
    "category": "汇总",
    "source": "auto_update"
+  },
+  {
+   "time": "2026-11-28 21:16:03",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>微博 · 第17</b>：张怡宁时隔14年的好久不见<br><span style='color:#666'>王晰演唱/原唱《好久不见》；站内可查歌曲页与现场记录。</span><br><a href='https://s.weibo.com/weibo?q=%E5%BC%A0%E6%80%A1%E5%AE%81%E6%97%B6%E9%9A%9414%E5%B9%B4%E7%9A%84%E5%A5%BD%E4%B9%85%E4%B8%8D%E8%A7%81'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-28 22:00:06",
+   "title": "🔄 大屏 daemon 已被看门狗拉起",
+   "content": "检测到 daemon 不在运行，已用 pythonw 拉起（PID 45504）。此前 dashboard_data.json 距上次更新 25.8 分钟。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-28 22:27:47",
+   "title": "音频补全仍有缺口",
+   "content": "一到六巡还剩 380 首 / 22 场没有音频，详见 data/audio_gap_report.md",
+   "category": "运维告警",
+   "source": "audio_gap_fill"
+  },
+  {
+   "time": "2026-11-28 22:28:32",
+   "title": "音频补全仍有缺口",
+   "content": "一到六巡还剩 380 首 / 22 场没有音频，详见 data/audio_gap_report.md",
+   "category": "运维告警",
+   "source": "audio_gap_fill"
+  },
+  {
+   "time": "2026-11-28 22:32:30",
+   "title": "一到六巡音频补全（今晚收尾）",
+   "content": "剩余缺口 380 首 / 22 场",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-28 22:43:58",
+   "title": "音频补全仍有缺口",
+   "content": "一到六巡还剩 356 首 / 21 场没有音频，详见 data/audio_gap_report.md",
+   "category": "运维告警",
+   "source": "audio_gap_fill"
+  },
+  {
+   "time": "2026-11-28 22:46:02",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>微博 · 第13</b>：央视曝光网红不锈钢检测液不靠谱<br><span style='color:#666'>王晰多次登央视舞台；2026-11-16 CMG媒体之夜与李佳薇合唱亚太歌曲串烧。</span><br><a href='https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E7%BD%91%E7%BA%A2%E4%B8%8D%E9%94%88%E9%92%A2%E6%A3%80%E6%B5%8B%E6%B6%B2%E4%B8%8D%E9%9D%A0%E8%B0%B1'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-29 00:14:11",
+   "title": "指数缺日已自动补齐：2026-11-28",
+   "content": "原缺 2026-11-28；补录后长表末日期 2026-11-28（rc=1）",
+   "category": "通知"
   }
  ]
 }
