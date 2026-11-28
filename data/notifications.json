@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-28 17:01:03",
+ "updated_at": "2026-11-28 21:00:28",
  "items": [
   {
    "time": "2026-09-04 14:00:52",
@@ -9316,6 +9316,41 @@
    "title": "⚠ 大屏数据超过 120 分钟未更新",
    "content": "daemon 进程在（PID [16100]），但 dashboard_data.json 已 166.6 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
    "category": "通知"
+  },
+  {
+   "time": "2026-11-28 17:46:03",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>微博 · 第28</b>：央视曝光低息贷款陷阱<br><span style='color:#666'>王晰多次登央视舞台；2026-11-16 CMG媒体之夜与李佳薇合唱亚太歌曲串烧。</span><br><a href='https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BD%8E%E6%81%AF%E8%B4%B7%E6%AC%BE%E9%99%B7%E9%98%B1'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-28 17:56:02",
+   "title": "热点雷达：命中 1 条（王晰相关）",
+   "content": "<p><b>微博 · 第21</b>：央视曝光低息贷款陷阱<br><span style='color:#666'>王晰多次登央视舞台；2026-11-16 CMG媒体之夜与李佳薇合唱亚太歌曲串烧。</span><br><a href='https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BD%8E%E6%81%AF%E8%B4%B7%E6%AC%BE%E9%99%B7%E9%98%B1'>查看热点</a></p><p style='color:#888'>规则：热词含「王晰」或桥接词（音乐剧/男低音/OST/央视/新疆/苏州…）；只提醒，不自动发。</p>",
+   "category": "热点雷达",
+   "source": "trend_watch"
+  },
+  {
+   "time": "2026-11-28 18:01:02",
+   "title": "⚠ 大屏数据超过 120 分钟未更新",
+   "content": "daemon 进程在（PID [16100]），但 dashboard_data.json 已 226.5 分钟未更新。可能正在全量采集（约 4 分钟）或卡住，请查看 （本机日志）。",
+   "category": "通知"
+  },
+  {
+   "time": "2026-11-28 21:00:28",
+   "title": "📣 王晰超话-微博超话社区",
+   "content": "具体领取条件及实物见图，支持预约。\n链接：https://weibo.com/p/100808a425cb81fcda647a9556adf6206b3417/super_index",
+   "category": "全网动态",
+   "source": "Bing聚合",
+   "url": "https://weibo.com/p/100808a425cb81fcda647a9556adf6206b3417/super_index"
+  },
+  {
+   "time": "2026-11-28 21:00:28",
+   "title": "自动更新聚合完成",
+   "content": "本轮新增：QQ 0 首 / 网易云 0 首 / 全网动态 1 条",
+   "category": "汇总",
+   "source": "auto_update"
   }
  ]
 }
