@@ -4,7 +4,7 @@
   "version": "0.1",
   "generated_at": "2026-08-22 13:54:07",
   "说明": "预生成问答库，前端 search.html 语义检索匹配。支持按用户提问增量扩充（人机协作闭环）。",
-  "count": 100,
+  "count": 101,
   "data_fingerprint": "90a6343d99cf8e1be17278fe565a7c2a"
  },
  "items": [
@@ -2006,6 +2006,24 @@
    "answer": "按站内 72 首录音室曲目逐帧实测：跨曲目极值 B1（61.5Hz）→ F5（706Hz），合计 3.52 个八度（「至少三个八度」成立）；单曲最低稳定音 B1（61.5Hz，《静止了的夜晚》），最高稳定音 F5（706Hz），跨度中位 2.23 个八度；低音主区 B1–D2（61.5–75.5Hz）。口径：最低稳定音要求音符 ≥0.15s、HNR≥5dB，并经谐波列复核。来源：/vocal.html",
    "sources": [
     "https://wx409.github.io/vocal.html"
+   ],
+   "verified": true,
+   "confidence": "high"
+  },
+  {
+   "id": "qa_stage_01",
+   "question": "王晰在深圳唱到的最低音是哪个？",
+   "aliases": [
+    "深圳 最低音"
+   ],
+   "category": "现场实测",
+   "keywords": [
+    "深圳",
+    "最低音"
+   ],
+   "answer": "按站内现场实测：《晚风》（深圳 2019-09-23） 最低音 C2 66.9Hz，出现在 0:09，持续 0.21 秒，原视频 https://www.bilibili.com/video/BV1MJ411M7s2。",
+   "sources": [
+    "https://wx409.github.io/stage.html#stage-query"
    ],
    "verified": true,
    "confidence": "high"

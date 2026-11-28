@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28 00:23",
+ "generated_at": "2026-11-28 09:14",
  "count": 77,
  "calibers": [
   {
@@ -85,7 +85,7 @@
   {
    "id": "topic_card_numbers",
    "label": "专题卡数字口径（14 张卡）",
-   "value": "14 张卡 / 主数字 46 项 / caliber-lock 30 项",
+   "value": "14 张卡 / 主数字 47 项 / caliber-lock 30 项",
    "scope": "data/share/cards/card_*.json（颤音指纹·低音下限·低音动态·长声·情境自觉·巡演规模·一场演出里的自燃·本周发现·自燃信号·低音基线·七张专辑 + 一张数字 EP，颤音极差 0.27Hz·配对 56 组·笔记直接用「低音超绝」当钩子标签（8 处）·一口气 16.5 秒不换气）",
    "source": "data/share/cards/",
    "note": "**系统化门槛**：卡片生成器按读数自带 `review_status`（或等价 verify/status/trust）自动分流——只有「人耳确认／谐波列通过／双引擎一致／measured」进**主数字**，其余只能出现在 **caliber-lock 块**（句式：触达音/待核——展示但不作能力依据（三不许））。主数字脚注固定写「口径：稳定音（过复核门槛）；样本 n=X/Y 首；数据源：data/×××.json」。**禁止手工判断**。注：`archive_dynamic_range.json` 自带前置门槛（scope 已排除未复核音级）。"
@@ -221,7 +221,7 @@
   {
    "id": "semantic_docs",
    "label": "语义索引文档数",
-   "value": 5786,
+   "value": 5787,
    "scope": "可语义检索的文档块",
    "source": "data/kb/semantic/manifest.json",
    "note": ""
@@ -229,7 +229,7 @@
   {
    "id": "qa_pairs",
    "label": "问答对数量",
-   "value": 100,
+   "value": 101,
    "scope": "可引用问答（GEO 资产）",
    "source": "data/qa_bank.json",
    "note": ""
@@ -605,8 +605,8 @@
   {
    "id": "listeners_peak_daily",
    "label": "收听峰值覆盖（曲目×日）",
-   "value": 1863,
-   "scope": "1831 个批次文件 / 123 天（（本机 E 盘）指数vs）",
+   "value": 1864,
+   "scope": "1834 个批次文件 / 124 天（（本机 E 盘）指数vs）",
    "source": "project_b/QQ音乐大屏生成器_GEO优化版_源码.py → dashboard_data.json",
    "note": "每日取当天全部批次的最大收听，并记录峰值出现时间（peak_at）；实测 18 点占 69%、18 点后合计 96%，其余 4% 出现在上午 8–13 点"
   },
