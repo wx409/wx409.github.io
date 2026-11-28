@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-28 20:31",
+  "timestamp": "2026-11-28 21:02",
   "total": 305418,
   "success": 58800,
   "complete_rate": 19.3,
@@ -160128,7 +160128,7 @@
         41.9,
         44.4,
         48.1,
-        59.7,
+        62.1,
         39.0,
         40.9,
         38.2,
@@ -160497,8 +160497,8 @@
       "南屏晚钟"
     ],
     "values": [
-      179.3,
-      134.8,
+      172.0,
+      134.0,
       112.9,
       111.1
     ],
@@ -168275,9 +168275,9 @@
     }
   ],
   "daily_listen_overview": {
-    "active_count": 10,
+    "active_count": 11,
     "total_tracked": 733,
-    "concentration_top3": 73.1,
+    "concentration_top3": 72.0,
     "as_of": "2026-11-28",
     "too_small": false,
     "sample_tier": "normal",
@@ -168288,85 +168288,93 @@
       "rank": 1,
       "song": "黎明前的黑暗",
       "share_pct": 56.9,
-      "raw": 501.0,
-      "trend_pct": 67.0,
+      "raw": 522.0,
+      "trend_pct": 74.0,
       "trend_label": "up"
     },
     {
       "rank": 2,
       "song": "一生中最爱",
-      "share_pct": 9.5,
-      "raw": 84.0,
-      "trend_pct": 223.1,
+      "share_pct": 9.0,
+      "raw": 83.0,
+      "trend_pct": 219.2,
       "trend_label": "up"
     },
     {
       "rank": 3,
       "song": "月弯弯",
-      "share_pct": 6.6,
-      "raw": 58.0,
-      "trend_pct": 141.7,
+      "share_pct": 6.1,
+      "raw": 56.0,
+      "trend_pct": 133.3,
       "trend_label": "up"
     },
     {
       "rank": 4,
-      "song": "在路上",
-      "share_pct": 4.9,
-      "raw": 43.0,
-      "trend_pct": 59.3,
+      "song": "山楂树",
+      "share_pct": 5.3,
+      "raw": 49.0,
+      "trend_pct": 188.2,
       "trend_label": "up"
     },
     {
       "rank": 5,
-      "song": "山楂树",
-      "share_pct": 4.9,
-      "raw": 43.0,
-      "trend_pct": 152.9,
+      "song": "在路上",
+      "share_pct": 4.5,
+      "raw": 41.0,
+      "trend_pct": 51.9,
       "trend_label": "up"
     },
     {
       "rank": 6,
-      "song": "哭砂",
-      "share_pct": 4.2,
+      "song": "火光",
+      "share_pct": 4.0,
       "raw": 37.0,
-      "trend_pct": 68.2,
+      "trend_pct": 362.5,
       "trend_label": "up"
     },
     {
       "rank": 7,
-      "song": "火光",
-      "share_pct": 3.8,
-      "raw": 33.0,
-      "trend_pct": 312.5,
+      "song": "哭砂",
+      "share_pct": 3.7,
+      "raw": 34.0,
+      "trend_pct": 54.5,
       "trend_label": "up"
     },
     {
       "rank": 8,
+      "song": "Sound of Silence",
+      "share_pct": 3.2,
+      "raw": 29.0,
+      "trend_pct": 31.8,
+      "trend_label": "up"
+    },
+    {
+      "rank": 9,
       "song": "谁",
-      "share_pct": 3.6,
-      "raw": 32.0,
+      "share_pct": 3.1,
+      "raw": 28.0,
       "trend_pct": null,
       "trend_label": "new"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "song": "再叙",
-      "share_pct": 3.2,
-      "raw": 28.0,
-      "trend_pct": 115.4,
+      "share_pct": 2.4,
+      "raw": 22.0,
+      "trend_pct": 69.2,
       "trend_label": "up"
     },
     {
-      "rank": 10,
+      "rank": 11,
       "song": "重庆野玫瑰",
-      "share_pct": 2.4,
-      "raw": 21.0,
-      "trend_pct": 110.0,
+      "share_pct": 1.9,
+      "raw": 17.0,
+      "trend_pct": 70.0,
       "trend_label": "up"
     }
   ],
   "daily_new_today": [],
-  "last_update": "2026-11-28 20:31",
+  "last_update": "2026-11-28 21:02",
   "today_batches": 1363,
   "daily_new_records": 0,
   "recent_7days": [
@@ -168428,13 +168436,13 @@
       "pct": 0.0
     },
     "excel_files": {
-      "total": 4978,
-      "success": 4978,
+      "total": 4979,
+      "success": 4979,
       "failed": []
     },
     "link_registry": 10754,
     "intraday_merged": {
-      "before": 2080369,
+      "before": 2080969,
       "after": 315978
     },
     "index_calibration": {
@@ -168727,7 +168735,7 @@
     ]
   },
   "analysis": {
-    "generated_at": "2026-11-28 20:31",
+    "generated_at": "2026-11-28 21:02",
     "overview": "共 99 场活动 / 3213 个歌曲观测，正涨幅 1312（41%），显著带动≥20% 占 13%，平均 +0.4%、中位 -3.7%。",
     "morph_best": "歌舞剧·音乐剧（平均 +20.2%）",
     "morph_worst": "签唱会（平均 -17.5%）",
