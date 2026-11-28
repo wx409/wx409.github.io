@@ -42,6 +42,9 @@ FFMPEG = AB.FFMPEG
 FFPROBE = AB.FFPROBE
 
 
+from ingest_filters import excluded  # noqa: E402
+
+
 def safe(s, n=80):
     return re.sub(r'[\\/:*?"<>|\s]+', "_", str(s or ""))[:n]
 
@@ -80,6 +83,7 @@ def main():
     ap.add_argument("--date", required=True)
     ap.add_argument("--city", required=True)
     ap.add_argument("--limit", type=int, default=0, help="只处理前 N 个 P（0=全部）")
+    ap.add_argument("--only-missing", action="store_true", help="目录里已有同名曲目就跳过")
     args = ap.parse_args()
 
     from openpyxl import load_workbook
@@ -96,6 +100,10 @@ def main():
     owner = (d.get("owner") or {}).get("name") or "B站"
     title = d.get("title") or args.bv
     print(f"{args.bv} | {title} | {len(pages)} P | UP={owner}", flush=True)
+    why = excluded(title)
+    if why:
+        print(f"  拒绝整稿：{why}", flush=True)
+        return 0
 
     dst_dir = OUT / args.tour / f"{args.date}_{args.city}"
     dst_dir.mkdir(parents=True, exist_ok=True)
@@ -105,8 +113,22 @@ def main():
     ok = 0
     for p in todo:
         part = (p.get("part") or f"P{p.get('page')}").strip()
+        why_p = excluded(part)
+        if why_p:
+            print(f"  P{p.get('page')} 拒绝：{why_p} {part[:24]}", flush=True)
+            continue
         name = f"[B站-{safe(owner, 20)}]{safe(part, 60)}.flac"
         dst = dst_dir / name
+        if args.only_missing:
+            import re as _re
+            key = _re.sub(r"[\s\W_]+", "", part)
+            for f in dst_dir.glob("*.flac"):
+                if key and key in _re.sub(r"[\s\W_]+", "", f.stem):
+                    print(f"  P{p.get('page')} 已有同曲目，跳过 {part[:20]}", flush=True)
+                    dst = None
+                    break
+            if dst is None:
+                continue
         if dst.exists() and dst.stat().st_size > 50000:
             print(f"  P{p.get('page')} 已存在，跳过 {name[:40]}", flush=True)
             continue

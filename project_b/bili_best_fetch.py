@@ -69,6 +69,18 @@ DL = load("dl", str(ROOT / "project_b" / "download_bilibili.py"))
 VIDEO_POLICY = "auto"
 
 
+from ingest_filters import excluded  # noqa: E402
+
+
+BLACKLIST = {}
+_bl = DATA / "ingest_blacklist.json"
+if _bl.exists():
+    try:
+        BLACKLIST = {x["bv"]: x.get("reason", "") for x in json.loads(_bl.read_text(encoding="utf-8"))}
+    except Exception:
+        BLACKLIST = {}
+
+
 def headers():
     ck = (DL.get_session_cookie() or "")
     extra = DL.load_bili_cookie() or ""
@@ -109,12 +121,17 @@ def safe(s, n=80):
     return re.sub(r'[\\/:*?"<>|\s]+', "_", s)[:n]
 
 
-def streams(bv, h):
-    """返回 dict：video 最优、audio 最优（优先 flac/dolby）、标题、时长。"""
+def streams(bv, h, force=False):
+    """返回 dict：video 最优、audio 最优（优先 flac/dolby）、标题、时长。
+
+    注意：playurl 里的 CDN 地址会过期（约 2 小时），所以缓存只存 30 分钟；
+    过期后重新取，避免复用死链导致 HTTP 403。
+    """
     p = QCACHE / (bv + ".json")
-    if p.exists():
+    if p.exists() and not force:
         try:
-            return json.loads(p.read_text(encoding="utf-8"))
+            if time.time() - p.stat().st_mtime < 1800:
+                return json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             pass
     vj = get(f"https://api.bilibili.com/x/web-interface/view?bvid={bv}", h)
@@ -151,17 +168,26 @@ def streams(bv, h):
     return out
 
 
-def download(url, dst, h):
+def download(url, dst, h, retries=2):
     if not url:
         return False
-    req = urllib.request.Request(url, headers={"User-Agent": h["User-Agent"], "Referer": h["Referer"]})
-    with urllib.request.urlopen(req, timeout=180) as r, dst.open("wb") as f:
-        while True:
-            b = r.read(1 << 20)
-            if not b:
-                break
-            f.write(b)
-    return dst.exists() and dst.stat().st_size > 20000
+    for attempt in range(retries + 1):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": h["User-Agent"], "Referer": h["Referer"],
+                "Origin": "https://www.bilibili.com", "Accept": "*/*"})
+            with urllib.request.urlopen(req, timeout=180) as r, dst.open("wb") as f:
+                while True:
+                    b = r.read(1 << 20)
+                    if not b:
+                        break
+                    f.write(b)
+            if dst.exists() and dst.stat().st_size > 20000:
+                return True
+        except Exception as e:
+            print(f"    下载失败({type(e).__name__}:{getattr(e, 'code', '')}) 第 {attempt+1} 次", flush=True)
+            time.sleep(3)
+    return False
 
 
 def upsert(ws, idx, bv, row):
@@ -178,6 +204,13 @@ def upsert(ws, idx, bv, row):
 def fetch(bv, up, h, ws, idx, dry=False):
     q = streams(bv, h)
     if not q or not q.get("a_url"):
+        return None
+    if bv in BLACKLIST:
+        print(f"  跳过：黑名单（{BLACKLIST[bv]}）", flush=True)
+        return None
+    why = excluded(q.get("title") or "")
+    if why:
+        print(f"  跳过：{why} — {str(q.get('title'))[:40]}", flush=True)
         return None
     title = clean_flac_name(q.get("title") or bv)
     d8, tour, city = parse(title)
@@ -197,8 +230,12 @@ def fetch(bv, up, h, ws, idx, dry=False):
     # 音频
     tmp_a = STAGE / f"{bv}.m4a"
     if not (aud.exists() and aud.stat().st_size > 100000):
-        if not download(q["a_url"], tmp_a, h):
-            print("  音频下载失败"); return None
+        ok = download(q["a_url"], tmp_a, h)
+        if not ok:
+            q2 = streams(bv, h, force=True)      # 链接可能过期，重新取一次
+            ok = download((q2 or {}).get("a_url"), tmp_a, h)
+        if not ok:
+            print("  音频下载失败（已重试）", flush=True); return None
         r = subprocess.run([str(FFMPEG), "-y", "-loglevel", "error", "-i", str(tmp_a),
                             "-vn", "-c:a", "flac", str(aud)], capture_output=True)
         if r.returncode != 0:

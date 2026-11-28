@@ -57,6 +57,37 @@ def search(kw, h):
     return out
 
 
+def title_date(text):
+    """从标题里抽日期（支持 20190816 / 2019.8.16 / 2019-08-16 / 2019年8月16日）。"""
+    import re as _re
+    for pat in (r"(20\d{2})(\d{2})(\d{2})",
+                r"(20\d{2})[.\-_/年](\d{1,2})[.\-_/月](\d{1,2})"):
+        for m in _re.finditer(pat, str(text or "")):
+            y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+            if 2000 <= y <= 2100 and 1 <= mo <= 12 and 1 <= d <= 31:
+                return f"{y}{mo:02d}{d:02d}"
+    return ""
+
+
+def verify_date(bv, title, d8, h, tolerance_days=120):
+    """防止张冠李戴：标题带日期就必须等于该场；否则看投稿时间是否在该场附近。"""
+    from datetime import datetime
+    td = title_date(title)
+    if td:
+        return (td == d8), f"标题日期 {td}"
+    j = AB.get(f"https://api.bilibili.com/x/web-interface/view?bvid={bv}", h)
+    pub = ((j or {}).get("data") or {}).get("pubdate") or 0
+    if not pub or not d8:
+        return False, "无日期线索"
+    try:
+        pdt = datetime.fromtimestamp(pub)
+        sdt = datetime.strptime(d8, "%Y%m%d")
+        delta = abs((pdt - sdt).days)
+        return delta <= tolerance_days, f"投稿 {pdt:%Y-%m-%d}（差 {delta} 天）"
+    except Exception:
+        return False, "日期解析失败"
+
+
 def owner_of(bv, h):
     try:
         j = AB.get(f"https://api.bilibili.com/x/web-interface/view?bvid={bv}", h)
@@ -76,6 +107,22 @@ def fetch_song(bv, up, song, tour, d8, city, h, ws, idx, dry=False):
     return True
 
 
+def mark_pending(pending, ws, idx):
+    """在 Excel 备注列写「待核」，标明依据（仅投稿时间近似）。"""
+    if "备注" not in idx:
+        from openpyxl import utils
+        ws.cell(row=1, column=len(ws[1]) + 1, value="备注")
+        idx["备注"] = len(ws[1]) - 1
+    n = 0
+    for row in ws.iter_rows(min_row=2):
+        raw = str(row[idx["原始路径"]].value or "")
+        for bv, why in pending.items():
+            if bv in raw:
+                row[idx["备注"]].value = f"待核（{why}）"
+                n += 1
+    print(f"      标记待核 {n} 行", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--by-queries", action="store_true")
@@ -83,6 +130,8 @@ def main():
     ap.add_argument("--tour-filter", default="一巡")
     ap.add_argument("--limit", type=int, default=40)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--relaxed", action="store_true", help="放宽：城市可不在标题，但必须通过日期核对")
+    ap.add_argument("--tolerance", type=int, default=120, help="投稿时间容差天数")
     args = ap.parse_args()
 
     from openpyxl import load_workbook
@@ -90,6 +139,7 @@ def main():
     ws = wb["最优音频"]
     idx = {c.value: i for i, c in enumerate(ws[1])}
     h = AB.headers()
+    PENDING = {}          # bv -> 日期核对依据（仅投稿时间通过的标待核）
 
     cov = json.loads((ROOT / "data" / "song_coverage_status.json").read_text(encoding="utf-8"))
     miss = [m for m in (cov.get("missing") or []) if m["tour"] == args.tour_filter]
@@ -142,8 +192,18 @@ def main():
                     time.sleep(2)
                     for r in res:
                         t = r["title"]
-                        if "王晰" in t and city in t and norm(song) in norm(t):
-                            bv, up = r["bv"], r["up"]; break
+                        if "王晰" not in t or norm(song) not in norm(t):
+                            continue
+                        if city not in t and not args.relaxed:
+                            continue
+                        ok, why = verify_date(r["bv"], t, d8, h)
+                        if not ok:
+                            print(f"      跳过（日期不符：{why}）：{t[:40]}", flush=True)
+                            continue
+                        print(f"      日期核对通过（{why}）：{t[:40]}", flush=True)
+                        if why.startswith("投稿"):
+                            PENDING[r["bv"]] = why
+                        bv, up = r["bv"], r["up"]; break
                     if bv:
                         break
                 if not bv:
@@ -156,7 +216,10 @@ def main():
                 if done >= args.limit:
                     print(f"达到上限 {args.limit}", flush=True)
                     return 0
-        print(f"逐曲搜索入库 {done} 首", flush=True)
+        if PENDING and not args.dry_run:
+            mark_pending(PENDING, ws, idx)
+            wb.save(AB.XLSX)
+        print(f"逐曲搜索入库 {done} 首；待核 {len(PENDING)} 条", flush=True)
         return 0
     return 0
 
