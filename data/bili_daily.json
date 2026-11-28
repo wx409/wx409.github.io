@@ -1,113 +1,42 @@
 {
- "generated_at": "2026-11-27 22:20",
- "date": "2026-11-27",
- "new_count": 6,
- "measured_count": 6,
+ "generated_at": "2026-11-28 10:12",
+ "date": "2026-11-28",
+ "new_count": 2,
+ "measured_count": 2,
  "items": [
   {
-   "bvid": "BV1v3sN6qEuq",
-   "title": "【王晰】点歌：《莫斯科郊外的晚上》4K字幕 | 王晰2021-2023『图景』个人巡回音乐会 20220109 无锡",
+   "bvid": "BV1CFnN6gEVX",
+   "title": "哥哥曾经也是坐在台边在我脸上唱过歌的 |【王晰】《Besame Mucho》 | 王晰2023-2024『肆益』个人巡回音乐会 | 20240406 上海",
    "song": true,
    "measured": {
     "low": {
-     "midi": 43.0,
-     "note": "G2",
-     "hz": 98.0
+     "midi": 46.0,
+     "note": "A#2",
+     "hz": 116.4
     },
-    "span": 2.83,
-    "stability": 5.1
+    "span": 3.04,
+    "stability": 5.4
    },
    "quotes": []
   },
   {
-   "bvid": "BV15i4y1b7oo",
-   "title": "全场节目除去Encore",
-   "song": false,
-   "measured": {
-    "low": {
-     "midi": 36.0,
-     "note": "C2",
-     "hz": 65.3
-    },
-    "span": 4.01,
-    "stability": 6.2
-   },
-   "quotes": []
-  },
-  {
-   "bvid": "BV166sN6mEvJ",
-   "title": "【王晰】点歌：《独角戏》4K字幕 | 王晰2021-2023『图景』个人巡回音乐会 20220109 无锡",
+   "bvid": "BV1Qqxd61EGS",
+   "title": "【王晰】点歌：《北国之春》4K字幕 | 王晰2023-2024『肆益』个人巡回音乐会 | 20240406 上海",
    "song": true,
    "measured": {
     "low": {
-     "midi": 44.5,
-     "note": "A2",
-     "hz": 107.2
+     "midi": 40.7,
+     "note": "F2",
+     "hz": 85.7
     },
-    "span": 1.83,
-    "stability": 7.5
-   },
-   "quotes": []
-  },
-  {
-   "bvid": "BV1Rt411A7Bx",
-   "title": "《再见我的爱人》Goodbye My Love 【王晰】 【Cherish珍晰个人巡回演唱会大连站】【20190720】",
-   "song": true,
-   "measured": {
-    "low": {
-     "midi": 43.6,
-     "note": "G#2",
-     "hz": 101.2
-    },
-    "span": 2.81,
-    "stability": 6.7
-   },
-   "quotes": []
-  },
-  {
-   "bvid": "BV1SJ411c7jD",
-   "title": "《再见，我的爱人》【超清】双机位混剪【王晰】【Cherish珍晰个人巡回演唱会深圳站】【20190908】",
-   "song": true,
-   "measured": {
-    "low": {
-     "midi": 42.8,
-     "note": "G2",
-     "hz": 96.8
-    },
-    "span": 3.41,
-    "stability": 7.6
-   },
-   "quotes": []
-  },
-  {
-   "bvid": "BV1xt411M7vj",
-   "title": "20190804王晰广州个人巡回音乐会最后点歌环节-完整版在P2",
-   "song": true,
-   "measured": {
-    "low": {
-     "midi": 47.4,
-     "note": "B2",
-     "hz": 126.6
-    },
-    "span": 2.64,
-    "stability": 5.1
+    "span": 2.23,
+    "stability": 6.4
    },
    "quotes": []
   }
  ],
  "fetch_ok": true,
- "fetch_at": "2026-11-27 21:30",
+ "fetch_at": "2026-11-28 09:55",
  "fetch_note": "部分来源失败 -> space:official:code=-799 请求过于频繁，请稍后再试",
- "excluded": [
-  {
-   "bvid": "BV1G7sN6YEXj",
-   "title": "最新现场【李佳薇✘王晰】亚太歌曲串烧《山歌好比春江水》《星星索》《爱的感觉》《莫斯科郊外的晚上》",
-   "reason": "关键词排除：串烧"
-  },
-  {
-   "bvid": "BV1XvWX6aE9D",
-   "title": "同唱一首｜《我真的受伤了》王菀之 张学友 张杰 厉娜 陈楚生 王晰 周深 邓紫棋李宇春俞灏明王栎鑫王心凌胡彦斌简美妍莫文蔚言承旭张靓颖于文文周传雄张凌赫方大同",
-   "reason": "人工黑名单(live_exclusions)"
-  }
- ]
+ "excluded": []
 }

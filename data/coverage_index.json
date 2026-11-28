@@ -1,6 +1,6 @@
 {
  "stat": {
-  "generated_at": "2026-11-28T09:12:56",
+  "generated_at": "2026-11-28T14:12:08",
   "shows_total": 64,
   "covered": 64,
   "missing": 0,
@@ -9,10 +9,10 @@
   "L3_中": 0,
   "L4_弱": 0,
   "measured_shows_hint": "L1/L2 可视为已定位到具体场次",
-  "files_scanned": 8842,
-  "measured_shows_site": 61,
-  "shows_with_claimable_site": 61,
-  "bv_mapped": 182
+  "files_scanned": 9037,
+  "measured_shows_site": 63,
+  "shows_with_claimable_site": 62,
+  "bv_mapped": 206
  },
  "shows": [
   {
@@ -69,6 +69,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "未标巡武汉20190615_BV15i4y1b7oo｜全场"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV15i4y1b7oo"
     },
@@ -76,9 +81,19 @@
      "level": 1,
      "src": "路径日期",
      "detail": "未标巡武汉20190615_BV15i4y1b7oo.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV15i4y1b7oo"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未标巡武汉20190615_BV15i4y1b7oo_f0.csv"
     }
    ],
-   "n_evidence": 3
+   "n_evidence": 12
   },
   {
    "date": "2019-07-20",
@@ -94,6 +109,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "一巡20190720_BV1Rt411A7Bx｜再见我的爱人"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV1Rt411A7Bx"
     },
@@ -101,9 +121,19 @@
      "level": 1,
      "src": "路径日期",
      "detail": "一巡20190720_BV1Rt411A7Bx.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1Rt411A7Bx"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡20190720_BV1Rt411A7Bx_f0.csv"
     }
    ],
-   "n_evidence": 3
+   "n_evidence": 12
   },
   {
    "date": "2019-07-28",
@@ -159,6 +189,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "未标巡广州20190804_BV1xt411M7vj｜点歌环节"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV1xt411M7vj"
     },
@@ -166,9 +201,19 @@
      "level": 1,
      "src": "路径日期",
      "detail": "未标巡广州20190804_BV1xt411M7vj.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1xt411M7vj"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "未标巡广州20190804_BV1xt411M7vj_f0.csv"
     }
    ],
-   "n_evidence": 3
+   "n_evidence": 12
   },
   {
    "date": "2019-08-16",
@@ -214,6 +259,11 @@
     },
     {
      "level": 1,
+     "src": "站点实测",
+     "detail": "一巡深圳20190908_BV1SJ411c7jD｜超清"
+    },
+    {
+     "level": 1,
      "src": "BV命中",
      "detail": "BV1SJ411c7jD"
     },
@@ -221,9 +271,19 @@
      "level": 1,
      "src": "路径日期",
      "detail": "一巡深圳20190908_BV1SJ411c7jD.wav"
+    },
+    {
+     "level": 1,
+     "src": "BV命中",
+     "detail": "BV1SJ411c7jD"
+    },
+    {
+     "level": 1,
+     "src": "路径日期",
+     "detail": "一巡深圳20190908_BV1SJ411c7jD_f0.csv"
     }
    ],
-   "n_evidence": 3
+   "n_evidence": 12
   },
   {
    "date": "2019-10-12",
@@ -1263,7 +1323,7 @@
      "detail": "BV166sN6mEvJ｜独角戏｜四巡无锡20220109"
     }
    ],
-   "n_evidence": 55
+   "n_evidence": 73
   },
   {
    "date": "2022-01-10",
@@ -1894,6 +1954,16 @@
     },
     {
      "level": 2,
+     "src": "来源台账",
+     "detail": "BV1CFnN6gEVX｜Besame Mucho｜四巡上海20240406"
+    },
+    {
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Qqxd61EGS｜王晰｜四巡上海20240406"
+    },
+    {
+     "level": 2,
      "src": "shows_tour表",
      "detail": "上海｜四巡·\"肆益\"个人巡回音乐会"
     },
@@ -1906,19 +1976,9 @@
      "level": 1,
      "src": "站点实测",
      "detail": "四巡上海生日20240406_p1_多听有益｜多听有益"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "四巡上海生日20240406_p9_关于妖娆｜关于妖娆"
-    },
-    {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "四巡上海生日20240406_p31_BesameMucho｜BesameMucho"
     }
    ],
-   "n_evidence": 350
+   "n_evidence": 374
   },
   {
    "date": "2024-05-25",
@@ -2429,16 +2489,16 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "重庆｜六巡·王晰回个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1wvJP6eE5M｜情网｜重庆20260613"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "六巡重庆20260613__BV1KwJx6iEza｜BV1KwJx6iEza"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1J5Jc6HELB｜女人花｜重庆20260613"
     }
    ],
-   "n_evidence": 264
+   "n_evidence": 422
   },
   {
    "date": "2026-08-23",
@@ -2459,26 +2519,26 @@
     },
     {
      "level": 2,
-     "src": "shows_tour表",
-     "detail": "广州｜六巡·王晰回个人巡回音乐会"
+     "src": "来源台账",
+     "detail": "BV1Rx8Z6vEoo｜橄榄树｜广州20260823"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "六巡广州20260823_5338418712415061_上半场_花｜花"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1iM8i6BE4S｜Autumn Leaves｜广州20260823"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "六巡广州20260823_回_p15_女人花+水中花｜女人花+水中花"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1Ze886xEUh｜一生守候｜广州20260823"
     },
     {
-     "level": 1,
-     "src": "站点实测",
-     "detail": "六巡广州20260823_1_花儿为什么这样红｜花儿为什么这样红"
+     "level": 2,
+     "src": "来源台账",
+     "detail": "BV1nvhK6aEKK｜爱你｜广州20260823"
     }
    ],
-   "n_evidence": 1177
+   "n_evidence": 1287
   }
  ],
  "missing": []
